@@ -1,6 +1,8 @@
 http://jdk.java.net/valhalla/
 
 2019
+http://cr.openjdk.java.net/~briangoetz/valhalla/sov/02-object-model.html
+http://cr.openjdk.java.net/~briangoetz/valhalla/sov/01-background.html
 Evans - A First Look at Java Inline Classes
     https://www.infoq.com/articles/inline-classes-java/
 Verhas - Java Value Types: what is it and why are they important
