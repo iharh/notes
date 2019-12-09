@@ -504,14 +504,9 @@ is an X, then it is the same X as
             step)).
 
 
-
-
-
-
-
-
 ### 4: Easy a Pie
 
+# in-dashed-box
 (claim Pear
     U)
 (define Pear
@@ -520,7 +515,7 @@ is an X, then it is the same X as
 (claim kar
     (-> (Pair Nat Nat)
         Nat))
-(define kar
+(define kar  # in-dashed-box because elim-Pair has not been defined yet
     (\ (p)
         (elim-Pair
             Nat Nat
@@ -534,7 +529,7 @@ Note: elim-Pair has not been defined yet
 (claim kdr
     (-> (Pair Nat Nat)
         Nat))
-(define kdr
+(define kdr  # in-dashed-box ...
     (\ (p)
         (elim-Pair
             Nat Nat
@@ -543,7 +538,10 @@ Note: elim-Pair has not been defined yet
             (\ (a d)
                 d))))
 
-Note: elim-Pair has not been defined yet (as well as for the case of kar)
+Note!: elim-Pair has not been defined yet (as well as for the case of kar)
+
+
+
 
 
 (claim swap
