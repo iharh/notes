@@ -540,14 +540,10 @@ Note: elim-Pair has not been defined yet
 
 Note!: elim-Pair has not been defined yet (as well as for the case of kar)
 
-
-
-
-
 (claim swap
     (-> (Pair Nat Atom)
         (Pair Atom Nat)))
-(define swap
+(define swap  # in-dashed-box ...
     (\ (p)
         (elim-Pair
             Nat Atom
@@ -555,6 +551,14 @@ Note!: elim-Pair has not been defined yet (as well as for the case of kar)
             p
             (\ (a d)
                 (cons d a)))))
+
+Note! Types of A, D, X don't have to be defined
+    They refer to whatever arguments are.
+
+
+
+
+
 
 ! The Intermediate Law of Application
 if f is a
