@@ -1,5 +1,8 @@
-https://www.godbolt.org/
+https://godbolt.org/
+https://godbolt.org/admin/libraries.html
+
 https://github.com/mattgodbolt/compiler-explorer
+https://github.com/mattgodbolt/compiler-explorer-image
 https://github.com/dobokirisame/CompilerExplorer
 
 https://gcc.godbolt.org/
@@ -10,6 +13,17 @@ https://haskell.godbolt.org/
 https://cuda.godbolt.org/
 https://swift.godbolt.org/
 https://zig.godbolt.org/
+
+
+https://github.com/mattgodbolt/compiler-explorer/wiki
+https://github.com/mattgodbolt/compiler-explorer/wiki/FAQ
+https://github.com/mattgodbolt/compiler-explorer/wiki/Libraries-for-your-code-available-on-the-site
+
+https://github.com/mattgodbolt/compiler-explorer/tree/master/docs
+https://github.com/mattgodbolt/compiler-explorer/blob/master/docs/API.md
+https://github.com/mattgodbolt/compiler-explorer/blob/master/docs/AddingACompiler.md
+https://github.com/mattgodbolt/compiler-explorer/blob/master/docs/AddingALibrary.md
+https://github.com/mattgodbolt/compiler-explorer/blob/master/docs/WindowsSubsystemForLinux.md
 
 2017
 CppWeekly - Installing Compiler Explorer

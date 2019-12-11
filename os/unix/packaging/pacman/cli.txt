@@ -51,3 +51,16 @@ pacman -R --help
 
 pacman -Rns <package>
     remove with config files [and dependencies]
+
+
+options
+    --noconfirm
+        Bypass any and all “Are you sure?” messages. It’s not a good idea to do this unless you want to run pacman from a script.
+
+upgrade options (-S, -U)
+    --needed
+        Do not reinstall the targets that are already up-to-date.
+
+sample
+    sudo pacman -S --needed --noconfirm expac yay
+    yay -S --rebuildtree $(pacman -Qmq $(expac %N python))
