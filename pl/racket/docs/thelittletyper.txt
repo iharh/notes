@@ -557,6 +557,30 @@ Note! Types of A, D, X don't have to be defined
 
 
 
+!!!!! PI
+
+(claim flip
+    (PI ((A U))
+         (D U))
+        (-> (Pair A D)
+            (Pair D A)))
+(define flip
+    (\ (A D)
+        (\ p)
+            (cons (cdr p) (car p))))
+
+Note! The difference between PI and -> is in the type of an expression
+    in which a function is applied to arguments.
+    (flip Nat Atom)'s
+        type is
+    (-> (Pair Nat Atom)
+        (Pair Atom Nat))
+    This is because when an expression described by a PI-expression is applied,
+    the argument expression replace the "argument names" in the body of the PI-expression
+
+Note! PI-expressions can have one or more argument names, which can occur in the body
+
+
 
 
 
