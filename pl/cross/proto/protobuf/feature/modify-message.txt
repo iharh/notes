@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/29209153/making-a-small-change-to-a-java-protocol-buffers-object
+
+sample
+    NLPRequest.Builder nlpRequestBuilder = nlpRequest.toBuilder();
+    nlpRequestBuilder.getVerbatimSourceBuilder().getTextBuilder().setText(text);

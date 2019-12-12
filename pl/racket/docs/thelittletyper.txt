@@ -581,9 +581,6 @@ Note! The difference between PI and -> is in the type of an expression
 Note! PI-expressions can have one or more argument names, which can occur in the body
 
 
-
-
-
 ! The Intermediate Law of Application
 if f is a
     (PI ((Y U))
@@ -592,6 +589,9 @@ and Z is a U, then
     (f Z)
 is an X
     where every Y has been consistently replaced by Z.
+
+
+
 
 
 (claim elim-Pair
