@@ -1,0 +1,10 @@
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestHeader.html
+
+2019
+https://www.baeldung.com/spring-rest-http-headers
+
+samples
+@RequestHeader HttpHeaders
+@RequestHeader Map<String, String> headers,
+@RequestHeader(value = "optional-header", required = false) String optionalHeader) 
+@RequestHeader(value = "optional-header", defaultValue = "3600") int optionalHeader)

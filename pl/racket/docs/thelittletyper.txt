@@ -591,9 +591,6 @@ is an X
     where every Y has been consistently replaced by Z.
 
 
-
-
-
 (claim elim-Pair
     (PI ((A U)
          (D U)
@@ -623,6 +620,11 @@ is an X
             p
             (\ (a d)
                 d))))
+
+
+
+
+
 (define swap
     (\ (p)
         (elim-Pair
