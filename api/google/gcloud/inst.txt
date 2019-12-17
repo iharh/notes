@@ -10,14 +10,6 @@ aur
         source_x86_64=("https://dl.google.com/dl/cloudsdk/release/downloads/$pkgname-$pkgver-linux-x86_64.tar.gz"
                        "profile.sh")
 
-    google-cloud-sdk-minimal
-        https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=google-cloud-sdk-minimal
-
-        _srcpkg="google-cloud-sdk"
-        pkgname="google-cloud-sdk-minimal"
-        pkgver=189.0.0
-        pkgrel=1
-
-        # Only the "for_packagers" download has the man pages in it
-        source=("https://dl.google.com/dl/cloudsdk/release/downloads/for_packagers/linux/${_srcpkg}_${pkgver}.orig.tar.gz"
-                "gcp-sdk-profile.sh")
+issues
+    build 273 related (btw, need to clean yay-cache)
+    https://issuetracker.google.com/issues/146012762

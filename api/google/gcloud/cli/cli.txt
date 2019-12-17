@@ -12,6 +12,7 @@ gcloud
             login           # to temporarily use your own user credentials,
             print-access-token
         login
+        configure-docker
         print-access-token
     config
         set project PROJECT_ID
