@@ -6,8 +6,8 @@ https://github.com/lukesampson/scoop/wiki
     https://github.com/lukesampson/scoop/wiki/FAQ
 
 stuff
-https://github.com/lukesampson/scoop/tree/master/bucket
-    https://github.com/lukesampson/scoop/blob/master/bucket/gradle.json
+https://github.com/ScoopInstaller/Main/blob/master/bucket/
+    https://github.com/ScoopInstaller/Main/blob/master/bucket/gradle.json
 https://github.com/lukesampson/scoop-extras
 
 app manifests

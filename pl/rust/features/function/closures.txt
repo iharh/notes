@@ -8,6 +8,7 @@ move - move means captare it's env-vars (worker_rx, worker_tx)
 by moving them into the closure value, not by borrowing them
 
 2019
+https://stevedonovan.github.io/rustifications/2018/08/18/rust-closures-are-hard.html
 https://habr.com/ru/post/454310/
 https://medium.com/@earthengine/rust-closures-secret-life-70d2394c5827
 https://medium.com/@earthengine/rust-the-story-of-closures-8f8e5af7ea1c
