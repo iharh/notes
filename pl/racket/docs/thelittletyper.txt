@@ -638,12 +638,9 @@ is to be a lambda-expression that, when applied to a type T,
 results in an expression with the type that is a result of
 consistently replacing every Y in X with T.
 
+Note: as a sample - let's define a function "twin" as:
 
-
-
-
-
-(claim twin
+(claim twin  
     (PI ((Y U))
         (-> Y
             (Pair Y Y))))
@@ -660,6 +657,11 @@ consistently replacing every Y in X with T.
 
 
 ### 5: Lists, Lists and more Lists
+
+
+
+
+
 
 (claim expectations
     (List Atom))
