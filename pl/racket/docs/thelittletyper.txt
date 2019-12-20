@@ -659,10 +659,6 @@ Note: as a sample - let's define a function "twin" as:
 ### 5: Lists, Lists and more Lists
 
 
-
-
-
-
 (claim expectations
     (List Atom))
 (define expressions
@@ -673,13 +669,21 @@ Note: as a sample - let's define a function "twin" as:
                     (:: 'slept nil))))))
 
 ! The Law of List
-If E is a type, then (List E) is a type.
+If E is a type,
+then (List E) is a type.
 
 nil - is a c-tor
 ::  - is another c-tor
 
 ! The Law of nil
-nil is a (List E), no matter what type E is.
+nil is a (List E),
+no matter what type E is.
+
+
+
+
+
+
 
 ! The Law of ::
 If e is an E and es is a (List E),
