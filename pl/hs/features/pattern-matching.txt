@@ -1,4 +1,9 @@
-Articles:
+presentations
+2019
+https://www.reddit.com/r/haskell/comments/ed9fx9/video_slides_revisiting_pattern_match_overlap/
+    https://codesync.global/uploads/media/activity_slides/0001/02/f132e872e0a4bdd4a12ac2a94cace816c4ab154d.pdf
+    
+articles
 https://www.fpcomplete.com/user/PthariensFlame/guide-to-ghc-extensions/pattern-and-guard-extensions
 
 ??? ViewPatterns, PatternGuards

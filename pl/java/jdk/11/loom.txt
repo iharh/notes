@@ -1,7 +1,9 @@
+http://jdk.java.net/loom/
 https://openjdk.java.net/projects/loom/
 https://wiki.openjdk.java.net/display/loom/Main
 
 2019
+https://mail.openjdk.java.net/pipermail/loom-dev/2019-December/000931.html
 https://dzone.com/articles/a-new-java-with-a-stronger-fiber
 https://www.infoq.com/presentations/continuations-java/
 https://www.baeldung.com/openjdk-project-loom

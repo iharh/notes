@@ -1,0 +1,2 @@
+@EnableOAuth2Client
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/config/annotation/web/configuration/EnableOAuth2Client.html
