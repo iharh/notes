@@ -133,7 +133,8 @@ Literal
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-ref-literal
 
 The types of literal expressions supported are strings, numeric values (int, real, hex), boolean and null.
-Strings are delimited by single quotes. To put a single quote itself in a string, use two single quote characters.
+Strings are delimited by single quotes.
+!!! To put a single quote itself in a string, use two single quote characters. !!!
 
 Variables
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-ref-variables

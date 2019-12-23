@@ -679,15 +679,16 @@ nil - is a c-tor
 nil is a (List E),
 no matter what type E is.
 
-
-
-
-
-
-
 ! The Law of ::
 If e is an E and es is a (List E),
 then (:: e es) is a (List E).
+
+
+
+
+
+
+
 
 ! The Law of rec-List
 If target is a (List E), base is an X, and step is an

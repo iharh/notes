@@ -2,6 +2,9 @@ https://scalaz.github.io/scalaz-zio/
 https://github.com/scalaz/scalaz-zio
 
 2019
+https://medium.com/@pascal.mengelt/how-to-use-the-same-test-for-different-implementations-with-zio-ded024e55b12
+https://medium.com/@pascal.mengelt/how-to-dynamically-inject-the-implementation-for-zio-with-macwire-bb51d4827966
+https://medium.com/@pascal.mengelt/decouple-the-program-from-its-implementation-with-zio-modules-d9b8713d502e
 https://blog.softwaremill.com/thread-shifting-in-cats-effect-and-zio-9c184708067b
 http://degoes.net/articles/zio-solo
 John A. De Goes at #ScalaUA - Thinking Functionally
