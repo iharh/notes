@@ -1,0 +1,8 @@
+https://github.com/spring-projects/spring-integration
+https://docs.spring.io/spring-integration/api/overview-summary.html
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-messaging
+
+https://github.com/spring-projects/spring-integration/blob/master/spring-integration-core/src/main/java/org/springframework/integration/handler/AbstractMessageHandler.java
+https://docs.spring.io/spring-integration/api/org/springframework/integration/handler/AbstractMessageHandler.html
+    received message:
