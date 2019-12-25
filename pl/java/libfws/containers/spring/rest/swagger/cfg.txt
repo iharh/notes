@@ -1,18 +1,8 @@
-https://github.com/Yelp/swagger-gradle-codegen
+2019
+Bytes - How to configure Swagger in Spring Boot
+    https://www.youtube.com/watch?v=8s9I1G4tXhA
+    https://www.youtube.com/watch?v=gduKpLW_vdY
 
-2018
-https://habr.com/post/420841/
-http://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
-https://habr.com/post/419525/
-
-https://github.com/eugenp/tutorials/blob/master/spring-security-rest
-https://github.com/eugenp/tutorials/blob/master/spring-security-rest/src/main/java/org/baeldung/spring/SwaggerConfig.java
-
-verification url
-http://localhost:8080/v2/api-docs
-http://localhost:8080/swagger-ui.html
-
-cfg
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -34,3 +24,7 @@ public class FXSwaggerConfig {
           .build();                                           
     }
 }
+
+????
+https://www.javadevjournal.com/spring/rest/swagger-2-spring-rest-api/
+    ! specify basePackage
