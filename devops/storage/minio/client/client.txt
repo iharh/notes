@@ -1,0 +1,8 @@
+browser
+    http://127.0.0.1:9000
+    http://172.27.240.251:9000
+    http://192.168.0.103:9000
+    http://172.17.0.1:9000  
+
+https://docs.min.io/docs/minio-client-quickstart-guide
+$ mc config host add myminio http://172.27.240.251:9000 P72MH3ATM9VXFRZT61HZ 4mP6xU31fF1uiMVTEkDPd6r6o42BWZQRMI6S26id

@@ -1,0 +1,11 @@
+community
+    minio
+        https://www.archlinux.org/packages/community/x86_64/minio/
+    minio-client
+        https://www.archlinux.org/packages/community/x86_64/minio-client/
+        /usr/bin/mcli
+aur
+    minio-git
+        https://aur.archlinux.org/packages/minio-git/
+    minio-mc-bin
+        https://aur.archlinux.org/packages/minio-mc-bin

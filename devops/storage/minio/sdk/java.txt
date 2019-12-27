@@ -1,0 +1,7 @@
+https://docs.min.io/docs/java-client-quickstart-guide.html
+https://docs.min.io/docs/java-client-api-reference.html
+https://docs.min.io/docs/how-to-use-aws-sdk-for-java-with-minio-server.html
+    ! real sample with aws java sdk v1
+
+https://github.com/minio/minio-java
+https://mvnrepository.com/artifact/io.minio/minio

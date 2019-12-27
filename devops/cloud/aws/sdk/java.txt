@@ -1,0 +1,44 @@
+https://aws.amazon.com/developer/language/java/
+https://aws.amazon.com/sdk-for-java/
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+
+v1
+https://github.com/aws/aws-sdk-java
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-core
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-s3.html
+
+v2
+https://github.com/aws/aws-sdk-java-v2
+https://mvnrepository.com/artifact/software.amazon.awssdk
+https://mvnrepository.com/artifact/software.amazon.awssdk/s3
+https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
+    ! short async s3-client sample
+https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
+
+api
+https://sdk.amazonaws.com/java/api/latest/
+
+2018
+https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-x-released/
+
+encrypt
+https://github.com/aws/aws-sdk-java-v2/issues/34
+
+1047525 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/aws-java-sdk-s3-1.11.699.jar
+405822 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/aws-java-sdk-kms-1.11.415.jar
+981174 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/aws-java-sdk-core-1.11.699.jar
+774640 Tue Dec 17 19:19:20 MSK 2019 BOOT-INF/lib/httpclient-4.5.10.jar
+565410 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/ion-java-1.0.2.jar
+ 26879 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/jmespath-java-1.11.415.jar
+1403051 Tue Dec 17 19:19:22 MSK 2019 BOOT-INF/lib/jackson-databind-2.10.1.jar
+ 58563 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/jackson-dataformat-cbor-2.10.1.jar
+643043 Wed Dec 18 15:35:54 MSK 2019 BOOT-INF/lib/joda-time-2.10.5.jar
+328347 Tue Dec 17 19:19:22 MSK 2019 BOOT-INF/lib/httpcore-4.4.12.jar
+344339 Fri Nov 22 13:23:54 MSK 2019 BOOT-INF/lib/commons-codec-1.13.jar
+ 68081 Tue Dec 17 19:19:22 MSK 2019 BOOT-INF/lib/jackson-annotations-2.10.1.jar
+348625 Tue Dec 17 19:19:24 MSK 2019 BOOT-INF/lib/jackson-core-2.10.1.jar
