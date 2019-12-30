@@ -1,7 +1,8 @@
 https://github.com/jwilm/alacritty
+https://github.com/jwilm/alacritty/releases
 
-aur
-    alacritty-git
+community
+    alacritty
 
 2017
 https://jwilm.io/blog/announcing-alacritty/
@@ -10,6 +11,7 @@ cfg
 ~/.config/alacritty/alacritty.yml
 https://github.com/jwilm/alacritty/wiki/Color-schemes
 https://github.com/jwilm/alacritty/issues/957
+https://dev.to/amritpandey/the-minimalist-terminal-setup-i5o
 
 scroll
 https://github.com/jwilm/alacritty/issues/124
