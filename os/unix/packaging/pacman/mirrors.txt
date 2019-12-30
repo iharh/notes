@@ -5,6 +5,8 @@ pacman-mirrors -g
 
 sudo pacman-mirrors -f 3
 
+sudo rm /var/lib/pacman/db.lck && sudo pacman-mirrors -c all && sudo pacman -Syyu
+
 configs
 /etc/pacman.d/mirrors
   country-based files with mirror lists
