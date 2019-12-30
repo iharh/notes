@@ -1,0 +1,20 @@
+https://github.com/aws/aws-sdk-java
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3
+
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-core
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-s3.html
+
+api
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/ObjectListing.html
+    ? delimiter, marker, prefix
+    ! commonPrefixes are only present if a delimiter was specified in the original request
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/S3ObjectSummary.html
+
+delimiters and prefixes
+    https://docs.aws.amazon.com/AmazonS3/latest/dev/ListingKeysHierarchy.html
