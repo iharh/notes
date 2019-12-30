@@ -11,7 +11,10 @@ kittens
 https://sw.kovidgoyal.net/kitty/index.html#kittens
 
 issues
-
+my
+    https://github.com/kovidgoyal/kitty/issues/2237
+    https://forum.manjaro.org/t/kitty-terminal-start-error-inside-virtualbox-after-the-recent-stable-upgrade/117166
+misc
     https://github.com/kovidgoyal/kitty/issues/1964
 mesa-19-related
     https://github.com/kovidgoyal/kitty/issues/1484
