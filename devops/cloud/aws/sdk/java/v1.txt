@@ -6,7 +6,7 @@ https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-core
 https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
 
 https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
-https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-s3.html
+https://github.com/awsdocs/aws-java-developer-guide/tree/master/doc_source
 
 api
 https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html
@@ -32,6 +32,8 @@ https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-exceptions.h
 logging
 https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-logging.html
 
+security
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/security.html
 access-control-policies
 https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-access-control.html
 
