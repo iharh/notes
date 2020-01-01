@@ -18,3 +18,38 @@ https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/
 
 delimiters and prefixes
     https://docs.aws.amazon.com/AmazonS3/latest/dev/ListingKeysHierarchy.html
+
+credentials
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html
+
+regions
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html
+
+exceptions
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-exceptions.html
+
+logging
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-logging.html
+
+access-control-policies
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-access-control.html
+
+encryption-kms
+https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-crypto.html
+    https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-crypto-masterkey.html
+    https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3EncryptionClientBuilder.html
+    https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/EncryptionMaterials.html
+    3 encryption modes when enabling client-side Amazon S3 encryption:
+    https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html?com/amazonaws/services/s3/model/CryptoMode.html
+        * encryption-only
+        * authenticated
+            https://aws.amazon.com/blogs/developer/amazon-s3-client-side-authenticated-encryption/
+        * strict authenticated
+
+    https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-crypto-kms.html
+
+samples
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-s3.html
+    https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/examples-crypto.html
