@@ -710,18 +710,8 @@ is an X, then it is the same X as an
             base
             step)).
 
-
-
-
-
-
-
-
-
-
-
-
-
+Note: the rec-List expression replaces each :: in "condiments"
+    with an add1, and it ralaces nil with 0
 
 (claim length
     (PI ((E U))
@@ -749,6 +739,16 @@ Narrowing this down to concrete types (of E) gieves us
         Nat))
 (define length-Atom
     (length Atom))
+
+
+
+
+
+
+
+
+
+
 
 ! List Entry Types
 All the entries in a list must have the same type
