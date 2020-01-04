@@ -1,0 +1,192 @@
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3
+https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/model/CryptoMode.java
+    AES/GCM (symmetric)
+
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/internal/crypto
+
+https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/internal/crypto/ContentCryptoScheme.java
+    ??? RSA DSA ??? is only for key-wrapping
+    AES_CBC
+    AES_GCM
+    AES_CTR
+    https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/internal/crypto/AesCbc.java
+    https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/internal/crypto/AesCtr.java
+    https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/internal/crypto/AesGcm.java
+
+https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/internal/crypto/S3CryptoScheme.java
+/**
+ * S3 cryptographic scheme that includes the content crypto scheme and key
+ * wrapping scheme (for the content-encrypting-key).
+ */
+final class S3CryptoScheme {
+    // http://docs.oracle.com/javase/7/docs/technotes/guides/security/StandardNames.html
+    // http://docs.oracle.com/javase/7/docs/technotes/guides/security/crypto/CryptoSpec.html#Key
+    static final String AES = "AES";
+    static final String RSA = "RSA";
+    private final S3KeyWrapScheme kwScheme;
+
+    private final ContentCryptoScheme contentCryptoScheme;
+
+    private S3CryptoScheme(ContentCryptoScheme contentCryptoScheme,
+                           S3KeyWrapScheme kwScheme) {
+        this.contentCryptoScheme = contentCryptoScheme;
+        this.kwScheme = kwScheme;
+    }
+
+    ContentCryptoScheme getContentCryptoScheme() {
+        return contentCryptoScheme;
+    }
+
+    S3KeyWrapScheme getKeyWrapScheme() { return kwScheme; }
+
+    /**
+     * Convenient method.
+     */
+    static boolean isAesGcm(String cipherAlgorithm) {
+        return ContentCryptoScheme.AES_GCM.getCipherAlgorithm().equals(cipherAlgorithm);
+    }
+
+    static S3CryptoScheme from(CryptoMode mode) {
+        switch (mode) {
+            case EncryptionOnly:
+                return new S3CryptoScheme(ContentCryptoScheme.AES_CBC,
+                                          S3KeyWrapScheme.NONE);
+            case AuthenticatedEncryption:
+            case StrictAuthenticatedEncryption:
+                return new S3CryptoScheme(ContentCryptoScheme.AES_GCM,
+                                          new S3KeyWrapScheme());
+            default:
+                throw new IllegalStateException();
+        }
+    }
+}
+
+https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3/internal/crypto/S3KeyWrapScheme.java
+
+class S3KeyWrapScheme {
+    /**
+     * Used for backward compatibility where the encryption only mode has no
+     * explicit key wrapping scheme.
+     */
+    static final S3KeyWrapScheme NONE = new S3KeyWrapScheme() {
+        String getKeyWrapAlgorithm(Key key) {
+            return null;
+        }
+        @Override public String toString() { return "NONE"; }
+    };
+    public static final String AESWrap = "AESWrap"; 
+    public static final String RSA_ECB_OAEPWithSHA256AndMGF1Padding = "RSA/ECB/OAEPWithSHA-256AndMGF1Padding";
+
+    /**
+     * @param kek
+     *            the key encrypting key, which is either an AES key or a public
+     *            key
+     */
+    String getKeyWrapAlgorithm(Key kek) {
+        String algorithm = kek.getAlgorithm();
+        if (S3CryptoScheme.AES.equals(algorithm)) {
+            return AESWrap;
+        }
+        if (S3CryptoScheme.RSA.equals(algorithm)) {
+            if (CryptoRuntime.isRsaKeyWrapAvailable())
+                return RSA_ECB_OAEPWithSHA256AndMGF1Padding;
+        }
+        return null;
+    }
+
+    @Override public String toString() { return "S3KeyWrapScheme"; }
+}
+
+
+/**
+ * A proxy cryptographic module used to dispatch method calls to the appropriate
+ * underlying cryptographic module depending on the current configuration.
+ */
+public class CryptoModuleDispatcher extends S3CryptoModule<MultipartUploadContext> {
+    private final CryptoMode defaultCryptoMode;
+    /** Encryption only (EO) cryptographic module. */
+    private final S3CryptoModuleEO eo;
+    /** Authenticated encryption (AE) cryptographic module. */
+    private final S3CryptoModuleAE ae;
+
+    public CryptoModuleDispatcher(AWSKMS kms, S3Direct s3,
+                                  AWSCredentialsProvider credentialsProvider,
+                                  EncryptionMaterialsProvider encryptionMaterialsProvider,
+                                  CryptoConfiguration cryptoConfig) {
+        cryptoConfig = cryptoConfig.clone();    // make a clone
+        CryptoMode cryptoMode = cryptoConfig.getCryptoMode();
+        if (cryptoMode == null) {
+            cryptoMode = EncryptionOnly;
+            cryptoConfig.setCryptoMode(cryptoMode); // defaults to EO
+        }
+        cryptoConfig = cryptoConfig.readOnly(); // make read-only
+        this.defaultCryptoMode = cryptoConfig.getCryptoMode();
+        switch(this.defaultCryptoMode) {
+            case StrictAuthenticatedEncryption:
+                this.ae = new S3CryptoModuleAEStrict(kms, s3, credentialsProvider,
+                        encryptionMaterialsProvider,
+                        cryptoConfig);
+                this.eo = null;
+                break;
+            case AuthenticatedEncryption:
+                this.ae = new S3CryptoModuleAE(kms, s3, credentialsProvider,
+                        encryptionMaterialsProvider,
+                        cryptoConfig);
+                this.eo = null;
+                break;
+            case EncryptionOnly:
+                this.eo = new S3CryptoModuleEO(kms, s3, credentialsProvider,
+                        encryptionMaterialsProvider,
+                        cryptoConfig);
+                CryptoConfiguration aeConfig = cryptoConfig.clone();
+                try {
+                    aeConfig.setCryptoMode(AuthenticatedEncryption);
+                } catch(UnsupportedOperationException ex) {
+                    // BC not available during runtime; but EO can still work.
+                    // Hence ignoring.
+                }
+                this.ae = new S3CryptoModuleAE(kms, s3, credentialsProvider,
+                    encryptionMaterialsProvider,
+                    aeConfig.readOnly());
+                break;
+            default:
+                throw new IllegalStateException();
+        }
+    }
+    ...
+}
+
+src/main/java/com/amazonaws/services/s3/internal/crypto/S3CryptoModuleAEStrict.java
+
+/**
+ * Strict Authenticated encryption (AE) cryptographic module for the S3
+ * encryption client.
+ */
+class S3CryptoModuleAEStrict extends S3CryptoModuleAE {
+    /**
+     * @param cryptoConfig a read-only copy of the crypto configuration.
+     */
+    S3CryptoModuleAEStrict(AWSKMS kms, S3Direct s3,
+                           AWSCredentialsProvider credentialsProvider,
+                           EncryptionMaterialsProvider encryptionMaterialsProvider,
+                           CryptoConfiguration cryptoConfig) {
+        super(kms, s3, credentialsProvider, encryptionMaterialsProvider,
+                cryptoConfig);
+        if (cryptoConfig.getCryptoMode() != StrictAuthenticatedEncryption)
+            throw new IllegalArgumentException();
+    }
+
+    protected final boolean isStrict() {
+        return true;
+    }
+
+    protected void securityCheck(ContentCryptoMaterial cekMaterial,
+            S3ObjectWrapper retrieved) {
+        if (!ContentCryptoScheme.AES_GCM.equals(cekMaterial.getContentCryptoScheme())) {
+            throw new SecurityException("S3 object [bucket: "
+                    + retrieved.getBucketName() + ", key: "
+                    + retrieved.getKey()
+                    + "] not encrypted using authenticated encryption");
+        }
+    }
+}

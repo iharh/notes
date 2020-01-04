@@ -741,15 +741,6 @@ Narrowing this down to concrete types (of E) gieves us
     (length Atom))
 
 
-
-
-
-
-
-
-
-
-
 ! List Entry Types
 All the entries in a list must have the same type
 
@@ -757,10 +748,26 @@ All the entries in a list must have the same type
     (PI ((E U))
         (-> (List E) (List E)
             (List E))))
+
 (claim step-append
     (PI ((E U))
         (-> E (List E) (List E)
             (List E))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (define step-append
     (\ (E)
