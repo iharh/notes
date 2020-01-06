@@ -12,6 +12,8 @@ https://github.com/sfackler/serde-transcode
 https://crates.io/crates/serde_shims
 
 articles
+2020
+https://juliano-alves.com/2020/01/06/rust-deserialize-json-with-serde/
 2019
 https://www.joshmcguigan.com/blog/understanding-serde/
 http://timryan.org/2019/01/22/exporting-serde-types-to-typescript.html
