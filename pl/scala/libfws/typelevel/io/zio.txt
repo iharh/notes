@@ -1,6 +1,8 @@
 https://scalaz.github.io/scalaz-zio/
 https://github.com/scalaz/scalaz-zio
 
+2020
+https://blog.softwaremill.com/zio-environment-meets-constructor-based-dependency-injection-6a13de6e000
 2019
 https://medium.com/@pascal.mengelt/how-to-use-the-same-test-for-different-implementations-with-zio-ded024e55b12
 https://medium.com/@pascal.mengelt/how-to-dynamically-inject-the-implementation-for-zio-with-macwire-bb51d4827966
