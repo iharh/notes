@@ -1,5 +1,9 @@
 NLL (Non-lexical lifetimes)
+2019
+Matsakis - Polonius: Either Borrower or Lender Be, but Responsibly
+    https://www.youtube.com/watch?v=_agDeiWek8w
 http://blog.pnkfx.org/blog/2019/06/26/breaking-news-non-lexical-lifetimes-arrives-for-everyone/
+2018
 http://smallcultfollowing.com/babysteps/blog/2018/11/10/after-nll-moving-from-borrowed-data-and-the-sentinel-pattern/
 http://smallcultfollowing.com/babysteps/blog/2018/11/01/after-nll-interprocedural-conflicts/
 http://smallcultfollowing.com/babysteps/blog/2018/10/31/mir-based-borrowck-is-almost-here/
