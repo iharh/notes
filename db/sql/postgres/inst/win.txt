@@ -4,6 +4,7 @@ scoop
 
 inst-win
 https://www.postgresql.org/download/windows/
+https://www.enterprisedb.com/download-postgresql-binaries
 
 https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 https://get.enterprisedb.com/postgresql/postgresql-9.6.2-1-windows-x64.exe
@@ -13,6 +14,8 @@ https://www.postgresql.org/docs/
 http://www.enterprisedb.com/docs/en/9.3/pginstguide/Table%20of%20Contents.htm
 
 http://stackoverflow.com/questions/22193927/how-to-install-postgresql-on-windows-using-command-prompt
+    initdb a new datadir, then
+    start the server with pg_ctl
 http://serverfault.com/questions/310142/bash-script-to-install-postgresql
 
 postgresql-<ver>-windows-x64.exe --optionfile <full-path-to-cfg>

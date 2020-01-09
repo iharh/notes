@@ -1,6 +1,5 @@
 sudo -u postgres initdb /var/lib/postgres/data
 
-
 The files belonging to this database system will be owned by user "postgres".
 This user must also own the server process.
 
