@@ -1,0 +1,14 @@
+2016
+https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
+
+.../data/postgresql.conf
+...
+listen_addresses = '*'
+...
+
+.../data/pg_hba.conf
+host    all             all             all           md5
+...
+
+check by:
+psql -h epbygomw0024 -U postgres

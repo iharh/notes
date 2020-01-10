@@ -1,4 +1,4 @@
-.\bin\initdb.exe -E UTF8 --locale=en_US .\data\
+.\bin\initdb.exe -U postgres -E UTF8 --locale=en_US .\data\
 The files belonging to this database system will be owned by user "Ihar_Hancharenka".
 This user must also own the server process.
 
