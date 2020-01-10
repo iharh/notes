@@ -21,6 +21,9 @@ cmd-line options:
         leave off the equal sign. To set a variable with an empty value, use the equal sign but leave off the value. These assignments are done during a very early stage of start-up,
         so variables reserved for internal purposes might get overwritten later.
 
+    -l, --list
+        list available databases, then exit 
+
 
 $ psql "service=myservice sslmode=require"
 $ psql postgresql://dbmaster:5433/mydb?sslmode=require
