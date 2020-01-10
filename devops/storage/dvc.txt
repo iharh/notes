@@ -17,6 +17,9 @@ outs:
 cache
 https://dvc.org/doc/commands-reference/cache
 
+update
+https://dvc.org/doc/user-guide/updating-tracked-files
+
 issues
 https://dvc.org/doc/user-guide/update-tracked-file
 

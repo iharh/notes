@@ -1,0 +1,2 @@
+org.springframework.integration:spring-integration-aws:
+    2.3.1.RELEASE
