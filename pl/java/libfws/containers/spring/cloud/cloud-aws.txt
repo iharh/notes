@@ -3,13 +3,20 @@ https://spring.io/projects/spring-cloud-aws#samples
     https://github.com/spring-cloud-samples/aws-refapp
         ! 4 years ago
 
+https://github.com/spring-cloud/spring-cloud-aws
+https://github.com/spring-cloud/spring-cloud-aws/tree/master/spring-cloud-aws-autoconfigure/src/main/java/org/springframework/cloud/aws/autoconfigure/context
+https://github.com/spring-cloud/spring-cloud-aws/blob/master/spring-cloud-aws-autoconfigure/src/main/java/org/springframework/cloud/aws/autoconfigure/context/ContextResourceLoaderAutoConfiguration.java
+
+https://github.com/spring-cloud/spring-cloud-aws/blob/master/docs/src/main/asciidoc/spring-cloud-aws.adoc
 https://cloud.spring.io/spring-cloud-aws/reference/html/
+https://cloud.spring.io/spring-cloud-aws/reference/html/#spring-boot-auto-configuration
 
 https://cloud.spring.io/spring-cloud-aws/reference/html/#resource-handling
 https://cloud.spring.io/spring-cloud-aws/reference/html/appendix.html
 
 https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-aws
     https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-autoconfigure
+    https://github.com/spring-cloud/spring-cloud-aws/tree/master/spring-cloud-aws-autoconfigure
         https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-context
         https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-messaging
         https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-jdbc
@@ -18,3 +25,12 @@ https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starte
         https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-core
             https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
                 ! v1
+
+2020
+https://stackabuse.com/spring-cloud-aws-s3/
+    https://github.com/TaimoorChoudhary/spring-boot-s3-bucket
+2019
+https://medium.com/@ChamithKodikara/file-upload-download-with-spring-boot-and-amazon-s3-24c94b85c600
+https://www.baeldung.com/spring-cloud-aws-s3
+https://www.baeldung.com/spring-cloud-aws-ec2
+https://www.baeldung.com/spring-cloud-instance-profiles

@@ -3,3 +3,15 @@ https://docs.gradle.org/current/userguide/dependency_management_attribute_based_
 https://github.com/spring-gradle-plugins/dependency-management-plugin
 https://spring.io/blog/2015/02/23/better-dependency-management-for-gradle
 https://blog.jayway.com/2015/11/23/reusing-spring-boots-dependency-management/
+
+samples
+https://github.com/Netflix/genie/blob/master/build.gradle
+
+dependencyManagement {
+    ...
+    dependencySet(group: "com.squareup.retrofit2", version: "2.6.1") {
+        entry "retrofit"
+        entry "converter-jackson"
+    }
+    ...
+}
