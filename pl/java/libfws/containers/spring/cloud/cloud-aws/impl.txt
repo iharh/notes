@@ -1,0 +1,519 @@
+!!!!
+we expose BasicAWSCredentials
+default - ProfileCredentialsProvider
+    profileName = "default"
+
+    AWSStaticCredentialsProvider
+    ProfileCredentialsProvider
+
+
+@Configuration(proxyBeanMethods = false)
+@Import({ ContextDefaultConfigurationRegistrar.class, ContextCredentialsAutoConfiguration.Registrar.class })
+@ConditionalOnClass(name = "com.amazonaws.auth.AWSCredentialsProvider")
+public class ContextCredentialsAutoConfiguration {
+    /**
+     * The prefix used for AWS credentials related properties.
+     */
+    public static final String AWS_CREDENTIALS_PROPERTY_PREFIX = "cloud.aws.credentials";
+    /**
+     * Bind AWS credentials related properties to a property instance.
+     * @return An {@link AwsCredentialsProperties} instance
+     */
+    @Bean
+    @ConfigurationProperties(prefix = AWS_CREDENTIALS_PROPERTY_PREFIX)
+    public AwsCredentialsProperties awsCredentialsProperties() {
+        return new AwsCredentialsProperties();
+    }
+
+    /**
+     * Registrar for the credentials provider.
+     */
+    public static class Registrar implements ImportBeanDefinitionRegistrar, EnvironmentAware {
+        private Environment environment;
+
+        @Override
+        public void setEnvironment(Environment environment) {
+            this.environment = environment;
+        }
+        @Override
+        public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
+            // Do not register a credentials provider if a bean with the same name is already registered.
+            if (registry.containsBeanDefinition(CredentialsProviderFactoryBean.CREDENTIALS_PROVIDER_BEAN_NAME)) {
+                return;
+            }
+            Boolean useDefaultCredentialsChain = this.environment.getProperty(
+                AWS_CREDENTIALS_PROPERTY_PREFIX + ".useDefaultAwsCredentialsChain", Boolean.class, false);
+                String accessKey = this.environment.getProperty(AWS_CREDENTIALS_PROPERTY_PREFIX + ".accessKey");
+                String secretKey = this.environment.getProperty(AWS_CREDENTIALS_PROPERTY_PREFIX + ".secretKey");
+                if (useDefaultCredentialsChain && (StringUtils.isEmpty(accessKey) || StringUtils.isEmpty(secretKey))) {
+                    registerDefaultAWSCredentialsProvider(registry);
+                } else {
+                    registerCredentialsProvider(registry, accessKey, secretKey,
+                    this.environment.getProperty(AWS_CREDENTIALS_PROPERTY_PREFIX + ".instanceProfile", Boolean.class, true)
+                    && !this.environment.containsProperty(AWS_CREDENTIALS_PROPERTY_PREFIX + ".accessKey"),
+                        this.environment.getProperty(AWS_CREDENTIALS_PROPERTY_PREFIX + ".profileName", DEFAULT_PROFILE_NAME),
+                        this.environment.getProperty(AWS_CREDENTIALS_PROPERTY_PREFIX + ".profilePath"));
+                }
+        }
+    }
+}
+
+org.springframework.cloud.aws.context.config.support.ContextConfigurationUtils
+public final class ContextConfigurationUtils {
+
+	/**
+	 * Name of the region provider bean.
+	 */
+	public static final String REGION_PROVIDER_BEAN_NAME = "regionProvider";
+
+	// @checkstyle:off
+	private static final String POST_PROCESSOR_CLASS_NAME = "org.springframework.cloud.aws.context.config.AmazonEc2InstanceDataPropertySourcePostProcessor";
+
+	// @checkstyle:on
+	private static final String POST_PROCESSOR_BEAN_NAME = "AmazonEc2InstanceDataPropertySourcePostProcessor";
+
+	private ContextConfigurationUtils() {
+	}
+
+	public static void registerRegionProvider(BeanDefinitionRegistry registry,
+			boolean autoDetect, String configuredRegion) {
+		if (autoDetect && StringUtils.hasText(configuredRegion)) {
+			throw new IllegalArgumentException(
+					"No region must be configured if autoDetect is defined as true");
+		}
+
+		AbstractBeanDefinition beanDefinition;
+
+		if (autoDetect) {
+			beanDefinition = BeanDefinitionBuilder
+					.genericBeanDefinition(Ec2MetadataRegionProvider.class)
+					.getBeanDefinition();
+		}
+		else if (StringUtils.hasText(configuredRegion)) {
+			BeanDefinitionBuilder builder = BeanDefinitionBuilder
+					.genericBeanDefinition(StaticRegionProvider.class);
+			builder.addConstructorArgValue(configuredRegion);
+			beanDefinition = builder.getBeanDefinition();
+		}
+		else {
+			throw new IllegalArgumentException(
+					"Region must be manually configured or autoDetect enabled");
+		}
+
+		BeanDefinitionReaderUtils.registerBeanDefinition(
+				new BeanDefinitionHolder(beanDefinition, REGION_PROVIDER_BEAN_NAME),
+				registry);
+		AmazonWebserviceClientConfigurationUtils.replaceDefaultRegionProvider(registry,
+				REGION_PROVIDER_BEAN_NAME);
+	}
+
+	public static void registerDefaultAWSCredentialsProvider(
+			BeanDefinitionRegistry registry) {
+		BeanDefinitionBuilder builder = BeanDefinitionBuilder
+				.rootBeanDefinition(DefaultAWSCredentialsProviderChain.class);
+		registry.registerBeanDefinition(
+				CredentialsProviderFactoryBean.CREDENTIALS_PROVIDER_BEAN_NAME,
+				builder.getBeanDefinition());
+		AmazonWebserviceClientConfigurationUtils.replaceDefaultCredentialsProvider(
+				registry, CredentialsProviderFactoryBean.CREDENTIALS_PROVIDER_BEAN_NAME);
+	}
+
+	public static void registerCredentialsProvider(BeanDefinitionRegistry registry,
+			String accessKey, String secretKey, boolean instanceProfile,
+			String profileName, String profilePath) {
+		BeanDefinitionBuilder factoryBeanBuilder = BeanDefinitionBuilder
+				.genericBeanDefinition(CredentialsProviderFactoryBean.class);
+
+		ManagedList<BeanDefinition> awsCredentialsProviders = new ManagedList<>();
+
+		if (StringUtils.hasText(accessKey)) {
+			BeanDefinitionBuilder credentials = BeanDefinitionBuilder.rootBeanDefinition(BasicAWSCredentials.class);
+			credentials.addConstructorArgValue(accessKey);
+			credentials.addConstructorArgValue(secretKey);
+
+                        // !!!
+			BeanDefinitionBuilder provider = BeanDefinitionBuilder.rootBeanDefinition(AWSStaticCredentialsProvider.class);
+			provider.addConstructorArgValue(credentials.getBeanDefinition());
+
+			awsCredentialsProviders.add(provider.getBeanDefinition());
+		}
+
+		if (instanceProfile) {
+			awsCredentialsProviders.add(BeanDefinitionBuilder
+					.rootBeanDefinition(EC2ContainerCredentialsProviderWrapper.class)
+					.getBeanDefinition());
+		}
+
+		if (StringUtils.hasText(profileName)) {
+			BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(ProfileCredentialsProvider.class);
+			if (StringUtils.hasText(profilePath)) {
+				builder.addConstructorArgValue(profilePath);
+			}
+
+			builder.addConstructorArgValue(profileName);
+			awsCredentialsProviders.add(builder.getBeanDefinition());
+		}
+
+		factoryBeanBuilder.addConstructorArgValue(awsCredentialsProviders);
+
+		registry.registerBeanDefinition(
+				CredentialsProviderFactoryBean.CREDENTIALS_PROVIDER_BEAN_NAME,
+				factoryBeanBuilder.getBeanDefinition());
+
+		AmazonWebserviceClientConfigurationUtils.replaceDefaultCredentialsProvider(
+				registry, CredentialsProviderFactoryBean.CREDENTIALS_PROVIDER_BEAN_NAME);
+	}
+
+	public static void registerInstanceDataPropertySource(BeanDefinitionRegistry registry,
+			String valueSeparator, String attributeSeparator) {
+		BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(POST_PROCESSOR_CLASS_NAME);
+		builder.addPropertyValue("valueSeparator", valueSeparator);
+		builder.addPropertyValue("attributeSeparator", attributeSeparator);
+
+		registry.registerBeanDefinition(POST_PROCESSOR_BEAN_NAME,
+				builder.getBeanDefinition());
+	}
+
+}
+
+!!!!
+https://github.com/spring-cloud/spring-cloud-aws/blob/master/spring-cloud-aws-core/src/main/java/org/springframework/cloud/aws/core/config/AmazonWebserviceClientFactoryBean.java
+!!!!
+org.springframework.cloud.aws.core.config.AmazonWebserviceClientFactoryBean
+public class AmazonWebserviceClientFactoryBean<T extends AmazonWebServiceClient> extends AbstractFactoryBean<T> {
+	private final Class<? extends AmazonWebServiceClient> clientClass;
+
+	private final AWSCredentialsProvider credentialsProvider;
+
+	private RegionProvider regionProvider;
+
+	private Region customRegion;
+
+	private ExecutorService executor;
+
+	public AmazonWebserviceClientFactoryBean(Class<T> clientClass,
+			AWSCredentialsProvider credentialsProvider) {
+		this.clientClass = clientClass;
+		this.credentialsProvider = credentialsProvider;
+	}
+
+	public AmazonWebserviceClientFactoryBean(Class<T> clientClass, AWSCredentialsProvider credentialsProvider, RegionProvider regionProvider) {
+		this(clientClass, credentialsProvider);
+		setRegionProvider(regionProvider);
+	}
+
+	@Override
+	public Class<?> getObjectType() {
+		return this.clientClass;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected T createInstance() throws Exception {
+		String builderName = this.clientClass.getName() + "Builder";
+		Class<?> className = ClassUtils.resolveClassName(builderName, ClassUtils.getDefaultClassLoader());
+
+		Method method = ClassUtils.getStaticMethod(className, "standard");
+		Assert.notNull(method, "Could not find standard() method in class:'" + className.getName() + "'");
+
+		AwsClientBuilder<?, T> builder = (AwsClientBuilder<?, T>) ReflectionUtils.invokeMethod(method, null);
+
+		if (this.executor != null) {
+			AwsAsyncClientBuilder<?, T> asyncBuilder = (AwsAsyncClientBuilder<?, T>) builder;
+			asyncBuilder.withExecutorFactory((ExecutorFactory) () -> this.executor);
+		}
+
+		if (this.credentialsProvider != null) {
+			builder.withCredentials(this.credentialsProvider);
+		}
+
+		if (this.customRegion != null) {
+			builder.withRegion(this.customRegion.getName());
+		}
+		else if (this.regionProvider != null) {
+			builder.withRegion(this.regionProvider.getRegion().getName());
+		}
+		else {
+			builder.withRegion(Regions.DEFAULT_REGION);
+		}
+		return builder.build();
+	}
+
+	public void setRegionProvider(RegionProvider regionProvider) {
+		this.regionProvider = regionProvider;
+	}
+
+	public void setCustomRegion(String customRegionName) {
+		this.customRegion = RegionUtils.getRegion(customRegionName);
+	}
+
+	public void setExecutor(ExecutorService executor) {
+		this.executor = executor;
+	}
+
+	@Override
+	protected void destroyInstance(T instance) throws Exception {
+		instance.shutdown();
+	}
+}
+
+
+org.springframework.cloud.aws.context.config.annotation.ContextResourceLoaderConfiguration
+@Configuration(proxyBeanMethods = false)
+@Import(ContextResourceLoaderConfiguration.Registrar.class)
+public class ContextResourceLoaderConfiguration {
+    /**
+     * Registrar for Amazon webservice client.
+     */
+    public static class Registrar implements ImportBeanDefinitionRegistrar {
+        @Override
+        public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
+            // !!!
+            BeanDefinitionHolder client = AmazonWebserviceClientConfigurationUtils.registerAmazonWebserviceClient(this, registry,
+                AmazonS3Client.class.getName(), null, null);
+
+            BeanDefinitionBuilder configurer = BeanDefinitionBuilder.genericBeanDefinition(SimpleStorageProtocolResolverConfigurer.class);
+            configurer.addConstructorArgValue(getProtocolResolver(client));
+
+            BeanDefinitionReaderUtils.registerWithGeneratedName(configurer.getBeanDefinition(), registry);
+        }
+        protected BeanDefinition getProtocolResolver(BeanDefinitionHolder client) {
+            BeanDefinitionBuilder resolver = BeanDefinitionBuilder.rootBeanDefinition(SimpleStorageProtocolResolver.class);
+            resolver.addConstructorArgReference(client.getBeanName());
+
+            BeanDefinition taskExecutor = getTaskExecutorDefinition();
+            if (taskExecutor != null) {
+                resolver.addPropertyValue("taskExecutor", taskExecutor);
+            }
+            return resolver.getBeanDefinition();
+        }
+        protected BeanDefinition getTaskExecutorDefinition() {
+            return null;
+        }
+    }
+}
+
+public final class AmazonWebserviceClientConfigurationUtils {
+    // Name of the bean for region provider.
+    public static final String REGION_PROVIDER_BEAN_NAME = "org.springframework.cloud.aws.core.region.RegionProvider.BEAN_NAME";
+    // Name of the bean for credentials provider.
+    public static final String CREDENTIALS_PROVIDER_BEAN_NAME = "org.springframework.cloud.aws.core.credentials.CredentialsProviderFactoryBean.BEAN_NAME";
+    private static final String SERVICE_IMPLEMENTATION_SUFFIX = "Client";
+
+    private AmazonWebserviceClientConfigurationUtils() {
+        // Avoid instantiation
+    }
+    public static BeanDefinitionHolder registerAmazonWebserviceClient(Object source, BeanDefinitionRegistry registry, String serviceNameClassName, String customRegionProvider, String customRegion) {
+
+        String beanName = getBeanName(serviceNameClassName);
+
+        if (registry.containsBeanDefinition(beanName)) {
+            return new BeanDefinitionHolder(registry.getBeanDefinition(beanName), beanName);
+        }
+
+        BeanDefinition definition = getAmazonWebserviceClientBeanDefinition(source, serviceNameClassName, customRegionProvider, customRegion, registry);
+        BeanDefinitionHolder holder = new BeanDefinitionHolder(definition, beanName);
+        BeanDefinitionReaderUtils.registerBeanDefinition(holder, registry);
+
+        return holder;
+    }
+    public static AbstractBeanDefinition getAmazonWebserviceClientBeanDefinition(Object source, String serviceNameClassName, String customRegionProvider, String customRegion, BeanDefinitionRegistry beanDefinitionRegistry) {
+
+        if (StringUtils.hasText(customRegionProvider) && StringUtils.hasText(customRegion)) {
+            throw new IllegalArgumentException("Only region or regionProvider can be configured, but not both");
+        }
+
+        registerCredentialsProviderIfNeeded(beanDefinitionRegistry);
+
+        BeanDefinitionBuilder builder = BeanDefinitionBuilder.rootBeanDefinition(AmazonWebserviceClientFactoryBean.class);
+
+        // Configure constructor parameters
+        builder.addConstructorArgValue(serviceNameClassName);
+        builder.addConstructorArgReference(CREDENTIALS_PROVIDER_BEAN_NAME);
+
+        // Configure source of the bean definition
+        builder.getRawBeanDefinition().setSource(source);
+
+        // Configure region properties (either custom region provider or custom region)
+        if (StringUtils.hasText(customRegionProvider)) {
+            builder.addPropertyReference("regionProvider", customRegionProvider);
+        } else if (StringUtils.hasText(customRegion)) {
+            builder.addPropertyValue("customRegion", customRegion);
+        } else {
+            registerRegionProviderBeanIfNeeded(beanDefinitionRegistry);
+            builder.addPropertyReference("regionProvider", REGION_PROVIDER_BEAN_NAME);
+        }
+        return builder.getBeanDefinition();
+    }
+    private static void registerCredentialsProviderIfNeeded(BeanDefinitionRegistry registry) {
+        if (!registry.containsBeanDefinition(CREDENTIALS_PROVIDER_BEAN_NAME)) { // !!!
+            BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(CredentialsProviderFactoryBean.class);
+            builder.setRole(BeanDefinition.ROLE_INFRASTRUCTURE);
+            registry.registerBeanDefinition(CREDENTIALS_PROVIDER_BEAN_NAME, builder.getBeanDefinition());
+        }
+    }
+    
+    ...
+}
+
+//
+// ??? - where do we instantiate this ???
+// 
+// AbstractAutowireCapableBeanFactory.doCreateBean(...
+//    org.springframework.beans.factory.support.RootBeanDefinition mbd
+// -> ConstructorResolver.resolveConstructorArguments(String beanName: "org...SimpleStorageProtocolResolverConfigurer"
+// AbstractAutowireCapableBeanFactory.autowireConstructor(...)
+// AbstractAutowireCapableBeanFactory.createBeanInstance(...)
+// ...
+// DefaultListableBeanFactory.preInstantiateSingletons()
+//   beanName = org.springframework.cloud.aws.context.support.io.SimpleStorageProtocolResolverConfigurer#0
+
+org.springframework.cloud.aws.core.io.s3.SimpleStorageProtocolResolver
+public class SimpleStorageProtocolResolver implements ProtocolResolver, InitializingBean {
+    private final AmazonS3 amazonS3;
+
+    private TaskExecutor taskExecutor;
+
+    // TODO: usages ???
+    public SimpleStorageProtocolResolver(AmazonS3 amazonS3) {
+        this.amazonS3 = AmazonS3ProxyFactory.createProxy(amazonS3);
+    }
+    @RuntimeUse
+    public void setTaskExecutor(TaskExecutor taskExecutor) {
+        this.taskExecutor = taskExecutor;
+    }
+    @Override
+    public void afterPropertiesSet() {
+        if (this.taskExecutor == null) {
+            this.taskExecutor = new SyncTaskExecutor();
+        }
+    }
+    @Override
+    public Resource resolve(String location, ResourceLoader resourceLoader) {
+        if (SimpleStorageNameUtils.isSimpleStorageResource(location)) {
+            return new SimpleStorageResource(this.amazonS3,
+                SimpleStorageNameUtils.getBucketNameFromLocation(location),
+                SimpleStorageNameUtils.getObjectNameFromLocation(location),
+                this.taskExecutor,
+                SimpleStorageNameUtils.getVersionIdFromLocation(location));
+        }
+        else {
+            return null;
+        }
+    }
+    public AmazonS3 getAmazonS3() {
+        return this.amazonS3;
+    }
+}
+
+org.springframework.cloud.aws.context.support.io.SimpleStorageProtocolResolverConfigurer
+    private final ProtocolResolver resourceLoader;
+
+    public SimpleStorageProtocolResolverConfigurer(SimpleStorageProtocolResolver simpleStorageProtocolResolver) {
+        this.resourceLoader = simpleStorageProtocolResolver; // !!!
+    }
+    @Override
+    public int getOrder() {
+        return Ordered.HIGHEST_PRECEDENCE;
+    }
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        if (applicationContext instanceof ConfigurableApplicationContext) {
+            ConfigurableApplicationContext configurableApplicationContext = (ConfigurableApplicationContext) applicationContext;
+            configurableApplicationContext.addProtocolResolver(this.resourceLoader);
+        }
+    }
+
+org.springframework.cloud.aws.core.io.s3.SimpleStorageResource
+    @Override
+    public InputStream getInputStream() throws IOException {
+        GetObjectRequest getObjectRequest = new GetObjectRequest(this.bucketName, this.objectName);
+        if (this.versionId != null) {
+            getObjectRequest.setVersionId(this.versionId);
+        }
+        return this.amazonS3.getObject(getObjectRequest).getObjectContent();
+    }
+
+org.springframework.cloud.aws.core.io.s3.AmazonS3ClientFactory
+public class AmazonS3ClientFactory {
+
+	private static final String CREDENTIALS_PROVIDER_FIELD_NAME = "awsCredentialsProvider";
+
+	private final ConcurrentHashMap<String, AmazonS3> clientCache = new ConcurrentHashMap<>(
+			Regions.values().length);
+
+	private final Field credentialsProviderField;
+
+	public AmazonS3ClientFactory() {
+		this.credentialsProviderField = ReflectionUtils.findField(AmazonS3Client.class,
+				CREDENTIALS_PROVIDER_FIELD_NAME);
+		Assert.notNull(this.credentialsProviderField,
+				"Credentials Provider field not found, this class does not work with the current "
+						+ "AWS SDK release");
+		ReflectionUtils.makeAccessible(this.credentialsProviderField);
+	}
+
+	private static String getRegion(String endpointUrl) {
+		Assert.notNull(endpointUrl, "Endpoint Url must not be null");
+		try {
+			URI uri = new URI(endpointUrl);
+			if ("s3.amazonaws.com".equals(uri.getHost())) {
+				return Regions.DEFAULT_REGION.getName();
+			}
+			else {
+				return new AmazonS3URI(endpointUrl).getRegion();
+			}
+		}
+		catch (URISyntaxException e) {
+			throw new RuntimeException("Malformed URL received for endpoint", e);
+		}
+	}
+
+	private static AmazonS3Client getAmazonS3ClientFromProxy(AmazonS3 amazonS3) {
+		if (AopUtils.isAopProxy(amazonS3)) {
+			Advised advised = (Advised) amazonS3;
+			Object target = null;
+			try {
+				target = advised.getTargetSource().getTarget();
+			}
+			catch (Exception e) {
+				return null;
+			}
+			return target instanceof AmazonS3Client ? (AmazonS3Client) target : null;
+		}
+		else {
+			return amazonS3 instanceof AmazonS3Client ? (AmazonS3Client) amazonS3 : null;
+		}
+	}
+
+	public AmazonS3 createClientForEndpointUrl(AmazonS3 prototype, String endpointUrl) {
+		Assert.notNull(prototype, "AmazonS3 must not be null");
+		Assert.notNull(endpointUrl, "Endpoint Url must not be null");
+
+		String region = getRegion(endpointUrl);
+		Assert.notNull(region,
+				"Error detecting region from endpoint url:'" + endpointUrl + "'");
+
+		if (!this.clientCache.containsKey(region)) {
+			AmazonS3ClientBuilder amazonS3ClientBuilder = buildAmazonS3ForRegion(
+					prototype, region);
+			this.clientCache.putIfAbsent(region, amazonS3ClientBuilder.build());
+		}
+
+		return this.clientCache.get(region);
+	}
+
+	private AmazonS3ClientBuilder buildAmazonS3ForRegion(AmazonS3 prototype,
+			String region) {
+		AmazonS3ClientBuilder clientBuilder = AmazonS3ClientBuilder.standard();
+
+		AmazonS3Client target = getAmazonS3ClientFromProxy(prototype);
+		if (target != null) {
+			AWSCredentialsProvider awsCredentialsProvider = (AWSCredentialsProvider) ReflectionUtils
+					.getField(this.credentialsProviderField, target);
+			clientBuilder.withCredentials(awsCredentialsProvider);
+		}
+
+		return clientBuilder.withRegion(region);
+	}
+}

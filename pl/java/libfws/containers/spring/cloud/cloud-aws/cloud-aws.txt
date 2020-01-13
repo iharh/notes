@@ -36,17 +36,3 @@ https://medium.com/@ChamithKodikara/file-upload-download-with-spring-boot-and-am
 https://www.baeldung.com/spring-cloud-aws-s3
 https://www.baeldung.com/spring-cloud-aws-ec2
 https://www.baeldung.com/spring-cloud-instance-profiles
-
-???
-org.springframework.cloud.aws.core.io.s3.SimpleStorageProtocolResolver
-org.springframework.cloud.aws.core.io.s3.SimpleStorageResource
-	@Override
-	public InputStream getInputStream() throws IOException {
-		GetObjectRequest getObjectRequest = new GetObjectRequest(this.bucketName,
-				this.objectName);
-		if (this.versionId != null) {
-			getObjectRequest.setVersionId(this.versionId);
-		}
-		return this.amazonS3.getObject(getObjectRequest).getObjectContent();
-	}
-
