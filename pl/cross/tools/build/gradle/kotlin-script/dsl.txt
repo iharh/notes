@@ -1,0 +1,6 @@
+https://github.com/gradle/kotlin-dsl
+    provider/src/main/kotlin/org/gradle/kotlin/dsl/
+
+userguide
+https://github.com/gradle/kotlin-dsl/tree/master/doc/getting-started
+https://gradle.github.io/gradle-script-kotlin-docs/userguide/userguide.html

@@ -1,0 +1,6 @@
+org.gradle.process.JavaExecSpec
+https://gradle.github.io/gradle-script-kotlin-docs/api/org.gradle.api.tasks/-java-exec/index.html
+https://github.com/gradle/gradle/blob/master/subprojects/core-api/src/main/java/org/gradle/process/JavaExecSpec.java
+https://github.com/gradle/gradle/blob/master/subprojects/core-api/src/main/java/org/gradle/process/JavaForkOptions.java
+https://github.com/gradle/gradle/blob/master/subprojects/process-services/src/main/java/org/gradle/process/BaseExecSpec.java
+https://github.com/gradle/gradle/blob/master/subprojects/process-services/src/main/java/org/gradle/process/ProcessForkOptions.java

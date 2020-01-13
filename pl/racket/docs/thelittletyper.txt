@@ -773,26 +773,12 @@ Note: instead of using :: to "cons" entries from the first list to the front of 
         (-> (List E) E
             (List E))))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 (define snoc
     (\ (E)
         (\ (start e)
             (rec-List start
                 (:: e nil)
                 (step-append E)))))
-
 
 (claim concat
     (PI ((E U))
@@ -802,7 +788,6 @@ Note: instead of using :: to "cons" entries from the first list to the front of 
     (PI ((E U))
         (-> E (List E) (List E)
             (List E))))
-
 (define step-concat
     (\ (E)
         (\ (e es concat_es)
@@ -827,6 +812,20 @@ Note: instead of using :: to "cons" entries from the first list to the front of 
 
 
 ### 6. Precisely How Many?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ! The Law of Vec
 If E is a type and k is a Nat,
