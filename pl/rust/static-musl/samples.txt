@@ -1,0 +1,8 @@
+https://github.com/luke-titley/git-poly/blob/develop/platforms/linux/Dockerfile
+    from rust:1.40-alpine
+    # Add musl
+    run rustup target add x86_64-unknown-linux-musl
+    # Build the project
+    add src src
+    add Cargo.toml Cargo.toml
+    run cargo build --release --target x86_64-unknown-linux-musl

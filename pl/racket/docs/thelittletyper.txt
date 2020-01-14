@@ -813,19 +813,8 @@ Note: instead of using :: to "cons" entries from the first list to the front of 
 
 ### 6. Precisely How Many?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Note: To write a total functions first/last
+    we must use a more specific type-ctor than List
 
 ! The Law of Vec
 If E is a type and k is a Nat,
@@ -837,6 +826,19 @@ vecnil is a (Vec E zero).
 ! The Law of vec::
 If e is an E and es is a (Vec E, k),
 then (vec:: e es) is a (Vec E (add1 k)).
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 eliminators - head and tail
 

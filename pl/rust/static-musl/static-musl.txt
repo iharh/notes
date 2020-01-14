@@ -13,26 +13,13 @@ https://github.com/clux/muslrust/
 https://github.com/messense/rust-musl-cross
 https://github.com/richfelker/musl-cross-make
 
-Nickol - Taking Rust to Production: Lessons Learned from the Habitat Project
-https://www.youtube.com/watch?v=zAXbPnfTJg4
-
 https://www.rust-lang.org/en-US/faq.html#why-do-rust-programs-have-larger-binary-sizes-than-C-programs
 https://lifthrasiir.github.io/rustlog/why-is-a-rust-executable-large.html
-https://stackoverflow.com/questions/32762102/why-do-rust-programs-use-so-much-more-memory-than-the-c-haskell-and-ocaml-versi
 
 https://github.com/rust-lang/rust/tree/master/src/ci/docker/dist-x86_64-musl
-
-https://www.reddit.com/r/rust/comments/7oco5d/executablelibrary_size_reduction/
 
 cargo-bloat
 https://github.com/RazrFalcon/cargo-bloat
 https://clap.rs/2018/01/09/new-years-weight-loss/
 
 rustc hello.rs -C opt-level=s
-
-2020
-https://www.reddit.com/r/rust/comments/ekts0d/how_to_link_crt_statically_when_building_with_msvc/
-2019
-https://medium.com/csis-techblog/cross-compiling-and-statically-linking-against-rust-libraries-2c02ee2c01af
-2015
-http://mainisusuallyafunction.blogspot.com/2015/01/151-byte-static-linux-binary-in-rust.html
