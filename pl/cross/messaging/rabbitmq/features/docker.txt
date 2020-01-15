@@ -1,3 +1,8 @@
 https://hub.docker.com/_/rabbitmq/
 
 /var/lib/rabbitmq/mnesia
+
+2019
+Nielsen - RabbitMQ Custom Docker Image with Custom Configuration and Definitions
+    https://www.youtube.com/watch?v=I8QHPfMhqAU
+    https://github.com/ekim197711/springboot-rabbitmq
