@@ -1,4 +1,4 @@
-https://www.testcontainers.org/usage/docker_compose.html
+https://www.testcontainers.org/modules/docker_compose/
 
 docker-compose.backend.yml:
 

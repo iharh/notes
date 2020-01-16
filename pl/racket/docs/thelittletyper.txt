@@ -837,9 +837,6 @@ then (vec:: e es) is a (Vec E (add1 k)).
 
 
 
-
-
-
 eliminators - head and tail
 
 (claim first-of-one

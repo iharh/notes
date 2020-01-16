@@ -1,0 +1,3 @@
+https://www.testcontainers.org/modules/mockserver/
+
+testCompile "org.testcontainers:mockserver:${ver}"
