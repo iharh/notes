@@ -1,0 +1,6 @@
+https://gist.github.com/azhawkes/f714e46b7e25233b1668
+
+...
+postMethod (RequestEntity<InputStream> entity) {
+    ...
+}
