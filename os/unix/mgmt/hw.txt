@@ -14,11 +14,3 @@ lspci -k
 
 http://askubuntu.com/questions/28033/how-to-check-the-information-of-current-installed-video-drivers
 lspci | grep VGA
-
-
-inxi
-http://www.binarytides.com/inxi-system-information-linux/
-https://code.google.com/p/inxi/wiki/Installation
-
-inxi -Fxz
-

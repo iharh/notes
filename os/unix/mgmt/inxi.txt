@@ -1,0 +1,8 @@
+http://www.binarytides.com/inxi-system-information-linux/
+https://code.google.com/p/inxi/wiki/Installation
+
+inxi
+    -v <0-8>
+        verbosity level
+    -Fxz
+        ???
