@@ -1,5 +1,36 @@
+https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/web/client/TestRestTemplate.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ResponseEntity.html
+
+https://www.baeldung.com/rest-template
+
+@LocalServerPort
+https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/web/server/LocalServerPort.html
+
+auth
+https://springbootdev.com/2018/05/18/spring-boot-test-and-spring-security-perform-http-basic-authentication-with-testresttemplate/
+
+params
+https://stackoverflow.com/questions/45884871/i-am-using-testresttemplate-to-test-with-requestparam-value-how-to-execute
+
+encoding
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/util/UriComponentsBuilder.html
+https://docs.oracle.com/javase/8/docs/api/java/net/URLEncoder.html
+    URI uri = UriComponentsBuilder.fromHttpUrl(url).path("/analyze")
+        .queryParam("text", "<some-text-data>")
+        .build().encode().toUri();
+
+encoding issues !
+https://jira.spring.io/browse/SPR-14828
+
+misc
+https://stackoverflow.com/questions/42272521/how-to-configure-spring-testresttemplate
+
 2019
 http://www.baeldung.com/rest-template
+https://www.baeldung.com/spring-resttemplate-post-json
+https://www.baeldung.com/spring-rest-template-multipart-upload
+    https://github.com/eugenp/tutorials/tree/master/spring-resttemplate
+    https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html
 
 2012
 http://www.baeldung.com/2012/04/16/how-to-use-resttemplate-with-basic-authentication-in-spring-3-1/
