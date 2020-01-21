@@ -1,0 +1,20 @@
+https://docs.docker.com/storage/storagedriver/overlayfs-driver/
+
+The overlay and overlay2 drivers are supported on xfs backing filesystems,
+    but only with d_type=true enabled.
+Use xfs_info to verify that the ftype option is set to 1.
+To format an xfs filesystem correctly,
+    use the flag -n ftype=1.
+
+issues
+https://github.com/docker/for-linux/issues/711
+
+https://docs.docker.com/storage/storagedriver/overlayfs-driver/#how-the-overlay2-driver-works
+
+If you want to use a separate backing filesystem from the one used by /var/lib/,
+format the filesystem and mount it into /var/lib/docker.
+Make sure add this mount to /etc/fstab to make it permanent
+
+fs
+/var/lib/docker/overlay2
+

@@ -1,3 +1,0 @@
-http://stackoverflow.com/questions/31201846/how-to-use-docker-java-api-to-connect-docker
-/usr/bin/docker -d -H fd:// -H tcp://0.0.0.0:2375
-curl http://localhost:2375/info

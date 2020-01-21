@@ -1,5 +1,3 @@
-https://wiki.archlinux.org/index.php/Systemd
-https://wiki.archlinux.org/index.php/systemd
 http://www.freedesktop.org/wiki/Software/systemd/TipsAndTricks/
 http://www.freedesktop.org/wiki/Software/systemd/FrequentlyAskedQuestions/
 
@@ -118,4 +116,3 @@ systemd-machined.service
 cgroups:
 systemd-cgls
 systemd-cgtop
-
