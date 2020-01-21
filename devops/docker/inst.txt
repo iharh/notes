@@ -1,3 +1,5 @@
+https://github.com/containers/libpod/blob/master/install.md
+
 install:
 https://blog.docker.com/2015/07/new-apt-and-yum-repos/
 !!!
@@ -18,10 +20,3 @@ gpgkey=https://yum.dockerproject.org/gpg
 EOF
 
 $ yum install docker-engine
-
-old:
-https://get.docker.com/builds/Windows/x86_64/docker-1.8.1.exe
-https://get.docker.com/builds/Windows/x86_64/docker-1.7.0.exe
-https://get.docker.com/builds/Windows/x86_64/docker-1.6.2.exe
-https://get.docker.com/builds/Windows/x86_64/docker-1.6.0.exe
-curl -L https://get.docker.com/builds/Linux/x86_64/docker-1.6.0 > ~/docker-1.6.0
