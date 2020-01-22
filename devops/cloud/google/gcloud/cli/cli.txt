@@ -6,7 +6,7 @@ https://cloudplatform.googleblog.com/2018/03/introducing-GCPs-new-interactive-CL
 gcloud
     --help
         print help
-    auth
+    auth                    # https://cloud.google.com/sdk/auth_success
         application-default # ADC - application default credentials
             --help
             login           # to temporarily use your own user credentials,

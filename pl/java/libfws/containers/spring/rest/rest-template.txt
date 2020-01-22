@@ -11,6 +11,8 @@ https://springbootdev.com/2018/05/18/spring-boot-test-and-spring-security-perfor
 
 params
 https://stackoverflow.com/questions/45884871/i-am-using-testresttemplate-to-test-with-requestparam-value-how-to-execute
+https://stackoverflow.com/questions/8297215/spring-resttemplate-get-with-parameters
+   restTemplate.getForObject("http://example.com/hotels/{hotel}/rooms/{room}", String.class, "42", "21");
 
 encoding
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/util/UriComponentsBuilder.html
@@ -31,6 +33,9 @@ https://www.baeldung.com/spring-resttemplate-post-json
 https://www.baeldung.com/spring-rest-template-multipart-upload
     https://github.com/eugenp/tutorials/tree/master/spring-resttemplate
     https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html
+https://www.baeldung.com/spring-boot-testresttemplate
+    !!!
+https://www.baeldung.com/spring-rest-template-error-handling
 
 2012
 http://www.baeldung.com/2012/04/16/how-to-use-resttemplate-with-basic-authentication-in-spring-3-1/
