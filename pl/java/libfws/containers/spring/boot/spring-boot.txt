@@ -32,9 +32,6 @@ SpringApplicationBuilder
 
 Every ApplicationContext has an Environment
 
-@Profile - ???
-
-
 @Value("${name}")
 private String name
 // java -jar yourapp.jar --name=BootDragon --server-port=9000

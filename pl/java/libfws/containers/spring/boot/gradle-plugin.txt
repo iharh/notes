@@ -39,6 +39,19 @@ actuator
 
 tasks
 bootRun
+    https://stackoverflow.com/questions/36923288/how-to-run-bootrun-with-spring-profile-via-gradle-task
+tasks {
+    register("bootDev") {
+        group = "application"
+        description = "Runs this project as a Spring Boot application with the dev profile"
+        doFirst {
+            bootRun.configure {
+                systemProperty("spring.profiles.active", "dev")
+            }
+        }
+        finalizedBy("bootRun")
+    }
+}
 
 issues
 https://github.com/spring-projects/spring-boot/issues?utf8=%E2%9C%93&q=label%3A%22theme%3A%20gradle-plugin%22
