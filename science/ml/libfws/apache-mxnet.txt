@@ -10,17 +10,21 @@ http://incubator.apache.org/projects/mxnet.html
 https://aws.amazon.com/mxnet/
 https://aws.amazon.com/ru/mxnet/
 
-wiki:
+wiki
 https://en.wikipedia.org/wiki/MXNet
 https://cwiki.apache.org/confluence/display/MXNET/MXNet+Home
 
 https://github.com/apache/incubator-mxnet
 https://github.com/apache/incubator-mxnet/tree/master/example
 
-mms:
+mms
 https://aws.amazon.com/ru/blogs/ai/introducing-model-server-for-apache-mxnet/
 https://pypi.python.org/pypi/mxnet-model-server
 https://github.com/awslabs/mxnet-model-server
 https://github.com/awslabs/mxnet-model-server/tree/master/docs
 https://github.com/awslabs/mxnet-model-server/blob/master/docs/model_zoo.md
 https://github.com/awslabs/mxnet-model-server/tree/master/docker
+
+profiler
+https://mxnet.incubator.apache.org/api/python/docs/tutorials/performance/backend/profiler.html
+http://www.mycpu.org/c++-mxnet-profiler/
