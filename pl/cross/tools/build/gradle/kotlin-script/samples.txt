@@ -19,3 +19,6 @@ class DocumentationPlugin : Plugin<Project> {
 }
 
 data class Book(val name: String, var sourceFile: File)
+
+misc
+https://github.com/ParaskP7/sample-code-movies/blob/master/buildSrc/src/main/kotlin/Deps.kt

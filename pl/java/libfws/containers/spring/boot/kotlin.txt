@@ -1,7 +1,11 @@
-https://blog.pusher.com/getting-started-rest-kotlin-using-spring-boot/
+https://spring.io/guides/tutorials/spring-boot-kotlin/
+https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-kotlin
+https://docs.spring.io/spring-framework/docs/current/kdoc-api/spring-framework/
 
 2020
+https://blog.pusher.com/getting-started-rest-kotlin-using-spring-boot/
 https://www.infoq.com/presentations/kotlin-spring-boot/
+    ! too kt-specific, almost no stuff about spring boot
 2019
 Frankel - From Spring Boot Apps to Functional Kotlin
     https://www.youtube.com/watch?v=f6a78mCrSeE
