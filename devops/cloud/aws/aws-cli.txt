@@ -1,4 +1,13 @@
 https://github.com/aws/aws-cli/
+https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
 https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
 https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html
+
+https://snapcraft.io/install/aws-cli/manjaro
+
+community/aws-cli
+    https://www.archlinux.org/packages/community/any/aws-cli/
+
+2019
+https://pikedom.com/installing-aws-cli-on-arch-linux/

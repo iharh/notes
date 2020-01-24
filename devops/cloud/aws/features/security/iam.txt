@@ -1,0 +1,9 @@
+https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
+https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
+
+aws
+    iam
+        list-access-keys
+        create-access-key
+        get-user

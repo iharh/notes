@@ -1,0 +1,10 @@
+https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html
+https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html
+
+list buckets
+https://docs.aws.amazon.com/cli/latest/reference/s3api/list-buckets.html
+    aws s3api list-buckets --query "Buckets[].Name"
+
+create bucket
+https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
+    aws s3api create-bucket --bucket nlp-resource-repository

@@ -6,6 +6,8 @@ https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md
 https://github.com/martinmoene/gsl-lite
 
 lifetime
+https://github.com/isocpp/CppCoreGuidelines/blob/master/docs/Lifetime.pdf
+https://pspdfkit.com/blog/2020/the-cpp-lifetime-profile/
 https://herbsutter.com/2019/05/03/eurollvm-lifetime-talk-by-gabor-horvath-and-matthias-gehre/
     https://www.youtube.com/watch?v=VynWyOIb6Bk
 https://blogs.msdn.microsoft.com/vcblog/2019/01/24/lifetime-profile-update-in-visual-studio-2019-preview-2/
@@ -17,7 +19,6 @@ Sutter - Thoughts on a more powerful and simpler C++ (5 of N)
 https://www.youtube.com/watch?v=80BZxujhY38
     https://habr.com/post/425873/
 https://www.infoworld.com/article/3307522/c-plus-plus/revised-proposal-could-solve-longstanding-c-bugs.html
-https://github.com/isocpp/CppCoreGuidelines/blob/master/docs/Lifetime.pdf
 https://herbsutter.com/2018/09/20/lifetime-profile-v1-0-posted/
     !!! godbolt samples (what is cppx compiler)?
         https://godbolt.org/z/szJjnH
