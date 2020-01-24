@@ -20,4 +20,20 @@ test {
     }
 }
 
+kt-ver
+tasks {
+    withType<Test> {
+        useJUnitPlatform()
+        testLogging {
+            showExceptions = true
+            showStandardStreams = true
+            events(
+                    org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED,
+                    org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED,
+                    org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
+            )
+        }
+    }
+}
+
 // System.out.println("Working Directory = " + System.getProperty("user.dir"));
