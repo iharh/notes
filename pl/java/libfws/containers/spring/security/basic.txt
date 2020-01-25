@@ -88,9 +88,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .addFilterBefore(new MyFilter(), BasicAuthenticationFilter.class)
-            .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
+            .authorizeRequests().anyRequest().authenticated().and()
             .httpBasic()
         ;
     }

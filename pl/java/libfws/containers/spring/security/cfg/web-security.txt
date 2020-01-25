@@ -55,10 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             //.anonymous() // and that's it
             .addFilterBefore(new MyFilter(), BasicAuthenticationFilter.class)
-            .authorizeRequests()
-                .anyRequest().authenticated()
-            .and()
-                .httpBasic()
+            .authorizeRequests().anyRequest().authenticated().and()
+            .httpBasic()
         ;
 
             //.csrf().disable()
