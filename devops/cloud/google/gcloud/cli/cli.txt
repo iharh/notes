@@ -13,6 +13,7 @@ gcloud
             print-access-token
         login
         configure-docker
+            !!! need to be done once
         print-access-token
     config
         set project PROJECT_ID

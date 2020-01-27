@@ -1,6 +1,7 @@
 https://technet.microsoft.com/en-us/library/bb613488(v=vs.85).aspx
 https://blogs.technet.microsoft.com/heyscriptingguy/2012/05/21/understanding-the-six-powershell-profiles/
 https://blogs.technet.microsoft.com/heyscriptingguy/2013/01/04/understanding-and-using-powershell-profiles/
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7
 
 # To display the path to the Windows PowerShell profile, type:
 $profile
