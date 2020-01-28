@@ -1,0 +1,12 @@
+aws
+    --debug
+    configure
+        https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+    iam
+        list-access-keys
+        create-access-key
+        get-user
+    sts
+        get-caller-identity
+    s3
+        ls
