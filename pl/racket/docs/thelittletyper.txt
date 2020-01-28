@@ -827,16 +827,6 @@ vecnil is a (Vec E zero).
 If e is an E and es is a (Vec E, k),
 then (vec:: e es) is a (Vec E (add1 k)).
 
-
-
-
-
-
-
-
-
-
-
 eliminators - head and tail
 
 (claim first-of-one
@@ -856,6 +846,28 @@ eliminators - head and tail
     (\ (E)
         (\ (es)
             (head es))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ! probably the first sample of real dependent type is !
 (claim first

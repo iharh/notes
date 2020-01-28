@@ -1,6 +1,15 @@
+https://buildpacks.io/
+https://github.com/buildpacks/pack
+https://github.com/pivotal/kpack
+https://github.com/pivotal/kpack/blob/master/docs/tutorial.md
+
 2020
 CNB - Cloud Native Buildpack
     https://habr.com/ru/post/485486/
-    https://buildpacks.io/
 2019
 https://habr.com/ru/post/458260/
+
+buildpack sample
+
+$ curl https://start.spring.io/starter.zip -d bootVersion=2.3.0.M1 -d dependencies=web -o demo.zip
+gradle bootBuildImage
