@@ -1,0 +1,80 @@
+// ???
+import com.amazonaws.annotation.ThreadSafe;
+
+com.amazonaws.http.AmazonHttpClient
+
+    // Logger providing detailed information on requests/responses. Users can enable this logger to
+    // get access to AWS request IDs for responses, individual requests and parameters sent to AWS, etc.
+    @SdkInternalApi
+    public static final Log requestLog = LogFactory.getLog("com.amazonaws.request");
+
+        // Returns the credentials from the execution if exists. Else returns null.
+        private AWSCredentials getCredentialsFromContext() {
+            final AWSCredentialsProvider credentialsProvider = executionContext.getCredentialsProvider();
+
+            AWSCredentials credentials = null;
+            if (credentialsProvider != null) {
+                awsRequestMetrics.startEvent(Field.CredentialsRequestTime);
+                try {
+                    credentials = credentialsProvider.getCredentials();
+                } finally {
+                    awsRequestMetrics.endEvent(Field.CredentialsRequestTime);
+                }
+            }
+            return credentials;
+        }
+
+
+
+package com.amazonaws.auth;
+
+/**
+ * {@link AWSCredentialsProvider} implementation that chains together multiple
+ * credentials providers. When a caller first requests credentials from this provider,
+ * it calls all the providers in the chain, in the original order specified,
+ * until one can provide credentials, and then returns those credentials. If all
+ * of the credential providers in the chain have been called, and none of them
+ * can provide credentials, then this class will throw an exception indicated
+ * that no credentials are available.
+ * <p>
+ * By default, this class will remember the first credentials provider in the chain
+ * that was able to provide credentials, and will continue to use that provider when
+ * credentials are requested in the future, instead of traversing the chain each time.
+ * This behavior can be controlled through the {@link #setReuseLastProvider(boolean)} method.
+ */
+public class AWSCredentialsProviderChain implements AWSCredentialsProvider {
+    ...
+    private static final Log log = LogFactory.getLog(AWSCredentialsProviderChain.class);
+    ..    
+    @Override
+    public AWSCredentials getCredentials() {
+        if (reuseLastProvider && lastUsedProvider != null) {
+            return lastUsedProvider.getCredentials();
+        }
+
+        List<String> exceptionMessages = null;
+        for (AWSCredentialsProvider provider : credentialsProviders) {
+            try {
+                AWSCredentials credentials = provider.getCredentials();
+
+                if (credentials.getAWSAccessKeyId() != null &&
+                    credentials.getAWSSecretKey() != null) {
+                    log.debug("Loading credentials from " + provider.toString());
+
+                    lastUsedProvider = provider;
+                    return credentials;
+                }
+            } catch (Exception e) {
+                // Ignore any exceptions and move onto the next provider
+                String message = provider + ": " + e.getMessage();
+                log.debug("Unable to load credentials from " + message);
+                if (exceptionMessages == null) {
+                    exceptionMessages = new LinkedList<String>();
+                }
+                exceptionMessages.add(message);
+            }
+        }
+        throw new SdkClientException("Unable to load AWS credentials from any provider in the chain: " + exceptionMessages);
+    }
+    ...
+}
