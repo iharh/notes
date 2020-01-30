@@ -1,0 +1,15 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.JavaCompile.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/compile/JavaCompile.html
+
+val compileJava = tasks.named<JavaCompile>("compileJava") // lazy
+
+compileJava.get().destinationDirectory 
+    returns property-provider
+    https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/file/DirectoryProperty.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/file/Directory.html
+    get().getAsFile()
+
+reflection
+    println("someVar class is: ${someVar::class.qualifiedName}")
+

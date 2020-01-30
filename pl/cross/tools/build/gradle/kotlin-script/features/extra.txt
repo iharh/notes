@@ -1,0 +1,22 @@
+https://docs.gradle.org/current/userguide/kotlin_dsl.html#extra_properties
+
+// gradle.properties
+myNewProperty=some-value
+
+// build.gradle.kts
+// extra["myNewProperty"] = "initial value"
+
+val myNewProperty: String by extra  
+val myNewProperty: String by extra("new val")
+
+
+
+pluginManagement {
+  val helloPluginVersion: String by settings
+  plugins {
+    // define helloPluginVersion in gradle.properties
+    id("org.gradle.sample.hello") version "${helloPluginVersion}"  
+  }
+}
+
+

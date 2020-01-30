@@ -1,6 +1,12 @@
+https://guides.gradle.org/writing-gradle-tasks/
+https://docs.gradle.org/5.0/userguide/tutorial_using_tasks.html
+
 https://docs.gradle.org/current/userguide/more_about_tasks.html
 https://docs.gradle.org/current/dsl/org.gradle.api.tasks.TaskContainer.html
     getByName(...)
+
+getTasksByName
+https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html#getTasksByName-java.lang.String-boolean-
 
 input-output
 https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskInputs.html
@@ -107,3 +113,7 @@ task.create('releaseNotes') {
 
 publish
 publishToMavenLocal puTML
+
+type of task
+gradle help --task test
+    org.gradle.api.Task - for adhoc one (class - org.gradle.api.DefaultTask)

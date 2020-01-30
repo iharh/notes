@@ -1,6 +1,11 @@
+https://plugins.gradle.org/plugin/io.spring.dependency-management
+https://github.com/spring-gradle-plugins/dependency-management-plugin
+
+https://docs.spring.io/dependency-management-plugin/docs/current-SNAPSHOT/reference/html/
+
 https://docs.gradle.org/current/userguide/dependency_management_attribute_based_matching.html
 
-https://github.com/spring-gradle-plugins/dependency-management-plugin
+2015
 https://spring.io/blog/2015/02/23/better-dependency-management-for-gradle
 https://blog.jayway.com/2015/11/23/reusing-spring-boots-dependency-management/
 
