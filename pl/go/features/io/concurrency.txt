@@ -19,9 +19,15 @@ Scheduling in Go
     https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
     https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
     https://www.ardanlabs.com/blog/2018/12/scheduling-in-go-part3.html
-
 2014
 https://blog.golang.org/pipelines
+2013
+Pike - Concurrency is not a Parallelism
+    https://blog.golang.org/concurrency-is-not-parallelism
+2012
+Pike - Go Concurrency Patterns
+    https://www.youtube.com/watch?v=f6kdp27TYZs
+    https://talks.golang.org/2012/concurrency.slide#1
 
 goroutines
 2017
