@@ -1,3 +1,8 @@
+https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
+https://docs.gradle.org/current/userguide/custom_tasks.html
+https://docs.gradle.org/current/userguide/more_about_tasks.html
+    ! task rules
+
 tasks {
     named<Jar>("jar") {
         enabled = false
@@ -14,7 +19,9 @@ tasks {
     }
 }
 
-
+task("nameOfTheTask") {
+    ...
+}
 
 https://github.com/gradle/kotlin-dsl-samples/blob/master/samples/multi-project-with-buildSrc/
 build.gradle.kts

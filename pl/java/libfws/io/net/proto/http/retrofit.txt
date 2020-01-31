@@ -24,3 +24,6 @@ https://square.github.io/okhttp/3.x/okhttp/okhttp3/Response.html
 
 response print
 https://stackoverflow.com/questions/36523972/how-to-get-string-response-from-retrofit2
+
+mock
+https://github.com/square/retrofit/tree/master/retrofit-mock
