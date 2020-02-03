@@ -1,6 +1,9 @@
 https://github.com/gradle/gradle/tree/master/subprojects/docs/src/samples/native-binaries
 
 https://docs.gradle.org/current/dsl/org.gradle.language.cpp.tasks.CppCompile.html
+https://docs.gradle.org/current/dsl/org.gradle.nativeplatform.tasks.LinkSharedLibrary.html
+https://docs.gradle.org/current/dsl/org.gradle.nativeplatform.tasks.LinkExecutable.html
+https://docs.gradle.org/current/dsl/org.gradle.nativeplatform.tasks.CreateStaticLibrary.html
 https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html
 
 https://github.com/gradle/native-samples
@@ -77,8 +80,57 @@ application {
 }
 
 library {
-    tasks.withType(CppCompile).configureEach {
-        // compilerArgs.add '-O3'
-        includes.from(javaInclude)
+    dependencies {
+        implementation project(':utilities')
+    }
+
+    privateHeaders.from(morfeuszDir)
+
+    tasks {
+        val staticProviderPrj = project(":staticprovider")
+        val staticProviderLibDir = "${staticProviderPrj.buildDir}/lib/main/release"
+
+        withType<CppCompile>().configureEach {
+            val staticProviderBuildTasks = staticProviderPrj.getTasksByName("assembleRelease", false)
+            
+            println("Configuring $name in project ${project.name} ...")
+
+            dependsOn(":javaprovider:generateJavacpp")
+            dependsOn(staticProviderBuildTasks)
+
+            includes.from(javaInclude, javaPlatformInclude)
+
+            source.from(
+                fileTree(javacppGenDir).matching { include("*.cpp") }
+            )
+
+            compilerArgs.addAll(listOf(
+                "-Werror",
+                "-std=c++0x",
+                "-D_GLIBCXX_USE_CXX11_ABI=0"
+            ))
+        }
+        withType<LinkSharedLibrary>().configureEach {
+            libs.from(
+                "$staticProviderLibDir/libstaticprovider.a"
+            )
+            // linkerArgs.addAll(['-Wl,--no-allow-shlib-undefined'])
+        }
+    }
+
+    https://docs.gradle.org/current/userguide/building_cpp_projects.html#sec:introducing_build_variants-cpp
+    binaries.configureEach(CppStaticLibrary::class.java) {
+        // Define a preprocessor macro for every binary
+        compileTask.get().macros.put("NDEBUG", null)
+
+        // Define a compiler options
+        compileTask.get().compilerArgs.add("-W3")
+
+        // Define toolchain-specific compiler options
+        when (toolChain) {
+            is Gcc, is Clang -> compileTask.get().compilerArgs.addAll(listOf("-O2", "-fno-access-control"))
+            is VisualCpp -> compileTask.get().compilerArgs.add("/Zi")
+        }
     }
 }
+

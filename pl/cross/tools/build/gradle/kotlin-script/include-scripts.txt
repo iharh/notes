@@ -1,6 +1,8 @@
-https://proandroiddev.com/avoid-repetitive-dependency-declarations-with-gradle-kotlin-dsl-97c904704727
-https://proandroiddev.com/how-to-manage-dependencies-in-multi-module-project-84620afbb415
-https://handstandsam.com/2018/02/11/kotlin-buildsrc-for-better-gradle-dependency-management/
+https://docs.gradle.org/current/userguide/kotlin_dsl.html
+https://docs.gradle.org/current/userguide/composite_builds.html
+https://github.com/gradle/kotlin-dsl-samples/tree/master/samples
+https://github.com/gradle/kotlin-dsl-samples/tree/master/samples/multi-project-with-buildSrc
+https://github.com/gradle/kotlin-dsl-samples/blob/master/samples/multi-kotlin-project-config-injection
 
 qa
 https://stackoverflow.com/questions/55335866/include-scripts-with-gradle-kotlin-dsl
@@ -11,12 +13,6 @@ https://stackoverflow.com/questions/55335866/include-scripts-with-gradle-kotlin-
     https://github.com/gradle/kotlin-dsl-samples/issues/1358
     https://github.com/gradle/kotlin-dsl-samples/issues/1320
     https://github.com/gradle/kotlin-dsl-samples/issues/1320#issuecomment-486309410
-
-https://docs.gradle.org/current/userguide/kotlin_dsl.html
-https://docs.gradle.org/current/userguide/composite_builds.html
-https://github.com/gradle/kotlin-dsl-samples/tree/master/samples
-https://github.com/gradle/kotlin-dsl-samples/tree/master/samples/multi-project-with-buildSrc
-https://github.com/gradle/kotlin-dsl-samples/blob/master/samples/multi-kotlin-project-config-injection
 
 // somewhere in the buildSrc
 object DependencyVersions {
