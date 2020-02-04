@@ -1,3 +1,7 @@
+2020
+https://habr.com/ru/post/486872/
+
+wiki
 https://wiki.manjaro.org/index.php?title=Openbox:_Switch_languages_using_the_keyboard_and_xxkb
 sudo vim /etc/locale.gen
   en_US.UTF-8... done
