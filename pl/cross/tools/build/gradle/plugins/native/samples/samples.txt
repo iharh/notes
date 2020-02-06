@@ -104,6 +104,8 @@ library {
                 fileTree(javacppGenDir).matching { include("*.cpp") }
             )
 
+            setMacros(mapOf("UNIQUE_PTR_NAMESPACE" to "std"))
+
             compilerArgs.addAll(listOf(
                 "-Werror",
                 "-std=c++0x",

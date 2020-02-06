@@ -1,8 +1,7 @@
 @StdVector
 https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/StdVector.java
 
-sample
-    // cpp
+sample  cpp
     std::unique_ptr<std::vector<SomeData>>
     getSomeDataVector()
     {
@@ -10,7 +9,8 @@ sample
         result->push_back(SomeData());
         return result;
     }
-    // java
+
+sample java
     @Name("std::vector<sfst::Analysis>") public static class SomeDataVector extends Pointer {
         public native long size();
         @Index(function = "at") public native @Const @ByRef SomeData get(@Cast("std::size_t") long i);
