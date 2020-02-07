@@ -1,16 +1,3 @@
-http://joel-costigliola.github.io/assertj/
-http://joel-costigliola.github.io/assertj/assertj-core-quick-start.html
-
-https://github.com/joel-costigliola/assertj-core
-
-http://joel-costigliola.github.io/assertj/assertj-joda-time.html
-
-2016
-https://blog.philipphauer.de/testing-restful-services-java-best-practices/
-2014
-http://solidsoft.wordpress.com/2014/04/29/using-assertj-and-awaitility-together-thanks-to-java-8-and-lambdas/
-
-src
 https://github.com/joel-costigliola/assertj-core/blob/master/src/main/java/org/assertj/core/internal/Diff.java
 https://github.com/joel-costigliola/assertj-core/blob/master/src/main/java/org/assertj/core/api/Assertions.java
   contentOf -> Files.contentOf
