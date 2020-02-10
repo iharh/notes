@@ -14,11 +14,6 @@ http://www.slideshare.net/danbim/zerocopy-eventdriven-servers-with-netty
 http://www.slideshare.net/VictorCherkassky/netty-presentation
 http://www.slideshare.net/normanmaurer/netty4
 
-articles
-http://netty.io/wiki/related-articles.html
-2018
-https://medium.com/graalvm/instant-netty-startup-using-graalvm-native-image-generation-ed6f14ff7692
-
 Tutorials:
 http://biasedbit.com/handshaking-tutorial-with-netty/
 http://seeallhearall.blogspot.com/2012/05/netty-tutorial-part-1-introduction-to.html
