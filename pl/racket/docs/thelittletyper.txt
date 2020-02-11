@@ -842,31 +842,10 @@ eliminators - head and tail
     (PI ((E U))
         (-> (Vec E 2)
             E)))
-(define first-of-one
+(define first-of-two
     (\ (E)
         (\ (es)
             (head es))))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ! probably the first sample of real dependent type is !
@@ -881,6 +860,40 @@ The expression
     (PI ((y Y))
         X)
 is a type when Y is a type, and X is a type if y is a Y.
+
+! Now we can
+(define first
+    (\ (E l)
+        (\ (es)
+            (head es))))
+
+
+! Use a More Specific Type
+Make a function total by using a more specific type
+to rule out unwanted arguments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ! The -> and PI
 The type
