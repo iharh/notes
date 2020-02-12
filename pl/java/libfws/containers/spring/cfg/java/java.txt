@@ -16,8 +16,9 @@ import org.springframework.stereotype.Service;
 @Conditional
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-java-conditional
 
-???.ConditionalOnProperty
-???.ConditionalOnMissingBean
+ConditionalOnClass
+ConditionalOnProperty
+ConditionalOnMissingBean
 
 
 https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-docs/src/main/asciidoc/spring-boot-features.adoc#web-environment
