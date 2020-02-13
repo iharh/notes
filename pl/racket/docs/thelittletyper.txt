@@ -872,28 +872,8 @@ is a type when Y is a type, and X is a type if y is a Y.
 Make a function total by using a more specific type
 to rule out unwanted arguments
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Note: In fact, ->-expressions are a shorter way of writing PI-expressions
+    when the argument name is not used in the PI-expression's body
 
 ! The -> and PI
 The type
@@ -905,7 +885,7 @@ is a shorter way of writing
 when y is not used in X.
 
 ! The Final Law of \
-If x is xn X when y is an Y, then
+If x is an X when y is an Y, then
     (\ (y)
         x)
 is a
@@ -916,7 +896,7 @@ is a
 If f is a
     (PI ((y Y))
         X)
-and z i an Y, then
+and z is an Y, then
     (f z)
 is an X
     where every y has been consistently replaced by z.
@@ -926,6 +906,26 @@ If two \-expressions can be made the same
     (PI ((y Y))
         X),
 by consistent renaming their variables, then they are the same
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ! The Final Second Commandment of \
 If f is
