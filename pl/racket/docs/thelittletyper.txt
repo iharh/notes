@@ -907,26 +907,6 @@ If two \-expressions can be made the same
         X),
 by consistent renaming their variables, then they are the same
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ! The Final Second Commandment of \
 If f is
     (PI ((y Y))
@@ -952,6 +932,30 @@ because es is not used in E.
     (\ (E l)
         (\ (es)
             (tail es))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### 7: All Depends on the Motive
