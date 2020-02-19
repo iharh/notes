@@ -15,3 +15,5 @@ The following projects are in maintenance mode:
 
 
 https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/htmlsingle/#boot-features-security-oauth2-single-sign-on
+https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/htmlsingle/#boot-features-security-custom-user-info-client
+    https://projects.spring.io/spring-security-oauth/docs/oauth2.html
