@@ -12,6 +12,20 @@ http://fbinfer.com/docs/limitations.html
 
 http://fbinfer.com/blog/
 
+aur/infer
+aur/infer-bin
+    https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=infer-bin
+
+VERSION=0.17.0; curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" | sudo tar -C /opt -xJ
+# && ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
+
+https://github.com/facebook/infer/tree/master/docker
+https://github.com/facebook/infer/blob/master/docker/master/Dockerfile
+
+!!!
+https://fbinfer.com/docs/analyzing-apps-or-projects.html
+    ./gradlew clean && infer run -- ./gradlew build
+
 articles
 2019
 https://towardsdatascience.com/machine-learning-for-detecting-code-bugs-a79f37f144b7
