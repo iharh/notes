@@ -1,9 +1,15 @@
 http://wiremock.org/
 https://github.com/tomakehurst/wiremock
 
-http://testdetective.com/rest-api-mocking-with-wiremock/
-https://dzone.com/articles/wiremock-mock-your-rest-apis
+http://wiremock.org/docs/
+http://wiremock.org/docs/getting-started/
+
+https://github.com/tomakehurst/wiremock/issues/684
+    https://github.com/lanwen/wiremock-junit5
+    https://github.com/JensPiegsa/wiremock-extension
 
 2018
 https://www.infoq.com/presentations/spring-cloud-contract
     @AutoConfigureWireMock
+2016
+https://dzone.com/articles/wiremock-mock-your-rest-apis

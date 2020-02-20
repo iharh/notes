@@ -34,4 +34,3 @@ Accept-Encoding: gzip,deflate
 
 2020-02-19 22:27:36,405 DEBUG [http-nio-8082-exec-1] org.springframework.security.web.FilterChainProxy : /v1/resource?type=BRAND&instance=inst1&id=0 at position 5 of 11 in additional filter chain; firing Filter: 'OAuth2AuthenticationProcessingFilter'
 2020-02-19 22:27:36,408 DEBUG [http-nio-8082-exec-1] org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter : Authentication request failed: error="invalid_token", error_description="Invalid access token: d9131eb5-98f6-4a60-8bff-e582942b9781"
-
