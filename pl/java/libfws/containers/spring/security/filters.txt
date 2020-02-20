@@ -2,6 +2,12 @@ org.springframework.security.web.access.intercept.FilterSecurityInterceptor
 
 https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/apidocs/org/springframework/security/config/annotation/web/HttpSecurityBuilder.html#addFilter-javax.servlet.Filter-
 
+
+https://github.com/spring-projects/spring-security-oauth
+    ! deprecated !
+https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/authentication/OAuth2AuthenticationProcessingFilter.java
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/provider/authentication/OAuth2AuthenticationProcessingFilter.html
+
 org.springframework.security.web.DefaultSecurityFilterChain : Creating filter chain: any request, [
     org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5226e402,
     org.springframework.security.web.context.SecurityContextPersistenceFilter@264c5d07,
