@@ -8,6 +8,7 @@ https://github.com/lukesampson/scoop-extras/blob/master/bucket/windows-terminal.
 
 settings
 https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md
+https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md
     https://akr.am/blog/posts/using-utf-8-in-the-windows-terminal
 
 themes
