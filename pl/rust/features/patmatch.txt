@@ -10,6 +10,9 @@ ergonomics
 https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md
 https://www.reddit.com/r/rust/comments/6h89kb/match_ergonomics_rfc_has_been_accepted/
 
+2020
+https://medium.com/@abhishek1987/rust-enums-and-pattern-matching-177b03a4152
+
 slice patterns (from 1.26)
 
 let arr = [1, 2, 3];
