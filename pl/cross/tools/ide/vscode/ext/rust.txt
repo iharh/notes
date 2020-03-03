@@ -14,6 +14,7 @@ settings.json
 Copy the user settings for "code-runner.executorMap" and update the "rust" attribute (other languages removed for clarity).
 
 2020
+https://medium.com/@ygutfreund/getting-started-with-rust-and-vscode-17b439964bed
 https://jason-williams.co.uk/debugging-rust-in-vscode
     https://www.reddit.com/r/rust/comments/f1qsx9/debugging_rust_in_vscode_in_2020/
 2019
