@@ -7,9 +7,12 @@ http://www.fsfla.org/~lxoliva/writeups/gOlogy/gOlogy.txt
 -fomit-frame-pointer
 -funroll-all-loops
 
-prifiling
+profiling
 -pg
 LDFLAGS="-pg"
 
 debug
 -g
+
+warnings
+https://habr.com/ru/post/490850/
