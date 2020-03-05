@@ -35,5 +35,9 @@ https://chocolatey.org/packages/vcredist-all
 chef cookbooks
 https://supermarket.chef.io/cookbooks/vcruntime/
 
+registry
+https://social.msdn.microsoft.com/Forums/office/en-US/64ab36ba-641a-4426-9e05-053f6c8ef737/how-to-determine-whether-msvc-2015-redistributable-32-or-64bit-is-already-installed?forum=vcgeneral
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\11.0\VC\Runtimes\x86 or x64
+
 issues
 https://www.khronos.org/bugzilla/show_bug.cgi?id=1216

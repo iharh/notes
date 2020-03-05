@@ -5,29 +5,3 @@ https://github.com/microsoft/terminal
 https://github.com/microsoft/terminal/releases
 
 https://github.com/lukesampson/scoop-extras/blob/master/bucket/windows-terminal.json
-
-settings
-https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md
-https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md
-    https://akr.am/blog/posts/using-utf-8-in-the-windows-terminal
-
-themes
-https://terminalsplash.com/
-
-2020
-https://medium.com/@gstvribs/getting-started-to-windows-terminal-8a7d48be5d32
-2019
-https://habr.com/ru/company/microsoft/blog/474200/
-    https://habr.com/ru/company/microsoft/blog/473278/
-https://habr.com/ru/company/microsoft/blog/473150/
-    https://habr.com/ru/company/microsoft/blog/473176/
-https://www.hanselman.com/blog/NowIsTheTimeToMakeAFreshNewWindowsTerminalProfilesjson.aspx
-https://www.hanselman.com/blog/ANewConsoleForWindowsItsTheOpenSourceWindowsTerminal.aspx
-https://devblogs.microsoft.com/commandline/introducing-windows-terminal
-
-whatsnew
-https://devblogs.microsoft.com/commandline/windows-terminal-preview-v0-9-release/
-    https://habr.com/ru/company/microsoft/blog/489402/
-https://devblogs.microsoft.com/commandline/windows-terminal-preview-1909/
-https://devblogs.microsoft.com/commandline/windows-terminal-preview-v0-8-release/
-https://devblogs.microsoft.com/commandline/windows-terminal-preview-v0-7-release/
