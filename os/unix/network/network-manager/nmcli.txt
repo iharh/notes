@@ -1,7 +1,9 @@
-nmcli:
 http://www.unixmen.com/basics-networkmanager-command-line-tool-nmcli/
 
 nmcli
     c[onnection]
         s[how]
         up <con-name>
+
+2020
+https://developer.gnome.org/NetworkManager/unstable/nmcli-examples.html
