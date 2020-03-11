@@ -1,0 +1,6 @@
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
+import org.springframework.boot.test.json.JacksonTester;
+import org.springframework.boot.test.json.JsonContent
+
+2020
+https://www.wimdeblauwe.com/blog/2020/02/26/value-objects-with-spring-boot-rest-api/

@@ -10,3 +10,14 @@ https://github.com/hazelcast/hazelcast/issues/4334
 samples
 https://github.com/hazelcast/hazelcast-code-samples/blob/master/distributed-map/eviction/src/main/java/MapCustomEvictionPolicy.java
 https://github.com/hazelcast/hazelcast/issues/4324
+
+com.hazelcast.map.impl.eviction;
+/**
+ * Evictor helper methods.
+ */
+public class EvictorImpl implements Evictor {
+    protected final EvictionChecker evictionChecker;
+    protected final EvictionPolicyComparator policy;
+    protected final IPartitionService partitionService;
+    ...
+}
