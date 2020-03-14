@@ -9,6 +9,8 @@ useMutationEffect
 useLayoutEffect
 
 2019
+https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
+    https://habr.com/ru/post/492248/
 https://dev.to/ramsay/build-a-redux-like-global-store-using-react-hooks-4a7n
     https://habr.com/ru/post/460083/
 React Hooks Router
