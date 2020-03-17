@@ -1,6 +1,9 @@
 esm
 https://nodejs.org/api/esm.html
 
+2020
+https://medium.com/@david.gilbertson/es6-modules-in-the-browser-are-they-ready-yet-715ca2c94d09
+    https://habr.com/ru/company/ruvds/blog/492510/
 2019
 https://habr.com/ru/company/ruvds/blog/466539/
 https://habr.com/ru/company/ruvds/blog/466537/
@@ -9,7 +12,7 @@ https://humanwhocodes.com/blog/2019/01/stop-using-default-exports-javascript-mod
 http://2ality.com/2018/12/nodejs-esm-phases.html
     https://habr.com/post/433964/
 CodingTech - ECMAScript Modules: Past, Present, and Future
-https://www.youtube.com/watch?v=3U3Av7tM7_U
+    https://www.youtube.com/watch?v=3U3Av7tM7_U
 https://medium.com/@giltayar/native-es-modules-in-nodejs-status-and-future-directions-part-i-ee5ea3001f71
 --experimental-modules
 https://www.youtube.com/watch?v=teDVlOjOCT0
