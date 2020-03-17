@@ -1,6 +1,11 @@
 cargo-script (part of cargo-extras)
 https://crates.io/crates/cargo-script
 https://github.com/DanielKeep/cargo-script
+
+2020
+https://neosmart.net/blog/2020/self-compiling-rust-code/
+
+inst
   Installing .../.cargo/bin/cargo-script
   Installing .../.cargo/bin/run-cargo-script
 
