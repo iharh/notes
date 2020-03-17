@@ -934,30 +934,6 @@ because es is not used in E.
             (tail es))))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### 7: All Depends on the Motive
 
 ! Dependent Types
@@ -983,6 +959,24 @@ The ind-Nat-expression's type is the motive applied to the target.
 (define mot-peas
     (\ (k)
         (Vec Atom k)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (claim step-peas
     (PI ((l-1 Nat))
