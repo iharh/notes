@@ -1,2 +1,4 @@
+https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
+    -DCMAKE_BUILD_TYPE=Release
+
 -DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g++
--DCMAKE_BUILD_TYPE=Release

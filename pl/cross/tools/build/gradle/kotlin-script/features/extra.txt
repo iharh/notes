@@ -9,6 +9,7 @@ myNewProperty=some-value
 val myNewProperty: String by extra  
 val myNewProperty: String by extra("new val")
 
+// println("Property: ${project.extra["myNewProperty"]}") 
 
 
 pluginManagement {
