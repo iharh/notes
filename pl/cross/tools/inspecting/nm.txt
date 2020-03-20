@@ -3,3 +3,6 @@ used mainly for .o files
 
 nm
     -l
+
+U ...
+T ...

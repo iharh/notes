@@ -1,16 +1,8 @@
-lections
-http://mk.cs.msu.ru/index.php/%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B
-Kosyakov
-https://books.ifmo.ru/file/pdf/1551.pdf
-
 blogs:
 aphyr-jepsen:
 https://aphyr.com/posts/333-serializability-linearizability-and-locality
 https://aphyr.com/posts/313-strong-consistency-models
 https://aphyr.com/posts/281-jepsen-on-the-perils-of-network-partitions
-
-Kleppmann:
-2015 - Designing Data Intensive Applications
 
 grischenko:
 https://vimeo.com/196172281
