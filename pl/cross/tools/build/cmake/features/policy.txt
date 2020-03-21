@@ -1,0 +1,8 @@
+https://cmake.org/cmake/help/latest/manual/cmake-policies.7.html
+https://cmake.org/cmake/help/latest/command/cmake_policy.html
+
+https://cmake.org/cmake/help/latest/variable/CMAKE_POLICY_DEFAULT_CMPNNNN.html
+    -DCMAKE_POLICY_DEFAULT_CMP<NNNN>=<OLD|NEW>
+
+https://cmake.org/cmake/help/latest/policy/CMP0074.html
+    -DCMAKE_POLICY_DEFAULT_CMP0074=NEW
