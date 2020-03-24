@@ -2,6 +2,7 @@ http://fabric8.io/
 https://fabric8.io/guide/javaLibraries.html
 
 https://github.com/fabric8io/kubernetes-client
+    https://blog.frankel.ch/your-own-kubernetes-controller/2/
 
 https://mvnrepository.com/artifact/io.fabric8/kubernetes-client
 https://mvnrepository.com/artifact/io.fabric8/kubernetes-model
