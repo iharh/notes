@@ -27,6 +27,8 @@ buildscript {
 https://github.com/JetBrains/kotlin-native/blob/master/CONCURRENCY.md
 
 articles
+2020
+https://www.bignerdranch.com/blog/exploring-kotlin-native-part-1/
 2018
 https://medium.com/@kpgalligan/kotlin-native-stranger-threads-c0cf0e0fb847
 

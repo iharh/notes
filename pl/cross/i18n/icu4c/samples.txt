@@ -1,3 +1,7 @@
+std::string resFileName("");
+icu::UnicodeString m_ResFileName;
+m_ResFileName.toUTF8String(resFileName);
+
 static std::string
 naiveToNative(const UnicodeString &str)
 {
