@@ -1,5 +1,7 @@
 https://gcc.gnu.org/wiki/DavidMalcolm/StaticAnalyzer
 
+2020
+https://developers.redhat.com/blog/2020/03/26/static-analysis-in-gcc-10/
 2019
 https://gcc.gnu.org/ml/gcc/2019-12/msg00152.html
     On https://godbolt.org/ within the C and C++ languages, select
