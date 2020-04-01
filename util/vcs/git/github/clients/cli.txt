@@ -1,9 +1,12 @@
 https://cli.github.com/
-
 https://github.com/cli/cli
+
+scoop bucket add github-gh https://github.com/cli/scoop-gh.git
+scoop install gh
 
 https://cli.github.com/manual/
 
 2020
+https://nuancesprog.ru/p/7285
 https://github.blog/2020-02-12-supercharge-your-command-line-experience-github-cli-is-now-in-beta/
 https://mislav.net/2020/01/github-cli/

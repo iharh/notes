@@ -960,24 +960,6 @@ The ind-Nat-expression's type is the motive applied to the target.
     (\ (k)
         (Vec Atom k)))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 (claim step-peas
     (PI ((l-1 Nat))
         (-> (mot-peas l-1)
@@ -1001,6 +983,30 @@ then
         base
         step)
 is a (mot target).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ! The First Commandment of ind-Nat
 The ind-Nat expression

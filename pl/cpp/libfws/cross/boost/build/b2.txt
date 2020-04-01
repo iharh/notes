@@ -34,9 +34,11 @@ bootstrap.sh # single dashed variant of option is also supported
 cli
 b2 app
     --build-type=minimal
-    link=static
-    variant=debug
-    threading=multi
+    --link=static
+    --variant=debug
+    --threading=multi
+    --runtime-link=static
+    --cxxflags=-fPIC
     // optimization=full
     // define=USE_ASM
     install
