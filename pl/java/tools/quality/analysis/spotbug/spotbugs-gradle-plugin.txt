@@ -1,29 +1,10 @@
-https://spotbugs.github.io/
-https://github.com/spotbugs/spotbugs/
-http://spotbugs.readthedocs.io/en/latest/
-
-https://mvnrepository.com/artifact/com.github.spotbugs
-
-http://spotbugs-in-kengo-toda.readthedocs.io/en/latest/migration.html
-
 https://github.com/spotbugs/spotbugs-gradle-plugin
 http://spotbugs.readthedocs.io/en/latest/gradle.html
 https://plugins.gradle.org/plugin/com.github.spotbugs
+
 https://docs.gradle.org/current/javadoc/org/gradle/api/plugins/quality/FindBugsExtension.html
 https://docs.gradle.org/current/userguide/findbugs_plugin.html
 https://docs.gradle.org/current/dsl/org.gradle.api.plugins.quality.FindBugs.html
-
-https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html
-
-http://fb-contrib.sourceforge.net/
-http://find-sec-bugs.github.io/
-
-dependencies {
-    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1'
-}
-
-
-https://github.com/spotbugs/spotbugs/issues/497
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
     // configure automatically generated tasks
@@ -37,6 +18,5 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
     }
 }
 
-???
-com.github.spotbug:spotbugs-annotations
-https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations
+kotlin dsl
+https://github.com/spotbugs/spotbugs-gradle-plugin/issues/197
