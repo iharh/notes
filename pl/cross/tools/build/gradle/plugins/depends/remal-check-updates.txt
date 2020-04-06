@@ -1,0 +1,9 @@
+https://remal.gitlab.io/gradle-plugins/plugins/name.remal.check-updates/
+https://plugins.gradle.org/plugin/name.remal.check-updates
+
+https://remal.gitlab.io/gradle-plugins/plugins/name.remal.check-dependency-updates/
+
+task
+    checkUpdates
+    checkDependencyUpdates
+    checkGradleUpdates

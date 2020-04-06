@@ -1,2 +1,0 @@
-https://github.com/ben-manes/gradle-versions-plugin
-gradle dependencyUpdates -Drevision=release
