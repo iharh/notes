@@ -1,0 +1,22 @@
+    --illegal-access=deny
+    https://github.com/ehcache/sizeof/issues/52
+    https://github.com/wso2/carbon-kernel/issues/2216
+    https://github.com/micrometer-metrics/micrometer/issues/1543
+    Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make field private final byte[] java.lang.String.value accessible: module java.base does not "opens java.lang" to unnamed module @1890adbd
+        at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:340)
+        at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:280)
+        at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:176)
+        at java.base/java.lang.reflect.Field.setAccessible(Field.java:170)
+        at org.ehcache.sizeof.ObjectGraphWalker.getAllFields(ObjectGraphWalker.java:275)
+        at org.ehcache.sizeof.ObjectGraphWalker.getFilteredFields(ObjectGraphWalker.java:234)
+        at org.ehcache.sizeof.ObjectGraphWalker.walk(ObjectGraphWalker.java:176)
+        at org.ehcache.sizeof.SizeOf.deepSizeOf(SizeOf.java:71)
+        at org.ehcache.impl.internal.sizeof.DefaultSizeOfEngine.sizeof(DefaultSizeOfEngine.java:52)
+        at org.ehcache.impl.internal.store.heap.OnHeapStore.getSizeOfKeyValuePairs(OnHeapStore.java:982)
+        at org.ehcache.impl.internal.store.heap.OnHeapStore.makeValue(OnHeapStore.java:1527)
+        at org.ehcache.impl.internal.store.heap.OnHeapStore.makeValue(OnHeapStore.java:1514)
+        at org.ehcache.impl.internal.store.heap.OnHeapStore.newCreateValueHolder(OnHeapStore.java:1465)
+        at org.ehcache.impl.internal.store.heap.OnHeapStore.lambda$put$6(OnHeapStore.java:346)
+        at org.ehcache.impl.internal.concurrent.ConcurrentHashMap.compute(ConcurrentHashMap.java:1934)
+        at org.ehcache.impl.internal.store.heap.SimpleBackend.compute(SimpleBackend.java:101)
+        at org.ehcache.impl.internal.store.heap.OnHeapStore.put(OnHeapStore.java:334)

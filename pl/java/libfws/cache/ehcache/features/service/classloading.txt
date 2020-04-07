@@ -1,0 +1,10 @@
+https://github.com/ehcache/ehcache3/blob/master/core/src/main/java/org/ehcache/core/util/ClassLoading.java
+    import java.util.ServiceLoader;
+
+    public static <T> Iterable<T> servicesOfType(Class<T> serviceType) {
+        if (SafeOsgi.useOSGiServiceLoading()) {
+            return OsgiServiceLoader.load(serviceType);
+        } else {
+            return ServiceLoader.load(serviceType, ClassLoading.class.getClassLoader());
+        }
+    }

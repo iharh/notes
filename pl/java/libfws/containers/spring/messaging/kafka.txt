@@ -23,6 +23,8 @@ public class MyBean {
 http://www.baeldung.com/spring-kafka
 
 articles
+2020
+https://habr.com/ru/post/496182/
 2019
 https://www.confluent.io/blog/spring-for-apache-kafka-deep-dive-part-2-apache-kafka-spring-cloud-stream
 https://www.confluent.io/blog/spring-for-apache-kafka-deep-dive-part-1-error-handling-message-conversion-transaction-support

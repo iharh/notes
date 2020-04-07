@@ -1,0 +1,56 @@
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/internal/sizeof/DefaultSizeOfEngineProviderFactory.java
+
+    import org.ehcache.core.spi.service.ServiceFactory;
+    import org.ehcache.core.spi.store.heap.SizeOfEngineProvider;
+    import org.ehcache.impl.config.store.heap.DefaultSizeOfEngineConfiguration;
+    import org.ehcache.impl.config.store.heap.DefaultSizeOfEngineProviderConfiguration;
+    import org.ehcache.spi.service.ServiceCreationConfiguration;
+    import org.osgi.service.component.annotations.Component;
+
+    @Component
+    public class DefaultSizeOfEngineProviderFactory implements ServiceFactory<SizeOfEngineProvider> {
+
+      @Override
+      public SizeOfEngineProvider create(ServiceCreationConfiguration<SizeOfEngineProvider, ?> configuration) {
+        long maxTraversals = DefaultSizeOfEngineConfiguration.DEFAULT_OBJECT_GRAPH_SIZE;
+        long maxSize = DefaultSizeOfEngineConfiguration.DEFAULT_MAX_OBJECT_SIZE;
+        if(configuration != null) {
+          DefaultSizeOfEngineProviderConfiguration sizeOfEngineConfiguration = (DefaultSizeOfEngineProviderConfiguration)configuration;
+          maxTraversals = sizeOfEngineConfiguration.getMaxObjectGraphSize();
+          maxSize = sizeOfEngineConfiguration.getUnit().toBytes(sizeOfEngineConfiguration.getMaxObjectSize());
+        }
+        return new DefaultSizeOfEngineProvider(maxTraversals, maxSize);
+      }
+
+      @Override
+      public Class<SizeOfEngineProvider> getServiceType() {
+        return SizeOfEngineProvider.class;
+      }
+
+    }
+
+
+    https://github.com/ehcache/ehcache3/blob/master/impl/src/main/resources/META-INF/services/org.ehcache.core.spi.service.ServiceFactory
+        org.ehcache.impl.internal.store.heap.OnHeapStoreProviderFactory
+        ...
+        org.ehcache.impl.internal.sizeof.DefaultSizeOfEngineProviderFactory
+        ...
+
+???
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/config/builders/UserManagedCacheBuilder.java
+    public UserManagedCacheBuilder<K, V, T> using(Service service) {
+        UserManagedCacheBuilder<K, V, T> otherBuilder = new UserManagedCacheBuilder<>(this);
+        if (service instanceof SizeOfEngineProvider) {
+            removeAnySizeOfEngine(otherBuilder);
+        }
+        otherBuilder.services.add(service);
+        return otherBuilder;
+    }
+
+??? usages of SizeofEngineProvider
+    ! not so much !
+
+
+???
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/config/store/heap/DefaultSizeOfEngineConfiguration.java
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/config/store/heap/DefaultSizeOfEngineProviderConfiguration.java

@@ -1,6 +1,9 @@
-https://www.ehcache.org/documentation/3.1/107.html
+https://www.ehcache.org/documentation/3.8/107.html
     ! setStoreByValue(false) for non-serializable stuff
+
+2016
 https://www.ehcache.org/blog/2016/05/18/ehcache3_jsr107_spring.html
+
 samples
 https://github.com/ehcache/ehcache3-samples/tree/master/jsr107
 

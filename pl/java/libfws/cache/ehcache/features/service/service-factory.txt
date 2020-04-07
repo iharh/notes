@@ -1,0 +1,158 @@
+https://github.com/ehcache/ehcache3/blob/master/docs/src/docs/asciidoc/developer/design.basics.adoc
+https://github.com/ehcache/ehcache3/blob/master/docs/src/docs/asciidoc/developer/index.adoc
+    Modular approach - Services
+
+
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/resources/META-INF/services/org.ehcache.core.spi.service.ServiceFactory
+    org.ehcache.impl.internal.store.heap.OnHeapStoreProviderFactory
+    ...
+    org.ehcache.impl.internal.sizeof.DefaultSizeOfEngineProviderFactory
+    ...
+
+https://github.com/ehcache/ehcache3/blob/master/core/src/main/java/org/ehcache/core/spi/service/ServiceFactory.java
+
+    package org.ehcache.core.spi.service;
+
+    import org.ehcache.spi.service.ServiceProvider;
+    import org.ehcache.spi.service.Service;
+    import org.ehcache.spi.service.ServiceCreationConfiguration;
+
+    import java.lang.annotation.ElementType;
+    import java.lang.annotation.Retention;
+    import java.lang.annotation.Target;
+
+    import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+    /**
+     * A factory abstraction that can create {@link Service} instances.
+     */
+    public interface ServiceFactory<T extends Service> {
+
+      /**
+       * Returns {@code true} if this factory's services are mandatory in all environments.
+       *
+       * @return {@code true} if this factory's services are mandatory
+       */
+      default boolean isMandatory() {
+        return false;
+      }
+
+      /**
+       * Returns an optional ranking integer is used to choose a service factory when multiple factories are available for
+       * the same service type. <em>Higher ranking value service factories are preferred.</em>
+       *
+       * @return a factory ranking value
+       */
+      default int rank() {
+        return 1;
+      }
+
+      /**
+       * Creates an instance of the service using the passed in {@link ServiceCreationConfiguration}.
+       * <p>
+       * Note that a {@code null} configuration may be supported or even required by a service implementation.
+       *
+       * @param configuration the creation configuration, can be {@code null} for some services
+       * @return the new service, not {@link Service#start(ServiceProvider) started}
+       */
+      T create(ServiceCreationConfiguration<T, ?> configuration);
+
+      /**
+       * Queries a {@code ServiceFactory} to know which {@link Service} type it produces.
+       *
+       * @return the class of the produced service.
+       */
+      Class<? extends T> getServiceType();
+
+
+      @Retention(RUNTIME)
+      @Target(ElementType.TYPE)
+      @interface RequiresConfiguration {
+      }
+    }
+
+
+usages
+    rank() - used by ServiceLocator
+
+        public static class DependencySet implements Builder<ServiceLocator> {
+            @SuppressWarnings({"rawtypes", "unchecked"})
+            private final Iterable<ServiceFactory<?>> serviceFactories = (Iterable) servicesOfType(ServiceFactory.class)
+            ...
+        }
+
+non-usage
+    ClassLoading.servicesOfType(...) - just a simple java.util....
+
+test
+HighRankServiceAFactory
+    https://github.com/ehcache/ehcache3/blob/master/core/src/test/java/org/ehcache/core/spi/services/ranking/HighRankServiceAFactory.java   
+        public class HighRankServiceAFactory implements ServiceFactory<RankServiceA> {
+    ? usages
+    https://github.com/ehcache/ehcache3/blob/master/core/src/test/resources/META-INF/services/org.ehcache.core.spi.service.ServiceFactory
+        org.ehcache.core.spi.services.TestServiceFactory
+        org.ehcache.core.spi.services.TestProvidedServiceFactory
+        org.ehcache.core.spi.services.FancyCacheProviderFactory
+        org.ehcache.core.spi.services.TestMandatoryServiceFactory
+        org.ehcache.core.spi.services.ranking.HighRankServiceAFactory
+        org.ehcache.core.spi.services.ranking.MandatoryLowRankServiceAFactory
+        org.ehcache.core.spi.services.ranking.MandatoryHighRankServiceBFactory
+        org.ehcache.core.spi.services.ranking.LowRankServiceBFactory
+
+    https://github.com/ehcache/ehcache3/blob/master/core/src/test/java/org/ehcache/core/spi/ServiceLocatorTest.java
+        @Test
+        public void testRankedServiceOverrides() {
+            ServiceLocator serviceLocator = dependencySet().with(RankServiceA.class).build();
+            assertThat(serviceLocator.getService(RankServiceA.class).getSource(), is("high-rank"));
+        }
+
+direct usage
+    https://github.com/ehcache/ehcache3/blob/master/clustered/client/src/test/java/org/ehcache/clustered/client/EntityServiceTest.java
+    ...
+    CacheManager cacheManager = newCacheManagerBuilder()
+        .using(clusteredManagementService
+        ...
+        .build(true);
+
+usage inside 107-impl
+    https://github.com/ehcache/ehcache3/blob/master/107/src/main/java/org/ehcache/jsr107/EhcacheCachingProvider.java
+    
+    private Eh107CacheManager createCacheManager(URI uri, Configuration config, Properties properties) {
+        Collection<ServiceCreationConfiguration<?, ?>> serviceCreationConfigurations = config.getServiceCreationConfigurations();
+
+        Jsr107Service jsr107Service = new DefaultJsr107Service(ServiceUtils.findSingletonAmongst(Jsr107Configuration.class, serviceCreationConfigurations));
+        Eh107CacheLoaderWriterProvider cacheLoaderWriterFactory = new Eh107CacheLoaderWriterProvider();
+        @SuppressWarnings("unchecked")
+        DefaultSerializationProviderConfiguration serializerConfiguration = new DefaultSerializationProviderConfiguration().addSerializerFor(Object.class, (Class) PlainJavaSerializer.class);
+
+        UnaryOperator<ServiceLocator.DependencySet> customization = dependencies -> {
+          ServiceLocator.DependencySet d = dependencies.with(jsr107Service).with(cacheLoaderWriterFactory);
+          if (ServiceUtils.findSingletonAmongst(DefaultSerializationProviderConfiguration.class, serviceCreationConfigurations) == null) {
+            d = d.with(serializerConfiguration);
+          }
+          return d;
+        };
+
+        org.ehcache.CacheManager ehcacheManager = new EhcacheManager(config, customization, !jsr107Service.jsr107CompliantAtomics());
+        ehcacheManager.init();
+
+        return new Eh107CacheManager(this, ehcacheManager, jsr107Service, properties, config.getClassLoader(), uri,
+                new ConfigurationMerger(config, jsr107Service, cacheLoaderWriterFactory));
+    }
+    
+builders
+    https://github.com/ehcache/ehcache3/tree/master/impl/src/main/java/org/ehcache/config/builders
+ConfigurationBuilder
+    https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/config/builders/ConfigurationBuilder.java
+    ! removeService
+    ! addService
+CacheConfigurationBuilder
+    https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/config/builders/CacheConfigurationBuilder.java
+    ! newCacheConfigurationBuilder(...)
+    ! combination with ConfigurationBuilder
+    ! add, withService, withoutService, updateService
+        public CacheConfigurationBuilder<K, V> withDefaultSizeOfSettings() {
+            return withoutServices(DefaultSizeOfEngineConfiguration.class);
+        }
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/config/builders/CacheManagerBuilder.java
+    ?

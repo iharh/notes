@@ -1,0 +1,10 @@
+META-INF/spring.factories
+    example.MyService=example.MyServiceImpl1,example.MyServiceImpl2
+
+List<Foo> foos = SpringFactoriesLoader.loadFactories(Foo.class, null);
+
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/serviceloader/package-summary.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/support/SpringFactoriesLoader.html
+
+2017
+https://dzone.com/articles/java-service-loader-vs-spring-factories-loader
