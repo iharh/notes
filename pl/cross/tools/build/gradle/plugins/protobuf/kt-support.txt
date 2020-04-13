@@ -1,0 +1,26 @@
+https://github.com/google/protobuf-gradle-plugin/tree/master/examples/exampleKotlinDslProject
+https://github.com/google/protobuf-gradle-plugin/issues/309
+
+
+import com.google.protobuf.gradle.*
+import org.gradle.kotlin.dsl.provider.gradleKotlinDslOf
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:$verProtobuf"
+    }
+    generateProtoTasks {
+        // all().forEach
+        ofSourceSet("main").forEach {
+            it.builtins {
+                //id("java") {
+                //    // option("lite")
+                //}
+                // remove("java")
+                id("cpp") {
+                }
+            }
+            // it.generateDescriptorSet = true
+        }
+    }
+}
