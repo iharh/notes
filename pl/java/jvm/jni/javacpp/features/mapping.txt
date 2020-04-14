@@ -40,3 +40,7 @@ StringVector
 https://raw.githubusercontent.com/bytedeco/javacpp-presets/master/caffe/src/main/java/org/bytedeco/javacpp/caffe.java
     FieldDescriptorVector
 https://github.com/bytedeco/javacpp/issues/22
+
+misc
+public native @Cast("char*")        BytePointer buffer(...);
+public native @Cast("const char*")  BytePointer call(...);
