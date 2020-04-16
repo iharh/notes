@@ -10,7 +10,12 @@ https://cmake.org/cmake/help/latest/prop_tgt/CXX_STANDARD.html
 https://cmake.org/cmake/help/latest/variable/CMAKE_POSITION_INDEPENDENT_CODE.html
     set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 ???
-CMAKE_CXX_FLAGS
+https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS.html
+    https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS_CONFIG.html
+    https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS_CONFIG_INIT.html
+    CMAKE_C_FLAGS
+    CMAKE_CXX_FLAGS
+    CMAKE_CUDA_FLAGS
 https://cmake.org/cmake/help/latest/variable/CMAKE_EXE_LINKER_FLAGS.html
 https://cmake.org/cmake/help/latest/variable/CMAKE_EXE_LINKER_FLAGS_INIT.html
 https://cmake.org/cmake/help/latest/variable/CMAKE_SHARED_LINKER_FLAGS.html

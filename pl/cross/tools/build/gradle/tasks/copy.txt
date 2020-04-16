@@ -3,3 +3,30 @@ https://docs.gradle.org/current/javadoc/org/gradle/api/file/CopySpec.html
 
 rename
 https://mrhaki.blogspot.com/2010/10/gradle-goodness-renaming-files-while.html
+
+samples
+    //for including in the copy task
+    val dataContent = copySpec {
+        from("src/data")
+        include("*.data")
+    }
+
+    val assembleWeb by registering(Copy::class) {
+        group = "build"
+        description = "Assemble the web application"
+        includeEmptyDirs = false
+        from(unpackKotlinJsStdlib)
+        from(sourceSets.main.get().output) {
+            exclude("**/*.kjsm")
+        }
+        into("$buildDir/web")
+
+        // ...
+        from(zipTree(kotlinStdLibJar))
+        into(outputDir)
+        include("**/*.js")
+
+        // ...
+        with(dataContent)
+    }
+

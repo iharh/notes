@@ -1,0 +1,8 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Tar.html
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.AbstractArchiveTask.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/bundling/Compression.html
+    NONE, GZIP, BZIP2
+
+task someTar(type: Tar) {
+     compression = Compression.GZIP
+} 

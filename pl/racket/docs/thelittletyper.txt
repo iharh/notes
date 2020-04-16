@@ -984,30 +984,6 @@ then
         step)
 is a (mot target).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ! The First Commandment of ind-Nat
 The ind-Nat expression
     (ind-Nat zero
@@ -1030,6 +1006,7 @@ and
             step))
 are the same (mot (add1 n)).
 
+
 ! Induction on Natural Numbers
 Building a value for any natural number by giving a value for zero and
 a way to transform a value for n into a value for (n + 1)
@@ -1044,6 +1021,28 @@ step-peas replaces each add1 with a vec::
             mot-peas
             vecnil
             step-peas)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 (claim last
