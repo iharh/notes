@@ -1,10 +1,26 @@
+2015
+https://codeyarns.com/2015/05/14/build-types-in-cmake/
+
 Release
 Debug
 RelWithDebInfo
 MinSizeRel
 
 -DCMAKE_BUILD_TYPE=<type> // at cfg phase
-// "--config", "<type>" // at build phase
+    https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
+    // "--config", "<type>" // at build phase
+
+https://cmake.org/cmake/help/latest/variable/CMAKE_NOT_USING_CONFIG_FLAGS.html
+    This is an internal flag used by the generators in CMake to tell CMake to skip the _BUILD_TYPE flags.
+
+qa
+https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#how-can-i-extend-the-build-modes-with-a-custom-made-one-
+https://stackoverflow.com/questions/11437692/how-to-add-a-custom-build-type-to-cmake-targeting-make
+https://www.jetbrains.com/help/clion/cmake-profile.html#
+
+variants
+https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html
+https://vector-of-bool.github.io/docs/vscode-cmake-tools/variants.html
 
 /usr/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake
 
