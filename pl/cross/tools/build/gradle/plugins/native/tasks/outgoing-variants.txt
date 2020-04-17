@@ -1,0 +1,47 @@
+outgoingVariants
+    display outgoing variants
+
+> Task :jniprovider:outgoingVariants
+--------------------------------------------------
+Variant cppApiElements
+--------------------------------------------------
+Capabilities
+    - com.clarabridge:jniprovider:1.9.14.1 (default capability)
+Attributes
+    - artifactType     = directory
+    - org.gradle.usage = cplusplus-api
+
+Artifacts
+    - src/main/public
+
+--------------------------------------------------
+Variant debugLinkElements
+--------------------------------------------------
+Capabilities
+    - com.clarabridge:jniprovider:1.9.14.1 (default capability)
+Attributes
+    - org.gradle.native.architecture    = x86-64
+    - org.gradle.native.debuggable      = true
+    - org.gradle.native.linkage         = SHARED
+    - org.gradle.native.operatingSystem = linux
+    - org.gradle.native.optimized       = false
+    - org.gradle.usage                  = native-link
+
+Artifacts
+    - build/lib/main/debug/libjniprovider.so (artifactType = so)
+
+--------------------------------------------------
+Variant debugRuntimeElements
+--------------------------------------------------
+Capabilities
+    - com.clarabridge:jniprovider:1.9.14.1 (default capability)
+Attributes
+    - org.gradle.native.architecture    = x86-64
+    - org.gradle.native.debuggable      = true
+    - org.gradle.native.linkage         = SHARED
+    - org.gradle.native.operatingSystem = linux
+    - org.gradle.native.optimized       = false
+    - org.gradle.usage                  = native-runtime
+
+Artifacts
+    - build/lib/main/debug/libjniprovider.so (artifactType = so)
