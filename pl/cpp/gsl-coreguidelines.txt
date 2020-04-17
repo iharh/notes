@@ -27,6 +27,8 @@ clang support for lifetime
 https://github.com/CppCon/CppCon2018/blob/master/Presentations/implementing_the_cpp_core_guidelines_lifetime_safety_profile_in_clang/implementing_the_cpp_core_guidelines_lifetime_safety_profile_in_clang__matthias_gehre_gabor_horvath__cppcon_2018.pdf
 http://cpptruths.blogspot.com/2018/10/chained-functions-break-reference.html
 
+2020
+https://devblogs.microsoft.com/cppblog/gsl-3-0-0-release/
 2019
 https://www.reddit.com/r/cpp/comments/acspkq/guideline_support_library_what_a_mess/
 2018
