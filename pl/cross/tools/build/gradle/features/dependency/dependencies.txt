@@ -1,5 +1,13 @@
 https://docs.gradle.org/current/userguide/declaring_dependencies.html
 https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
+https://docs.gradle.org/current/userguide/dependency_resolution.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html#getIncoming--
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#getResolutionResult--
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#getArtifacts--
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#artifactView-org.gradle.api.Action-
+https://docs.gradle.org/current/userguide/dependency_capability_conflict.html
+    !!! capability tuning
+https://docs.gradle.org/current/userguide/dependency_constraints.html
 
 tasks
     dependencies [--configuration compile|test|...]
