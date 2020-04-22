@@ -10,5 +10,4 @@ https://github.com/gradle/gradle/blob/master/design-docs/done/continuous-deliver
 #story-allow-library-binaries-to-be-used-as-input-to-executable-binaries
 
 src:
-gradle\subprojects\platform-native
-
+https://github.com/gradle/gradle/tree/master/subprojects/platform-native

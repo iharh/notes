@@ -1,3 +1,14 @@
+my
+https://discuss.gradle.org/t/custom-gcc-executable/35789
+    eachPlatform {
+        cCompiler.executable = 'c-compiler'
+        staticLibArchiver.executable = 'static-lib'
+        linker.executable = 'linker'
+    }
+    ???
+    https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/GccPlatformToolChain.html
+    https://github.com/Anatolii/Android-CPP-ToolChain-for-Gradle/blob/master/plugin/src/main/kotlin/dev/anatolii/gradle/cpp/android/toolchain/ToolChainExtansions.kt
+
 unable to fine static lib
 https://discuss.gradle.org/t/c-linkage-shared/10460/6
 

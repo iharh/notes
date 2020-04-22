@@ -1,0 +1,14 @@
+https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/plugins/StandardToolChainsPlugin.java
+
+    public class StandardToolChainsPlugin implements Plugin<Project> {
+        @Override
+        public void apply(Project project) {
+            project.getPluginManager().apply(MicrosoftVisualCppCompilerPlugin.class);
+            project.getPluginManager().apply(GccCompilerPlugin.class);
+            project.getPluginManager().apply(ClangCompilerPlugin.class);
+        }
+    }
+
+https://github.com/gradle/gradle/tree/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/plugins
+    https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/plugins/GccCompilerPlugin.java
+    https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/plugins/ClangCompilerPlugin.java
