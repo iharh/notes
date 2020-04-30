@@ -1,4 +1,5 @@
 my
+https://github.com/gradle/gradle-native/issues/1073
 https://discuss.gradle.org/t/custom-gcc-executable/35789
     eachPlatform {
         cCompiler.executable = 'c-compiler'
