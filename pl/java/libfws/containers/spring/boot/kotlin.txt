@@ -3,6 +3,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-featu
 https://docs.spring.io/spring-framework/docs/current/kdoc-api/spring-framework/
 
 2020
+Frankel - Migrating Spring Boot Apps From Annotation-based Config to Functional With Kotlin
+    https://www.youtube.com/watch?v=7t5YMEg2i1A
 https://blog.pusher.com/getting-started-rest-kotlin-using-spring-boot/
 https://www.infoq.com/presentations/kotlin-spring-boot/
     ! too kt-specific, almost no stuff about spring boot

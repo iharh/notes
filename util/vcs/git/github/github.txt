@@ -11,3 +11,6 @@ git push -u origin master
 access-ssh
 https://help.github.com/categories/ssh/
 https://help.github.com/articles/using-ssh-over-the-https-port/
+
+payments
+https://github.blog/2020-04-14-github-is-now-free-for-teams/
