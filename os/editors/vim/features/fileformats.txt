@@ -1,0 +1,16 @@
+http://vim.wikia.com/wiki/File_format
+
+:e ++ff=dos
+
+set ffs=dos
+set ff=dos
+
+# ffs - fileformats, ff=fileformat
+
+https://vim.fandom.com/wiki/Working_with_Unicode
+
+:h utf8
+http://vimdoc.sourceforge.net/htmldoc/mbyte.html#utf8
+    set encoding=utf-8
+http://vimdoc.sourceforge.net/htmldoc/options.html#'bomb'
+    set bomb

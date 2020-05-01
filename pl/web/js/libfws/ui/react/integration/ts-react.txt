@@ -7,6 +7,9 @@ https://stackoverflow.com/questions/38804312/harmony-between-react-templates-typ
 
 https://webpack.js.org/guides/typescript/
 
+cheatsheet
+https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
+
 react-scripts-ts
 https://www.npmjs.com/package/react-scripts-ts
 https://github.com/wmonk/create-react-app-typescript
@@ -29,6 +32,7 @@ https://legacy.gitbook.com/book/charleslbryant/hello-react-and-typescript/detail
 
 articles
 2020
+https://dev.to/nas5w/your-first-react-typescript-project-a-step-by-step-tutorial-470n
 https://blog.bitsrc.io/react-typescript-cheetsheet-2b6fa2cecfe2
     https://nuancesprog.ru/p/7008
 2019
