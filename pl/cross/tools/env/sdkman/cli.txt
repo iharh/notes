@@ -16,3 +16,5 @@ sdk
         set as a default
     u[se]       <fackage [ver]>
         use in this shell
+    env
+        https://sdkman.io/usage#env
