@@ -1,0 +1,4 @@
+https://developer.atlassian.com/cloud/jira/platform/rest/v3/
+
+samples
+https://clarabridge.atlassian.net/rest/api/3/search?jql=project=CB%20AND%20component=NLP%20AND%20status=%27In%20Progress%27&fields=summary

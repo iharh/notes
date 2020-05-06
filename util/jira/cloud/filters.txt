@@ -1,0 +1,1 @@
+assignee = currentUser() AND resolution = Unresolved order by updated DESC

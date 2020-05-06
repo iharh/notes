@@ -1,0 +1,4 @@
+assigned-to-me
+https://clarabridge.atlassian.net/rest/gadgets/1.0/g/com.atlassian.jira.gadgets:assigned-to-me-gadget/gadgets/assigned-to-me-gadget.xml
+issues-in-progress
+https://clarabridge.atlassian.net/rest/gadgets/1.0/g/com.atlassian.jira.gadgets:in-progress-gadget/gadgets/in-progress-gadget.xml
