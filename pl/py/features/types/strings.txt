@@ -15,3 +15,6 @@ python 3:
 by default we use u"..."
 
 bytearray("...") - for the old-way byte strings
+
+2020
+https://habr.com/ru/company/ruvds/blog/500296/
