@@ -1,2 +1,12 @@
 https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/6151106
 https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/15009832
+
+At this point there is an workaround -
+create Linux virtual machine with no access to the host and all VM extensions disabled
+and use it to install this client and access COMPANY resources. 
+
+According to the opswat.com official web site, OPSWAT client is based on OESIS SDK
+    https://www.opswat.com/products/oesis-framework
+and potentionally can do anything, that OESIS SDK can, as example GetCookies, DeleteBrowserHistory,
+download and executed files, scan for the network connections and bunch of other things, described at
+    https://software.opswat.com/OESIS_V4/html/c_method.html
