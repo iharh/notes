@@ -33,6 +33,8 @@ monadloc:
 https://github.com/pepeiborra/monadloc
 http://hackage.haskell.org/cgi-bin/hackage-scripts/package/monadloc
 
+2020
+https://jmtd.net/log/template_haskell/
 
 
 Every time you want to write something in TH, you start with:
