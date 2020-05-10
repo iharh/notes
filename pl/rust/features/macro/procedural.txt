@@ -2,6 +2,8 @@ https://doc.rust-lang.org/stable/book/first-edition/procedural-macros.html
 
 https://github.com/rust-lang/rfcs/blob/master/text/1566-proc-macros.md
 
+2020
+https://peppe.rs/posts/auto-currying_rust_functions/
 2019
 Procedural Macros in Rust
     https://github.com/dtolnay/proc-macro-workshop
