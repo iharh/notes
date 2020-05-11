@@ -1,5 +1,8 @@
 https://github.com/rust-lang/rust/blob/master/src/librustc_borrowck/borrowck/README.md
 
+2020
+https://www.snoyman.com/blog/2020/05/no-mutable-parameters-in-rust
+    !
 2019
 https://medium.com/@prabhueshwarla/ownership-in-rust-part-2-919ee2bf324b
 https://medium.com/@prabhueshwarla/ownership-in-rust-52110b7ad410
