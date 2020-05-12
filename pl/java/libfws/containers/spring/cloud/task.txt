@@ -1,3 +1,4 @@
+https://spring.io/projects/spring-cloud-task
 http://cloud.spring.io/spring-cloud-task/
 http://cloud.spring.io/spring-cloud-task-app-starters/
 https://github.com/spring-cloud/spring-cloud-task
@@ -16,6 +17,7 @@ https://medium.com/pismolabs/routine-jobs-with-kubernetes-spring-cloud-dataflow-
 http://www.baeldung.com/spring-cloud-task
 
 whats new
+https://spring.io/blog/2020/05/11/spring-cloud-task-2-3-0-m1-is-now-available
 https://spring.io/blog/2018/05/07/spring-cloud-task-2-0-0-release-is-now-available
 
 samples

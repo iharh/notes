@@ -1,0 +1,15 @@
+2020
+https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot
+    HTTP Probes are only configured for applications running on Kubernetes.
+    You can give it a try locally by manually enabling the probes with the
+    management.health.probes.enabled=true 
+https://www.baeldung.com/spring-boot-kubernetes-self-healing-apps
+2019
+https://cloud.ibm.com/docs/java?topic=java-spring-healthcheck
+https://dimitr.im/spring-boot-kubernetes
+
+samples
+https://github.com/alexandreroman/spring-k8s-probes-demo
+
+k8s
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/

@@ -67,6 +67,9 @@ https://github.com/cpuguy83/docker-grand-ambassador
 compose-env:
 https://docs.docker.com/compose/env-file/
 
+secrets
+https://pythonspeed.com/articles/build-secrets-docker-compose/
+    https://habr.com/ru/company/otus/blog/501580/
 
 tools:
 https://github.com/vishnubob/wait-for-it
