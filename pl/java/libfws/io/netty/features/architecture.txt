@@ -1,0 +1,35 @@
+Buffer
+  http://netty.io/4.0/api/io/netty/buffer/package-summary.html
+
+  Unpooled
+    http://netty.io/4.0/api/io/netty/buffer/Unpooled.html
+  ByteBuf
+    http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html
+  MessageBuf<T>
+    ???
+
+Channel
+  http://netty.io/4.0/api/io/netty/channel/package-summary.html
+
+  ChannelBuffers
+    ->ByteBuf
+      ByteBufUtil, Unpooled
+      ByteBufAllocator
+  ChannelHandler
+    ChannelInboundHandler
+    ChannelOutboundHandler
+  ChannelPipeline (a list of ChannelHandlers ...)
+  ChannelInitializer
+
+Selector
+
+Pipeline
+  ChannelPipelineFactory
+
+Bootstrap
+  http://netty.io/4.0/api/io/netty/bootstrap/package-summary.html
+
+  Bootstrap
+    http://netty.io/4.0/api/io/netty/bootstrap/Bootstrap.html
+  ServerBootstrap
+    http://netty.io/4.0/api/io/netty/bootstrap/ServerBootstrap.html
