@@ -1,4 +1,8 @@
-2.2.x
+runtime("org.springframework.boot:spring-boot-properties-migrator")
+
+2.3
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.3-Release-Notes
+2.2
 https://github.com/spring-projects/spring-boot/releases/tag/v2.2.6.RELEASE
 https://spring.io/blog/2020/02/27/spring-boot-2-2-5-released
 https://spring.io/blog/2020/01/16/spring-boot-2-2-3-released
@@ -11,10 +15,10 @@ https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Note
     https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2.0-M1-Configuration-Changelog
 https://spring.io/blog/2019/03/08/spring-boot-2-2-m1
 https://www.infoq.com/news/2019/03/spring-boot-22-milestone
-2.1.x
+2.1
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.1.0-RC1-Release-Notes
 https://spring.io/blog/2018/10/17/spring-boot-2-1-0-rc1-available-now
-2.0.x
+2.0
 https://github.com/spring-projects/spring-boot/milestone/109?closed=1
 https://spring.io/blog/2018/05/09/spring-project-vulnerability-reports-published
 https://spring.io/blog/2018/03/01/spring-boot-2-0-goes-ga
