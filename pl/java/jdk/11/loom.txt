@@ -2,6 +2,9 @@ http://jdk.java.net/loom/
 https://openjdk.java.net/projects/loom/
 https://wiki.openjdk.java.net/display/loom/Main
 
+2020
+http://cr.openjdk.java.net/%7Erpressler/loom/loom/sol1_part2.html
+http://cr.openjdk.java.net/~rpressler/loom/loom/sol1_part1.html
 2019
 https://mail.openjdk.java.net/pipermail/loom-dev/2019-December/000931.html
 https://dzone.com/articles/a-new-java-with-a-stronger-fiber
