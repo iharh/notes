@@ -1,6 +1,9 @@
 books
 Marlow-ParallelAndConcurrentProgrammingInHaskell - ch 8
 
+cheatsheets
+https://fpcomplete.com/safe-exception-handling/
+
 2020
 https://www.tweag.io/posts/2020-04-16-exceptions-in-haskell.html
 2019
