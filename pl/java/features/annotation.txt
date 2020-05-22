@@ -1,15 +1,16 @@
 https://docs.oracle.com/javase/tutorial/java/annotations/predefined.html
 
+2020
+https://blog.frankel.ch/introductory-guide-annotation-processor/
 2019
 https://dzone.com/articles/creating-custom-annotations-in-java
-
 2018
 https://jaxenter.com/understand-annotations-java-148001.html
 Compile Time Annoations
-https://habr.com/post/414715/
+    https://habr.com/post/414715/
 Albano - Creating Annotations in Java
-https://dzone.com/articles/creating-custom-annotations-in-java
-
+    https://dzone.com/articles/creating-custom-annotations-in-java
+????
 https://habrahabr.ru/company/e-Legion/blog/206208/
 https://github.com/DanielSerdyukov/droidcon2015
 https://docs.google.com/presentation/d/1zamMD_7LeGItOYFUPoYYjKb8hFl243krqZgPKwVgvr0/edit#slide=id.p4
@@ -19,6 +20,8 @@ https://speakerdeck.com/search?q=droidcon+2014+nyc
 
 Erni - The Hacker's Guide to Javac
 http://scg.unibe.ch/archive/projects/Erni08b.pdf
+
+
 
 @SuppressWarnings("unchecked")
 https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html
