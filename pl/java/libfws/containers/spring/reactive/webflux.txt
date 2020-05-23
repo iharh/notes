@@ -46,6 +46,9 @@ https://docs.spring.io/spring/docs/5.0.x/spring-framework-reference/web.html#web
 artifacts
 http://mvnrepository.com/artifact/org.springframework/spring-webflux
 
+error-handling
+https://www.mednikov.tech/error-handling-webflux/
+
 src
 https://github.com/spring-projects/spring-framework/tree/master/spring-webflux
 
