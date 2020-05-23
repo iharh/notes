@@ -22,3 +22,5 @@ https://github.com/CppCon/CppCon2017/blob/master/Presentations/constexpr%20ALL%2
 
 samples
 https://github.com/foonathan/lex
+https://github.com/mkitzan/constexpr-sql
+    https://old.reddit.com/r/cpp/comments/g5l2nt/constexpr_sql_a_compile_time_sql_library/
