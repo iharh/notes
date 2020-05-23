@@ -1,11 +1,3 @@
-https://deno.land/
-https://github.com/denoland/deno
-
-https://github.com/denoland/deno/blob/master/Docs.md
-https://deno.land/typedoc/index.html
-https://github.com/denoland/deno_std
-
-articles
 2020
 https://flaviocopes.com/deno/
 2019
@@ -17,11 +9,3 @@ Dahl - Deno, a new way to JavaScript. JS Fest 2019 Spring
 https://medium.com/lean-mind/deno-node-js-killer-718c8969770b
     https://habr.com/ru/post/449000/
 https://www.infoq.com/news/2018/12/deno-v8-typescript
-
-presentations
-Devshaht - Try Deno
-    https://www.youtube.com/watch?v=_cGOQbJehBQ
-
-whatsnew
-https://deno.land/v1
-    https://www.opennet.ru/opennews/art.shtml?num=52947
