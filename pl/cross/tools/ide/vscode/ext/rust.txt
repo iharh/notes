@@ -20,3 +20,28 @@ https://jason-williams.co.uk/debugging-rust-in-vscode
 2019
 https://medium.com/@adityapadhi36/debugging-rust-applications-in-vscode-4d17ac0e2711
 https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/
+
+launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'rust'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=renamer",
+          "--package=renamer"
+        ],
+        "filter": {
+          "name": "renamer",
+          "kind": "bin"
+        }
+      },
+      "args": ["--", "-d", "testdir"],
+      "cwd": "${workspaceFolder}"
+    },
+  ]
+}
