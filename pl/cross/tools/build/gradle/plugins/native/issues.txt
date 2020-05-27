@@ -13,9 +13,12 @@ https://discuss.gradle.org/t/custom-gcc-executable/35789
 unable to fine static lib
 https://discuss.gradle.org/t/c-linkage-shared/10460/6
 
-native and java are mutually exclusive
+jni, native and java are mutually exclusive
 https://discuss.gradle.org/t/subproject-with-both-java-and-c/30509
 https://github.com/gradle/gradle-native/issues/352
+    https://pastebin.com/ztfpFbd2
 https://github.com/gradle/gradle-native/issues/208
+    https://github.com/eskatos/jni-library-sample
+    https://github.com/eskatos/jni-library-sample/blob/master/jni-library-plugin/src/main/kotlin/jni-library.gradle.kts
     https://github.com/wala/WALA/commit/6b5738c6dac9f30529752332461eb81908b291f2
 https://github.com/gradle/gradle-native/issues/216

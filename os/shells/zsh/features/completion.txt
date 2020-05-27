@@ -1,3 +1,6 @@
+2020
+https://jonathanh.co.uk/blog/current-word-completion.html
+
 To enable compinit, put the following to your .zshrc
 
 autoload -U compinit

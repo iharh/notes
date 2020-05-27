@@ -1,13 +1,27 @@
 https://plugins.gradle.org/plugin/io.spring.dependency-management
 https://github.com/spring-gradle-plugins/dependency-management-plugin
 
-https://docs.spring.io/dependency-management-plugin/docs/current-SNAPSHOT/reference/html/
+https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/
+https://docs.spring.io/dependency-management-plugin/docs/current/api/
 
 https://docs.gradle.org/current/userguide/dependency_management_attribute_based_matching.html
+
+for specific configurations
+https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/#dependency-management-configuration-specific
+    dependencyManagement {
+         compile {
+              dependencies { ... }
+              imports { ...  }
+         }
+    }
 
 2015
 https://spring.io/blog/2015/02/23/better-dependency-management-for-gradle
 https://blog.jayway.com/2015/11/23/reusing-spring-boots-dependency-management/
+
+notes
+Gradle does not provide an API for accessing a dependency’s classifier during resolution.
+Unfortunately, this means that dependency management-based exclusions will not work when a classifier is involved.
 
 samples
 https://github.com/Netflix/genie/blob/master/build.gradle
@@ -24,3 +38,13 @@ dependencyManagement {
     }
     ...
 }
+
+gradle
+    dependencies --configuration compile
+    dependencyManagement
+        // report of the project dependency management
+
+prog-access
+    val managedVersions = dependencyManagement.managedVersions
+    val springCoreVersion = managedVersions["org.springframework:spring-core"]
+    dependencyManagement.getManagedVersionsForConfiguration(configurations.getByName("compile"))

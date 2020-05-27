@@ -1,3 +1,29 @@
+https://docs.gradle.org/current/userguide/core_dependency_management.html
+https://docs.gradle.org/current/userguide/dependency_management_terminology.html
+    artifact
+    capability
+        https://docs.gradle.org/current/userguide/component_capabilities.html
+        https://docs.gradle.org/current/userguide/dependency_capability_conflict.html
+            !!! capability tuning
+            https://discuss.gradle.org/t/copy-from-transitive-native-dependencies/34047
+            https://github.com/romainbsl/kodein-issue-258/blob/master/build.gradle.kts
+    component
+    configuration
+        https://docs.gradle.org/current/userguide/declaring_dependencies.html#sec:what-are-dependency-configurations
+        https://docs.gradle.org/current/userguide/declaring_dependencies.html#sec:resolvable-consumable-configs
+    dependency
+    dependency constraint
+    feature variant
+        A feature variant is identified by one or more capabilities.
+        https://docs.gradle.org/current/userguide/feature_variants.html
+
+    ...
+    variants (see variants.txt here)
+        https://docs.gradle.org/current/userguide/variant_model.html
+        https://docs.gradle.org/current/userguide/variant_attributes.html
+        https://docs.gradle.org/current/userguide/variant_attributes.html#native_ecosystem_specific_attributes
+        https://docs.gradle.org/current/userguide/feature_variants.html
+
 https://docs.gradle.org/current/userguide/declaring_dependencies.html
 https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
 https://docs.gradle.org/current/userguide/dependency_resolution.html
@@ -5,8 +31,9 @@ https://docs.gradle.org/current/userguide/dependency_resolution.html
     https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#getResolutionResult--
     https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#getArtifacts--
     https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#artifactView-org.gradle.api.Action-
-https://docs.gradle.org/current/userguide/dependency_capability_conflict.html
-    !!! capability tuning
+
+https://docs.gradle.org/current/userguide/cross_project_publications.html
+    ! Don’t reference other project tasks directly
 
 list lGroovy = ["...grovy-all:2.3.10@jar", ...]
 
@@ -65,6 +92,7 @@ dependencies {
 }
 
 Dependencies are grouped in configurations:
+    ( gra projects --info)
 - compileOnly
     https://gradle.org/blog/compile-only-dependencies/
 - compile
