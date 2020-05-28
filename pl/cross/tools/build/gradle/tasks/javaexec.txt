@@ -1,3 +1,16 @@
+java-plugin
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.JavaExec.html
+
+kotlin sample
+...
+    classpath = sourceSets["main"].runtimeClasspath
+    classpath(
+            { main.output.allOutputs.files },
+            { configurations["jvmRuntimeClasspath"] }
+    )
+...
+
+groovy sample
 project.ext.db = file("$buildDir/baseball.h2.db")
 
 task generateTestDb(dependsOn: classes, type: JavaExec) {
