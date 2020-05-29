@@ -1,0 +1,88 @@
+2020
+https://www.lorenzweiss.de/common_mistakes_react_hooks/
+https://www.smashingmagazine.com/2020/04/react-hooks-best-practices/
+https://www.smashingmagazine.com/2020/04/react-hooks-api-guide/
+https://techblog.commercetools.com/five-practical-tips-when-using-react-hooks-in-production-990a79745229
+    https://habr.com/ru/company/ruvds/blog/494712/
+https://blog.logrocket.com/pitfalls-of-overusing-react-context/
+https://codersera.com/blog/react-redux-hooks-with-typescript/
+
+2019
+https://blog.betomorrow.com/replacing-redux-with-observables-and-react-hooks-acdbbaf5ba80
+    https://habr.com/ru/post/484952/
+https://wattenberger.com/blog/react-hooks
+https://upmostly.com/tutorials/how-to-use-the-usecontext-hook-in-react
+https://www.telerik.com/blogs/how-to-use-context-api-with-hooks-efficiently-while-avoiding-performance-bottlenecks
+https://habr.com/ru/post/473070/
+https://kentcdodds.com/blog/dont-sync-state-derive-it
+https://blog.logrocket.com/animations-react-hooks-greensock/
+https://medium.com/@sdolidze/the-iceberg-of-react-hooks-af0b588f43fb
+https://leewarrick.com/blog/react-use-effect-explained/
+https://dev.to/chrisachard/react-hooks-mini-crash-course-4gcb
+https://howchoo.com/g/njy1njc2yzk/introduction-to-react-hooks
+https://dev.to/prototyp/building-custom-react-hooks-11h2
+https://www.telerik.com/kendo-react-ui/react-hooks-guide/
+https://kentcdodds.com/blog/react-hooks-pitfalls
+http://www.petecorey.com/blog/2019/08/19/animating-a-canvas-with-react-hooks/
+https://tylermcginnis.com/why-react-hooks/
+https://medium.com/javascript-scene/do-react-hooks-replace-higher-order-components-hocs-7ae4a08b7b58
+https://medium.com/javascript-scene/do-react-hooks-replace-redux-210bab340672
+    https://habr.com/ru/company/ruvds/blog/464293/
+https://www.infoq.com/presentations/react-redux-state-management/
+https://sebastiandedeyne.com/forget-about-component-lifecycles-and-start-thinking-in-effects/
+https://kentcdodds.com/blog/usememo-and-usecallback
+https://medium.com/javascript-in-plain-english/state-management-with-react-hooks-no-redux-or-context-api-8b3035ceecf8
+    https://habr.com/ru/company/vk/blog/454348/
+https://habr.com/ru/post/453866/
+https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/
+https://developers.facebook.com/videos/2019/intro-to-react-hooks/
+https://blog.logrocket.com/react-hooks-cheat-sheet-unlock-solutions-to-common-problems-af4caf699e70
+https://medium.com/@dai_shi/new-react-redux-coding-style-with-hooks-without-selectors-5055d59ab753
+https://www.codebeast.dev/react-memoize-hooks-useRef-useCallback-useMemo/
+https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/
+https://www.infoq.com/news/2019/04/react-hooks-pre-concurrent-mode
+https://blog.bitsrc.io/using-react-hooks-to-create-awesome-forms-6f846a4ce57
+https://staleclosures.dev/from-redux-to-hooks-case-study
+https://dev.to/flexdinesh/react-hooks-test-custom-hooks-with-enzyme-40ib
+https://blog.logrocket.com/how-to-create-your-own-react-hooks-77b426ac0e26
+https://upmostly.com/tutorials/how-to-use-the-usecontext-hook-in-react/
+https://overreacted.io/how-are-function-components-different-from-classes/
+    https://habr.com/ru/company/ruvds/blog/444348/
+https://parastudios.de/modern-and-clean-routing-with-hooks/
+https://www.sitepoint.com/react-hooks/
+https://upmostly.com/tutorials/form-validation-using-custom-react-hooks/
+https://overreacted.io/a-complete-guide-to-useeffect/
+    https://habr.com/ru/company/ruvds/blog/445276/
+https://habr.com/ru/post/443488/
+https://medium.com/open-graphql/react-hooks-for-graphql-3fa8ebdd6c62
+    https://nuancesprog.ru/p/3205
+https://tech.okcupid.com/getting-hooked-on-react-hooks/
+https://upmostly.com/tutorials/using-custom-react-hooks-simplify-forms/
+https://habr.com/ru/post/441722/
+    https://github.com/coderaiser/putout/tree/master/packages/plugin-react-hooks
+https://blog.usejournal.com/react-hooks-the-rebirth-of-state-management-and-beyond-7d84f6026d87
+https://hashnode.com/post/write-your-first-react-hook-cjrt8lfci00aw18s1z8v9s06n
+https://reactjs.org/blog/2019/02/06/react-v16.8.0.html
+https://overreacted.io/why-isnt-x-a-hook/
+https://medium.freecodecamp.org/how-i-built-an-async-form-validation-library-in-100-lines-of-code-with-react-hooks-81dbff6c4a04
+https://css-tricks.com/intro-to-react-hooks/
+
+2018
+https://overreacted.io/why-do-hooks-rely-on-call-order/
+https://medium.com/the-guild/under-the-hood-of-reacts-hooks-system-eb59638c9dba
+https://blog.bitsrc.io/simple-code-reuse-with-react-hooks-432f390696bf
+https://www.reaktor.com/blog/make-react-reactive-by-using-hooks/
+https://medium.freecodecamp.org/hooked-on-hooks-how-to-use-reacts-usereducer-2fe8f486b963
+TraversyMedia - Introducing React Hooks
+    https://www.youtube.com/watch?v=mxK8b99iJTg
+https://medium.freecodecamp.org/why-react-hooks-and-how-did-we-even-get-here-aa5ed5dc96af
+https://www.fullstackreact.com/articles/an-introduction-to-hooks-in-react/
+    https://habr.com/post/429712/
+https://medium.com/@vcarl/everything-you-need-to-know-about-react-hooks-8f680dfd4349
+https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e
+    https://nuancesprog.ru/p/2553/
+https://scotch.io/tutorials/getting-started-with-react-hooks
+https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889
+    https://habr.com/company/piter/blog/428632/
+https://daveceddia.com/intro-to-hooks
+https://dev.to/kayis/react-hooks-demystified-2af6
