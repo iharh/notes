@@ -5,6 +5,9 @@ https://docs.gradle.org/current/userguide/variant_attributes.html
 https://docs.gradle.org/current/userguide/variant_attributes.html#native_ecosystem_specific_attributes
 https://docs.gradle.org/current/userguide/feature_variants.html
 
+tasks
+    outgoingVariants
+
 issues
 // https://discuss.gradle.org/t/boolean-dependency-attribute-problems-in-kotlin-dsl/32469
 val nativeOptimizedAttr = Attribute.of(CppBinary.OPTIMIZED_ATTRIBUTE, Boolean::class.javaObjectType) // Boolean::class.java

@@ -1,5 +1,6 @@
 error boundaries
 https://reactjs.org/docs/error-boundaries.html
+
 2018
 https://css-tricks.com/handling-errors-with-error-boundary/
 
@@ -12,6 +13,8 @@ componentDidCatch(error, info)
 
 error boundaries
 https://reactjs.org/docs/error-boundaries.html
+2020
+https://www.smashingmagazine.com/2020/06/react-error-handling-reporting-error-boundary-sentry/
 2018
 https://css-tricks.com/handling-errors-with-error-boundary/
 

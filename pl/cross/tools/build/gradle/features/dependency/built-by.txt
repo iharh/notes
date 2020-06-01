@@ -1,0 +1,14 @@
+https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html?builtBy-java.lang.Object...-
+
+https://docs.gradle.org/current/userguide/more_about_tasks.html
+    //
+    tasks.register<Instrument>("instrumentClassesBuiltBy") {
+        classFiles = fileTree(tasks.compileJava.get().destinationDir) {
+            builtBy(tasks.compileJava.get())
+        }
+        destinationDir = file("$buildDir/instrumented")
+    }
+
+qa
+https://discuss.gradle.org/t/how-do-you-change-the-default-artifact-in-a-multi-project-build/7516
+https://discuss.gradle.org/t/configuration-to-have-task-dependency-builtby/26148/4
