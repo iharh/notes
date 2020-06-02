@@ -3,6 +3,9 @@ used mainly for .o files
 
 nm
     -l
+        line numbers
+    --no-demangle
+    --demangle[=<style>]
 
 U ...
 T ...
