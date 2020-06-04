@@ -34,7 +34,10 @@ https://github.com/pepeiborra/monadloc
 http://hackage.haskell.org/cgi-bin/hackage-scripts/package/monadloc
 
 2020
+https://jmtd.net/log/template_haskell/boilerplate/
 https://jmtd.net/log/template_haskell/
+2015
+https://www.parsonsmatt.org/2015/11/15/template_haskell.html
 
 
 Every time you want to write something in TH, you start with:
