@@ -3,6 +3,7 @@ https://github.com/scalaz/scalaz-zio
 
 
 2020
+https://blog.softwaremill.com/managing-dependencies-using-zio-8acc1539e276
 https://medium.com/wix-engineering/building-a-super-easy-rate-limiter-with-zio-88f1ccb49776
 https://medium.com/wix-engineering/5-pitfalls-to-avoid-when-starting-to-work-with-zio-adefdc7d2d5c
 https://juliano-alves.com/2020/04/20/zio-http4s-a-simple-api-client/
