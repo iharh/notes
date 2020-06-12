@@ -35,3 +35,13 @@ samples
     ...
         setFileMode(755)
     ...
+    create("cpModules") {
+        doLast {
+            copy {
+                from(fileTree("/data/wrk/clb/fx/modules")) {
+                    include("*/*.xml")
+                }
+                into("/home/iharh/Downloads/5/")
+            }
+        }
+    }
