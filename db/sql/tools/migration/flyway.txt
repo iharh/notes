@@ -1,4 +1,9 @@
-flyway
+http://flywaydb.org/
+https://github.com/flyway/flyway
+
+2020
+https://www.baeldung.com/database-migrations-with-flyway
+    https://habr.com/ru/company/otus/blog/506788/
 
 Java-migrations
 SQL-migrations
