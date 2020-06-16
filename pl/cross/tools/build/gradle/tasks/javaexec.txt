@@ -27,3 +27,6 @@ dependencies {
 }
 
 // jvmArgs = [ '-Xmx1024M', '-Xss10M' ]
+
+// kt
+    enrironment("key", "value")
