@@ -1,6 +1,7 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
 2.3
+https://spring.io/blog/2020/06/18/what-s-new-in-spring-boot-2-3
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.3-Release-Notes
 https://spring.io/blog/2020/05/15/spring-boot-2-3-0-available-now
 https://rieckpil.de/whats-new-in-spring-boot-2-3/
