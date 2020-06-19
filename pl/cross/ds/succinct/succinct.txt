@@ -1,0 +1,44 @@
+http://youtu.be/actIwwQWwjU
+http://courses.csail.mit.edu/6.851/spring12/lectures/L17.html
+http://courses.csail.mit.edu/6.851/spring12/lectures/L17.pdf
+
+http://www.slideshare.net/pfi/succinct-data-structure-for-analyzing-document-collection
+
+SuccinctTrie:
+http://stevehanov.ca/blog/index.php?id=120
+http://www.hanovsolutions.com/trie/Bits.js
+
+RRR:
+http://alexbowe.com/rrr/
+http://portal.acm.org/citation.cfm?id=545411
+
+FM-index
+http://alexbowe.com/fm-index/
+
+BWT, libcds
+http://en.wikipedia.org/wiki/Burrows-Wheeler_transform
+
+Fujimap:
+http://code.google.com/p/fujimap/
+
+Sumiretries:
+http://code.google.com/p/sumire-tries/
+
+Taiju:
+http://code.google.com/p/taiju/
+
+Succinct Bit Vector:
+http://code.google.com/p/sbvj/
+
+VLAs:
+Blelloch - Compact Dictionaries for Variable-Length Keys and Data with Applications
+http://www.cs.cmu.edu/~blelloch/papers/BB07.pdf
+
+Semi-Indexes:
+Ottaviano - Semi-Indexing Semi-Structured Data in Tiny Space
+http://www.di.unipi.it/~ottavian/files/semi_index_cikm.pdf
+
+OT - succinct:
+https://github.com/ot/succinct
+
+http://antilamer.livejournal.com/456955.html
