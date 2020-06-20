@@ -4,6 +4,9 @@ https://docs.spring.io/spring-data/jdbc/docs/1.0.2.RELEASE/reference/html/
 https://github.com/spring-projects/spring-data-jdbc
 https://github.com/spring-projects/spring-data-examples/tree/master/jdbc
 
+starter
+org.springframework.boot:spring-boot-starter-data-jdbc
+
 2020
 https://spring.io/blog/2020/05/20/migrating-to-spring-data-jdbc-2-0
 2018
