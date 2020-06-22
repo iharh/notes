@@ -2,7 +2,21 @@ https://internals.rust-lang.org/t/lang-team-minutes-const-generics/5090
 https://www.reddit.com/r/rust/comments/65etpm/langteamminutes_const_generics/
 http://manishearth.github.io/blog/2017/03/04/what-are-sum-product-and-pi-types/
 
+presentations
+2020
+ContextFree - C++20 and Rust on Static vs Dynamic Generics
+    https://www.youtube.com/watch?v=olM7o_oYML0
+2016
+Using Generics Effectively by Without Boats
+    https://www.youtube.com/watch?v=erJdCIti_O8
+
+articles
+2020
+https://medium.com/@PingCAP/generics-and-compile-time-in-rust-11a7becdbaba
+2019
+https://habr.com/ru/post/468145/
 2018
+https://tutorialedge.net/rust/learning-generics-in-rust/
 https://shingtaklam1324.github.io/number-theory-rust/
 function overloading
 http://casualhacks.net/blog/2018-03-10/exploring-function-overloading/

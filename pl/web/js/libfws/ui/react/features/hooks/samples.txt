@@ -8,6 +8,9 @@ useEffect
 useMutationEffect
 useLayoutEffect
 
+2020
+Dropdown Refactoring using Hooks
+    https://www.youtube.com/watch?v=KBUIPO8o0Ao
 2019
 https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
     https://habr.com/ru/post/492248/
