@@ -54,3 +54,9 @@ http://gregorriegler.com/2019/08/10/who-needs-lombok-anyhow.html
     http://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/EqualsBuilder.html
     http://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/HashCodeBuilder.html
     https://github.com/skinny85/jilt
+
+critice
+2020
+https://medium.com/@vgonzalo/dont-use-lombok-672418daa819
+    https://github.com/google/auto/tree/master/value
+    https://immutables.github.io/
