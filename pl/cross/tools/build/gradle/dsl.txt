@@ -15,12 +15,6 @@ PrebuiltLibraries, PrebuiltLibrary
 https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/PrebuiltLibrary.html
 https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/NativeLibraryBinary.html
 https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/PrebuiltSharedLibraryBinary.html
-Files
-https://docs.gradle.org/current/userguide/working_with_files.html
-FileCollection
-https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileCollection.html
-FileTree
-https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileTree.html
 ProjectDescriptor
 https://docs.gradle.org/current/javadoc/org/gradle/api/initialization/ProjectDescriptor.html
 
