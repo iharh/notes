@@ -23,6 +23,9 @@ https://quarkus.io/community/
 https://github.com/quarkusio/quarkus
 https://github.com/quarkusio/quarkus-quickstarts
 
+integrations
+https://hazelcast.com/blog/announcing-quarkus-hazelcast-client-integration/
+
 2020
 Quarkus Insights #7: GraalVM and Mandrel
     https://www.youtube.com/watch?v=jUdx5Gq8Sqw
