@@ -1,2 +1,10 @@
-"{took:.took, timed_out:.timed_out}"
+https://stedolan.github.io/jq/
+https://stedolan.github.io/jq/manual/
 
+https://github.com/fiatjaf/jiq
+
+2020
+https://codefaster.substack.com/p/mastering-jq-part-1-59c
+
+sammples
+"{took:.took, timed_out:.timed_out}"
