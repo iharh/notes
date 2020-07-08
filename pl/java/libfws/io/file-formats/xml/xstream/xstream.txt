@@ -1,0 +1,20 @@
+https://x-stream.github.io
+https://github.com/x-stream/xstream
+https://github.com/x-stream/xstream/blob/master/xstream/src/java/com/thoughtworks/xstream/XStream.java
+
+tutorials
+https://x-stream.github.io/tutorial.html
+https://x-stream.github.io/annotations-tutorial.html
+https://www.baeldung.com/xstream-serialize-object-to-xml
+
+attributes
+https://www.tutorialspoint.com/xstream/xstream_attribute_aliasing.htm
+    aliasAttribute, useAttributeFor
+    https://x-stream.github.io/javadoc/com/thoughtworks/xstream/XStream.html#aliasAttribute-java.lang.Class-java.lang.String-java.lang.String-
+    https://github.com/x-stream/xstream/blob/master/xstream/src/java/com/thoughtworks/xstream/XStream.java#L1451
+
+encodings
+https://stackoverflow.com/questions/5250312/xstream-with-special-characters
+
+api
+https://x-stream.github.io/javadoc/index.html
