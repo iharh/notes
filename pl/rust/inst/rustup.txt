@@ -113,5 +113,6 @@ https://github.com/rust-lang-nursery/rustup.rs/issues/215
 https://static.rust-lang.org/dist/index.html
 
 whatsnew
+https://blog.rust-lang.org/2020/07/06/Rustup-1.22.0.html
 https://github.com/rust-lang/rustup.rs/blob/master/CHANGELOG.md
 https://blog.rust-lang.org/2019/10/15/Rustup-1.20.0.html
