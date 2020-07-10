@@ -1,21 +1,4 @@
-presentations:
-2017:
-Funke - Web Programming with Flask
-https://www.youtube.com/watch?v=KQI9zWeDHuk
-https://www.youtube.com/watch?v=hMW9JW7qv-s
+https://flask.palletsprojects.com
+https://github.com/pallets/flask/
 
-https://blog.miguelgrinberg.com/
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-https://habrahabr.ru/post/346306/
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates
-https://habrahabr.ru/post/346340/
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms
-https://habrahabr.ru/post/346342/
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
-https://habrahabr.ru/post/346344/
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins
-https://habrahabr.ru/post/346346/
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vi-profile-page-and-avatars
-https://habrahabr.ru/post/346348/
-
-https://habrahabr.ru/post/347450/
+https://flask-russian-docs.readthedocs.io/ru/latest/quickstart.html

@@ -6,5 +6,8 @@ https://github.com/fiatjaf/jiq
 2020
 https://codefaster.substack.com/p/mastering-jq-part-1-59c
 
+xml
+https://codefaster.substack.com/p/mastering-jq-xml-and-any-other-data
+
 sammples
 "{took:.took, timed_out:.timed_out}"
