@@ -26,7 +26,7 @@ dependencies {
     runtime 'com.h2database:h2:<ver>'
 }
 
-// jvmArgs = [ '-Xmx1024M', '-Xss10M' ]
+// jvmArgs = [ '-Xmx1024M', '-Xss10M', '-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1337' ]
 
 // kt
     enrironment("key", "value")
