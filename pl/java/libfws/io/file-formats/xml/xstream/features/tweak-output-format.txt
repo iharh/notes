@@ -14,3 +14,18 @@ https://github.com/x-stream/xstream/issues/9
         false); // do not write the XML declaration
 
     xstream.marshal(rootObjToMarshal, new PrettyPrintWriter(staxWriter));
+
+faq
+    HierarchicalStreamDriver driver = new JsonHierarchicalStreamDriver() {
+        public HierarchicalStreamWriter createWriter(Writer out) {
+            return new WriterWrapper(super.createWriter(out)) {
+                public void startNode(String name) {
+                    startNode(name, null);
+                }
+                public void startNode(String name, Class clazz) {
+                    wrapped.startNode(name.replace('-', '_'), clazz);
+                }
+            }
+        }
+    };
+    XStream xstream = new XStream(driver);
