@@ -28,5 +28,11 @@ dependencies {
 
 // jvmArgs = [ '-Xmx1024M', '-Xss10M', '-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1337' ]
 
+
 // kt
-    enrironment("key", "value")
+    enrironment(name, value)
+    environment(mapOf(...))
+
+    workingDir = file(...)
+
+    systemProperties(mapOf(...))

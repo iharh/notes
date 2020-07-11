@@ -29,3 +29,9 @@ faq
         }
     };
     XStream xstream = new XStream(driver);
+
+
+    HierarchicalStreamWriter hierarchicalStreamWriter = staxDriver.createWriter(new FileWriter(xmlOutputFileName));
+    xstream.marshal(cfg, hierarchicalStreamWriter);
+
+    xstream.toXML(cfg, new FileWriter(xmlOutputFileName));
