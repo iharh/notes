@@ -45,3 +45,21 @@ samples
             }
         }
     }
+
+...
+    AbstractCopyTask filter(Class<? extends FilterReader> filterType)
+        https://docs.oracle.com/javase/8/docs/api/java/io/FilterReader.html
+        https://docs.gradle.org/current/javadoc/org/gradle/api/file/ContentFilterable.html
+    StripJavaComments
+        filter { line -> if (line.startsWith("//")) "" else line }
+        filter { content -> content.replace(Regex("@@verLog4j@@"), "2.13.3") }
+
+    org.apache.tools.ant.filters.LineContains
+        https://docs.gradle.org/current/userguide/working_with_files.html#sec:filtering_files
+        https://github.com/search?l=Kotlin&q=org.apache.tools.ant.filters&type=Code
+        https://ant.apache.org/manual/api/org/apache/tools/ant/filters/package-summary.html
+        https://ant.apache.org/manual/api/org/apache/tools/ant/filters/StripLineComments.html
+        https://ant.apache.org/manual/api/org/apache/tools/ant/filters/StripLineComments.Comment.html
+        https://github.com/PapenfussLab/PathOS/blob/master/Curate/src/groovy/org/petermac/pathos/loader/LoadPathOS.groovy
+
+        filter(LineContains, negate: true, contains: ['some word'])
