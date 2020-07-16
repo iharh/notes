@@ -4,6 +4,11 @@ https://www.fpcomplete.com/user/PthariensFlame/guide-to-ghc-extensions
 http://unbui.lt/#!/post/haskell-language-extensions/
 http://www.reddit.com/r/haskell/comments/3cndn7/some_awesome_language_extensions_explained/
 
+QualifiedDo
+https://github.com/ghc-proposals/ghc-proposals/blob/master/proposals/0216-qualified-do.rst
+    https://www.tweag.io/blog/2020-07-13-qualified-do-announcement/
+    https://www.reddit.com/r/haskell/comments/hqf9f1/qualified_do_rebind_your_donotation_the_right_way/
+
 StrictPragma:
 https://ghc.haskell.org/trac/ghc/wiki/StrictPragma
 https://ghc.haskell.org/trac/ghc/blog/weekly20150729
