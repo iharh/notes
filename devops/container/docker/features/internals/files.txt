@@ -36,6 +36,3 @@ d2m, boot2docker:
 /usr/local/bin/docker -d -D -g /var/lib/docker -H unix:// -H tcp://0.0.0.0:2376 --label provider=virtualbox
     --tlsverify --tlscacert=/var/lib/boot2docker/ca.pem --tlscert=/var/lib/boot2docker/server.pem --tlskey=/var/lib/boot2docker/server-key.pem
     -s aufs
-
-2020
-https://habr.com/ru/post/484374/
