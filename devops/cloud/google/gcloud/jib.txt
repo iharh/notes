@@ -4,6 +4,8 @@ https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin
 
 FROM gcr.io/distroless/java
 
+https://github.com/GoogleContainerTools/jib-extensions
+
 2018
 https://circleci.com/blog/dockerizing-java-apps-with-circleci-and-jib/?utm_source=cooperpress&utm_medium=newsletter&utm_campaign=oct18&utm_content=javascript-weekly
 https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html
