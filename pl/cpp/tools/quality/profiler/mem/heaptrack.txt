@@ -22,6 +22,9 @@ community/heaptrack
 /usr/share/applications/
     org.kde.heaptrack.desktop
 
+2020
+Desitter - Reducing Memory Allocations in a Large C++ Application
+    https://www.youtube.com/watch?v=ZXTI5iWHhrg
 2019
 Zemlin - Keynote: Welcome and Opening Remarks
     https://www.youtube.com/watch?v=jOxJmsPG3Ow
