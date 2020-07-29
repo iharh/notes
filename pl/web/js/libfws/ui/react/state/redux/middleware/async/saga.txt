@@ -1,3 +1,5 @@
+https://redux-saga.js.org/
+
 https://redux-saga.github.io/redux-saga/
 https://github.com/redux-saga/redux-saga
 
@@ -21,6 +23,11 @@ https://www.moscowjs.ru/talk/redux-saga-na-steroidah
 2016
 Bukhanov - The Evolution of Redux Action Creators (+saga)
 https://www.slideshare.net/GeorgeBukhanov/the-evolution-of-redux-action-creators
+
+testing
+https://redux-saga.js.org/docs/advanced/Testing.html
+https://habr.com/ru/post/513012/
+https://github.com/jfairbank/redux-saga-test-plan
 
 samples
 https://github.com/qvantor/react-tower-defence/tree/init/src/sagas
