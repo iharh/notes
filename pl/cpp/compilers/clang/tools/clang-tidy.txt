@@ -5,6 +5,9 @@ https://clang.llvm.org/extra/clang-tidy/checks/list.html
 samples
 CXX=clang++ CXXFLAGS="-Xclang -add-plugin -Xclang clang-tidy -Xclang -plugin-arg-clang-tidy -Xclang -checks='-*, clang-analyzer-core.*'" juci [project-path]
 
+2020
+Tingaud - How to Refactor Millions of Line of Code Without Alienating your Colleagues
+    https://www.youtube.com/watch?v=Fxe7JoGSyy8
 2019
 Tingaud - How to Refactor Millions of Line of Code Without Alienating your Colleagues
     https://www.youtube.com/watch?v=JPnN2c2odNY
