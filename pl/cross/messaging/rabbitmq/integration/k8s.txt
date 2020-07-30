@@ -1,4 +1,5 @@
 https://github.com/Gsantomaggio/rabbitmq-operator
 https://github.com/Gsantomaggio/rabbitmq-operator#install-the-rabbitmq-operator-with-helm3
 
-https://github.com/rabbitmq/cluster-operator
+https://www.rabbitmq.com/kubernetes/operator/operator-overview.html
+    https://github.com/rabbitmq/cluster-operator
