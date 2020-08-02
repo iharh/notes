@@ -11,22 +11,7 @@ https://github.com/sfackler/serde-transcode
 
 https://crates.io/crates/serde_shims
 
-articles
-2020
-https://juliano-alves.com/2020/01/06/rust-deserialize-json-with-serde/
-2019
-https://www.joshmcguigan.com/blog/understanding-serde/
-http://timryan.org/2019/01/22/exporting-serde-types-to-typescript.html
-2018
-https://noyez.gitlab.io/post/2018-08-14-short-serde-deserialize-exapmle/
-https://rreverser.com/derive-serdebug/
-http://zork.net/~st/jottings/Serializing_awkward_data_with_serde.html
-    https://habrahabr.ru/post/350956/
-https://www.reddit.com/r/rust/comments/81we47/serializing_awkward_data_with_serde/
-
-docs
-https://serde.rs/attributes.html#field-attributes
-
+erased-serde
 https://github.com/dtolnay/erased-serde
 https://www.reddit.com/r/rust/comments/6pgyy1/serde_trait_objects_work_again/
 
@@ -57,8 +42,3 @@ https://www.reddit.com/r/rust/comments/aj2b7u/announcing_serde_trait_objects_fin
 
 skip default
 https://www.mth.st/blog/skip-default/
-
-issues
-https://www.reddit.com/r/rust/comments/5u1q5e/incompatibility_between_serde_derive_and_rustc/
-https://www.reddit.com/r/rust/comments/6o1p46/serde_state_stateful_serde_deserialization/
-https://github.com/serde-rs/serde/issues/194
