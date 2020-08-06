@@ -3,6 +3,7 @@ systemctl list-dependencies multi-user.target
 systemctl get-default
   view the default target that triggers others
   (graphical.target - in my case)
+  https://www.reddit.com/r/commandline/comments/i4bjky/how_do_i_get_my_laptop_to_boot_directly_to_a/
 systemctl
   [list-units] --type=target
   list-unit-files --type=target
