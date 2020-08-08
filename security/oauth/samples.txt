@@ -1,28 +1,3 @@
-https://tools.ietf.org/html/rfc6749
-https://tools.ietf.org/html/rfc6750
-
-wiki:
-https://en.wikipedia.org/wiki/OAuth
-
-articles
-2019
-https://itnext.io/an-oauth-2-0-introduction-for-beginners-6e386b19f7a9
-2017
-https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth
-
-books
-2017
-Richer - OAuth2 in Action
-2015
-Bihis - Mastering OAuth 2
-2013
-Spasovski - OAuth 2 Identity and Access Management Patterns
-
-presentations
-2017
-Tran - Beyond OAuth2
-https://www.infoq.com/presentations/oauth2-microservices-security
-
 https://console.developers.google.com/project
 
 https://developers.google.com/drive/web/about-auth
