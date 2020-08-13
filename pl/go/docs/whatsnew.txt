@@ -10,29 +10,26 @@ https://go.googlesource.com/proposal/+/master/design/go2draft-generics-overview.
     https://habr.com/post/422049/
 https://go.googlesource.com/proposal/+/master/design/go2draft-contracts.md
 
-1.14
+1.x
+https://blog.golang.org/go1.15
+    https://www.opennet.ru/opennews/art.shtml?num=53539
 https://blog.golang.org/go1.14
     https://www.opennet.ru/opennews/art.shtml?num=52443
-1.13
 https://blog.golang.org/go1.13
     http://www.opennet.ru/opennews/art.shtml?num=51417
     https://www.infoq.com/news/2019/09/go-1-13-module-mirror-checksumdb/
-1.12
 https://blog.golang.org/go1.12
-https://golang.org/doc/go1.12
-http://www.opennet.ru/opennews/art.shtml?num=50210
-https://www.infoq.com/news/2019/03/golang-1.12-released
-1.11
+    https://golang.org/doc/go1.12
+    http://www.opennet.ru/opennews/art.shtml?num=50210
+    https://www.infoq.com/news/2019/03/golang-1.12-released
 https://tip.golang.org/doc/go1.11
-http://www.opennet.ru/opennews/art.shtml?num=49183
-https://habr.com/post/421355/
-
-1.10
-http://www.opennet.ru/opennews/art.shtml?num=48096
-https://www.infoq.com/news/2018/02/golang-1.10-released
+    http://www.opennet.ru/opennews/art.shtml?num=49183
+    https://habr.com/post/421355/
 https://blog.golang.org/go1.10
-https://golang.org/doc/go1.10
-https://speakerdeck.com/badoo_tech/novoie-v-go-1-dot-10-alieksiei-palazhchienko-percona
+    http://www.opennet.ru/opennews/art.shtml?num=48096
+    https://www.infoq.com/news/2018/02/golang-1.10-released
+    https://golang.org/doc/go1.10
+    https://speakerdeck.com/badoo_tech/novoie-v-go-1-dot-10-alieksiei-palazhchienko-percona
 
 compatibility
 https://golang.org/doc/go1compat
