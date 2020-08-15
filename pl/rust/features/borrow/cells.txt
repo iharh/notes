@@ -1,3 +1,8 @@
+https://doc.rust-lang.org/stable/std/cell/struct.Cell.html
+
+2020
+https://ryhl.io/blog/temporary-shared-mutation/
+
 https://crates.io/crates/lazycell
 http://indiv0.github.io/lazycell/lazycell/
 https://github.com/indiv0/lazycell
