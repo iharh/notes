@@ -11,6 +11,8 @@ scoop
         list
     search
         <package-name>
+        https://github.com/shilangyu/scoop-search
+            ! drop-in replacement
     which
         locate a shim/executable (similar to 'which' on Linux)
     home <app>
