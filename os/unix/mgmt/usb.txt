@@ -6,8 +6,12 @@ install packages:
   polkit-gnome gvfs gamin
 
 ISO writing:
-http://crunchbanglinux.org/wiki/statler_usb_installation
 http://crunchbang.org/forums/viewtopic.php?id=23267
+https://wiki.manjaro.org/index.php/Burn_an_ISO_File
+    community/imagewriter
+    or
+    sudo dd bs=4M if=/path/to/manjaro.iso of=/dev/sd[drive letter] status=progress oflag=sync
+    sudo dd bs=4M if=manjaro-awesome-20.0-200428-linux56.iso of=/dev/sdb status=progress oflag=sync
 
 sudo ls -l /dev/disk/by-id/*usb*
 
