@@ -17,6 +17,9 @@ inst
 npm i -P firebase @firebase/app @firebase/firestore
 
 articles
+2020
+https://www.smashingmagazine.com/2020/08/comment-system-firebase/
+    https://github.com/smashingmagazine/blog-comments
 2018
 https://www.infoq.com/news/2018/11/google-firebase-mobile-updates
 https://nrempel.com/guides/react-firebase-ant-design/
