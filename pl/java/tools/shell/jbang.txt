@@ -6,3 +6,6 @@ sdkman/jbang
 scoop bucket add jbangdev https://github.com/jbangdev/scoop-bucket
 scoop install jbang
     https://github.com/jbangdev/scoop-bucket/blob/master/jbang.json
+
+samples
+https://github.com/filippobuletto/kubectl-java-test/blob/master/kubectl-java_test.java
