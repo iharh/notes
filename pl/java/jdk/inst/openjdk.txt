@@ -1,3 +1,6 @@
+https://openjdk.java.net/projects/jdk/
+https://github.com/openjdk/jdk
+
  pacman -Qql jre8-openjdk
 /usr/lib/jvm/java-8-openjdk/
 /usr/lib/jvm/java-8-openjdk/jre/
