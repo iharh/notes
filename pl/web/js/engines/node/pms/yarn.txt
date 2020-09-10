@@ -43,8 +43,6 @@ https://yarnpkg.com/en/docs/dependencies
     https://yarnpkg.com/en/docs/selective-version-resolutions
 https://yarnpkg.com/en/docs/workspaces
 
-whatsnew
-    https://github.com/yarnpkg/yarn/issues/6953
 
 
 cli
@@ -75,3 +73,7 @@ https://yarnpkg.com/en/docs/migrating-from-npm
 
 critice
 https://mixmax.com/blog/to-yarn-and-back-again-npm
+
+whatsnew
+    https://github.com/yarnpkg/yarn/issues/6953
+    https://dev.to/arcanis/yarn-2-2-dedupe-faster-lighter-ha5
