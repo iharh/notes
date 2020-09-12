@@ -1,0 +1,5 @@
+https://www.virtualbox.org/wiki/Changelog-6.0
+    VirtualBox 6.0.0 (released December 18 2018) 
+    ...
+    Added support for using Hyper-V as the fallback execution core on Windows host,
+    to avoid inability to run VMs at the price of reduced performance 

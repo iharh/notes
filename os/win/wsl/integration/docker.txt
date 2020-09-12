@@ -13,6 +13,12 @@ https://docs.docker.com/docker-for-windows/kubernetes/
     https://blog.docker.com/2018/04/docker-desktop-certified-kubernetes/
     https://github.com/juliostanley/scoop-windows-linux-containers
 
+2020
+https://www.docker.com/blog/how-we-test-docker-desktop-with-wsl-2/
+https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa
+    https://habr.com/ru/company/vdsina/blog/496804/
+2019
+https://habr.com/ru/post/474346/
 2018
 https://medium.freecodecamp.org/how-to-set-up-docker-and-windows-subsystem-for-linux-a-love-story-35c856968991
     https://nuancesprog.ru/p/2971/
