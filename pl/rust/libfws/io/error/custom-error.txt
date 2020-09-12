@@ -4,3 +4,6 @@ https://github.com/lovasoa/custom_error
     ! 13 usages, 300 lines impl (without tests)
 
 https://docs.rs/custom_error/*/custom_error/macro.custom_error.html
+
+samples
+https://alexliesenfeld.com/posts/2020/rust-http-testing-with-httpmock/

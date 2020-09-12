@@ -33,7 +33,7 @@ cargo
         figure out all the latest versions and try to update (Cargo.lock)
     install-update -a
         https://www.reddit.com/r/rust/comments/5a21b8/cargoupdate_check_for_updates_to_your/
-    test [--no-build]
+    t[est] [--no-build]
     run
         --example <example-name>
     edit
