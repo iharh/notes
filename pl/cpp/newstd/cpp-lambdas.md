@@ -27,6 +27,9 @@
 * [StackOverflow - How does Generic Lambda Work in C++ 14] (http://stackoverflow.com/questions/17233547/how-does-generic-lambda-work-in-c14)
 * [For Geeks Only - Generic Polymorphic Lambdas] (http://yapb-soc.blogspot.com/2012/12/clang-and-generic-polymorphic-lambdas.html)
 
+## Recursive Lambdas
+* [Recursive Lambdas for C++] (https://artificial-mind.net/blog/2020/09/12/recursive-lambdas)
+
 ## Russian Only
 
 * [C++0x Lambdas RU] (http://blog.olendarenko.org.ua/2009/08/c0x.html)
