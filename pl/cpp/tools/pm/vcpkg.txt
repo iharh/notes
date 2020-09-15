@@ -9,6 +9,7 @@ https://github.com/microsoft/vcpkg/wiki/Roadmap
 
 https://github.com/microsoft/vcpkg/tree/master/ports
 
+https://devblogs.microsoft.com/cppblog/vcpkg-accelerate-your-team-development-environment-with-binary-caching-and-manifests/
 https://devblogs.microsoft.com/cppblog/vcpkg-2020-04-update-and-product-roadmap/
 https://blogs.msdn.microsoft.com/vcblog/2018/04/24/announcing-a-single-c-library-manager-for-linux-macos-and-windows-vcpkg/
 https://blogs.msdn.microsoft.com/vcblog/2017/05/03/vcpkg-introducing-export-command/

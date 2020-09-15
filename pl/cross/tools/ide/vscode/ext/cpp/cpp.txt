@@ -1,4 +1,6 @@
 https://code.visualstudio.com/docs/languages/cpp
+
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
 https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
 https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools
 
@@ -10,3 +12,7 @@ https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageS
 https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md
 
 https://caphyon.github.io/clang-power-tools/
+
+tutorials
+https://code.visualstudio.com/docs/languages/cpp#_hello-world-tutorials
+https://code.visualstudio.com/docs/cpp/config-linux
