@@ -5,39 +5,3 @@ https://github.com/PowerShell/PowerShell
 aur
     powershell (src-based)
     powershell-bin (deb-based
-
-startup
-https://github.com/PowerShell/PowerShell/issues/1190
-#Add this to C:\Users\%username%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-
-# directory where my scripts are stored
-$psdir="D:\Documents\Powershell\Scripts\autoload"  
-
-# load all 'autoload' scripts
-Get-ChildItem "${psdir}\*.ps1" | %{.$_} 
-Write-Host "Custom PowerShell Environment Loaded"
-
-profiles
-https://technet.microsoft.com/en-us/library/bb613488(v=vs.85).aspx
-https://blogs.technet.microsoft.com/heyscriptingguy/2012/05/21/understanding-the-six-powershell-profiles/
-https://blogs.technet.microsoft.com/heyscriptingguy/2013/01/04/understanding-and-using-powershell-profiles/
-
-# To display the path to the Windows PowerShell profile, type:
-$profile
-C:\Users\Ihar_Hancharenka\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-
-# To determine whether a Windows PowerShell profile has been created on the system, type:
-# If the profile exists, the response is True; otherwise, it is False.
-test-path $profile
-
-# To create a Windows PowerShell profile file, type:
-new-item -path $profile -itemtype file -force
-
-???
--Noninteractive -ExecutionPolicy Bypass –Noprofile -file %~dp0SomePSScript.ps1
-
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}

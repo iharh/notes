@@ -1,0 +1,7 @@
+pwsh
+    -noe | -NoExit
+    -nop | -NoProfile
+    -nol | -NoLogo
+
+    -wd  | -WorkingDirectory
+        ~

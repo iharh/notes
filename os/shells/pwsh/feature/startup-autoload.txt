@@ -1,0 +1,10 @@
+startup
+https://github.com/PowerShell/PowerShell/issues/1190
+#Add this to C:\Users\%username%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+
+# directory where my scripts are stored
+$psdir="D:\Documents\Powershell\Scripts\autoload"  
+
+# load all 'autoload' scripts
+Get-ChildItem "${psdir}\*.ps1" | %{.$_} 
+Write-Host "Custom PowerShell Environment Loaded"

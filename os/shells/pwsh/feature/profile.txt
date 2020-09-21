@@ -15,7 +15,7 @@ test-path $profile
 new-item -path $profile -itemtype file -force
 
 ???
--Noninteractive -ExecutionPolicy Bypass Noprofile -file %~dp0SomePSScript.ps1
+-Noninteractive -ExecutionPolicy Bypass Noprofile -file %~dp0SomePSScript.ps1
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
