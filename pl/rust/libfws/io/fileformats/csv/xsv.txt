@@ -8,6 +8,7 @@ aur
     xsv
 
 xsv
+    count
     search
         -s, --select <arg> 
     select <options> <regex> <input>
