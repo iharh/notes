@@ -5,3 +5,12 @@ http://blog.faraday.io/how-we-made-our-csv-processing-142x-faster/
 
 aur
     xsv
+
+xsv
+    search
+        -s, --select <arg> 
+    select <options> <regex> <input>
+        headers ...
+    split
+    fmt
+        --quote <arg> (default - ")
