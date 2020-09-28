@@ -6,6 +6,8 @@ nm
         line numbers
     --no-demangle
     --demangle[=<style>]
+    --defined-only
+    --undefined-only
 
 U ...
 T ...

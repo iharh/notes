@@ -36,6 +36,11 @@ cargo
     t[est] [--no-build]
     run
         --example <example-name>
+    add
+        <dep-name> [--vers <ver>]
+            add a dependency
+    rm
+        <dep-name>
     edit
         https://github.com/killercup/cargo-edit
         + add

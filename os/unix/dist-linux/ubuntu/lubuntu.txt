@@ -1,0 +1,14 @@
+https://lubuntu.me/downloads/
+https://lubuntu.me/focal-1-released/
+
+/etc/xdg/lxsession/Lubuntu/desktop.conf
+    [Desktop Entry]
+    Encoding=UTF-8
+    Name=awesome
+    Comment=Highly configurable framework window manager
+    TryExec=awesome
+    Type=Application
+    Exec=awesome
+    https://askubuntu.com/questions/162516/switching-window-manager-desktop-environments
+But what realy helps me - its
+    lxsession-default-apps
