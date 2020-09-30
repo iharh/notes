@@ -1,0 +1,56 @@
+https://github.com/micrometer-metrics/micrometer/blob/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder/jetty/JettyServerThreadPoolMetrics.java
+
+import io.micrometer.core.instrument.*;
+import io.micrometer.core.instrument.binder.MeterBinder;
+import io.micrometer.core.lang.NonNull;
+import io.micrometer.core.lang.NonNullApi;
+import io.micrometer.core.lang.NonNullFields;
+
+@NonNullApi
+@NonNullFields
+public class SomeMetrics implements MeterBinder {
+    ...
+    @Override
+    public void bindTo(@NonNull MeterRegistry registry) {
+        registerMetrics((mBean, allTags) -> {
+            Gauge.builder("datasource", mBeanServer,
+                    beanServer -> {
+                        try {
+                            return Double.parseDouble(beanServer.getAttribute(mBean, "NumActive").toString());
+                        } catch (Exception ex) {
+                            return Double.NaN;
+                        }
+                    })
+                    .tags(Tags.concat(allTags, "state", "active"))
+                    .description("The number of DataSource connections")
+                    .baseUnit("connections")
+                    .register(registry);
+            Gauge.builder("datasource", mBeanServer,
+                    beanServer -> {
+                        try {
+                            return Double.parseDouble(beanServer.getAttribute(mBean, "NumIdle").toString());
+                        } catch (Exception ex) {
+                            return Double.NaN;
+                        }
+                    })
+                    .tags(Tags.concat(allTags, "state", "idle"))
+                    .description("The number of DataSource connections")
+                    .baseUnit("connections")
+                    .register(registry);
+        }, (dataSourceName, allTags) -> {
+            // Build Meter ID using name and tags as they used in hashCode/equals methods
+            Meter.Id active = new Meter.Id("datasource", Tags.concat(allTags, "state", "active"), null, null, Meter.Type.GAUGE);
+            Meter.Id idle = new Meter.Id("datasource", Tags.concat(allTags, "state", "idle"), null, null, Meter.Type.GAUGE);
+            registry.remove(active);
+            registry.remove(idle);
+        });
+    }
+
+    private void registerMetrics(BiConsumer<ObjectName, Iterable<Tag>> register, BiConsumer<String, Iterable<Tag>> unregister) {
+        ...
+        register.accept(someName, Tags.concat(tags, "sometagname", someTagValue));
+        ...
+        unregister.accept(someName, Tags.concat(tags, "sometagname", someTagValue));
+        ...
+    }
+}

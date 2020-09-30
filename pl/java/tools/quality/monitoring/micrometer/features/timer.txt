@@ -1,0 +1,46 @@
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Timer;
+import io.micrometer.core.instrument.distribution.HistogramSnapshot;
+import io.micrometer.core.instrument.distribution.ValueAtPercentile;
+...
+@RestController
+@Timed
+public class SomeController {
+    ...
+    ... some_method() {
+        ...
+        Timer timer = Timer.builder("some.bench" + benchId)
+            .publishPercentiles(0, 0.25, 0.5, 0.75, 0.90, 0.95, 0.99)
+            .publishPercentileHistogram()
+            .distributionStatisticExpiry(Duration.ofMinutes(60))
+            .register(meterRegistry);
+        ...
+        timer.record(() -> {
+            try {
+                some_action(..., micrometerStatsCollector);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        ...
+
+        someNode.put("count", timer.count());
+        someNode.put("total_time", timer.totalTime(measureTimeUnit));
+
+        HistogramSnapshot snapshot = timer.takeSnapshot();
+        ValueAtPercentile[] percentiles = snapshot.percentileValues();
+
+        someNode.put("min_time", percentiles[0].value(measureTimeUnit));
+        someNode.put("mean_time", timer.mean(measureTimeUnit));
+        someNode.put("max_time", timer.max(measureTimeUnit));
+
+        someNode.put("25%_time", percentiles[1].value(measureTimeUnit));
+        someNode.put("50%_time", percentiles[2].value(measureTimeUnit));
+        someNode.put("75%_time", percentiles[3].value(measureTimeUnit));
+        someNode.put("90%_time", percentiles[4].value(measureTimeUnit));
+        someNode.put("95%_time", percentiles[5].value(measureTimeUnit));
+        someNode.put("99%_time", percentiles[6].value(measureTimeUnit));
+
+        meterRegistry.remove(timer);
+    } 
