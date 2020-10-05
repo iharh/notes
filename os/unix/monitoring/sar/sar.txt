@@ -3,3 +3,17 @@ community/sysstat 12.4.0-1 (420.5 KiB 1.6 MiB)
 
 2020
 https://www.linuxtechi.com/generate-cpu-memory-io-report-sar-command/
+
+sar
+    -b          I/O and transfer rate statistics
+        [A_IO]
+    -r [ALL]    memory utilization statistics
+        [A_MEMORY]
+
+    -u [ALL]    CPU utilization statistics
+        [A_CPU]
+    -S          swap space utilization statistics
+        (kbswpfree kbswpused  %swpused  kbswpcad   %swpcad)
+    -W          swapping statistics
+        [A_SWAP]
+    -o <file-to-save>
