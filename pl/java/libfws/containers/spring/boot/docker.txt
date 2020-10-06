@@ -7,6 +7,9 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#writing-th
 https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#build-image
 
 2020
+https://reflectoring.io/spring-boot-docker/
+    https://habr.com/ru/post/522122/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-docker
 https://spring.io/blog/2020/08/14/creating-efficient-docker-images-with-spring-boot-2-3
 https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
 CodingTech - Spring Boot with Docker and Kubernetes
