@@ -1,6 +1,8 @@
 https://help.ubuntu.ru/wiki/%D1%88%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B2%D1%81%D0%B5%D0%B3%D0%BE_%D0%B4%D0%B8%D1%81%D0%BA%D0%B0
 
 2019
+https://askubuntu.com/questions/918021/encrypted-custom-install
+    ! recommended by epam
 https://help.ubuntu.com/community/Full_Disk_Encryption_Howto_2019
 https://www.reddit.com/r/zfs/comments/anpyku/zfs_encryption_vs_luks_zfs/
     Been using luks + zfs (ubuntu 18.04) for over a year now on my server without issues.
