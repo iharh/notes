@@ -1,17 +1,16 @@
 https://gn.googlesource.com/gn/
 
+https://gn.googlesource.com/gn/+/master/docs/
 https://gn.googlesource.com/gn/+/master/docs/reference.md
+https://gn.googlesource.com/gn/+/master/docs/style_guide.md
 
-https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md
-
-https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/docs/quick_start.md
-https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/docs/faq.md
-https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/docs/language.md
-https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/docs/reference.md
-https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/docs/style_guide.md
+articles
+https://fuchsia.dev/fuchsia-src/concepts/build_system/intro
+https://habr.com/ru/company/mailru/blog/455956/
 
 presentations
 https://docs.google.com/presentation/d/15Zwb53JcncHfEwHpnG_PoIbbzQ3GQi_cpujYwbpcbZo
 
 samples
 https://www.chromium.org/developers/gn-build-configuration
+https://v8.dev/docs/build-gn
