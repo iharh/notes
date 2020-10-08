@@ -1,3 +1,7 @@
 https://www.reddit.com/r/rust/comments/7te8si/personal_experience_can_cause_hard_to_notice/
 
 https://docs.rs/failure/0.1.1/failure/struct.Backtrace.html
+
+2020
+https://blog.rust-lang.org/2020/10/08/Rust-1.47.html
+    RUST_BACKTRACE=full

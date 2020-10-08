@@ -1,5 +1,8 @@
 https://rust-lang.github.io/book/second-edition/ch15-00-smart-pointers.html
 
+2020
+https://dev.to/imaculate3/that-s-so-rusty-smart-pointers-245l
+
 Deref-trait:
 https://doc.rust-lang.org/std/ops/trait.Deref.html
 https://doc.rust-lang.org/std/ops/trait.DerefMut.html
