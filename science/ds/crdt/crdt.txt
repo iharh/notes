@@ -1,24 +1,5 @@
 https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type
 
-2020
-Long - CRDTs for Mortals
-    https://www.youtube.com/watch?v=DEcwa68f-jY
-    https://www.youtube.com/watch?v=iEFcmfmdh2w
-2019
-https://www.infoq.com/presentations/sequential-concurrent-crdt
-2018
-https://www.infoq.com/presentations/crdt-production
-https://habr.com/company/jugru/blog/424763/
-Sobo - Real-time, Fine-grained Version Control with CRDTs
-    https://www.infoq.com/presentations/github-crdt
-https://habr.com/post/418897/
-    https://habr.com/post/416961/
-Kleppmann - CRDTs and the quest for distributed consistency
-https://qconlondon.com/system/files/presentation-slides/conflict-resolution.pdf
-https://www.infoq.com/presentations/crdt-distributed-consistency
-https://www.infoq.com/news/2018/03/data-consistency-crdto
-https://qconlondon.com/london2018/presentation/crdts-and-quest-distributed-consistency
-
 Shapiro - CRDTs
 http://hal.archives-ouvertes.fr/inria-00555588/
 http://youtu.be/ebWVLVhiaiY
@@ -47,9 +28,3 @@ http://basho.com/tag/crdt/
 
 http://www.allthingsdistributed.com/2008/12/eventually_consistent.html
 http://book.mixu.net/distsys/single-page.html
-
-2013
-http://lanyrd.com/2013/riconwest/scmzrm/
-https://speakerdeck.com/lenary/crdts-an-update-or-just-a-put
-http://www.youtube.com/watch?v=zUJiWEbtCv8
-http://www.youtube.com/watch?v=PdCZXLEh788

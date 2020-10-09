@@ -14,5 +14,7 @@ LDFLAGS="-pg"
 debug
 -g
 
+gcc @args.file
+
 warnings
 https://habr.com/ru/post/490850/
