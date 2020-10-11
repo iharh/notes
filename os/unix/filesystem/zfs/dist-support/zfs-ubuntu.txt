@@ -5,10 +5,13 @@ zsys
 https://didrocks.fr/2020/05/26/zfs-focus-on-ubuntu-20.04-lts-zsys-general-presentation/
 
 2020
+http://vasilisc.com/ubuntu-20-04-zfs-snapshot-apt
+    !
 https://ubuntu.com/blog/zfs-focus-on-ubuntu-20-04-lts-whats-new
 https://linuxconfig.org/install-ubuntu-20-04-with-zfs
     ! we can choose minimal with ZFS
 https://linuxconfig.org/configuring-zfs-on-ubuntu-20-04
+    ! install on existing ubuntu
     $ sudo zfs create -o encryption=on -o keylocation=prompt -o keyformat=passphrase mypool/encrypted
     $ sudo zfs mount -l mypool/encrypted
 https://linuxhint.com/installing_zfs_ubuntu_20-04/

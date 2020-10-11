@@ -1,6 +1,10 @@
 https://lubuntu.me/downloads/
 https://lubuntu.me/focal-1-released/
 
+https://manual.lubuntu.me/
+https://manual.lubuntu.me/stable/
+https://manual.lubuntu.me/lts/
+
 /etc/xdg/lxsession/Lubuntu/desktop.conf
     [Desktop Entry]
     Encoding=UTF-8
@@ -12,3 +16,6 @@ https://lubuntu.me/focal-1-released/
     https://askubuntu.com/questions/162516/switching-window-manager-desktop-environments
 But what realy helps me - its
     lxsession-default-apps
+
+zfs
+https://linuxhint.com/install_zfs_ubuntu_1804/

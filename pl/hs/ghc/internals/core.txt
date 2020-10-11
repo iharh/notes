@@ -38,7 +38,7 @@ Bolingbroke - Types are Calling Conventions
 University Courses
 OSullivan - CH-240 - (perf, ghc, testing slides).
 
-Articles:
+articles:
 http://www.haskellforall.com/2012/10/hello-core.html
 http://blog.ezyang.com/2011/04/tracing-the-compilation-of-hello-factorial/
 http://ics.p.lodz.pl/~stolarek/blog/2013/01/taking-magic-out-of-ghc-or-tracing-compilation-by-transformation/
