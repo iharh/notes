@@ -1,0 +1,4 @@
+F5      start debug
+S-F5    stop debug
+F10     step over
+F11     step into

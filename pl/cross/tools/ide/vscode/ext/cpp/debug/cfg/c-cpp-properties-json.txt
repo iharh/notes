@@ -1,0 +1,19 @@
+c_cpp_properties.json
+    https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/data/wrk/clb/fx/spikes/gra/third_party/scws/build/scws-inst/include/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "${default}"
+        }
+    ],
+    "version": 4
+}
