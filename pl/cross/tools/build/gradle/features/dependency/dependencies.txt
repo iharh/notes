@@ -95,7 +95,7 @@ dependencies {
 Dependencies are grouped in configurations:
     ( gra projects --info)
 - compileOnly
-    https://gradle.org/blog/compile-only-dependencies/
+    https://blog.gradle.org/introducing-compile-only-dependencies
 - compile
 - runtime
 - testCompile

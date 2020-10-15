@@ -1,6 +1,13 @@
 https://github.com/spring-projects-experimental/spring-authorization-server
     https://tools.ietf.org/html/rfc6749#section-1.1
     
+specs
+https://github.com/spring-projects-experimental/spring-authorization-server/wiki/OAuth-2.0-Specifications
+
+samples
+https://github.com/spring-projects-experimental/spring-authorization-server/tree/master/samples/boot/oauth2-integration
+
 2020
+https://spring.io/blog/2020/10/15/spring-authorization-server-0-0-2-available-now
 https://spring.io/blog/2020/08/21/get-the-very-first-bits-of-spring-authorization-server-0-0-1
 https://spring.io/blog/2020/04/15/announcing-the-spring-authorization-server
