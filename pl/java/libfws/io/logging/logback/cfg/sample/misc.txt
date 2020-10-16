@@ -1,0 +1,22 @@
+<configuration debug="true" scan="true" scanPeriod="30 seconds">
+    ...
+</configuration>
+
+misc
+    <!-- logger name="com.clarabridge.fxservice.protomap.RelationTypeMapperUniversal" level="DEBUG" / -->
+    <!-- logger name="com.clarabridge.fx.config.ConfigParser" level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.clarabridge.fx.module.NativeModule" level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </logger
+    <logger name="com.clarabridge.fx.module.NativeModule.gazetteer" level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </logger -->
+
+JSON
+:l13
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <jsonGeneratorDecorator class="net.logstash.logback.decorate.PrettyPrintingJsonGeneratorDecorator"/>
+            <providers> ...

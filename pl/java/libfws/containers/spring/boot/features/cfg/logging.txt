@@ -1,20 +1,34 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-logging
+
 https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
+
+https://howtodoinjava.com/spring-boot2/logging/spring-boot-logging-configurations/
 
 logback
 https://springframework.guru/using-yaml-in-spring-boot-to-configure-logback/
     https://dzone.com/articles/using-yaml-in-spring-boot-to-configure-logback
 https://springframework.guru/using-logback-spring-boot/
 https://springframework.guru/logback-configuration-using-groovy/
+https://www.codingame.com/playgrounds/4497/configuring-logback-with-spring-boot
+    !
 
 2018
 https://memorynotfound.com/spring-boot-customize-actuator-info-endpoint-example-configuration/
 
 logging:
+  file:
+    path: logs
+    name: my.log
   pattern:
+    file: "%d %-5level [%thread] %logger : %msg%n"
     console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(%property{PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint}[] %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wex"
   level:
-    ROOT: #logback.loglevel#
-    cl: DEBUG
+    root: info
     - ".=info"
     - "com.memorynotfound=debug"
     - "org.springframework=info"
+
+cmd-line options 
+    --debug
+    --trace
+    TODO: how to specify them for gradle bootRun task?

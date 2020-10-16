@@ -1,3 +1,13 @@
+https://spring.io/guides/gs/scheduling-tasks/
+
 https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/annotation/Scheduled.html
 
+at main app
+import org.springframework.scheduling.annotation.EnableScheduling;
+    @EnableScheduling
+    https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/annotation/EnableScheduling.html
+    
+later...
     @Scheduled(initialDelay = ONE_SECOND, fixedDelay = ONE_MINUTE)
+
+samples

@@ -1,0 +1,16 @@
+http://logback.qos.ch/manual/configuration.html
+
+-Dlogback.configurationFile=~/fxsvc-custom-log-config.xml\
+
+http://logback.qos.ch/manual/configuration.html
+http://logback.qos.ch/manual/groovy.html
+
+http://logback.qos.ch/manual/layouts.html#ClassicPatternLayout
+http://logback.qos.ch/xref/ch/qos/logback/classic/PatternLayout.html
+http://logback.qos.ch/manual/layouts.html#conversionWord
+http://logback.qos.ch/manual/layouts.html#formatModifiers
+http://logback.qos.ch/manual/layouts.html#cwOptions
+http://logback.qos.ch/manual/layouts.html#Parentheses
+http://logback.qos.ch/manual/layouts.html#coloring
+https://stackoverflow.com/questions/1975939/read-environment-variables-from-logback-configuration-file
+https://www.cloudesire.com/configure-logback-log-level-via-environment-variables/
