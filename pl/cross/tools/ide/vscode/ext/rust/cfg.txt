@@ -1,25 +1,9 @@
-VisualRust
-https://marketplace.visualstudio.com/items?itemName=vosen.VisualRust
-https://github.com/PistonDevelopers/VisualRust
-
-crates
-https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates
-
-misc
 https://gist.github.com/puffybsd/aff5193465b5cba4a07d7f700a357ffc
 settings.json
 "code-runner.executorMap": {
   "rust": "if cd $dir && cargo run 2>/dev/null; then echo 'executed with cargo.'; else cd $dir && rustc $fileName && $dir$fileNameWithoutExt; fi",
 }
 Copy the user settings for "code-runner.executorMap" and update the "rust" attribute (other languages removed for clarity).
-
-2020
-https://medium.com/@ygutfreund/getting-started-with-rust-and-vscode-17b439964bed
-https://jason-williams.co.uk/debugging-rust-in-vscode
-    https://www.reddit.com/r/rust/comments/f1qsx9/debugging_rust_in_vscode_in_2020/
-2019
-https://medium.com/@adityapadhi36/debugging-rust-applications-in-vscode-4d17ac0e2711
-https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/
 
 launch.json
 {

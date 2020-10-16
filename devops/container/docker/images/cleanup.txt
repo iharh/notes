@@ -5,3 +5,6 @@ docker rmi $(docker images -q -f "dangling=true")
 delete all images
 
 sudo docker rmi -f $(sudo docker images -q)
+
+2020
+https://nuancesprog.ru/p/9730/
