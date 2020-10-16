@@ -25,6 +25,11 @@ download and executed files, scan for the network connections and bunch of other
 
 arch
 https://git.epam.com/Anton_Griadchenko/opswatclient-arch
+https://git.epam.com/viktar_chemko/opswatclient-archlinux
+    https://git.epam.com/viktar_chemko/globalprotect-archlinux
 
 opswat-client -r or opswat-client -i (-r and -i only, not --rem and --info)
     You can also check the /var/log/opswatclient directory
+
+files
+    /var/log/opswatclient...

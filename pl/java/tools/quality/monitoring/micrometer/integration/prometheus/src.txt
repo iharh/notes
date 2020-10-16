@@ -1,0 +1,37 @@
+https://github.com/micrometer-metrics/micrometer/blob/master/implementations/micrometer-registry-prometheus/src/main/java/io/micrometer/prometheus/PrometheusMeterRegistry.java
+    @Override
+    protected <T> io.micrometer.core.instrument.Gauge newGauge(Meter.Id id, @Nullable T obj, ToDoubleFunction<T> valueFunction) {
+        Gauge gauge = new DefaultGauge<>(id, obj, valueFunction);
+        applyToCollector(id, (collector) -> {
+            List<String> tagValues = tagValues(id);
+            collector.add(tagValues, (conventionName, tagKeys) -> Stream.of(new MicrometerCollector.Family(Collector.Type.GAUGE, conventionName,
+                    // !!! collect from here
+                    new Collector.MetricFamilySamples.Sample(conventionName, tagKeys, tagValues, gauge.value())))); 
+        });
+        return gauge;
+    }
+
+io.prometheus.client.CollectorRegistry
+https://prometheus.github.io/client_java/io/prometheus/client/CollectorRegistry.html
+https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/CollectorRegistry.java
+    public void register(Collector m) {
+        ...
+    }
+    <- PrometheusMeterRegistry.applyToCollector
+        private void applyToCollector(Meter.Id id, Consumer<MicrometerCollector> consumer) {
+            collectorMap.compute(getConventionName(id), (name, existingCollector) -> {
+                if (existingCollector == null) {
+                    MicrometerCollector micrometerCollector = new MicrometerCollector(id, config().namingConvention(), prometheusConfig);
+                    consumer.accept(micrometerCollector);
+                    return micrometerCollector.register(registry); // !!!
+                }
+            ...
+        }
+
+    <- PrometheusMeterRegistry.newGauge
+
+io.micrometer.prometheus.MicrometerCollector
+https://github.com/micrometer-metrics/micrometer/blob/master/implementations/micrometer-registry-prometheus/src/main/java/io/micrometer/prometheus/MicrometerCollector.java
+
+
+https://github.com/micrometer-metrics/micrometer/blob/master/micrometer-core/src/main/java/io/micrometer/core/instrument/internal/DefaultGauge.java

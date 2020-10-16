@@ -1,2 +1,5 @@
 2019
 https://jhooq.com/applicationrunner-spring-boot/
+
+deps
+implementation("org.springframework.boot:spring-boot-starter")
