@@ -5,6 +5,9 @@ https://manual.lubuntu.me/
 https://manual.lubuntu.me/stable/
 https://manual.lubuntu.me/lts/
 
+forum
+https://lubuntu.ru/
+
 /etc/xdg/lxsession/Lubuntu/desktop.conf
     [Desktop Entry]
     Encoding=UTF-8
@@ -19,3 +22,7 @@ But what realy helps me - its
 
 zfs
 https://linuxhint.com/install_zfs_ubuntu_1804/
+
+2020
+AMPHN - Tutorial Install Lubuntu 20.04 (UEFI, No Swap)
+    https://www.youtube.com/watch?v=o4Y4hayHfy8

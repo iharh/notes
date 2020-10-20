@@ -1,12 +1,9 @@
-fio/ioping:
-https://www.unixmen.com/how-to-measure-disk-performance-with-fio-and-ioping/
-
+2017
 https://medium.com/@copyconstruct/the-method-to-epolls-madness-d9d2d6378642
 https://idea.popcount.org/2017-02-20-epoll-is-fundamentally-broken-12/
 https://idea.popcount.org/2017-03-20-epoll-is-fundamentally-broken-22/
 https://jvns.ca/blog/2017/06/03/async-io-on-linux--select--poll--and-epoll/
 https://medium.freecodecamp.org/million-websockets-and-go-cc58418460bb
-
-2018
-https://habr.com/ru/company/oleg-bunin/blog/459444/
-    https://www.youtube.com/watch?v=0o7uNUOS-Ho
+2014
+https://idndx.com/2014/09/01/the-implementation-of-epoll-1/
+    https://habr.com/ru/company/ruvds/blog/523946/
