@@ -27,6 +27,7 @@ curl
     -I, --head
     -s - silent
         https://unix.stackexchange.com/questions/196549/hide-curl-output
+        suppress progress
     --connect-timeout <seconds>
         Maximum  time  in  seconds  that you allow the connection to the
         server to take.  This only limits  the  connection  phase,  once
