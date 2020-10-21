@@ -21,5 +21,7 @@ try_opt!, option_try!, otry!
 unwrap_or_return! (mac-crate)
 https://doc.rust-lang.org/std/ops/trait.Carrier.html
 
+2020
+https://www.reddit.com/r/rust/comments/jdvtu4/javas_error_handling_system_is_better_than_that/
 2018
 https://www.reddit.com/r/rust/comments/8lt8k6/do_i_really_need_failureerrorchain/
