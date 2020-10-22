@@ -1,0 +1,61 @@
+https://github.com/ajoberstar/gradle-git
+https://github.com/ajoberstar/gradle-git/wiki/Release%20Plugins
+https://github.com/ajoberstar/gradle-git/wiki/SemVer%20Support
+
+props:
+gra release -Prelease.stage=final -Prelease.scope=major
+
+https://github.com/ajoberstar/gradle-git/issues/104
+stage:
+    final|rc|milestone|dev
+scope:
+    major|minor|patch
+
+api:
+http://ajoberstar.org/gradle-git/docs/groovydoc/overview-summary.html
+http://ajoberstar.org/gradle-git/docs/groovydoc/org/ajoberstar/gradle/git/release/opinion/Strategies.html
+
+https://github.com/ajoberstar/grgit
+https://plugins.gradle.org/plugin/org.ajoberstar.grgit-release
+    !!! need to check this as a latest one
+
+plugins {
+    id 'org.ajoberstar.grgit' version '1.4.2'
+    id 'org.ajoberstar.release-opinion' version '1.4.2'
+}
+
+import org.ajoberstar.gradle.git.release.opinion.Strategies
+
+release {
+    grgit = org.ajoberstar.grgit.Grgit.open(project.rootDir)
+    defaultVersionStrategy = Strategies.SNAPSHOT
+}
+
+tasks.release.dependsOn ':katharsis-vertx:bintrayUpload'
+
+ext {
+    def grgit = org.ajoberstar.grgit.Grgit.open(project.rootDir)
+
+    revision = grgit.head().id
+    shortMessage = grgit.head().shortMessage
+}
+
+
+used tags:
+v1.0.0
+
+samples:
+https://github.com/netdava/gradle-git-sample/blob/master/build.gradle
+https://github.com/lnls-dig/halcs/blob/master/core/revision/build.gradle
+
+release {
+    grgit = org.ajoberstar.grgit.Grgit.open()
+    defaultVersionStrategy = Strategies.SNAPSHOT
+}
+
+src:
+https://github.com/ajoberstar/gradle-git/blob/master/src/main/groovy/org/ajoberstar/gradle/git/release/base/ReleasePluginExtension.groovy
+https://github.com/ajoberstar/gradle-git/blob/master/src/main/groovy/org/ajoberstar/gradle/git/release/semver/RebuildVersionStrategy.groovy
+
+task-deps:
+tasks.release.dependsOn 'build', 'publishToMyRepo'
