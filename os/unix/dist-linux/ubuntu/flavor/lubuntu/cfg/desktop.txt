@@ -1,0 +1,9 @@
+/etc/xdg/lxsession/Lubuntu/desktop.conf
+    [Desktop Entry]
+    Encoding=UTF-8
+    Name=awesome
+    Comment=Highly configurable framework window manager
+    TryExec=awesome
+    Type=Application
+    Exec=awesome
+    https://askubuntu.com/questions/162516/switching-window-manager-desktop-environments

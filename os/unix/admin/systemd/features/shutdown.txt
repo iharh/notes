@@ -1,0 +1,9 @@
+https://freedesktop.org/wiki/Software/systemd/Debugging/
+
+2017
+https://askubuntu.com/questions/764568/ubuntu-16-04-hangs-on-shutdown-restart
+    sudo -H vim /etc/default/grub
+
+diagnostics
+https://forum.siduction.org/index.php?topic=5989.0
+    journalctl -b -1 -n250
