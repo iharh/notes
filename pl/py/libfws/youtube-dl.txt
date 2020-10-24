@@ -1,6 +1,9 @@
+https://www.opennet.ru/opennews/art.shtml?num=53952
+
 http://rg3.github.io/youtube-dl/index.html
 http://rg3.github.io/youtube-dl/documentation.html
 
+https://pypi.org/project/youtube_dl/
 sudo pip install --upgrade youtube_dl
 sudo youtube-dl -U
 
