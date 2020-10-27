@@ -10,6 +10,8 @@ https://help.ubuntu.ru/wiki/ssd
     , is auto-on by cron enable/start fstream.timer
     !!! deadline io scheduler
 
+!!!!!!!
+stop/disable heavy jobs like updatedb
 noatime
     ! use realtime instead (https://www.youtube.com/watch?v=ovjl9Ki-EFg)
     https://habr.com/ru/company/vdsina/blog/505784/
