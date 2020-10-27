@@ -2,13 +2,16 @@ https://en.wikipedia.org/wiki/List_of_file_systems#File_systems_optimized_for_fl
 https://wiki.debian.org/SSDOptimization
 https://wiki.archlinux.org/index.php/Solid_state_drive
     ! instruction how to upgrade firmware
+https://wiki.archlinux.org/index.php/Solid_state_drive
 https://wiki.archlinux.org/index.php/Solid_state_drive_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
 https://help.ubuntu.ru/wiki/ssd
     !!! already has trim enabled (??? how)
     !!! no more discard at /etc/fstab needed !
     , is auto-on by cron enable/start fstream.timer
+    !!! deadline io scheduler
 
 noatime
+    ! use realtime instead (https://www.youtube.com/watch?v=ovjl9Ki-EFg)
     https://habr.com/ru/company/vdsina/blog/505784/
     at /etc/fstab
     ...
@@ -21,6 +24,8 @@ scheduler
 swappiness
     /etc/sysctl.conf
     vm.swappiness=1
+replace swap partition by swapfile
+    https://www.youtube.com/watch?v=s6CeuxF2a9M
 disable
     updatedb
 ????
