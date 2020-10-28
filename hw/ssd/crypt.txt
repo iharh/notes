@@ -1,0 +1,3 @@
+2018
+https://superuser.com/questions/1382197/data-access-speed-in-luks-encrypted-partition
+    sudo modprobe -v aesni_intel

@@ -8,7 +8,7 @@ https://help.ubuntu.ru/wiki/ssd
     !!! already has trim enabled (??? how)
     !!! no more discard at /etc/fstab needed !
     , is auto-on by cron enable/start fstream.timer
-    !!! deadline io scheduler
+    !!! deadline io scheduler for desktops
 
 !!!!!!!
 stop/disable heavy jobs like updatedb
@@ -46,12 +46,14 @@ https://unixforum.org/viewtopic.php?t=146764
 2013
 https://habr.com/ru/sandbox/70578/
 2011
+https://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd/
 https://habr.com/ru/post/129551/
      GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" - add "elevator=noop" parameter
 ????
 https://easylinuxtipsproject.blogspot.com/p/ssd.html
-    ! don't select btrfs
+    !!! don't select btrfs
     ! have more than 20% free space at each partition
     ! !!! don't use discard mount option
+    ! use trim daily (? note weakly)
 https://losst.ru/ustanovka-linux-na-ssd
 http://vasilisc.com/ssd_ubuntu
