@@ -5,10 +5,18 @@ https://help.ubuntu.com/community/AptGet/Howto
 https://help.ubuntu.com/community/Repositories/CommandLine
 
 updating/upgrading stuff:
+https://linuxize.com/post/how-to-upgrade-to-ubuntu-18-04-bionic-beaver/
+    apt-get update
+    apt-get upgrade
+    apt-get dist-upgrade
 
-apt-get update
-apt-get upgrade
-apt-get dist-upgrade
+    sudo apt-get install update-manager-core
+    /etc/update-manager/release-upgrades
+        Prompt=normal
+    do-release-upgrade
+        lsb_release -a
+        hostnamectl
+        cat /etc/os-release
 
 removing/purging:
 
