@@ -1,10 +1,5 @@
 https://nixos.org/nix/
 
-https://nixos.org/nixpkgs/
-https://nixos.org/nixpkgs/download.html
-https://nixos.org/nixpkgs/manual/
-https://github.com/nixos/nixpkgs
-
 aur/nix
     https://aur.archlinux.org/packages/nix/
     https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=nix

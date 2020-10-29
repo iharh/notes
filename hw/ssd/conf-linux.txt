@@ -36,6 +36,10 @@ disable
 qa
 https://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd
     ! good internal details
+https://forum.ubuntu.ru/index.php?topic=307325.0
+    ! just use OOB
+https://forum.ubuntu.ru/index.php?topic=190119.0
+    ! 46 pages
 https://unixforum.org/viewtopic.php?t=146764
     /etc/systemd/journald.conf
     [Journal]
