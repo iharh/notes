@@ -1,5 +1,7 @@
 https://wiki.archlinux.org/index.php/VirtualBox
 
+https://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html
+
 Guest Additions:
 
 mkdir /media/cdrom0
@@ -9,32 +11,3 @@ umount /dev/sr0
 
 Linux install:
 modprobe vboxdrv
-
-
-Arch problem in vbox:
-https://old.forum.manjaro.org/index.php?topic=759.0
-https://bbs.archlinux.org/viewtopic.php?id=186330
-$ systemctl status systemd-modules-load.service
-    ...
-
-$ sudo /usr/lib/systemd/systemd-modules-load
-Failed to insert 'vboxvideo': Invalid argument
-Failed to insert 'vboxvideo': Invalid argument
-
-$ pacman -Q | grep virtualbox-guest
-linux44-virtualbox-guest-modules 5.0.22-1
-virtualbox-guest-utils 5.0.22-0.1
-
-$ sudo modprobe -a vboxguest vboxsf vboxvideo 
-modprobe: ERROR: could not insert 'vboxvideo': Invalid argument
-
-https://wiki.archlinux.org/index.php/VirtualBox#Load_the_Virtualbox_kernel_modules_2
-
-$sudo cat /etc/modules-load.d/linux44-virtualbox-guest-modules.conf
-vboxguest
-vboxsf
-vboxfideo
-
-/lib/modules/<...>
-/lib/modules/extra...
-
