@@ -1,11 +1,3 @@
-https://www.reddit.com/r/commandline/comments/4dh6l6/command_to_map_usb_devices_to_dev_entries/
-
-Automount
-
-install packages:
-  polkit-gnome gvfs gamin
-
-ISO writing:
 http://crunchbang.org/forums/viewtopic.php?id=23267
 https://wiki.manjaro.org/index.php/Burn_an_ISO_File
     community/imagewriter
@@ -16,8 +8,3 @@ https://wiki.manjaro.org/index.php/Burn_an_ISO_File
 sudo ls -l /dev/disk/by-id/*usb*
 
 sudo dd if=file.iso of=/dev/sdX bs=4M;sync
-
-format
-df ...
-sudo umount /dev/...
-sudo mkfs.vfat -n 'label' -I /dev/...

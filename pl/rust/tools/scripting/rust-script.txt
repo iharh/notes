@@ -1,0 +1,6 @@
+https://rust-script.org/
+
+cargo install --force rust-script
+
+https://crates.io/crates/rust-script
+https://github.com/fornwall/rust-script
