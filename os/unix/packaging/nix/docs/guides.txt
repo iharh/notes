@@ -1,4 +1,10 @@
 https://nix.dev/
 
+templates
+https://github.com/nix-dot-dev/getting-started-nix-template
+
+develop-nix-project
+https://github.com/nmattia/niv
+
 2020
 https://romainviallard.dev/en/blog/deploying-your-app-with-nixos/

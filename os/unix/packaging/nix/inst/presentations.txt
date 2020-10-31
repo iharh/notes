@@ -1,8 +1,52 @@
 2020
-Tyler'sTech - NixOS - Installation and First Impressions
-    https://www.youtube.com/watch?v=IdoCOqkAexY
+Steinbach- Sane System Management with NixOS - I Do Declare!- λC 2019
+    https://www.youtube.com/watch?v=_LDzO5_d1a0
+    ! need to look
+    ! 35:15 - config
+DistroTube - NixOS Is A Fascinating Linux Distribution
+    https://www.youtube.com/watch?v=J7Hdaqs1rjU
+    !   #
+        lightdm/displayManager.defaultSession = "none+qtile";
+        windowsManager = {
+            qtile.enable = true;
+            xmonad.enable = true;
+            xmonad.enableContribAndExtras = true;
+            xmonad.extraPackages = hpkgs: [
+                hpkgs.xmonad
+                hpkgs.xmonad-contrib
+                hpkgs.xmonad-extras
+            ];
+        };
+        ...
+        xmobar
+        nitrogen
+        picom
+        dmenu
+        ...
+        $ nix-shell -p firefox --run firefox
+
+DorianDotSlash - NixOS Pt 3 - How The Store and Packages Work
+    https://www.youtube.com/watch?v=qZtXOjHl3-U
+DorianDotSlash - NixOS Pt 2 - Dual Boot and UEFI
+    https://www.youtube.com/watch?v=82vrj22omyQ
 DorianDotSlash - NixOS: How it works and how to install it!
     https://www.youtube.com/watch?v=oPymb2-IXbg
+    ! C-A-F3, passwd <usr>, C-A-F7
+    ! sudo vim /etc/nixos/configuration.nix
+    !   displayManager, desktopManager
+        sddm/plasma5, gdm/gnome, lightdm/xfce
+    ! sudo nixos-rebuild switch
+        !!! need to set root passwd
+        nixos-rebuild build-wm
+            for fast qemu wm
+    ! user-wide -
+    ! nix-env
+        -qa <package-to-search-incl-regex-stars-etc>
+        -qaP ...
+            nixos.<bla-bla> -> pkgs.<bla-bla> at configuration.nix
+
+Tyler'sTech - NixOS - Installation and First Impressions
+    https://www.youtube.com/watch?v=IdoCOqkAexY
 2019
 OSi - How to install NixOS
     https://www.youtube.com/watch?v=ngmco6GZVWo
