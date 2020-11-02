@@ -10,3 +10,6 @@ Jatuzis - NixOS and home-manager installation
 NixOS, nix-darwin, and home-manager
     https://www.youtube.com/watch?v=IUsQt4NRCnc
     ! very sophisticated config
+
+????
+programs.bash.initExtra

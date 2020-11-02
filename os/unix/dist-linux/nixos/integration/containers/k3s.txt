@@ -1,0 +1,2 @@
+https://nixos.org/manual/nixos/stable/options.html#opt-services.k3s.enable
+https://github.com/NixOS/nixpkgs/blob/release-20.09/nixos/modules/services/cluster/k3s/default.nix
