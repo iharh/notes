@@ -1,0 +1,5 @@
+services.locate = {
+    enable = true;
+    locate = pkgs.mlocate;
+    interval = "hourly"; # possible with mlocate because it's fast (because incremental)
+};

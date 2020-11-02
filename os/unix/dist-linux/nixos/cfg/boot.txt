@@ -1,2 +1,7 @@
+https://nixos.wiki/wiki/Bootloader
+
+UEFI
+https://github.com/zarMarco/nixos/blob/master/nixos-config/configuration.nix
+
 boot.kernel.sysctl
 boot.kernelPackages
