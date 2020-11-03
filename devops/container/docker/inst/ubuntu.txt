@@ -1,6 +1,4 @@
 https://docs.docker.com/engine/install/ubuntu/
-https://docs.docker.com/engine/install/linux-postinstall
-
 20.x - focal
 https://download.docker.com/linux/ubuntu/dists/focal/
 
@@ -14,7 +12,18 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 ...
+https://docs.docker.com/engine/install/linux-postinstall
+...
 sudo systemctl edit docker.service
+    ! using nano editor, not a vim
+
+storage
+https://docs.docker.com/storage/storagedriver/overlayfs-driver/
+sudo vim /etc/docker/daemon.json
+{
+  "storage-driver": "overlay2"
+}
 
 issues
 https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
+    ! just reboot
