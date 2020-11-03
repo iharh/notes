@@ -1,8 +1,3 @@
-https://github.com/containers/libpod/blob/master/install.md
-
-https://docs.docker.com/engine/install/ubuntu/
-
-install:
 https://blog.docker.com/2015/07/new-apt-and-yum-repos/
 !!!
 https://docs.docker.com/install/linux/linux-postinstall/
