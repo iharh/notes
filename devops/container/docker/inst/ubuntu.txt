@@ -1,4 +1,5 @@
 https://docs.docker.com/engine/install/ubuntu/
+https://docs.docker.com/engine/install/linux-postinstall
 
 20.x - focal
 https://download.docker.com/linux/ubuntu/dists/focal/
@@ -11,3 +12,9 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+...
+sudo systemctl edit docker.service
+
+issues
+https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
