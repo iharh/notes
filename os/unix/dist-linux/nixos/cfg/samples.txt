@@ -4,6 +4,11 @@ http://nequissimus.com/DevSetup/
 http://nequissimus.com/DevSetup/config-basic/
 https://github.com/NeQuissimus/DevSetup
 https://github.com/NeQuissimus/DevSetup/blob/master/p320.nix
+https://catgirl.ai/log/nixos-experience/
+    https://git.catgirl.ai/ext0l/nixos-config
+    https://git.catgirl.ai/ext0l/nixos-config/src/branch/master/awesome
+    https://git.catgirl.ai/ext0l/nixos-config/src/branch/master/configuration.nix
+        ! luks
 
 2020
 https://www.reddit.com/r/NixOS/comments/jju2xg/unable_to_find_vimplugins_after_switchiing_to/
