@@ -1,1 +1,15 @@
 https://help.ubuntu.ru/wiki/google_chrome
+
+https://www.linuxbabe.com/ubuntu/install-google-chrome-ubuntu-18-04-lts
+
+cfg
+/etc/apt/sources.list.d/google-chrome.list
+deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+
+key
+wget https://dl.google.com/linux/linux_signing_key.pub
+sudo apt-key add linux_signing_key.pub
+
+inst
+sudo apt update
+sudo apt install google-chrome-stable
