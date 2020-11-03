@@ -24,3 +24,22 @@ vboxfideo
 
 /lib/modules/<...>
 /lib/modules/extra...
+
+resize-issue
+    https://www.virtualbox.org/ticket/19496
+auto-resize-guest-display
+    1680x1050
+    https://superuser.com/questions/1433995/virtualbox-auto-resize-guest-display-greyed-out
+    https://bbs.archlinux.org/viewtopic.php?id=252384
+    https://coolaj86.com/articles/screen-resolution-virtualbox-guest-additions-ubuntu-and-you.html
+    https://unix.stackexchange.com/questions/430673/auto-resize-guest-display-and-seamless-mode-grayed-out-despite-installing-virtua
+        !!!
+    https://askubuntu.com/questions/452979/resolution-doesnt-change-when-resizing-virtualbox-window
+        dpkg-reconfigure virtualbox-guest-dkms
+    https://www.youtube.com/watch?v=_4u3aoUv-mE
+        2016
+        at /media/<usr>/VBox_GAs_<ver>/
+        sudo ./VBoxLinuxAdditions.run
+
+svc
+vboxadd.service

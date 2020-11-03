@@ -1,12 +1,11 @@
-aur:
-ttf-hack:
+http://sourcefoundry.org/hack/
+https://github.com/chrissimpkins/Hack
+
+aur: ttf-hack:
+ubuntu: fonts-hack-ttf
 
 https://github.com/chrissimpkins/Hack#desktop-installation
-http://sourcefoundry.org/hack/
 
 hack-powerline:
-
-aur:
-ttf-hack-powerline-git
-
-https://github.com/chrissimpkins/Hack/issues/1
+aur: ttf-hack-powerline-git
+    https://github.com/chrissimpkins/Hack/issues/1
