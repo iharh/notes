@@ -2,21 +2,31 @@ nix-env
     --dry-run
     -v, --verbose
 
-    -u [*]
+    -u|--upgrade [*]
         upgrade (all packages if argument is not specified or just specified package[s])
+        https://nixos.org/manual/nix/stable/#operation-upgrade
         # nix-channel --update nixpkgs
         --dry-run
             dry run
-    -i args...
+    -i|--install args...
         -f <some-stuff.nix> -E <specific-nix-expr>
         -f https://github.com/NixOS/nixpkgs-channels/archive/nixos-14.12.tar.gz -iA firefox
         install
-    -e, --uninstall drvnames...
+    -e|--uninstall drvnames...
+        https://nixos.org/manual/nix/stable/#operation-uninstall
+        -e '*'
+            for uninstall everyting from the user environment
 
     --list-generations
-    --switch-generation
+    -G, --switch-generation
+        https://nixos.org/manual/nix/stable/#operation-switch-generation
+    --delete-generations generations...
+        https://nixos.org/manual/nix/stable/#operation-delete-generations
     --rollback
+        https://nixos.org/manual/nix/stable/#operation-rollback
 
+    -q
+        list installed derivations
     -qa [package]
         search for a package on a channel
     -qaf /path/to/nixpkgs

@@ -1,9 +1,14 @@
 http://stackoverflow.com/questions/27968909/how-to-get-cabal-and-nix-work-together
 https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/haskell-modules/configuration-common.nix
 
+https://github.com/GuillaumeDesforges/haskell-nix-dev-template
+
 2020
 https://discourse.nixos.org/t/nix-haskell-development-2020/6170
 https://monadplus.pro/haskell/nix/tooling/2020/03/10/running-haskell-scripts/
     https://gist.github.com/monadplus/4bd19ccf19681e82d013c290fd21e663
+https://blog.ysndr.de/posts/internals/2020-04-10-built-with-nix/
+2019
+https://www.srid.ca/1948201.html
 2014
 https://ocharles.org.uk/blog/posts/2014-02-04-how-i-develop-with-nixos.html

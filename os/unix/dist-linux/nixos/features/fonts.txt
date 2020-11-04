@@ -1,1 +1,4 @@
 https://nixos.wiki/wiki/Fonts
+
+samples
+https://github.com/MattPColeman/dotfiles/blob/master/nixos/modules/fonts.nix
