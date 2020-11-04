@@ -13,3 +13,6 @@ NixOS, nix-darwin, and home-manager
 
 ????
 programs.bash.initExtra
+
+samples
+https://github.com/epage/nix-home
