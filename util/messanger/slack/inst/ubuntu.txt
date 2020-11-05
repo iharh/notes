@@ -1,0 +1,9 @@
+https://linuxize.com/post/how-to-install-slack-on-ubuntu-20-04/
+    sudo snap install
+        slack --classic
+        slack-term --classic
+https://linuxize.com/post/how-to-install-slack-on-ubuntu-18-04/
+    cat /etc/apt/sources.list.d/slack.list
+    deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main
+2018
+https://linuxhint.com/install_slack_ubuntu/
