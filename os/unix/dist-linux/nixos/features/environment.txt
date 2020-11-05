@@ -1,6 +1,7 @@
 https://nix.dev/tutorials/ad-hoc-developer-environments.html
 https://nix.dev/tutorials/declarative-and-reproducible-developer-environments.html
     https://nix.dev/reference/pinning-nixpkgs.html
+https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html
 
 2013
 https://sandervanderburg.blogspot.com/2013/09/composing-fhs-compatible-chroot.html

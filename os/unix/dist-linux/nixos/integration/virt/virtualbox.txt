@@ -1,0 +1,10 @@
+2020
+https://www.reddit.com/r/NixOS/comments/ga86ol/running_virtualbox_on_2003_as_user/
+    # /etc/nixos/configuration.nix
+    virtualisation.virtualbox.host.enable = true;
+    virtualisation.virtualbox.host.enableExtensionPack = true;
+
+    users.extraGroups.vboxusers.members = ["sketchet"];
+
+    # This is required for the ExtensionPack
+    nixpkgs.config.allowUnfree = true;

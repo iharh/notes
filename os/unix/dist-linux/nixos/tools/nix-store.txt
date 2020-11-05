@@ -6,8 +6,14 @@ nix-store
     -q --referrers `which hello`
         print reverse dependencies
 
-    -q --tree ~/.nix-profile
-        tree (recursive) dependencies for all the stuff in the current user environments
+    -q --tree
+        ~/.nix-profile
+            tree (recursive) dependencies for all the stuff in the current user environments
+        /run/current-system
+            ...
+
+    -qR ... ...
+        reverse dependency
 
     --export
         ?

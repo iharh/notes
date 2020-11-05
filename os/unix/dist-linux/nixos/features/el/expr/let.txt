@@ -1,0 +1,41 @@
+Let expressions
+
+    This kind of expression is used to define local variables for inner expressions.
+
+        nix-repl> let a = "foo"; in a
+            "foo"
+
+    The syntax is:
+        first assign variables,
+        then in,
+        then an expression which can use the defined variables.
+
+    The value of the whole let expression will be the value of the expression after the in.
+
+        nix-repl> let a = 3; b = 4; in a + b
+            7
+
+    Let's write two let expressions, one inside the other:
+
+        nix-repl> let a = 3; in let b = 4; in a + b
+            7
+
+    With let you cannot assign twice to the same variable. However, you can shadow outer variables:
+
+        nix-repl> let a = 3; a = 8; in a
+            error: attribute `a' at (string):1:12 already defined at (string):1:5
+        nix-repl> let a = 3; in let a = 8; in a
+            8
+
+    You cannot refer to variables in a let expression outside of it:
+
+        nix-repl> let a = (let b = 3; in b); in b
+            error: undefined variable `b' at (string):1:31
+
+    You can refer to variables in the let expression when assigning variables, like with recursive attribute sets:
+
+        nix-repl> let a = 4; b = a + 5; in b
+            9
+
+    So beware when you want to refer to a variable from the outer scope, but it's also defined in the current let expression.
+    The same applies to recursive attribute sets

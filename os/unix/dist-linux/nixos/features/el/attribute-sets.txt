@@ -1,0 +1,32 @@
+Attribute-sets
+    Attribute sets are an association between string keys and a Nix values.
+    Keys can only be strings.
+    When writing attribute sets you can also use unquoted identifiers as keys.
+
+        nix-repl> s = { foo = "bar"; a-b = "baz"; "123" = "num"; }
+        nix-repl> s
+            { "123" = "num"; a-b = "baz"; foo = "bar"; }
+
+    For those reading Nix expressions from nixpkgs: do not confuse attribute sets with argument sets used in functions. 
+
+    To access elements in the attribute set:
+
+        nix-repl> s.a-b
+            "baz"
+        nix-repl> s."123"
+            "num"
+
+    Yes, you can use strings to address keys which aren't valid identifiers.
+
+    Inside an attribute set you cannot normally refer to elements of the same attribute set:
+
+        nix-repl> { a = 3; b = a+4; }
+            error: undefined variable `a' at (string):1:10
+
+    To do so, use recursive attribute sets:
+        https://nixos.org/manual/nix/stable/#idm140737321983744
+
+        nix-repl> rec { a = 3; b = a+4; }
+            { a = 3; b = 7; }
+
+    This is very convenient when defining packages, which tend to be recursive attribute sets. 

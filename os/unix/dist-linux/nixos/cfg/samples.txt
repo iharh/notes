@@ -12,13 +12,16 @@ https://catgirl.ai/log/nixos-experience/
 
 https://git.project-insanity.org/onny/nixos-lappy
     20.09
-https://github.com/MattPColeman/dotfiles/tree/master/nixos
-    good modularity
+
 https://github.com/srghma/dotfiles
 https://github.com/evanjs/nixos_cfg
 https://gitlab.com/samueldr/nixos-configuration
 https://github.com/balsoft/nixos-config
 https://gitlab.com/atemu/nixos-config
+
+good modularity
+    https://github.com/MattPColeman/dotfiles/tree/master/nixos
+    https://github.com/LEXUGE/nixos
 
 2020
 https://www.reddit.com/r/NixOS/comments/jju2xg/unable_to_find_vimplugins_after_switchiing_to/

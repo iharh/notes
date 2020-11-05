@@ -1,0 +1,21 @@
+Strings
+    are enclosed by double or two single quotes:
+        "foo"
+        ''foo''
+    Interpolation has only one form:
+        nix-repl> foo = "strval" // special repl-only syntax assignment
+        nix-repl> "${foo}"
+            "strval"
+
+        nix-repl> "${2+3}"
+            error: cannot coerce an integer to a string, at (string):1:2
+            // need to call integer -> string explicit conversions
+
+    Escaping ${...} within double quoted strings is done with the backslash.
+
+        nix-repl> "\${foo}"
+            "${foo}"
+
+    Escaping ${...} within two single quotes is done with '': 
+        nix-repl> ''test ''${foo} test''
+            "test ${foo} test"
