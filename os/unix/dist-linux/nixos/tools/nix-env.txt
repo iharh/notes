@@ -37,3 +37,7 @@ nix-env
         P - present on your system
         S - substitute for the package (prebuilt package)
             https://cache.nixos.org - cache of binary packages
+    -qaP ...
+        nixos.<bla-bla> -> pkgs.<bla-bla> at configuration.nix
+        ????
+

@@ -9,16 +9,8 @@ DistroTube - NixOS Is A Fascinating Linux Distribution
         lightdm/displayManager.defaultSession = "none+qtile";
         windowsManager = {
             qtile.enable = true;
-            xmonad.enable = true;
-            xmonad.enableContribAndExtras = true;
-            xmonad.extraPackages = hpkgs: [
-                hpkgs.xmonad
-                hpkgs.xmonad-contrib
-                hpkgs.xmonad-extras
-            ];
         };
         ...
-        xmobar
         nitrogen
         picom
         dmenu
@@ -34,11 +26,8 @@ DorianDotSlash - NixOS: How it works and how to install it!
     ! C-A-F3, passwd <usr>, C-A-F7
     ! sudo vim /etc/nixos/configuration.nix
     !   displayManager, desktopManager
-        sddm/plasma5, gdm/gnome, lightdm/xfce
     ! sudo nixos-rebuild switch
         !!! need to set root passwd
-        nixos-rebuild build-wm
-            for fast qemu wm
     ! user-wide -
     ! nix-env
         -qa <package-to-search-incl-regex-stars-etc>
