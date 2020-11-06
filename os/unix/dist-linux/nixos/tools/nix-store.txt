@@ -17,3 +17,7 @@ nix-store
 
     --export
         ?
+
+    --verify
+    --check-contents
+    --repair

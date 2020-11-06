@@ -1,3 +1,14 @@
+https://nixos.wiki/wiki/Development_environment_with_nix-shell
+
+2020
+https://ghedam.at/15978/an-introduction-to-nix-shell
+    !!!
+
 nix-shell
-    -p <pkg>
+    [shell.nix]
+
+    -p|--packages <pkg>
         try pkg in a shell without installing
+
+    --run <cmd>
+        run cmd

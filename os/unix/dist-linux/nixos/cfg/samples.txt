@@ -18,10 +18,15 @@ https://github.com/evanjs/nixos_cfg
 https://gitlab.com/samueldr/nixos-configuration
 https://github.com/balsoft/nixos-config
 https://gitlab.com/atemu/nixos-config
+https://github.com/bbigras/nix-config
+    https://github.com/lovesegfault/nix-config
 
 good modularity
     https://github.com/MattPColeman/dotfiles/tree/master/nixos
     https://github.com/LEXUGE/nixos
+
+xmonad-stuff
+https://github.com/pjones/tilde
 
 2020
 https://www.reddit.com/r/NixOS/comments/jju2xg/unable_to_find_vimplugins_after_switchiing_to/
