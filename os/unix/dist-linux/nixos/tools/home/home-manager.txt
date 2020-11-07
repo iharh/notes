@@ -26,3 +26,5 @@ programs.bash.initExtra
 samples
 https://github.com/epage/nix-home
 https://gitlab.com/luc65r/dotfiles
+https://git.catgirl.ai/ext0l/nixos-config
+    https://catgirl.ai/log/nixos-experience/

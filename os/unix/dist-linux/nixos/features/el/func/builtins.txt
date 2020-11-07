@@ -1,3 +1,15 @@
 https://nixos.org/manual/nix/stable/#ssec-builtins
     
+currentSystem
+    "x86_64-linux"
+
 isInt
+isAttrs
+    is attribute set
+attrNames <attr-set>
+    get attribute names
+    (a list of keys of a given set)
+
+<derivation>.drvAttrs
+
+toString
