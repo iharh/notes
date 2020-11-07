@@ -9,6 +9,7 @@ nix-channel
         no output for the using inside nixos (default is actually using)
     --add https://nixos.org/channels/nixpkgs-unstable
         http://nixos.org/channels/nixos-14.12
+    --add https://channels.nixos.org/nixos-20.09 nixos
 
     --update
 
