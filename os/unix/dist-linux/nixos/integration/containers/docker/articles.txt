@@ -1,6 +1,3 @@
-https://nix.dev/tutorials/building-and-running-docker-images.html
-https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/virtualisation/docker.nix
-
 2020
 https://sandervanderburg.blogspot.com/2020/08/experimenting-with-nix-and-service.html
 https://sandervanderburg.blogspot.com/2020/07/on-using-nix-and-docker-as-deployment.html
@@ -9,4 +6,6 @@ https://christine.website/blog/how-i-start-nix-2020-03-08
 Christensen - NYLUG Presents - Sneaking in Nix - Building Production Containers with Nix
     https://www.youtube.com/watch?v=pfIDYQ36X0k
 2018
+https://grahamc.com/blog/nix-and-layered-docker-images
+????
 https://grahamc.com/blog/nix-and-layered-docker-images

@@ -11,6 +11,10 @@ https://www.tweag.io/blog/2020-06-25-eval-cache/
 https://www.tweag.io/blog/2020-05-25-flakes/
 https://www.tweag.io/posts/2020-05-25-flakes.html
 https://www.reddit.com/r/NixOS/comments/jktqpg/choosing_imported_configurations_based_on_a/
+2019
+Dolstra - NixCon - Nix flakes
+    https://www.youtube.com/watch?v=UeBX7Ide5a0
+    ! need to look
 
 samples
 https://github.com/shadowrylander/shadowrylander/blob/system/etc/nixos/flake.nix
