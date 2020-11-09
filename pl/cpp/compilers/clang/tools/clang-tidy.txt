@@ -6,6 +6,7 @@ samples
 CXX=clang++ CXXFLAGS="-Xclang -add-plugin -Xclang clang-tidy -Xclang -plugin-arg-clang-tidy -Xclang -checks='-*, clang-analyzer-core.*'" juci [project-path]
 
 2020
+https://habr.com/ru/company/auriga/blog/526486/
 Tingaud - How to Refactor Millions of Line of Code Without Alienating your Colleagues
     https://www.youtube.com/watch?v=Fxe7JoGSyy8
 2019
