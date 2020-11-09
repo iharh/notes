@@ -1,0 +1,3 @@
+docker
+    diff <container-name>
+        container fs changes since the moment of start
