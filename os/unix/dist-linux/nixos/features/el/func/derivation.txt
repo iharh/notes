@@ -2,6 +2,7 @@ https://nixos.org/manual/nix/stable/#ssec-derivation
 https://nixos.org/guides/nix-pills/our-first-derivation.html
 https://nixos.org/guides/nix-pills/working-derivation.html
 https://nixos.org/guides/nix-pills/generic-builders.html
+https://nixos.org/guides/nix-pills/automatic-runtime-dependencies.html
 
 https://nixos.org/manual/nix/stable/#sec-nix-instantiate
     nix-instantiate — instantiate store derivations from Nix expressions
@@ -268,4 +269,163 @@ Similarly,
 
 This syntax only makes sense inside sets.
 There's no magic involved, it's simply a convenience to avoid repeating the same name for both the attribute name and the value in scope.
+
+
+GNU hello world, despite its name, is a simple yet complete project which uses autotools.
+Fetch the latest tarball here:
+    http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz. 
+
+Now let's create hello_builder.sh
+    export PATH="$gnutar/bin:$gcc/bin:$gnumake/bin:$coreutils/bin:$gawk/bin:$gzip/bin:$gnugrep/bin:$gnused/bin:$binutils/bin"
+    tar -xzf $src
+    cd hello-2.10
+    ./configure --prefix=$out
+    make
+    make install
+
+And the derivation hello.nix:
+
+with (import <nixpkgs> {});
+derivation {
+    name = "hello";
+    builder = "${bash}/bin/bash";
+    args = [ ./hello_builder.sh ];
+    inherit gnutar gzip gnumake gcc coreutils gawk gnused gnugrep;
+    binutils = binutils-unwrapped;
+    src = ./hello-2.10.tar.gz;
+    system = builtins.currentSystem;
+}
+
+
+Let's create a generic builder.sh for autotools projects:
+
+set -e                                      # break on any error
+unset PATH                                  # because it's initially set to 
+for p in $buildInputs; do
+    export PATH=$p/bin${PATH:+:}$PATH
+done
+
+tar -xf $src
+
+# Find a directory where the source has been unpacked and cd into it. 
+for d in *; do
+    if [ -d "$d" ]; then
+        cd "$d"
+        break
+    fi
+done
+
+./configure --prefix=$out
+make
+make install
+
+
+Now let's rewrite hello.nix:
+
+with (import <nixpkgs> {});
+derivation {
+    name = "hello";
+    builder = "${bash}/bin/bash";
+    args = [ ./builder.sh ];
+    buildInputs = [ gnutar gzip gnumake gcc binutils-unwrapped coreutils gawk gnused gnugrep ];
+    src = ./hello-2.10.tar.gz;
+    system = builtins.currentSystem;
+}
+
+All clear, except that buildInputs.
+However it's easier than any black magic you are thinking in this moment.
+
+Nix is able to convert a list to a string.
+It first converts the elements to strings, and then concatenates them separated by a space:
+
+nix-repl> builtins.toString 123
+    "123"
+nix-repl> builtins.toString [ 123 456 ]
+    "123 456"
+
+Recall that derivations can be converted to a string, hence:
+
+nix-repl> :l <nixpkgs>
+    Added 3950 variables.
+nix-repl> builtins.toString gnugrep
+    "/nix/store/g5gdylclfh6d224kqh9sja290pk186xd-gnugrep-2.14"
+nix-repl> builtins.toString [ gnugrep gnused ]
+    "/nix/store/g5gdylclfh6d224kqh9sja290pk186xd-gnugrep-2.14 /nix/store/krgdc4sknzpw8iyk9p20lhqfd52kjmg0-gnused-4.2.2"
+
+Simple! The buildInputs variable is a string with out paths separated by space, perfect for bash usage in a for loop. 
+
+
+A more convenient derivation function
+
+We managed to write a builder that can be used for multiple autotools projects.
+But in the hello.nix expression we are specifying tools that are common to more projects; we don't want to pass them everytime.
+
+A natural approach would be to create a function that accepts an attribute set, similar to the one used by the derivation function,
+and merge it with another attribute set containing values common to many projects.
+
+Create autotools.nix:
+
+pkgs: attrs:
+    with pkgs;
+    let defaultAttrs = {
+        builder = "${bash}/bin/bash";
+        args = [ ./builder.sh ];
+        baseInputs = [ gnutar gzip gnumake gcc binutils-unwrapped coreutils gawk gnused gnugrep ];
+        buildInputs = [];
+        system = builtins.currentSystem;
+    };
+    in
+        derivation (defaultAttrs // attrs)
+
+The whole nix expression of this autotools.nix file will evaluate to a function.
+This function accepts a parameter "pkgs", then returns a function which accepts a parameter "attrs". 
+
+The body of the function is simple, yet at first sight it might be hard to grasp:
+    1. First drop in the scope the magic pkgs attribute set.
+    2. Within a let expression we define a helper variable, defaultAttrs, which serves as a set of common attributes used in derivations.
+    3. Finally we create the derivation with that strange expression, (defaultAttrs // attrs). 
+
+The // operator is an operator between two sets.
+The result is the union of the two sets.
+In case of conflicts between attribute names, the value on the right set is preferred. 
+
+So we use defaultAttrs as base set, and add (or override) the attributes from attrs.
+
+A couple of examples ought to be enough to clear out the behavior of the operator:
+
+nix-repl> { a = "b"; } // { c = "d"; }
+    { a = "b"; c = "d"; }
+nix-repl> { a = "b"; } // { a = "c"; }
+    { a = "c"; }
+
+Exercise: Complete the new builder.sh by adding $baseInputs in the for loop together with $buildInputs.
+As you noticed, we passed that new variable in the derivation.
+Instead of merging buildInputs with the base ones, we prefer to preserve buildInputs as seen by the caller, so we keep them separated.
+Just a matter of choice.
+
+Then we rewrite hello.nix as follows:
+
+let
+    pkgs = import <nixpkgs> {};
+    mkDerivation = import ./autotools.nix pkgs;
+in mkDerivation {
+    name = "hello";
+    src = ./hello-2.10.tar.gz;
+}
+
+Finally! We got a very simple description of a package!
+Below are a couple of remarks that you may find useful as you're continuing to understand the nix language:
+    * We assigned to pkgs the import that we did in the previous expressions in the "with". Don't be afraid, it's that straightforward.
+    * The mkDerivation variable is a nice example of partial application, look at it as (import ./autotools.nix) pkgs.
+    First we import the expression, then we apply the pkgs parameter. That will give us a function that accepts the attribute set attrs.
+    * We create the derivation specifying only name and src.
+    If the project eventually needed other dependencies to be in PATH, then we would simply add those to buildInputs
+    (not specified in hello.nix because empty). 
+
+Note we didn't use any other library.
+Special C flags may be needed to find include files of other libraries at compile time, and ld flags at link time. 
+
+Conclusion: In Nix you create derivations stored in the nix store, and then you compose them by creating new derivations.
+Store paths are used to refer to other derivations. 
+
 
