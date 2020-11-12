@@ -10,3 +10,9 @@ https://ubuntu.com/blog/ubuntu-on-wsl-2-backported-to-windows-10-1909-extending-
 https://www.smashingmagazine.com/2019/09/moving-javascript-development-bash-windows/
 2018
 https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+wsl
+    --list
+        --online
+    --install
+        -d [Debian|...]

@@ -1,5 +1,8 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
+2.4
+https://spring.io/blog/2020/11/12/spring-boot-2-4-0-available-now
+    https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-Config-Data-Migration-Guide
 2.3
 https://spring.io/blog/2020/06/18/what-s-new-in-spring-boot-2-3
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.3-Release-Notes
