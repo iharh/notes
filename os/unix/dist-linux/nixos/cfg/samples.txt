@@ -32,6 +32,8 @@ https://github.com/balsoft/nixos-config
 https://gitlab.com/atemu/nixos-config
 https://github.com/bbigras/nix-config
     https://github.com/lovesegfault/nix-config
+https://github.com/foo-dogsquared/nixos-config
+    https://github.com/hlissner/dotfiles
 
 good modularity
     https://github.com/MattPColeman/dotfiles/tree/master/nixos

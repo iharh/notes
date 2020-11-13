@@ -1,0 +1,16 @@
+https://doc.rust-lang.org/nightly/unstable-book/compiler-flags/source-based-code-coverage.html
+
+2020
+
+cargo install rustfilt
+
+cargo.toml
+# Build the profiler runtime (required when compiling with options that depend
+# on this runtime, such as `-C profile-generate` or `-Z instrument-coverage`).
+profiler = true
+
+RUSTFLAGS="-Zinstrument-coverage" cargo build
+...
+$ RUSTC=$HOME/rust/build/x86_64-unknown-linux-gnu/stage1/bin/rustc \
+    RUSTFLAGS="-Zinstrument-coverage" \
+    cargo build --example formatjson5

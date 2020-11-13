@@ -1,0 +1,16 @@
+https://github.com/NixOS/nix/tree/master/src/nix
+https://github.com/NixOS/nix/blob/master/src/nix/main.cc
+
+$ ls -l ./result/bin/
+.r-xr-xr-x 1.8M root  1 Jan  1970 nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-build -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-channel -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-collect-garbage -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-copy-closure -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-daemon -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-env -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-hash -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-instantiate -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-prefetch-url -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-shell -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-store -> nix
