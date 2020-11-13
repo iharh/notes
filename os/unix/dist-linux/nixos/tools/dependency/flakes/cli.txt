@@ -1,0 +1,28 @@
+nix-shell -p nixUnstable
+nix --version
+
+nix flake
+    init
+        ... later
+        git init && git add --all
+        cat flake.nix
+
+        # then 
+        nix build [--override-inputs ...]
+        # thich is exactly the same as
+        nix build .#defaultPackages.x86_64-[linux|darwin]
+        # then
+        nix shell .#defaultPackages.x86_64-linux
+        # then
+        hello
+        # or
+        nix run [git+ssh://git@example.com/you/hello-flake.git]
+        nix run github:balsoft/hello-flake
+
+    list-inputs
+
+    show
+
+    check -L
+
+    update --recreate-lock-file

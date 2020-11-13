@@ -1,6 +1,10 @@
 https://github.com/NixOS/nix/tree/master/src/nix
 https://github.com/NixOS/nix/blob/master/src/nix/main.cc
 
+nix
+    --version
+        ... nix-shell -p nixUnstable
+
 $ ls -l ./result/bin/
 .r-xr-xr-x 1.8M root  1 Jan  1970 nix
 lrwxrwxrwx    3 root  1 Jan  1970 nix-build -> nix

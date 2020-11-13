@@ -1,0 +1,2 @@
+LD_DEBUG=libs
+LD_LIBRARY_PATH
