@@ -6,26 +6,6 @@ Sokolowski - Nix Fundamentals
     https://www.youtube.com/watch?v=m4sv2M9jRLg
     https://drive.google.com/file/d/1Tt5R7QOubudGiSuZIGxuFWB1OYgcThcL/edit
     ! need to look
-Libbey - Nix: What Even is it Though  15:00 of 24:42
-    https://www.youtube.com/watch?v=6iVXaqUfHi4
-    https://shopify.engineering/what-is-nix
-    ! core concepts (interdependent): store, language, derivation, sandbox
-    ! /nix/store   : is like a DAG
-    ! /nix/store/* : nodes (immutables)
-    ! /nix-store --query --references|--graph /nix/store/...-bla-ver
-    !   to query "a graph database"
-    ! 
-    ! Derivations - special entities in the Nix Store, describing [instructions] how to build "other" entities in the Nix Store
-    ! need to look, great internals overview
-    ! drvPath --> outPath (is created using a derivation)
-    !   $ nix-build /nix/store/<hash>-<name>.drv
-    !       /nix/store/<other-hash>-<name>
-    ! 
-    ! Sandboxed builds
-    ! Nix normally builds with a sandbox that actually prevents access to anything not declared, or outside of the Nix Store
-    ! A path's hash is derived from its derivation's hash, which is derived from all of this
-    !   * outputs, inputDrvs, inputSrcs, platform, builder, args, env
-    ! There is no such thing as an implicit dependency in Nix
 2019
 NixCon - Fearless Tinkering: How NixOS Works
     https://www.youtube.com/watch?v=DK_iLg2Ekwk

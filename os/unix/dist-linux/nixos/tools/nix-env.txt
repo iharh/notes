@@ -14,21 +14,23 @@ nix-env
         https://nixos.wiki/wiki/FAQ#Why_not_use_nix-env_-i_hello.3F
         -f <some-stuff.nix> -E <specific-nix-expr>
         -f https://github.com/NixOS/nixpkgs-channels/archive/nixos-14.12.tar.gz -iA firefox
-        install
+            A|--attr
+                install attribute [nixpgks.<name>]
+
     -e|--uninstall drvnames...
         https://nixos.org/manual/nix/stable/#operation-uninstall
         -e '*'
             for uninstall everyting from the user environment
 
     --list-generations
-    -G, --switch-generation
+    -G, --switch-generation <num>
         https://nixos.org/manual/nix/stable/#operation-switch-generation
     --delete-generations generations...
         https://nixos.org/manual/nix/stable/#operation-delete-generations
     --rollback
         https://nixos.org/manual/nix/stable/#operation-rollback
 
-    -q
+    -q|--query [--installed]
         list installed derivations
     -qa [package]
         search for a package on a channel
