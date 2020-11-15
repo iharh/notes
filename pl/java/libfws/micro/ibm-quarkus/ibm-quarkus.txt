@@ -1,4 +1,5 @@
 https://quarkus.io/
+
 https://quarkus.io/get-started/
 https://quarkus.io/guides/
 https://quarkus.io/guides/getting-started
@@ -22,33 +23,3 @@ https://quarkus.io/community/
 
 https://github.com/quarkusio/quarkus
 https://github.com/quarkusio/quarkus-quickstarts
-
-integrations
-https://piotrminkowski.com/2020/08/09/guide-to-quarkus-with-kotlin/
-https://hazelcast.com/blog/announcing-quarkus-hazelcast-client-integration/
-
-2020
-Quarkus Insights #7: GraalVM and Mandrel
-    https://www.youtube.com/watch?v=jUdx5Gq8Sqw
-https://developers.redhat.com/blog/2020/06/05/mandrel-a-community-distribution-of-graalvm-for-the-red-hat-build-of-quarkus/
-https://simply-how.com/migrate-spring-boot-app-to-quarkus
-https://habr.com/ru/company/redhatrussia/blog/501746/
-Daschner - Debugging system tests in Docker containers with Quarkus
-    https://www.youtube.com/watch?v=mKzUxptNyxw
-https://habr.com/ru/company/redhatrussia/blog/497504/
-https://dzone.com/articles/microservices-quarkus-vs-spring-boot
-https://romankudryashov.com/blog/2020/01/quarkus-microservice/
-    https://habr.com/ru/post/484320/
-2019
-https://itnext.io/introduction-to-quarkus-cloud-native-java-apps-e205ae702762
-    https://habr.com/ru/company/piter/blog/482968/
-https://www.infoq.com/news/2019/03/redhat-release-quarkus
-https://developers.redhat.com/blog/2019/03/07/quarkus-next-generation-kubernetes-native-java-framework/
-https://habr.com/ru/company/haulmont/blog/443242/
-Bien - Supersonic, Subatomic CDI and JAX-RS with quarkus.io
-    https://www.youtube.com/watch?v=G0sQFy_5xQc
-Bien - Native JAX-RS / CDI Executables
-    https://www.youtube.com/watch?v=yv74VpKM7co
-
-whatsnew
-https://quarkus.io/blog/quarkus-1-6-0-final-released/

@@ -1,0 +1,8 @@
+nix instantiate
+    example.nix
+    is the same as
+    --expr 'import ./example.nix'
+
+    --eval example.nix
+    --eval --expr '2 + 2'
+    --eval --expr 'import ./example.nix'
