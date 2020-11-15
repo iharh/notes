@@ -12,6 +12,9 @@ nix-store
         /run/current-system
             ...
 
+    -q --roots
+        ???
+
     -qR ... ...
         reverse dependency
 

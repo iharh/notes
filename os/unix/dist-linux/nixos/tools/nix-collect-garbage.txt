@@ -1,4 +1,4 @@
 nix-collect-garbage
     --dry-run
     -d
-        to delete everything from a nix store
+        to delete everything (old generations from all profiles) from a nix store
