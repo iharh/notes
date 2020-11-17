@@ -12,4 +12,13 @@ attrNames <attr-set>
 
 <derivation>.drvAttrs
 
+intersectAttrs
+
 toString
+
+reflection
+    functionArgs
+        nix-repl> add = { a ? 3, b }: a+b
+        nix-repl> builtins.functionArgs add
+            { a = true; b = false; }
+
