@@ -6,3 +6,6 @@ nix instantiate
     --eval example.nix
     --eval --expr '2 + 2'
     --eval --expr 'import ./example.nix'
+
+    --read-write-mode
+        ???
