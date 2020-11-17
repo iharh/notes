@@ -1,7 +1,3 @@
-https://likegeeks.com/linux-process-management/
-http://www.unixmen.com/list-tools-monitor-health-linux-system/
-http://habrahabr.ru/post/114082/
-
 lsof     - list of open files
 free     - free OS memory
 file     - identify file type
