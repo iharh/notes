@@ -8,3 +8,6 @@ https://www.reddit.com/r/NixOS/comments/ga86ol/running_virtualbox_on_2003_as_use
 
     # This is required for the ExtensionPack
     nixpkgs.config.allowUnfree = true;
+
+misc
+virtualisation.virtualbox.guest.enable=true;
