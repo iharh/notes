@@ -8,6 +8,9 @@ https://docs.oracle.com/en/java/javase/14/docs/specs/records-serialization.html
 draft
 https://bugs.openjdk.java.net/browse/JDK-8246771
 
+lib
+https://github.com/Monospark/remix
+
 2020
 https://topjava.ru/blog/zapisi-records-v-java
 https://vladmihalcea.com/java-records-guide/
