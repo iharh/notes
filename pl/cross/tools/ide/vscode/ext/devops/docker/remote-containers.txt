@@ -1,4 +1,16 @@
 https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
+https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/10-knowledge-check
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/9-exercise-add-software
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/8-add-software
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/7-exercise-customize-settings
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/6-customize-settings
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/5-exercise-forward-ports
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/4-forward-ports
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/3-exercise-add-development-container
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/2-use-as-development-environment
+    https://docs.microsoft.com/en-us/learn/modules/use-docker-container-dev-env-vs-code/1-introduction
+
 samples
 https://github.com/IvanSafonov/cpp-boilerplate
