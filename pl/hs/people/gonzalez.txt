@@ -209,6 +209,9 @@ https://hackage.haskell.org/package/nix-diff
 https://github.com/Gabriel439/nix-diff
 http://www.haskellforall.com/2017/11/compare-nix-derivations-using-nix-diff.html
 
+nixos
+http://www.haskellforall.com/2020/11/how-to-use-nixos-for-lightweight.html
+
 Misc:
 http://www.haskellforall.com/2020/10/why-i-prefer-functional-programming.html
 http://www.haskellforall.com/2020/07/record-constructors.html
