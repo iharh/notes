@@ -1,7 +1,8 @@
 nix instantiate
     example.nix
     is the same as
-    --expr 'import ./example.nix'
+
+    -E|--expr 'import ./example.nix'
 
     --eval example.nix
     --eval --expr '2 + 2'
@@ -9,3 +10,11 @@ nix instantiate
 
     --read-write-mode
         ???
+
+    -I or $NIX_PATH
+        nix path
+        note: -I accepts a single directory
+        The NIX_PATH also accepts a different yet very handy syntax: "somename=somepath".
+        That is, instead of searching inside a directory for a name, we specify exactly the value of that name.
+            $ NIX_PATH="ping=/bin/ping" nix-instantiate --eval -E '<ping>'
+        
