@@ -1,0 +1,3 @@
+nix-build
+    -A <pkgname>
+        --argstr system i686-linux
