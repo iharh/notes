@@ -1,5 +1,3 @@
-https://nixos.wiki/wiki/Configuration_Collection
-
 2020
 https://www.reddit.com/r/NixOS/comments/jju2xg/unable_to_find_vimplugins_after_switchiing_to/
 https://medium.com/the-script-group/introduction-to-nixos-a9dac91399a7
@@ -44,16 +42,3 @@ https://github.com/mjlbach/nix-dotfiles
 https://github.com/terlar/nix-config
 https://github.com/Maxwell-lt/machine-configuration
 https://github.com/sherubthakur/dotfiles-NixOS
-
-xmonad-stuff
-https://github.com/pjones/tilde
-
-zsh-stuff
-https://forge.tedomum.net/jae/nixos-configs
-    users.users.jae = { ...  shell = pkgs.zsh; }
-    some minor unstable packages
-    some user-mgmt stuff
-    intellij-idea stuff
-
-flakes-based stuff
-https://github.com/kloenk/nix

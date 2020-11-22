@@ -1,0 +1,5 @@
+https://forge.tedomum.net/jae/nixos-configs
+    users.users.jae = { ...  shell = pkgs.zsh; }
+    some minor unstable packages
+    some user-mgmt stuff
+    intellij-idea stuff

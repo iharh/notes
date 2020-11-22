@@ -16,10 +16,15 @@ https://github.com/Fiedzia/rust-usdt/blob/master/doc/articles/part1.md
 https://github.com/Fiedzia/rust-usdt/blob/master/doc/articles/part2.md
 
 https://cilium.io/
-https://github.com/cilium/cilium
-https://www.infoq.com/presentations/linux-cilium-ebpf
+    https://github.com/cilium/cilium
+    https://www.infoq.com/presentations/linux-cilium-ebpf
+    https://docs.cilium.io/en/latest/bpf/
 
 2020
+BPF for Little
+    https://habr.com/ru/post/529316/
+    https://habr.com/ru/post/514736/
+    https://habr.com/ru/post/493880/
 https://habr.com/ru/company/badoo/blog/520086/
 Kevats - eBPF - Modern Linux Introspection Capabilities
     https://www.youtube.com/watch?v=GSzxg6wucbA
