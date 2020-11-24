@@ -1,0 +1,28 @@
+with yadm:
+    https://github.com/jluttine/nixos-configuration
+
+https://discourse.nixos.org/t/github-strategies-for-configuration-nix/1983
+
+...
+Here’s what /etc/nixos/configuration.nix looks like on one of my machines.
+
+{ config, pkgs, options, ... }:
+
+let hostname="wombat9000";
+in
+{
+  networking.hostName = hostname;
+
+  imports =
+    [ # Include the results of the hardware scan.
+      /etc/nixos/hardware-configuration.nix
+      (/home/amy/dotWombat/nixos + "/${hostname}.nix")
+      /home/amy/dotWombat/nixos/base.nix
+      /home/amy/dotWombat/nixos/locale.nix
+      /home/amy/dotWombat/nixos/xserver.nix
+      /home/amy/dotWombat/nixos/python2.nix
+      /home/amy/dotWombat/nixos/python3.nix
+      /home/amy/dotWombat/nixos/R.nix
+      /home/amy/dotWombat/nixos/packages.nix
+    ];
+}

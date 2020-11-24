@@ -6,6 +6,7 @@
 
 ## Articles
 
+* [Under the Covers of C++ Lambdas: Captures, Captures, Captures] (https://www.cppstories.com/2020/lambda-captures-under-covers/)
 * [Learn Lambda function in C++ with example] (http://www.vishalchovatiya.com/learn-lambda-function-in-cpp-with-example)
 * [Flipek - Lambdas: from C++11 to C++20, part 2] (https://www.bfilipek.com/2019/03/lambdas-story-part2.html)
 * [-//- ru translation, part 2] (https://habr.com/ru/company/otus/blog/455978/)

@@ -1,4 +1,5 @@
 nixos-rebuild
+    -I nixos-config=path/to/your/configuration.nix
     switch [--upgrade]
         sudo nixos-rebuild -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/release-20.09.tar.gz switch
         ! to upgrade release

@@ -1,0 +1,4 @@
+https://github.com/google/protobuf-gradle-plugin
+
+samples
+https://github.com/google/protobuf-gradle-plugin/blob/master/testProjectKotlinDslBase/build.gradle.kts
