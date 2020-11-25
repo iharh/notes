@@ -5,3 +5,9 @@ https://git.catgirl.ai/ext0l/nixos-config
 
 https://github.com/JonathanReeve/dotfiles/blob/minimal/dotfiles/home.nix
 https://github.com/bobvanderlinden/nix-home
+
+https://github.com/quasi-coherent/nixpkgs
+    incl direnv, zsh
+    https://www.reddit.com/r/NixOS/comments/jznwne/effectively_combining_homemanager_and_nixdarwin/
+        https://github.com/jwiegley/nix-config
+        https://github.com/kclejeune/system
