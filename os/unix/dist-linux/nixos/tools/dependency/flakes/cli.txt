@@ -24,6 +24,8 @@ nix flake
     show
 
     check -L
+        --shot-trace
 
     update --recreate-lock-file
         https://www.reddit.com/r/NixOS/comments/k05pxk/nixosrebuild_upgrade_does_not_work_if_flakelock/
+        --update-input home-manager

@@ -1,8 +1,19 @@
 2020
+Serokel - NixCon 2020 - BalSoft
+    !!!
+    https://github.com/serokell/nixcon2020-talk
+    https://github.com/serokell/nixcon2020-talk/blob/master/talk.md
 Tropin - Flakes in nix 3.0
     https://www.youtube.com/watch?v=98EwejpIJzE
     ! need to look
     https://github.com/abcdw/rde
+Tropin - Almost Perfect Dotfiles Management w/ nix, home-manager and flakes (Jul 28)
+    https://www.youtube.com/watch?v=CDzgNxoAlnA
+    ! need to look
+    https://github.com/abcdw/rde/blob/master/flake.nix
+Tropin - Reproducible NixOS installation w/ flakes (Jul 14)
+    https://www.youtube.com/watch?v=_j8kDS6GLJs
+    ! need to look
 Alexander Bantyev - Nix Flakes in Production
     https://www.youtube.com/watch?v=7sQa04olUA0&t=9113s
     https://github.com/serokell/nixcon2020-talk

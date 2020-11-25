@@ -11,3 +11,9 @@ https://github.com/quasi-coherent/nixpkgs
     https://www.reddit.com/r/NixOS/comments/jznwne/effectively_combining_homemanager_and_nixdarwin/
         https://github.com/jwiegley/nix-config
         https://github.com/kclejeune/system
+
+https://code.balsoft.ru/balsoft/nixos-config
+    flakes, home-manager, secrets, tons of stuff
+
+https://github.com/thomashoneyman/.dotfiles/blob/main/home.nix
+    small-one
