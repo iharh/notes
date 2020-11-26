@@ -1,9 +1,6 @@
-2017
-Jenson - Improving Rust Performance Through Profiling and Benchmarking
-https://speakerdeck.com/stevej/improving-rust-performance-through-profiling-and-benchmarking
-https://www.youtube.com/watch?v=hTHp0gjWMLQ
+https://crates.io/crates/profiling
+https://docs.rs/profiling
+https://github.com/aclysma/profiling
 
-radeco
-https://github.com/radareorg/radeco
-tacho
-https://github.com/linkerd/tacho
+2020
+https://www.reddit.com/r/rust/comments/k1l7g8/new_crate_profiling/
