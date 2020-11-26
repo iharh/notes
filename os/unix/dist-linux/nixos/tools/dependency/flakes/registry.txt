@@ -1,0 +1,6 @@
+https://github.com/NixOS/flake-registry
+https://raw.githubusercontent.com/NixOS/flake-registry/master/flake-registry.json
+
+equivalents:
+    $ nix shell nixpkgs#cowsay --command cowsay Hi!
+    $ nix shell github:NixOS/nixpkgs#cowsay --command cowsay Hi!

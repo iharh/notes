@@ -1,0 +1,13 @@
+https://nixos.org/manual/nix/stable/#sec-conf-file
+https://nixos.org/manual/nix/unstable/command-ref/conf-file.html
+
+at nixos
+/etc/nix/nix.conf -> is generated from nix.* options in /etc/nixos/configuration.nix
+
+build-users-group = nixbld
+trusted-users = root
+allowed-users = *
+
+system-features = nixos-test benchmark big-parallel kvm
+
+experimental-features = nix-command flakes

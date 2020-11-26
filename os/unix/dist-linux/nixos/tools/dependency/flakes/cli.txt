@@ -1,6 +1,19 @@
 nix-shell -p nixUnstable
 nix --version
 
+nix shell
+    github:edolstra/hello -c hello
+
+nix build
+    github:edolstra/dwarffs#checks.aarch64-linux.build
+        extra flake-based syntax after #
+
+nix registry
+    add nixpkgs ~/my-nixpkgs
+        add custom flakes registry
+    add nixpkgs github:NixOS/nixpkgs/5272327b81ed355bbed5659b8d303cf2979b6953
+        or pin it to the specific revision
+
 nix flake
     init
         ... later
@@ -19,13 +32,23 @@ nix flake
         nix run [git+ssh://git@example.com/you/hello-flake.git]
         nix run github:balsoft/hello-flake
 
+    info
+        display "description string"
+
     list-inputs
+        github:edolstra/dwarffs
+            display flake inputs
 
     show
+        github:edolstra/dwarffs
+            display flake outputs
+
+    update
+        --update-input home-manager
+            update specific input (home-manager)
+        --recreate-lock-file
+            https://www.reddit.com/r/NixOS/comments/k05pxk/nixosrebuild_upgrade_does_not_work_if_flakelock/
 
     check -L
         --show-trace
 
-    update --recreate-lock-file
-        https://www.reddit.com/r/NixOS/comments/k05pxk/nixosrebuild_upgrade_does_not_work_if_flakelock/
-        --update-input home-manager

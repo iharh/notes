@@ -1,0 +1,5 @@
+nixos-version
+    --hash
+        ... given from flakes.lock
+    --revision
+    --json
