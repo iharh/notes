@@ -1,0 +1,33 @@
+https://github.com/serokell/deploy-rs
+
+sample
+https://github.com/serokell/deploy
+https://github.com/serokell/deploy/blob/master/deploy.sh
+
+2020
+https://serokell.io/blog/deploy-rs
+    https://www.reddit.com/r/NixOS/comments/k0utpw/our_new_nix_deployment_tool_deployrs/
+
+cfg sample
+
+{
+    deploy.nodes.example = {
+        hostname = "localhost";
+        profiles = {
+            system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.example;
+            };
+            hello = {
+                user = "hello";
+                path = deploy-rs.lib.x86_64-linux.activate.custom self.defaultPackage.x86_64-linux "./bin/activate";
+            };
+        };
+    };
+}
+
+check:
+
+{
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+}

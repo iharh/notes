@@ -1,7 +1,6 @@
 https://github.com/google/protobuf-gradle-plugin/tree/master/examples/exampleKotlinDslProject
 https://github.com/google/protobuf-gradle-plugin/issues/309
 
-
 import com.google.protobuf.gradle.*
 import org.gradle.kotlin.dsl.provider.gradleKotlinDslOf
 
@@ -9,6 +8,9 @@ protobuf {
     protoc {
         artifact = "com.google.protobuf:protoc:$verProtobuf"
     }
+
+    // generatedFilesBaseDir = file("src/").getAbsolutePath()
+    
     generateProtoTasks {
         // all().forEach
         ofSourceSet("main").forEach {
@@ -21,6 +23,17 @@ protobuf {
                 }
             }
             // it.generateDescriptorSet = true
+        }
+
+        // https://github.com/SourceForgery/tachikoma/blob/master/buildSrc/src/main/kotlin/com/sourceforgery/tachikoma/buildsrc/GrpcSetup.kt
+        all().configureEach {
+            plugins {
+                id("grpc") {
+                    // outputSubDir = "java"
+                }
+                id("grpckt") {}
+                id("lint") { option("sort_imports") }
+            }
         }
     }
 }
