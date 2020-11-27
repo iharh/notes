@@ -1,6 +1,10 @@
 2020
 https://www.tweag.io/blog/2020-07-31-nixos-flakes/
 https://www.tweag.io/blog/2020-06-25-eval-cache/
+    Flakes solve this problem by ensuring fully hermetic evaluation.
+    When you evaluate an output attribute of a particular flake (e.g. the attribute defaultPackage.x86_64-linux of the dwarffs flake),
+    Nix disallows access to any files outside that flake or its dependencies.
+    It also disallows impure or platform-dependent features such as access to environment variables or the current system type
 https://www.tweag.io/blog/2020-05-25-flakes/
     https://www.tweag.io/posts/2020-05-25-flakes.html
 https://www.reddit.com/r/NixOS/comments/jktqpg/choosing_imported_configurations_based_on_a/
