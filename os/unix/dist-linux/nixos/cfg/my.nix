@@ -1,6 +1,8 @@
 # configuration.nix(5) man page
 # NixOS manual (accessible by running ‘nixos-help’).
 
+# TODO: create custom config-rebuild script (nixos-rebuild -I<my-path>)
+
 { config, pkgs, ... }:
 
 {

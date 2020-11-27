@@ -1,0 +1,18 @@
+https://github.com/TheLocehiliosan/yadm/blob/master/yadm.md
+...
+alt    Create  symbolic  links  and  process  templates for any managed files matching the naming rules described in the ALTERNATES  and TEMPLATES  sections.
+       It is usually unnecessary to run this command, as yadm automatically  processes  alternates  by  default.
+       This  automatic behavior can be disabled by setting the configuration yadm.auto-alt to "false".
+
+https://github.com/jluttine/nixos-configuration
+
+    nix-shell -p yadm -p git -p gnupg1orig
+
+    # -w <work-tree>
+    # -Y,--yadm-dir
+    #      Override the yadm directory.  yadm stores its data relative to this directory.
+    yadm clone https://github.com/jluttine/nixos-configuration.git -w /etc/nixos -Y /etc/nixos/.yadm
+
+    yadm -Y /etc/nixos/.yadm decrypt
+    yadm -Y /etc/nixos/.yadm alt
+    exit
