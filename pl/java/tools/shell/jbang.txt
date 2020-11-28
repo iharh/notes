@@ -7,5 +7,9 @@ scoop bucket add jbangdev https://github.com/jbangdev/scoop-bucket
 scoop install jbang
     https://github.com/jbangdev/scoop-bucket/blob/master/jbang.json
 
+2020
+jbang, a better Java?
+    https://www.youtube.com/watch?v=gVL-CFEOGs8
+
 samples
 https://github.com/filippobuletto/kubectl-java-test/blob/master/kubectl-java_test.java
