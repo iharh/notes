@@ -3,3 +3,5 @@ nixos-version
         ... given from flakes.lock
     --revision
     --json
+        nixos-version --json | jq -r .nixpkgsRevision
+        a84b797b28eb104db758b5cb2b61ba8face6744b

@@ -8,6 +8,14 @@ nix build
     github:edolstra/dwarffs#checks.aarch64-linux.build
         extra flake-based syntax after #
 
+    /path/to/my-flake#nixosConfigurations.container.config.system.build.toplevel
+        https://www.tweag.io/blog/2020-07-31-nixos-flakes/
+        here <container> is the name of configuration
+        Note that "system.build.toplevel" is an internal NixOS option that evaluates to the "system" derivation
+        that commands like nixos-rebuild, nixos-install and nixos-container build and activate.
+        The symlink /run/current-system points to the output of this derivation.
+
+
 nix registry
     add nixpkgs ~/my-nixpkgs
         add custom flakes registry
@@ -42,6 +50,10 @@ nix flake
     show
         github:edolstra/dwarffs
             display flake outputs
+
+    show templates
+        list available templates
+            https://github.com/NixOS/templates
 
     update
         --update-input home-manager
