@@ -2,4 +2,6 @@ home-manager
     build
     edit
     generations
+    remove-generations <ids>
+        {start..finish}
     switch
