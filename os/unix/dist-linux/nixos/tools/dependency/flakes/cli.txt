@@ -13,7 +13,9 @@ nix build
         here <container> is the name of configuration
         Note that "system.build.toplevel" is an internal NixOS option that evaluates to the "system" derivation
         that commands like nixos-rebuild, nixos-install and nixos-container build and activate.
-        The symlink /run/current-system points to the output of this derivation.
+        The symlink
+            /run/current-system
+        points to the output of this derivation.
 
 
 nix registry
@@ -21,6 +23,13 @@ nix registry
         add custom flakes registry
     add nixpkgs github:NixOS/nixpkgs/5272327b81ed355bbed5659b8d303cf2979b6953
         or pin it to the specific revision
+
+nixos-rebuild
+    switch --flake /path/to/my-flake#my-machine
+
+nixos-container
+    update flake-test --flake /path/to/my-flake?rev=9190c396f4dcfc734e554768c53a81d1c231c6a7
+    --no-allow-dirty
 
 nix flake
     init
@@ -49,6 +58,8 @@ nix flake
 
     show
         github:edolstra/dwarffs
+        or
+        github:NixOS/hydra
             display flake outputs
 
     show templates
@@ -60,6 +71,9 @@ nix flake
             update specific input (home-manager)
         --recreate-lock-file
             https://www.reddit.com/r/NixOS/comments/k05pxk/nixosrebuild_upgrade_does_not_work_if_flakelock/
+        --commit-lock-file
+            commits the new lock file with a commit message that records the input change.
+        --override-input <input-name> /path/to/my/<input-name>
 
     check -L
         --show-trace

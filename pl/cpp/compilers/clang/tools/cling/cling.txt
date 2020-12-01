@@ -1,0 +1,21 @@
+https://root.cern.ch/cling
+https://cdn.rawgit.com/root-project/cling/master/www/index.html
+
+aur
+    cling-git
+
+http://root.cern.ch/git/cling.git
+https://github.com/vgvassilev/cling
+https://github.com/root-project/cling
+
+docs
+https://root.cern.ch/cling-brief
+https://root.cern.ch/guides/reference-guide
+https://root.cern.ch/cling-build-instructions
+
+https://cdn.rawgit.com/root-project/cling/master/www/build.html
+https://cdn.rawgit.com/root-project/cling/master/www/use.html
+https://cdn.rawgit.com/root-project/cling/master/www/jupyter.html
+
+download
+https://root.cern.ch/download/cling/

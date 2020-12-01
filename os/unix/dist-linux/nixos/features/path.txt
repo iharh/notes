@@ -1,0 +1,4 @@
+let 
+  dotfiles_dir = import /etc/nixos/dotfiles-dir.nix;
+  dotfiles = import (builtins.toPath "${dotfiles_dir}/nixos/home/default.nix");
+in 
