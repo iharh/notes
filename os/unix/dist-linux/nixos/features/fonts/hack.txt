@@ -1,0 +1,8 @@
+https://github.com/source-foundry/Hack
+
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/hack/default.nix
+
+issues
+https://github.com/Powerlevel9k/powerlevel9k/issues/971
+    EDIT > Appeaance > Choose font > Enable Show all fonts > 
+    Hack Nerd Font Mono

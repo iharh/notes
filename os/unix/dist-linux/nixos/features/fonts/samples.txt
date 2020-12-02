@@ -1,0 +1,5 @@
+home
+    echo $'\uF015'
+
+lock
+    echo $'\uF023'

@@ -67,10 +67,11 @@ nix flake
             https://github.com/NixOS/templates
 
     update
+        --recreate-lock-file
+            !!! really updates all the stuff
+            https://www.reddit.com/r/NixOS/comments/k05pxk/nixosrebuild_upgrade_does_not_work_if_flakelock/
         --update-input home-manager
             update specific input (home-manager)
-        --recreate-lock-file
-            https://www.reddit.com/r/NixOS/comments/k05pxk/nixosrebuild_upgrade_does_not_work_if_flakelock/
         --commit-lock-file
             commits the new lock file with a commit message that records the input change.
         --override-input <input-name> /path/to/my/<input-name>
