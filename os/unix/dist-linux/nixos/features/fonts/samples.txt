@@ -3,3 +3,5 @@ home
 
 lock
     echo $'\uF023'
+
+https://github.com/actionless/dotfiles/blob/master/workstation-dell/nixos/fonts.nix

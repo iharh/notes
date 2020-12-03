@@ -1,0 +1,4 @@
+https://nixos.org/manual/nixpkgs/stable/#users-guide-to-lua-infrastructure
+
+!!!
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/lua-packages.nix

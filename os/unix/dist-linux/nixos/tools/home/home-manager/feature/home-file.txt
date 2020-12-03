@@ -1,0 +1,19 @@
+https://rycee.gitlab.io/home-manager/options.html#opt-home.file
+
+2019
+https://www.malloc47.com/migrating-to-nixos/
+    home.file.".inputrc".source = ./.inputrc;
+
+    home.file.".emacs.d" = {
+      source = ./.emacs.d;
+      recursive = true;
+    };
+
+    home.file."fonts.el" = {
+      target = ".emacs.d/config/fonts.el";
+      text = ''
+        (provide 'fonts)
+        (set-frame-font "${config.settings.fontName}-${toString config.settings.fontSize}")
+        (setq default-frame-alist '((font . "${config.settings.fontName}-${toString config.settings.fontSize}")))
+      '';
+    };
