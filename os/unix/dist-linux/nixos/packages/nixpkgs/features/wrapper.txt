@@ -1,0 +1,4 @@
+makeWrapper
+wrapProgram
+https://nixos.org/manual/nixpkgs/stable/#ssec-stdenv-functions
+    https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
