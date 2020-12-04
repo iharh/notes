@@ -25,6 +25,5 @@ nix-store
     --check-contents
     --repair
 
-    -r /nix/store/z3hhlxbckx4g3n9sw91nnvlkjvyw754p-myname.drv
+    -r, --realize /nix/store/z3hhlxbckx4g3n9sw91nnvlkjvyw754p-myname.drv
         realize a derivation
-    
