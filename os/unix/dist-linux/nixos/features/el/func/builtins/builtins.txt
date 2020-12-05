@@ -24,6 +24,10 @@ reflection
         nix-repl> builtins.functionArgs add
             { a = true; b = false; }
 
+map
+
+trace
+
 toPath
     deprecated, use toString with path-param instead
 pathExists
