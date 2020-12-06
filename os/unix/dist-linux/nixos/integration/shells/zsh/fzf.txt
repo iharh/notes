@@ -1,0 +1,3 @@
+    enableFzfCompletion = true;
+    enableFzfGit = true;
+    enableFzfHistory = true;
