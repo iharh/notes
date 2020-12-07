@@ -1,0 +1,9 @@
+https://www.reddit.com/r/NixOS/comments/k8ja54/nixos_running_scripts_problem/
+    /bin/bash doesn’t exist on a NixOS system, because everything is stored on the Nix store (/nix/store/)
+    You can check the actual location of your bash executable with readlink $(which bash).
+    Because your current session contains /run/current-system/sw/bin in its $PATH,
+    you’ll be able to run currently installed commands, and /run/current-system/sw/bin/bash will be a symlink to the Nix store
+    Of course, you shouldn’t put this exact path in your scripts shebangs.
+    Instead, the best way to run bash scripts, in any system, is to use
+        #!/usr/bin/env bash
+    as shebang.
