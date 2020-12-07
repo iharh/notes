@@ -25,6 +25,7 @@ reflection
             { a = true; b = false; }
 
 map
+filter
 
 trace
 
@@ -34,8 +35,9 @@ pathExists
     https://github.com/NixOS/nix/blob/master/tests/lang/eval-okay-pathexists.nix
 readFile
     zsh = { ... initExtraBeforeCompInit = builtins.readFile ../../configs/zsh/fedora_zshrc.zsh; }
+    home.file.".p10k.zsh".text = builtins.readFile "/etc/nixos/dot.p10k.zsh";
+    home.file.".aws/config".source = ../configs/aws/aws_config;
+    home.file.".dircolors".source = sources.LS_COLORS.outPath + "/LS_COLORS";
 
-home.file.".p10k.zsh".text = builtins.readFile "/etc/nixos/dot.p10k.zsh";
-
-home.file.".aws/config".source = ../configs/aws/aws_config;
-home.file.".dircolors".source = sources.LS_COLORS.outPath + "/LS_COLORS";
+getEnv
+    getEnv "HOME"; # home directory
