@@ -105,7 +105,9 @@ The addToSearchPath call adds $1/bin to _PATH if the former exists (code here).
     https://github.com/NixOS/nixpkgs/blob/6675f0a52c0962042a1000c7f20e887d0d26ae25/pkgs/stdenv/generic/setup.sh#L60-L73
 Once all the packages in buildInputs have been processed, then content of _PATH is added to PATH, as follows:
 
+```
 PATH="${_PATH-}${_PATH:+${PATH:+:}}$PATH"
+```
 
 With the real hello on the PATH, the installPhase should hopefully make sense.
 
