@@ -1,5 +1,11 @@
 https://github.com/badly-drawn-wizards/dotfiles/blob/master/nixos/flake.nix
     !!!
+https://github.com/chayward1/dotfiles
+    ! hosts and host names are grabbed from file
+    https://github.com/chayward1/dotfiles/blob/main/flake.nix
+https://github.com/hlissner/dotfiles
+    ! hey-util for misc stuff
+    https://github.com/hlissner/dotfiles/blob/master/bin/hey
 
 https://github.com/epage/nix-home
 https://gitlab.com/luc65r/dotfiles

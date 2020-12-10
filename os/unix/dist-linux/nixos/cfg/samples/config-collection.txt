@@ -1,6 +1,8 @@
 ! need to google for
 !   nixos configuration examples
 
+https://github.com/topics/nixos-configuration
+
 misc
 https://git.sr.ht/~jakewaksbaum/pi/tree/master/flake.nix
 

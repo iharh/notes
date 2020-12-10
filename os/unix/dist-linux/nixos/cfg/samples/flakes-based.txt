@@ -2,3 +2,7 @@ https://www.reddit.com/r/NixOS/comments/j4k2zz/does_anyone_use_flakes_to_manage_
     https://github.com/cideM/dotfiles
 https://github.com/bqv/nixrc
     ! very complicated
+
+https://github.com/LEXUGE/nixos
+https://github.com/LEXUGE/nixos/blob/master/install.sh
+    ! with script-based installer
