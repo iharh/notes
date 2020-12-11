@@ -1,0 +1,4 @@
+https://nixos.org/manual/nixpkgs/stable/#chap-stdenv
+
+let
+  platform = if pkgs.stdenv.isDarwin then "darwin" else "linux-x64";
