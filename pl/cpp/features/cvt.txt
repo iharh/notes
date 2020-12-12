@@ -19,8 +19,8 @@ deprecation
 http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0618r0.html
 
 boost locale
-https://www.boost.org/doc/libs/1_51_0/libs/locale/doc/html/files.html
-https://www.boost.org/doc/libs/1_51_0/libs/locale/doc/html/encoding__utf_8hpp_source.html
+https://www.boost.org/doc/libs/develop/libs/locale/doc/html/files.html
+https://www.boost.org/doc/libs/develop/libs/locale/doc/html/encoding__utf_8hpp_source.html
 
 clang locale
 https://www.linux.org.ru/forum/development/11400521
