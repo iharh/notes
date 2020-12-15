@@ -1,9 +1,5 @@
-/etc/selinux/config
-
-SELINUX=disabled
-
-articles
 2020
+https://habr.com/ru/company/ruvds/blog/523872/
 https://habr.com/ru/company/ruvds/blog/523872/
 2019
 https://habr.com/ru/company/avanpost/blog/482060/
@@ -18,9 +14,3 @@ https://habrahabr.ru/post/332886/
 2014
 https://habrahabr.ru/company/kingservers/blog/209644/
 https://habrahabr.ru/company/kingservers/blog/209970/
-
-books
-2014
-Vermeulen - SELinux Cookbook
-2013
-Vermeulen - SELinux System Administration
