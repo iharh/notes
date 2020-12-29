@@ -26,3 +26,7 @@ https://code.balsoft.ru/balsoft/nixos-config
 
 https://github.com/thomashoneyman/.dotfiles/blob/main/home.nix
     small-one
+
+2020
+https://www.reddit.com/r/NixOS/comments/klbuu2/unstable_packages_in_configurationnix_using_flakes/
+    ! modules parameters for adding overlays
