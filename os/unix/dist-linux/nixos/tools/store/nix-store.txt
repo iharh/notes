@@ -27,3 +27,6 @@ nix-store
 
     -r, --realize /nix/store/z3hhlxbckx4g3n9sw91nnvlkjvyw754p-myname.drv
         realize a derivation
+
+    --gc --print-roots
+        collect garbage and print roots
