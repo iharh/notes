@@ -43,3 +43,7 @@ https://github.com/mjlbach/nix-dotfiles
 https://github.com/terlar/nix-config
 https://github.com/Maxwell-lt/machine-configuration
 https://github.com/sherubthakur/dotfiles-NixOS
+
+multi-repo
+https://github.com/pinpox/nixos
+https://github.com/pinpox/nixos-home
