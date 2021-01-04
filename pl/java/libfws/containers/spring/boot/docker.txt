@@ -7,6 +7,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#writing-th
 https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#build-image
 
 2020
+https://spring.io/blog/2021/01/04/ymnnalft-easy-docker-image-creation-with-the-spring-boot-maven-plugin-and-buildpacks
+    ? maven only
 https://nuancesprog.ru/p/10062/
 https://reflectoring.io/spring-boot-docker/
     https://habr.com/ru/post/522122/
