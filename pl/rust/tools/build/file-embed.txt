@@ -1,0 +1,5 @@
+2021
+https://www.reddit.com/r/rust/comments/kv8iev/what_is_the_idiomatic_way_of_embed_files_into/
+
+https://crates.io/crates/include_dir
+https://github.com/pyros2097/rust-embed

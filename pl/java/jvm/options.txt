@@ -19,3 +19,6 @@ memory
  -XX:UseCGroupMemoryLimitForHeap
     It'll tell JVM to calculate how much memory it could use for heap based on memory available to Docker container,
     so you don't need to guess heap size.
+for-containers
+    https://blog.gceasy.io/2020/11/05/best-practices-java-memory-arguments-for-containers/
+    https://www.reddit.com/r/Kotlin/comments/kuedd9/best_practices_jvm_memory_arguments_for_containers/
