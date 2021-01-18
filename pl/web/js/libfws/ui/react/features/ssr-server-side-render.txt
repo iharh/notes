@@ -4,6 +4,8 @@ const body = ReactDOMServer.renderToString(<Application>);
 
 
 articles
+2021
+https://medium.com/javascript-in-plain-english/intro-to-react-server-side-rendering-3c2af3782d08
 2018
 https://medium.com/@atahani/reactjs-ssr-tips-and-tricks-be9edff5b7bb
 https://medium.com/airbnb-engineering/operationalizing-node-js-for-server-side-rendering-c5ba718acfc9
