@@ -5,9 +5,14 @@ https://wiki.openjdk.java.net/display/loom/Main
 https://wiki.openjdk.java.net/display/loom/Getting+started
 https://inside.java/2020/07/15/loomqa/
 
+fibers and continuations form JVM
+https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html
+
 demo
 https://github.com/tipsy/loomylin
 
+2021
+https://blogs.oracle.com/javamagazine/going-inside-javas-project-loom-and-virtual-threads
 2020
 https://www.javaadvent.com/2020/12/project-loom-and-structured-concurrency.html
 https://blog.frankel.ch/project-loom-reactive-coroutines/
