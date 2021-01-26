@@ -1,0 +1,11 @@
+package com.sun.btrace.client;
+
+import com.sun.tools.attach.VirtualMachine;
+
+public class Client {
+    ...
+            vm = VirtualMachine.attach(pid);
+            ...
+            vm.loadAgent(agentPath, agentArgs);
+    ...
+}

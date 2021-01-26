@@ -1,0 +1,2 @@
+https://weblogs.java.net/blog/jjviana/archive/2010/07/14/using-btrace-glassfish-v3
+-javaagent:/Users/bnewport/Development/btrace-bin/build/btrace-agent.jar=script=AgentServerTimer.class,port=2021
