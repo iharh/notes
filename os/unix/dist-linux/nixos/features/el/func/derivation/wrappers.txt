@@ -1,0 +1,20 @@
+2021
+https://www.reddit.com/r/NixOS/comments/l9h5jc/creating_a_symlink_of_an_executable_ie_symlink/
+
+{
+  home.packages = [
+    (pkgs.writeShellScriptBin "dmenu" ''
+      ${pkgs.rofi}/bin/rofi "$@"
+    '')
+  ];
+}
+
+pkgs.runCommandLocal "rofi-as-dmenu" ''
+  mkdir -p $out/bin
+  ln -s ${pkgs.rofi}/bin/rofi $out/bin/dmenu
+''
+
+pkgs.linkFarm "dmenu" [ {
+  name = "bin/dmenu";
+  path = "${pkgs.rofi}/bin/rofi";
+} ];

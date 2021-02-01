@@ -1,0 +1,13 @@
+2021
+https://www.haskellforall.com/2021/01/dynamic-type-errors-lack-relevance.html
+
+let
+  pkgs = import <nixpkgs> { };
+  enable = option: "${option}=true";
+  disable = option: "${option}=false";
+in
+  pkgs.lib.cli.toGNUCommandLine { }
+    { option = [ "max-jobs=5" "cores=4" enable "fallback" ]; }
+
+# The intention was to produce this result:
+    [ "--option" "max-jobs=5" "--option" "cores=4" "--option" "fallback=true" ]
