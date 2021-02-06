@@ -1,0 +1,13 @@
+2021
+SwashbucklingWithCode - Webpack 5 Full Project Setup
+    https://www.youtube.com/watch?v=TOb1c39m64A
+    https://github.com/Jimmydalecleveland/webpack-starters/tree/react-full-project
+    ! 47:47 ... react 17
+    ! npm i react react-dom
+    ! npm i -D @babel/preset-react
+    ! babel - runtime - automatic
+    ! ... test: /\.jsx?$/
+2020
+ProFrontend - Webpack Babel, React, Typescript 20
+    https://www.youtube.com/watch?v=2MtVEzi7FFg
+    ! tons of stuff, but mumbling

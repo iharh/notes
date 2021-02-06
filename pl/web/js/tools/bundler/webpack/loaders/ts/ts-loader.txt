@@ -1,0 +1,40 @@
+https://github.com/TypeStrong/ts-loader
+https://webpack.js.org/guides/typescript/#loader
+
+webpack.config.js
+module.exports = {
+    mode: process.env.NODE_ENV || 'production',
+
+    module: {
+        rules: {
+            test: /\.ts$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'ts-loader'
+            }
+        }
+    },
+    devtool: false,
+    resolve: {
+        extensions: ['.ts', '.js']
+    }
+}
+
+tsconfig.json
+    # npx tsc --init
+
+package.json
+{
+    ...
+    "scripts": {
+        "build": "webpack",
+        "build:watch": "webpack --watch",
+        ...
+    },
+    ...
+}
+
+2020
+SmashbucklingWithCode - Webpack 5 and Typescript Project Setup Walkthrough
+    https://www.youtube.com/watch?v=4lpmVZdj12g
+    https://github.com/Jimmydalecleveland/webpack-starters/tree/typescript

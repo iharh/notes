@@ -1,0 +1,20 @@
+https://webpack.js.org/guides/development/#using-source-maps
+    ? check inline-source-map
+
+cmd-line
+    webpack -d
+
+at webpack cfg:
+
+devtool: 'eval'
+    ! but not used for prod
+devtool: 'source-map'
+    ! need to refresh with open dev-tools
+    ! used for prod, but slow
+
+2021
+DevTuts - Generate Source Maps using Webpack
+    https://www.youtube.com/watch?v=Yu4a_nZYp_c
+2019
+WebProgramming - Webpack source maps ru
+    https://www.youtube.com/watch?v=NF7XVpDe-Fo

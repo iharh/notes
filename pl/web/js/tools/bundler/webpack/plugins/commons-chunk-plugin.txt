@@ -1,0 +1,16 @@
+used for dedup stuff
+
+entity: {
+    ...
+    vendor: ['jquery', 'lodash']
+    ...
+}
+
+new webpack.opttimize.CommonsChunkPlugin({
+    name: ['common', 'vendor'],
+    minChunks: 2     # min 2(or 1) places in order to use in common
+})
+
+2019
+WebProgramming - Webpack Commons Chunk Plugin
+    https://www.youtube.com/watch?v=TbTqHbon3eY

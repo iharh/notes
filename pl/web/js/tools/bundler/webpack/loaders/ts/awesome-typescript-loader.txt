@@ -1,0 +1,16 @@
+npm i --save-dev awesome-typescript-loader typescript
+
+resolve: {
+    extensions: ['.ts', '.js']
+},
+module: {
+    rules: [
+        {
+            test: /\.ts$/,
+            loader: 'awesome-typescript-loader'  # webpack will find it himself
+        }
+    ]
+}
+
+2019
+    https://www.youtube.com/watch?v=2Mrgru0Q92Q
