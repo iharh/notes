@@ -1,3 +1,46 @@
+why:
+    babel loader applies polyfills (es5 vs es6 for ts-loader)
+    babel used by CRA
+
+https://webpack.js.org/guides/typescript/
+    https://babeljs.io/docs/en/babel-preset-typescript
+    https://github.com/Jimmydalecleveland/webpack-starters/tree/react-full-project
+
+2021
+DevTuts - Webpack 5: How to Use Webpack & Babel to Compile ES6+ into ES5
+    https://www.youtube.com/watch?v=MX13Ezfzuf8
+    https://github.com/rapidevelop/ex_webpack5/tree/v04
+    https://github.com/rapidevelop/ex_webpack5/blob/v04/webpack.config.js
 2020
-SmashbucklingWithCode - Creating and Understanding a Basic Webpack 5 Setup
+https://www.carlrippon.com/creating-react-and-typescript-apps-with-webpack/
+    ! good starting point sample
+LetsCode - React Webpack Babel Setup From Scatch - 2020 React.js Tutorial
+    https://www.youtube.com/watch?v=ihhPyqfdbjo
+    !!! like it
+    https://github.com/daryanka/webpack-babel-tutorial
+    https://github.com/daryanka/webpack-babel-tutorial/blob/master/webpack.config.js
+SwashbucklingWithCode - Creating and Understanding a Basic Webpack 5 Setup
     https://www.youtube.com/watch?v=X1nxTjVDYdQ
+    https://github.com/Jimmydalecleveland/webpack-starters
+https://www.smashingmagazine.com/2020/05/typescript-modern-react-projects-webpack-babel/
+    ! method 2
+2019
+https://iamturns.com/typescript-babel/
+    ! npm run check-types
+https://blog.logrocket.com/choosing-between-babel-and-typescript-4ed1ad563e41/
+    ! tsc --noEmit
+https://www.mattzeunert.com/2019/10/23/migrating-your-webpack-typescript-build-from-ts-loader-to-babel-loader.html
+    ! we cat take advantage of babel-preset-env
+        https://babeljs.io/docs/en/babel-preset-env
+    ! and remove deprecated polyfil @babel/polyfill
+
+samples
+https://github.com/Microsoft/TypeScript-Babel-Starter
+    ! good sample of scripts
+https://github.com/a-tarasyuk/react-webpack-typescript-babel/tree/master/src/components
+
+issues
+https://kevinwil.de/differences-in-output-of-typescript-compiler-and-babel-for-classes/
+
+usage stats
+https://www.npmtrends.com/@babel/preset-typescript-vs-awesome-typescript-loader-vs-ts-loader
