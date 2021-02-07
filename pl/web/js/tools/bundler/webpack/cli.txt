@@ -1,5 +1,9 @@
 webpack
     [--mode] 
+    init
+        https://github.com/webpack/webpack-cli/blob/master/INIT.md
+        --auto
+        webpack-scaffold-[name]
     i
         https://docs.npmjs.com/cli/install
         -S
