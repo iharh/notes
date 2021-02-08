@@ -5,6 +5,9 @@ http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/4/0
 17.x
 https://blog.bitsrc.io/new-jsx-enhancements-in-react-17-e5f64acbea89
 https://reactjs.org/blog/2020/10/20/react-v17.html
+https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+    https://habr.com/ru/post/521930/
+    https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#detailed-design
 https://reactjs.org/blog/2020/08/10/react-v17-rc.html
     https://www.telerik.com/blogs/what-react-17-means-for-developers
     https://habr.com/ru/post/519824/

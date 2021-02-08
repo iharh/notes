@@ -3,7 +3,10 @@ why:
     babel used by CRA
 
 https://webpack.js.org/guides/typescript/
-    https://babeljs.io/docs/en/babel-preset-typescript
+    ts-loader based
+
+https://webpack.js.org/loaders/babel-loader/
+https://babeljs.io/docs/en/babel-preset-typescript
     https://github.com/Jimmydalecleveland/webpack-starters/tree/react-full-project
 
 2021
@@ -12,6 +15,7 @@ DevTuts - Webpack 5: How to Use Webpack & Babel to Compile ES6+ into ES5
     https://github.com/rapidevelop/ex_webpack5/tree/v04
     https://github.com/rapidevelop/ex_webpack5/blob/v04/webpack.config.js
 2020
+https://www.robinwieruch.de/webpack-babel-setup-tutorial
 https://www.carlrippon.com/creating-react-and-typescript-apps-with-webpack/
     ! good starting point sample
 LetsCode - React Webpack Babel Setup From Scatch - 2020 React.js Tutorial
@@ -33,6 +37,9 @@ https://www.mattzeunert.com/2019/10/23/migrating-your-webpack-typescript-build-f
     ! we cat take advantage of babel-preset-env
         https://babeljs.io/docs/en/babel-preset-env
     ! and remove deprecated polyfil @babel/polyfill
+2017
+https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
+    ! starting simple preset-env case
 
 samples
 https://github.com/Microsoft/TypeScript-Babel-Starter

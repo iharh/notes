@@ -1,0 +1,13 @@
+webpack.
+resolve: {
+    alias: {
+      '@Components': path.resolve(__dirname, 'src/components/'),
+    }
+}
+
+// *.jsx
+import myComponent from '@Components/myComponent'
+
+
+2020
+https://nimblewebdeveloper.com/blog/absolute-alias-imports-in-javascript-vscode
