@@ -1,0 +1,29 @@
+https://www.npmjs.com/package/fork-ts-checker-webpack-plugin
+
+https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
+https://github.com/TypeStrong/fork-ts-checker-webpack-plugin/tree/master/examples
+https://github.com/TypeStrong/fork-ts-checker-webpack-plugin/tree/master/examples/babel-loader
+
+2019
+https://blog.johnnyreilly.com/2019/07/typescript-and-eslint-meet-fork-ts-checker-webpack-plugin.html
+    ! migrate from tslint to eslint
+
+alias issues
+https://stackoverflow.com/questions/40443806/webpack-resolve-alias-does-not-work-with-typescript
+https://medium.com/@martin_hotell/type-safe-es2015-module-import-path-aliasing-with-webpack-typescript-and-jest-fe461347e010
+
+tsconfig.json:
+
+"baseUrl": "./src",
+"paths": {
+  "@components/*": [ "components/*" ]
+},
+
+webpack.config.js
+
+resolve: {
+  extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  alias: {
+    '@components': path.resolve(__dirname, 'src/components/')
+  }
+},

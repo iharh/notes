@@ -1,1 +1,3 @@
-npm init react-app my-app
+npm init
+    react-app my-app
+    react-app my-app --template typescript

@@ -2,3 +2,24 @@
 https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
     https://habr.com/ru/post/521930/
     https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#detailed-design
+
+.babelrc
+{
+  "presets": [
+    "@babel/preset-env",
+    ["@babel/preset-react", {
+      "runtime": "automatic"
+    }]
+  ]
+}
+
+package.json
+{ ...
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      ["@babel/preset-react", { "runtime": "automatic" }]
+    ]
+  }
+...}
+
