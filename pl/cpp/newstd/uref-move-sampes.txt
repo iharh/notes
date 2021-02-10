@@ -1,6 +1,8 @@
 https://en.cppreference.com/w/cpp/language/move_assignment
 https://docs.microsoft.com/en-us/cpp/cpp/move-constructors-and-move-assignment-operators-cpp
 
+2021
+https://radekvit.medium.com/move-semantics-in-c-and-rust-the-case-for-destructive-moves-d816891c354b
 2020
 https://herbsutter.com/2020/02/17/move-simply/
 https://habr.com/ru/post/484380/
