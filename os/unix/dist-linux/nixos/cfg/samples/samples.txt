@@ -23,8 +23,12 @@ https://catgirl.ai/log/nixos-experience/
 https://git.project-insanity.org/onny/nixos-lappy
     20.09
 
-https://github.com/srghma/dotfiles
 https://github.com/evanjs/nixos_cfg
+    ! from nixos release manager
+https://github.com/balsoft/nixos-config
+    ! from Alexander Bantiev
+    
+https://github.com/srghma/dotfiles
 https://gitlab.com/samueldr/nixos-configuration
 https://github.com/balsoft/nixos-config
 https://gitlab.com/atemu/nixos-config
