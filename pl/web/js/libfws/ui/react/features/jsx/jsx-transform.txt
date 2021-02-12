@@ -2,6 +2,9 @@
 https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
     https://habr.com/ru/post/521930/
     https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#detailed-design
+2019
+Wolff - The New React JSX Transform
+    https://www.youtube.com/watch?v=bDXtbiD7URA
 
 .babelrc
 {
@@ -23,3 +26,7 @@ package.json
   }
 ...}
 
+ts-support
+https://www.typescriptlang.org/docs/handbook/jsx.html
+https://github.com/microsoft/TypeScript/issues/34547
+    https://github.com/microsoft/TypeScript/issues/37496
