@@ -1,1 +1,5 @@
 https://github.com/nix-community/nix-direnv
+
+https://streaming.lassul.us/records/nix-flakes-101-slides/#/13
+    # .envrc
+    use flake # this will use the .devShell attribute

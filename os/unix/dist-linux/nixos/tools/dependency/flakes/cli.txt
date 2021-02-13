@@ -32,6 +32,7 @@ nixos-container
     --no-allow-dirty
 
 nix flake
+    https://hydra.nixos.org/build/136801108/download/1/manual/command-ref/new-cli/nix3-flake.html
     init
         ... later
         git init && git add --all

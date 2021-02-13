@@ -1,0 +1,5 @@
+ https://www.typescriptlang.org/tsconfig
+ https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+
+ tsc
+    --showConfig
