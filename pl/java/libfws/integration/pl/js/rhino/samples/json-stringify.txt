@@ -1,15 +1,3 @@
-http://www-archive.mozilla.org/rhino/apidocs/org/mozilla/javascript/Context.html
-http://www-archive.mozilla.org/rhino/apidocs/org/mozilla/javascript/ScriptableObject.html    
-
-https://github.com/mozilla/rhino/blob/master/src/org/mozilla/javascript/ScriptableObject.java
-
-...
-final Scriptable scope = ctx.initStandardObjects();
-ScriptableObject.putProperty(scope, "input", input);
-ScriptableObject.putProperty(scope, "log", LOG);
-ScriptableObject.putProperty(scope, "name", name);
-...
-
 https://stackoverflow.com/questions/11616630/json-stringify-avoid-typeerror-converting-circular-structure-to-json/
 
 JSON.stringifyOnce = function(obj, replacer, indent) {
@@ -53,4 +41,6 @@ JSON.stringifyOnce = function(obj, replacer, indent) {
     }
     return JSON.stringify(obj, printOnceReplacer, indent);
 };
+
+
 
