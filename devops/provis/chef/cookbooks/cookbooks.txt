@@ -2,6 +2,7 @@ cookbooks:
 https://docs.chef.io/cookbooks.html
 
 https://supermarket.chef.io/
+    https://supermarket.chef.io/cookbooks/
   https://supermarket.chef.io/cookbooks/ssl_certificate/
 
 - defines a scenario
