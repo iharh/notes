@@ -75,3 +75,6 @@ youtube_dl -a list.txt
 --audio-format mp3
 --output %(playlist_index)s-%(title)s.%(ext)s
 #%(autonumber)s ???
+
+integration
+https://www.npmjs.com/package/youtube-dl
