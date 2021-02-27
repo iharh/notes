@@ -12,3 +12,5 @@ FROM java:8
 
 simple-alpine-file-copy:
 https://github.com/testcontainers/testcontainers-java/blob/master/core/src/test/java/org/testcontainers/utility/DirectoryTarResourceTest.java
+
+https://mister11.github.io/posts/testing_spring_webflux_application/
