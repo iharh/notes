@@ -78,3 +78,7 @@ youtube_dl -a list.txt
 
 integration
 https://www.npmjs.com/package/youtube-dl
+
+samples
+# --max-downloads 200
+echo youtube-dl --ignore-errors --write-info-json --skip-download -o "./%(title)s.%(ext)s" https://www.youtube.com/channel/UCFKXJHDGSt50dI7CfftVVSA/videos
