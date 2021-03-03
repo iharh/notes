@@ -1,0 +1,4 @@
+k0s
+    reset
+        https://docs.k0sproject.io/v0.11.0/k0s-reset/   
+        remove all k0s related files from the host

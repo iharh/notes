@@ -1,0 +1,5 @@
+https://docs.k0sproject.io/v0.10.0/k0s-in-docker/
+
+docker run -d --name k0s --hostname k0s --privileged -v /var/lib/k0s -p 6443:6443 docker.io/k0sproject/k0s:latest
+Just grab the kubeconfig file with docker exec k0s cat /var/lib/k0s/pki/admin.conf
+    and paste e.g. into Lens (https://github.com/lensapp/lens/)
