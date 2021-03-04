@@ -18,16 +18,6 @@ https://www.reddit.com/r/rust/comments/6pgyy1/serde_trait_objects_work_again/
 recursive
 https://www.reddit.com/r/rust/comments/74bkz5/serde_question_about_serializing_recursively/
 
-zero-copy
-https://users.rust-lang.org/t/serde-and-serde-json-1-0-0-released/10466
-https://www.reddit.com/r/rust/comments/6albr0/serde_compared_to_the_fastest_c_json_library/
-
-flatten
-https://serde.rs/attr-flatten.html
-
-lifetimes
-https://serde.rs/lifetimes.html
-
 unit-testing
 https://serde.rs/unit-testing.html
 https://docs.serde.rs/serde_test/
