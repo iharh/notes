@@ -1,0 +1,6 @@
+aur
+    dvc
+
+pip install
+    dvcgs
+    google.cloud.storage
