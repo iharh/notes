@@ -1,2 +1,7 @@
 https://github.com/kloenk/nix
 https://github.com/shadowrylander/shadowrylander/blob/system/etc/nixos/flake.nix
+
+???
+https://cfp.nixcon.org/media/nixcon-oct-2020.pdf
+    https://github.com/tweag/nix-ux
+    inputs.hello.url = github:tweag/nix-ux?dir=hello
