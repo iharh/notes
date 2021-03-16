@@ -3,4 +3,5 @@ aur
 
 pip install
     dvcgs
+    dvc\[gs\]
     google.cloud.storage
