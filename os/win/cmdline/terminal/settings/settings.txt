@@ -16,7 +16,8 @@ https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md
         "defaults":
         {
             // Put settings here that you want to apply to all profiles
-            "fontSize": 14
+            "fontSize": 13,
+            "fontFace": "Cascadia Code PL"
         },
         "list":
         [
