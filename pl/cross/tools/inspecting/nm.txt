@@ -5,9 +5,13 @@ nm
     -l
         line numbers
     --no-demangle
+        this is a default
     --demangle[=<style>]
     --defined-only
     --undefined-only
 
-U ...
-T ...
+https://sourceware.org/binutils/docs/binutils/nm.html
+U
+    The symbol is undefined. 
+T, t
+    The symbol is in the text (code) section.

@@ -1,31 +1,11 @@
 https://areweasyncyet.rs/
 https://aturon.github.io/apr/
 
-https://rust-lang.github.io/async-book/
-https://rust-lang.github.io/async-book/index.html
-    https://github.com/rust-lang/async-book
-    https://rust-lang.github.io/async-book/02_execution/04_executor.html
-
-https://cfsamson.github.io/book-exploring-async-basics/
-
 https://teh-cmc.github.io/rust-async/html/
     https://github.com/teh-cmc/rust-async/blob/master/README.md
 
-https://crates.io/crates/async-std
-https://docs.rs/async-std
-https://book.async.rs/
-    https://async.rs/blog/announcing-async-std-1-0/
-
-interview
-http://smallcultfollowing.com/babysteps/blog/2020/03/10/async-interview-7-withoutboats/
-https://smallcultfollowing.com/babysteps/blog/2020/02/11/async-interview-6-eliza-weisman/
-https://smallcultfollowing.com/babysteps/blog/2020/01/20/async-interview-5-steven-fackler/
-https://smallcultfollowing.com/babysteps/blog/2020/01/13/async-interview-4-florian-gilcher/
-https://smallcultfollowing.com/babysteps/blog/2019/12/23/async-interview-3-carl-lerche/
-https://smallcultfollowing.com/babysteps/blog/2019/12/11/async-interview-2-cramertj-part-3/
-https://smallcultfollowing.com/babysteps/blog/2019/12/10/async-interview-2-cramertj-part-2/
-https://smallcultfollowing.com/babysteps/blog/2019/12/09/async-interview-2-cramertj/
-
+2021
+https://os.phil-opp.com/async-await/
 2020
 https://blog.logrocket.com/a-practical-guide-to-async-in-rust/
 https://blog.yoshuawuyts.com/async-http/
@@ -68,8 +48,3 @@ https://blag.nemo157.com/2018/12/09/inside-rusts-async-transform.html
 Fey - Rust Async Programming in 2018
     https://www.youtube.com/watch?v=j0SIcN-Y-LA
     https://gotocph.com/2018/sessions/587
-
-
-samples
-2019
-https://tech.fpcomplete.com/rust/pid1
