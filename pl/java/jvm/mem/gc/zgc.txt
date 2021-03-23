@@ -4,6 +4,8 @@ https://docs.oracle.com/en/java/javase/15/gctuning/z-garbage-collector.html
 https://openjdk.java.net/jeps/377
 https://openjdk.java.net/jeps/376
 
+2021
+https://malloc.se/blog/zgc-jdk16
 2020
 https://malloc.se/blog/zgc-jdk15
 https://malloc.se/blog/zgc-softmaxheapsize
