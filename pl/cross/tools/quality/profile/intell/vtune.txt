@@ -1,0 +1,17 @@
+download
+https://software.intel.com/content/www/us/en/develop/articles/oneapi-standalone-components.html#vtune
+
+aur/intel-vtune-profiler-standalone 2020.u2-2 (+0 0.00) (Out-of-date: 2021-03-10) 
+    The standalone version of Intel VTune Profiler
+aur/intel-vtune-profiler 2020.4.304-3 (+135 0.30) (Orphaned) (Out-of-date: 2020-12-25)
+    Performance profiler for serial and parallel performance analysis
+
+articles
+2021
+https://habr.com/ru/company/intel/blog/549084/
+
+cookbook
+https://software.intel.com/content/www/us/en/develop/documentation/vtune-cookbook/top.html
+
+whatsnew
+https://software.intel.com/content/www/us/en/develop/documentation/vtune-help/top/introduction/whats-new.html
