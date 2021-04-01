@@ -13,6 +13,8 @@ $ pip install --user pipenv
 $ pip install --user --upgrade pipenv
 
 articles
+2019
+https://realpython.com/intro-to-pyenv/
 2018
 https://habr.com/post/413009/
 2016
