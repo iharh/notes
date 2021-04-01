@@ -50,6 +50,8 @@ https://github.com/kylemanna/docker-openvpn/blob/master/docs/docker-compose.md
 misc
 max-routes 1000 # --max-routes 500
 
+2021
+https://habr.com/ru/post/550206/
 2019
 https://habr.com/post/435802/
 
