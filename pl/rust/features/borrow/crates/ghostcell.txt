@@ -1,0 +1,9 @@
+http://plv.mpi-sws.org/rustbelt/ghostcell/
+https://gitlab.mpi-sws.org/FP/ghostcell/
+
+samples
+https://gitlab.mpi-sws.org/FP/ghostcell/-/blob/master/ghostcell/examples/dlist_arena.rs#L61
+
+2021
+https://www.reddit.com/r/rust/comments/mhc20r/ghostcell_separating_permissions_from_data_in_rust/
+https://www.reddit.com/r/rust/comments/minqu0/writing_an_ergonomic_and_efficient_linkedlist_in/
