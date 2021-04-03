@@ -1,7 +1,11 @@
 https://crates.io/crates/mongodb
 https://docs.rs/mongodb
-https://github.com/mongodb/mongo-rust-driver
 
+https://github.com/mongodb/mongo-rust-driver
+https://docs.mongodb.com/drivers/rust/
+
+2021
+https://taharmeijs.medium.com/beginners-guide-to-mongodb-and-rust-8d8d3ef17920
 2020
 https://pvictorsys.medium.com/async-rust-with-tokio-and-mongodb-ae75594c65b8
 2019
