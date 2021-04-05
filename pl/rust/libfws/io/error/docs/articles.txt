@@ -4,6 +4,7 @@ https://edgarluque.com/blog/wrapping-errors-in-rust
     ! thiserror
 https://theomn.com/rust-error-handling-for-pythonistas/
 2020
+https://nick.groenen.me/posts/rust-error-handling/
 https://yaah.dev/building-your-own-error-type
     https://www.reddit.com/r/rust/comments/je5dmq/building_your_own_error_type_part_1/
     There are two fundamentally different types of error management helper crates:

@@ -14,3 +14,7 @@ fzf
 -e  exact
 -x  extended
 --no-extended
+
+2021
+https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf/
+    https://habr.com/ru/company/skillfactory/blog/550470/

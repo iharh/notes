@@ -4,6 +4,8 @@ Marlow-ParallelAndConcurrentProgrammingInHaskell - ch 8
 cheatsheets
 https://fpcomplete.com/safe-exception-handling/
 
+2021
+https://taylor.fausak.me/2021/04/03/default-exception-handler-in-haskell/
 2020
 https://serokell.io/blog/uncaught-exception-handling
 https://www.tweag.io/posts/2020-04-16-exceptions-in-haskell.html
