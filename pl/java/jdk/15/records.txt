@@ -11,7 +11,11 @@ https://bugs.openjdk.java.net/browse/JDK-8246771
 lib
 https://github.com/Monospark/remix
 
+https://github.com/openjdk/amber-docs/blob/master/eg-drafts/reconstruction-records-and-classes.md
+    https://www.reddit.com/r/java/comments/mkin1q/early_stage_draft_functional_transformation_of/
+
 2021
+https://inside.java/2021/04/06/record-serialization-in-practise/
 https://inside.java/2021/03/12/simpler-serilization-with-records/
 2020
 https://topjava.ru/blog/zapisi-records-v-java
