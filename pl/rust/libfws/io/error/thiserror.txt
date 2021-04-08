@@ -3,6 +3,7 @@ https://docs.rs/thiserror
 https://github.com/dtolnay/thiserror
 
 2021
+https://dev.to/seanchen1991/a-beginner-s-guide-to-handling-errors-in-rust-40k2
 https://edgarluque.com/blog/wrapping-errors-in-rust
 2020
 https://www.reddit.com/r/rust/comments/fw4jsx/from_failure_to_fehler/
