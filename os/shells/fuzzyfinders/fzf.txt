@@ -3,6 +3,7 @@ https://github.com/junegunn/fzf
 releases:
 https://github.com/junegunn/fzf-bin
 
+integrations
 /usr/share/fish/functions/fzf.fish
 
 /etc/profile.d/fzf-extras.bash
@@ -18,3 +19,6 @@ fzf
 2021
 https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf/
     https://habr.com/ru/company/skillfactory/blog/550470/
+
+ext
+https://github.com/lbcnz/fzfx
