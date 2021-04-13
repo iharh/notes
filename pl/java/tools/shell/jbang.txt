@@ -1,3 +1,5 @@
+https://www.jbang.dev/
+
 https://github.com/jbangdev/jbang
 https://github.com/maxandersen/jbang
 
@@ -7,9 +9,43 @@ scoop bucket add jbangdev https://github.com/jbangdev/scoop-bucket
 scoop install jbang
     https://github.com/jbangdev/scoop-bucket/blob/master/jbang.json
 
+cli
+jbang
+    [--debug]
+    [edit --live=idea]
+    [--javaagent=org.jboss.byteman:byteman:4.0.11=script.btm]
+
+    hello.(java|jsh|jar)
+    <url> like https://raw.githubusercontent.com/microsoft/jfr-streaming/main/samples/jbang/Sample.java
+    io.quarkus:quarkus-cli:999-SNAPSHOT:runner
+        # jar via GAV's
+
+    init
+        -t cli <name>.java
+    build
+        ...
+    --native
+        ...
+    alias
+        add hello hello.java
+    run@jruby -e "puts 'Hello Ruby World'"
+    properties@jbang.dev
+        github/gitlab/bitbucket powered catalogs
+    publish
+        ...
+
+gradle
+    https://github.com/jbangdev/jbang-gradle-plugin/
+docker
+    docker run -v `pwd`:/ws --workdir=/ws jbangdev/jbang-action helloworld.java
+github-action
+    https://github.com/marketplace/actions/java-scripting-w-jbang
+
 2020
-jbang, a better Java?
+Andersen - jbang, a better Java?
     https://www.youtube.com/watch?v=gVL-CFEOGs8
+    https://docs.google.com/presentation/d/1IScJ47fsPrDTloM_Wbh_-0rm22_L9NYv9-2JAJ0Ahvo/edit#slide=id.p
 
 samples
+https://github.com/jbangdev/k8s-cli-java
 https://github.com/filippobuletto/kubectl-java-test/blob/master/kubectl-java_test.java
