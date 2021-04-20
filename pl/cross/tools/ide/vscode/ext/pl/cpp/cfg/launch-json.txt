@@ -1,0 +1,16 @@
+https://code.visualstudio.com/docs/editor/debugging#_launchjson-attributes
+https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md
+
+"program": "..."
+
+"prelauchTask" : "<label"
+
+    // environment
+    https://stackoverflow.com/questions/29971572/how-do-i-add-environment-variables-to-launch-json-in-vscode
+
+    "args": [
+        "${workspaceFolder}/some-folder"
+    ],
+    "env": {
+       "LD_LIBRARY_PATH": "${workspaceFolder}/some-folder"
+    }

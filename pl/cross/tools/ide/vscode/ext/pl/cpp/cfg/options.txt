@@ -1,0 +1,3 @@
+Tools > Options > Debugging >
+    General > [X] Enable Just My Code. 
+    https://github.com/vadimcn/vscode-lldb/issues/258
