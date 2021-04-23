@@ -1,8 +1,5 @@
-https://doc.rust-lang.org/edition-guide/rust-2018/module-system/path-clarity.html
-
-https://runrust.miraheze.org/wiki/Scope
-
 2021
+https://renoth.medium.com/rust-module-system-ea3423457ab8
 https://aloso.github.io/2021/03/28/module-system.html
 2020
 https://dev.to/stevepryde/intro-to-rust-modules-3g8k
@@ -14,37 +11,8 @@ https://medium.com/@erik.tate/rust-modules-in-less-than-5-minutes-9bff7f617798
 https://medium.com/@eonil/rust-module-system-why-not-just-one-directory-for-one-module-84bc71a3f347
 https://chronicbuildfailure.co/splitting-up-modules-in-rust-5ad7713201d5
 https://medium.com/@siefert.david/tl-dr-rust-modules-8e5d186a9188
-
 2017
 https://dev.to/hertz4/rust-module-essentials-12oi
 https://medium.com/@tak2siva/rust-modules-explained-96809931bbbf
     https://github.com/tak2siva/rust_module_example
 https://medium.com/journey-to-rust/modules-220f7657b806
-
-books
-https://rustbyexample.com/mod/split.html
-
-https://internals.rust-lang.org/t/revisiting-rust-s-modules-part-2/5700
-
-If a module named foo has no submodules, you should put the declarations for foo in a file named
-    foo.rs.
-If a module named foo does have submodules, you should put the declarations for foo in a file named
-    foo/mod.rs.
-
-.
-  src
-    types
-      mod.rs
-      qarray.rs
-      qinteger.rs        
-  qstring.rs
-
-src/types/mod.rs
-
-mod qarray;
-mod qinteger;
-mod qstring;
-
-pub use self::qarray::QArray;
-pub use self::qinteger::QInteger;
-pub use self::qstring::QString;
