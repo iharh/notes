@@ -10,6 +10,10 @@ api
 http://jqwik.net/javadoc/index.html
 https://jqwik.net/docs/1.2.0/javadoc/index.html
 
+samples
+https://github.com/jlink/property-based-testing/tree/main/pbt-java
+https://github.com/jlink/property-based-testing/blob/main/pbt-java/src/test/java/pbt/hwayne/can_afford.md
+
 2019
 https://blogs.oracle.com/javamagazine/know-for-sure-with-property-based-testing
 https://blog.johanneslink.net/2019/05/11/property-based-driven-development/
