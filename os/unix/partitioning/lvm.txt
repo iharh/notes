@@ -5,6 +5,10 @@ wiki:
 https://wiki.gentoo.org/wiki/LVM
 https://wiki.gentoo.org/wiki/LVM/ru
 
+guide
+https://edumotivation.com/what-is-lvm-logical-volume-manager/
+    https://www.reddit.com/r/commandline/comments/mzilx6/linux_lvm_logical_volume_manager_a_step_by_step/
+
 /boot/grub/grub.cfg
 https://wiki.archlinux.org/index.php/GRUB2#LVM
 
