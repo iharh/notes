@@ -1,0 +1,20 @@
+cli
+    yarn[pkg]
+
+yarn[pkg]
+    [cmd] -h
+        help
+    init
+        start a new project
+    add
+        [package]|[package]@[version]|[package]@[tag]
+        --dev|--peer|--optional|--exact|--tilde
+    [install]
+        [--flat]|[--har]
+        install deps at the current project
+    upgrade
+        ...
+    upgrade-interactive
+        https://www.youtube.com/watch?v=zrX1GUERzXY
+    remove
+        [package]

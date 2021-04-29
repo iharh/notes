@@ -1,14 +1,3 @@
-https://yarnpkg.com
-https://yarnpkg.com/en/
-
-https://github.com/yarnpkg/yarn/
-
-scoop
-    yarn
-community
-    yarn
-    nodejs
-
 https://yarnpkg.com/en/docs
 https://yarnpkg.com/en/docs/getting-started
 https://yarnpkg.com/en/docs/install
@@ -42,38 +31,3 @@ https://yarnpkg.com/en/docs/dependencies
     https://yarnpkg.com/en/docs/dependency-versions
     https://yarnpkg.com/en/docs/selective-version-resolutions
 https://yarnpkg.com/en/docs/workspaces
-
-
-
-cli
-    yarn[pkg]
-
-yarn[pkg]
-    [cmd] -h
-        help
-    init
-        start a new project
-    add
-        [package]|[package]@[version]|[package]@[tag]
-        --dev|--peer|--optional|--exact|--tilde
-    [install]
-        [--flat]|[--har]
-        install deps at the current project
-    upgrade
-        ...
-    upgrade-interactive
-        https://www.youtube.com/watch?v=zrX1GUERzXY
-    remove
-        [package]
-
-
-npm<->yarn
-https://shift.infinite.red/npm-vs-yarn-cheat-sheet-8755b092e5cc
-https://yarnpkg.com/en/docs/migrating-from-npm
-
-critice
-https://mixmax.com/blog/to-yarn-and-back-again-npm
-
-whatsnew
-    https://github.com/yarnpkg/yarn/issues/6953
-    https://dev.to/arcanis/yarn-2-2-dedupe-faster-lighter-ha5
