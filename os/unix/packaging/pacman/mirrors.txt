@@ -1,9 +1,10 @@
 pacman -Ss pacman-mirrorlist
 
-pacman-mirrors -g
-    [-B stable|testing]
-
-sudo pacman-mirrors -f 3
+sudo pacman-mirrors
+    -g [-B stable|testing]
+        ! generate big mirror list
+    -f 3
+        ! generate only best 3 mirrors in a list
 
 sudo rm /var/lib/pacman/db.lck && sudo pacman-mirrors -c all && sudo pacman -Syyu
 
