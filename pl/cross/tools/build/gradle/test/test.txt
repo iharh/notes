@@ -8,6 +8,8 @@ test {
     testLogging {
         showStandardStreams true
     }
+
+    environment.remove("ENV_VAR_NAME")
 }
 
 https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/logging/TestLoggingContainer.html
