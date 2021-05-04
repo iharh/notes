@@ -1,17 +1,2 @@
 https://buildpacks.io/
-
-https://github.com/buildpack
-https://github.com/buildpack/spec/blob/master/buildpack.md
-
-https://buildpacks.io/docs/
-https://buildpacks.io/docs/app-journey/
-https://buildpacks.io/docs/using-pack/
-    https://buildpacks.io/docs/using-pack/building-app/
-    https://buildpacks.io/docs/using-pack/update-app-rebase/
-    https://buildpacks.io/docs/using-pack/working-with-builders/
-    https://buildpacks.io/docs/using-pack/managing-stacks/
-
-2020
-https://habr.com/ru/post/485486/
-2018
-https://www.cncf.io/blog/2018/10/03/cncf-to-host-cloud-native-buildpacks-in-the-sandbox/
+check opencontainers/buildpacks

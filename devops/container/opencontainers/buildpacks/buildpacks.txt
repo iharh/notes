@@ -1,11 +1,15 @@
 https://buildpacks.io/
 https://buildpacks.io/docs/
-https://buildpacks.io/docs/app-journey/
 https://buildpacks.io/docs/install-pack/
+https://buildpacks.io/docs/app-journey/
+https://buildpacks.io/docs/using-pack/
+    https://buildpacks.io/docs/using-pack/building-app/
+    https://buildpacks.io/docs/using-pack/update-app-rebase/
+    https://buildpacks.io/docs/using-pack/working-with-builders/
+    https://buildpacks.io/docs/using-pack/managing-stacks/
 
 https://github.com/buildpacks
 https://github.com/buildpacks/pack/
 
 https://github.com/buildpacks/spec
-
-https://medium.com/buildpacks
+https://github.com/buildpack/spec/blob/master/buildpack.md
