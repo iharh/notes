@@ -8,6 +8,15 @@ rename
 https://mrhaki.blogspot.com/2010/10/gradle-goodness-renaming-files-while.html
 
 samples
+import org.gradle.api.file.DuplicatesStrategy
+
+    create<Copy>("copySomeStuff") {
+        from(someCfg)
+        into(someDir)
+        include("*.jar")
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+
     //for including in the copy task
     val dataContent = copySpec {
         from("src/data")

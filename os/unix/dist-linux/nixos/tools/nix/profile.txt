@@ -1,0 +1,10 @@
+nix profile
+    install nixpkgs#hello
+    list
+    update hello
+    remove hello
+
+If you’re already familiar with Nix, this is a replacement for nix-env.
+
+2021
+https://serokell.io/blog/practical-nix-flakes
