@@ -1,5 +1,0 @@
-https://docs.gradle.org/current/userguide/publishing_maven.html
-
-dsl:
-https://docs.gradle.org/current/dsl/org.gradle.api.publish.PublishingExtension.html
-https://docs.gradle.org/current/dsl/org.gradle.api.publish.maven.MavenPublication.html

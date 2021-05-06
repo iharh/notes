@@ -1,0 +1,92 @@
+https://docs.gradle.org/current/userguide/publishing_ivy.html
+    ! dynamic task names - https://docs.gradle.org/current/userguide/publishing_ivy.html#publishing_ivy:tasks
+    ! url = uri(layout.buildDirectory.dir("repo"))
+    https://docs.gradle.org/current/userguide/publishing_setup.html
+    !!! For example, the Java Plugin defines the components.java SoftwareComponent
+        (https://docs.gradle.org/current/javadoc/org/gradle/api/component/SoftwareComponent.html)
+    ! how to suppress validation warnings
+
+!!!
+https://docs.gradle.org/current/userguide/publishing_customization.html
+    // val javaComponent = components["java"] as AdhocComponentWithVariants
+
+dsl
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.tasks.PublishToIvyRepository.html
+    ! have ant builder
+https://docs.gradle.org/current/javadoc/org/gradle/api/publish/ivy/IvyPublication.html
+    ! suppressAllIvyMetadataWarnings
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyPublication.html
+    !
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyArtifactSet.html
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyArtifact.html
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyModuleDescriptorSpec.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/publish/ivy/IvyConfigurationContainer.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/component/SoftwareComponent.html
+        ! incl CppSharedLibrary
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.PublishingExtension.html
+    !!!
+    plugins {
+        id 'publishing'
+    }
+
+    publishing {
+        publication { ...  }
+        repositories {
+            // Create an ivy publication destination named “releases”
+            ivy {
+                name "releases"
+                url "http://my.org/ivy-repos/releases"
+            }
+        }
+    }
+
+samples
+https://stackoverflow.com/questions/34145888/gradle-dynamically-building-multiple-publishes/34146246#34146246
+    ! files traversal
+https://github.com/marcphilipp/gradle-sandbox/blob/master/stable-publishing/build.gradle.kts
+    ! multi-repo publish (ivy/maven), signing
+https://github.com/webrtcmirrors/chromium_external_github.com_gradle/blob/master/subprojects/docs/src/samples/ivy-publish/customize-identity/kotlin/build.gradle.kts
+    ! descriptor
+https://github.com/WeilerWebServices/Bootstrap/blob/master/gradle/subprojects/docs/src/snippets/compositeBuilds/hierarchical-multirepo/kotlin/modules/number-utils/build.gradle.kts
+    ! setUrl instead of (url = uri)
+https://github.com/LiraNSilva/Jenkinslab/blob/master/subprojects/docs/src/samples/ivy-publish/java-multi-project/kotlin/build.gradle.kts
+    ! extra artifact type and conf
+https://github.com/jcohy/jcohy-docs/blob/master/gradle-docs/src/snippets/ivy-publish/java-multi-project/kotlin/buildSrc/src/main/kotlin/myproject.publishing-conventions.gradle.kts
+https://github.com/jsonlog/gradleSamples/blob/master/ivy-publish/customize-identity/kotlin/build.gradle.kts
+https://github.com/jsonlog/gradleSamples/blob/master/ivy-publish/distribution/kotlin/build.gradle.kts
+https://github.com/jsonlog/gradleSamples/blob/master/ivy-publish/java-multi-project/kotlin/build.gradle.kts
+
+plugins {
+    distribution
+    id("ivy-publish")
+}
+
+publishing {
+    repositories {
+        ivy {
+            url = uri("$buildDir/repo")
+        }
+    }
+    publications {
+        create<IvyPublication>("myDistribution") {
+            artifact(tasks.distZip.get())
+            artifact(tasks["customDistTar"])
+        }
+    }
+}
+
+???
+distribution plugin
+    https://github.com/jcohy/jcohy-docs/blob/master/gradle-docs/src/snippets/ivy-publish/distribution/kotlin/build.gradle.kts
+
+issues
+https://github.com/gradle/gradle/issues/11862
+    ! spring dependencyManagement plugin
+    https://stackoverflow.com/questions/61500897/gradle-springboot-mavenpublish-publication-only-contains-dependencies-and-or
+    !!! This is because components.java is configured for default java plugin task: jar or war.
+    ! However for Spring Boot, after applying plugin org.springframework.boot, the default task become bootJar or bootWar.
+https://github.com/gradle/gradle/issues/3451
+https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/191
+    ! status:declined
+https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/161
+https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/98

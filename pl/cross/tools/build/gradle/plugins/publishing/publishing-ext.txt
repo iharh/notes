@@ -1,0 +1,18 @@
+dsl
+https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:publishing(groovy.lang.Closure)
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.PublishingExtension.html
+    !!!
+    plugins {
+        id 'publishing'
+    }
+
+    publishing {
+        publication { ...  }
+        repositories {
+            // Create an ivy publication destination named “releases”
+            ivy {
+                name "releases"
+                url "http://my.org/ivy-repos/releases"
+            }
+        }
+    }
