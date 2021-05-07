@@ -15,3 +15,7 @@ Variant (of a component)
     It is identified by a set of attributes and capabilities.
 
 Variant attributes ...
+
+
+https://docs.gradle.org/current/userguide/component_metadata_rules.html#making_variants_published_as_classified_jars_explicit
+    ! need to read
