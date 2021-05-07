@@ -1,3 +1,5 @@
+!!! can publish only one component and multiple artifacts (from DefaulIvyPublication.java)
+
 https://docs.gradle.org/current/userguide/publishing_ivy.html
     ! dynamic task names - https://docs.gradle.org/current/userguide/publishing_ivy.html#publishing_ivy:tasks
     ! url = uri(layout.buildDirectory.dir("repo"))

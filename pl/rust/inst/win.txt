@@ -1,3 +1,5 @@
+https://docs.microsoft.com/en-us/windows/dev-environment/rust/
+
 articles:
 http://www.jonathanturner.org/2017/03/rust-in-windows.html
 https://habrahabr.ru/post/280790/
@@ -14,3 +16,6 @@ https://github.com/saviorisdead/RustyCode/blob/master/src/services/commandServic
 
 Build:
 https://github.com/fuchsia-mirror/third_party-rust
+
+whatsnew
+https://blogs.windows.com/windowsdeveloper/2021/05/06/announcing-rust-for-windows-v0-9/

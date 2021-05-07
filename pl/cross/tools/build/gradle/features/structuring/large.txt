@@ -1,0 +1,26 @@
+https://docs.gradle.org/current/userguide/structuring_software_products.html
+    ! good general overview
+    https://github.com/gradle/gradle/tree/master/subprojects/docs/src/samples/build-organization/structuring-software-projects/kotlin
+    gradle/subprojects/docs/src/samples/build-organization/structuring-software-projects/kotlin/
+next chapter:
+    https://docs.gradle.org/current/userguide/structuring_software_products_details.html
+    ! Settings convention plugins can be written in Groovy DSL or Kotlin DSL similar to other convention plugins.
+    ! The script file name has to end with .settings.gradle(.kts).
+    !!! for now you need publish them (even into local folders), but can't just includeBuild(...)
+
+from platform/product-platform/build.gradle.kts
+        plugins {
+            id("java-platform")
+        }
+        group = "com.example.platform"
+        // allow the definition of dependencies to other platforms like the Spring Boot BOM
+        javaPlatform.allowDependencies()
+        dependencies {
+            api(platform("org.springframework.boot:spring-boot-dependencies:2.4.0"))
+            constraints {
+                api("org.apache.juneau:juneau-marshall:8.2.0")
+            }
+        }
+
+aggregation, build-logic/report-aggregation
+    ! for CI/CD only

@@ -1,0 +1,7 @@
+https://github.com/gradle/gradle/blob/master/subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publication/DefaultIvyPublication.java
+    private static final String API_VARIANT = "api";
+    private static final String API_ELEMENTS_VARIANT = "apiElements";
+    private static final String RUNTIME_VARIANT = "runtime";
+    private static final String RUNTIME_ELEMENTS_VARIANT = "runtimeElements";
+    ...
+    private void populateDependencies(Set<? extends UsageContext> usageContexts, PublicationWarningsCollector publicationWarningsCollector) {
