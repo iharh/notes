@@ -3,5 +3,6 @@ https://docs.gradle.org/current/userguide/java_platform_plugin.html
 
 sample
 https://docs.gradle.org/current/userguide/structuring_software_products.html
+    https://github.com/gradle/gradle/tree/master/subprojects/docs/src/samples/build-organization/structuring-software-projects/kotlin
     gradle/subprojects/docs/src/samples/build-organization/structuring-software-projects/kotlin/
 https://docs.gradle.org/current/userguide/structuring_software_products_details.html
