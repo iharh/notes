@@ -1,6 +1,6 @@
 Need:
 
-oblogout
+oblogout (oblogout-py3-git)
 obconf (S - for shade mode)
 obkey
 obmenu
