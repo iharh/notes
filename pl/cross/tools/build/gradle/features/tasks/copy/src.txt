@@ -1,0 +1,108 @@
+subprojects/core/src/main/java/org/gradle/api/tasks/Copy.java
+    public class Copy extends AbstractCopyTask {
+        ...
+    }
+
+subprojects/core/src/main/java/org/gradle/api/tasks/AbstractCopyTask.java
+    @NonNullApi
+    public abstract class AbstractCopyTask extends ConventionTask implements CopySpec, CopySpecSource {
+        private final CopySpecInternal rootSpec;
+        private final CopySpecInternal mainSpec;
+
+        protected AbstractCopyTask() {
+            this.rootSpec = createRootSpec();
+            rootSpec.addChildSpecListener((path, spec) -> {
+                ...
+            });
+            this.getOutputs().doNotCacheIf(
+                "Has custom actions",
+                spec(task -> rootSpec.hasCustomActions())
+            );
+            this.mainSpec = rootSpec.addChild();
+        }
+
+        protected CopySpecInternal createRootSpec() {
+            return getProject().getObjects().newInstance(DefaultCopySpec.class);
+        }
+
+        ...
+        @TaskAction
+        protected void copy() {
+            CopyActionExecuter copyActionExecuter = createCopyActionExecuter();
+            CopyAction copyAction = createCopyAction();
+            WorkResult didWork = copyActionExecuter.execute(rootSpec, copyAction);
+            setDidWork(didWork.getDidWork());
+        }
+        ...
+        @Override
+        public AbstractCopyTask from(Object sourcePath, Action<? super CopySpec> configureAction) {
+            getMainSpec().from(sourcePath, configureAction);
+            return this;
+        }
+        ...
+        // -----------------------------------------------
+        // ---- Delegate CopySpec methods to rootSpec ----
+        // -----------------------------------------------
+
+        @Internal
+        protected CopySpecInternal getMainSpec() {
+            return mainSpec;
+        }
+        ...
+
+
+
+    }
+
+subprojects/core-api/src/main/java/org/gradle/api/file/CopySpec.java 
+    @HasInternalProtocol
+    public interface CopySpec extends CopySourceSpec, CopyProcessingSpec, PatternFilterable {
+        ...
+    }
+
+subprojects/core-api/src/main/java/org/gradle/api/file/CopySourceSpec.java
+    // Specifies sources for a file copy.
+    public interface CopySourceSpec {
+        // only 3 from methods
+        ...
+        /*
+         * Specifies the source files or directories for a copy and creates a child {@code CopySpec}. The given source
+         * path is evaluated as per {@link org.gradle.api.Project#files(Object...)} .
+         *
+         * @param sourcePath Path to source for the copy
+         * @param configureAction action for configuring the child CopySpec
+         */
+        CopySourceSpec from(Object sourcePath, Action<? super CopySpec> configureAction);
+        ...
+    }
+
+subprojects/core-api/src/main/java/org/gradle/api/file/CopyProcessingSpec.java
+    // Specifies the destination of a copy.
+    public interface CopyProcessingSpec extends ContentFilterable {
+
+subprojects/core-api/src/main/java/org/gradle/api/tasks/util/PatternFilterable.java
+    ! include/exclude stuff only
+
+
+subprojects/core/src/main/java/org/gradle/api/internal/file/copy/DefaultCopySpec.java 
+    @NonExtensible
+    public class DefaultCopySpec implements CopySpecInternal {
+        ...
+        @Override
+        public CopySpec from(Object sourcePath, Action<? super CopySpec> configureAction) {
+            Preconditions.checkNotNull(configureAction, "Gradle does not allow passing null for the configuration action for CopySpec.from().");
+            CopySpecInternal child = addChild();
+            child.from(sourcePath);
+            CopySpecWrapper wrapper = instantiator.newInstance(CopySpecWrapper.class, child);
+            configureAction.execute(wrapper);
+            return wrapper;
+        }
+        ...
+        @Override
+        public CopySpecInternal addChild() {
+            DefaultCopySpec child = new SingleParentCopySpec(fileCollectionFactory, instantiator, patternSetFactory, buildRootResolver());
+            addChildSpec(child);
+            return child;
+        }
+
+
