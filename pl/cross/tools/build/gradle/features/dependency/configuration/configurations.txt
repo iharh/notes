@@ -1,0 +1,44 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html
+    ! DependencySet allDependencies()
+    ! ResolvedConfiguration getResolvedConfiguration()
+    https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileCollection.html
+        getAsPath
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvedConfiguration.html
+    ! Set<ResolvedArtifact> getResolvedArtifacts() throws ResolveException
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvedArtifact.html
+    ! String get[Classifier|Extenstion|Name|Type]()
+    ! ResolvedModuleVersion getModuleVersion()
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvedModuleVersion.html
+    ! ModuleVersionIdentifier getId()
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ModuleVersionIdentifier.html
+    ! String get[Group|Name|Version]()
+
+
+
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html
+    ! extends
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ArtifactView.html
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/result/ResolutionResult.html
+    ! ResolvedComponentResult getRoot()
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/result/ResolvedComponentResult.html
+    ! Set<? extends DependencyResult> getDependencies()
+    ! Set<? extends ResolvedDependencyResult> getDependents()  // ResolvedDependencyResult - for deps which were successfully resolved
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/result/ResolvedDependencyResult.html
+    ! ResolvedComponentResult getSelected()
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/result/ResolvedComponentResult.html
+    ! ComponentIdentifier getId()
+    ! Set<? extends DependencyResult> getDependencies()
+    ! Set<? extends ResolvedDependencyResult> getDependents()
+    ! ComponentSelectionReason getSelectionReason()
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/component/ComponentIdentifier.html
+    ! String getDisplayName()

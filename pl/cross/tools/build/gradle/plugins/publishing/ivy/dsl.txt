@@ -1,0 +1,48 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.tasks.PublishToIvyRepository.html
+    ! have ant builder
+https://docs.gradle.org/current/javadoc/org/gradle/api/publish/ivy/IvyPublication.html
+    ! suppressAllIvyMetadataWarnings
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyPublication.html
+    !
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyArtifactSet.html
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyArtifact.html
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyModuleDescriptorSpec.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/publish/ivy/IvyConfigurationContainer.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/component/SoftwareComponent.html
+        ! incl CppSharedLibrary
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.PublishingExtension.html
+    !!!
+    plugins {
+        id 'publishing'
+    }
+
+    publishing {
+        publication { ...  }
+        repositories {
+            // Create an ivy publication destination named “releases”
+            ivy {
+                name "releases"
+                url "http://my.org/ivy-repos/releases"
+            }
+        }
+    }
+
+plugins {
+    distribution
+    id("ivy-publish")
+}
+
+publishing {
+    repositories {
+        ivy {
+            url = uri("$buildDir/repo")
+        }
+    }
+    publications {
+        create<IvyPublication>("myDistribution") {
+            artifact(tasks.distZip.get())
+            artifact(tasks["customDistTar"])
+        }
+    }
+}
+

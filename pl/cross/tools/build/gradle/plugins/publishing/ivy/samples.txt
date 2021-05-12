@@ -1,0 +1,14 @@
+https://stackoverflow.com/questions/34145888/gradle-dynamically-building-multiple-publishes/34146246#34146246
+    ! files traversal
+https://github.com/marcphilipp/gradle-sandbox/blob/master/stable-publishing/build.gradle.kts
+    ! multi-repo publish (ivy/maven), signing
+https://github.com/webrtcmirrors/chromium_external_github.com_gradle/blob/master/subprojects/docs/src/samples/ivy-publish/customize-identity/kotlin/build.gradle.kts
+    ! descriptor
+https://github.com/WeilerWebServices/Bootstrap/blob/master/gradle/subprojects/docs/src/snippets/compositeBuilds/hierarchical-multirepo/kotlin/modules/number-utils/build.gradle.kts
+    ! setUrl instead of (url = uri)
+https://github.com/LiraNSilva/Jenkinslab/blob/master/subprojects/docs/src/samples/ivy-publish/java-multi-project/kotlin/build.gradle.kts
+    ! extra artifact type and conf
+https://github.com/jcohy/jcohy-docs/blob/master/gradle-docs/src/snippets/ivy-publish/java-multi-project/kotlin/buildSrc/src/main/kotlin/myproject.publishing-conventions.gradle.kts
+https://github.com/jsonlog/gradleSamples/blob/master/ivy-publish/customize-identity/kotlin/build.gradle.kts
+https://github.com/jsonlog/gradleSamples/blob/master/ivy-publish/distribution/kotlin/build.gradle.kts
+https://github.com/jsonlog/gradleSamples/blob/master/ivy-publish/java-multi-project/kotlin/build.gradle.kts
