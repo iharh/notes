@@ -1,4 +1,5 @@
 https://doc.rust-lang.org/book/getting-started.html
+https://rust-lang.github.io/rustup/concepts/profiles.html
 
 https://github.com/rust-lang-nursery/rustup.rs
     curl https://sh.rustup.rs -sSf | sh
@@ -13,17 +14,7 @@ Current installation options:
 ...
 Rust is installed now. Great!
 
-To get started you need Cargo's bin directory in your PATH environment 
-variable.
-
-MSYS2:
-RUSTUP_UPDATE_ROOT="https://static.rust-lang.org/rustup/dist"
-_url: https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-gnu/rustup-init.exe
-    default host triple: x86_64-pc-windows-gnu
-https://github.com/rust-lang-nursery/rustup.rs/issues/546
-    If you are willing to jump through some hoops you should be able to install to a custom location by setting
-        CARGO_HOME and RUSTUP_HOME
-    to the locations you want before running the installer (and when subsequently running cargo/rustup, etc).
+To get started you need Cargo's bin directory in your PATH environment variable.
 
 ~/.bashrc:
 export RUSTUP_HOME=~/.rustup
