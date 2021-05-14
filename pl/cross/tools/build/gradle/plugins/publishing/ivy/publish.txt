@@ -524,7 +524,7 @@ subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifact
             if (schemes.equals(Collections.singleton("file"))) {
                 return createFileTransport(name);
             }
-            ResourceConnectorSpecification connectionDetails = new DefaultResourceConnectorSpecification(authentications, redirectVerifier);
+            ResourceConnectorSpecification connectionDetails = new DefaultResourceConnectorSpecification(authentications, redirectVerifier); // !!!
 
             ExternalResourceConnector resourceConnector = connectorFactory.createResourceConnector(connectionDetails); // !!! check HttpConnectorFactory
             resourceConnector = startParameterResolutionOverride.overrideExternalResourceConnector(resourceConnector);
@@ -915,7 +915,6 @@ subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/
         }
     }
 
-
-
-
-
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpClientResponse.java
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpSettings.java
+    get as is
