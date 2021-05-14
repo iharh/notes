@@ -1,15 +1,10 @@
 https://docs.gradle.org/current/userguide/publishing_overview.html
-    https://docs.gradle.org/current/userguide/artifact_management.html
 
 guide
 https://docs.gradle.org/current/userguide/artifact_management.html
-https://docs.gradle.org/current/userguide/maven_plugin.html
-https://docs.gradle.org/current/userguide/publishing_maven.html
-https://docs.gradle.org/current/dsl/org.gradle.api.publish.maven.MavenPublication.html
 
 articles
 https://discuss.gradle.org/t/publishing-resolving-a-native-library-from-an-external-repository/12460
-https://github.com/martinda/gradle-ivy-transitive-dep-study
 
 https://github.com/gradle/gradle/blob/master/design-docs/publication-model.md
 https://github.com/gradle/gradle/blob/master/design-docs/continuous-delivery-for-c-plus-plus.md#story-publish-and-resolve-shared-libraries

@@ -50,3 +50,5 @@ curl
         in decimal precision.  See also the --connect-timeout option.
     --keepalive-time
         in seconds
+    -T, --upload-file <file>
+        Transfer local FILE to destination
