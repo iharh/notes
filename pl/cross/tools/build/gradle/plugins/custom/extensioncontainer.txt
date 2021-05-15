@@ -1,0 +1,4 @@
+https://docs.gradle.org/current/javadoc/org/gradle/api/plugins/ExtensionContainer.html
+    The Gradle Project has an associated ExtensionContainer object that contains all the settings and properties for the plugins that have been applied to the project.
+    You can provide configuration for your plugin by adding an extension object to this container.
+    An extension object is simply an object with Java Bean properties that represent the configuration.

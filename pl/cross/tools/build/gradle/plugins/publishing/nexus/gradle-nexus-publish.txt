@@ -1,0 +1,5 @@
+https://plugins.gradle.org/plugin/io.github.gradle-nexus.publish-plugin
+https://github.com/gradle-nexus/publish-plugin
+
+https://github.com/gradle-nexus/publish-plugin/blob/master/src/main/kotlin/io/github/gradlenexus/publishplugin/internal/NexusClient.kt
+    ! using retrofit2
