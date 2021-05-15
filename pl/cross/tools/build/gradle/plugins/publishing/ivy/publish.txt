@@ -155,12 +155,12 @@ subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifact
                                             IvyMutableModuleMetadataFactory metadataFactory,
                                             IsolatableFactory isolatableFactory,
                                             ObjectFactory objectFactory,
-                                            DefaultUrlArtifactRepository.Factory urlArtifactRepositoryFactory,
+                                            DefaultUrlArtifactRepository.Factory urlArtifactRepositoryFactory, // !!!
                                             ChecksumService checksumService,
                                             ProviderFactory providerFactory) {
             super(instantiatorFactory.decorateLenient(), authenticationContainer, objectFactory, providerFactory);
             this.fileResolver = fileResolver;
-            this.urlArtifactRepository = urlArtifactRepositoryFactory.create("Ivy", this::getDisplayName);
+            this.urlArtifactRepository = urlArtifactRepositoryFactory.create("Ivy", this::getDisplayName); // !!!
             this.transportFactory = transportFactory;
             this.locallyAvailableResourceFinder = locallyAvailableResourceFinder;
             this.artifactFileStore = artifactFileStore;
@@ -199,6 +199,7 @@ subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifact
         }
         ...
         private IvyResolver createResolver(Set<String> schemes) {
+            // !!!
             return createResolver(transportFactory.createTransport(schemes, getName(), getConfiguredAuthentication(), urlArtifactRepository.createRedirectVerifier()));
         }
 
@@ -226,6 +227,208 @@ subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifact
         }
         ...
     }
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/AbstractAuthenticationSupportedRepository.java
+    public abstract class AbstractAuthenticationSupportedRepository extends AbstractResolutionAwareArtifactRepository implements AuthenticationSupportedInternal {
+        private final AuthenticationSupporter delegate;
+        private final ProviderFactory providerFactory;
+
+        AbstractAuthenticationSupportedRepository(Instantiator instantiator, AuthenticationContainer authenticationContainer, ObjectFactory objectFactory, ProviderFactory providerFactory) {
+            super(objectFactory);
+            this.delegate = new AuthenticationSupporter(instantiator, objectFactory, authenticationContainer, providerFactory);
+            this.providerFactory = providerFactory;
+        }
+        ...
+        @Override
+        public Collection<Authentication> getConfiguredAuthentication() { // !!!
+            Collection<Authentication> configuredAuthentication = delegate.getConfiguredAuthentication(); // !!!
+
+            // ??? for some reason
+            for (Authentication authentication : configuredAuthentication) {
+                AuthenticationInternal authenticationInternal = (AuthenticationInternal) authentication;
+                for (URI repositoryUrl : getRepositoryUrls()) {
+                    // only care about HTTP hosts right now
+                    if (repositoryUrl.getScheme().startsWith("http")) {
+                        authenticationInternal.addHost(repositoryUrl.getHost(), repositoryUrl.getPort());
+                    }
+                }
+            }
+            return configuredAuthentication;
+        }
+        ...
+    }
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/DefaultUrlArtifactRepository.java
+    public class DefaultUrlArtifactRepository implements UrlArtifactRepository {
+
+        private Object url;
+        private boolean allowInsecureProtocol;
+        private final String repositoryType;
+        private final FileResolver fileResolver;
+        private final Supplier<String> displayNameSupplier;
+
+        DefaultUrlArtifactRepository(
+            final FileResolver fileResolver,
+            final String repositoryType,
+            final Supplier<String> displayNameSupplier
+        ) {
+            this.fileResolver = fileResolver;
+            this.repositoryType = repositoryType;
+            this.displayNameSupplier = displayNameSupplier;
+        }
+
+        HttpRedirectVerifier createRedirectVerifier() {
+            @Nullable
+            URI uri = getUrl();
+            return HttpRedirectVerifierFactory
+                .create(
+                    uri,
+                    allowInsecureProtocol,
+                    this::throwExceptionDueToInsecureProtocol,
+                    redirection -> throwExceptionDueToInsecureRedirect(uri, redirection)
+                );
+        }
+
+        public static class Factory {
+            private final FileResolver fileResolver;
+
+            @Inject
+            public Factory(FileResolver fileResolver) {
+                this.fileResolver = fileResolver;
+            }
+
+            DefaultUrlArtifactRepository create(String repositoryType, Supplier<String> displayNameSupplier) {
+                return new DefaultUrlArtifactRepository(fileResolver, repositoryType, displayNameSupplier);
+            }
+        }
+    }
+
+subprojects/resources/src/main/java/org/gradle/internal/verifier/HttpRedirectVerifierFactory.java
+    /**
+     * Used to create instances of {@link HttpRedirectVerifier}.
+     */
+    public class HttpRedirectVerifierFactory {
+        /**
+         * Verifies that the base URL and all subsequent redirects followed during an interaction with a server are done so securely unless
+         * the user has explicitly opted out from this protection.
+         *
+         * @param baseHost The host specified by the user.
+         * @param allowInsecureProtocol If true, allows HTTP based connections.
+         * @param insecureBaseHost Callback when the base host URL is insecure.
+         * @param insecureRedirect Callback when the server returns an 30x redirect to an insecure server.
+         */
+        public static HttpRedirectVerifier create(
+            @Nullable URI baseHost,
+            boolean allowInsecureProtocol,
+            Runnable insecureBaseHost,
+            Consumer<URI> insecureRedirect
+        ) {
+            requireNonNull(insecureBaseHost, "insecureBaseHost must not be null");
+            requireNonNull(insecureRedirect, "insecureRedirect must not be null");
+            if (allowInsecureProtocol) {
+                return NoopHttpRedirectVerifier.instance;
+            } else {
+                // Verify that the base URL is secure now.
+                if (baseHost != null && !GUtil.isSecureUrl(baseHost)) {
+                    insecureBaseHost.run();
+                }
+
+                // Verify that any future redirect locations are secure.
+                // Lambda will be called back on for every redirect in the chain.
+                return redirectLocations ->
+                    redirectLocations
+                        .stream()
+                        .filter(url -> !GUtil.isSecureUrl(url))
+                        .forEach(insecureRedirect);
+            }
+        }
+
+        private static class NoopHttpRedirectVerifier implements HttpRedirectVerifier {
+            private static NoopHttpRedirectVerifier instance = new NoopHttpRedirectVerifier();
+
+            @Override
+            public void validateRedirects(Collection<URI> redirectLocations) {
+                // Noop
+            }
+        }
+    }
+
+
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/AuthenticationSupporter.java
+    import org.gradle.api.artifacts.repositories.AuthenticationContainer;
+    import org.gradle.api.artifacts.repositories.PasswordCredentials;
+    import org.gradle.api.credentials.AwsCredentials;
+    import org.gradle.api.credentials.Credentials;
+    import org.gradle.api.credentials.HttpHeaderCredentials;
+    ...
+    import org.gradle.authentication.Authentication;
+    import org.gradle.internal.Cast;
+    import org.gradle.internal.authentication.AllSchemesAuthentication;
+    import org.gradle.internal.authentication.AuthenticationInternal;
+    import org.gradle.internal.credentials.DefaultAwsCredentials;
+    import org.gradle.internal.credentials.DefaultHttpHeaderCredentials; // ???
+    import org.gradle.internal.credentials.DefaultPasswordCredentials; // ???
+    import org.gradle.internal.reflect.Instantiator;
+
+    public class AuthenticationSupporter {
+        private final Instantiator instantiator;
+        private final AuthenticationContainer authenticationContainer; // !!!
+        private final ProviderFactory providerFactory;
+
+        private final Property<Credentials> credentials;
+        private boolean usesCredentials = false;
+
+        public AuthenticationSupporter(Instantiator instantiator, ObjectFactory objectFactory, AuthenticationContainer authenticationContainer, ProviderFactory providerFactory) {
+            this.instantiator = instantiator;
+            this.authenticationContainer = authenticationContainer;
+            this.credentials = objectFactory.property(Credentials.class);
+            this.providerFactory = providerFactory;
+        }
+        ...
+        public void credentials(Class<? extends Credentials> credentialsType, Provider<String> identity) {
+            this.usesCredentials = true;
+            this.credentials.set(providerFactory.credentials(credentialsType, identity)); // !!!
+        }
+
+        public void setConfiguredCredentials(Credentials credentials) {
+            this.usesCredentials = true;
+            this.credentials.set(credentials);
+        }
+
+        private <T extends Credentials> T setCredentials(Class<T> clazz) {
+            this.usesCredentials = true;
+            T t = newCredentials(clazz);
+            credentials.set(t);
+            return t;
+        }
+        ...
+        public AuthenticationContainer getAuthentication() {
+            return authenticationContainer;
+        }
+
+        public Collection<Authentication> getConfiguredAuthentication() { // !!!
+            populateAuthenticationCredentials();
+            if (usesCredentials() && authenticationContainer.size() == 0) {
+                return Collections.singleton(new AllSchemesAuthentication(credentials.get())); // !!!
+            } else {
+                return getAuthentication();
+            }
+        }
+
+        boolean usesCredentials() {
+            return usesCredentials;
+        }
+
+        private void populateAuthenticationCredentials() {
+            // TODO: This will have to be changed when we support setting credentials directly on the authentication
+            for (Authentication authentication : authenticationContainer) {
+                ((AuthenticationInternal) authentication).setCredentials(credentials.getOrNull());
+            }
+        }
+
+
+
 
 subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/DefaultBaseRepositoryFactory.java
     public class DefaultBaseRepositoryFactory implements BaseRepositoryFactory {
@@ -739,6 +942,35 @@ subprojects/resources/src/main/java/org/gradle/internal/resource/transfer/Access
             }
         }
 
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpResourcesPluginServiceRegistry.java
+    public class HttpResourcesPluginServiceRegistry extends AbstractPluginServiceRegistry {
+        ...
+        @Override
+        public void registerGlobalServices(ServiceRegistration registration) {
+            registration.addProvider(new GlobalScopeServices());
+        }
+
+        @Override
+        public void registerBuildServices(ServiceRegistration registration) {
+            registration.addProvider(new AuthenticationSchemeAction());
+        }
+
+        private static class GlobalScopeServices {
+            SslContextFactory createSslContextFactory() {
+                return new DefaultSslContextFactory();
+            }
+
+            HttpClientHelper.Factory createHttpClientHelperFactory(DocumentationRegistry documentationRegistry) {
+                return HttpClientHelper.Factory.createFactory(documentationRegistry);
+            }
+
+            ResourceConnectorFactory createHttpConnectorFactory(SslContextFactory sslContextFactory, HttpClientHelper.Factory httpClientHelperFactory) {
+                return new HttpConnectorFactory(sslContextFactory, httpClientHelperFactory);
+            }
+        }
+        ...
+    }
+
 
 subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpConnectorFactory.java
     public class HttpConnectorFactory implements ResourceConnectorFactory {
@@ -747,10 +979,10 @@ subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/
             BasicAuthentication.class,
             DigestAuthentication.class,
             HttpHeaderAuthentication.class,
-            AllSchemesAuthentication.class
+            AllSchemesAuthentication.class // ???
         );
 
-        private SslContextFactory sslContextFactory;
+        private SslContextFactory sslContextFactory; // !!!
         private HttpClientHelper.Factory httpClientHelperFactory;
 
         public HttpConnectorFactory(SslContextFactory sslContextFactory, HttpClientHelper.Factory httpClientHelperFactory) {
@@ -771,7 +1003,7 @@ subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/
         @Override
         public ExternalResourceConnector createResourceConnector(ResourceConnectorSpecification connectionDetails) {
             HttpClientHelper http = httpClientHelperFactory.create(DefaultHttpSettings.builder()
-                .withAuthenticationSettings(connectionDetails.getAuthentications())
+                .withAuthenticationSettings(connectionDetails.getAuthentications()) // !!!
                 .withSslContextFactory(sslContextFactory)
                 .withRedirectVerifier(connectionDetails.getRedirectVerifier())
                 .build()
@@ -917,4 +1149,6 @@ subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/
 
 subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpClientResponse.java
 subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpSettings.java
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/DefaultHttpSettings.java
     get as is
+
