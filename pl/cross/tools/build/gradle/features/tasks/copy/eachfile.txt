@@ -1,0 +1,11 @@
+copy {
+    from("$icuInstDir/lib") {
+        include("*.so")
+    }
+    eachFile {
+        doSomeStuffWith(file) // file: java.io.File
+    }
+    into(ivyPublishDir)
+}
+
+
