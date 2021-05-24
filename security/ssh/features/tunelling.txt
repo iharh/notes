@@ -3,6 +3,10 @@ https://www.howtogeek.com/168145/how-to-use-ssh-tunneling/
 https://habr.com/ru/post/331348/
 https://habr.com/ru/post/122445/
 
+local forwarding
+https://www.ssh.com/academy/ssh/tunneling/example#local-forwarding
+
 firefox proxy
 https://www.howtogeek.com/293213/how-to-configure-a-proxy-server-in-firefox/
     ! no proxy for localhost, 127.0.0.1
+
