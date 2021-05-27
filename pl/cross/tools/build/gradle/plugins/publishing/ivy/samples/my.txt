@@ -1,0 +1,43 @@
+import org.gradle.api.publish.PublishingExtension
+import org.gradle.api.publish.ivy.IvyPublication
+
+configure<PublishingExtension> {
+    publications {
+        create<IvyPublication>("ivy") {
+            organisation = "..."
+            module = "$languageCode-resources-linux"
+            // "-SNAPSHOT" for local nexus rules and to avoid overwriting real LP resources for now
+            revision = "$lpVersion-SNAPSHOT"
+
+            configurations {
+                create("publish")
+            }
+
+            artifact(tasks["arch"]) {
+                name = "$languageCode-resources"
+                conf = "publish"
+            }
+
+            descriptor {
+                author {
+                    name.set("...")
+                    url.set("www.....com")
+                }
+                description {
+                    homepage.set("http://www.....com")
+                }
+            }
+        }
+    }
+    repositories {
+        ivy {
+            url = uri(nexusRepoPublish)
+            credentials {
+                username = nexusUsername
+                password = nexusPassword
+            }
+            isAllowInsecureProtocol = true
+        }
+    }
+}
+
