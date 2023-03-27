@@ -1,0 +1,45 @@
+Arch problem in vbox:
+https://old.forum.manjaro.org/index.php?topic=759.0
+https://bbs.archlinux.org/viewtopic.php?id=186330
+$ systemctl status systemd-modules-load.service
+    ...
+
+$ sudo /usr/lib/systemd/systemd-modules-load
+Failed to insert 'vboxvideo': Invalid argument
+Failed to insert 'vboxvideo': Invalid argument
+
+$ pacman -Q | grep virtualbox-guest
+linux44-virtualbox-guest-modules 5.0.22-1
+virtualbox-guest-utils 5.0.22-0.1
+
+$ sudo modprobe -a vboxguest vboxsf vboxvideo 
+modprobe: ERROR: could not insert 'vboxvideo': Invalid argument
+
+https://wiki.archlinux.org/index.php/VirtualBox#Load_the_Virtualbox_kernel_modules_2
+
+$sudo cat /etc/modules-load.d/linux44-virtualbox-guest-modules.conf
+vboxguest
+vboxsf
+vboxfideo
+
+/lib/modules/<...>
+/lib/modules/extra...
+
+resize-issue
+    https://www.virtualbox.org/ticket/19496
+auto-resize-guest-display
+    1680x1050
+    https://superuser.com/questions/1433995/virtualbox-auto-resize-guest-display-greyed-out
+    https://bbs.archlinux.org/viewtopic.php?id=252384
+    https://coolaj86.com/articles/screen-resolution-virtualbox-guest-additions-ubuntu-and-you.html
+    https://unix.stackexchange.com/questions/430673/auto-resize-guest-display-and-seamless-mode-grayed-out-despite-installing-virtua
+        !!!
+    https://askubuntu.com/questions/452979/resolution-doesnt-change-when-resizing-virtualbox-window
+        dpkg-reconfigure virtualbox-guest-dkms
+    https://www.youtube.com/watch?v=_4u3aoUv-mE
+        2016
+        at /media/<usr>/VBox_GAs_<ver>/
+        sudo ./VBoxLinuxAdditions.run
+
+svc
+vboxadd.service

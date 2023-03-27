@@ -1,0 +1,4 @@
+Centos:
+Files:
+/etc/pki/rpm-gpg/*
+    RPM-GPG-KEY-Centos[-Debug/-Testing]-7

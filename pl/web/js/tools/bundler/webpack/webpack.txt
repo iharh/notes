@@ -1,0 +1,21 @@
+https://webpack.js.org/
+https://webpack.github.io/
+
+https://github.com/webpack/webpack
+
+entry
+output
+loaders
+    - return compilations
+plugins
+
+?
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/
+
+package.json
+    "scripts": {
+      "dev": "webpack --mode development",
+      "build": "webpack --mode production"
+    }

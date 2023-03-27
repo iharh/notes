@@ -1,0 +1,52 @@
+https://rust-lang.github.io/book/second-edition/ch18-03-pattern-syntax.html
+
+https://www.reddit.com/r/rust/comments/5n5jt8/matching_enums/
+https://www.reddit.com/r/rust/comments/58vkfo/when_ignoring_in_pattern_matching_why_do_we_need/
+
+never-patterns
+http://smallcultfollowing.com/babysteps/blog/2018/08/13/never-patterns-exhaustive-matching-and-uninhabited-types-oh-my/
+
+ergonomics
+https://github.com/rust-lang/rfcs/blob/master/text/2005-match-ergonomics.md
+https://www.reddit.com/r/rust/comments/6h89kb/match_ergonomics_rfc_has_been_accepted/
+
+2022
+https://seanmonstar.com/post/693574545047683072/pattern-matching-and-backwards-compatibility
+2020
+https://www.justanotherdot.com/posts/building-an-intuition-for-pattern-matching.html
+https://notes.iveselov.info/programming/refs-and-pattern-matching-in-rust
+https://blog.rust-lang.org/inside-rust/2020/03/04/recent-future-pattern-matching-improvements.html
+https://medium.com/@abhishek1987/rust-enums-and-pattern-matching-177b03a4152
+
+slice patterns (from 1.26)
+
+let arr = [1, 2, 3];
+match arr {
+    [1, _, _] => "starts with one",
+    [a, b, c] => "starts with something else",
+}
+
+fn foo(s: &[u8]) {
+    match s {
+        [a, b] => (),
+        [a, b, c] => (),
+        _ => (),
+    }
+}
+
+Or patterns
+Pattern syntax has been extended to support | nested anywhere in the pattern.
+This enables you to write Some(1 | 2) instead of Some(1) | Some(2).
+
+match result {
+     Ok(Some(1 | 2)) => { .. }
+     Err(MyError { kind: FileNotFound | PermissionDenied, .. }) => { .. }
+     _ => { .. }
+}
+
+open ranges in patterns:
+
+match x as u32 {
+      0 => println!("zero!"),
+      1.. => println!("positive number!"),
+}

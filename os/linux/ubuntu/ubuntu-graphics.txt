@@ -1,0 +1,13 @@
+look at xrandr !!!
+
+Drivers:
+
+xserver-xorg-video-ati
+xserver-xorg-video-radeon
+
+http://wiki.x.org/wiki/radeon/
+https://packages.debian.org/search?keywords=xserver-xorg-video-radeon
+http://packages.ubuntu.com/search?keywords=xserver-xorg-video-radeon
+https://packages.debian.org/sid/xserver-xorg-video-radeon
+https://wiki.debian.org/AtiHowTo
+

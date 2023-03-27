@@ -1,0 +1,92 @@
+https://docs.docker.com/machine/
+
+
+installation:
+https://docs.docker.com/machine/#installation
+
+curl -L https://get.docker.com/builds/Windows/x86_64/docker-latest.exe > /bin/docker
+docker --version
+
+curl -L https://github.com/docker/machine/releases/download/v0.3.0/docker-machine_windows-amd64.exe > /bin/docker-machine
+docker-machine -v
+
+
+
+
+dev-ver:
+https://github.com/docker/machine/releases/
+curl -L https://github.com/docker/machine/releases/download/v0.4.0-rc2/docker-machine_windows-amd64.exe > /bin/docker-machine
+
+
+virtualbox driver:
+https://docs.docker.com/machine/#oracle-virtualbox
+https://github.com/docker/machine/tree/master/drivers/virtualbox
+
+
+general opts:
+-D --debug
+-s --storage-path
+--help <cmd>
+
+docker-machine [ls/start/stop]
+
+
+removing:
+docker rm <vm-name>
+
+
+creating:
+https://www.voxxed.com/blog/2015/06/docker-170-docker-machine-03-docker-compose-13-docker-swarm-03/
+
+docker-machine --debug --storage-path "F:\doc-m" create --driver virtualbox --virtualbox-cpu-count 2 --virtualbox-memory 4096 --virtualbox-disk-size 200000 d2m
+
+#--virtualbox-import-boot2docker-vm boot2docker-vm
+
+-d --driver
+
+
+connecting:
+docker-machine -s "F:\doc-m" env d2m --shell cmd
+
+set DOCKER_TLS_VERIFY=1
+set DOCKER_HOST=tcp://192.168.99.100:2376
+set DOCKER_CERT_PATH=F:\doc-m\machines\d2m
+set DOCKER_MACHINE_NAME=d2m
+
+
+starting:
+docker-machine -s "F:\doc-m" start d2m
+stopping:
+docker-machine -s "F:\doc-m" stop d2m
+
+
+ssh-ing:
+docker-machine -s "F:\doc-m" ssh d2m
+ssh -o PasswordAuthentication=no -o IdentitiesOnly=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -i /d/vbox-dm/machines/d2m/id_rsa -p 1331 docker@localhost
+
+
+
+docker-connecting conf-ing:
+docker-machine -s "F:\doc-m" conf d2m
+
+--tlsverify --tlscacert="F:\\doc-m\\machines\\d2m\\ca.pem" --tlscert="F:\\doc-m\\machines\\d2m\\cert.pem" --tlskey="F:\\doc-m\\machines\\d2m\\key.pem" -H=tcp://192.168.99.100:2376
+
+docker $(docker-machine -s "F:\doc-m" conf d2m) ps
+
+regenerate-certs:
+Regenerate TLS certificates and update the machine with new certs.
+
+INTERNALS:
+
+Machine creation:
+Creating CA: F:\vbox-dm\certs\ca.pem
+Creating client certificate: F:\vbox-dm\certs\cert.pem
+Image cache does not exist, creating it at F:\vbox-dm\cache...
+No default boot2docker iso found locally, downloading the latest release...
+Downloading https://github.com/boot2docker/boot2docker/releases/download/v1.8.1/boot2docker.iso to F:\vbox-dm\cache\boot2docker.iso...
+Creating VirtualBox VM...
+Creating SSH key...
+Starting VirtualBox VM...
+Starting VM...
+To see how to connect Docker to this machine, run: D:\dev\Utils\docker\docker-machine env d2m
+

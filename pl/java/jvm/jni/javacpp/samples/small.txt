@@ -1,0 +1,71 @@
+https://github.com/bytedeco/sample-projects
+
+2018
+https://www.youtube.com/watch?v=yzFWaQaLRkM
+    MyExample.java/cpp
+https://www.youtube.com/watch?v=LZrrqZLhtmw
+https://github.com/oltzen/JavaCppExample
+https://github.com/oltzen/JavaCppExample/blob/master/src/main/java/de/oltzen/javacppexample/Abc.java
+
+
+
+https://github.com/bytedeco/javacpp#accessing-native-apis
+// NativeLibrary.h
+#include <string>
+namespace NativeLibrary {
+class NativeClass {
+public:
+    const std::string& get_property() { return property; }
+    void set_property(const std::string& property) { this->property = property + "aaa"; }
+    std::string property;
+};
+}
+
+// NativeLibrary.java
+import org.bytedeco.javacpp.*;
+import org.bytedeco.javacpp.annotation.*;
+
+@Platform(include="NativeLibrary.h")
+@Namespace("NativeLibrary")
+public class NativeLibrary {
+    public static class NativeClass extends Pointer {
+        static { Loader.load(); }
+        public NativeClass() { allocate(); }
+        private native void allocate();
+
+        // to call the getter and setter functions 
+        public native @StdString String get_property(); public native void set_property(String property);
+
+        // to access the member variable directly
+        public native @StdString String property();     public native void property(String property);
+    }
+
+    public static void main(String[] args) {
+        // Pointer objects allocated in Java get deallocated once they become unreachable,
+        // but C++ destructors can still be called in a timely fashion with Pointer.deallocate()
+        NativeClass l = new NativeClass();
+        l.set_property("Hello World!");
+        System.out.println(l.property());
+    }
+}
+
+$ javac -cp javacpp.jar NativeLibrary.java 
+$ java -jar javacpp.jar NativeLibrary -nodelete
+
+Generating /data/wrk/prj/cpp/javacpp/nativelib/jnijavacpp.cpp               
+Generating /data/wrk/prj/cpp/javacpp/nativelib/jniNativeLibrary.cpp
+Compiling /data/wrk/prj/cpp/javacpp/nativelib/linux-x86_64/libjniNativeLibrary.so
+g++ -I/home/iharh/.sdkman/candidates/java/8.0.172-zulu/include -I/home/iharh/.sdkman/candidates/java/8.0.172-zulu/include/linux /data/wrk/prj/cpp/javacpp/nativelib/jniNativeLibrary.cpp /data/wrk/prj/cpp/javacpp/nativelib/jnijavacpp.cpp -march=x86-64 -m64 -O3 -s -Wl,-rpath,$ORIGIN/ -Wl,-z,noexecstack -Wl,-Bsymbolic -Wall -fPIC -shared -o libjniNativeLibrary.so 
+Keeping /data/wrk/prj/cpp/javacpp/nativelib/jniNativeLibrary.cpp
+Keeping /data/wrk/prj/cpp/javacpp/nativelib/jnijavacpp.cpp
+
+generates
+linux-x86_64/libjniNativeLibrary.so
+
+$ java -cp ~/Downloads/javacpp-1.4.2.jar:. NativeLibrary
+Hello World!aaa
+
+
+
+https://github.com/bytedeco/javacpp/blob/master/src/test/java/org/bytedeco/javacpp/AdapterTest.java
+https://github.com/bytedeco/javacpp/blob/master/src/test/resources/org/bytedeco/javacpp/AdapterTest.h

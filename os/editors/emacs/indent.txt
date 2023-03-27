@@ -1,0 +1,20 @@
+Commands
+M-x
+	tabify
+		tabify
+	untabify
+		untabify
+	c-set-style
+		set c indentation style
+
+
+C-M-\
+	indent the region
+
+C-x h C-M-\
+	reindent the entire file
+
+C-c C-s
+	Show syntactic information for current line. (c-show-syntactic-information)
+C-x =
+	Print info on cursor position. (what-cursor-position)

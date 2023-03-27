@@ -1,0 +1,179 @@
+http://www.haskellforall.com/2013/04/pipes-and-io-streams.html
+
+The "request" category
+
+The definition of (\>\) is actually really simple:
+
+    (f \>\ g) replaces all of g's requests with f. 
+
+So when we wrote (stdin \>\ map length), we replaced the single request in map with stdin as if we had written it in by hand:
+
+-- Before
+map length () = runIdentityP $ do
+    ma <- request ()
+    return (fmap length ma)
+
+-- After
+(stdin \>\ map length) () = runIdentityP $ do
+    ma <- stdin ()
+    return (fmap length ma)
+
+In fact, this behavior means that (\>\) and request form a category.
+(\>\) is the composition operation, request is the identity, and they satisfy the category laws:
+
+-- Replacing each 'request' in 'f' with 'request' gives 'f'
+request \>\ f = f
+
+-- Replacing each 'request' in 'request' with 'f' gives 'f'
+f \>\ request = f
+
+-- Substitution of 'request's is associative
+(f \>\ g) \>\ h = f \>\ (g \>\ h)
+
+.................
+
+{- $request
+    The 'request' category closely corresponds to the iteratee design pattern.
+
+    The 'request' category obeys the category laws, where 'request' is the
+    identity and ('\>\') is composition:
+
+@
+-- Left identity
+'request' '\>\' f = f
+
+\-\- Right identity
+f '\>\' 'request' = f
+
+\-\- Associativity
+(f '\>\' g) '\>\' h = f '\>\' (g '\>\' h)
+@
+
+    The following diagrams show the flow of information:
+
+@
+'request' :: 'Monad' m
+        =>  a' -> 'Proxy' a' a y' y m a
+
+\          a'
+          |
+     +----|----+
+     |    |    |
+ a' <=====/   <== y'
+     |         |
+ a  ======\\   ==> y
+     |    |    |
+     +----|----+
+          v
+          a
+
+('\>\') :: 'Monad' m
+      => (b' -> 'Proxy' a' a y' y m b)
+      -> (c' -> 'Proxy' b' b y' y m c)
+      -> (c' -> 'Proxy' a' a y' y m c)
+
+\          b'<=====\\                c'                     c'
+          |        \\               |                      |
+     +----|----+    \\         +----|----+            +----|----+
+     |    v    |     \\        |    v    |            |    v    |
+ a' <==       <== y'  \\== b' <==       <== y'    a' <==       <== y'
+     |    f    |              |    g    |     =      | f '\>\' g |
+ a  ==>       ==> y   /=> b  ==>       ==> y     a  ==>       ==> y
+     |    |    |     /        |    |    |            |    |    |
+     +----|----+    /         +----|----+            +----|----+
+          v        /               v                      v
+          b ======/                c                      c
+@
+-}
+
+************************
+The definition of (\>\) is actually really simple:
+
+    (f \>\ g) replaces all of g's requests with f. 
+
+So when we wrote (stdin \>\ map length), we replaced the single request in map with stdin as if we had written it in by hand:
+************************
+
+{-| Send a value of type @a'@ upstream and block waiting for a reply of type @a@
+
+    'request' is the identity of the request category.
+-}
+request :: Monad m => a' -> Proxy a' a y' y m a
+request a' = Request a' Pure
+{-# INLINABLE request #-}
+
+{-| Compose two folds, creating a new fold
+
+@
+(f '\>\' g) x = f '>\\' g x
+@
+
+    ('\>\') is the composition operator of the request category.
+-}
+(\>\)
+    :: Monad m
+    => (b' -> Proxy a' a y' y m b)
+    -- ^
+    -> (c' -> Proxy b' b y' y m c)
+    -- ^
+    -> (c' -> Proxy a' a y' y m c)
+    -- ^
+(fb' \>\ fc') c' = fb' >\\ fc' c'
+{-# INLINABLE (\>\) #-}
+
+{-| @(f >\\\\ p)@ replaces each 'request' in @p@ with @f@.
+
+    Point-ful version of ('\>\')
+-}
+(>\\)
+    :: Monad m
+    => (b' -> Proxy a' a y' y m b)
+    -- ^
+    ->        Proxy b' b y' y m c
+    -- ^
+    ->        Proxy a' a y' y m c
+    -- ^
+fb' >\\ p0 = go p0
+  where
+    go p = case p of
+        Request b' fb  -> fb' b' >>= \b -> go (fb b)
+        Respond x  fx' -> Respond x (\x' -> go (fx' x'))
+        M          m   -> M (m >>= \p' -> return (go p'))
+        Pure       a   -> Pure a
+{-# INLINABLE (>\\) #-}
+
+
+
+
+
+The "respond" category
+
+(/>/) also has a simple behavior:
+
+    (f />/ g) replaces all of f's responds with g. 
+
+This behavior means that (/>/) and respond form a category, too! (/>/) is the composition operation, respond is the identity, and they satisfy the category laws:
+
+-- Replacing each 'respond' in 'f' with 'respond' gives 'f'
+f />/ respond = f
+
+-- Replacing each 'respond' in 'respond' with 'f' gives 'f'
+respond />/ f = f
+
+-- Substitution of 'respond's is associative
+(f />/ g) />/ h = f />/ (g />/ h)
+
+Let's learn more by reviewing the type of (/>/):
+
+(/>/)
+    :: (Monad m, ListT p)
+    => (a -> p x' x b' b m a')
+    -> (b -> p x' x c' c m b')
+    -> (a -> p x' x c' c m a')
+
+
+************************
+(/>/) also has a simple behavior:
+
+    (f />/ g) replaces all of f's responds with g. 
+************************

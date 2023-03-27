@@ -1,0 +1,9 @@
+http://hackage.haskell.org/package/curl
+https://github.com/galoisinc/curl
+http://haskell.forkio.com/Home/curl-win32
+
+https sample:
+
+curl -O -k https://github.com/Lekensteyn/pacemaker/raw/master/pacemaker.py
+
+

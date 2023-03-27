@@ -1,0 +1,11 @@
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-6
+
+2021
+https://www.hanselman.com/blog/take-your-windows-terminal-and-powershell-to-the-next-level-with-terminal-icons
+    !!!
+    PS> Install-Module -Name Terminal-Icons -Repository PSGallery
+    And then add one line to my $profile (edit with "code $profile"):
+    Import-Module -Name Terminal-Icons
+2019
+    https://www.hanselman.com/blog/how-to-make-a-pretty-prompt-in-windows-terminal-with-powerline-nerd-fonts-cascadia-code-wsl-and-ohmyposh
+    !!!

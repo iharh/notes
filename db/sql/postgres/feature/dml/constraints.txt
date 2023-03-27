@@ -1,0 +1,33 @@
+create table ...
+    column devault <val>|<func-call-with-params>
+
+    column ... check ( val = 1 or val = 2)
+
+    cosntraint constraint-name unique (col1, col2, ...)
+
+    primary key (col1, col2, ...)
+
+    foreign key (some-column) references another-table ( another-table-column-name )
+        or
+    some-column references another-table ( another-table-column-name )
+        on update|delete cascade|restrict|no|[set default]
+
+alter table table-name
+    drop constraint constraint-name,
+    alter column column-name set data type integer
+        using (case when column-name = 'Economy' then 1
+                    when column-name = 'Business' then 2
+                    else 3
+               end)
+    ...
+    rename constraint constraint-name to new-constraint-name
+    ...
+    add unique (column-name)
+
+insert into
+    values (...) 
+    on conflict on constraint ..._tmp_key
+        do update set field1 = excluded.field1,
+                      field2 = excluded.field2
+    "excluded" db table is maintained by db internally
+        

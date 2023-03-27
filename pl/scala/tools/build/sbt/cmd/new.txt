@@ -1,0 +1,6 @@
+http://www.scala-sbt.org/release/docs/sbt-new-and-Templates.html
+
+sbt
+    new
+        outwatch/seed.g8
+        julien-truffaut/presentation.g8

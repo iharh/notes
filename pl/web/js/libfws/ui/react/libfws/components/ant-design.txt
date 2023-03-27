@@ -1,0 +1,16 @@
+https://ant.design/
+!!! uses TypeScript
+Don't use @types/antd, as antd provides a built-in ts definition already
+
+https://github.com/ant-design/ant-design/
+
+https://ant.design/docs/react/introduce
+
+https://github.com/websemantics/awesome-ant-design
+
+articles
+https://nrempel.com/guides/react-firebase-ant-design/
+2017
+http://habrahabr.net/thread/18259
+https://medium.com/ant-design/announcing-ant-design-3-0-70e3e65eca0c
+https://medium.com/@yoniweisbrod/styling-react-applications-with-ant-design-92b742aab0b0

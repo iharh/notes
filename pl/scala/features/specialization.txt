@@ -1,0 +1,31 @@
+books:
+Theron - Scala High Performance Programming
+
+articles:
+https://infoscience.epfl.ch/record/150134
+http://axel22.github.io/2013/11/03/specialization-quirks.html
+http://www.scala-archive.org/Java-8-Streams-and-specialization-strategy-td4640007.html
+
+presentations:
+
+plugins:
+http://scala-miniboxing.org/
+http://scala-miniboxing.org/intro.html
+https://github.com/miniboxing/miniboxing-plugin
+
+autospec-dotty:
+https://vimeo.com/165928176
+https://github.com/dotty-linker/dotty
+-lto:spec -lto:all
+
+@specialized
+https://github.com/scala/scala/tree/master/src/library/scala/annotation
+
+http://www.scala-lang.org/api/current/scala/Specializable.html
+http://www.scala-lang.org/api/current/scala/Specializable$.html
+
+https://github.com/scala/scala/blob/v2.12.1/src/library/scala/Specializable.scala
+
+sample:
+
+case class ShareCount[@specialized(Long, Int) T](value: T)

@@ -1,0 +1,78 @@
+Simple Cache
+https://blog.talkingtotheduck.ca/how-to/2015/12/13/vagrant-cachier-with-test-kitchen/
+https://blog.chef.io/2015/04/21/setting-up-your-private-supermarket-server/
+
+http://stackoverflow.com/questions/33172613/how-do-i-get-test-kitchen-to-cache-the-chef-client-rpm
+https://erichelgeson.github.io/blog/2014/09/23/simple-chef-package-cache/
+https://gist.github.com/fnichol/7551540
+
+https://github.com/test-kitchen/test-kitchen/issues/440
+https://github.com/test-kitchen/test-kitchen/issues/315
+
+https://github.com/test-kitchen/kitchen-vagrant/issues/51
+  Allow users to specify a Vagrantfile
+https://github.com/test-kitchen/kitchen-vagrant/pull/37
+
+
+vagrant-cachier
+https://github.com/fgrehm/vagrant-cachier
+  1.2.1
+
+https://github.com/fgrehm/vagrant-cachier/issues/13
+
+https://github.com/fgrehm/vagrant-cachier/blob/master/docs/usage.md
+http://fgrehm.viewdocs.io/vagrant-cachier/
+http://fgrehm.viewdocs.io/vagrant-cachier/usage/
+http://fgrehm.viewdocs.io/vagrant-cachier/how-does-it-work/
+
+unless Vagrant.has_plugin?("vagrant-docker-compose")
+  system("vagrant plugin install vagrant-docker-compose")
+  puts "Dependencies installed, please try the command again."
+  exit
+end
+
+vagrant-omnibus
+https://github.com/chef/vagrant-omnibus
+  1.5.0
+
+https://github.com/chef/vagrant-omnibus/blob/master/lib/vagrant-omnibus/action/install_chef.rb
+  def download_to_cached_dir?
+    cache_packages? && cachier_present? && cachier_autodetect_enabled?
+  end
+  def cache_packages?
+    @machine.config.omnibus.cache_packages
+  end
+  def cachier_present?
+    defined?(VagrantPlugins::Cachier::Plugin)
+  end
+  def cachier_autodetect_enabled?
+     @machine.config.cache.auto_detect
+  end
+https://github.com/chef/vagrant-omnibus/blob/master/lib/vagrant-omnibus/config.rb
+https://github.com/chef/vagrant-omnibus/pull/73
+
+https://github.com/chef/vagrant-omnibus/issues/22
+
+https://github.com/chef/vagrant-omnibus/pull/71
+  Cache omnibus download, expose config options
+
+    require_chef_omnibus: 11.16.4
+    chef_omnibus_install_options: -d /tmp/vagrant-cache/vagrant_omnibus
+
+
+https://github.com/tknerr/sample-toplevel-cookbook/blob/master/.kitchen.docker.yml
+
+vagrant-substrate-575.af28386-1
+
+vagrant-cachier
+vagrant-omnibus     1.5.0
+vagrant-winrm       0.7.0
+minitar             0.5.4
+domain_name         0.5.20160826
+
+vagrant-vbguest
+vagrant-share
+vagrant-lxc
+
+DNS:
+landrush

@@ -1,0 +1,50 @@
+https://wiki.haskell.org/Xmonad/Config_archive
+https://wiki.haskell.org/Xmonad/Config_archive/John_Goerzen's_Configuration
+    ! old-based approach
+
+DistroTube
+    https://gitlab.com/dwt1/dtos-configs/-/tree/main/etc/skel/.xmonad
+
+interesting composition at main function
+https://github.com/evanjs/gentoo-dotfiles/blob/master/.xmonad/xmonad1.hs#L387
+https://github.com/Icy-Thought/Snowflake/blob/main/config/my-xmonad/xmonad.hs#L141
+
+with xmobar
+https://github.com/jaor/xmobar/blob/master/examples/xmobar.hs
+    !!! from autor and official tutorial
+
+https://github.com/sproott/dots
+    !!! hpack-based stack stuff, theming
+    https://github.com/sproott/dots/blob/master/.xmonad/src/xmobar.hs
+    ! kb-stuff
+https://github.com/nativerv/xmonad-nrv
+    !!! hpack-based stack stuff, theming
+https://github.com/tjnt/my-xmonad
+    ! hpack based, interesting build staff
+
+https://github.com/andyseve/dotfiles
+    !!! ???
+https://github.com/AtifChy/xmonad
+    !!! ???
+https://github.com/kronolynx/xmonad
+    !!! super-update-script, good packaging, build script
+    ! stack exec -- which xmonad
+
+https://github.com/prikhi/xmonad-config/blob/master/build
+    !!! good packaging and build script, really interesting, lts-18.12
+    https://github.com/prikhi/xmonad-config/blob/master/src/XmobarStub.hs
+    https://github.com/prikhi/xmonad-config/blob/master/src/StatusBar.hs
+https://github.com/Lenivaya/dotfiles
+    !!! with nixos
+https://github.com/SimSaladin/xmonad-configuration
+    ! nixos, too complex
+
+https://github.com/kentookura/xmonad
+    ! beauty, and nothing else
+
+????
+https://gitlab.com/eflinux/xmonad
+https://github.com/nickhuber327/dotfiles/blob/main/xmonad/xmonad.hs
+https://github.com/lladeebll/dotFiles/blob/master/xmonad/.config/xmonad/xmonad.hs
+https://github.com/PandeCode/dotfiles/blob/main/config/xmonad/xmonad.hs
+https://github.com/kotfind/dotfiles/blob/master/.xmonad/xmonad.hs

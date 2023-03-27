@@ -1,0 +1,17 @@
+OSullivan - Real World Haskell:
+http://www.scs.stanford.edu/11au-cs240h/, http://www.scs.stanford.edu/11au-cs240h/notes/
+
+Dif-List (Taking Advantage of Functions as Data)
+	p 317
+
+General-Purpose Sequences
+	p 322
+
+Generalized Lifting
+	p 360
+
+Restricting IO monad
+	p 375
+
+Using Typeclasses for restricting IO
+	p 378

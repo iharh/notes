@@ -1,0 +1,48 @@
+Errai:
+http://erraiframework.org/
+https://docs.jboss.org/author/display/ERRAI/Errai+UI
+
+gwtbootstrap:
+http://gwtbootstrap.github.io/
+https://github.com/gwtbootstrap/gwt-bootstrap
+https://github.com/gwtbootstrap/gwt-bootstrap/issues/448
+
+https://github.com/gwtbootstrap3/gwtbootstrap3
+http://stackoverflow.com/questions/22836186/gwt-bootstrap-vs-gwtbootstrap3
+
+Layouts:
+http://www.gwtproject.org/doc/latest/DevGuideUiPanels.html
+
+DockLayoutPanel:
+http://www.gwtproject.org/javadoc/latest/com/google/gwt/user/client/ui/DockLayoutPanel.html
+http://www.giantflyingsaucer.com/blog/?p=2302
+
+http://stackoverflow.com/questions/19150353/what-is-the-logic-of-dockpanel-docklayoutpanel-in-gwt-im-confused
+http://stackoverflow.com/questions/11037102/gwt-docklayoutpanel-child-widget-sizing
+http://stackoverflow.com/questions/12751690/gwt-docklayout-panel-in-uibinder
+
+
+DockPanel:
+https://www.tutorialspoint.com/gwt/gwt_dockpanel_widget.htm
+
+
+CSS:
+import com.google.gwt.resources.client.ClientBundle;
+import com.google.gwt.resources.client.CssResource;
+
+public interface IconGridResources extends ClientBundle {
+    @Source("resources/IconGrid.css") 
+    IconGridResources.IconGridStyle iconGridStyle();
+    
+    interface IconGridStyle extends CssResource {
+        String container();
+        String item();
+        String itemLabel();
+    }
+}
+
+SafeHTML:
+http://stackoverflow.com/questions/13027460/gwt-safe-html-framework-when-to-use-and-why
+http://www.gwtproject.org/doc/latest/DevGuideSecuritySafeHtml.html
+http://www.gwtproject.org/javadoc/latest/com/google/gwt/safehtml/shared/package-summary.html
+http://www.gwtproject.org/javadoc/latest/com/google/gwt/safehtml/client/SafeHtmlTemplates.html

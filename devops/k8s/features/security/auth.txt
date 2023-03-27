@@ -1,0 +1,23 @@
+https://kubernetes.io/docs/reference/access-authn-authz/authentication/
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+https://www.vaultproject.io/docs/auth/kubernetes
+
+token-volume-projection
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-token-volume-projection
+
+kubectl
+    auth
+        can-i
+            list
+                pods --as=data-store --namespace data-store
+            delete
+                services ...
+            create
+                deployments ...
+
+2022
+https://learnk8s.io/authentication-kubernetes
+2020
+https://learnk8s.io/microservices-authentication-kubernetes
+    https://github.com/amitsaha/kubernetes-sa-volume-demo
+https://learnk8s.io/kubernetes-custom-authentication

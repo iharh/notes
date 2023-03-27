@@ -1,0 +1,13 @@
+https://flexget.com/Configuration
+    config.yml
+    from
+    ~/
+    ~/.flexget/
+    ~/.config/flexget/
+
+sample cfg
+https://github.com/Flexget/wiki/blob/master/Cookbook/Users/paulpoco.md
+https://github.com/edetaillac/flexget-config
+
+2016
+https://www.smarthomebeginner.com/how-to-configure-flexget/

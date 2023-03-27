@@ -1,0 +1,14 @@
+https://flameshot.org/
+https://github.com/flameshot-org/flameshot
+
+snap/flameshot
+https://flathub.org/apps/details/org.flameshot.Flameshot
+
+flameshot
+  -h, --help
+Arguments:
+  gui            Start a manual capture in GUI mode.
+  screen         Capture a single screen.
+  full           Capture the entire desktop.
+  launcher       Open the capture launcher.
+  config         Configure flameshot.

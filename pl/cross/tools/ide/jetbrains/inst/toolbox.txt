@@ -1,0 +1,38 @@
+https://www.jetbrains.com/toolbox-app/
+
+aur
+    jetbrains-toolbox
+    https://aur.archlinux.org/packages/jetbrains-toolbox/
+    https://download.jetbrains.com/toolbox/${pkgname}-${pkgver}.tar.gz
+    https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.8.3678.tar.gz
+
+scoop
+    jetbrain-toolbox
+
+pacman -Qql jetbrains-toolbox
+
+https://formulae.brew.sh/cask/jetbrains-toolbox
+
+/opt/jetbrains-toolbox/jetbrains-toolbox
+/usr/bin/jetbrains-toolbox
+
+https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox
+    ~/.local/share/JetBrains/Toolbox/scripts
+
+/usr/share/applications/jetbrains-toolbox.desktop
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Jetbrains-Toolbox
+Icon=/opt/jetbrains-toolbox/jetbrains-toolbox
+Exec="/opt/jetbrains-toolbox/jetbrains-toolbox"
+Comment=Manage all your JetBrains Projects and Tools
+Categories=Development;Tools;
+Terminal=false
+StartupWMClass=jetbrains-toolbox
+
+2022
+https://blog.jetbrains.com/blog/2022/07/07/toolbox-app-1-25-is-here/
+
+cfg
+.local/share/JetBrains/Toolbox/

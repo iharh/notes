@@ -1,0 +1,8 @@
+http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html
+https://spring.io/guides/gs/serving-web-content/
+
+https://springframework.guru/spring-boot-web-application-part-4-spring-mvc/
+
+RequestParam
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestParam.html
+https://stackoverflow.com/questions/39774427/springs-requestparam-with-enum

@@ -1,0 +1,38 @@
+https://k8slens.dev/
+https://github.com/lensapp/lens
+
+https://docs.k8slens.dev/main/getting-started/
+    xdg-settings set default-url-scheme-handler lens lens.desktop
+    https://bbs.archlinux.org/viewtopic.php?id=256377
+    https://bbs.archlinux.org/viewtopic.php?pid=1909287#p1909287
+    https://github.com/lbryio/lbry-desktop/issues/4236
+
+https://www.youtube.com/channel/UCy8dD4MUHCPywz_Yrf4HzLw/videos
+
+https://snapcraft.io/install/kontena-lens/ubuntu
+snap/kontena-lens
+    4.2.5
+
+inst
+https://docs.k8slens.dev/main/getting-started/
+https://api.k8slens.dev/binaries/beta.x86_64.AppImage
+
+navigation
+Network/Services
+
+cfg
+.config/Lens/
+    lens-cluster-store.json
+
+articles
+2021
+https://habr.com/ru/company/flant/blog/563422/
+
+presentations
+2020
+Kontena Lens - The Smart Dashboard for Kubernetes
+    https://www.youtube.com/watch?v=04v2ODsmtIs
+
+whatsnew
+https://github.com/lensapp/lens/releases
+https://k8slens.dev/lens5beta.html

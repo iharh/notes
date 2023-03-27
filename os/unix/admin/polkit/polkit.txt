@@ -1,0 +1,25 @@
+https://wiki.archlinux.org/title/Polkit
+
+apt
+policykit-1 [installed,automatic]
+    transitional package for polkitd and pkexec
+polkitd [installed,automatic]
+    framework for managing administrative policies and privileges
+pkexec [installed]
+    run commands as another user with polkit authorization
+libpolkit-gobject-1-0 [installed,automatic]
+    PolicyKit Authorization API
+libpolkit-agent-1-0 [installed,automatic]
+    PolicyKit Authentication Agent API
+policykit-1-gnome
+    !!!
+    
+
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+apt/
+    dex
+https://github.com/nicholasglazer/xmonad-config/blob/master/.xmonad/xmonad.hs#L431
+    spawnOnce "sleep 3;dex /etc/xdg/autostart/polkit-kde-authentication-agent-1.desktop"    -- Run polkit agent 
+https://github.com/deyloop/dot/blob/main/xmonad/xmonad.hs#L239
+
+pkexec bash

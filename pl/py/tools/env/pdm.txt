@@ -1,0 +1,28 @@
+https://pdm.fming.dev/
+https://github.com/pdm-project/pdm
+
+https://pdm.fming.dev/usage/dependency/
+
+inst
+sudo apt install python3.9-venv
+curl -sSL https://raw.githubusercontent.com/pdm-project/pdm/main/install-pdm.py | python3 -  
+
+post-install: add to .zshrc:
+export PATH=$HOME/.local/bin:$PATH
+
+issues
+https://github.com/pdm-project/pdm/issues/685
+    https://aur.archlinux.org/packages/python-pdm/#comment-810500
+    !
+    you should never mess with the system dependencies, but instead, install PDM in an isolated env.
+    Look at the installation guide, we never recommend installing PDM into the global site-packages.
+    !
+    It turns out the redistributed pip has a special debundling process that adds the wheels path in front of sys.path.
+    As a workaround, you can re-install the pip in the venv by:
+        ~/.local/share/pdm/venv/bin/pip install -I pip
+
+2021
+https://dev.to/frostming/a-review-pipenv-vs-poetry-vs-pdm-39b4
+https://frostming.com/2021/01-22/introducing-pdm/
+2020
+https://asciinema.org/a/jnifN30pjfXbO9We2KqOdXEhB

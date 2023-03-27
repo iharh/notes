@@ -1,0 +1,9 @@
+https://github.com/AlexeyAB/object_threadsafe
+
+https://habrahabr.ru/post/328348/
+https://habrahabr.ru/post/328362/
+https://habrahabr.ru/post/328374/
+
+https://www.codeproject.com/Articles/1183379/We-make-any-object-thread-safe
+https://www.codeproject.com/Articles/1183423/We-make-a-std-shared-mutex-times-faster
+https://www.codeproject.com/Articles/1183446/Thread-safe-std-map-with-the-speed-of-lock-free-ma

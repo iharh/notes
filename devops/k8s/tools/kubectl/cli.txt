@@ -1,0 +1,117 @@
+https://kubernetes.io/ru/docs/reference/kubectl/cheatsheet/
+
+2022
+https://www.learncloudnative.com/blog/2022-05-10-kubectl-tips
+
+kubectl
+    completion -h
+
+    ??? port-forward ???
+        for "probros" local <-> remote ports
+    config
+        https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-set-context-em-
+        current-context
+            show current context
+        set-context
+            --current --namespace kube-system.
+        use-context
+            minikube
+    cluster-info
+    api-resources
+        !!! ??? get resources of all kinds (from api-server)
+    explain
+        ... doc on specific part of descr ...
+    get
+        namespace
+            list namespaces
+        nodes
+        events
+        po[ds]
+            [--namespace=kube-system]
+            -l app=<name>
+        rs[replicaset]
+        svc
+        ingress
+        secrets
+        configmap
+        rs[replicaset]
+        pv
+            list pvc-s
+    set
+        # !!! this does not change already running PODs
+        # in fact - we just change template
+        image rs[replicaset] <rs-name> <container-name>=.../nginx:1.13
+                                       '*=.../nxinx:1.13' # in case of single container
+    logs
+        deploy/<deployment-name> -c <container-name> 
+
+    edit
+        deployment
+        ? what else ?
+            edit ... stuff ... with platform default text editor
+    run
+        first-deployment --image=katacoda/docker-http-server --port=80
+        -it --image=tutum/curl bash
+    expose
+        deployment first-deployment --port=80 --type=NodePort
+    svc
+        first-deployment
+        export PORT=$(kubectl get svc first-deployment -o go-template='{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}')
+
+    create # can't re-create
+        [--validate=false]
+        -f <local-file.yaml>
+        -f https://raw.githubusercontent.com/kubernetes/kubernetes/master/examples/guestbook/all-in-one/guestbook-all-in-one.yaml
+        namespace <name>
+            create a new <name> namespace
+
+    apply # can apply multiple time
+        -f https://k8s.io/docs/tutorials/stateless-application/deployment-scale.yaml
+
+
+    delete
+        all [--all] [-A]
+        pod
+        replicaset
+        service <name>
+        deployment <name>
+
+    describe
+        [--namespace=kube-system]
+        [po]ds <name>
+        [deploy]ment <name>
+        [rs]replicaset <name>
+
+    exec
+        https://itsecforu.ru/2022/07/29/%e2%98%b8%ef%b8%8f-%d0%ba%d0%b0%d0%ba-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d1%8f%d1%82%d1%8c-%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d1%8b-%d0%b2%d0%bd%d1%83%d1%82%d1%80%d0%b8-%d0%ba%d0%be%d0%bd%d1%82/
+        <pod-name>
+            [-ti]
+            -- <cmd>
+
+    wait
+        https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#wait
+        --for=condition=ready --timeout=60s pod/<pod-id> -n <node-id>
+
+    diff
+        https://github.com/kubernetes/enhancements/issues/491
+    uncordon
+        ???
+
+    scale
+        --replicas <N>
+        replicaset <rs-name>
+
+    rollout
+        [undo|history] deployment <dpl-name>
+        # ... revision-history-limit
+        k explain deployment.spec.strategy
+            field type - "RollingUpdate|Recreate"
+        k explain deployment.spec.strategy.rollingUpdate
+            maxSurge       - for how much we can increase ... up to desired state
+            maxUnavailable - ... can use percents ...
+
+    port-forward <svc> <p1:p2>
+        -n<namespace>
+
+    proxy
+        ???

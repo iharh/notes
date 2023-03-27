@@ -1,0 +1,36 @@
+useState
+useContext
+useReducer
+useCallback
+useMemo
+useRef
+useEffect
+useMutationEffect
+useLayoutEffect
+
+2021
+https://blog.logrocket.com/modern-guide-react-state-patterns/
+2020
+Dropdown Refactoring using Hooks
+    https://www.youtube.com/watch?v=KBUIPO8o0Ao
+2019
+https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
+    https://habr.com/ru/post/492248/
+https://dev.to/ramsay/build-a-redux-like-global-store-using-react-hooks-4a7n
+    https://habr.com/ru/post/460083/
+React Hooks Router
+    https://habr.com/ru/post/459434/
+React Hooks Tutorial (Custom Hooks) | Form Validation made easy
+    https://www.youtube.com/watch?v=SXIfnNvYrZE
+https://habr.com/ru/post/458614/
+    https://github.com/trekhleb/use-position
+    https://www.npmjs.com/package/use-position
+https://www.infoq.com/news/2019/02/tng-hooks
+    https://github.com/getify/TNG-Hooks
+
+????
+https://github.com/kripod/standard-hooks
+https://github.com/kesne/with-react-hooks
+https://github.com/adamkleingit/devdays-2019-hooks
+
+https://github.com/Swizec/useDimensions

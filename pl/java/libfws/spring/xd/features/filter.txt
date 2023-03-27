@@ -1,0 +1,4 @@
+https://docs.spring.io/spring-xd/docs/current/reference/html/#filter
+
+Filter using jsonPath evaluation
+#jsonPath(payload,'$.firstName')

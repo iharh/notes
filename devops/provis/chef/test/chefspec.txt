@@ -1,0 +1,37 @@
+https://docs.chef.io/chefspec.html
+
+https://github.com/sethvargo/chefspec/blob/master/lib/chefspec/api/http_request.rb
+https://github.com/sethvargo/chefspec/tree/master/examples
+
+https://sethvargo.github.io/chefspec/
+http://www.rubydoc.info/github/sethvargo/chefspec
+https://github.com/sethvargo/chefspec
+
+Tutorials:
+https://semaphoreci.com/community/tutorials/unit-tests-for-chef-cookbooks-with-chefspec
+
+RSpec stuff:
+https://relishapp.com/rspec/rspec-core/docs
+http://www.relishapp.com/rspec/rspec-expectations/docs/
+http://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+
+APIs:
+http://matthewlehner.net/rails-api-testing-guidelines/
+https://robots.thoughtbot.com/validating-json-schemas-with-an-rspec-matcher
+
+https://github.com/thoughtbot/json_matchers
+https://www.relishapp.com/waterlink/rspec-json-expectations/docs/json-expectations/include-json-matcher
+
+https://github.com/collectiveidea/json_spec
+https://rubygems.org/gems/json_spec
+
+samples:
+require 'json'
+require 'net/http'
+
+uri = URI('http://localhost:8080/rest/foo')
+request = Net::HTTP::Get.new(uri, { 'Accept' => 'application/json' }
+request.basic_auth('foo', 'foo')
+response = Net:HTTP.new(uri.host, uri.port).request(request)
+expect(response.code).to eq 200
+expect(JSON.parse(response.body)).to eq {'bar' => 'baz' }

@@ -1,0 +1,24 @@
+https://github.com/docker-java/docker-java
+https://github.com/project-aries/docker-java-shaded
+
+internals
+https://github.com/docker-java/docker-java/blob/master/src/main/java/com/github/dockerjava/api/command/BuildImageCmd.java
+    https://github.com/docker-java/docker-java/wiki
+https://github.com/docker-java/docker-java/blob/master/src/main/java/com/github/dockerjava/core/exec/BuildImageCmdExec.java
+
+https://github.com/docker-java/docker-java/blob/master/src/main/java/com/github/dockerjava/netty/NettyInvocationBuilder.java
+https://github.com/docker-java/docker-java/blob/master/src/main/java/com/github/dockerjava/netty/NettyWebTarget.java
+    public class NettyWebTarget implements WebTarget {
+        ...
+        public NettyInvocationBuilder request() { ... }
+        ...
+    }
+
+https://github.com/docker-java/docker-java/blob/master/src/main/java/com/github/dockerjava/netty/NettyDockerCmdExecFactory.java
+    public class NettyDockerCmdExecFactory extends AbstractDockerCmdExecFactory implements DockerCmdExecFactory 
+
+FactoryType.NETTY
+https://github.com/docker-java/docker-java/blob/master/src/test/java/com/github/dockerjava/cmd/CmdIT.java
+
+https://github.com/docker-java/docker-java/blob/master/src/main/java/com/github/dockerjava/jaxrs/JerseyDockerCmdExecFactory.java
+    public class JerseyDockerCmdExecFactory implements DockerCmdExecFactory

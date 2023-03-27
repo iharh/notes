@@ -1,0 +1,11 @@
+KIP-500
+https://github.com/apache/kafka/blob/trunk/config/kraft/README.md
+
+2021
+https://noti.st/vikgamov/XbJszq/you-can-go-your-way-kafka-without-zookeeper
+    https://www.youtube.com/watch?v=YK2gtCBXs_E
+https://www.confluent.io/blog/kafka-without-zookeeper-a-sneak-peek/
+    https://habr.com/ru/company/southbridge/blog/552688/
+2020
+https://www.confluent.io/blog/removing-zookeeper-dependency-in-kafka/
+https://www.infoq.com/presentations/kafka-zookeeper/

@@ -1,0 +1,150 @@
+??? IndexMetadata.version
+??? RecoveryState.getIndex().updateVersion(long v);
+    RecoveryState.Index.updateVersion(long v);
+    long version = Lucene.readSegmentInfos(store.directory()).getVersion(); // SegmentInfos is from Lucene
+
+??? RestSegmentsAction
+
+
+org.elasticsearch.index.service
+
+public interface IndexService extends IndexComponent, Iterable<IndexShard> {
+    ...
+    IndexGateway gateway();
+
+    IndexCache cache();
+
+    IndexFieldDataService fieldData();
+
+    FixedBitSetFilterCache fixedBitSetFilterCache();
+
+    IndexSettingsService settingsService();
+    ...
+    MapperService mapperService();
+
+    IndexAliasesService aliasesService();
+    ...
+    IndexEngine engine();
+
+    IndexStore store();
+    ...
+    int numberOfShards();
+
+    ImmutableSet<Integer> shardIds();
+
+    boolean hasShard(int shardId);
+
+    /**
+     * Return the shard with the provided id, or null if there is no such shard.
+     */
+    @Nullable
+    IndexShard shard(int shardId);
+
+    /**
+     * Return the shard with the provided id, or throw an exception if it doesn't exist.
+     */
+    IndexShard shardSafe(int shardId) throws IndexShardMissingException;
+    ...
+}
+
+InternalIndexService
+
+
+package org.elasticsearch.index.shard.service;
+
+public interface IndexShard extends IndexShardComponent {
+    ...
+    SnapshotIndexCommit snapshotIndex() throws EngineException;
+    ...
+}
+
+...
+
+package org.elasticsearch.index.snapshots.blobstore;
+
+public class BlobStoreIndexShardRepository extends AbstractComponent implements IndexShardRepository {
+    ...
+    /**
+     * Context for snapshot operations
+     */
+    private class SnapshotContext extends Context {
+        ...
+        /**
+         * Create snapshot from index commit point
+         *
+         * @param snapshotIndexCommit snapshot commit point
+         */
+        public void snapshot(SnapshotIndexCommit snapshotIndexCommit) {
+            ...
+            snapshotStatus.indexVersion(snapshotIndexCommit.getGeneration()); // goes to org.apache.lucene.index.IndexCommit.getGeneration
+            ...
+        }
+        ...
+    }
+}
+
+
+LocalIndexShardGateway {
+    ...
+        SegmentInfos si = Lucene.readSegmentInfos(indexShard.store().directory());
+    ...
+}
+
+Store {
+    ...
+    public SegmentInfos readLastCommittedSegmentsInfo() throws IOException { // used by InternalEngine only
+        ...
+    }
+}
+
+???
+IndicesSegmentResponse {
+    ...
+}
+
+
+package org.elasticsearch.index.engine;
+
+public class Segment implement Streamable {
+
+    lucene.util.Version getVersion()
+
+    long getGeneration();
+}
+
+
+
+
+
+
+- i-face index.service.IndexService
+    IndexEngine engine();
+  class index.service.InternalIndexService
+
+
+  i-face index.shard.service.IndexShard
+    IndexService indexService();
+  index.shard.service.InternalIndexShard
+    Engine engine();
+    IndexService indexService();
+
+
+public class IndexModule extends AbstractModule {
+    private final Settings settings;
+    public IndexModule(Settings settings) {
+        this.settings = settings;
+    }
+    @Override
+    protected void configure() {
+        bind(IndexService.class).to(InternalIndexService.class).asEagerSingleton();
+    }
+}
+
+- i-face indices.IndicesService
+    IndexService indexService(String index);
+
+
+- i-face plugins.Plugin
+  Collection indexModules()
+  Collection indexServices()
+  .. shard..

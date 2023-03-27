@@ -1,0 +1,73 @@
+https://www.atlassian.com/git/tutorials/refs-and-the-reflog/the-reflog
+
+git show
+    refs/heads/some-feature
+        full-name ref
+    some-feature
+        short-name ref
+
+after GC refs may be packed into the .git/packed_refs:
+
+00f54250cf4e549fdfcafe2cf9a2c90bc3800285 refs/heads/feature
+0e25143693cfe9d5c2e83944bbaf6d3c4505eb17 refs/heads/master
+bb883e4c91c870b5fed88fd36696e752fb6cf8e6 refs/tags/v0.9
+
+
+Special Refs
+
+In addition to the refs directory, there are a few special refs that reside in the top-level .git directory. They are listed below:
+
+HEAD
+    The currently checked-out commit/branch.
+FETCH_HEAD
+    The most recently fetched branch from a remote repo.
+ORIG_HEAD
+    A backup reference to HEAD before drastic changes to it.
+MERGE_HEAD
+    The commit(s) that you’re merging into the current branch with git merge.
+CHERRY_PICK_HEAD
+    The commit that you’re cherry-picking.
+
+These refs are all created and updated by Git when necessary.
+For example, The git pull command first runs git fetch, which updates the FETCH_HEAD reference.
+Then, it runs git merge FETCH_HEAD to finish pulling the fetched branches into the repository.
+Of course, you can use all of these like any other ref, as I’m sure you’ve done with HEAD.
+
+These files contain different content depending on their type and the state of your repository.
+The HEAD ref can contain either a symbolic ref, which is simply a reference to another ref instead of a commit hash, or a commit hash.
+For example, take a look at the contents of HEAD when you’re on the master branch:
+
+git checkout master
+cat .git/HEAD
+
+This will output
+
+ref: refs/heads/master
+
+, which means that HEAD points to the refs/heads/master ref.
+This is how Git knows that the master branch is currently checked out.
+If you were to switch to another branch, the contents of HEAD would be updated to reflect the new branch.
+But, if you were to check out a commit instead of a branch, HEAD would contain a commit hash instead of a symbolic ref.
+This is how Git knows that it’s in a detached HEAD state.
+
+For the most part, HEAD is the only reference that you’ll be using directly.
+The others are generally only useful when writing lower-level scripts that need to hook into Git’s internal workings.
+
+
+Symbolic Refs
+git symbolic-ref ...
+
+
+Every branch, tag, and other decoration is just a reference to the ID of a specific commit
+(calculated with SHA-1, the secure hash algorithm).
+
+git rev-parse <human-hash> or <branch-name>
+	[pick out and massage parameters]
+	to get a sys-id (long) from a human-readable (short) form
+
+git rev-parse 'master^{tree}'
+	.. commit tree
+
+git describe --tags master
+git describe --tags HEAD
+	describe (find nearest tag) non-annotated tag

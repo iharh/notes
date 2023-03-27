@@ -1,0 +1,774 @@
+[special]
+;
+[nostats]
+;
+; Speech grammar rule table
+;
+[attrs]
+; c is a conjunction
+;
+; chs (currently used)
+p(1) + n = 5    ; chs-only
+n + f(1) = 300  ; both
+n + m(1) = 500  ; both
+n(1) + v = 100  ; both
+n + v(1) = 10   ; both
+r + n(1) = 1000 ; both
+r(1) + n = 100  ; both
+d(1) + r = 100  ; both
+d(1) + v = 100  ; both
+v(1) + r = 100  ; both
+n + m(1) = 500  ; both
+v + f(1) = 30   ; both
+v(1) + m = 100  ; both
+v(1) + n = 3    ; =3 for chs, =5 for cht
+a + u(1) = 5    ; both
+v + n(1) = 5    ; both
+u(1) + a = 2    ; chs-only
+ns + *(1) = 10  ; chs-only
+c(1) + * = 50   ; both
+* + c(1) = 50   ; both
+;
+; cht (traditional)
+v(1) + n = 5    ; cht-only
+
+
+// config.h
+
+#define SCWS_ATTR_LEN 20
+
+// xdict.h
+
+/* data structure for word(12bytes) */
+typedef struct scws_word
+{
+    float tf;
+    float idf;
+    unsigned char flag;
+    char attr[SCWS_ATTR_LEN + 1]; // POS - https://github.com/hightman/scws/blob/master/API.md
+}   word_st, *word_t;
+
+
+// rule.h
+
+#define SCWS_RULE_MAX           32
+#define SCWS_RULE_SPECIAL       0x80000000
+#define SCWS_RULE_NOSTATS       0x40000000
+
+/* flag: 0x00 ~ 0x4000 */
+#define SCWS_ZRULE_NONE         0x00
+#define SCWS_ZRULE_PREFIX       0x01
+#define SCWS_ZRULE_SUFFIX       0x02
+#define SCWS_ZRULE_INCLUDE      0x04    /* with include */
+#define SCWS_ZRULE_EXCLUDE      0x08    /* with exclude */
+#define SCWS_ZRULE_RANGE        0x10    /* with znum range */
+
+/* data structure */
+typedef struct scws_rule_item            // section
+{
+    short flag;
+    char zmin;
+    char zmax;
+    char name[17];                       // section name
+    char attr[SCWS_ATTR_LEN + 1];        // default - "un"
+    float tf;                            // default - 5.0
+    float idf;                           // default - 3.5
+    unsigned int bit;   /* my bit  */
+    unsigned int inc;   /* include */
+    unsigned int exc;   /* exclude */
+}   *rule_item_t;
+
+/* special attrs ratio list(single chain, 12bytes) */
+typedef struct scws_rule_attr *rule_attr_t;
+struct scws_rule_attr
+{
+    char attr1[SCWS_ATTR_LEN + 1];  // ? v1
+    char attr2[SCWS_ATTR_LEN + 1];  // ? v2
+    unsigned char npath[2];         // ?? 0xff - by default,  (1) -> 0, else -> 0xff
+        // used by rule.c 
+        //   - scws_rule_new, 
+        //   - int scws_rule_attr_ratio(rule_t r, const char *attr1, const char *attr2, const unsigned char *npath)
+        //     // get rule attr x
+        //   -- scws.c - _scws_mseg_zone, 
+        //   --- static void _scws_msegment(scws_t s, int end, int zlen)
+        //   ---- scws_res_t scws_get_result(scws_t s)
+
+    short ratio;                    // ?   = <num>
+    rule_attr_t next;               // ptr to the next scws_rule_attr
+};
+
+typedef struct scws_rule
+{
+    xtree_t tree;
+    rule_attr_t attr;               // [attrs] section: ptr to the first item of the attrs list 
+    struct scws_rule_item items[SCWS_RULE_MAX]; // SCWS_RULE_MAX is 32
+}   rule_st, *rule_t;
+
+/* scws ruleset: api */
+
+/* create & load ruleset, by fpath & charset */
+rule_t scws_rule_new(const char *fpath, unsigned char *mblen);
+
+/* free the memory & resource for ruleset */
+void scws_rule_free(rule_t r);
+
+/* get the rule tree record by str */
+rule_item_t scws_rule_get(rule_t r, const char *str, int len);
+
+/* check bit */
+int scws_rule_checkbit(rule_t r, const char *str, int len, unsigned int bit);
+
+/* get rule attr x */
+int scws_rule_attr_ratio(rule_t r, const char *attr1, const char *attr2, const unsigned char *npath);
+
+/* check exclude or include */
+int scws_rule_check(rule_t r, rule_item_t cr, const char *str, int len);
+
+static inline int _rule_index_get(rule_t r, const char *name)
+{
+    int i;
+    for (i = 0; i < SCWS_RULE_MAX; i++)
+    {
+        if (r->items[i].name[0] == '\0') // don't go by the end of the items list
+            break;
+
+        if (!strcasecmp(r->items[i].name, name)) // found item with the given name at the items list
+            return i;
+    }
+    return -1;
+}
+
+rule_t scws_rule_new(const char *fpath, unsigned char *mblen)
+{
+    FILE *fp;
+    rule_t r;
+    rule_item_t cr;       // cr - current rule item
+    int i, j, rbl, aflag; // rbl - read by line, aflag - attrs-section parsing,
+    rule_attr_t a,rtail;
+    unsigned char buf[512], *str, *ptr, *qtr;
+
+    /* loaded or open file failed */
+    if ((fp = fopen(fpath, "r")) == NULL)
+        return NULL;
+
+    /* alloc the memory */
+    r = (rule_t) malloc(sizeof(rule_st));
+    memset(r, 0, sizeof(rule_st));
+
+    /* quick scan to add the name to list */
+    i = j = rbl = aflag = 0;
+    while (fgets(buf, sizeof(buf)-1, fp))
+    {
+        if (buf[0] != '[' || !(ptr = strchr(buf, ']'))) // we are interested in [sections] only
+            continue;
+
+        str = buf + 1;
+        *ptr = '\0';
+        if (ptr == str || (ptr-str) > 15 || !strcasecmp(str, "attrs")) // skip [attrs] section
+            continue;
+
+        if (_rule_index_get(r, str) >= 0) // already in the items list
+            continue;
+
+        // !!! i is the rule index here from 0 to SCWS_RULE_MAX (== 32)
+
+        strcpy(r->items[i].name, str);
+        r->items[i].tf = 5.0;                // default tf is  5.0
+        r->items[i].idf = 3.5;               // default idf is 3.5
+        strncpy(r->items[i].attr, "un", 2);  // default attr is "un"
+
+        // special and nostats are just a plain words
+
+        if (!strcasecmp(str, "special"))
+            r->items[i].bit = SCWS_RULE_SPECIAL;
+        else if (!strcasecmp(str, "nostats"))
+            r->items[i].bit = SCWS_RULE_NOSTATS;
+        else
+        {
+            r->items[i].bit = (1<<j);
+            j++;
+        }
+
+        if (++i >= SCWS_RULE_MAX)  // all section has already been read
+            break;
+    }
+
+    // 2-nd pass
+    rewind(fp);
+
+    /* load the tree data */
+    if ((r->tree = xtree_new(0, 1)) == NULL)
+    {
+        free(r);
+        return NULL;
+    }
+    cr = NULL;
+    while (fgets(buf, sizeof(buf)-1, fp))
+    {
+        if (buf[0] == ';') // comment
+            continue;
+
+        if (buf[0] == '[')
+        {
+            cr = NULL;
+            str = buf + 1;
+            aflag = 0;
+            if ((ptr = strchr(str, ']')) != NULL)
+            {
+                *ptr = '\0';
+                if (!strcasecmp(str, "attrs"))
+                {
+                    aflag = 1;
+                }
+                // all the non [attrs] section - need to be read by line
+                else if ((i = _rule_index_get(r, str)) >= 0)  
+                {
+                    rbl = 1;    /* default read by line = yes */
+                    cr = &r->items[i];
+                }
+            }
+            continue;
+        }
+
+        /* attr flag open? */
+        if (aflag == 1)                               // [attrs] section
+        {
+            /* parse the attr line */
+
+	    // str - first part (before +)
+	    // ptr - second     (after + before =)
+	    // qtr - third      (after =)
+            
+            str = buf;
+            while (*str == ' ' || *str == '\t') str++;
+            if ((ptr = strchr(str, '+')) == NULL) continue;
+            *ptr++ = '\0';
+            if ((qtr = strchr(ptr, '=')) == NULL) continue;
+            *qtr++ = '\0';
+
+            /* create new memory */
+            a = (rule_attr_t) malloc(sizeof(struct scws_rule_attr));
+            memset(a, 0, sizeof(struct scws_rule_attr));
+
+            /* get ratio */
+            while(*qtr == ' ' || *qtr == '\t') qtr++;
+            a->ratio = (short) atoi(qtr);
+            if (a->ratio < 1)
+                a->ratio = 1;
+            a->npath[0] = a->npath[1] = 0xff;
+
+            /* read attr1 & npath1? */
+            a->attr1[0] = *str++;
+            if (*str && *str != '(' && *str != ' ' && *str != '\t')
+                a->attr1[1] = *str++;
+            while (*str && *str != '(') str++;
+            if (*str == '(')
+            {
+                str++;
+                if ((qtr = strchr(str, ')')) != NULL)
+                {
+                    *qtr = '\0';
+                    a->npath[0] = (unsigned char) atoi(str);
+                    if (a->npath[0] > 0)
+                        a->npath[0]--;
+                    else
+                        a->npath[0] = 0xff;
+                }
+            }
+
+            /* read attr2 & npath2? */
+            str = ptr;
+            while (*str == ' ' || *str == '\t') str++;
+            a->attr2[0] = *str++;
+            if (*str && *str != '(' && *str != ' ' && *str != '\t')
+                a->attr2[1] = *str++;
+            while (*str && *str != '(') str++;
+            if (*str == '(')
+            {
+                str++;
+                if ((qtr = strchr(str, ')')) != NULL)
+                {
+                    *qtr = '\0';
+                    a->npath[1] = (unsigned char) atoi(str);
+                    if (a->npath[1] > 0)
+                        a->npath[1]--;
+                    else
+                        a->npath[1] = 0xff;
+                }
+            }
+
+            //printf("%c%c(%d)+%c%c(%d)=%d\n", a->attr1[0], a->attr1[1] ? a->attr1[1] : ' ', a->npath[0],
+            //  a->attr2[0], a->attr2[1] ? a->attr2[1] : ' ', a->npath[1], a->ratio);
+
+            /* append to the chain list */
+            if (r->attr == NULL)
+                r->attr = rtail = a;
+            else
+            {
+                rtail->next = a;
+                rtail = a;
+            }
+
+            continue;
+        }
+
+        if (cr == NULL) // cr == NULL for [attrs] section
+            continue;
+
+        /* param set: line|znum|include|exclude|type|tf|idf|attr */
+        if (buf[0] == ':')
+        {
+            str = buf + 1;
+            if (!(ptr = strchr(str, '=')))
+                continue;
+            while (*str == ' ' || *str == '\t') str++;
+
+            qtr = ptr + 1;
+            while (ptr > str && (ptr[-1] == ' ' || ptr[-1] == '\t')) ptr--;
+            *ptr = '\0';
+            ptr = str;
+            str = qtr;
+            while (*str == ' ' || *str == '\t') str++;
+
+            if (!strcmp(ptr, "line"))
+                rbl =  (*str == 'N' || *str == 'n') ? 0 : 1;
+            else if (!strcmp(ptr, "tf"))
+                cr->tf = (float) atof(str);
+            else if (!strcmp(ptr, "idf"))
+                cr->idf = (float) atof(str);
+            else if (!strcmp(ptr, "attr"))
+                strncpy(cr->attr, str, 2);
+            else if (!strcmp(ptr, "znum"))
+            {
+                if ((ptr = strchr(str, ',')) != NULL)
+                {
+                    *ptr++ = '\0';
+                    while (*ptr == ' ' || *ptr == '\t') ptr++;
+                    cr->zmax = atoi(ptr);
+                    cr->flag |= SCWS_ZRULE_RANGE;
+                }
+                cr->zmin = atoi(str);
+            }
+            else if (!strcmp(ptr, "type"))
+            {
+                if (!strncmp(str, "prefix", 6))
+                    cr->flag |= SCWS_ZRULE_PREFIX;
+                else if (!strncmp(str, "suffix", 6))
+                    cr->flag |= SCWS_ZRULE_SUFFIX;
+            }
+            else if (!strcmp(ptr, "include") || !strcmp(ptr, "exclude"))
+            {
+                unsigned int *clude;
+
+                if (!strcmp(ptr, "include"))
+                {
+                    clude = &cr->inc;
+                    cr->flag |= SCWS_ZRULE_INCLUDE;
+                }
+                else
+                {
+                    clude = &cr->exc;
+                    cr->flag |= SCWS_ZRULE_EXCLUDE;
+                }
+
+                while ((ptr = strchr(str, ',')) != NULL)
+                {
+                    while (ptr > str && (ptr[-1] == '\t' || ptr[-1] == ' ')) ptr--;
+                    *ptr = '\0';
+                    if ((i = _rule_index_get(r, str)) >= 0)
+                        *clude |= r->items[i].bit;
+
+                    str = ptr + 1;
+                    while (*str == ' ' || *str == '\t' || *str == ',') str++;
+                }
+
+                ptr = strlen(str) + str;
+                while (ptr > str && strchr(" \t\r\n", ptr[-1])) ptr--;
+                *ptr = '\0';
+                if (ptr > str && (i = _rule_index_get(r, str)))
+                    *clude |= r->items[i].bit;
+            }
+            continue;
+        }
+
+        /* read the entries */
+        str = buf;
+        while (*str == ' ' || *str == '\t') str++;
+        ptr = str + strlen(str);
+        while (ptr > str && strchr(" \t\r\n", ptr[-1])) ptr--;
+        *ptr = '\0';
+
+        /* emptry line */
+        if (ptr == str)
+            continue;
+
+        if (rbl) // if read-by-line - xtree_nput(r->tree, cr, ..., str, ptr -str)
+            xtree_nput(r->tree, cr, sizeof(struct scws_rule_item), str, ptr - str);
+        else
+        {
+            while (str < ptr)
+            {
+                j = mblen[(*str)];
+
+#ifdef HAVE_NOT_QUIET
+                /* try to check repeat */
+                if ((i = (int) xtree_nget(r->tree, str, j, NULL)) != 0)
+                    fprintf(stderr, "Reapeat word on %s|%s: %.*s\n", cr->name, ((rule_item_t) i)->name, j, str);
+#endif
+
+                xtree_nput(r->tree, cr, sizeof(struct scws_rule_item), str, j);
+                str += j;
+            }
+        }
+    }
+    fclose(fp);
+
+    /* optimize the tree */
+    xtree_optimize(r->tree);
+    return r;
+}
+
+/* get rule attr x */
+#define EQUAL_RULE_ATTR(x,y)    ((y[0]=='*'&&y[1]=='\0') || (strcmp(x,y)==0))
+#define EQUAL_RULE_NPATH(x,y)   ((y[0]==0xff||y[0]==x[0])&&(y[1]==0xff||y[1]==x[1]))
+
+// special attrs ratio list(single chain, 12bytes)
+//typedef struct scws_rule_attr *rule_attr_t;
+//struct scws_rule_attr
+//{
+//   char attr1[SCWS_ATTR_LEN + 1];  // v1
+//   char attr2[SCWS_ATTR_LEN + 1];  // v2
+//   unsigned char npath[2];         // 0xff - by default,  (1) -> 0, else -> 0xff
+//   short ratio;                    // <num-ratio>
+//   rule_attr_t next;               // ptr to the next scws_rule_attr
+//};
+
+//typedef struct scws_rule {
+//   ...
+//   rule_attr_t attr;     // [attrs] section: ptr to the first item of the attrs list 
+//   ...
+//}  rule_st, *rule_t;
+
+int
+scws_rule_attr_ratio(rule_t r, const char *attr1, const char *attr2, const unsigned char *npath)
+{
+    rule_attr_t a;
+    int ret = 1;
+
+    if (!r || (a = r->attr) == NULL)
+        return ret; // 1 - if there are no rules or [attrs] section is missing
+    
+    // iterate through the [attrs] section items
+    while (a != NULL)
+    {
+        if (EQUAL_RULE_ATTR(attr1, a->attr1) && EQUAL_RULE_ATTR(attr2, a->attr2) && EQUAL_RULE_NPATH(npath, a->npath))
+        {
+            ret = (int) a->ratio; // found the given attr1/attr2/npath (rule attr1/attr2 could be '*')
+            break;                //   rule npath could be absent (0xff), which is just like a '*'
+        }
+        a = a->next;
+    }
+    return ret; // 1 - if the given attr1/attr2/npath not found
+}
+
+#undef EQUAL_RULE_ATTR
+#undef EQUAL_RULE_NPATH
+
+
+// scws.h
+
+/* data structures */
+typedef struct scws_result *scws_res_t;
+struct scws_result
+{
+    int off;                      // src text offset
+    float idf;
+    unsigned char len;            // src text length
+    char attr[SCWS_ATTR_LEN + 1]; // SCWS_ATTR_LEN == 20
+    scws_res_t next;
+};
+
+// ...
+
+typedef struct
+{
+    xdict_t d;
+    rule_t r;                  // rule
+    unsigned char *mblen;      // ???
+    unsigned int mode;
+    unsigned char *txt;
+    int zis;
+    int len;
+    int off;
+    int wend;
+    scws_res_t res0;
+    scws_res_t res1;
+    word_t **wmap;
+    struct scws_zchar *zmap;
+}   scws_st, *scws_t;
+
+// scws.cpp
+
+void scws_set_rule(scws_t s, const char *fpath)
+{
+    if (s->r != NULL)
+        scws_rule_free(s->r);
+
+    s->r = scws_rule_new(fpath, s->mblen);
+}
+
+
+/* multibyte segment */
+...
+
+static void _scws_mseg_zone(scws_t s, int f, int t)
+{
+    unsigned char *mpath, *npath;
+    word_t **wmap;
+    int x,i,j,m,n,j2,sz;
+    double weight, nweight;
+    char attr1[SCWS_ATTR_LEN];
+
+    mpath = npath = NULL;
+    weight = nweight = (double) 0.0;
+
+    wmap = s->wmap;
+    j2 = 0;
+    for (x = i = f; i <= t; i++)
+    {
+        j = _scws_mget_word(s, i, (x > i ? x - 1 : t));
+        if (j == i) continue;
+        // skip NR in NR
+        if (j < j2 && strcmp(wmap[i][j]->attr, attr_nr) == 0) continue;
+        if (i > j2 && (wmap[i][j]->flag & SCWS_WORD_USED)) continue;
+
+        /* one word only */
+        if (i == f && j == t)
+        {
+            mpath = (unsigned char *) malloc(2);
+            mpath[0] = j - i;
+            mpath[1] = 0xff;
+            break;
+        }
+
+        if (i != f && (wmap[i][j]->flag & SCWS_WORD_RULE))
+            continue;
+
+        /* create the new path */
+        wmap[i][j]->flag |= SCWS_WORD_USED;
+        nweight = (double) wmap[i][j]->tf * pow(j-i,4);
+
+        if (npath == NULL)
+        {
+            npath = (unsigned char *) malloc(t-f+2);
+            memset(npath, 0xff, t-f+2);
+        }
+
+        /* lookfor backward */
+        x = sz = 0;
+        memset(attr1, 0, sizeof(attr1));
+        for (m = f; m < i; m = n+1)
+        {
+            n = _scws_mget_word(s, m, i-1);
+            nweight *= wmap[m][n]->tf;
+            npath[x++] = n - m;
+            if (n > m)
+            {
+                nweight *= pow(n-m,4);
+                wmap[m][n]->flag |= SCWS_WORD_USED;
+            }
+            else sz++;
+
+            if (attr1[0] != '\0')
+                nweight *= scws_rule_attr_ratio(s->r, attr1, wmap[m][n]->attr, &npath[x-2]);
+            memcpy(attr1, wmap[m][n]->attr, SCWS_ATTR_LEN);
+        }
+
+        /* my self */
+        npath[x++] = j - i;
+
+        if (attr1[0] != '\0')
+            nweight *= scws_rule_attr_ratio(s->r, attr1, wmap[i][j]->attr, &npath[x-2]);
+        memcpy(attr1, wmap[i][j]->attr, SCWS_ATTR_LEN);
+
+        /* lookfor forward */
+        for (m = j+1; m <= t; m = n+1)
+        {
+            n = _scws_mget_word(s, m, t);
+            nweight *= wmap[m][n]->tf;
+            npath[x++] = n - m;
+            if (n > m)
+            {
+                nweight *= pow(n-m,4);
+                wmap[m][n]->flag |= SCWS_WORD_USED;
+            }
+            else sz++;
+
+            nweight *= scws_rule_attr_ratio(s->r, attr1, wmap[m][n]->attr, &npath[x-2]);
+            memcpy(attr1, wmap[m][n]->attr, SCWS_ATTR_LEN);
+        }
+
+        npath[x] = 0xff;
+        nweight /= pow(x+sz-1,5);
+
+        /* draw the path for debug */
+#ifdef HAVE_NOT_QUIET
+        if (s->mode & SCWS_DEBUG)
+        {
+            fprintf(stderr, "PATH by keyword = %.*s, (weight=%.4f):\n",
+                s->zmap[j].end - s->zmap[i].start, s->txt + s->zmap[i].start, nweight);
+            for (x = 0, m = f; (n = npath[x]) != 0xff; x++)
+            {
+                n += m;
+                fprintf(stderr, "%.*s ", s->zmap[n].end - s->zmap[m].start, s->txt + s->zmap[m].start);
+                m = n + 1;
+            }
+            fprintf(stderr, "\n--\n");
+        }
+#endif
+
+        j2 = x = j;
+        if (x - i > 1) i--;
+        /* check better path */
+        if (nweight > weight)
+        {
+            unsigned char *swap;
+
+            weight = nweight;
+            swap = mpath;
+            mpath = npath;
+            npath = swap;
+        }
+    }
+
+    /* set the result, mpath != NULL */
+    if (mpath == NULL)
+        return;
+
+    for (x = 0, m = f; (n = mpath[x]) != 0xff; x++)
+    {
+        n += m;
+        _scws_mset_word(s, m, n);
+        m = n + 1;
+    }
+
+    /* Ò»¿Ú.070808: memory leak fixed. */
+    if (mpath) free(mpath);
+    if (npath) free(npath);
+}
+
+
+// xtree.h
+
+/* pool required */
+#include "pool.h"
+
+/* data structure for Hash+Tree */
+typedef struct tree_node node_st, *node_t;
+struct tree_node
+{
+    char *key;
+    void *value;
+    int vlen;
+    node_t left;
+    node_t right;
+};
+
+typedef struct
+{
+    pool_t p;       /* pool for memory manager */
+    int base;       /* base number for hasher (prime number recommend) */
+    int prime;      /* good prime number for hasher */
+    int count;      /* total nodes */
+    node_t *trees;  /* trees [total=prime+1] */
+}   xtree_st, *xtree_t;
+
+...
+
+// xtree.cpp
+
+/* private static functions */
+static int _xtree_hasher(xtree_t xt, const char *s, int len)
+{
+    unsigned int h = xt->base;
+    while (len--)
+    {
+        h += (h<<5);
+        h ^= (unsigned char) s[len];
+        h &= 0x7fffffff;
+    }
+    return (h % xt->prime);
+}
+
+static node_t _xtree_node_search(node_t head, node_t **pnode, const char *key, int len)
+{
+    int cmp;
+
+    cmp = memcmp(key, head->key, len);
+    if (cmp == 0)
+        cmp = len - strlen(head->key);
+
+    if (cmp != 0)
+    {
+        node_t *next;
+
+        next = (cmp > 0 ? &head->right : &head->left);
+        if (*next == NULL)
+        {
+            if (pnode != NULL)
+                *pnode = next;
+            return NULL;
+        }
+        return _xtree_node_search(*next, pnode, key, len);
+    }
+    return head;
+}
+
+static node_t _xtree_node_find(xtree_t xt, node_t **pnode, const char *key, int len)
+{
+    int i;
+    i = (xt->prime > 1 ? _xtree_hasher(xt, key, len) : 0);
+    if (xt->trees[i] == NULL)
+    {
+        if (pnode != NULL)
+            *pnode = &xt->trees[i];
+        return NULL;
+    }
+    return _xtree_node_search(xt->trees[i], pnode, key, len);
+}
+
+/* public functions */
+
+...
+
+void xtree_nput(xtree_t xt, void *value, int vlen, const char *key, int len)
+{
+    node_t node, *pnode;
+
+    if (xt == NULL || key == NULL || len == 0)
+        return;
+
+    if ((node = _xtree_node_find(xt, &pnode, key, len)) != NULL)
+    {
+        node->value = value;
+        node->vlen = vlen;
+        return;
+    }
+
+    if (value != NULL)
+    {
+        *pnode = node = (node_t) pmalloc(xt->p, sizeof(node_st));
+        node->key = pstrndup(xt->p, key, len);
+        node->value = value;
+        node->vlen = vlen;
+        node->left = NULL;
+        node->right = NULL;
+    }
+}
+
+void xtree_put(xtree_t xt, const char *value, const char *key)
+{
+    if (xt != NULL && key != NULL)
+        xtree_nput(xt, (void *) value, value ? strlen(value) : 0, key, strlen(key));
+}
+

@@ -1,0 +1,4 @@
+https://github.com/bytedeco/javacpp/wiki/Native-Code
+https://github.com/bytedeco/javacpp/wiki/Interface-Thrust-and-CUDA
+
+ public static native @Raw(withEnv=true) void putEnv();

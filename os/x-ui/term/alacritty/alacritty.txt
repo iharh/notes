@@ -1,0 +1,29 @@
+https://github.com/jwilm/alacritty
+https://github.com/jwilm/alacritty/releases
+
+community
+    alacritty
+
+https://github.com/alacritty/alacritty/blob/master/docs/features.md
+
+inst
+https://github.com/alacritty/alacritty/blob/master/INSTALL.md
+
+2017
+https://jwilm.io/blog/announcing-alacritty/
+
+cfg
+~/.config/alacritty/alacritty.yml
+https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+https://github.com/jwilm/alacritty/wiki/Color-schemes
+https://github.com/jwilm/alacritty/issues/957
+https://dev.to/amritpandey/the-minimalist-terminal-setup-i5o
+
+scroll
+https://github.com/jwilm/alacritty/issues/124
+
+whatsnew
+https://github.com/jwilm/alacritty/blob/master/CHANGELOG.md
+    0.9.0
+    snap - 0.8.0
+https://blog.christianduerr.com/alacritty_030_announcement

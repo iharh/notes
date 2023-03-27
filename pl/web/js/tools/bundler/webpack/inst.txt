@@ -1,0 +1,16 @@
+npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin html-loader
+npm i -D babel-core babel-loader babel-preset-env
+
+npm i -D pug-loader pug
+// babel-plugin-transform-react-pug babel-plugin-transform-react-jsx
+
+npm i -P react react-dom
+npm i -P immutable
+
+npm i -D typescript awesome-typescript-loader source-map-loader
+npm i -D @types/react @types/react-dom
+// @types/babel-plugin-react-pug
+
+https://webpack.js.org/guides/installation/
+    ? fsevents
+https://webpack.js.org/guides/getting-started/

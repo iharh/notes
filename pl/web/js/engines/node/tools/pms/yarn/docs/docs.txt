@@ -1,0 +1,33 @@
+https://yarnpkg.com/en/docs
+https://yarnpkg.com/en/docs/getting-started
+https://yarnpkg.com/en/docs/install
+    https://github.com/yarnpkg/yarn/issues/3255
+    https://github.com/creationix/nvm/issues/1280
+https://yarnpkg.com/en/docs/usage
+https://yarnpkg.com/en/docs/migrating-from-npm
+https://yarnpkg.com/en/docs/configuration
+    package.json
+    https://yarnpkg.com/en/docs/package-json
+    https://yarnpkg.com/en/docs/envvars
+    https://yarnpkg.com/en/docs/yarnrc
+    yarn.lock
+    https://yarnpkg.com/en/docs/yarn-lock
+https://yarnpkg.com/en/docs/yarn-workflow
+    https://yarnpkg.com/en/docs/creating-a-project
+    https://yarnpkg.com/en/docs/managing-dependencies
+    https://yarnpkg.com/en/docs/installing-dependencies
+    https://yarnpkg.com/en/docs/version-control
+    https://yarnpkg.com/en/docs/install-ci
+https://yarnpkg.com/en/docs/creating-a-package
+    https://yarnpkg.com/en/docs/publishing-a-package
+https://yarnpkg.com/en/docs/offline-mirror
+    https://yarnpkg.com/blog/2016/11/24/offline-mirror/
+    https://yarnpkg.com/en/docs/prune-offline-mirror
+https://yarnpkg.com/en/docs/cli/
+    https://yarnpkg.com/en/docs/cli/add
+    ...
+https://yarnpkg.com/en/docs/dependencies
+    https://yarnpkg.com/en/docs/dependency-types
+    https://yarnpkg.com/en/docs/dependency-versions
+    https://yarnpkg.com/en/docs/selective-version-resolutions
+https://yarnpkg.com/en/docs/workspaces

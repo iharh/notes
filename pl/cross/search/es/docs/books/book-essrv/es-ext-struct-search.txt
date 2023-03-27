@@ -1,0 +1,1123 @@
+Indexing data that is not flat
+
+Not all data is flat like that which we have been using since the previous chapter. Of course if we are building our system, which ElasticSearch will be a part of,
+we can create a structure that is convenient for ElasticSearch. However, it doesn't need to be flat, it can be more object-oriented.
+Let's see how to create mappings that use fully structured JSON objects
+
+Data
+
+Let's assume we have the following data (we store it in the file called structured_data.json):
+{
+ "book" : {
+  "author" : {
+   "name" : {
+    "firstName" : "Fyodor",
+    "lastName" : "Dostoevsky"
+   }
+  },
+  "isbn" : "123456789",
+  "englishTitle" : "Crime and Punishment",
+  "originalTitle" : "????????é??? ? ?????á???",
+  "year" : 1886,
+  "characters" : [
+   {
+    "name" : "Raskolnikov"
+   }, 
+   {
+    "name" : "Sofia"
+   }
+  ],
+  "copies" : 0
+  }
+}
+
+As you can see, the data is not flat. It contains arrays and nested objects, so we can't use our mappings that we used previously. But we can create mappings that will be able to handle such data
+
+Objects
+
+The previous example data shows a structured JSON file. As you can see, the root object in our file is book. The root object is a special one, which allows us to define additional properties.
+The book root object has some simple properties such as englishTitle, originalTitle, and so on. Those will be indexed as normal fields in the index.
+
+In addition to that it has the characters array type, which we will discuss in the next paragraph. For now, let's focus on author. As you can see, author is an object
+that has another object nested in it, that is, the name object, which has two properties firstName and lastName.
+
+Arrays
+
+We have already used array type data, but we didn't talk about it. By default all fields in Lucene and thus in ElasticSearch are multivalued, which means that they can store multiple values.
+In order to send such fields for indexing to ElasticSearch we use the JSON array type, which is nested within the opening and closing square brackets [].
+As you can see in the previous example, we used the array type for characters property for our book.
+
+Mappings
+
+So, what can we do to index such data as that shown previously? To index arrays we don't need to do anything, we just specify the properties for such fields inside the array name.
+So in our case in order to index the characters data present in the data we would need to add such mappings as these:
+
+"characters" : {
+ "properties" : {
+  "name" : {"type" : "string", "store" : "yes"}
+ }
+}
+
+Nothing strange, we just nest the properties section inside the array's name (which is characters in our case) and we define fields there. As a result of this mapping,
+we would get the characters.name multivalued field in the index.
+
+We perform similar steps for our author object. We call the section by the same name as is present in the data, but in addition to the properties section we also tell ElasticSearch
+that it should expect the object type by adding the type property with the value object. We have the author object, but it also has the name object nested in it, so we do the same;
+we just nest another object inside it. So, our mappings for that would look like the following code:
+
+"author" : {
+ "type" : "object",
+ "properties" : {
+  "name" : {
+   "type" : "object",
+   "properties" : {
+    "firstName" : {"type" : "string", "store" : "yes"},
+    "lastName" : {"type" : "string", "store" : "yes"}
+   }
+  }
+ }
+}
+
+The firstName and lastName fields would appear in the index as author.name.firstName and author.name.lastName. We will check if that is true in just a second.
+
+The rest of the fields are simple core types, so I'll skip discussing them as they were already discussed in the Schema mapping section
+
+Final mappings
+
+So our final mappings file that we've called structured_mapping.json looks like the following:
+
+{
+ "book" : {
+  "properties" : {
+   "author" : {
+    "type" : "object",
+    "properties" : {
+     "name" : {
+      "type" : "object",
+      "properties" : {
+       "firstName" : {"type" : "string", "store" : "yes"},
+       "lastName" : {"type" : "string", "store" : "yes"}
+      }
+     }
+    }
+   },
+   "isbn" : {"type" : "string", "store" : "yes"},
+   "englishTitle" : {"type" : "string", "store" : "yes"},
+   "originalTitle" : {"type" : "string", "store" : "yes"},
+   "year" : {"type" : "integer", "store" : "yes"},
+   "characters" : {
+    "properties" : {
+     "name" : {"type" : "string", "store" : "yes"}
+    }
+   },
+   "copies" : {"type" : "integer", "store" : "yes"}
+  }
+ }
+}
+
+To be or not to be dynamic
+
+As we already know, ElasticSearch is schemaless, which means that it can index data without the need of first creating the mappings (although we should do so if we want to control
+the index structure). The dynamic behavior of ElasticSearch is turned on by default, but there may be situations where you may want to turn it off for some parts of your index.
+
+In order to do that, one should add the dynamic property set to false on the same level of nesting as the type property for the object that shouldn't be dynamic. For example,
+if we would like our author and name objects not to be dynamic, we should modify the relevant parts of the mappings file so that it looks like the following code:
+
+   "author" : {
+    "type" : "object",
+    "dynamic" : false,
+    "properties" : {
+     "name" : {
+      "type" : "object",
+      "dynamic" : false,
+      "properties" : {
+       "firstName" : {"type" : "string", "store" : "yes"},
+       "lastName" : {"type" : "string", "store" : "yes"}
+      }
+     }
+    }
+   }
+
+However, please remember that in order to add new fields for such objects, we would have to update the mappings.
+
+Note: You can also turn off the dynamic mapping functionality by adding the
+    index.mapper.dynamic : false
+property to your elasticsearch.yml configuration file
+
+
+Sending the mappings to ElasticSearch
+
+First, let's create the library index with the following command:
+
+curl -XPUT 'localhost:9200/library'
+
+Now, let's send our mappings for the book type:
+
+curl -XPUT 'localhost:9200/library/book/_mapping' -d @structured_mapping.json
+
+Now we can index our example data:
+
+curl -XPOST 'localhost:9200/library/book/1' -d @structured_data.json
+
+If we would like to see how our data was indexed, we can run a query like the following:
+
+curl -XGET 'localhost:9200/library/book/_search?q=*:*&fields=*&pretty=true'
+
+It will return the following data:
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 1.0,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "1",
+      "_score" : 1.0,
+      "fields" : {
+        "copies" : 0,
+        "characters.name" : [ "Raskolnikov", "Sofia" ],
+        "englishTitle" : "Crime and Punishment",
+        "author.name.lastName" : "Dostoevsky",
+        "isbn" : "123456789",
+        "originalTitle" : "????????é??? ? ?????á???",
+        "year" : 1886,
+        "author.name.firstName" : "Fyodor"
+      }
+    } ]
+  }
+}
+
+As you can see, all the fields from arrays and object types are indexed properly.
+Please notice that there is, for example, the author.name.firstName field present, because ElasticSearch did flatten the data.
+
+
+Extending your index structure with additional internal information
+
+All the information provided in the previous chapters gave us a good look at what ElasticSearch is capable of, both in terms of indexing and querying.
+But their coverage was not nearly complete. One thing we would like to discuss in more detail is the functionalities of ElasticSearch that are not used every day,
+but can make our life easier when it comes to data handling.
+
+Note:
+Each of the following field types should be defined on an appropriate type level. So if you recall our sample mappings for our small library from Chapter 2, Searching Your Data,
+we would add any of the following types under the book type mappings.
+
+
+The identifier field
+
+As you recall, each document indexed in ElasticSearch has its own identifier and type. In ElasticSearch there are two types of internal identifiers
+for the documents.
+
+The first one is the _uid field, which is the unique identifier of the document in the index and is composed of the document's identifier and the document type.
+This basically means that documents of different types that are indexed into the same index can have the same document identifier yet ElasticSearch
+will be able to distinguish them. This field doesn't require any additional settings; it is always indexed, but it's good to know that it exists.
+
+The second field holding an identifier is the _id field. This field stores the actual identifier set during index time. In order to enable the indexing of the
+_id field (and storing it if possible), we need to add the _id field definition just like any other property in our mappings
+(although as said before, please add it in the body of the type definition). So, our sample book type definition will look like the following:
+
+{
+ "book" : {
+  "_id" : {
+   "index": "not_analyzed", 
+   "store" : "no"
+  },
+  "properties" : {
+  .
+  .
+  .
+  }
+ }
+}
+
+As you can see, in the previous example, we said that we want our _id field to be indexed, but not analyzed and we don't want to store it.
+
+In addition to specifying an ID during indexing time, we can specify that we want it to be fetched from one of the fields of the indexed documents
+(although this will be slightly slower because of the additional parsing needed). In order to do that we need to specify the path property with
+the name of the field we want to use as the identifier value provider.
+For example, if we have the book_id field in our index and we would like to use it as the value for the _id field, we could change
+the previous mappings to something like the following:
+
+{
+ "book" : {
+  "_id" : {
+   "path": "book_id"
+  },
+  "properties" : {
+  .
+  .
+  .
+  }
+ }
+}
+
+One last point to remember is that even when disabling the _id field, all the functionalities requiring the document's unique identifier
+will still work because they will be using the _uid field instead.
+
+
+The _type field
+
+Let's say it one more time, each document in ElasticSearch is at least described by an identifier and type and if we want, we may include the type name
+as the internal _type field of our indices. By default the _type field is indexed, but not stored. If we would like to store that field
+we will have to change our mappings file to one like the following:
+
+{
+ "book" : {
+  "_type" : {
+   "store" : "yes"
+  },
+  "properties" : {
+  .
+  .
+  .
+  }
+ }
+}
+
+We can also change the _type field in such a way that it will not be indexed, but then some queries like term queries and filters will not work.
+
+
+The _all field
+
+Allows us to create a field where the contents of other fields will be copied as well. This kind of field may be useful when we want to implement a simple search feature and search
+all the data (or only the fields we copy to the _all field), but we don't want to think about field names and things like that.
+By default the _all field is enabled and it contains all the data from all the fields from the index. In order to exclude a certain field from the _all field, one should use the
+include_in_all property, which was discussed in chapter "Searching Your Data".
+In order to completely turn off the _all field functionality (our index will be smaller without the _all field) we will modify our mappings file to one looking like the following:
+{
+ "book" : {
+  "_all" : {
+   "enabled" : false
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+In addition to the enabled property, the _all field supports the following ones:
+- store
+- term_vector
+- analyzer
+- index_analyzer
+- search_analyzer
+
+For information about these properties please refer to chapter "Searching Your Data"
+
+
+The _source field
+
+Allows us to store the original JSON document that was sent to ElasticSearch during indexing. By default the _source field is turned on because some of the ElasticSearch functionalities
+depend on it, for example, the partial update feature that was already described in Chapter "Getting Started with ElasticSearch Cluster".
+In addition to that, the _source field can be used as the source of data for the highlighting functionality if a field is not stored.
+But if we don't need such functionality, we can disable those fields because it causes some storage overhead.
+In order to do that, we will need to set the enabled property of the _source object to false, for example, as shown in the following code:
+{
+ "book" : {
+  "_source" : {
+   "enabled" : false
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+Because the _source field causes some storage overhead we may choose to compress information stored in that field. In order to do that, we would have to set the compress parameter to true.
+Although this will shrink the index, it will make the operations made on the _source field a bit more CPU-intensive. However, ElasticSearch allows us to decide when to compress
+the _source field.
+Using the compress_threshold property, we can control how big the _source field's content needs to be in order for ElasticSearch to compress it.
+This property accepts a size value in bytes (for example, 100b, 10kb).
+
+
+The _boost field
+
+As you may suspect, the _boost field allows us to set a default boost value for all the documents of a certain type. Imagine that we would like our book's documents to have a higher value
+than all the other types of documents in the index. You may wonder, why increase the boost value of the document? If some of your documents are more important than others,
+you can increase their boost value in order for ElasticSearch to know that they are more valuable. To achieve that for every single document we can use the _boost field.
+So if we would like all our book documents to have the value 10.0, we can modify our mappings to something like the following:
+{
+ "book" : {
+  "_boost" : {
+   "name" : "_boost",
+   "null_value" : 10.0
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+This mapping change says that if we don't add an additional field named _boost to our documents sent for indexing the null_value value will be used as boost.
+If we do add such a field, its value will be used instead of the default one.
+
+
+The _index field
+
+ElasticSearch allows us to store information about the index that the document is indexed in. We can do that by using the internal _index field. Imagine that we create daily indices,
+use aliasing, and are interested to know in which daily index the returned document is stored. In such a case the _index field can be useful.
+
+By default, the indexing of the _index field is disabled. In order to enable it, we need to set the enabled property of the _index object to true, for example:
+
+{
+ "book" : {
+  "_index" : {
+   "enabled" : true
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+
+The _size field
+
+Is disabled by default, allows you to automatically index the original, uncompressed size of the _source field and store it along with the documents. If we would like to enable
+the _size field, we need to add the _size property and wrap the enabled property with the value of true. In addition to that, we can also set the _size field to be stored
+by using the usual store property. So, if we would like our mapping to include the _size field and also want to store it:
+
+{
+ "book" : {
+  "_size" : {
+   "enabled": true, 
+   "store" : "yes"
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+
+The_timestamp field
+
+Is disabled by default, allows us to store information about when the document was indexed. Enabling that functionality is as simple as adding the _timestamp section to our mappings
+and setting the enabled property to true:
+
+{
+ "book" : {
+    "_timestamp" : {
+    "enabled" : true
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+The _timestamp field is not stored, indexed, and also not analyzed by default, but you can change those two parameters to match your needs. In addition to that, the _timestamp field
+is just like the normal date field so we can change its format just like we do with the usual date-based fields. In order to change the format, we need to specify the format property
+with the desired format.
+
+One more thing, instead of automatically creating the _timestamp field during document indexation, we can add the path property and set it to the name of the field from which the date
+should be taken. So if we would like our _timestamp field to be based on the year field, we need to modify our mappings to something like the following:
+
+{
+ "book" : {
+  "_timestamp" : {
+   "enabled" : true,
+   "path" : "year",
+   "format" : "YYYY"
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+As you may notice, we also modify the format of the _timestamp field in order to match the values stored in the year field.
+
+Note: If you use the _timestamp field and you let ElasticSearch create it automatically, the value of that field will be set to the time of indexation of that document.
+Please note that when using the partial document update functionality the _timestamp field will also be updated.
+
+
+The _ttl field
+
+Stands for time to live, that is, a functionality that allows us to define a life period of a document after which it will be automatically deleted. As you may expect, by default
+the _ttl field is disabled and to enable it we need to add the _ttl JSON object with its enabled property set to true:
+
+{
+ "book" : {
+  "_ttl" : {
+   "enabled" : true
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+If you need to provide the default expiration time for documents, just add the default property to the _ttl field definition with the desired expiration time. For example,
+to have our documents deleted after 30 days, we would set the following parameters:
+
+{
+ "book" : {
+  "_ttl" : {
+   "enabled" : true,
+   "default" : "30d"
+  },
+  "properties" : {
+  ...
+  }
+ }
+}
+
+By default, the _ttl field is stored and indexed, but not analyzed and you can change those two parameters, but remember that this field needs to be not analyzed in order to work.
+
+
+Getting started with highlighting
+
+There is no better way of showing how highlighting works than making a query and looking at the results returned by ElasticSearch. So let's do that. Let's assume that we would like
+to highlight the words that were matched in the title field of our documents to increase the search experience of our users. We are again looking for the word crime and we would like
+to get highlighted results:
+
+{
+ "query" : {
+  "term" : {
+   "title" : "crime"
+  }
+ },
+ "highlight" : {
+  "fields" : {
+   "title" : {}
+  }
+ }
+}
+
+The response for such a query would be as follows:
+
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+"hits" : {
+    "total" : 1,
+    "max_score" : 0.19178301,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 0.19178301, "_source" : { "title": "Crime and Punishment","otitle": "????????é??? ? ?????á???","author": "Fyodor Dostoevsky","year": 1886,"characters": ["Raskolnikov", "Sofia Semyonovna Marmeladova"],"tags": [],"copies": 0, "available" : true},
+      "highlight" : {
+        "title" : [ "<em>Crime</em> and Punishment" ]
+      }
+    } ]
+  }
+}
+
+As you can see, apart from the standard information we got from ElasticSearch, there is a new section called highlight. Here, ElasticSearch used the <em> HTML tag as the beginning of the
+highlight section and its closing counterpart to close the section. This is the default behavior of ElasticSearch, but we will learn how to change that.
+
+
+Field configuration
+
+In order to perform highlighting, the original content of the field needs to be present—we have to set to store the fields that we will use for highlighting. However, it is possible to use
+the _source field if fields are not stored and ElasticSearch will use one or the other automatically.
+
+
+Under the hood
+
+ElasticSearch uses Apache Lucene under the hood and highlighting is one of the features of that library. Lucene provides two types of highlighting implementation—the standard one, which we
+just used and the second one called FastVectorHighlighter, which needs term vectors and positions to be able to work. ElasticSearch chooses the right highlighter implementation automatically.
+If the field is configured with the term_vector property set to with_positions_offsets, FastVectorHighlighter will be used; otherwise the default Lucene highlighter will be used.
+
+However, you have to remember that having term vectors will cause your index to be larger, but the highlighting will take less time to be executed. Also, FastVectorHighlighter is recommended
+for fields that store a lot of data in them.
+
+
+Configuring HTML tags
+
+As we already mentioned, it is possible to change the default HTML tags to the ones we would like to use. For example, let's assume that we would like to use the standard HTML <b> tag for
+highlighting. In order to do that, we should set the pre_tags and post_tags properties (those are arrays) to <b> and </b>. Because both of these properties are arrays, we can include more
+than one tag and ElasticSearch will use each of the defined tags to highlight different words:
+
+{
+ "query" : {
+  "term" : {
+   "title" : "crime"
+  }
+ },
+ "highlight" : {
+ "pre_tags" : [ "<b>" ],
+  "post_tags" : [ "</b>" ],
+  "fields" : {
+   "title" : {}
+  }
+ }
+}
+
+The result returned by ElasticSearch to the previous query would be the following:
+
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.19178301,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 0.19178301, "_source" : { "title": "Crime and Punishment","otitle": "????????é??? ? ?????á???","author": "Fyodor Dostoevsky","year": 1886,"characters": ["Raskolnikov", "Sofia Semyonovna Marmeladova"],"tags": [],"copies": 0, "available" : true},
+      "highlight" : {
+      "title" : [ "<b>Crime</b> and Punishment" ]
+      }
+    } ]
+  }
+}
+
+As you can see, the word Crime in title was surrounded by the tags of our choice.
+
+
+Controlling highlighted fragments
+
+ElasticSearch allows us to control the number of highlighted fragments returned, their sizes, and also exposes two of the properties we are allowed to use.
+
+The first one, number_of_fragments, defines the number of fragments returned by ElasticSearch (it defaults to 5). Setting this property to 0 causes the whole field to be returned,
+which can be handy for short fields; however, it can be expensive for longer fields.
+
+The second property, fragment_size, lets us specify the maximum length of the highlighted fragments in characters and defaults to 100.
+
+Global and local settings
+
+The highlighting properties we discussed previously can be set both on a global basis and on a per field basis. The global ones will be used for all the fields that don't overwrite them
+and should be placed on the same level as the fields section of your highlighting, for example:
+
+{
+ "query" : {
+  "term" : {
+   "title" : "crime"
+  }
+ },
+ "highlight" : {
+  "pre_tags" : [ "<b>" ],
+  "post_tags" : [ "</b>" ],
+  "fields" : {
+   "title" : {}
+  }
+ }
+}
+
+You can also set the properties for each field. For example, if we would like to keep the default behavior for all the fields except our title field, we would do the following:
+
+{
+ "query" : {
+  "term" : {
+   "title" : "crime"
+  }
+ },
+ "highlight" : {
+  "fields" : {
+   "title" : { "pre_tags" : [ "<b>" ], "post_tags" : [ "</b>" ] }
+  }
+ }
+}
+
+As you can see, instead of placing the properties on the same level as the fields section we placed them inside the empty JSON object that specifies the field title's behavior.
+Of course, each field can be configured to use different properties
+
+
+Require matching
+
+One last thing about highlighting, sometimes there may be a need (especially when using multiple highlighted fields) to show only the fields that matched our query. In order to have such
+behavior, we need to set the require_field_match property to true. Setting this property to false will cause all the terms to get highlighted even if a field didn't match the query.
+
+To see how that works, let's create a new index called users and let's index a single document there. We will do that by sending the following command:
+
+curl -XPUT 'http://localhost:9200/users/user/1' -d '{
+ "name" : "Test user",
+ "description" : "Test document"
+}'
+
+So, let's assume we want to highlight the hits in both of the previous fields, so our query will look like the following:
+
+{
+ "query" : {
+  "term" : {
+   "name" : "test"
+  }
+ },
+ "highlight" : {
+  "fields" : {
+   "name" : { "pre_tags" : [ "<b>" ], "post_tags" : [ "</b>" ] },
+   "description" : { "pre_tags" : [ "<b>" ],
+   "post_tags" : [ "</b>" ] }
+  }
+ }
+}
+
+The result of the query would be as follows:
+
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.19178301,
+    "hits" : [ {
+      "_index" : "users",
+      "_type" : "user",
+      "_id" : "1",
+      "_score" : 0.19178301, "_source" : {"name" : "Test user","description" : "Test document"},
+      "highlight" : {
+        "description" : [ "<b>Test</b> document" ],
+        "name" : [ "<b>Test</b> user" ]
+      }
+    } ]
+  }
+}
+
+Notice, that even though we only matched the name field, we got highlighting results in both fields. In most cases we want to avoid that. So now let's modify our query to use the
+require_field_match property:
+
+{
+ "query" : {
+  "term" : {
+   "name" : "test"
+  }
+ },
+ "highlight" : {
+  "require_field_match" : true,
+  "fields" : {
+   "name" : { "pre_tags" : [ "<b>" ], "post_tags" : [ "</b>" ] },
+   "description" : { "pre_tags" : [ "<b>" ], "post_tags" : [ "</b>" ] }
+  }
+ }
+}
+
+And now let's look at the modified query results:
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.19178301,
+    "hits" : [ {
+      "_index" : "users",
+      "_type" : "user",
+      "_id" : "1",
+      "_score" : 0.19178301, "_source" : {"name" : "Test user","description" : "Test document"},
+      "highlight" : {
+        "name" : [ "<b>Test</b> user" ]
+      }
+    } ]
+  }
+}
+
+As you can see, ElasticSearch returned only the field that was matched, in our case the "name" field.
+
+
+Autocomplete
+
+Modern searching doesn't go without the autocomplete functionality. Thanks to it, users are provided with a convenient way to find items whose spelling isn't known.
+Autocomplete can also be a good marketing tool. For these reasons, sooner or later, you'll want to know how to implement this feature.
+
+Before we configure autocomplete, we should ask ourselves a few questions:
+  What data do we want to use for suggestions?
+  Do we have a set of suggestions already prepared (such as country names) or do we want to generate them dynamically, based on indexed documents?
+  Do we want to suggest words or whole documents?
+  Do we need information about the number of suggested items?
+  And finally, do we want to display only one field from the document or a few (for example, product name and price)?
+
+Each possible solution has its pros and cons and supports one requirement at the cost of another.
+Now, let's go through three common ways to implement the autocomplete functionality in ElasticSearch.
+
+
+The prefix query
+
+The simplest way of building an autocomplete solution is using a prefix query, which we have already discussed. For example, if we want to suggest country names, we just index them
+(for example, into the country_code field) and search like the following:
+
+curl -XGET 'localhost:9200/countries/_search' -d '
+{ 
+ "query" : {
+  "prefix" : {
+   "country": "r"
+  } 
+ } 
+}'
+
+This returns every country that starts with the letter r. This is very simple, but not ideal. If you have more data, you will notice that the prefix query is expensive.
+It is not suitable for open datasets where individual values can be repeated. Fortunately, if we run into performance problems, we can modify this method to the one using edge ngrams.
+
+
+Edge ngrams
+
+The prefix query works well; but in order for it to work, ElasticSearch must iterate through the list of terms to find the ones that match the given prefix.
+The idea for optimizing this is quite simple. Since finding particular terms is less costly, we can split terms into smaller parts. For example, the word Britain can be stored
+as a series of terms such as Bri, Brit, Brita, Britai, and Britain. Thanks to this, we can find documents containing the whole word only by supplying a part of that word.
+You may wonder why we start with three-letter tokens. In real-case scenarios, suggestions for shorter user input is not very useful due to too many suggestions being returned
+
+Let's see a full-index configuration for a simple address book application
+{
+ "settings" : {
+   "index" : {
+      "analysis" : {
+        "analyzer" : {
+          "autocomplete" : {
+            "tokenizer" : "engram",
+            "filter" : ["lowercase"]
+          }
+        },
+        "tokenizer" : {
+          "engram" : {
+            "type" : "edgeNGram",
+            "min_gram" : 3,
+            "max_gram" : 10
+         }
+        }
+      }
+    }
+  },
+  "mappings" : {
+    "contact" : {
+      "properties" : {
+        "name" : { 
+          "type" : "string", 
+          "index_analyzer" : "autocomplete", 
+          "index" : "analyzed", "search_analyzer" : "standard" 
+        },
+        "country" : { "type" : "string" }
+      }   
+    }       
+  }         
+}
+
+The mapping for this index contains the name field. This is the field that we'll use to generate suggestions. As you can see, this field has a different analyzer defined for indexing
+and searching. During indexing, ElasticSearch cuts input words into edge ngrams but while searching this is not necessary (and not desired) as the user already provides a part of the field.
+Note the engram tokenizer configuration.
+
+There are two options we are currently interested in. They are:
+min_gram:
+    Tokens that are shorter than the value of this parameter won't be built.
+    This value directly influences the minimum number of characters that will have to be provided in order to get suggestions. In our case it's 3.
+max_gram:
+    The tokenizer will ignore tokens for longer than the value given by this parameter. This is the maximum number of characters for which suggestions will be available.
+    You can use any reasonable limit. In this example, we assume that no one will need suggestions for longer queries because the user probably knows what he or she wants to find.
+
+Now, let's look at how it works. For this example, we can use the simplest form of query, as follows:
+
+curl -XGET 'localhost:9200/addressbook/_search?q=name:joh&pretty'
+
+For names shorter than three characters, the search returns no results. For more than three, the number of results will be equal to the available suggestions.
+
+If you look again at the specified analyzer, you'll notice that the analyzer used for the name field doesn't split the text into words before changing it to ngrams.
+Because of that, this version of autocomplete suits well for situations where we assume that our users will write the exact content of the field.
+This is usually the case when our users use the autocomplete functionality as a tool for faster choice of a particular value.
+This is useful for countries, but for an address book and people's names we need to suggest something regardless of whether the user starts to type the first name or the last name.
+After small changes done to our mapping, it will look like the following:
+
+{
+  "settings" : {
+   "index" : {
+      "analysis" : {
+        "analyzer" : {
+          "autocomplete" : {
+            "tokenizer" : "whitespace",
+            "filter" : ["lowercase", "engram"]
+          }
+        },
+        "filter" : {
+          "engram" : {
+            "type" : "edgeNGram",
+            "min_gram" : 3,
+            "max_gram" : 10
+          }
+        }
+      }
+    }
+  },
+  "mappings" : {
+    "contact" : {
+      "properties" : {
+        "name" : { "type" : "string", "index_analyzer" : "autocomplete", "index" : "analyzed", "search_analyzer" : "standard" },
+        "country" : { "type" : "string" }
+      }
+    }
+  }
+}
+
+Note the highlighted fragments. First, we see that the tokenizer was changed to whitespace. This provides the functionality of dividing our document field's data into words on the basis of
+definition to a filter. Remember that the tokenizer and the filters are different objects with different usage (the tokenizer takes input and divides it into tokens and the filters operate
+on the token stream provided by the tokenizer and can change tokens), but fortunately ElasticSearch provides edgeNGram both as a tokenizer and as a filter so the changes are simple.
+The rest is the same as in the previous example. But now we can fetch suggestions for part of every word in the name field. For example, the following query will find the record
+with Joseph Heller unlike the previous example query:
+
+curl -XGET 'localhost:9200/addressbook/_search?q=name:jos&pretty'
+
+The following query finds the record with Joseph Heller as well:
+
+curl -XGET 'localhost:9200/addressbook/_search?q=name:hell&pretty'
+
+
+Faceting
+
+The third possible way of implementing the autocomplete functionality is based on faceting. We haven't written about faceting yet, so don't worry if you have no idea of how it works.
+Everything will be explained in the chapter dedicated to faceting (Chapter 6, Beyond Searching). For now, let's assume that faceting is a functionality that allows us to get information
+about the distribution of a particular document value in the result set. In fact, this solution is an extension of the previous idea. It introduces the possibility of working with
+repeatable tokens and it is suitable for suggestions based on non-dictionary data. First let's look at the rewritten index configuration:
+
+{
+ "settings" :
+  "index" : {
+   "analysis" : {
+    "analyzer" : {
+     "autocomplete" : {
+      "tokenizer" : "whitespace",
+      "filter" : ["lowercase", "engram"]
+     }
+    },
+    "filter" : {
+     "engram" : {
+      "type" : "edgeNGram",
+      "min_gram" : 3,
+      "max_gram" : 10
+     }
+    }
+   }
+  }
+ },
+ "mappings" : {
+  "contact" : {
+   "properties" : {
+    "name" : { 
+     "type" : "multi_field",
+     "fields" : {
+      "name" : { "type" : "string", "index" : "not_analyzed" },
+      "autocomplete" : { "type" : "string", "index_analyzer" : "autocomplete", "index" : "analyzed", "search_analyzer" : "standard" }
+     }
+    },
+    "country" : { "type" : "string" } 
+   }
+  }
+ }
+}
+
+The only difference from the previous example is the additional not_analyzed field, which we will use as a facet label. This is a common technique for functionalities such as autocomplete.
+We prepare several forms of one field where each form has its own use. For example, if we want to search on this field as well, we can add another analyzed copy.
+Since this time the query will be more complicated, we put it in the facet_query.json file. Its contents are:
+
+{
+ "size" : 0,
+ "query" : {
+  "term" : { "name.autocomplete" : "jos" }
+ },
+ "facets" : {
+  "name" : {
+   "terms" : {
+    "field" : "name"
+   }
+  }
+ }
+}
+
+We are searching for every name starting with jos. This is exactly the same as in the previous example. But look at the size parameter. We don't want any document to be returned.
+Why? Because all the information is in facets and document data is only an additional ballast. Now, let's execute our search by sending the following command:
+
+curl -XGET 'localhost:9200/addressbook/_search?pretty' -d @facet_query.json
+
+You know a little about faceting, so this time we'll show the returned data:
+
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.095891505,
+    "hits" : [ ]
+  },
+  "facets" : {
+    "name" : {
+      "_type" : "terms",
+      "missing" : 0,
+      "total" : 1,
+      "other" : 0,
+      "terms" : [ {
+        "term" : "Joseph Heller",
+        "count" : 1
+      } ]
+    }
+  }
+}
+
+As you can see in the highlighted part we have a single suggestion returned. And in addition to the suggestion, you can also see the count parameter, which holds the information
+about how many times it appeared in the matched documents. If we had more suggestions, the first 10 of them would show as the values in the terms array.
+Why 10? How to change this? This is something you can learn in Chapter 6, Beyond Searching, in the section dedicated to faceting.
+
+
+Handling files
+
+The next use case we will discuss is searching in the contents of files. The most obvious method is adding logic to an application that will be responsible for fetching files,
+extracting valuable information from them, building JSON objects, and indexing them to ElasticSearch.
+
+Of course the previously mentioned method is valid and you can go this way, but there is another way we would like to show you. We can send documents to ElasticSearch for content extraction
+and indexing. This requires us to install an additional plugin. Note that we will describe plugins in Chapter 7, Administrating Your Cluster, so we'll skip the detailed description here.
+For now, just run the following command to install the attachments plugin:
+
+bin/plugin -install elasticsearch/elasticsearch-mapper-attachments/1.6.0
+
+After restarting ElasticSearch, it miraculously gains new skills!
+
+Let's begin with preparing a new index with the following mappings:
+
+{
+ "mappings" : {
+  "file" : {
+   "properties" : {
+    "note" : { "type" : "string", "store" : "yes" },
+    "book" : { 
+     "type" : "attachment",
+     "fields" : {
+      "file" : { "store" : "yes", "index" : "analyzed" },
+      "date" : { "store" : "yes" },
+      "author" : { "store" : "yes" },
+      "keywords" : { "store" : "yes" },
+      "content_type" : { "store" : "yes" },
+      "title" : { "store" : "yes" }
+     }
+    }
+   }
+  }
+ } 
+}
+
+As we can see, we have the book type, which we will use to store the contents of our file. In addition to that we've defined some nested fields as follows:
+file:
+    The file content itself
+date:
+    The file creation date
+author:
+    The author of the file
+keywords:
+    The additional keywords connected with the document
+content_type:
+    The MIME type of the document
+title:
+    The title of the document
+
+These fields will be extracted from files, if available. In our example, we marked all fields as stored; this allows us to see their values in the search results.
+In addition, we defined the note field. This is an ordinary field, which will be used not only by the plugin but by us as well.
+
+Now we should prepare our document. Look at the example placed in the index.json file:
+
+{
+ "book" : "UEsDBBQABgAIAAAAIQDpURCwjQEAAMIFAAATAAgCW0NvbnRlbnRfVHlwZXNdLnhtbCCiBAIooAA…",
+ "note" : "just a note"
+}
+
+As you can see, we have some strange content in the book field. This is the content of the file encoded with the base64 algorithm (please note that this is only a small part of it;
+for clarity we omitted the rest of this field). Because the file contents can be binary and thus cannot be easily included in the JSON structure, the authors of ElasticSearch require us
+to encode the file contents with the mentioned algorithm. On the Linux operating system there is a simple command that we use to encode document contents into base64, for example,
+with a command like the following:
+
+base64 -i example.docx -o example.docx.base64
+
+We will assume that you successfully created a proper base64 version of our document. Now we can index this document by running the following command:
+
+curl -XPUT 'localhost:9200/media/file/1?pretty' -d @index.json
+
+It was simple. In the background, ElasticSearch decoded the file, extracted its contents and created proper entries in the index. Now, let's create the query
+(we've placed it in the query.json file):
+
+{
+  "fields" : ["title", "author", "date", "keywords", "content_type", "note"],
+  "query" : {
+    "term" : { "book" : "example" }
+  }
+}
+
+If you have read the previous chapters carefully, the previous query should be simple to understand. We searched for the word example in the book field. Our example document contains the text
+
+This is an example document for "ElasticSearch Server" book;
+
+we need to find this document. In addition, we requested all the stored fields to be returned in the results. Let's execute our query:
+
+curl -XGET 'localhost:9200/media/_search?pretty' -d @query.json
+
+If everything goes well, we should see something like the following:
+
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.13424811,
+    "hits" : [ {
+      "_index" : "media",
+      "_type" : "file",
+      "_id" : "1",
+      "_score" : 0.13424811,
+      "fields" : {
+        "book.content_type" : "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "book.title" : "ElasticSearch Server",
+        "book.author" : " Rafal Kuc, Marek Rogozinski",
+        "book.keywords" : "ElasticSearch, search, book",
+        "book.date" : "2012-10-08T17:54:00.000Z",
+        "note" : "just a note"
+      }
+    } ]
+  }
+}
+
+Looking at the result, you see content type
+
+application/vnd.openxmlformats-officedocument.wordprocessingml.document.
+
+You can guess that our document was created in Microsoft Office and probably had the .docx extension. We also see additional fields such as authors or modification date extracted
+from the document. And again everything works!
+
+
+Additional information about a file
+
+When we are indexing files, the obvious requirement is the possibility of returning the filename in the result list. Of course we can add the filename as another field in the document,
+but ElasticSearch allows us to store this information within the file object. We can just add the _name field to the document in the following manner:
+
+{
+ "book" : "UEsDBBQABgAIAAAAIQDpURCwjQEAAMIFAAATAAgCW0NvbnRlbnRfVHlwZXNdLnhtbCCiBAIooAA…",
+ "_name" : "example.docx",
+ "note" : "just a note"
+}
+
+Thanks to it being available in the result list, the filename will be available as a part of the _source field. But if you use the fields option in the query, don't forget to add
+_source to this array.
+
+And finally, you can use the content_type field for information about MIME type, just as the _name field.
+
+
+

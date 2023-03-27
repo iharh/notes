@@ -1,0 +1,14 @@
+/etc/racket/config.rktd
+/usr/bin
+    raco
+    drracket
+
+~/.racket/7.0/
+    doc/
+    pkgs/
+    share/
+        info-cache.rktd
+    links.rktd
+
+/usr/share/racket/
+    pkgs

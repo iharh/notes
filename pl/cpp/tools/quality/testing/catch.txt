@@ -1,0 +1,110 @@
+https://github.com/colonelsammy/Catch
+
+http://meetingcpp.com/index.php/tv14/items/2.html
+http://www.reddit.com/r/cpp/comments/2t8c7e/testdriven_c_with_catch/
+https://www.youtube.com/watch?v=C2LcIp56i-8
+
+presentations
+2021
+Horenovsky - Catching up with Catch2: Changes recent and future of 49:06
+    https://www.youtube.com/watch?v=uKDXwKe0fyo
+
+articles
+2021
+https://codingnest.com/the-little-things-testing-with-catch-2/
+
+presentations
+2018
+Nash - Modern C++ Testing with Catch2
+    https://www.youtube.com/watch?v=Ob5_XZrFQH0
+
+
+int
+add(int a, int b) {
+    return a + b;
+}
+
+#define CATCH_CONFIG_MAIN
+#include <catch.hpp>
+
+TEST_CASE("should add two numbers", "[add]") { // [...] - is a tag
+    REQUIRE(add(1, 2) == 3);
+
+    SECTION("sec-name") {
+        ...
+        // can have nested SECTIONs
+    }
+
+    int i = 9;
+    CAPTURE(i);
+    REQUIRE(base13(42) == 6*i);
+
+    WARN("bla-bla" << var1 "bla-bla-2" << var2 << ...);
+}
+
+// BDD
+
+SCENARIO("scen-name") {
+    GIVEN("an empty vector") {
+        THEN("...") {
+            AND_WHEN("...") {
+                THEN("...") {
+                    REQUIRE(...);
+                    AND_WHEN(....) {
+                        ...
+                    }
+                }
+            }
+        }
+    }
+}
+
+// special tags
+
+[hide], [.]
+    like disabled (all tags begin from .)
+    $ ./TestProject [.integration]
+
+// internals
+
+REQUIRE( add( 1, 2) == 3 );
+
+ExpressionDecomposer() ->*  add(1, 2)
+
+class ExpressionDecomposer {
+public:
+    template<typename T>
+    ExpressionLhs<T const &> operator->* (T const &operand) {
+        return ExpressionLhs<T const &>(operand);
+    }
+    ExpressionLhs<bool> operator->* (bool value) {
+        return ExpressionLhs<bool>(value);
+    }
+};
+
+
+template <classname T>
+class ExpressionLhs {
+public:
+    ExpressionLhs(T const &lhs) : m_lhs(lhs) {}
+
+    template <typename RhsT>
+    ExpressionResultBuilder &
+    operator == (RhsT const &rhs) {
+        return captureExpression<Internal::IsEqualTo>(rhs);
+    }
+};
+
+template<Internal::Operator Op, typename RhsT>
+ExpressionResultBuilder &
+captureExpression(RhsT const &rhs) {
+    return m_result
+        .setResultType(Internal::compare<Op>(m_lhs, rhs))
+        .setLhs(Catch::toString(m_lhs))
+        .setRhs(Catch::toString(m_rhs))
+        .setOp(Internal::OperatorTraits<Op>::getName());
+}
+
+// generators
+
+https://github.com/catchorg/Catch2/blob/master/docs/generators.md

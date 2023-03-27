@@ -1,0 +1,3 @@
+https://habr.com/company/redmadrobot/blog/318222/
+    Used to avoid render without any prop/state change
+    But performs only shallow comparison

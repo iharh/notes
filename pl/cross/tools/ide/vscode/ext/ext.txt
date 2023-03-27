@@ -1,0 +1,10 @@
+https://marketplace.visualstudio.com/VSCode
+
+https://code.visualstudio.com/docs/extensions/overview
+https://code.visualstudio.com/docs/setup/additional-components
+
+~/.vscode/extensions
+
+cli-install
+https://github.com/neko-neko/dotfiles/blob/master/setup/install/11_vscode.zsh
+    code --install-extension EditorConfig.EditorConfig

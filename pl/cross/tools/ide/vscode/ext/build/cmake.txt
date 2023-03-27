@@ -1,0 +1,14 @@
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools
+https://github.com/microsoft/vscode-cmake-tools
+    ! vector-of-bool is deprecated
+    https://vector-of-bool.github.io/docs/vscode-cmake-tools/kits.html
+
+https://marketplace.visualstudio.com/items?itemName=go2sh.cmake-integration-vscode
+    https://go2sh.github.io/cmake-integration-vscode/
+    https://github.com/go2sh/cmake-integration-vscode
+    ! 2yo
+
+2019
+https://devblogs.microsoft.com/cppblog/cmake-tools-extension-for-visual-studio-code/
+2018
+https://vector-of-bool.github.io/2018/07/20/cmt-1.1.0.html

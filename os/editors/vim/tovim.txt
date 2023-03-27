@@ -1,0 +1,6 @@
+(? grep.vim)
+nnoremap <silent> <F3> :Rgrep<cr>
+nnoremap <silent> <S-F<F3>> :RgrepAdd<cr>
+nnoremap <silent> <C-F<F3>> :GrepBuffer<cr>
+
+map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>

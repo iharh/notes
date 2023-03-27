@@ -1,0 +1,11 @@
+http://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html
+http://www.oracle.com/technetwork/database/database-technologies/instant-client/downloads/index.html
+http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html
+    https://www.youtube.com/watch?v=Sz69kdItkPw
+
+aur
+    gqlplus
+    oracle-instantclient-sqlplus
+https://aur.archlinux.org/packages/oracle-instantclient-sqlplus/
+https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=oracle-instantclient-sqlplus
+https://wiki.archlinux.org/index.php/Oracle_client

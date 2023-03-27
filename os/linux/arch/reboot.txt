@@ -1,0 +1,29 @@
+setting admin pwd
+$ passwd
+and type the pwd
+
+$exit
+to exit from sub-shell bash
+
+$exit
+to exit from arch-chroot
+
+$umount /mnt/{home,boot}
+
+$reboot
+
+and then choose "Boot existing OS"
+
+Note: by default there is no netwok i-faces up
+need to do the same stuff for network
+
+$cd /etc/network.d
+$cp examples/ethernet-dhcp .
+
+$ip link
+  to check
+
+edit INTERFACE='enp0s3'
+
+$ netcfg ethernet-dhcp
+

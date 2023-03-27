@@ -1,0 +1,4 @@
+https://docs.microsoft.com/en-us/sysinternals/downloads/du
+
+scoop install du
+https://github.com/lukesampson/scoop/blob/master/bucket/du.json

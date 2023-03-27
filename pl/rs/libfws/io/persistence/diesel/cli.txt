@@ -1,0 +1,6 @@
+diesel
+    -h
+    database
+        setup
+        reset
+    print-schema

@@ -1,0 +1,29 @@
+https://clearlinux.org/
+
+https://clearlinux.org/downloads
+https://clearlinux.org/downloads/containers
+
+https://hub.docker.com/_/clearlinux
+https://docs.01.org/clearlinux/latest/tutorials/docker.html
+
+https://www.youtube.com/channel/UChpmukwyvvdSmTA9gxKL_Fg
+
+!!! tools
+https://hub.docker.com/search?q=clearlinux/&type=image
+    iperf
+    rabbitmq
+
+2021
+TechHut - Clear Linux for a week! Did it work? of 13:02
+    https://www.youtube.com/watch?v=CYffFkbO14A
+TechHut - First Look at CLEAR LINUX* - Live of 1:39:49
+    https://www.youtube.com/watch?v=IU91GMKnj_c
+DJWare - Intel's Clear Linux September 2021 edition of 43:19
+    https://www.youtube.com/watch?v=qvk_zCRj8Ro
+    ! mixer creates customized bundles
+    ! need to look
+2020
+DJWare - ClearLinux Server Install 4:00 of 37:03
+    https://www.youtube.com/watch?v=ZYvnR4onokE
+    https://github.com/clearlinux/cloud-native-setup/tree/master/clr-k8s-examples
+    ! need to look

@@ -1,0 +1,13 @@
+Multi-DB:
+https://www.ccampo.me/java/spring/2016/02/13/multi-datasource-spring-boot.html
+https://www.infoq.com/articles/Multiple-Databases-with-Spring-Boot
+
+jdbc-template:
+https://odalinjo.wordpress.com/2015/08/22/spring-boot-and-spring-jdbctemplate-example/
+https://www.javacodegeeks.com/2016/03/springboot-working-jdbctemplate.html
+http://javarticles.com/2016/01/spring-boot-jdbc-example.html
+http://sivalabs.in/2016/03/springboot-working-with-jdbctemplate/
+
+Ora:
+https://dzone.com/articles/configuring-spring-boot-for-oracle
+https://springframework.guru/configuring-spring-boot-for-oracle/

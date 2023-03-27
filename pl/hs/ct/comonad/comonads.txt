@@ -1,0 +1,73 @@
+Abrahamson:
+https://www.fpcomplete.com/user/tel/lenses-from-scratch
+- using flipped version of return and join:
+|   Monad        a  -> m a                  m (m a) -> m a
+| Comonad              w a -> a      w a -> w (w a)
+
+http://www.haskellforall.com/2012/12/the-continuation-monad.html
+
+http://blog.sigfpe.com/2007/07/data-and-codata.html
+http://blog.ezyang.com/2010/07/flipping-arrows-in-coburger-king/
+http://blog.ezyang.com/2012/10/duality-for-haskellers/
+
+https://speakerdeck.com/dmoverton/comonads-in-haskell
+
+Comonadic Trees:
+http://5outh.blogspot.com/2013/01/comonads.html
+http://5outh.blogspot.com/2013/01/introductory-monads.html
+
+see comonad-stream
+kmett-streams (http://hackage.haskell.org/package/streams)
+
+http://antilamer.livejournal.com/444472.html
+http://metaclass.livejournal.com/747140.html
+VeneUustalu - Comonadic Functional Attribute Evaluation
+Uustalu - Structured Computation on Trees slides
+http://blog.sigfpe.com/2008/03/comonadic-arrays.html
+
+!
+http://fmapfixreturn.wordpress.com/2008/07/09/comonads-in-everyday-life/
+
+http://patternsinfp.wordpress.com/2011/01/31/lenses-are-the-coalgebras-for-the-costate-comonad/
+
+https://github.com/ekmett/comonad/
+https://github.com/ekmett/comonad/blob/master/Control/Comonad.hs
+
+
+Comonads For Dummies
+  http://www.cas.mcmaster.ca/~carette/CAS706/F2006/presentations/comonads.pdf
+
+http://gelisam.blogspot.com/2007/04/i-understand-comonads.html
+
+http://etorreborre.blogspot.com.au/2012/06/strong-functional-programming.html
+
+
+Kmett - All about Comonads
+
+VeneUustalu - The Essence of Dataflow Programming [short]
+Denckla - Another Essence of Dataflow Programming
+
+
+liftW :: Comonad w => (a -> b) -> w a -> w b
+liftW f = extend (f . extract)
+
+mapW :: Comonad w => (w a -> b) -> w [a] -> [b]
+mapW f w | null (extract w) = []
+         | otherwise        = f (fmap head w) : mapW f (fmap tail w)
+
+sequenceW :: Comonad w => [w a -> b] -> w a -> [b]
+sequenceW []     _ = []
+sequenceW (f:fs) w = f w : sequenceW fs w
+
+
+lift — удобный комбинатор, чтобы не писать w =>> f . extract (абсолютный аналог liftM, чтобы не писать m >>= return . f), но он и так обязан быть, т.к. комонада — функтор.
+
+mapW — аналогично, когда нужно раскрыть несколько монад (вспомни применение mapM).
+
+sequenceW — не знаю. По идее хотелось бы чего нибудь в стиле [w a] -> w [a], а в либе это просто map ($ w). Сам не понимаю зачем это.
+
+
+Samples:
+https://github.com/petermarks/hoodlums-sessions/blob/master/Life.hs
+http://www.reddit.com/r/haskell/comments/185k0s/what_makes_comonads_important/
+

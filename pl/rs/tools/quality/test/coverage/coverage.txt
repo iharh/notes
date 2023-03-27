@@ -1,0 +1,10 @@
+https://doc.rust-lang.org/stable/rustc/instrument-coverage.html
+    https://habr.com/ru/post/659905/
+    RUSTFLAGS="-C instrument-coverage" cargo build
+
+https://jbp.io/2017/07/19/measuring-test-coverage-of-rust-programs
+https://github.com/roblabla/cargo-travis
+https://users.rust-lang.org/t/howto-generating-a-branch-coverage-report/8524/3
+
+samples
+https://github.com/sagiegurari/cargo-make#usage-predefined-flows-coverage

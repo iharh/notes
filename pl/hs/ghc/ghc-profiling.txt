@@ -1,0 +1,23 @@
+https://www.reddit.com/r/haskell/comments/5s5khf/how_to_get_a_proper_stack_trace/
+    With GHC 8.0.1 and better, just compile with the -g flag. No need for profiling or cost centers.
+
+Profiling:
+http://nikita-volkov.github.io/profiling-cabal-projects/
+
+VisualProf:
+http://hackage.haskell.org/package/visual-prof (https://github.com/djv/VisualProf)
+
+hr - retained profiling
+
+ghc-event-analyze:
+http://hackage.haskell.org/package/ghc-events-analyze
+https://github.com/edsko/ghc-events-analyze
+http://www.well-typed.com/blog/86
+https://github.com/edsko/ghc-events-analyze/blob/master/doc/blogpost/introducing.md
+http://www.reddit.com/r/haskell/comments/1xqkom/performance_profiling_with_ghceventanalyze/
+
+Cabal+Profiling:
+http://dmzlj.livejournal.com/170034.html
+
+Profiteur:
+https://hackage.haskell.org/package/profiteur

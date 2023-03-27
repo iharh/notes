@@ -1,0 +1,3 @@
+  home-manager = { home-manager-path, config-path }:
+    assert builtins.typeOf home-manager-path == "string";
+    assert builtins.typeOf config-path == "string";

@@ -1,0 +1,129 @@
+lists
+https://proglib.io/p/deep-learning-books/
+
+Zhang - Dive into Deep Learning
+    http://d2l.ai/index.html
+    https://github.com/d2l-ai/d2l-en
+    https://en.d2l.ai/d2l-en.pdf
+
+2022
+Kneusel - Math for Deep Learning
+    5CCB9186D4FC12B7B5524B1EB1548FC1
+    464625086F3C8BB3D41D4F9B710AFB03
+    185B571AE0A75F850B0164CE201D38CE
+Ferlitsch - Deep Learning Patterns and Practices ru
+    94CF7EC970A346B79AC0D0D2CCF2B7E8
+    !!!
+2021
+Glassner - Deep Learning A Visual Approach
+    E418FBF6726D42FB8A9A140C0A6A94AE
+    FA0A1197B4A9D15A0CDF385929AA7356
+    671312F9D2521D0C9096089A8470FB73
+2020
+Krohn - Deep Learning Illustrated
+    8D1BC33FD5031EBF991E91AB2C9CB82D
+    8C7D7D2E26448220C59AB241F14D3B0E
+    D4125734675231EFBFE6D69F5B45C740
+    229639A9ACCF5A359FA494EBB1173275
+Buduma - Fundamentals of Deep Learning ru
+    E84C09DCCE4C11E9E20CBF04A62F488A
+Michelucci - Applied Deep Learning ru
+    https://vk.com/doc4004138_522102307?hash=8324f5e6927c59dc9a
+    D60A78C32635E82A189B6F40AF277CE7
+Teofili - Deep Learning for Search ru
+    4F09D4BFA469AAEFF1C4CEE4D1DCC596
+    FB59B0CAB14998D5126B3E7D96B87E30
+    60DFDA318B8563B35249608B1E470B9C
+    ! 319p, using DL4J
+Glassner - Deep Learning From Basics to Practice v2 ru
+    42FEB6FD376E3C5FE6EE063D7E952F44
+    CD9A9D1EFC1265322F6B98506114CD7C
+    ! 611p, good
+Glassner - Deep Learning From Basics to Practice v1 ru
+    88F2CD6C26CDCF8831FECEE076497B4F 
+    D5E12C62C405C0E9295D2F00E399EE19
+    ! 585p, good
+MuellerMassaron - Deep Learning ru
+    3BE0F6334D9002EFD38E8F482037FD64
+    0A7D31B69F2A88EF96577F2B6DF99005
+2019
+Mueller - Deep Learning For Dummies
+Trask - Grokking Deep Learning
+    https://habr.com/ru/company/piter/blog/464509/
+Molnar - Interpretable Machine Learning
+    https://christophm.github.io/interpretable-ml-book/
+Foster - Generative Deep Learning
+    E6D06564013B3B6742F48C5B770F5A47
+Teofili - Deep Learning for Search
+    6A0F43FFC6BED37857A1C819BD51DF1E
+    ! using DL4J
+VasilevSlaterGianmarioSpacagna - Python Deep Learning 2nd ed
+    https://vk.com/doc255577237_537159420?hash=6306530d86f14c381c
+Kelleher - Deep Learning
+    https://vk.com/doc4004138_546626589?hash=d386ffd8b6a3c9f2e7
+    2D3022D58C53A464A50DEB91F5AB2B7F
+    3418F2CDE27DBE65F2FA0FEA08F047E7
+    ! just overview, not so deep
+Aggarwal - Neural Networks and Deep Learning
+    https://vk.com/doc270219984_549342596?hash=4062ef4b30b6408084
+GraesserKeng - Foundations of Deep Reinforcement Learning
+    66B16197BACADF2D3FD585228CC006A9
+2018
+NikolenkoKadurin - Deep Learning ru
+    p 128..137..177..232..278..331..373..410..451
+    2486E541029583877C7E6643778B9E47
+    D3A0064BB131A9D0A3B6B2834B6B6CD7
+    809AD26AE4C6BB24B6C8AB53373771F0
+    https://vk.com/doc122837690_554505722?hash=e24df5302918d197be
+    https://vk.com/doc420592894_558431582?hash=d4b3d5befa8bb0486f
+    https://habrahabr.ru/company/piter/blog/346358/
+    https://www.piter.com/product/glubokoe-obuchenie
+    https://books.google.by/books?id=Zi48DwAAQBAJ&printsec=frontcover&hl=ru#v=onepage&q&f=false
+    https://www.labirint.ru/books/622166/
+    https://oz.by/books/more10663570.html
+    https://www.ozon.ru/context/detail/id/142987816/
+Vieira - Introduction to Deep Learning Business Applications for Developers (too shallow)
+Skansi - Introduction to Deep Learning
+Krohn - Deep Learning Illustrated (small, without math)
+Chollet - Deep Learning with Python ru
+    https://vk.com/doc44301783_456810592
+    https://vk.com/doc7608079_460118633
+    C3AD2D7E6EE41CF2818EEF891A984FDD
+    900D739E4B0305A0422F4DC23E0CC76C
+Patterson - Deep Learning - A Practitioner Approach ru
+    5582E21670AEE2895F5E907A53D61EDE
+    https://vk.com/doc74080069_516268202?hash=74d3f98815ec1c25e0
+
+Burtsev
+https://vk.com/doc4004138_453543210
+https://vk.com/doc4004138_453721152
+
+Nielsen - Neural Networks and Deep Learing (? intro ?)
+http://neuralnetworksanddeeplearning.com/
+    https://habr.com/ru/post/463171/
+    https://habr.com/ru/post/458724/
+    https://habr.com/ru/post/457980/
+    https://habr.com/ru/post/456738/
+
+Manning - Trask - Grokking Deep Learning
+https://iamtrask.github.io/
+Sugomori - Deep Learning Essentials
+    https://vk.com/doc4004138_453604538?hash=bc45396af5fb16e314
+
+2017
+Buduma - Fundamentals of Deep Learning (tf)
+    https://vk.com/doc2036633_464888587
+Paterson - Deep Learning (dl4j)
+    https://vk.com/doc2036633_464888588
+
+2016
+!!!
+https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/DeepLearning-NowPublishing-Vol7-SIG-039.pdf
+
+Popular and Short (java)
+Gibson - Deep Learning ER
+
+Deng - 2014 - Deep Learning: Methods and Applications
+https://www.microsoft.com/en-us/research/publication/deep-learning-methods-and-applications/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F209355%2Fdeeplearning-nowpublishing-vol7-sig-039.pdf#
+
+Gulli - Deep Learning with Keras ru

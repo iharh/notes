@@ -1,0 +1,38 @@
+https://deeplearning4j.org/recurrentnetwork
+http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+
+http://ofir.io/Neural-Language-Modeling-From-Scratch/
+
+understanding hidden memories of RNNs
+https://arxiv.org/pdf/1710.10777.pdf
+
+articles
+2019
+https://towardsdatascience.com/recurrent-neural-networks-d4642c9bc7ce
+2018
+https://habr.com/post/417311/
+https://habr.com/post/417657/
+2017
+Tyantov - Bluring
+https://habrahabr.ru/company/oleg-bunin/blog/334530/
+Galutsioniruy kak Trump
+https://habrahabr.ru/post/326966/
+
+presentations
+2019
+Kozlov - DeepLearning on Fingers ru
+    https://www.youtube.com/watch?v=tlj-CMibdMI
+Eduonix - Machine Learning With Tensor Flow | Recurrent Neural Networks | Part 3
+    https://www.youtube.com/watch?v=NyrmaSS9qqA
+2018
+Recurrent Neural Networks - EXPLAINED!
+    https://www.youtube.com/watch?v=yZv_yRgOvMg
+https://indico.cern.ch/event/722319/contributions/3001310/attachments/1661268/2661638/IML-Sequence.pdf
+Simplilearn - Recurrent Neural Network (RNN) Tutorial
+    https://www.youtube.com/watch?v=lWkFhVq9-nc
+2017
+Recurrent Neural Networks (DLAI D7L1 2017 UPC Deep Learning for Artificial Intelligence)
+    https://www.youtube.com/watch?v=N3DzDnzL19U
+
+cheatsheet
+https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks

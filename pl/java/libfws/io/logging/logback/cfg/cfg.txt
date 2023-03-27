@@ -1,0 +1,10 @@
+http://logback.qos.ch/manual/configuration.html
+
+https://logback.qos.ch/manual/configuration.html#configFileProperty
+    -Dlogback.configurationFile=~/fxsvc-custom-log-config.xml\
+    for spring boot:
+    WARN 41362 --- [main] o.s.b.l.logback.LogbackLoggingSystem:
+        Ignoring 'logback.configurationFile' system property. Please use 'logging.config' instead.
+    -Dlogging.config=file:/data/wrk/prj/cfg/logback-other.xml
+
+http://logback.qos.ch/manual/groovy.html

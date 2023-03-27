@@ -1,0 +1,31 @@
+https://github.com/KDE/heaptrack/
+
+https://userbase.kde.org/Heaptrack
+https://userbase.kde.org/Heaptrack/Build/Ubuntu_16.04
+https://download.kde.org/stable/heaptrack/1.0.0/src/
+
+git://anongit.kde.org/heaptrack
+
+https://www.kdab.com/heaptrack-v1-0-0-release/
+
+community/heaptrack
+/usr/bin/
+    heaptrack
+    heaptrack_gui
+    heaptrack_print
+/usr/include/
+    heaptrack_api.h
+/usr/lib/heaptrack/
+    libexec/heaptrack_interpret
+    libheaptrack_inject.so
+    libheaptrack_preload.so
+/usr/share/applications/
+    org.kde.heaptrack.desktop
+
+2020
+Desitter - Reducing Memory Allocations in a Large C++ Application
+    https://www.youtube.com/watch?v=ZXTI5iWHhrg
+2019
+Zemlin - Keynote: Welcome and Opening Remarks
+    https://www.youtube.com/watch?v=jOxJmsPG3Ow
+    https://elinux.org/images/3/30/Tooling.pdf

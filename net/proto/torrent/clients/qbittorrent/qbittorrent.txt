@@ -1,0 +1,19 @@
+https://github.com/c0re100/qBittorrent-Enhanced-Edition
+
+/usr/lib/systemd/system/qbittorrent.service
+
+[Unit]
+Description=qbittorrent-nox Daemon
+After=network.target
+
+[Service]
+User=iharh
+Type=forking
+ExecStart=/usr/bin/qbittorrent-nox --daemon --webui-port=8080
+Restart=on-failure
+RemainAfterExit=yes
+#PIDFile=/home/iharh/qbittorrent-nox.pid
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,13 @@
+https://github.com/rust-lang/miri/
+    https://github.com/facebookexperimental/MIRAI
+
+2022
+https://medium.com/source-and-buggy/data-driven-performance-optimization-with-rust-and-miri-70cb6dde0d35
+https://www.ralfj.de/blog/2022/07/02/miri.html
+2020
+https://www.ralfj.de/blog/2020/09/28/miri.html
+2019
+https://kanishkarj.github.io/rust-mir/main/
+https://kazlauskas.me/entries/the-road-to-bestest-optimiser.html
+2017
+https://www.ralfj.de/blog/2017/06/06/MIR-semantics.html

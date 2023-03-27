@@ -1,0 +1,332 @@
+--- Check the release info
+
+cat /etc/lsb-release
+
+
+--- In case of package conflict issue:
+
+pacman -Syuu
+
+y = Only download database files if the remote repo webserver says it's changed since last time
+yy = Download the databases even if the remote repo webserver says the files haven't changed since last time
+u = Update packages to newer versions from the repo, but do not install packages from the repo that are an older version than the currently installed version (i.e. no downgrades)
+uu = Match the versions of packages installed on the system to those present in the remote repo, even if it means downgrading to an apparently earlier package version
+
+
+--- Extra packages:
+
+pacman stuff:
+
+base-devel group
+    binutils
+psmisc (incl killall)
+net-tools (incl netstat)
+strace (for tracing syscalls)
+ltrace (for tracing usercalls)
+
+yaourt
+fakeroot
+namcap
+    incl strip binary
+psgrep
+    ps grep
+gvim
+evince
+    for pdfs
+epdfview
+
+manjaro-pulse, pavucontrol, pulseaudio, pulseaudio-alsa
+
+(/usr/share/...)
+turbulence-artwork (backgrounds, wallpapers)
+unified-manjaro-themes-openbox (themes)
+lxdm-manjaro-theme-openbox (lxdm/themes)
+
+yaourt stuff:
+adduser
+
+--- Remove packages:
+
+pacman -Rns thunar-archive-plugin
+pacman -Rns thunar-volman
+pacman -Rns thunar
+pacman -Rns parecellite
+
+--- Keyring issue
+https://forum.manjaro.org/index.php?topic=12783.msg114907#msg114907
+
+If you have issues with Joshuas Strots (dcell) signature, try this:
+
+sudo pacman-key -r CB6CDD17
+sudo pacman-key --lsign-key CB6CDD17
+
+If you have issues with Rob McCathies (korrode) signature, try this:
+
+sudo pacman-key -r 5C0102A6
+sudo pacman-key --lsign-key 5C0102A6
+
+
+--- Regenerate keyring:
+
+https://forum.manjaro.org/index.php?topic=12968.0
+
+mv /etc/pacman.d/gnupg/ /etc/pacman.d/gnupgold
+pacman-key --init
+pacman-key --populate archlinux manjaro
+pacman-key --refresh
+
+
+--- Mirror selection ---
+
+sudo pacman-mirrors -g [-o a.out]
+
+
+--- Openbox config
+
+https://forum.manjaro.org/index.php?topic=1803.0
+    yaourt -S volumeicon-pulsefix
+
+global:
+/etc/xdg/openbox/
+    autostart
+
+local:
+~/.config/openbox/autostart:
+
+Fix menu:
+~/.config/obmenu-generator/schema.pl
+(/etc/xdg/obmenu-generator/schema.pl)
+...
+{item => ['pcmanfm', 'PCManFM', 'system-file-manager']},
+...
+
+$ obmenu-generator -R
+
+$ lxappearance
+    or
+
+~/.gtkrc-2.0
+
+~/.config/gtk-3.0/settings.ini
+...
+gtk-theme-name="Menda"
+...
+
+
+--- Audio issues:
+/audio/audio.txt
+
+--- Manjaro Skype
+
+https://wiki.archlinux.org/index.php/skype
+http://archlinux.org.ru/forum/topic/12285/
+https://forum.manjaro.org/index.php?topic=3779.0
+
+!!! start from /usr/share/applications/skype.desktop
+
+If you get distorted sound in skype, try adding PULSE_LATENCY_MSEC=60 to your
+env before starting skype. Something like 'export PULSE_LATENCY_MSEC=60' in .bashrc, for example.
+
+
+--- LX Terminal
+
+~/.config/lxterminal/lxterminal.conf:
+fontname=Liberation Mono 12
+bgcolor=#00002b2b3636
+# 233 from GUI
+bgalpha=63222
+fgcolor=#65657b7b8383
+
+
+--- GXKB
+
+http://habrahabr.ru/post/174203/
+https://aur.archlinux.org/packages/gxkb/
+yaourt -S gxkb
+
+sudo cp /usr/share/applications/gxkb.desktop /etc/xdg/autostart/
+
+~/.config/gxkb/gxkb.cfg:
+
+[xkb config]
+group_policy=2
+default_group=0
+never_modify_config=false
+model=pc105
+layouts=us,ru
+variants=,
+toggle_option=grp:ctrl_shift_toggle,grp_led:scroll,terminate:ctrl_alt_bksp
+compose_key_position=
+
+--- Locales (RU)
+
+https://wiki.manjaro.org/index.php?title=Openbox:_Switch_languages_using_the_keyboard_and_xxkb
+sudo vim /etc/locale.gen
+  en_US.UTF-8... done
+  ru_RU.UTF-8... done
+sudo locale-gen
+sudo vim /etc/vconsole.conf
+  KEYMAP=us
+
+
+https://forum.manjaro.org/index.php?topic=6861.0
+http://archlinux.org.ru/forum/topic/1356/
+https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg
+
+
+http://xtuxhuevos.blogspot.com/2012/10/manjaro-linux-en-espanol.html
+packages:
+    firefox-i18n-ru
+    libreoffice-ru
+    flushplugin
+
+https://wiki.archlinux.org/index.php/locale
+/etc/locale.conf
+~/.config/locale.conf
+    LANG=ru_RU.UTF-8
+    LANGUAGE=ru_RU.UTF-8
+    LC_COLLATE=C
+
+
+--- Keyboard shortcuts
+
+~/.config/openbox/rc.xml:
+
+replace thunar by pcmanfm-gtk3
+
+
+--- Oblogout
+
+Oblogout:
+
+/etc/oblogout.conf:
+
+[looks]
+...
+buttontheme = oxygen
+
+
+--- User mgmt
+
+http://www.unix-lab.org/posts/arch-users/
+https://wiki.manjaro.org/index.php?title=Users_%26_Groups
+
+adduser (need to include she to "users" group only)
+touch $HISTFILE
+
+--- Themes and keys
+
+gtk-theme-menda
+
+ls -la /usr/share/themes
+
+~/.config/openbox/rc.xml
+
+<theme>
+    <name>Bear-tangerine</name>
+    ...
+</theme>
+<desktops>
+    <number>1</number>
+    ...
+</desktops>
+
+Win-X - logout screen
+
+--- LXDM login manager
+https://wiki.manjaro.org/index.php?title=Install_Display_Managers
+https://wiki.manjaro.org/index.php?title=LXDM_Configuration
+
+lxdm
+lxdm-manjaro-theme-openbox (instead of lxdm-manjaro-theme)
+    /usr/share/lxdm/themes
+
+sudo systemctl enable lxdm.service -f
+...
+    rm '/etc/systemd/system/display-manager.service'
+    ln -s '/usr/lib/systemd/system/lxdm.service' '/etc/systemd/system/display-manager.service'
+
+
+sudo lxdm-config
+    or
+/etc/lxdm/lxdm.conf
+
+
+gtk_theme=Bear-tangerine
+...
+theme=Industrial
+#Manjaro
+#/usr/share/lxdm/themes/
+
+#session=/usr/bin/openbox-session
+
+
+!!! Openbox theme
+ManjaroFlatDark
+
+pacman -Qo /usr/share/backgrounds/manjaro.jpg
+??? no package
+
+
+--- turbulence
+
+check the package:
+    turbulence-artwork
+
+!!!
+sudo pacman -Ss artwork
+
+
+--- pcmanfm and desktop
+
+
+http://crunchbang.org/forums/viewtopic.php?id=19901
+https://manjaro.org/index.php?title=Getting_File_Managers_to_work_properly_in_Window_Managers
+
+
+~/.config/openbox/autostart:
+
+#nitrogen ...
+pcmanfm --desktop
+pcmanfm --set-wallpaper=/home/share/backgrounds/manjaro.jpg
+#pcmanfm --desktop-pref
+
+!!! use Shift+Ctrl+drag to create a link
+drage the following /usr/share/applications:
+    File Manager PCManFM
+    Desktop Preferences
+    Configure Lxdm
+        https://forum.manjaro.org/index.php?topic=1537.0
+
+!!! back-up from time to time:
+~/.config/pcmanfm/default/desktop-items-0.conf
+
+--- tint2 panel
+
+yaourt -S tint2-svn
+http://www.linuxandlife.com/2011/08/how-to-create-launcher-on-tint2.html
+https://wiki.archlinux.org/index.php/Tint2
+http://bbs.archbang.org/viewtopic.php?id=2859
+https://wiki.archlinux.org/index.php/Tint2#Application_Launchers_in_tint2-svn_.28AUR.29
+
+~/.config/tint2/tint2rc:
+# Panel
+panel_items=LTSC
+
+# Launchers
+launcher_padding = 2 2
+launcher_background_id = 1
+launcher_icon_size = 20
+launcher_item_app = /usr/share/applications/lxterminal.desktop
+launcher_item_app = /usr/share/applications/google-chrome.desktop
+launcher_item_app = /usr/share/applications/firefox.desktop
+launcher_item_app = /usr/share/applications/remmina.desktop
+launcher_item_app = /usr/share/applications/skype.desktop
+
+tint2-svn E: Dependency startup-notification detected and not included (libraries ['usr/lib/libstartup-notification-1.so.0'] needed in files ['usr/bin/tint2'])
+
+aur/openbox-menu
+http://fabrice.thiroux.free.fr/openbox-menu_en.html
+http://zenway.ru/forum/viewtopic.php?id=70
+http://crunchbang.org/forums/viewtopic.php?id=14259
+http://crunchbang.org/forums/viewtopic.php?id=5769

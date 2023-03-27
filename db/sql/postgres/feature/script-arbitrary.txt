@@ -1,0 +1,17 @@
+sample
+
+do
+$$
+declare
+    f record;
+    g record;
+begin
+    for f in (
+        select ...
+    )
+    loop
+	   select * into g from ...
+	   where ... f.some_field ...
+    end loop;
+end;
+$$;

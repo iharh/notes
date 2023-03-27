@@ -1,0 +1,2 @@
+validation for kubectl 1.8.0:
+https://github.com/kubernetes/kubernetes/issues/53309

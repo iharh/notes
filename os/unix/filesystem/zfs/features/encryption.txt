@@ -1,0 +1,51 @@
+native encryption
+
+https://docs.oracle.com/cd/E53394_01/html/E54801/gkkih.html
+
+https://wiki.alpinelinux.org/wiki/Alpine_Linux_with_root_on_ZFS_with_native_encryption
+https://wiki.archlinux.org/index.php/ZFS#Native_encryption
+
+2020
+BeginnerGuideToZFS - encrypting datasets
+    https://www.youtube.com/watch?v=XBFi3gwL3zA
+    ! need to look
+https://pov.es/linux/ubuntu/ubuntu-20-04-install-ubuntu-with-zfs-and-encryption/
+    https://linsomniac.gitlab.io/post/2020-04-09-ubuntu-2004-encrypted-zfs/
+    https://www.youtube.com/watch?v=PILrUcXYwmc
+    /usr/share/ubiquity/zsys-setup
+    ! how to deal with absent ZFS encryption by default at installer
+https://linuxconfig.org/configuring-zfs-on-ubuntu-20-04
+    $ sudo zfs create -o encryption=on -o keylocation=prompt -o keyformat=passphrase mypool/encrypted
+    $ sudo zfs mount -l mypool/encrypted
+https://www.medo64.com/2020/05/installing-encrypted-uefi-zfs-root-on-ubuntu-20-04/
+https://www.medo64.com/2020/04/installing-uefi-zfs-root-on-ubuntu-20-04/
+2019
+https://unix.stackexchange.com/questions/548997/zfs-encrypted-pool-on-linux
+https://www.reddit.com/r/zfs/comments/anpyku/zfs_encryption_vs_luks_zfs/
+    Been using luks + zfs (ubuntu 18.04) for over a year now on my server without issues.
+    I don't have it mount on boot, but log in and unlock & mount the pool with a bash script.
+
+    #!/bin/bash
+    echo "Unlocking encrypted drives..."
+    cryptsetup --tries=999 luksOpen ./.luks_key.luks cryptkey
+    cryptsetup --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/fd88c126-375e-4c2a-9011-a7901169abca crypt8tb1
+    cryptsetup --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/705f3ee9-0d96-4770-92a0-113dd3ee16ae crypt8tb2
+    cryptsetup --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/3fb98aa4-ed50-4419-a237-8867b27aff71 crypt8tb3
+    cryptsetup --allow-discards --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/67178586-e968-4e6d-baba-938f3c7f65f1 cryptlog
+    cryptsetup --allow-discards --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/2a746b4e-5e34-4330-a2d6-6d24cee0f6e7 cryptcache
+    cryptsetup luksClose cryptkey
+    echo "Importing ZFS pool..."
+    zpool import storage
+
+    .luks_key.luks is a small image file that i keep in the root folder that was luksFormatted,
+    and then filled with random data of which the first 4096 bytes were added as a keyfile to each disk,
+    just so it only prompts me once for the password instead of once for each disk.
+
+    It's just going to be a problem to recover the data if I were to die, or suffer severe memory loss.
+
+2016
+Caputi - ZFS native Encryption
+    https://www.youtube.com/watch?v=frnLiXclAMo
+
+issues
+https://github.com/openzfs/zfs/issues?utf8=%E2%9C%93&q=is%3Aissue+encryption+

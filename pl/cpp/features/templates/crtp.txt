@@ -1,0 +1,52 @@
+https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern
+https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Curiously_Recurring_Template_Pattern
+
+2022
+https://te.legra.ph/Idioma-CRTP-i-napisanie-obshchih-funkcij-v-C-09-15
+    !!! short and simple, inverted inheritance
+https://medium.com/nuances-of-programming/%D0%B8%D0%B4%D0%B8%D0%BE%D0%BC%D0%B0-crtp-%D0%B8-%D0%BD%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%89%D0%B8%D1%85-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B9-%D0%B2-c-c04523080f84
+https://nuancesprog.ru/p/15557/
+2021
+https://www.foonathan.net/2021/10/crtp-interface/
+2020
+http://www.vishalchovatiya.com/crtp-c-examples/
+2019
+https://eli.thegreenplace.net/2011/05/17/the-curiously-recurring-template-pattern-in-c
+https://www.codeplay.com/portal/07-12-19-enabling-polymorphism-in-sycl-using-the-cpp-idiom-crtp
+http://eao197.blogspot.com/2019/04/progc-9-sfinae-crtp.html
+    https://habr.com/ru/post/447816/
+2018
+Otus - CRTP 0:00 of 2:37:38
+    https://www.youtube.com/watch?v=f07FYiJCv8I
+https://mklimenko.github.io/english/2018/07/02/platform-dependent-crtp/
+https://www.fluentcpp.com/2018/07/03/how-to-reduce-the-code-bloat-of-a-variadic-crtp/
+https://www.fluentcpp.com/2018/06/26/variadic-crtp-packs-from-opt-in-skills-to-opt-in-skillsets/
+https://www.fluentcpp.com/2018/06/22/variadic-crtp-opt-in-for-class-features-at-compile-time/
+2017
+http://www.fluentcpp.com/2017/05/12/curiously-recursive-template-pattern/
+2016
+http://eao197.blogspot.com.by/2016/03/progc11.html
+2014
+http://martin-moene.blogspot.com/2014/02/static-polymorphic-named-parameters-in-c.html
+https://github.com/martinmoene/martin-moene.blogspot.com/tree/master/Static%20polymorphic%20named%20parameters%20in%20C%2B%2B
+
+http://sites.google.com/a/gertrudandcope.com/info/Publications/InheritedTemplate.pdf
+2011
+http://eli.thegreenplace.net/2011/05/17/the-curiously-recurring-template-pattern-in-c/
+http://talesofcpp.fusionfenix.com/post-12/episode-eight-the-curious-case-of-the-recurring-template-pattern
+2005
+https://accu.org/index.php/journals/296
+
+template <typename T>
+class Base {
+public:
+    void interface() {
+        static_cast<T*>(this)->implementation();
+    };
+};
+class Derived : public Base<Derived> {
+public:
+    void implementation() {
+        std::cout<<"implementation\n";
+    }
+};

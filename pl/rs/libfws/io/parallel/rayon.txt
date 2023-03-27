@@ -1,0 +1,9 @@
+2019
+https://averywagar.com/posts/2019/04/fearless-multi-threading-parallelism-with-rust/
+????
+https://www.reddit.com/r/rust/comments/7xr1x5/rayon_10_is_released/
+https://github.com/rayon-rs/rayon/blob/master/RELEASES.md#release-rayon-100--rayon-core-140
+https://internals.rust-lang.org/t/parallelizing-rustc-using-rayon/6606/5
+http://smallcultfollowing.com/babysteps/blog/2017/04/06/rayon-0-7-released/
+http://blog.piston.rs/2017/01/26/a-brief-teaser-about-composable-parallel-stream-processing-with-rayon/
+https://blog.rust-lang.org/2017/11/14/Fearless-Concurrency-In-Firefox-Quantum.html

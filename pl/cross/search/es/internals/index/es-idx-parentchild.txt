@@ -1,0 +1,48 @@
+commit 1cfb6a79f1e130dc73ac62a51be7420564a95c82
+Author: Martijn van Groningen <martijn.v.groningen@gmail.com>
+Date:   Wed Mar 25 10:42:49 2015 +0100
+
+    Parent/child: refactored _parent field mapper and parent/child queries
+    
+    * Cut the `has_child` and `has_parent` queries over to use Lucene's query time global ordinal join. The main benefit of this change is that parent/child queries can now efficiently execute if parent/child queries are wrapped in a bigger boolean query. If the rest of the query only hit a few documents both has_child and has_parent queries don't need to evaluate all parent or child documents any more.
+    * Cut the `_parent` field over to use doc values. This significantly reduces the on heap memory footprint of parent/child, because the parent id values are never loaded into memory.
+    
+    Breaking changes:
+    * The `type` option on the `_parent` field can only point to a parent type that doesn't exist yet, so this means that an existing type/mapping can't become a parent type any longer.
+    * The `has_child` and `has_parent` queries can no longer be use in alias filters.
+    
+    All these changes, improvements and breaks in compatibility only apply for indices created with ES version 2.0 or higher. For indices creates with ES <= 2.0 the older implementation is used.
+    
+    It is highly recommended to re-index all your indices with parent and child documents to benefit from all the improvements that come with this refactoring. The easiest way to achieve this is by using the scan and bulk apis using a simple script.
+    
+    Closes #6107
+    Closes #8134
+
+M	docs/reference/mapping/fields/parent-field.asciidoc
+M	docs/reference/migration/migrate_2_0.asciidoc
+M	docs/reference/query-dsl/has-child-query.asciidoc
+M	docs/reference/query-dsl/has-parent-query.asciidoc
+M	src/main/java/org/elasticsearch/cluster/metadata/MetaDataMappingService.java
+M	src/main/java/org/elasticsearch/index/AbstractIndexComponent.java
+M	src/main/java/org/elasticsearch/index/fielddata/plain/ParentChildIndexFieldData.java
+M	src/main/java/org/elasticsearch/index/mapper/DocumentMapper.java
+M	src/main/java/org/elasticsearch/index/mapper/MapperService.java
+M	src/main/java/org/elasticsearch/index/mapper/internal/ParentFieldMapper.java
+M	src/main/java/org/elasticsearch/index/query/HasChildQueryParser.java
+M	src/main/java/org/elasticsearch/index/query/HasParentQueryParser.java
+M	src/main/java/org/elasticsearch/index/query/QueryParseContext.java
+M	src/main/java/org/elasticsearch/search/aggregations/bucket/children/ChildrenParser.java
+M	src/test/java/org/elasticsearch/aliases/IndexAliasesTests.java
+M	src/test/java/org/elasticsearch/benchmark/search/child/ChildSearchBenchmark.java
+M	src/test/java/org/elasticsearch/index/fielddata/ParentChildFieldDataTests.java
+M	src/test/java/org/elasticsearch/index/query/SimpleIndexQueryParserTests.java
+M	src/test/java/org/elasticsearch/index/query/bool-query-with-empty-clauses-for-parsing.json
+M	src/test/java/org/elasticsearch/index/search/child/AbstractChildTests.java
+A	src/test/java/org/elasticsearch/search/child/ChildQuerySearchBwcTests.java
+A	src/test/java/org/elasticsearch/search/child/ChildQuerySearchTests.java
+A	src/test/java/org/elasticsearch/search/child/ParentFieldLoadingBwcTest.java
+M	src/test/java/org/elasticsearch/search/child/ParentFieldLoadingTest.java
+D	src/test/java/org/elasticsearch/search/child/SimpleChildQuerySearchTests.java
+M	src/test/java/org/elasticsearch/update/UpdateTests.java
+
+

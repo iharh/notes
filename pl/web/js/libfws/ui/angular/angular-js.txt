@@ -1,0 +1,36 @@
+https://angular.io/
+https://github.com/angular/angular
+
+docs
+https://angular.io/docs
+https://angular.io/features
+https://angular.io/guide/architecture
+https://angular.io/tutorial
+    https://stackblitz.com/angular/vqljkrnnogd
+https://blog.angular.io/
+https://angular.io/resources
+
+arch
+http://stackoverflow.com/questions/14994391/thinking-in-angularjs-if-i-have-a-jquery-background
+
+Separation of concerns
+
+And all of the above tie into this over-arching theme: keep your concerns separate.
+
+Your view acts as the official record of what is supposed to happen (for the most part);
+your model represents your data;
+you have a service layer to perform reusable tasks;
+you do DOM manipulation and augment your view with directives;
+and you glue it all together with controllers.
+
+This was also mentioned in other answers, and the only thing I would add pertains to testability, which I discuss in another section below.
+
+
+@Component
+@Routes[[
+    {path: '/', component: HomeComponent},
+    {path: 'product/:id', component: ProductDetailComponentParam}
+]
+RouterLink([routerLink])
+RouterOutlet(<router-outlet>)
+RouteSegment

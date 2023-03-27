@@ -1,0 +1,12 @@
+https://opensearch.org/
+
+https://opensearch.org/downloads.html
+
+brew services restart opensearch
+  /usr/local/opt/opensearch/bin/opensearch
+Data:    /usr/local/var/lib/opensearch/
+Logs:    /usr/local/var/log/opensearch/opensearch_homebrew.log
+Plugins: /usr/local/var/opensearch/plugins/
+Config:  /usr/local/etc/opensearch/
+
+https://opensearch.org/docs/latest/opensearch/configuration/

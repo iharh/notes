@@ -1,0 +1,33 @@
+https://redux-saga.js.org/
+
+https://redux-saga.github.io/redux-saga/
+https://github.com/redux-saga/redux-saga
+
+2019
+https://habr.com/ru/company/dodopizzaio/blog/458500/
+https://habr.com/ru/post/438856/
+2018
+https://habr.com/post/432070/
+Dedkov - Redux Saga ru
+https://www.youtube.com/watch?v=R_DPcxk4ml8
+    https://drive.google.com/file/d/1OWakTpJh6V9GkYOtJmI4VleInZqXS39V/view
+https://www.slideshare.net/JulienViala/reduxsaga-managing-side-effects-and-impure-stuff
+2017
+https://www.slideshare.net/nachomartin/redux-saga-managing-your-side-effects-also-generators-in-es6
+https://www.slideshare.net/nachomartin/redux-sagas-react-alicante
+https://www.slideshare.net/DanielFranz6/the-redux-saga-begins-72202458
+https://www.slideshare.net/pedsola/asyc-flow-control-with-javascript-generators-reduxsaga
+https://www.moscowjs.ru/talk/redux-saga-na-steroidah
+    https://www.youtube.com/watch?v=W4Eboykd8XY
+    http://slides.com/pelid80/redux-saga#/
+2016
+Bukhanov - The Evolution of Redux Action Creators (+saga)
+https://www.slideshare.net/GeorgeBukhanov/the-evolution-of-redux-action-creators
+
+testing
+https://redux-saga.js.org/docs/advanced/Testing.html
+https://habr.com/ru/post/513012/
+https://github.com/jfairbank/redux-saga-test-plan
+
+samples
+https://github.com/qvantor/react-tower-defence/tree/init/src/sagas

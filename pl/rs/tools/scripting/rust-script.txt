@@ -1,0 +1,12 @@
+https://rust-script.org/
+
+cargo install --force rust-script
+
+https://crates.io/crates/rust-script
+https://github.com/fornwall/rust-script
+
+cli
+rust-script
+    --list-templates
+    -script -t <template> -e "<expr>"
+        -script -t grabbag -e "mem::size_of::<Box<Read>>()"

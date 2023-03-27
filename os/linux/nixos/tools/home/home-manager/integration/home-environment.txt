@@ -1,0 +1,7 @@
+https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix
+
+environment.etc."filename".source
+environment.etc = {
+    "filename1".source = ... ;
+    "filename2".source = ... ;
+};

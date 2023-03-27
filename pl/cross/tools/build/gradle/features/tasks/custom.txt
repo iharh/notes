@@ -1,0 +1,36 @@
+https://guides.gradle.org/writing-gradle-tasks/
+https://docs.gradle.org/current/userguide/more_about_tasks.html
+https://docs.gradle.org/current/userguide/custom_tasks.html
+https://discuss.gradle.org/t/custom-task-input-and-output-dependencies/7339
+
+class MyTask extends DefaultTask {
+    private String url;
+
+    @Option(option = "url", description = "Configures the URL to be write to the output.")
+    def setUrl(String url) {
+        this.url = url;
+    }
+
+    @Input
+    def getUrl() {
+        return url;
+    }
+
+    @Input
+    def getPackageNames() {
+        generators.collect { it.packageName }
+    }
+
+    @InputDirectory
+    File sourceDir
+
+    @OutputDirectories
+    def getOutputDirectories() {
+        generators.collect { it.outputDir }
+    }
+
+    @TaskAction
+    def action {
+        // ...
+    }
+}

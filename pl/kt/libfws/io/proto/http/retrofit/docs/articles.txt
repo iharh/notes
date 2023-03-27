@@ -1,0 +1,11 @@
+2021
+https://dzone.com/articles/user-friendly-api-publishing-and-testing-with-retr
+    https://habr.com/ru/company/ruvds/blog/562730/
+        ! POST sample
+    https://gitlab.com/jsprengers/spring-retrofit-demo
+2019
+https://www.baeldung.com/retrofit
+    https://github.com/eugenp/tutorials/tree/master/libraries-http/src/main/java/com/baeldung/retrofitguide
+        import retrofit2.http.GET;
+    https://github.com/eugenp/tutorials/tree/master/libraries-http/src/main/java/com/baeldung/retrofit
+    https://github.com/eugenp/tutorials/tree/master/libraries-http/src/main/java/com/baeldung/retrofit/rx

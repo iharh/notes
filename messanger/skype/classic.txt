@@ -1,0 +1,8 @@
+https://go.skype.com/classic.skype
+
+aur/skypeforlinux-stable-bin
+    https://aur.archlinux.org/packages/skypeforlinux-stable-bin/
+    https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=skypeforlinux-stable-bin
+aur/skypeforlinux-preview-bin 
+    https://aur.archlinux.org/packages/skypeforlinux-preview-bin/
+    https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=skypeforlinux-preview-bin

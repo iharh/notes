@@ -1,0 +1,77 @@
+logs head
+su oracle -c /u01/app/oracle/product/11.2.0/EE/bin/dbca -silent -createDatabase -templateName General_Purpose.dbc -gdbname EE.oracle.docker -sid EE -responseFile NO_VALUE -characterSet AL32UTF8 -totalMemory 4096 -emConfiguration LOCAL -dbsnmpPassword oracle -sysPassword oracle -systemPassword oracle
+
+Preparing oracle installer.
+Running root scripts.
+Changing permissions of /u01/app/oraInventory.
+Adding read,write permissions for group.
+Removing read,write,execute permissions for world.
+
+Changing groupname of /u01/app/oraInventory to dba.
+The execution of the script is complete.
+Check /u01/app/oracle/product/11.2.0/EE/install/root_716fe72deee2_2018-03-12_04-09-55.log for the output of root script
+
+
+first run, createDatabase
+ls: cannot access /u01/app/oracle/oradata: No such file or directory
+Database not initialized. Initializing database.
+Starting tnslsnr
+Running initialization by dbca
+/bin/cat: /proc/sys/net/core/wmem_default: No such file or directory
+/bin/cat: /proc/sys/net/core/wmem_default: No such file or directory
+/bin/cat: /proc/sys/net/core/wmem_default: No such file or directory
+
+/u01/app/oracle/cfgtoollogs/dbca/silent.log
+
+Copying database files
+1% complete
+3% complete
+37% complete
+Creating and starting Oracle instance
+40% complete
+45% complete
+50% complete
+55% complete
+56% complete
+60% complete
+62% complete
+Completing Database Creation
+66% complete
+70% complete
+73% complete
+85% complete
+96% complete
+100% complete
+Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/EE/EE.log" for further details.
+Starting web management console
+
+PL/SQL procedure successfully completed.
+
+Starting import from '/docker-entrypoint-initdb.d':
+found file /docker-entrypoint-initdb.d//docker-entrypoint-initdb.d/*
+[IMPORT] /entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+
+Import finished
+
+Database ready to use. Enjoy! ;)
+
+
+second, third, ... runs
+found files in /u01/app/oracle/oradata Using them instead of initial database
+ORACLE instance started.
+
+Total System Global Area 1603411968 bytes
+Fixed Size		    2213776 bytes
+Variable Size		  402655344 bytes
+Database Buffers	 1191182336 bytes
+Redo Buffers		    7360512 bytes
+Database mounted.
+Database opened.
+Starting web management console
+
+PL/SQL procedure successfully completed.
+
+[IMPORT] Not a first start, SKIPPING Import from Volume '/docker-entrypoint-initdb.d'
+[IMPORT] If you want to enable import at any state - add 'IMPORT_FROM_VOLUME=true' variable
+
+Database ready to use. Enjoy! ;)

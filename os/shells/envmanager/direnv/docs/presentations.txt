@@ -1,0 +1,7 @@
+2020
+AndrewTropin - Per-Project Dev Environment of 47:11
+    https://www.youtube.com/watch?v=pS9JBKdAy4Q
+    ! 17:00
+    !   .envrc:
+    !   export SOME_VAR=`gpg -d somekey.gpg 2>/dev/null'
+    !   # -d - decrypt

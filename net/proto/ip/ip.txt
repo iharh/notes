@@ -1,0 +1,9 @@
+whitepaper - understanding IP addresses
+http://pages.di.unipi.it/ricci/501302.pdf
+
+80|LXF200 - IPv6
+
+IPv6 disabling
+https://www.blackmoreops.com/2015/08/04/how-to-disable-ipv6-in-linux/
+/etc/gai.conf
+precedence ::ffff:0:0/96  100

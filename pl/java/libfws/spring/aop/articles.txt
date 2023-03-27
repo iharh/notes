@@ -1,0 +1,23 @@
+2023
+https://ashish-bania.medium.com/adding-aspects-to-spring-boot-project-d5890e489072
+    https://github.com/ashishbania/OpenBankingDemo
+2022
+https://www.baeldung.com/spring-aop
+https://www.geeksforgeeks.org/spring-boot-aopaspect-oriented-programming/
+2021
+https://medium.com/walmartglobaltech/understanding-the-worker-ants-of-spring-aop-proxies-902208881493
+    https://habr.com/ru/post/597797/
+2018
+https://dzone.com/articles/implementing-aop-with-spring-boot-and-aspectj
+https://habrahabr.ru/post/347752/
+
+http://mergetag.com/spring-aop-advice-on-annotated-controllers-2/
+http://stackoverflow.com/questions/3991249/how-can-i-combine-aspect-with-controller-in-spring-3
+
+http://stackoverflow.com/questions/24034667/spring-aop-advice-not-getting-excuted
+http://stackoverflow.com/questions/17836041/spring-aop-how-to-make-aspects-defined-in-a-parent-context-work-in-child-conte
+http://stackoverflow.com/questions/6144239/spring-aop-aspect-triggering-when-configuration-is-in-servlet-context-but-not
+
+https://coderanch.com/t/573484/framework/Wierd-Case-Spring-AOP
+
+https://www.linux.org.ru/forum/development/10139585

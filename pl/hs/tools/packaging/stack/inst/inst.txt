@@ -1,0 +1,26 @@
+download/releases:
+https://docs.haskellstack.org/en/stable/install_and_upgrade/#linux
+https://github.com/commercialhaskell/stack/releases
+    1.1.2
+
+stack-arch:
+https://docs.haskellstack.org/en/stable/install_and_upgrade/#arch-linux
+- Arch Linux: Stack has been adopted into the official community repository:
+If you use the ArchHaskell repository, you can also get the haskell-stack-tool package from there.
+
+https://www.archlinux.org/packages/community/x86_64/stack/
+community/stack 1.1.2-18
+    The Haskell Tool Stack
+
+https://aur.archlinux.org/packages/haskell-stack/
+https://aur.archlinux.org/packages/haskell-stack-git/
+
+
+https://aur.archlinux.org/packages/ncurses5-compat-libs/
+yaourt --m-arg "--skippgpcheck" -Sb ncurses5-compat-libs
+...
+Provides        : libtinfo5
+...
+Conflicts With  : libtinfo5
+    (https://aur.archlinux.org/packages/libtinfo)
+? /usr/bin/ncursesw5-config

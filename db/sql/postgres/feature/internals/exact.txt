@@ -1,0 +1,3 @@
+pgdata/exact
+    file with 2 bits per trans-n
+    00 - active, 1 means finished/rollbacked

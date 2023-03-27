@@ -1,0 +1,156 @@
+https://github.com/ehcache/ehcache3/blob/master/core/src/main/java/org/ehcache/core/spi/ServiceLocator.java
+    import static org.ehcache.core.util.ClassLoading.servicesOfType;
+    ...
+    public static DependencySet dependencySet() {
+        return new DependencySet();
+    }
+    private ServiceLocator(ServiceMap services) {
+        this.services = services;
+    }
+    ...
+    getService
+    getServicesOfType
+    ...
+    public static class DependencySet implements Builder<ServiceLocator> {
+        @SuppressWarnings({"rawtypes", "unchecked"})
+        private final Iterable<ServiceFactory<?>> serviceFactories = (Iterable) servicesOfType(ServiceFactory.class);
+    
+        ...
+        @Override
+        public ServiceLocator build() {
+            try {
+                ServiceMap resolvedServices = new ServiceMap();
+                ...
+                if (includeMandatoryServices) {
+                    for (List<ServiceFactory<?>> factories : stream(serviceFactories.spliterator(), false).collect(groupingBy(ServiceFactory::getServiceType)).values()) {
+                        OptionalInt highestRank = factories.stream().mapToInt(ServiceFactory::rank).max();
+
+                        if (highestRank.isPresent()) {
+                            for (ServiceFactory<?> manadatory : factories.stream().filter(ServiceFactory::isMandatory).filter(f -> highestRank.getAsInt() == f.rank()).collect(toList())) {
+                                if (!resolvedServices.contains(manadatory.getServiceType())) {
+                                    Service service = manadatory.create(null);
+                                    resolvedServices = lookupDependenciesOf(resolvedServices, service.getClass()).add(service);
+                                }
+                            }
+                        }
+                    }
+                }
+                return new ServiceLocator(resolvedServices);
+            } catch (DependencyException e) {
+                throw new IllegalStateException(e);
+            }
+        }
+        ...
+    }
+
+
+    import java.util.ServiceLoader;
+        https://docs.oracle.com/javase/tutorial/ext/basics/spi.html
+        https://habr.com/ru/post/118488/
+    ...
+    public class ClassLoading {
+        ...
+        public static <T> Iterable<T> servicesOfType(Class<T> serviceType) {
+            if (SafeOsgi.useOSGiServiceLoading()) {
+                return OsgiServiceLoader.load(serviceType);
+            } else {
+                return ServiceLoader.load(serviceType, ClassLoading.class.getClassLoader());
+            }
+        }
+        ...
+    }
+
+usages
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/config/builders/UserManagedCacheBuilder.java
+    ...
+    T build(ServiceLocator.DependencySet serviceLocatorBuilder) throws IllegalStateException {
+        validateListenerConfig();
+
+        ServiceLocator serviceLocator;
+        try {
+            for (ServiceCreationConfiguration<?, ?> serviceCreationConfig : serviceCreationConfigurations) {
+                serviceLocatorBuilder = serviceLocatorBuilder.with(serviceCreationConfig);
+            }
+            serviceLocatorBuilder = serviceLocatorBuilder.with(Store.Provider.class);
+            serviceLocator = serviceLocatorBuilder.build();
+            serviceLocator.startAllServices();
+        } catch (Exception e) {
+            throw new IllegalStateException("UserManagedCacheBuilder failed to build.", e);
+        }
+        ...
+    }
+
+EhcacheManager
+    import static org.ehcache.core.spi.ServiceLocator.dependencySet;
+
+    protected final ServiceLocator serviceLocator;
+    ...
+    public EhcacheManager(Configuration config, UnaryOperator<ServiceLocator.DependencySet> customization, boolean useLoaderInAtomics) {
+        final String simpleName = this.getClass().getSimpleName();
+        this.simpleName = (simpleName.isEmpty() ? this.getClass().getName() : simpleName);
+        this.configuration = new DefaultConfiguration(config);
+        this.cacheManagerClassLoader = config.getClassLoader() != null ? config.getClassLoader() : ClassLoading.getDefaultClassLoader();
+        this.useLoaderInAtomics = useLoaderInAtomics;
+        validateServicesConfigs();
+        this.serviceLocator = resolveServices(customization);
+    }
+
+    private void validateServicesConfigs() {
+        Set<Class<?>> classes = new HashSet<>();
+        for (ServiceCreationConfiguration<?, ?> service : configuration.getServiceCreationConfigurations()) {
+            if (!classes.add(service.getServiceType())) {
+                throw new IllegalStateException("Duplicate creation configuration for service " + service.getServiceType());
+            }
+        }
+    }
+
+    private ServiceLocator resolveServices(UnaryOperator<ServiceLocator.DependencySet> customization) {
+        ServiceLocator.DependencySet builder = dependencySet()
+            .with(Store.Provider.class)
+            .with(CacheLoaderWriterProvider.class)
+            .with(WriteBehindProvider.class)
+            .with(CacheEventDispatcherFactory.class)
+            .with(CacheEventListenerProvider.class)
+            .with(ResilienceStrategyProvider.class);
+
+        builder = customization.apply(builder);
+
+        if (!builder.contains(CacheManagerProviderService.class)) {
+            builder = builder.with(new DefaultCacheManagerProviderService(this));
+        }
+        for (ServiceCreationConfiguration<?, ?> serviceConfig : configuration.getServiceCreationConfigurations()) {
+            builder = builder.with(serviceConfig);
+        }
+        return builder.build();
+    }
+
+107/src/main/java/org/ehcache/jsr107/EhcacheCachingProvider.java
+    private Eh107CacheManager createCacheManager(URI uri, Configuration config, Properties properties) {
+        ...
+        UnaryOperator<ServiceLocator.DependencySet> customization = dependencies -> {
+            ServiceLocator.DependencySet d = dependencies.with(jsr107Service).with(cacheLoaderWriterFactory);
+            if (ServiceUtils.findSingletonAmongst(DefaultSerializationProviderConfiguration.class, serviceCreationConfigurations) == null) {
+                d = d.with(serializerConfiguration);
+            }
+            return d;
+        };
+
+        ...
+    }
+...
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/internal/store/heap/OnHeapStore.java
+    ... BaseStore ...
+        start(ServiceProvider ...)
+        getServiceProvider()...
+    ...
+    @ServiceDependencies({TimeSourceService.class, CopyProvider.class, SizeOfEngineProvider.class})
+    public static class Provider extends BaseStoreProvider implements CachingTier.Provider, HigherCachingTier.Provider {
+        ...
+        public <K, V> OnHeapStore<K, V> createStoreInternal(Configuration<K, V> storeConfig, StoreEventDispatcher<K, V> eventDispatcher,
+                                                        ServiceConfiguration<?, ?>... serviceConfigs) {
+            ...
+            SizeOfEngineProvider sizeOfEngineProvider = getServiceProvider().getService(SizeOfEngineProvider.class);
+            ...
+        }
+        ...
+    }

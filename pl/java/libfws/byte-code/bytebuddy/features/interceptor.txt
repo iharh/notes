@@ -1,0 +1,93 @@
+import net.bytebuddy.implementation.FixedValue;
+import net.bytebuddy.implementation.MethodDelegation 
+import net.bytebuddy.implementation.bind.annotation.Origin;
+import net.bytebuddy.implementation.bind.annotation.RuntimeType;
+import net.bytebuddy.implementation.bind.annotation.SuperCall;
+
+
+import java.lang.reflect.Method;
+import java.util.concurrent.Callable;
+
+
+FixedValue.value("Hello Foo Redefined")
+
+
+.intercept(MethodDelegation.to(new GreetingInterceptor()))
+
+public class GeneralInterceptor {
+  @RuntimeType
+  public Object intercept(@AllArguments Object[] allArguments,
+                          @Origin Method method) {
+    // intercept any method of any signature
+  }
+}
+
+public class TimingInterceptor {
+  @RuntimeType
+  public static Object intercept(@Origin Method method, 
+                                 @SuperCall Callable<?> callable) {
+    long start = System.currentTimeMillis();
+    try {
+      return callable.call();
+    } finally {
+      System.out.println(method + " took " + (System.currentTimeMillis() - start));
+    }
+  }
+}
+
+MethodCall
+https://bytebuddy.net/javadoc/1.10.1/net/bytebuddy/implementation/MethodCall.html
+https://www.programcreek.com/java-api-examples/?api=net.bytebuddy.implementation.MethodCall
+https://github.com/raphw/byte-buddy/blob/master/byte-buddy-dep/src/test/java/net/bytebuddy/implementation/MethodCallTest.java
+    MethodCall.infokeSelf().on...()
+
+redefine problem
+https://github.com/raphw/byte-buddy/issues/41
+https://stackoverflow.com/questions/40774684/error-while-redefining-a-method-with-bytebuddy-class-redefinition-failed-atte
+https://github.com/raphw/byte-buddy/issues/143
+https://stackoverflow.com/questions/44935662/chain-transform-method-calls-with-bytebuddy
+https://github.com/raphw/byte-buddy/issues/321
+https://assets.ctfassets.net/oxjq45e8ilak/4EFaeFr4kZTjgJF2d3IvRW/9f8b66c722e62386ceb6316bee23473e/Rafael_Winterhalter_The_definite_guide_to_Java_agents.pdf
+    disableClassFormatChanges()
+https://github.com/raphw/byte-buddy/blob/master/byte-buddy-dep/src/test/java/net/bytebuddy/agent/builder/AgentBuilderDefaultApplicationTest.java
+    !!!
+
+
+... {
+    public static String bar(Integer n, int k) {
+        log.info("bar called");
+        return "do bar n:" + n + ", k=" + k;
+    }
+    public static String baz(Integer n, int k) {
+        return "do baz";
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        log.info("app start");
+
+        Method bar = App.class.getDeclaredMethod("bar", Integer.class, int.class);
+        //Method baz = App.class.getDeclaredMethod("baz");
+
+        ByteBuddyAgent.install();
+        new ByteBuddy()
+            .redefine(Simple.class)
+            .method(named("tell"))
+            //.intercept(MethodDelegation.to(new TimingInterceptor()))
+            //.intercept(FixedValue.value("Hello Foo Redefined"))
+            .intercept(
+                MethodCall.invoke(bar)                 // call bar()...
+                //.andThen(MethodCall.invoke(baz))  // ... .length()?
+                .withAllArguments()
+            )
+            .make()
+            .load(
+                Simple.class.getClassLoader(), 
+                ClassReloadingStrategy.fromInstalledAgent()
+            );
+
+        Simple s = new Simple();
+        String ret = s.tell(1, 2);
+        log.info("app finish: {}", ret);
+    }
+}

@@ -1,0 +1,8 @@
+https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s
+sudo snap install microk8s --classic
+sudo snap refresh microk8s --channel=1.19/candidate --classic
+    https://ubuntu.com//blog/strictly-confined-microk8s
+    https://github.com/canonical/microk8s/blob/master/snap/snapcraft.yaml
+
+win10
+https://javamana.com/2021/05/20210506080313669a.html

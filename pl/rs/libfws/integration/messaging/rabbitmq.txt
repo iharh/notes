@@ -1,0 +1,28 @@
+https://crates.io/crates/amqprs
+https://docs.rs/amqprs
+https://github.com/gftea/amqprs
+https://github.com/gftea/amqprs/tree/main/examples
+https://raw.githubusercontent.com/gftea/amqprs/main/examples/src/basic_pub_sub.rs
+
+https://crates.io/crates/amiquip
+https://docs.rs/amiquip/
+https://github.com/jgallagher/amiquip
+    ! 1yo
+https://github.com/jgallagher/amiquip/tree/main/examples
+
+rmq streams
+https://github.com/rabbitmq/rabbitmq-stream-rust-client
+https://github.com/rabbitmq/rabbitmq-stream-rust-client/blob/main/Cargo.toml
+    rabbitmq-stream-protocol
+
+https://crates.io/crates/crosstown_bus
+https://docs.rs/crosstown_bus
+https://github.com/paoloposso/crosstown_bus
+    ?
+
+2022
+https://medium.com/geekculture/event-driven-programming-with-rust-and-rabbitmq-using-crosstown-bus-c39c50ce6c98
+2020
+https://www.zupzup.org/rmq-in-rust/
+    https://github.com/amqp-rs/lapin
+    !

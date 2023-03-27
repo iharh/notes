@@ -1,0 +1,19 @@
+https://webpack.js.org/guides/development/#using-webpack-dev-server
+
+2017
+Chris - Intro
+https://www.youtube.com/watch?v=s1UdeDaEKo4
+https://www.youtube.com/watch?v=1j8C1V_DPQ4
+
+https://www.youtube.com/watch?v=Y-fAsfobFEI
+
+2015
+https://www.youtube.com/watch?v=e9oA1AVV-jg
+https://survivejs.com/webpack/developing/webpack-dev-server/
+
+package.json
+  "scripts": {
+    "dev-server": "webpack-dev-server"
+  },
+
+$ dev-server --port=9000

@@ -1,0 +1,4 @@
+back up MBR:
+dd if=/dev/sda of=disk.mbr count=1 bs=512
+restore it:
+dd if=disk.mbr of=/dev/sda

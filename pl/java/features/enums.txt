@@ -1,0 +1,37 @@
+https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html
+
+2018
+https://dzone.com/articles/18-points-every-java-developer-should-know-about-e
+2015
+https://javaconceptoftheday.com/18-points-every-java-developer-should-know-about-enums-in-java/
+https://javaconceptoftheday.com/java-practice-coding-questions-on-enum-types/
+2014
+https://javaconceptoftheday.com/java-enums-tutorial-with-examples/
+
+samples
+https://github.com/hdurix/nba-stats/blob/master/src/main/java/fr/hippo/nbastats/domain/TeamName.java
+package fr.hippo.nbastats.domain;
+
+import org.apache.commons.lang3.StringUtils;
+
+public enum TeamName {
+    ...
+    NEW_ORLEANS("New Orleans", "Pelicans", "New Orleans Pelicans"),
+    SAN_ANTONIO("San Antonio", "Spurs", "San Antonio Spurs");
+    ...
+    private final String city;
+    private final String nickname;
+    private final String fullName;
+
+    TeamName(String city, String nickname, String fullName) {
+        this.city = city;
+        this.nickname = nickname;
+        this.fullName = fullName;
+    }
+
+    @Override
+    public String toString() {
+        return StringUtils.center(" " + fullName + " ", 29, "-");
+    }
+}
+

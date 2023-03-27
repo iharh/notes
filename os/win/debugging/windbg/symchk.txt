@@ -1,0 +1,2 @@
+Using Symbol Server: http://support.microsoft.com/kb/311503
+symchk /r c:\windows\system32 /s SRV*D:\dev\MsSymbols\*http://msdl.microsoft.com/download/symbols

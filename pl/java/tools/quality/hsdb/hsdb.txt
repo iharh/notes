@@ -1,0 +1,12 @@
+http://zeroturnaround.com/rebellabs/how-to-inspect-classes-in-your-jvm/
+http://needle.googlecode.com/hg/agent/doc/clhsdb.html
+
+HSDB resides in a sa-jdi.jar that you’ll find under the lib directory of your local HotSpot JDK distribution.
+
+To unleash the power of HSDB onto the Java process of your choosing, you’ll have to run it with privileged access and feed it the PID of the Java process that you want to investigate:
+
+shelajev@shrimp  /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
+$ sudo java -cp lib/sa-jdi.jar sun.jvm.hotspot.HSDB
+
+From the main menu, select File => Attach to HotSpot process … and enter the PID of your Java process.
+By the way, one of the best ways to obtain the PID of a Java process is by using jps, another built-in JDK tool.

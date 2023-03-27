@@ -1,0 +1,26 @@
+https://github.com/typesafehub/scala-logging
+http://eax.me/scala-logging/
+http://stackoverflow.com/questions/978252/logging-in-scala
+http://biercoff.com/adding-simple-logging-to-scala-project/
+https://www.madewithtea.com/cross-version-scala-logging-with-sbt.html
+
+trait Logging {
+    protected lazy val log: Log = Log.forClass(getClass)
+}
+...
+trait LazyLog {
+  lazy val log = LoggerFactory.getLogger(getClass)
+
+  implicit def logging2Logger(anything: LazyLog): Logger = anything.log
+}
+
+class X with LazyLog {
+    log.debug("foo")
+    debug("bar")
+}
+
+https://github.com/typesafehub/scalalogging/blob/master/scalalogging-slf4j/src/main/scala/com/typesafe/scalalogging/slf4j/Logging.scala
+    AbstractLogging
+        Logging // Lazy
+        StrictLogging
+

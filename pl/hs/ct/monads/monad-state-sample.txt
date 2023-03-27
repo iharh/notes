@@ -1,0 +1,301 @@
+http://strabismicgobbledygook.wordpress.com/2010/03/06/a-state-monad-tutorial/
+http://ertes.de/articles/monads.html
+http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html
+
+State Monad:
+
+---------------------------------------------
+
+Return leaves the state unchanged and sets the result:
+
+-- ie: (return 5) 1 -> (5,1)
+return :: a -> State s a
+return x s = (x,s)
+
+Get leaves state unchanged and sets the result to the state:
+
+-- ie:  get 1 -> (1,1)
+get :: State s s
+get s = (s,s)
+
+Put sets the result to () and sets the state:
+
+-- ie: (put 5) 1 -> ((),5)
+put :: s -> State s ()
+put x s = ((),x)
+
+The helpers are simple variations of these primitives:
+
+modify :: (s -> s) -> State s ()
+modify f = do { x <- get; put (f x) }
+ 
+gets :: (s -> a) -> State s a
+gets f = do { x <- get; return (f x) }
+
+EvalState and execState just select one of the two values returned by runState. EvalState returns the final result while execState returns the final state:
+
+evalState :: State s a -> s -> a
+evalState act = fst . runState act
+ 
+execState :: State s a -> s -> s
+execState act = snd . runState act
+
+Combining two states is the trickiest bit in the whole scheme. To combine do { x <- act1; act2 x } we need a function which takes an initial state, runs act1 to get an intermediate result and state, feeds the intermediate result to act2 and then runs that action with the intermediate state to get a final result and a final state:
+
+(>>=) :: State s a -> (a -> State s b) -> State s b
+(act1 >>= fact2) s = runState act2 is 
+    where (iv,is) = runState act1 s
+          act2 = fact2 iv
+
+---------------------------------------------
+
+newtype State s a = State {runState :: s -> (a, s)}
+
+runStateWithoutRecordSyntax :: StateTypeWithoutRecordSyntax -> (s -> (a, s))
+runStateWithoutRecordSyntax :: StateTypeWithoutRecordSyntax -> s -> (a, s) — these two type signatures are the same
+runStateWithoutRecordSyntax (State function) = function
+
+Here we define a type for a simple counter:
+data Counter = Counter {value :: Integer, numberOfIncrements :: Int} deriving (Show)
+
+> let ourCounter = Counter {value = 42, numberOfIncrements = 3}
+
+> ourCounter{value = 24}
+Counter {value = 24, numberOfIncrements = 3}
+
+incrementCounter :: Counter -> (Integer, Counter)
+incrementCounter (Counter { value = oldValue
+                          , numberOfIncrements = oldNumOfIncrements
+                          }) =
+                     ( oldValue
+                     , Counter { value = oldValue + 1
+                               , numberOfIncrements = oldNumOfIncrements + 1
+                               }
+                     )  -- increment a counter, and return the value of the old counter along with another (the new) counter.
+
+Our state type is Counter, and our last result type is Int. I don’t consider that function to be a State function since we
+haven’t wrapped it in the State constructor yet. Let’s do so:
+
+incrementCounterState :: StateType Counter Integer  -- in real Haskell code, we would write "incrementCounter :: State Integer Integer"
+incrementCounterState = State incrementCounter
+    where incrementCounter :: Counter -> (Integer, Counter)
+          incrementCounter (Counter { value = oldValue,
+                                    , numberOfIncrements = oldNumOfIncrements}
+                                    }) =
+                               (oldValue, Counter { value = succ oldValue
+                                                  , numberOfIncrements = succ oldNumOfIncrements
+                                                  })  -- increment a counter, and return the value of the old counter along with another (the new) counter.
+
+The only difference between incrementCounterState and incrementCounter is that incrementCounterState is wrapped
+in the State constructor, and in order to get our State function, we just call runState on incrementCounterState.
+
+> :t incrementCounterState
+StateType Integer Int
+> :t runState incrementCounterState
+Counter -> (Int, Counter)
+
+As you have noticed, runState just unwraps the function.
+
+At this point, I’ve stopped calling the State type constructor StateType.
+
+Let us try to increment ourCounter using our new wrapped state computation, incrementCounterState:
+
+> runState incrementCounterState $ ourCounter
+(42,Counter {value = 43, numberOfIncrements = 4})
+
+This can also be written without the ‘$’:
+> runState incrementCounterState ourCounter
+(42,Counter {value = 43, numberOfIncrements = 4})
+
+
+instance Monad (State s) where
+    return a = State $ \s -> (a, s)
+    m >>= k =
+      State $ \s -> let (a, s') = runState m s
+                    in  runState (k a) s'
+
+
+
+incrementCounterTwice :: State Counter Int
+-- we remember that incrementCounterState has the same type as incrementCounterTwice
+incrementCounterTwice = incrementCounterState >>=
+                        (\theValueOfTheOriginalCounter -> incrementCounterState)
+
+incrementCounterTwice' counter = State $(runState (incrementCounterState >>=
+                                                    (\theValueOfTheOriginalCounter ->
+                                                         incrementCounterState)) $
+                                                       counter)
+-- incrementCounterTwice' is another way of writing incrementCounterTwice
+
+
+incrementCounterThrice :: State Counter Int
+incrementCounterThrice = incrementCounterTwice >>= (\_ -> incrementCounter)
+
+That is why it is possible to chain combinations:
+
+incrementCounterALotOfTimes :: State Counter Int
+incrementCounterALotOfTimes = incrementCounterTwice >>=
+                              (\_ -> incrementCounterTwice >>=
+                              (\_ -> incrementCounterTwice))
+
+incrementCounterALotOfTimes'  :: State Counter Int
+incrementCounterALotOfTimes'  = incrementCounterTwice >> incrementCounterTwice
+incrementCounterEvenMoreTimes = incrementCounterTwice >>
+                                incrementCounterTwice >>
+                                incrementCounterTwice
+
+
+How about a function that increments a counter twice...
+
+
+get :: State s s
+get = State $ \s -> (s, s)
+
+This function (get) allows us to pass state to the next function (while doing >>=)
+
+
+
+incrementHalveAndIncrementCounter
+
+Consider writing a State computation that can increment a counter, halve its value, increment the counter,
+and return the value of the counter after the first increment (along with the final state).
+We can do this without any helper functions:
+
+ncrementHalveAndIncrementCounter :: State Counter Integer
+incrementHalveAndIncrementCounter =
+    (      State $ \counter -> (_, counter{ value = succ $
+                                                   value counter
+                                             , numberOfIncrements = succ $
+                                                   numberOfIncrements counter
+                                             })) >>=
+    \_ -> (State $ \s -> (s, s)) >>=
+    \thatOneState -> (State $
+                          \counter -> (_, counter{ value = value counter `div` 2
+                                                 , numberOfIncrements = succ $
+                                                       numberOfIncrements counter
+                                                 })) >>=  -- we cheat a bit here by
+                                                          -- incrementing the number of
+                                                          -- the increments of the
+                                                          -- counter ever though we are
+                                                          -- really halving its value.
+    \_ -> (State $
+               \counter -> (value thatOneState, counter{ value = succ $
+                                                              value counter
+                                                        , numberOfIncrements = succ $
+                                                              numberOfIncrements counter
+                                                        }))
+
+
+can be simplified to
+
+incrementHalveAndIncrementCounter :: State Counter Integer
+incrementHalveAndIncrementCounter =
+  incrementCounter >>=
+  \_ -> (State $ \s -> (s, s)) >>=
+  \thatOneState -> (State $ \counter -> (_, counter{value = value counter `div` 2, numberOfIncrements = succ $ numberOfIncrements counter})) >>=
+  \_ -> incrementState >>=
+  \_ -> return $ value thatOneState  -- remember that return doesn't affect the state; it creates a State computation that returns the specified value along with the unchanged state
+
+
+incrementHalveAndIncrementCounter :: State Counter Integer
+incrementHalveAndIncrementCounter =
+  incrementCounter >>
+  (State $ \s -> (s, s)) >>=
+  \thatOneState -> (State $ \counter -> (_, counter{value = value counter `div` 2, numberOfIncrements = succ $ numberOfIncrements counter})) >>
+  incrementState >>
+  return $ value thatOneState  -- remember that return doesn't affect the state; it creates a State computation that returns the specified value along with the unchanged state
+
+
+incrementHalveAndIncrementCounter :: State Counter Integer
+incrementHalveAndIncrementCounter =
+  incrementCounter >>
+  get >>=
+  \thatOneState -> (State $ \counter -> (_, counter{value = value counter `div` 2, numberOfIncrements = succ $ numberOfIncrements counter})) >>
+  incrementState >>
+  return $ value thatOneState  -- remember that return doesn't affect the state; it creates a State computation that returns the specified value along with the unchanged state
+
+
+On top of get, we have even another very useful function, gets:
+
+gets :: (s -> a) -> State s a
+gets f = State $ \s -> (f s, s)
+
+
+incrementHalveAndIncrementCounter :: State Counter Integer
+incrementHalveAndIncrementCounter =
+  incrementCounter >>
+  gets value >>=
+  \thatOneValue -> (State $ \counter -> (_, counter{value = value counter `div` 2, numberOfIncrements = succ $ numberOfIncrements counter})) >>
+  incrementState >>
+  return thatOneValue  -- remember that return doesn't affect the state; it creates a State computation that returns the specified value along with the unchanged state
+
+
+We should also look at modify:
+
+modify takes a function and returns a State computation that takes an initial state, and returns a tuple of
+nothing/void/unit/() and the state applied to the function. Modify modifies the state.
+Since nothing really meaningful can come out of this, the returned value of this computation is unit ("()")
+
+modify :: (s -> s) -> State s ()
+modify f = State $ \s -> ((), f s)
+
+
+incrementHalveAndIncrementCounter :: State Counter Integer
+incrementHalveAndIncrementCounter =
+    incrementCounter >>
+    gets value >>=
+    \thatOneValue -> (modify $
+                             \counter -> counter{ value =
+                                                         value counter `div` 2
+                                                   , numberOfIncrements = succ $
+                                                         numberOfIncrements counter
+                                                   }) >>
+    incrementState >>
+    return thatOneValue  -- remember that return doesn't affect the state; it creates a State computation that returns the specified value along with the unchanged state
+
+
+put is a function that takes a state and returns a State computation, that takes an initial state,
+ignores it, and sets a new state that will continue in the chain or thread of State computations.
+Since no return value would really make sense, it doesn’t have one.
+
+put :: s -> State s ()
+put new_s = State $ \_ -> ((), new_s)
+
+It seems that there are common patterns with Monads. This is indeed the case, and Haskell acknowledges this by supplying
+the programmer with the convenience known as do notation.
+
+do blocks are simply "syntactic sugar", meaning that they are directly translated into monads
+using (>>=) and (>>). The translation is simple:
+
+do foo
+   bar
+
+translates to
+
+foo >>
+bar
+
+What about (>>=)?
+
+Well,
+
+do returnedValue <- foo
+   bar
+
+translates to
+
+foo >>=
+\returnedValue -> bar
+
+Let’s try simplifying our State computation, incrementHalveAndIncrementCounter, using do notation:
+
+
+incrementHalveAndIncrementCounter :: State Counter Integer
+incrementHalveAndIncrementCounter = do
+    incrementCounter
+    thatOneValue <- gets value
+    counter{ value = value counter `div` 2
+           , numberOfIncrements = succ $ numberOfIncrements counter
+           }
+    incrementState -- !!! The same as incrementCounterState
+    return thatOneValue

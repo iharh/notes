@@ -1,0 +1,17 @@
+https://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#Java
+
+articles
+2017
+http://psy-lob-saw.blogspot.com/2017/02/flamegraphs-intro-fire-for-everyone.html
+
+presentations
+2017
+https://www.infoq.com/presentations/flamegraphs
+    http://psy-lob-saw.blogspot.com/2016/02/why-most-sampling-java-profilers-are.html
+    jfr and  -XX:+DebugNonSafepoints 
+    brendan worked on prototype of -XX:+PerserveFramePointer
+    https://web.archive.org/web/20110702162929/https://zedshaw.com/essays/programmer_stats.html
+        https://news.ycombinator.com/item?id=1041744
+2016
+Gregg - Java Performance Analysis on Linux with Flame Graphs
+    https://www.slideshare.net/brendangregg/java-performance-analysis-on-linux-with-flame-graphs

@@ -1,0 +1,21 @@
+https://www.opswat.com/company/about
+
+sudo systemctl stop opswatclient
+sudo systemctl disable opswatclient
+
+Architecturally,
+    OPSWAT          is OESIS agent with big amount of chekers
+    Globalprotect   is VPN via PaloAlto, primitive chekers
+    SentinelOne     is corp antivirus, cos7-only (for clouds only)
+
+https://software.opswat.com/OESIS_V4/Linux/docs/support_charts/support_charts.html
+
+At this point there is an workaround -
+create Linux virtual machine with no access to the host and all VM extensions disabled
+and use it to install this client and access COMPANY resources. 
+
+opswat-client -r or opswat-client -i (-r and -i only, not --rem and --info)
+    You can also check the /var/log/opswatclient/ folder
+
+files
+    /var/log/opswatclient/*

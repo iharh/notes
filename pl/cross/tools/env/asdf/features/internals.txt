@@ -1,0 +1,25 @@
+asdf_dir=~/.asdf
+$(asdf_dir)/installs/
+    golang/1.18.4/packages/bin
+
+$(asdf_dir)/bin/asdf
+
+find_asdf_cmd() {
+  local asdf_cmd_dir
+  asdf_cmd_dir="$(asdf_dir)/lib/commands"
+  case "$1" in
+  'exec' | 'current' | 'env' | 'global' | 'install' | 'latest' | 'local' | \
+    'reshim' | 'uninstall' | 'update' | 'where' | 'which' | \
+    'export-shell-version')
+    printf "%s %s\\n" "$asdf_cmd_dir/command-$1.bash" 2
+    ;;
+
+  '' | '--help' | '-h' | 'help')
+    printf "%s %s\\n" "$asdf_cmd_dir/command-help.bash" 2
+    ;;
+  ...
+}
+
+asdf_cmd_dir="$(asdf_dir)/lib/commands"
+
+command-exec.bash

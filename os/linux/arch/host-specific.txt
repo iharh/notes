@@ -1,0 +1,32 @@
+echo 'archlinux-host-name' > etc/hostname
+
+ln -s /user/share/zoneinfo/Europe/Moscow /etc/localtime
+  create a sym-link to existing time-zone
+
+locales:
+
+edit /etc/locale.gen
+
+uncomment
+en_US.UTF-8 UTF-8
+en_US ISO-8859-1
+
+en_GB
+
+ru_RU.KOI8-R KOI8-R
+ru_RU.UTF-8 UTF-8
+ru_RU ISO-8859-5
+
+
+edit /etc/locale.conf
+
+LANG="en_US.UTF-8"
+
+edit /etc/vconsole.conf
+
+KEYMAP=us
+
+run
+$ locale-gen
+
+

@@ -1,0 +1,52 @@
+
+src
+? DatabaseOptions
+
+https://github.com/huntlabs/database/blob/master/source/database/database.d
+https://github.com/huntlabs/database/blob/master/source/database/defined.d
+https://github.com/huntlabs/database/blob/master/source/database/row.d
+
+https://github.com/huntlabs/database/blob/master/source/database/driver/factory.d
+https://github.com/huntlabs/database/blob/master/source/database/driver/builder.d
+https://github.com/huntlabs/database/blob/master/source/database/driver/syntax.d
+https://github.com/huntlabs/database/blob/master/source/database/driver/resultset.d
+
+https://github.com/huntlabs/database/tree/master/source/database/driver/postgresql
+https://github.com/huntlabs/database/blob/master/source/database/driver/postgresql/binding.d
+https://github.com/huntlabs/database/blob/master/source/database/driver/postgresql/builder.d
+https://github.com/huntlabs/database/blob/master/source/database/driver/postgresql/syntax.d
+https://github.com/huntlabs/database/blob/master/source/database/driver/postgresql/resultset.d
+
+samples
+
+auto connectStr = format("postgresql://%s:%s@localhost:5432/postgres?charset=utf-8", usr, pwd);
+Database db = new Database(connectStr);
+
+auto sqlQuery = db.createSqlBuilder()
+    .select("id")
+    .from(sysTbl("cb_project"))
+    .eq("name", qS(prjName))
+    .build()
+    .toString();
+
+Statement stmt = db.prepare(sqlQuery);
+stmt.setParameter(":paramname", "value");
+
+ResultSet rs = db.query(sqlQuery);
+Row row = rs.front();
+foreach(row; rs) { writeln(row); }
+
+Row row = statement.fetch();
+
+
+string sqlIns = 
+    db.createSqlBuilder()
+    .insert(sysTbl("cb_properties"))
+    .values([
+        "prop_name" : qS(flagName),
+        "prop_value": qS("true"),
+        "id_project": qS(prjId.to!string)])
+    .build()
+    .toString();
+
+int numInserted = db.execute(sqlIns);

@@ -1,0 +1,2 @@
+perf
+   record --call-graph dwarf -F 9123 -p <app_pid>

@@ -1,0 +1,21 @@
+2020
+DanVega - Spring Boot Testing Basics: How to Unit Test & Integration Test REST Controllers of 15:03
+    https://www.youtube.com/watch?v=pNiRNRgi5Ws
+KrisFoster - Spring Boot Testing a REST Controller with Unit, Integration & Acceptance Tests 0:00 of 25:46
+    https://www.youtube.com/watch?v=aEW8ZH6wj2o
+    ! ??? @MockBean
+https://www.infoq.com/presentations/spring-boot-testing/
+Long — Bootiful testing
+    https://www.youtube.com/watch?v=a2XPa2QTXTU
+2019
+Wilkinson - Testing Spring Boot Applications
+    https://www.youtube.com/watch?v=Wpz6b8ZEgcU
+2018
+Spring Boot - Testing basics of 16:04
+    https://www.youtube.com/watch?v=Ekr4jxOIf4c
+    ! @RunWith(SpringRunner.class)
+    ! @ContextConfiguration(classes = {OneService.class, OtherService.class})
+Borisov Tolkachev - Curse of the Spring Boot Test
+    https://www.youtube.com/watch?v=7mZqJShu_3c
+Bootiful Testing
+    https://www.youtube.com/watch?v=1W5_tOiwEAc

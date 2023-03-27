@@ -1,0 +1,74 @@
+https://reactjs.org/docs/react-component.html#lifecycle-methods
+
+2019
+https://css-tricks.com/the-circle-of-a-react-lifecycle/
+https://blog.logrocket.com/the-new-react-lifecycle-methods-in-plain-approachable-language-61a2105859f3
+
+2018
+https://twitter.com/dan_abramov/status/981712092611989509
+https://imgur.com/bmfcRQm
+Chinnathambi - Learning React 2nd ed - ch 11
+
+2017
+https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1
+
+2016
+https://maxfarseer.gitbooks.io/react-course-ru/content/zhiznennii_tsikl_komponenta.html
+
+componentDidMount: function() {
+    ReactDOM.findDOMNode(this.refs.myTestInput).focus();
+}
+componentWillReceiveProps: function(nextProps) {
+    // this.props - old props
+    // nextProps  - new props
+    this.setState({ likesIncreasing: nextProps.likeCount > this.props.likeCount }); // this will not trigger render
+}
+render: function() {
+    return (
+      <div>
+        <input
+          className='test-input'
+          defaultValue=''
+          placeholder='введите значение'
+          ref='myTestInput'
+        />
+        <button onClick={this.onBtnClickHandler} ref='alert_button'>Show the alert</button>
+      </div>
+    )
+}
+
+error
+componentDidCatch
+http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/4/7
+
+unsubscribe
+http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/3/6
+componentWillUnmount() {
+    mydatastore.unsubscribe(this);
+}
+
+stages
+* mounting
+** componentWillMount()
+** componentDidMount()
+    called after render() call (initial rendering of the component - DOM tree created)
+
+* updating
+** componentWillReceiveProps(nextProps)
+** shouldComponentUpdate(nextProps, nextState)
+    returns true by default. if case of false, the next 3 method calls will be skiped
+** componentWillUpdate(nextProps, nextState)
+    you can not use this.setState(...) here, use componentWillReceiveProps(...) instead
+** render()
+** componentDidUpdate(prevProps, prevState)
+
+* unmounting
+** componentWillUnmount
+    called just before unmounting
+
+Notes
+* forceUpdate() method forced the updating-stage, but without shouldComponentUpdate(...) call on a component, which triggered update
+
+visualizer
+https://github.com/Oblosys/react-lifecycle-visualizer
+https://stackblitz.com/github/Oblosys/react-lifecycle-visualizer/tree/master/examples/parent-child-demo?file=src/samples/New.js

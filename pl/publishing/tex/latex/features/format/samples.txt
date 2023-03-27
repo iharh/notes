@@ -1,0 +1,13 @@
+% https://www.overleaf.com/learn/latex/Multiple_columns
+% https://github.com/NikitaDmitryuk/ThesisMagistr/blob/main/presentation.tex
+% \begin{columns}
+%   \begin{column}{0.50\textwidth}
+%     \begin{center}
+%       \tiny Научный руководитель:\\
+%       \vspace{0.1cm}
+%       \tiny \textbf{Юрченко Станислав Олегович} \\
+%       \tiny д.ф.-м.н., профессор кафедры физики\\
+%       \tiny МГТУ им. Н.Э. Баумана \\
+%     \end{center}
+%   \end{column}
+% \end{columns}

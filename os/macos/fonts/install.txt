@@ -1,0 +1,6 @@
+brew tap corgibytes/cask-fonts
+brew search --cask hack
+brew install homebrew/cask-fonts/font-hack
+
+2020
+https://corgibytes.com/blog/2020/01/29/install-fonts-on-your-mac-from-the-command-line-with-homebrew/

@@ -1,0 +1,34 @@
+https://appimage.org/
+https://github.com/AppImage/AppImageKit
+
+https://www.opendesktop.org/p/1228228
+    https://github.com/TheAssassin/AppImageLauncher
+    https://assassinate-you.net/tags/appimagelauncher/
+
+docs
+https://docs.appimage.org/
+
+reference
+https://docs.appimage.org/reference/
+https://docs.appimage.org/reference/index.html
+
+user guide
+https://docs.appimage.org/user-guide/index.html
+https://docs.appimage.org/user-guide/run-appimages.html
+https://docs.appimage.org/user-guide/portable-mode.html
+packaging guide
+https://docs.appimage.org/packaging-guide/index.html
+
+spec
+https://github.com/AppImage/AppImageSpec
+appdir
+https://docs.appimage.org/reference/appdir.html#appdir-description
+
+daemon
+https://github.com/AppImage/appimaged
+
+--appimage-help
+--appimage-extract
+    https://github.com/AppImage/AppImageKit/wiki/Extracting-AppImages
+--appimage-mount
+

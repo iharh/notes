@@ -1,0 +1,22 @@
+http://www.graalvm.org
+http://www.graalvm.org/downloads/
+https://www.oracle.com/downloads/graalvm-downloads.html
+
+https://github.com/oracle/graal/releases
+
+http://openjdk.java.net/projects/graal/
+
+http://www.oracle.com/technetwork/oracle-labs/program-languages/overview/index.html
+http://www.oracle.com/technetwork/oracle-labs/program-languages/downloads/index.html
+http://www.oracle.com/technetwork/oracle-labs/program-languages/learnmore/index.html
+
+
+!!! (?max-only)
+    otool -L <produced-exe>
+
+node --polyglot --jvm <some-stuff.js>
+    Java.type
+    Interop.eval('R', `...`);
+
+dynamic-runtime-for-llvm
+https://github.com/graalvm/sulong/

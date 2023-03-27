@@ -1,0 +1,23 @@
+commit 9a70dbb51ab9a5140691c6822ee7002ddd366337
+Author: Zachary Tong <zacharyjtong@gmail.com>
+Date:   Thu Dec 17 12:05:43 2015 -0500
+
+    Add ability to profile query and collectors
+    
+    Provides a new flag which can be enabled on a per-request basis.
+    When `"profile": true` is set, the search request will execute in a
+    mode that collects detailed timing information for query components.
+    
+    ```
+    GET /test/test/_search
+    {
+       "profile": true,
+       "query": {
+          "match": {
+             "foo": "bar"
+          }
+       }
+    }
+    ```
+    
+    Closes #14889

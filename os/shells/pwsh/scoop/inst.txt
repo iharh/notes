@@ -1,0 +1,25 @@
+https://github.com/lukesampson/scoop/wiki/Quick-Start
+https://github.com/lukesampson/scoop/wiki/Quick-Start#installing-scoop-to-custom-directory
+
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies
+set-executionpolicy remotesigned -scope currentuser
+
+[environment]::setEnvironmentVariable('SCOOP','d:\dev\utils\scoop','User')
+$env:SCOOP='d:\dev\utils\scoop'
+iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+
+scoop install git
+    -> transitively add 7zip
+
+Notes
+-----
+To get Git to recognise OpenSSH, you will need to run
+
+scoop install openssh
+[environment]::setenvironmentvariable('GIT_SSH', (resolve-path (scoop which ssh)), 'USER')
+
+scoop bucket add extras
+scoop bucket add java
+
+global install
+https://github.com/lukesampson/scoop/wiki/Global-Installs

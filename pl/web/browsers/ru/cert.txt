@@ -1,0 +1,15 @@
+2022
+https://telegra.ph/Ustanovka-kornevyh-sertifikatov-v-Linux-09-28
+    wget https://gu-st.ru/content/Other/doc/russian_trusted_root_ca.cer
+    wget https://gu-st.ru/content/Other/doc/russian_trusted_sub_ca.cer
+
+    # cer -> crt
+    openssl x509 -inform DER -in russian_trusted_root_ca.cer -out russian_trusted_root_ca.crt
+    openssl x509 -inform DER -in russian_trusted_sub_ca.cer -out russian_trusted_sub_ca.crt
+
+    sudo mkdir /usr/local/share/ca-certificates/extra
+
+    sudo cp russian_trusted_root_ca.crt /usr/local/share/ca-certificates/extra/russian_trusted_root_ca.crt
+    sudo cp russian_trusted_sub_ca.crt /usr/local/share/ca-certificates/extra/russian_trusted_sub_ca.crt
+
+    sudo update-ca-certificates

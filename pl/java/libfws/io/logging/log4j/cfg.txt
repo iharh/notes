@@ -1,0 +1,22 @@
+https://github.com/apache/logging-log4j2
+
+https://logging.apache.org/log4j/2.x/manual/index.html
+https://logging.apache.org/log4j/2.x/manual/configuration.html
+https://logging.apache.org/log4j/2.x/manual/configuration.html#Properties
+https://logging.apache.org/log4j/2.x/manual/configuration.html#SystemProperties
+    log4j.configurationFile
+    // log4j2.configurationFile
+
+config:
+-Dlog4j.debug=true
+-Dlog4j2.debug=true
+
+-Dlog4j.configuration=jfx.properties
+
+LOG4J_CONFIGURATION_FILE
+    -Dlog4j2.configurationFile=...
+        https://howtodoinjava.com/log4j2/log4j2-xml-configuration-example/
+        -Dlog4j2.configurationFile=file:/home/lokesh/log4j2.xml
+    -Dlog4j.configurationFile=...
+
+https://wiki.apache.org/logging-log4j/Log4jXmlFormat

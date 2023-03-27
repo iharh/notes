@@ -1,0 +1,32 @@
+2022
+https://habr.com/ru/company/first/blog/668520/
+2021
+https://www.linuxshelltips.com/sync-two-web-servers-automatically-rsync/
+????
+http://www.unixmen.com/synchronize-files-directories-across-systems-using-rsync/
+
+rsync
+  -a, --archive
+    archive mode (preserve user, group, mod-time, links, other kind of such stuff...)
+  --append
+    is dangerous and will result in a corrupt file if the data does not match for some reason.
+  -l, --links
+    copy symlinks as symlinks
+  -P
+    same as --partial --progress
+  -z, --compress
+    compress file data during the transfer
+  --compress-level=NUM    explicitly set compression level
+  --skip-compress=LIST    skip compressing files with a suffix in LIST
+  -v, --verbose               increase verbosity
+  --info=FLAGS            fine-grained informational verbosity
+  --debug=FLAGS           fine-grained debug verbosity
+    FLAGS=help            for the list of flags
+  --msgs2stderr           special output handling for debugging
+
+Samples:
+rsync -aPvz -e ssh /directory/with/files/ you@host.com:/new/directory/
+
+SO:
+http://unix.stackexchange.com/questions/2445/resume-transfer-of-a-single-file-by-rsync
+http://superuser.com/questions/579001/rsync-does-it-create-a-temp-file-during-transfer

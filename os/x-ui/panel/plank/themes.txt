@@ -1,0 +1,45 @@
+plank-themer
+http://rhoconlinux.github.io/plank-themer/
+
+elementary-tweaks
+https://www.unixmen.com/customizing-plank-elementary-os-luna/
+
+elementary-plank-themes
+
+themes
+/usr/share/plank-themes/
+
+https://aur.archlinux.org/packages/?O=0&SeB=nd&K=plank-theme&outdated=&SB=n&SO=a&PP=50&do_Search=Go
+https://www.pling.com/browse?cat=273
+
+https://github.com/erikdubois/plankthemes
+https://www.linuxnov.com/top-10-plank-dock-themes/
+https://www.deviantart.com/customization/skins/linuxutil/applications/docks/whats-hot/?qh=&section=&q=plank&offset=0
+TransPanel
+    https://github.com/rhoconlinux/plank-themer/tree/master/themes-proposed/Elementary_Update/TransPanel
+    https://github.com/arcolinux/arcolinux-plank-themes/tree/master/themes/TransPanel
+mac
+    https://www.gnome-look.org/p/1201564/
+    https://www.gnome-look.org/p/1215851/
+    https://www.gnome-look.org/p/1208015/
+    https://www.gnome-look.org/p/1264834/
+mojave
+    https://www.gnome-look.org/p/1248226/
+        https://aur.archlinux.org/packages/la-capitaine-icon-theme/
+        https://www.addictivetips.com/ubuntu-linux-tips/install-mac-like-la-capitaine-icon-theme-linux/
+frost
+    https://www.gnome-look.org/p/1111286/
+    https://github.com/dikiaap/frost-plank-theme
+    https://snwh.org/moka 
+        community/moka-icon-theme
+foggy
+    https://www.gnome-look.org/p/1201603/
+        cupertino icon theme
+            ? aur/faenza-cupertino-icon-theme
+            ? community/mediterraneannight-theme
+                xfwm4/unity/gtk2
+        https://www.gnome-look.org/p/1102582
+wingy2r
+    https://www.gnome-look.org/p/1192956/
+docky
+    https://www.gnome-look.org/p/1161721/

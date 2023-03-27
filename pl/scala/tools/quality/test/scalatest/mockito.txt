@@ -1,0 +1,16 @@
+import org.scalatest.mockito.MockitoSugar
+
+// First, create the mock object
+val mockCollaborator = mock[Collaborator]
+
+// Create the class under test and pass the mock to it
+classUnderTest = new ClassUnderTest
+classUnderTest.addListener(mock)
+
+// Use the class under test
+classUnderTest.addDocument("Document", new Array[Byte](0))
+classUnderTest.addDocument("Document", new Array[Byte](0))
+
+// Then verify the class under test used the mock object as expected
+verify(mockCollaborator).documentAdded("Document")
+verify(mockCollaborator, times(2)).documentChanged("Document")

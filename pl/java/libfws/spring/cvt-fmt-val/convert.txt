@@ -1,0 +1,85 @@
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#core-convert
+
+core.convert.support.*
+
+package org.springframework.core.convert.converter;
+
+public interface Converter<S, T> {
+    T convert(S source);
+}
+
+public interface ConverterFactory<S, R> {
+    <T extends R> Converter<S, T> getConverter(Class<T> targetType);
+}
+
+public interface GenericConverter {
+    public Set<ConvertiblePair> getConvertibleTypes();
+    Object convert(Object source, TypeDescriptor sourceType, TypeDescriptor targetType);
+}
+
+public interface ConditionalConverter {
+    boolean matches(TypeDescriptor sourceType, TypeDescriptor targetType);
+}
+
+public interface ConditionalGenericConverter extends GenericConverter, ConditionalConverter {
+}
+
+
+sample
+final class StringToEnumConverterFactory implements ConverterFactory<String, Enum> {
+    public <T extends Enum> Converter<String, T> getConverter(Class<T> targetType) {
+        return new StringToEnumConverter(targetType);
+    }
+    private final class StringToEnumConverter<T extends Enum> implements Converter<String, T> {
+        private Class<T> enumType;
+        public StringToEnumConverter(Class<T> enumType) {
+            this.enumType = enumType;
+        }
+        public T convert(String source) {
+            return (T) Enum.valueOf(this.enumType, source.trim());
+        }
+    }
+}
+
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#core-convert-ConversionService-API
+
+
+The ConversionService defines a unified API for executing type conversion logic at runtime. Converters are often executed behind this facade interface:
+
+package org.springframework.core.convert;
+
+public interface ConversionService {
+
+    boolean canConvert(Class<?> sourceType, Class<?> targetType);
+
+    <T> T convert(Object source, Class<T> targetType);
+
+    boolean canConvert(TypeDescriptor sourceType, TypeDescriptor targetType);
+
+    Object convert(Object source, TypeDescriptor sourceType, TypeDescriptor targetType);
+
+}
+
+Most ConversionService implementations also implement ConverterRegistry, which provides an SPI for registering converters.
+Internally, a ConversionService implementation delegates to its registered converters to carry out type conversion logic.
+
+A robust ConversionService implementation is provided in the core.convert.support package.
+GenericConversionService is the general-purpose implementation suitable for use in most environments.
+ConversionServiceFactory provides a convenient factory for creating common ConversionService configurations.
+
+
+
+A default ConversionService can convert between strings, numbers, enums, collections, maps, and other common types.
+To supplement or override the default converters with your own custom converter(s), set the converters property.
+Property values may implement either of the Converter, ConverterFactory, or GenericConverter interfaces.
+
+<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <property name="converters">
+        <set>
+            <bean class="example.MyCustomConverter"/>
+        </set>
+    </property>
+</bean>
+
+2022
+https://habr.com/ru/post/703402/

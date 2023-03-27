@@ -1,0 +1,17 @@
+https://forum.manjaro.org/index.php?topic=10354.15
+
+This will fix it:
+/etc/default/grub
+
+# If you want to enable the save default function, uncomment the following
+# line, and set GRUB_DEFAULT to saved.
+#GRUB_SAVEDEFAULT=true
+
+Comment out GRUB_SAVEDEFAULT=true like shown above.
+
+
+
+!!!
+And remember to do a
+
+sudo update-grub

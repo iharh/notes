@@ -1,0 +1,16 @@
+nickel
+    --repl
+        :h[elp], ?
+            <subcommand>
+        :e[xit]
+        :load
+        :typecheck
+        :q[uery]
+            Print the metadata attached to an attribute
+            ... to retrieve information and documentation about a field
+        builtin.serialize `Json (import "merge-main.ncl")
+          ... ({aaa="bbb"})
+    -f <file>.ncl export
+    <<< 'let x = 2 in x + x'
+
+    -f <file>.ncl query <q>

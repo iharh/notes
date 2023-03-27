@@ -1,0 +1,3 @@
+https://www.postgresqltutorial.com/postgresql-jdbc/connecting-to-postgresql-database/
+    jdbc:postgresql://<db-host>:<db-port>/<db-name>
+    jdbc:postgresql://<db-host>/<db-name>

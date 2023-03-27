@@ -1,0 +1,9 @@
+https://github.com/yiisoft/yii2/issues/15873
+select oprname, oprcode from pg_operator where oprname in ('?', '?|', '?&') and oprrest = 'contsel'::regproc;
+
+ oprname |     oprcode      
+---------+------------------
+ ?       | jsonb_exists
+ ?|      | jsonb_exists_any
+ ?&      | jsonb_exists_all
+(3 rows)

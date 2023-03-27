@@ -1,0 +1,31 @@
+Variables
+
+$v, ${v}
+	use a variable v.
+$?
+	exit-status.
+$0
+	programs filename.
+$1
+	first argument.
+
+STTY=...
+	set extra stty option.
+COLUMNS, LINES
+	columns/lines.
+BAUD
+	connection speed.
+ARGV0
+	set this to overwrite the name of newly created process.
+	Note: set this to rzsh to enter the restricted zsh shell.
+
+
+4. Devices:
+
+/dev/clipboard
+	System clipboard (echo aaa > /dev/clipboard).
+/dev/stty
+	Terminal.
+
+
+

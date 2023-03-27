@@ -1,0 +1,12 @@
+# To avoid error: sudo: sorry, you must have a tty to run sudo
+sed -i -e "s/Defaults    requiretty.*/Defaults    !requiretty/g" /etc/sudoers
+echo "$USER_NAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+2022
+https://opensource.com/article/22/6/linux-su-vs-sudo-sysadmin
+https://www.redhat.com/sysadmin/linux-superuser-access
+https://www.maketecheasier.com/edit-sudoers-file-linux/
+https://opensource.com/article/22/2/new-sudo-features-2022
+LearnLinuxTV - Linux Essentials - sudo of 26:10
+    https://www.youtube.com/watch?v=07JOqKOBRnU
+https://te.legra.ph/Komandy-su-i-sudo-v-Linux-V-chem-raznica-01-16

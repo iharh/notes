@@ -1,0 +1,5 @@
+org.apache.http.impl.client.DefaultHttpRequestRetryHandler
+
+HttpClients.custom()
+    .setRetryHandler(new DefaultHttpRequestRetryHandler(8, false))
+    .build();

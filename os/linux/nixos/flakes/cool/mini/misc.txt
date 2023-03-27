@@ -1,0 +1,12 @@
+https://www.vultr.com/docs/how-to-install-nixos-on-a-vultr-vps/
+https://dzone.com/articles/nixos-native-flake-deployment-with-luks-and-lvm
+https://mudrii.medium.com/nixos-native-flake-deployment-with-luks-drive-encryption-and-lvm-b7f3738b71ca
+
+https://www.return12.net/posts/bootstrapping-nixos/
+https://gvolpe.com/blog/nix-flakes/
+https://ipetkov.dev/blog/tips-and-tricks-for-nix-flakes/
+
+https://blog.sekun.net/posts/packaging-prebuilt-binaries-with-nix/
+
+https://github.com/teu5us/nixos
+    ! no real modules

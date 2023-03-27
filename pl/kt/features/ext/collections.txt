@@ -1,0 +1,26 @@
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html
+
+https://stackoverflow.com/questions/34642254/what-java-8-stream-collect-equivalents-are-available-in-the-standard-kotlin-libr
+
+There are some cases where it is hard to avoid calling collect(Collectors.toList()) or similar.
+In those cases, you can more quickly change to a Kotlin equivalent using extension functions such as:
+
+fun <T: Any> Stream<T>.toList(): List<T> = this.collect(Collectors.toList<T>())
+fun <T: Any> Stream<T>.asSequence(): Sequence<T> = this.iterator().asSequence()
+
+Then you can simply stream.toList() or stream.asSequence() to move back into the Kotlin API.
+A case such as Files.list(path) forces you into a Stream when you may not want it,
+and these extensions can help you to shift back into the standard collections and Kotlin API.
+
+sequence
+https://winterbe.com/posts/2018/07/23/kotlin-sequence-tutorial/
+
+cheatsheet
+http://jussi.hallila.com/Kollections/
+https://github.com/Xantier/Kollections
+https://github.com/Xantier/Kollections/raw/master/docs/xantier_kotlin_collection-extensions.pdf
+
+2020
+https://habr.com/ru/company/raiffeisenbank/blog/526374/
+2019
+https://medium.com/techshots/kotlin-collection-function-12fc3c16f579

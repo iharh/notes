@@ -1,0 +1,31 @@
+simple scheme
+/boot
+    256M
+/swap
+    32G
+/
+    512G
+/data
+    the rest
+
+complex scheme:
+https://wiki.archlinux.org/index.php/Partitioning#Partition_scheme
+
+/boot
+    256M
+/swap
+    32G
+/
+    32G
+/var
+    32G
+/usr
+    32G
+/home
+    256G
+/data
+    the rest
+
+
+http://www.skorks.com/2009/08/partitioning-your-hard-drive-during-a-linux-install/
+http://linuxmafia.com/~karsten/Linux/FAQs/partition.html

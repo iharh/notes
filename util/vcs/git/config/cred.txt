@@ -1,0 +1,35 @@
+https://help.github.com/articles/caching-your-github-password-in-git/
+http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows-to-save-user-and-password
+http://superuser.com/questions/199507/how-do-i-ensure-git-doesnt-ask-me-for-my-github-username-and-password
+
+When you set up an ssh key for github, if it's not your default key, you will need to add a section to your ~/.ssh/config
+Host *github.com
+    User git
+    IdentityFile ~/.ssh/github_id_rsa
+
+http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github
+
+Use your OSs credential store.
+For msysgit 1.7.9+ on windows use
+git config --global credential.helper wincred
+
+[credential]
+	helper = !'C:\\Users\\<username>\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+
+For git 1.7.9+ on osx use
+git config --global credential.helper osxkeychain
+
+
+For git 1.7.9+ on most linux distros
+git config --global credential.helper gnome-keyring
+
+jenkins-creds
+https://groups.google.com/forum/#!msg/jenkinsci-users/ak3x-1SdIFM/ESmQUhSNJEEJ
+
+Use Credentials Binding Plugin to inject the git creds into two environment variables - GIT_USER and GIT_PASSWORD
+Before the sbt build, use a shell build step to get the creds into a git credential.helper store. E.g.:
+
+git config --local credential.helper 'store --file=/tmp/jenkins/.gitcreds'
+git fetch https://$GIT_USER:$GIT_PASSWORD@[repo url]
+
+(Note that the credentials are stored in plain text in the file you designate)

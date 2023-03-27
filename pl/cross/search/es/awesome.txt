@@ -1,0 +1,35 @@
+https://github.com/dzharii/awesome-elasticsearch
+    https://github.com/hsen-dev/vscode-elastic
+    https://github.com/appbaseio/mirage
+
+books
+https://www.amazon.com/s?k=elasticsearch
+
+https://plugins.jetbrains.com/plugin/16364-elasticsearch-query--edql
+    ! 2yo
+
+https://elasticvue.com/usage
+    https://elasticvue.com/features
+    https://github.com/cars10/elasticvue
+
+Kibana
+    https://maelfabien.github.io/bigdata/DevTools/#9-analyzers-and-tokenizers
+
+Cheatsheets
+    http://elasticsearch-cheatsheet.jolicode.com/
+        https://github.com/jolicode/elasticsearch-cheatsheet
+    http://elasticsearch-cheatsheet.jolicode.com/#es7    
+Query DSL
+    https://www.elastic.co/guide/en/elasticsearch/reference/7.17/query-dsl.html
+    https://dev.to/elastic/running-queries-with-elasticsearch-and-kibana-2nd7
+    https://www.tutorialspoint.com/elasticsearch/elasticsearch_query_dsl.htm
+    https://logz.io/blog/elasticsearch-queries/
+    https://coralogix.com/blog/42-elasticsearch-query-examples-hands-on-tutorial/
+    https://towardsdatascience.com/getting-started-with-elasticsearch-query-dsl-c862c9d6cf7f
+    https://russianblogs.com/article/3467717947/
+SQL Translate
+    https://www.elastic.co/guide/en/elasticsearch/reference/7.17/sql-translate.html
+    https://www.elastic.co/guide/en/elasticsearch/reference/7.17/sql-search-api.html
+2021
+Kibana - KQL
+    https://www.youtube.com/watch?v=wfqItAlUy8g

@@ -1,0 +1,56 @@
+https://github.com/requery/requery/blob/master/requery-kotlin/src/main/kotlin/io/requery/kotlin/PropertyExtensions.kt
+
+https://github.com/requery/requery
+https://libraries.io/github/requery/requery
+
+wiki:
+https://github.com/requery/requery/wiki/Using-the-EntityStore-interface
+https://github.com/requery/requery/wiki/Kotlin
+https://github.com/requery/requery/wiki/Gradle-&-Annotation-processing
+
+api:
+http://requery.github.io/javadoc/io/requery/reactivex/ReactiveEntityStore.html
+
+src:
+https://github.com/requery/requery/blob/master/requery/src/main/java/io/requery/query/Result.java
+
+https://github.com/requery/requery/blob/master/requery/src/main/java/io/requery/sql/Configuration.java
+https://github.com/requery/requery/tree/master/requery/src/main/java/io/requery/sql/platform
+https://github.com/requery/requery/blob/master/requery/src/main/java/io/requery/sql/platform/Oracle.java
+
+https://github.com/requery/requery/blob/master/requery-processor/src/main/resources/META-INF/services/javax.annotation.processing.Processor
+    io.requery.processor.EntityProcessor
+https://github.com/requery/requery/tree/master/requery-processor/src/main/java/io/requery/processor
+https://github.com/requery/requery/blob/master/requery-processor/src/main/java/io/requery/processor/EntityProcessor.java
+https://github.com/requery/requery/blob/master/requery-processor/src/main/java/io/requery/processor/ModelGenerator.java
+https://github.com/requery/requery/blob/master/requery-processor/src/main/java/io/requery/processor/EntityGenerator.java
+
+    at io.requery.sql.DataSourceConnectionProvider.getConnection(DataSourceConnectionProvider.java:35)
+    at io.requery.sql.EntityDataStore$DataContext.getConnection(EntityDataStore.java:623)
+    at io.requery.sql.EntityDataStore.checkConnectionMetadata(EntityDataStore.java:562)
+
+test:
+// !!!
+https://github.com/requery/requery/blob/master/requery-test/
+https://github.com/requery/requery/blob/master/requery-test/src/test/java/io/requery/test/DatabaseType.java
+https://github.com/requery/requery/blob/master/requery-test/src/test/resources/io/requery/test/ci/postgressql.properties
+https://github.com/requery/requery/blob/master/requery-test/src/test/java/io/requery/test/UpsertTest.java
+
+https://github.com/requery/requery/blob/master/requery-test/kotlin-test/
+// !!!
+https://github.com/requery/requery/blob/master/requery-test/kotlin-test/src/test/kotlin/io/requery/test/kt/FunctionalTest.kt
+https://github.com/requery/requery/blob/master/requery-test/kotlin-test/src/test/kotlin/io/requery/test/kt/ReactiveTest.kt
+// data class
+https://github.com/requery/requery/blob/master/requery-test/kotlin-test/src/main/kotlin/io/requery/test/kt/data/Person.kt
+
+
+samples:
+https://github.com/requery/requery/blob/master/requery-android/example-kotlin/src/main/kotlin/io/requery/android/example/app/PeopleApplication.kt
+https://github.com/requery/requery/blob/master/requery-android/example-kotlin/src/main/kotlin/io/requery/android/example/app/CreatePeople.kt
+
+//val dataSource: CommonDataSource = DatabaseType.getDataSource(platform)
+//val dataSourceClass = PGSimpleDataSource::class // .class
+val dataSource: CommonDataSource = PGSimpleDataSource() // dataSourceClass.newInstance()
+
+issues:
+https://youtrack.jetbrains.com/issue/KT-15459

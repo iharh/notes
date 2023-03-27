@@ -1,0 +1,9 @@
+create temp table <temp-table-name> as
+    select * from <other-table> with no data
+    on commit <delete|preserve|drop>;
+
+# no constraints/indexes are auto-created
+
+create temp table <temp-table-name>
+    (like <other-table> including constraints including indexes);
+

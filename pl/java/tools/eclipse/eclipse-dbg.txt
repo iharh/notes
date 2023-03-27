@@ -1,0 +1,6 @@
+localhost:4142
+
+client/*.ini:
+
+-Xdebug
+-Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=n

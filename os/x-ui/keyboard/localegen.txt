@@ -1,0 +1,9 @@
+/etc/locale.gen
+
+localegen
+
+# localectl
+    list-locales
+
+2020
+https://fitzcarraldoblog.wordpress.com/2020/07/02/reconfiguring-the-time-zone-locales-and-keymaps-in-sabayon-linux/

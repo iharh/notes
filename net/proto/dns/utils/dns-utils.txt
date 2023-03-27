@@ -1,0 +1,24 @@
+DNS
+https://habrahabr.ru/post/303446/
+https://tools.ietf.org/html/rfc1912
+
+http://rosenberg.io/2014/08/08/docker-boot2docker-and-dns-resolution-of-containers.html
+
+/etc/nsswitch.conf
+    (man nsswitch.conf)
+...
+hosts:      files dns
+networks:   files
+...
+
+package: dnsutils
+utils:
+    dig
+    host
+    nslookup
+
+/etc/hosts
+/etc/resolv.conf
+
+nslookup <host>
+    look-up for the host

@@ -1,0 +1,9 @@
+https://github.com/nix-community/nixpkgs-wayland
+https://nixos.wiki/wiki/Sway
+
+2021
+https://github.com/nix-community/nixpkgs-wayland/issues/312
+2020
+https://www.reddit.com/r/NixOS/comments/g77n4m/run_sway_on_startup/
+https://www.reddit.com/r/NixOS/comments/jn90gv/should_i_be_able_to_simply_upgrade_2003_to_2009/
+    ! problems in KDE upgrade

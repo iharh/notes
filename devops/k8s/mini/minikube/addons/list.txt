@@ -1,0 +1,5 @@
+minicube addons enable
+
+dashboard
+ingress
+metrics-server

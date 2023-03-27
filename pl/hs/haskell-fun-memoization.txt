@@ -1,0 +1,6 @@
+Memoization:
+
+scanl - is similar to foldl, but returns a list of successive reduced values from the left
+scanr - -//- from the right
+Note: usually used for monitoring the fold progress (how many el-s needs to be processed)
+

@@ -1,0 +1,32 @@
+https://grafana.com/
+http://docs.grafana.org/installation/
+
+https://github.com/grafana/grafana
+
+docs
+https://github.com/grafana/grafana.org
+
+src
+https://github.com/grafana/grafana/blob/master/package.json
+! both angular and react are there
+
+plugins
+http://docs.grafana.org/plugins/developing/development/
+https://github.com/grafana/grafana/blob/master/PLUGIN_DEV.md
+https://habr.com/post/358746/
+https://github.com/CorpGlory/grafana-progress-list
+https://www.youtube.com/watch?v=bAwy-pw41EU
+https://github.com/CorpGlory/grafana-plugin-template-webpack
+https://github.com/CorpGlory/grafana-plugin-template-webpack-typescript
+https://github.com/CorpGlory/grafana-progress-list
+http://docs.grafana.org/plugins/developing/defaults-and-editor-mode/
+
+good design sample
+http://docs.grafana.org/features/panels/singlestat/
+
+2020
+https://linuxhandbook.com/grafana-setup/
+
+whatsnew
+2019
+https://habr.com/ru/company/1cloud/blog/443006/

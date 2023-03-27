@@ -1,0 +1,28 @@
+2020
+BurkeLibbey - From nix-env to home-manager
+    https://www.youtube.com/watch?v=PmD8Qe8z2sY
+    ! need to look
+    ! .config/nixpkgs/home.nix
+    ! home-manager switch
+    ! nix-env -q installed
+BurkeLibbey - Getting Started with home-manager
+    https://www.youtube.com/watch?v=OgUvDXxHlLs
+    ! need to look
+BurkeLibbey - Installing home-manager
+    https://www.youtube.com/watch?v=Ubhc94lrfTo
+    ! need to look
+    ! cat ~/.nix-channels
+Tropin - Almost Perfect Dotfiles Management w/ nix, home-manager and flakes
+    https://www.youtube.com/watch?v=CDzgNxoAlnA
+    ! need to look
+    https://github.com/abcdw/rde
+Jatuzis - NixOS and home-manager installation 0:00 of 24:37
+    https://www.youtube.com/watch?v=doNUP_JHUvA
+    ! need to look, looks like no sound and very hacky
+NixOS, nix-darwin, and home-manager
+    https://www.youtube.com/watch?v=IUsQt4NRCnc
+    ! very sophisticated config
+2019
+Chevalier - Nix Friday - Home manager
+    https://www.youtube.com/watch?v=2emuPcomQ98
+    ! need to look

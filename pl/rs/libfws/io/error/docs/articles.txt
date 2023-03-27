@@ -1,0 +1,52 @@
+2022
+https://blog.burntsushi.net/unwrap/
+https://www.shuttle.rs/blog/2022/06/30/error-handling
+    ! super !!!
+https://maksugr.com/posts/plantuml-encoding-in-rust-using-tdd
+    ! misc stuff
+2021
+https://www.lpalmieri.com/posts/error-handling-rust/
+https://fasterthanli.me/articles/whats-in-the-box
+    ! need to read
+https://dev.to/senyeezus/ergonomic-error-handling-with-rust-13bj
+https://edgarluque.com/blog/wrapping-errors-in-rust
+    ! thiserror
+https://theomn.com/rust-error-handling-for-pythonistas/
+2020
+https://nick.groenen.me/posts/rust-error-handling/
+https://yaah.dev/building-your-own-error-type
+    https://www.reddit.com/r/rust/comments/je5dmq/building_your_own_error_type_part_1/
+    There are two fundamentally different types of error management helper crates:
+        derive style crates to make it easy implement custom errors (thiserror, snafu, quickerror)
+        crates that provide single (dynamically dispatched/type erased) error type (failure, eyre, Fehler)
+https://matklad.github.io/2020/10/15/study-of-std-io-error.html
+    https://www.reddit.com/r/rust/comments/jbdk5x/blog_post_study_of_stdioerror/
+https://medium.com/@vishwa9n/everything-you-need-to-know-about-error-handling-in-rust-3186abdae259
+    !!! need to look again later
+https://www.halcyon.hr/posts/error-handling-in-rust/
+https://www.reddit.com/r/rust/comments/gqe57x/what_are_you_using_for_error_handling/
+https://nick.groenen.me/posts/rust-error-handling/
+    https://www.reddit.com/r/rust/comments/gj8inf/rust_structuring_and_handling_errors_in_2020/
+http://sled.rs/errors
+https://vorner.github.io/2020/04/05/error-handling.html
+https://www.reddit.com/r/rust/comments/feynbz/what_is_a_recommended_crate_for_defining_errors/
+2019
+https://epage.github.io/blog/2019/11/reflecting-on-errors-in-2019/
+https://blog.yoshuawuyts.com/error-handling-survey/
+    https://www.reddit.com/r/rust/comments/dzq42h/error_handling_survey/
+https://www.reddit.com/r/rust/comments/bubtu8/which_error_crate_are_going_to_use_in_2019/
+    https://github.com/rust-lang/rfcs/blob/master/text/2504-fix-error.md
+2018
+https://www.reddit.com/r/rust/comments/8lt8k6/do_i_really_need_failureerrorchain/
+
+error-chain deprecation - replacement stuff
+https://crates.io/crates/failure
+    ! 1740 usages, but looks like experimental
+https://crates.io/crates/quick-error
+    ! 237 usages, but looks like not actively maintained
+https://crates.io/crates/snafu
+    ! 32 usages, burntsushi eperimented with it
+https://crates.io/crates/err-derive
+    ! 31 usage
+https://crates.io/crates/custom_error
+    ! 13 usages

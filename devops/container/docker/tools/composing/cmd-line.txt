@@ -1,0 +1,14 @@
+compose
+    up [-d]
+        start/restart services
+    run
+        run ad-hoc command
+    -p <project-name>
+        specify project name (also can use en-var $COMPOSE_PROJECT_NAME)
+
+docker
+    service
+        ls
+    stack
+        deploy
+            --compose-file ...

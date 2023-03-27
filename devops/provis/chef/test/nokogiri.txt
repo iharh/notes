@@ -1,0 +1,7 @@
+https://github.com/chef/chef-dk/issues/278#issuecomment-185307218
+
+http://stackoverflow.com/questions/29317640/gem-install-rails-fails-on-ubuntu
+
+sudo yum install -y gcc
+# ruby-dev
+# yum install gcc make zlib-devel liblzma-devel zlib-devel libxml2-devel libxslt-devel

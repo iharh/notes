@@ -1,0 +1,42 @@
+Patches::
+
+slime\contrib\slime-repl.el:
+
+(defun slime-redirect-inferior-output (&optional noerror)
++ (t (message "No inferior lisp process - be happy clojurer!!!"))))) ; message instead of error
+
+; !!! PATCH elein.el !!!
+;(defun elein-swank-process-filter (process output)
+;	"Swank process filter to launch `slime-connect' when process is ready."
+;	(with-current-buffer elein-swank-buffer-name (insert output))
+;	(when (string-match "Connection opened on" output)
+;		(slime-set-inferior-process
+;			(slime-connect "localhost" elein-swank-port)
+;			process
+;		)
+;		(set-process-filter process nil)
+;	)
+;)
+
+emacs-23.2\lisp\arc-mode.el 
+
+(defun archive-zip-extract (archive name)
+  (if (member-ignore-case (car archive-zip-extract) '("pkunzip" "pkzip"))
+      (archive-*-extract archive name archive-zip-extract)
+    (archive-extract-by-stdout
+     archive
+     ;; unzip expands wildcards in NAME, so we need to quote it.
+     ;; FIXME: Does pkunzip need similar treatment?
+
+; !!! replace just by name
+;     (if (equal (car archive-zip-extract) "unzip")
+;	 (shell-quote-argument name)
+;       name)
+	name
+
+     archive-zip-extract)))
+
+
+mk-project.el
+
+ALL the file (!!! marks)

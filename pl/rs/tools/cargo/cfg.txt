@@ -1,0 +1,118 @@
+!!!
+edition = "2018"
+
+targets
+[[bin]], [lib], [[bench]], [[test]], [[example]] 
+
+# can have multiple [[bin]]
+[[bin]]
+name = "sslocal"
+path = "src/bin/local.rs"
+
+[[test]]
+name = "tests"
+
+[target.'cfg(not(windows))'.dependencies]
+nix = "^0.7.0"
+
+[target.'cfg(windows)'.dependencies]
+winapi = "^0.2.8"
+kernel32-sys = "^0.2.2"
+
+[dependencies]
+env_logger = { version = "0.3", default-features = false }
+grep = { version = "0.1.4", path = "grep" }
+packed_simd = { path = "../.." } # local dep
+clippy = {version = "0.0.*", optional = true}
+other-md5 = { version = "0.8", package = "md-5" } # renaming md-5 -> other-md5 or use "extern crate md5 as other_md5"
+libc = "*"
+mycrate = { "git" = "https://github.com/whatever", "tag" = "v1.2.3" }
+# You can also use commit hashes using "rev" instead, or branches of course.
+#It accepts ssh URLs as well, e.g. ssh://git@github.com/user/repo
+
+[dependencies.grpc]
+git = "https://github.com/stepancheg/grpc-rust.git"
+ 
+[dependencies.jemallocator]
+git = "https://github.com/busyjay/jemallocator.git"
+branch = "dev"
+features = ["profiling"]
+optional = true
+
+[build-dependencies]
+cmake = "0.1"
+
+[build-dependencies.tango]
+git = "https://github.com/pnkfelix/tango"
+
+[lib]
+crate-type = ["dylib"]
+cdylib
+    https://github.com/rust-lang/rust/issues/34493
+
+[features]
+default = ["color"]
+color = ["ansi_term"]
+debug = []
+travis = ["nightly", "lints"]
+unstable = ["lints"]
+lints = ["clippy", "nightly"]
+nightly = []
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.release]
+lto = true
+debug = false
+
+dependencies:
+http://doc.crates.io/specifying-dependencies.html
+http://doc.crates.io/specifying-dependencies.html#specifying-dependencies-from-git-repositories
+
+build-dependencies:
+http://doc.crates.io/build-script.html#build-dependencies
+
+workspaces, multi-crates:
+https://users.rust-lang.org/t/what-is-the-idiomatic-way-to-manage-a-project-with-multiple-crates/6683
+http://doc.crates.io/manifest.html#the-workspace-section
+https://github.com/PumpkinDB/PumpkinDB/blob/master/Cargo.toml
+
+[workspace]
+members = [
+  "./pumpkinscript",
+  "./pumpkindb_engine",
+  "./pumpkindb_server",
+  "./pumpkindb_term",
+  "./tests/doctests"
+]
+
+[workspace]
+members = [
+  "codegen",
+  "futures-mpsc-lossy",
+  "proxy",
+  "tower-router",
+  "tower-grpc",
+  "tower-grpc-build",
+  "tower-grpc-examples",
+  "tower-h2",
+]
+
+https://rust-lang.github.io/book/second-edition/ch14-03-cargo-workspaces.html
+[dependencies]
+add-one = { path = "add-one" }
+[workspace]
+
+workspace samples
+https://github.com/spacejam/sled/blob/master/Cargo.toml
+
+err-processing
+panic = 'abort'
+
+samples:
+https://github.com/BurntSushi/ripgrep/blob/master/Cargo.toml
+
+discussions:
+https://users.rust-lang.org/t/target-os-architecture-environment-as-a-crate-property/7748/11

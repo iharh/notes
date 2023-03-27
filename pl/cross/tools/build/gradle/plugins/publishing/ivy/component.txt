@@ -1,0 +1,21 @@
+https://docs.gradle.org/current/userguide/publishing_setup.html
+https://docs.gradle.org/current/userguide/dependency_management_terminology.html#sub:terminology_component
+    Any single version of a module.
+
+    For external libraries, the term component refers to one published version of the library.
+
+    In a build, components are defined by plugins (e.g. the Java Library plugin) and provide a simple way to define a publication for publishing.
+    They comprise artifacts as well as the appropriate metadata that describes a component’s variants in detail.
+    For example, the java component in its default setup consists of a JAR — produced by the jar task —
+    and the dependency information of the Java api and runtime variants.
+    It may also define additional variants, for example sources and Javadoc, with the corresponding artifacts.
+
+Variant (of a component)
+    Each component consists of one or more variants. A variant consists of a set of artifacts and defines a set of dependencies.
+    It is identified by a set of attributes and capabilities.
+
+Variant attributes ...
+
+
+https://docs.gradle.org/current/userguide/component_metadata_rules.html#making_variants_published_as_classified_jars_explicit
+    ! need to read

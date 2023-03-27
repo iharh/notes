@@ -1,0 +1,18 @@
+https://docs.docker.com/compose/cli-command/#install-on-linux
+
+cli
+docker
+    compose
+        ...
+
+compose-env:
+https://docs.docker.com/compose/env-file/
+
+tools:
+https://github.com/vishnubob/wait-for-it
+    services:
+        web:
+            ...
+            depends_on:
+                - db
+            entrypoint: "./wait-for-it.sh db:5432"

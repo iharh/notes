@@ -1,0 +1,8 @@
+REPOSITORY                                             TAG                 IMAGE ID            CREATED             SIZE
+gcr.io/google_containers/kubernetes-dashboard-amd64    v1.6.3              691a82db1ecd        9 weeks ago         139 MB
+gcr.io/google_containers/k8s-dns-sidecar-amd64         1.14.4              38bac66034a6        3 months ago        41.81 MB
+gcr.io/google_containers/k8s-dns-kube-dns-amd64        1.14.4              a8e00546bcf3        3 months ago        49.38 MB
+gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64   1.14.4              f7f45b9cb733        3 months ago        41.41 MB
+gcr.io/google-containers/kube-addon-manager            v6.4-beta.2         0a951668696f        3 months ago        79.23 MB
+gcr.io/google_containers/pause-amd64                   3.0                 99e59f495ffa        17 months ago       746.9 kB
+

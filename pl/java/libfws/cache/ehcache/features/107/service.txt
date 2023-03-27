@@ -1,0 +1,5 @@
+https://github.com/ehcache/ehcache3/blob/master/107/src/main/java/org/ehcache/jsr107/internal/DefaultJsr107Service.java
+    @ServiceDependencies(StatisticsService.class)
+    public class DefaultJsr107Service implements Jsr107Service {
+        ...
+    }

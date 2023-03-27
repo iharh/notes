@@ -1,0 +1,7 @@
+https://github.com/lovesegfault/nix-config
+https://github.com/lovesegfault/nix-config/blob/master/flake.nix
+    outputs = { self, nixpkgs, flake-utils, ... }@inputs:
+    {
+      hosts = import ./nix/hosts.nix;
+      ...
+    }

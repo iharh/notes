@@ -1,0 +1,17 @@
+lsof     - list of open files
+free     - free OS memory
+file     - identify file type
+basename - extract base name
+htop     - advanced top
+atop     - http://www.unixmen.com/linux-basics-monitor-system-resources-processes-using-atop/
+iotop    - monitor io (http://www.tecmint.com/install-iotop-monitor-linux-disk-io-in-rhel-centos-and-fedora/)
+vmstat   - memory mon
+inotify-tools - inotify wrappers
+watch    - run the command every n seconds (-n 1)
+
+du
+df
+
+iftop    - net util-n
+netstat
+nethogs

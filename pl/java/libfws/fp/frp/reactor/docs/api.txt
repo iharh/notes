@@ -1,0 +1,15 @@
+https://projectreactor.io/docs/core/release/api/
+
+Reactor Core 3.0.6.RELEASE
+
+src:
+https://github.com/reactor/reactor-core
+
+Flux:
+https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html
+    from
+    fromStream
+    fromIterable
+
+    scan (fold)
+    scanWith

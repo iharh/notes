@@ -1,0 +1,14 @@
+install:
+
+cp fomalib.h fomalibconf.h /usr/local/include;
+chmod 644 /usr/local/include/fomalib.h
+cp foma flookup cgflookup /usr/local/bin
+cp libfoma.so.0.9.18 libfoma.a /usr/local/lib
+cd /usr/local/lib; chmod 755 libfoma.so.0.9.18 libfoma.a; \
+    if test -f /usr/local/lib/libfoma.so; then rm  /usr/local/lib/libfoma.so; fi
+if test -f /usr/local/lib/libfoma.so.0; then rm  /usr/local/lib/libfoma.so.0; fi
+cd /usr/local/lib; ln -s libfoma.so.0.9.18 libfoma.so; cd /usr/local/lib;	\
+    ln -s libfoma.so.0.9.18 libfoma.so.0; (ldconfig || true)		\
+>/dev/null 2>&1; \
+
+// fomalib.h

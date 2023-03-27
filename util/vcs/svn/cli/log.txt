@@ -1,0 +1,13 @@
+log
+    -l 5
+        last 5 commits only
+    -vl 5
+        -//- verbose
+
+    URL[@REV] 
+
+svn log -vr BASE:HEAD
+
+svn log -vl 1 --search <str-to-search>
+
+

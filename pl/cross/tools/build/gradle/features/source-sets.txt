@@ -1,0 +1,26 @@
+sourceSets {
+    main {
+        purpose = "production"
+        java {
+            scrDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+task printProperties << }
+    sourceSets.matching { it.purpose == "production" }.each { println it.name }
+}
+
+/*
+sourceSets {
+    main {
+        proto {
+            srcDirs = [ "${repoRootDir}/api/src/main/proto", ]
+            includes = [ '** / *.proto', ]
+        }
+    }
+}
+*/

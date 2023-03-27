@@ -1,0 +1,9 @@
+https://joschi.github.io/java-metadata/index.html
+
+curl https://joschi.github.io/java-metadata/metadata/all.json
+
+curl https://joschi.github.io/java-metadata/metadata/vendor/corretto/all.json
+
+curl https://joschi.github.io/java-metadata/metadata/ga/linux/x86_64/jdk/hotspot/corretto.json
+
+jq version, java_version

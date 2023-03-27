@@ -1,0 +1,73 @@
+Seems to be obsolete:
+
+Abrahams - Want Speed - Pass by Value:
+  http://cpp-next.com/archive/2009/08/want-speed-pass-by-value/
+  http://cpp-next.com/archive/2009/09/making-your-next-move/
+  http://cpp-next.com/archive/2009/09/your-next-assignment/
+  http://cpp-next.com/archive/2009/10/exceptionally-moving/
+  http://cpp-next.com/archive/2009/12/onward-forward/
+
+***********
+* Threads *
+***********
+
+RAAI class for std::thread
+
+class ThreadRAAI
+{
+public:
+  typedef void (std::thread::*RAAIAction)(); // d-tor action
+
+  ThreadRAAI(std::thread &&thread, RAAIAction a)
+  : t(std::move(thread)), action(a) {}
+
+  ~ThreadRAAI()
+  { if (t.joinable()) (t.*action)(); } // need to do more protection for race cond
+
+private:
+  RAAIAction action;
+  std::thread t;
+};
+
+ThreadRAAI t1(std::thread(doThisWork), &std::thread::join); // join on destruction
+
+Note: Boost has an RAAI answer !!!
+
+*************
+* decltypes *
+*************
+
+https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/introduction_to_the_c_11_feature_trailing_return_types
+https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/c_11_the_decltype_specifier_part_i
+https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/c_11_the_decltype_specifier_part_ii
+
+http://thbecker.net/articles/auto_and_decltype/section_01.html
+
+*************
+* static if *
+*************
+
+???
+
+********************************
+* explicit operator conversion *
+********************************
+
+explicit operator bool() { ... }
+
+- Function-template default arguments
+- Delegation constructors
+- Uniform initialization
+- Non-static data member initializers (instead of c-tors)
+- some_fun() = default;
+  ... = delete; // restore suppressed default c-tor
+- template "using" operators
+
+  template <class T> using Vec = vector<T, MyAlloc<T>>;
+
+  Vec<int> v;
+  template <class T> void f(Vec<T> &);
+  f(v);
+
+- Variadic templates
+

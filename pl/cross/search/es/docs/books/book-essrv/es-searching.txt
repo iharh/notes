@@ -1,0 +1,1713 @@
+Simple Query:
+
+curl -XGET 'localhost:9200/library/book/_search?pretty=true' -d '{
+ "query" : {
+  "term" : { "title" : "crime" }
+ }
+}'
+
+resp:
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.19178301,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 0.19178301, "_source" : { "title": "Crime and Punishment","otitle": "????????é??? ? ?????á???","author": "Fyodor Dostoevsky","year": 1886,"characters": ["Raskolnikov", "Sofia Semyonovna Marmeladova"],"tags": [],"copies": 0, "available" : true}
+    } ]
+  }
+}
+
+Let's sum up the possible call types and see what the addressing looks like:
+1. Request to index and type:
+    curl -XGET 'localhost:9200/library/book/_search' -d @query.json
+
+2. Request to index and all types in it:
+    curl -XGET 'localhost:9200/library/_search' -d @query.json
+
+3. Request to all indices:
+    curl -XGET 'localhost:9200/_search' -d @query.json
+
+4. Request to few indices:
+    curl -XGET 'localhost:9200/library,bookstore/_search' -d @query.json
+    
+5. Request to multiple indices and multiple types in them:
+    curl -XGET 'localhost:9200/library,bookstore/book,recipes/_search' -d @query.json
+
+
+Paging and result size:
+
+{
+ "from" :  9,
+ "size" : 20,
+ "query" : {
+  "term" : { "title" : "crime" }
+ }
+}
+
+Version:
+...
+ "version" : true,
+...
+resp:
+...
+ "version" : 1
+...
+
+Limiting the score:
+...
+ "min_score" : 0.75,
+...
+
+Choosing the fields we want to return:
+...
+ "fields" : [ "title", "year" ],
+...
+resp:
+...
+ "fields" : {
+   "title" : "..."
+   "year" : 1886
+ }
+...
+Note: ES can return stored fields only or if the "_source" field is used
+  "*" - if we need all the stored fields.
+  "include" : [ "prefix*" ] - if we need partial fields.
+  "exclude" : [ ...]
+
+
+Query types - Basic queries:
+
+Term query:
+
+{
+ "query" : {
+  "term" : {
+   "title" : {
+    "value" : "crime",
+    "boost" : 10.0
+   }
+  }
+ }
+}
+
+Note: the term query is not analyzed, so you need to provide the exact term that will match the term in the indexed document.
+However, you can also include the boost attribute in your term query; this will affect the importance of the given term.
+
+The terms query
+
+{
+ "query" : {
+  "terms" : {
+   "tags" : [ "novel", "book" ]
+   "minimum_match" : 1
+  }
+ }
+}
+
+The match query
+
+{
+ "query" : {
+  "match" : {
+   "title" : "crime and punishment"
+  }
+ }
+}
+
+It takes the values given in the query parameter, analyzes them, and constructs the appropriate query out of them.
+When using a match query, ElasticSearch will choose the proper analyzer for a field we've chosen,
+so you can be sure that the terms passed to the match query will be processed by the same analyzer that was used during indexing.
+
+Please remember that the match query (and as further explained, the multi match query) doesn't support Lucene query syntax
+
+
+The Boolean match query
+
+is a query that analyzes the provided text and makes a Boolean query out of it.
+
+There are a few parameters that allow us to control the behavior of Boolean match queries:
+operator:
+    This can take the value of or or and and control what Boolean operator is used to connect the created Boolean clauses.
+    The default value is or.
+analyzer:
+    This specifies the name of the analyzer that will be used to analyze the query text and defaults to the default analyzer.
+fuzziness:
+    Providing the value of this parameter allows one to construct fuzzy queries.
+    It should take values from 0.0 to 1.0 for a string object.
+    While constructing fuzzy queries, this parameter will be used to set the similarity.
+prefix_length:
+    This allows one to control the behavior of the fuzzy query.
+    For more information on the value of this parameter, please see the The fuzzy like this query section below.
+max_expansions:
+    This allows one to control the behavior of the fuzzy query.
+    For more information on the value of this parameter, please see the The fuzzy like this query section in below.
+The parameters should be wrapped in the name of the field we are running the query against.
+So, if we wanted to run a sample Boolean match query against the title field, we could send a query like so:
+
+{
+ "query" : {
+  "match" : {
+   "title" : {
+    "query" : "crime and punishment",
+    "operator" : "and"
+   }
+  }
+ }
+}
+
+
+The phrase match query
+
+Similar to the Boolean query, but instead of constructing the Boolean clauses from the analyzed text, it constructs a phrase query.
+
+The following parameters are available:
+slop:
+    This is an integer value that defines how many unknown words can be put between terms in the text query for a match to be considered a phrase.
+analyzer:
+    This specifies the name of the analyzer that will be used to analyze the query text and defaults to the default analyzer.
+    
+A sample phrase match query against the title field could look like the following code:
+{
+ "query" : {
+  "match_phrase" : {
+   "title" : {
+    "query" : "crime and punishment",
+    "slop" : 1
+   }
+  }
+ }
+}
+
+
+The match phrase prefix query
+
+The last type of the match query is the match phrase prefix query.
+This query is almost the same as the prefix match query, but in addition, it allows prefix matches on the last term in the query text.
+Also, in addition to the parameters exposed by the match phrase query, it exposes an additional one, the max_expansions parameter,
+which controls how many prefixes the last terms will be rewritten to.
+
+Our sample query changed to the match phrase prefix query could look like this:
+{
+ "query" : {
+  "match_phrase_prefix" : {
+   "title" : {
+    "query" : "crime and punishment",
+    "slop" : 1,
+    "max_expansions" : 20
+   }
+  }
+ }
+}
+
+
+The multi match query
+
+This is the same as the match query, but instead of running against a single field, it can be run against multiple fields with the use of the fields parameter.
+Of course, all the parameters you use with the match query can be used with the multi match query.
+So, if we want to modify our match query to be run against the title and otitle fields, we could run the following query:
+{
+ "query" : {
+  "multi_match" : {
+   "query" : "crime punishment",
+   "fields" : [ "title", "otitle" ]
+  }
+ }
+}
+
+
+The query string query
+
+In comparison with the other queries available, the query string query supports full Apache Lucene query syntax,
+so it uses a query parser to construct an actual query using the provided text. A sample query string query can look like this:
+{
+ "query" : {
+  "query_string" : {
+   "query" : "title:crime^10 +title:punishment -otitle:cat +author:(+Fyodor +dostoevsky)",
+   "default_field" : "title"
+  }
+ }
+}
+
+You may wonder what that weird syntax in the query parameter is; we will get to it in the Lucene query syntax part of the query string query description.
+As with most of the queries in ElasticSearch, the query string query provides a few parameters that allow us to control query behavior:
+
+query:
+    This specifies the query text
+default_field:
+    This specifies the default field the query will be executed against.
+    It defaults to the "index.query.default_field property", which is by default set to "_all".
+default_operator:
+    This specifies the default logical operator (or/and) used when no operator is specified.
+    The default value of this parameter is "or".
+analyzer:
+    This specifies the name of the analyzer used to analyze the query provided in the "query" parameter.
+allow_leading_wildcard:
+    This specifies whether a wildcard allowed as the first character of a term;
+    it defaults to true.
+lowercase_expand_terms:
+    This specifies whether terms rewritten by the query are lowercased.
+    It defaults to true.
+enable_position_increments:
+    This specifies whether position increments are turned on in the result query.
+    It defaults to true.
+fuzzy_prefix_length:
+    This is the prefix length for generated fuzzy queries, and it defaults to 0.
+    To learn more about it, please look at the The fuzzy query section.
+fizzy_min_sim:
+    This specifies the minimum similarity for fuzzy queries and defaults to 0.5.
+    To learn more about it, please look at the The fuzzy query section.
+phrase_slop:
+    This specifies the phrase slop and defaults to 0.
+    To learn more about it, please look at the The phrase match query section.
+boost:
+    This is the boost value used and defaults to 1.0.
+analyze_wildcard:
+    This specifies whether the wildcard characters should be analyzed.
+    It defaults to true.
+auto_generate_phrase_queries:
+    This specifies whether phrase queries should be automatically generated.
+    It defaults to false.
+minimum_should_match:
+    This controls how many of the generated Boolean clauses should match to consider a hit for a given document.
+    The value should be provided as a percentage, for example 50%, which would mean that at least 50 percent of the given terms should match.
+lenient:
+    This parameter can take the value of true or false.
+    If it is set to true, format-based failures will be ignored.
+
+Please note that the query string query can be rewritten by ElasticSearch, and because of that, ElasticSearch allows us to pass additional parameters that control the rewrite method.
+However, for more details about that process, see the Query rewrite section later.
+
+
+DisMax:
+
+In order to use the DisMax query, one should add the use_dis_max property set to true:
+
+{
+ "query" : {
+  "query_string" : {
+   "query" : "crime punishment",
+   "fields" : [ "title", "otitle" ],
+   "use_dis_max" : true
+  }
+ }
+}
+
+
+The Field query
+
+Is the simplified version of the query string query:
+
+{
+ "query" : {
+  "field" : {
+   "title" : "+crime nothing -let"
+  }
+ }
+}
+
+{
+ "query" : {
+  "field" : {
+   "title" : {
+    "query" : "+crime nothing -let",
+    "boost" : 20.0
+   }
+  }
+ }
+}
+
+
+The identifiers query
+
+This is a simple query that filters the returned documents to only those with the provided identifiers.
+It works on the internal _uid field, so it doesn't require the _id field to be enabled.
+
+{
+ "query" : {
+  "type" : "books",
+  "ids" : {
+   "values" : [ "10", "11", "12" ]
+  }
+ }
+}
+
+The prefix query
+
+is similar to the term query in terms of configuration and to the multi term query when looking into its logic.
+The prefix query allows us to match documents that have a value in a certain field that starts with a given prefix.
+
+{
+ "query" : {
+  "prefix" : {
+   "title" : {
+    "value" : "cri",
+    "boost" : 3.0
+   }
+  }
+ }
+}
+
+Note: the prefix query is rewritten by ElasticSearch...
+
+
+The fuzzy like this query
+
+It finds all the documents that are similar to the provided text but works a bit differently from the more like this query because it makes use of
+fuzzy strings and picks the best differencing terms produced.
+For example, if we want to run a fuzzy like this query against the title and otitle fields and find all the documents similar to the crime punishment query,
+we could run the following query:
+
+{
+ "query" : {
+  "fuzzy_like_this" : {
+   "fields" : ["title", "otitle"],
+   "like_text" : "crime punishment"
+  }
+ }
+}
+
+The following query parameters are supported:
+
+fields:
+    This is an array of fields that the query should be run against.
+    It defaults to the _all field.
+like_text:
+    This is a required parameter that holds the text we compare the documents to.
+ignore_tf:
+    This specifies whether term frequencies be ignored;
+    this parameter defaults to false.
+max_query_terms:
+    This specifies the maximum number of query terms that will be included in a generated query.
+    It defaults to 25.
+min_similarity:
+    This specifies the minimum similarity that differencing terms should have.
+    It defaults to 0.5.
+prefix_length:
+    This specifies the length of the common prefix of the differencing terms.
+    It defaults to 0.
+boost:
+    This is the boost value that will be used when boosting queries.
+    It defaults to 1.
+analyzer:
+    This specifies the name of the analyzer that will be used to analyze the text we provided.
+
+
+The fuzzy like this field query
+
+is similar to the fuzzy like this query but works only against a single field, and because of that, it doesn't support the fields property.
+Instead of specifying the fields that should be used for query analysis, we should wrap the query parameters into the field name.
+
+{
+ "query" : {
+  "fuzzy_like_this_field" : {
+   "title" : {
+    "like_text" : "crime and punishment"
+    }
+  }
+ }
+}
+
+The fuzzy query
+
+The third type of fuzzy query matches documents on the basis of the edit distance algorithm that is calculated on the terms we provide against the
+searched documents. This query can be expensive when it comes to CPU resources but can help us when we need fuzzy matching, for example,
+when users make spelling mistakes.
+In our example, let's assume that, instead of crime, our user enters cirme into the search box and we would like to run the simplest form of fuzzy query.
+Such a query could look like this:
+
+{
+ "query" : {
+  "fuzzy" : {
+   "title" : "cirme"
+  }
+ }
+}
+
+And the response for this query would be as follows:
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.625,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 0.625, "_source" : {
+        "title": "Crime and Punishment",
+        "otitle": "????????é??? ? ?????á???",
+        "author": "Fyodor Dostoevsky",
+        "year": 1886,
+        "characters": ["Raskolnikov", "Sofia Semyonovna Marmeladova"],
+        "tags": [],
+        "copies": 0,
+        "available" : true
+      }
+    } ]
+  }
+}
+
+As you can see, even though we made a typo, ElasticSearch managed to find the document we were interested in.
+You can control the fuzzy query behavior by using the following parameters:
+
+
+The fuzzy query
+
+This query can be expensive when it comes to CPU resources but can help us when we need fuzzy matching, for example, when users make spelling mistakes. In our example, let's assume that, instead of crime, our user enters cirme into the search box and we would like to run the simplest form of fuzzy query
+{
+ "query" : {
+  "fuzzy" : {
+  "title" : "cirme"
+  }
+ }
+}
+
+You can control the fuzzy query behavior by using the following parameters:
+value:
+    This specifies the actual query (in case we want to pass more parameters).
+boost:
+    This specifies the boost value for the query. It defaults to 1.0.
+min_similarity:
+    This specifies the minimum similarity for a term to be counted as a match.
+    In the case of string fields, this value should be between 0 and 1, both inclusive.
+    For numeric fields, this value can be greater than one, for example,
+    for a query with value equal to 20 and min_similarity set to 3, we would get values from 17 to 23.
+    For date fields, we can have min_similarity values that include 1d, 2d, and 1m.
+    These values correspond to one day, two days, and one month, and so on.
+prefix_length:
+    This is the length of the common prefix of the differencing terms, which defaults to 0.
+max_expansions:
+    This specifies the number of terms the query will be expanded to. The default value is unbounded.
+
+The parameters should be wrapped in the name of the field we are running the query against. So, if we would like to modify the previous query and add additional parameters,
+the query could look like the following code:
+{
+ "query" : {
+  "fuzzy" : {
+   "title" : {
+    "value" : "cirme",
+    "min_similarity" : 0.2
+   }
+  }
+ }
+}
+
+
+The match all query
+
+{
+ "query" : {
+  "match_all" : {}
+ }
+}
+
+if we want to boost some field (title):
+
+{
+ "query" : {
+  "match_all" : {
+   "norms_field" : "title"
+  }
+ }
+}
+
+
+The wildcard query
+
+Allows us to use the * and ? wildcards in the values we search for. Apart from that, the wildcard query is very similar to the term query in its body.
+
+{
+ "query" : {
+  "wildcard" : {
+   "title" : "cr?me"
+  }
+ }
+}
+
+However, you can also include the boost attribute with your wildcard query, which will affect the importance of each term that matches the given value.
+
+{
+ "query" : {
+  "wildcard" : {
+   "title" :
+   "value" : "cr?me",
+    "boost" : 20.0
+   }
+  }
+ }
+}
+
+Please note that wildcard queries are not very performance oriented and should be avoided if possible; leading wildcards (terms starting with wildcards) should especially be avoided.
+Please note that the wildcard query is rewritten by ElasticSearch, and because of that, ElasticSearch allows us to pass an additional parameter, controlling the rewrite method.
+
+
+The more like this query
+
+Allows us to get documents that are similar to the provided text.
+ElasticSearch support a few parameters to define how more like this queries should work:
+
+fields:
+    This is an array of fields that the query should be run against. It defaults to the _all field.
+like_text:
+    This specifies a required parameter that holds the text to which we compare the documents.
+percent_terms_to_match:
+    This specifies the percentage of terms that must match for a document to be considered similar. It defaults to 0.30, which translates to 30 percent
+min_term_freq:
+    This is the minimum term frequency (for the terms in the documents) below which terms will be ignored. It defaults to 2.
+max_query_terms:
+    This is the maximum number of terms that will be included in a generated query; it defaults to 25.
+stop_words:
+    This specifies an array of words that will be ignored.
+min_doc_freq:
+    This specifies the minimum number of documents in which terms have to be present in order not to be ignored. It defaults to 5.
+max_doc_freq:
+    This specifies the maximum number of documents in which terms may be present in order not to be ignored, but the default is for it to be unbounded.
+min_word_len:
+    This specifies the minimum length of a single word below which it will be ignored. It defaults to 0.
+max_word_len:
+    This specifies the maximum length of a single word above which it will be ignored. It defaults to being unbounded.
+boost_terms:
+    This specifies the boost value that will be used when boosting each term; it defaults to 1.
+boost:
+    This specifies the boost value that will be used when boosting a query. It defaults to 1.
+analyzer:
+    This is the name of the analyzer that will be used to analyze the text we provided.
+    
+
+{
+ "query" : {
+  "more_like_this" : {
+   "fields" : [ "title", "otitle" ],
+   "like_text" : "crime and punishment",
+   "min_term_freq" : 1,
+   "min_doc_freq" : 1
+  }
+ }
+}
+
+
+The more like this field query
+
+Is similar to the more like this query but works only against a single field, and because of that, it doesn't support the fields property.
+Instead of specifying fields that should be used for query analysis, we should wrap query parameters into the field name.
+{
+ "query" : {
+  "more_like_this_field" : {
+   "title" : {
+    "like_text" : "crime and punishment",
+    "min_term_freq" : 1,
+    "min_doc_freq" : 1
+   }
+  }
+ }
+}
+
+All the other parameters from the more like this query work the same for this type of query
+
+
+The range query
+
+Allows us to find documents within a certain range and works for numerical fields as well as for string-based fields (it just maps to a different Apache Lucene query).
+The range query should be run against a single field, and the query parameters should be wrapped in the field name.
+
+The following parameters are supported:
+from:
+    This is the lower bound of the range and defaults to the first value.
+to:
+    This is the upper bound of the range and defaults to unbounded.
+include_lower:
+    This specifies if the left side of the range must be inclusive or not. It defaults to true.
+include_upper:
+    This specifies whether the right side of the range should be inclusive o not. It defaults to true.
+boost:
+    This specifies the boost that will be given for the query.
+    
+So, for example, if we would like to find all the books that have values ranging from 1700 to 1900 in the year field:
+{
+ "query" : {
+  "range" : {
+   "year" : {
+    "from" : 1700,
+    "to" : 1900
+   }
+  }
+ }
+}
+
+
+Query rewrite
+
+In order to control query rewriting, we need to add the rewrite property to our query with one of the following values:
+
+scoring_boolean:
+    This rewrite method translates each generated term into a Boolean should clause.
+    This method may be CPU-intensive (because the score for each term is calculated and kept), and for queries that have many terms,
+    it may exceed the Boolean query limit.
+constant_score_boolean:
+    This is similar to scoring_boolean, but less CPU-intensive because scoring is not computed, and instead,
+    each term receives a score equal to the query boost.
+constant_score_filter:
+    This method rewrites the query using a filter for each generated term and marks all the documents for that filter.
+    Matching documents are given a constant score equal to the query boost.
+top_terms_N:
+    This rewrite method translates each generated term into a Boolean should clause, but keeps only the N number of top scoring terms.
+    Scoring is calculated and maintained for each query.
+top_terms_boost_N:
+    This rewrite method translates each generated term into a Boolean should clause, but keeps only the N number of top scoring terms.
+    Scoring is calculated as the boost given for the query.
+    
+When the rewrite property is not set, it defaults to either constant_score_boolean or constant_score_filter depending on the query.
+
+Our example prefix query with the rewrite property could look like the following code:
+{
+ "query" : {
+  "prefix" : {
+   "title" : {
+    "value" : "cri",
+    "boost" : 3.0,
+    "rewrite" : "top_terms_10"
+   }
+  }
+ }
+}
+
+
+Filtering results:
+
+General advice: If a given part of the query does not affect scoring, it is a good candidate to be a filter.
+(filters can easily be cached for increasing performance).
+
+
+Using filters:
+
+To apply the filter for each document after getting result use:
+
+{
+ "query" : {
+  "field" : { "title" : "Catch-22" }
+ },
+ "filter" : {
+  "term" : { "year" : 1961 }
+ }
+}
+
+To filter documents before the query run (which is, of cause, faster):
+
+{
+ "query": {
+  "filtered" : {
+   "query" : {
+    "field" : { "title" : "Catch-22" }
+   },
+    "filter" : {
+    "term" : { "year" : 1961 }
+   }
+  }
+ }
+}
+
+
+Range filters
+
+{
+ "filter" : {
+  "range" : {       
+   "year" : {
+    "from": 1930,
+    "to": 1990,
+    "include_lower" : true,
+    "include_upper" : false
+   }
+  }
+ }
+}
+
+By default, the left and right boundaries of the field are inclusive.
+If you want to exclude one or both the bounds, you can use the include_lower and/or include_upper parameters set to false.
+
+The other option is to use gt (greater than), lt (lower than), gte (greater than or equal to), and lte (lower than or equal to) in place of the to and from parameters.
+
+{
+ "filter" : {
+  "range" : {       
+   "year" : {
+    "gte": 1930,
+    "lt": 1990
+   }
+  }
+ }
+}
+
+There is also a second variant of this filter, numeric_filter. It is a specialized version designed for filtering ranges where field values are numerical.
+This filter is faster but comes at the cost of the additional memory used by field values.
+
+
+Exists
+
+This filter is very simple. It takes only those documents that have the given field defined:
+
+{
+ "filter" : {
+     "exists" : { "field": "year" }
+ }
+}
+
+
+Missing
+
+The missing filter is the opposite of the exists filter. However, it has a few additional features. Besides selecting the documents where the specified fields are missing,
+we have the possibility of defining what ElasticSearch should treat as empty. This helps in situations where input data contains tokens such as null, EMPTY, and not-defined.
+Let's change the preceding example to find all documents without the year field defined (or the ones that have 0 as the value of the year field.
+The modified filter would look like the following code:
+
+{
+ "filter" : {
+  "missing" : {
+   "field": "year",
+   "null_value": 0,
+   "existence": true
+  }
+ }
+}
+
+In the preceding example, you see two parameters in addition to the previous ones: existence, which tells ElasticSearch that it should check the documents with a value
+existing in the specified field, and the null_value key, which defines the additional value to be treated as empty.
+If you don't define null_value, existence is set by default, so you can omit existence in this case.
+
+
+Script
+
+Sometimes, we want to filter our documents by a computed value. A good example for our case can be filtering out all the books that were published more than a century ago.
+
+{
+ "filter" : {
+  "script" : {
+   "script": "now - doc['year'].value > 100",
+   "params": {
+    "now": 2013
+   }
+  }
+ }
+}
+
+
+Type
+
+A type filter is a simple filter that returns all the documents of a given type. This filter is useful when a query is directed to several indices or an index with a large number of types.
+The following is an example of such filters that would limit the type of the documents to the book type:
+{
+ "filter" : {
+  "type": {
+   "value" : "book"
+  }
+ }
+}
+  
+
+Limit
+
+This filter limits the number of documents returned by a shard for a given query. This should not be confused with the size parameter.
+
+{
+ "filter" : {
+  "limit" : {
+   "value" : 1
+  }
+ }
+}
+
+When using the default settings for a number of shards, the preceding filter will return up to five documents.
+Why? This is connected with a number of shards (the index.number_of_shards setting).
+Each shard is queried separately, and each shard may return at most one document.
+
+
+IDs
+
+The IDs filter helps in cases when we have to filter out several, concrete documents. For example, if we need to exclude a document that has 1 as the identifier,
+the filter would look like this:
+{
+ "filter": {
+  "ids" : {
+   "type": ["book"],
+   "values": [1]
+  }
+ }
+}
+
+Note that the type parameter is not required. It is only useful when we search among several indices to specify a type we are interested in.
+
+
+If this is not enough
+
+We have shown several examples for filters. But this is only the tip of the iceberg. You can wrap any query into a filter. For example, check out the following query:
+{
+ "query"
+ "multi_match" : {
+  "query" : "novel erich",
+  "fields" : [ "tags", "author" ]
+ }
+}
+
+This query can be rewritten as a filter, thus:
+{
+ "filter" : {
+  "query" : {
+   "multi_match" : {
+    "query" : "novel erich",
+    "fields" : [ "tags", "author" ]
+   }
+  }
+ }
+}
+
+Of course, the only difference in the result will be in the scoring. Every document returned by a filter will have a score of 1.0.
+
+Note that ElasticSearch has a few dedicated filters that act this way (for example, the term query and the term filter).
+
+So, you don't always have to use a wrapped query syntax. In fact, you should always use a dedicated version wherever possible.
+
+
+bool, and, or, not filters
+
+Now it's time to combine some filters together. The first option is to use the bool filter, which can group filters on the same basis as described previously for the bool query.
+The second option is to use the and, or, and not filters.
+The first two take an array of filters and return every document that matches all of them, in the case of the and filter (or at least one filter in the case of the or filter).
+In the case of the not filter, returned documents are the ones that were not matched by the enclosed filter. Of course, all these filters may be nested:
+
+{
+ "filter": {
+  "not": {
+   "and": [
+    {
+     "term": {
+      "title": "Catch-22"
+     }    
+    },  
+    {
+     "or": [
+      {
+       "range": {
+        "year": {
+         "from": 1930,
+         "to": 1990
+        }       
+       }      
+      },    
+      {
+       "term": {
+        "available": true
+       }      
+      }     
+     ]    
+    }   
+   ]  
+  }
+ }
+}
+
+Named filters
+
+Looking at how complicated setting filters may be, sometimes it would be useful to know which filters were used to determine that a document
+should be returned by a query. Fortunately, it is possible to give every filter a name. This name will be returned with any document matched during the query.
+Let's check how that works. The following query will return every book that is available and tagged as novel or every book from the nineteenth century:
+{
+ "query": {
+  "filtered" : {
+   "query": { "matchAll" : {} },
+   "filter" : {
+    "or" : [
+     { "and" : [
+      { "term": { "available" : true } },
+      { "term": { "tags" : "novel" } } ]
+     },  
+     { "range" : { "year" : { "from": 1800, "to" : 1899 } } }
+    ]   
+   }  
+  }
+ }
+}
+
+We are using the "filtered" version of the query because this is the only version where ElasticSearch can add information about filters that were used.
+Let's rewrite this query and name each filter:
+{
+ "query": {
+  "filtered" : {
+   "query": { "matchAll" : {} },
+   "filter" : {
+    "or" : {
+     "filters" : [
+     {
+      "and" : {
+       "filters" : [
+       {
+        "term": {
+         "available" : true,  
+         "_name" : "avail"
+        }       
+       },     
+       {
+        "term": {
+         "tags" : "novel",
+         "_name" : "tag"
+        }       
+       }      
+      ],    
+      "_name" : "and"
+      }     
+     },   
+     {
+       "range" : {
+        "year" : {
+         "from": 1800,
+         "to" : 1899
+        },      
+        "_name" : "year"
+      }     
+     }    
+    ],  
+    "_name" : "or"
+    }   
+   }  
+  }
+ }
+}
+
+It's much longer, isn't it? We've added the _name element to every filter. In the case of the and and or filters, we needed to change the syntax;
+we wrapped the enclosed filters by an additional object to make the JSON format correct.
+After sending a query to ElasticSearch, we should get a response similar to the following one:
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 2,
+    "successful" : 2,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 2,
+    "max_score" : 1.0,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "1",
+      "_score" : 1.0, "_source" : { "title": "All Quiet on the Western Front","otitle": "Im Westen nichts Neues","author": "Erich Maria Remarque","year": 1929,"characters": ["Paul Bäumer", "Albert Kropp", "Haie Westhus", "Fredrich Müller", "Stanislaus Katczinsky", "Tjaden"],"tags": ["novel"],"copies": 1, "available": true},
+      "matched_filters" : [ "or", "tag", "avail", "and" ]
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 1.0, "_source" : { "title": "Crime and Punishment","otitle": "????????é??? ? ?????á???","author": "Fyodor Dostoevsky","year": 1886,"characters": ["Raskolnikov", "Sofia Semyonovna Marmeladova"],"tags": [],"copies": 0, "available" : true},
+      "matched_filters" : [ "or", "year", "avail" ]
+    } ]
+  }
+}
+
+You can see that every document in addition to standard information also contains a an array with filter names that were matched for that document.
+
+Caching filters
+
+The last thing about filters that we want to mention in this chapter is caching. Caching increases speed for the queries that use filters,
+but at the cost of memory and query time during the first execution of such a filter. Because of this, the best candidates for caching are filters
+that can be reused, for example, the ones that we will use frequently (which also includes the parameter values).
+
+Caching can be turned on for the and, bool, and or filters (but it is usually a better idea to cache the enclosed filters instead).
+In this case, the required syntax is the same as described for the named filters.
+
+Some filters don't support the _cache parameter because their results are always cached. This is true for the exists, missing, range, term, and terms filters
+that are cached by default, but this behavior can be modified and caching can be turned off.
+Caching also doesn't make sense for the ids, matchAll, and limit filters.
+
+
+Compound queries
+
+The bool query
+
+A bool query allows us to wrap a virtually unbounded number of queries and connect them with a logical value by using one of the following sections:
+
+should:
+    The query wrapped into this section may or may not have a match
+    (the number of the queries in the should section that need to match is controlled by the minimum_should_match parameter).
+must:
+    The query wrapped into this section must match in order for the document to be returned.
+must_not:
+    The query wrapped into this section must not match in order for the document to be returned.
+    
+Each of these sections can be present multiple times. Also, please remember that the score of the resulting document will be calculated as a sum of all the wrapped queries
+that the document matched. In addition to the preceding sections, we can add the following parameters to the query body:
+
+boost:
+    This specifies the boost used with the query; it defaults to 1.0.
+minimum_should_match:
+    This integer value describes the minimum number of should clauses that have to match in order for the checked document to be counted as a match.
+disable_coord:
+    This parameter defaults to false and allows us to enable or disable the score factor computation that is based on the fraction of all query terms that a document contains.
+    
+Imagine that we would like to find all the documents that have the term crime in the title field.
+In addition, they may or may not have a range of 1900 to 2000 in the year field and must not have the term "nothing" in the otitle field.
+
+{
+ "query" : {
+  "bool" : {
+   "must" : {
+    "term" : {
+     "title" : "crime"
+    }
+   },
+   "should" : {
+    "range" : {
+     "year" : {
+      "from" : 1900,
+      "to" : 2000
+     }
+    }
+   },
+   "must_not" : {
+    "term" : {
+     "otitle" : "nothing"
+    }
+   }
+  }
+ }
+}
+
+
+The boosting query
+
+Is designed to wrap around two queries and lower the score of the documents that were returned by one of the queries.
+There are three sections of the boosting query that need to be defined—
+    the positive section, which should hold the query whose document score will be left unchanged,
+    the negative section whose resulting documents will have their score lowered, and
+    the negative_boost section, which holds the boost value that will be used to lower the second section's query score.
+
+The advantage of the boosting query is that the results of both queries will be present in the results although some of them will have their score lowered.
+For example, if we used the bool query with the must_not section, we wouldn't get the results for such a query
+
+Let's see some examples.
+Say that we would like to have the results of a simple term query for the term crime in the title field and that we would like the score of such documents to not be changed.
+But say also that we would like to have the documents that range from 1800 to 1900 in the year field and that we would like the scores of documents returned by such a query
+to have an additional boost of 0.5. Combining these specifications, we arrive at a query that looks like this:
+{
+ "query" : {
+  "boosting" : {
+   "positive" : {
+    "term" : {
+     "title" : "crime"
+    }
+   },
+   "negative" : {
+    "range" : {
+     "year" : {
+      "from" : 1800,
+      "to" : 1900
+     }
+    }
+   },
+   "negative_boost" : 0.5
+  }
+ }
+}
+
+
+The constant score query
+
+Is used to wrap another query (or filter) and return a constant score for each document returned by the wrapped query (or filter).
+It allows us to strictly control the score value assigned for a document matched by a query or filter.
+For example, if we want to have a score of 2.0 for all the documents that have the term "crime" in the title field, we can send the following query:
+
+{
+ "query" : {
+  "constant_score" : {
+   "query" : {
+    "term" : {
+     "title" : "crime"
+    }
+   },
+   "boost" : 2.0
+  }
+ }
+}
+
+
+The indices query
+
+This functionality is useful when executing a query against multiple indices. It allows us to provide an array of indices (the indices property) and two queries—one that will be executed
+if we query the index from the list (the query property) and one that will be executed on all the other indices (the no_match_query property).
+
+For example, let's assume that we have an alias name, books, holding two indices —library and a new one called users— and we want to use that alias but we want to run different queries to those indices.:
+
+{
+ "query" : {
+  "indices" : {
+   "indices" : [ "library" ],
+   "query" : {
+    "term" : {
+     "title" : "crime"
+    }
+   },
+   "no_match_query" : {
+    "term" : {
+     "user" : "crime"
+    }
+   }
+  }
+ }
+}
+
+In the preceding query, the query described in the query property would be run against the library index, and no_match_query would be run against all the other indices present in the cluster. 
+
+
+The custom filters score query
+
+Allows us to wrap a query and filters. It works in such a way that if a document from the wrapped query matches a filter, we can influence the score of such a document with either a boost or a defined script.
+For example, if we run the match all query and want to use a boost value of 10 for the documents that have crime in the title field, and in addition to that,
+want to set the score of the documents that have values between 1900 and 1950 in the year field:
+
+{
+ "query" : {
+  "custom_filters_score" : {
+   "query" : {
+    "match_all" : {}
+   },
+   "filters" : [
+    {
+     "filter" : {
+      "term" : {
+       "title" : "crime"
+      }
+     },
+     "boost" : 10.0
+    },
+    {
+    "filter" : {
+      "range" : {
+       "year" : {
+        "from" : 1900,
+        "to" : 1950
+       }
+      }
+     },
+     "script" : "_source.year"
+    }
+   ],
+   "score_mode" : "first"
+  }
+ }
+}
+
+Let's stop for a bit and discuss the query structure. At the main level of the custom_filters_score query, we have three sections,
+    the query section, which holds the actual query we run,
+    the filters section, which is an array of ordered filters that will be used to match the documents from the query and modify their score, and
+    the score_mode section, which we will discuss.
+    
+The filters array is built on one or more filter objects and the boost value or a script used to modify the score of the document that matches the filter.
+In our case, we used the script (the script parameter) to calculate the score for the range filter—the document will have a score equal to the value of its year field.
+
+The score_mode section allows us to control how the defined filters affect the score of the matched documents. By default, it is set to first,
+which means that only the first matching filter will modify the score. The other values are aggregation-based and are as follows:
+
+min:
+    The score of the document will be influenced by the minimum scoring filter
+max:
+    The score of the document will be influenced by the maximum scoring filter
+total:
+    The score of the document will be influenced by the sum of the scores of the matching filters
+avg:
+    The score of the document will be influenced by the average of the score of the matching filters
+multiply:
+    The score of the document will be influenced by the multiplication of the scores of the matching filters
+    
+There is also another parameter in addition to the one mentioned, that is, the max_boost parameter, which allows one to set the maximum boost value a document can have.
+
+
+The custom boost factor query
+
+Allows us to wrap another query into it and multiply the score of the documents returned by that query by a provided factor. The difference between this and the boost given to queries is that the boost given to a custom boost factor query is not normalized, which can be desired sometimes. So, if we would like to multiply the boost of a simple term query by 10, we could run a query like this one:{
+ "query" : {
+  "custom_boost_factor" : {
+   "query" : {
+    "term" : {
+     "title" : "crime"
+    }
+   },
+   "boost_factor" : 10.0
+  }
+ }
+}
+
+As you can see, in the query body, we have new sections—the custom_boost_factor section (which has the query property nested and holds the actual query) and the boost_factor section,
+which holds the boost multiplier)
+
+
+The custom score query
+
+Can be used to customize scoring for another query with the use of script. For example, if we want to add the year field to the score calculated by our simple term query
+and multiply it by the value 2 (of course, it doesn't make much sense right?):
+
+{
+ "query" : {
+  "custom_score" : {
+   "query" : {
+    "term" : {
+     "title" : "crime"
+    }
+   },
+   "params" : {
+    "multiply" : 2
+   },
+   "script" : "_score * _source.year * multiply"
+  }
+ }
+}
+
+We wrapped our term query with a custom_score query. In addition to that, we provided two additional sections—the params section, which holds additional parameters
+used in the score calculation script, and the script section, which holds the actual score calculation script.
+The value calculated by the script (as the result of multiplication of the score, the year field, and the multiply parameter) will be assigned as the score of all the documents
+that match the query. As you may have noticed, because we don't store the year field, we get it from _source
+
+
+Sorting data
+
+
+Default sorting
+
+Let's look at the following query, which returns all the books with at least one of the specified words:
+{
+ "query" : {
+    "terms" : {
+       "title" : [ "crime", "front", "punishment" ],
+       "minimum_match" : 1
+    }
+  }
+}
+
+Under the hood, ElasticSearch sees this as follows:
+{
+ "query" : {
+    "terms" : {
+       "title" : [ "crime", "front", "punishment" ],
+       "minimum_match" : 1
+       }
+  },
+  "sort" : [
+    { "_score" : "desc" }
+  ]
+}
+
+This is the default sorting used by ElasticSearch. This means that the return matched documents will show the ones with the highest score first.
+The simplest modification is reversing the ordering using this:
+
+"sort" : [
+    { "_score" : "asc" }
+]
+  
+
+Selecting fields used for sorting
+
+Default sorting is boring, isn't it? Let's change this into something a bit more engaging:
+
+"sort" : [
+    { "title" : "asc" }
+]
+
+Unfortunately, this doesn't work. In the server response, you can find JSON with the reason key, where ElasticSearch says:
+
+[Can't sort on string types with more than one value per doc, or more than one token per field]
+
+Of course, ElasticSearch allows adding documents with multiple values in one field, but such fields cannot be used for sorting because the search doesn't know which values should be used
+to determine the order. Another reason may be that the field is analyzed and divided into multiple tokens. This is what happened in the preceding case.
+To avoid this, we can add an additional, non-analyzed version of the title field. To do that, let's change our title field to multi_field, which we already discussed.
+
+For example, the title field definition could look like this:
+
+"title" :
+{
+  "type": "multi_field",
+  "fields": {
+    "title": { "type" : "string" },
+    "sort": { "type" : "string", "index": "not_analyzed" }
+  }
+}
+
+After changing the title field in the mappings that we've shown in the beginning of the chapter, we can try sorting on the "title.sort" field and see if it will work.
+
+To do that, we will need to send the following query:
+
+{
+ "query" : {
+    "match_all" : { }
+  },
+  "sort" : [
+    {"title.sort" : "asc" }
+  ]
+}
+
+Now, it works properly. In the response from ElasticSearch, every document contains information about the value used for sorting, for example:
+
+    "_index" : "library",
+    "_type" : "book",
+    "_id" : "1",
+    "_score" : null,
+    "_source" : { "title": "All Quiet on the Western Front","otitle": "Im Westen nichts Neues","author": "Erich Maria Remarque","year": 1929,"characters": ["Paul Bäumer", "Albert Kropp", "Haie Westhus", "Fredrich Müller", "Stanislaus Katczinsky", "Tjaden"],
+    "tags": ["novel"],
+    "copies": 1,
+    "available": true,
+    "section" : 3},
+    "sort" : [ "All Quiet on the Western Front" ]
+      
+Note that "sort", in request and response, is given as an array. This suggests that we can use several different orderings. It is true;
+ElasticSearch will use the next elements in the list to determine ordering between documents having the same previous field value.
+
+
+Specifying behavior for missing fields
+
+What about ordering? What about when some of the documents that match the query don't have defined the field we want to run the sort on? By default,
+documents without the given field are returned first in case of ascending order and last in case of descending order. But sometimes, this is not exactly what we want to achieve.
+When running sort on a numeric field, this can be changed easily:
+{
+ "query" : {
+    "match_all" :
+ },
+ "sort" : [
+    { "section" : { "order" : "asc", "missing" : "_last" } }
+ ]
+}
+
+Note the extended form of defining the field for sorting; it allows adding other parameters, such as missing. It is worth mentioning that, besides the _last and _first values,
+ElasticSearch allows us to use any number. In such a case, documents without a defined field will be treated as documents with this given value.
+You are probably wondering what we can do in the case of fields that aren't numbers.
+Don't worry, we will try to avoid this problem, although in a less elegant way.
+
+
+Dynamic criteria
+
+We've promised an example of how to force ElasticSearch to put documents without the defined fields at the bottom of the result list. In order to achieve that,
+we will show you how ElasticSearch allows one to calculate the value that should be used for sorting. In our example, we are sorting a field that is an array
+(as we mentioned before, we can't run sort on multiple values), and we assume that we want to run sort by comparing the first element of that array.
+So let's look at the request:
+
+{
+ "query" : {
+    "match_all" : { }
+  },
+  "sort" : {
+      "_script" : {
+        "script" : "doc['tags'].values.length > 0 ? doc['tags'].values[0] : '\u19999'",
+        "type" : "string",
+        "order" : "asc"
+      }
+  }
+}
+
+In the preceding example, we've replaced every nonexistent value by the Unicode code of a character that should be low enough in the list. The main idea of this code is that
+we check whether our array contains at least a single element. If it does, the first value from the array is returned. If the array is empty, we return the Unicode character
+that should be placed at the bottom of the results list. Besides the script, this option of sorting requires us to specify the ordering (ascending in our case)
+and type that will be used for comparison (we return string from our script).
+
+
+Collation and national characters
+
+If you want to use languages other than English, you can face the problem of incorrect order of characters. It happens because many languages have a different alphabetical order defined.
+ElasticSearch supports many languages, but proper collation requires an additional plugin. It's easy to install and configure, but we will discuss it in the ElasticSearch plugins section
+about "Administrating Your Cluster".
+
+
+Using scripts
+
+ElasticSearch has a few functionalities where scripts can be used. You've already seen examples such as updating documents, filtering, and searching. Regardless of the fact that
+this seems to be advanced, we will take a look at the possibilities given by ElasticSearch. Looking into any request that use scripts, we can spot several fields:
+script:
+    This field contains the script code.
+lang:
+    This field informs the engine which language is used. If it is omitted, ElasticSearch assumes mvel.
+params:
+    This is an object containing parameters. Every defined parameter is available for script by its name. By using parameters, we can write cleaner code.
+    Due to caching, code with parameters performs better than code with embedded constant values.
+
+
+Available objects
+
+During the execution of the script, ElasticSearch exposes several objects. The ones available for operations connected with searching are as follows:
+doc (also available as _doc):
+    This is an instance of the org.elasticsearch.search.lookup.DocLookup object. It gives us access to the current document found with calculated score and field values.
+_source:
+    This is an instance of org.elasticsearch.search.lookup.SourceLookup. This provides access to the source of the current document and values defined in this source.
+_fields:
+    This is an instance of org.elasticsearch.search.lookup.FieldsLookup. Again, it is used for access to document values.In an update operation,
+    ElasticSearch exposes only the ctx object with the _source property, which provides access to the current document.
+    
+As we have previously seen, several methods are mentioned in the context of document fields and their values. Let's show several examples of ways of getting the value for the title field 
+(in the brackets you can see what ElasticSearch would return for one of our sample documents from the library index):
+
+_doc.title.value (crime)
+_source.title (Crime and Punishment)
+_fields.title.value (null)
+
+A bit confusing, isn't it? Let's stop for a moment and recall the previous information about fields. During indexing, a field value is sent to ElasticSearch as a part of the _source document.
+The search engine can store this information as a whole in the index (this is the default behavior but can be turned off). In addition, this source is parsed and every field may be stored
+in an index if it is marked as stored (meaning that the store property is set to true, that is, by default not marked). Finally, the field value may be configured as indexed.
+This means that the field value is analyzed, cut into tokens, and placed in the index again. To sum up, one field may be stored in an index as:
+
+A part of _source
+A stored, unparsed value
+An indexed value, parsed into tokens
+
+In scripts, except the script for updating, we have access to all these representations. You may wonder which version we should use. Well, if we want access to the processed form,
+the answer would be as simple as _doc. What about _source and _fields? In most cases, _source is a good choice. It is usually fast and needs fewer disk operations than reading
+the original field values from the index.
+
+
+MVEL
+
+ElasticSearch can use several languages for scripting when declared; otherwise, it assumes that MVEL is used. MVEL is fast, easy to use and embed, and simple, but it is a powerful
+expression language used in open source projects. It allows us to use Java objects, automatically maps properties to a getter/setter call, converts simple types,
+and maps collections and maps to arrays and associative arrays.
+
+For more information, refer to the following link: http://mvel.codehaus.org/Language+Guide+for+2.0
+
+
+Other languages
+
+Using MVEL for scripting is a simple and sufficient solution, but if you would like to use something different, you can choose between JavaScript, Python, and Groovy.
+Before using other languages, we must install an appropriate plugin. For now, we'll just run the following command from the ElasticSearch directory:
+
+bin/plugin -install elasticsearch/elasticsearch-lang-javascript/1.1.0
+
+The only change we should make in the request is to add the additional information about which language we are using for scripting, and of course, to modify the script itself
+to be correct in the new language. Look at the following example:
+
+{
+ "query" : {
+    "match_all" : { }
+  },
+  "sort" : {
+      "_script" : {
+        "script" : "doc.tags.values.length > 0 ?
+        doc.tags.values[0] :'\u19999';",
+        "lang" : "javascript",
+        "type" : "string",
+        "order" : "asc"
+      }
+  }
+}
+
+As you can see, we used JavaScript for scripting instead of the default MVEL.
+
+
+Script library
+
+Usually, scripts are small, and it is quite convenient to put them in the request. But sometimes applications grow, and you want to give the developers something that they can reuse
+in their modules. If the scripts are large and complicated, it is generally better to place them in files and only refer to them in API requests.
+The first thing to do is to place our script in the proper place with a proper name. Our tiny script should be placed in the ElasticSearch directory config/scripts.
+Let's name our example file [text_sort.js], where the extension of the file should indicate the language used for scripting. The content of this example file is very simple:
+
+doc.tags.values.length > 0 ? doc.tags.values[0] :'\u19999';
+
+And the query using the preceding script can be a little easier:
+{
+ "query" : {
+    "match_all" : { }
+  },
+  "sort" : {
+   "_script" : {
+     "script" : "text_sort",
+     "type" : "string",
+     "order" : "asc"
+   }
+  }
+}
+
+We can use text_sort as a method name. In addition, we can omit the script language; ElasticSearch will figure it out from the file extension.
+
+
+Native code
+
+For occasions when scripts are too slow or when you don't like scripting languages, ElasticSearch allows you to write Java classes and use them instead of scripts.
+To create a new native script, we should implement at least two classes. The first one is a factory for our script. Let's focus on it for now and see some sample code:
+
+package pl.solr.elasticsearch.examples.scripts;
+
+import java.util.Map;
+
+import org.elasticsearch.common.Nullable;
+import org.elasticsearch.script.ExecutableScript;
+import org.elasticsearch.script.NativeScriptFactory;
+
+public class HashCodeSortNativeScriptFactory implements NativeScriptFactory {
+
+  @Override
+  public ExecutableScript newScript(@Nullable Map<String, Object> params) {
+    return new HashCodeSortScript(params);
+  }
+
+}
+
+This class should implement org.elasticsearch.script.NativeScriptFactory. The interface forces us to implement the newScript() method.
+It takes parameters defined in the API call and returns an instance of our script.
+
+
+MVEL
+
+ElasticSearch can use several languages for scripting when declared; otherwise, it assumes that MVEL is used. 
+
+http://mvel.codehaus.org/Language+Guide+for+2.0
+
+Other languages
+
+Using MVEL for scripting is a simple and sufficient solution, but if you would like to use something different, you can choose between JavaScript, Python, and Groovy.
+Before using other languages, we must install an appropriate plugin. For now, we'll just run the following command from the ElasticSearch directory:
+
+bin/plugin -install elasticsearch/elasticsearch-lang-javascript/1.1.0
+
+The only change we should make in the request is to add the additional information about which language we are using for scripting, and of course,
+to modify the script itself to be correct in the new language. Look at the following example:
+{
+ "query" : {
+    "match_all" : { }
+  },
+  "sort" : {
+      "_script" : {
+        "script" : "doc.tags.values.length > 0 ? doc.tags.values[0] :'\u19999';",
+        "lang" : "javascript",
+        "type" : "string",
+        "order" : "asc"
+      }
+  }
+}
+
+As you can see, we used JavaScript for scripting instead of the default MVEL.
+
+
+Script library
+
+Usually, scripts are small, and it is quite convenient to put them in the request. But sometimes applications grow, and you want to give the developers something that
+they can reuse in their modules. If the scripts are large and complicated, it is generally better to place them in files and only refer to them in API requests.
+The first thing to do is to place our script in the proper place with a proper name. Our tiny script should be placed in the ElasticSearch directory config/scripts.
+
+Let's name our example file text_sort.js, where the extension of the file should indicate the language used for scripting. The content of this example file is very simple:
+
+doc.tags.values.length > 0 ? doc.tags.values[0] :'\u19999';
+
+And the query using the preceding script can be a little easier:
+{
+ "query" : {
+    "match_all" : { }
+ },
+ "sort" : {
+  "_script" : {
+        "script" : "text_sort",
+        "type" : "string",
+        "order" : "asc"
+  }
+ }
+}
+
+We can use text_sort as a method name. In addition, we can omit the script language; ElasticSearch will figure it out from the file extension.
+
+
+Native code
+
+For occasions when scripts are too slow or when you don't like scripting languages, ElasticSearch allows you to write Java classes and use them instead of scripts.
+To create a new native script, we should implement at least two classes. The first one is a factory for our script.
+
+package pl.solr.elasticsearch.examples.scripts;
+
+import java.util.Map;
+
+import org.elasticsearch.common.Nullable;
+import org.elasticsearch.script.ExecutableScript;
+import org.elasticsearch.script.NativeScriptFactory;
+
+public class HashCodeSortNativeScriptFactory implements NativeScriptFactory {
+
+  @Override
+  public ExecutableScript newScript(@Nullable Map<String, Object> params) {
+    return new HashCodeSortScript(params);
+  }
+
+}
+
+This class should implement org.elasticsearch.script.NativeScriptFactory. The interface forces us to implement the newScript() method.
+It takes parameters defined in the API call and returns an instance of our script.
+
+Now, let's see the main class, our script. It will be used for sorting. Documents will be ordered by the hashCode() value of the chosen field.
+Documents without a field defined will be the first. We know the logic doesn't have too much sense, but it is good for presentation.
+
+package pl.solr.elasticsearch.examples.scripts;
+
+import java.util.Map;
+
+import org.elasticsearch.script.AbstractSearchScript;
+
+public class HashCodeSortScript extends AbstractSearchScript {
+  private String field = "name";
+
+  public HashCodeSortScript(Map<String, Object> params) {
+    if (params != null && params.containsKey("field")) {
+      this.field = params.get("field").toString();
+    }
+  }
+
+  @Override
+  public Object run() {
+    Object value = source().get(field);
+    if (value != null) {
+      return value.hashCode();
+    }
+    return 0;
+  }
+}
+
+First of all the class inherits from org.elasticsearch.script.AbstractSearchScript and implements the run() method. This is the place where we get appropriate values
+from the current document, process them according to our strange logic, and return the result. You may notice the source() call. Yes, it is exactly the same _source parameter
+that we meet in the non-native scripts, and yes, there are also doc() and fields() available.
+Look at how we've used the parameters. We assume that a user can provide the field parameter, telling us which document field will be used for manipulation.
+We also provide a default value for this parameter.
+
+Now it's time to install our native script. After packing the compiled classes as a JAR archive, we should put it in the ElasticSearch lib directory.
+This makes our code visible to the class loader. What we should do after that is to register our script. This can be done by using the settings API call
+or by adding a single line to the elasticsearch.yml configuration file, as shown in the following code:
+
+script.native.native_sort.type: pl.solr.elasticsearch.examples.scripts.HashCodeSortNativeScriptFactory
+
+Note: the native_sort fragment. This is our script name, which will be used during requests and will be passed to the script parameter.
+The value for this property is the full class name of the factory whose server should be used to create the script
+
+The last thing is the need to restart the ElasticSearch instance and send our queries. For the example that uses our previously indexed data,
+we can try running the following query:
+
+{
+ "query" : {
+    "match_all" : { }
+  },
+  "sort" : {
+      "_script" : {
+        "script" : "native_sort",
+        "params" : {
+          "field" : "otitle"
+        },
+        "lang" : "native",
+        "type" : "string",
+        "order" : "asc"
+      }
+  }
+}
+
+Note the params part of the query. In this call, we want to sort on the otitle field. We provide the script name, native_sort, and the script language, native.
+This is required. If everything goes well, we should see our results sorted by our custom sort logic. If we look at the response from ElasticSearch,
+we will see that documents without the otitle field are in the first positions of the results list and their sort value is 0.
+

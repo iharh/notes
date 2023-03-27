@@ -1,0 +1,4 @@
+Setting 2 variables solved the problem:
+ENV LANG en_US.UTF-8 
+ENV LC_ALL en_US.UTF-8
+

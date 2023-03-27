@@ -1,0 +1,19 @@
+begins after := operator
+
+
+match ... with
+| v1 => r1
+| ...
+| vn => rn
+end.
+
+
+if ... then ... else
+
+(** Coq's conditionals are exactly like those found in any other
+    language, with one small generalization.  Since the boolean type
+    is not built in, Coq actually allows conditional expressions over
+    _any_ inductively defined type with exactly two constructors.  The
+    guard is considered true if it evaluates to the first constructor
+    in the [Inductive] definition and false if it evaluates to the
+    second. *)

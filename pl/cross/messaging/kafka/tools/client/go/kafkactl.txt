@@ -1,0 +1,20 @@
+https://deviceinsight.github.io/kafkactl/
+https://github.com/deviceinsight/kafkactl
+https://snapcraft.io/kafkactl
+
+GOBIN=/home/iharh/bin go install github.com/deviceinsight/kafkactl@latest
+sudo mv bin/kafkactl /usr/local/bin
+
+kafkactl
+    create
+        topic <name>
+            --help
+            -p, --partitions
+                default 1
+    list
+        topics
+
+    describe
+        topic <name>
+
+kafkactl create topic -p 5 iharh-63747

@@ -1,0 +1,5 @@
+Concurrency - Async
+http://hackage.haskell.org/package/async
+https://github.com/simonmar/async
+Marlow - Introduction to Concurrent Haskell slides (http://www.infoq.com/presentations/Concurrent-Haskell)
+

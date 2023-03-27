@@ -1,0 +1,4 @@
+https://checkstyle.sourceforge.io/config_filters.html
+
+supress
+https://stackoverflow.com/questions/1012407/how-to-suppress-all-checks-for-a-file-in-checkstyle

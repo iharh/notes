@@ -1,0 +1,49 @@
+old-way
+https://easyengine.io/tutorials/linux/increase-open-files-limit/
+https://askubuntu.com/questions/162229/how-do-i-increase-the-open-files-limit-for-a-non-root-user
+https://serverfault.com/questions/20387/too-many-open-files-on-debian
+
+!!! limits.conf does not work at manjaro !!!
+You can add this in /etc/security/limits.conf
+
+root soft nofile 100000
+root hard nofile 100000
+
+save then reboot.
+
+systemd-way
+https://fredrikaverpil.github.io/2016/04/27/systemd-and-resource-limits/
+https://wiki.archlinux.org/index.php/Limits.conf
+
+/etc/systemd/system.conf
+
+#DefaultLimitNOFILE=
+
+
+System-Wide Limit
+
+!!! absent at manjaro !!!
+/etc/sysctl.conf 
+...
+fs.file-max = 2097152
+
+sysctl -p
+
+Above will increase “total” number of files that can remain open system-wide.
+
+
+Verify New Limits
+
+Use following command to see max limit of file descriptors:
+
+cat /proc/sys/fs/file-max
+
+Hard Limit
+
+ulimit
+    -a
+        ?
+    -Hn
+        hard limit
+    -Sn
+        soft limit

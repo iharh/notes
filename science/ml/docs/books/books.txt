@@ -1,0 +1,168 @@
+lists:
+https://github.com/josephmisiti/awesome-machine-learning/blob/master/books.md
+http://www.datasciencecentral.com/profiles/blogs/10-free-machine-learning-books
+https://proglib.io/p/machine-learning-free-books-list/
+
+misc books review:
+https://habrahabr.ru/company/neurodatalab/blog/336218/
+https://habrahabr.ru/company/mailru/blog/333862/
+
+????
+Cornell - Foundations of Data Science
+    https://www.cs.cornell.edu/jeh/book.pdf
+    https://www.youtube.com/watch?v=DqBUALT6dnM
+Stanford - Leskovec - Mining of Massive DataSets
+    http://www.mmds.org/
+
+2023
+Harbans - Groking AI Algorithms ru
+    CC9C0B2B693ADA92751AB1E91B2CC88E
+2022
+Murphy - Probabilistic Machine Learning ru
+    F6BF6002011CB0F4A3F324A2B1A40B05
+    AE9803FC32101B32632F02DE25C791F6
+    !!! 942p
+Protodyakonov - Data Science Algorithms and Their Practical Python Implementation ru
+    3E67E80171D366146AB562DABE16C98F
+    09F9CAD4C58FB879D5D65A5803C97CBC
+Willson - Machine Learning Engineering in Action
+    15B1874A2FAACB20A9A6F7935304068A
+2021
+Grus - Data Science from Scratch 2nd ed ru
+    5B610EB9AAB0CF1F29AFF820AC105F81
+    magnet:?xt=urn:btih:567d1d7b915a60c21c7643c2e59a0dc74a761905
+2020
+Burkov - The Hundreed-Page ML Book ru
+    86E7734F7B8485B7064071E0CC2D1A21
+    7128164CB647DCC46D68BBC1D06C610D
+Burkov - Machine Learning Engineering
+    https://vk.com/doc255577237_577516437?hash=09eb0aca5cb7c656f1
+    6E9524F2B2D2F061B7F2016AB1883123
+Watt - Machine Learning Refined 2nd ed
+    112249BB612C64411A678403673C1648
+    85BF3E6FDE6AB7CA0CF44D727E48BCB7
+Aggarwal - Linear Algebra and Optimization for Machine Learning
+    49A259B8995A71143C7D1C6DAD0B9B33
+    6ECC0EF302A496AAC701D89E6166DCB2
+    D34B862EE849F842028973326238729B
+Fennner - Machine Learning With Python for Everyone
+    6A69FDD7A22B29B02F6581648DB92EED
+    D94E4CD766940D79ABED0BC6BA4E4344
+    B54994FED8579E827A4D4F4E9BF6EACB
+DeisenrothFaisalOng - Mathematics for Machine Learning
+    CB5296ACD5142E89D65497CAD990BC11
+    https://mml-book.github.io/
+    https://github.com/mml-book/mml-book.github.io
+Bonaccorso - Mastering Machine Learning Algorithms 2nd ed
+    https://vk.com/doc7608079_565522957?hash=bd7ac4ec41be4234f1
+    4F8D2F186383C89F7385F2C6137BEEC3
+SuttonBarto - Reinforcement Learning 2nd ed ru
+    F7E63AA596FA3FEC652C757AE50766E2
+Hurbans - Grokking Artificial Intelligence Algorithms
+    4EFD486FED05D3DDEB937A247E85E6BD
+    050DE26CAF73D5D7196B5543ED15530F
+    322A19DA16DF21341029CF320662193D
+    2434345E4A399E08F184C40415745229
+2019
+Joshi - AI with Python ru
+    https://vk.com/doc7608079_502574559?hash=d2f2b794e11861dd35
+    https://vk.com/doc7608079_513765512?hash=016d77fc1080fab20d
+    ! good and informative !
+Strang - Linear Algebra and Learning from Data
+    A556CCA72B3B8F9D8186E3685FFC8877
+    BFF855238D78E1E46504A80795B7B5EC
+    4456A8A88FDAF988B250DC4AF66273E3
+    6E79F464892430FB239E20517EDA15C0
+Porcu - Python for Data Mining (too short)
+Joshi - Artificial Intelligence with Python ru
+
+2018
+Bobkov - Pattern Recognition System ru
+    https://vk.com/doc7608079_513130976?hash=6c3995f1a644bde542
+Albon - Machine Learning with Python Cookbook
+    good, a lot of samples
+Sarkar - Practical ML with Python
+    https://vk.com/doc44301783_464701026
+Albon - Machine Learning with Python Cookbook
+Kruk - Practical Python AI Projects
+Ayyadevara - Pro Machine Learning Algorithms
+    30D0FEF2ACF758B5F4E2FEA6D30E8FB9
+    68ECD0EFB6E9EAC54E93B3F80A9EC819
+Natingga - Data Science Algorithms in a Week 2nd ed (basic stuff in a shallow way)
+VanderPlas - Python Data Science Handbook ru (!!!)
+    https://vk.com/doc44301783_457112102
+Gori - Machine Learning - A Constraint-Based Approach
+BoikaKazula - 2018 - Machine Learning in Java 2nd ed
+    https://vk.com/doc255577237_576655862?hash=da3a082dfb7e426dce
+
+2017
+Sugomori - Deep Learning: Practical Neural Networks with Java
+    https://vk.com/doc4004138_455539173
+Myuller - Intro to ML using Python ru
+Raschka - Python Machine Learning ru
+Bonaccorzo - Machine Learning Algorithms
+https://jakevdp.github.io/PythonDataScienceHandbook/
+Bonnin - Machine Learning for Developers
+Brink - Real World Machine Learning
+Brink - Real-World Machine Learning ru
+https://vk.com/doc247540843_456982697
+Joshi - Artificial Intelligence with Python
+    https://vk.com/doc182314867_467597874
+Pierson - Data Science For Dummies 2nd ed
+Geron - Hands-On Machine Learning with Scikit-Learn and TensorFlow
+    https://vk.com/doc7608079_518505448?hash=5b62ee766a10970eb5
+Bonaccorso - Machine Learning Algorithms
+Kubat - An Introduction to Machine Learning 2nd ed
+
+2016
+Domingos - The Master Algorithm
+    https://vk.com/doc7608079_506331045?hash=32adde44d1960971a2
+    3B1AFBEFB6C7E840DA83003A67C661B2
+    4C14AA3EBE9B31677F0B3D861AB89362
+Mueller - Machine Learning For Dummies
+
+2016
+Rashid - Make your own Neural Network
+    https://vk.com/doc7608079_513910850?hash=a150bbcb838986a529
+
+2015
+Marsland - Machine Learning - An Algorithmic Perspective 2nd ed
+    interesting and balanced
+
+2014
+Sutton - Reinforcement Learning
+https://vk.com/doc44301783_454908883
+
+2012
+Murphy - Machine Learning - A Probabilistic Perspective
+    https://vk.com/doc182314867_482945784?hash=5efafc1730fe09e4c3
+    https://vk.com/doc422237374_534325715?hash=85cc233cd9e8c693f5
+
+2005
+Yasnitskiy - AI Intro 2nd ed ru
+    good review of classic approaches
+
+Statistics:
+Unpingco - Python for Probability, Statistics and Machine Learning
+https://vk.com/doc4004138_453239844?hash=abd1387c870bafb957&dl=370437fe6fbaa611e1
+
+python
+Muller - Introduction to Machine Learning with Python
+    https://vk.com/doc90175155_462550667
+Muller - Introduction to Machine Learning with Python (ru)
+Cilien - Introducing Data Science ru
+https://vk.com/doc44301783_457112161
+Grus - Data Science from Scrutch ru
+Coelho - Building Machine Learning Systems with Python ru
+https://vk.com/doc190970339_437111950
+
+
+Haykin - 2006 - NNs A Comprehensive Foundation 2nd ed ru:
+    https://vk.com/doc4004138_437978172
+    https://vk.com/doc123534285_437548299
+
+?
+Flach - Machine Learning
+https://vk.com/doc625211_453355957
+https://vk.com/doc123534285_437595048
+https://www.dropbox.com/s/2awc9bkd3dx115e/flakh_p_mashinnoe_obuchenie_nauka_i_iskusstvo_postroeniya_al.djvu?dl=0

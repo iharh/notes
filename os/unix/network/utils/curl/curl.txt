@@ -1,0 +1,51 @@
+data
+    -d @en1c.json
+
+    --data-raw '{
+    }'
+
+
+headers
+    -H "name: value"
+
+Resume:
+http://www.cyberciti.biz/faq/curl-command-resume-broken-download/
+-L -O -C - <url>
+
+Samples:
+curl -XPUT -k -u <usr>:<pwd> -T <filename> <url>/<filename>
+
+    -XPOST -d "param1=value1&param2=value2"
+
+encode
+https://unix.stackexchange.com/questions/86729/any-way-to-encode-the-url-in-curl-command
+
+2021
+https://susam.in/maze/timing-with-curl.html
+https://linoxide.com/how-to-use-curl-command/
+
+curl
+    -v
+        verbose
+    -I, --head
+    -s - silent
+        https://unix.stackexchange.com/questions/196549/hide-curl-output
+        suppress progress
+    --connect-timeout <seconds>
+        Maximum  time  in  seconds  that you allow the connection to the
+        server to take.  This only limits  the  connection  phase,  once
+        curl has connected this option is of no more use.  Since 7.32.0,
+        this option accepts decimal values, but the actual timeout  will
+        decrease in accuracy as the specified timeout increases in deci‐
+        mal precision. See also the -m, --max-time option.
+    -m, --max-time <seconds>
+        Maximum  time  in  seconds that you allow the whole operation to
+        take.  This is useful for preventing your batch jobs from  hang‐
+        ing  for  hours due to slow networks or links going down.  Since
+        7.32.0, this option accepts decimal values, but the actual time‐
+        out will decrease in accuracy as the specified timeout increases
+        in decimal precision.  See also the --connect-timeout option.
+    --keepalive-time
+        in seconds
+    -T, --upload-file <file>
+        Transfer local FILE to destination

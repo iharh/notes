@@ -1,0 +1,29 @@
+https://itsfoss.com/best-aur-helpers/
+    If you are still using Yaourt, we strongly encourage you to switch to an alternative
+    like Pamac CLI (package: pamac-cli), Trizen (package: trizen), Yay (package: yay) or Pacaur (package: pacaur);
+    and uninstall Yaourt from your system.
+
+    In addition to that, we have dropped support for several packages that depended on yaourt:
+        allservers, pacli and pacli-jwm.
+    Those packages has been removed from the official repositories completely.
+
+https://wiki.archlinux.org/index.php/Yaourt
+https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/archlinux/archlinux.plugin.zsh
+
+yaourt-gui
+https://forum.manjaro.org/index.php?topic=7118
+
+yaourt -Syu --aur
+    upgrade yaourt stuff only ??? (why xf86-video-intell updated)
+
+yaourt -Syua
+    upgrade both AUR and pacman-stuff
+
+yaourt -Su
+    upgrade all the stuff
+
+yaourt -Si <package>
+    display info about installed package
+
+--tmp <dir>
+    use <dir> as temp-folder. Default is /tmp

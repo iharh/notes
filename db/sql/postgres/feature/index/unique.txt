@@ -1,0 +1,5 @@
+https://edu.postgrespro.ru/sqlprimer/sqlprimer-2019-msu-06.pdf
+    ! p18
+
+create unique index <index-name> on <table-name> (col1, col2, ...);
+    ! nulls are accepted at unique indices

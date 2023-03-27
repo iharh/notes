@@ -1,0 +1,21 @@
+https://anyenv.github.io/
+https://github.com/anyenv/anyenv
+
+https://github.com/neko-neko/dotfiles/blob/master/setup/install/04_anyenv.zsh
+    if [[ ! -e ${HOME}/.anyenv ]]; then
+      git clone https://github.com/riywo/anyenv ${HOME}/.anyenv
+      source ${HOME}/.zshenv
+
+      # install anyenv plugins
+      anyenv install --init
+      mkdir -p $(anyenv root)/plugins
+      git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+      git clone https://github.com/znz/anyenv-git.git $(anyenv root)/plugins/anyenv-git
+
+      # install *env
+      anyenv install rbenv
+      anyenv install nodenv
+    fi
+    anyenv update
+    anyenv git pull
+    source ${HOME}/.zshenv

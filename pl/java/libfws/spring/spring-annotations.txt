@@ -1,0 +1,16 @@
+2023
+https://gorkemgok.com/enable-annotations-for-better-spring-libraries-5a467a028e06
+    https://github.com/gorkemgok/enabler-annotation-example
+2019
+https://dzone.com/articles/5-spring-annotations-every-java-developer-should-k
+https://habr.com/ru/post/439594/
+https://dzone.com/refcardz/spring-annotations
+
+2016
+https://readlearncode.com/2016/02/13/insights-from-stackoverflow-most-voted-for-spring-4-questions/
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+@Order
+https://www.baeldung.com/spring-order

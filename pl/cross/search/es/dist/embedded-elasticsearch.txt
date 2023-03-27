@@ -1,0 +1,17 @@
+https://github.com/allegro/embedded-elasticsearch
+    !!! read-only from 2019
+    https://www.testcontainers.org/modules/elasticsearch/
+    https://mvnrepository.com/artifact/pl.allegro.tech/embedded-elasticsearch
+
+https://jitpack.io/p/mbedna/embedded-elasticsearch
+
+2019
+https://vanwilgenburg.wordpress.com/2019/01/22/embedded-elasticsearch-junit5-spring-boot/
+    ! random port
+2018
+https://www.geekyhacker.com/2018/11/28/java-embedded-elasticsearch-integration-testing/
+2016
+https://blog.allegro.tech/2016/09/embedded-elasticsearch.html
+????
+https://www.programmersought.com/article/60396273449/
+https://www.compose.com/articles/integration-testing-against-real-databases/

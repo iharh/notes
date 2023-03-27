@@ -1,0 +1,27 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-auto-configuration.html
+
+so steps are
+1. create a file in resources/META-INF/spring.factories
+2. Create a class e.g. MapperAutoConfiguration
+3. In spring.factories file add a line
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.clarabride.whateverpackagehere.MapperAutoConfiguration
+
+in new created configuration class
+define a bean
+and put annotation on it
+@OnMissingBean(SPMapper.class)
+
+To summarize
+1. Autoconfiguration applies at the end when all bean difinitions are read
+2. @OnMissingBean(SPMapper.class) annotation prevents bean creation if it was already registered example
+
+@Configuration
+public class MapperAutoConfiguration {
+    @Bean
+    @ConditionalOnMissingBean
+    public SPMapper myService() { ... } //return default mapper here
+}
+
+2019
+https://spring.io/blog/2019/01/21/manual-bean-definitions-in-spring-boot

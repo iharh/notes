@@ -1,0 +1,44 @@
+https://openvpn.net/openvpn-client-for-linux/
+https://community.openvpn.net/openvpn/wiki/OpenVPN3Linux
+https://github.com/OpenVPN/openvpn3-linux/
+
+https://openvpn.net/vpn-server-resources/command-line-functionality-for-openvpn-connect/
+
+sudo su
+curl -fsSL https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/openvpn-repo-pkg-keyring.gpg
+
+DISTRO=hirsute
+curl -fsSL https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-$DISTRO.list >/etc/apt/sources.list.d/openvpn3.list
+curl -fsSL https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-hirsute.list >/etc/apt/sources.list.d/openvpn3.list
+
+!!!
+# OpenVPN 3 Linux client - Ubuntu 21.04
+deb [arch=amd64] https://swupdate.openvpn.net/community/openvpn3/repos hirsute main
+
+cli
+openvpn3
+    <cmd> -h
+
+    configs-list
+    config-import
+        -c|--config ${MY-CFG-FILE} 
+        -n|--name   ${MY-CFG-NAME}
+        [--persistent]
+        sample
+            -c <cfg-name>.ovpn -n <cfg-name> -p
+    config-remove
+        -c|--config ${MY-CFG-FILE} 
+
+    sessions-list
+    session-start
+        -c|--config ${CONFIGURATION_PROFILE_NAME}
+        --config-path /net/openvpn/v3/configuration/...
+    session-manage
+        -c|--config ${CONFIGURATION_PROFILE_NAME}
+        --config-path /net/openvpn/v3/configuration/...
+        [--disconnect|--restart]
+    session-stats
+        -c|--config ${CONFIGURATION_PROFILE_NAME}
+
+    log
+        -c|--config ${CONFIGURATION_PROFILE_NAME}

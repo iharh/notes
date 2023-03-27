@@ -1,0 +1,74 @@
+Kmetiuk - 2017:
+http://akmetiuk.com/posts/2017-05-12-implicits.html
+Patridge:
+http://www.slideshare.net/nkpart/scala-implicits
+Wyatt:
+http://www.slideshare.net/DerekWyatt1/scala-implicits-not-to-be-feared
+Allen:
+http://www.slideshare.net/shinolajla/taxonomy-ofscala
+
+http://www.slideshare.net/futurespective/23-implicits-12236589
+
+Kralik:
+http://kralikba.web.elte.hu/implicits0.html
+https://github.com/kralikba/scala-implicits
+
+Habr:
+http://habrahabr.ru/post/209850/
+
+
+http://stackoverflow.com/documentation/scala/1732/implicits
+http://stackoverflow.com/questions/5598085/where-does-scala-look-for-implicits
+http://stackoverflow.com/questions/5332801/how-can-i-chain-implicits-in-scala
+
+compiler-options:
+-Xlog-implicits
+http://stackoverflow.com/questions/5080406/implicit-parameters-in-implicit-conversions
+
+Typeclasses:
+https://www.reddit.com/r/scala/comments/3n2u1d/demystifying_implicits_and_typeclasses_in_scala/
+http://www.cakesolutions.net/teamblogs/demystifying-implicits-and-typeclasses-in-scala
+
+1. Implicit parameters
+
+val a: A = ...
+implicit def (a: A): B = ...
+val b: B = a
+
+2.
+
+T % String
+  for T is sub-type or implicit-converted to String
+
+
+3. Parameter groups
+
+fun1(...)(...)(...)
+  function can have multiple parameter groups
+
+the last-one can be made implicit
+
+they can depend on the abstract parameters of prev-groups:
+
+  def mungeData[D](d: D)(implicit m: Munger[D])
+
+and this works for higher-kinds:
+
+  def mungeData[M[_], D)(d: D)(implicit m: Munger[D], each: Each[M])
+
+4. Companion objects - with the same name as a trait.
+
+any "implicit val <name> = new <trait-name> ..." will be available anywhere a <trait-name> is needed withou imports.
+
+5. Implicit Classes
+
+implicit class Person(name: String)
+
+implicit class Person(name: String)
+implicit final def Person(name: String): Person = new Person(name)
+
+6 implicitly keyword
+http://ru-scala.livejournal.com/59950.html
+
+7. annotation.implicitNotFound
+http://jsuereth.com/scala/2011/03/15/annotate-your-type-classes.html

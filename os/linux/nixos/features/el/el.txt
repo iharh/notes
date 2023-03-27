@@ -1,0 +1,8 @@
+https://nixos.org/manual/nix/stable/#chap-writing-nix-expressions
+https://nixos.org/manual/nix/stable/#ch-expression-language
+
+The Nix language is used to write expressions that produce derivations.
+The nix-build tool is used to build a derivations from an expression. 
+
+https://nixos.org/guides/nix-pills/basics-of-language.html
+https://nixos.org/guides/nix-pills/functions-and-imports.html

@@ -1,0 +1,13 @@
+https://lumina-desktop.org
+
+https://lumina-desktop.org/handbook/
+https://lumina-desktop.org/faq/
+
+https://lumina-desktop.org/get-lumina/
+aur
+    lumina-desktop
+
+https://github.com/trueos/lumina/archive/v${pkgver}-${my_pkgrel}.tar.gz
+
+https://lumina-desktop.org/handbook/luminaintro.html
+https://lumina-desktop.org/handbook/luminaconfig.html

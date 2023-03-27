@@ -1,0 +1,85 @@
+// foma.h
+
+/** User stack */
+struct stack_entry {
+  int number;
+  struct apply_handle *ah;
+  struct apply_med_handle *amedh;
+  struct fsm *fsm;
+  struct stack_entry *next;
+  struct stack_entry *previous;    
+};
+
+// stack.c
+
+extern int quiet_mode;
+
+struct stack_entry *main_stack;
+
+int stack_size() {
+  int i;
+  struct stack_entry *stack_ptr;
+  for (i=0, stack_ptr = main_stack; stack_ptr->next != NULL; i++)
+    stack_ptr = stack_ptr->next;
+  return i;
+}
+
+int stack_init() {
+  main_stack = xxmalloc(sizeof(struct stack_entry));
+  main_stack->number = -1;
+  main_stack->fsm = NULL;
+  main_stack->next = NULL;
+  main_stack->previous = NULL;
+  return 1;
+}
+
+int stack_add(struct fsm *fsm) {
+  int i;
+  struct stack_entry *stack_ptr, *stack_ptr_previous;
+  stack_ptr_previous = NULL;
+
+  fsm_count(fsm);
+  if (strcmp(fsm->name,"") == 0) 
+      sprintf(fsm->name, "%X",rand());
+  for (i=0, stack_ptr = main_stack; stack_ptr->number != -1; i++) {
+    stack_ptr_previous = stack_ptr;
+    stack_ptr = stack_ptr->next;
+  }
+  stack_ptr->next = xxmalloc(sizeof(struct stack_entry));
+  stack_ptr->fsm = fsm;
+  stack_ptr->ah = NULL;
+  stack_ptr->amedh = NULL;
+  stack_ptr->number = i;
+  stack_ptr->previous = stack_ptr_previous;
+  (stack_ptr->next)->number = -1;
+  (stack_ptr->next)->fsm = NULL;
+  (stack_ptr->next)->next = NULL;
+  (stack_ptr->next)->previous = stack_ptr;
+  if (!quiet_mode)
+      print_stats(fsm);
+  return(stack_ptr->number);
+}
+
+
+
+struct apply_handle *stack_get_ah() {
+    struct stack_entry *se;
+    se = stack_find_top();
+    if (se == NULL) {
+	return(NULL);
+    }
+    if (se->ah == NULL) {
+	se->ah = apply_init(se->fsm); // apply.c, !!!clb!!! simple data-race like a singleton
+    }
+    return(se->ah);
+}
+
+struct stack_entry *stack_find_top () {
+  struct stack_entry *stack_ptr;
+  if (main_stack->number == -1) {
+    return NULL;
+  }
+  for (stack_ptr = main_stack; (stack_ptr->next)->number != -1; stack_ptr = stack_ptr->next);
+  return(stack_ptr);
+}
+

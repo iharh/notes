@@ -1,0 +1,6 @@
+https://dlang.org/phobos/std_conv.html
+
+std.conv;
+
+to!int(val)
+val.to!int

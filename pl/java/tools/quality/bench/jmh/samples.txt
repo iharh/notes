@@ -1,0 +1,38 @@
+https://github.com/jbangdev/jbang-examples/blob/main/examples/benchmark/perftest.java
+
+2020
+http://pandabunnytech.com/java-array-vs-maps-lookup/
+    https://github.com/JaDogg/java-perf-tests-arr-mp
+2014
+http://psy-lob-saw.blogspot.com/2014/08/the-volatile-read-suprise.html
+    https://habr.com/ru/post/542148/
+    !!!
+????
+https://habr.com/ru/company/otus/blog/455122/
+http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
+
+@Fork(3)
+@Warmup(iterations = 10)
+@Measurement(iterations = 10)
+@BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(TimeUnit.NANOSECONDS)
+@State(Scope.Benchmark)
+@SuppressWarnings("unused") //invoked by benchmarking framework
+public class RegexStartsWithBenchmark {
+    private static final String testString = "abcdefghijklmnopqrstuvwxyz";
+    private static final String[] patterns;
+
+    static {
+        patterns = new String[testString.length() + 1];
+        for (int i = 0; i <= testString.length(); i++) {
+            patterns[i] = testString.substring(0, i) + "*";
+        }
+    }
+
+    @Benchmark
+    public void performSimpleMatch() {
+        for (int i = 0; i < patterns.length; i++) {
+            Regex.simpleMatch(patterns[i], testString);
+        }
+    }
+}

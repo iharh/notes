@@ -1,0 +1,29 @@
+:h Insert-mode
+	Help on the insert/replace mode
+:h i_
+	Help on all the keys in insert-mode
+
+
+C-o
+	Temporarily get out (for one subsequent command).
+:inoremap <C-K> <C-O>D
+	Delete to end of line, bash-style
+
+	
+Shifting:
+
+C-t / C-d
+	Shift a current line to the right/left (indentation).
+C-n/p
+	Complete a word (next/prev match).
+C-x + C-l/C-f
+	Complete entire line/filename
+C-W/C-H
+	backspace
+C-k
+	start digraph inserting mode
+
+Ctrl-X mode
+
+:h i_CTRL-X
+

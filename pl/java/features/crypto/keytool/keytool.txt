@@ -1,0 +1,22 @@
+..\..\..\bin\keytool.exe -list -keystore cacerts -storepass changeit
+
+u11
+...
+godaddyclass2ca, Jan 20, 2005, trustedCertEntry, 
+Certificate fingerprint (SHA1): 27:96:BA:E6:3F:18:01:E2:77:26:1B:A0:D7:77:70:02:8F:20:EE:E4
+...
+
+u112
+godaddyclass2ca, Jan 20, 2005, trustedCertEntry, 
+Certificate fingerprint (SHA1): 27:96:BA:E6:3F:18:01:E2:77:26:1B:A0:D7:77:70:02:8F:20:EE:E4
+godaddyrootg2ca, Jul 19, 2014, trustedCertEntry, 
+Certificate fingerprint (SHA1): 47:BE:AB:C9:22:EA:E8:0E:78:78:34:62:A7:9F:45:C2:54:FD:E6:8B
+
+
+Thumbprint Algorithm: sha1
+Thumbprint:
+47 be ab c9 22 ea e8 0e 78 78 34 62 a7 9f 45 c2 54 fd e6 8b
+27 ac 93 69 fa f2 52 07 bb 26 27 ce fa cc be 4e f9 c3 19 b8
+
+bintray cert
+sudo keytool -import -alias bintray -keystore "$JAVA_HOME/lib/security/cacerts" -file ~/-bintraycom.crt`

@@ -1,0 +1,17 @@
+http://www.querydsl.com/
+http://www.querydsl.com/static/querydsl/latest/reference/html_single/
+https://github.com/querydsl/querydsl
+
+Articles:
+http://blog.mysema.com/2011/01/querying-in-sql-with-querydsl.html
+https://www.credera.com/blog/technology-insights/java/can-querydsl-part-1-enhance-simplify-existing-spring-data-jpa-repositories/
+
+presentations:
+http://mitemitreski.github.io/talks/query-dsl.html
+http://www.slideshare.net/timowestkamper/querydsl-overview-2014
+http://www.slideshare.net/mrjavascript/an-evening-with-querydsl
+http://www.slideshare.net/zipkyh/querydsl-50557542
+
+gradle-plugin:
+https://github.com/querydsl/querydsl/issues/599
+https://github.com/ewerk/gradle-plugins/tree/master/querydsl-plugin

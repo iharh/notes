@@ -1,0 +1,25 @@
+https://wiki.archlinux.org/index.php/S.M.A.R.T.
+http://linuxnow.ru/view.php?id=106
+https://www.thomas-krenn.com/en/wiki/SMART_tests_with_smartctl
+https://askubuntu.com/questions/528072/how-can-i-check-the-smart-status-of-a-ssd-or-hdd-on-current-versions-of-ubuntu-1
+https://www.techrepublic.com/blog/linux-and-open-source/using-smartctl-to-get-smart-status-information-on-your-hard-drives/
+
+community/gsmartcontrol
+https://www.cyberciti.biz/tips/linux-find-out-if-harddisk-failing.html
+
+extra/smartmontools
+    smartctl
+        -H /dev/sda
+        -c /dev/sda
+        -t [short|long|conveyance|offline] /dev/sda
+        --all, -a /dev/sda
+        -i /dev/sdNN
+        -l <selftest|...> /dev/sda
+        -s on -d ata /dev/sdb
+
+smartd
+https://jlk.fjfi.cvut.cz/arch/manpages/man/smartd.conf.5
+ls -lah /dev/disk/by-uuid/ 
+
+2021
+https://linuxhandbook.com/check-ssd-health/

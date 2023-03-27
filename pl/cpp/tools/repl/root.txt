@@ -1,0 +1,15 @@
+https://root.cern/
+https://root.cern/install/
+https://root.cern/install/dependencies/
+https://root.cern/install/all_releases/
+https://root.cern/get_started/
+https://root.cern/manual/
+
+2022
+https://betterprogramming.pub/how-to-use-root-c-interpreter-shell-to-write-c-code-ebfd52d2642d
+
+sample
+#!/usr/bin/env -S root -l -b -q
+{
+    cout << "hello root!" << endl;
+}

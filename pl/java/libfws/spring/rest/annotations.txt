@@ -1,0 +1,9 @@
+RequestBody
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestBody.html
+http://zetcode.com/spring/requestbody/
+
+RequestHeader
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestHeader.html
+
+ResponseBody
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseBody.html

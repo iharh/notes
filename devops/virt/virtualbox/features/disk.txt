@@ -1,0 +1,9 @@
+http://www.webupd8.org/2011/02/how-to-easily-resize-virtualbox-40-hard.html
+
+VBoxManage showmediuminfo YOUR_HARD_DISK.vdi
+VBoxManage modifymedium YOUR_HARD_DISK.vdi --resize <newsize-mb>
+    300000
+
++gparted live
+
+http://derekmolloy.ie/resize-a-virtualbox-disk/

@@ -1,0 +1,6 @@
+2021
+rwxrob - Avoid microk8s for Home Learning Lab of 4:09
+    https://www.youtube.com/watch?v=Z6scWSQyyKI
+    1.  Doesn’t even have etcd (uses dqlite/sqlite instead)
+    2.  Designed for small IoT edge Kubernetes
+    3.  Not the actual Kubernetes that would run in production

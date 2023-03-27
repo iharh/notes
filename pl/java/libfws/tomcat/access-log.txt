@@ -1,0 +1,6 @@
+http://examples.javacodegeeks.com/enterprise-java/tomcat/tomcat-access-log-configuration-example/
+
+https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/AccessLogValve.html
+http://tomcat.apache.org/tomcat-7.0-doc/config/valve.html
+
+Time=%D

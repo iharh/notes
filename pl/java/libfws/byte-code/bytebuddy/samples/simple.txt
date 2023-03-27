@@ -1,0 +1,32 @@
+    public static String bar(Integer n, int k) {
+        log.info("bar called");
+        return "do bar n:" + n + ", k=" + k;
+    }
+    public static String baz(Integer n, int k) {
+        return "do baz";
+    }
+
+        ByteBuddyAgent.install();
+
+        Method bar = App.class.getDeclaredMethod("bar", Integer.class, int.class);
+        //Method baz = App.class.getDeclaredMethod("baz");
+
+        new ByteBuddy()
+            .redefine(Simple.class)
+            .method(named("tell"))
+            //.intercept(MethodDelegation.to(new TimingInterceptor()))
+            //.intercept(FixedValue.value("Hello Foo Redefined"))
+            .intercept(
+                MethodCall.invoke(bar)                 // call bar()...
+                //.andThen(MethodCall.invoke(baz))  // ... .length()?
+                .withAllArguments()
+            )
+            .make()
+            .load(
+                Simple.class.getClassLoader(), 
+                ClassReloadingStrategy.fromInstalledAgent()
+            );
+
+        Simple simple = new Simple();
+        String ret = simple.tell(1, 2);
+        log.info("app finish: {}", ret);

@@ -1,0 +1,15 @@
+https://github.com/rust-analyzer/rust-analyzer
+https://github.com/rust-analyzer/rust-analyzer/blob/master/guide.md
+
+https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/dev/architecture.md
+
+https://rust-analyzer.github.io/manual.html
+https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/manual.adoc
+
+https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
+https://rust-analyzer.github.io/manual.html#vs-code-2
+    may conflict with official
+    https://marketplace.visualstudio.com/items?itemName=rust-lang.rust
+
+2022
+https://blog.rust-lang.org/2022/07/01/RLS-deprecation.html

@@ -1,0 +1,4 @@
+df.duplicated()
+df.drop_duplicates(['name'],
+    take_last=True,
+)

@@ -1,0 +1,8 @@
+https://osxdaily.com/2016/07/05/list-user-accounts-command-line-mac/
+https://apple.stackexchange.com/questions/29874/how-can-i-list-all-user-accounts-in-the-terminal
+https://support.4it.com.au/article/list-user-accounts-mac-osx-using-terminal-command-line/
+    dscl . list /Users | grep -v “^_”
+
+pwds
+Mac OS: Go to Users & Groups, select an account
+    and click Change a password to change the Mac OS local user password.

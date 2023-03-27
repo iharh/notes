@@ -1,0 +1,66 @@
+Other articles:
+http://www.javaspecialist.ru/2011/04/jmx-firewall.html
+http://www.javalobby.org/java/forums/t49130.html
+http://java-course.ru/articles/jmx/
+
+
+JVM options:
+
+-Dcom.sun.management.jmxremote
+-Dcom.sun.management.jmxremote.port=5555
+-Dcom.sun.management.jmxremote.authenticate=false
+-Dcom.sun.management.jmxremote.ssl=false
+
+Manual registering:
+
+ManagementFactory.getPlatformMBeanServer().registerMBean(
+    new My(),
+    new ObjectName("training", "name", "stoppingBean")
+);
+
+
+Log4j JMX:
+
+http://logging.apache.org/log4j/2.0/manual/jmx.html
+
+org.apache.logging.log4j2
+  AsyncLoggerContext
+    Appenders
+    AsyncAppenders
+
+    Loggers
+      com.foo.Bar
+    StatusLogger
+
+Spring JMX:
+<bean class="org.springframework.jmx.support.ConnectorServerFactoryBean" depends-on="registry" id="serverConnector">  
+    <property name="serviceUrl" value="service:jmx:rmi://localhost:3000/jndi/rmi://localhost:9999/jmxrmi"></property>  
+    <property name="server" ref="mbeanServer"></property>      
+</bean>  
+          
+<bean class="org.springframework.remoting.rmi.RmiRegistryFactoryBean" id="registry">  
+    <property name="port" value="9999"></property>  
+</bean>  
+  
+<bean class="org.springframework.jmx.export.MBeanExporter" depends-on="serverConnector">  
+    <property name="beans">  
+        <map>  
+            <entry key="com:service=log4j,name=Log4jService">  
+                <bean class="com.Log4jService"></bean>  
+            </entry>  
+            <!-- entry key="<org>:type=logging,name=config" value-ref="logConfig"/ -->
+        </map>  
+    </property>  
+    <property name="server" ref="mbeanServer"></property>  
+</bean>  
+<bean class="org.springframework.jmx.support.MBeanServerFactoryBean" id="mbeanServer">  
+    <property name="locateExistingServerIfPossible" value="true"/> <!-- ??? -->
+</bean>
+
+
+Tomcat JMX:
+<listener classname="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" rmiregistryportplatform="9999" rmiserverportplatform="3000">  
+</listener>
+
+
+

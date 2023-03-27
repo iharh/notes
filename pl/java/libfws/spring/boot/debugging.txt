@@ -1,0 +1,9 @@
+2022
+https://www.baeldung.com/spring-debugging
+
+tasks {
+    bootRun {
+        jvmArgs = listOf("-agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=n")
+    }
+}
+

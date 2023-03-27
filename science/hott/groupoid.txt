@@ -1,0 +1,267 @@
+http://groupoid.space/
+https://github.com/groupoid/groupoid.space/
+http://groupoid.space/team.html
+https://sheaf.space/
+http://tonpa.guru/cast/
+
+https://github.com/5HT
+https://github.com/axiosis/books
+
+https://mokum.place/5ht
+http://tonpa.guru/stream/
+    http://tonpa.guru/stream/2019/2019-01-06%20%D0%9F%D0%BE%D1%81%D0%BB%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%85%D0%B5%D0%B9%D1%82%D0%B5%D1%80%D0%B0%D0%BC.htm
+
+https://github.com/groupoid/infinity
+http://groupoid.space/mltt/types/
+https://github.com/groupoid/groupoid.space/blob/master/tex/dissertation/manuscript/dissertation.pdf
+
+anders
+https://anders.groupoid.space/
+https://opam.ocaml.org/packages/anders/
+https://github.com/groupoid/anders
+
+library
+http://cubical.systems/
+
+http://t.me/groupoid
+http://t.me/systemflow
+http://t.me/formalphilosophy
+
+video
+https://www.youtube.com/user/masique/videos
+
+exe
+https://github.com/groupoid/exe/blob/master/doc/
+    proposal.pdf
+    encoding.pdf
+    identity.pdf
+
+Inductive Types Cagegorical Semantics:
+https://www.youtube.com/watch?v=UjjuCRlS-bA
+
+Misc:
+Dybjer - Inductive Families
+http://www.cse.chalmers.se/~peterd/papers/Inductive_Families.pdf
+http://cstheory.stackexchange.com/questions/33566/dependent-types-over-church-encoded-type-in-pts-coc
+Uri Norell
+http://www.cse.chalmers.se/~ulfn/papers/thesis.pdf
+CT:
+http://zeit-raffer.livejournal.com/124319.html
+https://groups.google.com/forum/#!forum/cat-theory_ium2012
+http://rnyingma.synrc.com/publications/cat/Category%20Theory/IUM-2012/
+
+Sorts:
+Coc has only 2 sorts: * and qube
+http://cstheory.stackexchange.com/questions/22734/why-an-infinite-type-hierarchy
+
+macro:
+https://github.com/groupoid/exe/blob/master/priv/Macro/macross-0/guidelines
+https://github.com/groupoid/exe/blob/master/priv/Macro/macro.new/guidelines
+
+Encodings:
+http://maxim.livejournal.com/517371.html
+http://maxim.livejournal.com/492132.html
+
+church-encoding:
+om - 2016/01/12
+    + Odersky+CT
+http://cstheory.stackexchange.com/questions/30923/why-its-impossible-to-declare-an-induction-principle-for-church-numerals
+http://zeit-raffer.livejournal.com/170679.html
+
+Haskell, Scott Domens and CCC
+om - 2016/01/12
+
+Lambda-Cube of Henk/Morte
+http://www.msr-waypoint.net/en-us/um/people/simonpj/papers/henk.ps.gz
+http://rnyingma.synrc.com/publications/cat/Lambda%20Calculus/The%20Lambda%20Calculus.pdf
+2016/01/13
+2016/02/03
+http://zeit-raffer.livejournal.com/124513.html
+CoC (PTS) is cooler than SystemF, don't have problems with recursion
+
+Pi-Sigma
+2016/01/14
+Altenkirch - http://www.cs.nott.ac.uk/~psztxa/publ/ 
+
+KVS
+2016/01/14
+
+Lambda-Cube/CoC
+2016/01/14
+
+DepType category models:
+CCC, Topois and Slice-categories
+2016/01/14
+
+Universes
+http://www.cs.rhul.ac.uk/home/zhaohui/universes.pdf
+Zhaohui Luo
+2016/01/14
+
+Inductively Defined Types in CoC
+http://repository.cmu.edu/cgi/viewcontent.cgi?article=2907&context=compsci
+2016/01/15
+
+Charity
+https://github.com/devaspot/charity
+https://github.com/devaspot/charity/tree/master/Doc
+http://maxim.livejournal.com/465381.html
+2016/01/15
+
+Vcc for verifying Hyper-V
+http://research.microsoft.com/en-us/projects/vcc/
+other verify stuff like Clash
+2016/01/16
+
+Altenkirch - Inductive Types for Free
+http://www.cs.nott.ac.uk/~psztxa/talks/icalp-slides.pdf
+2016/01/20
+
+Setoids
+http://zeit-raffer.livejournal.com/120281.html
+difference between our and boehm-berarducci encodings
+http://www.cs.nott.ac.uk/~psztxa/publ/defquotients.pdf
+Martin Hofmann - Extensional Constructs in Intensional Type Theory
+HoTT infinity groupoids are more complex than setoids
+Betarte - Extension of MartinLof TT with Record Types and Subtyping
+http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=4B201CDE47A40C53936120C735EE8AFF?doi=10.1.1.49.5862&rep=rep1&type=pdf
+http://www.cs.nott.ac.uk/~psztxa/publ/defquotients.pdf
+Luo - Dependent Record Types
+http://www.cs.rhul.ac.uk/~zhaohui/DRT09.pdf
+http://zeit-raffer.livejournal.com/119247.html
+http://zeit-raffer.livejournal.com/124513.html
+2016/01/20,21
+2016/02/03,08(e)
+
+Groupoids
+Altenkirch - misc:
+http://www.cs.nott.ac.uk/~psztxa/publ/omega.pdf
+http://www.cs.nott.ac.uk/~psztxa/publ/weakomega2.pdf
+https://github.com/leanprover/lean/blob/master/hott/algebra/category/groupoid.hlean
+http://arxiv.org/pdf/1212.5853v2.pdf
+http://category-theory.livejournal.com/33307.html?thread=415515#t415515
+2016/02/11(e)
+
+
+Making a system simpler than DTs (using just an equality)
+2016/01/20
+
+https://www.reddit.com/r/haskell/comments/561muo/suggestion_the_more_experienced_typetheory/
+Shulman - HoTT - A Synthetic approacht to higher equalities
+https://arxiv.org/pdf/1601.05035v3.pdf
+http://www.bristol.ac.uk/arts/research/projects/homotopy-type-theory/
+http://philsci-archive.pitt.edu/11143/4/Does_HTT_Provide_a_Foundation_public.pdf
+
+Setoids-Groupoids
+exe 2016/02/14
+
+Dependent pattern-matching
+2016/02/02
+om 2016/02/16
+
+Parser on erl
+2016/02/08
+
+Misc:
+Appel - Verifiable C
+http://vst.cs.princeton.edu/
+http://vst.cs.princeton.edu/download/
+http://vst.cs.princeton.edu/download/VC.pdf
+https://github.com/PrincetonUniversity/VST
+
+coq:
+https://math-comp.github.io/mcb/book.pdf
+
+Paradoxes
+http://liamoc.net/posts/2015-09-10-girards-paradox.html
+om 2016/02/16
+
+CoC, CIC:
+http://www.lfcs.inf.ed.ac.uk/reports/90/ECS-LFCS-90-118/ECS-LFCS-90-118.pdf
+http://www4.di.uminho.pt/~mjf/pub/SFV-CIC-2up.pdf
+
+DTs:
+http://math.andrej.com/wp-content/uploads/2017/12/Spartan-Type-Theory.pdf
+    https://arxiv.org/pdf/1711.01477.pdf
+http://cs.swan.ac.uk/~cspt/DependentTypes.pdf
+good intro to DTs
+    https://pages.lip6.fr/Pierre-Evariste.Dagand/stuffs/thesis-2011-phd/thesis.pdf
+http://smc2014.univ-lyon1.fr/lib/exe/fetch.php?media=msc-hott1.pdf
+gambino:
+http://www.cs.le.ac.uk/events/mgs2009/courses/gambino/lecturenotes-gambino.pdf
+http://www1.maths.leeds.ac.uk/~pmtng/
+http://www1.maths.leeds.ac.uk/~pmtng/lecture1.pdf
+http://www1.maths.leeds.ac.uk/~pmtng/lecture2.pdf
+http://www1.maths.leeds.ac.uk/~pmtng/lecture3.pdf
+http://www1.maths.leeds.ac.uk/~pmtng/lecture4.pdf
+http://www1.maths.leeds.ac.uk/~pmtng/Research/Lectures/lecture1.pdf
+http://www1.maths.leeds.ac.uk/~pmtng/Research/Lectures/lecture2.pdf
+http://www1.maths.leeds.ac.uk/~pmtng/Research/Lectures/lecture3.pdf
+http://www1.maths.leeds.ac.uk/~pmtng/Research/Lectures/lecture4.pdf
+http://smc2014.univ-lyon1.fr/lib/exe/fetch.php?media=msc-hott1.pdf
+http://smc2014.univ-lyon1.fr/lib/exe/fetch.php?media=msc-hott3.pdf
+http://smc2014.univ-lyon1.fr/lib/exe/fetch.php?media=msc-hott4.pdf
+
+HoTT:
+https://www.andrew.cmu.edu/user/awodey/preprints/TTH.pdf
+
+??? CT book ???
+https://henrychern.files.wordpress.com/2017/10/27.pdf
+
+cubical TT:
+Sokhatsky - 2018 - MLTT in Cubical (Practice)
+https://www.youtube.com/watch?v=JsHminiPzzs
+https://homotopytypetheory.org/2017/09/16/a-hands-on-introduction-to-cubicaltt/
+http://dlicata.web.wesleyan.edu/pubs/lb14cubical/lb14cubes-oxford.pdf
+http://www.cse.chalmers.se/~coquand/rules7.pdf
+https://groupoid.space/tex/cub/Cubical%20Type%20Theory.pdf
+https://nponeccop.livejournal.com/581276.html
+https://arxiv.org/abs/1611.02108
+https://github.com/sspeight93/Papers/blob/master/Impredicative%20Encodings%20of%20Inductive%20Types%20in%20HoTT.pdf
+http://www.cse.chalmers.se/~coquand/equality.pdf
+http://groupoid.space/mltt/inductive/
+http://groupoid.space/mltt/types/
+
+Anders Mortberg
+https://github.com/mortberg/cubicaltt
+https://github.com/mortberg/cubicaltt/pull/86
+http://www.cs.cmu.edu/~amoertbe/
+http://www.cs.cmu.edu/~amoertbe/thesis/index.html
+http://www.cs.cmu.edu/~amoertbe/thesis/thesis.pdf
+https://github.com/mortberg/cubicaltt/tree/master/lectures
+https://arxiv.org/pdf/1611.02108.pdf
+http://www.cse.chalmers.se/~coquand/mod1.pdf
+https://arxiv.org/abs/1401.7807
+HoTT - single existing form-n of equality for equivalent object
+It (HoTT) has a model in Kan-cubical-sets,
+    CTT - is a formalization of this model with CurryHoward
+        as extensional-MLTT with tricky-equality
+
+people
+https://github.com/zraffer
+
+Spievak - CT for scientists:
+https://github.com/zeitraffer/tex-cats/releases
+
+Rust-CPS:
+http://maxim.livejournal.com/492713.html
+
+yt
+https://www.youtube.com/playlist?list=PLGMl-uAnnXVXCLSnGy-c4hSQGFc65OoFj
+
+github:
+https://github.com/groupoid/groupoid.space
+
+gitter:
+https://gitter.im/groupoid/om/archives/
+    2017/01/08
+https://gitter.im/groupoid/exe/archives/
+    2017/11/07
+https://gitter.im/groupoid/coq/archives/
+    2017/06/13
+
+telegram:
+https://t.me/groupoid
+2017/12/18
+    F - practical applications of HoTT
+    12/19

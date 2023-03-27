@@ -1,0 +1,36 @@
+https://undraw.co/illustrations
+
+<?xml version="1.0" encoding="UTF-8"?>
+svg(width="51px" height="49px" viewBox="0 0 51 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink")
+    title
+    desc
+    defs
+    g(id="Page-1"
+        stroke="none"
+        stroke-width="1"
+        fill="none"
+        fill-rule="evenodd"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    )
+        g(id="Group-21"
+            stroke-width="2"
+            transform="translate(1.000000, 1.000000)"
+        )
+            g(id="Share-work")
+                path(id="Rectangle-14" stroke="#79B8FF"
+                    d="M0,13 L0,2 C-1.3527075e-16,0.8954305 0.8954305,2.02906125e-16 2,0 L40,0 C41.1045695,-2.02906125e-16 42,0.8954305 42,2 L42,13"
+                )
+                path(id="Rectangle-13" stroke="#2088FF"
+                    d="M32.0133057,38 L2,38 C0.8954305,38 1.3527075e-16,36.9553311 0,35.6666667 L0,19.3333333 C-1.3527075e-16,18.0446689 0.8954305,17 2,17 L40,17 C41.1045695,17 42,18.0446689 42,19.3333333 L42,31"
+                )
+                path(id="Stroke-7" stroke="#79B8FF" d="M36,25 L19,25")
+                path(id="Stroke-7" stroke="#79B8FF" d="M36,9 L19,9")
+                path(id="Stroke-9" stroke="#79B8FF" d="M27,30 L19,30")
+                path(id="Stroke-17" stroke="#2088FF"
+                    d="M42,47 L42,44 C41.124721,43.7114136 34.551963,44.1607069 33,47 C33.073903,40.5826311 41.0467529,37.9996338 42,38 L42,35 L49,41 L42,47 Z")
+            rect(id="Rectangle-7" stroke="#79B8FF" x="6" y="24" width="7" height="7" rx="2")
+            rect(id="Rectangle-7" stroke="#79B8FF" x="6" y="6" width="7" height="7" rx="2")
+
+3d kubes
+https://pypi.org/static/images/logo-large.72ad8bf1.svg

@@ -1,0 +1,77 @@
+Exponentials:
+
+Def (6.1) Let the category CatC have binary products. An exponential of objects B and C of CatC consists of an object
+
+  C^B
+  
+and an arrow
+
+  \eval : C^B x B -> C
+
+such that, for any object Z and an arrow
+
+  f : Z x B -> C
+
+there's a unique arrow
+
+  f~ : Z -> C^B
+
+such that
+
+  \eval . (f~ x 1_B) = f
+
+
+all as in the diagram:
+
+  C^B          C^B x B -- (\eval) --> C
+   .               .               /  
+  (f~)         (f~ x 1_B)      (f)
+   .               .        /
+   Z             Z x B
+
+here is some terminology:
+
+  \eval : C^B x B -> C  is called evaluation
+
+  f~ : Z -> C^B         is called the (exponential) transpose of f.
+
+  ...
+
+
+CCC:
+
+Def (6.2) A category is called cartesian closed if it has all the finite products and exponentials.
+
+Ex (6.4) for the CatPos we have arrows f : P -> Q to be a monotone functions.
+
+  Q^P = { f : P -> Q | f - monotone }
+
+Ex (6.5) for the CatOmegaCPO
+
+  Q^P = { f : P -> Q | f - monotone and omega-continuous }
+
+Prop (6.6) In any CCC, exponentiation by a fixed object A is a functor
+
+  ^(_A) : CatC -> CatC
+
+
+Note: Check the "Pierce - Basic CT for CS", page 33(42)
+***
+Exponentiation gives a categorical interpretation to the notion of currying.
+
+  B^A = { f : A -> B | f is a morphism of CatC }
+
+  CatC(A, B) is (can be) representable as an object B^A of CatC.
+
+As usual, we want to characterize B^A by arrows instead of elements.
+
+We observe that with each B^A there is associated function
+
+  \eval : (B^A x A) -> B, defined by
+
+  eval (f, a) = f(a),     on f : A -> B
+
+  ...
+
+
+

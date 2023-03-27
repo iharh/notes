@@ -1,0 +1,10 @@
+https://github.com/spring-tips/kubernetes-native-java-redux-2022-07/blob/main/controllers/src/main/java/com/example/controllers/ControllersApplication.java
+https://github.com/spring-tips/kubernetes-native-java-redux-2022-07/blob/main/configuration/src/main/java/com/example/configuration/ConfigurationApplication.java
+https://github.com/spring-tips/kubernetes-native-java-redux-2022-07/blob/main/configuration/src/main/resources/bootstrap.properties
+    spring.main.cloud-platform=kubernetes
+    spring.cloud.kubernetes.reload.enabled=true
+    spring.cloud.kubernetes.reload.mode=event
+    spring.cloud.kubernetes.config.namespace=default
+    spring.cloud.kubernetes.client.namespace=default
+    #spring.cloud.kubernetes.reload.monitoring-config-maps=true
+    #spring.cloud.kubernetes.reload.monitoring-secrets=true

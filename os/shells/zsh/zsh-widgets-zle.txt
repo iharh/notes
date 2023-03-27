@@ -1,0 +1,109 @@
+man zshzle
+widget - command inside a line editor (zle).
+widget function - shell-function for extending zle.
+
+Note: !!! Create and use the following widget to repair in case of damage:
+bindkey -A main .safe
+
+
+backward-ten-characters:
+(( CURSOR -= 10 ))
+
+Put this to your .zshrc:
+autoload backward-ten-characters
+zle -N backward-ten-characters
+bindkey '^xb' backward-ten-characters
+
+Note: Esc-x-<widget-name> - execute the widget if it is unbound.
+
+Note: bindkey 'key' ('\C-e', '^E') - show the key binding.
+>"^E" end-of-line
+
+Calling another widget:
+
+example-widget() {
+	zle end-of-line
+}
+
+Special zle-widget variables:
+
+CURSOR     — The character position of the cursor on the command line.
+BUFFER     — The contents of the current editing buffer. Possibly multiple lines.
+PREBUFFER  — The contents of any lines already read, if you are editing at a continuation prompt.
+LBUFFER    — The part of BUFFER to the left of and above the cursor.
+RBUFFER    — The part of BUFFER to the right of and below the cursor.
+NUMERIC    — The numeric prefix passed by Esc digit or by the universal-argument widget.
+             If there is none, the value is not set.
+WIDGET     — The name of the editor widget currently being executed.
+LASTWIDGET — The name of the immediately previous editor widget that the user called using a key binding,
+             or of a widget function called with zle widgetname.
+KEYS       — The set of keys used to execute the current widget.
+             A raw string of characters, which may well not be printable.
+
+Sample usage:
+${BUFFER[CURSOR]}
+	The character at the cursor position.
+${BUFFER[1,CURSOR-1]}, $LBUFFER
+	The string to the left of the cursor.
+${BUFFER[CURSOR,-1]}, $RBUFFER
+	The string from the cursor to the right (-1 - index from the end of the string).
+
+
+Numeric arguments:
+
+bindkey '\C-xu' universal-argument
+	Now press Ctrl-x and type u40X. The shell will insert 40 X characters into the command.
+
+(( CURSOR += ${NUMERIC:-1} ))	
+	The updated version of forward-char widget.
+
+zle backward-char -n 10
+	Directly specify the NUMERIC argument.
+
+
+Error handling:
+
+zle beep
+	Direct call of beep.
+return 1
+	Indicate that our widget encounters error.
+zle send-break
+	Abort the widget execution right away (like C-g in emacs).
+
+
+Putting two widgets to the same file:
+
+autoload delete-space-word
+zle -N delete-space-word
+zle -N backward-delete-space-word delete-space-word
+
+Here is the content of delete-space-word:
+#set up the options for the functions
+emulate -L zsh
+setopt extended_glob
+
+if [[ $WIDGET = backward-* ]]; then
+	# some steps
+else
+	# other steps
+fi
+
+
+Reading keys within a widget:
+
+zle -R 'Type a key:'
+	Output a string until the next time zle redraws the display (zle -M - to output below the cmd-line).
+
+read -k variable
+	Read a single key.
+
+
+Keeping other output away from cmd-line:
+
+setopt notify
+sleep 5 &
+	This is a demo-sample of graceful line-redraw.
+
+zle -I ...
+	Provide the same behaviour.
+

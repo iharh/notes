@@ -1,0 +1,9 @@
+raco
+    help
+        <cmd>
+    docs
+    pkg
+        install
+            <package>
+
+https://download.racket-lang.org/releases/7.0/catalog/

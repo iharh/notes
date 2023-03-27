@@ -1,0 +1,85 @@
+https://github.com/ben-manes/caffeine
+
+https://github.com/ben-manes/caffeine/wiki
+https://github.com/ben-manes/caffeine/wiki/JCache
+
+https://github.com/ben-manes/caffeine/wiki/Guava
+
+https://github.com/ben-manes/caffeine/wiki/Eviction
+https://github.com/ben-manes/caffeine/wiki/Statistics
+
+scala-stuff
+https://github.com/jcouyang/jujiu
+
+2019
+https://techblog.bozho.net/multiple-cache-configurations-with-caffeine-and-spring-boot/
+2018
+https://www.baeldung.com/java-caching-caffeine
+
+api
+http://www.javadoc.io/doc/com.github.ben-manes.caffeine/caffeine/
+http://static.javadoc.io/com.github.ben-manes.caffeine/caffeine/2.6.2/com/github/benmanes/caffeine/cache/package-summary.html
+http://static.javadoc.io/com.github.ben-manes.caffeine/caffeine/2.6.2/com/github/benmanes/caffeine/cache/Weigher.html
+
+config
+http://qaru.site/questions/2415370/multiple-caffeine-loadingcaches-added-to-spring-caffeinecachemanager
+https://stackoverflow.com/questions/44507309/multiple-caffeine-loadingcaches-added-to-spring-caffeinecachemanager
+
+deps
+compile 'com.github.ben-manes.caffeine:caffeine:2.6.2'
+// Optional extensions
+compile 'com.github.ben-manes.caffeine:guava:2.6.2'
+compile 'com.github.ben-manes.caffeine:jcache:2.6.2'
+
+integration
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/caffeine/CaffeineCacheManager.html
+https://github.com/spring-projects/spring-framework/blob/master/spring-context-support/src/main/java/org/springframework/cache/caffeine/CaffeineCacheManager.java
+https://github.com/spring-projects/spring-framework/blob/master/src/docs/asciidoc/integration.adoc#cache-store-configuration-caffeine
+
+!!!
+https://github.com/mvpjava/spring-caffeine-cache-tutorial/tree/master/src/main/java/com/mvpjava
+https://github.com/mvpjava/spring-caffeine-cache-tutorial/blob/master/src/main/java/com/mvpjava/CacheTutorial.java
+https://github.com/mvpjava/spring-caffeine-cache-tutorial/blob/master/src/main/java/com/mvpjava/CacheJavaConfig.java
+https://github.com/mvpjava/spring-caffeine-cache-tutorial/blob/master/src/main/java/com/mvpjava/AircraftService.java
+
+
+https://github.com/spring-projects/spring-framework/blob/master/spring-context-support/src/test/java/org/springframework/cache/caffeine/CaffeineCacheManagerTests.java
+
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
+
+import com.github.benmanes.caffeine.cache.CacheLoader;
+import com.github.benmanes.caffeine.cache.Caffeine;
+import com.github.benmanes.caffeine.cache.CaffeineSpec;
+
+CacheManager cm = new CaffeineCacheManager(); // ? static mode
+// cm.setAllowNullValue(false/true);
+
+// cm.setCaffeineSpec(CaffeineSpec.parse("maximumSize=10"));
+
+Caffeine<Object, Object> caffeine = Caffeine.newBuilder().maximumSize(10);
+cm.setCaffeine(caffeine);
+
+// cm.setCacheLoader(new CacheLoader<Object, Object>() {
+    @Override
+    public Object load(Object key) throws Exception {
+        if ("ping".equals(key)) {
+            return "pong";
+        }
+        throw new IllegalArgumentException("I only know ping");
+    }
+// });
+
+// cm.setCacheNames(null); // ???
+
+Cache cache1 = cm.getCache("c1");
+
+cache1.put("key1", "value1");
+cache1.evict("key1");
+cache1.get("key1");
+
+// Cache.ValueWrapper value = cache1.get("ping");
+
+issues
+unsafe-usage
+https://github.com/ben-manes/caffeine/issues/273

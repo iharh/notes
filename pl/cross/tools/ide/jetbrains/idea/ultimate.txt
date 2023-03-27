@@ -1,0 +1,6 @@
+* DataGrip
+* Minimal, but useful HTTP client
+* Useful Spring Beans navigation (autowire candidates, configs, yml and properties tips)
+* JPQL code completion
+* JS/TS support
+* Profiler (with informative flame chart)

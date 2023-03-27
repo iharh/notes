@@ -1,0 +1,12 @@
+jessie krakatoa:
+http://frama-c.com/jessie.html
+http://krakatoa.lri.fr/
+http://krakatoa.lri.fr/#jessie
+http://krakatoa.lri.fr/jessie.pdf
+
+relies on why3
+
+based on weakest precondition calculus
+
+wiki:
+It uses a separation memory model inspired by separation logic.

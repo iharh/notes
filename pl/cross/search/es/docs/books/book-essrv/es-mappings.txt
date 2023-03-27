@@ -1,0 +1,402 @@
+Schema mapping (mappings):
+
+posts.json:
+
+{
+  "mappings": {
+    "post": {
+      "properties": {                
+        "id": {"type":"long", "store":"yes", "precision_step":"0" },
+        "name": {"type":"string", "store":"yes", "index":"analyzed" },
+        "published": {"type":"date", "store":"yes", "precision_step":"0" },
+        "contents": {"type":"string", "store":"no", "index":"analyzed" }             
+      }
+    }
+  }
+}
+
+curl -XPOST 'http://localhost:9200/posts' –d @posts.json
+resp:
+{"ok":true,"acknowledged":true}
+
+we can also include one-more type:
+
+{
+  "mappings": {
+    ...
+    "user": {
+      "properties": {                
+        "id": { "type":"long", "store":"yes", "precision_step":"0" },
+        "name": { "type":"string", "store":"yes", "index":"analyzed" }             
+      }
+    }
+    ...
+  }
+}
+
+Common attributes:
+
+index_name:
+  the name of the field in the Lucene index
+index:
+  analyzed (default)
+    the field will be analyzed and thus searchable
+  no
+    you won't be able to search such a field
+  not_analyzed (for the String-type fields only)
+    the field should be indexed but not processed by the analyzer
+store:
+  no (default)
+    the field will not be indexed and can't be returned as a result (although if you use the _source field, ...),
+    but if you have it indexed, you still can search on it
+  yes
+    the field should be written to the index and retrievable
+boost:
+  1 (default)
+    how important the field is inside the document (the higher - the more important)
+null_value:
+  Specifies a value that should be written into the index if that field is not a part of an indexed document.
+  The default behavior will just omit that field
+include_in_all:
+  Specifies if the field should be included in the _all field.
+  By default, if the _all field is used, all the fields will be included in it.
+
+
+Core types:
+- String
+- Number
+- Date
+- Boolean
+- Binary
+
+
+String
+In addition to the common attributes, the following ones can also be set for string-based fields:
+
+term_vector:
+  This can take the values
+    no
+      (the default one),
+    yes,
+    with_offsets,
+    with_positions, or 
+    with_positions_offsets.
+  It defines whether the Lucene term vectors should be calculated for that field or not.
+  If you are using highlighting, you will need to calculate term vectors.
+omit_norms:
+  This can take the value true or false. The default value is false. When this attribute is set to true, it disables the Lucene norms calculation for that field
+  (and thus you can't use index-time boosting).
+omit_term_freq_and_positions:
+  This can take the value true or false. The default value is false. Set this attribute to true, if you want to omit term frequency and position calculation during indexing.
+  (Deprecated since ElasticSearch 0.20).
+index_options:
+  This allows to set indexing options. The possible values are
+    docs
+      which affects in number of documents for terms to be indexed,
+    freqs
+      which results in indexing number of documents for terms and term frequencies and
+    positions
+      which results in the previously mentioned two and term positions.
+  The default value is freqs. (Available since ElasticSearch 0.20.)
+analyzer:
+  This is the name of the analyzer used for indexing and searching. It defaults to the globally defined analyzer name.
+index_analyzer:
+  This is the name of the analyzer used for indexing.
+search_analyzer:
+  This is the name of the analyzer used for processing the part of the query string that is sent to that field.
+ignore_above:
+  This is the maximum size of the field. The rest of the fields beyond the specified value characters will be ignored.
+  This attribute is useful if we are only interested in the first N characters of the field.
+
+
+Number
+byte:
+  A byte value; for example, 1
+short:
+  A short value; for example, 12
+integer:
+  An integer value; for example, 134
+long:
+  A long value; for example, 12345
+float:
+  A float value; for example, 12.23
+double:
+  A double value, for example, 12.23
+
+A sample definition of a field based on one of the numeric types can be as follows:
+  "price" : { "type" : "float", "store" : "yes", "precision_step" : "4" }
+
+In addition to the common attributes, the following ones can also be set for the numeric fields:
+precision_step:
+  This is the number of terms generated for each value in a field.
+  The lower the value, the higher the number of terms generated, resulting in faster range queries (but a higher index size).
+  The default value is 4.
+ignore_malformed:
+  This can take the value true or false.
+  The default value is false.
+  It should be set to true in order to omit badly formatted values.
+
+
+Date
+This core type is designed to be used for date indexing. It follows a specific format that can be changed and is stored in UTC by default.
+The default date format understood by ElasticSearch is quite universal and allows us to specify the date and optionally the time;
+for example, 2012-12-24T12:10:22.
+
+A sample definition of a field based on the date type can be as follows:
+  "published" : { "type" : "date", "store" : "yes", "format" : "YYYY-mm-dd" }
+
+A sample document that uses the preceding field can be as follows:
+{ 
+  "name" : "Sample document",
+  "published" : "2012-12-22" 
+}
+
+In addition to the common attributes, the following ones can also be set for the date type- based fields:
+format:
+  This specifies the format of the date.
+  The default value is dateOptionalTime. For a full list of formats, please visit
+    http://www.elasticsearch.org/guide/reference/mapping/date-format.html
+precision_step:
+  This specifies the number of terms generated for each value in that field.
+  The lower the value, the higher is the number of terms generated, resulting in faster range queries (but a higher index size).
+  The default value is 4.
+ignore_malformed:
+  This can can take the value true or false. The default value is false.
+  It should be set to true in order to omit badly formatted values.
+  
+
+Boolean
+This is the core type that is designed to be used for indexing. The Boolean values can be true or false.
+A sample definition of a field based on the Boolean type can be as follows:
+  "allowed" : { "type" : "boolean" }
+
+
+Binary
+The binary field is a BASE64 representation of the binary data stored in the index. You can use it to store data that is normally written in binary form, like images.
+Fields based on this type are, by default, stored and not indexed. The binary type only supports the index_name property.
+
+A sample field definition based on the binary field looks like the following:
+  "image" : { "type" : "binary" }
+
+
+Multi fields
+Sometimes you would like to have the same field values in two fields—for example, one for searching and one for faceting.
+There is a special type in ElasticSearch—multi_field—that allows us to map several core types into a single field and have them analyzed differently.
+
+For example, if we would like to calculate faceting and search on our name field, we could define the following multi_field:
+"name": {
+  "type": "multi_field",
+  "fields": {
+    "name": { "type" : "string", "index": "analyzed" },
+    "facet": { "type" : "string", "index": "not_analyzed" }
+  }    
+}
+
+The preceding definition will create two fields, one that we could just refer to as name and the second one that we would use as name.facet.
+Of course, you don't have to specify two separate fields during indexing, a single one named name is enough and ElasticSearch will do the rest.
+
+
+Analyzers
+
+Can be different for index time and search time.
+
+OOB analyzers:
+
+standard:
+  A standard analyzer that is convenient for most European languages
+  (please refer to http://www.elasticsearch.org/guide/reference/index-modules/analysis/standard-analyzer.html for the full list of parameters)
+simple:
+  An analyzer that splits the provided value on non-letter characters and converts letters to lowercase.
+whitespace:
+  An analyzer that splits the provided value on the basis of whitespace characters.
+stop:
+  This is similar to a simple analyzer; but in addition to the simple analyzer functionality, it filters the data on the provided stop words set
+  (please refer to http://www.elasticsearch.org/guide/reference/index-modules/analysis/stop-analyzer.html for the full list of parameters).
+keyword:
+  This is a very simple analyzer that just passes the provided value. You'll achieve the same by specifying that field as not_analyzed.
+pattern:
+  This is an analyzer that allows flexible text separation by the use of regular expressions
+  (please refer to http://www.elasticsearch.org/guide/reference/index-modules/analysis/pattern-analyzer.html for the full list of parameters).
+language:
+  This is an analyzer that is designed to work with a specific language. The full list of languages supported by this analyzer can be found at
+  http://www.elasticsearch.org/guide/reference/index-modules/analysis/lang-analyzer.html.
+snowball:
+  Ths is an analyzer similar to the standard one, but in addition, it provides a stemming algorithm
+  (please refer to http://www.elasticsearch.org/guide/reference/index-modules/analysis/snowball-analyzer.html for the full list of parameters)
+
+
+Our own analyzers
+
+can be defined using the "settings" section of our mapping:
+
+"settings" : {
+  "index" : {
+    "analysis": {
+      "analyzer": {
+        "en": {
+          "tokenizer": "standard",
+          "filter": [
+            "asciifolding",
+            "lowercase",
+            "ourEnglishFilter"
+          ]
+        }
+      },
+      "filter": {
+        "ourEnglishFilter": {
+          "type": "kstem"
+        }
+      }
+    }
+  } 
+}
+
+As you can see, we specified that we want a new analyzer named "en" to be present.
+
+Each analyzer is built from a single tokenizer and multiple filters.
+
+A complete list of default filters and tokenizers can be found at
+  http://www.elasticsearch.org/guide/reference/index-modules/analysis/.
+  
+As you can see, our en analyzer includes the standard tokenizer and three filters:
+  asciifolding and lowercase—which are available by default—and the ourEnglishFilter, which is a filter that we have defined.
+
+To define a filter, we need to provide its name, its type (the type property), and a number of additional parameters required by that filter type.
+The full list of filter types available in ElasticSearch can be found at the mentioned above URL. That list is changing constantly,
+
+
+The _source field (all the entire document)
+
+To disable the default _source storage, use the:
+
+{
+  "mappings": {
+    "post": {
+      "_source": {
+        "enabled": false 
+      },
+      "properties": {
+
+The _all field
+
+By default, ElasticSearch will include the values from all the text fields into the _all field.
+To disable such behavior, add the following part to our type definition:
+
+{
+  "mappings": {
+    "post": {
+      "_all": {
+        "enabled": false 
+      },
+      "properties": {
+
+
+Dynamic field mapping (type detection):
+
+To turn off automatic field adding, we can set the dynamic property to false, as follows:
+{
+  "objects" : {
+    "obj1" : {
+      "dynamic" : "false",
+      "properties" : {
+      ...
+      }
+    }
+  }
+}
+
+
+{
+  "mappings" : {
+    "article" : {
+      "dynamic_templates" : [
+        {
+          "template_test": {
+            "match" : "*",
+            "mapping" : {
+              "type" : "multi_field",
+              "fields" : {
+                "{name}": { "type" : "{dynamic_type}"},
+                "str": {"type" : "string"}
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+In the preceding example, we defined a mapping for the article type. In this mapping, we have only one dynamic template named template_test.
+This template is applied for every field in the input document because of the single asterisk pattern.
+Each field will be treated as a multi_field, consisting of a field named as the original field (for example, title) and
+  the second field with the same name as the original field, suffixed with str (for example, title.str).
+The first of the created fields will have its type determined by ElasticSearch (with the {dynamic_type} type) and
+  the second field will be a string (because of the string type).
+
+
+Index templates:
+
+It would be very nice if there was a possibility of defining one or more mappings once and then using them in every newly created index,
+without the need to send them every time.
+
+ElasticSearch's creators predicted this and included a feature called index templates.
+Each template defines a pattern, which is compared to the newly created index name. When both match, the values defined in the template
+are copied to the index structure definition.
+When multiple templates match with the newly created index name, all of them are applied
+and values from the later applied templates override those defined in the previously applied templates.
+This is very convenient, because we can define a few common settings in the more general templates and change them into more specialized ones.
+Additionally, there is an order parameter, which lets us force desired template ordering.
+You can think of templates as dynamic mappings, which can be applied not to the types in documents, but to the indexes.
+
+-XPUT http://localhost:9200/_template/main_template?pretty -d '
+{
+  "template" : "*",
+  "order" : 1,
+  "settings" : {
+    "index.number_of_replicas" : 0
+  },
+  "mappings" : {
+    "_default_" : {
+      "_source" : {
+        "enabled" : false
+      }
+    }
+  }
+}'
+
+From now on, all created indexes will have no replicas and no source stored. Note the _default_ type name in our example.
+This is a special type name indicating that the current rule should be applied to every document type.
+The second interesting thing is the order parameter. Lets define the next template with the following command:
+
+-XPUT http://localhost:9200/_template/ha_template?pretty -d '
+{
+  "template" : "ha_*",
+  "order" : 10,
+  "settings" : {
+    "index.number_of_replicas" : 5
+  }
+}'
+
+All new indexes will behave as before except the ones with the names beginning with ha_. In this case, both the templates are applied.
+First, the template with the lower order is used and then, the next template overwrites the replicas setting.
+So, these indexes will have five replicas and disabled source storage.
+
+Storing templates in files
+
+Templates can also be stored in files. By default, the files should be placed in the config/templates directory.
+For example, our ha_template should be placed in the config/templates/ha_template.json file and have the following contents:
+
+{
+  "ha_template" : {
+    "template" : "ha_*",
+    "order" : 10,
+    "settings" : {
+      "index.number_of_replicas" : 5
+    }
+  }
+}
+
+Note that the structure of the JSON is a little bit different and has the template name as the main object key.
+The second important thing is that the templates must be placed in every instance of ElasticSearch.
+Also, the templates defined in the files are not available with the REST API calls.

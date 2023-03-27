@@ -1,0 +1,12 @@
+2018
+https://www.reddit.com/r/cpp/comments/9x08ft/30_faster_windows_builds_with_clangcl_and_the_new/
+    http://blog.llvm.org/2018/11/30-faster-windows-builds-with-clang-cl_14.html
+
+2017
+Elizondo - Optimizing compilation times with Templates
+    https://www.youtube.com/watch?v=NPWQ7xKfIHQ
+    https://github.com/eduardo-elizondo/cppcon2017
+
+-ftime-report
+templight
+-Xtemplight -profiler

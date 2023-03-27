@@ -1,0 +1,85 @@
+# reporting types
+https://docs.gradle.org/current/dsl/index.html#N106A6
+https://docs.gradle.org/current/userguide/java_testing.html#test_reporting
+
+dsl
+https://docs.gradle.org/current/dsl/org.gradle.api.reporting.Report.html
+https://docs.gradle.org/current/dsl/org.gradle.api.reporting.Reporting.html
+https://docs.gradle.org/current/dsl/org.gradle.api.reporting.ReportContainer.html
+https://docs.gradle.org/current/dsl/org.gradle.api.reporting.CustomizableHtmlReport.html
+# There is also a standalone TestReport task type that you can use to generate a custom HTML test report
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.TestReport.html
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html
+
+api
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/package-summary.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/TestReport.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/JUnitXmlReport.html
+
+qa
+https://stackoverflow.com/questions/26000235/run-ant-script-from-gradle
+https://stackoverflow.com/questions/38969119/gradle-merge-junit-report/39180709
+https://discuss.gradle.org/t/unable-to-use-ant-junitreport-task-even-though-ant-junit-jar-is-present/2124
+
+samples
+https://github.com/IntershopCommunicationsAG/icm-docker-plugin/blob/master/src/main/kotlin/com/intershop/gradle/icm/docker/tasks/ISHUnitHTMLTestReport.kt
+
+src
+subprojects/core
+    org.gradle.internal.xml.XmlTransformer
+        ??? usages, no gradle tasks, just ide/ivy/mvn aux stuff
+
+    org.gradle.internal.html.SimpleHtmlWriter
+        public class SimpleHtmlWriter extends SimpleMarkupWriter {...}
+    org.gradle.internal.xml.SimpleMarkupWriter
+        just a dumb xml writer
+    org.gradle.reporting.HtmlReportBuilder
+        ??? i-face
+    org.gradle.reporting.HtmlReportRenderer
+        public <T> void renderSinglePage(T model, final ReportRenderer<T, HtmlPageBuilder<SimpleHtmlWriter>> renderer, final File outputFile) {
+            ...
+        }
+subprojects/testing-base
+    org.gradle.api.internal.tasks.testing.report.DefaultTestReport
+        public class DefaultTestReport implements TestReporter {
+            ...
+            @Override
+            public void generateReport(TestResultsProvider resultsProvider, File reportDir) {
+                ...
+            }
+            ...
+        }
+    subprojects/testing-base/src/main/java/org/gradle/api/internal/tasks/testing/DefaultTestTaskReports.java
+    39:        add(TaskGeneratedSingleDirectoryReport.class, "html", task, "index.html");
+
+subprojects/testing-jvm
+    org.gradle.api.tasks.testing.TestReport
+        public class TestReport extends DefaultTask {
+            ...
+            @TaskAction
+            void generateReport() {
+                TestResultsProvider resultsProvider = createAggregateProvider();
+                try {
+                    if (resultsProvider.isHasResults()) {
+                        DefaultTestReport testReport = new DefaultTestReport(getBuildOperationExecutor());
+                        testReport.generateReport(resultsProvider, getDestinationDirectory().get().getAsFile());
+                    }
+                    ...
+                }
+                ...
+            }
+            ...
+        }
+
+
+subprojects/reporting
+
+src-integtests
+subprojects/internal-testing
+    org.gradle.integtests.fixtures.HtmlTestExecutionResult
+
+samples
+
+test {
+    reports.html.required = false
+}

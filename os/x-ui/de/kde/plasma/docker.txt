@@ -1,0 +1,19 @@
+https://community.kde.org/Neon/Docker
+
+kdeneon/plasma:unstable
+kdeneon/plasma:testing
+kdeneon/plasma:user
+kdeneon/plasma:plasma
+kdeneon/plasma:developer
+kdeneon/plasma:plasma_lts
+
+wget https://invent.kde.org/packaging/docker-neon/-/raw/master/neondocker/neondocker.rb -O neondocker
+    https://invent.kde.org/packaging/docker-neon/-/raw/master/neondocker/neondocker.rb
+chmod +x neondocker
+sudo gem install --version '1.22.0' docker-api
+sudo apt-get install ruby-dev
+
+./neondocker
+./neondocker -W
+    wayland session
+./neondocker okular

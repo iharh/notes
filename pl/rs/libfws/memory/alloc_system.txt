@@ -1,0 +1,7 @@
+https://crates.io/crates/alloc_system
+https://docs.rs/alloc_system
+
+#![feature(alloc_system)]
+extern crate alloc_system;
+
+https://lifthrasiir.github.io/rustlog/why-is-a-rust-executable-large.html

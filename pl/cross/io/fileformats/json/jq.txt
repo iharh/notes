@@ -1,0 +1,23 @@
+https://stedolan.github.io/jq/
+https://stedolan.github.io/jq/manual/
+
+https://github.com/fiatjaf/jiq
+
+tui stuff
+https://github.com/noahgorstein/jqp
+
+2022
+https://ente.io/blog/tech/jq-diff/
+2021
+https://programminghistorian.org/en/lessons/json-and-jq
+https://habr.com/ru/post/551834/
+2020
+https://sequoia.makes.software/parsing-json-at-the-cli-a-practical-introduction-to-jq-and-more/
+https://codefaster.substack.com/p/mastering-jq-bash-tricks
+https://codefaster.substack.com/p/mastering-jq-part-1-59c
+
+xml
+https://codefaster.substack.com/p/mastering-jq-xml-and-any-other-data
+
+sammples
+"{took:.took, timed_out:.timed_out}"

@@ -1,0 +1,2 @@
+sudo alsa force-reload
+# and then - reboot

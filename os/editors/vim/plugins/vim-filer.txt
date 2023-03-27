@@ -1,0 +1,9 @@
+File mgmt:
+https://github.com/Shougo/vimfiler.vim
+
+Keys:
+
+Y
+    push dir
+P
+    vimfiler-popd source via Unite

@@ -1,0 +1,24 @@
+gitpod.io
+https://github.com/gitpod-io/gitpo
+
+https://www.gitpod.io/self-hosted
+https://www.gitpod.io/docs/self-hosted/latest
+https://www.gitpod.io/docs/self-hosted/latest/installing-gitpod
+https://www.gitpod.io/docs/self-hosted/latest/local-preview
+    docker run -it \
+        --privileged \
+        --name gitpod \
+        -p 443:443 \
+        --mount type=volume,source=gitpod,destination=/var/gitpod \
+        eu.gcr.io/gitpod-core-dev/build/local-preview
+
+    docker cp gitpod:/var/gitpod/gitpod-ca.crt $HOME/gitpod-ca.crt
+
+TODO:
+https://github.com/the-nix-way/nix-flake-dev-environments
+    https://github.com/the-nix-way/nix-flake-dev-environments/blob/main/.gitpod.yml
+
+cli
+gp
+    tasks
+        list

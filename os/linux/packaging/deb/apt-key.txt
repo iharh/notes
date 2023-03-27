@@ -1,0 +1,67 @@
+# /usr/share/keyrings/... does not work
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/packages.microsoft.gpg
+
+2022
+https://techviewleo.com/apt-key-is-deprecated-manage-keyring-files-in-trusted-gpg-dot-d/
+2020
+https://zalinux.ru/?p=5066
+    manually add files to
+        /etc/apt/trusted.gpg.d/ 
+        ...
+        gpg --list-keys --keyring /etc/apt/trusted.gpg.d/<file>.gpg
+        ...
+        curl -s URL | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/<name>.gpg --import
+        cat <file>.pub | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/<name>.gpg --import
+        sudo chmod 644 /etc/apt/trusted.gpg.d/<name>.gpg
+        ...
+        sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/rabbit.gpg --keyserver keyserver.ubuntu.com --recv 6B73A36E6026DFCA
+        ...
+        sudo apt-key del 7D8D08F6
+        ...
+        apt-key list
+        sudo apt-key del <key-id>
+qa
+https://unix.stackexchange.com/questions/332672/how-to-add-a-third-party-repo-and-key-in-debian/582853#582853
+
+pgadmin
+    https://askubuntu.com/questions/1412938/pgadmin-4-installation-on-ubuntu-22-04
+    https://stackoverflow.com/questions/52428147/how-to-use-gpg-to-verify-asc-signature-of-pgadmin-binary
+    https://www.pgadmin.org/download/pgadmin-4-source-code/
+    https://keyserver.ubuntu.com/pks/lookup?search=packages%40pgadmin.org&fingerprint=on&op=index
+    https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe8697e2eef76c02d3a6332778881b2a8210976f2
+
+    The GPG key UID is Package Manager (Package Signing Key) <packages@pgadmin.org>
+    and has a fingerprint of
+        E869 7E2E EF76 C02D 3A63 3277 8881 B2A8 2109 76F2
+
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+/etc/apt/trusted.gpg
+--------------------
+pub   rsa4096 2018-08-14 [SC]
+      E869 7E2E EF76 C02D 3A63  3277 8881 B2A8 2109 76F2
+uid           [ unknown] Package Manager (Package Signing Key) <packages@pgadmin.org>
+sub   rsa4096 2018-08-14 [E]
+
+    sudo apt-key del e8697e2eef76c02d3a6332778881b2a8210976f2
+
+/etc/apt/sources.list.d/pgadmin4.list 
+deb [signed-by=/etc/apt/keyrings/pgadmin4.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/jammy pgadmin4 main
+
+https://gist.github.com/dweldon/cfe080d7cc189df3217dcc1c15ae96db
+    https://askubuntu.com/questions/1286545/what-commands-exactly-should-replace-the-deprecated-apt-key
+    https://www.pgadmin.org/download/pgadmin-4-apt/
+
+gpg_file="pgadmin4.gpg"
+
+wget https://www.pgadmin.org/static/packages_pgadmin_org.pub
+gpg --no-default-keyring --keyring ./temp-keyring.gpg --import packages_pgadmin_org.pub
+gpg --no-default-keyring --keyring ./temp-keyring.gpg --export --output "${gpg_file}"
+rm temp-keyring.*
+rm packages_pgadmin_org.pub
+sudo chown root:root "${gpg_file}"
+sudo mv "${gpg_file}" /etc/apt/keyrings/
+echo "deb [signed-by=/etc/apt/keyrings/${gpg_file}] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" | sudo tee /etc/apt/sources.list.d/pgadmin4.list
+sudo apt-get update
+
+# Choose one of pgadmin4, pgadmin4-desktop, pgadmin4-web
+sudo apt-get install -y pgadmin4-desktop

@@ -1,0 +1,1 @@
+(show-paren-mode t)

@@ -1,0 +1,13 @@
+https://habrahabr.ru/company/flant/blog/335552/
+https://jvns.ca/blog/2017/07/27/how-does-the-kubernetes-scheduler-work/
+https://github.com/kubernetes/community/blob/8decfe4/contributors/devel/controllers.md
+
+https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
+http://blog.kubernetes.io/2017/03/advanced-scheduling-in-kubernetes.html
+https://sysdig.com/blog/kubernetes-scheduler/
+
+2021
+https://www.cncf.io/blog/2021/07/27/advanced-kubernetes-pod-to-node-scheduling/
+    https://habr.com/ru/company/netologyru/blog/580902/
+2017
+https://medium.com/@copyconstruct/schedulers-kubernetes-and-nomad-b0f2e14a896

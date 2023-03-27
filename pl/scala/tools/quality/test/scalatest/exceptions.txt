@@ -1,0 +1,9 @@
+an [IndexOutOfBoundsException] should be thrownBy s.charAt(-1)
+
+val thrown = the [IndexOutOfBoundsException] should be thrownBy s.charAt(-1)
+thrown.getMessage should equal ("String index out of range: -1") 
+
+the [ArithmeticException] thrown by 1 / 0 should have message "/by zero"
+the [IndexOutOfBoundsException] thrownBy {
+    s.charAt(-1)
+} should have message "String index out of range: -1"

@@ -1,0 +1,180 @@
+org.elasticsearch.snapshots.RestoreService
+
+    // Make sure that the number of shards is the same. That's the only thing that we cannot change
+    if (currentIndexMetaData.getNumberOfShards() != snapshotIndexMetaData.getNumberOfShards()) {
+        throw new SnapshotRestoreException(snapshotId, "cannot restore index [" + renamedIndex + "] with [" + currentIndexMetaData.getNumberOfShards() +
+                "] shard from snapshot with [" + snapshotIndexMetaData.getNumberOfShards() + "] shards");
+    }
+
+
+
+snapshots.SnapshotsService
+
+
+action.admin.cluster.snapshots.create.TransportCreateSnapshotAction
+
+    @Override
+    protected void masterOperation(final CreateSnapshotRequest request, ClusterState state, final ActionListener<CreateSnapshotResponse> listener) throws ElasticsearchException {
+        SnapshotsService.SnapshotRequest snapshotRequest =
+                new SnapshotsService.SnapshotRequest("create_snapshot[" + request.snapshot() + "]", request.snapshot(), request.repository())
+                        .indices(request.indices())
+                        .indicesOptions(request.indicesOptions())
+                        .partial(request.partial())
+                        .settings(request.settings())
+                        .includeGlobalState(request.includeGlobalState())
+                        .masterNodeTimeout(request.masterNodeTimeout());
+        snapshotsService.createSnapshot(snapshotRequest, new SnapshotsService.CreateSnapshotListener() {
+            @Override
+            public void onResponse() {
+                if (request.waitForCompletion()) {
+                    snapshotsService.addListener(new SnapshotsService.SnapshotCompletionListener() {
+                        SnapshotId snapshotId = new SnapshotId(request.repository(), request.snapshot());
+
+                        @Override
+                        public void onSnapshotCompletion(SnapshotId snapshotId, SnapshotInfo snapshot) {
+                            if (this.snapshotId.equals(snapshotId)) {
+                                listener.onResponse(new CreateSnapshotResponse(snapshot));
+                                snapshotsService.removeListener(this);
+                            }
+                        }
+
+                        @Override
+                        public void onSnapshotFailure(SnapshotId snapshotId, Throwable t) {
+                            if (this.snapshotId.equals(snapshotId)) {
+                                listener.onFailure(t);
+                                snapshotsService.removeListener(this);
+                            }
+                        }
+                    });
+                } else {
+                    listener.onResponse(new CreateSnapshotResponse());
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                listener.onFailure(t);
+            }
+        });
+    }
+
+index.snapshots.IndexShardRepository
+
+    /**
+     * Creates a snapshot of the shard based on the index commit point.
+     * <p/>
+     * The index commit point can be obtained by using {@link org.elasticsearch.index.engine.internal.InternalEngine#snapshotIndex()} method.
+     * IndexShardRepository implementations shouldn't release the snapshot index commit point. It is done by the method caller.
+     * <p/>
+     * As snapshot process progresses, implementation of this method should update {@link IndexShardSnapshotStatus} object and check
+     * {@link IndexShardSnapshotStatus#aborted()} to see if the snapshot process should be aborted.
+     *
+     * @param snapshotId          snapshot id
+     * @param shardId             shard to be snapshotted
+     * @param snapshotIndexCommit commit point
+     * @param snapshotStatus      snapshot status
+     */
+    void snapshot(SnapshotId snapshotId, ShardId shardId, SnapshotIndexCommit snapshotIndexCommit, IndexShardSnapshotStatus snapshotStatus);
+
+index.engine.internal.InternalEngine
+
+    @Override
+    public SnapshotIndexCommit snapshotIndex() throws EngineException {
+        // we have to flush outside of the readlock otherwise we might have a problem upgrading
+        // the to a write lock when we fail the engine in this operation
+        flush(new Flush().type(Flush.Type.COMMIT).waitIfOngoing(true));
+        try (InternalLock _ = readLock.acquire()) {
+            ensureOpen();
+            return deletionPolicy.snapshot();
+        } catch (IOException e) {
+            throw new SnapshotFailedEngineException(shardId, e);
+        }
+    }
+
+
+
+index.snapshots.IndexShardSnapshotAndRestoreService
+    /**
+     * Creates shard snapshot
+     *
+     * @param snapshotId     snapshot id
+     * @param snapshotStatus snapshot status
+     */
+    public void snapshot(final SnapshotId snapshotId, final IndexShardSnapshotStatus snapshotStatus) {
+        IndexShardRepository indexShardRepository = repositoriesService.indexShardRepository(snapshotId.getRepository());
+        if (!indexShard.routingEntry().primary()) {
+            throw new IndexShardSnapshotFailedException(shardId, "snapshot should be performed only on primary");
+        }
+        if (indexShard.routingEntry().relocating()) {
+            // do not snapshot when in the process of relocation of primaries so we won't get conflicts
+            throw new IndexShardSnapshotFailedException(shardId, "cannot snapshot while relocating");
+        }
+        if (indexShard.state() == IndexShardState.CREATED || indexShard.state() == IndexShardState.RECOVERING) {
+            // shard has just been created, or still recovering
+            throw new IndexShardSnapshotFailedException(shardId, "shard didn't fully recover yet");
+        }
+
+        try {
+            SnapshotIndexCommit snapshotIndexCommit = indexShard.snapshotIndex(); // !!!
+            try {
+                indexShardRepository.snapshot(snapshotId, shardId, snapshotIndexCommit, snapshotStatus);
+                if (logger.isDebugEnabled()) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("snapshot (").append(snapshotId.getSnapshot()).append(") completed to ").append(indexShardRepository).append(", took [").append(TimeValue.timeValueMillis(snapshotStatus.time())).append("]\n");
+                    sb.append("    index    : version [").append(snapshotStatus.indexVersion()).append("], number_of_files [").append(snapshotStatus.numberOfFiles()).append("] with total_size [").append(new ByteSizeValue(snapshotStatus.totalSize())).append("]\n");
+                    logger.debug(sb.toString());
+                }
+            } finally {
+                snapshotIndexCommit.close();
+            }
+        } catch (SnapshotFailedEngineException e) {
+            throw e;
+        } catch (IndexShardSnapshotFailedException e) {
+            throw e;
+        } catch (Throwable e) {
+            throw new IndexShardSnapshotFailedException(shardId, "Failed to snapshot", e);
+        }
+    }
+
+
+<- index.gateway.IndexShardGatewayService
+
+
+index.snapshots.blobstore.BlobStoreIndexShardSnapshot
+
+    public BlobStoreIndexShardSnapshot(String snapshot, long indexVersion, List<FileInfo> indexFiles, long startTime, long time, int numberOfFiles, long totalSize) {
+      ...
+    }
+
+
+BlobStoreIndexShardRepository
+
+        /**
+         * Create snapshot from index commit point
+         *
+         * @param snapshotIndexCommit snapshot commit point
+         */
+        public void snapshot(SnapshotIndexCommit snapshotIndexCommit) {
+            ...
+                BlobStoreIndexShardSnapshot snapshot = new BlobStoreIndexShardSnapshot(snapshotId.getSnapshot(),
+                        snapshotIndexCommit.getGeneration(), indexCommitPointFiles, snapshotStatus.startTime(),
+                        // snapshotStatus.startTime() is assigned on the same machine, so it's safe to use with VLong
+                        System.currentTimeMillis() - snapshotStatus.startTime(), indexNumberOfFiles, indexTotalFilesSize);
+            ...
+        }
+
+
+index.shard.service.InternalIndexShard
+
+    @Override
+    public SnapshotIndexCommit snapshotIndex() throws EngineException {
+        IndexShardState state = this.state; // one time volatile read
+        // we allow snapshot on closed index shard, since we want to do one after we close the shard and before we close the engine
+        if (state == IndexShardState.STARTED || state == IndexShardState.RELOCATED || state == IndexShardState.CLOSED) {
+            return engine.snapshotIndex();
+        } else {
+            throw new IllegalIndexShardStateException(shardId, state, "snapshot is not allowed");
+        }
+    }
+
+

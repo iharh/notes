@@ -1,0 +1,6 @@
+
+samples
+\newcommand{\keyword}[1]{\textbf{#1}}
+\begin{document}
+\keyword{scope}
+\end{document}

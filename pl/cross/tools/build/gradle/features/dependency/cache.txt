@@ -1,0 +1,3 @@
+2020
+https://docs.gradle.org/6.1.1/release-notes.html#ephemeral-ci:-reuse-gradle's-dependency-cache
+https://docs.gradle.org/6.1.1/userguide/dependency_resolution.html#sub:cache_copy

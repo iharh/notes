@@ -1,0 +1,37 @@
+http://rustbyexample.com/std_misc/process/pipe.html
+https://www.reddit.com/r/rust/comments/5jw2wa/looking_for_the_easiest_way_to_spawn_a_process/
+
+https://stackoverflow.com/questions/29458970/how-do-i-prefix-command-stdout-with-stdout-and-sterr
+https://www.reddit.com/r/rust/comments/3azfie/how_to_pipe_one_process_into_another/
+
+use std::process::{Command, Stdio};
+use std::io::{Read, Write};
+
+fn main() {
+    let mut cmd_ls = Command::new("ls")
+        .arg("/")
+        .stdout(Stdio::piped())
+        .spawn()
+        .unwrap();
+
+    let mut cmd_grep = Command::new("grep")
+        .arg("etc")
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .spawn()
+        .unwrap();
+
+    if let Some(ref mut stdout) = cmd_ls.stdout {
+        if let Some(ref mut stdin) = cmd_grep.stdin {
+            let mut buf: Vec<u8> = Vec::new();
+            stdout.read_to_end(&mut buf).unwrap();
+            stdin.write_all(&buf).unwrap();
+        }
+    }
+
+    let res = cmd_grep.wait_with_output().unwrap().stdout;
+
+    assert_eq!(res, b"etc\n");
+}
+
+https://www.reddit.com/r/rust/comments/38jhva/piping_string_to_child_process_stdin/

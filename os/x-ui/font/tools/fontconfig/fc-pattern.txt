@@ -1,0 +1,2 @@
+fc-pattern "Hack"
+    Scans font files and directories and reports resulting pattern(s).

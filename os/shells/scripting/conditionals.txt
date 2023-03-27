@@ -1,0 +1,49 @@
+exit codes:
+0     - success
+other - fail
+
+if ..
+then ...
+elif ..
+...
+else ...
+fi
+
+test, [ - checks a condition
+  -f - is the param an existing file
+  -d - ... directory ...
+  -e - ... file or directory ...
+
+  -n - if the arg is non-empty string
+
+  -gt - greater for numbers
+  -ge
+  -lt
+  -le
+  -eq
+  -ne
+
+
+case $1 in
+  pat1)
+    cmds1
+    ;;
+  pat2)
+    cmds2
+    ;;
+  ...
+esac
+
+
+for letter in a b c d
+           in $HOME/*
+do
+  echo $letter
+done
+
+while [ $num -lt 10 ]
+      read line
+do
+  echo $num $line
+  num = $((num + 1))
+done

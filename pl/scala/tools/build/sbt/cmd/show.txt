@@ -1,0 +1,5 @@
+inspect run
+
+sbt "show runtime:fullClasspath"
+
+http://stackoverflow.com/questions/21698205/how-to-display-classpath-used-for-run-task

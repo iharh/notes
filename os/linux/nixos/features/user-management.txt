@@ -1,0 +1,12 @@
+extraGroups =
+          [ "wheel" "networkmanager" "audio" "video" "docker" "lp" "scanner" ];
+
+nix.trustedUsers = ["<username>"];
+
+users.extraUsers.lie = {
+  isNormalUser = true;
+  uid = 1000;
+};
+security.sudo.extraConfig = ''
+  lie     ALL=(ALL) SETENV: ALL
+'';

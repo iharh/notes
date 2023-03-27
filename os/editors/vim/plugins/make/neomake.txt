@@ -1,0 +1,53 @@
+https://github.com/neomake/neomake/
+https://github.com/neomake/neomake/wiki/Makers
+
+https://github.com/neomake/neomake/blob/master/autoload/neomake.vim
+
+https://github.com/neomake/neomake/blob/master/doc/neomake.txt
+
+:h
+    neomake-automake
+    neomake.txt
+
+:Neomake
+:NeomakeInfo
+:NeomakeToggle
+    ?
+
+
+##### Settings
+
+###### New-style (dict, overrides old-style)
+
+```
+g:neomake: {
+  'automake': {
+    'ignore_filetypes': [
+      'startify',
+    ],
+    'events': {
+      'BufWritePost': {
+        'delay': 0,
+      },
+    },
+  },
+}
+b:neomake: unset
+```
+
+let g:neomake_logfile = '/tmp/neomake.log
+
+g:neomake_java_gradle_executable = './gradlew'
+g:neomake_java_javac_gradle_classpath = {}
+g:neomake_verbose = 0
+
+javac
+NOTE: you can define g:neomake_java_enabled_makers to configure it (or b:neomake_java_enabled_makers).
+https://github.com/neomake/neomake/issues/1971
+https://github.com/neomake/neomake/issues/1633
+    !!!
+https://github.com/neomake/neomake/issues/1376
+https://github.com/neomake/neomake/issues/875
+
+cargo
+https://gist.github.com/davidpdrsn/5361fb0fa5c8c5e2f7d17d72ecf4699e

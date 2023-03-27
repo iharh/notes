@@ -1,0 +1,8 @@
+standard
+    functors
+    iterators
+
+https://github.com/sfermigier/awesome-functional-python
+
+https://docs.python.org/3/howto/functional.html
+https://docs.python.org/3/library/functional.html

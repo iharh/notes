@@ -1,0 +1,10 @@
+https://clang.llvm.org/docs/ClangCheck.html
+http://clang.llvm.org/docs/HowToSetupToolingForLLVM.html
+http://clang.llvm.org/docs/LibTooling.html
+
+ClangCheck is a small wrapper around LibTooling which can be used to do basic error checking and AST dumping.
+
+
+http://bbannier.github.io/blog/2015/05/02/Writing-a-basic-clang-static-analysis-check.html
+
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ ~/Downloads

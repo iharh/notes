@@ -1,0 +1,20 @@
+2019
+RoelVanDePaar - Ubuntu: How do I configure Keyboard layouts using XMonad as my Window Manager? (3 Solutions!!) of 2:11
+    https://www.youtube.com/watch?v=PIZi1pZAxT8
+    #1
+    , ((mod1Mask .|. shiftMask, xK_r), spawn "setxkbmap -layout ru")
+    , ((mod1Mask .|. shiftMask, xK_u), spawn "setxkbmap -layout us")
+    #3
+    Section "InputClass"
+        Identifier      "KeyboardLayout"
+        Driver          "evdev"
+        MatchIsKeyboard "yes"
+        Option "XkbLayout" "us,ru"
+        # this is my own
+        Option "XkbModel" "pc105"
+        Option "XkbVariant" ",winkeys,qwerty"
+        Option "XkbOptions" "grp:ctrl_space_toggle,caps:escape,shift:both_capslock,keypad:pointerkeys"
+    EndSection
+
+2011
+https://zuttobenkyou.wordpress.com/tag/setxkbmap/

@@ -1,0 +1,10 @@
+dev (cargo build)
+release (cargo build --release)
+test (cargo test)
+doc (cargo doc)
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

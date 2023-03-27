@@ -1,0 +1,44 @@
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#resources
+
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#context-functionality-resources
+
+an app-context is also a ResourceLoader
+
+
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#resources-resource
+
+public interface InputStreamSource {
+    InputStream getInputStream() throws IOException;
+}
+public interface Resource extends InputStreamSource {
+    boolean exists();
+    boolean isOpen();
+    URL getURL() throws IOException;
+    File getFile() throws IOException;
+    Resource createRelative(String relativePath) throws IOException;
+    String getFilename();
+    String getDescription();
+}
+
+impls:
+* UrlResource (http:, file:, ftp:, classpath:)
+* ClassPathResource
+* FileSystemResource
+* ServletContextResource
+* InputStreamResource
+* ByteArrayResource
+
+public interface ResourceLoader {
+    Resource getResource(String location);
+}
+
+Resource abc = ctx.getResource("...")
+
+public interface ResourceLoaderAware {
+    void setResourceLoader(ResourceLoader resourceLoader);
+}
+
+We can also autowire ResourceLoader if needed:
+
+@Autowired ResourceLoader rL;
+

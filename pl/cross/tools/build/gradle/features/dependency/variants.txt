@@ -1,0 +1,37 @@
+https://docs.gradle.org/current/userguide/variant_model.html
+    ! classifier-based model: there is nothing to prevent from having both jdk7 and jdk8 versions of a single module on classpath
+    ! In the Gradle model, artifacts are attached to variants, not modules
+https://docs.gradle.org/current/userguide/variant_attributes.html
+    https://docs.gradle.org/current/userguide/variant_attributes.html#native_ecosystem_specific_attributes
+    https://docs.gradle.org/current/javadoc/org/gradle/api/attributes/AttributesSchema.html
+https://docs.gradle.org/current/userguide/feature_variants.html
+
+tasks
+    outgoingVariants
+
+configurations {
+    "myConfiguration" {
+        attributes {
+            attribute(myUsage, project.objects.named(Usage::class.java, "my-value"))
+        }
+    }
+}
+
+val jfoundationJniLib: Configuration by configurations.creating {
+    attributes {
+        attribute(CppBinary.OPTIMIZED_ATTRIBUTE, false)
+        attribute(Usage.USAGE_ATTRIBUTE, namedAttribute(Usage.NATIVE_RUNTIME))
+    }
+}
+...
+dependencies {
+    attributesSchema {
+        attribute(CppBinary.OPTIMIZED_ATTRIBUTE)
+        attribute(Usage.USAGE_ATTRIBUTE)
+    }
+    jfoundationJniLib(project(":shared-lib:jfoundation_jni"))
+}
+
+issues
+// https://discuss.gradle.org/t/boolean-dependency-attribute-problems-in-kotlin-dsl/32469
+val nativeOptimizedAttr = Attribute.of(CppBinary.OPTIMIZED_ATTRIBUTE, Boolean::class.javaObjectType) // Boolean::class.java

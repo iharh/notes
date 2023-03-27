@@ -1,0 +1,21 @@
+http://fabric8.io/
+https://fabric8.io/guide/javaLibraries.html
+
+https://github.com/fabric8io/kubernetes-client
+    https://blog.frankel.ch/your-own-kubernetes-controller/2/
+
+https://mvnrepository.com/artifact/io.fabric8/kubernetes-client
+https://mvnrepository.com/artifact/io.fabric8/kubernetes-model
+
+2021
+https://blog.marcnuri.com/fabric8-kubernetes-java-client-and-quarkus-and-graalvm
+    https://github.com/marcnuri-demo/kubernetes-controller-jl-port
+https://itnext.io/writing-kubernetes-sample-controller-in-java-c8edc38f348f
+    https://github.com/kubernetes/sample-controller
+2020
+https://itnext.io/handling-kubernetes-custom-resources-in-java-using-fabric8-kubernetes-client-part-2-typed-cc0560d9af0d
+https://medium.com/@rohaan/handling-kubernetes-custom-resources-in-java-using-fabric8-kubernetes-client-249c4fe01d27
+https://medium.com/@rohaan/introduction-to-fabric8-kubernetes-java-client-informer-api-b945082d69af
+https://itnext.io/mock-kubernetes-api-server-in-java-using-fabric8-kubernetes-mock-server-81a75cf6c47c
+https://itnext.io/copy-files-to-from-pods-in-java-using-fabric8-kubernetes-client-485e73335cb6
+https://itnext.io/difference-between-fabric8-and-official-kubernetes-java-client-3e0a994fd4af

@@ -1,0 +1,7 @@
+https://docs.flatpak.org/en/latest/sandbox-permissions.html
+
+flatpak permissions desktop-used-apps
+flatpak permission-remove desktop-used-apps application/pdf org.jabref.jabref
+
+mime
+~/.config/mimeapps.list

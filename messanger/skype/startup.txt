@@ -1,0 +1,4 @@
+https://forum.manjaro.org/t/skypeforlinux-doesnt-work-anymore-after-updating/99853/16
+
+sudo sysctl kernel.unprivileged_userns_clone=1
+echo 'kernel.unprivileged_userns_clone=1' | sudo tee /etc/sysctl.d/00-local-userns.conf

@@ -1,0 +1,16 @@
+2021
+Parecki - Apidays LIVE interface 2021 - The State of OAuth of 24:35
+    https://www.youtube.com/watch?v=W5ajhfWmvHE
+    https://www.youtube.com/watch?v=ELdFoIYTBL8
+2019
+Okta - An Illustrated Guide to OAuth and OpenID Connect of 16:35
+    https://www.youtube.com/watch?v=t18YB3xDfXI
+    https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc
+    !!! + terminology
+    ! OpenID OIDC (not only a key, but extra user data)
+    ! ID Token - is JWT-formatted token
+    ! client can extract info with JWT Decoder
+    ! data inside it are called "Claims"
+2017
+Tran - Beyond OAuth2
+    https://www.infoq.com/presentations/oauth2-microservices-security

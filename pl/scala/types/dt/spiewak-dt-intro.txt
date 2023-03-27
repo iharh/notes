@@ -1,0 +1,118 @@
+http://www.slideshare.net/djspiewak/high-wizardry-in-the-land-of-scala
+https://vimeo.com/28793245
+https://vimeo.com/13518456
+
+trait Num[A] {
+    val zero: A
+
+    def add(x: A, y: A): A
+}
+
+def sum[A](nums: List[A]))(tc: Num[A]) = 
+    nums.foldLeft(tc.zero)(tc.add)
+
+-- adopters for Int and double
+
+object IntNum extends Num[Int] {
+    val zero = 0
+
+    def add(x: Int, y: Int) = x + y
+}
+
+object DoubleNum extends Num[Double] {
+    val zero = 0d
+
+    def add(x: Double, y: Double) = x + y
+}
+
+// works
+
+sum(List(1, 2, 3, 4))(IntNum)
+sum(List(3.14, 2.72))(DoubleNum)
+
+This works, but ugly (we have to constantly provide the relevant instance of Num[A])
+
+-- Let's use implicit to the rescue !!!
+
+def sum[A](nums: List[A]))(implicit tc: Num[A]) = 
+    nums.foldLeft(tc.zero)(tc.add)
+
+!!! we need to put the implicit-modifiers to the objects:
+
+implicit object IntNum extends Num[Int] {
+    val zero = 0
+
+    def add(x: Int, y: Int) = x + y
+}
+
+implicit object DoubleNum extends Num[Double] {
+    val zero = 0d
+
+    def add(x: Double, y: Double) = x + y
+}
+
+!!! now we can just call
+sum(List(1, 2, 3, 4))
+sum(List(3.14, 2.72))
+
+
+-- This is what typeclasses are ALL-about
+
+Num - is a typeclass
+
+- Typeclasses are categories of types (e.x. Collections and Numeric in 2.8)
+
+
+import HList._
+
+val xs = 42 :: "foo" :: 3.14 :: HNil
+
+xs.head       // => 42: Int
+xs.tail.head  // => "foo": String
+
+object HList {
+    sealed trait HList {
+        // type-level
+        type Head
+        type Tail <: HList
+        type Append[L <: HList] <: HList
+  
+        // value-level
+        def head: Head
+        def tail: Tail
+
+        def ++[L <: HList](xs: L): Append[L]
+    }
+
+    // type-level base-case
+    final class HNil extends HList {
+        type Head = Nothing
+        type Tail = Nothing
+        type Append[L <: HList] = L
+
+        def head = error("Head of an empty HList")
+        def tail = error("Tail of an empty HList")
+
+        def ::[A](a: A) = HCons(a, this)
+
+        def ++[L <: HList](xs: L) = sx
+    }
+
+    // value-level
+    val HNil = new HNil
+
+    // type-level cons-case
+    case class HCons[A, B <: HList](head: A, tail: B) extends HList {
+        type Head = A
+        type Tail = B
+
+        type Append[L <: HList] = HCons[Head, Tail#Append[L]]
+
+        def ::[L <: HList](xs: L) = head :: (tail ++ xs)
+    }
+
+    // just an infix cons-form
+    type ::[A, B <: HList] = HCons[A, B]
+
+    // ...
+}

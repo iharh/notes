@@ -1,0 +1,12 @@
+stopping:
+https://labs.ctl.io/gracefully-stopping-docker-containers/
+
+Exit code > 128 means the unhandled signal
+
+When you use docker stop or docker kill to signal a container, that signal is sent only to the container process running as PID 1.
+Since /bin/sh doesn't forward signals to any child processes, the SIGTERM we sent never reached our script.
+Clearly, if we want our app to be able to receive signals from the host we need to find a way to run it as PID 1
+
+When the exec form of the CMD instruction is used the command will be executed without a shell:
+CMD ["executable","param1?,"param2?]
+

@@ -1,0 +1,17 @@
+type (whence -v)
+	find a command (in PATH), alias, ...
+functions (type -f)
+	lists only functions but in full-text
+which
+	-//-
+
+Recursive searching:
+
+print -l **/*.c
+	Here ** is a build-in ability to recursive search, -l - print one argument per line
+
+Fast search
+
+locate / updatedb (/etc/updatedb.conf)
+
+Note: db is at /var/locatedb

@@ -1,0 +1,570 @@
+https://nixos.org/manual/nix/stable/#ssec-derivation
+
+https://zero-to-nix.com/concepts/derivations
+
+https://nixos.org/guides/nix-pills/our-first-derivation.html
+https://nixos.org/guides/nix-pills/working-derivation.html
+https://nixos.org/guides/nix-pills/generic-builders.html
+https://nixos.org/guides/nix-pills/automatic-runtime-dependencies.html
+
+https://nixos.org/manual/nix/stable/#sec-nix-instantiate
+    nix-instantiate — instantiate store derivations from Nix expressions
+    # but not build it
+    # the Nix expression is parsed, interpreted and finally returns a derivation set.
+    # During evaluation, you can refer to other derivations because Nix will create .drv files and we will know out paths beforehand.
+
+2019
+NixCon - Nix - How and Why it Works
+    https://www.youtube.com/watch?v=lxtHH838yko
+
+
+nix-repl> d = derivation { name = "myname"; builder = "mybuilder"; system = "mysystem"; }
+nix-repl> :b d
+    [...]
+
+nix-store -r /nix/store/z3hhlxbckx4g3n9sw91nnvlkjvyw754p-myname.drv
+    realize a derivation
+
+bnix-repl> duiltins.attrNames d
+    [ "all" "builder" "drvAttrs" "drvPath" "name" "out" "outPath" "outputName" "system" "type" ] 
+bnix-repl> d.drvAttrs
+    { builder = "mybuilder"; name = "myname"; system = "mysystem"; }
+bnix-repl> (d == d.out)
+    true
+    # so, d.out is just a derivation itself
+nix-repl> { type = "derivation"; }
+    "derivation ???"
+    # the type = "derivation" is just a convention for Nix and for us to understand the set is a derivation. 
+
+nix-repl> d.outPath
+    "/nix/store/40s0qmrfb45vlh6610rk29ym318dswdr-myname"
+nix-repl> builtins.toString d
+    "/nix/store/40s0qmrfb45vlh6610rk29ym318dswdr-myname"
+
+nix-repl> :l <nixpkgs>
+    Added 3950 variables.
+nix-repl> coreutils
+    "derivation /nix/store/1zcs1y4n27lqs0gw4v038i303pb89rw6-coreutils-8.21.drv"
+nix-repl> builtins.toString coreutils
+    "/nix/store/8w4cbiy7wqvaqsnsnb3zvabq1cp2zhyz-coreutils-8.21"
+nix-repl> "${coreutils}/bin/true"
+    "/nix/store/8w4cbiy7wqvaqsnsnb3zvabq1cp2zhyz-coreutils-8.21/bin/true"
+
+almost-working derivation
+nix-repl> :l <nixpkgs>
+nix-repl> d = derivation { name = "myname"; builder = "${coreutils}/bin/true"; system = builtins.currentSystem; }
+nix-repl> :b d
+    [...]
+builder for `/nix/store/qyfrcd53wmc0v22ymhhd5r6sz5xmdc8a-myname.drv' failed to produce output path `/nix/store/ly2k1vswbfmswr33hw0kf0ccilrpisnk-myname'
+
+$ nix show-derivation /nix/store/qyfrcd53wmc0v22ymhhd5r6sz5xmdc8a-myname.drv
+{
+  "/nix/store/qyfrcd53wmc0v22ymhhd5r6sz5xmdc8a-myname.drv": {
+    "outputs": {
+      "out": {
+        "path": "/nix/store/ly2k1vswbfmswr33hw0kf0ccilrpisnk-myname"
+      }
+    },
+    "inputSrcs": [],
+    "inputDrvs": {
+      "/nix/store/hixdnzz2wp75x1jy65cysq06yl74vx7q-coreutils-8.29.drv": [
+        "out"
+      ]
+    },
+    "platform": "x86_64-linux",
+    "builder": "/nix/store/qrxs7sabhqcr3j9ai0j0cp58zfnny0jz-coreutils-8.29/bin/true",
+    "args": [],
+    "env": {
+      "builder": "/nix/store/qrxs7sabhqcr3j9ai0j0cp58zfnny0jz-coreutils-8.29/bin/true",
+      "name": "myname",
+      "out": "/nix/store/ly2k1vswbfmswr33hw0kf0ccilrpisnk-myname",
+      "system": "x86_64-linux"
+    }
+  }
+}
+
+now let's create builder.sh (without shebang) in the current dir with:
+    # we can't use env here because it is pare of coreutils,
+    # which is not imported at our derivation
+    declare -xp     # list exported vars
+    echo foo > $out
+
+nix-repl> d = derivation { name = "foo"; builder = "${bash}/bin/bash"; args = [ ./builder.sh ]; system = builtins.currentSystem; }
+nix-repl> :b d
+these derivations will be built:
+  /nix/store/i76pr1cz0za3i9r6xq518bqqvd2raspw-foo.drv
+building '/nix/store/i76pr1cz0za3i9r6xq518bqqvd2raspw-foo.drv'...
+declare -x HOME="/homeless-shelter"
+declare -x NIX_BUILD_CORES="4"
+declare -x NIX_BUILD_TOP="/tmp/nix-build-foo.drv-0"
+declare -x NIX_LOG_FD="2"
+declare -x NIX_STORE="/nix/store"
+declare -x OLDPWD
+declare -x PATH="/path-not-set"
+declare -x PWD="/tmp/nix-build-foo.drv-0"
+declare -x SHLVL="1"
+declare -x TEMP="/tmp/nix-build-foo.drv-0"
+declare -x TEMPDIR="/tmp/nix-build-foo.drv-0"
+declare -x TMP="/tmp/nix-build-foo.drv-0"
+declare -x TMPDIR="/tmp/nix-build-foo.drv-0"
+declare -x builder="/nix/store/q1g0rl8zfmz7r371fp5p42p4acmv297d-bash-4.4-p19/bin/bash"
+declare -x name="foo"
+declare -x out="/nix/store/gczb4qrag22harvv693wwnflqy7lx5pb-foo"
+declare -x system="x86_64-linux"
+warning: you did not specify '--add-root'; the result might be removed by the garbage collector
+/nix/store/gczb4qrag22harvv693wwnflqy7lx5pb-foo
+
+this derivation produced the following outputs:
+  out -> /nix/store/gczb4qrag22harvv693wwnflqy7lx5pb-foo
+
+Note that we used ./builder.sh and not "./builder.sh".
+This way, it is parsed as a path, and Nix performs some magic which we will cover later.
+Try using the string version and you will find that it cannot find builder.sh.
+This is because it tries to find it relative to the temporary build directory. 
+
+Let's inspect those environment variables printed during the build process.
+    $HOME is not your home directory, and /homeless-shelter doesn't exist at all. We force packages not to depend on $HOME during the build process.
+    $PATH plays the same game as $HOME
+    $NIX_BUILD_CORES and $NIX_STORE are nix configuration options
+    $PWD and $TMP clearly show that nix created a temporary build directory
+    Then $builder, $name, $out, and $system are variables set due to the .drv file's contents. 
+
+And that's how we were able to use $out in our derivation and put stuff in it.
+It's like Nix reserved a slot in the nix store for us, and we must fill it.
+
+In terms of autotools, $out will be the --prefix path.
+Yes, not the make DESTDIR, but the --prefix.
+That's the essence of stateless packaging.
+You don't install the package in a global common path under /, you install it in a local isolated path under your nix store slot. 
+
+We added something else to the derivation this time: the args attribute.
+Let's see how this changed the .drv compared to the previous pill:
+
+$ nix show-derivation /nix/store/i76pr1cz0za3i9r6xq518bqqvd2raspw-foo.drv
+{
+  "/nix/store/i76pr1cz0za3i9r6xq518bqqvd2raspw-foo.drv": {
+    "outputs": {
+      "out": {
+        "path": "/nix/store/gczb4qrag22harvv693wwnflqy7lx5pb-foo"
+      }
+    },
+    "inputSrcs": [
+      "/nix/store/lb0n38r2b20r8rl1k45a7s4pj6ny22f7-builder.sh"
+    ],
+    "inputDrvs": {
+      "/nix/store/hcgwbx42mcxr7ksnv0i1fg7kw6jvxshb-bash-4.4-p19.drv": [
+        "out"
+      ]
+    },
+    "platform": "x86_64-linux",
+    "builder": "/nix/store/q1g0rl8zfmz7r371fp5p42p4acmv297d-bash-4.4-p19/bin/bash",
+    "args": [
+      "/nix/store/lb0n38r2b20r8rl1k45a7s4pj6ny22f7-builder.sh"
+    ],
+    "env": {
+      "builder": "/nix/store/q1g0rl8zfmz7r371fp5p42p4acmv297d-bash-4.4-p19/bin/bash",
+      "name": "foo",
+      "out": "/nix/store/gczb4qrag22harvv693wwnflqy7lx5pb-foo",
+      "system": "x86_64-linux"
+    }
+  }
+}
+
+Much like the usual .drv, except that there's a list of arguments in there passed to the builder (bash) with builder.sh ... In the nix store..?
+Nix automatically copies files or directories needed for the build into the store to ensure that they are not changed during the build process
+and that the deployment is stateless and independent of the building machine.
+builder.sh is not only in the arguments passed to the builder, it's also in the input derivations.
+
+Given that builder.sh is a plain file, it has no .drv associated with it.
+The store path is computed based on the filename and on the hash of its contents.
+Store paths are covered in detail in a later pill (https://nixos.org/guides/nix-pills/nix-store-paths.html)
+
+
+Start off by writing a simple C program called simple.c:
+
+void main() {
+    puts("Simple!");
+}
+
+And its simple_builder.sh:
+
+export PATH="$coreutils/bin:$gcc/bin"
+mkdir $out
+gcc -o $out/simple $src
+
+Don't worry too much about where those variables come from yet; let's write the derivation and build it:
+
+nix-repl> :l <nixpkgs>
+nix-repl> simple = derivation { name = "simple"; builder = "${bash}/bin/bash"; args = [ ./simple_builder.sh ]; gcc = gcc; coreutils = coreutils;
+    src = ./simple.c; system = builtins.currentSystem; }
+nix-repl> :b simple
+this derivation produced the following outputs:
+
+  out -> /nix/store/ni66p4jfqksbmsl616llx3fbs1d232d4-simple
+
+Now you can run /nix/store/ni66p4jfqksbmsl616llx3fbs1d232d4-simple/simple in your shell. 
+
+We added two new attributes to the derivation call, gcc and coreutils.
+In gcc = gcc;, the name on the left is the name in the derivation set,
+and the name on the right refers to the gcc derivation from nixpkgs.
+The same applies for coreutils.
+
+We also added the src attribute, nothing magical — it's just a name, to which the path ./simple.c is assigned.
+Like simple-builder.sh, simple.c will be added to the store.
+
+The trick: every attribute in the set passed to derivation will be converted to a string and passed to the builder as an environment variable.
+This is how the builder gains access to coreutils and gcc: when converted to strings, the derivations evaluate to their output paths,
+and appending /bin to these leads us to their binaries.
+
+The same goes for the src variable. $src is the path to simple.c in the nix store.
+As an exercise, pretty print the .drv file.
+You'll see simple_builder.sh and simple.c listed in the input derivations, along with bash, gcc and coreutils .drv files.
+The newly added environment variables described above will also appear.
+
+In simple_builder.sh we set the PATH for gcc and coreutils binaries,
+so that our build script can find the necessary utilities like mkdir and gcc.
+
+We then create $out as a directory and place the binary inside it.
+Note that gcc is found via the PATH environment variable,
+but it could equivalently be referenced explicitly using $gcc/bin/gcc. 
+
+Drop out of nix repl and write a file simple.nix:
+
+with (import <nixpkgs> {});
+derivation {
+  name = "simple";
+  builder = "${bash}/bin/bash";
+  args = [ ./simple_builder.sh ];
+  inherit gcc coreutils;
+  src = ./simple.c;
+  system = builtins.currentSystem;
+}
+
+Now you can build it with
+    nix-build simple.nix.
+This will create a symlink result in the current directory, pointing to the out path of the derivation. 
+
+nix-build does two jobs:
+    nix-instantiate : parse and evaluate simple.nix and return the .drv file corresponding to the parsed derivation set
+    nix-store -r    : realise the .drv file, which actually builds it. 
+
+Finally, it creates the symlink.
+
+In the first line of simple.nix, we have an import function call nested in a with statement.
+Recall that import accepts one argument, a nix file to load.
+In this case, the contents of the file evaluated to a function.
+
+Afterwards, we call the function with the empty set. We saw this already in the fifth pill.
+    https://nixos.org/guides/nix-pills/functions-and-imports.html
+To reiterate: import <nixpkgs> {} is calling two functions, not one.
+Reading it as (import <nixpkgs>) {} makes this clearer. 
+
+The value returned by the nixpkgs function is a set.
+More specifically, it's a set of derivations.
+Using the with expression we bring them into scope.
+This is equivalent to the :l <nixpkgs> we used in nix repl;
+it allows us to easily access derivations such as bash, gcc, and coreutils.
+
+Then we meet the inherit keyword.
+    inherit foo;        is equivalent to foo = foo;.
+Similarly,
+    inherit foo bar;    is equivalent to foo = foo; bar = bar;. 
+
+This syntax only makes sense inside sets.
+There's no magic involved, it's simply a convenience to avoid repeating the same name for both the attribute name and the value in scope.
+
+
+GNU hello world, despite its name, is a simple yet complete project which uses autotools.
+Fetch the latest tarball here:
+    http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz. 
+
+Now let's create hello_builder.sh
+    export PATH="$gnutar/bin:$gcc/bin:$gnumake/bin:$coreutils/bin:$gawk/bin:$gzip/bin:$gnugrep/bin:$gnused/bin:$binutils/bin"
+    tar -xzf $src
+    cd hello-2.10
+    ./configure --prefix=$out
+    make
+    make install
+
+And the derivation hello.nix:
+
+with (import <nixpkgs> {});
+derivation {
+    name = "hello";
+    builder = "${bash}/bin/bash";
+    args = [ ./hello_builder.sh ];
+    inherit gnutar gzip gnumake gcc coreutils gawk gnused gnugrep;
+    binutils = binutils-unwrapped;
+    src = ./hello-2.10.tar.gz;
+    system = builtins.currentSystem;
+}
+
+
+Let's create a generic builder.sh for autotools projects:
+
+set -e                                      # break on any error
+unset PATH                                  # because it's initially set to 
+for p in $buildInputs; do
+    export PATH=$p/bin${PATH:+:}$PATH
+done
+
+tar -xf $src
+
+# Find a directory where the source has been unpacked and cd into it. 
+for d in *; do
+    if [ -d "$d" ]; then
+        cd "$d"
+        break
+    fi
+done
+
+./configure --prefix=$out
+make
+make install
+
+
+Now let's rewrite hello.nix:
+
+with (import <nixpkgs> {});
+derivation {
+    name = "hello";
+    builder = "${bash}/bin/bash";
+    args = [ ./builder.sh ];
+    buildInputs = [ gnutar gzip gnumake gcc binutils-unwrapped coreutils gawk gnused gnugrep ];
+    src = ./hello-2.10.tar.gz;
+    system = builtins.currentSystem;
+}
+
+All clear, except that buildInputs.
+However it's easier than any black magic you are thinking in this moment.
+
+Nix is able to convert a list to a string.
+It first converts the elements to strings, and then concatenates them separated by a space:
+
+nix-repl> builtins.toString 123
+    "123"
+nix-repl> builtins.toString [ 123 456 ]
+    "123 456"
+
+Recall that derivations can be converted to a string, hence:
+
+nix-repl> :l <nixpkgs>
+    Added 3950 variables.
+nix-repl> builtins.toString gnugrep
+    "/nix/store/g5gdylclfh6d224kqh9sja290pk186xd-gnugrep-2.14"
+nix-repl> builtins.toString [ gnugrep gnused ]
+    "/nix/store/g5gdylclfh6d224kqh9sja290pk186xd-gnugrep-2.14 /nix/store/krgdc4sknzpw8iyk9p20lhqfd52kjmg0-gnused-4.2.2"
+
+Simple! The buildInputs variable is a string with out paths separated by space, perfect for bash usage in a for loop. 
+
+
+A more convenient derivation function
+
+We managed to write a builder that can be used for multiple autotools projects.
+But in the hello.nix expression we are specifying tools that are common to more projects; we don't want to pass them everytime.
+
+A natural approach would be to create a function that accepts an attribute set, similar to the one used by the derivation function,
+and merge it with another attribute set containing values common to many projects.
+
+Create autotools.nix:
+
+pkgs: attrs:
+    with pkgs;
+    let defaultAttrs = {
+        builder = "${bash}/bin/bash";
+        args = [ ./builder.sh ];
+        baseInputs = [ gnutar gzip gnumake gcc binutils-unwrapped coreutils gawk gnused gnugrep ];
+        buildInputs = [];
+        system = builtins.currentSystem;
+    };
+    in
+        derivation (defaultAttrs // attrs)
+
+The whole nix expression of this autotools.nix file will evaluate to a function.
+This function accepts a parameter "pkgs", then returns a function which accepts a parameter "attrs". 
+
+The body of the function is simple, yet at first sight it might be hard to grasp:
+    1. First drop in the scope the magic pkgs attribute set.
+    2. Within a let expression we define a helper variable, defaultAttrs, which serves as a set of common attributes used in derivations.
+    3. Finally we create the derivation with that strange expression, (defaultAttrs // attrs). 
+
+The // operator is an operator between two sets.
+The result is the union of the two sets.
+In case of conflicts between attribute names, the value on the right set is preferred. 
+
+So we use defaultAttrs as base set, and add (or override) the attributes from attrs.
+
+A couple of examples ought to be enough to clear out the behavior of the operator:
+
+nix-repl> { a = "b"; } // { c = "d"; }
+    { a = "b"; c = "d"; }
+nix-repl> { a = "b"; } // { a = "c"; }
+    { a = "c"; }
+
+Exercise: Complete the new builder.sh by adding $baseInputs in the for loop together with $buildInputs.
+As you noticed, we passed that new variable in the derivation.
+Instead of merging buildInputs with the base ones, we prefer to preserve buildInputs as seen by the caller, so we keep them separated.
+Just a matter of choice.
+
+Then we rewrite hello.nix as follows:
+
+let
+    pkgs = import <nixpkgs> {};
+    mkDerivation = import ./autotools.nix pkgs;
+in mkDerivation {
+    name = "hello";
+    src = ./hello-2.10.tar.gz;
+}
+
+Finally! We got a very simple description of a package!
+Below are a couple of remarks that you may find useful as you're continuing to understand the nix language:
+    * We assigned to pkgs the import that we did in the previous expressions in the "with". Don't be afraid, it's that straightforward.
+    * The mkDerivation variable is a nice example of partial application, look at it as (import ./autotools.nix) pkgs.
+    First we import the expression, then we apply the pkgs parameter. That will give us a function that accepts the attribute set attrs.
+    * We create the derivation specifying only name and src.
+    If the project eventually needed other dependencies to be in PATH, then we would simply add those to buildInputs
+    (not specified in hello.nix because empty). 
+
+Note we didn't use any other library.
+Special C flags may be needed to find include files of other libraries at compile time, and ld flags at link time. 
+
+Conclusion: In Nix you create derivations stored in the nix store, and then you compose them by creating new derivations.
+Store paths are used to refer to other derivations. 
+
+
+# Build dependencies
+
+Let's start analyzing build dependencies for our GNU hello world package:
+
+$ nix-instantiate hello.nix
+    /nix/store/z77vn965a59irqnrrjvbspiyl2rph0jp-hello.drv
+$ nix-store -q --references /nix/store/z77vn965a59irqnrrjvbspiyl2rph0jp-hello.drv
+    /nix/store/0q6pfasdma4as22kyaknk4kwx4h58480-hello-2.10.tar.gz
+    /nix/store/1zcs1y4n27lqs0gw4v038i303pb89rw6-coreutils-8.21.drv
+    /nix/store/2h4b30hlfw4fhqx10wwi71mpim4wr877-gnused-4.2.2.drv
+    /nix/store/39bgdjissw9gyi4y5j9wanf4dbjpbl07-gnutar-1.27.1.drv
+    /nix/store/7qa70nay0if4x291rsjr7h9lfl6pl7b1-builder.sh
+    /nix/store/g6a0shr58qvx2vi6815acgp9lnfh9yy8-gnugrep-2.14.drv
+    /nix/store/jdggv3q1sb15140qdx0apvyrps41m4lr-bash-4.2-p45.drv
+    /nix/store/pglhiyp1zdbmax4cglkpz98nspfgbnwr-gnumake-3.82.drv
+    /nix/store/q9l257jn9lndbi3r9ksnvf4dr8cwxzk7-gawk-4.1.0.drv
+    /nix/store/rgyrqxz1ilv90r01zxl0sq5nq0cq7v3v-binutils-2.23.1.drv
+    /nix/store/qzxhby795niy6wlagfpbja27dgsz43xk-gcc-wrapper-4.8.3.drv
+    /nix/store/sk590g7fv53m3zp0ycnxsc41snc2kdhp-gzip-1.6.drv
+
+It has exactly the derivations referenced in the derivation function, nothing more, nothing less.
+Some of them might not be used at all, however given that our generic mkDerivation function always pulls such dependencies
+(think of it like build-essential of Debian), for every package you build from now on, you will have these packages in the nix store. 
+
+Why are we looking at .drv files?
+Because the hello.drv file is the representation of the build action to perform in order to build the hello out path,
+and as such it also contains the input derivations needed to be built before building hello. 
+
+# Digression about NAR files
+
+NAR is the Nix ARchive.
+First question: why not tar? Why another archiver?
+Because commonly used archivers are not deterministic.
+They add padding, they do not sort files, they add timestamps, etc..
+Hence NAR, a very simple deterministic archive format being used by Nix for deployment.
+NARs are also used extensively within Nix itself as we'll see below.
+
+For the rationale and implementation details you can find more in the Dolstra's PhD Thesis.
+
+To create NAR archives, it's possible to use
+    nix-store --dump
+    nix-store --restore.
+Those two commands work regardless of /nix/store. 
+
+
+# Runtime dependencies
+
+Something is different for runtime dependencies however.
+Build dependencies are automatically recognized by Nix once they are used in any derivation call,
+but we never specify what are the runtime dependencies for a derivation.
+
+There's really black magic involved.
+It's something that at first glance makes you think "no, this can't work in the long term",
+but at the same it works so well that a whole operating system is built on top of this magic.
+
+In other words, Nix automatically computes all the runtime dependencies of a derivation,
+and it's possible thanks to the hash of the store paths.
+
+Steps:
+    1. Dump the derivation as NAR, a serialization of the derivation output. Works fine whether it's a single file or a directory.
+    2. For each build dependency .drv and its relative out path, search the contents of the NAR for this out path.
+    3. If found, then it's a runtime dependency. 
+
+You get really all the runtime dependencies, and that's why Nix deployments are so easy.
+
+$ nix-instantiate hello.nix
+    /nix/store/z77vn965a59irqnrrjvbspiyl2rph0jp-hello.drv
+$ nix-store -r /nix/store/z77vn965a59irqnrrjvbspiyl2rph0jp-hello.drv
+    /nix/store/a42k52zwv6idmf50r9lps1nzwq9khvpf-hello
+$ nix-store -q --references /nix/store/a42k52zwv6idmf50r9lps1nzwq9khvpf-hello
+    /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19
+    /nix/store/8jm0wksask7cpf85miyakihyfch1y21q-gcc-4.8.3
+    /nix/store/a42k52zwv6idmf50r9lps1nzwq9khvpf-hello
+
+Ok glibc and gcc. Well, gcc really should not be a runtime dependency!
+
+$ strings result/bin/hello | grep gcc
+    /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19/lib:/nix/store/8jm0wksask7cpf85miyakihyfch1y21q-gcc-4.8.3/lib64
+
+Oh Nix added gcc because its out path is mentioned in the "hello" binary.  Why is that?
+    That's the ld rpath (https://en.wikipedia.org/wiki/Rpath).
+It's the list of directories where libraries can be found at runtime.
+In other distributions, this is usually not abused.
+But in Nix, we have to refer to particular versions of libraries, thus the rpath has an important role.
+
+The build process adds that gcc lib path thinking it may be useful at runtime, but really it's not.
+How do we get rid of it?
+Nix authors have written another magical tool called patchelf,
+which is able to reduce the rpath to the paths that are really used by the binary.
+
+Even after reducing the rpath, the hello binary would still depend upon gcc because of some debugging information.
+This unnecesarily increases the size of our runtime dependencies.
+We'll explore how strip can help us with that in the next section. 
+
+# Another phase in the builder
+
+We will add a new phase to our autotools builder. The builder has these phases already:
+    1. First the environment is set up
+    2. Unpack phase: we unpack the sources in the current directory (remember, Nix changes dir to a temporary directory first)
+    3. Change source root to the directory that has been unpacked
+    4. Configure phase: ./configure
+    5. Build phase: make
+    6. Install phase: make install 
+
+We add a new phase after the installation phase, which we call fixup phase. At the end of the builder.sh follows:
+
+$ find $out -type f -exec patchelf --shrink-rpath '{}' \; -exec strip '{}' \; 2>/dev/null
+
+That is, for each file we run
+    patchelf --shrink-rpath 
+    strip.
+Note that we used two new commands here, find and patchelf.
+Exercise: These two deserve a place in baseInputs of autotools.nix as findutils and patchelf.
+
+Rebuild hello.nix and...:
+
+$ nix-build hello.nix
+    [...]
+$ nix-store -q --references result
+    /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19
+    /nix/store/md4a3zv0ipqzsybhjb8ndjhhga1dj88x-hello
+
+...only glibc is the runtime dependency. Exactly what we wanted.
+
+The package is self-contained, copy its closure on another machine and you will be able to run it.
+Remember, only a very few components under the /nix/store are required to run nix.
+The hello binary will use that exact version of glibc library and interpreter, not the system one:
+
+$ ldd result/bin/hello
+ linux-vdso.so.1 (0x00007fff11294000)
+ libc.so.6 => /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19/lib/libc.so.6 (0x00007f7ab7362000)
+ /nix/store/94n64qy99ja0vgbkf675nyk39g9b978n-glibc-2.19/lib/ld-linux-x86-64.so.2 (0x00007f7ab770f000)
+
+Of course, the executable runs fine as long as everything is under the /nix/store path. 
+
+

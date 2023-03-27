@@ -1,0 +1,8 @@
+https://crates.io/crates/postgres_macros
+https://docs.rs/postgres_macros
+https://github.com/sfackler/rust-postgres-macros
+
+2014
+https://pganalyze.com/blog/parse-postgresql-queries-in-ruby
+https://github.com/lfittl/pg_query
+https://github.com/lfittl/pg_query/blob/e80afe63a2ae10695608ab8d53b10cd7beb32124/ext/pg_query/pg_query.c#L33

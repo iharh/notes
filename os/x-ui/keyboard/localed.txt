@@ -1,0 +1,19 @@
+https://www.freedesktop.org/software/systemd/man/systemd-localed.service.html
+
+localectl
+    -h
+    status
+    list-locales
+    list-keymaps
+        Failed to read list of keymaps: No such file or directory
+        ??? no any stuff at /usr/share/keymaps ???
+        https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=790955
+            debian specific problem
+            https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=790955
+            ! use /etc/default/keyboard instead
+            https://stackoverflow.com/questions/34791369/localectl-list-keymaps-couldnt-find-any-console-keymaps/34882663
+    list-x11-keymap-layouts
+    list-x11-keymap-models
+    list-x11-keymap-options
+    list-x11-keymap-variants
+

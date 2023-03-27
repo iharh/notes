@@ -1,0 +1,10 @@
+StreamlinedXml
+
+<summer><day></day><night>with logs of start</night></summer>
+
+xmlElem should equal(<summer>
+    <day></day>
+    <night>
+        with lots of start
+    </night>
+</summer>) (after being streamlined[Elem])

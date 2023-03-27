@@ -1,0 +1,78 @@
+https://superuser.com/questions/1403123/what-are-differences-between-vboxvga-vmsvga-and-vboxsvga-in-virtualbox
+https://forum.manjaro.org/t/howto-virtualbox-installation-usb-shared-folders/55905
+https://forum.manjaro.org/t/virtualbox-display-vboxsvga-vs-vmsvga/113596
+https://forums.virtualbox.org/viewtopic.php?f=2&t=94700
+    ! need to read
+https://poweruser.guru/questions/1403123/%D0%BA%D0%B0%D0%BA%D0%BE%D0%B2%D1%8B-%D1%80%D0%B0%D0%B7%D0%BB%D0%B8%D1%87%D0%B8%D1%8F-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-vboxvga-vmsvga-%D0%B8-vboxsvga-%D0%B2-virtualbox
+    vmsvga - vmware emulation
+
+https://wiki.manjaro.org/Configure_Graphics_Cards
+    ? auto-install
+    https://forum.manjaro.org/t/how-to-change-video-drivers-or-configuration-and-troubleshoot/68568
+
+https://wiki.manjaro.org/index.php?title=Manjaro_Hardware_Detection_Overview
+    mhwd -lh -d --pci
+    ...
+    16: PCI 02.0: 0300 VGA compatible controller (VGA)
+      SysFS ID: /devices/pci0000:00/0000:00:02.0
+      SysFS BusID: 0000:00:02.0
+      Hardware Class: graphics card
+      Model: "VMware VMWARE0405"
+      Vendor: pci 0x15ad "VMware, Inc."
+      Device: pci 0x0405 "VMWARE0405"
+      SubVendor: pci 0x15ad "VMware, Inc."
+      SubDevice: pci 0x0405 
+      Driver: "vmwgfx"
+      Driver Modules: "vmwgfx"
+      I/O Ports: 0xd010-0xd01f (rw)
+      Memory Range: 0xf0000000-0xf0ffffff (ro,non-prefetchable)
+      Memory Range: 0xf1000000-0xf11fffff (rw,non-prefetchable)
+      Memory Range: 0x000c0000-0x000dffff (rw,non-prefetchable,disabled)
+      IRQ: 18 (3 events)
+      I/O Port: 0x00 (rw)
+      Module Alias: "pci:v000015ADd00000405sv000015ADsd00000405bc03sc00i00"
+      Driver Info #0:
+        XFree86 v4 Server Module: vmware
+    ...
+    16: PCI 02.0: 0300 VGA compatible controller (VGA)
+      SysFS ID: /devices/pci0000:00/0000:00:02.0
+      SysFS BusID: 0000:00:02.0
+      Hardware Class: graphics card
+      Model: "InnoTek Systemberatung VirtualBox Graphics Adapter"
+      Vendor: pci 0x80ee "InnoTek Systemberatung GmbH"
+      Device: pci 0xbeef "VirtualBox Graphics Adapter"
+      SubVendor: pci 0x15ad "VMware, Inc."
+      SubDevice: pci 0x0405 
+      Driver: "vboxvideo"
+      Driver Modules: "vboxvideo"
+      Memory Range: 0xe0000000-0xe0ffffff (ro,non-prefetchable)
+      I/O Ports: 0x1000-0x100f (rw)
+      Memory Range: 0xe1000000-0xe11fffff (rw,non-prefetchable)
+      Memory Range: 0x000c0000-0x000dffff (rw,non-prefetchable,disabled)
+      IRQ: 18 (no events)
+      I/O Port: 0x00 (rw)
+      Module Alias: "pci:v000080EEd0000BEEFsv000015ADsd00000405bc03sc00i00"
+      Driver Info #0:
+        Driver Status: vboxvideo is active
+        Driver Activation Cmd: "modprobe vboxvideo"
+
+
+mhwd -li --pci
+> Installed PCI configs:
+--------------------------------------------------------------------------------
+                  NAME               VERSION          FREEDRIVER           TYPE
+--------------------------------------------------------------------------------
+      video-virtualbox            2018.11.25                true            PCI
+
+
+vboxsvga
+ inxi -G
+Graphics:  Device-1: InnoTek Systemberatung VirtualBox Graphics Adapter driver: vboxvideo v: kernel 
+           Display: x11 server: X.org 1.20.6 driver: modesetting resolution: <xdpyinfo missing> 
+           OpenGL: renderer: llvmpipe (LLVM 9.0.0 256 bits) v: 3.3 Mesa 19.3.1 
+
+vmsvga
+  inxi -G
+Graphics:  Device-1: VMware SVGA II Adapter driver: vmwgfx v: 2.15.0.0 
+           Display: x11 server: X.org 1.20.6 driver: modesetting resolution: <xdpyinfo missing> 
+           OpenGL: renderer: llvmpipe (LLVM 9.0.0 256 bits) v: 3.3 Mesa 19.3.1 

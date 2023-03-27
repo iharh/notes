@@ -1,0 +1,11 @@
+Config files:
+/etc/packman.conf
+
+# disable signature checking
+SigLevel = Never
+
+for [almost] all the occurences
+
+# user dirs
+/var/lib/...
+/src/...

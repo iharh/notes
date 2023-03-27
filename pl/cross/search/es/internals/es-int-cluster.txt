@@ -1,0 +1,7 @@
+cluster.service.InternalClusterService
+
+2014-12-23 12:07:46,713 INFO  [] [org.elasticsearch.cluster.service] [Rune] added {[Zarek][02OpsO5eTfqPGEVvVVHrjQ][EPBYGOMW0024][inet[/10.9.202.130:9301]]{client=true, data=false, master=false},}, reason: zen-disco-receive(join from node[[Zarek][02OpsO5eTfqPGEVvVVHrjQ][EPBYGOMW0024][inet[/10.9.202.130:9301]]{client=true, data=false, master=false}])
+...
+2014-12-23 12:07:46,861 INFO  [] [org.elasticsearch.cluster.service] [Rune] removed {[Zarek][02OpsO5eTfqPGEVvVVHrjQ][EPBYGOMW0024][inet[/10.9.202.130:9301]]{client=true, data=false, master=false},}, reason: zen-disco-node_left([Zarek][02OpsO5eTfqPGEVvVVHrjQ][EPBYGOMW0024][inet[/10.9.202.130:9301]]{client=true, data=false, master=false})
+
+

@@ -1,0 +1,13 @@
+2022
+Rust - Profiling Code in Rust - by Vitaly Bragilevsky - Rust Linz, December 2022 of 48:01
+    https://www.youtube.com/watch?v=JRMOIE_wAFk
+    https://drive.google.com/file/d/1LU7dUz-iIkDa28qM9zZomx97FdJomhRZ/view
+    https://github.com/bravit/generate_parentheses
+    ! valgrind, build-essentials, clang
+    ! $ valgrind --tool=massif ...
+    ! massive - is one of the memory analyzers
+    ! $ ms_pring ...out...
+2017
+Jenson - Improving Rust Performance Through Profiling and Benchmarking
+    https://speakerdeck.com/stevej/improving-rust-performance-through-profiling-and-benchmarking
+    https://www.youtube.com/watch?v=hTHp0gjWMLQ

@@ -1,0 +1,93 @@
+http://learngitbranching.js.org/
+https://github.com/pcottle/learnGitBranching
+
+git branch -v [--list]
+    get branches with hashes.
+
+git branch -a
+    show all branches
+
+git branch -r
+    show remote-only branches
+
+git ls-remote -v
+	.. remote
+    show-branch
+
+git checkout -b <branch name>
+    checks out a branch [branch-to-start-from]
+git branch -d <branch-to-delete>
+    delete a branch
+git branch -D <branch-to-delete>
+    force deleting a branch despite of non-merged data
+git push <remote-name> :<branch-name>
+    delete a remote branch
+
+
+Orphan branches:
+git checkout --orphan <name>
+    git rm -rf .
+        to clean up staging after that
+    ... gh-pages ...
+    later we can access such orphan-branch from github pages via (<username>.github.com/<prjname>)
+
+Remotes:
+git remote show
+    origin
+
+    remote show <remote-name>
+
+
+    remote [-v]
+    origin ... (fetch)
+    origin ... (push)
+
+    remote add <remote-name> <url>
+
+
+
+git remote add <nick> git://...repo.git
+git fetch <nick>
+git push <nick> master[or other branch name here]
+  now git remote should list public
+  git remote show public ...
+
+Note:
+    remote can be a local FS path (/...)
+
+pull = fetch + merge
+    also shows the latest branches available
+
+Checkout:
+
+git checkout <local-branch-name>
+
+git checkout --track <remote>/<branch-name>
+    create a branch which will track remote branch
+    --track is needed if you have more than one remote, otherwise - by default
+
+
+REBASE:
+
+interactive:
+git rebase -i <branch/commit/tag> 
+
+auto:
+git config --global branch.autosetuprebase always
+git config branch.7.x.rebase true
+
+protection
+
+(to disable  git push --force):
+git config --system receive.denyNonFastForwards true
+
+
+Maintanance:
+check the peepcode
+    gbrt
+ruby script (branches, sorted by time)
+
+
+Upstream-Set:
+http://zarino.co.uk/post/git-set-upstream
+git branch --set-upstream-to=...

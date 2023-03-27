@@ -1,0 +1,13 @@
+https://jellyfin.org/downloads/
+
+https://repo.jellyfin.org/releases/server/ubuntu/versions/
+
+sudo apt install apt-transport-https
+wget -O - https://repo.jellyfin.org/jellyfin_team.gpg.key | sudo apt-key add -
+echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+sudo apt update
+sudo apt install jellyfin
+
+flathub
+Jellyfin MPV Shim          Cast-only client for Jellyfin Media Server      com.github.iwalton3.jellyfin-mpv-shim          2.0.1        stable
+Jellyfin Media Player      Desktop client for Jellyfin media server        com.github.iwalton3.jellyfin-media-player      1.6.1        stable

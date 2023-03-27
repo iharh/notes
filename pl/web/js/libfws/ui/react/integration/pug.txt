@@ -1,0 +1,24 @@
+https://github.com/pugjs/babel-plugin-transform-react-pug
+https://github.com/ezhlobo/eslint-plugin-react-pug
+
+typescript
+
+https://github.com/pugjs/babel-plugin-transform-react-pug/issues/22
+
+.babelrc
+    "plugins": [
+        "transform-react-pug",
+        "transform-react-jsx"
+    ]
+
+
+
+npm i -D @types/babel-plugin-react-pug
+
+.babelrc
+    "plugins": [
+        "react-pug"
+    ]
+
+https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/babel-plugin-react-pug
+https://github.com/DefinitelyTyped/DefinitelyTyped/pull/19645

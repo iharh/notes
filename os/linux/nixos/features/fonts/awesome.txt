@@ -1,0 +1,14 @@
+https://github.com/gabrielelana/awesome-terminal-fonts
+    ? fallback strategy
+
+aur
+    awesome-terminal-fonts
+        https://www.archlinux.org/packages/community/any/awesome-terminal-fonts/
+    awesome-terminal-fonts-git
+    awesome-terminal-fonts-patched
+        https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=awesome-terminal-fonts-patched
+    https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched
+        Droid, Inconsolata, SourceCodePro
+        
+cfg files
+/etc/fonts/conf.d/10-symbols.conf

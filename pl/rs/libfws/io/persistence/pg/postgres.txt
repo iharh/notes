@@ -1,0 +1,20 @@
+https://crates.io/crates/postgres
+https://docs.rs/postgres
+https://github.com/sfackler/rust-postgres
+
+https://crates.io/crates/postgres-protocol
+https://docs.rs/postgres-protocol
+https://github.com/sfackler/rust-postgres
+
+https://crates.io/crates/postgres-binary-copy
+https://crates.io/crates/postgres_large_object
+https://crates.io/crates/fraction
+https://crates.io/crates/postgres_range
+
+https://crates.io/crates/tokio-postgres
+
+2020
+https://blog.knoldus.com/incorporate-postgres-with-rust/
+    https://github.com/knoldus/Postgres-With-Rust
+2011
+http://siciarz.net/24-days-of-rust-postgres/

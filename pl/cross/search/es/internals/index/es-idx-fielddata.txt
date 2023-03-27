@@ -1,0 +1,169 @@
+field data cache:
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/index-modules-fielddata.html
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/fielddata-formats.html
+
+field data fields:
+http://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-fielddata-fields.html
+
+field data preloading:
+http://www.elastic.co/guide/en/elasticsearch/guide/master/preload-fielddata.html
+
+field data monitoring:
+http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html
+
+# Node Stats
+curl -XGET 'http://localhost:9200/_nodes/stats/indices/?fields=field1,field2&pretty'
+
+# Indices Stat
+curl -XGET 'http://localhost:9200/_stats/fielddata/?fields=field1,field2&pretty'
+
+# You can use wildcards for field names
+curl -XGET 'http://localhost:9200/_stats/fielddata/?fields=field*&pretty'
+curl -XGET 'http://localhost:9200/_nodes/stats/indices/?fields=field*&pretty'
+
+
+internals:
+
+.index.fielddata.
+
+IndexFieldDataService
+    private final IndicesFieldDataCacheListener indicesFieldDataCacheListener;
+    ...
+    private final IndicesFieldDataCache indicesFieldDataCache;
+
+    public void clear();
+
+    public void clearField(String fN);
+
+    public <IFD extends IndexFieldData<?>> IFD getForField(FieldMapper<?> mapper) {
+        ...
+        builder = ...
+        ...
+
+        IndexFieldDataCache cache = fieldDataCaches.get(fieldNames.indexName());
+        // resident/soft/node
+
+        if (cache == null) {
+            //  we default to node level cache, which in turn defaults to be unbounded
+            // this means changing the node level settings is simple, just set the bounds there
+            String cacheType = type.getSettings().get("cache", indexSettings.get("index.fielddata.cache", "node"));
+            if ("resident".equals(cacheType)) {
+                cache = new IndexFieldDataCache.Resident(logger, indexService, fieldNames, type, indicesFieldDataCacheListener);
+            } else if ("soft".equals(cacheType)) {
+                cache = new IndexFieldDataCache.Soft(logger, indexService, fieldNames, type, indicesFieldDataCacheListener);
+            } else if ("node".equals(cacheType)) {
+                cache = indicesFieldDataCache.buildIndexFieldDataCache(indexService, index, fieldNames, type);
+            } else {
+                throw new ElasticsearchIllegalArgumentException("cache type not supported [" + cacheType + "] for field [" + fieldNames.fullName() + "]");
+            }
+            fieldDataCaches.put(fieldNames.indexName(), cache);
+        }
+
+        ...
+
+        GlobalOrdinalsBuilder globalOrdinalBuilder = new InternalGlobalOrdinalsBuilder(index(), indexSettings);
+
+        // check the ParentChildIndexFieldData.Builder.build(...)
+        fieldData = builder.build(index, indexSettings, mapper, cache, circuitBreakerService, indexService.mapperService(), globalOrdinalBuilder);
+
+        loadedFieldData.put(fieldNames.indexName(), fieldData);
+    }
+
+
+.index.fielddata.plain.
+/**
+ * ParentChildIndexFieldData is responsible for loading the id cache mapping
+ * needed for has_child and has_parent queries into memory.
+ */
+public class ParentChildIndexFieldData extends AbstractIndexFieldData<ParentChildAtomicFieldData> implements DocumentTypeListener {
+
+    private final NavigableSet<BytesRef> parentTypes;
+    private final CircuitBreakerService breakerService;
+    private final GlobalOrdinalsBuilder globalOrdinalsBuilder;
+
+    // If child type (a type with _parent field) is added or removed, we want to make sure modifications don't happen
+    // while loading.
+    private final Object lock = new Object();
+
+    ...
+
+    public static class Builder implements IndexFieldData.Builder {
+
+        @Override
+        public IndexFieldData<?> build(Index index, @IndexSettings Settings indexSettings, FieldMapper<?> mapper,
+                                       IndexFieldDataCache cache, CircuitBreakerService breakerService,
+                                       MapperService mapperService, GlobalOrdinalsBuilder globalOrdinalBuilder) {
+            return new ParentChildIndexFieldData(index, indexSettings, mapper.names(), mapper.fieldDataType(), cache, // !!! the only way to create an inst
+                    mapperService, breakerService, globalOrdinalBuilder);
+        }
+    }
+    ...
+
+    public ParentChildIndexFieldData(Index index, @IndexSettings Settings indexSettings, FieldMapper.Names fieldNames,
+                                     FieldDataType fieldDataType, IndexFieldDataCache cache, MapperService mapperService,
+                                     CircuitBreakerService breakerService, GlobalOrdinalsBuilder globalOrdinalsBuilder) {
+        super(index, indexSettings, fieldNames, fieldDataType, cache); // !!! cache !!!
+        parentTypes = new TreeSet<>(BytesRef.getUTF8SortedAsUnicodeComparator());
+        this.breakerService = breakerService;
+        this.globalOrdinalsBuilder = globalOrdinalsBuilder;
+        for (DocumentMapper documentMapper : mapperService) {
+            beforeCreate(documentMapper);
+        }
+        mapperService.addTypeListener(this);
+    }
+    ...
+
+    public WithOrdinals getGlobalParentChild(String type, IndexReader indexReader) {
+        ParentTypesGlobalOrdinalsLoading loading = new ParentTypesGlobalOrdinalsLoading();
+        ParentChildGlobalOrdinalsIndexFieldData holder = (ParentChildGlobalOrdinalsIndexFieldData) loading.loadGlobal(indexReader); // ! we go here
+        return holder.type(type);
+    }
+
+    ...
+    private class ParentTypesGlobalOrdinalsLoading implements WithOrdinals {
+        ...
+        @Override
+        public WithOrdinals loadGlobal(IndexReader indexReader) {
+            if (indexReader.leaves().size() <= 1) {
+                // ordinals are already global
+                ImmutableOpenMap.Builder<String, WithOrdinals> globalIfdPerType = ImmutableOpenMap.builder();
+                for (BytesRef parentType : parentTypes) {
+                    PerType perType = new PerType(parentType.utf8ToString());
+                    globalIfdPerType.put(perType.type, perType);
+                }
+                return new ParentChildGlobalOrdinalsIndexFieldData(globalIfdPerType.build(), 0);
+            }
+
+            try {
+                // IndexFieldDataCache$FieldBased.load(IndexFieldDataCache.java:149)
+
+                return cache.load(indexReader, this); // iface/impl
+
+            } catch (Throwable e) {
+                if (e instanceof ElasticsearchException) {
+                    throw (ElasticsearchException) e;
+                } else {
+                    throw new ElasticsearchException(e.getMessage(), e);
+                }
+            }
+        }
+        ...
+    }
+}
+
+
+.index.search.child.
+ChildrenConstantScoreQuery {
+    // passed to c-tor by one of the ...QueryParser like HasChildQueryParser with ScoreType == null
+    ParentChildIndexFieldData parentChildIndexFieldData; 
+
+    @Override
+    public Weight createWeight(IndexSearcher searcher) throws IOException {
+        SearchContext sc = SearchContext.current();
+        ParentChildIndexFieldData.WithOrdinals globalIfd = parentChildIndexFieldData.getGlobalParentChild(
+                parentType, searcher.getIndexReader()
+        );
+        ...
+    }
+}

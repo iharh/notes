@@ -1,0 +1,11 @@
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+ReflectionToStringBuilder.toString(obj, ToStringStyle.DEFAULT_STYLE, true, true); // JSON_STYLE
+
+https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/package-summary.html
+https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/RecursiveToStringStyle.html
+https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/MultilineRecursiveToStringStyle.html
+
+recursive-case
+https://stackoverflow.com/questions/3149951/java-tostring-tostringbuilder-not-sufficient-wont-traverse

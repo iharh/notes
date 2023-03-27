@@ -1,0 +1,41 @@
+https://www.postgresql.org/docs/current/plpgsql-cursors.html
+
+set search_path to '???';
+do $$
+declare
+    c_custom_lexicon    cursor is select id, name, language_id from cb_file_repository where type='???' and kind != 1;
+    obj_lex             record;
+    c_custom_config     cursor (lex_pat text, lang_id character(2)) is select id, name from cb_file_repository
+                        where type='???' and language_id = lang_id and position(lex_pat::bytea in content) > 1;
+    obj_cfg             record;
+    c_custom_df         cursor (cfg_name text) is select cmp.id, dfl.project_id, dfl.name from cb_component as cmp, cb_dataflow as dfl, cb_cmp2dflref r
+                        where r.dfl_id = dfl.id and r.cmp_id = cmp.id and cmp.name = '???' and dfl.project_id is not null
+                        and position(cfg_name in cmp.cfg) > 1;
+    obj_df              record;
+   --stmt_ins_cust_lex    character varying (500);
+begin
+    drop table if exists my_result;
+    create table my_result(
+        ID          NUMERIC(20,0) NOT NULL,
+        NAME        CHARACTER VARYING(128) NOT NULL,
+        LANGUAGE_ID CHARACTER(2) NOT NULL,
+        CONFIG_NAME CHARACTER VARYING(128) NOT NULL,
+        CONSTRAINT  PK_MY_RESULT PRIMARY KEY (ID, NAME, LANGUAGE_ID, CONFIG_NAME),
+        CONSTRAINT  UK_MY_RESULT UNIQUE (NAME, LANGUAGE_ID, CONFIG_NAME),
+        CONSTRAINT  FK_CB_LP FOREIGN KEY (LANGUAGE_ID)
+            REFERENCES CB_LP (LANGUAGE_ID) ON DELETE CASCADE
+    );
+    for obj_lex in c_custom_lexicon loop
+        raise notice 'found custom lexicon name: %', obj_lex.name;
+        for obj_cfg in c_custom_config(obj_lex.name, obj_lex.language_id) loop
+            raise notice 'found custom config name: %', obj_cfg.name;
+            -- execute 'insert into my_result(id, name, language_id, config_name) values($1, $2, $3, $4)'
+            --    using obj_lex.id, obj_lex.name, obj_lex.language_id, obj_cfg.name;
+            for obj_df in c_custom_df(obj_cfg.name) loop
+                raise notice 'found custom df id: % name: %, prj: %', obj_df.id, obj_df.name, obj_df.project_id;
+            end loop;
+        end loop;
+    end loop;
+end$$;
+
+select * from my_result;

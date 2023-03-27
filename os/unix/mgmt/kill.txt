@@ -1,0 +1,5 @@
+2022
+https://te.legra.ph/Komanda-Kill-Pkill-Killall-Kak-Ubit-Process-v-Linux-02-09
+
+samples
+lsof -i:8080

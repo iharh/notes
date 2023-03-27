@@ -1,0 +1,41 @@
+https://buildpacks.io/docs/tools/kpack/
+https://github.com/pivotal/kpack
+
+https://tanzu.vmware.com/developer/guides/cnb-gs-kpack/
+
+https://github.com/pivotal/kpack/tree/main/docs
+https://github.com/pivotal/kpack/blob/main/docs/install.md
+    https://github.com/pivotal/kpack/releases
+    kubectl apply  --filename release-<version>.yaml
+    kubectl get pods --namespace kpack --watch
+https://github.com/pivotal/kpack/blob/main/docs/tutorial.md
+https://github.com/pivotal/kpack/blob/main/docs/stack.md
+https://github.com/pivotal/kpack/blob/main/docs/store.md
+https://github.com/pivotal/kpack/blob/main/docs/image.md
+https://github.com/pivotal/kpack/blob/main/docs/secrets.md
+https://github.com/pivotal/kpack/blob/main/docs/builders.md
+https://github.com/pivotal/kpack/blob/main/docs/build.md
+https://github.com/pivotal/kpack/blob/main/docs/legacy-cnb-servicebindings.md
+https://github.com/pivotal/kpack/blob/main/docs/local.md
+
+https://github.com/vmware-tanzu/kpack-cli
+https://github.com/vmware-tanzu/kpack-cli/blob/main/docs/kp.md
+
+cli
+kubectl
+    get
+        builds
+        images
+    describe
+        build
+
+2020
+VMwareTanzu - Getting Started with kpack of 8:53
+    https://www.youtube.com/watch?v=-a82R7lNlcU
+2019
+https://tanzu.vmware.com/content/blog/introducing-kpack-a-kubernetes-native-container-build-service
+VMware - Beda - TGI Kubernetes 091: kpack 36:00 of 1:52:15
+    https://www.youtube.com/watch?v=4zkRX9PSJ5k
+    ! starting from 20:00
+    https://tanzu.vmware.com/content/blog/introducing-kpack-a-kubernetes-native-container-build-service
+    https://github.com/vmware-tanzu/tgik/blob/master/episodes/091/README.md

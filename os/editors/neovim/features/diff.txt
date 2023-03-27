@@ -1,0 +1,2 @@
+https://neovim.io/doc/user/diff.html
+    nvim -d file1.txt ... fileN.txt

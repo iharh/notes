@@ -1,0 +1,42 @@
+:: -A ext:analyzer
+::        Files with the named extension should be analyzed with the specified class
+:: -a on/off
+::        Allow or disallow leading wildcards in a search
+
+:: -R /path/to/configuration
+::        Read configuration from the specified file
+:: -W /path/to/configuration
+::        Write the current configuration to the specified file (so that the web application can use the same confi	
+
+:: -P
+::        Generate a project for each of the top-level directories in source root
+:: -p /path/to/default/project
+::        This is the path to the project that should be selected by default in the web application(when no other project set either in cookie or in parameter).
+::        You should strip off the source root.
+:: -r on/off
+::        Turn on/off support for remote SCM systems
+:: -S
+::        Search for "external" source repositories and add them
+
+:: -n
+::        Do not generate indexes, but process all other command line options
+:: -O on/off
+::        Turn on/off the optimization of the index database as part of the indexing step
+
+:: -I pattern
+::        Only files matching this pattern will be examined (supports wildcards, example: -I *.java -I *.c)
+:: -i pattern
+::        Ignore the named files or directories (supports wildcards, example: -i *.so -i *.dll)
+
+:: -k /path/to/repository
+::        Kill the history cache for the given repository and exit. Use '*' to delete the cache for all repositories.
+:: -K
+::        List all repository pathes and exit.
+
+:: -C
+::        Print per project percentage progress information(I/O extensive, since one read through dir structure is
+:: -q
+::        Run as quietly as possible
+
+
+Grok\webapps\source\WEB-INF\web.xml

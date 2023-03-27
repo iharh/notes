@@ -1,0 +1,12 @@
+fun! MyF()
+  "let v1 = 'abc'
+  "echo v1
+  "echo expand("%")
+  
+  let l:sauce_root='~/.vimsauce/'
+  let l:pref_len = strlen(expand(l:sauce_root))
+  let l:sauce_files_abs = split(globpath(l:sauce_root, '*.vimrc'), '\n')
+  let l:sauce_files_rel = map(l:sauce_files_abs, "strpart(v:val, l:pref_len)")
+  let l:sauces = map(l:sauce_files_rel, "strpart(v:val, 0, strlen(v:val) - 6)")
+  echo l:sauces
+endf

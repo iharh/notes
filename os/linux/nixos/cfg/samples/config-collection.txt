@@ -1,0 +1,10 @@
+! need to google for
+!   nixos configuration examples
+
+https://github.com/topics/nixos-configuration
+
+misc
+https://git.sr.ht/~jakewaksbaum/pi/tree/master/flake.nix
+
+https://nixos.wiki/wiki/Configuration_Collection
+    ! looket: first 3 ones

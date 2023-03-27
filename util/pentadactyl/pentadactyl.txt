@@ -1,0 +1,136 @@
+Navigation
+
+j/k
+	Move Down/Up one line
+h/l
+	Move Left/Right one char
+
+d
+	Close the active/current tab
+
+
+gg
+	Go to the top of the doc <Home>
+G
+	Go to the end of the doc <End>
+<count>%
+	<scroll-percent>
+
+gt/gT
+	Move to Next/Prev Tab
+gh
+	Go home (page)
+gH
+	Go home (New Tab)
+[count]gu
+	Go to [count] in parent directory
+gU
+	Go to the root of web site
+
+f/F
+	Click the link (in new tab)
+C-o
+	History back <back>
+C-i
+	History forward <forward>
+
+
+Jumping to Elements
+
+[count]gi
+	Jump to the text-input element
+
+[count]]f
+	Transfer keyboard focus to the [count]th next frame <next-frame>.
+	The newly focused frame is briefly highlighted with FrameIndicator.
+
+[count][f
+	Transfer keyboard focus to the [count]th next previous frame <previous-frame>.
+	The newly focused frame is briefly highlighted with FrameIndicator.
+
+
+[count]]]
+	Follow the last link matching 'nextpattern' <next-page>.
+	Used, for instance, to move to the next page of search results.
+        
+ 
+
+[count][[
+	Follow the last link matching 'previouspattern' <previous-page>.
+	Used, for instance, to move to the previous page of search results.
+        
+                
+
+Search
+
+/{pattern}[/]<CR>
+	Find {pattern} starting at the caret position
+	Escape sequences:
+	\c
+		Case insensitive find
+	\C
+		Case sensitive find
+	\l
+		Search in links only
+	\L
+		Search the entire page
+
+?{pattern}[?]<CR>
+	Find {pattern} backward
+
+n
+	Find next. Repeat the last find.
+N
+	Find previous. Repeat the last find in the opposite direction.
+
+
+
+Open
+
+p
+	<open-clipboard-url>
+P
+	<tab-open-clipboard-url>
+
+
+Copy text
+
+y
+	Yank current location to the clipboard <yank-location>
+Y
+	Yank current selected text to the clipboard <yank-word>
+
+
+
+
+Commands
+
+- Navigation
+:o[pen] url
+	Open URL in a the current tab
+:t[abopen] url
+	Open URL in a new tab
+
+:dia[log] addbookmark
+	Open a FF dialog
+
+:tbs :toolbarshow
+:tbh :toolbarhide
+	Show/Hide toolbar
+	[Navigation Toolbar]
+
+
+- Options
+
+:set guioptions+=
+
+:mkp[entadactylrc][!] [file]
+	Save Pentadactyl RC file
+
+
+
+
+
+:map <F2> :echo Date()<CR>
+
+:map <C-d> -ex :dialog addbookmark

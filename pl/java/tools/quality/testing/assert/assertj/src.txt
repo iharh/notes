@@ -1,0 +1,7 @@
+https://github.com/joel-costigliola/assertj-core/blob/master/src/main/java/org/assertj/core/internal/Diff.java
+https://github.com/joel-costigliola/assertj-core/blob/master/src/main/java/org/assertj/core/api/Assertions.java
+  contentOf -> Files.contentOf
+https://github.com/joel-costigliola/assertj-core/blob/master/src/main/java/org/assertj/core/util/Files.java
+  loadContents, loadLines
+https://github.com/joel-costigliola/assertj-core/blob/master/src/main/java/org/assertj/core/util/URLs.java
+  loadContents

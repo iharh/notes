@@ -1,0 +1,9 @@
+https://github.com/jdek/openwith
+https://github.com/moretension/duti
+    duti -x mp4
+        current assignment
+    duti -s io.mpv avi all
+    duti -s io.mpv mkv all
+    duti -s io.mpv mp4 all
+
+https://github.com/mpv-player/mpv/wiki/FAQ#How_can_I_make_mpv_the_default_application_for_opening_movie_files_on_macOS_OSX

@@ -1,0 +1,64 @@
+https://github.com/lostisland/faraday_middleware
+https://github.com/lostisland/faraday_middleware/wiki
+
+https://rubygems.org/gems/faraday_middleware/
+http://www.rubydoc.info/gems/faraday_middleware/
+
+https://blog.oestrich.org/2012/10/creating-a-faraday-middleware/
+https://www.mobomo.com/2012/03/faraday-one-http-client-to-rule-them-all/
+http://mislav.net/2011/07/faraday-advanced-http/
+
+class AuthBearerMiddleware < Faraday::Middleware
+    def call(env)
+        env[:request_headers]['Authorization'] = "Bearer #{token}"
+
+        @app.call(env)
+    end
+end
+
+http://stackoverflow.com/questions/38644576/faraday-tokenauthentication
+
+
+Samples:
+https://github.com/dobs/faraday_middleware-reddit/blob/master/lib/faraday_middleware/reddit/request/authentication.rb
+https://github.com/lostisland/faraday_middleware/blob/master/lib/faraday_middleware/request/oauth2.rb
+
+Registry:
+
+  # Public: Adds the ability for other modules to register and lookup
+  # middleware classes.
+  module MiddlewareRegistry
+    # Public: Register middleware class(es) on the current module.
+    #
+    # mapping - A Hash mapping Symbol keys to classes. Classes can be expressed
+    #           as fully qualified constant, or a Proc that will be lazily
+    #           called to return the former.
+    #
+    # Examples
+    #
+    #   module Faraday
+    #     class Whatever
+    #       # Middleware looked up by :foo returns Faraday::Whatever::Foo.
+    #       register_middleware :foo => Foo
+    #
+    #       # Middleware looked up by :bar returns Faraday::Whatever.const_get(:Bar)
+    #       register_middleware :bar => :Bar
+    #
+    #       # Middleware looked up by :baz requires 'baz' and returns Faraday::Whatever.const_get(:Baz)
+    #       register_middleware :baz => [:Baz, 'baz']
+    #     end
+    #   end
+    #
+    # Returns nothing.
+    def register_middleware(autoload_path = nil, mapping = nil)
+      if mapping.nil?
+        mapping = autoload_path
+        autoload_path = nil
+      end
+      middleware_mutex do
+        @middleware_autoload_path = autoload_path if autoload_path
+        (@registered_middleware ||= {}).update(mapping)
+      end
+    end
+
+

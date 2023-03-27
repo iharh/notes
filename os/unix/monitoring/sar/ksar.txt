@@ -1,0 +1,5 @@
+aur/ksar_bin
+
+Pairing iftop with sar (e.g. `sar -n DEV 1 10`)  gives the two perspectives: by target/source host and then by adapter
+(sar installs with the sysstat package)
+http://sourceforge.net/projects/ksar/

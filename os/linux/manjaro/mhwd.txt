@@ -1,0 +1,29 @@
+https://wiki.manjaro.org/index.php?title=Manjaro_Hardware_Detection_Overview
+https://wiki.manjaro.org/index.php?title=Configure_Graphics_Cards
+https://wiki.manjaro.org/index.php?title=Catalyst
+
+mhwd -l
+    -la
+    -li
+    -lh
+
+
+mhwd-gpu --status
+...
+xorg conf file: '/etc/X11/mhwd.d/intel.conf'
+
+mhwd-gpu --setgl catalyst
+mhwd-gpu --setgl nvidia
+mhwd-gpu --setgl mesa
+
+/etc/X11/xorg.conf.d/20-keyboard.conf 
+# Keyboard layout - Don't modify! Use keyboardctl instead!
+
+Section "InputClass"
+    Identifier "system-keyboard"
+    MatchIsKeyboard "on"
+    Option "XkbModel" "pc105"
+    Option "XkbLayout" "us"
+    Option "XkbVariant" ""
+EndSection
+

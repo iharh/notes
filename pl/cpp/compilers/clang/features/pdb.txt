@@ -1,0 +1,10 @@
+https://llvm.org/docs/PDB/index.html
+
+https://llvm.org/docs/CommandGuide/llvm-pdbutil.html
+
+https://www.infoq.com/news/2017/08/LLVM-PDB
+https://www.infoq.com/news/2017/02/Portable-PDB
+
+https://github.com/Microsoft/microsoft-pdb
+https://github.com/dotnet/symreader-portable
+https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md

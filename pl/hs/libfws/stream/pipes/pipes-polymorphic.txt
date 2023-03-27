@@ -1,0 +1,59 @@
+https://groups.google.com/forum/?fromgroups#!topic/haskell-pipes/NnlLwNFfhYA
+
+The main reason for polymorphic type synonyms is if you want to mix `Producer'` and `Consumer'`s within the same pipe.
+
+The most important example of this is `yield` and `await`.  If you used the non-polymorphic type synonyms for `yield` and `await` like this:
+
+    yield :: b -> Producer b m ()
+    await :: Consumer a m a
+
+... then if you tried to combine them within a `Pipe` you would get a type error:
+
+    cat :: (Monad m) => Pipe a a m r
+    cat = forever $ do
+        x <- await
+        yield x
+
+That would be a type error because now the `await` would insist that the downstream interface was closed, preventing the `yield` from yielding anything.  Similarly, the `yield` would insist that the upstream interface was closed, preventing the `await` from awaiting anything.
+
+Another example is the `each` function, which has this type:
+
+    each :: (Monad m, Foldable f) => f a -> Producer' a m ()
+
+If you change that to use the non-polymorphic type synonym then you would not be able to use `each` within another pipe like this:
+
+    concat :: (Monad m, Foldable f) => Pipe (f a) a m ()
+    concat = forever $ do
+        xs <- await
+        each xs
+
+`each` without the polymorphic type synonym would conflict with the `await`.
+
+The main advantage of polymorphic type synonyms is when you sequence pipes together.  The pipe monad requires that each pipe in a `do` block shares the same upstream and downstream interface, which is why they have to be written to be polymorphic so that multiple different types of pipes can be sequenced together.
+
+-------------------
+
+> What is "the negative position of a function" ???
+It means the argument of a function.
+
+>At the pipes sources I can see:
+
+yield :: (Monad m) => a -> Producer' a m ()
+yield = respond
+
+await :: (Monad m) => Consumer' a m a
+await = request ()
+
+This is when a function takes a `Consumer`/`Producer` as an argument.  For example, the `length` function from `Pipes.Prelude`:
+
+    length :: (Monad m) => Producer a m r -> m r
+
+The `Producer` in that type signature is in the negative position of the function because it is the argument of the function.
+If you use the polymorphic type synonym in the type for `length` it will not work correctly when you pass it a concrete `Producer` and it will only accept polymorphic `Producer`s.
+
+However, if you write `length` to accept a concrete `Producer` then it will actually accept both polymorphic and concrete `Producer`s (because the polymorphic `Producer'`s will still type-check as concrete `Producer`s, too).
+
+[IH] It seems to me that I've got the point.
+[IH] length uses it negative position, but both yield and await - in non-negative (they use it as a result).
+
+[GG] Right!  If it is a result then it is in the positive position.

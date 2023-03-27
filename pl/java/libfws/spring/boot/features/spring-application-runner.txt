@@ -1,0 +1,7 @@
+2021
+https://habr.com/ru/post/572828/
+2019
+https://jhooq.com/applicationrunner-spring-boot/
+
+deps
+implementation("org.springframework.boot:spring-boot-starter")

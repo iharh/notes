@@ -1,0 +1,9 @@
+Silent install:
+
+@echo off
+setlocal
+call vars-haskell.bat 
+set _HSAKELL_VER=2013.2.0.0
+HaskellPlatform-%_HSAKELL_VER%-setup.exe /S /D=%_HASKELL_BASE%\%_HSAKELL_VER%
+endlocal
+

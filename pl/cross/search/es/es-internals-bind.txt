@@ -1,0 +1,166 @@
+package org.elasticsearch.common.inject;
+
+public interface Module {
+
+    /**
+     * Contributes bindings and other configurations for this module to {@code binder}.
+     * <p/>
+     * <p><strong>Do not invoke this method directly</strong> to install submodules. Instead use
+     * {@link Binder#install(Module)}, which ensures that {@link Provides provider methods} are
+     * discovered.
+     */
+    void configure(Binder binder);
+}
+
+public abstract class AbstractModule implements Module {
+
+    Binder binder;
+
+    public final synchronized void configure(Binder builder) {
+        checkState(this.binder == null, "Re-entry is not allowed.");
+
+        this.binder = checkNotNull(builder, "builder");
+        try {
+            configure();
+        } finally {
+            this.binder = null;
+        }
+    }
+
+    /**
+     * Configures a {@link Binder} via the exposed methods.
+     */
+    protected abstract void configure();
+
+    /**
+     * Gets direct access to the underlying {@code Binder}.
+     */
+    protected Binder binder() {
+        return binder;
+    }
+
+    ...
+
+    /**
+     * @see Binder#bind(Key)
+     */
+    protected <T> LinkedBindingBuilder<T> bind(Key<T> key) {
+        return binder.bind(key);
+    }
+
+    /**
+     * @see Binder#bind(TypeLiteral)
+     */
+    protected <T> AnnotatedBindingBuilder<T> bind(TypeLiteral<T> typeLiteral) {
+        return binder.bind(typeLiteral);
+    }
+
+    /**
+     * @see Binder#bind(Class)
+     */
+    protected <T> AnnotatedBindingBuilder<T> bind(Class<T> clazz) {
+        return binder.bind(clazz);
+    }
+
+    ...
+
+    /**
+     * @see Binder#install(Module)
+     */
+    protected void install(Module module) {
+        binder.install(module);
+    }
+
+    ...    
+}
+
+
+package org.elasticsearch.common.inject.multibindings;
+
+public abstract class MapBinder<K, V> {
+    ... // TBD !!!
+}
+
+
+package org.elasticsearch.action;
+
+public class ActionModule extends AbstractModule {
+
+    private final Map<String, ActionEntry> actions = Maps.newHashMap();
+
+    static class ActionEntry<Request extends ActionRequest, Response extends ActionResponse> {
+        public final GenericAction<Request, Response> action;
+        public final Class<? extends TransportAction<Request, Response>> transportAction;
+        public final Class[] supportTransportActions;
+
+        ActionEntry(GenericAction<Request, Response> action, Class<? extends TransportAction<Request, Response>> transportAction, Class... supportTransportActions) {
+            this.action = action;
+            this.transportAction = transportAction;
+            this.supportTransportActions = supportTransportActions;
+        }
+    }
+
+    /**
+     * Registers an action.
+     *
+     * @param action                  The action type.
+     * @param transportAction         The transport action implementing the actual action.
+     * @param supportTransportActions Any support actions that are needed by the transport action.
+     * @param <Request>               The request type.
+     * @param <Response>              The response type.
+     */
+    public <Request extends ActionRequest, Response extends ActionResponse> void registerAction(
+        GenericAction<Request, Response> action,
+        Class<? extends TransportAction<Request, Response>> transportAction,
+        Class... supportTransportActions)
+    {
+        actions.put(action.name(), new ActionEntry<>(action, transportAction, supportTransportActions));
+    }
+
+    @Override
+    protected void configure() {
+        ...
+        registerAction(SearchAction.INSTANCE, TransportSearchAction.class,
+                TransportSearchDfsQueryThenFetchAction.class,
+                TransportSearchQueryThenFetchAction.class,
+                TransportSearchDfsQueryAndFetchAction.class,
+                TransportSearchQueryAndFetchAction.class,
+                TransportSearchScanAction.class
+        );
+        ....
+        // register Name -> GenericAction Map that can be injected to instances.
+        MapBinder<String, GenericAction> actionsBinder
+                = MapBinder.newMapBinder(binder(), String.class, GenericAction.class); // !!! binder() methods are called upon addBinding()
+
+        for (Map.Entry<String, ActionEntry> entry : actions.entrySet()) {
+            actionsBinder.addBinding(entry.getKey()).toInstance(entry.getValue().action);
+        }
+
+        // register GenericAction -> transportAction Map that can be injected to instances.
+        // also register any supporting classes
+        if (!proxy) {
+
+            MapBinder<GenericAction, TransportAction> transportActionsBinder
+                    = MapBinder.newMapBinder(binder(), GenericAction.class, TransportAction.class);
+
+            for (Map.Entry<String, ActionEntry> entry : actions.entrySet()) {
+
+                // bind the action as eager singleton, so the map binder one will reuse it
+                bind(entry.getValue().transportAction).asEagerSingleton();
+
+                transportActionsBinder.addBinding(entry.getValue().action).to(entry.getValue().transportAction).asEagerSingleton();
+                for (Class supportAction : entry.getValue().supportTransportActions) {
+                    bind(supportAction).asEagerSingleton();
+                }
+            }
+        }
+    }
+
+
+
+
+
+org.elasticsearch.common.inject.multibindings.MapBinder
+
+
+

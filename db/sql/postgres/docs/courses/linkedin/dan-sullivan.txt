@@ -1,0 +1,246 @@
+https://www.linkedin.com/learning/instructors/dan-sullivan
+https://www.linkedin.com/learning/advanced-sql-for-application-development
+    ! 2h7m
+
+https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/
+    ! 1h44m !!! execution plans, types of indices, partitioning, materialized views, hints to query optimizer, parallel query execution
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/reduce-query-reponse-time-with-query-tuning
+        ???
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/scanning-tables-and-indexes
+        types of indexes
+            * b-tree (balanced trees), for equality and range queris
+            * hash, for equality
+            * bitmap, for set operations (inclusion)
+            * special (geospatial, user-defined indexing strategies)
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/joining-tables
+        3 way of joining tables
+            * nested loop join (comare all rows in both tables to each other)
+                loop through one table
+                for each row, loop through the other table,
+                at each step, compare keys
+            * hash join (calculate hash value of key and join based on match value)
+                compute hash values of key values in smaller table
+                store in hash table, which has hash value and row attributes
+                scan larger table; find rows from smaller hash table
+            * sort merge join (sort both tables and then join rows while taking advantage of order)
+                sort both tables
+                compare rows like nested loop join, but ...
+                stop when it is not possible to find a match later in the table because of the sort order
+                scan the driving table only once
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/partitioning-data
+        parition key
+            * it is common to base them on time
+        global indexes
+            ... all the partitions ...
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/explain-and-analyze
+        explain select * from staff;
+            query plan (text)
+            Seq Scan on stuff (cons=0.00..24.00 rows=10000 width=75)
+        explain select * from staff;
+            query plan (text)
+            Seq Scan on stuff (cons=0.00..24.00 rows=10000 width=75) (actual time=0.018..0.158 r...)
+            Planning Time: 0.361 ms
+            Execution Time: 0.248 ms
+        explain select last_name from staff;
+            ... width=7 ...
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/example-plan-selecting-with-a-where-clause
+        explain select * from staff where salary > 75000
+            query plan (text)
+            Seq Scan on stuff (cons=0.00..26.50 rows=715 width=75)
+              Filter: (salary > 75000)
+        explain analyze select * from staff where salary > 75000
+            query plan (text)
+            Seq Scan on stuff (cons=0.00..26.50 rows=715 width=75) (actual time 0.077..0.611)
+              Filter: (salary > 75000)
+              Rows Removed by Filter: 283
+            Planning Time: 0.107 ms
+            Execution Time: 0.960 ms
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/indexes
+        create index idx_staff_salary on staff(salary);
+            
+        explain select * from staff
+            no usage of index
+
+        explain analyze select * from staff where salary > 75000
+            again, index is not used !
+            why ??? because there are so many rows with salary > 75000
+
+        explain analyze select * from staff where salary > 150000
+            Index Scan using idx_staff_salary on staff (cost 0.28..8.29 rows 1 width 75) (actual )
+              Index Cond: (salary > 150000)
+            Planning Time: 4.252 ms (reduces 2nd, 3rd, ... other time)
+            Execution Time: 0.246 ms
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/indexing
+        types of indexes
+            * b-tree
+            * bitmap (on low-cardinality data)
+            * hash (in a k-v form)
+            * special
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/b-tree-indexes
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/b-tree-index-example-plan
+        we have 3 tables:
+            * company_divisions
+            * company_regions
+            * staff
+
+
+        explain select * from staff where email = 'bphillips5@time.com'
+            Seq Scan on staff (cost=0.00..26.50 rows=1 width=75)
+              Filter: ((email)::text = 'bphillips5@time.com'::text)
+
+        B-Tree is a default index type
+
+        create index idx_staff_email on staff(email)
+        explain select * from staff where email = 'bphillips5@time.com'
+            Index Scan using idx_staff_email on staff (const=0.28..8.29 rows 1 width=75)
+              Index Cond: ((email)::text = 'bphillips5@time.com'::text)
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/bitmap-indexes
+        we can perform boolean operations (and, or, not) quickly on bitmap indexes
+        updating indexes can be more time-consuming than b-tree
+
+        postgres creates them on the fly
+
+    https://www.linkedin.com/learning/learn-apache-kafka-for-beginners/delivery-semantics-for-consumers 
+        select distinct job_tile from staf order by job_title;
+
+        create index idx_staf_job_title on staf(job_title);
+        explain select * from staf where job_title = 'Operator';
+            Bitmap Heap Scan on staf (cost=4.36..18.36 rows=11 width=75)
+                Recheck Cond: ((job_title)::text = 'Operator'::text)
+                    Bitmap Index Scan on idx_staf_job_title (cost=0.00..4.36 rows=11 width=0)
+                        Index Cond: ((job_title)::text = 'Operator'::text)
+
+        Bitmap indexes are created on the fly when PG thinks they can be useful
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/hash-indexes
+        Used only for equality operations (=), but not for range queries
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/hash-index-example-plan
+        create index idx_staff_email on staff USING HASH (email);
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/hash-index-example-plan
+        explain select * from staff where email = 'bphillips5@time.com'
+            Index Scan using idx_staff_email on staff (cost=0.00..8.02 rows=...)
+                Index Cond: ((email)::text = 'bphillips5@tim.com'::text)
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/postgresql-specific-indexes?
+        4 special types of indexes
+            GIST
+                generalized search tree
+            SP-GIST
+                space-partitioned GIST (supports partitioned search trees, used for non-ballanced DSs)
+            GIN
+                used for text indexing
+                lookup is faster than GIST
+                but build time is slower
+                size is 2-3 times bigger than GIST
+            BRIN
+                block range indexing
+                used for large data sets
+                divide data into ordered blocks
+                keeps min and max values
+                search only blocks...
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/what-affects-joins-performance
+        INNER JOIN
+        LEFT OUTER JOIN
+        RIGHT OUTER JOIN
+        FULL OUTER JOIN
+
+        inner join
+            where
+                from_table.some_field = other_table.some_other_field
+
+            select * from company_region cr,
+            inner join
+                staff s
+            on
+                cr.region_id = s.region_id
+                
+        left outer join
+            returns all rows from left table
+            and rows from the rigth table
+                that have matching key
+
+            select * from company_region cr,
+            left outer join
+                staff s
+            on
+                cr.region_id = s.region_id
+
+        right outer join
+            returns all rows from right table
+            and rows from the left table
+                that have matching key
+
+            select * from company_region cr,
+            right outer join
+                staff s
+            on
+                cr.region_id = s.region_id
+
+        full outer join
+            returns all rows from both tables
+            nulls will be returned when there is no match
+
+            select * from company_region cr,
+            full outer join
+                staff s
+            on
+                cr.region_id = s.region_id
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/nested-loops
+        nested loop joins
+        * two loops
+            for row in table 1 (called the "driver" table):
+                for row in table 2 (called the "join" table):
+
+          customer table - is a driver-table
+          status table   - is a join-table
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/nested-loop-example-plan
+        set enable_nestedloop=true;
+        set enable_hashjoin=false;
+        set enable_mergejoin=false
+
+        explain select
+            s.id, s_last_name, s.job_table, cr.country
+        from
+            staff s
+        inner join
+            company_region cr
+        on
+            s.region_id = cr.region_id
+
+        Nested Loop (cost=0.15..239.37 rows=1000 width=88)
+            -> Seq Scan on staff c (cost=0.00..24.00 rows=1000 width=34)
+            -> Index Scan using company_regions_pkey on company_regions...
+            Index Cond: (region_id = s.region_id)
+
+        PG create index for all PK columns
+
+        after
+        delete company_regions_pkey
+
+        Nested Loop (cost=0.15..8290.88 rows=1000 width=88)
+          Join Filter: (s.region_id = cr.region_id)
+            -> Seq Scan on staff c (cost=0.00..24.00 rows=1000 width=34)
+            -> Materialize (const=0.00..24.00 rows=1000 width=34)
+                Seq Scan on company_regions cr (cost=0.00..15.00 rows=5...)
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/hash-joins
+        Build Hash Table
+            Use the samller of the two tables
+            Compute the value of primary key value
+            Store in table
+        Probe phase
+            Step through large table
+            Compute hash value of primary or foreign key
+            Lookup corresponding value in hash table
+
+    https://www.linkedin.com/learning/advanced-sql-for-query-tuning-and-performance-optimization/hash-join-example-plan
+        set enable_nestloop=false;
+        

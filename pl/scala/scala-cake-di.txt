@@ -1,0 +1,47 @@
+2018
+The Infamous Cake Pattern for Dependency Injection in Scala - Part 1
+https://www.youtube.com/watch?v=0TLHaRaXIAo
+
+http://di-in-scala.github.io/#modules
+
+http://www.slideshare.net/debasishg/dependency-injection-in-scala-beyond-the-cake-pattern
+Spiewak - Cake Pattern -The Bakery from the Black Lagoon (http://marakana.com/s/post/1399/cake_pattern_bakery_from_the_black_lagoon_daniel_spiewak_ne_scala_video)
+
+http://blog.originate.com/blog/2013/10/21/reader-monad-for-dependency-injection/
+http://scala.org.ua/presentations/scala-functional-refactoring/#/
+
+http://it-talk.org/post83873.html#p83873
+
+Warski - The no Framework Scala DI Framework
+http://www.slideshare.net/adamw1pl/the-noframework-scala-dependency-injection-framework
+
+Wyatt - Baking Delicious Modularity in Scala
+http://www.slideshare.net/DerekWyatt1/baking-delicious-modularity-in-scala
+
+Zhizhelev - Scala Type System in Applied Problems
+https://www.youtube.com/watch?v=Cr0j6eh8P7I
+from 17:45
+
+package types
+// part of DB-schema
+trait DbSlice {}
+
+// ... related to Product-entity
+trait ProductDb extends DbSlice {
+    case class Product(name: String)
+    val products = TableQuery[...]
+}
+
+trait ProductSupport {
+    type Database <: ProductDb
+    val database: Database
+    def newProduct(name: String) = database.Product(name)
+}
+
+class AllDb extends ProductDb
+
+object MyApp extends App with ProductSupport {
+    type Database = AllDb
+    val database = new AllDb
+    ...
+}

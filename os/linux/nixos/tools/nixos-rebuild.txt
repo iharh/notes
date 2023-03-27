@@ -1,0 +1,12 @@
+https://nixos.org/manual/nixos/stable/index.html#sec-changing-config
+
+nixos-rebuild
+    build
+    test
+    ...
+    -I nixos-config=path/to/your/configuration.nix
+    switch [--upgrade]
+        sudo nixos-rebuild -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/release-20.09.tar.gz switch
+        ! to upgrade release
+        -p p1
+            to create profile "p1"

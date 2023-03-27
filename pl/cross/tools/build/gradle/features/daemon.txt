@@ -1,0 +1,11 @@
+--daemon
+--no-daemon
+
+GRADLE_OPTS
+    -Dorg.gradle.daemon=true
+
+GRADLE_USER_HOME/gradle.properties
+~/.gradle/gradle.properties
+    org.gradle.daemon=true
+
+-g, --gradle-user-home=...

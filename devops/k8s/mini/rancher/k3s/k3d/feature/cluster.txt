@@ -1,0 +1,39 @@
+k3d cluster create mycluster
+INFO[0000] Prep: Network
+INFO[0000] Created network 'k3d-mycluster'
+INFO[0000] Created image volume k3d-mycluster-images
+INFO[0000] Starting new tools node...
+INFO[0001] Creating node 'k3d-mycluster-server-0'
+INFO[0001] Pulling image 'ghcr.io/k3d-io/k3d-tools:5.4.4'
+INFO[0003] Starting Node 'k3d-mycluster-tools'
+INFO[0003] Pulling image 'docker.io/rancher/k3s:v1.23.8-k3s1'
+INFO[0011] Creating LoadBalancer 'k3d-mycluster-serverlb'
+INFO[0013] Pulling image 'ghcr.io/k3d-io/k3d-proxy:5.4.4'
+INFO[0016] Using the k3d-tools node to gather environment information
+INFO[0017] HostIP: using network gateway 172.18.0.1 address
+INFO[0017] Starting cluster 'mycluster'
+INFO[0017] Starting servers...
+INFO[0017] Starting Node 'k3d-mycluster-server-0'
+INFO[0020] All agents already running.
+INFO[0020] Starting helpers...
+INFO[0021] Starting Node 'k3d-mycluster-serverlb'
+INFO[0027] Injecting records for hostAliases (incl. host.k3d.internal) and for 2 network members into CoreDNS configmap...
+INFO[0029] Cluster 'mycluster' created successfully!
+INFO[0029] You can now use it like this:
+kubectl cluster-info
+
+
+$ k cluster-info
+Kubernetes control plane is running at https://0.0.0.0:44873
+CoreDNS is running at https://0.0.0.0:44873/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://0.0.0.0:44873/api/v1/namespaces/kube-system/services/https:metrics-server:https/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+$ k cluster-info dump
+    > huge yml
+
+k3d cluster
+    create <name>
+    start <name>
+    stop <name>

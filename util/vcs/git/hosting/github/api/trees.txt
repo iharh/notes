@@ -1,0 +1,11 @@
+https://docs.github.com/en/rest/git/trees
+https://docs.github.com/en/rest/git/trees#get-a-tree
+
+2020
+https://stackoverflow.com/questions/25022016/get-all-file-names-from-a-github-repo-through-the-github-api
+
+samples
+curl \
+    -H "Authorization: token tttttttttttttttttttttttttttttttttttttttt" \
+    -H "Accept: application/vnd.github.v3+json" \
+    https://api.github.com/repos/<org-owner>/<repo>/git/trees/<80-chars-tree-hash>

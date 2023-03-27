@@ -1,0 +1,6 @@
+# services
+gpd.service
+    ! system-wide (systemctl --global ...)
+gpa.service
+    ! user-only (systemctl --user ...)
+!!! /opt/paloaltonetworks/globalprotect/PanGPA start

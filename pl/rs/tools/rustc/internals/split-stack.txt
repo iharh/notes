@@ -1,0 +1,2 @@
+-C split-stacks,
+https://internals.rust-lang.org/t/pre-rfc-split-stack-codegen-option/4768

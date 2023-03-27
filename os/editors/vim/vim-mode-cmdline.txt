@@ -1,0 +1,17 @@
+:h cmdline-ranges
+
+
+C-r
+	<reg>
+		Paste the content of <reg> register
+	C-w
+		Paste the content of the word under the cursor
+	C-r
+		???
+	C-o
+		???
+	C-p
+		A file under the cursor ...
+C-f
+	Open a small "command"-edit-window (command history)
+

@@ -1,0 +1,17 @@
+https://plugins.gradle.org/plugin/net.java.openjdk.shinyafox.jshell.gradle.plugin
+https://github.com/dodie/dotfiles/blob/master/bin/jshell-resolve
+
+2020
+https://advancedweb.hu/using-external-libraries-in-jshell/
+    https://github.com/dodie/dotfiles/blob/master/bin/jshell-resolve
+2019
+https://www.infoq.com/articles/single-file-execution-java11/
+    https://habr.com/ru/company/nix/blog/483888/
+2018
+https://www.infoq.com/articles/jshell-java-repl
+Kishida - Let's Start Java11 from the Beginning with JShell
+    https://www.youtube.com/watch?v=QieSw-Rc-FY
+
+samples
+org.springframework:spring-web:5.2.3.RELEASE
+UriComponentsBuilder.newInstance().scheme("http").host("local-cmp").path("mobile/rest/fxresources/lexicons/nlpsvc/export/{accId}/{lexType}").buildAndExpand(0, "BRAND");

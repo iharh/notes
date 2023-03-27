@@ -1,0 +1,13 @@
+/etc/packman.d/mirrorlist
+
+Server = http://....
+
+Just check the best score and nearest geo-placement
+
+And cut and past it to the top of the list
+
+
+packstrap /mnt base base-devel
+  to set-up (packstrup) base and base-devel package groups
+  base-devel is usefull for working with AUR/ABS
+

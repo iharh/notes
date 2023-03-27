@@ -1,0 +1,184 @@
+Kitchen:
+    UT suite
+    http://kitchen.ci/
+    https://github.com/test-kitchen/test-kitchen
+
+    http://kitchen.ci/docs/getting-started/creating-cookbook
+    http://kitchen.ci/docs/getting-started/writing_test
+
+    kitchen
+        diagnose
+            show final .kitchen.yml with all the default values
+            --all
+                to show ALL
+        list
+            list a test-matrix
+        create
+            [INSTANCE|REGEXP|all]
+                ? do a vagrant up --no-provision
+        converge [-l debug]
+            [INSTANCE|REGEXP|all]
+                apply a recipe to a vm
+        verify
+            [INSTANCE|REGEXP|all]
+        destroy
+            [INSTANCE|REGEXP|all]
+        test
+            [INSTANCE|REGEXP|all]
+                aggregate multiple of commands
+            --destroy=never
+                !!!
+        login
+            login to the running test kitchen
+
+logging
+    -l debug
+
+defaults:
+    --driver=kitchen-vagrant
+environments:
+    https://docwhat.org/setting-environment-test-kitchen/
+
+options
+    -l debug
+    --log-level ...
+        set log level
+
+config:
+http://kitchen.ci/docs/getting-started/dynamic-configuration
+
+merge process:
+.kitchen.local.yml
+.kitchen.yml
+~/.kitchen/config.yml
+
+export KITCHEN_GLOBAL_YAML=/path/to/your/global/config.yml
+export KITCHEN_PROJECT_YAML=/path/to/your/project/.kitchen.yml
+export KITCHEN_LOCAL_YAML=/path/to/your/local/.kitchen.local.yml
+
+.kitchen.yml
+https://docs.chef.io/config_yml_kitchen.html
+
+---
+driver:
+  name: vagrant
+  vm_hostname: analytics.local
+  customize: 
+    memory: 10240
+  ssh:
+    private_key_path: 'C:/Users/<user>/.vagrant.d/insecure_private_key'
+    insert_key: false
+    username: "vagrant"
+    password: "vagrant"
+  network:
+    - ["private_network", {ip: "33.33.33.110"}]
+    - ["forwarded_port", {guest: 9292, host: 9292}] # app
+    - ["forwarded_port", {guest: 3002, host: 3002}] # app2
+    - ["forwarded_port", {guest: 10001, host: 10001}] # app3
+  synced_folders:
+    - ["~/repo/dir", "/dir", "create: true, type: :nfs"]
+    - ["~/repo2/dir", "/dir", "create: true, type: :nfs"]
+provisioner:
+  name: chef_solo
+  require_chef_omnibus: 12.4.1
+  environments_path: "../../environments"
+  solo_rb:
+    environment: "local-iharh"
+  log_level: <#= ENV['CHEF_LOG_LEVEL'] || auto %>
+  client_rb:
+    node_name: analytics.local
+platforms:
+  - name: centos-7.1
+    driver:
+      name: vagrant
+    driver_config:
+      customize:
+        server_name: 'kt-my-centos-name'
+        # https://github.com/test-kitchen/test-kitchen/issues/465
+suites:
+  - name: linux
+    driver:
+    run_list:
+      - recipe[cb-template-service::default]
+    attributes:
+      chef_client:
+        config:
+          log_level: ":info"
+      chef_zero:
+        config:
+          log_level: ":info"
+    excludes:
+      - windows2012r2min
+
+driver:
+  network:
+    - ["forwarded_port", {guest: 80, host: 8080}]
+    - ["private_network", {ip: "192.168.33.33"}]
+
+cache:
+/tmp/kitchen
+    /nodes
+
+
+logs:
+metadata.rb:
+
+require "kitchen/provisioner/chef_zero.rb"
+
+def chef_client_args
+    level = config[:log_level] # == :info ? :auto : config[:log_level]
+    args = [
+      "--config #{remote_path_join(config[:root_path], "client.rb")}",
+      "--log_level #{level}",
+      "--force-formatter",
+      "--no-color"
+    ]
+    add_optional_chef_client_args!(args)
+
+    args
+end
+
+win:
+http://kitchen.ci/blog/test-kitchen-windows-test-flight-with-vagrant/
+
+custom vagrant file
+https://github.com/test-kitchen/kitchen-vagrant#-vagrantfile_erb
+
+pre-create-command (for installing extra plugins and so on):
+https://github.com/test-kitchen/kitchen-vagrant#-pre_create_command
+
+synced folders
+https://github.com/test-kitchen/kitchen-vagrant#-synced_folders
+
+
+Omnibus install:
+chefdk/embedded/lib/ruby/gems/2.1.0/gems/test-kitchen-1.11.1/support/chef_base_install_command.sh
+221:    echo "-----> Chef Omnibus installation detected (${pretty_version})";
+...
+# !!! chef_omnibus_url is specified outsid of this shell-script !!!
+...
+# main
+main() {
+  should_update_chef "$chef_omnibus_root" "$version"
+  if test $? -eq 0; then
+    echo "-----> Installing Chef Omnibus (${pretty_version})";
+
+    # solaris 10 lacks recent enough credentials, so http url is used
+    platform="`/usr/bin/uname -s 2>/dev/null`";
+    platform_version="`/usr/bin/uname -r 2>/dev/null`";
+    if test "x${platform}" = "xSunOS" && test "x${platform_version}" = "x5.10"; then
+      chef_omnibus_url=`echo "$chef_omnibus_url" | sed -e "s/https/http/"`;
+    fi
+
+    do_download "$chef_omnibus_url" /tmp/install.sh;
+    $sudo_sh /tmp/install.sh $install_flags;
+  else
+    echo "-----> Chef Omnibus installation detected (${pretty_version})";
+  fi
+}
+
+# augment path in an attempt to find a download program
+PATH="${PATH}:/opt/local/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/sfw/bin";
+export PATH;
+
+main

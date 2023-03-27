@@ -1,0 +1,40 @@
+Terminology:
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Abbreviations
+
+Thunk:
+\_:Unit.t  - thunked form of t
+
+Jones - STG...
+The remaining lambda-forms, those with an empty argument list but not of the
+special form of a PAP or a c-tor, are called thunks.
+
+CAF - constant applicative form
+is a global THUNK object (static heap-obj).
+Other TUNKS are local in let-expressions of STG.
+
+Lambda-lifting:
+Each lambda-form has either
+- no free variables [supercombinator] - values held in the just-entered closure
+- no arguments [thunk] - values on the stack
+
+Lambda-lifted program has only supercombinators or thunks
+
+
+Heap object can be:
+- FUN (function definition)
+- PAP (partial application)
+- CON (completely applied c-tor)
+- THUNK
+- BLACKHOLE
+
+Stack
+- is used for case-expr evaluation.
+
+
+WHNF, HNF, NF
+
+WHNF = NF
+  | starts with lambda
+  | the root sym is c-tor (no delta rules for this)
+  | the root is a var
+

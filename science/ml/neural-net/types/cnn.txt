@@ -1,0 +1,57 @@
+https://medium.com/@TalPerry/convolutional-methods-for-text-d5260fd5675f
+http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/
+https://arxiv.org/abs/1408.5882
+http://www.wildml.com/2015/12/implementing-a-cnn-for-text-classification-in-tensorflow/
+    https://github.com/dennybritz/cnn-text-classification-tf
+https://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D1%91%D1%80%D1%82%D0%BE%D1%87%D0%BD%D0%B0%D1%8F_%D0%BD%D0%B5%D0%B9%D1%80%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F_%D1%81%D0%B5%D1%82%D1%8C
+
+articles
+2021
+https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53
+    https://nuancesprog.ru/p/14218/
+2020
+https://towardsdatascience.com/end-to-end-cnn-using-tensorflow-4c7d9af3ca4c
+2019
+https://habr.com/ru/post/458170/
+https://habr.com/ru/post/456740/
+https://machinelearningmastery.com/how-to-develop-a-convolutional-neural-network-to-classify-photos-of-dogs-and-cats/
+https://towardsdatascience.com/gentle-dive-into-math-behind-convolutional-neural-networks-79a07dd44cf9
+https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215
+2018
+https://habrahabr.ru/post/348000/
+https://habrahabr.ru/post/348028/
+2017
+https://habrahabr.ru/post/344008/
+2016
+https://grzegorzgwardys.wordpress.com/2016/04/22/8/
+http://jefkine.com/general/2016/09/05/backpropagation-in-convolutional-neural-networks/
+http://cthorey.github.io/backprop_conv/
+2014
+http://andrew.gibiansky.com/blog/machine-learning/convolutional-neural-networks/
+http://www.simon-hohberg.de/2014/10/10/conv-net.html
+http://soumith.ch/ex/pages/2014/08/07/why-rotate-weights-convolution-gradient/
+http://colah.github.io/posts/2014-07-Conv-Nets-Modular/
+    https://habr.com/post/416777/
+
+presentations
+2018
+Korting - How CNN algorithm works
+https://www.youtube.com/watch?v=oI2rvjbzVmI
+2017
+Hinton - What is wrong with convolutional neural nets?
+https://www.youtube.com/watch?v=Jv1VDdI4vy4
+A friendly introduction to CNN and Image Recognition
+https://www.youtube.com/watch?v=2-Ol7ZB0MmU
+
+courses
+2017
+Stanford - CNN
+http://cs231n.stanford.edu/
+https://www.youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv
+https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC
+
+cheatsheet
+https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks
+
+visualization
+https://github.com/vdumoulin/conv_arithmetic

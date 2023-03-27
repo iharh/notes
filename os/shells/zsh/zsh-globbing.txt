@@ -1,0 +1,134 @@
+man zshexpn (expansion and substitution)
+	Filename Generation
+
+
+globbing operators
+*
+	Zero or more chars
+?
+	Any single char
+[abc]
+	Any of the a, b, c
+[^a-z] or [!a-z]
+	Any char other than a-z
+**/pattern
+	Match in any subdir (including the current one)
+	Note: */**/pattern - excluding the current dir
+	Note: ** does not follow sym-links, but *** does
+<n1-n2>
+	Numeric ranges (either of n can be omitted)
+
+
+Named ranges for character sets
+[[:name:]]
+
+alnum
+	A letter or number.
+alpha
+	A letter.
+ascii
+	A character in the ASCII set.
+blank
+	A space or tab. This is a GNU extension and might not always be available.
+cntrl
+	A control character.
+digit
+	A decimal digit (number).
+graph
+	A printable character, but not a space.
+lower
+	A lowercase character.
+print
+	A printable character including space.
+punct
+	A punctuation character, meaning any printable character that is neither alphanumeric nor one of the space characters.
+space
+	A white-space character, usually space, (horizontal) tab, newline, carriage return plus the less usual vertical tab and form feed.
+upper
+	An uppercase letter.
+xdigit
+	A hexadecimal digit; an upper- or lowercase “a” to “f,” or a digit.
+
+
+Note: We can negate in inner-brackets and so on ([^[:alpha:]])
+
+
+Glob Qualifiers (at the end of a pattern)
+(.)
+	matches regular file (not a directory or spec-file)
+(/)
+	for a directory
+(*)
+	for an executable regular file
+(@)
+	for symbolic links
+(r),(w),(x)
+(R),(W),(X)
+(U)
+	list a files owned by a user running a shell
+Note:
+	if we put multiple qualifiers inside paren-s - the effect is combined.
+	^ [toggle] can be put not at the beginning to flip the sense - echo *(*r^w).
+	we can specify a list of alternatives by commas - echo *(/,*).
+	- [toggle] can be put to follow the symliks for the following qualifier - echo *(-*).
+	*(-@) - spec case for broken symlinks.
+(Lk+100)
+(Lm-100)
+	length qualifiers
+(m+2)
+	modified more (older) than 2 days ago
+(mM+2)
+	-//- M - months, h - hours, w - weeks, m - minutes, s - seconds
+(mh-1)
+	-//- modified during the last hour
+Note: (a...) - for file last access time, (c...) - for changes of file-entry in a directory
+
+(l<num>)
+	number of hard-links - *(.l2) - all the regular files with 2 hard-links
+(u:root:)
+	the owner of a file is a root - /var/*(^u:root:) - list all files in var, not owned by a root
+	Note: colons here are for marking the root of. any pair of chars except | is ok - /var/*(^u{root})
+(f:u+rx:)
+	file-permission
+(on)
+	Default sorting order as for ls - *(on)
+(On)
+	Reversed sorting order - *(On)
+(oL)
+	Sort by file size
+(om)
+	Sort by modification time. a, c - for access and creation
+(ol)
+	by linkcount
+Note: sorting specifiers can be combined - *(odon) sort first by directory depth then by name...
+(...:<colon_modifier>)
+	Colon modifiers (see history modifiers from zsh-history) can be used as specifiers at the end, each one
+	need to be prefixed by a colon
+
+	
+
+
+
+
+
+zsh options
+
+globdots
+	expand dots in globbing (deal with hidden files)
+	Note: echo *l*(D) - lists dots as well (D) is a glob-qualifier
+extglob
+	@(expr) - match exactly one of the alternatives in expr (|-separated)
+	?(expr) - 0 or 1 of -//-
+	*(expr) - 0..    of -//-
+	+(expr) - 1..    of -//-
+	!(expr) - anything except the pattern in expr
+	Note: you can not use slashes for dir-separators here
+extended_glob
+	^ - negated match (^*.o)
+	~ - pat_to_match~pat_to_not_match
+	# - match a char or group zero or more times
+	#i - start case-insensitive glogging, #I - stop it, #l, #L - are a bit more complicated form
+	
+		
+numeric_glob_sort
+	any ranges of digits (<...>) are sorted numerically

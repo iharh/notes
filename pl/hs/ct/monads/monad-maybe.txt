@@ -1,0 +1,43 @@
+Maybe monad:
+
+data Maybe a = Nothing | Just a
+
+instance Monad Maybe where
+    return         = Just
+    Nothing  >>= f = Nothing
+    (Just x) >>= f = f x
+    fail           = Nothing
+    
+instance MonadPlus Maybe where
+    mzero             = Nothing
+    Nothing `mplus` x = x
+    x `mplus` _       = x
+
+
+Functions:
+
+1. maybe
+
+-- | The 'maybe' function takes a default value, a function, and a 'Maybe'
+-- value.  If the 'Maybe' value is 'Nothing', the function returns the
+-- default value.  Otherwise, it applies the function to the value inside
+-- the 'Just' and returns the result.
+maybe :: b -> (a -> b) -> Maybe a -> b
+maybe n _ Nothing  = n
+maybe _ f (Just x) = f x
+
+2. $$ - partial function application (for Maybe monad)
+
+($$) :: (a -> Maybe b) -> Maybe a -> Maybe b
+($$) = maybe Nothing
+
+
+3. listToMaybe
+-- | The 'listToMaybe' function returns 'Nothing' on an empty list
+-- or @'Just' a@ where @a@ is the first element of the list.
+listToMaybe           :: [a] -> Maybe a
+listToMaybe []        =  Nothing
+listToMaybe (a:_)     =  Just a
+
+4. isJust/isNothing :: Maybe a -> bool
+

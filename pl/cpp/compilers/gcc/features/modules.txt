@@ -1,0 +1,9 @@
+https://gcc.gnu.org/wiki/cxx-modules
+https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Modules.html
+
+2021
+https://blog.feabhas.com/2021/08/c20-modules-with-gcc11/
+
+qa
+https://stackoverflow.com/questions/69502406/how-to-import-modules-using-gcc-g-11-1
+    g++ -std=c++20 -fmodules-ts -c -x c++-system-header numbers

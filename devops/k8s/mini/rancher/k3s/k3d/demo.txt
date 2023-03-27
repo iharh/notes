@@ -1,0 +1,11 @@
+https://github.com/k3d-io/k3d-demo
+https://github.com/k3d-io/k3d-demo/blob/main/scripts/lifecycle.sh
+    k3d cluster create demo
+        --api-port 6550
+        --servers 1
+        --agents 3
+        --port 8080:80@loadbalancer
+        --volume $(pwd)/sample:/src@all
+        --wait
+    k3d image import
+        -c demo sample-app:local

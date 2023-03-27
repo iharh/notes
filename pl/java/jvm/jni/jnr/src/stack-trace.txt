@@ -1,0 +1,6 @@
+"cld2thread-1" #13 prio=5 os_prio=0 tid=0x00007f1cec65b000 nid=0x40f5 runnable [0x00007f1cdf19f000]
+   java.lang.Thread.State: RUNNABLE
+	at com.kenai.jffi.Foreign.invokeN1O1(Native Method)
+	at com.kenai.jffi.Invoker.invokeN1(Invoker.java:997)
+	at Cld2Test$LibCld2$jnr$ffi$0.detectLangClb(Unknown Source)
+	at Cld2Test.processForLang(Cld2Test.java:55

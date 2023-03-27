@@ -1,0 +1,29 @@
+https://docs.confluent.io/platform/current/schema-registry/index.html
+https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-avro.html
+https://docs.confluent.io/platform/current/schema-registry/schema_registry_tutorial.html
+https://docs.confluent.io/platform/current/schema-registry/installation/index.html#installing-and-configuring-sr
+https://github.com/confluentinc/schema-registry
+
+compat-level
+    https://docs.confluent.io/platform/current/schema-registry/avro.html#compatibility-types
+    sandbox - backward
+    prod - full
+
+optional field always has default value
+    https://avro.apache.org/docs/1.11.1/specification/#schema-record
+
+2023
+https://habr.com/ru/company/lenta_utkonos_tech/blog/715298/
+2022
+https://habr.com/ru/post/678144/
+2021
+https://habr.com/ru/company/alfastrah/blog/547092/
+2020
+https://habr.com/ru/post/492312/
+    https://github.com/avrylkov/avro-kafka
+2019
+https://medium.com/swlh/exploit-apache-kafkas-message-format-to-save-storage-and-bandwidth-7e0c533edf26
+2018
+https://www.confluent.io/blog/decoupling-systems-with-apache-kafka-schema-registry-and-avro/
+2017
+https://medium.com/@stephane.maarek/introduction-to-schemas-in-apache-kafka-with-the-confluent-schema-registry-3bf55e401321

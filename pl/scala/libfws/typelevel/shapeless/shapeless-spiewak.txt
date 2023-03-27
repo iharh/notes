@@ -1,0 +1,440 @@
+Spiewak - High Wizardy in the Land of Scala
+http://www.slideshare.net/djspiewak/high-wizardry-in-the-land-of-scala
+https://vimeo.com/28793245
+https://vimeo.com/13518456
+
+- AGENDA
+
+- Higher-Kinds
+- Typeclasses
+- Type-Level Encodings
+- Continuations
+
+
+Spiewak - Roll Your Own Shapeless:
+https://www.youtube.com/watch?v=GKIfu1WtSz4
+https://www.youtube.com/watch?v=zKRNMyo3wzg
+https://www.youtube.com/watch?v=z3mQPcnbx-A
+
+trait HList {
+    type Append[L <: HList] <: HList
+
+    def ++[L <: HList](xs: L): Append[L]
+}
+
+case class HCons[H, T <: HList](head: H, tail: T) extends HList {
+    type Append[L <: HList] = HCons[H, T#Append[L]]  // T#Append won't work in Dotty
+
+    def ++[L <: HList](xs: L) = HCons(head, tail ++ xs)
+}
+
+case object HNil0 extends HList {
+    type Append[L <: HList] = L
+
+    def ++[L <: HList](xs: L) = xs
+}
+
+package object shapely {
+    type ::[H, T <: HList] = HCons[H, T]
+
+    // to get around a bug in scalac
+    type HNil = HNil0.type
+    val HNil = HNil0
+
+    // we can't put this into HList itself
+    implicit class HListSyntax[L <: HList)(self: L) {
+        def ::[H](head: H): H :: L = HCons(head, self)
+    }
+}
+
+// context-independent type-level-fun
+    type Append[L <: HList] = HCons[H, T#Append[L]]
+
+- Structurally definitional (there is only one-way to define append)
+-- Strong separation of concerns
+- Produce the same result[type] regardless of scope [you define them]
+- Usable in arbitrary position [becuse they are just a type-alias], implicits are tied to method definitions
+- Gone (can't be done anymore) in Dotty!
+- Limited to induction by open recursion
+- No branching except by recursion point
+-- No type equivalent
+- Can not be paired with value-level transformations
+-- Except trivial structural transforms
+
+Type-constructors are context-independent [functions]
+    Type-classes are context-dependent [functions]
+
+- Context-independence is good...
+-- but very limited
+-- Lambda-calculus at the type level
+- Condext-dependence is messy...
+-- ...but far more powerful!
+-- Prolog at the type level (much-more powerfull/pleasent than lambda)
+
+Context-Dependence
+- We lose flexibility
+-- Tied to function declarations
+-- Structural decomposition is coupled to operation
+- We gain expression of "arbitrary proofs" at type level
+-- Express facts, scalac assembles the proof
+-- Towers of Hanoi is pretty easy [to express at the type-level]
+
+Roadmap
+- append
+- remove
+- map
+- nth (apply)
+
+HList#remove
+- Type-indexed deletion function
+(1 :: false :: HNil).remove[Int]
+- Requires context-dependence
+-- Type equivalence
+-- Non-structural value manipulation
+
+Implementation
+- Remove function into implicit syntax class (we need a specific type of the HList we are workon just like we needed with Cons)
+- Define Remover typeclass for implementation
+-- Not typeclass, but "implicit proof"
+- For a given type, prove it can be removed
+- In the process of proving, perform the removal
+-- If we didn't need values, proof alone is enough
+
+implicit class HListSyntax[L <: HList](self: L) {
+    def remove[A](implicit R: Remover[A, L]): R.Out = R(self)
+}
+
+trait Remover[A, L <: HList] {
+    type Out <: HList
+
+    def apply(xs: L): Out
+}
+
+object Remover {
+    type Aux[A, L <: HList, Out0 <: HList] =
+        Remover[A, L] { type Out = Out0 }
+
+    // ...
+}
+
+"Out" Types
+- Compiler must solve all type variables
+- (a var-s constraint-set, based on [unambiguous]implicits it is able to find)
+
+def remove[A](implicit R: Remover[A, L])
+
+- A becomes part of a "fact" set in the above
+-- Solved from left-to-right (with some exceptions)
+- Some types cannot be solved in this way (bugs), use dependent-output-types to overcome...
+- Dependent type members are "computed"
+
+WARNING
+- Cannot be used in computational continuation!
+- Cannot derive new implicits as a functions of Out
+-- Without using Aux-pattern
+- Multiple implicit blocks would completely fix this (PR has been submitted)
+- Continuation-passing style at the type level
+-- Think: scalaz/cat's "Unapply"
+
++++++++++++
++ Remover +
++++++++++++
+
+- Base case
+-- Right-most instance of type to remove
+- Coinductive rebuild
+-- Non-matching type that we preserve
+- Coinductive remove
+-- Matching type that we remove
+
+private[shapely] trait RemoverLowPriorityImplicits {
+    implicit def base[A, L <: HList]: Remover.Aux[A, A::L, L] =
+        new Remover[A, A :: L] {
+            type Out = L
+
+            def apply(xs: A :: L) = xs.tail
+        }
+}
+
+object Remover extends RemoverLowPriorityImplicits {
+    // ...
+
+    implicit def corecurseRemove[A, L <: HList]
+        (implicit R: Remover[A, L]): Remover.Aux[A, A :: L, R.out] =
+
+        new Remover[A, A :: L] {
+            type Out = R.Out
+
+            def apply(xs: A :: L) = R(xs.tail)
+        }
+
+    implicit def corecurseRebuild[A, B, L <: HList]
+        (implicit R: Remover[A, L]): Remover.Aux[A, B :: L, B :: R.out] =
+
+        new Remover[A, B :: L] {
+            type Out = B :: R.Out
+
+            def apply(xs: B :: L) = xs.head :: R(xs.tail)
+        }
+}
+
+// Poly
+
+- A set of functions indexed by type
+-- Implementation chosen by application type
+- Type indexed resolved at compile time
+- Compile error if applied to non-existent type
+
+// Implicits
+
+- Implicit search considers companions (companion-objects)
+-- For all "component" types (it is searching for)
+- Classes have companion objects
+- Objects are singleton-objects of classes
+- ??? What is the companion object for an object's class?
+-- !!! The object itself !!! and we can use this to do something really powerfull
+
+- Object self-type as a "component"
+- Object contains "implicit" case for each type
+- Upon application (of the polymorphic function), look up cases with inferred type
+-- Easy (to get a) compile error if no case is defined!
+-- Simple polymorphism (e.g. default cases)
+- Very good syntax and inference!
+
+object square extends Poly {
+    implicit val is = at[Int]    { i => i * i }
+    implicit val fs = at[Float]  { f => f * f }
+    implicit val ds = at[Double] { d => d * d }
+}
+
+square(4)     // =>   16: Int
+square(3.14d) // => 9.86: Double
+square("11")  // NOPE!
+
+trait Poly {
+    // ...
+    final def at[A] = new {
+        def apply[B](f: A => B): Case[A, B] = new Case[A, B] {
+            def apply(a: A) = f(a)
+        }
+    }
+
+    sealed trait Case[A, B]] {
+        def apply(a: A): B
+    }
+}
+
+implicit val is: Case[Int, Int] = at[Int] { i => i * }
+
+trait Poly {
+    // ...
+    def apply[A, B](a: A)(implicit C: this.Case[A, B]): B = C(a)
+    // this: square.type
+}
+
+-- more
+
+object addOne extends Poly {
+    implicit val is = at[Int] { _ + 1}
+    implicit def default[A] = at[A] { _.toString + "1" }
+}
+
+addOne(1)   // =>    2: Int
+addOne("1") // => "11": String
+
+-- Downsides
+
+- Cannot parameterize function
+-- addOne, but not addN
+- No anonymous syntax (def vs lambda)
+- Dificult to pass a value
+-- You need to capture the precise type
+-- Not impossible, just weird
+
+-- Let's implement map finally usin Poly
+
+implicit class HListSyntax[L <: HList](self: L) {
+    // ...
+    def map[P <: Poly](p: P)(implicit M: Mapper[L, P]): M.Out = M(self)
+}
+
+trait Mapper[L <: HList, P <: Poly] {
+    type Out <: HList
+
+    def apply(xs: L): Out
+}
+
+object Mapper {
+    // ...
+
+    implicit def base[P <: Poly]: Mapper.Aux[HNil, P, HNil] = 
+        new Mapper[HNil, P] {
+            type Out = HNil
+
+            def apply(xs: HNil) = xs
+        }
+
+    implicit def corecurse[A, B, L <: HList, P <: Poly]
+        (implicit
+            C: P#Case[A, B],
+            M: Mapper[L, P)
+        : Mapper.Aux[A :: L, P, B :: M.Out] =
+
+            new Mapper[A :: L, P] {
+                type Out = B :: M.Out
+
+                def apply(xs: A :: L) = C(xs.head) :: M(xs.tail)
+            }
+}
+
+// this example now works
+
+val xs = 1 :: false :: "hey" :: HNil
+
+object transform extends Poly {
+    implicit val is = at[Int]     = { _ + 3 }
+    implicit val bs = at[Boolean] = { !_ }
+    implicit val ss = at[String]  = { _ + " there" }
+}
+
+xs map transform // => 4 :: true :: "hey there" :: HNil
+
+
++++++++++++++++++++++++++++++++++++++++++
++ HList#nth (shapeless call this apply) +
++++++++++++++++++++++++++++++++++++++++++
+
+val xs = 42 :: false :: HNil
+
+xs.nth(0) // => 42: Int
+xs.nth(1) // => false: Boolean
+xs.nth(2) // => OOPS!
+
+- How do you index into an hlist?
+- Need to represent numbers at the type level
+    case object One
+    case object Two
+    case object Three
+    // ! Terrible way !
+- Peano arithmetic
+
+sealed trait Nat
+case object Zero0 extends Nat
+
+final case class Succ[N <: Nat](n: N) extends Nat
+
+package object shapely {
+    object Nat {
+        def toInt[N <: Nat](implicit N: ToInt[N]): Int = N.value // ???
+    }
+
+    object ToInt {
+        implicit def base: ToInt[Zero] = new ToInt[Zero] {
+            val value = 0
+        }
+
+        implicit def succ[N <: Nat](implicit N: ToInt[N]): ToInt[Succ[N}} =
+            new ToInt[Succ[N}} {
+                val value = 1 + N.value
+            }
+    }
+
+
+    type Zero = Zero0.type  // ??? .type
+    val Zero = Zero0
+}
+
+Nat.toInt[Succ[Succ[Succ[Zero]]]] // => 3: Int
+
+-- Peano Arithmetic (gives us)
+
+- Numbers at the type level
+- Value level representation
+- Can we convert from Int?
+    Nat.fromInt(2)
+
+    can we implement this function ???
+- Why ... yes, yes we can!
+
+-- Macros
+
+- Enable introduction of new primitives
+- Do "not" replace existing type-level facilities!
+-- Compose new primitives with implicits
+- Don't do this (macro-programming) unless
+  Always the last resort
+
+
+    object Nat {
+        def fromInt(i: Int): Nat = macro NatMacros.materialize
+
+        def toInt[N <: Nat](implicit N: ToInt[N]): Int = N.value // ???
+    }
+
+@macrocompat bundle
+class NatMacros(val c: whitebox.Context) {
+    import c.universe._
+
+    def materialize(i: Tree): Tree = {
+        def loop(n: Int, acc: Tree): Tree =
+            if (n <= 0) acc else loop(n - 1, q"shapely.Succ($acc)")
+
+        i match {
+            case Literal(Constant(n: Int)) if n >= 0 =>
+                loop(n, q"shapely.Zero")
+
+            case _ =>
+                c.abort(c.enclosingPosition, "not a natural number")
+        }
+    }
+}
+
+Nat.fromInt(3) // => _: Succ[Succ[Succ[Zero]]]
+
+
+- but this is not enough
+
+val xs = 42 :: false :: HNil
+
+xs.nth(0) // => 42: Int
+xs.nth(1) // => false: Boolean
+
+! Let's apply the implicit modifier !
+
+    object Nat {
+        implicit def fromInt(i: Int): Nat = macro NatMacros.materialize // we do an implicit conversion as a macro
+
+        def toInt[N <: Nat](implicit N: ToInt[N]): Int = N.value // ???
+    }
+
+- at the end
+
+    implicit class HListSyntax[L <: HList](self: L) {
+        // ...
+        def nth[N <: Nat](n: N)(implicit N: Nther[L, N]): N.Out =
+            N(self)
+    }
+
+the problem is at    (n: N)
+
+- in order to convince the compiler we need add
+
+    type Nat {
+        type N <: Nat
+    }
+    // ...
+    implicit class HListSyntax[L <: HList](self: L) {
+        // ...
+        def nth(n: Nat)(implicit N: Nther[L, n.N]): N.Out =
+            N(self)
+    }
+
+- the trick here is                          n.N
+
+(42 :: HNil).nth(0) // => 42: Int
+
+- Implicit conversion Int => Nat triggers macro
+- Macro generates a Peano numeral
+-- Represented as (a series of) nested type constructors
+- Dependent method type to (shift the specific type over) to the implicit block
+- Implicit typeclass (which generates a ) "proof" that indexing is valid (for some Peano numeral and some HList)

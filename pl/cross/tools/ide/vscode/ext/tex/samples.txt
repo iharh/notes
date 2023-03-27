@@ -1,0 +1,70 @@
+https://henrikgerdes.me/articles/2022-01-vscode-latex
+    https://henrikgerdes.me/papers
+    https://github.com/hegerdes/VSCode-LaTeX-Container
+        https://github.com/hegerdes/Dockerfiles/tree/master/LaTeX
+        https://github.com/hegerdes/Dockerfiles/blob/master/LaTeX/Dockerfile.full 
+        https://github.com/hegerdes/Dockerfiles/blob/master/LaTeX/scripts/install-goodies.sh
+    https://github.com/hegerdes/VSCode-LaTeX-Container/blob/master/.devcontainer/devcontainer.json
+        // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	      "remoteUser": "latex"
+    https://github.com/hegerdes/VSCode-LaTeX-Container/blob/master/.devcontainer/Dockerfile
+    https://github.com/hegerdes/VSCode-LaTeX-Container/blob/master/workspace.code-workspace
+
+
+???
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+    && apt-get -y install --no-install-recommends apt-utils 2>&1
+
+# Verify git and needed tools are installed
+RUN apt-get install --no-install-recommends -y git procps
+
+# Install Tex Live
+RUN apt-get update && apt-get -y upgrade \
+    && apt-get -y install --no-install-recommends \
+    texlive-latex-base \
+    texlive-extra-utils \
+    texlive-latex-extra \
+    biber chktex latexmk make python3-pygments python3-pkg-resources \
+    texlive-lang-chinese \
+    texlive-lang-japanese
+
+# latexindent modules
+RUN apt-get install --no-install-recommends -y curl
+RUN curl -L http://cpanmin.us | perl - App::cpanminus \
+    && cpanm Log::Dispatch::File \
+    && cpanm YAML::Tiny \
+    && cpanm File::HomeDir \
+    && cpanm Unicode::GCString
+
+# Clean up
+RUN apt-get autoremove -y \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=dialog \
+    LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8
+
+
+ARG USERNAME=latex
+ARG USER_UID
+ARG USER_GID=$USER_UID
+
+
+# Create the user
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
+
+#
+# [Optional] Add sudo support. Omit if you don't need to install software after connecting.
+# RUN apt-get update \
+#    && apt-get install -y sudo \
+#    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+#    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+# ********************************************************
+# * Anything else you want to do like clean up goes here *
+# ********************************************************
+
+# [Optional] Set the default user. Omit if you want to keep the default as root.
+USER $USERNAME

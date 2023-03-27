@@ -1,0 +1,24 @@
+https://github.com/requery/requery/tree/master/requery/src/main/java/io/requery/query
+https://github.com/requery/requery/blob/master/requery-kotlin/src/main/kotlin/io/requery
+
+
+https://github.com/requery/requery/blob/master/requery-kotlin/src/main/kotlin/io/requery/sql/KotlinEntityDataStore.kt
+override infix fun <E : T> select(type: KClass<E>): Selection<Result<E>> {
+
+https://github.com/requery/requery/blob/master/requery-kotlin/src/main/kotlin/io/requery/kotlin/Query.kt
+interface Selection<E> : Distinct<DistinctSelection<E>>,
+        From<E>,
+        Join<E>,
+        Where<E>,
+        SetOperation<Selectable<E>>,
+        GroupBy<SetHavingOrderByLimit<E>>,
+        OrderBy<Limit<E>>,
+Return<E>
+
+interface Where<E> : SetGroupByOrderByLimit<E>, Return<E> {
+    fun where(): Exists<SetGroupByOrderByLimit<E>>
+    // !!!
+    infix fun <V> where(condition: Condition<V, *>): WhereAndOr<E>
+}
+
+interface WhereAndOr<E> : AndOr<WhereAndOr<E>>, SetGroupByOrderByLimit<E>

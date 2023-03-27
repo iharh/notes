@@ -1,0 +1,9 @@
+https://geti2p.net/en/download
+https://geti2p.net/en/download/debian
+    sudo apt-add-repository ppa:i2p-maintainers/i2p
+    sudo apt update
+
+apt/
+    i2p
+        # depends on tons of java stuff
+    i2p-doc i2p-router

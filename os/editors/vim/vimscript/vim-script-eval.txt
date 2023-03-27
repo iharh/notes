@@ -1,0 +1,9 @@
+:h eval
+
+:so[urce] file_name
+  Read and execute the file_name script.
+:ec[ho]
+  Echoes expressions, separated by space. (. operator concatenates exprs to one string).
+:echon
+  Echo multiple expressions (comments aren't allowed here)
+

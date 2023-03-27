@@ -1,0 +1,5 @@
+https://monix.io/public/pdfs/Monix-Task.pdf
+https://monix.io/docs/2x/eval/task.html
+    + reporter for scheduler
+
+https://github.com/monix/monix/blob/master/monix-eval/shared/src/main/scala/monix/eval/Task.scala

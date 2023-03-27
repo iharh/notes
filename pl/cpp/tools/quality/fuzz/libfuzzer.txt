@@ -1,0 +1,11 @@
+http://libFuzzer.info
+http://llvm.org/docs/LibFuzzer.html
+
+tutorial:
+http://tutorial.libFuzzer.info
+https://github.com/google/fuzzer-test-suite/blob/master/tutorial/libFuzzerTutorial.md
+
+presentations:
+2017:
+https://www.youtube.com/watch?v=k-Cv8Q3zWNQ
+https://github.com/CppCon/CppCon2017/blob/master/Demos/Fuzz%20Or%20Lose/Fuzz%20Or%20Lose%20-%20Kostya%20Serebryany%20-%20CppCon%202017.pdf

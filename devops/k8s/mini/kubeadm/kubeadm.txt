@@ -1,0 +1,35 @@
+https://kubernetes.io/docs/admin/kubeadm/
+https://kubernetes.io/docs/setup/independent/troubleshooting-kubeadm/
+    https://www.slideshare.net/MengZeLi4/kubernetes-105409865
+https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
+https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/
+
+docs
+https://github.com/kubernetes/website/tree/master/content/en/docs/reference/setup-tools/kubeadm
+https://github.com/kubernetes/website/tree/master/content/en/docs/setup/independent
+
+2017
+https://kubernetes.io/blog/2017/01/stronger-foundation-for-creating-and-managing-kubernetes-clusters/
+
+https://github.com/kubernetes/kubeadm
+https://github.com/kubernetes/kubernetes/tree/master/cmd/kubeadm
+
+!!!
+https://blog.alexellis.io/kubernetes-in-10-minutes/
+    swapoff
+http://docker-k8s-lab.readthedocs.io/en/latest/kubernetes/kubeadm.html
+https://www.mirantis.com/blog/how-install-kubernetes-kubeadm/
+
+https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
+https://blog.heptio.com/how-to-start-creating-kubernetes-clusters-like-a-pro-kubeadm-phases-heptioprotip-2bdce58b530d
+https://habrahabr.ru/company/southbridge/blog/334846/
+https://crondev.com/kubernetes-installation-kubeadm/
+https://crondev.com/kubernetes-upgrade-kubeadm/
+
+? kubernetes-cni 
+
+https://github.com/kubernetes/kubeadm/blob/master/docs/design/design_v1.10.md
+https://github.com/kubernetes/kubeadm/blob/master/docs/design/design_v1.8.md
+
+comments at
+https://habrahabr.ru/company/oleg-bunin/blog/345842/

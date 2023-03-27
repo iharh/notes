@@ -1,0 +1,8 @@
+multiqueue:
+https://crates.io/crates/multiqueue
+https://docs.rs/multiqueue/0.3.1/multiqueue/
+https://github.com/schets/multiqueue
+
+lockless:
+https://crates.io/crates/lockless
+https://github.com/Diggsey/lockless

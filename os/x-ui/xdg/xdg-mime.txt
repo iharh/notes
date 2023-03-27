@@ -1,0 +1,8 @@
+xdg-mime default geany.desktop $(grep MimeType /usr/share/applications/geany.desktop | sed 's/MimeType=//' | sed 's/;/ /g')
+https://askubuntu.com/questions/194712/how-do-i-make-geany-my-default-editor-on-ubuntu
+
+xdg-mime default firefox.desktop text/html
+
+???
+# /usr/share/applications/defaults.list
+/usr/share/applications/lxsession-default-apps.desktop

@@ -1,0 +1,67 @@
+MCS3030 - jump-to-date-api  /timestamp_to_event
+    https://github.com/matrix-org/matrix-doc/pull/3030
+    ! already merged
+        turt2live requested changes (apr 8)
+    https://github.com/matrix-org/matrix-spec-proposals/blob/eric/msc-jump-to-date/proposals/3030-jump-to-date.md
+    https://github.com/matrix-org/matrix-doc/blob/eric/msc-jump-to-date/proposals/3030-jump-to-date.md
+    https://github.com/matrix-org/synapse/commit/43f5cc7adc02a05ba4075b8aab3b479bda67f441
+        https://github.com/matrix-org/synapse/blob/develop/synapse/rest/client/versions.py
+        # Adds support for jump to date endpoints (/timestamp_to_event) as per MSC3030
+            "org.matrix.msc3030": self.config.experimental.msc3030_enabled,
+        # -->
+        #   Add jump to date functionality to date headers in timeline v2
+        #       https://github.com/matrix-org/matrix-react-sdk/pull/7339
+                  /views/messages/_JumpToDatePicker.scss
+                  https://github.com/matrix-org/matrix-react-sdk/blob/develop/src/components/views/messages/JumpToDatePicker.tsx
+                  https://github.com/matrix-org/matrix-react-sdk/blob/develop/src/components/views/messages/DateSeparator.tsx
+        #   Add /jumptodate slash command
+        #       https://github.com/matrix-org/matrix-react-sdk/pull/7372
+        #   Fix /jumptodate using wrong MSC feature flag #7563
+                https://github.com/matrix-org/matrix-react-sdk/pull/7563
+
+curl "https://matrix.org/_matrix/client/versions"
+{
+  "versions": [
+    "r0.0.1",
+    "r0.1.0",
+    "r0.2.0",
+    "r0.3.0",
+    "r0.4.0",
+    "r0.5.0",
+    "r0.6.0",
+    "r0.6.1",
+    "v1.1",
+    "v1.2"
+  ],
+  "unstable_features": {
+    "org.matrix.label_based_filtering": true,
+    "org.matrix.e2e_cross_signing": true,
+    "org.matrix.msc2432": true,
+    "uk.half-shot.msc2666.mutual_rooms": true,
+    "io.element.e2ee_forced.public": false,
+    "io.element.e2ee_forced.private": false,
+    "io.element.e2ee_forced.trusted_private": false,
+    "org.matrix.msc3026.busy_presence": false,
+    "org.matrix.msc2285": true,
+    "org.matrix.msc2716": false,
+    "org.matrix.msc3030": false,
+    "org.matrix.msc3440.stable": true,
+    "fi.mau.msc2815": false
+  }
+}
+
+whatsnew
+https://github.com/matrix-org/matrix.org/search?q=msc3030
+https://matrix.org/blog/category/this-week-in-matrix/5
+https://matrix.org/blog/2021/12/03/this-week-in-matrix-2021-12-03
+    https://github.com/matrix-org/matrix.org/blob/master/gatsby/content/blog/2021/12/2021-12-03-twim.mdx
+
+nixos.org matrix room
+
+P1xxN46otdvCkBPv31qSVqmQcMhN9Juzhx6QwsHT-Ck
+https://matrix.to/#/!KqkRjyTEzAGRiZFBYT:nixos.org/$P1xxN46otdvCkBPv31qSVqmQcMhN9Juzhx6QwsHT-Ck?via=nixos.org&via=matrix.org&via=tchncs.de
+https://app.element.io/#/room/#nix:nixos.org/$P1xxN46otdvCkBPv31qSVqmQcMhN9Juzhx6QwsHT-Ck
+    At "matrix.org" server there is no history-jump feature (msc3030=false)
+    (curl "https://matrix.org/_matrix/client/versions")
+    Are there any other matrix server (mirror) with enabled history-jump (msc3030=true)?
+    And also has "Nix/NixOS" room

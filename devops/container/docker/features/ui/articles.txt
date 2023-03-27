@@ -1,0 +1,10 @@
+docker run -e DISPLAY -v /home/root/.Xauthority:/root/.Xauthority — -net=host <image_name>
+
+2022
+https://sivanaikk0903.medium.com/run-gui-applications-in-docker-container-ba3f6ebcfc91
+    -net=host
+    -env=DISPLAY
+    -v /root/.Xauthority:/root/.Xauthority
+2021
+https://ved-init-01.medium.com/how-we-can-run-any-gui-software-on-docker-66d015b055d6
+    https://nuancesprog.ru/p/13141/

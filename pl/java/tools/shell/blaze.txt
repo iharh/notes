@@ -1,0 +1,15 @@
+https://github.com/fizzed/blaze
+    maven-based
+
+docs:
+https://github.com/fizzed/blaze/blob/master/docs/CONFIG.md
+https://github.com/fizzed/blaze/blob/master/docs/BASIC.md
+https://github.com/fizzed/blaze/blob/master/docs/SSH.md
+https://github.com/fizzed/blaze/blob/master/docs/HTTP.md
+
+samples:
+https://github.com/fizzed/blaze/tree/master/examples
+
+kotlin:
+https://github.com/fizzed/blaze/blob/master/blaze-kotlin/src/main/java/com/fizzed/blaze/kotlin/Kotlin1Compiler.java
+    https://github.com/JetBrains/kotlin/blob/master/compiler/cli/src/org/jetbrains/kotlin/cli/jvm/K2JVMCompiler.kt

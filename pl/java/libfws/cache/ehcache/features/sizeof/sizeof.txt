@@ -1,0 +1,120 @@
+http://www.ehcache.org/sizeof/
+https://github.com/ehcache/sizeof
+https://github.com/ehcache/sizeof/tree/master/src/main/java/org/ehcache/sizeof/annotations
+https://github.com/ehcache/sizeof/blob/master/src/main/java/org/ehcache/sizeof/annotations/AnnotationProxyFactory.java
+https://github.com/ehcache/sizeof/blob/master/src/main/java/org/ehcache/sizeof/SizeOf.java
+https://github.com/ehcache/sizeof/tree/master/src/main/java/org/ehcache/sizeof/impl
+https://github.com/ehcache/sizeof/blob/master/src/main/java/org/ehcache/sizeof/impl/AgentSizeOf.java
+https://github.com/ehcache/sizeof/blob/master/src/main/java/org/ehcache/sizeof/impl/AgentLoader.java
+    !!!
+    static final String INSTRUMENTATION_INSTANCE_SYSTEM_PROPERTY_NAME = "org.ehcache.sizeof.agent.instrumentation";
+    ...
+https://github.com/ehcache/sizeof/blob/master/src/main/java/org/ehcache/sizeof/impl/SizeOfAgent.java
+    private static final String NO_INSTRUMENTATION_SYSTEM_PROPERTY_NAME = "org.ehcache.sizeof.agent.instrumentationSystemProperty";
+    ...
+    private static void registerSystemProperty() {
+        if (Boolean.getBoolean(NO_INSTRUMENTATION_SYSTEM_PROPERTY_NAME)) {
+            System.getProperties().put(AgentLoader.INSTRUMENTATION_INSTANCE_SYSTEM_PROPERTY_NAME, instrumentation);
+        }
+    }
+
+https://www.javaspecialists.eu/archive/Issue078.html
+https://www.javaspecialists.eu/archive/Issue142.html
+https://codespot.net/2014/03/05/sizeof-java-library/
+https://codespot.net/2012/01/04/measuring-java-object-sizes/
+    https://github.com/jbellis/jamm
+    https://github.com/arturmkrtchyan/sizeof4j
+
+
+https://github.com/ehcache/ehcache3/tree/master/core/src/main/java/org/ehcache/core/spi/store/heap
+https://github.com/ehcache/ehcache3/blob/master/core/src/main/java/org/ehcache/core/spi/store/heap/SizeOfEngineProvider.java
+https://github.com/ehcache/ehcache3/blob/master/core/src/main/java/org/ehcache/core/spi/store/heap/SizeOfEngine.java
+
+https://github.com/ehcache/ehcache3/tree/master/impl/src/main/java/org/ehcache/impl/internal/store/heap
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/internal/store/heap/OnHeapStoreProviderFactory.java
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/internal/store/heap/OnHeapStore.java
+    ... BaseStore ...
+    ...
+    @Override
+    public void start(ServiceProvider<Service> serviceProvider) {
+        this.serviceProvider = serviceProvider;
+    }
+        called by ServiceLocator
+            public void startAllServices() {
+                ...
+                s.start(this);
+                ...
+            }
+        https://github.com/ehcache/ehcache3/blob/master/core/src/main/java/org/ehcache/core/EhcacheManager.java
+            init() ... startAllServices
+
+    ...
+    public <K, V> OnHeapStore<K, V> createStoreInternal(Configuration<K, V> storeConfig, StoreEventDispatcher<K, V> eventDispatcher,
+                                                        ServiceConfiguration<?, ?>... serviceConfigs) {
+        ...
+        SizeOfEngineProvider sizeOfEngineProvider = getServiceProvider().getService(SizeOfEngineProvider.class);
+        ...
+    }
+    ...
+    private OnHeapValueHolder<V> makeValue(K key, V value, long creationTime, long expirationTime, Copier<V> valueCopier, boolean size) throws LimitExceededException {
+    ...
+    private OnHeapValueHolder<V> cloneValueHolder(K key, ValueHolder<V> valueHolder, long now, Duration expiration, boolean sizingEnabled) throws LimitExceededException {
+    ...
+    private OnHeapValueHolder<V> newUpdateValueHolder(K key, OnHeapValueHolder<V> oldValue, V newValue, long now, StoreEventSink<K, V> eventSink) { ... makeValue(...) ... }
+    private OnHeapValueHolder<V> newCreateValueHolder(K key, V value, long now, StoreEventSink<K, V> eventSink) { ... makeValue(...) ... }
+    ...
+
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/internal/store/heap/OnHeapStrategy.java
+https://github.com/ehcache/ehcache3/tree/master/impl/src/main/java/org/ehcache/impl/internal/store/heap/holders
+
+https://github.com/ehcache/ehcache3/blob/master/impl/src/test/java/org/ehcache/impl/internal/store/heap/bytesized/ByteSizedOnHeapStoreByValueTest.java
+https://github.com/ehcache/ehcache3/blob/master/impl/src/test/java/org/ehcache/impl/internal/store/heap/bytesized/ByteSizedOnHeapStoreByRefTest.java
+https://github.com/ehcache/ehcache3/blob/master/impl/src/test/java/org/ehcache/impl/internal/store/heap/bytesized/OnHeapStoreCachingTierByRefSPITest.java
+https://github.com/ehcache/ehcache3/blob/master/impl/src/test/java/org/ehcache/impl/internal/store/heap/ByteSizedOnHeapStoreByRefSPITest.java
+https://github.com/ehcache/ehcache3/blob/master/impl/src/test/java/org/ehcache/impl/internal/store/heap/bytesized/ByteAccountingTest.java
+    ! creating custom newStore
+      static class OnHeapStoreForTests<K, V> extends OnHeapStore<K, V> { ... }
+
+https://github.com/ehcache/ehcache3/blob/master/impl/src/test/java/org/ehcache/impl/internal/store/heap/OnHeapStoreEvictionTest.java
+
+
+https://github.com/ehcache/ehcache3/tree/master/impl/src/main/java/org/ehcache/impl/internal/sizeof
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/internal/sizeof/DefaultSizeOfEngineProvider.java
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/internal/sizeof/DefaultSizeOfEngine.java
+
+https://github.com/ehcache/ehcache3/tree/master/impl/src/main/java/org/ehcache/impl/internal/sizeof/listeners
+
+tests
+    https://github.com/ehcache/ehcache3/tree/master/impl/src/test/java/org/ehcache/impl/internal/sizeof
+    https://github.com/ehcache/ehcache3/blob/master/impl/src/test/java/org/ehcache/impl/internal/sizeof/DefaultSizeOfEngineTest.java
+
+StoreConfigurationImpl
+
+    DefaultSizeOfEngineProvider
+    ...
+    @Override
+    public SizeOfEngine createSizeOfEngine(ResourceUnit resourceUnit, ServiceConfiguration<?, ?>... serviceConfigs) {
+        boolean isByteSized = resourceUnit instanceof MemoryUnit;
+        if(!isByteSized) {
+            return new NoopSizeOfEngine(); // Noop Size of Engine
+        }
+        DefaultSizeOfEngineConfiguration config = ServiceUtils.findSingletonAmongst(DefaultSizeOfEngineConfiguration.class, (Object[]) serviceConfigs);
+        if(config != null) {
+            long maxSize = config.getUnit().toBytes(config.getMaxObjectSize());
+            return new DefaultSizeOfEngine(config.getMaxObjectGraphSize(), maxSize);
+        }
+        return new DefaultSizeOfEngine(maxObjectGraphSize, maxObjectSize);
+    }
+}
+
+usages
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/impl/internal/store/heap/OnHeapStore.java
+    import org.ehcache.sizeof.annotations.IgnoreSizeOf;
+    ...
+    private final SizeOfEngine sizeOfEngine;
+
+qa
+http://forums.terracotta.org/forums/posts/list/6244.page
+    -Dnet.sf.ehcache.sizeofengine.default.[CACHE NAME]=com.org.VBT2SizeOfEngine 
+https://stackoverflow.com/questions/52787621/ehcache-3-size-in-memory
+    https://github.com/ehcache/ehcache3/issues/2500

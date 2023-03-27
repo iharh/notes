@@ -1,0 +1,47 @@
+api
+currentBuild.rawBuild.changeSets
+https://javadoc.jenkins.io/hudson/scm/ChangeLogSet.html
+https://javadoc.jenkins.io/hudson/scm/ChangeLogSet.Entry.html
+    getAffectedFiles()
+    getAffectedPaths()
+https://javadoc.jenkins.io/hudson/scm/ChangeLogSet.AffectedFile.html
+
+def clearChangeset() {
+    if (currentBuild.rawBuild.changeSets != null) {
+        currentBuild.rawBuild.changeSets.clear()
+    }
+}
+
+@NonCPS
+def hasChanges() {
+    def changeLogSets = currentBuild.rawBuild.changeSets
+    for (int i = 0; i < changeLogSets.size(); i++) {
+        // def kind = changeLogSets[i].kind // "svn", ...
+        def items = changeLogSets[i].items
+        for (int j = 0; j < items.size(); j++) {
+            def author = items[j].authorName
+            // .author, .msg, .msg.take(MAX_MSG_LEN), .revision
+            if (author != "..... ...") {
+                return true
+            }
+            // ...
+            def files = new ArrayList(entry.affectedFiles)
+            for (int k = 0; k < files.size(); k++) {
+                def file = files[k]
+                echo "  ${file.editType.name} ${file.path}"
+            }
+        }
+    }
+    return false
+}
+
+def getNlpModulesVersion() {
+    getVersionFrom('modules/build.properties', 'nlp.modules.version')
+}
+
+def getVersionFrom(fileName, propName) {
+    def propsString = readFile(fileName)
+    def props = new Properties()
+    props.load(new StringReader(propsString))
+    props.get(propName)
+}

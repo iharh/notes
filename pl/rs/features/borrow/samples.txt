@@ -1,0 +1,13 @@
+https://www.reddit.com/r/rust/comments/58yukd/if_rust_ensures_that_there_is_exactly_one_binding/
+https://www.reddit.com/r/rust/comments/5okjql/noob_question_pointer_to_an_element_of_a_vec/
+
+need weak reference counting for graphs with cycles in it. Here's how to do a generic binary tree in Rust.
+
+enum Node<T> {
+    Leaf(T),
+    Inner(Box<Node<T>>, Box<Node<T>>),
+}
+
+2022
+https://medium.com/go-rust/rust-day-9-same-tree-16b21ed88a50
+    https://leetcode.com/problems/same-tree/discuss/766257/Rust%3A-recursive-solution

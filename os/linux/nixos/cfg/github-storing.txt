@@ -1,0 +1,49 @@
+with yadm:
+    https://github.com/jluttine/nixos-configuration
+
+https://discourse.nixos.org/t/github-strategies-for-configuration-nix/1983
+
+... latest comment is cool ...
+Here’s what /etc/nixos/configuration.nix looks like on one of my machines.
+
+{ config, pkgs, options, ... }:
+
+let hostname="wombat9000";
+in
+{
+  networking.hostName = hostname;
+
+  imports =
+    [ # Include the results of the hardware scan.
+      /etc/nixos/hardware-configuration.nix
+      (/home/amy/dotWombat/nixos + "/${hostname}.nix")
+      /home/amy/dotWombat/nixos/base.nix
+      /home/amy/dotWombat/nixos/locale.nix
+      /home/amy/dotWombat/nixos/xserver.nix
+      /home/amy/dotWombat/nixos/python2.nix
+      /home/amy/dotWombat/nixos/python3.nix
+      /home/amy/dotWombat/nixos/R.nix
+      /home/amy/dotWombat/nixos/packages.nix
+    ];
+}
+
+and even better
+https://www.reddit.com/r/NixOS/comments/6zn5tv/manage_nixos_config_from_git_without_having_to/
+nix.nixPath = [
+  "nixpkgs=/home/user/src/nixpkgs"
+  # "nixos-config=/etc/nixos/configuration.nix"
+  "nixos-config=/home/user/src/nixos/configuration.nix"
+];
+
+I chown /etc/nixos to my user, and have the .git directory in there.
+
+Rather than messing around with /etc I prefer to:
+    $ nixos-rebuild switch -I nixos-config=path/to/configuration.nix 
+
+with home-manager
+    https://hugoreeves.com/posts/2019/nix-home/
+    cd ~/.config/nixpkgs; git pull; home-manager switch
+    https://github.com/HugoReeves/nix-home/
+    Let's start with an entry point,
+        ~/.config/nixpkgs/home.nix,
+    this is the file that home-manager uses by default as it's entry point.

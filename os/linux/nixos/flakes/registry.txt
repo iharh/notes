@@ -1,0 +1,23 @@
+https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-registry.html
+
+https://github.com/NixOS/flake-registry
+https://raw.githubusercontent.com/NixOS/flake-registry/master/flake-registry.json
+
+equivalents:
+    $ nix shell nixpkgs#cowsay --command cowsay Hi!
+    $ nix shell github:NixOS/nixpkgs#cowsay --command cowsay Hi!
+
+nix
+    registry
+        list
+            system flake:comma path:/nix/store/...
+            system flake:cowsay path:/nix/store/...
+            ...
+            system flake:flake path:/nix/store/...
+            ...
+            global flake:flake-parts github:herculesci/flake-parts
+            global flake:flake-utils github:numtide/flake-utils
+            ...
+            global flake:nix github:NixOS/nix
+            global flake:nixos-hardware github:NixOS/nixos-hardware
+            global flake:nixos-homepate github:NixOS/nixos-homepage

@@ -1,0 +1,9 @@
+apt-cache
+    policy <name>
+    rdepends <name>
+        rtkit
+        Reverse Depends:
+          pipewire-bin
+          multimedia-jack
+          libdrumstick-rt2
+          pulseaudio

@@ -1,0 +1,4 @@
+How Spring do a compat:
+http://www.reddit.com/r/java/comments/323iqo/how_spring_achieves_compatibility_with_java_6_7/
+http://spring.io/blog/2015/04/03/how-spring-achieves-compatibility-with-java-6-7-and-8
+https://github.com/spring-projects/spring-framework/blob/228d9db4/spring-core/src/main/java/org/springframework/core/convert/support/StreamConverter.java

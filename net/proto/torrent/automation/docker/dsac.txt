@@ -1,0 +1,37 @@
+https://dsac.dockstarter.com/
+https://github.com/GhostWriters/DSAC
+https://github.com/GhostWriters/DSAC.DockSTARTer.com
+
+inst
+sudo curl -fsL https://github.com/mikefarah/yq/releases/download/v4.14.2/yq_linux_amd64 -o /usr/local/bin/yq-go
+bash -c "$(curl -fsSL https://ghostwriters.github.io/DSAC/main.sh)"
+sudo reboot
+
+run
+sudo dsac
+
+https://dsac.dockstarter.com/introduction/
+https://dsac.dockstarter.com/basics/menu-options/
+
+cfg
+~/.dsac
+
+app cfgs
+https://github.com/GhostWriters/DSAC/tree/master/.apps
+https://github.com/GhostWriters/DSAC/blob/master/.apps/jackett/jackett.labels.dsac.yml
+? books
+https://github.com/GhostWriters/DSAC/blob/master/.apps/nzbget/nzbget.labels.dsac.yml
+https://github.com/GhostWriters/DSAC/blob/master/.apps/nzbhydra2/indexer_defaults.yml
+https://github.com/GhostWriters/DSAC/blob/master/.apps/nzbhydra2/nzbhydra2.labels.dsac.yml
+https://github.com/GhostWriters/DSAC/blob/master/.apps/qbittorrent/qbittorrent.labels.dsac.yml
+https://github.com/GhostWriters/DSAC/blob/master/.apps/transmission/transmission.labels.dsac.yml
+
+scripts
+https://github.com/GhostWriters/DSAC/tree/master/.scripts
+
+data
+https://github.com/GhostWriters/DSAC/tree/master/.data
+https://github.com/GhostWriters/DSAC/blob/master/.data/quick_setup.yml
+https://github.com/GhostWriters/DSAC/blob/master/.data/supported_apps.yml
+https://github.com/GhostWriters/DSAC/blob/master/.data/template.json
+

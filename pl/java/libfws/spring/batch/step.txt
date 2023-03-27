@@ -1,0 +1,17 @@
+Step -> StepExcecution (single attempt to execute a step)
+
+ExecutionContext -> persistent data for StepExcecution/JobExecution
+
+
+StepExecution may create/apply StepContribution (but don't have one)
+
+
+SimpleChunkProcessor
+
+
+ChunkOrientedTasklet
+
+
+
+We can configure Skip, Retry,
+Sequential, Conditional execution

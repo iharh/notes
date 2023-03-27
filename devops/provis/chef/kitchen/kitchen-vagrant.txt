@@ -1,0 +1,13 @@
+plugins:
+https://github.com/test-kitchen/kitchen-vagrant
+
+https://github.com/test-kitchen/test-kitchen/blob/master/lib/kitchen/instance.rb
+
+https://github.com/test-kitchen/kitchen-vagrant/blob/master/lib/kitchen/driver/vagrant.rb
+https://github.com/test-kitchen/kitchen-vagrant/blob/master/templates/Vagrantfile.erb
+
+
+hostname:
+https://github.com/test-kitchen/test-kitchen/issues/465
+https://github.com/test-kitchen/kitchen-vagrant/issues/139
+http://stackoverflow.com/questions/38682471/how-to-change-box-name-in-chef-kitchen-yml

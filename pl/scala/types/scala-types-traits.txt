@@ -1,0 +1,45 @@
+Sealed:
+http://www.reddit.com/r/scala/comments/3887az/everything_you_ever_wanted_to_know_about_sealed/
+http://underscore.io/blog/posts/2015/06/02/everything-about-sealed.html
+
+Traits
+
+traits are like an abstract classes (def, val), but cannot have (value) parameters [for c-tors], only classes can.
+you can create an object of class and provide "with Trait" for a given object, not a whole class.
+
+Hierarchy:
+Any - at the Top
+- AnyRef - like a java Object
+- AnyVal
+
+...
+Nothing - at the bottom of Scala Hierarchy (there is no value of this type).
+!  a method which just throws Exception can have type Nothing
+Null - subtype of all the reference classes, and also a type of null-value; it is incompatible with AnyVal
+
+
+Function values of type A => B are treated as objects in Scala:
+
+trait Function1[A, B] {
+  def apply(x : A) : B
+}
+
+
+Stackable Modification Role:
+
+trait IgnoreCaseSet extends java.util.Set[String] {
+  abstract override def add(e: String) = {
+    super.add(e.toLowerCase)
+  }
+  abstract override def contains(e: String) = {
+    super.contains(e.toLowerCase)
+  }
+}
+
+val set = new java.util.HashSet[String] with IgnoreCaseSet
+
+set.add("HI THERE")
+set.contains("hi there")
+
+
+

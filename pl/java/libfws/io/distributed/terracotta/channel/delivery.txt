@@ -1,0 +1,91 @@
+GuaranteedDeliveryProtocol
+
+class GuaranteedDeliveryProtocol {
+	private final StateMachineRunner  send;
+	private final StateMachineRunner  receive;
+	private final SendStateMachine    sender;
+	private final ReceiveStateMachine receiver;
+
+	public GuaranteedDeliveryProtocol(OOOProtocolMessageDelivery delivery, Sink sendSink, Sink receiveSink,
+		ReconnectConfig reconnectConfig, boolean isClient)
+	{
+		this.sender = new SendStateMachine(delivery, reconnectConfig, isClient);
+		this.send = new StateMachineRunner(sender, sendSink);
+		this.receiver = new ReceiveStateMachine(delivery, reconnectConfig);
+		this.receive = new StateMachineRunner(receiver, receiveSink);
+		receiver.setRunner(receive);
+	}
+
+	public void send(TCNetworkMessage message) {
+		boolean interrupted = false;
+		try {
+			do {
+				try {
+					sender.put(message);
+					break;
+				}
+				catch (InterruptedException e) {
+					interrupted = true;
+				}
+			}
+			while (true);
+		}
+		finally {
+			if (interrupted) {
+				Thread.currentThread().interrupt();
+			}
+		}
+
+		send.addEvent(new OOOProtocolEvent());
+	}
+
+	public void receive(OOOProtocolMessage msg) {
+		if (msg.isSend()) {
+			receive.addEvent(new OOOProtocolEvent(msg));
+		}
+		else if (msg.isAck() || msg.isHandshakeReplyOk() || msg.isHandshakeReplyFail()) {
+			send.addEvent(new OOOProtocolEvent(msg));
+		}
+		else {
+			Assert.inv(false);
+		}
+	}
+
+	public void start() {
+		send.start();
+		receive.start();
+	}
+
+	public void pause() {
+		send.pause();
+		receive.pause();
+	}
+
+	public boolean isPaused() {
+		return (send.isPaused() && receive.isPaused());
+	}
+
+	public void resume() {
+		send.resume();
+		receive.resume();
+	}
+
+	public void reset() {
+		send.reset();
+		receive.reset();
+	}
+
+	public ReceiveStateMachine getReceiver() {
+		return receiver;
+	}
+
+	public SendStateMachine getSender() {
+		return sender;
+	}
+
+	public void setDebugId(String debugId) {
+		receiver.setDebugId(debugId);
+	}
+}
+
+

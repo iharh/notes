@@ -1,0 +1,15 @@
+https://crates.io/crates/cargo-edit
+http://killercup.github.io/cargo-edit/cargo_edit/index.html
+https://github.com/killercup/cargo-edit
+
+cargo install
+    [--force] cargo-edit # also a part of cargo-extras
+    -f --no-default-features --features "add rm upgrade"
+
+cargo
+    add
+    rm
+    upgrade
+
+whatsnew
+https://users.rust-lang.org/t/announcing-cargo-edit-v0-3-0/18265

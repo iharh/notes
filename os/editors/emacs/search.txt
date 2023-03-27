@@ -1,0 +1,29 @@
+M-%
+	Interactive string find and replace.
+
+C-s
+	Incremental search forward (hit multiple time for the next occurence)
+
+	C-w
+		Search the word under the cursor. (You can type C-w multiple times to expand the word selection).
+
+C-r
+	Incremental search backward (hit multiple time for the next occurence)
+
+
+M-o ???
+	Occur from isearch
+
+
+(cmd isearch-other-window
+     ;; thank you leo2007!
+     (save-selected-window
+       (other-window 1)
+       (isearch-forward)))
+
+(bind "C-M-S" isearch-other-window)
+
+
+???
+(require 'fuzzy)
+(turn-on-fuzzy-isearch)

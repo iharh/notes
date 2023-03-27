@@ -1,0 +1,14 @@
+flexget
+    -V
+        version
+    --check
+        check that config is valid
+    --initdb
+        creates database files (need to do this once)
+    --test
+        simulated the download process, without wrtitng
+    --reset-plugin PLUGINNAME
+
+    now you can use just the command:
+        $ flexget
+            try it out and it will download the torrent files into the assigned folder

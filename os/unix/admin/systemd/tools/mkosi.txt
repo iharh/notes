@@ -1,0 +1,6 @@
+https://github.com/systemd/mkosi
+    pacstrap
+
+2017
+http://0pointer.net/blog/mkosi-a-tool-for-generating-os-images.html
+https://lwn.net/Articles/726655/

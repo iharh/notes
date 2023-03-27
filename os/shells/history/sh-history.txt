@@ -1,0 +1,15 @@
+history
+	show the last portion of the history
+history 1
+	show the entire history
+!!
+	recall previous command from history
+	this is the same as !-1
+!^
+	first argument on the cmd-line (useful for aliases)
+	Note: this is not a command itself
+!?
+	expand the last command last argument
+
+2021
+https://linuxiac.com/history-command/

@@ -1,0 +1,9 @@
+https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/config/NativeMemoryConfig.html
+    https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/config/InMemoryFormat.html#NATIVE
+
+    @Override
+    public CacheOperationProvider getCacheOperationProvider(String cacheNameWithPrefix, InMemoryFormat inMemoryFormat) {
+        if (InMemoryFormat.NATIVE.equals(inMemoryFormat)) {
+            throw new IllegalArgumentException("Native memory is available only in Hazelcast Enterprise."
+                    + "Make sure you have Hazelcast Enterprise JARs on your classpath!");
+        }

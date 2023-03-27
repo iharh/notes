@@ -1,0 +1,11 @@
+    repositories {
+        libs(PrebuiltLibraries) {
+            protobuf {
+                headers.srcDir "$extractedArchiveDir/protobuf-${versions.protobuf}/src"
+                binaries.withType(StaticLibraryBinary) {
+                    staticLibraryFile = file("$extractedArchiveDir/protobuf-${versions.protobuf}/libs/libprotobuf.a")
+                }
+            }
+        }
+    }
+

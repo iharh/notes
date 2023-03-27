@@ -1,0 +1,42 @@
+https://github.com/zonkyio/embedded-postgres
+https://github.com/opentable/otj-pg-embedded
+
+https://mvnrepository.com/artifact/io.zonky.test/embedded-postgres
+    io.zonky.test:embedded-postgres:2.0.1
+
+    <embedded.postgresql.version>11...</embedded.postgresql.version>
+    ...
+    <dependency>
+        <groupId>io.zonky.test</groupId>
+        <artifactId>embedded-postgres</artifactId>
+        <version>...</version>
+    </dependency>
+    <dependency>
+        <groupId>io.zonky.test.postgres</groupId>
+        <artifactId>embedded-postgres-binaries-bom</artifactId>
+        <version>${embedded.postgresql.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+    </dependency>
+
+
+additional arch
+io.zonky.test.postgres:embedded-postgres-binaries-linux-i386
+
+issues
+https://github.com/zonkyio/embedded-postgres#process-tmpembedded-pgpg-xyzbininitdb--failed
+    st-emb-pg-initdb() {
+        (cd $STAFF_DIR/staf-tests;\
+            target/embedded-pg-data/PG-f3edf7fa7a0adde27d39be0b067a5997/bin/initdb \
+                -A trust \
+                -U postgres \
+                -D /var/folders/md/1jhmp45x2r1_w_m1xmlcqjzr0000gn/T/epg222088574391913197 \
+                -E UTF-8
+        )
+    }
+    https://github.com/opentable/otj-pg-embedded/issues/152
+https://stackoverflow.com/questions/13643452/libssl-and-libcrypto-causing-dyld-library-not-loaded-usr-lib-libpq-5-dylib
+    brew link --force postgresql@11
+        Linking /usr/local/Cellar/postgresql@11/11.17_2... 455 symlinks created.
+        If you need to have this software first in your PATH instead consider running:
+            echo 'export PATH="/usr/local/opt/postgresql@11/bin:$PATH"' >> ~/.zshrc

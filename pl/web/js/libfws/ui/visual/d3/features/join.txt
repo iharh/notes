@@ -1,0 +1,99 @@
+https://github.com/d3/d3-selection/blob/master/README.md#joining-data
+    selection.data - join elements to data.
+    selection.enter - get the enter selection (data missing elements).
+    selection.exit - get the exit selection (elements missing data).
+    selection.datum - get or set element data (without joining).
+https://github.com/d3/d3/blob/master/API.md#selecting-elements
+    selection.merge - merge this selection with another.
+    https://github.com/d3/d3-selection/blob/master/README.md#selection_merge
+    This method is commonly used to merge the enter and update selections after a data-join.
+    After modifying the entering and updating elements separately,
+    you can merge the two selections and perform operations on both without duplicate code.
+
+http://alignedleft.com/tutorials/d3/binding-data
+http://serganbus.github.io/d3tutorials/binding_data.html
+
+https://bost.ocks.org/mike/join/
+https://bl.ocks.org/mbostock/3808218
+https://bost.ocks.org/mike/circles/
+
+states
+    enter
+    update
+    exit
+
+svg.selectAll("circle")
+  .data(data)
+  .enter().append("circle")
+    .attr("cx", function(d) { return d.x; })
+    .attr("cy", function(d) { return d.y; })
+    .attr("r", 2.5);
+
+1. First, svg.selectAll("circle") returns a new empty selection,
+   since the SVG container was empty.
+   The parent node of this selection is the SVG container. 
+
+2. This selection is then joined to an array of data,
+   resulting in three new selections that represent the three possible states:
+     enter, update, and exit.
+   Since the selection was empty,
+   the update and exit selections are empty,
+   while the enter selection contains a placeholder for each new datum. 
+
+3. The update selection is returned by selection.data,
+   while the enter and exit selections hang off the update selection;
+   selection.enter thus returns the enter selection. 
+
+4. The missing elements are added to the SVG container by calling
+      selection.append on the enter selection.
+   This appends a new circle for each data point to the SVG container.  
+
+Thinking with joins means declaring a relationship between a selection
+  (such as "circle") and data,
+and then implementing this relationship through the three
+  enter, update and exit states. 
+
+
+Here is an example of handling all three states:
+
+var circle = svg.selectAll("circle")
+  .data(data);
+
+circle.exit().remove();
+
+circle.enter().append("circle")
+    .attr("r", 2.5)
+  .merge(circle) // enter+update
+    .attr("cx", function(d) { return d.x; })
+    .attr("cy", function(d) { return d.y; });
+
+Whenever this code is run, it recomputes the data join and maintains the desired correspondence between elements and data.
+If the new dataset is smaller than the old one, the surplus elements end up in the exit selection and get removed.
+If the new dataset is larger, the surplus data ends up in the enter selection and new nodes are added.
+If the new dataset is exactly the same size, then all the elements are simply updated with new positions, and no elements are added or removed. 
+
+!!!
+circle.data([32, 57, 112]);
+
+There is a second optional argument to each function you can also use:
+    The index of the element within its selection.
+    The index is often useful for positioning elements sequentially.
+
+circle.attr("cx", function(d, i) { return i * 100 + 30; });
+
+key-function
+https://bost.ocks.org/mike/constancy/
+
+You can control precisely which datum is bound to which element by specifying a key function to selection.data.
+For example, by using the identity function, you can rebind the circles to new data while ensuring
+    that existing circles are rebound to the same value in the new data, if any.
+
+var circle = svg.selectAll("circle")
+    .data([32, 57, 293], function(d) { return d; });
+
+circle.enter().append("circle")
+    .attr("cy", 60)
+    .attr("cx", function(d, i) { return i * 100 + 30; })
+    .attr("r", function(d) { return Math.sqrt(d); });
+
+circle.exit().remove();

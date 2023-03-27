@@ -1,0 +1,7 @@
+modprobe
+/lib/modules
+
+vbox:
+https://bbs.archlinux.org/viewtopic.php?id=181938
+
+depmod

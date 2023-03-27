@@ -1,0 +1,12 @@
+2021
+Slerm - 8 - Local k8s Development ru of 1:48:50
+    https://www.youtube.com/watch?v=df0d1fNdQeg
+    ! https://github.com/GoogleContainerTools/scaffold
+    ! telepresence.io (local debug of remotely-deployed stuff)
+    ! + log-view plugins for vscode, jetbrains, ...
+    ! 1:34:00 - Raft is 100 percent safe from split-brain
+CodingTech - Kubernetes for JavaScript Developers
+    https://www.youtube.com/watch?v=Zd85lFlm1pU
+2019
+Safronov - K8s Cluster at Your Notebook ru
+    https://www.youtube.com/watch?v=7I_FreB0Cu0

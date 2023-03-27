@@ -1,0 +1,13 @@
+pacstall
+    -S foo
+        search
+    -I foo
+        install
+    -R foo
+        remove
+    -A github/gitlab repo
+        add a repo
+    -U
+        update own scripts
+    -Up
+        update packages

@@ -1,0 +1,13 @@
+https://docs.gradle.org/current/userguide/custom_plugins.html
+
+!!!
+https://docs.gradle.org/current/userguide/authoring_maintainable_build_scripts.html#alternatives_for_oft_used_internal_apis
+    ! To provide a nested DSL for your custom task, don’t use org.gradle.internal.reflect.Instantiator;
+    ! use ObjectFactory instead.
+    ! It may also be helpful to read the chapter on lazy configuration.
+
+https://docs.gradle.org/current/userguide/custom_gradle_types.html
+    !!! lots of other stuff
+    // Use an abstract getter method
+    @Inject
+    protected abstract ObjectFactory getObjectFactory();

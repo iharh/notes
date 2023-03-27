@@ -1,0 +1,22 @@
+https://www.npmjs.com/package/npm-check-updates
+https://github.com/tjunnone/npm-check-updates
+
+npx npm-check updates
+
+node i -g npm-check-updates
+
+ncu
+    -n, --newest
+        find the newest versions available instead of the latest stable versions
+    -t, --greatest
+        find the highest versions available instead of the latest stable versions
+
+    -u, --upgrade
+        overwrite package file
+    -a, --upgradeAll
+        include even those dependencies whose latest version satisfies the declared semver dependency
+    -m, --packageManager <name>
+        npm (default) or bower (default: npm)
+
+    --configFilePath <path>      rc config file path (default: ./)
+    --configFileName <path>      rc config file name (default: .ncurc.{json,yml,js})

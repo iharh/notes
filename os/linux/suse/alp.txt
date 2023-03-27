@@ -1,0 +1,8 @@
+2022
+https://www.suse.com/c/the-first-prototype-of-adaptable-linux-platform-is-live/
+    https://www.opennet.ru/opennews/art.shtml?num=57872
+        * cutted "host OS" (based on "SLE Micro" - https://microos.opensuse.org/)
+        * app-support-layer, oriented to running in containers and VMs
+            ** podman,
+            ** k3s
+    https://download.opensuse.org/repositories/SUSE:/ALP:/PUBLISH/images/

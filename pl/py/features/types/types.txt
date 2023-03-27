@@ -1,0 +1,37 @@
+None
+a is None
+
+True/False
+bool(0)
+    False
+bool(other int)
+    True
+bool(0.0)
+    False
+...
+bool([])
+    False
+bool([1, 6])
+    True
+bool("")
+    False
+
+0x
+0b
+0o
+int(3.5)
+    3
+
+3e8
+1.616e-35
+float(7)
+float("1.68")
+nan
+float("inf")
+float("-inf")
+
+There are a lot of zero-objects, not equal to each other...
+__nonzero__
+
+Fraction???
+    bit-int arithmetics

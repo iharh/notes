@@ -1,0 +1,6 @@
+OID - type of object id
+oid - column is hidden by default
+
+Reg-types
+    aliases OID for some tables of sys-catalog
+    (regclass for pg_class, regnamespace, ... and so on)

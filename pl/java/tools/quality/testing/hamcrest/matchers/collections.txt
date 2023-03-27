@@ -1,0 +1,12 @@
+2019
+https://www.baeldung.com/hamcrest-collections-arrays
+
+org.hamcrest.collection.IsIterableContainingInAnyOrder
+https://github.com/hamcrest/JavaHamcrest/blob/master/hamcrest/src/main/java/org/hamcrest/collection/IsIterableContainingInAnyOrder.java
+
+public abstract class TypeSafeDiagnosingMatcher<T> extends BaseMatcher<T> {
+
+    public final boolean matches(Object item) {
+        return item != null && this.expectedType.isInstance(item) && this.matchesSafely(item, new Description.NullDescription());
+    }
+

@@ -1,0 +1,17 @@
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html
+    https://github.com/aws/containers-roadmap
+
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/get-set-up-for-amazon-ecr.html
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html
+
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html
+    https://github.com/awslabs/amazon-ecr-credential-helper
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-settings.html
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html
+https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
+
+api
+https://docs.aws.amazon.com/AmazonECR/latest/APIReference/CommonParameters.html
+https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.html
+https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ListImages.html

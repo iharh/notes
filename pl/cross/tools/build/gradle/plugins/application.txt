@@ -1,0 +1,11 @@
+apply plugin: 'application'
+    this is a built-in plugin
+    implies java and distribution plugins
+
+mainClassName = "org.gradle.sample.Main"
+
+applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
+
+TASKS:
+application
+    run

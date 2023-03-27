@@ -1,0 +1,12 @@
+https://www.freeoffice.com/en/
+https://www.freeoffice.com/en/freeoffice
+https://www.freeoffice.com/en/freeoffice-comparison
+
+https://www.freeoffice.com/en/download/applications
+https://www.freeoffice.com/en/tips-and-tricks-linux
+    # Ubuntu
+    sudo -i
+    wget -qO - https://shop.softmaker.com/repo/linux-repo-public.key | apt-key add -
+    echo "deb https://shop.softmaker.com/repo/apt stable non-free" > /etc/apt/sources.list.d/softmaker.list
+    apt update
+    apt install softmaker-freeoffice-2021

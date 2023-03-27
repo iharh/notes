@@ -1,0 +1,16 @@
+A logical group of containers that we can replicate, schedule, and balance service endpoints across
+
+apiVersion: v1
+kind: Pod
+metadata:
+    name: hello
+spec:
+    containers:
+    - name: hello
+      image: busybox
+      imagePullPolicy: Never # don't check updates from DockerHub
+      command:
+      - sleep
+      - "60"
+
+!!! port is just a way to tell k8s that we declare appropriate port-num

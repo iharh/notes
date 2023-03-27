@@ -1,0 +1,69 @@
+TODO:
+    check nixos-generate-config
+
+https://linux.die.net/man/1/virt-install
+https://manpages.ubuntu.com/manpages/xenial/man1/virt-install.1.html
+
+https://libvirt.org/formatdomain.html
+https://libvirt.org/formatdomain.html#resource-partitioning
+
+https://www.golinuxcloud.com/virt-install-examples-kvm-virt-commands-linux/
+
+2021
+https://www.technicalsourcery.net/posts/nixos-in-libvirt/
+    /var/lib/libvirt/images/nixos.qcow2 vda
+
+brctl show
+
+virt-install -v \
+  --name=nixos \
+  --connect qemu:///system \
+  --virt-type kvm \
+  --memory=16392 \
+  --vcpus=4 \
+  --boot=uefi \
+  --network bridge=virbr0,model=virtio \
+  --graphics vnc \
+  --console pty,target_type=virtio \
+  --os-variant nixos-unstable \
+  --cdrom ~/Downloads/dist/nixos-plasma5-23.05pre451105.06999209d7a-x86_64-linux.iso \
+  --disk /var/lib/libvirt/images/nixos.qcow2,size=50,bus=virtio
+
+# --nographics \
+#,device=disk,bus=virtio,size=16
+# --memory=8196 \
+
+virsh
+    net-list --all
+
+http://server1.sharewiz.net/doku.php?id=kvm:list_os_variants
+    sudo apt install libosinfo-bin
+    osinfo-query os
+
+virt-viewer --connect qemu:///system --wait nixos
+
+efi
+https://ostechnix.com/enable-uefi-support-for-kvm-virtual-machines-in-linux/
+    "customize configuration before install"
+    UEFI x86_64: /usr/share/OVMF/OVMF_CODE.fd
+    loader=/usr/share/OVMF/OVMF_CODE.fd
+
+https://docstore.mik.ua/manuals/hp-ux/en/5991-1247B/ch04s13.html
+https://linuxhint.com/use-uefi-interactive-shell-and-its-common-commands/
+    help m*
+    map -r
+        -r - for refresh
+    fs1:
+        ls
+    ls/dir
+    bfcfg
+        boot dump -b
+        boot mv 04 00
+    cd
+        EFI/BOOT
+        exec ...
+    edit
+    exit
+    reset -s
+
+https://github.com/wstein/virt-install-nixos

@@ -1,0 +1,14 @@
+https://releases.nixos.org/?prefix=nixos
+https://releases.nixos.org/?prefix=nixos/unstable/
+https://releases.nixos.org/?prefix=nixos/unstable-small/
+
+aria2c -c -s 16 -x 16 -k 1M -j 1 ...
+sha256sum ...
+
+https://releases.nixos.org/nixos/unstable/nixos-23.05pre451105.06999209d7a/nixos-plasma5-23.05pre451105.06999209d7a-x86_64-linux.iso
+    nixos-plasma5-23.05pre451105.06999209d7a-x86_64-linux.iso	2516582400	0bf1ee934cede388d39fe8c9a196e3e7b237ecaf4fd9b9aef2ddaf6cbe3f981d
+    https://releases.nixos.org/nixos/unstable/nixos-23.05pre451105.06999209d7a/nixos-plasma5-23.05pre451105.06999209d7a-x86_64-linux.iso
+
+https://releases.nixos.org/nixos/unstable/nixos-23.05pre454549.545c7a31e5d
+    nixos-minimal-23.05pre454549.545c7a31e5d-x86_64-linux.iso	876609536	61e563529c7eb6ec4d6e9d73ad7d3c4c85b3b0b379f9a2b9c7c04920b28fcfdc
+    https://releases.nixos.org/nixos/unstable/nixos-23.05pre454549.545c7a31e5d/nixos-minimal-23.05pre454549.545c7a31e5d-x86_64-linux.iso

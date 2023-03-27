@@ -1,0 +1,105 @@
+Presentations:
+Functional Programmer's Guide to Homotopy Type Theory
+https://www.youtube.com/watch?v=caSOTjr1z18
+http://dlicata.web.wesleyan.edu/pubs/l16icfp/l16icfpslides.pdf
+
+- each type is a space, with points and paths
+- programs are points
+- points can be "literally the same" or connected by a path
+
+- Many types are discrete (Nat). There are no interesting paths there
+- Paths look like equality
+  refl
+    id : Path M M
+  sym
+    \alpha^-1 : Path N M
+  trans
+    \beta . \alpha : Path M P
+
+- Gotcha: Path are really "data" (structure, values),
+  They are not predicates, check, property.
+
+  There are structure on a type
+
+  In particulare - we can have 2 paths between 2 points.
+  They can be not literally the same
+
+  Homotopy (or continuous deformation) - is a path between paths
+
+  Path is the "morphism of groupoid" from the CT point of view.
+
+
+- Functions "secretly-continuous" act on path (not only on points).
+
+// Applicative => Monad stuff
+
+- Path-related types do not have same elements
+-- but paths between types induce bijections
+    coe p : A -> B
+    coe p^-1 : B -> A
+    (mutually inverse)
+-- moving along a path might do some work (coersion might do smth.)
+
+- Voevodsky's univalence axiom:
+Conversely, bijections induce/create paths between types*
+---------------------------------------------------------
+
+- Coercing along univalence
+-- What can we do with paths? !!! We can coerce along them !!!
+
+
+! Remember, functions are secretly act on path
+- Type constructors act on points
+- And "secretly" act on paths
+  \alpha: Path A A'
+  \beta : Path B B'
+  -----------------------------------------
+  \alpah -> \beta: Path (A -> B) (A' -> B')
+
+  A path between types has to induce a bijection
+
+  coe (\alpha -> \beta) (h: A -> B) =
+    coe \beta . h . coe \alpha^-1
+
+- In a world where all functions secretly "do" something...
+-- get "code for free" / generic programs
+-- can add new principles that depend on them
+
+- Univalence is an instance of that
+-- in a world where all functions act on paths,
+   ... and paths between types induce bijections
+-- you can allow bijections to induce paths
+   ... and (therefore you can get the ability to).-. lift any bijection by a generic program
+
+
+- Which types act on paths?
+Works fro:
+* \PI, \SIGMA,+,Path, (co)inductives
+Does not work for:
+* intersection types
+  made explicit as x of predicates
+* intensional type analysis (case A of BxC => ...)
+  can define non-univalent inductive codes for types
+
+- Paths are data
+- Cubical type theories
+
+- Datatypes with paths (define you own paths, other from bijections)
+-- Patches as Paths (Morehouse, Harper)
+--- paths between paths (squares) - laws, that patches must sattisfy
+
+!!!
+- The whole space of models - we can equip types with some stuff to get distinct kinds of generic programs
+!!!
+
+
+Fibration = Family of types
+
+Fibration (classically):
+
+map p: E -> B
+
+such that any path from p(e) to y
+lifts to a path in E from e to some poing in p^-1(y)
+
+space, parameterized by another space

@@ -1,0 +1,18 @@
+2021
+LiliumCode - Spring Data Elasticsearch of 7 parts
+    https://www.youtube.com/playlist?list=PLXy8DQl3058OoJqGLFdqoBkBKm2T0kS9B
+    https://www.youtube.com/watch?v=IiZZAu2Qtp0
+2020
+Reelsen - Introduction into Elasticsearch & Spring Data Elasticsearch 0:00 of 1:20:09
+    https://www.youtube.com/watch?v=84t_jC3dr3E
+    https://noti.st/spinscale/YCsKrf/introduction-into-elasticsearch-spring-data-elasticsearch
+        QueryBuilders
+        https://spinscale.de/posts/2020-08-06-introduction-into-spring-data-elasticsearch.html
+        https://noti.st/spinscale/YCsKrf/introduction-into-elasticsearch-spring-data-elasticsearch#ssINBth
+            must
+            filter
+            mustNot
+            SearchHit<Contribution>
+            elasticSearchTemplate
+            NativeSearchQuery
+            Aggregations

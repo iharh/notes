@@ -1,0 +1,45 @@
+2019
+Math Teachers Open Seminar - 9 (Maykop)
+    https://www.youtube.com/playlist?list=PLVdkoATzj9WR-VAo4B-xBaXEY3bh10TN7
+    https://www.youtube.com/playlist?list=PLVdkoATzj9WSU_C7ZeOG4ZcJpE63CKaYa
+
+Savvateev - 100 lessons
+    https://www.youtube.com/watch?v=GfXJCKp26_s
+    http://cmcagu.ru/docs/Seminar/Materials/100urokov-probs.pdf
+        ! general idea: k kazhdomu mat factu nado priyti s raznyh istoricheskih storon
+        ! nehilo porabotat s dvizheniyami i podobiyami (Shal theorem)
+        umnoshenie complex chisel -> slozhenie ih uglov
+        S_3, S_4 (podgruppy, ...)
+        ? OTA
+        Arithmetics of movements
+        - theorem of Lagranzha o tsepnyh drobyah (v tsepnoy drobi s boem daetsya kazhdy novy coef sqrt(2))
+        1-y punkt erlangenskoy programmy Kleyna
+            Geometry (1872) - mnozhestvo, gruppa preobrazovaniy, podmnozhestva
+            - nado izuchat svoistva, invariantnye pri deystvii gruppy (dvizhenie, podobiya)
+            - raznye geometrii s raznymi gruppami v osnove
+        Complex numbers as matrices
+            a -b
+            b  a
+        Rozhdestv teorema Ferma (p = 4k + 1  => p = n^2 + m^2)
+        Geom dok-vo irracionalnosti sqrt(2)
+        101-ugolnik, 60-ugolnik (3-k i na toy zhe kartinke 5-ugolnik => 60-ugolnik)
+            - odna obschaya vershina i samaya malenkaya storona
+            60m - 101n = 1
+        Nepr drobi
+        101/60 = 1 + 41/60 = 1 + (1/(1 + 19/41)) = ... = 1..1..2..6..3 - coef-ty tsepnoy drobi
+        ! Tsepnaya drob - eto algorithm Evklida !
+
+Shtern - Calculus or Math Analysis
+    https://www.youtube.com/watch?v=i0sSMlvcCVA
+    http://cmcagu.ru/docs/Seminar/Materials/Shtern.pdf
+        ! glavnaya ideya podhoda "dlinnyh kursov" (57 school)
+        !   odna iz problem vypusknika v VUZ-e - nauchitsya vosprinimat dlinnyi curs
+        -   davayte nauchim shlolnika minimum pol-goda dumat ob odnom i tom zhe
+        !   v itogo - psihologicheskaya situaciya delaetsya bolee ustoychivoy i comfortnoy
+        -   pri nabore v 57-yu shkolu smotryat, kak dolgo rebenok mozhet s toboy razgovarivat
+        -   ! rabotaet eto ne dlya vseh
+        + uchebnik Pratusevicha Stolbova Golovina - mnogo matanaliza
+        - propedevtika analiza - combinatorics and infinity (+ ashap.ru)
+        + teoriya beskonechnyh grafov (teorema Ramseya)
+        ! pochemu garmonicheskiy ryad rashoditsya !
+

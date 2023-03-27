@@ -1,0 +1,15 @@
+https://github.com/Kotlin/kotlinx.serialization
+
+2020
+https://blog.jetbrains.com/kotlin/2020/10/kotlinx-serialization-1-0-released/
+https://www.rockandnull.com/kotlin-json/
+https://jakewharton.com/simple-multiplatform-rpc-with-kotlin-serialization/
+2019
+https://ahsensaeed.com/enum-class-serialization-kotlinx-serialization-library/
+https://ahsensaeed.com/sealed-classes-kotlinx-serialization-deserialization/
+
+//DEPS org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1
+
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+

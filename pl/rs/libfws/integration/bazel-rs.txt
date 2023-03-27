@@ -1,0 +1,10 @@
+https://crates.io/crates/cargo-raze
+https://github.com/acmcarther/cargo-raze
+https://github.com/acmcarther/cargo-raze-examples
+
+https://crates.io/crates/cargo-proto-raze
+https://github.com/acmcarther/cargo-raze-vendor
+https://github.com/acmcarther/raze-manual-example
+https://github.com/acmcarther/raze-autogen-example
+
+"You can use Bazel to build Rust with rules_rust for the Rust compiler toolchain and cargo_raze to resolve Cargo.toml dependencies into WORKSPACE rules. See cargo_raze_crater for an example."

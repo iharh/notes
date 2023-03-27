@@ -1,0 +1,10 @@
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-disabling-specific-auto-configuration
+
+export JAVA_OPTS=-Xmx1024m -XX:MaxPermSize=128M
+
+@Configuration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-using-springbootapplication-annotation
+
+@SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan

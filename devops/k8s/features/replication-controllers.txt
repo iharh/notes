@@ -1,0 +1,28 @@
+RCs
+
+Ensures that an instance of an image is being run with the specific number of copies.
+
+Replica sets - new (beta) improved version of RCs
+
+nodejs-controller.yaml
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+    name: node-js
+    labels:
+        name: node-js
+spec:
+    replicas: 3
+    selector:
+        name: node-js
+    template:
+        metadata:
+            labels:
+                name: node-js
+        spec:
+            containers:
+            - name: node-js
+              image: jonbaier/node-express-info:latest
+              ports:
+              - containerPort: 80

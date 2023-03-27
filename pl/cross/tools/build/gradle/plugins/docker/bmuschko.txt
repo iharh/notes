@@ -1,0 +1,94 @@
+bmuschko gradle-docker-plugin:
+
+https://github.com/bmuschko/gradle-docker-plugin
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/RELEASE_NOTES.md
+
+articles
+2018
+http://bmuschko.com/blog/dockerized-spring-boot-app/
+
+image
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/groovy/com/bmuschko/gradle/docker/tasks/image/Dockerfile.groovy
+    instruction
+        ? arg ?
+    label, from, maintainer
+    runCommand, defaultCommand
+    addFile, copyFile
+    volume, exposePort, environmentVariable
+    entryPoint, user, workingDir
+
+    task createDockerfile(type: Dockerfile) {
+        // destFile = project.file('build/docker/Dockerfile')
+        from 'docker-registry.clarabridge.net:5000/cb_plat/cb-java:8u152'
+    }
+
+build
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/groovy/com/bmuschko/gradle/docker/tasks/image/DockerBuildImage.groovy
+    @InputDirectory File inputDir = project.file('docker')
+    @InputFile @Optional File dockerFile
+
+push
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/groovy/com/bmuschko/gradle/docker/tasks/image/DockerPushImage.groovy
+
+repository!!!
+https://github.com/nebula-plugins/nebula-docker-plugin/wiki
+
+api
+http://bmuschko.github.io/gradle-docker-plugin/docs/groovydoc/overview-summary.html
+
+misc
+gradle-docker-plugin\src\main\groovy\com\bmuschko\gradle\docker\utils\DockerThreadContextClassLoader.groovy 
+
+samples
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/groovy/com/bmuschko/gradle/docker/DockerJavaApplicationPlugin.groovy
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/functTest/groovy/com/bmuschko/gradle/docker/DockerWorkflowFunctionalTest.groovy
+
+issues
+https://github.com/bmuschko/gradle-docker-plugin/issues/467
+https://github.com/docker-java/docker-java/issues/830
+https://github.com/orzeh/gradle-docker-plugin-spring-boot-m4/blob/master/build.gradle
+https://github.com/bmuschko/gradle-docker-plugin/issues/399
+using from sub-script
+    https://github.com/bmuschko/gradle-docker-plugin/issues/280
+    https://github.com/bmuschko/gradle-docker-plugin/issues/248#issuecomment-234098958
+
+
+https://github.com/docker-java/docker-java
+
+com.github.docker-java:docker-java:1.4.0
+user.home
+    docker-java.properties
+
+
+com.github.dockerjava.core.DockerClientBuilder
+.getInstance
+
+https://github.com/bmuschko/gradle-docker-plugin/issues/96
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/main/groovy/com/bmuschko/gradle/docker/response/image/ListImagesResponseHandler.groovy
+
+
+registry
+https://github.com/bmuschko/gradle-docker-plugin/blob/master/src/functTest/groovy/com/bmuschko/gradle/docker/AbstractDockerRemoteApiTaskFunctionalTest.groovy
+docker {
+    url = 'tcp://remote.docker.com:2375'
+    certPath = new File('${customCertPath.canonicalPath}')
+    registryCredentials {
+        url = 'https://some.registryCredentials.com/'
+        username = 'johnny'
+        password = 'pwd'
+        email = 'john.doe@gmail.com'
+    }
+}
+
+spring-boot integration
+http://bmuschko.github.io/gradle-docker-plugin/#spring_boot_application_plugin
+https://bmuschko.com/blog/dockerized-spring-boot-app/
+https://github.com/bmuschko/gradle-docker-plugin/pull/619
+
+shading
+dependencies {
+    // dockerJava jar hell fix
+    dockerJava 'com.nirima:docker-java-shaded:0.16.2' -> docker-java-shaded-3.1.0-rc-3
+    dockerJava 'org.slf4j:slf4j-simple:1.7.5'
+    dockerJava 'cglib:cglib:3.2.0'
+}

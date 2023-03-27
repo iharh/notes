@@ -1,0 +1,23 @@
+https://nixos.wiki/wiki/NixOS#Generations
+removing old generations
+    https://gist.github.com/xeppaka/f6126eebe030a000aa14ed63cc6e8496
+        sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old
+        nix-collect-garbage -d
+        sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+        sudo bash -c "cd /boot/loader/entries; ls | grep -v nixos-generation-<cur-num> | xargs rm"
+
+https://nixos.org/manual/nix/stable/#sec-nix-collect-garbage
+    mostly - an alias for nix-store --gc
+    but with additional options (old stuff deletion)
+
+options
+    nix.gc.automatic = true;
+    nix.gc.options = "--delete-older-than 8d";
+
+nix-collect-garbage
+    --dry-run
+    --delete-older-than 30d
+    -d
+        delete ALL previous generations - you can no longer rollback after running this
+        to delete everything (old generations from all profiles) from a nix store
+

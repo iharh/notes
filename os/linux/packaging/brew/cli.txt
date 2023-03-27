@@ -1,0 +1,20 @@
+brew
+    install [--only-dependencies]
+    outdated
+    upgrade
+    cleanup
+        -s
+        --prune=<days>
+        -n, --dry-run
+    tap
+
+    config
+    doctor, dr
+    info, abv
+    list, ls [--multiple --versions]
+    missing
+    which-formula <cmd>
+    services
+        --help
+        list
+        info <srv-name>

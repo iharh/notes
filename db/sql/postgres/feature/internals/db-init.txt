@@ -1,0 +1,11 @@
+db-init (not created from scratch, but are copied from some template)
+    public
+    template0
+        never should be changed
+        we can use it as a template in order to change lc_locale, lc_collate
+        (which is impossible from template1)
+    template1
+        general/common changes
+        By default -> copy all from template1
+            we can create all the common stuff beforehand -> template1
+

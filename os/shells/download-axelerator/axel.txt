@@ -1,0 +1,7 @@
+https://github.com/axel-download-accelerator/axel
+
+apt/axel
+
+cfg (documented at /etc/share/doc/axel/examples/)
+/etc/axelrc
+~/.axelrc

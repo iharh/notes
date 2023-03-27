@@ -1,0 +1,39 @@
+2022
+https://itnext.io/c-20-modules-complete-guide-ae741ddbae3d
+    g++ -std=c++20 -fmodules-ts -xc++-system-header iostream
+2021
+https://www.linux.org.ru/forum/development/16499787/page5#comments
+Daniela Engert - A short tour of C++ Modules - Modules demystified and applied - Meeting C++ 2021 of 1:07:54
+    https://www.youtube.com/watch?v=35SlLAGLRIA
+    https://meetingcpp.com/mcpp/slides/2021/a-short-tour-of-c++-modules-meetingc++3476.pdf
+Engert - A (short) Tour of C++ Modules of 1:01:04
+https://www.dropbox.com/s/nsf78apr81wtvog/cpp-20-modules.pdf
+https://itnext.io/c-20-modules-complete-guide-ae741ddbae3d
+https://medium.com/@happy.cerberus/c-20-modules-complete-guide-ae741ddbae3d
+https://pspdfkit.com/blog/2020/cpp20-in-2020-modules/
+    https://habr.com/ru/company/otus/blog/575954/
+https://build2.org/blog/build2-cxx20-modules-gcc.xhtml
+2019
+Lelbach - Modules are coming
+    https://www.youtube.com/watch?v=yee9i2rUF3s
+    https://meetingcpp.com/mcpp/slides/2019/modules_are_coming__r3__2019__meeting_cpp2379.pdf
+Engert - Modules - The Beginners Guide
+    https://www.youtube.com/watch?v=Kqo-jIq4V3I
+    https://meetingcpp.com/mcpp/slides/2019/modules-the-beginners-guide-meetingcpp2019.pdf
+Kolpackov - Practical C++ Modules
+    https://www.youtube.com/watch?v=szHV6RdQdg8
+https://vector-of-bool.github.io/2019/10/07/modules-3.html
+DosReis - Programming with C++ Modules: Guide for the Working
+    https://www.youtube.com/watch?v=tjSuKOz5HK4
+DosReis - CPPP 2019 - C++ Modules: What You Should Know
+    https://www.youtube.com/watch?v=MP6SJEBt6Ss
+Adelstein - Modules are Coming
+    https://www.youtube.com/watch?v=bDTm6y6fNSU
+http://eao197.blogspot.com/2019/03/progc-cmodules-there-is-no-place-for.html
+https://vector-of-bool.github.io/2019/03/10/modules-1.html
+https://vector-of-bool.github.io/2019/01/27/modules-doa.html
+2018
+https://cor3ntin.github.io/posts/modules_naming/
+https://cor3ntin.github.io/posts/modules_mapping/
+Lakos - C++ Modules and Large-Scale Development
+    https://www.youtube.com/watch?v=K_fTl_hIEGY

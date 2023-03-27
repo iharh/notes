@@ -1,0 +1,6 @@
+:def bbb \x -> return $ show x
+
+:def setPrintHeapDepth \x -> return $ ":def! printHeap \\x -> return $ \"GHC.HeapView.buildHeapGraph (" ++ x ++ ") (GHC.HeapView.asBox (\" ++ x ++ \")) >>= putStrLn . GHC.HeapView.ppHeapGraph\""
+
+:def printHeap \x -> return $ "GHC.HeapView.buildHeapGraph 1000 (GHC.HeapView.asBox (" ++ x ++ ")) >>= putStrLn . GHC.HeapView.ppHeapGraph"
+

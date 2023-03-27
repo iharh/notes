@@ -1,0 +1,89 @@
+cheatsheet
+https://devhints.io/postgresql-json
+    jsonbfield ? 'attr'
+    jsonbfield @> '{"attr":true}'::jsonb
+    jsonbfield @> '{"sports": ["football"]}'::jsonb
+        does left include right
+
+https://www.postgresql.org/docs/current/datatype-json.html
+
+https://www.postgresql.org/docs/current/functions-json.html
+    ->
+    ->> ... as text
+
+    select '[{"a":"foo"},{"b":"bar"},{"c":"baz"}]'::json -> 2
+        {"c":"baz"}
+    select '{"a":1,"b":"abc"}'::json ->> 'b';
+
+jsonb_array_elements ( jsonb ) -> setof jsonb (like unnest for arrays)
+
+Expands the top-level JSON array into a set of JSON values.
+
+select * from json_array_elements('[1,true, [2,false]]')->>'a.b.c' ->
+
+   value
+-----------
+ 1
+ true
+ [2,false]
+
+where
+    ( jsonb_extr..._path_new(obj.jsonb_array_field, '*', 'value') @> cast(ARRAY['<some_my_val>'] as varchar[]) ) = true
+
+... from jsonbfield @> '{"sports": ["football"]}'::jsonb
+----
+... {"trips": 3, "sports": ["football", "swimming"]}
+... {"trips": 0, "sports": ["football", "tennis"]}
+
+select ... where jsonbfield ? 'some-key'
+    check where some-key exists
+
+update ... set jsonbfield = jsonbfield || '{"sports": ["hockey"]}'
+    append ...
+    alternatively we can use function:
+        jsonb_set
+
+jsonpath
+https://www.postgresql.org/docs/devel/datatype-json.html#DATATYPE-JSONPATH
+
+
+samples
+https://rextester.com/CTGVI25902
+
+2022
+https://thorben-janssen.com/persist-postgresqls-jsonb-data-type-hibernate/
+    https://habr.com/ru/company/otus/blog/688714/
+https://hevodata.com/learn/postgres-json-query/
+    !
+https://aaronbos.dev/posts/postgres-14-json
+2021
+https://speakerdeck.com/pgpro/pro-jsonb-highload-plus-plus-spring-2021
+https://speakerdeck.com/pgpro/speed-up-jsonb
+https://www.crunchydata.com/blog/better-json-in-postgres-with-postgresql-14
+2020
+https://speakerdeck.com/citusdata/jsonb-tricks-operators-indexes-and-when-to-not-use-it-sf-bay-area-postgresql-meetup-colton-shepard
+https://levelup.gitconnected.com/working-with-a-jsonb-array-of-objects-in-postgresql-d2b7e7f4db87
+    ... jsonb_array_elements(items_purchased) with ordinality arr(item_object, position) ...
+https://dzone.com/articles/using-jsonb-in-postgresql-how-to-effectively-store
+https://scalegrid.io/blog/using-jsonb-in-postgresql-how-to-effectively-store-index-json-data-in-postgresql/
+https://kevcodez.de/posts/2020-09-13-postgres-jsonb-update-object-array/
+    !
+https://pgconf.ru/media/2020/02/04/%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BD%D1%8B%D0%B5%20%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B8%20JSON.pdf
+2019
+https://speakerdeck.com/citusdata/jsonb-tricks-operators-indexes-and-when-to-not-use-it-postgresopen-2019-colton-shepard-3b693cab-c3c2-4e99-bc2a-bd37d21aff96
+https://habr.com/ru/company/postgrespro/blog/448612/
+https://www.enterprisedb.com/blog/jsquery-vs-sqljson
+https://www.postgresql.eu/events/pgconfeu2019/sessions/session/2555/slides/221/jsonpath-pgconfeu-2019.pdf
+https://www.freecodecamp.org/news/how-to-update-objects-inside-jsonb-arrays-with-postgresql-5c4e03be256a/
+https://leandrocp.com.br/2019/04/how-to-update-objects-inside-jsonb-arrays-with-postgresql/
+https://blog.andreiavram.ro/merge-json-arrays-postgresql/
+2018
+https://speakerdeck.com/erthalion/nosql-best-practices-for-postgresql
+2014
+https://schinckel.net/2014/05/25/querying-json-in-postgres/
+    https://habr.com/ru/post/254425/
+
+samples
+
+select 33 as id, jsonb_array_elements('[{"a": 1}, {"b": 2}]'::jsonb);
+select arr_el -> 1 as id from jsonb_array_elements('[["a", 11], ["a", 12]]'::jsonb) as arr_el;

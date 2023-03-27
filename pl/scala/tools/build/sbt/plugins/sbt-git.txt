@@ -1,0 +1,16 @@
+https://github.com/sbt/sbt-git
+https://github.com/ScalaWilliam/git-watch/blob/master/build.sbt
+
+src:
+https://github.com/sbt/sbt-git/blob/master/src/main/scala/com/typesafe/sbt/SbtGit.scala
+
+https://github.com/sbt/sbt-git/blob/master/src/main/scala/com/typesafe/sbt/git/JGit.scala
+https://github.com/sbt/sbt-git/blob/master/src/main/scala/com/typesafe/sbt/git/JGitRunner.scala
+https://github.com/sbt/sbt-git/blob/master/src/main/scala/com/typesafe/sbt/git/ReadableGit.scala
+
+libraryDependencies ++= Seq(
+  "org.eclipse.jgit" % "org.eclipse.jgit.pgm" % "4.5.0.201609210915-r"
+    exclude("javax.jms", "jms")
+    exclude("com.sun.jdmk", "jmxtools")
+    exclude("com.sun.jmx", "jmxri")
+)

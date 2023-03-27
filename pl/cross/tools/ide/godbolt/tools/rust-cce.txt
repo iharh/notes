@@ -1,0 +1,20 @@
+https://crates.io/crates/cce
+
+https://github.com/ethanhs/cce
+    ! 2yo
+
+2019
+https://asciinema.org/a/lRhuNuTp33d8i2aMwhdNVd8ON
+
+cli
+cce
+    help
+
+    list
+        langs
+        compilers [-l rust]
+
+    compile
+        arm64g630 -- -O3
+        --url g81 test.c
+        g81 test.c

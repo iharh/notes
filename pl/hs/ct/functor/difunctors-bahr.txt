@@ -1,0 +1,7 @@
+class Difunctor f where
+  dimap :: (a -> b) -> (c -> d) -> (f b c -> f a d)
+
+instance Difunctor (->)
+  dimap f g h = g . h . f
+
+

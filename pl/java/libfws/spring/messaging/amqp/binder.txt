@@ -1,0 +1,62 @@
+https://cloud.spring.io/spring-cloud-stream-binder-rabbit/multi/multi__configuration_options.html
+    ! some stuff is absent here
+
+https://javadoc.io/doc/org.springframework.cloud/spring-cloud-stream/latest/index.html
+
+org.springframework.cloud.stream.binder.ConsumerProperties
+    https://javadoc.io/static/org.springframework.cloud/spring-cloud-stream/3.2.4/org/springframework/cloud/stream/binder/ConsumerProperties.html
+        https://gitter.im/spring-cloud/spring-cloud-stream?at=5e82101f74b89638fbea60a5
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          consumer:
+            maxAttempts: 7
+            backOffInitialInterval: 1500
+            backOffMaxInterval: 20000
+            backOffMultiplier: 1.5
+
+ExponentialBackOffPolicy   : Sleeping for 1500
+ExponentialBackOffPolicy   : Sleeping for 2250
+ExponentialBackOffPolicy   : Sleeping for 3375
+ExponentialBackOffPolicy   : Sleeping for 5062
+ExponentialBackOffPolicy   : Sleeping for 7593
+ExponentialBackOffPolicy   : Sleeping for 11389
+
+
+org.springframework.cloud.stream.binder.AbstractBinder
+  ...
+  	/**
+	 * Create and configure a default retry template unless one has already been provided
+	 * via @Bean by an application.
+	 * @param properties The properties.
+	 * @return The retry template
+	 */
+	protected RetryTemplate buildRetryTemplate(ConsumerProperties properties) {
+		RetryTemplate rt;
+		if (CollectionUtils.isEmpty(this.consumerBindingRetryTemplates)) {
+			rt = new RetryTemplate();
+			SimpleRetryPolicy retryPolicy = CollectionUtils
+					.isEmpty(properties.getRetryableExceptions())
+							? new SimpleRetryPolicy(properties.getMaxAttempts())
+							: new SimpleRetryPolicy(properties.getMaxAttempts(),
+									properties.getRetryableExceptions(), true,
+									properties.isDefaultRetryable());
+
+			ExponentialBackOffPolicy backOffPolicy = new ExponentialBackOffPolicy();
+			backOffPolicy.setInitialInterval(properties.getBackOffInitialInterval());
+			backOffPolicy.setMultiplier(properties.getBackOffMultiplier());
+			backOffPolicy.setMaxInterval(properties.getBackOffMaxInterval());
+			rt.setRetryPolicy(retryPolicy);
+			rt.setBackOffPolicy(backOffPolicy);
+		}
+		else {
+			rt = StringUtils.hasText(properties.getRetryTemplateName())
+					? this.consumerBindingRetryTemplates
+							.get(properties.getRetryTemplateName())
+					: this.consumerBindingRetryTemplates.values().iterator().next();
+		}
+		return rt;
+	}

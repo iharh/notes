@@ -1,0 +1,21 @@
+# Install required packages
+RUN set -x \
+ && yum update -y \
+ && yum install -y \
+    wget \
+    nc \
+    unzip \
+ && yum clean -y all
+
+RUN set -ex \
+ && wget -q https://download.java.net/java/early_access/jdk11/28/GPL/openjdk-11+28_linux-x64_bin.tar.gz \
+ && tar zxf openjdk-11+28_linux-x64_bin.tar.gz -C /usr/local \
+ && alternatives --install /usr/bin/java java /usr/local/jdk-11/bin/java 1 \
+ && alternatives --install /usr/bin/jar jar /usr/local/jdk-11/bin/jar 1 \
+ && alternatives --install /usr/bin/javac javac /usr/local/jdk-11/bin/javac 1 \
+ && alternatives --set jar /usr/local/jdk-11/bin/jar \
+ && alternatives --set javac /usr/local/jdk-11/bin/javac \
+ && rm -rf openjdk-11+28_linux-x64_bin.tar.gz
+
+ENV JAVA_HOME=/usr/local/jdk-11
+ENV PATH=$PATH:/usr/local/jdk-11/bin

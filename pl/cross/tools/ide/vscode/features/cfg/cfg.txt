@@ -1,0 +1,31 @@
+https://code.visualstudio.com/docs/getstarted/settings
+
+cfg:
+https://code.visualstudio.com/docs/customization/userandworkspace
+C:/Users/<>/AppData/Roaming/Code/
+    User/
+        keybindings.json
+        settings.json
+            https://github.com/neko-neko/dotfiles/blob/master/vscode/settings.json
+            https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations
+                $HOME/.config/Code/User/settings.json
+    storage.json
+
+https://stackoverflow.com/a/65909052/19026060
+https://stackoverflow.com/questions/65908987/how-can-i-open-visual-studio-codes-settings-json-file
+https://supunkavinda.blog/vscode-editing-settings-json
+    Preferences: Open Setting (UI)
+    Preferences: Open Default Setting (JSON)
+        ??? /defaultSettings.json
+    Preferences: Open User Setting
+    Preferences: Open User Setting (JSON)
+    Preferences: Open Workspace Setting
+    Preferences: Open Workspace Setting (JSON)
+    
+
+https://code.visualstudio.com/docs/supporting/faq#_how-do-i-opt-out-of-vs-code-autoupdates
+https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting
+
+2019
+https://medium.freecodecamp.org/here-are-some-super-secret-vs-code-hacks-to-boost-your-productivity-20d30197ac76
+    https://habr.com/post/435770/

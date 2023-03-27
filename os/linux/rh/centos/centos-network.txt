@@ -1,0 +1,62 @@
+yum search network | grep manager
+su -
+yum remove NetworkManager
+
+sudo service network restart
+sudo chkconfig --list network
+
+tracepath
+traceroute
+
+route
+  to get a route table (!!! man route gives info about interesting files)
+
+ip
+  a lot of interesting stuff (route for example)
+
+DHCP:
+
+sudo dhclient eth0
+  ??? hangs
+
+/etc/sysconfig/network-scripts/ifcfg-eth0
+
+DHCP_HOSTNAME=...
+
+other stuff here:
+DEVICE="eth0"
+BOOTPROTO=??? none
+  to disable boot protocol
+NM_CONTROLLED="no"
+  network-manager controlled
+ONBOOT="yes"
+TYPE="Ethernet"
+NETWORK=<ip-net>
+  the address of the network
+NETMASK=<ip-mask>
+IPADDR=<ip-addr>
+
+MASTER=bond0
+SLAVE=yes
+
+# !!! mandatory both for CentOS 6 and 7
+/etc/sysconfig/network
+
+HOSTNAME=...
+GATEWAY=<ip-gateway>
+NETWORKER=yes
+
+/etc/resolv.conf
+
+nameserver <ip-nameserver>
+
+
+!!! BOOT LOADING !!!
+/etc/modprobe.d/
+
+files for loading kernel modules
+bonding.conf:
+
+alias bond0 bonding
+options bond0 mode=6 miimon=100
+

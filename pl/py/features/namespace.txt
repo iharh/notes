@@ -1,0 +1,16 @@
+2020
+https://realpython.com/python-namespaces-scope/
+    https://nuancesprog.ru/p/9211/
+????
+http://www.artima.com/weblogs/viewpost.jsp?thread=4829
+
+def main(args):
+    try:
+        ...
+    except:
+        ...
+        sys.exit(1)
+
+if __name__ == '__main__':
+    import sys
+    main(sys.argv)

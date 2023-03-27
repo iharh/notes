@@ -1,0 +1,31 @@
+https://chartio.com/resources/tutorials/how-to-log-queries-in-postgresql/
+https://stackoverflow.com/questions/1348126/postgresql-modify-owner-on-all-tables-simultaneously-in-postgresql
+
+grant/revoke
+
+grant all privileges on database <name> to <user-role>;
+reassign owned by <old-owner> to <new-owner>;
+
+create policy...
+current_user()
+
+!!! it is very important to specify owning user while creating/initializing DB
+    initdb -U <user-name> ...
+pwd
+    postgres=# ALTER USER postgres PASSWORD 'PGSQL-123';
+
+list
+    \du
+    \du+
+    https://www.postgresqltutorial.com/postgresql-list-users/
+    select * from pg_catalog.pg_user;
+
+https://www.a2hosting.com/kb/developer-corner/postgresql/managing-postgresql-databases-and-users-from-the-command-line
+
+https://stackoverflow.com/questions/5189026/how-to-add-a-user-to-postgresql-in-windows
+
+make superuser
+https://chartio.com/resources/tutorials/how-to-change-a-user-to-superuser-in-postgresql/
+
+qa
+https://stackoverflow.com/questions/8092086/create-postgresql-role-user-if-it-doesnt-exist

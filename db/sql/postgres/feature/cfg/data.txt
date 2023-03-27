@@ -1,0 +1,6 @@
+/var/lib/postgres/data
+
+    owned by usr: postgres
+
+    ./postgresql.conf
+    lc_[messages|monetary|numeric|time] = 'en_US.UTF-8'

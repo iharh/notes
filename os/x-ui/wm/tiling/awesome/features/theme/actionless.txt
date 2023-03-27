@@ -1,0 +1,13 @@
+https://www.linux.org.ru/gallery/screenshots/14543979
+
+https://github.com/actionless/awesome_config
+    https://github.com/themix-project/oomox/blob/master/colors/retro/classic_x_new
+        pacman -Qql awesome_config_actionless_meta
+        /usr/bin/
+            awesome_argb
+            awesome_no_argb
+        /usr/share/xsessions/
+            awesome_argb.desktop
+            awesome_no_argb.desktop
+    !!! highly depends on beautiful.gtk
+    https://github.com/awesomeWM/awesome/commit/4bd5b1940dbfb7d8275cc8a55b870b5fde55ebfc#diff-45ad409b45603061b8a7d3bd863c9555

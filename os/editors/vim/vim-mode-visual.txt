@@ -1,0 +1,38 @@
+:h visual-mode
+	!!! a lot of usefull stuff
+:h v_
+	Help on all the keys in visual-mode
+:h v_b_
+	Help on all the keys in visual-block-mode
+
+vit-patter-without-first-v
+	use a/i and motion (w, ...) to select inside visual mode
+o
+	Toggle position of cursor in selection
+O
+	Switch to the other corner (for Visual-Block mode).
+u
+	Lowercase selection
+U
+	Uppercase selection
+r<sym>
+	Replace the selected text by single symbol <sym>
+!<cmd>
+	Replace the selection by the <cmd>-results
+=
+	Indent the selection
+~
+	Change the case in selection
+gq
+	Format/Wrap the selected text
+
+
+						*CTRL-V-alternative* *CTRL-Q*
+Since CTRL-V is used to paste, you can't use it to start a blockwise Visual
+selection.  You can use CTRL-Q instead.  You can also use CTRL-Q in Insert
+mode and Command-line mode to get the old meaning of CTRL-V.  But CTRL-Q
+doesn't work for terminals when it's used for control flow.
+
+NOTE: The clipboard support still has a number of bugs.  See |todo|.
+
+

@@ -1,0 +1,23 @@
+2019
+https://www.reddit.com/r/rust/comments/bu2fmn/how_print_a_generic_type_debugt/
+https://frehberg.com/2019/05/rust-handling-executables-and-their-debug-symbols/
+2018
+http://smallcultfollowing.com/babysteps/blog/2018/09/21/office-hours-0-debugging-with-gdb/
+    > cargo +nightly test -v
+    ...
+         Running `/home/espirit/target/debug/deps/prettier_rs-7c95ceaface142a9`
+    > RUST_TEST_THREADS=1 rust-gdb target/debug/deps/prettier_rs-7c95ceaface142a9
+    > break rust_panic
+        Breakpoint 1 at 0x55555564e273: file libstd/panicking.rs, line 525.
+    > run
+    > bt
+
+    https://github.com/mozilla/rr/wiki/Usage
+    https://huonw.github.io/blog/2015/10/rreverse-debugging/
+
+https://medium.com/@tigercosmos/programming-servo-the-debug-way-5db01f09b7f4
+https://bryce.fisher-fleig.org/blog/debugging-rust-programs-with-lldb/index.html
+
+2017
+https://jvns.ca/blog/2017/12/23/segfault-debugging/
+https://www.reddit.com/r/rust/comments/7lqcl4/debugging_a_segfault_in_my_rust_program_julia/

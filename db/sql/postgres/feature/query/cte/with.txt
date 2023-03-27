@@ -1,0 +1,11 @@
+https://www.postgresql.org/docs/current/queries-with.html
+
+with recursive some_name(
+    ... from some_name ...
+)
+...
+
+with
+    name1(p11, p12, ...)
+    name2(p21, p22, ...)
+    ...

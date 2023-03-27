@@ -1,0 +1,157 @@
+yum_repository 'cb-sunjava' do
+  description 'Clarabridge Sun Java'
+  baseurl "#{node['cb']['eureka']['yumRepo']}/yum/sunjava/"
+  gpgcheck false
+  action :create
+end
+
+---
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: 12.14.89
+  log_file: 'kitchen.log'
+  # log_level: :info # don't work
+suites:
+  - name: linux
+
+    # eureka
+
+    run_list:
+      - recipe[cb-eureka::default]
+    driver:
+      name: vagrant
+      customize: 
+        memory: 2048
+      network:
+        - ["private_network", {ip: "192.168.235.61"}]
+    attributes:
+      cb:
+        eureka:
+          yumRepo: 'http://192.168.235.101:8081'
+          nexusRepo: 'http://192.168.235.101:8081/content/repositories'
+        msa:
+          yumRepo: 'http://192.168.235.101:8081'
+          nexusRepo: 'http://192.168.235.101:8081/content/repositories'
+          # yumRepo: 'http://192.168.0.103:8080'
+          # nexusRepo: 'http://192.168.0.103:8080/content/repositories'
+
+    # vector-provider
+
+    run_list:
+      - recipe[cb-vector-provider::default]
+    driver:
+      name: vagrant
+      vm_hostname: nlp-vector-provider.vagrant.test
+      vagrantfiles:
+        - ../../vagrant/landrush/landrush.rb 
+      customize: 
+        memory: 8192
+        # memory: 15062
+      network:
+        - ["private_network", {ip: "192.168.235.62"}]
+    attributes:
+      cb:
+        msa:
+          yum-repo: 'http://192.168.235.101:8081'
+          nexus-repo: 'http://192.168.235.101:8081/content/repositories'
+          # yum-repo: 'http://192.168.0.103:8080'
+          # nexus-repo: 'http://192.168.0.103:8080/content/repositories'
+          eureka-hosts: ['192.168.235.61']
+        pvp:
+          chef-test: false
+          inst:
+            selected: ['es-01']
+
+    # prediction
+
+    run_list:
+      - recipe[cb-prediction::default]
+      - recipe[cb-prediction::export-node]
+      - recipe[cb-prediction::kitchen-native]
+    driver:
+      name: vagrant
+      vm_hostname: nlp-prediction.vagrant.test
+      vagrantfiles:
+        - ../../vagrant/landrush/landrush.rb 
+      customize: 
+        memory: 4096
+      network:
+        - ["private_network", {ip: "192.168.235.63"}]
+    attributes:
+      cb:
+        msa:
+          yum-repo: 'http://192.168.235.101:8081'
+          nexus-repo: 'http://192.168.235.101:8081/content/repositories'
+          # yum-repo: 'http://192.168.0.103:8080'
+          # nexus-repo: 'http://192.168.0.103:8080/content/repositories'
+          eureka-domain: ''
+        eureka:
+          instanceZone: 'usZone'
+          availabilityZones: 'usZone,emeaZone'
+          us:
+            nodemap:
+              eur-us-1: '192.168.235.61'
+        prediction:
+          chef-test: false
+          pvp-inst:
+            verify: ['es']
+
+    # cps
+
+    run_list:
+      - recipe[cb-cps::default]
+      #- recipe[cb-cps::trace]
+    driver:
+      name: vagrant
+      customize: 
+        memory: 8192
+        # memory: 15062
+      network:
+        - ["private_network", {ip: "192.168.235.69"}]
+    attributes:
+      cb:
+        msa:
+          yumRepo: 'http://192.168.235.101:8081'
+          nexusRepo: 'http://192.168.235.101:8081/content/repositories'
+          # yumRepo: 'http://192.168.0.103:8080'
+          # nexusRepo: 'http://192.168.0.103:8080/content/repositories'
+          eurekaHost: '192.168.235.69'
+        cps:
+          chef-test: false
+          #yumRepo: 'http://192.168.235.101:8081'
+          #nexusRepo: 'http://192.168.235.101:8081/content/repositories/releases'
+        pvp:
+          inst:
+            selected: ['es-01']
+
+
+    # template
+    run_list:
+      - recipe[cb-template-service::first]
+      - recipe[cb-template-service::export-node]
+      - recipe[cb-template-service::kitchen-native]
+    driver:
+      name: vagrant
+      vm_hostname: nlp-template.vagrant.test
+      vagrantfiles:
+        - ../../vagrant/landrush/landrush.rb 
+      customize: 
+        memory: 4096
+      network:
+        - ["private_network", {ip: "192.168.235.64"}]
+    attributes:
+      cb:
+        msa:
+          yumRepo: 'http://192.168.235.101:8081'
+          nexusRepo: 'http://192.168.235.101:8081/content/repositories'
+          # yumRepo: 'http://192.168.0.103:8080'
+          # nexusRepo: 'http://192.168.0.103:8080/content/repositories'
+          eureka-domain: ''
+        eureka:
+          instanceZone: 'usZone'
+          availabilityZones: 'usZone,emeaZone'
+          us:
+            nodemap:
+              eur-us-1: '192.168.235.61'
+        industryTemplate:
+          build: '1'

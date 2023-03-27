@@ -1,0 +1,3 @@
+https://crates.io/crates/zoxide
+https://github.com/ajeetdsouza/zoxide
+    nix-env -iA nixpkgs.zoxide

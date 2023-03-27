@@ -1,0 +1,61 @@
+2022
+Vashinator - How to Install NixOS 0:00 of 18:33
+    https://www.youtube.com/watch?v=W15LEtDDQYY
+    ! no flakes
+JatinthSamuel - NixOS 22.05 - Using my NixOS config of 26:47
+    https://www.youtube.com/watch?v=03eSzzVIq2k
+    https://gitlab.com/jacinthsamuel/nixos
+    https://gitlab.com/jacinthsamuel/nixos/-/blob/master/configuration.nix
+    https://gitlab.com/jacinthsamuel/nixos/-/blob/master/hardware-configuration.nix
+    ! fdisk-partitioning, good and mini, without flakes
+SarcasticDream - NixOS Install and setup with XFCE (Part 2.) 0:00 of 15:26
+    https://www.youtube.com/watch?v=YremTVCGfiM
+SarcasticDream - NixOS Install and setup with XFCE (Part 1.) 0:00 of 24:35
+    https://www.youtube.com/watch?v=4KDaQIcp7Vw
+    https://github.com/sarcasticdream/NixOS-build
+    !!! 
+2021
+JaredMcDonald - NixOS Server: Installation & Overview 0:00 of 18:54
+    https://www.youtube.com/watch?v=DiDm5V_nmzE
+2020
+Steinbach- Sane System Management with NixOS - I Do Declare!- λC 2019
+    https://www.youtube.com/watch?v=_LDzO5_d1a0
+    ! need to look, slide-based only
+    ! 35:15 - config
+DistroTube - NixOS Is A Fascinating Linux Distribution
+    https://www.youtube.com/watch?v=J7Hdaqs1rjU
+    !   #
+        lightdm/displayManager.defaultSession = "none+qtile";
+        windowsManager = {
+            qtile.enable = true;
+        };
+        ...
+        nitrogen
+        picom
+        dmenu
+        ...
+        $ nix-shell -p firefox --run firefox
+
+DorianDotSlash - NixOS Pt 3 - How The Store and Packages Work
+    https://www.youtube.com/watch?v=qZtXOjHl3-U
+DorianDotSlash - NixOS Pt 2 - Dual Boot and UEFI
+    https://www.youtube.com/watch?v=82vrj22omyQ
+DorianDotSlash - NixOS: How it works and how to install it!
+    https://www.youtube.com/watch?v=oPymb2-IXbg
+    ! MBR-based
+    ! C-A-F3, passwd <usr>, C-A-F7
+    ! sudo vim /etc/nixos/configuration.nix
+    !   displayManager, desktopManager
+    ! sudo nixos-rebuild switch
+        !!! need to set root passwd
+    ! user-wide -
+    ! nix-env
+        -qa <package-to-search-incl-regex-stars-etc>
+        -qaP ...
+            nixos.<bla-bla> -> pkgs.<bla-bla> at configuration.nix
+
+Tyler'sTech - NixOS - Installation and First Impressions
+    https://www.youtube.com/watch?v=IdoCOqkAexY
+2019
+OSi - How to install NixOS
+    https://www.youtube.com/watch?v=ngmco6GZVWo

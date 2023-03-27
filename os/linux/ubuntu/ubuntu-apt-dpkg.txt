@@ -1,0 +1,74 @@
+http://www.tecmint.com/useful-basic-commands-of-apt-get-and-apt-cache-for-package-management/
+https://help.ubuntu.com/community/SwitchingToUbuntu/FromLinux/RedHatEnterpriseLinuxAndFedora
+
+https://help.ubuntu.com/community/AptGet/Howto
+https://help.ubuntu.com/community/Repositories/CommandLine
+
+updating/upgrading stuff:
+https://linuxize.com/post/how-to-upgrade-to-ubuntu-18-04-bionic-beaver/
+    apt-get update
+    apt-get upgrade
+    apt-get dist-upgrade
+
+    sudo apt-get install update-manager-core
+    /etc/update-manager/release-upgrades
+        Prompt=normal
+    do-release-upgrade
+        lsb_release -a
+        hostnamectl
+        cat /etc/os-release
+
+removing/purging:
+
+apt-get remove
+apt-get purge (or remove --purge)
+
+To get rid of stale packages: (/var/cache/apt/archives)
+
+apt-get autoremove (dependencies only which aren't required anymore)
+apt-get autoclean (Remove only obsolete packages from the local cache directory)
+apt-get clean
+
+
+Listing files of package:
+http://askubuntu.com/questions/32507/how-do-i-get-a-list-of-installed-files-from-a-package
+http://superuser.com/questions/82923/how-to-list-files-of-a-debian-package-without-install
+
+dpkg -listfiles <package-name>
+dpkg -L <package-name>
+
+
+List all the installed packages:
+
+https://help.ubuntu.com/community/ReinstallingSamePackages
+http://askubuntu.com/questions/17823/how-to-list-all-installed-packages
+
+dpkg --get-selections | grep -v deinstall
+
+
+gettins sources of package:
+
+apt-get -q source $package
+
+
+kernels purging:
+
+http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu-or-free-sp
+
+uname -r
+dpkg --list | grep linux-image
+dpkg --list | grep linux-headers
+sudo apt-get purge linux-image-x.x.x.x-generic
+sudo update-grub2
+
+
+
+info, dependencies
+
+apt-cache showpkg
+apt-cache depends
+apt-cache rdepends
+
+cache stats:
+
+apt-cache stats

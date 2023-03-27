@@ -1,0 +1,12 @@
+Desugaring of do blocks (almost):
+
+do e                  -> e
+do {e; stmts}         -> e >> do {stmts}
+do {v <- e; stmts}    -> e >>= \v -> do {stmts}
+do {let decls; stmts} -> let decls in do {stmts}
+
+
+do (x:xs) <- foo
+  bar x
+
+If foo produces an empty list, then fail-function of Mand type-class will be used (See sect 3.14 of Haskell Report).

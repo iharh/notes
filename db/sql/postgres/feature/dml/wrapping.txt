@@ -1,0 +1,32 @@
+https://edu.postgrespro.ru/sqlprimer/sqlprimer-2019-msu-05.pdf
+    ! p18, p28
+
+with update_row as
+(update aircrafts_tmp
+  set range = range * 1.2
+  where model ~ '^Bom'
+  returning *
+) -- usefull work
+insert into aircrafts_log
+select ur.aircraft_code, ur.model, ur.range,
+current_timestamp, 'UPDATE'
+from update_row ur;
+-- writing into log
+
+INSERT 0 1
+
+important: main query can access updated data only throught the temporary table, created by "returning ...".
+(... from update_row ur;)
+
+
+with delete_row as
+(delete from aircrafts_tmp
+  where model ~ '^Bom'
+  returning *
+)
+insert into aircrafts_log
+select dr.aircraft_code, dr.model, dr.range,
+current_timestamp, 'DELETE'
+from delete_row dr;
+
+INSERT 0 1

@@ -1,0 +1,3 @@
+https://javadoc.io/doc/org.springframework.cloud/spring-cloud-stream/latest/org/springframework/cloud/stream/annotation/package-summary.html
+https://javadoc.io/doc/org.springframework.cloud/spring-cloud-stream/latest/org/springframework/cloud/stream/annotation/StreamListener.html
+      (target = MyProcessor.INPUT, condition = "payload < 10")

@@ -1,0 +1,103 @@
+https://docs.gradle.org/current/dsl/
+https://docs.gradle.org/current/dsl/index.html
+
+Configuration
+https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html
+Project
+https://docs.gradle.org/current/dsl/org.gradle.api.Project.html
+    projectDir
+    rootProject/getRootProject()
+    ?allprojects/getAllprojects()
+    subprojects
+    rootDir
+Task
+https://docs.gradle.org/current/dsl/org.gradle.api.Task.html
+PrebuiltLibraries, PrebuiltLibrary
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/PrebuiltLibrary.html
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/NativeLibraryBinary.html
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/PrebuiltSharedLibraryBinary.html
+ProjectDescriptor
+https://docs.gradle.org/current/javadoc/org/gradle/api/initialization/ProjectDescriptor.html
+
+src
+https://github.com/gradle/gradle/blob/master/subprojects/docs/src/docs/dsl/dsl.xml
+https://github.com/gradle/gradle/tree/master/subprojects/core/src/main/java/org/gradle/api/internal
+
+presentations
+2017
+Dobrynin, Mihalev - DSL Groovy
+    https://www.youtube.com/watch?v=aJd0vmmEwqs
+    https://assets.contentful.com/oxjq45e8ilak/415pJaAdRCsieGmaQA8AQe/cd57b67ff50e0f39bb5d3abe2e3f3716/DSL_Groovy.pdf
+
+projects
+
+allprojects.each ...
+subprojects {
+    if (project.name == "somename") {
+        ...
+    }
+}
+
+PROPERTIES:
+
+ext.hello = ...
+    we can use ext. globally to avoid conflicts
+
+and locally:
+
+task myTask {
+    ext.myProp = "myVal"
+}
+
+task printTaskProps {
+    println myTask.myProp
+}
+
+
+TASKS:
+
+task ... { ... }
+Note: closure - is just a last parameter to the task-method per the groovy syntax
+
+task hi(dependsOn: 'hello') << { ... }
+hi.dependsOn 'compileJava'
+build.dependsOn 'hi'
+
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+    ...
+}
+
+project('projectA') { ... dependsOn: ':projectB:taskY' ... }
+project('projectB') { ... }
+
+http://mrhaki.blogspot.com.by/2010/10/gradle-goodness-display-available-tasks.html
+
+taskX.dependsOn {
+    tasks.findAll { task -> task.name.startsWith('lib') }
+}
+
+task hi.doFirst { ... }
+task hi.doLast { ... }
+
+task copyJars(type: Copy) {
+    from configurations.testRuntime
+    into "$buildDir/jars"
+}
+task collectJars(type: Copy) {
+    from configurations.testRuntime
+    into "$buildDir/output/lib"
+}
+
+Core Types:
+- Project
+    // exactly the same
+    println name
+    println project.name
+
+-- properties
+--- ant, logger, dependencies, ...
+-- methods
+--- apply, exec, file, task, ...
+
+misc os stuff
+targetPlatform.operatingSystem.windows

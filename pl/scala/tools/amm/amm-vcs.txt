@@ -1,0 +1,48 @@
+https://github.com/sbt/sbt-git/blob/master/src/main/scala/com/typesafe/sbt/git/JGit.scala
+
+https://github.com/rtyley/scala-git
+
+gitbucket
+https://github.com/gitbucket/gitbucket/blob/master/src/main/scala/gitbucket/core/util/JGitUtil.scala
+
+JGit
+http://wiki.eclipse.org/JGit/User_Guide
+https://git-scm.com/book/en/v2/Embedding-Git-in-your-Applications-JGit
+
+http://download.eclipse.org/jgit/docs/latest/apidocs
+http://download.eclipse.org/jgit/site/4.5.0.201609210915-r/apidocs/index.html
+
+https://speakerdeck.com/alblue/embedding-jgit-into-java-applications
+http://www.slideshare.net/alexblewitt/embedding-jgit
+
+https://github.com/centic9/jgit-cookbook
+http://www.codeaffine.com/2015/12/15/getting-started-with-jgit/
+
+// https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit
+libraryDependencies += "org.eclipse.jgit" % "org.eclipse.jgit" % "4.5.0.201609210915-r"
+resolvers += "jgit-repo" at "http://download.eclipse.org/jgit/maven"
+"org.eclipse.jgit" % "org.eclipse.jgit" % "3.5.1.201410131835-r"
+
+
+https://github.com/lihaoyi/hands-on-scala-js/blob/master/build.sbt
+https://www.javacodegeeks.com/2014/09/how-to-access-a-git-repository-with-jgit.html
+https://github.com/windymelt/exercise-scala-jgit/blob/master/src/main/scala/momijikawa/exercise/Exercisejgit.scala
+https://gist.github.com/seratch/3792334
+https://gist.github.com/zenon/4071282
+https://gist.github.com/noorul/a365391b398b06a74558
+https://github.com/epfl-lara/leon-web/blob/master/app/leon/web/models/RepositoryInfos.scala
+
+http://www.codeaffine.com/2014/12/09/jgit-authentication/
+CredentialsProvider
+
+FetchCommand
+MergeCommand
+PullCommand
+
+
+ScalaGit
+https://github.com/kaisellgren/ScalaGit
+
+http://www.davidhampgonsalves.com/Scala-SVN
+SVNKit
+SvnCliendAdaptor (dep of SVNAnt)

@@ -1,0 +1,10 @@
+https://edu.postgrespro.ru/sqlprimer/sqlprimer-2019-msu-04.pdf
+    ! p105
+    with recursive ranges(min_sum, max_sum) as (
+        values (0, 100000)
+        union all
+        select min_sum + 100000, max_sum + 100000
+        from ranges
+        where max_sum < (select max(total_amount) from bookings)
+    )
+    select * from ranges

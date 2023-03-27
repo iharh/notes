@@ -1,0 +1,6 @@
+const rootReducer = combineReducers({
+    todoState: todoReducer,
+    filterState: filterReducer,
+});
+
+??? ...

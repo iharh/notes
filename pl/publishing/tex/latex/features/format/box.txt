@@ -1,0 +1,7 @@
+https://en.wikibooks.org/wiki/LaTeX/Boxes
+
+http://tug.ctan.org/macros/latex/contrib/pbox/pbox.pdf
+
+Kottwitz - p69
+    \parbox[alignment]{width}{text}
+    \parbox{3cm}{bla bla bla}

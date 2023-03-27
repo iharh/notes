@@ -1,0 +1,9 @@
+Since Java 9 JDK_JAVA_OPTIONS and JDK_JAVAC_OPTIONS are also picked up by the Java runtime and compiler automatically.
+For Java 8 and if you want to set explicitly only for jbang you can also add flags by setting JBANG_JAVA_OPTIONS and JBANG_JAVAC_OPTIONS respectively.
+
+Control compile and runtime options with //JAVAC_OPTIONS <flags> and //JAVA_OPTIONS <flags>
+
+//JAVA 14+
+//JAVAC_OPTIONS -parameters
+
+JAVA_TOOL_OPTIONS

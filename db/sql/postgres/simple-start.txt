@@ -1,0 +1,6 @@
+create role jpa with login password 'jpa-pwd';
+-- \du
+create database jpa_db with owner = jpa encoding = 'UTF8';
+-- \l
+create table if not exists j_user ( id integer not null constraint j_user_pkey primary key );
+-- \dt

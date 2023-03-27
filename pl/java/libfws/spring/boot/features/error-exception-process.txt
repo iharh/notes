@@ -1,0 +1,104 @@
+2021
+https://dzone.com/articles/spring-boot-exception-handling
+    https://github.com/SeunMatt/smattme-tutorials/tree/master/spring-boot-exception-handling
+https://reflectoring.io/spring-boot-exception-handling/
+2019
+https://thepracticaldeveloper.com/2019/09/09/custom-error-handling-rest-controllers-spring-boot/
+https://dzone.com/articles/spring-rest-service-exception-handling-1
+2018
+https://dzone.com/articles/customize-error-responses-in-spring-boot
+
+public enum ErrorMessages {
+    MISSING_REQUIRED_FIELD("BlaBla..."),
+    RECORD_ALREADY_EXISTS("AnotherBla...")
+
+    private String errorMessage;
+
+    public ErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+}
+
+public class UserRestController {
+    @PostMapping(...)
+    public User createUser(@RequestBody UserDetailsRequestModel userDetails) throws Exception {
+        if () {
+            throw new Exception(ErrorMessage.MISSING_REQUIRED_FIELD.getErrorMessage());
+            //  {
+            //    "timestamp": "2018-05-09...",
+            //    "status": 500,
+            //    "error": "Internal Server Error",
+            //    "message": "BlaBla...",
+            //    "path": "/users"
+            //  }
+        }
+    }
+}
+
+package ...exception.UserServiceException;
+
+public class UserServiceException extend RuntimeException {
+    private static final long serialVersionUID = 134l...L;
+
+    public UserServiceException(String message) {
+        super(message);
+    }
+}
+
+public class UserRestController {
+    @PostMapping(...)
+    public User createUser(@RequestBody UserDetailsRequestModel userDetails) throws UserServiceException {
+        if () {
+            throw new UserServiceException(ErrorMessage.MISSING_REQUIRED_FIELD.getErrorMessage());
+        }
+    }
+}
+
+package ...exceptions.AppExceptionsHandler;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.Request.WebRequest;
+
+@ControllerAdvice
+public class AppExceptionsHandler {
+
+    @ExceptionHandler(value = {UserServiceException.class}) 
+    public ResponseEntity<Object> handleUserServiceException(UserServiceException ex, WebRequest request) {
+        return new ResponseEntity<>(ex.getMessage, new HTTPHeaders(), HTTPStatus.INTERNAL_SERVER_ERROR);
+        // no Accept headers
+    }
+}
+
+public class ErrorMessage {
+    private Date timestamp;
+    private String errorMessage;
+
+    public ErrorMessage() {
+    }
+
+    // getters/setters
+}
+
+@ControllerAdvice
+public class AppExceptionsHandler {
+
+    @ExceptionHandler(value = {UserServiceException.class}) 
+    public ResponseEntity<Object> handleUserServiceException(UserServiceException ex, WebRequest request) {
+        ErrorMessage errorMessage = new ErrorMessage(new Date(), ex.getMessage());
+        return new ResponseEntity<>(errorMessage, new HTTPHeaders(), HTTPStatus.INTERNAL_SERVER_ERROR);
+        // now we can use headers
+    }
+    @ExceptionHandler(value = {Exception.class}) 
+    public ResponseEntity<Object> handleOtherException(Exception ex, WebRequest request) {
+        ErrorMessage errorMessage = new ErrorMessage(new Date(), ex.getMessage());
+        return new ResponseEntity<>(errorMessage, new HTTPHeaders(), HTTPStatus.INTERNAL_SERVER_ERROR);
+    }
+}

@@ -1,0 +1,10 @@
+https://gcc.gnu.org/onlinedocs/gcc-7.2.0/gccint.pdf
+https://gcc-newbies-guide.readthedocs.io/en/latest/index.html
+
+writing a backend:
+https://kristerw.blogspot.com.by/2017/12/more-about-gcc-instruction-patterns.html
+https://kristerw.blogspot.com.by/2017/08/writing-gcc-backend_4.html
+https://kristerw.blogspot.com.by/2017/08/gcc-low-level-ir-and-basic-code.html
+https://kristerw.blogspot.com.by/2017/08/the-structure-of-gcc-back-end.html
+https://kristerw.blogspot.com.by/2017/08/getting-started-with-gcc-back-end.html
+https://kristerw.blogspot.com.by/2017/08/gcc-target-description-macros-and.html

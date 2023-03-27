@@ -1,0 +1,36 @@
+https://github.com/vagrant-landrush/landrush
+
+vagrant landrush
+    start
+    stop
+    ls
+
+.vagrant.d/data/landrush/
+    config.json
+    hosts.json
+    
+Vagrant.configure("2") do |c|
+  c.landrush.enabled = true if Vagrant.has_plugin?("landrush")
+  c.landrush.guest_redirect_dns = false
+  #c.landrush.host_ip_address = '192.168.235.64'
+end
+
+https://developers.redhat.com/blog/2016/05/27/use-vagrant-landrush-to-add-dns-features-to-your-openshift-cdk-machine/
+http://askubuntu.com/questions/152593/command-line-to-list-dns-servers-used-by-my-system
+
+curl -XGET http://10.0.2.2:8080/content/repositories/releases/clarabridge/cb-deep-thought/1.1.0/
+
+
+
+natdnshostresolver1:
+http://stackoverflow.com/questions/1261975/addressing-localhost-from-a-virtualbox-virtual-machine
+
+  config.vm.provider :virtualbox do |vb, override|
+    ...
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    ...
+  end
+
+nataliasmodel:
+http://www.virtualbox.org/manual/ch09.html#nat-adv-alias
+http://www.virtualbox.org/manual/ch09.html#nat-adv-dns

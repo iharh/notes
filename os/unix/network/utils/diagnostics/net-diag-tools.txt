@@ -1,0 +1,61 @@
+2022
+https://te.legra.ph/Proverka-portov-03-14
+
+packages:
+iputils
+  ping, tracepath
+
+ping (ICMP)
+http://www.unixmen.com/all-about-ping-command/
+
+  RTT -  Round Trip Time - it takes a packet to reach a particular server / host.
+  -s 100
+    us heavy packets of size 100 (32/64 by default)
+  -i 3
+    wait for 3 sec (instead of 1) between sending ...
+    can use 0.2 also
+  -f
+    flood - for testing network performance
+  -q
+    summary only
+  -w 6
+    ping timeout
+
+
+mtr, tracepath, traceroute, tcptraceroute, ...
+http://s1n1ster.blogspot.com.by/2013/02/tcptraceroute.html
+
+    tracing is needed to recognize a way to the dst
+    mtr - does not stop with 3 packets
+      uses ICMP datagrams
+      hop - jumps
+      TTL - TCP header, number of routers (0, 1, 2, 3)
+    traceroute
+      uses UDP ... (but can be changes via -I)
+    tracepath
+      between them...
+
+nc/telnet
+    nc can as set-up connection and listen it also
+    nc <host> <port>
+        USER
+        USER <username>
+        PASS <pass>
+        ...
+        QUIT
+    nc -l <port>
+    ...
+    echo Hello world | nc localhost 8080
+        
+nmap:
+https://blog.urfix.com/10-cool-nmap-tricks-techniques/
+
+    check open ports at the remote <host>
+    by sending TCP packets
+
+    nmap -sT -O <host>
+
+tcpdump/tshark
+    tcpdump analyzes headers only
+    tcpdump -n -i lo [port 80]
+        scan the lo i-face

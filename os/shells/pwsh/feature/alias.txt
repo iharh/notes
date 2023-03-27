@@ -1,0 +1,2 @@
+new-alias -name <some-name> -value <some-value>
+    -erroraction SilentlyContinue

@@ -1,0 +1,12 @@
+https://github.com/vector-im/element-web/blob/develop/docs/labs.md
+
+    https://github.com/vector-im/element-web/blob/develop/docs/config.md
+    https://github.com/vector-im/element-desktop#user-specified-configjson
+        curl https://develop.element.io/config.json > ~/.config/Element/config.json
+
+    4. showLabsSettings: Shows the "labs" tab of user settings.
+       Useful to allow users to turn on experimental features they might not otherwise have access to.
+
+https://github.com/vector-im/element-web/blob/develop/docs/feature-flags.md
+
+You can configure the app by copying config.sample.json to config.json and customising it:

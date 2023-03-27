@@ -1,0 +1,13 @@
+http://rumpkernel.org/
+https://github.com/rumpkernel/rumprun
+https://github.com/rumpkernel/wiki/wiki/Tutorial%3A-Rumprun-unikernel-video-series
+https://github.com/rumpkernel/rumprun-packages
+
+https://github.com/rumpkernel/rumprun-packages/tree/master/rust
+
+https://gandro.github.io/2015/09/27/rust-on-rumprun/
+https://polyfractal.com/post/adding-a-disk-to-a-rust-rumprun-unikernel/
+
+https://research.csiro.au/tsblog/using-rump-kernels-to-run-unmodified-netbsd-drivers-on-sel4/
+
+https://nponeccop.livejournal.com/582438.html

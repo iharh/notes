@@ -1,0 +1,3 @@
+svn up[date]
+    -r <rev>
+        update to specific revision

@@ -1,0 +1,46 @@
+https://github.com/bytedeco/javacpp/wiki/Mapping-Recipes
+
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/tools/Info.html
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/tools/InfoMap.html
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/tools/InfoMapper.html
+
+https://github.com/bytedeco/javacpp/issues/261
+
+import org.bytedeco.javacpp.tools.Info;
+import org.bytedeco.javacpp.tools.InfoMap;
+import org.bytedeco.javacpp.tools.InfoMapper;
+
+public class SomeLibrary implements InfoMapper {
+    @Override
+    public void map(InfoMap infoMap) {
+        infoMap
+            .put(new Info("wchar_t", "WCHAR").cast().valueTypes("char", "int").pointerTypes("CharPointer", "IntPointer"))
+            .put(new Info("std::wstring").annotations("@StdWString").valueTypes("CharPointer", "IntPointer"))
+        ;
+    }
+    ...
+}
+
+https://github.com/bytedeco/javacpp/issues/144
+https://github.com/bytedeco/javacpp/issues/162
+
+public static class GetClipboardTextFn_Pointer extends FunctionPointer {
+    static { Loader.load(); }
+    /** Pointer cast constructor. Invokes {@link Pointer#Pointer(Pointer)}. */
+    public    GetClipboardTextFn_Pointer(Pointer p) { super(p); }
+    protected GetClipboardTextFn_Pointer() { allocate(); }
+    private native void allocate();
+    public native @Cast("const char*") BytePointer call(Pointer user_data);
+}
+@MemberGetter public native GetClipboardTextFn_Pointer GetClipboardTextFn();
+
+https://github.com/bytedeco/javacpp/issues/29
+
+StringVector
+https://raw.githubusercontent.com/bytedeco/javacpp-presets/master/caffe/src/main/java/org/bytedeco/javacpp/caffe.java
+    FieldDescriptorVector
+https://github.com/bytedeco/javacpp/issues/22
+
+misc
+public native @Cast("char*")        BytePointer buffer(...);
+public native @Cast("const char*")  BytePointer call(...);

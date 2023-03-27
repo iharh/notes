@@ -1,0 +1,38 @@
+https://sourceware.org/gdb/onlinedocs/gdb/index.html
+
+tutorials
+https://www.tutorialspoint.com/gnu_debugger/gdb_quick_guide.htm
+http://www.yolinux.com/TUTORIALS/GDB-Commands.html
+need to read
+    http://apoorvaj.io/hitchhikers-guide-to-the-gdb.html
+
+Python API
+https://developers.redhat.com/blog/2017/11/10/gdb-python-api/
+
+https://sourceware.org/gdb/current/onlinedocs/gdb/Python-API.html
+https://sourceware.org/gdb/current/onlinedocs/gdb/Writing-a-Pretty_002dPrinter.html
+https://sourceware.org/gdb/current/onlinedocs/gdb/Pretty-Printing-API.html#Pretty-Printing-API
+
+https://github.com/cs01/gdbgui/
+
+articles
+2016
+http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html
+
+presentations
+2018
+https://github.com/CppCon/CppCon2018/blob/master/Presentations/liberating_the_debugging_experience_with_the_gdb_python_api/liberating_the_debugging_experience_with_the_gdb_python_api__jeff_trull__cppcon_2018.pdf
+
+/etc/gdb/gdbinit
+~/.gdbinit
+
+gdb
+    -h, --help
+        help
+    --configuration
+        print details about gdb-configuration (how gdb itself has been configured while built) and exit
+    --args /your/binary arg1 arg2
+    -ix <file>
+        init from a <file>
+    -x <gdb.br>
+        load breakpoints from <gdb.br> file

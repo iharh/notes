@@ -1,0 +1,90 @@
+2022
+https://ostechnix.com/lvm-linux-commands/
+2021
+https://fedoramagazine.org/my-fedora-linux-home-network-part-1-the-data-server/
+https://linuxhandbook.com/lvm-guide/
+2015
+https://www.tecmint.com/create-lvm-storage-in-linux
+
+72|LXF205 - LVM
+72|LXF202 - LVM
+
+wiki:
+https://wiki.gentoo.org/wiki/LVM
+https://wiki.gentoo.org/wiki/LVM/ru
+
+guide
+https://edumotivation.com/what-is-lvm-logical-volume-manager/
+    https://www.reddit.com/r/commandline/comments/mzilx6/linux_lvm_logical_volume_manager_a_step_by_step/
+
+/boot/grub/grub.cfg
+https://wiki.archlinux.org/index.php/GRUB2#LVM
+
+http://serverfault.com/questions/279571/lvm-dangers-and-caveats
+http://www.tldp.org/HOWTO/LVM-HOWTO/recipesplitvg.html
+
+https://www.unixmen.com/rhcsa-module-2-log-management-disk-partition-lvm-management/
++ luks
+
+need to boot from USB and then:
+
+sudo lvdisplay ManjaroVG/ManjaroRoot
+sudo lvreduce -r -L 48G ManjaroVG/ManjaroRoot
+sudo pvdisplay --maps
+! there is a FREE gap between Root and Swap
+sudo lvremove ManjaroVG/ManjaroSwap
+sudo pvdisplay --maps
+sudo pvresize --setphysicalvolumesize 64G /dev/sda2
+sudo fdisk /dev/sda
+    p - print table
+    v - verify table
+    n - new partition
+
+
+??? vgreduce
+http://askubuntu.com/questions/196125/how-can-i-resize-an-lvm-partition-i-e-physical-volume
+http://microdevsys.com/wp/linux-lvm-resizing-partitions/
+http://www.ibm.com/developerworks/linux/library/l-resizing-partitions-2/index.html
+
+
+    cannot resize to <NNNNN> extents as later ones are allocated.
+
+http://unix.stackexchange.com/questions/67702/how-to-reduce-volume-group-size-in-lvm
+
+
+!!!
+http://microdevsys.com/wp/linux-lvm-resizing-partitions/
+http://superuser.com/questions/435075/how-to-align-logical-volumes-on-contiguous-physical-extents
+http://unix.stackexchange.com/questions/67702/how-to-reduce-volume-group-size-in-lvm
+https://www.linux.org.ru/forum/desktop/7218930
+
+
+
+GParted Live:
+
+http://gparted.sourceforge.net/liveusb.php
+http://gparted.sourceforge.net/download.php
+http://sourceforge.net/projects/gparted/files/gparted-live-stable/
+http://gparted.sourceforge.net/display-doc.php?name=gparted-live-manual
+http://gparted.sourceforge.net/display-doc.php?name=help-manual
+
+Samples:
+1. Create a primary partition at /dev/sdb with type 8e (Linux LVM)
+sudo pvcreate /dev/sdb1
+sudo pvdisplay [-m] [/dev/sdb1]
+
+sudo vgextend VolGroup00 /dev/sdb1
+
+lvdisplay ???
+sudo lvextend /dev/VolGroup00/LogVol00 /dev/sdb1
+
+date && sudo resize2fs /dev/VolGroup00/LogVol00 && date
+
+docker-devicemapper-storage:
+pvcreate /dev/xvdf1
+vgextend centos /dev/xvdf1   # centos - volume group
+# vgreduce centos /dev/xvdf1   # centos - volume group
+vgcreate vgdocker /dev/xvdf1
+lvcreate -l 95%FREE -n lvdocmeta vgdocker
+lvcreate -l 100%FREE -n lvdocdata vgdocker
+lsblk

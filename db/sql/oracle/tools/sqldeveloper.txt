@@ -1,0 +1,20 @@
+
+resources
+http://www.thatjeffsmith.com/sql-developer/
+https://www.thatjeffsmith.com/archive/category/general/pedia/sqldev/
+
+articles
+2018
+https://www.thatjeffsmith.com/archive/2018/02/3-quick-sql-developer-tips-to-kick-off-2018/
+
+presentations
+2017
+Smith
+https://www.youtube.com/playlist?list=PL_qNe_aTKkIUUzDEJ7KuvyldBuynyoDb2
+    Oracle SQL Developer: You're Doing it Wrong
+    https://www.youtube.com/watch?v=rnfO8O2z-Yc
+
+keys
+F5 - run
+F9 - run current line
+F10 - explain plan

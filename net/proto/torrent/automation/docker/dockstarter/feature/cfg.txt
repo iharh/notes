@@ -1,0 +1,12 @@
+env
+https://dockstarter.com/basics/env-var-info/
+
+vars
+.docker/compose/.env
+
+DOCKERCONFDIR=~/.config/appdata/
+DOCKERSTORAGEDIR=~/storage
+...
+# END OF DEFAULT SETTINGS
+...
+QBITTORRENT_PORT_8080='8099'

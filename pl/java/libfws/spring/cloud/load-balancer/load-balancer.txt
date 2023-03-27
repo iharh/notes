@@ -1,0 +1,97 @@
+https://spring.io/guides/gs/spring-cloud-loadbalancer/
+https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#spring-cloud-loadbalancer
+https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#instance-health-check-for-loadbalancer
+
+samples
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+
+@Configuration
+public class RestTemplateConfiguration {
+    ...
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+    ...
+}
+
+application.yml
+
+spring:
+  cloud:
+    loadbalancer:
+      zone: "zone" #remove it, after https://github.com/spring-cloud/spring-cloud-netflix/commit/64e283201198da8cc05eadc9a640384fbec3c9ba is released
+    kubernetes:
+      enabled: false
+      discovery:
+        metadata:
+          addAnnotations: true
+          addLabels: false
+
+eureka:
+  client:
+    enabled: false
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://auth-server/oauth/check_token
+
+
+---
+spring:
+  profiles: simple-discovery
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            cmp-dev:
+              - uri: http://localhost:8180
+
+resttemplate:
+  loadbalancer:
+    enabled: true
+
+---
+spring:
+  profiles: eureka
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: ${spring.cloud.client.hostname}
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${server.port}
+    metadata-map:
+      instanceId: ${eureka.instance.instance-id}
+
+---
+spring:
+  profiles: kubernetes
+  cloud:
+    kubernetes:
+      enabled: true
+
+
+application-test.yml
+
+spring:
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            test-auth-server:
+              - uri: http://localhost:12345
+            test-designer:
+              - uri: http://localhost:12345
+security:
+  oauth2:
+    client:
+      client-id: ingestion-gateway
+      client-secret: testsecret
+    resource:
+      token-info-uri: http://test-auth-server/oauth/check_token

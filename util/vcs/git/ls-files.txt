@@ -1,0 +1,3 @@
+$ git ls-files --eol README.md screenshot.png
+i/lf    w/lf    attr/                   README.md
+i/-text w/-text attr/                   screenshot.png

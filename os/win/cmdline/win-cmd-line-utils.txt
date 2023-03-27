@@ -1,0 +1,170 @@
+https://github.com/madhuakula/wincmdfu
+http://ss64.com/nt/
+http://pcsupport.about.com/od/commandlinereference/fl/cmd-commands.htm
+
+2021
+https://bookflow.ru/spisok-osnovnyh-komand-dlya-bystrogo-dostupa-k-servisam-windows-pdf/
+https://bookflow.ru/shpargalka-po-run-komandam-windows/
+2012
+http://www.windows-commandline.com/2012/04/windows-7-run-commands.html
+2011
+http://www.windows-commandline.com/2011/03/windows-cmd-commands-reference.html
+http://www.windows-commandline.com/2011/10/windows-environment-variables.html
+
+elevated command prompt - http://www.windows-commandline.com/2011/10/elevated-command-prompt.html
+
+control      - Control Panel
+  control /name Microsoft.CredentialManager - Control Panel\User Accounts\Credential Manager
+appwiz.cpl   - Add/Remove Programs (http://www.windows-commandline.com/2011/03/run-command-for-add-or-remove-programs.html)
+serivces.msc - Windows Services
+lusrmgr.msc  - Local Users and Groups Manager
+perfmon[msc] - Windows Performance Monitor
+optionalfeatures - http://www.windows-commandline.com/2011/09/run-command-windows-features-turn-on-off.html
+devmgmt.msc  - Device manager (http://www.windows-commandline.com/2011/03/run-command-for-device-manager.html)
+fsmgmt.msc   - Shared file/folder manager (http://www.windows-commandline.com/2011/03/run-command-for-shared-folders.html)
+eventvwr.exe - Windows Event Viewer (http://www.windows-commandline.com/2010/08/event-viewer-command-line.html)
+               http://www.windows-commandline.com/2011/03/enable-disable-event-log-service.html
+sysdm.cpl    - System properties (Env Vars, Computer Name, ....) - http://www.windows-commandline.com/2010/11/system-properties-windows-run-command.html
+wuaucpl.cpl  - Windows updates (http://www.windows-commandline.com/2009/11/launch-automatic-updates-window-command.html)
+               http://www.windows-commandline.com/2009/11/disable-automatic-updates-command-line.html
+inetcpl.cpl  - Internet options (http://www.windows-commandline.com/2010/11/run-command-launch-internet-properties.html)
+ncpa.cpl     - Network connections (http://www.windows-commandline.com/2009/02/open-network-connections-from-command.html)
+hdwwzd.cpl   - Add hardware wizard (http://www.windows-commandline.com/2009/11/launch-add-hardware-wizard-command-line.html)
+desk.cpl     - Desktop properties (http://www.windows-commandline.com/2009/05/open-display-properties-from-command.html)
+timedate.cpl - Date/Time properties (http://www.windows-commandline.com/2009/07/open-date-and-time-properties-window.html)
+Odbcad32     - ODBC administrator
+cleanmgr     - Clean disk manager
+msinfo32     - System Info Util
+eventcreate  - Create Event from Command-Line (http://www.windows-commandline.com/2012/04/create-event-windows-command-line.html)
+certmgr.msc  - Certificate Manager
+wf.msc       - Windows firewall
+Wmimgmt.msc  - WMI management console 
+diskmgmt.msc - Disk management (http://www.windows-commandline.com/2009/07/launch-disk-management-tool-from.html)
+dfrg.msc     - Disk defrag (http://www.windows-commandline.com/2011/12/run-command-disk-defragmenter.html)
+dfrgui       - Disk Defragmenter UI
+msconfig     - .. Startup progs .. (http://www.windows-commandline.com/2011/03/run-command-for-startup-programs.html)
+
+wscui.cpl    - Windows Security Center
+secpol.msc   - Local security policy (http://www.windows-commandline.com/2011/03/local-security-policy-run-command.html)
+rstrui       - System Restore
+
+pkgmgr       - http://f1geek.com/windows7-problem/how-to-enable-telnet-in-windows-7
+  pkgmgr /iu:"TelnetClient"
+
+Keys:
+
+Win-E     - Open My Computer (http://www.windows-commandline.com/2012/03/command-open-my-computer.html)
+Win-Pause - Properties of My computer
+
+
+label driveletter label
+	Change disk (driveletter) label.
+
+ver          - http://www.windows-commandline.com/2011/12/ver-command.html
+dir          - http://www.windows-commandline.com/2009/01/search-for-file-from-command-line.html
+forfiles     - http://www.windows-commandline.com/forfiles/
+               http://www.windows-commandline.com/find-large-files/
+               http://www.windows-commandline.com/2013/05/search-classes-in-jar-file.html
+cd           - http://www.windows-commandline.com/2011/07/command-prompt-change-directory.html
+del          - remove file (http://www.windows-commandline.com/2011/11/del-command.html)
+               http://www.windows-commandline.com/2010/02/delete-system-file-command-line.html
+rename       - rename file (http://www.windows-commandline.com/2009/01/rename-file-from-command-line.html)
+               rename dir  (http://www.windows-commandline.com/2009/01/rename-directory-from-command-line.html)
+rmdir        - remove dir (http://www.windows-commandline.com/2009/01/delete-directory-from-command-line.html)
+  rmdir /s /q ?%userprofile%\Local Settings\Temporary Internet Files? - http://www.windows-commandline.com/2011/05/delete-temporary-internet-files.html
+takeown      - change ownership for a locked file
+xcopy        - http://www.windows-commandline.com/2010/11/copy-directory-command-line.html
+mkdir        - http://www.windows-commandline.com/2012/03/mkdir-command.html
+find         - http://www.windows-commandline.com/2011/04/windows-find-command-syntax-examples.html
+findstr      - http://www.windows-commandline.com/2011/06/findstr-command-examples-regular.html
+time         - http://www.windows-commandline.com/2009/10/how-to-see-time-from-command-prompt.html
+tzutil       - http://www.windows-commandline.com/2012/03/tzutil-set-timezone-windows-7.html
+runas        - http://www.windows-commandline.com/2011/04/windows-runas-command-prompt.html
+
+Console code page
+
+chcp (withot params to display current code page number)
+chcp 1252
+
+mklink       - create links (symbolic...)
+clip         - puts content to clipboard
+systeminfo   - print system info
+  | findstr /C:"Total Physical Memory" (http://www.windows-commandline.com/2013/04/find-memory-size.html)
+  | findstr /C:?Time Zone?             (http://www.windows-commandline.com/2010/09/find-time-zone-command-line.html)
+  | findstr /B /C:"Domain"             (http://www.windows-commandline.com/2010/09/find-domain-name-command-line.html)
+  | findstr /C:"System Up Time"        (http://www.windows-commandline.com/2010/09/find-system-uptime-command-line.html)
+taskkill     - kill process (http://www.windows-commandline.com/2010/08/kill-process-from-command-line.html)
+taskmgr      - task manager (http://www.windows-commandline.com/2010/07/run-task-manager-command-line.html)
+fsutil       - 
+  volume diskfree <C:|D:|...> - (http://www.windows-commandline.com/2010/06/find-disk-free-space-command-line.html)
+  hardlink                    - hard link mgmt
+  file createnew              - (http://www.windows-commandline.com/2009/01/create-file-from-command-line.html)
+netsh advfirewall - windows firewall (http://www.windows-commandline.com/2011/04/enable-disable-firewall-command-line.html)
+net
+  config     - http://www.windows-commandline.com/2011/10/net-config.html
+  localgroup - http://www.windows-commandline.com/2011/10/net-localgroup.html
+  share      - http://www.windows-commandline.com/2010/09/list-create-delete-network-shares.html
+  accounts   - http://www.windows-commandline.com/2011/10/net-accounts-command.html
+  use        - map network/UNC drives (check delete also)
+  user
+    postgres /delete
+getmac       - http://www.windows-commandline.com/2011/03/get-mac-address-command-line.html
+ipconfig     - http://www.windows-commandline.com/2011/09/ipconfig-command.html
+               http://www.windows-commandline.com/2010/11/get-ip-address-command-line.html
+
+
+taskschd.msc - https://technet.microsoft.com/en-us/library/cc721931.aspx
+schtasks     - Schedule tasks (http://www.windows-commandline.com/2011/03/schedule-tasks-command-line.html)
+    http://www.howtogeek.com/51236/how-to-create-modify-and-delete-scheduled-tasks-from-the-command-line/
+    schtasks /Delete /TN ?My Task?
+At           - Schedule apps (http://www.windows-commandline.com/2010/11/windows-at-command-examples.html)
+
+choice       - http://www.windows-commandline.com/2011/10/choice-command.html
+
+WMI stuff:
+
+wmic cpu get capture - http://www.windows-commandline.com/2011/04/get-cpu-processor-information-command.html
+wmic memorychip ...  - http://www.windows-commandline.com/2013/04/find-memory-size.html
+wmic qfe list        - list of updates (http://www.windows-commandline.com/2010/10/list-of-qfes-updates-installed-windows.html)
+wmic nteventlog ...  - http://www.windows-commandline.com/2011/12/backup-delete-event-log-files.html
+
+rename computer     - http://www.windows-commandline.com/2011/10/change-computer-name-command-line.html
+
+
+Windows Resource Kit commands (http://www.microsoft.com/en-us/download/confirmation.aspx?id=17657)
+
+tail         - get file tail (http://www.windows-commandline.com/2010/08/tail-command-for-windows.html)
+more         - http://www.windows-commandline.com/2011/12/more-command.html
+svrinfo      - remote server info (http://www.windows-commandline.com/2011/06/get-remote-computer-information.html)
+
+Other stuff:
+
+du           - disk usage (http://www.windows-commandline.com/2012/02/windows-disk-usage.html)
+
+Security/Permissions
+
+icacls       - display/modify ACLs (http://ss64.com/nt/icacls.html)
+
+
+FTP access:
+http://www.howtogeek.com/howto/windows/how-to-automate-ftp-uploads-from-the-windows-command-line/
+http://www.nsftools.com/tips/MSFTP.htm
+
+
+RDC/RDP stuff:
+tsdiscon
+    disconnect
+shutdown /l
+    log off
+
+Font and ClearType
+cttune.exe
+http://karpolan.com/software/cleartype-switch/
+http://www.thewindowsclub.com/disable-font-smoothing-windows
+http://superuser.com/questions/737922/how-to-improve-subpixel-hinting-in-windows-7
+http://forum.oszone.net/thread-118411.html
+HKCU\Control Panel\Desktop
+    -FontSmoothing                2
+    -FontSmoothingGamma           0  (7d0 - 2000)
+    -FontSmoothingOrientation     1
+    -FontSmoothingType            2

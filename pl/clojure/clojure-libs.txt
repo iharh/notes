@@ -1,0 +1,15 @@
+!!! https://github.com/Prismatic/plumbing
+
+http://blog.clojurewerkz.org/blog/2013/02/11/introducing-titanium/
+http://titanium.clojurewerkz.org/
+https://github.com/clojurewerkz/titanium
+http://thinkaurelius.github.com/titan/
+
+Lists:
+http://adambard.com/blog/clojure-batteries-included/
+
+Zippers:
+http://www.exampler.com/blog/2010/09/01/editing-trees-in-clojure-with-clojurezip/
+
+Validation/Coercion
+https://github.com/prismatic/schema

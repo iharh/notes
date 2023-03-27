@@ -1,0 +1,31 @@
+https://medium.com/@denot/ansible-101-d6dc9f86df0a#.nxtuqsw0f
+
+Facts:
+How do I see a list of all of the ansible_ variables?
+
+Ansible by default gathers “facts” about the machines under management,
+and these facts can be accessed in Playbooks and in templates.
+To see a list of all of the facts that are available about a machine,
+you can run the “setup” module as an ad-hoc action:
+
+ansible -m setup hostname
+
+
+Command module:
+
+ The command module has a creates parameter that lets you specify a filename that is used to control whether or not the command needs to be run. If the filename you specify in the creates parameter exists, the command will not be run. Here is the new task:
+
+---
+- name: Copy .zshrc template
+  command: creates="~/.zshrc" cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+  remote_user: ryan
+  sudo: false
+
+
+Access - become:
+
+#even at the task-level:
+
+become: yes
+become_method: sudo # , su
+

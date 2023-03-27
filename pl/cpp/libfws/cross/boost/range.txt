@@ -1,0 +1,10 @@
+Redl - Boost Range slides
+https://github.com/boostcon/cppnow_presentations_2012/blob/master/tue/boost_range.pdf
+
+Alexandrescu - On Iteration
+http://www.informit.com/articles/printerfriendly.aspx?p=1407357
+
+SO-Ranges:
+http://stackoverflow.com/questions/13241740/composing-adaptors-in-boostrange
+http://stackoverflow.com/questions/13144280/lazy-transform-in-c
+

@@ -1,0 +1,4 @@
+db
+    getName()
+    getCollectionNames()
+    getCollection(collectionName).find()

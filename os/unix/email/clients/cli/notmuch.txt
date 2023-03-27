@@ -1,0 +1,10 @@
+https://notmuchmail.org/
+https://www.openhub.net/p/notmuch
+
+https://notmuchmail.org/releases/
+
+https://notmuchmail.org/getting-started/
+
+cfg-samples
+https://gitlab.com/protesilaos/dotfiles/-/blob/master/notmuch/.notmuch-config
+https://gitlab.com/protesilaos/dotfiles/-/blob/master/notmuch/.mail/.notmuch/hooks/post-new

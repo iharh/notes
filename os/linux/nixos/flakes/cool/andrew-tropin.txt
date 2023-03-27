@@ -1,0 +1,45 @@
+2020
+Tropin - Reproducible NixOS installation w/ flakes (Jul 14)
+    https://www.youtube.com/watch?v=_j8kDS6GLJs
+    https://github.com/abcdw/configs/
+    https://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html
+    https://gist.github.com/martijnvermaat/76f2e24d0239470dd71050358b4d5134
+        ! with wifi, no any flakes here
+    ! 11:00 flakes
+    ! 21:00 nix-shell -p htop
+            nix-shell -p nixFlakes # to get shell, which supports flakes
+            nix-build github:abcdw/configs/flake-nixos-example#ixy --experimental-features "flakes nix-command"
+    ! 24:50 - his flake.nix
+
+???
+Tropin - Flakes in nix 3.0
+    https://www.youtube.com/watch?v=98EwejpIJzE
+    ! need to look
+    https://github.com/abcdw/rde
+Tropin - Almost Perfect Dotfiles Management w/ nix, home-manager and flakes (Jul 28)
+    https://www.youtube.com/watch?v=CDzgNxoAlnA
+    ! need to look
+    https://github.com/abcdw/rde/blob/master/flake.nix
+
+
+
+https://github.com/abcdw/rde/tree/master/stale/nix-related
+    ! AndrewTropin of guix
+    ! 3 different configs
+    ! super small home-manager cfg
+        https://github.com/abcdw/rde/blob/master/stale/nix-related/nix/home-splitted.nix
+    ! but home-manager is mentioned at other modules as well like
+        https://github.com/abcdw/rde/blob/master/stale/nix-related/nix/modules/programs/direnv.nix
+    ! but big clobal-one
+        https://github.com/abcdw/rde/blob/master/stale/nix-related/nix/home.nix
+    ! xkb stuff
+        https://github.com/abcdw/rde/blob/master/stale/nix-related/nix/layout.nix
+    ! registry stuff
+        https://github.com/abcdw/rde/blob/master/stale/nix-related/nix/nix.nix
+    2020
+    AndrewTropin - Reproducible NixOS installation w/ flakes of 1:05:12
+        https://www.youtube.com/watch?v=_j8kDS6GLJs
+        ! nix build github:abcdw/configs/flake-nixos-example#ixy
+        ! nix build github:abcdw/configs/master#ixy
+        !   nerdfonts-2.1.0
+        !   fc-cache

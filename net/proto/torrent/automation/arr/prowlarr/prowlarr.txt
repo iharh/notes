@@ -1,0 +1,25 @@
+https://github.com/Prowlarr/Prowlarr
+https://wiki.servarr.com/prowlarr
+
+https://requests.prowlarr.com/
+https://wiki.servarr.com/en/prowlarr/supported-indexers
+
+https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/prowlarr/#flirt-with-waiter-subscribe
+
+https://hub.docker.com/r/linuxserver/prowlarr
+    https://gitlab.com/Linuxserver.io/docker-prowlarr/
+
+features
+https://prowlarr.com/docs/api/#/
+    https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/src/Prowlarr.Api.V1/swagger.json
+https://wiki.servarr.com/prowlarr/search
+    http://192.168.2.200:9696/16/api?t=tvsearch
+      &cat=5000,5045,5040,5030
+      &q=Koi%20desu
+      &season=1
+      &ep=2
+      &extended=1
+      &apikey=badef4d9c35b4b759e9d3362a16d301a
+      &offset=0
+      &limit=100
+https://wiki.servarr.com/prowlarr/supported#applications

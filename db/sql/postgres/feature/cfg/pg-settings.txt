@@ -1,0 +1,15 @@
+http://postgresql.leopard.in.ua
+http://postgresql.leopard.in.ua/html
+http://postgresql.leopard.in.ua/html/#x1-80002.2
+
+...\data\pg_hba.conf
+
+host    all             all             all           md5
+# or
+host    all             all              0.0.0.0/0                       md5
+host    all             all              ::/0                            md5
+
+http://dba.stackexchange.com/questions/98087/performance-hickups-after-postgres-9-4-upgrade
+
+# ... to avoid prompt password locally
+host all all all trust

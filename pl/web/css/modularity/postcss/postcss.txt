@@ -1,0 +1,22 @@
+http://postcss.org/
+https://github.com/postcss/postcss
+http://api.postcss.org/postcss.html
+
+http://www.npmtrends.com/postcss-vs-node-sass-vs-less
+
+wiki
+https://en.wikipedia.org/wiki/PostCSS
+https://ru.wikipedia.org/wiki/PostCSS
+
+PostCSS is a JavaScript tool which will read your CSS with special additional syntax and will process it and return normal CSS code.
+The tool itself is a Node.js module that parses CSS into an AST; passes that AST through any number of “plugin” functions;
+    and then converts that AST back into a string, which you can output to a file. 
+
+Whatever your definitions of “postprocessor” and “preprocessor”, there will be PostCSS plugins that fall into both camps.
+According to most definitions, Autoprefixer is the iconic “postprocessor”;
+    but there’s also stuff like postcss-each, which is very “preprocessor”-y.
+
+
+https://github.com/postcss/postcss/blob/master/docs/guidelines/runner.md
+
+https://vk.com/postcss

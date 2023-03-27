@@ -1,0 +1,67 @@
+youtube-dl
+    -F <url>
+        list available formats
+    -F -
+        list formats/use specified one
+    -f <num> <url>
+        download appropriate format
+    -citk --max-quality FORMAT http://www.youtube.com/playlist?list=XXXXXXXXXXX
+
+-c: resume partially downloaded video files
+-i: continue upon download errors
+-t: use video title as the file name
+-w: 
+
+-k: makes youtube-dl keep downloaded videos (other options, like extractions, can erase video).
+-x: number of parallel streams
+
+
+Extractors:
+$ ./youtube-dl --list-extractors > ydl-extractors.txt
+
+
+youtube_dl -a list.txt
+
+-o, --output TEMPLATE            output filename template. Use %(title)s to
+                                 get the title, %(uploader)s for the
+                                 uploader name, %(uploader_id)s for the
+                                 uploader nickname if different,
+                                 %(autonumber)s to get an automatically
+                                 incremented number, %(ext)s for the
+                                 filename extension, %(format)s for the
+                                 format description (like "22 - 1280x720" or
+                                 "HD"), %(format_id)s for the unique id of
+                                 the format (like Youtube's itags: "137"),
+                                 %(upload_date)s for the upload date
+                                 (YYYYMMDD), %(extractor)s for the provider
+                                 (youtube, metacafe, etc), %(id)s for the
+                                 video id, %(playlist)s for the playlist the
+                                 video is in, %(playlist_index)s for the
+                                 position in the playlist and %% for a
+                                 literal percent. %(height)s and %(width)s
+                                 for the width and height of the video
+                                 format. %(resolution)s for a textual
+                                 description of the resolution of the video
+                                 format. Use - to output to stdout. Can also
+                                 be used to download to a different
+                                 directory, for example with -o '/my/downloa
+                                 ds/%(uploader)s/%(title)s-%(id)s.%(ext)s' .
+
+
+--restrict-filenames
+
+
+/etc/youtube-dl.conf
+~/.config/youtube-dl.conf
+(%APPDATA%/youtube-dl/config.txt
+
+--continue
+--ignore-errors
+--no-overwrites
+--audio-format mp3
+--output %(playlist_index)s-%(title)s.%(ext)s
+#%(autonumber)s ???
+
+samples
+# --max-downloads 200
+echo youtube-dl --ignore-errors --write-info-json --skip-download -o "./%(title)s.%(ext)s" https://www.youtube.com/channel/UCFKXJHDGSt50dI7CfftVVSA/videos

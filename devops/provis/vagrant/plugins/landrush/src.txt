@@ -1,0 +1,185 @@
+SRC (at lib/):
+
+
+landrush.rb:
+
+begin
+  require 'vagrant'
+rescue LoadError
+  raise 'The Vagrant landrush plugin must be run within Vagrant.'
+end
+
+# Only load the gem on Windows since it replaces some methods in Ruby's Process class
+# Also load before Process.uid is called the first time by Vagrant
+require 'win32/process' if Vagrant::Util::Platform.windows?
+
+require 'rubydns'
+
+require 'landrush/dependent_vms'
+require 'landrush/plugin'
+require 'landrush/server' # https://github.com/vagrant-landrush/landrush/blob/master/lib/landrush/server.rb
+require 'landrush/store'
+require 'landrush/version'
+require 'landrush-ip'
+
+lib/landrush/plugin.rb
+
+landrush/store.rb:
+
+module Landrush
+  class Store
+    def self.hosts
+      @hosts ||= new(Server.working_dir.join('hosts.json'))
+    end
+
+    def self.config
+      @config ||= new(Server.working_dir.join('config.json'))
+    end
+    ...
+  end
+end
+
+landrush/plugin.rb:
+
+module Landrush
+  class Plugin < Vagrant.plugin('2')
+    name 'landrush'
+
+    command 'landrush' do
+      require_relative 'command'
+      Command
+    end
+
+    config 'landrush' do
+      require_relative 'config'
+      Config
+    end
+
+    landrush_setup = lambda do |hook|
+      require_relative 'action/common'
+      require_relative 'action/setup'
+      require_relative 'action/install_prerequisites'
+      require_relative 'action/redirect_dns'
+
+      # Hooks for VirtualBox and HyperV providers
+      hook.before(VagrantPlugins::ProviderVirtualBox::Action::Network, pre_boot_actions)
+      hook.before(VagrantPlugins::HyperV::Action::WaitForIPAddress, pre_boot_actions)
+      hook.after(Vagrant::Action::Builtin::WaitForCommunicator, post_boot_actions)
+      ...
+    end
+
+    action_hook 'landrush_setup', :machine_action_up, &landrush_setup
+    action_hook 'landrush_setup', :machine_action_reload, &landrush_setup
+
+    def self.pre_boot_actions
+      Vagrant::Action::Builder.new.tap do |b|
+        b.use Action::Setup
+        b.use Action::RedirectDns
+      end
+    end
+
+    def self.post_boot_actions
+      Vagrant::Action::Builder.new.tap do |b|
+        b.use Action::InstallPrerequisites
+      end
+    end
+
+    landrush_teardown = lambda do |hook|
+      require_relative 'action/common'
+      require_relative 'action/teardown'
+      hook.append(Action::Teardown)
+    end
+
+    action_hook 'landrush_teardown', :machine_action_halt, &landrush_teardown
+    action_hook 'landrush_teardown', :machine_action_destroy, &landrush_teardown
+    action_hook 'landrush_teardown', :machine_action_reload, &landrush_teardown
+    ...
+    guest_capability('redhat', 'iptables_installed') do
+      require_relative 'cap/guest/redhat/iptables_installed'
+      Cap::Redhat::IptablesInstalled
+    end
+
+    guest_capability('redhat', 'install_iptables') do
+      require_relative 'cap/guest/redhat/install_iptables'
+      Cap::Redhat::InstallIptables
+    end
+    ...
+    guest_capability('linux', 'configured_dns_servers') do
+      require_relative 'cap/guest/linux/configured_dns_servers'
+      Cap::Linux::ConfiguredDnsServers
+    end
+
+    guest_capability('linux', 'redirect_dns') do
+      require_relative 'cap/guest/linux/redirect_dns'
+      Cap::Linux::RedirectDns
+    end
+
+    guest_capability('linux', 'add_iptables_rule') do
+      require_relative 'cap/guest/linux/add_iptables_rule'
+      Cap::Linux::AddIptablesRule
+    end
+
+    guest_capability('linux', 'read_host_visible_ip_address') do
+      require_relative 'cap/guest/all/read_host_visible_ip_address'
+      Cap::All::ReadHostVisibleIpAddress
+    end
+    ...
+    host_capability('windows', 'configure_visibility_on_host') do
+      require_relative 'cap/host/windows/configure_visibility_on_host'
+      Cap::Windows::ConfigureVisibilityOnHost
+    end
+
+    host_capability('linux', 'configure_visibility_on_host') do
+      require_relative 'cap/host/linux/configure_visibility_on_host'
+      Cap::Linux::ConfigureVisibilityOnHost
+    end
+
+    host_capability('linux', 'create_dnsmasq_config') do
+      require_relative 'cap/host/linux/create_dnsmasq_config'
+      Cap::Linux::CreateDnsmasqConfig
+    end
+    ...
+    host_capability('redhat', 'dnsmasq_installed') do
+      require_relative 'cap/host/redhat/dnsmasq_installed'
+      Cap::Redhat::DnsmasqInstalled
+    end
+
+    host_capability('redhat', 'install_dnsmasq') do
+      require_relative 'cap/host/redhat/install_dnsmasq'
+      Cap::Redhat::InstallDnsmasq
+    end
+    ...
+  end
+end
+
+cap/guest/linux/redirect_dns.rb
+
+module Landrush
+  module Cap
+    module Linux
+      module RedirectDns
+        def self.redirect_dns(machine, target = {})
+          dns_servers = machine.guest.capability(:configured_dns_servers)
+          %w(tcp udp).each do |proto|
+            dns_servers.each do |dns_server|
+              machine.guest.capability(
+                :add_iptables_rule,
+                _redirect_dns_rule(proto, dns_server, target.fetch(:host), target.fetch(:port))
+              )
+            end
+          end
+        end
+
+        def self._redirect_dns_rule(protocol, original_server, target_server, target_port)
+          "OUTPUT -t nat -p #{protocol} -d #{original_server} --dport 53 -j DNAT --to-destination #{target_server}:#{target_port}"
+        end
+      end
+    end
+  end
+end
+
+action/common.rb
+       teardown.rb
+       install_prerequisites.rb
+       redirect_dns.rb
+       setup.rb

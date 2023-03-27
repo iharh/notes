@@ -1,0 +1,21 @@
+https://docstore.mik.ua/manuals/hp-ux/en/5991-1247B/ch04s13.html
+
+cli
+    help m*
+    map -r
+        -r - for refresh
+    fs1:
+        ls
+    ls/dir
+    bfcfg
+        boot dump -b
+        boot mv 04 00
+    cd
+        EFI/BOOT
+        exec ...
+    edit
+    exit
+    reset -s
+
+2020
+https://linuxhint.com/use-uefi-interactive-shell-and-its-common-commands/

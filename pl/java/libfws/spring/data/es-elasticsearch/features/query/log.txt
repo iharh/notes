@@ -1,0 +1,13 @@
+<logger name="org.springframework.data.elasticsearch.core.QUERY" level="DEBUG"/>
+
+DEBUG o.s.data.elasticsearch.core.QUERY:
+{"from":0,"size":21,"query":{"bool":{"must":[{"bool":{"must":[{"dis_max":{"tie_breaker":0.0,"queries":[{"prefix":{"email":{"value":"valentyna","boost":15625.0}}},{"bool":{"should":[{"prefix":{"firstName":{"value":"valentyna","boost":625.0}}},{"prefix":{"lastName":{"value":"valentyna","boost":625.0}}}],"adjust_pure_negative":true,"boost":1.0}},{"prefix":{"title":{"value":"valentyna","boost":125.0}}},{"prefix":{"primarySkill":{"value":"valentyna","boost":25.0}}},{"prefix":{"city.name":{"value":"valentyna","boost":20.0}}},{"prefix":{"country.name":{"value":"valentyna","boost":15.0}}},{"prefix":{"worksiteCity.name":{"value":"valentyna","boost":10.0}}},{"prefix":{"worksiteCountry.name":{"value":"valentyna","boost":5.0}}}],"boost":1.0}},{"dis_max":{"tie_breaker":0.0,"queries":[{"prefix":{"email":{"value":"kovyrkina","boost":15625.0}}},{"bool":{"should":[{"prefix":{"firstName":{"value":"kovyrkina","boost":625.0}}},{"prefix":{"lastName":{"value":"kovyrkina","boost":625.0}}}],"adjust_pure_negative":true,"boost":1.0}},{"prefix":{"title":{"value":"kovyrkina","boost":125.0}}},{"prefix":{"primarySkill":{"value":"kovyrkina","boost":25.0}}},{"prefix":{"city.name":{"value":"kovyrkina","boost":20.0}}},{"prefix":{"country.name":{"value":"kovyrkina","boost":15.0}}},{"prefix":{"worksiteCity.name":{"value":"kovyrkina","boost":10.0}}},{"prefix":{"worksiteCountry.name":{"value":"kovyrkina","boost":5.0}}}],"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}}],"should":[{"match_all":{"boost":1.0}}],"adjust_pure_negative":true,"boost":1.0}},"post_filter":{"bool":{"must_not":[{"term":{"active":{"value":false,"boost":1.0}}}],"adjust_pure_negative":true,"boost":1.0}},"version":true,"sort":[{"_score":{"order":"desc"}},{"name.raw":{"order":"asc"}}],"highlight":{"fields":{"email":{"number_of_fragments":0},"firstName":{"number_of_fragments":0},"lastName":{"number_of_fragments":0},"title":{"number_of_fragments":0},"primarySkill":{"number_of_fragments":0},"city.name":{"number_of_fragments":0},"country.name":{"number_of_fragments":0},"worksiteCity.name":{"number_of_fragments":0},"worksiteCountry.name":{"number_of_fragments":0}}}}
+
+src/main/java/org/springframework/data/elasticsearch/core/ElasticsearchTemplate.java
+    ...
+    private SearchResponse getSearchResponse(SearchRequestBuilder requestBuilder) {
+      if (QUERY_LOGGER.isDebugEnabled()) {
+        QUERY_LOGGER.debug(requestBuilder.toString());
+      }
+      return getSearchResponse(requestBuilder.execute());
+    }

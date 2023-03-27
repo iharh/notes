@@ -1,0 +1,7 @@
+merge:
+
+svn merge -c <rev> <url> --dry-run
+  cherry-pick merge for the specific rev
+
+svn merge <url>@<rev> --dry-run
+  merge everything up to rev...

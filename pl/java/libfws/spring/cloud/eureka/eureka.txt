@@ -1,0 +1,63 @@
+endpoints:
+/configprops
+
+https://github.com/Netflix/eureka/wiki/Configuring-Eureka
+
+https://github.com/Netflix/eureka/blob/master/eureka-client/src/main/java/com/netflix/appinfo/EurekaInstanceConfig.java
+https://github.com/Netflix/eureka/blob/master/eureka-client/src/main/java/com/netflix/discovery/EurekaClientConfig.java
+
+https://github.com/Netflix/eureka/tree/master/eureka-examples/conf
+
+
+configs:
+
+https://www.baeldung.com/spring-cloud-netflix-eureka
+http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#_using_ribbon_with_eureka
+    Once the zone information is available it can be used in a ServerListFilter
+    (by default it will be used to locate a server in the same zone as the client because the default is a ZonePreferenceServerListFilter).
+    ZonePreferenceServerListFilter extends ZoneAffinityServerListFilter.
+
+http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
+    eureka.client.availabilityZones 
+    eureka.client.region
+? ZoneAffinityServerListFilter
+https://github.com/Netflix/ribbon/blob/master/ribbon-loadbalancer/src/main/java/com/netflix/loadbalancer/ZoneAffinityServerListFilter.java
+- EnableZoneAffinity
+- EnableZoneExclusivity
+
+Base on this value zone affinity filter check if services from the same zone or all available services should used by following rule:
+1. Number of loadPerServer should be less then .zoneAffinity.maxLoadPerServer poroperty value for client Ribbon instance (default 0.6)
+2. circuitBreakerTrippedCount / instanceCount should be less then .zoneAffinity.maxBlackOutServesrPercentage poroperty value for client Ribbon instance
+   (default 0.8)
+3. instanceCount - circuitBreakerTrippedCount should be great or equal then .zoneAffinity.minAvailableServers property values for client Ribbon instance
+  (default 2)
+
+
+registryFetchIntervalSeconds
+https://github.com/Netflix/eureka/blob/master/eureka-client/src/main/java/com/netflix/discovery/shared/Applications.java
+The registry information is fetched from eureka server as specified in ...
+
+https://github.com/Netflix/eureka/blob/master/eureka-client/src/main/java/com/netflix/discovery/DefaultEurekaClientConfig.java
+
+https://github.com/spring-cloud/spring-cloud-netflix/issues/373
+Eureka client maintain a cache of the registry information.
+This cache is refreshed every 30 seconds by default ('eureka.client.registryFetchIntervalSeconds`).
+So again, it may take another 30s before a client decides to refresh its local cache and discover newly registered instances.
+
+
+instanceInfoReplicationIntervalSeconds
+
+https://github.com/Netflix/eureka/blob/master/eureka-client/src/main/java/com/netflix/discovery/EurekaClient.java
+
+Once registered, the eureka client will invoke the
+ * {@link HealthCheckCallback} in intervals specified by
+ * {@link EurekaClientConfig#getInstanceInfoReplicationIntervalSeconds()}.
+
+
+initialInstanceInfoReplicationIntervalSeconds
+https://github.com/spring-cloud/spring-cloud-netflix/issues/373
+This parameter controls the initial delay before the client transmits changes made to the InstanceInfo (like the UP/DOWN status).
+
+disable registration
+    -Deureka.client.registerWithEureka=false\
+    -Deureka.client.fetchRegistry=false\

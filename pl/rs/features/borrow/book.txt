@@ -1,0 +1,8 @@
+https://doc.rust-lang.org/book/ownership.html
+https://doc.rust-lang.org/book/choosing-your-guarantees.html
+
+https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html
+http://rust-lang.github.io/book/ch04-01-what-is-ownership.html
+
+lifetimes:
+http://rust-lang.github.io/book/ch10-03-lifetime-syntax.html

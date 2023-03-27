@@ -1,0 +1,23 @@
+Directory Managemennt:
+:h netrw
+  nelp on netrw
+
+:cd path
+	Change working dir
+	!!! Use Tab and arrows to autocomplete !!!
+:pwd
+	Check the current working dir
+
+
+File Explorer:
+
+:E[xplore]
+:Ve[xplore]
+:Se[xxplore]
+:Hex
+	Split window and open integrated File explorer
+:e .
+	File explorer (E is capital).
+:browse e
+	Open graphical file explorer (gvim only).:w
+

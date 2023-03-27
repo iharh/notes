@@ -1,0 +1,4 @@
+https://pandoc.org/epub.html
+
+samples
+pandoc -s -o out.epub --metadata title="Blah" in.md 

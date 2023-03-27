@@ -1,0 +1,116 @@
+https://github.com/tenaf0/drm-shell/blob/master/build-logic/src/main/groovy/drm.shell.java-common-conventions.gradle
+    plugins {
+        // Apply the java Plugin to add support for Java.
+        id 'java'
+    }
+    repositories {
+        // Use Maven Central for resolving dependencies.
+        mavenCentral()
+        maven {
+            url "https://packages.jetbrains.team/maven/p/skija/maven"
+        }
+    }
+    dependencies {
+        constraints {
+            // Define dependency versions as constraints
+    //        implementation 'org.apache.commons:commons-text:1.9'
+            implementation 'org.tinylog:tinylog-api:2.5.0'
+            implementation 'org.tinylog:tinylog-impl:2.5.0'
+        }
+    }
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(20)
+        }
+    }
+    tasks.withType(JavaCompile) {
+        options.compilerArgs += "--enable-preview"
+    }
+    tasks.withType(JavaExec) {
+        jvmArgs += "--enable-preview"
+    }
+    ext.findHeader = { String libName ->
+        def envMap = System.getenv()
+        def envVar = "${libName}_HEADERS".toString()
+        def header = envMap.get(envVar)
+        if (header == null) {
+            throw new IllegalArgumentException("Could not find environment variable $envVar")
+        }
+        if (!file(header).exists()) {
+            throw new IllegalArgumentException("The path stored in $envVar, $header is invalid")
+        }
+
+        return header
+    }
+    testing {
+        suites {
+            // Configure the built-in test suite
+            test {
+                // Use JUnit Jupiter test framework
+                useJUnitJupiter('5.9.1')
+            }
+        }
+    }
+
+https://github.com/tenaf0/drm-shell/blob/master/build-logic/src/main/groovy/drm.shell.java-library-conventions.gradle
+    plugins {
+        // Apply the common convention plugin for shared build configuration between library and application projects.
+        id 'drm.shell.java-common-conventions'
+
+        // Apply the java-library plugin for API and implementation separation.
+        id 'java-library'
+    }
+
+    dependencies {
+        implementation 'org.tinylog:tinylog-api'
+        implementation 'org.tinylog:tinylog-impl'
+    }
+
+https://github.com/tenaf0/drm-shell/blob/master/cffi/build.gradle
+    plugins {
+        id 'drm.shell.java-library-conventions'
+    }
+    def drmHeaderDir = layout.buildDirectory.dir("drmHeaders")
+    sourceSets.main.java {
+        srcDir drmHeaderDir
+        exclude 'org/example/drm/**'
+    }
+    task jextract {
+        outputs.dir drmHeaderDir
+        doFirst {
+            mkdir drmHeaderDir
+        }
+        doLast {
+            exec {
+                commandLine 'jextract', "${findHeader("LIBDRM")}/include/xf86drmMode.h", '-I', "${findHeader("LINUX")}/include",
+                        '-I', "${findHeader("LIBDRM")}/include/libdrm", '--source', '-t', 'hu.garaba.drmMode', '--output', "${drmHeaderDir.get()}"
+            }
+            exec {
+                commandLine 'jextract', "${findHeader("LIBDRM")}/include/xf86drm.h", '-I', "${findHeader("LINUX")}/include", '-I', "${findHeader("GLIBC")}/include", '-I', "${findHeader("LIBDRM")}/include/libdrm", '--source', '-t', 'hu.garaba.drm', '--output', "${drmHeaderDir.get()}"
+            }
+            exec {
+                commandLine 'jextract', "${findHeader("LINUX")}/include/linux/fcntl.h", '-I', "${findHeader("LINUX")}/include", '--source', '-t', 'hu.garaba.linux', '--output', "${drmHeaderDir.get()}"
+            }
+            exec {
+                commandLine 'jextract', "${findHeader("LINUX")}/include/linux/poll.h", '-I', "${findHeader("LINUX")}/include", '--source', '-t', 'hu.garaba.linux', '--output', "${drmHeaderDir.get()}"
+            }
+            exec {
+                commandLine 'jextract', "${findHeader("LINUX")}/include/linux/mman.h", '-I', "${findHeader("LINUX")}/include", '--source', '-t', 'hu.garaba.linux', '--output', "${drmHeaderDir.get()}"
+            }
+            exec {
+                commandLine 'jextract', "${findHeader("GLIBC")}/include/errno.h", '-I', "${findHeader("GLIBC")}/include", '--source', '-t', 'hu.garaba.glibc.errno', '--output', "${drmHeaderDir.get()}"
+            }
+            exec {
+                commandLine 'jextract', "${findHeader("GLIBC")}/include/string.h", '-I', "${findHeader("GLIBC")}/include", '--source', '-t', 'hu.garaba.glibc.string', '--output', "${drmHeaderDir.get()}"
+            }
+            exec {
+                commandLine 'jextract', "${findHeader("LIBINPUT")}/include/libinput.h", '-I', "${findHeader("GLIBC")}/include", '-I', "${findHeader("UDEV")}/include", '--source', '-t', 'hu.garaba.libinput', '--output', "${drmHeaderDir.get()}"
+            }
+            exec {
+                commandLine 'jextract', "${findHeader("LIBSEAT")}/include/libseat.h",  '--source', '-t', 'hu.garaba.libseat', '--output', "${drmHeaderDir.get()}"
+            }
+        }
+    }
+    tasks.withType(JavaCompile) {
+        dependsOn jextract
+    }

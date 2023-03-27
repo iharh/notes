@@ -1,0 +1,31 @@
+https://docs.spring.io/spring-amqp/reference/html/
+
+org.springframework.amqp.rabbit.core.RabbitTemplate
+    https://github.com/spring-projects/spring-amqp/blob/main/spring-rabbit/src/main/java/org/springframework/amqp/rabbit/core/RabbitTemplate.java
+    https://github.com/spring-projects/spring-amqp/blob/main/spring-rabbit/src/main/java/org/springframework/amqp/rabbit/connection/RabbitAccessor.java
+
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/rabbit/core/RabbitTemplate.html
+    !!! need methods with MessagePostProcessor param
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/rabbit/support/MessagePropertiesConverter.html
+    !!! not needed
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/core/MessagePostProcessor.html
+    ! 
+    amqpTemplate.convertAndSend(routingKey, m -> {
+        m.getMessageProperties().setDeliveryMode(DeliveryMode.NON_PERSISTENT); // !!! use setHeader
+        return m;
+    });
+
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/core/MessagePostProcessor.html
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/core/Message.html
+    getMessageProperties()
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/core/MessageProperties.html
+    setHeader(String key, Object value)
+    https://docs.spring.io/spring-amqp/api/org/springframework/amqp/core/MessageProperties.html#setHeader(java.lang.String,java.lang.Object)
+
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/core/MessageProperties.html
+    public void setContentType(String contentType)
+https://docs.spring.io/spring-amqp/docs/current/api/org/springframework/amqp/core/MessagePropertiesBuilder.html
+????
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/rabbit/support/MessagePropertiesConverter.html
+
+.setReplyTimeout(1000L);

@@ -1,0 +1,22 @@
+https://bitbucket.org/Haroogan/64-bit-vim-builds-for-windows-64-bit/wiki/Home
+
+VIM - Vi IMproved 7.3 (2010 Aug 15, compiled Dec 16 2012 05:19:04)
+MS-Windows 64-bit console version
+Included patches: 1-761
+Compiled by Haroogan@Haroogan-PC
+Huge version without GUI.  Features included (+) or not (-):
++arabic +autocmd -balloon_eval -browse ++builtin_terms +byte_offset +cindent +clientserver +clipboard +cmdline_compl +cmdline_hist +cmdline_info +comments +conceal +cryptv +cscope +cursorbind
+ +cursorshape +dialog_con +diff +digraphs -dnd -ebcdic +emacs_tags +eval +ex_extra +extra_search +farsi +file_in_path +find_in_path +float +folding -footer +gettext/dyn -hangul_input 
++iconv/dyn +insert_expand +jumplist +keymap +langmap +libcall +linebreak +lispindent +listcmds +localmap -lua +menu +mksession +modify_fname +mouse -mouseshape +multi_byte_ime/dyn +multi_lang
+ -mzscheme -netbeans_intg +path_extra -perl +persistent_undo -postscript +printer +profile +python/dyn +python3/dyn +quickfix +reltime +rightleft -ruby +scrollbind +signs +smartindent -sniff 
++startuptime +statusline -sun_workshop +syntax +tag_binary +tag_old_static -tag_any_white -tcl -tgetent -termresponse +textobjects +title -toolbar +user_commands +vertsplit +virtualedit 
++visual +visualextra +viminfo +vreplace +wildignore +wildmenu +windows +writebackup -xfontset -xim -xterm_save -xpm_w32 
+   system vimrc file: "$VIM\vimrc"
+     user vimrc file: "$HOME\_vimrc"
+ 2nd user vimrc file: "$VIM\_vimrc"
+      user exrc file: "$HOME\_exrc"
+  2nd user exrc file: "$VIM\_exrc"
+Compilation: gcc -Iproto -DWIN32 -DWINVER=0x0500 -D_WIN32_WINNT=0x0500 -DHAVE_PATHDEF -DFEAT_HUGE -DHAVE_GETTEXT -DHAVE_LOCALE_H -DDYNAMIC_GETTEXT -DFEAT_OLE -DFEAT_CSCOPE -DFEAT_GUI_W32 -DFEAT_CLIPBOARD -DFEAT_MBYTE -DFEAT_MBYTE_IME -DDYNAMIC_IME -DDYNAMIC_ICONV -pipe -w -march=x86-64 -Wall -DFEAT_PYTHON -DDYNAMIC_PYTHON -DDYNAMIC_PYTHON_DLL="python27.dll" -DMS_WIN64 -DFEAT_PYTHON3 -DDYNAMIC_PYTHON3 -DDYNAMIC_PYTHON3_DLL="python32.dll" -DMS_WIN64 -DFEAT_XPM_W32 -I xpm/x64/include -I xpm/x64/../include -O3 -fomit-frame-pointer -freg-struct-return -funroll-loops -s
+Linking: gcc -Iproto -DWIN32 -DWINVER=0x0500 -D_WIN32_WINNT=0x0500 -DHAVE_PATHDEF -DFEAT_HUGE -DHAVE_GETTEXT -DHAVE_LOCALE_H -DDYNAMIC_GETTEXT -DFEAT_OLE -DFEAT_CSCOPE -DFEAT_GUI_W32 -DFEAT_CLIPBOARD -DFEAT_MBYTE -DFEAT_MBYTE_IME -DDYNAMIC_IME -DDYNAMIC_ICONV -pipe -w -march=x86-64 -Wall -DFEAT_PYTHON -DDYNAMIC_PYTHON -DDYNAMIC_PYTHON_DLL="python27.dll" -DMS_WIN64 -DFEAT_PYTHON3 -DDYNAMIC_PYTHON3 -DDYNAMIC_PYTHON3_DLL="python32.dll" -DMS_WIN64 -DFEAT_XPM_W32 -I xpm/x64/include -I xpm/x64/../include -O3 -fomit-frame-pointer -freg-struct-return -funroll-loops -s -mwindows -o gvim.exe -lkernel32 -luser32 -lgdi32 -ladvapi32 -lcomdlg32 -lcomctl32 -lversion -L xpm/x64/lib -lXpm -loleaut32 -Wl,-Bstatic -lstdc++ -Wl,-Bdynamic -lole32 -luuid
+Type  :quit<Enter>  to exit Vim
+

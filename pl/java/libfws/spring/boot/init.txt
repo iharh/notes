@@ -1,0 +1,4 @@
+https://github.com/testcontainers/testcontainers-java-examples/blob/master/spring-boot/src/test/java/com/example/AbstractIntegrationTest.java
+
+ApplicationContextInitializer
+EnvironmentTestUtils.addEnvironment(...)

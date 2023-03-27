@@ -1,0 +1,17 @@
+eureka:
+  server:
+    enableSelfPreservation: true
+  instance:
+    preferIpAddress: false
+    hostName: eureka-us-01.${domain}
+    metadataMap:
+      instanceId: ${${spring.application.name}:${spring.application.instance_id:${random.value}}}
+      zone: usZone
+  client:
+    region: cbRegion
+    availability-zones:
+        cbRegion: usZone,emeaZone
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      usZone: http://eureka-us-01.${domain}:8761/eureka/,http://eureka-us-02.${domain}:8761/eureka/

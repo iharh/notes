@@ -1,0 +1,20 @@
+$ cd spring-cloud-config-server
+$ ../mvnw spring-boot:run
+
+$ curl localhost:8888/foo/development
+
+/{application}/{profile}[/{label}]
+/{application}-{profile}.yml
+/{label}/{application}-{profile}.yml
+/{application}-{profile}.properties
+/{label}/{application}-{profile}.properties
+
+spring.application.name: myapp
+
+git-repo cfg
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/spring-cloud-samples/config-repo

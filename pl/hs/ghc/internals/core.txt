@@ -1,0 +1,55 @@
+2022
+https://discourse.haskell.org/t/ghc-core-stg-and-cmm-views-on-compiler-explorer/4494?u=taylorfausak
+
+Presentations:
+Jones - Type Directed Compilation in the Wild GHC and SystemFC slides (Oregon 2013)
+
+UserGuide:
+http://hackage.haskell.org/package/extcore (Tolmach pdf)
+http://www.haskell.org/ghc/docs/latest/html/users_guide/options-debugging.html
+
+Papers:
+http://hackage.haskell.org/trac/ghc/wiki/ReadingList
+http://research.microsoft.com/en-us/um/people/simonpj/papers/ext-f/
+
+Wiki
+http://hackage.haskell.org/trac/ghc/wiki/Commentary
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Compiler
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Compiler/HscMain
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Compiler/CoreSynType
+http://www.haskell.org/ghc/docs/latest/html/libraries/ghc/CoreSyn.html
+http://hackage.haskell.org/trac/ghc/wiki/ExternalCore
+http://hackage.haskell.org/trac/ghc/wiki/IntermediateTypes
+
+Pretty Printer:
+https://github.com/ghc/ghc/blob/master/compiler/coreSyn/PprCore.lhs
+Search for: showAttributes
+https://github.com/ghc/ghc/blob/master/compiler/basicTypes/IdInfo.lhs
+IdInfo has all the interesting info
+
+Symbols:
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Compiler/SymbolNames
+  Note: thunks, selector thunks, generic applications can only be evaluated
+
+
+Loh - Exploring Generic Haskell phd
+
+Grune - Modern Compiler Design 2nd ed (Seidl - Compiler Design)
+Eisenberg - GHC Core (including source references)
+Bolingbroke - Types are Calling Conventions
+
+University Courses
+OSullivan - CH-240 - (perf, ghc, testing slides).
+
+articles:
+http://www.haskellforall.com/2012/10/hello-core.html
+http://blog.ezyang.com/2011/04/tracing-the-compilation-of-hello-factorial/
+http://ics.p.lodz.pl/~stolarek/blog/2013/01/taking-magic-out-of-ghc-or-tracing-compilation-by-transformation/
+http://lambda.jstolarek.com/2013/01/taking-magic-out-of-ghc-or-tracing-compilation-by-transformation/
+
+http://alpmestan.com/2013/06/27/ghc-core-by-example-episode-1/
+http://alpmestan.com/2013/10/01/ghc-core-by-example-episode-2-evaluation/
+https://github.com/alpmestan/oh-my-laziness/blob/master/oh-my-laziness.md
+
+StackOverflow:
+http://stackoverflow.com/questions/6121146/reading-ghc-core

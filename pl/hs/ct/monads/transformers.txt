@@ -1,0 +1,86 @@
+2021
+https://rezigned.com/posts/monad-transformers-1/
+
+
+Grabmuller - Monad Transformers Step by Step
+Loh - AFP-2010 - Monad Transformers slides.pdf
+
+M.P.Jones - FP with Overloading and HO Polymorphism
+
+Dushkin - N-Gram utils (http://habrahabr.ru/post/136775, https://bitbucket.org/darkus/nlsynthesis)
+http://ocharles.org.uk/blog/ - 24 days of Hackage (transformers - applicative functors combining).
+
+Packages:
+http://hackage.haskell.org/package/transformers
+http://hackage.haskell.org/package/mtl (https://github.com/ekmett/mtl)
+
+Newbern - All About Monads
+
+Error  | ErrorT  | Either e a    | m (Either e a)
+State  | StateT  | s -> (a,s)    | s -> m (a,s)
+Reader | ReaderT | r -> a        | r -> m a
+Writer | WriterT | (a,w)         | m (a,w)
+Cont   | ContT   | (a -> r) -> r | (a -> m r) -> m r
+
+
+STATE:
+
+newtype State s a = State { runState :: (s -> (a,s)) }
+
+instance Monad (State s) where
+    return a        = State $ \s -> (a,s)
+    (State x) >>= f = State $ \s -> let (v,s1) = x s in runState (f v) s1
+
+instance MonadPlus (State s) where
+    mzero = ...
+    mplus = ...
+
+class MonadState m s | m -> s where
+    get :: m s
+    put :: s -> m ()
+
+instance MonadState (State s) s where
+    get   = State $ \s -> (s,s)
+    put s = State $ \_ -> ((),s)
+
+
+
+
+newtype StateT s m a = StateT { runStateT :: (s -> m (a,s)) }
+
+instance (Monad m) => Monad (StateT s m) where
+    return a          = StateT $ \s -> return (a,s)                       -- return, do here are of (Monad m)
+
+    >>= :: StateT s m a -> (a -> StateT s m b) -> StateT s m b
+           ~~~~~~~~~~            ~~~~~~~~~~       ~~~~~~~~~~
+    (StateT x) >>= f  = StateT $ \s -> do (v,s_new)      <- x s           -- get new value, state from (Monad m)
+                                          (StateT x_new) <- return $ f v  -- apply bound function to get new state transformation fn
+                                          x_new s_new 
+
+
+
+instance (Monad m) => MonadState s (StateT s m) where
+    get   = StateT $ \s -> return (s,s)
+    put s = StateT $ \_ -> return ((),s)
+
+instance (MonadPlus m) => MonadPlus (StateT s m) where
+    mzero = StateT $ \s -> mzero
+    (StateT x1) `mplus` (StateT x2) = StateT $ \s -> (x1 s) `mplus` (x2 s)
+
+instance (Monad m) => MonadState s (StateT s m) where
+    get   = StateT $ \s -> return (s,s)
+    put s = StateT $ \_ -> return ((),s)
+
+
+LIFTING:
+
+class MonadTrans t where
+    lift :: (Monad m) => m a -> t m a
+
+class (Monad m) => MonadIO m where
+    liftIO :: IO a -> m a
+
+
+instance MonadTrans (StateT s) where
+    lift c = StateT $ \s -> c >>= (\x -> return (x,s))
+

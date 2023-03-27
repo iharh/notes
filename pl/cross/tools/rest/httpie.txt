@@ -1,0 +1,22 @@
+https://httpie.org
+
+https://github.com/httpie
+https://github.com/httpie/httpie
+
+aur,brew
+    httpie
+
+https://httpie.org/doc
+
+cli
+https://httpie.io/docs/cli/examples
+httpie
+    cli plugins
+        list
+https httpie.io/hello
+
+json
+https://httpie.io/docs/cli/default-behavior
+
+https://github.com/nojima/httpie-go
+https://github.com/abatilo/asdf-httpie-go

@@ -1,0 +1,35 @@
+books
+2018
+Li - Jira Software Essentials 2nd ed
+Harned - Hands-On Agile Software Development with JIRA (short)
+
+
+https://confluence.atlassian.com/display/Cloud/Processing+JIRA+issues+with+commit+messages
+
+PLAT-NNN #comment Task completed ahead of schedule #resolve #time 1d 1h
+
+https://confluence.atlassian.com/display/JIRA/Advanced+workflow+configuration
+
+
+https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all
+
+Advanced search:
+https://confluence.atlassian.com/display/JIRA/Advanced+Searching
+https://confluence.atlassian.com/jira064/advanced-searching-720416661.html
+
+Assignee = ihar.hancharenka and Status = Open and Attachments is not empty
+text ~ "some text to search for"
+Summary ~ "some words"
+
+Assignee = ihar.hancharenka and Status = Closed
+
+Widgets:
+Filter Results gadget
+https://jira.cbmain.clarabridge.com/jira/rest/gadgets/1.0/g/com.atlassian.jira.gadgets:filter-results-gadget/gadgets/filter-results-gadget.xml
+
+Filters:
+Issues -> Filters
+https://confluence.atlassian.com/agile/jira-agile-user-s-guide/configuring-a-board/configuring-filters
+
+assignee = currentUser() AND resolution = Unresolved AND project != "zCMP - DEPRECATED" ORDER BY updatedDate DESC
+AND NOT status = closed

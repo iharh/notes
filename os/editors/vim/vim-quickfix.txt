@@ -1,0 +1,17 @@
+http://vim.wikia.com/wiki/Use_the_quickfix_window_to_list_all_errors
+http://vimdoc.sourceforge.net/htmldoc/quickfix.html
+
+:cw[indow]
+:cope[n]
+	Open a quick-fix (result-list) window
+:cl[ist] [from] [, [to]]
+	List all errors that are valid |quickfix-valid|.
+	If numbers [from] and/or [to] are given, the respective
+	range of errors is listed.  A negative number counts
+	from the last error backwards, -1 being the last error.
+	The 'switchbuf' settings are respected when jumping
+	to a buffer.
+:cn
+:cp
+	Go to the next/prev match (usually we map these action to hotkeys)
+

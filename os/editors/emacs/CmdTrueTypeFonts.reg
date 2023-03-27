@@ -1,0 +1,9 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont]
+"0"="Lucida Console"
+"00"="Bitstream Vera Sans Mono"
+"000"="DejaVu Sans Mono"
+"0000"="Consolas"
+"00000"="Inconsolata"
+"000000"="Anonymous Pro"

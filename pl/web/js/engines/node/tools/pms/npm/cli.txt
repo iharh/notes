@@ -1,0 +1,46 @@
+2019
+https://habr.com/ru/company/ruvds/blog/458504/
+
+npm
+    init
+        https://docs.npmjs.com/cli/init
+        [-y|--yes]
+            skip questions
+    i[nstall]
+        -g
+            global
+        <package>[@ver]
+                dev-mode
+            [--save]
+            [--save-dev] [--save -D]
+            --exact
+                ?
+    t test
+    run
+        build[:dev]
+        runs a script (specified in the scripts section of package.json)
+
+    it|install-test
+        install & test
+    s|se|find
+        find a package (at public registry)
+    config
+        https://docs.npmjs.com/misc/config 
+    link
+        https://medium.com/dailyjs/how-to-use-npm-link-7375b6219557
+
+package.json
+
+"scripts": {
+    "prebuild": "npm run std --silent",
+    "build": "rollup -c config/prod.js",
+    "prebuild:dev": "npm run std --silent",
+    "build:dev": "rollup -c config/dev.js -w",
+    "browse": "browser-sync start --s --ss build --index html/index-dev.html --files html/**/*.html,build/**/*.js --no-notify",
+    "start": "npm-run-all --parallel build:dev browse",
+    "std": "standard --verbose | snazzy",
+    "test": "npm run build:dev",
+    "preversion": "git pull && npm up && npm run std --silent",
+    "version": "npm run build && git add -A .",
+    "postversion": "git push --tags origin HEAD"
+},

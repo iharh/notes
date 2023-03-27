@@ -1,0 +1,4 @@
+ANISBLE_HOSTS=".../query.py"
+    dynamic inventory ???
+
+ansible no_group -m ping

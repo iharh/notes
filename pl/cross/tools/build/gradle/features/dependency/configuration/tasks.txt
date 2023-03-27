@@ -1,0 +1,6 @@
+tasks
+    outgoingVariants
+    ? components
+        empty
+    model
+        just print task with types and short info

@@ -1,0 +1,16 @@
+https://crates.io/crates/ripgrep
+https://github.com/BurntSushi/ripgrep
+
+engines
+https://github.com/rust-lang/regex/issues/656
+https://github.com/BurntSushi/ripgrep/issues/1488
+https://github.com/BurntSushi/ripgrep/commit/3a6a24a52ad43d55554240b43e8be989c78e4efe
+
+2022
+https://linuxhandbook.com/ripgrep/
+2018
+https://www.reddit.com/r/rust/comments/9dxewq/ripgrep_0100_released_pcre2_and_multiline_support/
+
+rg ...
+    -l
+        just list file names

@@ -1,0 +1,66 @@
+L - probability of the left move
+R - probability of the right move
+S - probability of staying
+
+After 1 move:
+
+S
+
+P_1 = S
+
+After 2 moves:
+
+SS
+
+LR
+RL
+
+P_2 = S^2 + 2*LR
+
+
+After 3 moves:
+
+SSS
+
+SLR
+LSR
+LRS
+
+SRL
+RSL
+RLS
+
+P_3 = S^3 + 2*3*LRS = S^3 + 2*?
+
+
+After 4 moves:
+
+SSSS
+
+SSLR
+SSRL
+SLSR
+SRSL
+SLRS
+SRLS
+
+LSSR
+RSSL
+LSRS
+RSLS
+LRSS
+RLSS
+
+LRLR
+LLRR
+RLRL
+RRLL
+
+P_4 = S^4 + 12*LRS^2 + 4*L^2*R^2
+
+After 5 moves:
+
+SSSSS
+
+.....
+

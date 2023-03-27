@@ -1,0 +1,5 @@
+encode(content, 'escape') like (concat('%', lex_pat, '%'));
+position(lex_pat::bytea in content) > 1;
+
+md5(string) :: text
+select ... md5(content::bytea) ...

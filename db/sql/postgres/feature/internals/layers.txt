@@ -1,0 +1,35 @@
+each table consists from multiple layers
+each file is no more than 1 Gb
+
+object layers
+?init?
+    zagotovka of main
+    used only while "sboy"
+main
+    NNN.2
+    NNN.1
+    NNN
+fsm (free space mem)
+    NNN_fsm
+    NNN_fsm.1
+vm (visibility map, needed for vacuum optimization)
+    NNN_vm
+
+Each file is a set of pages
+page
+    header
+    [some free space]
+    data
+
+Buffer cache (caches some pages)
+
+note
+    on index-only scan we can't just use index (need xmin, xmax)
+    visibility map allow us to overcome this limitation  
+
+# cmd-line util
+$ oid2name 
+
+pg_total_relation_size(<tblname>)
+pg_relation_size(<tblname>, <layername>)
+pg_indexes_size(<tblname>)

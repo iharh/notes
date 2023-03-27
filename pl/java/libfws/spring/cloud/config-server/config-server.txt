@@ -1,0 +1,20 @@
+https://spring.io/projects/spring-cloud-config
+
+https://docs.spring.io/spring-cloud-config/docs/current/reference/html/
+https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_file_system_backend
+    # spring.profiles.active=native
+    # spring.cloud.config.server.native.searchLocations
+    export SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCHLOCATIONS=file://...
+
+
+samples
+https://github.com/spring-cloud-samples/configserver
+https://github.com/spring-cloud-samples/configserver/blob/main/src/main/resources/application.yml
+
+https://github.com/spring-cloud-samples/config-repo
+
+/{app}/{profile} 	              Configuration data for app in Spring profile (comma-separated).
+/{app}/{profile}/{label} 	      Add a git label
+/{app}/{profile}{label}/{path}  An environment-specific plain text config file (at "path")
+
+curl localhost:8888/foo/development

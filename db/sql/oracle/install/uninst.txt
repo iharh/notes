@@ -1,0 +1,52 @@
+removing:
+https://docs.oracle.com/cd/E11882_01/install.112/e47689/remove_oracle_sw.htm#LADBI1332
+
+The deinstallation tool (deinstall) is available in the installation media before installation, and is available in Oracle home directories after installation.
+It is located in the $ORACLE_HOME/deinstall directory.
+.../oracle/product/11.2.0/dbhome_1/deinstall
+    $ORACLE_HOME/deinstall/deinstall.bat
+
+D:\Temp\OraDeinstall2017-04-04_13-39-26\jdk\jre\bin\java
+    -DNOHOME=true
+    -Dpid=13840
+    -Doracle.installer.jre_loc=D:\Temp\OraDeinstall2017-04-04_13-39-26\jdk\jre
+    -DBOOTSTRAP_DIR=D:\Temp\OraDeinstall2017-04-04_13-39-26
+    -DHOME_OPT=0
+    -Doracle.installer.oui_loc=D:\Temp\OraDeinstall2017-04-04_13-39-26\oui
+    -classpath
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\deinstall_wrapper.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\crsdc.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\vipca.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\cvu.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\srvm.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\srvmhas.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\deinstall_core.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\OraInstaller.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\OraCheckPoint.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\OraPrereq.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\share.jar:
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\ewt3.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\help4.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\xmlparserv2.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\assistants\jlib\assistantsCommon.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\dbca.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\dbma.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\OraPrereqChecks.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\srvmasm.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\assistants\netca\jlib\netca.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\netcam.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\netcfg.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\ldapjclnt11.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\srvmasm.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\xmlparserv2.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\assistants\jlib\assistantsCommon.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\share.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\emConfigInstall.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\emCORE.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\emca.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\oui\jlib\http_client.jar;
+        D:\Temp\OraDeinstall2017-04-04_13-39-26\jlib\deconfigCCR.jar 
+    oracle.install.db.deinstall.wrapper.clusterDeconfig -home D:\dev\utils\oracle\product\11.2.0\dbhome_1
+
+
+http://stackoverflow.com/questions/8450726/how-to-uninstall-completely-remove-oracle-11g-client

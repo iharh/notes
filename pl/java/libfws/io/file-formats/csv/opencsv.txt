@@ -1,0 +1,19 @@
+https://opencsv.sourceforge.net/
+
+https://mvnrepository.com/artifact/com.opencsv/opencsv
+
+2022
+https://www.baeldung.com/opencsv
+
+public String writeLineByLine(List<String[]> lines, Path path) throws Exception {
+    try (CSVWriter writer = new CSVWriter(new FileWriter(path.toString()))) {
+        for (String[] line : lines) {
+            writer.writeNext(array);
+        }
+    return Helpers.readFile(path);
+}
+
+public String writeAllLines(List<String[]> lines, Path path) throws Exception {
+    try (CSVWriter writer = new CSVWriter(new FileWriter(path.toString()))) {
+        writer.writeAll(stringArray);
+    }

@@ -1,0 +1,35 @@
+[init] Waiting for the kubelet to boot up the control plane as Static Pods from directory "/etc/kubernetes/manifests".
+[init] This might take a minute or longer if the control plane images have to be pulled.
+
+journalctl -xeu kubelet
+
+Sep 27 16:58:55 ihmo kubelet[15992]: E0927 16:58:55.129162   15992 reflector.go:205] k8s.io/kubernetes/pkg/kubelet/kubelet.go:460: Failed to list *v1.Node: Get https://10.0.3.15:6443/api/v1/nodes?fieldSelector=metadata.name%3Dihmo&limit=500&resourceVersion=0: dial tcp 10.0.3.15:6443: getsockopt: connection refused
+Sep 27 16:58:55 ihmo kubelet[15992]: I0927 16:58:55.710783   15992 kubelet_node_status.go:271] Setting node annotation to enable volume controller attach/detach
+Sep 27 16:58:57 ihmo kubelet[15992]: I0927 16:58:57.050928   15992 kubelet_node_status.go:271] Setting node annotation to enable volume controller attach/detach
+Sep 27 16:58:58 ihmo kubelet[15992]: W0927 16:58:58.065775   15992 cni.go:171] Unable to update cni config: No networks found in /etc/cni/net.d
+Sep 27 16:58:58 ihmo kubelet[15992]: E0927 16:58:58.066205   15992 kubelet.go:2125] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Sep 27 16:59:03 ihmo kubelet[15992]: W0927 16:59:03.067026   15992 cni.go:171] Unable to update cni config: No networks found in /etc/cni/net.d
+Sep 27 16:59:03 ihmo kubelet[15992]: E0927 16:59:03.067269   15992 kubelet.go:2125] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Sep 27 16:59:05 ihmo kubelet[15992]: E0927 16:59:05.018510   15992 eviction_manager.go:246] eviction manager: failed to get get summary stats: failed to get node info: node "ihmo" not found
+Sep 27 16:59:06 ihmo kubelet[15992]: I0927 16:59:06.019079   15992 kubelet_node_status.go:271] Setting node annotation to enable volume controller attach/detach
+Sep 27 16:59:06 ihmo kubelet[15992]: E0927 16:59:06.108480   15992 reflector.go:205] k8s.io/kubernetes/pkg/kubelet/config/apiserver.go:47: Failed to list *v1.Pod: Get https://10.0.3.15:6443/api/v1/pods?fieldSelector=spec.nodeName%3Dihmo&limit=500&resourceVersion=0: net/http: TLS handshake timeout
+Sep 27 16:59:06 ihmo kubelet[15992]: E0927 16:59:06.128889   15992 reflector.go:205] k8s.io/kubernetes/pkg/kubelet/kubelet.go:451: Failed to list *v1.Service: Get https://10.0.3.15:6443/api/v1/services?limit=500&resourceVersion=0: net/http: TLS handshake timeout
+Sep 27 16:59:06 ihmo kubelet[15992]: E0927 16:59:06.130138   15992 reflector.go:205] k8s.io/kubernetes/pkg/kubelet/kubelet.go:460: Failed to list *v1.Node: Get https://10.0.3.15:6443/api/v1/nodes?fieldSelector=metadata.name%3Dihmo&limit=500&resourceVersion=0: net/http: TLS handshake timeout
+Sep 27 16:59:08 ihmo kubelet[15992]: W0927 16:59:08.068834   15992 cni.go:171] Unable to update cni config: No networks found in /etc/cni/net.d
+Sep 27 16:59:08 ihmo kubelet[15992]: E0927 16:59:08.069599   15992 kubelet.go:2125] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Sep 27 16:59:09 ihmo kubelet[15992]: E0927 16:59:09.326540   15992 event.go:209] Unable to write event: 'Patch https://10.0.3.15:6443/api/v1/namespaces/default/events/ihmo.155843bc283d07e1: net/http: TLS handshake timeout' (may retry after sleeping)
+Sep 27 16:59:13 ihmo kubelet[15992]: W0927 16:59:13.073007   15992 cni.go:171] Unable to update cni config: No networks found in /etc/cni/net.d
+Sep 27 16:59:13 ihmo kubelet[15992]: E0927 16:59:13.073794   15992 kubelet.go:2125] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Sep 27 16:59:13 ihmo kubelet[15992]: E0927 16:59:13.898974   15992 container_manager_linux.go:424] cpu and memory cgroup hierarchy not unified.  cpu: /, memory: /system.slice/docker.service
+Sep 27 16:59:13 ihmo kubelet[15992]: E0927 16:59:13.899568   15992 container_manager_linux.go:469] failed to find cgroups of kubelet - cpu and memory cgroup hierarchy not unified.  cpu: /, memory: /system.slice/kubelet.service
+
+
+This error is likely caused by:
+	- The kubelet is not running
+	- The kubelet is unhealthy due to a misconfiguration of the node in some way (required cgroups disabled)
+	- Either there is no internet connection, or imagePullPolicy is set to "Never",
+	  so the kubelet cannot pull or find the following control plane images:
+		- k8s.gcr.io/kube-apiserver-amd64:v1.10.8
+		- k8s.gcr.io/kube-controller-manager-amd64:v1.10.8
+		- k8s.gcr.io/kube-scheduler-amd64:v1.10.8
+		- k8s.gcr.io/etcd-amd64:3.1.12 (only if no external etcd endpoints are configured)

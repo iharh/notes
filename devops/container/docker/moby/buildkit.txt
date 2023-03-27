@@ -1,0 +1,8 @@
+https://github.com/moby/buildkit
+
+https://docs.docker.com/develop/develop-images/build_enhancements/
+
+$ DOCKER_BUILDKIT=1 docker build .
+
+2022
+https://support.atlassian.com/bitbucket-cloud/docs/run-docker-commands-in-bitbucket-pipelines/#Enable-Docker-BuildKit

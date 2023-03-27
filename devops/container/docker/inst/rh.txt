@@ -1,0 +1,21 @@
+https://docs.docker.com/engine/install/rhel/
+https://docs.docker.com/engine/install/linux-postinstall/
+
+https://blog.docker.com/2015/07/new-apt-and-yum-repos/
+!!!
+
+wget -qO- https://get.docker.com/ | sh
+curl -l https://get.docker.com/builds/Windows/x86_64/docker-1.6.0.exe > /usr/bin/docker-1.6.0
+
+
+# https://yum.dockerproject.org/repo/main/centos/7
+$ cat >/etc/yum.repos.d/docker.repo <<-EOF
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+EOF
+
+$ yum install docker-engine

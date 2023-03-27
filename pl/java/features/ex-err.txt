@@ -1,0 +1,20 @@
+2022
+Devoxx - Subramaniam - Exception Handling in Functional and Reactive Programmin of 2:29:17
+    https://www.youtube.com/watch?v=S5tLVsvbHBg
+2021
+https://bookflow.ru/sobesedovanie-po-java-isklyucheniya-exceptions-voprosy-i-otvety/
+http://victorrentea.ro/blog/exception-handling-guide-in-java/
+2020
+https://javax0.wordpress.com/2020/05/13/all-you-wanted-to-know-about-throwable/
+    !!!
+2019
+https://dzone.com/articles/recovering-from-exceptions-in-locks
+2018
+https://habr.com/post/431586/
+https://www.baeldung.com/java-exceptions
+https://stackify.com/types-of-exceptions-java/
+
+Thread.currentThread().getStackTrace()
+
+Thread.setDefaultUncaughtExceptionHandler(
+    new ElasticsearchUncaughtExceptionHandler(() -> Node.NODE_NAME_SETTING.get(settings)));

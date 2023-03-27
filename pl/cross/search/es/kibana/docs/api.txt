@@ -1,0 +1,10 @@
+https://www.elastic.co/guide/en/kibana/current/api.html
+
+https://www.elastic.co/guide/en/kibana/current/index-patterns-api.html
+https://www.elastic.co/guide/en/kibana/current/index-patterns-api-get.html
+
+??? discover
+https://discuss.elastic.co/t/how-to-have-kibana-convert-kql-to-request-curl-command/213062/3
+    Hello, You can open inspector in discover and look at the request
+    & copy it and modify it for using from curl
+    at the right side -> View: Requests

@@ -1,0 +1,13 @@
+http://www.scala-lang.org/api/current/#scala.collection.immutable.Stream
+
+def from(n: Int): Stream[Int] = n #:: from(n + 1)
+  the stream of all nats
+
+def sieve(s: Stream[Int]): Stream[Int] =
+  s.head #:: sieve(s.tail filter (_ % s.head != 0))
+
+http://blog.dmitryleskov.com/programming/scala/stream-hygiene-i-avoiding-memory-leaks/
+http://blog.dmitryleskov.com/programming/scala/stream-hygiene-ii-hotspot-kicks-in/
+http://blog.dmitryleskov.com/programming/scala/stream-hygiene-iii-scalaz-ephemeralstream-fills-quite-a-canyon/
+
+http://philwantsfish.github.io/scala/streamsandprimes

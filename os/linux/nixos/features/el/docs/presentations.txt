@@ -1,0 +1,142 @@
+2023
+JakeHamilton - Nix From Nothing | Let's Learn Nix & NixOS! of 1:06:35
+    https://www.youtube.com/watch?v=t8ydCYe9Y3M
+    ! $ echo 42 > example.nix
+    ! $ nix repl eval --file ./example.nix
+    ! 42
+    ! // attribute set
+    ! { name = val; } 
+    ! // lists are space-delimited
+    ! [ 1 2 3 ]
+    ! let mynumber = 42; in mynumber + 1
+    ! let greet = name: "Hello, ${name}"; in greet "Chat"
+    ! let greet = greeting: name: "${greeting}, ${name}"; in greet "Hello" "Chat"
+    ! let
+        makeSecret = { key, value, ... }: {
+          mySuperSecretValue = value;
+          ${key} = value;
+          "user-${key}" = value;
+          // value = value
+          inherit value;
+        };
+      in
+        makeSecret { key = "my_secret"; value = "super-secret"; }
+    ! other-file.nix
+    !   { greet = name: "Hello, ${name}!"; }
+    ! example.nix
+    ! let
+        myLibrary = import ./other-file.nix;
+      in
+        myLibrary.greet "Chat"
+
+    ! We can do the same thing with nix packages
+    ! $ nix registry list
+    ! $ echo $NIX_PATH
+    !   /etc/nix/inputs (with the same stuff)
+
+    ! let
+        pkgs = import <nixpkgs>
+      in
+        pkgs
+      ** brings <LAMBDA> **
+
+    ! $cat /etc/nix/inputs/nixpkgs/default.nix
+
+    ! let
+        pkgs = import <nixpkgs> {}
+      in
+        pkgs.lib
+
+    ! $ nix repl
+    ! > pkgs = import <nixpkgs> {}
+    ! > pkgs.lib
+    ! ***
+    ! builtins.derivation
+    ! ...
+    ! pkgs.lib.platform
+    ! pkgs.lib.traceCall
+    ! ...
+    ! > builtins.attrNames pkgs.lib.platform
+    ! ["aarch64" ...]
+
+    ! cat example.nix
+    ! builtins.derivation {
+    !   name = "my-derivation";
+    !   system = "x86_64-linux";
+    !   builder = "/bin/sh";
+    !   args = ["-c" "echo Hello > $out"];
+    ! } 
+
+    ! $ nix-instantiate ./example.nix
+    ! /nix/store/...-my-derivation.drv
+    ! $ cat /nix/store/...-my-derivation.drv
+    ! Derive([("out","/nix/store/...-my-derivation","","")],[],[],"x86_64-linux","/bin/sh",["-c","echo Hello > $out"],[("builder")])...
+    ! $ nix-store --realise /nix/store/...-my-derivation.drv
+    ! ...
+    ! /nix/store/...-my-derivation
+    ! ** (without .drv suffix)
+    ! $cat /nix/store/...-my-derivation
+    ! Hello
+
+    ! > :l <nixpkgs>
+    ! > :e pkgs.runCommand
+
+    ! cat example.nix
+    ! let
+    !   pkgs = import <nixpkgs> {};
+    ! in
+    !   pkgs.runCommand "my-derivation" {} ''
+    !     echo Hello > $out
+    ! ''
+    ! $ nix build --file ./example.nix
+    ! $ ls -la
+    ! ...
+    ! result -> /nix/store/...-my-derivation
+    ! $ cat result
+    ! Hello
+
+    ! usually nixpkgs use a more fully-form wrapper with phases:
+    ! cat example.nix
+    ! let
+    !   pkgs = import <nixpkgs> {};
+    ! in
+    !   pkgs.stdenv.mkDerivation {
+    !     name = "my-derivation";
+    !     src = ./.;
+    !     installPhase = ''
+    !       echo Hello > $out
+    !     '';
+    !   }
+    !
+    ! > modulea = { options.a.enable = lib.mkEnableOption "A"; }
+    ! > result = lib.evalModules { modules = [ modulea ]; }
+    ! > result
+    ! > result.options
+    ! > result.options.a
+    ! > result.options.a.enable
+    ! > moduleb = { options.b.enable = lib.mkEnableOption "B"; }
+    ! > result = lib.evalModules { modules = [ modulea moduleb]; }
+
+    ! > module = { options ... config { a.enable=true; }; ... }
+
+    ! > modulec = { options.output = lib.mkOption { type = lib.types.str; }; }
+    ! > result = lib.evalModules { modules = [ modulea moduleb modulec ]; }
+    ! > moduleb = { config, ... }: { config = { output = "something"; }; }
+    ! > result.config
+    ! { a = { ... }; output = "something"; }
+    ! > moduleb = { config, ... }: { config = lib.mkIf config.a.enabled { output = "something"; }; }
+    ! > result.config
+    ! ???
+
+    ! cat example.nix
+    ! let
+    !   pkgs = import <nixpkgs> {};
+    !   lib = pkgs.lib;
+    ! in
+
+2019
+NixCon - Reading Nix Expression Zimbatm
+    https://www.youtube.com/watch?v=61MuMY9XFNo
+    https://zimbatm.com/talks/reading-nix-expressions/
+NixCon - Nix - How and Why it Works
+    https://www.youtube.com/watch?v=lxtHH838yko

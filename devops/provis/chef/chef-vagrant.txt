@@ -1,0 +1,17 @@
+https://github.com/mitchellh/vagrant/wiki/Available-Vagrant-Plugins
+
+https://github.com/fgrehm/vagrant-cachier
+
+
+https://github.com/chef/vagrant-omnibus
+vagrant plugin install vagrant-omnibus
+
+  if Vagrant.has_plugin?("vagrant-omnibus")
+    config.omnibus.chef_version = 'latest'
+  end
+
+
+https://github.com/berkshelf/vagrant-berkshelf
+vagrant plugin install vagrant-berkshelf
+
+  config.berkshelf.enabled = true

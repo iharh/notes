@@ -1,0 +1,67 @@
+? dns, dns_search
+healthcheck
+extends
+
+networking
+https://docs.docker.com/compose/networking/
+https://docs.docker.com/compose/compose-file/#build
+
+network-aliases
+https://medium.com/@yani/two-way-link-with-docker-compose-8e774887be41
+https://myshittycode.com/2017/06/01/docker-handling-circular-dependency-between-containers/
+
+network-ambassador:
+https://stackoverflow.com/questions/29307645/how-to-link-docker-container-to-each-other-with-docker-compose
+https://docs.docker.com/engine/admin/ambassador_pattern_linking/
+https://github.com/cpuguy83/docker-grand-ambassador
+
+dns
+https://docs.docker.com/compose/compose-file/#dns
+https://docs.docker.com/compose/compose-file/#dns_search
+
+2022
+https://medium.com/techmormo/docker-network-drivers-overview-networking-in-docker-3-78308e0839c9
+    ! mostly theoretical
+2021
+https://linuxhandbook.com/set-hostname-docker-compose/
+????
+https://runnable.com/docker/docker-compose-networking
+https://runnable.com/docker/basic-docker-networking
+
+samples
+https://pastebin.com/gb4ZNYCg
+https://forums.docker.com/t/option-network-mode-host-in-docker-compose-file-not-working-as-expected/51682
+    mysrv:
+      build:
+        network: host
+
+
+default:
+      external:
+          name: i-already-created-this
+front:
+    # use the bridge driver, but enable IPv6
+    driver: bridge
+    driver_opts:
+        com.docker.network.enable_ipv6: "true"
+    ipam:
+        driver: default
+        config:
+            - subnet: 172.16.238.0/24
+            gateway: 172.16.238.1
+            - subnet: "2001:3984:3989::/64"
+            gateway: "2001:3984:3989::1"
+
+issue
+failed to create network ...: Error response from daemon: could not find an available,
+       non-overlapping IPv4 address pool among the defaults to assign to the network
+    https://stackoverflow.com/questions/43720339/docker-error-could-not-find-an-available-non-overlapping-ipv4-address-pool-am/56136591#56136591
+        Idea that You should specify what exactly subnet you want to use.
+        In docker-compose.yml write:
+            networks:
+              default:
+                driver: bridge
+                ipam:
+                  config:
+                    - subnet: 172.16.57.0/24
+

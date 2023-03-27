@@ -1,0 +1,6 @@
+samples:
+stack exec -- ghc version
+    stack ghc -- --version
+stack exec d1-exe -- -o a.svg -w 400
+
+

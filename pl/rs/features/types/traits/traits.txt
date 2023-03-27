@@ -1,0 +1,42 @@
+books
+https://rust-lang.github.io/book/second-edition/ch17-02-trait-objects.html
+
+articles
+2019
+https://tratt.net/laurie/blog/entries/a_quick_look_at_trait_objects_in_rust.html
+2018
+https://joshleeb.com/posts/rust-traits-and-trait-objects/
+2017
+http://smallcultfollowing.com/babysteps/blog/2017/01/26/lowering-rust-traits-to-logic/
+https://www.reddit.com/r/rust/comments/5qd3me/lowering_rust_traits_to_logic/
+https://internals.rust-lang.org/t/blog-series-lowering-rust-traits-to-logic/4673
+
+presentations
+2018
+Hertleif - A generalists view of traits !!! good overview
+https://www.youtube.com/watch?v=3YCqgwpuFM0
+    https://media.ccc.de/v/rustcologne.2018.09.generalists-view-traits
+    https://killercup.github.io/presentation-traits-from-the-ground-up/index.html#/
+    https://github.com/killercup/presentation-traits-from-the-ground-up
+Shamrell-Harrington - Traits and You
+https://www.youtube.com/watch?v=grU-4u0Okto
+
+conservative_impl_trait:
+https://www.reddit.com/r/rust/comments/5sir9i/thoughts_on_conservative_impl_trait/
+
+specialization:
+http://aturon.github.io/blog/2017/02/06/specialization-and-coherence/
+http://smallcultfollowing.com/babysteps/blog/2016/10/24/supporting-blanket-impls-in-specialization/
+http://smallcultfollowing.com/babysteps/blog/2016/09/29/distinguishing-reuse-from-override/
+http://smallcultfollowing.com/babysteps/blog/2016/09/24/intersection-impls/
+https://internals.rust-lang.org/t/blog-post-intersection-impls/4129
+
+trait problems:
+https://www.reddit.com/r/rust/comments/620m1v/never_hearing_the_trait_x_cannot_be_made_into_an/
+
+chalk:
+http://aturon.github.io/blog/2017/04/24/negative-chalk/
+https://www.reddit.com/r/rust/comments/67bwkv/negative_reasoning_in_chalk_aaron_turon/
+
+marker-traits:
+Sized, Send, Sync

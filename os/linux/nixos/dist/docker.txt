@@ -1,0 +1,6 @@
+https://hub.docker.com/r/nixos/nix/
+
+https://github.com/NixOS/nixos-homepage/blob/master/Dockerfile
+    FROM nixos/nix
+    RUN echo 'experimental-features = nix-command flakes' | tee -a /etc/nix/nix.conf
+    WORKDIR /app

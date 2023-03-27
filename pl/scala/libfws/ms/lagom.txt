@@ -1,0 +1,220 @@
+Presentations:
+Dotta - Lightbend Lagom - Microservices Just Right
+http://www.slideshare.net/mircodotta/lightbend-lagom-microservices-just-right
+http://www.slideshare.net/mircodotta/lightbend-lagom-microservices-just-right-scala-days-2016-berlin
+https://www.youtube.com/watch?v=fRlx_fxar-U
+
+sbt
+runAll
+
+ServiceLocator
+ServiceGateway
+
+each service-definition is plit into 2 sbt projects
+- api
+- impl
+
+// in api-project
+trait HelloService extends Service {
+    override def descriptor(): Descriptor = {
+        named("helloservice").`with`(
+            namedCall("/hello", sayHello _)
+        )
+    }
+
+    def sayHello(): ServiceCall[String, String]
+}
+
+// ServiceCall explained
+
+trait ServiceCall[Request, Response] {
+    def invoke(request: Request): Future[Response]
+}
+
+- ServiceCall can be invoked when consuming a service:
+-- Request: type of incoming request message (e.g. String)
+-- Response: type of outgoing response message (e.g. String)
+- JSON is the default serialization format for request/response messages
+- There are two kinds of request/response messages:
+-- Strict
+-- Streamed
+
+// Strict messages
+// are fully buffered into memory
+
+override def descriptor(): Descriptor = {
+    named("friendservice").`with`(
+        pathCall("/users/:userId/friends", addFriend _)
+    )
+}
+
+def addFriend(userId: String): ServiceCall[FriendId, NotUsed]
+
+// Streamed messages
+
+override def descriptor(): Descriptor = {
+    named("clock").`with`(
+        pathCall("/tick/:interval", tick())
+    )
+}
+
+def dick(): ServiceCall[FriendId, Source[String, _]]
+
+- A streamed message is of type Source (an Akka streams API)
+- It allows asynchronous streaming and handling of messages
+- Lagom will select transport protocol (currently WebSockets)
+
+We finnaly got back-pressure async ...
+
+// Remember the Service definition?
+
+...
+
+// Here is the Service implementation
+
+class HelloServiceImpl extends HelloService {
+    override def sayHello(): ServiceCall[String, String] {
+        name => Future.successful(s"Hello, $name!")
+    }
+}
+
+// Inter-service communication
+
+class MyServiceImpl @Inject()(helloService: HelloService)(implicit ec: ExecutionContext) extends MyService {
+
+    override def sayHelloLagom(): ServiceCall[NotUsed, String] = unused => {
+        val response = helloService.sayHello().invoke("Lagom")
+        response.map(answer => s"Hello service said: $answer")
+    }
+}
+
+//
+// Persistence API
+//
+
+Principles
+- Each service owns its data
+-- Only the service has direct access to the DB
+- We advocate the use of Event Sourcing (ES) and CQRS
+-- ES: Capture all state's changes as events
+-- CQRS: separate models for write and read
+
+// Benefits of Event Sourcing/CQRS
+
+- Allows you to time travel
+- Audit log
+- Future business opportunities
+- No need for ORM
+- No database migration script, ever
+- Performance and Scalability
+- Testability and Debuggability
+
+// Event Sourcing: Write Side
+
+- Create your own Command and Event classes
+- Subclass PersistentEntity
+-- Define Command and Event handlers
+-- Can be accessed from anywhere in the cluster
+-- (corresponds to an Aggregate Root in DDD)
+
+// Event Sourcing Example
+
+Create the Command classes
+
+sealed trait FriendCommand extends Jsonable
+
+case class AddFriend(friendUserId: String) extends
+    PersistentEntity.ReplyType[Done] with FriendCommand
+
+// more friend commands
+
+// Event Sourcing: Example cont'd
+
+Create the Event classes
+
+sealed trait FriendEvent extends Jsonable
+
+case class FriendAdded(userId: String, firendId: String, timestamp: Instant = Instant.now()) extends FriendEvent
+
+// more friend events
+
+// Event Sourcing: Example cont'd
+
+Create a subclass of Persistent Entity
+
+class FriendEntity extends
+    PersistentEntity[FriendCommand, FriendEvent, FriendState] {
+
+    def initialBehavior(snapshotState: Optional[FriendState]): Behavior =
+        // TODO: define command and event handlers
+}
+
+// Event Sourcing: Example cont'd
+
+val b: Behavior = newBehaviorBuilder(/*...*/)
+b.setCommandHandler(classOf[AddFriend],
+    (cmd: AddFriend, ctx: CommandContext[Done]) => state.user match {
+        case None =>
+            ctx.invalidCommand(s"User ${entityId} is not created")
+            ctx.done
+        case Some(user) =>
+            ctx.thenPersist(FriendAdded(user.userId, cmd.firendUserId),
+                (evt: FriendAdded) => ctx.reply(Done))
+    }
+)
+
+// Event Sourcing: Example cont'd
+
+b.setEventHandler(classOf[FriendAdded],
+    (evt: FriendAdded) => state.addFriend(evt.friendId))
+
+No side-effects in the event handler !
+
+// Event Sourcing: Example cont'd
+
+Create the State class
+
+cas class FriendState(user: Option[User]) extends Jsonable {
+    def addFriend(friendUserId: String): FriendState = user match {
+        case None =>
+            throw new IllegalStateException("friend can't be added before user is created")
+        case Some(user) =>
+            val newFriends = user.friends :+ friendUserId
+            FriendState(Some(user.copy(friends = newFriends)))
+    }
+}
+
+// Event Sourcing: Example cont'd
+
+class FriendServiceImpl @Inject() (persistentEntities: PersistentEntityRegistry)
+    (implicit ec: ExecutionContext) extends FriendService {
+
+    // at service startup we must register the needed entities
+    persistentEntities.register(classOf[FriendEntity])
+
+    def addFriend(userId: String): ServiceCall[FriendId, NotUsed] = request =>
+        val rev = persistentEntities.refFor(classOf[FriendEntity], userId)
+        ref.ask[Done, AddFriend](AddFriend(request.friendId))
+    }
+    // ...
+}
+
+// Event Sourcing: Read Side
+
+- Tightly integrated with Cassandra
+- Create the query tables:
+-- Subclass CassandraReadSideProcessor
+-- Comsumes events, produced by the PersistentEntity and
+   updates tables in Cassandra optimized for queries
+- Retrieving data: Cassandra Query Language
+-- e.g., SELECT id, title FROM postsummary
+
+// Running in production
+
+- sbt-native packager is used to product zip, MSI, RPM, Docker
+- Lightbend ConductR* (our container orchestration tool)
+- Lightbend Reactive Platfrom*
+-- Split Brain Resolver (for Akka cluster)
+-- Lightbend Monitoring
+
+// Extra slide !!! 

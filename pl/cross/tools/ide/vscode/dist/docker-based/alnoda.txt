@@ -1,0 +1,30 @@
+https://hub.docker.com/u/alnoda
+https://github.com/bluxmit/alnoda-workspaces
+https://github.com/bluxmit/alnoda-workspaces/tree/main/workspaces
+
+ubuntu-workspace (with docker/lazydocker/ctop/sen/dive)
+https://hub.docker.com/r/alnoda/ubuntu-workspace
+https://github.com/bluxmit/alnoda-workspaces/tree/main/workspaces/ubuntu-workspace
+https://github.com/bluxmit/alnoda-workspaces/blob/main/workspaces/ubuntu-workspace/Dockerfile-20.04
+
+ubuntu-workspace-in-docker (based on ubuntu-workspace)
+https://hub.docker.com/r/alnoda/workspace-in-docker
+https://github.com/bluxmit/alnoda-workspaces/tree/main/workspaces/ubuntu-docker-workspace
+https://github.com/bluxmit/alnoda-workspaces/blob/main/workspaces/ubuntu-docker-workspace/Dockerfile
+
+eclipse-theia
+https://theia-ide.org/docs/
+https://github.com/bluxmit/alnoda-workspaces/tree/main/workspaces/ide-workspace
+https://github.com/bluxmit/alnoda-workspaces/blob/main/workspaces/ide-workspace/Dockerfile
+
+java
+https://github.com/bluxmit/alnoda-workspaces/tree/main/workspaces/java-workspace
+    https://github.com/bluxmit/alnoda-workspaces/blob/main/workspaces/java-workspace/Dockerfile-17
+    https://github.com/bluxmit/alnoda-workspaces/blob/main/workspaces/java-workspace/Dockerfile-8
+    https://docs.alnoda.org/
+    https://docs.alnoda.org/get-started/common-features/
+    https://docs.alnoda.org/java-workspace/tutorial/
+
+rust
+https://hub.docker.com/r/alnoda/rust-workspace
+https://github.com/bluxmit/alnoda-workspaces/tree/main/workspaces/rust-workspace

@@ -1,0 +1,37 @@
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/provider/expression/OAuth2SecurityExpressionMethods.html
+https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/expression/OAuth2SecurityExpressionMethods.java
+
+2019
+https://www.baeldung.com/spring-security-expressions
+    https://github.com/eugenp/tutorials/blob/master/spring-security-modules/spring-security-mvc-boot/src/main/java/org/baeldung/custom/config/MethodSecurityConfig.java
+    https://github.com/eugenp/tutorials/blob/master/spring-security-modules/spring-security-acl/src/main/java/org/baeldung/acl/config/ACLContext.java
+
+https://stackoverflow.com/questions/29797721/oauth2-security-expressions-on-method-level
+    !!!
+
+https://github.com/spring-projects/spring-boot/issues/3910
+
+    import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+    import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+
+    @Configuration
+    @EnableResourceServer
+    public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
+
+        @Override
+        public void configure(HttpSecurity http) throws Exception {       
+            http.authorizeRequests().
+                antMatchers("/testScope1").access("#oauth2.hasScope('scope1')").
+                anyRequest().authenticated();
+        }
+    }
+
+    @Configuration
+    @EnableGlobalMethodSecurity
+    public class MethodSecurityConfiguration extends GlobalMethodSecurityConfiguration {
+
+        @Override
+        protected MethodSecurityExpressionHandler createExpressionHandler() {
+            return new OAuth2MethodSecurityExpressionHandler();
+        }
+    }

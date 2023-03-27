@@ -1,0 +1,13 @@
+https://wiki.archlinux.org/index.php/VirtualBox
+
+https://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html
+
+Guest Additions:
+
+mkdir /media/cdrom0
+mount /dev/sr0 /media/cdrom0
+sh /media/cdrom0/VBoxLinuxAdditions.run
+umount /dev/sr0
+
+Linux install:
+modprobe vboxdrv

@@ -1,0 +1,6 @@
+src
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/LibraryLoader.java
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/ReflectionLibraryLoader.java
+
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/NativeClosureProxy.java
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/NativeType.java

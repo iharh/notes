@@ -1,0 +1,53 @@
+https://www.reddit.com/r/scala/comments/5gpujf/preloading_code_snippets_in_the_ammonite_repl_you/
+https://gist.github.com/lihaoyi/1ebdd89b065a741a1ea72b5d780b9ab1
+
+lihaoyi Ammonite$ amm
+Loading...
+Welcome to the Ammonite Repl 0.8.0
+(Scala 2.11.8 Java 1.8.0_112)
+@ {
+  val funnyFilter = ammonite.terminal.Filter.simple(" ")((b, c, m) =>
+    if (FunnyFrontEnd.nextLine == Nil) (b.take(c) ++ " " ++ b.drop(c), c+1)
+    else {
+      val head :: tail = FunnyFrontEnd.nextLine
+      FunnyFrontEnd.nextReader = new java.io.StringReader(head)
+      FunnyFrontEnd.nextLine = tail
+      (b, c)
+    }
+  )
+  object FunnyFrontEnd extends  ammonite.repl.AmmoniteFrontEnd(funnyFilter){
+    var nextLine = List.empty[String]
+    var nextReader = new java.io.StringReader("")
+    def setNextLines(s: Seq[String]) = nextLine = s.toList
+    override def readLine(reader: java.io.Reader,
+                 output: java.io.OutputStream,
+                 prompt: String,
+                 colors: ammonite.util.Colors,
+                 compilerComplete: (Int, String) => (Int, Seq[String], Seq[String]),
+                 history: IndexedSeq[String]) = {
+      val readerX = new java.io.Reader{
+        def close() = {reader.close(); nextReader.close()}
+        def read(cbuf: Array[Char], off: Int, len: Int) = {
+          val preRead = nextReader.read(cbuf, off, len)
+          if(preRead == len) preRead
+          else{
+            val preReadNum = math.max(0, preRead)
+            val postRead = reader.read(cbuf, off + preReadNum, len - preReadNum)
+            if (postRead == -1) -1 else postRead + preReadNum
+          }
+        }
+      }
+      super.readLine(readerX, output, prompt, colors, compilerComplete, history)
+    }
+  }
+  repl.frontEnd() = FunnyFrontEnd
+  }
+funnyFilter: AnyRef with ammonite.terminal.Filter{def op(ti: ammonite.terminal.TermInfo): Option[ammonite.terminal.TermState]} = $sess.cmd0.funnyFilter:1
+defined object FunnyFrontEnd
+@ FunnyFrontEnd.setNextLines(Seq("println(\"Hello\")", "println(\"World\")"))
+
+@ println("Hello")
+Hello
+
+@ println("World")
+World

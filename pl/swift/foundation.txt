@@ -1,0 +1,12 @@
+https://developer.apple.com/reference/foundation/
+
+process
+  NSTask
+  
+  standardInput
+  standardOutput
+
+filehandle
+  FileHandle
+pipe
+  NSPipe

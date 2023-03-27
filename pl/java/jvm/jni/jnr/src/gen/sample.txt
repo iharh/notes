@@ -1,0 +1,71 @@
+// class version 50.0 (50)
+// access flags 0x11
+public final class MyTest$LibCld2$jnr$ffi$0 extends jnr/ffi/provider/jffi/AbstractAsmLibraryInterface  implements MyTest$LibCld2  {
+  // access flags 0x12
+  private final Lcom/kenai/jffi/CallContext; callContext_1
+
+  // access flags 0x12
+  private final J functionAddress_1
+
+  // access flags 0x12
+  private final Ljnr/ffi/provider/converters/CharSequenceParameterConverter; toNativeConverter_1
+
+  // access flags 0x11
+  public final puts(Ljava/lang/String;)I
+    GETSTATIC jnr/ffi/provider/jffi/AbstractAsmLibraryInterface.ffi : Lcom/kenai/jffi/Invoker;
+    ALOAD 0
+    GETFIELD MyTest$LibCld2$jnr$ffi$0.callContext_1 : Lcom/kenai/jffi/CallContext;
+    ALOAD 0
+    GETFIELD MyTest$LibCld2$jnr$ffi$0.functionAddress_1 : J
+    ALOAD 0
+    GETFIELD MyTest$LibCld2$jnr$ffi$0.callContext_1 : Lcom/kenai/jffi/CallContext;
+    INVOKESTATIC jnr/ffi/provider/jffi/AsmRuntime.newHeapInvocationBuffer (Lcom/kenai/jffi/CallContext;)Lcom/kenai/jffi/HeapInvocationBuffer;
+    DUP
+    ALOAD 1
+    ALOAD 0
+    GETFIELD MyTest$LibCld2$jnr$ffi$0.toNativeConverter_1 : Ljnr/ffi/provider/converters/CharSequenceParameterConverter;
+    SWAP
+    ACONST_NULL
+    INVOKEVIRTUAL jnr/ffi/provider/converters/CharSequenceParameterConverter.toNative (Ljava/lang/CharSequence;Ljnr/ffi/mapper/ToNativeContext;)Ljava/nio/ByteBuffer;
+    ASTORE 3
+    ALOAD 3
+    INVOKESTATIC jnr/ffi/provider/jffi/AsmRuntime.pointerParameterStrategy (Ljava/nio/ByteBuffer;)Ljnr/ffi/provider/jffi/BufferParameterStrategy;
+    ASTORE 4
+    ALOAD 3
+    ALOAD 4
+    ICONST_5
+    INVOKEVIRTUAL com/kenai/jffi/HeapInvocationBuffer.putObject (Ljava/lang/Object;Lcom/kenai/jffi/ObjectParameterStrategy;I)V
+    INVOKEVIRTUAL com/kenai/jffi/Invoker.invokeInt (Lcom/kenai/jffi/CallContext;JLcom/kenai/jffi/HeapInvocationBuffer;)I
+    IRETURN
+    MAXSTACK = 9
+    MAXLOCALS = 5
+
+  // access flags 0x1
+  public <init>(Ljnr/ffi/Runtime;Ljnr/ffi/provider/jffi/NativeLibrary;[Ljava/lang/Object;)V
+    ALOAD 0
+    ALOAD 1
+    ALOAD 2
+    INVOKESPECIAL jnr/ffi/provider/jffi/AbstractAsmLibraryInterface.<init> (Ljnr/ffi/Runtime;Ljnr/ffi/provider/jffi/NativeLibrary;)V
+    ALOAD 0
+    ALOAD 3
+    ICONST_0
+    AALOAD
+    CHECKCAST com/kenai/jffi/CallContext
+    PUTFIELD MyTest$LibCld2$jnr$ffi$0.callContext_1 : Lcom/kenai/jffi/CallContext;
+    ALOAD 0
+    ALOAD 3
+    ICONST_1
+    AALOAD
+    CHECKCAST java/lang/Long
+    INVOKEVIRTUAL java/lang/Long.longValue ()J
+    PUTFIELD MyTest$LibCld2$jnr$ffi$0.functionAddress_1 : J
+    ALOAD 0
+    ALOAD 3
+    ICONST_2
+    AALOAD
+    CHECKCAST jnr/ffi/provider/converters/CharSequenceParameterConverter
+    PUTFIELD MyTest$LibCld2$jnr$ffi$0.toNativeConverter_1 : Ljnr/ffi/provider/converters/CharSequenceParameterConverter;
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}

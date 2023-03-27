@@ -1,0 +1,11 @@
+https://reactjs.org/docs/jsx-in-depth.html
+
+capitalization
+is important !!!
+
+comments
+{ /* ... */ }
+<SomeTag> ... /* ... */ ... </SomeTag>
+
+2021
+https://www.telerik.com/blogs/how-jsx-react-works-under-hood

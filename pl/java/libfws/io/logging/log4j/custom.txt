@@ -1,0 +1,15 @@
+custom cfg
+https://logging.apache.org/log4j/2.0/manual/customconfig.html
+https://logging.apache.org/log4j/2.0/manual/extending.html#ConfigurationFactory
+
+custom cfg factory
+    https://github.com/eugenp/tutorials/tree/master/logging-modules/log4j2
+    -Dlog4j2.configurationFactory=com.baeldung.log4j2.CustomConfigFactory
+    @Plugin(name = "CustomConfigurationFactory", category = ConfigurationFactory.CATEGORY)
+    @Order(50)
+    public class CustomConfigFactory extends ConfigurationFactory {
+        // ... rest of implementation
+    }
+
+custom log levels
+https://logging.apache.org/log4j/2.x/manual/customloglevels.html

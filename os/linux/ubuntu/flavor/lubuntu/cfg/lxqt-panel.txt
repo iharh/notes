@@ -1,0 +1,26 @@
+https://manual.lubuntu.me/stable/5/5.1/lxqt-panel.html
+
+cfg:
+~/.config/lxqt/
+    globalkeyshortcuts.conf
+        C-A-b   browser
+        C-A-Del qps (task manager)
+        C-A-l   lock screen
+        C-A-t   qterminal
+        M-0     task 0
+        M-1     task 1
+        ...
+        M-9     task 9
+        M-d     show/hide desktop
+        M-F1    switch to desktop 1
+        M-F2    switch to desktop 2
+        ...
+        M-F12   switch to desktop 12
+        M-r     lxqt-runner
+        Print   screenshot
+    lxqt-runner.conf
+        https://github.com/lxqt/lxqt-runner
+    panel.conf
+
+[quicklaunch]
+    https://askubuntu.com/questions/1085371/is-the-only-way-to-add-a-quicklaunch-in-lxqt-by-mouse

@@ -1,0 +1,26 @@
+https://hackage.haskell.org/package/xmobar
+
+https://github.com/jaor/xmobar
+https://github.com/jaor/xmobar/tree/master/doc
+https://github.com/jaor/xmobar/blob/master/doc/quick-start.org
+https://github.com/jaor/xmobar/blob/master/doc/window-managers.org
+
+https://wiki.archlinux.org/title/Xmobar
+
+https://archives.haskell.org/projects.haskell.org/xmobar/
+https://github.com/jaor/xmobar/blob/master/doc/quick-start.org
+
+2014
+https://habr.com/ru/post/242351/
+
+cli
+xmobar -f "xft:Hack:pixelsize=14"
+
+cfg
+https://github.com/kronolynx/xmonad/blob/main/src/xmobar.hs
+    !!! super-puper
+https://gitlab.com/dwt1/dotfiles/-/blob/master/.xmonad/xmonad.hs
+https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/xmobar/xmobarrc
+
+https://github.com/vicfryzel/xmonad-config/blob/master/xmobar-single.hs
+    ! 4yo

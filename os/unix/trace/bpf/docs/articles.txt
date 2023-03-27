@@ -1,0 +1,39 @@
+2022
+https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
+https://blogs.oracle.com/linux/post/oracle-linux-and-bpf
+https://www.seekret.io/blog/a-practical-guide-to-capturing-production-traffic-with-ebpf/l
+    https://github.com/seek-ret/ebpf-training/tree/main/workshop1 
+https://blog.cloudflare.com/tubular-fixing-the-socket-api-with-ebpf/
+    https://habr.com/ru/company/otus/blog/660561/
+2021
+https://habr.com/ru/company/nixys/blog/580640/
+https://www.infoq.com/articles/gentle-linux-ebpf-introduction/
+https://tenzir.com/blog/production-debugging-bpftrace-uprobes/
+https://habr.com/ru/post/542560/
+http://www.brendangregg.com/blog/2020-11-04/bpf-co-re-btf-libbpf.html
+    https://habr.com/ru/company/otus/blog/538980/
+2020
+https://thenewstack.io/how-io_uring-and-ebpf-will-revolutionize-programming-in-linux/
+BPF for Little
+    https://habr.com/ru/post/529316/
+    https://habr.com/ru/post/514736/
+    https://habr.com/ru/post/493880/
+https://habr.com/ru/company/badoo/blog/520086/
+http://www.mycpu.org/cachetop-bpf-part-2/
+http://www.mycpu.org/writing-bpf-c++/
+2019
+https://blog.redsift.com/labs/writing-bpf-code-in-rust/
+http://www.opennet.ru/opennews/art.shtml?num=51457
+http://www.opennet.ru/opennews/art.shtml?num=51287
+https://www.joyfulbikeshedding.com/blog/2019-01-31-full-system-dynamic-tracing-on-linux-using-ebpf-and-bpftrace.html
+    https://habr.com/ru/company/itsumma/blog/441258/
+https://habr.com/ru/company/otus/blog/436528/
+http://www.brendangregg.com/blog/2019-01-01/learn-ebpf-tracing.html
+    https://habr.com/post/435142/
+2018
+http://www.opennet.ru/opennews/art.shtml?num=49414
+http://www.brendangregg.com/blog/2018-10-08/dtrace-for-linux-2018.html
+2017
+http://www.brendangregg.com/blog/2017-01-31/golang-bcc-bpf-function-tracing.html
+2016
+https://www.opennet.ru/opennews/art.shtml?num=45391

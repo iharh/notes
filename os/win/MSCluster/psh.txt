@@ -1,0 +1,7 @@
+get-module -list
+
+check FailoverClusters
+
+import-module FailoverClusters
+
+

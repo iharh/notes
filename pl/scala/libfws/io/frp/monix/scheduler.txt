@@ -1,0 +1,19 @@
+https://monix.io/docs/2x/execution/scheduler.html
+https://github.com/monixio/monix/blob/master/monix-execution/shared/src/main/scala/monix/execution/Scheduler.scala
+
+//import monix.execution.schedulers.ExecutionModel.SynchronousExecution
+//import monix.execution.{Scheduler, UncaughtExceptionReporter}
+//import java.util.concurrent.Executors
+
+        val scheduledExecutor = Executors.newSingleThreadScheduledExecutor()
+        val executorService =  scala.concurrent.ExecutionContext.Implicits.global
+        val uncaughtExceptionReporter = UncaughtExceptionReporter(executorService.reportFailure)
+
+        implicit val scheduler = Scheduler(
+            scheduledExecutor,
+            executorService,
+            uncaughtExceptionReporter,
+            SynchronousExecution)
+
+        implicit val scheduler = Scheduler.io(name="my-io", executionModel = SynchronousExecution)
+        implicit val scheduler = Scheduler.singleThread(name="my-th", executionModel = SynchronousExecution)

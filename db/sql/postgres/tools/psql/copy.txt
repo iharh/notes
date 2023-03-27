@@ -1,0 +1,30 @@
+https://www.postgresql.org/docs/current/sql-copy.html
+
+2021
+https://blog.skyvia.com/complete-guide-on-how-to-import-and-export-csv-files-to-postgresql/
+2020
+https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/moving-data-with-postgresql-copy-and-copy-commands/ba-p/1561266
+    COPY is server based,
+    \COPY is client based (\COPY is a psql feature)
+qa
+https://dba.stackexchange.com/questions/190780/parsing-copys-binary-format-to-access-a-tsrange
+    !!!
+????
+https://zaiste.net/databases/postgresql/howtos/howto-export-postgresql-query-output-csv/
+
+between dbs
+https://www.endpointdev.com/blog/2013/11/copying-rows-between-postgresql
+    psql source_database -c 'COPY table TO stdout' | psql target_database -c 'COPY table FROM stdin'
+
+with dblinks
+https://stackoverflow.com/questions/36476192/postgresql-copy-transfer-data-from-one-database-to-another
+    create extension dblink;
+    dblink('yourdbname', 'your query')
+
+insert into t(a, b, c)
+select a, b, c from dblink('host=xxx user=xxx password=xxx dbname=xxx', 'select a, b, c from t')
+as x(a integer, b integer, c integer)
+
+csv samples
+psql-some -c "copy (select * from <table> ...) to stdout with csv header;" > ~/Downloads/file.csv
+cat a.csv | psql-some -c "copy <table> from stdin with csv header"

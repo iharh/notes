@@ -1,0 +1,63 @@
+2022
+https://vimtricks.com/p/50-useful-vim-commands/
+
+:h
+    various.txt
+
+ea
+	insert new line after the end of the word
+df{x}
+	delete up to and including the named character x
+xp
+	change 2 adjackent chracters
+ddp
+	swap 2 lines
+dj
+	delete 2 lines (joined)
+d<num>j
+	-//-
+yyp/YP
+	duplicate current line
+yy/0y$
+	yank current line
+=%
+	indent the code between parenthesis
+[[
+	jump to function start (tags, probably needed)
+[{
+	jump to block start
+:new abc.txt
+	edit abc.txt in new window
+:e .
+	open a current-dir navigation buffer
+
+gq<obj-movement>
+	Reformat the <obj-movement>
+gqap/gqaw
+	Format the current paragraph
+vipJ
+	Convert multi-line paragraphs to single line
+
+
+gv	Select text again (goto visual mode)
+
+:map <C-t> :!./%<cr>
+	To run the current shell script
+
+:%s/ /\r/g
+	Substitute spaces to new-lines
+
+:w !sudo tee % >/dev/null
+cnoremap sudow w !sudo tee % >/dev/null
+	vim spawns sudo tee FILENAME and pipes the contents of the file to its stdin.
+	The tee command now runs in a privileged environment and redirects its stdin to FILENAME.
+	The >/dev/null discards tee's stdout as you don't need to see it.
+
+gx
+    Open URL/Link under the cursor in browser...
+
+https://vim.fandom.com/wiki/Switching_case_of_characters
+gUw
+    uppercase word
+guw
+    lowercase word

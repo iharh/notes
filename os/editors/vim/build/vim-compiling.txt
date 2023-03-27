@@ -1,0 +1,30 @@
+:h
+    msdos-compiling
+    win32-compiling
+
+.\update_version.pl
+nmake -f Make_mvc.mak
+    GUI=yes OLE=yes MBYTE=yes IME=yes GIME=yes CSCOPE=yes
+    PERL=C:\Perl DYNAMIC_PERL=yes PERL_VER=514
+    PYTHON=C:\Python27 DYNAMIC_PYTHON=yes PYTHON_VER=27 PYTHON3=C:\Python32 DYNAMIC_PYTHON=yes PYTHON3_VER=32
+    RUBY=C:\ruby200 DYNAMIC_RUBY=yes RUBY_VER=20 RUBY_VER_LONG=2.0.0
+    TCL=C:\Tcl DYNAMIC_TCL=yes TCL_VER=85 TCL_VER_LONG=8.5
+    LUA="C:\Program Files (x86)\Lua\5.1" DYNAMIC_LUA=yes LUA_VER=51
+    XPM=C:\Libraries\xpm USERNAME=Yongwei USERDOMAIN=Shanghai %*
+
+nmake -f Make_mvc.mak
+    MBYTE=yes CSCOPE=yes
+    PERL=C:\Perl DYNAMIC_PERL=yes PERL_VER=514
+    PYTHON=C:\Python27 DYNAMIC_PYTHON=yes PYTHON_VER=27 PYTHON3=C:\Python32 DYNAMIC_PYTHON=yes PYTHON3_VER=32
+    RUBY=C:\ruby200 DYNAMIC_RUBY=yes RUBY_VER=20 RUBY_VER_LONG=2.0.0
+    TCL=C:\Tcl DYNAMIC_TCL=yes TCL_VER=85 TCL_VER_LONG=8.5
+    LUA="C:\Program Files (x86)\Lua\5.1" DYNAMIC_LUA=yes LUA_VER=51
+    USERNAME=Yongwei USERDOMAIN=Shanghai %*
+
+lua:
+  cd lua
+  mingw32-make PLAT=mingw
+  #make mingw
+  #make install
+
+http://sourceforge.net/projects/mingw/files/MinGW/Extension/lua/

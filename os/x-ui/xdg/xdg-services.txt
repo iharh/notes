@@ -1,0 +1,16 @@
+xdg-user-dirs-update:
+/usr/lib/systemd/user/xdg-user-dirs-update.service
+
+man
+    xdg-user-dir
+    user-dirs.conf
+    user-dirs.defaults
+    user-dirs.dirs
+    xdg-user-dirs-update
+
+/etc/xdg/user-dirs.conf
+/etc/xdg/user-dirs.defaults
+
+~/.config/user-dirs.conf
+~/.config/user-dirs.dirs
+~/.config/user-dirs.locale

@@ -1,0 +1,83 @@
+https://hub.docker.com/_/vault
+https://github.com/hashicorp/docker-vault
+
+https://stackoverflow.com/questions/72944271/hashicorp-vault-container-dont-save-my-secrets-on-local-volume-when-i-restart-d
+    entrypoint: vault server -dev -dev-listen-address="0.0.0.0:8200" -dev-root-token-id="root"
+    ...
+    vault-init:
+      container_name: vault-init
+      image: vault:1.12.0
+      volumes:
+        - ./vault-init.sh:/vault-init.sh
+      depends_on:
+        - vault
+      restart: "no"
+      entrypoint: sh -c "/vault-init.sh"
+https://github.com/philips-labs/vault-ca/tree/master
+    https://github.com/philips-labs/vault-ca/blob/master/docker-compose.yml
+    https://github.com/philips-labs/vault-ca/blob/master/volumes/config/config.hcl
+    ! really simple one !
+https://stackoverflow.com/questions/64802234/hashicorp-vault-error-initializing-listener-of-type-tcp-error-loading-tls-c
+    !
+https://open-amt-cloud-toolkit.github.io/docs/1.5/Docker/dockerLocal_prodVault/
+    ! prod-mode
+https://cosced.ru/virtualization/container/docker/running-vault-in-docker-compose/
+https://stackoverflow.com/questions/45171564/using-vault-with-docker-compose-file
+    !!!
+https://github.com/algolia/sup3rS3cretMes5age
+    ! from Misha
+
+
+docker run --cap-add=IPC_LOCK -d --name=devvault vault:latest
+docker run --rm -it --cap-add=IPC_LOCK -p 8200:8200 -e 'VAULT_DEV_ROOT_TOKEN_ID=myroot' --name=devvault vault:latest
+    -e 'VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:1234'
+
+docker exec -it -e 'VAULT_ADDR=http://0.0.0.0:8200' devvault vault status 
+
+export VAULT_ADDR='http://0.0.0.0:8200'
+curl "http://0.0.0.0:8200/v1/sys/seal-status" 
+curl "http://127.0.0.1:8200/v1/sys/seal-status" 
+
+docker run --volume config/:/vault/config.d ...
+
+==> Vault server configuration:
+
+             Api Address: http://0.0.0.0:8200
+                     Cgo: disabled
+         Cluster Address: https://0.0.0.0:8201
+              Go Version: go1.19.3
+              Listener 1: tcp (addr: "0.0.0.0:8200", cluster address: "0.0.0.0:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
+               Log Level: info
+                   Mlock: supported: true, enabled: false
+           Recovery Mode: false
+                 Storage: inmem
+                 Version: Vault v1.12.2, built 2022-11-23T12:53:46Z
+             Version Sha: 415e1fe3118eebd5df6cb60d13defdc01aa17b03
+...
+You may need to set the following environment variables:
+    $ export VAULT_ADDR='http://0.0.0.0:8200'
+
+Unseal Key: XALFgHs7uEmsMgge1d4JuiWseMXV+roOh16m3rvSAiE=
+Root Token: hvs.8SYT7DPKv3VHy7GkvtmQLV0V
+
+The container exposes two optional VOLUMEs:
+
+    /vault/logs
+        , to use for writing persistent audit logs.
+        By default nothing is written here; the file audit backend must be enabled with a path under this directory.
+    /vault/file
+        , to use for writing persistent storage data when using thefile data storage plugin.
+        By default nothing is written here (a dev server uses an in-memory data store);
+        the file data storage backend must be enabled in Vault's configuration before the container is started.
+
+The container has a Vault configuration directory set up at
+    /vault/config
+        and the server will load any HCL or JSON configuration files placed here by binding a volume or by composing a new image and adding files.
+        Alternatively, configuration can be added by passing the configuration JSON via environment variable
+            VAULT_LOCAL_CONFIG.
+
+
+compose:
+https://mylinuxblog.ru/ustnovka-i-nastroyka-vault-v-docker/
+  cap_add:
+    - IPC_LOCK

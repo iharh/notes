@@ -1,0 +1,54 @@
+emulate -L zsh
+setopt local_options extended_glob
+	set all/selected options to be local within a function.
+
+$0
+	The name of the script itself.
+$1, $2, ..., $9, ${10}, ...
+	Positional parameters (in functions).
+$#
+ARGC
+	The number of parameters.
+$*
+	All the parameters separated by space (see ${arr[*]}).
+$@
+argv
+	All the parameters in the array (see ${arr[&]}).
+5=val
+	Assign "val" to $5.
+
+FUNCNAME
+funcstack, provided by zsh/parameter module
+	Array, containing the names of all the functions in the current call stack.
+
+
+Ex loop through the options:
+
+for par; do
+	case $par in
+		(-a) aopt = 1;;
+		(-b) bopt = 2;;
+		(*)  arg  = $par;;
+	esac
+done
+
+while [[ $1 = -* ]]; do
+	case $1 in
+		(-a) aopt=1;;
+		(-b) bopt=1;;
+		(-c)
+			carg=$2
+			shift
+			;;
+	esac
+	shift
+done
+
+See also: getopts, zparseopts.
+
+
+Autoloading functions:
+
+autoload -- ~/.zfunc/[^_]*(:t)
+	Omit files starting from underscore since compinit will autoload them.
+	The (:t) modifier removes any dir-portion from the expression.

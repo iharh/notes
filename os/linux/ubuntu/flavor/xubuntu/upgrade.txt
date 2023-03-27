@@ -1,0 +1,8 @@
+https://docs.xubuntu.org/latest/user/C/migrating-upgrading.html#upgrading
+
+2022
+https://linuxconfig.org/how-to-upgrade-ubuntu-to-22-04-lts-jammy-jellyfish
+    sudo apt install update-manager-core
+    sudo do-release-upgrade
+        -d
+            dev-release

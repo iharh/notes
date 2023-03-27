@@ -1,0 +1,26 @@
+https://stackoverflow.com/questions/42012563/convert-unicode-code-points-to-utf-8-and-utf-32 
+
+http://utfcpp.sourceforge.net/
+
+https://github.com/copperspice/cs_string
+https://github.com/copperspice/cs_string/blob/master/src/cs_string.h
+
+simple
+https://github.com/illigle/IronBrick/blob/master/IrkUtility/src/IrkStringUtility.cpp
+
+boost locale
+https://www.boost.org/doc/libs/1_48_0/libs/locale/doc/html/main.html
+
+musicCube ? dirty code
+https://github.com/stephen-hill/musicCube/blob/master/musikCore/src/Conversion.cpp
+https://github.com/stephen-hill/musicCube/blob/master/musikCore/src/unicode.cpp
+
+interesting
+https://github.com/MrSmile/NTL/blob/master/include/ntl/win-utf.h
+
+https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/stubs/strutil.h
+    IsValidCodePoint 
+    EncodeAsUTF8Char
+
+if (!...)
+    throw std::runtime_error("utf8_to_utf16: invalid utf-8 input found")

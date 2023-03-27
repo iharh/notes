@@ -1,0 +1,36 @@
+https://uefi.org/
+https://uefi.org/specifications
+http://www.rodsbooks.com/gdisk/booting.html
+http://www.rodsbooks.com/efi-bootloaders/
+
+https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface
+https://en.wikipedia.org/wiki/EFI_system_partition
+
+https://help.ubuntu.com/community/UEFI
+https://wiki.archlinux.org/index.php/EFI_system_partition
+https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface
+
+en
+https://www.tecmint.com/ubuntu-19-04-installation-on-uefi-firmware/
+
+ru
+https://losst.ru/ustanovka-linux-na-uefi
+    ! in BIOS switch "UEFI Secure Boot" off
+    ! EFI partition - 256M
+        /boot (not /boot/efi)
+    ! after install - use efibootmanager to check EFI stuff
+https://help.ubuntu.ru/wiki/uefi
+    ! ESP - is a special partition for UEFI startup code
+        FAT-32 with boot and esp-flags
+    ! it's better to use standard installer for creating this partition instead of manual gparted operating
+        EFI boot (UEFI+GPT) with EF00-type, no need to mount manually
+
+fat32, 512M, /boot/efi, flags: boot,esp
+ext4,   10G, /        , flags: root
+
+2020
+AMPHN - Tutorial Install Lubuntu 20.04 (UEFI, No Swap)
+    https://www.youtube.com/watch?v=o4Y4hayHfy8
+2019
+ITSpecialistNotes - Lubuntu 19 with UEFI ru
+    https://www.youtube.com/watch?v=EufMRWvUisk

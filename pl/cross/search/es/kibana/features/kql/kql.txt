@@ -1,0 +1,18 @@
+https://www.elastic.co/guide/en/kibana/current/kuery-query.html
+https://logit.io/blog/post/kibana-elk-cheatsheet/
+
+geoip.country_iso_code : US and products.taxless_price >= 75
+
+http.request.method: (GET OR POST OR DELETE)
+
+https://www.elastic.co/guide/en/elasticsearch/reference/7.3/common-options.html#date-math
+@timestamp < now-2w
+
+https://discuss.elastic.co/t/cant-query-for-date-or-date-range/134378/4
+    @timestamp:2015-09-22 (shows just that day's data)
+    @timestamp:2015-09-22T23 (shows just that hour's data)
+    But an unquoted date/time string containing : doesn't work. But quoted it does;
+    @timestamp:"2015-09-22T23:50:13.253" returns just the one doc with that timestamp.
+    @timestamp:"2015-09-22T23:50" also works. Returns docs in that hour:minute.
+
+https://www.youtube.com/watch?v=G-vGL1IPcrM

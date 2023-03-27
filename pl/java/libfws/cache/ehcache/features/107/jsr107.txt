@@ -1,0 +1,88 @@
+https://www.ehcache.org/documentation/3.8/107.html
+    ! setStoreByValue(false) for non-serializable stuff
+
+2016
+https://www.ehcache.org/blog/2016/05/18/ehcache3_jsr107_spring.html
+
+samples
+https://github.com/ehcache/ehcache3-samples/tree/master/jsr107
+
+
+https://github.com/ehcache/ehcache3/tree/master/107
+https://static.javadoc.io/javax.cache/cache-api/1.0.0/javax/cache/CacheManager.html
+    ? unwrap
+https://github.com/ehcache/ehcache3/blob/master/107/src/test/java/org/ehcache/jsr107/UnwrapTest.java
+    @Test
+    public void testCacheManagerUnwrap() {
+        assertThat(cacheManager.unwrap(org.ehcache.CacheManager.class), is(instanceOf(EhcacheManager.class)));
+        assertThat(cacheManager.unwrap(cacheManager.getClass()), is(instanceOf(Eh107CacheManager.class)));
+    }
+    https://github.com/ehcache/ehcache3/blob/master/107/src/main/java/org/ehcache/jsr107/Eh107CacheManager.java
+        import javax.cache.spi.CachingProvider;
+        ...
+        class Eh107CacheManager implements CacheManager {
+            ...
+            private final org.ehcache.CacheManager ehCacheManager; // !!! note exposed !!!
+            private final EhcacheCachingProvider cachingProvider;
+            ...
+            @Override
+            public CachingProvider getCachingProvider() {
+                return this.cachingProvider;
+            }
+            ...
+        }
+    https://github.com/ehcache/ehcache3/blob/master/107/src/main/java/org/ehcache/jsr107/EhcacheCachingProvider.java
+        @Component
+        public class EhcacheCachingProvider implements CachingProvider {
+            ...
+            public getCacheManager(...)
+            ...
+            private Eh107CacheManager createCacheManager(URI uri, Configuration config, Properties properties) {
+                Collection<ServiceCreationConfiguration<?, ?>> serviceCreationConfigurations = config.getServiceCreationConfigurations();
+
+                Jsr107Service jsr107Service = new DefaultJsr107Service(ServiceUtils.findSingletonAmongst(Jsr107Configuration.class, serviceCreationConfigurations));
+                Eh107CacheLoaderWriterProvider cacheLoaderWriterFactory = new Eh107CacheLoaderWriterProvider();
+                @SuppressWarnings("unchecked")
+                DefaultSerializationProviderConfiguration serializerConfiguration = new DefaultSerializationProviderConfiguration().addSerializerFor(Object.class, (Class) PlainJavaSerializer.class);
+
+                UnaryOperator<ServiceLocator.DependencySet> customization = dependencies -> {
+                    ServiceLocator.DependencySet d = dependencies.with(jsr107Service).with(cacheLoaderWriterFactory);
+                    if (ServiceUtils.findSingletonAmongst(DefaultSerializationProviderConfiguration.class, serviceCreationConfigurations) == null) {
+                        d = d.with(serializerConfiguration);
+                    }
+                    return d;
+                };
+
+                org.ehcache.CacheManager ehcacheManager = new EhcacheManager(config, customization, !jsr107Service.jsr107CompliantAtomics());
+                ehcacheManager.init();
+
+                return new Eh107CacheManager(this, ehcacheManager, jsr107Service, properties, config.getClassLoader(), uri,
+                    new ConfigurationMerger(config, jsr107Service, cacheLoaderWriterFactory));
+                ...
+            }
+            ...
+        }
+
+resources
+https://github.com/ehcache/ehcache3/blob/master/107/src/main/resources/META-INF/services/javax.cache.spi.CachingProvider
+    org.ehcache.jsr107.EhcacheCachingProvider
+https://github.com/ehcache/ehcache3/blob/master/107/src/main/resources/META-INF/services/org.ehcache.xml.CacheManagerServiceConfigurationParser
+    org.ehcache.jsr107.internal.Jsr107ServiceConfigurationParser
+https://github.com/ehcache/ehcache3/blob/master/107/src/main/resources/META-INF/services/org.ehcache.xml.CacheServiceConfigurationParser
+    org.ehcache.jsr107.internal.Jsr107CacheConfigurationParser
+
+
+https://github.com/ehcache/ehcache3/tree/master/107/src/main/java/org/ehcache/jsr107
+https://github.com/ehcache/ehcache3/blob/master/107/src/main/java/org/ehcache/jsr107/EhcacheCachingProvider.java
+    ...
+    private Eh107CacheManager createCacheManager(URI uri, Configuration config, Properties properties) {
+        ...
+        org.ehcache.CacheManager ehcacheManager = new EhcacheManager(config, customization, !jsr107Service.jsr107CompliantAtomics());
+        ehcacheManager.init();
+
+        return new Eh107CacheManager(this, ehcacheManager, jsr107Service, properties, config.getClassLoader(), uri,
+            new ConfigurationMerger(config, jsr107Service, cacheLoaderWriterFactory));
+    }
+
+
+

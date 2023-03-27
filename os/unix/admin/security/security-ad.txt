@@ -1,0 +1,53 @@
+https://wiki.archlinux.org/index.php/Active_Directory_Integration
+https://wiki.archlinux.org/index.php/Active_Directory_Integration_%28%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9%29
+
+aur/realmd
+http://www.tux.in.ua/articles/3824
+
+RH
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/ch-Configuring_Authentication.html
+SSSD
+
+CentrifyDC
+https://kb.brightcomputing.com/faq/index.php?action=artikel&cat=13&id=234
+http://www.question-defense.com/2013/02/04/authenticate-linux-to-active-directory-on-windows-centrify-express
+http://www.schalley.eu/2012/11/20/installing-centrify-express-on-centos-redhat-ad-authentication-for-linux/
+
+http://community.centrify.com/t5/DirectControl-Express-for-UNIX/How-to-Add-AD-user-local-group/td-p/2183
+id <aduser>
+To add an AD user to a local group you can do the following:
+ 
+1) Add the AD user to the local group by manually editing /etc/group file.  Unforrtunately the adduser commands do not seem to be nsswitch aware and do not recognize a user not locally defined when adding someone to a group.
+ 
+2) Tell Centrify to merge the AD and local group memberships for the user.
+ 
+Edit /etc/centrifydc/centrifydc.conf, uncomment and change the following paramter to true
+ 
+adclient.local.group.merge: true
+ 
+3) Save the file
+ 
+4) Run as a root equivalent user "adreload && adflush".
+ 
+That should do it.  Confirm the user is a member of the local group by typing "id -a".
+
+
+FILES:
+/etc/pam.d/
+
+su
+sshd-sfx
+password-auth-ac.cdc
+system-auth-ac.cdc
+system-auth
+
+# lines inserted by Centrify Direct Control (CentrifyDC 5.2.1-301)
+auth       sufficient     pam_centrifydc.so
+auth       requisite      pam_centrifydc.so deny
+account    sufficient     pam_centrifydc.so
+account    requisite      pam_centrifydc.so deny
+session    required       pam_centrifydc.so homedir
+password   sufficient     pam_centrifydc.so try_first_pass
+password   requisite      pam_centrifydc.so deny
+
+

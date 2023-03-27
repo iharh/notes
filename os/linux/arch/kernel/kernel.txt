@@ -1,0 +1,28 @@
+edit /etc/mkinitcpio.conf
+  setting of ram-disk for kernel
+
+#!!! list of modules if they aren't auto-detected
+MODULES=""
+
+run
+$ mkinitcpio -p linux
+
+
+$ grub-install /dev/sda
+  installs to MBR, not to partition
+
+$ grub-mkconfig -o /boot/grub/grub.cfg
+  
+sammple output:
+Generating grub.cfg ...
+Found linux image: /boot/vmlinuz-linux
+Found initrd image: /boot/initramfs-linux.img
+  No volume groups found
+  ...
+done
+
+2021
+TechHut - How to Switch Arch Linux Kernels - LTS, Zen, Hardened
+    https://www.youtube.com/watch?v=KbcUmAlQCHs
+    https://techhut.tv/how-to-switch-arch-linux-kernels-lts-zen-hardened/
+    ! sudo packman -S linux-zen

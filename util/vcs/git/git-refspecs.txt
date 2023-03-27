@@ -1,0 +1,64 @@
+https://www.atlassian.com/git/tutorials/refs-and-the-reflog/the-reflog
+
+A refspec maps a branch in the local repository to a branch in a remote repository.
+This makes it possible to manage remote branches using local Git commands and to configure some advanced git push and git fetch behavior.
+
+A refspec is specified as
+
+[+]<src>:<dst>
+
+The <src> parameter is the source branch in the local repository, and the <dst> parameter is the destination branch in the remote repository.
+The optional + sign is for forcing the remote repository to perform a non-fast-forward update.
+
+Refspecs can be used with the git push command to give a different name to the remote branch.
+For example, the following command pushes the master branch to the origin remote repo like an ordinary git push,
+but it uses qa-master as the name for the branch in the origin repo.
+This is useful for QA teams that need to push their own branches to a remote repo.
+
+git push origin master:refs/heads/qa-master
+
+
+You can also use refspecs for deleting remote branches.
+This is a common situation for feature-branch workflows that push the feature branches to a remote repo (e.g., for backup purposes).
+The remote feature branches still reside in the remote repo after they are deleted from the local repo,
+so you get a build-up of dead feature branches as your project progresses.
+You can delete them by pushing a refspec that has an empty <src> parameter, like so:
+
+git push origin :some-feature
+
+This is very convenient, since you don’t need to log in to your remote repository and manually delete the remote branch.
+
+Note that as of Git v1.7.0 you can use the --delete flag instead of the above method.
+The following will have the same effect as the above command:
+
+git push origin --delete some-feature
+
+
+By adding a few lines to the Git configuration file, you can use refspecs to alter the behavior of git fetch.
+By default, git fetch fetches all of the branches in the remote repository.
+The reason for this is the following section of the .git/config file:
+
+[remote "origin"]
+    url = https://git@github.com:mary/example-repo.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+
+The fetch line tells git fetch to download all of the branches from the origin repo.
+But, some workflows don’t need all of them.
+For example, many continuous integration workflows only care about the master branch.
+To fetch only the master branch, change the fetch line to match the following:
+
+[remote "origin"]
+    url = https://git@github.com:mary/example-repo.git
+    fetch = +refs/heads/master:refs/remotes/origin/master
+
+You can also configure git push in a similar manner. For instance, if you want to always push the master branch to qa-master in the origin remote (as we did above), you would change the config file to:
+
+[remote "origin"]
+    url = https://git@github.com:mary/example-repo.git
+    fetch = +refs/heads/master:refs/remotes/origin/master
+    push = refs/heads/master:refs/heads/qa-master
+
+Refspecs give you complete control over how various Git commands transfer branches between repositories.
+They let you rename and delete branches from your local repository, fetch/push to branches with different names,
+and configure git push and git fetch to work with only the branches that you want.
+

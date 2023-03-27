@@ -1,0 +1,21 @@
+https://docs.sourcegraph.com/cli/how-tos/creating_an_access_token
+    SRC_ACCESS_TOKEN=
+
+    From any Sourcegraph page, click on your avatar at the top right of the page.
+    Select "Settings" from the dropdown menu.
+    Select "Access tokens" from the sidebar menu.
+    Click "Generate new token".
+    Enter a description, such as "src".
+
+    NOTE: The "user:all scope" that is selected by default is sufficient for all normal src usage, and most uses of the GraphQL API.
+    If you’re an admin, you should only enable site-admin:sudo if you intend to impersonate other users.
+
+    Click "Generate token".
+
+    Sourcegraph will now display your access token.
+    You must copy it from this screen:
+        once this page is closed, you cannot access the token again,
+        and can only revoke it and issue a new one.
+
+https://docs.sourcegraph.com/cli/explanations/env
+    SRC_ENDPOINT=https://sourcegraph.com

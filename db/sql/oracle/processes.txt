@@ -1,0 +1,21 @@
+If you run into following error in event log. 
+ORA-12520: TNS:listener could not find available handler for requested type of server
+ORA-12519, TNS:no appropriate service handler found
+You should:
+I suggest that you read Metalink note 424566.995, which was posted by a user with a similar problem.ÿÿHe claims that
+investigation showed that disconnections from Oracle were not being passed immediately to the listener.ÿÿThis caused the
+listener to (incorrectly) think that Oracle had reached its session limit.ÿÿHe fixed the problem by increasing the value of
+the "processes" startup parameter.ÿÿ(He says that increasing the value of the "sessions" parameter also worked.)ÿÿT
+hat doesn't prevent the listener from having an incorrect count of sessions, but it does get around the ORA-12519 error
+
+To do this:
+1. Using TOAD connect to DB server with DBA user.
+2. Run query ALTER SYSTEM SET PROCESSES = 500 SCOPE = SPFILE
+3. Check that settings applies.
+select * from v$parameter where upper(name) = 'PROCESSES'
+4. Restart Oracle instance.
+5. Use select * from v$session to view sessions
+
+
+D:\oracle10\bin\oradim.exe -startup  -sid orcl -usrpwd * -log oradim.log -nocheck 0 
+D:\oracle10\bin\oradim.exe -shutdown -sid orcl -usrpwd * -shutmode immediate -log oradim.log 

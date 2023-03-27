@@ -1,0 +1,24 @@
+https://nixos.org/manual/nix/stable/#sec-nix-shell
+https://nixos.wiki/wiki/Development_environment_with_nix-shell
+https://nixos.org/guides/nix-pills/developing-with-nix-shell.html
+
+zsh and fish support
+https://github.com/haslersn/any-nix-shell
+
+2023
+Tweag - The Nix Hour #11 [nix-shell, mkShell, shell.nix, flakes] 0:00 of 57:31
+    https://www.youtube.com/watch?v=_8DS6IqqrBA
+2020
+https://ghedam.at/15978/an-introduction-to-nix-shell
+    !!!
+
+nix-shell
+    [shell.nix]
+
+    -p|--packages <pkg>
+        try pkg in a shell without installing
+
+    --run <cmd>
+        run cmd
+2019
+https://trskop.github.io/articles/2019-12-05-nix-shell-shebang.html

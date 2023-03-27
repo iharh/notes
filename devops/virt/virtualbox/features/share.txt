@@ -1,0 +1,4 @@
+sudo mount -t vboxsf <shared-folder> <local-folder>
+sudo mount.vboxsf /vagrant /mnt
+
+\\VBOXSVR\<share> - \\VBOXSVR\Install

@@ -1,0 +1,57 @@
+list
+2022
+https://habr.com/ru/company/southbridge/blog/683168/
+
+2022
+https://habr.com/ru/company/southbridge/blog/550934/
+2021
+https://habr.com/ru/company/southbridge/blog/550934/
+    ! compare kafka with other tech (including RabbitMQ)
+    https://github.com/Slurmio/kafka-free/tree/main/2.Basic%20technology%20fundamentals
+https://habr.com/ru/company/southbridge/blog/547264/
+2020
+https://habr.com/ru/company/southbridge/blog/530498/
+https://habr.com/ru/post/527252/
+https://rmoff.net/2020/01/08/streaming-messages-from-rabbitmq-into-kafka-with-kafka-connect/
+2019
+https://habr.com/ru/post/476156/
+https://habr.com/ru/post/440400/
+https://habr.com/post/435346/
+2018
+https://www.infoq.com/articles/apache-kafka-best-practices-to-optimize-your-deployment
+https://blog.softwaremill.com/event-sourcing-using-kafka-53dfd72ad45d
+    https://habr.com/company/piter/blog/424739/
+https://habr.com/post/354486/
+https://habr.com/company/itsumma/blog/416629/ (kafka vs rabbit)
+
+2017
+https://www.confluent.io/blog/build-services-backbone-events/
+https://www.confluent.io/blog/toward-functional-programming-analogy-microservices/
+
+2016
+https://www.confluent.io/blog/event-sourcing-cqrs-stream-processing-apache-kafka-whats-connection/
+https://thehoard.blog/how-kafkas-storage-internals-work-3a29b02e026
+http://aseigneurin.github.io/2016/03/02/kafka-spark-avro-kafka-101.html
+http://aseigneurin.github.io/2016/03/03/kafka-spark-avro-consume-messages-with-spark.html
+http://aseigneurin.github.io/2016/03/04/kafka-spark-avro-producing-and-consuming-avro-messages.html
+
+http://blog.cloudera.com/blog/2014/09/apache-kafka-for-beginners/
+https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+
+https://engineering.linkedin.com/kafka/running-kafka-scale
+
+https://cwiki.apache.org/confluence/display/KAFKA/Kafka+papers+and+presentations
+
+https://www.confluent.io/blog/apache-kafka-samza-and-the-unix-philosophy-of-distributed-data/
+https://www.confluent.io/blog/stream-data-platform-1/
+https://www.confluent.io/blog/stream-data-platform-2/
+
+
+Exactly-once delivery:
+https://habrahabr.ru/post/332448/
+https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/
+https://docs.google.com/document/d/11Jqy_GjUGtdXJK94XGsEIK7CP1SnQGdp2eF0wSw9ra8/edit#heading=h.xq0ee1vnpz4o
+
+basic intro
+2017
+http://www.rdnaidu.com/2017/12/what-is-kafka-what-is-zookeeper-kafka.html

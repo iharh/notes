@@ -1,0 +1,102 @@
+2018
+https://www.baeldung.com/spring-security-basic-authentication
+    https://github.com/eugenp/tutorials/tree/master/spring-security-rest-basic-auth
+https://dzone.com/articles/how-does-http-basic-authentication-work-in-spring
+https://insource.io/blog/articles/stateless-api-security-with-spring-boot-part-2.html
+https://insource.io/blog/articles/custom-authentication-with-spring-boot.html
+2017
+http://websystique.com/spring-security/secure-spring-rest-api-using-basic-authentication/
+https://www.oodlestechnologies.com/blogs/Spring-Security-with-Token-Based-Authentication
+2015
+https://shout.setfive.com/2015/11/02/spring-boot-authentication-with-custom-http-header/
+2014
+https://habr.com/ru/post/245415/
+
+BasicAuthenticationFilter extending
+https://stackoverflow.com/questions/23314902/spring-security-commence-method-in-class-extending-basicauthenticationentrypoin
+
+api
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/apidocs/org/springframework/security/config/annotation/web/configurers/HttpBasicConfigurer.html
+    returned by httpBasic()
+
+sample
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+
+import java.util.Arrays;
+
+@EnableWebSecurity
+public class MySecurityConfig extends WebSecurityConfigurerAdapter {
+
+    public static class MyAuthenticationToken extends AbstractAuthenticationToken {
+        private static final long serialVersionUID = -1949976839306453197L;
+            
+        public MyAuthenticationToken() {
+            super(Arrays.asList());
+            setAuthenticated(true);
+        }
+        
+        @Override
+        public Object getCredentials() {
+            return null;
+        }
+
+        @Override
+        public Object getPrincipal() {
+            return null;
+        }
+    }
+
+    public static class MyFilter extends OncePerRequestFilter {
+        @Override
+        protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+            logger.info("!!! myFilter enter !!!");
+
+            final String myHeaderVal = request.getHeader("myheader");
+            if ("12345".equals(myHeaderVal)) {
+                final Authentication authResult = new MyAuthenticationToken();
+                SecurityContextHolder.getContext().setAuthentication(authResult);
+            }
+            
+            chain.doFilter(request, response);
+        }
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .addFilterBefore(new MyFilter(), BasicAuthenticationFilter.class)
+            .authorizeRequests().anyRequest().authenticated().and()
+            .httpBasic()
+        ;
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .inMemoryAuthentication()
+                .withUser("user").password("password").roles("USER");
+    }
+}

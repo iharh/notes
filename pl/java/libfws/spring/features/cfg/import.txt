@@ -1,0 +1,6 @@
+spring.config.import=configtree:${HOME}/Desktop/config/
+spring.config.import=optional:configserver:http://myconfigserver.com
+    https://docs.spring.io/spring-cloud-config/docs/current/reference/html/
+spring.cloud.config.server.git.uri=${HOME}/Desktop/config
+    https://spring.io/guides/gs/centralized-configuration/
+    http://www.masterspringboot.com/configuration/various-configuration/importing-properties-from-an-external-file-in-spring-boot/

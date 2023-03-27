@@ -1,0 +1,15 @@
+http://www.oracle.com/technetwork/issue-archive/2011/11-mar/o21plsql-242570.html
+http://www.zentut.com/plsql-tutorial/plsql-block-structure/
+
+set serveroutput on;
+begin
+  dbms_output.put_line ('Hello World!');
+end;
+
+
+declare
+    my_var long;
+begin
+    for x in ( select X from t )
+    loop my_var := dbms_lob.substr( x.X, 32000, 1 );
+

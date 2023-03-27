@@ -1,0 +1,22 @@
+2011
+http://whileonefork.blogspot.com/2011/05/how-to-print-ivys-cachepath-one.html
+
+samples
+    <ivy:cachepath pathid="compile.lasspath" .../>
+    <!-- compile.classpath -->
+    <pathconvert pathsep="${line.separator}  "
+                 property="list.classpath"
+                 refid="compile.classpath"/>
+    <echo>LIST: ${list.classpath}</echo>
+
+        <pathconvert property="manifest.classpath" pathsep=" ">
+            <path refid="manifest.cp"/>
+            <chainedmapper>
+                <flattenmapper/>
+                <firstmatchmapper>
+                    <globmapper from="*-${current.platform}-${nlp.core.version}.jar" to="*.jar"/>
+                    <identitymapper/>
+                </firstmatchmapper>
+            </chainedmapper>
+        </pathconvert>
+

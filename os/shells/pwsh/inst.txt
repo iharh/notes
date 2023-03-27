@@ -1,0 +1,19 @@
+https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-powershell-core-on-windows?view=powershell-6
+
+https://github.com/PowerShell/PowerShell/releases
+https://github.com/PowerShell/PowerShell/releases/tag/v6.0.2
+
+aur
+    powershell (src-based)
+    powershell-bin (deb-based
+
+inst
+https://docs.microsoft.com/en-us/powershell/scripting/setup/windows-powershell-system-requirements
+https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell
+5.1 (WMF)
+https://www.microsoft.com/en-us/download/details.aspx?id=54616
+4.0 (WMF)
+https://www.microsoft.com/en-us/download/details.aspx?id=40855
+3.0 (WMF)
+https://www.microsoft.com/en-us/download/details.aspx?id=34595
+Windows6.0-KB2506146-x64.msu

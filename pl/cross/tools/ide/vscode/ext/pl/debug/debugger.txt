@@ -1,0 +1,1 @@
+https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md

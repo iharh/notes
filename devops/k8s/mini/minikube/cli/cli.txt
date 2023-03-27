@@ -1,0 +1,59 @@
+minikube
+    version
+    start
+    stop
+    status
+        minikube: Running
+        cluster: Running
+        kubectl: Correctly Configured: pointing to minikube-vm at 192.168.0.103
+    logs
+        print logs
+    mount
+        .:/app -> will hang a console
+
+        mount specified directory to the minikube
+        ? do we really need this for driver none
+    profile <name>
+        sets the current profile name
+
+    node add ...
+        add a new node
+    service <name>
+        get the URL for the service <name>
+
+    ssh-keys
+        path to ssh-key
+        ~/.minikube/machines/minikube/id_rsa
+    ssh
+    docker-env
+        eval $(minikube docker-env)
+            exports env vars:
+                DOCKER_TLS_VERIFY
+                DOCKER_HOST
+                DOCKER_CERT_PATH
+                MINIKUBE_ACTIVE_DOCKERD
+            in order to point your shell to minikube's docker-daemon, run
+              eval $(minikube -p minikube docker-env)
+        note: none driver does not support these commands
+    image
+        ls
+            list images inside minikube
+        build
+            . -t myapp:dev
+    ip
+        192.168.0.103
+    tunnel
+        https://github.com/kubernetes/minikube/blob/master/docs/tunnel.md
+        https://github.com/kubernetes/minikube/blob/master/docs/networking.md
+    dashboard
+        http://192.168.0.103:30000
+    update-check
+    update-context
+        ?
+    cache
+        https://github.com/kubernetes/minikube/blob/master/docs/cache.md
+        list
+        delete
+        add
+
+    addons

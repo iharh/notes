@@ -1,0 +1,12 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html
+https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html#org.gradle.api.initialization.Settings:include(java.lang.String[])
+
+???
+https://www.slideshare.net/aalmiray/making-the-most-of-your-gradle-build-67689406
+
+subdirs.eachDir { dir ->
+    File buildFile = new File(dir, "${dir.name}.gradle")
+    if (buildFile.exists() {
+        include "${name}/${dir.name}"
+    }
+}

@@ -1,0 +1,7 @@
+vacuum [full|analyze]
+
+analyze
+
+create extension pgstattuple;
+select * from pgstattuple[_approx]('<tblname>');
+-- pgstatindex

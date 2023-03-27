@@ -1,0 +1,64 @@
+https://facebook.github.io/jest/en/
+https://github.com/facebook/jest
+
+https://facebook.github.io/jest/en/help.html
+https://facebook.github.io/jest/docs/en/getting-started.html
+https://facebook.github.io/jest/docs/en/webpack.html
+https://facebook.github.io/jest/docs/en/api.html
+
+https://facebook.github.io/jest/blog/
+
+https://facebook.github.io/jest/docs/en/mock-functions.html
+https://facebook.github.io/jest/docs/en/expect.html
+
+inst
+npm i -D jest babel-jest react-test-renderer
+         enzyme jest-enzyme react-addons-test-utils
+
+.babelrc
+{ "presets": ["es2015", "react"] }
+
+package.json
+{
+    "scripts": {
+        "test": "jest"
+    }
+}
+
+import renderer from 'react-test-renderer';
+
+describe('Header', () => {
+    test('bla-bla'), () => {
+        ...
+        const component = renderer.create(<Header/>);
+        const tree = component.toJSON();
+        // console.log(tree) ->  { type: 'h2', props: {}, children: [ 'Default header' ] }
+        const firstChild = tree.children[0];
+    }
+}
+
+import React from 'react';
+import { shallow } from 'enzyme';
+import Header, { DEFAULT_HEADER_TEXT } from './Header';
+
+describe('Header', () => {
+    test('renders default header text', () => {
+        const wrapper = shallow(
+            <Header/>
+        );
+
+        expect(wrapper.find('h2')).toHaveLength(1);
+        expect(wrapper.contains(DEFAULT_HEADER_TEXT)).toBe(true);
+    });
+
+    test('renders provided header text', () => {
+        const headerText = 'Testing';
+
+        const wrapper = shallow(
+            <Header text={headerText} />
+        );
+
+        expect(wrapper.find('h2')).toHaveLength(1);
+        expect(wrapper.contains(headerText)).toBe(true);
+    });
+});

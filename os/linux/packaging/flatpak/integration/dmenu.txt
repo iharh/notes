@@ -1,0 +1,4 @@
+https://gist.github.com/curioswati/668e9e120ddd4b6f8d07dc28b5780d22
+
+sudo ln -s /var/lib/flatpak/exports/bin/com.viber.Viber /usr/bin/viber
+sudo ln -s /var/lib/flatpak/exports/bin/org.telegram.desktop /usr/bin/telegram

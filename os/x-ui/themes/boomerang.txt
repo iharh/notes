@@ -1,0 +1,21 @@
+https://b00merang.weebly.com/macos.html
+https://www.pling.com/p/1400988/
+
+https://github.com/B00merang-Project/macOS
+https://github.com/B00merang-Project/macOS/archive/6.1.zip
+
+https://b00merang.weebly.com/installation-guide.html
+https://b00merang.weebly.com/installation-guide---old.html
+
+Extract the theme file you have downloaded to
+    ~/.themes
+
+If the folder doesn't exist, create it.
+Open
+    lxappearance
+and select the desired theme.
+To customize the Window borders, type
+    obconf
+    obconf-qt
+in a terminal.
+Choose the desired Openbox theme in the list and exit the app.

@@ -1,0 +1,5 @@
+https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#jc-httpsecurity
+
+sample errors
+InsufficientScope
+https://stackoverflow.com/questions/36777188/getting-insufficient-scope-for-this-resource-using-spring-boot-and-oauth2

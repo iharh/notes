@@ -1,0 +1,10 @@
+https://crates.io/crates/slotmap
+https://docs.rs/slotmap
+https://github.com/orlp/slotmap
+
+https://crates.io/crates/slotmapvec
+https://docs.rs/slotmapvec
+https://github.com/luteberget/slotmapvec-rs
+
+2018
+https://www.reddit.com/r/rust/comments/8zkedd/slotmap_a_new_crate_for_storing_values_with/

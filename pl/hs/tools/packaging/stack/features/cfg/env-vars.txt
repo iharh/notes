@@ -1,0 +1,5 @@
+stack/src/Stack/Constants.hs
+
+STACK_ROOT
+STACK_CONFIG
+STACK_GLOBAL_CONFIG

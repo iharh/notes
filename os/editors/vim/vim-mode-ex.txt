@@ -1,0 +1,10 @@
+:exu
+    Help on ex commands
+
+gQ
+    Enter the ex-mode
+Q
+    Enter the ex-mode but, more intrusive
+:vi
+    return to the normal mode
+

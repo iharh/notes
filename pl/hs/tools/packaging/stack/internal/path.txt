@@ -1,0 +1,49 @@
+https://github.com/commercialhaskell/stack/blob/master/src/Stack/Path.hs
+
+-- | Passed to all the path printers as a source of info.
+data PathInfo = PathInfo
+    { piBuildConfig  :: BuildConfig
+    , piEnvOverride  :: EnvOverride
+    , piSnapDb       :: Path Abs Dir
+    , piLocalDb      :: Path Abs Dir
+    , piGlobalDb     :: Path Abs Dir
+    , piSnapRoot     :: Path Abs Dir
+    , piLocalRoot    :: Path Abs Dir
+    , piDistDir      :: Path Rel Dir
+    , piHpcDir       :: Path Abs Dir
+    , piExtraDbs     :: [Path Abs Dir]
+    , piCompiler     :: Path Abs File
+}
+
+-- | The paths of interest to a user. The first tuple string is used
+-- for a description that the optparse flag uses, and the second
+-- string as a machine-readable key and also for @--foo@ flags. The user
+-- can choose a specific path to list like @--stack-root@. But
+-- really it's mainly for the documentation aspect.
+--
+-- When printing output we generate @PathInfo@ and pass it to the
+-- function to generate an appropriate string.  Trailing slashes are
+-- removed, see #506
+paths :: [(String, Text, PathInfo -> Text)]
+paths =
+    [ ( "Global stack root directory"
+      , T.pack stackRootOptionName
+      , T.pack . toFilePathNoTrailingSep . configStackRoot . bcConfig . piBuildConfig )
+    , ( "Project root (derived from stack.yaml file)"
+      , "project-root"
+      , T.pack . toFilePathNoTrailingSep . bcRoot . piBuildConfig )
+    , ( "Configuration location (where the stack.yaml file is)"
+      , "config-location"
+      , T.pack . toFilePath . bcStackYaml . piBuildConfig )
+    , ( "PATH environment variable"
+      , "bin-path"
+      , T.pack . intercalate [FP.searchPathSeparator] . eoPath . piEnvOverride )
+    , ( "Install location for GHC and other core tools"
+      , "programs"
+      , T.pack . toFilePathNoTrailingSep . configLocalPrograms . bcConfig . piBuildConfig )
+    , ( "Compiler binary (e.g. ghc)"
+      , "compiler-exe"
+      , T.pack . toFilePath . piCompiler )
+    , ( "Directory containing the compiler binary (e.g. ghc)"
+      , "compiler-bin"
+, T.pack . toFilePathNoTrailingSep . parent . piCompiler )

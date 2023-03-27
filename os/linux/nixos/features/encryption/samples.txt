@@ -1,0 +1,12 @@
+https://gist.github.com/martijnvermaat/76f2e24d0239470dd71050358b4d5134
+https://www.reddit.com/r/NixOS/comments/in21ci/trying_to_encrypt_my_disk_on_nixos_installation/
+    https://github.com/thblt/nixos-config/blob/master/configuration-maladict.nix#L24-L30
+        # Use the systemd-boot EFI boot loader.
+        # TODO Find a way to move most of this to common.
+            boot.initrd.luks.devices = {
+                crypt = {
+                    device = "/dev/nvme0n1p2";
+                    allowDiscards = true;
+                    preLVM = true;
+                };
+            };

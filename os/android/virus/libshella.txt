@@ -1,0 +1,26 @@
+https://vms.drweb.ru/virus/?i=15273914
+
+08-30 20:09:46.833  4346  4346 I AEE/AED : Package: com.android.backup v170825 (1.0.170825)
+08-30 20:09:46.833  4346  4346 I AEE/AED : Build: Lenovo/LenovoTAB2A10-70L/A10-70L:5.0.1/LRX21M/A10-70L_S000117_160226_ROW:user/release-keys
+08-30 20:09:46.833  4346  4346 I AEE/AED : 
+08-30 20:09:46.833  4346  4346 I AEE/AED : java.lang.UnsatisfiedLinkError: dlopen failed: "/data/data/com.android.backup/tx_shell/libshella-2.10.5.7.so" is 32-bit instead of 64-bit
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at java.lang.Runtime.load(Runtime.java:331)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at java.lang.System.load(System.java:982)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at com.tencent.StubShell.TxAppEntry.e(Unknown Source)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at com.tencent.StubShell.TxAppEntry.a(Unknown Source)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at com.tencent.StubShell.TxAppEntry.attachBaseContext(Unknown Source)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.app.Application.attach(Application.java:181)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.app.Instrumentation.newApplication(Instrumentation.java:1000)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.app.Instrumentation.newApplication(Instrumentation.java:984)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.app.LoadedApk.makeApplication(LoadedApk.java:567)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:4726)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.app.ActivityThread.access$1500(ActivityThread.java:167)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1478)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.os.Handler.dispatchMessage(Handler.java:111)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.os.Looper.loop(Looper.java:194)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at android.app.ActivityThread.main(ActivityThread.java:5534)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at java.lang.reflect.Method.invoke(Native Method)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at java.lang.reflect.Method.invoke(Method.java:372)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:955)
+08-30 20:09:46.833  4346  4346 I AEE/AED : 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:750)
+08-30 20:09:46.833  4346  4346 V AEE/AED : Write: Req.AE_REQ_DETAIL, seq:5

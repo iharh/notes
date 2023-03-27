@@ -1,0 +1,36 @@
+https://helix-editor.com/
+
+https://github.com/helix-editor/helix
+https://github.com/helix-editor/helix/wiki
+https://github.com/helix-editor/helix/wiki/FAQ
+
+https://docs.helix-editor.com/
+
+https://matrix.to/#/#helix-community:matrix.org
+
+themes
+https://docs.helix-editor.com/themes.html
+https://github.com/helix-editor/helix/wiki/Themes
+bogster
+everfrost
+onedark
+
+rust-analyzer
+https://rust-analyzer.github.io/manual.html#helix
+https://rust-analyzer.github.io/manual.html#installation
+
+https://github.com/LGUG2Z/helix-vim
+
+2023
+MaasLaani - Helix: an editor hopping story (NeovimConf 2022 Talk) of 17:22
+    https://www.youtube.com/watch?v=tGYvUXYN-c0
+2022
+CodeToTheMoon - Helix - the Rust Powered Development Environment of 12:52
+    https://www.youtube.com/watch?v=xHebvTGOdH8
+    ! ....  Space Mode
+    ! 10:00 GoTo Mode
+        C-o, C-i - navigate by jump points
+
+whatsnew
+https://helix-editor.com/news/
+https://helix-editor.com/news/release-22-03-highlights/

@@ -1,0 +1,29 @@
+having
+    (where works before aggregations calculation)
+
+https://www.postgresql.org/docs/current/functions-aggregate.html
+
+https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP
+
+=> SELECT * FROM test1;
+ x | y
+---+---
+ a | 3
+ c | 2
+ b | 5
+ a | 1
+(4 rows)
+
+=> SELECT x, sum(y) FROM test1 GROUP BY x;
+ x | sum
+---+-----
+ a |   4
+ b |   5
+ c |   2
+(3 rows)
+
+select field1, field2, count(*) as cnt
+from tbl
+where field-date >= now() - '30 days'::interval and ...
+group by field1, field2
+having count(*) > 1;

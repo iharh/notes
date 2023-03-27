@@ -1,0 +1,81 @@
+blkid
+  to list the available devices
+
+* partitioning *
+
+fdisk sda
+  partition sda disk...
+
+  m - help
+  p - print current partitions
+  q - exit without save
+  w - write changes and exit
+  d - delete partition
+  t - change partition type
+  n - new partition
+
+  n subcommands:
+
+    p - create primary partition (1 to 4 like sda1 .. sda4)
+    e - create extended ... (5 to ... like sda5 ...)
+
+    /dev/sda1 (type Id 83) for /boot
+
+          K
+    p +200M
+          G
+
+
+    /dev/sda2 (type Id 82) for /swap
+
+    p +16384M (1:1 or 2:1 of the amount of current memory)
+    t 82
+
+
+    /dev/sda3 (type Id 5) for extended partition containing logical ones
+
+    e +... all the rest
+
+
+    /dev/sda5 (type Id 83) for / (root catalog including software)
+
+    l +20G (maybe more)
+
+
+    /dev/sda6 (type Id 83) for /home (and other user stuff)
+
+    l +... all the rest
+
+* formatting *
+
+mkfs.ext2 -L boot /dev/sda1
+  we don't need a journaled ext4 fs for our /boot,
+  -L boot is just a label here
+
+mkfs.ext4 -L arch /dev/sda5
+  root catalog
+
+mkfs.ext4 -L home /dev/sda6
+  home catalog
+
+mkswap -L swap /dev/sda2
+  swap catalog
+
+
+* mounting *
+
+!!! /mnt/lost+found
+  is a usefull folder
+
+mount /dev/sda5 /mnt
+  mount our root catalog to /mnt
+
+mkdir /mnt/{home,boot}
+
+mount /dev/sda1 /mnt/boot
+
+mount /dev/sda6 /mnt/home
+
+swapon /dev/sda2
+  to mount a swap (on /tmp)
+

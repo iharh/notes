@@ -1,0 +1,16 @@
+/usr/bin/vmplayer
+
+Usage:
+  vmplayer [OPTION…] <Virtual machine config file>
+
+Help Options:
+  -h, --help                      Show help options
+
+Application Options:
+  -v, --version                   Display the program version
+  -X, --fullscreen                Start in fullscreen mode
+  -M, --moid=moid                 A managed object id indicating the VM to connect to
+  -U, --user=username             Username used to authenticate to the remote host
+  -P, --password=password         Password used to authenticate to the remote host
+  -D, --datacenter=datacenter     Datacenter containing the VM to open
+  -H, --host=host:port            Remote host containing VMs you wish to access

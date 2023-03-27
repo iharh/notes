@@ -1,0 +1,85 @@
+https://crates.io/crates/rocket
+https://crates.io/crates/rocket_http
+https://crates.io/crates/rocket_codegen
+https://crates.io/crates/rocket_cors
+https://crates.io/crates/rocket_contrib
+https://crates.io/crates/rocket-simpleauth
+https://crates.io/crates/rocket_static_fs
+https://crates.io/crates/rocket-include-static-resources
+https://crates.io/crates/rocket-include-handlebars
+https://crates.io/crates/rocket-lenient-json
+https://crates.io/crates/rocket-auth-login
+https://crates.io/crates/rocket-etagged-file-response
+https://crates.io/crates/rocket-download-response
+https://crates.io/crates/rocket-client-addr
+https://crates.io/crates/rocket_i18n
+https://crates.io/crates/rocket-etag-if-none-match
+https://crates.io/crates/rocket-slog
+https://crates.io/crates/rocket-multipart-form-data
+https://crates.io/crates/rocket-json-response
+https://crates.io/crates/rocket-cache-response
+https://crates.io/crates/rocket-accept-language
+https://crates.io/crates/rocket-raw-response
+https://crates.io/crates/rocket-etagged-raw-response
+https://crates.io/crates/rocket-mongo-file-center-raw-response
+https://crates.io/crates/rocket_failure
+https://crates.io/crates/rocket_igniter
+https://crates.io/crates/rocket_oauth2
+https://crates.io/crates/rocket-mongo-file-center-download-response
+
+codegen
+https://api.rocket.rs/rocket_codegen/index.html
+
+proc-macro2 v0.4.24
+unicode-xid v0.1.0
+yansi v0.4.0
+libc v0.2.45
+cc v1.0.25
+cfg-if v0.1.6
+version_check v0.1.5
+matches v0.1.8
+httparse v1.3.3
+unicode-normalization v0.1.7
+bitflags v1.0.4
+byteorder v1.2.7
+lazy_static v1.2.0
+untrusted v0.6.2
+safemem v0.3.0
+void v1.0.2
+percent-encoding v1.0.1
+traitobject v0.1.0
+serde v1.0.82
+language-tags v0.2.2
+typeable v0.1.2
+yansi v0.5.0
+state v0.4.1
+indexmap v1.0.2
+log v0.4.6
+unicase v1.4.2
+pear_codegen v0.1.2
+memchr v2.1.2
+unicode-bidi v0.3.4
+ring v0.13.5
+base64 v0.10.0
+base64 v0.9.3
+unreachable v1.0.0
+rocket_codegen v0.4.0
+rocket v0.4.0
+log v0.3.9
+smallvec v0.6.7
+quote v0.6.10
+time v0.1.40
+num_cpus v1.9.0
+isatty v0.1.9
+mime v0.2.6
+idna v0.1.5
+syn v0.15.22
+toml v0.4.10
+url v1.7.2
+cookie v0.11.0
+hyper v0.10.15
+devise_core v0.2.0
+pear v0.1.2
+devise_codegen v0.2.0
+rocket_http v0.4.0
+devise v0.2.0

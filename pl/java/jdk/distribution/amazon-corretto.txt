@@ -1,0 +1,24 @@
+https://aws.amazon.com/corretto/
+https://github.com/corretto
+
+https://docs.aws.amazon.com/corretto/
+https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/what-is-corretto-8.html
+
+https://github.com/corretto/corretto-8
+
+asdf
+    list all java | grep corretto
+    install java
+        corretto-11.0.16.9.1
+
+https://hub.docker.com/_/amazoncorretto
+
+2019
+https://aws.amazon.com/blogs/opensource/amazon-corretto-8-generally-available/
+2018
+https://www.infoq.com/news/2018/11/amazon-corretto-java
+https://aws.amazon.com/ru/blogs/opensource/amazon-corretto-no-cost-distribution-openjdk-long-term-support/
+    https://habr.com/post/430362/
+https://aws.amazon.com/blogs/opensource/amazon-corretto-no-cost-distribution-openjdk-long-term-support/
+https://aws.amazon.com/blogs/compute/re-affirming-long-term-support-for-java-in-amazon-linux/
+http://www.opennet.ru/opennews/art.shtml?num=49623

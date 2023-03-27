@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<opml version="1.0">
+    <head>
+        <title>Igor subscriptions in feedly Cloud</title>
+    </head>
+    <body>
+        <outline text="Java" title="Java">
+            <outline type="rss" text="Разбор Полетов" title="Разбор Полетов" xmlUrl="https://feeds.podcastmirror.com/razborpoletov" htmlUrl="http://razborpoletov.com"/>
+            <outline type="rss" text="Spring" title="Spring" xmlUrl="http://spring.io/blog.atom" htmlUrl="https://spring.io/blog"/>
+            <outline type="rss" text="Habrahabr - Java" title="Habrahabr - Java" xmlUrl="http://habrahabr.ru/rss/blogs/java/" htmlUrl="https://habr.com/ru/hub/java/all/"/>
+            <outline type="rss" text="Java" title="Java" xmlUrl="http://www.reddit.com/r/java/.rss" htmlUrl="https://www.reddit.com/r/java/"/>
+        </outline>
+        <outline text="Rust" title="Rust">
+            <outline type="rss" text="Rust Blog" title="Rust Blog" xmlUrl="http://blog.rust-lang.org/feed.xml" htmlUrl="https://blog.rust-lang.org/"/>
+            <outline type="rss" text="Rust on Medium" title="Rust on Medium" xmlUrl="https://medium.com/feed/tag/rust" htmlUrl="https://medium.com/tag/rust/latest?source=rss------rust-5"/>
+            <outline type="rss" text="Andrew Gallant's Blog on Andrew Gallant's Blog" title="Andrew Gallant's Blog on Andrew Gallant's Blog" xmlUrl="http://blog.burntsushi.net/index.xml" htmlUrl="https://blog.burntsushi.net/"/>
+        </outline>
+        <outline text="ML" title="ML">
+            <outline type="rss" text="Машинное обучение – Основа искусственного интеллекта" title="Машинное обучение – Основа искусственного интеллекта" xmlUrl="http://habrahabr.ru/rss/hub/machine_learning/" htmlUrl="https://habr.com/ru/hub/machine_learning/all/"/>
+        </outline>
+        <outline text="JavaScript" title="JavaScript">
+            <outline type="rss" text="JavaScript Weekly" title="JavaScript Weekly" xmlUrl="http://javascriptweekly.com/rss/1g26l8c7" htmlUrl="https://javascriptweekly.com/"/>
+            <outline type="rss" text="Articles on Smashing Magazine — For Web Designers And Developers" title="Articles on Smashing Magazine — For Web Designers And Developers" xmlUrl="https://www.smashingmagazine.com/feed/" htmlUrl="https://www.smashingmagazine.com/"/>
+            <outline type="rss" text="JavaScript – Прототипно-ориентированный язык программирования" title="JavaScript – Прототипно-ориентированный язык программирования" xmlUrl="https://habrahabr.ru/rss/hub/javascript/" htmlUrl="https://habr.com/ru/hub/javascript/all/"/>
+            <outline type="rss" text="Frontend Focus" title="Frontend Focus" xmlUrl="https://frontendfoc.us/rss/23200a8e" htmlUrl="https://frontendfoc.us/"/>
+            <outline type="rss" text="Node Weekly" title="Node Weekly" xmlUrl="http://nodeweekly.com/rss/1665a58h" htmlUrl="https://nodeweekly.com/"/>
+        </outline>
+        <outline text="Scala" title="Scala">
+            <outline type="rss" text="Scala" title="Scala" xmlUrl="http://www.reddit.com/r/scala/.rss" htmlUrl="https://www.reddit.com/r/scala/"/>
+        </outline>
+        <outline text="FunctionalProgramming" title="FunctionalProgramming">
+            <outline type="rss" text="Хабрахабр: коллективные" title="Хабрахабр: коллективные" xmlUrl="http://habrahabr.ru/rss/blogs/programming/" htmlUrl="https://habr.com/ru/hub/programming/all/"/>
+            <outline type="rss" text="FP Complete" title="FP Complete" xmlUrl="http://fpcomplete.com/feed/" htmlUrl="https://www.fpcomplete.com"/>
+        </outline>
+        <outline text="UnixShell" title="UnixShell">
+            <outline type="rss" text="Настройка Linux – Вечный кайф" title="Настройка Linux – Вечный кайф" xmlUrl="http://habrahabr.ru/rss/hub/linux/" htmlUrl="https://habr.com/ru/hub/linux/all/"/>
+            <outline type="rss" text="OpenNews.opennet.ru: Главные новости" title="OpenNews.opennet.ru: Главные новости" xmlUrl="http://www.opennet.ru/opennews/opennews_6_noadv.rss" htmlUrl="https://www.opennet.ru/opennews/main.shtml"/>
+            <outline type="rss" text="Command Line" title="Command Line" xmlUrl="http://www.reddit.com/r/commandline/.rss" htmlUrl="https://www.reddit.com/r/commandline/"/>
+            <outline type="rss" text="NixOS - Purely functional" title="NixOS - Purely functional" xmlUrl="https://www.reddit.com/r/NixOS/.rss" htmlUrl="https://www.reddit.com/r/NixOS/"/>
+        </outline>
+        <outline text="Haskell" title="Haskell">
+            <outline type="rss" text="Haskell :: Reddit" title="Haskell :: Reddit" xmlUrl="http://www.reddit.com/r/haskell/.rss" htmlUrl="https://www.reddit.com/r/haskell/"/>
+            <outline type="rss" text="Haskell for all" title="Haskell for all" xmlUrl="http://www.haskellforall.com/feeds/posts/default" htmlUrl="https://www.haskellforall.com/"/>
+            <outline type="rss" text="Planet Haskell" title="Planet Haskell" xmlUrl="http://planet.haskell.org/rss20.xml" htmlUrl="http://planet.haskell.org/"/>
+        </outline>
+        <outline text="Social" title="Social">
+            <outline type="rss" text="Размышлизмы eao197" title="Размышлизмы eao197" xmlUrl="http://feeds.feedburner.com/Eao197" htmlUrl="http://eao197.blogspot.com/"/>
+            <outline type="rss" text="Дмитрий Львович Быков, писатель" title="Дмитрий Львович Быков, писатель" xmlUrl="http://ru-bykov.livejournal.com/data/rss" htmlUrl="https://ru-bykov.livejournal.com/"/>
+        </outline>
+        <outline text="C++" title="C++">
+            <outline type="rss" text="Sutter's Mill" title="Sutter's Mill" xmlUrl="http://herbsutter.wordpress.com/feed/" htmlUrl="https://herbsutter.com"/>
+            <outline type="rss" text="Visual C++ Team Blog" title="Visual C++ Team Blog" xmlUrl="http://blogs.msdn.com/vcblog/rss.xml" htmlUrl="https://devblogs.microsoft.com/cppblog"/>
+            <outline type="rss" text="LLVM Project Blog" title="LLVM Project Blog" xmlUrl="http://blog.llvm.org/feeds/posts/default?alt=rss" htmlUrl="http://blog.llvm.org/"/>
+            <outline type="rss" text="C++" title="C++" xmlUrl="http://www.reddit.com/r/cpp/.rss" htmlUrl="https://www.reddit.com/r/cpp/"/>
+        </outline>
+    </body>
+</opml>

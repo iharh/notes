@@ -1,0 +1,19 @@
+https://kotlinlang.org/docs/reference/operator-overloading.html
+
+2019
+https://blog.frankel.ch/kotlin-operators/
+2018
+http://thetechstack.net/blog/2018/12/15/kotlin-operators
+
+operator fun ArchiveInputStream.iterator() = object : Iterator<ArchiveEntry> {
+    // This line eagerly pulls the first element from the stream when the iterator is created. 
+    // You may have to do something in next() if this doesn't work for you.
+    var next: ArchiveEntry? = getNextEntry()
+
+    override operator fun hasNext() = next != null
+    override operator fun next(): ArchiveEntry {
+        val tmp = next ?: throw NoSuchElementException()
+        next = getNextEntry()
+        return tmp
+    }
+}

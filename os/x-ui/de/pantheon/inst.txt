@@ -1,0 +1,12 @@
+2021
+https://www.how2shout.com/how-to/how-to-install-the-pantheon-desktop-environment-on-ubuntu.html
+    sudo add-apt-repository ppa:elementary-os/stable
+    # sudo add-apt-repository ppa:elementary-os/daily
+    sudo apt-get update
+    sudo apt-get install elementary-desktop
+
+    http://ppa.launchpad.net/elementary-os/stable/ubuntu
+        !!! does not have latest ubuntu releases support
+
+https://www.how2shout.com/linux/elementary-os-6-early-build-on-ubuntu-20-04-lts-or-linux-mint/
+    daily

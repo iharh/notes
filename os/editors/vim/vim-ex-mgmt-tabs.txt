@@ -1,0 +1,53 @@
+Tab Management:
+:tabe[dit]
+:tabnew
+Leader-tt
+	New tab
+:tabc[lose]
+Leader-tc
+	Close tab
+:tabo[nly]
+Leader-to
+	Close all the other tabs except this
+gt
+C-PgDown
+:tabn[ext]
+Leader-tn
+	Go to the next tab
+gT
+C-PgUp
+:tabp[revious]
+Leader-tp
+	Go to the previous tab
+
+:tabr[ewind]
+:tabfir[st]
+Leader-tf
+	Go to the first tab.
+
+:tabl[ast]
+Leader-tl
+	Go to the last tab.
+
+:tabm[ove] [N]
+Leader-tm
+	Move the current tab page to after tab page N.
+	Use zero to make the current tab page the first one.
+	Without N the tab page is made the last one.
+	
+:tabs
+	List the tab pages and the windows they contain.
+	Shows a ">" for the current window.
+	Shows a "+" for modified buffers.
+:tab
+	???
+:tabdo
+	???
+
+
+CTRL-W T
+	Move the current window to a new tab page.
+
+
+'tabline', 'tal'
+	Tab-line options

@@ -1,0 +1,5 @@
+https://github.com/shikaan/keydex
+
+https://github.com/shikaan/keydex/blob/main/docs/keydex.md
+    keydex list | fzf | keydex copy
+    keydex list | fzf | keydex open

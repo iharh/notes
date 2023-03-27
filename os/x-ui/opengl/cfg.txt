@@ -1,0 +1,99 @@
+extra/
+    mesa
+        /usr/lib/dri/i915_dri.so
+    glu (opengl utility library)
+    mesademos
+
+$ mhwd -l
+> 0000:00:02.0 (0300:8086:0412) Display controller Intel Corporation:
+--------------------------------------------------------------------------------
+                  NAME               VERSION          FREEDRIVER           TYPE
+--------------------------------------------------------------------------------
+           video-linux            2018.05.04                true            PCI
+            video-vesa            2017.03.12                true            PCI
+
+
+$ mhwd -l -d
+--------------------------------------------------------------------------------
+> PCI Device: /devices/pci0000:00/0000:00:02.0 (0300:8086:0412)
+  Display controller Intel Corporation Xeon E3-1200 v3/4th Gen Core Processor Integrated Graphics Controller
+--------------------------------------------------------------------------------
+  > INSTALLED:
+
+   NAME:	video-intel
+   ATTACHED:	PCI
+   VERSION:	2017.03.24
+   INFO:	X.org intel video driver. Standard open source driver for intel graphic cards.
+   PRIORITY:	2
+   FREEDRIVER:	true
+   DEPENDS:	-
+   CONFLICTS:	video-hybrid-intel-amdgpu-prime video-hybrid-intel-radeon-prime video-hybrid-intel-nouveau-prime video-hybrid-intel-ati-bumblebee video-hybrid-intel-nouveau-bumblebee video-hybrid-intel-nvidia-340xx-bumblebee video-hybrid-intel-nvidia-bumblebee 
+   CLASSIDS:	0300 
+   VENDORIDS:	8086 
+
+
+
+  > AVAILABLE:
+
+   NAME:	video-linux
+   ATTACHED:	PCI
+   VERSION:	2018.05.04
+   INFO:	Standard open source drivers.
+   PRIORITY:	2
+   FREEDRIVER:	true
+   DEPENDS:	-
+   CONFLICTS:	-
+   CLASSIDS:	0300 0380 0302 
+   VENDORIDS:	1002 8086 10de 
+
+   NAME:	video-vesa
+   ATTACHED:	PCI
+   VERSION:	2017.03.12
+   INFO:	X.org vesa video driver.
+   PRIORITY:	0
+   FREEDRIVER:	true
+   DEPENDS:	-
+   CONFLICTS:	-
+   CLASSIDS:	0300 
+   VENDORIDS:	* 
+
+
+
+$ /usr/bin/glxinfo | grep OpenGL
+OpenGL vendor string: Intel Open Source Technology Center
+OpenGL renderer string: Mesa DRI Intel(R) Haswell Desktop 
+OpenGL core profile version string: 4.5 (Core Profile) Mesa 18.2.3
+OpenGL core profile shading language version string: 4.50
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL core profile extensions:
+OpenGL version string: 3.0 Mesa 18.2.3
+OpenGL shading language version string: 1.30
+OpenGL context flags: (none)
+OpenGL extensions:
+OpenGL ES profile version string: OpenGL ES 3.1 Mesa 18.2.3
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.10
+OpenGL ES profile extensions:
+
+/etc/X11/mhwd.d/intel.conf 
+Section "Device"
+	Identifier  "Device0"
+	Driver      "intel"
+	BusID       "PCI:0:2:0"
+	Option      "AccelMethod" "sna"
+	Option      "DRI"    "true"
+EndSection
+ 
+Section "DRI"
+        Group  "video"
+        Mode   0666
+EndSection
+ 
+Section "Extensions"
+	Option "Composite" "Enable"
+	Option "RENDER"    "Enable"
+EndSection
+...
+
+/etc/drirc
+    ...

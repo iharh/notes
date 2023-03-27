@@ -1,0 +1,25 @@
+2022
+Home CICD with Jenkins Nexus on Docker
+    https://habr.com/ru/post/677142/
+    ! comment: K3s + Gitlab
+freeCodeCamp - Jenkins Tutorial – How to Deploy a Test Server with Docker + Linux (Full Course) 0:00 of 1:03:09
+    https://www.youtube.com/watch?v=f4idgaq2VqA
+2021
+https://www.infoworld.com/article/3637829/continuous-integration-with-docker-and-jenkins.html
+    https://www.reddit.com/r/java/comments/qcxef3/continuous_integration_with_docker_and_jenkins/
+    ! docker:dind - docker-in-docker
+
+2018
+https://blog.purestorage.com/stateful-sidecar-containers-in-build-pipelines-at-the-speed-of-flash/
+
+2016
+https://engineering.riotgames.com/news/thinking-inside-container-dockercon-talk-and-story-so-far
+https://engineering.riotgames.com/news/jenkins-ephemeral-docker-tutorial
+https://engineering.riotgames.com/news/building-jenkins-inside-ephemeral-docker-container
+https://engineering.riotgames.com/news/taking-control-your-docker-image
+
+https://github.com/maxfields2000/dockerjenkins_tutorial
+https://github.com/maxfields2000/dockerjenkins_tutorial/blob/master/tutorial_06/jenkins-master/Dockerfile-Centos7
+
+2015
+https://engineering.riotgames.com/news/putting-jenkins-docker-container

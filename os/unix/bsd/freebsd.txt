@@ -1,0 +1,18 @@
+flavors
+http://www.midnightbsd.org/
+
+2020
+Samoilov - FreeBSD ru
+    https://www.youtube.com/watch?v=4VaJeB_bf6E
+    ! BSD - is not just a kernel, but a full OS
+    ! no systemd, no udisks2 (bskisks is still raw)
+2018
+LazzyLaif - About FreeBSD ru of 25:45
+    https://www.youtube.com/watch?v=6AoqSB4dPx8
+    ! illegal lexics: no single kernel
+2017
+GoldenPlay - Unix History - BSD Unix
+    https://www.youtube.com/watch?v=CMfveo_I0YI
+    ! modular kernel (no need to rebuild kernel while adding new drivers)
+    ! OpenBSD is a brilliant and most secured: OpenSSH, OpenSSL, LibreSSL, tmux, 
+    ! DragonflyBSD: threads isolation ???

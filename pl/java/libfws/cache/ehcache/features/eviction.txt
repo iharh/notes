@@ -1,0 +1,12 @@
+eviction
+https://www.ehcache.org/apidocs/3.8.0/org/ehcache/config/EvictionAdvisor.html
+    boolean adviceAgainstEviction(K, V)
+
+??? EvictionPrioritizier (at OnHeapStore)
+
+KeyCopyBackend.naturalSize()
+    <- OnHeapStore.enforceCapacity()
+
+2019
+https://www.baeldung.com/spring-boot-evict-cache
+    ! @Scheduled

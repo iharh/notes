@@ -1,0 +1,10 @@
+https://docs.spring.io/spring-integration/reference/html/dsl.html#java-dsl-handle
+https://docs.spring.io/spring-integration/reference/html/messaging-endpoints.html#service-activator
+
+https://docs.spring.io/spring-integration/reference/html/service-activator.html
+    ??? sort of MessageHandler ???
+    @ServiceActivator(inputChannel = SOME_CHANNEL)
+    @Bean
+    public MessageHandler someActivator() {
+        ...
+    }

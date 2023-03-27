@@ -1,0 +1,8 @@
+KafkaStreams that provides high level DSL-like API for aggregation, joins, windows and other complex analytics.
+
+https://www.confluent.io/product/kafka-streams/
+https://www.confluent.io/blog/introducing-kafka-streams-stream-processing-made-simple/
+https://www.confluent.io/blog/event-sourcing-cqrs-stream-processing-apache-kafka-whats-connection/
+Kafka Streams vs Flink:
+https://www.confluent.io/blog/apache-flink-apache-kafka-streams-comparison-guideline-users/
+https://www.confluent.io/blog/real-time-stream-processing-the-next-step-for-apache-flink/

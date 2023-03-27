@@ -1,0 +1,8 @@
+https://help.sonatype.com/repomanager2/maven-and-other-build-tools/apache-ant-and-apache-ivy
+
+https://help.sonatype.com/repomanager2/configuration
+https://help.sonatype.com/repomanager2/configuration/managing-repositories
+
+curl upload
+https://support.sonatype.com/hc/en-us/articles/213465818-How-can-I-programmatically-upload-an-artifact-into-Nexus-2-
+https://gist.github.com/jbaranski/b122231bcbb264ac0c7e

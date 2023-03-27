@@ -1,0 +1,12 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
+
+logback
+https://springframework.guru/using-yaml-in-spring-boot-to-configure-logback/
+https://springframework.guru/using-logback-spring-boot/
+https://springframework.guru/logback-configuration-using-groovy/
+
+logging:
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(%property{PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint}[] %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wex"
+  level:
+    cl: DEBUG

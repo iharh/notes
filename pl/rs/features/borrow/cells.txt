@@ -1,0 +1,10 @@
+https://doc.rust-lang.org/stable/std/cell/struct.Cell.html
+
+2020
+https://ibraheem.ca/posts/rust-interior-mutability-understanding-cell
+https://ryhl.io/blog/temporary-shared-mutation/
+
+https://crates.io/crates/lazycell
+http://indiv0.github.io/lazycell/lazycell/
+https://github.com/indiv0/lazycell
+https://www.reddit.com/r/rust/comments/5vs9rt/lazycell_a_rust_library_providing_a_lazilyfilled/

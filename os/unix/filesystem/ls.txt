@@ -1,0 +1,8 @@
+ls
+    -sh
+        with size in human readable
+    -DR
+        dir tree in a compact way grouped by dirs
+2019
+https://habr.com/ru/post/450806/
+

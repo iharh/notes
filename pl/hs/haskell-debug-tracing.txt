@@ -1,0 +1,41 @@
+Tracing:
+
+Debug.Trace:
+http://eax.me/haskell-debug-trace/
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/src/Debug-Trace.html
+traceShow
+
+tracer:
+http://hackage.haskell.org/package/tracer
+https://github.com/knz/hs-tracer
+
+HAT:
+http://hackage.haskell.org/package/hat (http://olafchitil.github.com/hat)
+
+http://hackage.haskell.org/package/loch-th (https://github.com/liskin/loch-th)
+http://hackage.haskell.org/package/file-location (https://github.com/gregwebs/FileLocation.hs)
+http://hackage.haskell.org/package/trace-function-call
+http://hackage.haskell.org/package/trace-call
+
+
+Debug.HTrace:
+http://hackage.haskell.org/package/htrace (https://github.com/jkff/htrace)
+
+module Debug.HTrace (htrace) where
+
+import Data.List (foldl')
+import Data.IORef
+import System.IO.Unsafe
+
+level = unsafePerformIO $ newIORef 0
+
+-- | Trace "str" on a separate line, and increase indentation of subsequent
+--   traces while x is being evaluated. 
+htrace str x = unsafePerformIO $ do
+  lvl <- readIORef level
+  putStrLn (replicate (2*lvl) ' ' ++ str)
+  writeIORef level (lvl+1)
+  let !vx = x
+  writeIORef level lvl
+  return vx
+

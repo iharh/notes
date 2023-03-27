@@ -1,0 +1,11 @@
+source dependencies (from 4.10)
+
+2018
+https://dzone.com/articles/introducing-source-dependencies-in-gradle
+https://blog.gradle.org/introducing-source-dependencies
+
+samples
+https://github.com/gradle/native-samples
+https://github.com/gradle/native-samples/tree/master/cpp/autotools-library
+https://github.com/gradle/native-samples-cpp-library
+https://github.com/phatblat/Fork/blob/master/src/main/kotlin/at/phatbl/fork/ForkPlugin.kt

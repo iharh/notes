@@ -1,0 +1,34 @@
+2021
+https://linuxhandbook.com/find-command-examples/
+    https://habr.com/ru/company/first/blog/593669/
+https://miteshshah.github.io/linux/basics/finding-and-processing-files/
+https://linuxiac.com/find-files-in-linux/
+
+pacman -Ss findutils
+
+find - util
+
+find . -name '*.c' -print
+	it is important to quote pattern (in order to avoid shell expansion).
+find . \( -name '*.exe' -or -name '*.obj' \) -print
+	-//- using -or
+
+-//- -exec rm {} ';'
+	-//- remove the found file ({} - parameter)
+	sometimes you can use -ok insead of -exec for per-item confirmation
+
+-//- -print | xargs rm
+	-//- another way to delete files
+Note: in order to protect from spaces in file names problem, use:
+find . -name '*.o' -print0 | xargs -0 rm
+	here 0 is an ASCII 0 separator
+
+
+sudo find /etc -type f | sudo xargs grep 'resolv.conf'
+
+???
+find src -type f -name "*.java" -exec cp {} + build/classes
+
+dirs of x chars length
+https://stackoverflow.com/questions/1673068/how-to-find-directories-with-the-name-of-specific-length
+    find . -mindepth 1 -maxdepth 1 -type d -name "??" -printf "%f\n"

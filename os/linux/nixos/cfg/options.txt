@@ -1,0 +1,5 @@
+https://nixos.org/nixos/options.html
+https://search.nixos.org/options
+
+samples
+$ nixos-option system.build | grep -o 'installBootLoader = [^ ]*'

@@ -1,0 +1,77 @@
+emacs-mode:
+http://www.gnu.org/software/bash/manual/html_node/Bindable-Readline-Commands.html
+
+http://beerpla.net/2008/12/22/mastering-the-linux-shell-bash-shortcuts-explained/
+https://help.ubuntu.com/community/AdvancedCommandlineHowto
+
+readline, ~./inputrc:
+
+http://stackoverflow.com/questions/4094828/msysgit-bash-how-to-enable-ctrlleft-right-arrows
+http://stackoverflow.com/questions/5029118/bash-ctrl-to-move-cursor-between-words-strings
+
+Tab: command completion.
+
+Up Arrow & Down Arrow: previously used commands in the current session.
+Ctrl+P, Ctrl+N
+
+Ctrl+S - forward search in history
+Ctrl+R - reverse search in history
+
+Ctrl+B or Left  : Move to the previous char.
+Ctrl+F or Right : Move to the next char.
+Alt+B           : Move to the previous word.
+Alt+F           : Move to the next word.
+Ctrl+A or Home  : Move to the beginning of the current line.
+Ctrl+E or End   : Move to the end of the current line.
+Esc+B           : Moves to the beginning of the previous or current word.
+
+Ctrl+H or Backspace : Delete the previous char.
+Ctrl+D or Delete    : Delete the next char.
+Ctrl+W              : Delete the previous word.
+Alt+D               : Delete the next word.
+Ctrl+U              : Delete all the previous text.
+Ctrl+K              : Delete all the next text.
+
+Ctrl+Y              : Past the text
+Ctrl+T              : Swap 2 chars
+Alt+T               : Swap 2 words
+Alt+L               : Convert word to lowercase
+
+Ctrl-D: On a blank line is the same as the exit command. Otherwise, it deletes the character in front of the cursor.
+Ctrl-C: Stop the current running command.
+Ctrl-Shift-C: Copy.
+Ctrl-Shift-V or Shift-Insert: Paste.
+
+Alt+C : Capitalizes letter where cursor is and moves to end of word
+
+
+vi-mode:
+set -o vi
+
+~/.inputrc
+set show-mode-in-prompt on
+
+http://stackoverflow.com/questions/1039713/different-bash-prompt-for-different-vi-editing-mode
+https://gist.github.com/ethagnawl/86a0284c990196ae31b7
+
+bash-vi-prompt:
+# requires >= Bash 4.3
+# note: the prompt will not be updated if you use a custom PS1 which contains a newline character
+
+set editing-mode vi
+set keymap vi-command
+set show-mode-in-prompt on
+
+# if it's configured correctly, your prompt will be prefixed with a `+` while in insert mode and a `:` when in command mode.
+
+zsh-vi-prompt:
+https://github.com/bhilburn/powerlevel9k/pull/98/files
+
+https://hamberg.no/erlend/posts/2010-10-17-show-current-vi-mode-in-zsh-prompt.html
+http://zshwiki.org/home/zle/vi-mode
+http://dougblack.io/words/zsh-vi-mode.html
+http://martin.krischik.com/index.php/Z-Shell/VimMode
+
+http://stackoverflow.com/questions/3622943/zsh-vi-mode-status-line
+http://superuser.com/questions/151803/how-do-i-customize-zshs-vim-mode
+http://unix.stackexchange.com/questions/547/make-my-zsh-prompt-show-mode-in-vi-mode

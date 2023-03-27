@@ -1,0 +1,23 @@
+Today, a new vulnerability in the OpenSSH has been detected.
+It affects all versions of the program, from 5.4 to 7.1.
+The detected bug allows an attack leading to a leakage of the private key. 
+
+This issue affects the OpenSSH client (not server) on most modern operating systems including Linux, FreeBSD and Mac OS X.
+This issue may also affect users running OpenSSH for Windows but does not affect users with PuTTY on Windows.
+
+While patches and updates are being rolled out for affected distributives,
+the feature causing this security issue can be disabled manually in order to resolve the issue.
+
+On OS X, Linux and BSD variants this can be done by adding a line to your SSH configuration.
+
+For Mac users:
+...
+ 
+For Unix users and Unix admins:
+Servers could be also potentially affected in case key-based auth is used to connect to other servers by ssh. 
+https://access.redhat.com/articles/2123781 
+
+Use  command:
+   echo -e 'Hostname *\nUseRoaming no' >> /etc/ssh/ssh_config
+
+And install all updates.

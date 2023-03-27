@@ -1,0 +1,68 @@
+ToRead:
+Jones - A Transformation-based Optimizer for Haskell
+
+articles
+2019
+http://neilmitchell.blogspot.com/2019/04/foldr-under-hood.html
+????
+https://blog.pusher.com/top-tips-and-tools-for-optimising-haskell/
+-funfolding-use-threshold=16 -O2 -optc-O3
+
+https://www.stackbuilders.com/tutorials/haskell/ghc-optimization-and-fusion/
+
+
+presentations
+Sergey - GHC Static Analysis and Code Optimization (slide 61 about polymorphism influence to strictness analysis)
+http://www.slideshare.net/ilyasergey/static-analyses-and-code-optimizations-in-glasgow-haskell-compiler
+
+Doel - Introduction to Low Level Haskell Optimization:
+https://www.youtube.com/watch?v=McFNkLPTOSY
+https://docs.google.com/file/d/0B8Kkr1O1jFwcRmhxbzBMR1Ntb3c/edit
+
+- Short cut fusion (http://www.haskell.org/haskellwiki/Short_cut_fusion, http://www.haskell.org/haskellwiki/Correctness_of_short_cut_fusion)
+
+Is an optimizer method that merges some function calls into one.
+E.g.
+map f . map g
+can be substituted by
+map (f . g)
+and
+filter p . filter q
+can be substituted by
+filter (\x -> q x && p x)
+.
+
+It can also help to remove intermediate data structures.
+E.g. computing
+sum [1..n]
+does not require an explicit list structure, and the expression is actually translated into a simple loop.
+
+Lambda-Lifting:
+Johnson - Lambda Lifting - Transforming Programs to Recursive Equations
+
+Deforestation
+!!! Coutts - From Lists to Streams to Nothing at All
+Bolingbroke - Optimizing Functional Programming Languages
+St-Amour - Deforestation
+Swierstra - Stream Fusion
+
+Rewrite Rules
+Jones - Playing By The Rules - Rewriting as a Optimization Technique in GHC
+MapFusion
+http://www.randomhacks.net/articles/2007/02/10/map-fusion-and-haskell-performance
+http://deni-ok.livejournal.com/6909.html
+
+http://www.haskellforall.com/2014/01/stream-fusion-for-pipes.html
+
+-ddump-rule-firings
+
+
+Worker-Wrapper:
+Hutton-Worker-Wrapper transformation
+
+Defunctionalization:
+Danvy - Defunctionalization at Work
+Mitchell - Losing Functions without Gaining Data
+
+Demand:
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Compiler/Demand

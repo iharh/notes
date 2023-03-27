@@ -1,0 +1,49 @@
+http://scalamacros.org/
+http://scalamacros.org/news/2014/07/16/roadmap-for-scala-macros.html
+
+
+http://docs.scala-lang.org/overviews/macros/overview.html
+http://docs.scala-lang.org/overviews/macros/paradise.html
+
+http://scalamacros.org/paperstalks.html
+https://github.com/scalamacros/scalamacros.github.com/tree/master/paperstalks
+
+scala.meta
+http://scalamacros.org/paperstalks/2015-06-09-StateOfTheMetaSummer2015.pdf
+
+scala.reflect
+http://docs.scala-lang.org/overviews/reflection/symbols-trees-types.html
+
+https://github.com/underscoreio/essential-macros/
+
+
+Nadav Wiener - Implementing Mixfix Operators in Scala Using Macros
+http://parleys.com/play/530e2217e4b06b7f61f3fc06
+
+Burmako - Macros vs Types:
+http://scalamacros.org/paperstalks/2014-03-01-MacrosVsTypes.pdf
+https://speakerdeck.com/larsrh/macros-vs-types
+
+Burmako - Philosophy of Scala Macros slides
+http://scalamacros.org/paperstalks/2013-09-19-PhilosophyOfScalaMacros.pdf
+
+Scala Macros Poster:
+http://scalamacros.org/paperstalks/2013-11-25-ScalaMacrosPoster.pdf
+
+What Are Macros Good For:
+http://scalamacros.org/paperstalks/2013-08-21-RuWhatAreMacrosGoodFor.pdf
+
+Metaprogramming in Scala 2.10
+http://scalamacros.org/paperstalks/2012-04-28-MetaprogrammingInScala210.pdf
+
+
+Applied Materialization - When Macros meet Implicits:
+http://scalamacros.org/paperstalks/2013-06-13-AppliedMaterialization.pdf
+
+Let our Powers Combine:
+http://scalamacros.org/paperstalks/2013-07-02-LetOurPowersCombine.pdf
+http://scalamacros.org/paperstalks/2013-04-22-LetOurPowersCombine.pdf
+
+Quasiquotation Guide:
+http://den.sh/quasiquotes.html
+http://www.reddit.com/r/scala/comments/1zwlb5/quasiquote_guide_for_scala_211_work_in_progress/

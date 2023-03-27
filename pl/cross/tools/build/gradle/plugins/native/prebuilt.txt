@@ -1,0 +1,59 @@
+https://github.com/gradle/gradle/tree/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/internal/prebuilt
+
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/PrebuiltStaticLibraryBinary.html
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/PrebuiltSharedLibraryBinary.html
+
+https://discuss.gradle.org/t/how-do-i-specify-different-include-paths-for-a-prebuiltlibrary-on-a-native-c-application/10684
+https://discuss.gradle.org/t/how-do-i-link-a-c-library-with-another-library-file-that-i-know-the-path-of/7241
+https://discuss.gradle.org/t/how-to-add-a-native-prebuilt-library-with-multiple-binary-files/4211
+
+https://github.com/gradle/gradle/blob/master/subprojects/docs/src/samples/native-binaries/prebuilt/build.gradle
+https://gist.github.com/ph0b/418132cb2f3f03a5534c
+
+samples:
+https://github.com/gradle/gradle/blob/master/subprojects/docs/src/samples/native-binaries/prebuilt/build.gradle
+
+    repositories {
+        libs(PrebuiltLibraries) {
+            zlib_win {
+                headers.srcDir "3rd-party-lib/util/src/util/headers"
+                binaries.withType(StaticLibraryBinary) {
+                    def libName = targetPlatform.operatingSystem.windows ? 'util.lib' : 'libutil.a'
+                    staticLibraryFile = file("3rd-party-lib/util/build/libs/util/static/${buildType.name}/${libName}")
+                }
+                binaries.withType(SharedLibraryBinary) {
+                    def os = targetPlatform.operatingSystem
+                    def baseDir = "3rd-party-lib/util/build/libs/util/shared/${buildType.name}"
+                    if (os.windows) {
+                        sharedLibraryFile = file("${baseDir}/util.dll")
+                        if (file("${baseDir}/util.lib").exists()) {
+                            sharedLibraryLinkFile = file("${baseDir}/util.lib")
+                        }
+                    } else { // linux
+                        sharedLibraryFile = file("${baseDir}/libutil.so")
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        libs(PrebuiltLibraries) {
+            zlib_win {
+                def libName = "zlib"
+                def userHome = System.getProperty("user.home")
+                // conan install zlib/1.2.11@lasote/stable -b -s arch="x86_64" -s build_type="Release" -s compiler="Visual Studio" -s compiler.runtime="MT" -s compiler.version="10" -s os="Windows" -o shared="True" 
+                // shared="False"
+                def packageHash = 'deeef9847bd36121da67dea498a190a923f6c7a0'
+                def baseDir = "${userHome}/.conan/data/${libName}/1.2.11/lasote/stable/package/${packageHash}"
+                headers.srcDir "${baseDir}/include"
+                //binaries.withType(StaticLibraryBinary) {
+                //    staticLibraryFile = file("${baseDir}/lib/${libName}static.lib")
+                //}
+                binaries.withType(SharedLibraryBinary) {
+                    sharedLibraryFile = file("${baseDir}/bin/${libName}.dll")
+                    sharedLibraryLinkFile = file("${baseDir}/lib/${libName}.lib")
+                }
+            }
+        }
+    }

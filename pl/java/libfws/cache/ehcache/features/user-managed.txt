@@ -1,0 +1,25 @@
+https://www.ehcache.org/documentation/3.0/usermanaged.html
+    ... where the lifecycle of the cache is shorter than the application lifecycle
+
+https://www.ehcache.org/apidocs/3.8.0/org/ehcache/UserManagedCache.html
+
+sample
+    UserManagedCache<Long, String> userManagedCache =
+        UserManagedCacheBuilder.newUserManagedCacheBuilder(Long.class, String.class)
+            .build(false); 
+
+    userManagedCache.init(); 
+    userManagedCache.put(1L, "da one!"); 
+    userManagedCache.close(); 
+
+
+https://github.com/ehcache/ehcache3/blob/master/impl/src/main/java/org/ehcache/config/builders/UserManagedCacheBuilder.java
+    ...
+    public UserManagedCacheBuilder<K, V, T> using(Service service) {
+        UserManagedCacheBuilder<K, V, T> otherBuilder = new UserManagedCacheBuilder<>(this);
+        if (service instanceof SizeOfEngineProvider) {
+            removeAnySizeOfEngine(otherBuilder);
+        }
+        otherBuilder.services.add(service);
+        return otherBuilder;
+    }

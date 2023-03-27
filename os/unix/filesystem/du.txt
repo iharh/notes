@@ -1,0 +1,32 @@
+2022
+LearnLinuxTV - Awesome Linux Tools - ncdu, Scan your Hard Disk and free up Space! 0:00 of 9:29
+    https://www.youtube.com/watch?v=nj8HtCNYOsU
+2021
+https://www.linuxteck.com/9-basic-du-command-in-linux-with-examples/
+2020
+https://www.redhat.com/sysadmin/du-command-options
+
+du
+    http://www.unixmen.com/linux-basics-find-size-directory-commands/
+ncdu
+    http://www.unixmen.com/ncdu-ncurses-disk-usage-analyzer/
+    http://dev.yorhel.nl/ncdu
+    aur
+        ncdu
+
+du
+  -c, --total           produce a grand total
+  -d, --max-depth=N     print the total for a directory (or file, with --all)
+                          only if it is N or fewer levels below the command
+                          line argument;  --max-depth=0 is the same as
+                          --summarize
+      --files0-from=F   summarize disk usage of the
+                          NUL-terminated file names specified in file F;
+                          if F is -, then read names from standard input
+  -h, --human-readable  print sizes in human readable format (e.g., 1K 234M 2G)
+  -s, --summarize       display only a total for each argument
+  -x, --one-file-system skip directories on different file systems
+
+Samples:
+du -hxcd 1 | sort --human-numeric-sort
+du -hxcd 5 | grep [0-9]G | sort -rnk1,1

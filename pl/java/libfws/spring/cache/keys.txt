@@ -1,0 +1,8 @@
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/interceptor/KeyGenerator.html
+
+https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/map/MultiKeyMap.html
+https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/keyvalue/MultiKey.html
+
+multiple keys
+https://stackoverflow.com/questions/13381731/caching-with-multiple-keys/24193252
+https://stackoverflow.com/questions/14072380/cacheable-key-on-multiple-method-arguments

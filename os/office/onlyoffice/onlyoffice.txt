@@ -1,0 +1,13 @@
+https://www.onlyoffice.com/
+https://www.onlyoffice.com/download-desktop.aspx
+
+aur
+    onlyoffice-bin
+    onlyoffice-documentserver
+
+snap
+    https://snapcraft.io/onlyoffice-desktopeditors
+    onlyoffice-ds
+    onlyoffice-desktopeditors
+flathub
+    org.onlyoffice

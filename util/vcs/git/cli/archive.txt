@@ -1,0 +1,4 @@
+ARCHIVING:
+
+git archive -o latest.zip HEAD
+

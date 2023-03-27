@@ -1,0 +1,42 @@
+https://www.youtube.com/playlist?list=PLRGI9KQ3_HP_OFRG6R-p4iFgMSK1t5BHs
+
+2020
+Libbey - Nix: What Even is it Though
+    https://www.youtube.com/watch?v=6iVXaqUfHi4
+    https://shopify.engineering/what-is-nix
+    ! core concepts (interdependent): store, language, derivation, sandbox
+    ! /nix/store   : is like a DAG
+    ! /nix/store/* : nodes (immutables)
+    ! /nix-store --query --references|--graph /nix/store/...-bla-ver
+    !   to query "a graph database"
+    ! 
+    ! Derivations - special entities in the Nix Store, describing [instructions] how to build "other" entities in the Nix Store
+    ! need to look, great internals overview
+    ! drvPath --> outPath (is created using a derivation)
+    !   $ nix-build /nix/store/<hash>-<name>.drv
+    !       /nix/store/<other-hash>-<name>
+    ! 
+    ! Sandboxed builds
+    ! Nix normally builds with a sandbox that actually prevents access to anything not declared, or outside of the Nix Store
+    ! A path's hash is derived from its derivation's hash, which is derived from all of this
+    !   * outputs, inputDrvs, inputSrcs, platform, builder, args, env
+    ! There is no such thing as an implicit dependency in Nix
+    !
+    ! Nix Language is
+    !   lazy evaluated
+    !   has [almost] no side effects (derivation has a side-effect of creating something at /nix/store/...)
+    !
+    ! nixpkgs ... is really a one-big expression.
+    ! # nixpkgs/default.nix
+    ! {
+    !   ruby = derivation { ... };
+    !   python = derivation { ... };
+    !   nodejs = derivation { ... };
+    !   ...
+    ! }
+    ! https://github.com/NixOS/nixpkgs/blob/master/default.nix
+    ! https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/impure.nix
+2020
+NixOS, nix-darwin, and home-manager
+    https://www.youtube.com/watch?v=IUsQt4NRCnc
+    ! very sophisticated config

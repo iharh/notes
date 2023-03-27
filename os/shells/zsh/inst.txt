@@ -1,0 +1,39 @@
+http://www.unixmen.com/install-oh-zsh-ubuntu-arch-linux-fedora/
+
+sudo pacman -S zsh zsh-lovers zsh-completions zsh-history-substring-search zsh-lovers 
+chsh -s `which zsh`
+
+The function will not be run in future, but you can run it yourself as follows:
+  autoload -Uz zsh-newuser-install
+  zsh-newuser-install -f
+
+(the files .zshenv, .zprofile, .zshrc, .zlogin in the directory ~)
+
+Plugins:
+zsh-syntax-highlighting
+~/.zshrc:
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+LXTerminal settings:
+
+https://gist.github.com/perusio/1154002
+
+edit ~/.config/lxterminal/lxterminal.conf:
+
+bgcolor=#00002b2b3636
+fgcolor=#65657b7b8383
+
+
+LS colors:
+https://github.com/seebi/dircolors-solarized
+
+history issues:
+
+http://superuser.com/questions/410965/command-history-in-zsh
+
+zsh: locking failed for /home/Ihar_Hancharenka/.zsh_history: no such file or directory
+
+$TMPPREFIX
+print =(:)
+

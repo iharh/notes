@@ -1,0 +1,15 @@
+lftp
+
+set:
+set ssl:verify-certificate no;
+
+lftp -c "open -u $USER,$PASS $HOST; ls /microservices/prediction/patches"
+
+commands:
+
+ls
+rm
+mkdir
+get
+put
+mirror

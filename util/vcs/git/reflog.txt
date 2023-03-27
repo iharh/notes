@@ -1,0 +1,43 @@
+https://www.atlassian.com/git/tutorials/refs-and-the-reflog/the-reflog
+
+The reflog is Git’s safety net.
+It records almost every change you make in your repository, regardless of whether you committed a snapshot or not.
+You can think of it is a chronological history of everything you’ve done in your local repo.
+To view the reflog, run the git reflog command.
+It should output something that looks like the following:
+
+400e4b7 HEAD@{0}: checkout: moving from master to HEAD~2
+0e25143 HEAD@{1}: commit (amend): Integrate some awesome feature into `master`
+00f5425 HEAD@{2}: commit (merge): Merge branch ';feature';
+ad8621a HEAD@{3}: commit: Finish the feature
+
+This can be translated as follows:
+
+    You just checked out HEAD~2
+    Before that you amended a commit message
+    Before that you merged the feature branch into master
+    Before that you committed a snapshot
+
+The HEAD{<n>} syntax lets you reference commits stored in the reflog.
+It works a lot like the HEAD~<n> references from the previous section,
+but the <n> refers to an entry in the reflog instead of the commit history.
+
+You can use this to revert to a state that would otherwise be lost.
+For example, lets say you just scrapped a new feature with git reset.
+Your reflog might look something like this:
+
+ad8621a HEAD@{0}: reset: moving to HEAD~3
+298eb9f HEAD@{1}: commit: Some other commit message
+bbe9012 HEAD@{2}: commit: Continue the feature
+9cb79fa HEAD@{3}: commit: Start a new feature
+
+
+The three commits before the git reset are now dangling, which means that there is no way to reference them—except through the reflog.
+Now, let’s say you realize that you shouldn’t have thrown away all of your work.
+All you have to do is check out the HEAD@{1} commit to get back to the state of your repository before you ran git reset.
+
+git checkout HEAD@{1}
+
+This puts you in a detached HEAD state.
+From here, you can create a new branch and continue working on your feature.
+

@@ -1,0 +1,29 @@
+https://www.nushell.sh/
+https://www.nushell.sh/demo/
+
+https://crates.io/crates/nu
+https://github.com/nushell/nushell
+
+https://book.nushell.sh/
+https://book.nushell.sh/en
+
+https://github.com/nushell/nushell/tree/master/docs
+https://github.com/nushell/nushell/blob/master/docs/philosophy.md
+https://github.com/nushell/nushell/blob/master/docs/docker.md
+
+https://www.nushell.sh/book/loading_data.html
+
+2021
+Linz - JT - A new path for your shell of 24:31
+    https://www.youtube.com/watch?v=pNPQ4_tTKuc
+2019
+http://www.jonathanturner.org/2019/09/nushell_0_3_0.html
+http://www.opennet.ru/opennews/art.shtml?num=51375
+
+inst issue
+https://github.com/sfackler/rust-openssl/issues/763
+     // export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
+     sudo apt install libssl-dev
+
+samples
+https://github.com/nushell/nu_scripts

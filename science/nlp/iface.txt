@@ -1,0 +1,59 @@
+// iface.c
+
+void iface_load_stack(char *filename) {
+    struct fsm *net;
+    fsm_read_binary_handle fsrh;
+
+    if ((fsrh = fsm_read_binary_file_multiple_init(filename)) == NULL) { // io.c
+	fprintf(stderr, "%s: ", filename);
+        perror("File error");
+        return;
+    }
+    while ((net = fsm_read_binary_file_multiple(fsrh)) != NULL) // io.c
+        stack_add(net); // stack.c
+    return;
+}
+
+void iface_apply_up(char *word) {
+    int i;
+    char *result;
+    struct apply_handle *ah; 
+    if (!iface_stack_check(1)) {
+        return;
+    }
+    ah = stack_get_ah(); // stack.c
+    
+    iface_apply_set_params(ah);
+    result = apply_up(ah, word); // apply.c
+
+    if (result == NULL) {
+        printf("???\n");
+        return;
+    } else {
+        printf("%s\n",result);
+    }
+    for (i = g_list_limit; i > 0; i--) {
+        result = apply_up(ah, NULL); // apply.c
+        if (result == NULL)
+            break;
+        printf("%s\n",result);
+    }
+}
+
+int iface_stack_check (int size) {
+    if (stack_size() < size) { // stack.c
+        printf("Not enough networks on stack. Operation requires at least %i.\n",size);
+        return 0;
+    }
+    return 1;
+}
+
+// clb???
+void iface_apply_set_params(struct apply_handle *h) {
+    apply_set_print_space(h, g_print_space);
+    apply_set_print_pairs(h, g_print_pairs);
+    apply_set_show_flags(h, g_show_flags);
+    apply_set_obey_flags(h, g_obey_flags);
+}
+
+kkkkkkkkkkkkk

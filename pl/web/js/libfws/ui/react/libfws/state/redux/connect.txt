@@ -1,0 +1,23 @@
+https://www.npmjs.com/package/redux-connect
+https://github.com/makeomatic/redux-connect
+
+books
+https://maxfarseer.gitbooks.io/redux-course-ru/content/prisoedinenie_dannih_connect.html
+
+articles
+2018
+https://dev.to/resir014/a-type-safe-approach-to-redux-stores-in-typescript--5ajm
+http://www.bentedder.com/typed-connect-redux-react-typescript/
+    https://www.youtube.com/watch?v=24UzFeGpI7Y
+
+2017
+https://medium.com/devschacht/jakob-lind-code-your-own-redux-part-2-the-connect-function-d941dc247c58
+https://www.silviogutierrez.com/blog/react-redux-and-typescript-typed-connect/
+http://thorarin.net/blog/post/2017/05/05/redux-connected-react-components-in-typescript.aspx
+https://hackernoon.com/why-using-nested-connect-react-redux-components-is-good-bd17997b53d2
+https://www.sohamkamani.com/blog/2017/03/31/react-redux-connect-explained/
+
+2016
+connect in react-redux
+https://monsterlessons.com/project/lessons/redux-js-connect-v-react-redux
+https://www.youtube.com/watch?v=76UKD-4pVis

@@ -1,0 +1,31 @@
+https://stackoverflow.com/questions/30223559/gradle-fail-on-adding-systemproperty
+
+systemProperty 'java.library.path', file('./libs')
+
+// The following makes "gradle build", "gradle test" work
+test {
+    jvmArgs = ['-Djava.library.path=./src/main/resources/META-INF/opencv-2.4.9/windows_bin/x64']
+}
+
+// Thw following makes "gradle run" work
+run {
+    jvmArgs = ['-Djava.library.path=./src/main/resources/META-INF/opencv-2.4.9/windows_bin/x64']
+}
+
+tasks.withType(JavaCompile) { JavaCompile t ->
+    t.systemProperty "java.library.path", file("./src/main/resources/META-INF/opencv-2.4.9/windows_bin/x64")
+    t.options        "java.library.path", file("./src/main/resources/META-INF/opencv-2.4.9/windows_bin/x64")
+}
+
+project properties:
+https://docs.gradle.org/current/userguide/writing_build_scripts.html
+https://docs.gradle.org/current/userguide/java_plugin.html
+projectDir
+buildDir
+libsDir
+
+dump properties
+    tasks['lttSharedLibrary'].properties.each { println "$it.key -> $it.value" }
+
+~/.gradle/gradle.properties
+org.gradle.jvmargs=-Xmx4096m

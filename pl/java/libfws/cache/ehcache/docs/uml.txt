@@ -1,0 +1,4 @@
+https://github.com/ehcache/ehcache3/tree/master/docs/src/docs/uml
+
+putIfAbsentUml.puml
+    EhcacheActiveEntity -> EhcacheActiveEntity: getStore(alias)

@@ -1,0 +1,41 @@
+Zhizhelev - Scala Type System in Applied Problems
+https://www.youtube.com/watch?v=Cr0j6eh8P7I
+
+abstract class Exp[A] {
+    def eval = this match {
+        case LitInt(i) => i
+        case LitBool(b)        => b
+        case Add(e1, e2)       => e1.eval + e2.eval
+        case Mul(e1, e2)       => e1.eval * e2.eval
+        case Cond(b, thn, els) => if (b.eval) { thn.eval } else { els.eval }
+        case Eq(e1, e2)        => e1.eval == e2.eval
+    }
+}
+
+case class LitInt (i: Int) extends Exp[???]
+case class LitBool(b: Boolean) extends Exp[???]
+case class Add    (e1: Exp[Int]    , e2: Exp[Int]) extends Exp[???]
+case class Mul    (e1: Exp[Int]    , e2: Exp[Int]) extends Exp[???]
+case class Cond[A](b : Exp[Boolean], thn: Exp[A], e2 : Exp[A]) extends Exp[???]
+case class Eq[A]  (e1: Exp[A]      , thn: Exp[A], e2 : Exp[A]) extends Exp[???]
+
+// Sean Seefried "Haskell GADTs in Scala"
+
+// We strongly need the following to compile this
+
+object Exp {
+    def evalAny[A](e: Exp[A]): A = this match {
+        case LitInt(i) => i
+        case LitBool(b)        => b
+        case Add(e1, e2)       => e1.eval + e2.eval
+        case Mul(e1, e2)       => e1.eval * e2.eval
+        case Cond(b, thn, els) => if (b.eval) { thn.eval } else { els.eval }
+        case Eq(e1, e2)        => e1.eval == e2.eval
+    }
+}
+
+abstract class Exp[A] {
+    def eval: A = Exp.evalAny(this)
+}
+
+// here the compiler calls a method with a knownn generic-parameter

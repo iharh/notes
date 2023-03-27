@@ -1,0 +1,3 @@
+for arch-based distros like arch, manjaro, garuda
+    https://wiki.archlinux.org/title/Users_and_groups
+    ! use useradd vs adduser (debian/ubuntu stuff)

@@ -1,0 +1,76 @@
+Apache Kafka support
+
+http://projects.spring.io/spring-kafka/
+https://github.com/spring-projects/spring-kafka
+
+https://docs.spring.io/spring-kafka/reference/html/
+https://docs.spring.io/spring-kafka/reference/htmlsingle/
+
+https://search.maven.org/search?q=g:org.springframework.kafka%20AND%20a:spring-kafka
+
+    compile('org.springframework.kafka:spring-kafka')
+
+Spring Boot 1.5 include auto-configuration support for Apache Kafka via the spring-kafka project.
+To use Kafka simply include the spring-kafka`depenency and configure the appropriate `spring.kafka.* application properties.
+
+Recieving messages from Kafka is as simple as annotating a method:
+
+@Component
+public class MyBean {
+    @KafkaListener(topics = "someTopic")
+    public void processMessage(String content) {
+        // ...
+    }
+}
+
+  @Override public void writeExternal(java.io.ObjectOutput out)
+    throws java.io.IOException {
+    WRITER$.write(this, SpecificData.getEncoder(out));
+  }
+
+batching
+https://stackoverflow.com/questions/58492689/how-to-send-batched-data-with-spring-kafka-producer
+2020
+https://medium.com/@shrutishrm17/kafka-batch-processing-in-spring-boot-fc6c58f857fa
+
+compression
+https://medium.com/swlh/exploit-apache-kafkas-message-format-to-save-storage-and-bandwidth-7e0c533edf26
+
+api
+https://docs.spring.io/spring-kafka/api/org/springframework/kafka/core/KafkaTemplate.html
+
+http://www.baeldung.com/spring-kafka
+
+articles
+2023
+https://www.baeldung.com/spring-retry-kafka-consumer
+    https://github.com/eugenp/tutorials/tree/master/spring-kafka-2
+2022
+https://piotrminkowski.com/2022/01/24/distributed-transactions-in-microservices-with-kafka-streams-and-spring-boot/
+    https://github.com/piomin/sample-spring-kafka-microservices
+https://betterprogramming.pub/kafka-with-java-spring-and-docker-asynchronous-communication-between-microservices-e1d00e120831
+    https://habr.com/ru/company/otus/blog/663264/
+2021
+https://spring.io/blog/2021/02/03/demystifying-spring-cloud-stream-producers-with-apache-kafka-partitions
+2020
+https://www.confluent.io/blog/apache-kafka-spring-boot-application/
+https://arnoldgalovics.com/fault-tolerant-and-reliable-messaging-with-kafka-and-spring-boot/
+https://habr.com/ru/post/505720/
+https://habr.com/ru/company/megafon/blog/504422/
+https://habr.com/ru/post/496182/
+2019
+https://www.confluent.io/blog/spring-for-apache-kafka-deep-dive-part-2-apache-kafka-spring-cloud-stream
+https://www.confluent.io/blog/spring-for-apache-kafka-deep-dive-part-1-error-handling-message-conversion-transaction-support
+2018
+https://www.javacodegeeks.com/2018/03/spring-cloud-stream-kafka.html
+
+samples
+https://thepracticaldeveloper.com/spring-boot-kafka-config/
+    https://hub.docker.com/r/wurstmeister/kafka/
+    http://wurstmeister.github.io/kafka-docker/
+    https://github.com/wurstmeister/kafka-docker/wiki
+    https://github.com/wurstmeister/kafka-docker/wiki/Connectivity
+
+whats new
+https://docs.spring.io/spring-kafka/docs/2.9.0/reference/html/#whats-new-part
+https://spring.io/blog/2018/02/22/spring-for-apache-kafka-2-1-3-spring-integration-kafka-3-0-2-are-available

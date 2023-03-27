@@ -1,0 +1,24 @@
+http://technet.microsoft.com/ru-ru/library/bb838723.aspx
+http://sharmilasanctuary.wordpress.com/about/five-dmv-queries-that-makes-you-a-superhero/
+http://glennberrysqlperformance.spaces.live.com/blog/cns!45041418ECCAA960!990.entry
+
+SELECT qs.total_worker_time,
+SUBSTRING(st.text, qs.statement_start_offset/2,
+(CASE
+WHEN qs.statement_end_offset = -1
+THEN LEN(CONVERT(nvarchar(max), st.text)) * 2
+ELSE qs.statement_end_offset
+END - qs.statement_start_offset)/2)
+as SQL_Text,
+qp.query_plan,
+qs.execution_count,
+st.dbid,
+st.objectid
+FROM sys.dm_exec_query_stats qs
+CROSS APPLY sys.dm_exec_query_plan 
+(qs.plan_handle) qp
+CROSS APPLY sys.dm_exec_sql_text (qs.plan_handle) st
+WHERE query_plan.exist
+('declare default element namespace "http://schemas.microsoft.com/sqlserver/2004/07/showplan";
+//Convert/@Implicit[. = "1?]') = 1
+ORDER BY qs.total_worker_time DESC

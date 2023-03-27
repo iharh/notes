@@ -1,0 +1,10 @@
+sudo ss -ntlap
+
+   -n, --numeric       don't resolve service names
+   -a, --all           display all sockets
+   -l, --listening     display listening sockets
+   -p, --processes     show process using socket
+   -t, --tcp           display only TCP sockets
+
+sudo ss -nlapt | grep 8443
+LISTEN    0      100                        *:8443                        *:*     users:(("java",pid=26556,fd=190)) 

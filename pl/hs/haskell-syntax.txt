@@ -1,0 +1,35 @@
+Line wrapping:
+Use a pair of \
+
+! A func of spec-chars only - considered an infix operator by default (need to surround by parenthesis) !
+Function can be defined using backticks:
+
+a `fun` b = ...
+
+
+Let bindings:
+
+let a = 100; b = 200 in a*b
+
+cylinder r h = 
+  let sideArea = 2 * pi * r * h
+      topArea = pi * r ^ 2
+  in sideArea * topArea
+
+[let square = x * x in (square 5, square 3, square 2)]
+> [(25, 9, 4)]
+
+calcBmi xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
+
+
+Interesting operators:
+
+(,) - pair operator {{{ unit x g = (x,g) --could be-- unit = (,) }}}
+(,) :: a -> b -> (a,b),    (,,) - triple operator
+. - func composition
+'op' - infix operator
+[0..] - infinit list
+(!!) :: [a] -> Int -> a // select n-th element of the list
+(:) - add an element to the list
+(++) - append 2 lists
+

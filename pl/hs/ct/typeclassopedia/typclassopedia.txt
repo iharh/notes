@@ -1,0 +1,469 @@
+Typeclassopedia Super Slides (Scala/Haskell)
+https://bitbucket.org/typeclassopedia/typeclassopedia.bitbucket.org/src
+https://bitbucket.org/hseeberger/typeclassopedia.bitbucket.org/src
+
+AMP (Applicative => Monad) proposal:
+https://github.com/quchen/articles/blob/master/applicative_monad.md
+
+Articles
+http://eax.me/functor-applicative-and-monoid/
+
+1. Functor
+
+class Functor f where
+	fmap :: (a -> b) -> f a -> f b
+
+Functor laws:
+
+fmap id = id
+fmap (g . h) = fmap g . fmap h
+
+
+2. Pointed
+
+class Functor f => Pointed f where
+	pure :: a -> f a -- aka singleton, return, unit, point
+
+Pointed laws:
+
+fmap g . pure = pure . g
+
+Impl:
+https://github.com/ekmett/pointed/blob/master/src/Data/Pointed.hs:
+http://hackage.haskell.org/package/pointed
+
+class Pointed p where
+  point :: a -> p a
+
+
+
+3. Applicative functor:
+
+class Functor f => Applicative f where
+	pure  :: a -> f a
+	(<*>) :: f (a -> b) -> f a -> f b
+
+class Pointed f => Applicative’ f where
+	(<*>) :: f (a -> b) -> f a -> f b
+
+Applicative laws:
+
+fmap g x = pure g <*> x
+
+
+newtype ZipList a = ZipList { getZipList :: [a] }
+
+instance Applicative ZipList where
+	pure                          = undefined -- exercise
+	(ZipList gs) <*> (ZipList xs) = ZipList (zipWith ($) gs xs)
+
+
+instance Applicative [] where
+	pure x    = [x]
+	gs <*> xs = [ g x | g <- gs, x <- xs ]
+
+Note1: McBride and Paterson 2008, Ex 2
+  In the framework of sets and total functions every idiomatic expr can be written as
+    fure f <*> x1 <*> ... <*> xN,   where x1..xN are atomic effectful computations
+
+4. Monoid (Data.Monoid.Monoid):
+
+class Monoid a where
+	mempty  :: a
+	mappend :: a -> a -> a
+
+	mconcat :: [a] -> a
+	mconcat = foldr mappend mempty
+
+
+-- | The dual of a monoid, obtained by swapping the arguments of 'mappend'.
+newtype Dual a = Dual { getDual :: a }
+        deriving (Eq, Ord, Read, Show, Bounded)
+
+instance Monoid a => Monoid (Dual a) where
+        mempty = Dual mempty
+        Dual x `mappend` Dual y = Dual (y `mappend` x)
+
+-- | The monoid of endomorphisms under composition.
+newtype Endo a = Endo { appEndo :: a -> a }
+
+instance Monoid (Endo a) where
+        mempty = Endo id
+        Endo f `mappend` Endo g = Endo (f . g)
+
+
+
+5. Alternative:
+
+Adding monoidal structure:
+
+class Applicative f => Alternative f where
+	empty :: f a
+	(<|>) :: f a -> f a -> f a
+
+Blog:
+  http://javran.github.io/posts/2014-03-08-exploring-alternatives.html
+
+
+6. Foldable (Data.Foldable.Foldable) :
+
+
+class Foldable t where
+    -- | Combine the elements of a structure using a monoid.
+    fold :: Monoid m => t m -> m
+    fold = foldMap id
+
+    -- | Map each element of the structure to a monoid, and combine the results.
+    foldMap :: Monoid m => (a -> m) -> t a -> m
+    foldMap f = foldr (mappend . f) mempty
+
+    -- | Right-associative fold of a structure.
+    --
+    -- @'foldr' f z = 'Prelude.foldr' f z . 'toList'@
+    foldr :: (a -> b -> b) -> b -> t a -> b
+    foldr f z t = appEndo (foldMap (Endo . f) t) z
+
+    foldl :: (a -> b -> a) -> a -> t b -> a
+    foldl f z t = appEndo (getDual (foldMap (Dual . Endo . flip f) t)) z
+
+    foldr1 :: (a -> a -> a) -> t a -> a
+    foldl1 :: (a -> a -> a) -> t a -> a
+
+http://www.haskell.org/ghc/docs/latest/html/libraries/base/Data-Foldable.html
+With -XDeriveFoldable, you can derive instances of the class Foldable, defined in Data.Foldable.
+http://www.haskell.org/ghc/docs/latest/html/users_guide/deriving.html
+http://stackoverflow.com/questions/7947981/how-do-i-import-the-foldable-class-into-my-module
+
+Sample - pair:
+http://stackoverflow.com/questions/3998133/does-this-simple-haskell-function-already-have-a-well-known-name/
+
+instance Foldable ((,) x) where
+  foldMap = foldMapDefault
+
+instance Traversable ((,) x) where
+  traverse f (x, y) = (,) x <$> f y
+
+http://stackoverflow.com/questions/17562345/generalizing-sequence-for-all-functors
+
+traverse for (,) a looks like:
+  traverse f (x,y) = (,) x <$> f y.
+foldMap and fmap look like:
+  foldMap f (x,y) = f y; fmap f (x,y) = (x, f y).
+traverse is a direct generalization of the two.
+
+complex-sample:
+http://stackoverflow.com/questions/10803221/haskell-can-i-perform-several-folds-over-the-same-lazy-list-without-keeping-lis
+
+
+7. Traversable (Data.Traversable.Traversable) :
+
+class (Functor t, Foldable t) => Traversable t where
+    -- | Map each element of a structure to an action, evaluate
+    -- these actions from left to right, and collect the results.
+    traverse :: Applicative f => (a -> f b) -> t a -> f (t b)
+    traverse f = sequenceA . fmap f
+
+    -- | Evaluate each action in the structure from left to right,
+    -- and collect the results.
+    sequenceA :: Applicative f => t (f a) -> f (t a)
+    sequenceA = traverse id
+
+    -- | Map each element of a structure to a monadic action, evaluate
+    -- these actions from left to right, and collect the results.
+    mapM :: Monad m => (a -> m b) -> t a -> m (t b)
+    mapM f = unwrapMonad . traverse (WrapMonad . f)
+
+    -- | Evaluate each monadic action in the structure from left to right,
+    -- and collect the results.
+    sequence :: Monad m => t (m a) -> m (t a)
+    sequence = mapM id
+
+StackOverflow-Traversable:
+http://stackoverflow.com/questions/7460809/can-someone-explain-the-traverse-function-in-haskell
+
+traverse turns things inside a Traversable into a
+  Traversable of things "inside" an Applicative,
+    given a function that makes Applicatives out of things.
+
+traverse is the loop. Its implementation depends on the data structure to be traversed.
+That might be a List, Tree, Maybe, Seq(ence), or anything that has a generic way of beeing traversed via sth. like a for-loop or recursive function.
+An Array would have a for-loop, a List a while-loop, a Tree either sth. recursive or the combination of a stack with a while-loop;
+but in functional languages you do not need these cumbersome loop commands:
+  you combine the inner part of the loop (in the shape of a function) with the data structure in a more directly manner and less verbose.
+  (Those imperative loops always remind me of design patterns in assembler.)
+
+Impl:
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-Traversable.html
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-Traversable.html#fmapDefault
+
+Wiki:
+http://www.haskell.org/haskellwiki/Foldable_and_Traversable
+
+Samples:
+http://hackage.haskell.org/package/labeled-tree-1.0.0.0/docs/src/Data-LabeledTree.html#Tree
+
+instance Traversable ((,) x) where
+  traverse f (x, y) = (,) x <$> f y
+
+data Tree a = Tip a | Bin (Tree a) (Tree a)
+
+instance Traversable Tree where
+  traverse f (Tip x)   = pure Tip <*> f x
+  traverse f (Bin u v) = pure Bin <*> traverse f u <*> traverse f v
+
+
+newtype Identity a = Identity { runIdentity :: a }
+
+instance Applicative Identity where
+  pure x                    = Identity x
+  Identity f <*> Identity x = Identity (f x)
+
+
+data Compose m n a = Compose (m (n a))
+
+instance (Applicative m, Applicative n) => Applicative (Compose m n) where
+  pure x                    = Compose (pure (pure x))
+  Compose mf <*> Compose mx = Compose (pure (<*>) <*> mf <*> mx)
+
+We can introduce an idiomatic composition operator:
+
+(<.>) :: (Applicative m, Applicative n) => (b -> n c) -> (a -> m b) -> a -> Compose m n c
+g <.> f = Compose . imap g . f
+
+-- imap is an fmpa for Idiom (Applicative)
+
+
+newtype Const a b = Const { getConst :: a }
+
+instance Monoid a => Applicative (Const a) where
+  pure x              = Const mempty
+  Const x <*> Const y = Const (mappend x y)
+
+Now we can define
+
+contents :: Traversable t => t a -> [a]
+contents = getConst . traverse (\x -> Const [x])
+
+Of cause, in the list monoid used here we have mempty = [] and mappend = ++
+
+
+Laws:
+http://comments.gmane.org/gmane.comp.lang.haskell.libraries/17778
+http://stackoverflow.com/questions/14110671/do-traversables-really-require-to-be-traversed-left-to-right
+BirdGibbons - Understanding Idiomatic Traversals Backwards and Forwards
+
+8. Category
+
+infixr 9 .
+infixr 1 >>>, <<<
+
+-- | A class for categories.
+--   id and (.) must form a monoid.
+class Category cat where
+  -- | the identity morphism
+  id :: cat a a
+
+  -- | morphism composition
+  (.) :: cat b c -> cat a b -> cat a c
+
+{-# RULES
+"identity/left"   forall p     . id . p      = p
+"identity/right"  forall p     .  p . id     = p
+"association"     forall p q r . (p . q) . r = p . (q . r)
+#-}
+
+We can use (~>) infix notation insead of cat:
+
+class Category (~>) where
+  id  :: a ~> a
+  (.) :: (b ~> c) -> (a ~> b) -> (a ~> c)
+
+
+Categories exports two additional functions:
+
+-- | Right-to-left composition
+(<<<) :: Category cat => cat b c -> cat a b -> cat a c
+(<<<) = (.)
+
+-- | Left-to-right composition
+(>>>) :: Category cat => cat a b -> cat b c -> cat a c
+f >>> g = g . f
+
+
+instance Category (->) where
+    id = Prelude.id
+
+newtype Kleisli m a b = Kleisli { runKleisli :: a -> m b }
+
+instance Monad m => Category (Kleisli m) where
+  id = Kleisli return
+  Kleisli g . Kleisli h = Kleisli (h >=> g)
+
+
+
+9. Arrows (http://www.haskell.org/arrows)
+
+!!! Paterson - Arrows and Computation !!!
+
+Intuition: a b c
+  The application of parameterised type a to the parameters b and c.
+  Representing a computation with input of type a delivering value of type c.
+  Arrows (unlike a monadic bind - >>=) make the dependence on input explicit.
+
+class Arrow a where
+  arr    :: (b -> c) -> a b c
+  (>>>)  :: a b c -> a c d -> a b d
+  first  :: a b c -> a (b, d)(c, d)
+
+The other pair-combinators:
+
+second :: Arrow a => a b c -> a (d, b)(d, c)
+second f = arr swap >>> first f >>> arr swap
+  where swap (x, y) = (y, x)
+
+--| a combinator which process both components of pair
+(***)  :: Arrow a => a b c -> a d e -> a (b, d)(c, e)
+f *** g = first f >>> second g
+
+--| a combinator which builds a pair from the result of two arrows
+(&&&)  :: Arrow a => a b c -> a b d -> a b (c, d)
+f &&& g = arr (\b -> (b, b)) >>> (f *** g)
+
+We can generalize lift for the case of binary operation:
+
+liftArr2 :: Arrow a => (b -> c -> d) -> a e b -> a e c -> a e d
+liftArr2 op f g = (f &&& g) >>> arr (\(b, c) -> b 'op' c)
+
+
+Arrow instances:
+
+instance Arrow (->) where
+    arr f = f
+    first f = f *** id
+    second f = id *** f
+--  (f *** g) ~(x,y) = (f x, g y)
+--  sorry, although the above defn is fully H'98, nhc98 can't parse it.
+    (***) f g ~(x,y) = (f x, g y)
+--  (g &&& g) x = (f x, g x)
+
+
+
+For any monad m, functions of type (a -> m b) are potential arrows.
+
+newtype Kleisli m a b = K (a -> m b)
+
+instance Monad m => Arrow (Kleisli m) where
+  arr f       = K (\b -> return (f b))
+  K f >>> K g = K (\b -> f b >>= g)
+              = K (f >=> g)
+  first (K f) = K (\(b, d) -> f b >>= \c -> return (c, d))
+	      
+-- | Left-to-right Kleisli composition of monads.
+(>=>)       :: Monad m => (a -> m b) -> (b -> m c) -> (a -> m c)
+f >=> g     = \x -> f x >>= g
+
+
+ArrowChoice:
+
+A comparison of ArrowChoice to Arrow will reveal a striking parallel between left, right, (+++), (|||)
+and first, second, (***), (&&&), respectively.
+Indeed, they are dual: first, second, (***), and (&&&) all operate on product types (tuples),
+and left, right, (+++), and (|||) are the corresponding operations on sum types (Either).
+
+
+class Arrow (~>) => ArrowChoice (~>) where
+  -- | Feed marked inputs through the argument arrow, passing the rest through unchanged to the output.
+  -- The "left f" invokes f only on Left inputs, and leaves Right inputs unchanged.
+  left  :: (b ~> c) -> (Either b d ~> Either c d)
+
+  right :: (b ~> c) -> (Either d b ~> Either d c)
+  right f = arr mirror >>> left f >>> arr mirror
+    where
+      mirror :: Either x y -> Either y x
+      mirror (Left x) = Right x
+      mirror (Right y) = Left y
+
+  -- | Split the input between the two argument arrows, retagging and merging their outputs.
+  --   Note that this is in general not a functor.
+  (+++) :: (b ~> c) -> (b’ ~> c’) -> (Either b b’ ~> Either c c’)
+ f +++ g = left f >>> right g
+
+  -- | Fanin: Split the input between the two argument arrows and merge their outputs.
+  (|||) :: (b ~> d) -> (c ~> d) -> (Either b c ~> d)
+ f ||| g = f +++ g >>> arr untag
+    where
+      untag (Left  x) = x
+      untag (Right y) = y
+
+
+ArrowChoice instances:
+
+instance ArrowChoice (->) where
+    left f = f +++ id
+    right f = id +++ f
+    f +++ g = (Left . f) ||| (Right . g)
+    (|||) = either
+
+instance Monad m => ArrowChoice (Kleisli m) where
+    left f = f +++ arr id
+    right f = arr id +++ f
+    f +++ g = (f >>> arr Left) ||| (g >>> arr Right)
+    Kleisli f ||| Kleisli g = Kleisli (either f g)
+
+
+ArrowApply:
+
+class Arrow a => ArrowApply a where
+  app :: a (a b c, d) c
+
+
+instance Monad m => ArrowApply (Kleisli m) where
+  app = K(\(K f, x) -> f x)
+
+
+ArrowZero, ArrowPlus:
+
+class Arrow a => ArrowZero a where
+  zeroArrow :: a b c
+
+
+class Arrow a => ArrowPlus a where
+  (+++) :: a b c -> a b c -> a b c
+
+
+ArrowLoop:
+
+class Arrow a => ArrowLoop a where
+    loop :: a (b,d) (c,d) -> a b c
+
+instance ArrowLoop (->) where
+    loop f b = let (c,d) = f (b,d) in c
+...
+
+
+Arrow laws:
+
+                       arr id = id
+                  arr (h . g) = arr g >>> arr h
+                first (arr g) = arr (g *** id)
+              first (g >>> h) = first g >>> first h
+   first g >>> arr (id *** h) = arr (id *** h) >>> first g
+          first g >>> arr fst = arr fst >>> g
+first (first g) >>> arr assoc = arr assoc >>> first g
+              assoc ((x,y),z) = (x,(y,z))
+
+
+
+http://fundeps.com/posts/cheatsheets/2014-05-14-Not-about-arrows/
+
+
+10. Comonad
+
+class Comonad d where
+  counit :: d a -> a
+  cobind :: (d a -> b) -> d a -> d b
+
+
+11. Distributive
+
+http://hackage.haskell.org/package/distributive

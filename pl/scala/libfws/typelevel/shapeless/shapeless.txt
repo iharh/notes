@@ -1,0 +1,13 @@
+https://github.com/milessabin/shapeless
+https://github.com/milessabin/shapeless/wiki/Feature-overview:-shapeless-2.0.0
+
+http://enear.github.io/2016/04/05/bits-shapeless-1-hlists/
+http://enear.github.io/2016/09/27/bits-of-shapeless-2/
+
+https://www.scala-exercises.org/shapeless/polymorphic_function_values
+
+usages:
+- doobie
+- scodec
+- jonifreeman/sqltyped
+- parbolied2

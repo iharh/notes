@@ -1,0 +1,57 @@
+https://github.com/certbot/certbot
+https://certbot.eff.org/docs/using.html
+
+2021
+https://linuxiac.com/lets-encrypt-free-ssl-certificate/
+
+2019
+Dititalize - How to Get and Tune LE SSL ru of 4:30
+    https://www.youtube.com/watch?v=1wnOw1vwPEo
+
+inst:
+https://certbot.eff.org/#arch-other
+https://certbot.eff.org/lets-encrypt/arch-other
+aur
+    certbot
+
+docker:
+https://hub.docker.com/r/certbot/certbot/
+https://hub.docker.com/r/deliverous/certbot/
+    https://miki725.github.io/docker/crypto/2017/01/29/docker+nginx+letsencrypt.html
+
+https://dl.eff.org/certbot-auto
+https://github.com/certbot/certbot/blob/master/letsencrypt-auto
+
+out:
+/etc/letsencrypt/live/<domain-name>
+openssl x509 -text -in /etc/letsencrypt/live/example.com/cert.pem
+    grep -o 'DNS:[^,]*' | cut -f2 -d:
+
+registration:
+certbot register --email me@example.com
+
+dry-run:
+certbot certonly --dry-run -d example.com -d www.example.com
+
+issuing:
+certbot certonly --standalone -d hypo.name
+    -a manual
+
+appending:
+certbot certonly -d example.com -d www.example.com -d shop.example.com
+certbot certonly --expand -d example.com -d www.example.com -d shop.example.com
+
+renew:
+certbot -q renew --allow-subset-of-names
+./letsencrypt-auto certonly --renew-by-default -a manual
+
+certbot certonly --renew-by-default --rsa-key-size 4096 -d example.com -d www.example.com
+
+configs:
+
+/etc/letsencrypt/cli.ini:
+
+authenticator = webroot
+webroot-path = /var/www/html
+post-hook = service nginx reload
+text = True

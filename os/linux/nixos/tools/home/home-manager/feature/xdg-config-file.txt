@@ -1,0 +1,11 @@
+xdg.configFile."awesome" = {
+  source = pkgs.fetchFromGitHub {
+    owner = "<usr>";
+    repo = "<simple-repo-name>";
+
+    rev = "<rev>";
+    sha256 = "<sha256>";
+
+    fetchSubmodules = true;
+  };
+};

@@ -1,0 +1,8 @@
+https://docs.gradle.org/current/userguide/idea_plugin.html
+https://www.jetbrains.org/intellij/sdk/docs/tutorials/build_system/prerequisites.html
+https://github.com/JetBrains/gradle-intellij-plugin
+
+tasks
+    cleanIdea
+    idea
+    openIdea

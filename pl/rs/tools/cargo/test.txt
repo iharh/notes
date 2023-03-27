@@ -1,0 +1,12 @@
+https://doc.rust-lang.org/book/testing.html
+http://rustbyexample.com/meta/test.html
+
+tango:
+https://github.com/pnkfelix/tango/
+https://github.com/pnkfelix/tango-demo/
+
+cargo
+    test
+        --lib <name>
+        --bin <name>
+        --test <name>

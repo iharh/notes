@@ -1,0 +1,17 @@
+-y        - Easy
+-R        - Read-only
+-r        - Recover from a system crash
+-b        - Edit binary
+-c cmd    - Execute ex cmd
+-E        - Start in improved ex mode (extended regexps)
+-m        - Turn of write options (buffers will be not modifiable)
+-o/O[N]   - Open files in separate vindows (horizontal/vertical split).
+            Preallocate N windows (if N specified).
+-p        - Open files in separate tab pates -//-.
+            Note: wild-cards can be used like *.cpp
+
++ sometimes could be expressed as "-c "
+
++n        - Open file at line number n
++/pattern - open file at first occurence of pattern
+

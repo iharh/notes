@@ -1,0 +1,24 @@
+http://pachyderm.io/
+http://pachyderm.io/open_source.html
+
+https://github.com/pachyderm/pachyderm
+
+http://pachyderm.readthedocs.io/en/stable/
+
+http://docs.pachyderm.io/en/latest/index.html
+http://pachyderm.readthedocs.io/en/latest/getting_started/local_installation.html
+http://pachyderm.readthedocs.io/en/latest/getting_started/beginner_tutorial.html
+http://pachyderm.readthedocs.io/en/latest/getting_started/getting_started.html
+
+https://github.com/pachyderm/pachyderm/tree/master/doc/examples
+https://github.com/pachyderm/pachyderm/tree/master/doc/examples/word_count
+
+articles
+2018
+https://www.infoq.com/news/2018/01/gpu-workflows-kubernetes
+
+presentations
+2017
+Whitenack - Building GPU-Accelerated Workflows with TensorFlow and Kubernetes
+https://www.youtube.com/watch?v=OZSA5hmkb0o
+https://schd.ws/hosted_files/kccncna17/07/KubeCon-Pachyderm%282%29.pdf

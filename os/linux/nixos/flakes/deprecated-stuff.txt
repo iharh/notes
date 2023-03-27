@@ -1,0 +1,2 @@
+defaultPackage
+    - use packages.<system>.default instead

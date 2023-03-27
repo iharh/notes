@@ -1,0 +1,29 @@
+pipe() # to DataFrame
+apply() # to rows/columns
+applymap() # to elements
+
+(df.pipe(h)
+    .pipe(g, arg1=1)
+    .pipe(f, arg2=2, arg3=3)
+)
+# is the same as
+f(g(h(df), arg1=1), arg2=2, arg3=3)
+
+# by columns
+df.apply(lambda x: x/sum(x))
+# by rows
+df.apply(lambda x: x/sum(x), axis=1)
+
+
+map()
+# add country-column based on city
+d = {u'London':u'GB', u'Moscow':u'RUS', u'Paris':u'FR'}
+df['country'] = df['city'].map(d)
+
+df.columns = map(str.lower, df.columns) # lowercase column names
+
+
+# rename after aggregate
+
+https://stackoverflow.com/questions/44635626/pandas-aggregation-warning-futurewarning-using-a-dict-with-renaming-is-depreca
+https://stackoverflow.com/questions/19078325/naming-returned-columns-in-pandas-aggregate-function

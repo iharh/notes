@@ -1,0 +1,17 @@
+Hutton - Intro to CT
+
+Lec 2 (Functors).
+
+In fact, a bifunctor is simply a functor whose source is a "product category".
+
+3. For each quadruple of arrows
+
+  A --(f)--> B --(g)--> C  in CatC
+
+  X --(h)--> Y --(i)--> Z  in CatD
+
+  the following equation holds in CatE:
+
+  (g . f) (+) (i . h) = (g (+) i) . (f (+) h)
+
+

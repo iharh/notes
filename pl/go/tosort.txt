@@ -1,0 +1,56 @@
+...
+goroutines
+    go f(x, y, z)
+
+    GOMAXPROC var limits the number of OS threads ...
+    runtime.GOMAXPROC(n)    // queries and changes the limit
+    runtime.Gosched()   // yields the processor, allowing other goroutines to run
+                        // does not suspend the cur goroutine, so resumes autom-ly
+
+waitgroups
+    var wg sync.WaitGroup
+
+    wg.Add(1)
+    wg.Wait()
+
+    func f(..., wg * sync.WaitGroup) {
+        defer wg.Done // defer till the end of the method
+        ...
+    }
+
+channels
+    are typed conduit through which you can send/recive values
+        ch := make(chan int)
+        const MaxBuf = 100
+        ch := make(chan int, MaxBuf) // buffered chan, send op blocks only when the buf is full
+        ch <- v     // send v to ch
+        v := <-ch   // recive from ch, assign to v
+
+    // untyped chan:
+    var ch chan interface{}
+    ch := make(chan interface{})
+
+    // monitor a pair of chanels
+    for {
+        select {
+        case msg1 := <-ch1:
+            fmt.Println("recived", msg)
+        case msg2 := <-ch2:
+            fmt.Println("recived", msg)
+        }
+    }
+
+    // don't close a chan from the receiver side and don't clos a chan if the chan has multiple
+    // concurrent senders
+
+sync package
+    useful sync primitives
+
+    time.Sleep(time.Second * 2)
+
+sync.Mutex
+
+sync.Once
+    var once sync.Once
+    once.Do(func() { fmt.Println("I will be called only once") })
+

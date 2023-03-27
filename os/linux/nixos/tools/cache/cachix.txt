@@ -1,0 +1,15 @@
+https://cachix.org/
+https://docs.cachix.org/pushing
+https://docs.cachix.org/installation
+https://docs.cachix.org/faq
+https://github.com/cachix/cachix
+https://app.cachix.org/
+https://docs.cachix.org/getting-started
+https://app.cachix.org/cache/nixpkgs-wayland
+https://github.com/colemickens/nixpkgs-wayland
+    nix profile install github:cachix/cachix/latest
+    https://blog.cachix.org/posts/2020-11-09-write-access-control-for-binary-caches/
+        CACHIX_AUTH_TOKEN or via configuration file by running cachix authtoken.
+
+2020
+https://fzakaria.com/2020/08/11/caching-your-nix-shell.html

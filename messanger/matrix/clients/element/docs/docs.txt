@@ -1,0 +1,11 @@
+https://github.com/vector-im/element-web/tree/develop/docs
+https://github.com/vector-im/element-web/blob/develop/docs/config.md
+    https://develop.element.io/config.json
+https://github.com/vector-im/element-web/blob/develop/docs/labs.md
+https://github.com/vector-im/element-web/blob/develop/docs/feature-flags.md
+https://github.com/vector-im/element-web/blob/develop/docs/app-load.md
+https://github.com/vector-im/element-web/blob/develop/docs/customisations.md
+https://github.com/vector-im/element-web/blob/develop/docs/kubernetes.md
+https://github.com/vector-im/element-desktop#user-specified-configjson
+    $XDG_CONFIG_HOME\$NAME\config.json or ~/.config/$NAME/config.json on Linux
+https://github.com/vector-im/element-web/blob/develop/docs/config.md

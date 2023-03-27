@@ -1,0 +1,23 @@
+git clean [optional path]
+    delete untracked and ignored files
+
+    -h
+        help for the clean commands
+    -n, --dry-run
+        for safe preview
+    -d
+        for delete directories
+    -f, --force
+        to force deletion
+    -x
+        delete files even if they are in .gitignore
+    -X
+        remove ignored files only
+    -e, --exclude <pattern>
+        exclude pattern
+
+    -ndx
+        combine options
+    
+tip:
+    remove the end slash at .gitignore ad end the dirs with /-only (instead of /*)

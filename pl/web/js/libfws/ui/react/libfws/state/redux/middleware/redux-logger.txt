@@ -1,0 +1,17 @@
+https://github.com/evgenyrodionov/redux-logger
+
+npm i -S redux-logger
+
+
+import { applyMiddleware, createStore } from 'redux';
+import { createLogger } from 'redux-logger'
+
+const logger = createLogger({
+  // ...options
+});
+
+const store = createStore(
+  reducer,
+  undefined,
+  applyMiddleware(logger) // or applyMiddleware(firstM, secondM, ...), logger must be the last
+);

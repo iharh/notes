@@ -1,0 +1,25 @@
+http://www.qtile.org/
+https://github.com/qtile/qtile
+
+https://wiki.archlinux.org/index.php/Qtile
+
+https://pypi.org/project/qtile/
+
+http://docs.qtile.org/en/latest/
+
+http://docs.qtile.org/en/latest/manual/install/
+http://docs.qtile.org/en/latest/manual/install/index.html
+    /usr/share/xsessions/qtile.desktop
+        https://github.com/qtile/qtile/blob/master/resources/qtile.desktop
+http://docs.qtile.org/en/stable/manual/config/without-dm.html
+
+http://docs.qtile.org/en/latest/manual/config/
+https://buildmedia.readthedocs.org/media/pdf/qtile/latest/qtile.pdf
+
+http://docs.qtile.org/en/latest/manual/hacking.html
+
+cfg samples
+https://github.com/qtile/qtile-examples
+https://github.com/Tekofx/dotfiles
+https://github.com/Pakrohk-DotFiles/PkTile
+https://github.com/antoniosarosi/dotfiles

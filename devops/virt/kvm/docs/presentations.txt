@@ -1,0 +1,30 @@
+2022
+    https://www.youtube.com/watch?v=Kq849CpGd88
+    https://christitus.com/vm-setup-in-linux/
+        egrep -c '(vmx|svm)' /proc/cpuinfo
+        sudo apt install qemu-kvm qemu-system qemu-utils python3 python3-pip libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager -y
+        sudo systemctl status libvirtd.service
+        sudo virsh net-start default
+        sudo virsh net-list --all
+        sudo usermod -aG libvirt $USER
+        sudo usermod -aG libvirt-qemu $USER
+        sudo usermod -aG kvm $USER
+        sudo usermod -aG input $USER
+        sudo usermod -aG disk $USER
+
+        libvirtd daemon
+    https://christitus.com/linux-macos/
+
+2021
+NovaspiritTech - Create Virtual Machine in QEMU on linux with Virt-Manager | KVM 0:00 of 9:30
+    https://www.youtube.com/watch?v=G21c-sbggk4
+VeronicaExplains - QEMU/KVM for absolute beginners 0:00 of 17:49
+    https://www.youtube.com/watch?v=BgZHbCDFODk
+2020
+JoshRosso - Linux Hypervisor Setup (libvirt/qemu/kvm) 0:00 of 32:10
+    https://www.youtube.com/watch?v=HfNKpT2jo7U
+    https://www.youtube.com/@joshrosso/videos
+DistroTube - Virt-Manager Is The Better Way To Manage VMs of 20:06
+    https://www.youtube.com/watch?v=p1d_b_91YlU
+EF - Linux Made Simple - KVM - A great virtualization solution for Linux of 10:28
+    https://www.youtube.com/watch?v=itZf5FpDcV0

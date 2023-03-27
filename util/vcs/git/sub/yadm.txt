@@ -1,0 +1,100 @@
+https://yadm.io/
+https://github.com/TheLocehiliosan/yadm
+
+aur/yadm-git
+    https://aur.archlinux.org/packages/yadm-git/
+    https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=yadm-git
+
+!!! not using symlinks
+
+https://thelocehiliosan.github.io/yadm/docs/overview
+https://thelocehiliosan.github.io/yadm/docs/install
+https://thelocehiliosan.github.io/yadm/docs/getting_started
+https://thelocehiliosan.github.io/yadm/docs/common_commands
+https://thelocehiliosan.github.io/yadm/docs/alternates
+https://thelocehiliosan.github.io/yadm/docs/faq
+https://thelocehiliosan.github.io/yadm/docs/examples
+https://thelocehiliosan.github.io/yadm/docs/bootstrap
+
+https://github.com/TheLocehiliosan/yadm/blob/master/yadm.md
+
+samples
+https://github.com/alexfridlyand/dotfiles/blob/master/.yadm/bootstrap
+
+2017
+https://blog.danielaguilar.org/handling-dotfiles-with-yadm/
+2015
+https://gist.github.com/bentheax/a0307d464b7534593eac
+
+cli
+yadm
+    help
+    version
+    config
+    gitconfig
+        --unset status.showUntrackedFiles
+    enter
+        enter a subshell
+    init
+        ($HOME/.yadm/repo.git)
+    list [-a]
+        of files, managed by yadm
+    commit
+        -av ???
+    stash
+        show -p
+        apply
+        pop
+    encrypt
+    decrypt
+
+misc
+~/.local/share/yadm/repo.git
+
+bootstrap
+~/.config/yadm/bootstrap
+
+configuration
+~/.config/yadm/config
+    local.class
+    local.os
+    local.hostname
+    local.user
+
+encryption
+https://yadm.io/docs/encryption
+    yadm
+        config
+            yadm.cipher openssl
+                for openssl (vs gpg)
+            yadm.openssl-ciphername
+                "aes-256-cbc" by default
+            yadm.gpg-recipient <recipient-address>
+        encrypt
+        decrypt
+    list of patterns (to encrypt)
+        ~/.config/yadm/encrypt
+    path to save encrypted files
+        ~/.local/share/yadm/archive
+
+external crypt integration
+yadm
+    transcript
+        https://github.com/elasticdog/transcrypt
+    git-crypt
+        https://www.agwa.name/projects/git-crypt/
+        https://github.com/AGWA/git-crypt
+
+.config/secrets
+.ssh/*
+!.ssh/authorized_keys
+!.ssh/known_hosts*
+
+regen:
+yadm list -a > ~/yadm.files
+rem -rf ~/.local/share/yadm/repo.git
+yadm init
+cat yadm.files | xargs -n 1 yadm add -f
+yadm ci -m first
+yadm remote add origin git@github.com:iharh/dotfiles.git
+

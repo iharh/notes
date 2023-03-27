@@ -1,0 +1,33 @@
+WER path:
+C:\ProgramData\Microsoft\Windows\WER
+C:\Users\<some_user>\AppData\Local\Microsoft\Windows\WER
+
+Config:
+http://msdn.microsoft.com/en-us/library/bb787181(VS.85).aspx
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps]
+"DumpFolder"="C:\\Dumps"
+"DumpCount"=dword:00000064
+"DumpType"=dword:00000002
+"CustomDumpFlags"=dword:00000001
+
+
+http://blogs.msdn.com/b/wer/archive/2009/03/11/an-overview-of-wer-consent-settings-and-corresponding-ui-behavior.aspx
+
+Control Panel\System and Security\Action Center\Problem Reporting Settings
+
+
+
+http://www.symantec.com/business/support/index?page=content&id=TECH74145
+1. Launch Regedit
+2. Navigate into HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
+3. Create a new Key called LocalDumps
+4. Select LocalDumps and create three new entries:
+     A. DumpFolder of type REG_EXPAND_SZ    give it a path value of an existing folder where you want the crash dump files to appear when an event occurs.
+     B. DumpCount of type REG_DWORD give it a value of decimal 10
+     C. DumpType of type REG_DWORD give it a value of decimal 1 (but not 2 since this is an overkill)
+ 
+NOTE: No reboot is required to activate these keys.
+
+
+

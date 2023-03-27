@@ -1,0 +1,26 @@
+${aaa.bbb}
+  https://github.com/gytis-ivaskevicius/flake-utils-plus/blob/master/lib/mkFlake.nix
+  https://github.com/gytis-ivaskevicius/flake-utils-plus/blob/master/devShell.nix
+    let
+      # nixpkgs / devshell is only used for development. Don't add it to the flake.lock.
+      nixpkgsGitRev = "1a268c42c8b0550f70da78c136171799481b0d97";
+      devshellGitRev = "59fbe1dfc0de8c3332957c16998a7d16dff365d8";
+
+      nixpkgsSrc = fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/${nixpkgsGitRev}.tar.gz";
+        sha256 = "010d6glxdam0j7kah7h2z79fnqvgs703v6ac53v4hfv1iz7lvzv9";
+      };
+      ...
+      test = name: withCategory "tests" {
+        name = "check-${name}";
+        help = "Checks ${name} testcases";
+        command = ''
+          set -e
+          echo -e "\n\n##### Building ${name}\n"
+          cd ${rootDir}/tests/${name}
+          nix flake show --allow-import-from-derivation --no-write-lock-file "$@"
+          nix flake check --no-write-lock-file "$@"
+        '';
+      };
+
+

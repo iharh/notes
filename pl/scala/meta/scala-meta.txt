@@ -1,0 +1,163 @@
+Tutorial
+http://scalameta.org/tutorial/
+https://github.com/scalameta/tutorial
+
+download the amonite-shell (0.5.7)
+
+load.ivy("org.scalameta" && "scalameta" % "0.20.0")
+
+
+import scala.meta._
+
+$ "foo + bar".parse[Term]
+res2: Parsed[Term] = foo + bar
+$ res2.get
+res3: Term = foo + bar
+$ res3.structure // dbg-stuff
+res4: String = """
+Term.ApplyInfix(Term.Name("foo"), Term.Name("+"), Nil, Seq(Term.Name("bar")))
+"""
+$ "foo.+(bar)"
+res5: Term = foo.+(bar)
+$ res5.structure
+res6: String = """
+Term.Apply(Term.Select(Term.Name("foo"), Term.Name("+")), Seq(Term.Name("bar")))
+"""
+
+$ """
+    def foo = bar
+  /* hello world */
+  foo
+"""
+res7: String = """
+....
+$ res7.parse[Term]
+res8: Parsed[Term] = <input>:2: error: illegal start of simple expression
+def foo = bar
+        ^
+$("{" + res7 + "}").parse[Term]
+res9: Parsed[Term]  {
+    def foo = bar
+  /* hello world */
+foo
+}
+$ res9.structure
+Main.scala:158: value structure is not a member of scala.meta.parsers.Parsed[
+res9.structure
+     ^
+Compilation Failed
+$ res9.get.structure
+res10: String = """
+Term.Block(Seq[Defn.Def(Nil, Term.Name("foo"), Nil, Nil, None, Term.Name("bar
+// !!! don't see any comments
+$ res9.get.tokens
+res11: Tokens = Tokens(
+    ,
+    {,
+
+,
+    ,
+    ,
+    ....
+  def,
+...
+@ res9.get.tokens.structure
+res12: String = """
+Tokens(BOF [0..0), { [0..1), \n [1..2),   [2..3),   [3..4), 
+...
+... [26..27), /* hello world */
+foo [f5..48), \n [48..49), } [49..50), EOF [50..50))
+"""
+// !!! preserve all the stuff
+
+
++++++++
++ SBT +
++++++++
+
+$ val buildsbt = new java.io.File("/.../build.sbt")
+buildsbt: java.io.File = /.../build.sbt
+$ buildsbt.parse[Source]
+res14: Parsed[Source] = build.sbt:6: error: expected class or object defined...
+def ifAt...
+^
+$ scala.meta.dialects.Sbt0137(buildsbt).parse[Source]
+res18: Parsed[Source] = import sbtrelease._
+...
+def ifAtLeast(scala....)
+    case class ScalaBinaryVersion...
+...
+$ res18.get.structure
+res19: String = """
+Source(Seq[Import(Seq(Importer(Term.Name...
+"""
+
+++++++
++ QQ +
+++++++
+
+$ val foo = q"foo"
+foo: Term.Name = fool
+$ q"$foo + bar"
+res21: Term.ApplyInfix = foo + bar
+$ val q "$x + $y" = q"$foo + bar"
+x: Term = foo
+y: Term.Arg = bar
+// y type is an Argument, not a Term
+
+
+Old macros:
+
+class Table[T](val query: Query[T]) {
+    def map[U](fn: T => U): Table[U] = macro Macros.map
+}
+
+object Macros {
+    def map(c: Context)(fn: c.Tree): c.Tree = {
+        val subquery: c.Tree = translate(fn)
+        q"new Table(Map(${c.prefix}, $subquery))"
+    }
+}
+
+val users: Table[User] = ....
+users.map(u => u.name)
+- expands into -
+val users: Table[User] = ...
+new Table(Map(users, Ref("name", classOf[String])))
+
+
+New macros sketch
+
+class Table[T](val query: Query[T]) {
+    inline def map[U](fn: T => U): Table[U] = meta {
+        val subquery: c.Tree = translate(fn)
+        q"new Table(Map($this, $subquery))"
+    }
+}
+
+val users: Table[User] = ....
+users.map(u => u.name)
+- expands into (via inline) -
+val users: Table[User] = ...
+meta{ ...; q"new Table(Map(users, $subquery))" }
+- and later into -
+new Table(Map(users, Ref("name", classOf[String])))
+
++++++++++++++
++ LIVE DEMO +
++++++++++++++
+
+import scala.meta._
+
+object main{
+    inline def apply()(defn: Any) = meta {
+        val q"..$mods object $name extends { ..$early } with .. $base { $self => .. $stats}"
+        val main = q"def main(args: Array[String]): Unit = { ..$stats}"
+        q"..$mods object $name extends { ..$early } with ..$base { $self => $main }"
+    }
+}
+
+// using by
+@main object Test {
+    println("hello world")
+}

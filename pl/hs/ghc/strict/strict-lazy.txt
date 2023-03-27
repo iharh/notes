@@ -1,0 +1,38 @@
+Books:
+Thompson - The Craft of FP (Lazy - 337/354, Time and Space - 413/430)
+Marlow - ... beginning
+
+Articles:
+https://www.reddit.com/r/haskell/comments/6zl88c/all_about_strictness/
+https://www.fpcomplete.com/blog/2017/09/all-about-strictness
+http://eax.me/lazy-evaluation/
+http://users.aber.ac.uk/afc/stricthaskell.html
+http://habrahabr.ru/post/131910/
+http://h2.jaguarpaw.co.uk/posts/strictness-in-types/
+http://alpmestan.com/posts/2013-10-02-oh-my-laziness.html
+
+http://www.reddit.com/r/haskell/comments/2n0991/how_lazy_evaluation_works/
+https://hackhands.com/lazy-evaluation-works-haskell/
+https://hackhands.com/guide-lazy-evaluation-haskell/
+
+Wiki:
+http://en.wikibooks.org/wiki/Haskell/Laziness
+
+Lazyness fighter:
+ghc-heap-view (https://www.joachim-breitner.de/blog/archives/590-Evaluation-State-Assertions-in-Haskell.html)
+
+Pacakges:
+Data.Strict
+http://hackage.haskell.org/package/strict
+http://hackage.haskell.org/package/strict-base-types
+
+Seqaid-DeepSeq-Bounded:
+http://www.fremissant.net/proj/deepseq-bounded/deepseq-bounded.html
+http://hackage.haskell.org/package/deepseq-bounded
+http://www.fremissant.net/proj/seqaid/seqaid.html
+http://hackage.haskell.org/package/seqaid
+http://www.fremissant.net/proj/leaky/leaky.html
+http://hackage.haskell.org/package/leaky
+
+Examples:
+https://github.com/mezzohaskell/mezzohaskell/blob/master/chapters/examples/filehash.md

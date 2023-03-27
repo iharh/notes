@@ -1,0 +1,5 @@
+fontconfig/
+    fc-cache
+    fc-list
+    fc-cat
+    ...

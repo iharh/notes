@@ -1,0 +1,28 @@
+2022
+https://hakibenita.com/future-proof-sql
+    https://proglib.tech/p/kak-namerenno-rasstavlennye-oshibki-pomogayut-sdelat-sql-kod-legko-podderzhivaemym-2022-11-10
+        db=# INSERT INTO payment (method, amount) VALUES
+            ('cash', 10000),
+            ('credit_card', 12000),
+            ('credit_card', 5000);
+        INSERT 0 3
+
+        db=# SELECT * FROM payment;
+         id │   method    │ amount
+        ────┼─────────────┼────────
+          1 │ cash        │  10000
+          2 │ credit_card │  12000
+          3 │ credit_card │   5000
+        (3 rows)
+
+        -- calculate_commission.sql
+        SELECT
+            COUNT(*) AS payments,
+            SUM(
+                CASE method
+                    WHEN 'cash' THEN 100
+                    WHEN 'credit_card' THEN 30 + amount * 0.02
+                END
+            ) AS commission
+        FROM
+            payment;

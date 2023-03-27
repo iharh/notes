@@ -1,0 +1,28 @@
+! integrated into react
+https://github.com/css-modules/css-modules
+
+
+https://www.gatsbyjs.org/tutorial/part-two/
+
+?
+http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/5/8
+
+2021
+https://habr.com/ru/post/542630/
+2018
+https://blog.pusher.com/css-modules-react/
+2017
+https://blog.yipl.com.np/css-modules-with-react-the-complete-guide-a98737f79c7c
+https://www.triplet.fi/blog/practical-guide-to-react-and-css-modules/
+https://www.sitepoint.com/style-react-components-styled-components/
+https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660
+
+.common {
+    /* ... */
+}
+.normal {
+    composes: common;
+    composes: primary from "../shared/colors.css";
+    /* ... */
+}
+

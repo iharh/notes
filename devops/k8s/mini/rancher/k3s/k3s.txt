@@ -1,0 +1,53 @@
+https://k3s.io/
+https://github.com/rancher/k3s
+
+aur
+    k3s-bin
+
+https://rancher.com/docs/k3s/latest/en/
+https://rancher.com/quick-start/
+https://rancher.com/docs/k3s/latest/en/quick-start/
+    https://get.k3s.io/
+https://rancher.com/docs/k3s/latest/en/installation/datastore/
+    ! etcd support
+    https://rancher.com/docs/k3s/latest/en/installation/ha-embedded/
+
+https://rancher.com/docs/k3s/latest/en/installation/network-options/
+    https://docs.projectcalico.org/master/reference/cni-plugin/configuration
+
+https://rancher.com/docs/k3s/latest/en/installation/private-registry/
+
+inst
+https://k3d.io/v5.0.0-rc.1/#install-current-latest-release
+
+github actions
+https://github.com/nolar/setup-k3d-k3s
+https://github.com/AbsaOSS/k3d-action
+
+sudo k3s server &
+# Kubeconfig is written to /etc/rancher/k3s/k3s.yaml
+sudo k3s kubectl get node
+
+# On a different node run the below. NODE_TOKEN comes from /var/lib/rancher/k3s/server/node-token
+# on your server
+sudo k3s agent --server https://myserver:6443 --token ${NODE_TOKEN}
+
+auto-deploying manifests
+Any file found in
+    /var/lib/rancher/k3s/server/manifests
+will automatically be deployed to Kubernetes in a manner similar to kubectl apply.
+
+It is also possible to deploy Helm charts.
+k3s supports a CRD controller for installing charts.
+A YAML file specification can look as following (example taken from /var/lib/rancher/k3s/server/manifests/traefik.yaml):
+
+apiVersion: k3s.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  chart: stable/traefik
+  set:
+    rbac.enabled: "true"
+    ssl.enabled: "true"

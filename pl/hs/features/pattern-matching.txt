@@ -1,0 +1,74 @@
+presentations
+2019
+https://www.reddit.com/r/haskell/comments/ed9fx9/video_slides_revisiting_pattern_match_overlap/
+    https://codesync.global/uploads/media/activity_slides/0001/02/f132e872e0a4bdd4a12ac2a94cace816c4ab154d.pdf
+    
+articles
+https://www.fpcomplete.com/user/PthariensFlame/guide-to-ghc-extensions/pattern-and-guard-extensions
+
+??? ViewPatterns, PatternGuards
+
+Pattern match at list comprehensions:
+
+let xs = [(1, 3), (4, 3), (2, 4)]
+[a+b | (a, b) <- xs]
+
+
+Pattern match for both the list and items:
+
+xs@(x:y:ys)
+
+Lazy patterns (see http://habrahabr.ru/post/131910 for lazyness):
+
+> let f ~(x, y) = 1
+> f undefined
+1
+
+Note: makes sense to use lazy-patterns for types with a single c-tor only...
+
+Note2: Per Knolomiov - pattern-matching for let- and where- expressions are indeed lazy.
+
+
+Bang patterns:
+{-# LANGUAGE BangPatterns #-}
+
+main = print . sum' $ [1..10^6]
+
+sum' :: [Integer] -> (Integer, Int)
+sum' ls = go (0, 0) ls
+        where go (!n, !d) [] = (n, d)
+              go (!n, !d) (l:ls) = go (l + n, d + 1) ls
+
+
+{-# LANGUAGE BangPatterns #-}
+
+# !!! strict (unboxed) pair !!! 
+data SPair a b = SPair !a !b deriving Show 
+
+main = print . sum' $ [1..10^6]
+
+sum' :: [Integer] -> SPair Integer Int
+sum' ls = go (SPair 0 0) ls
+        where go (SPair n d) [] = SPair n d
+              go (SPair n d) (l:ls) = go (SPair (l + n) (d + 1)) ls
+
+
+
+Where-bindings as pattern matching:
+
+...
+  where bmi = weight / height ^ 2
+        (skinny, normal, fat) = (18.5, 25.0, 30.0)
+
+initials :: String -> String -> String
+initials firstname lastname = [f] ++ ". " ++ [l] ++ "."
+  where (f:_) = firstname
+        (l:_) = lastname
+
+
+Pattern-matching in a where-clause (just a syntaxic sugar for case-expression)
+
+describeList xs = "The list is " ++ what xs
+  where what [] = "empty."
+        what [x] = "a singletone list."
+        what xs = "a longer list."

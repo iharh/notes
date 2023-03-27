@@ -1,0 +1,3 @@
+https://doc.rust-lang.org/std/result/
+    .and_then(|d| d.bla_bla())
+    .unwrap_or_else(|e| e.exit())

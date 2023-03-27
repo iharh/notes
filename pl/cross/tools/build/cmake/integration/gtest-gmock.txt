@@ -1,0 +1,6 @@
+https://cmake.org/cmake/help/latest/module/GoogleTest.html
+
+2021
+https://thecppdev.wordpress.com/2021/01/16/gtest-and-gmock-integration-with-cmake/
+
+https://github.com/friendlyanon/ska_sort/blob/40507631e63483da21597b3b8657d2b18c0568c8/test/CMakeLists.txt

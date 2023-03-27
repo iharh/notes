@@ -1,0 +1,17 @@
+https://github.com/FasterXML/jackson-core
+https://github.com/FasterXML/jackson/wiki
+https://github.com/FasterXML/jackson/blob/master/MANUAL.md
+https://github.com/FasterXML/jackson-docs
+
+parse
+http://www.studytrails.com/java/json/java-jackson-json-streaming/
+
+object mapper
+http://tutorials.jenkov.com/java-json/jackson-objectmapper.html
+https://www.baeldung.com/jackson-object-mapper-tutorial
+
+generator
+http://tutorials.jenkov.com/java-json/jackson-jsongenerator.html
+
+thread safety
+https://stackoverflow.com/questions/3907929/should-i-declare-jacksons-objectmapper-as-a-static-field

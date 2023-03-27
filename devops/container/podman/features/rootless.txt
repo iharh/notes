@@ -1,0 +1,5 @@
+2023
+https://dbdemon.com/rootless_podman_with_some_common_sql_database_systems/
+    cat /proc/sys/user/max_user_namespaces
+    sudo usermod --add-subuids 200000-201000 --add-subgids 200000-201000 $YOUR_USER
+    ??? sudo sysctl user.max_user_namespaces=15000

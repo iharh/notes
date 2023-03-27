@@ -1,0 +1,33 @@
+Commands
+M-x
+	ielm
+		elisp REPL
+		C-c C-b
+			change ielm working buffer
+		M-p
+			previous input
+		M-n
+			next-input
+
+	lisp-interaction-mode
+		put the current buffer to the lisp interaction mode
+
+
+C-x m
+	Start eshell
+
+
+Evaluate e-lisp
+C-j
+	Eval the expression and print results right into the buffer (for *scratch*)
+M-:
+M-ESC :
+	Evaluate expression just from the mini-buffer (eval-expression) 
+C-c v
+	Evaluate the current buffer (eval-buffer)
+C-x C-e
+	Evaluate last sexp (eval-last-sexp)
+C-M-x
+	Evaluate top-level form, containing point or after point (eval-defun)
+
+

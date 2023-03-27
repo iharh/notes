@@ -1,0 +1,5 @@
+2022
+https://habr.com/ru/post/683054/
+    ! lua based cfg
+    sudo apt install neovim python3-neovim
+    https://github.com/crackidocky/crackidocky

@@ -1,0 +1,18 @@
+https://crates.io/crates/anyhow
+https://docs.rs/anyhow
+https://github.com/dtolnay/anyhow
+
+2023
+https://antoinerr.github.io/blog-website/2023/01/28/rust-anyhow.html
+    The most useful feature of anyhow is its Result<T> type.
+    Yes. Result<T> and not Result<T, U> as the one provided in the standard library.
+    ...
+    We do not have more information about the type of the error by using anyhow compared to Box<dyn Error>
+    as it also uses trait objects.
+    We will see later in this article how to retrieve the type of the error via downcasting.
+    ...
+
+2020
+https://www.fpcomplete.com/blog/error-handling-is-hard/
+????
+https://www.christopherbiscardi.com/anyhow

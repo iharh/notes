@@ -1,0 +1,56 @@
+[DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.DefaultArtifactDependencyResolver] Resolving configuration ':p2:multiPrjCfg'
+...
+[DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder.DependencyGraphBuilder] Visiting configuration with-copy-cfg:p2:unspecified(multiPrjCfg).
+...
+[DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Resolve dependencies of :p2:multiPrjCfg' started
+[DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Resolve dependencies of :p2:detachedConfiguration1' started
+...
+2021-05-11T21:15:09.129+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Resolve dependencies of :p2:multiPrjCfg'
+2021-05-11T21:15:09.129+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Resolve files of :p2:multiPrjCfg' started
+2021-05-11T21:15:09.129+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Resolve files of :p2:multiPrjCfg'
+2021-05-11T21:15:09.130+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Resolve files of :p2:multiPrjCfg' started
+2021-05-11T21:15:09.130+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Resolve files of :p2:multiPrjCfg'
+2021-05-11T21:15:09.130+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Snapshot inputs and outputs before executing task ':p2:copyMultiPrj'' started
+2021-05-11T21:15:09.132+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Resolve files of :p2:multiPrjCfg' started
+2021-05-11T21:15:09.134+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Resolve files of :p2:multiPrjCfg'
+2021-05-11T21:15:09.135+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Snapshot inputs and outputs before executing task ':p2:copyMultiPrj''
+2021-05-11T21:15:09.143+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Executing task ':p2:copyMultiPrj'' started
+2021-05-11T21:15:09.145+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Execute copy for :p2:copyMultiPrj' started
+2021-05-11T21:15:09.149+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Resolve files of :p2:multiPrjCfg' started
+2021-05-11T21:15:09.149+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Resolve files of :p2:multiPrjCfg'
+2021-05-11T21:15:09.158+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Execute copy for :p2:copyMultiPrj'
+2021-05-11T21:15:09.161+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Executing task ':p2:copyMultiPrj''
+2021-05-11T21:15:09.162+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Snapshot outputs after executing task ':p2:copyMultiPrj'' started
+2021-05-11T21:15:09.165+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Snapshot outputs after executing task ':p2:copyMultiPrj''
+2021-05-11T21:15:08.707+0300 [LIFECYCLE] [class org.gradle.internal.buildevents.TaskExecutionLogger]
+2021-05-11T21:15:08.707+0300 [LIFECYCLE] [class org.gradle.internal.buildevents.TaskExecutionLogger] > Task :p2:copyMultiPrj
+2021-05-11T21:15:08.707+0300 [DEBUG] [org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter] Putting task artifact state for task ':p2:copyMultiPrj' into context took 0.0 secs.
+2021-05-11T21:15:08.708+0300 [DEBUG] [io.spring.gradle.dependencymanagement.internal.ImplicitDependencyManagementCollector] Adding managed version in configuration 'multiPrjCfg' for dependency 'DefaultProjectDependency{dependencyProject='project ':p1'', configuration='default'}'
+2021-05-11T21:15:08.708+0300 [INFO] [io.spring.gradle.dependencymanagement.internal.DependencyManagement] Resolving global dependency management for project 'p2'
+2021-05-11T21:15:08.708+0300 [DEBUG] [io.spring.gradle.dependencymanagement.internal.DependencyManagement] Preserving existing versions: {commons-cli:commons-cli=1.4}
+2021-05-11T21:15:08.709+0300 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.DefaultArtifactDependencyResolver] Resolving configuration ':p2:detachedConfiguration1'
+2021-05-11T21:15:08.709+0300 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.modulecache.ResolvedArtifactCaches] Reusing in-memory cache for repo 'MavenRepo' [a8be1fe3b3911d3d3425fe720cf42835].
+2021-05-11T21:15:08.710+0300 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder.DependencyGraphBuilder] Visiting configuration with-copy-cfg:p2:unspecified(detachedConfiguration1).
+
+...
+
+2021-05-11T21:15:09.136+0300 [DEBUG] [org.gradle.internal.execution.steps.SkipUpToDateStep] Determining if task ':p2:copyMultiPrj' is up-to-date
+2021-05-11T21:15:09.136+0300 [INFO] [org.gradle.internal.execution.steps.SkipUpToDateStep] Task ':p2:copyMultiPrj' is not up-to-date because:
+  Output property 'destinationDir' file /data/wrk/prj/gra/publish/with-copy-cfg/p2/build/lib.multi has been removed.
+  Output property 'destinationDir' file /data/wrk/prj/gra/publish/with-copy-cfg/p2/build/lib.multi/commons-cli-1.4.jar has been removed.
+  Output property 'destinationDir' file /data/wrk/prj/gra/publish/with-copy-cfg/p2/build/lib.multi/p1.jar has been removed.
+2021-05-11T21:15:09.139+0300 [INFO] [org.gradle.internal.watch.registry.impl.NonHierarchicalFileWatcherUpdater] Watching 13 directories to track changes
+2021-05-11T21:15:09.140+0300 [DEBUG] [org.gradle.internal.execution.steps.CreateOutputsStep] Ensuring directory exists for property destinationDir at /data/wrk/prj/gra/publish/with-copy-cfg/p2/build/lib.multi
+2021-05-11T21:15:09.144+0300 [DEBUG] [org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter] Executing actions for task ':p2:copyMultiPrj'.
+2021-05-11T21:15:09.149+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Resolve files of :p2:multiPrjCfg' completed
+2021-05-11T21:15:09.159+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Execute copy for :p2:copyMultiPrj' completed
+2021-05-11T21:15:09.161+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Executing task ':p2:copyMultiPrj'' completed
+2021-05-11T21:15:09.164+0300 [INFO] [org.gradle.internal.watch.registry.impl.NonHierarchicalFileWatcherUpdater] Watching 15 directories to track changes
+2021-05-11T21:15:09.165+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Snapshot outputs after executing task ':p2:copyMultiPrj'' completed
+2021-05-11T21:15:09.170+0300 [DEBUG] [org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter] Removed task artifact state for task ':p2:copyMultiPrj' from context.
+2021-05-11T21:15:09.170+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Completing Build operation 'Task :p2:copyMultiPrj'
+2021-05-11T21:15:09.170+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationRunner] Build operation 'Task :p2:copyMultiPrj' completed
+2021-05-11T21:15:09.170+0300 [INFO] [org.gradle.execution.plan.DefaultPlanExecutor] :p2:copyMultiPrj (Thread[Execution worker for ':',5,main]) completed. Took 0.463 secs.
+2021-05-11T21:15:09.170+0300 [DEBUG] [org.gradle.execution.plan.DefaultExecutionPlan] Node :p2:copyMultiPrj finished executing
+2021-05-11T21:15:09.170+0300 [DEBUG] [org.gradle.execution.plan.DefaultExecutionPlan] Node :p2:copyMultiPrj completed, executed: true
+

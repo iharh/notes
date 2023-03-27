@@ -1,0 +1,90 @@
+commit 4b1c116461f91fd365eefc697fcaad6f27786321
+Author: Nik Everett <nik9000@gmail.com>
+Date:   Fri Apr 29 10:42:03 2016 -0400
+
+    Generate and run tests from the docs
+    
+    Adds infrastructure so `gradle :docs:check` will extract tests from
+    snippets in the documentation and execute the tests. This is included
+    in `gradle check` so it should happen on CI and during a normal build.
+    
+    By default each `// AUTOSENSE` snippet creates a unique REST test. These
+    tests are executed in a random order and the cluster is wiped between
+    each one. If multiple snippets chain together into a test you can annotate
+    all snippets after the first with `// TEST[continued]` to have the
+    generated tests for both snippets joined.
+    
+    Snippets marked as `// TESTRESPONSE` are checked against the response
+    of the last action.
+    
+    See docs/README.asciidoc for lots more.
+    
+    Closes #12583. That issue is about catching bugs in the docs during build.
+    This catches *some* bugs in the docs during build which is a good start.
+
+A	buildSrc/src/main/groovy/org/elasticsearch/gradle/RestTestsFromSnippetsTask.groovy
+A	buildSrc/src/main/groovy/org/elasticsearch/gradle/SnippetsTask.groovy
+M	core/src/main/java/org/elasticsearch/index/mapper/MapperService.java
+M	docs/README.asciidoc
+A	docs/build.gradle
+M	docs/reference/analysis/analyzers/pattern-analyzer.asciidoc
+M	docs/reference/cluster/tasks.asciidoc
+M	docs/reference/docs/index_.asciidoc
+M	docs/reference/docs/reindex.asciidoc
+M	docs/reference/docs/update-by-query.asciidoc
+M	docs/reference/index-modules/allocation/delayed.asciidoc
+M	docs/reference/index-modules/allocation/filtering.asciidoc
+M	docs/reference/index-modules/allocation/prioritization.asciidoc
+M	docs/reference/indices/analyze.asciidoc
+M	docs/reference/indices/flush.asciidoc
+M	docs/reference/indices/put-mapping.asciidoc
+M	docs/reference/indices/templates.asciidoc
+M	docs/reference/ingest.asciidoc
+M	docs/reference/ingest/ingest-node.asciidoc
+M	docs/reference/mapping.asciidoc
+M	docs/reference/mapping/dynamic-mapping.asciidoc
+M	docs/reference/mapping/dynamic/templates.asciidoc
+M	docs/reference/mapping/fields/all-field.asciidoc
+M	docs/reference/mapping/fields/field-names-field.asciidoc
+M	docs/reference/mapping/fields/parent-field.asciidoc
+M	docs/reference/mapping/fields/routing-field.asciidoc
+M	docs/reference/mapping/fields/timestamp-field.asciidoc
+M	docs/reference/mapping/fields/type-field.asciidoc
+M	docs/reference/mapping/params.asciidoc
+M	docs/reference/mapping/params/analyzer.asciidoc
+M	docs/reference/mapping/params/boost.asciidoc
+M	docs/reference/mapping/params/coerce.asciidoc
+M	docs/reference/mapping/params/copy-to.asciidoc
+M	docs/reference/mapping/params/dynamic.asciidoc
+M	docs/reference/mapping/params/fielddata.asciidoc
+M	docs/reference/mapping/params/ignore-malformed.asciidoc
+M	docs/reference/mapping/params/include-in-all.asciidoc
+M	docs/reference/mapping/params/multi-fields.asciidoc
+M	docs/reference/mapping/params/norms.asciidoc
+M	docs/reference/mapping/params/position-increment-gap.asciidoc
+M	docs/reference/mapping/params/properties.asciidoc
+M	docs/reference/mapping/params/search-analyzer.asciidoc
+M	docs/reference/mapping/params/store.asciidoc
+M	docs/reference/mapping/types/date.asciidoc
+M	docs/reference/mapping/types/nested.asciidoc
+M	docs/reference/migration/migrate_5_0/mapping.asciidoc
+M	docs/reference/modules/cluster/allocation_filtering.asciidoc
+M	docs/reference/modules/cluster/disk_allocator.asciidoc
+M	docs/reference/modules/node.asciidoc
+M	docs/reference/modules/scripting/painless.asciidoc
+M	docs/reference/modules/scripting/using.asciidoc
+M	docs/reference/query-dsl/bool-query.asciidoc
+M	docs/reference/query-dsl/function-score-query.asciidoc
+M	docs/reference/query-dsl/term-query.asciidoc
+M	docs/reference/setup/cluster_restart.asciidoc
+M	docs/reference/setup/rolling_upgrade.asciidoc
+A	docs/src/test/java/org/elasticsearch/smoketest/SmokeTestDocsIT.java
+M	settings.gradle
+M	test/framework/src/main/java/org/elasticsearch/test/rest/RestTestExecutionContext.java
+M	test/framework/src/main/java/org/elasticsearch/test/rest/Stash.java
+M	test/framework/src/main/java/org/elasticsearch/test/rest/client/RestClient.java
+M	test/framework/src/main/java/org/elasticsearch/test/rest/json/JsonPath.java
+M	test/framework/src/main/java/org/elasticsearch/test/rest/parser/RestTestSectionParser.java
+M	test/framework/src/main/java/org/elasticsearch/test/rest/parser/RestTestSuiteParseContext.java
+A	test/framework/src/main/java/org/elasticsearch/test/rest/section/ResponseBodyAssertion.java
+

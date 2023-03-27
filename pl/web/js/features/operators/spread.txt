@@ -1,0 +1,17 @@
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+2021
+https://codeburst.io/what-are-three-dots-in-javascript-6f09476b03e1
+    https://nuancesprog.ru/p/11702/
+
+2019
+https://dmitripavlutin.com/javascript-spread-operator-performance-optimization/
+https://dailycoding.io/article/XIColYT1u7EWx3KUHGHz
+
+2018
+https://v8.dev/blog/spread-elements
+https://oprea.rocks/blog/what-do-the-three-dots-mean-in-javascript/
+
+arr - array
+someMethod(...arr)
+    is the same as someMethod(arr[0], arr[1], ... arr[N])

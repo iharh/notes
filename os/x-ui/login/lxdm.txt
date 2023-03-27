@@ -1,0 +1,31 @@
+https://wiki.manjaro.org/index.php?title=LXDM_Configuration
+Configure Lxdm
+    https://forum.manjaro.org/index.php?topic=1537.0
+
+
+lxdm
+lxdm-manjaro-theme-openbox (instead of lxdm-manjaro-theme)
+    /usr/share/lxdm/themes
+
+sudo systemctl enable lxdm.service -f
+...
+    rm '/etc/systemd/system/display-manager.service'
+    ln -s '/usr/lib/systemd/system/lxdm.service' '/etc/systemd/system/display-manager.service'
+
+
+sudo lxdm-config
+    or
+/etc/lxdm/lxdm.conf
+
+
+gtk_theme=Bear-tangerine
+...
+theme=Industrial
+#Manjaro
+#/usr/share/lxdm/themes/
+
+#session=/usr/bin/openbox-session
+
+
+!!! Openbox theme
+ManjaroFlatDark

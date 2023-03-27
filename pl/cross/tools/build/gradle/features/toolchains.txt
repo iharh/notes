@@ -1,0 +1,23 @@
+https://docs.gradle.org/current/userguide/toolchains.html
+https://docs.gradle.org/current/userguide/toolchain_plugins.html
+    gradle -q javaToolchains
+
+    toolchainManagement {
+        jvm {
+            javaRepositories {
+                repository("azul") {
+                    resolverClass.set(AzulResolver::class.java)
+                    credentials {
+                        username = "user"
+                        password = "password"
+                    }
+                    authentication {
+                        create<DigestAuthentication>("digest")
+                    }
+                }
+                repository("adoptium") {
+                    resolverClass.set(AdoptiumResolver::class.java)
+                }
+            }
+        }
+    }

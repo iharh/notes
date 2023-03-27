@@ -1,0 +1,5 @@
+reindex
+    index <name>
+    table <tblname>
+    database <dbname>
+    system

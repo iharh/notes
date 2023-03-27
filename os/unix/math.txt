@@ -1,0 +1,6 @@
+expr
+  simple calc (don't forget to backslash specchars like *)
+
+bc
+  could read from stdin (quit to exit).
+  -l ... scientific mode

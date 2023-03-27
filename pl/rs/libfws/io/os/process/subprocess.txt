@@ -1,0 +1,90 @@
+https://crates.io/crates/subprocess
+https://docs.rs/subprocess
+https://github.com/hniksic/rust-subprocess
+
+
+https://github.com/hniksic/rust-subprocess/blob/master/src/builder.rs
+    stream_stdout|stream_stdin|stream_stderr
+
+    pub struct Exec {
+        command: OsString,
+        args: Vec<OsString>,
+        config: PopenConfig,
+        stdin_data: Option<Vec<u8>>,
+    }
+
+    impl Exec {
+        /// Starts the process and returns a `Read` trait object that
+        /// reads from the standard output of the child process.
+        ///
+        /// This will automatically set up
+        /// `stdout(Redirection::Pipe)`, so it is not necessary to do
+        /// that beforehand.
+        ///
+        /// When the trait object is dropped, it will wait for the
+        /// process to finish.  If this is undesirable, use
+        /// `detached()`.
+        pub fn stream_stdout(self) -> PopenResult<Box<Read>> {
+            self.check_no_stdin_data("stream_stdout");
+            let p = self.stdout(Redirection::Pipe).popen()?;
+            Ok(Box::new(ReadOutAdapter(p)))
+        }
+        ...
+    }
+    ...
+    #[derive(Debug)]
+    struct ReadOutAdapter(Popen);
+
+    // use std::io::{Result as IoResult, Read, Write};
+
+    impl Read for ReadOutAdapter {
+        fn read(&mut self, buf: &mut [u8]) -> IoResult<usize> {
+            self.0.stdout.as_mut().unwrap().read(buf)
+        }
+    }
+
+https://github.com/hniksic/rust-subprocess/blob/master/src/communicate.rs
+https://github.com/hniksic/rust-subprocess/blob/master/src/popen.rs
+    Redirection::Merge
+    MergeKin::ErrToOut,OutToErr,None (used at fn setup_streams only)
+    .capture()?.stdout_str|stream_stdout
+
+https://github.com/hniksic/rust-subprocess/blob/master/src/tests/common.rs
+    read_whole_file
+
+pub fn read_whole_file<T: Read>(mut f: T) -> String {
+    let mut content = String::new();
+    f.read_to_string(&mut content).unwrap();
+    content
+}
+
+samples:
+https://github.com/nicholasbishop/sate
+https://github.com/shadowsocks/shadowsocks-rust
+
+https://github.com/hniksic/rust-subprocess/blob/master/src/bin/sample.rs
+    extern crate subprocess;
+
+    use subprocess::{Exec};
+    use std::io::{BufReader, BufRead};
+
+    fn main() {
+        let x = Exec::cmd("ls").stream_stdout().unwrap();
+        let br = BufReader::new(x);
+        for (i, line) in br.lines().enumerate() {
+            println!("{}: {}", i, line.unwrap());
+        }
+    }
+
+
+    //Redirect errors to standard output, and capture both in a single stream:
+    let out_and_err = Exec::cmd("ls")
+      .stdout(Redirection::Pipe)
+      .stderr(Redirection::Merge)
+      .capture()?
+      .stdout_str();
+
+    stream_stdout|stream_stdin|
+    let stream = Exec::cmd("ls").stream_stdout()?;
+    // call stream.read_to_string, construct io::BufReader(stream), etc.
+

@@ -1,0 +1,72 @@
+Element version: 1.10.3
+Homeserver is https://matrix-client.matrix.org
+Identity server is https://vector.im
+Olm version: <not-enabled>
+??? room version 6
+/opt/Element/element-desktop
+
+
+https://github.com/vector-im/element-web/issues/7575
+    Redesign: timeline: make date separator stick to bottom of room header
+
+element-web
+https://github.com/vector-im/element-web/blob/develop/docs/labs.md#jump-to-date-feature_jump_to_date
+    Note: This labs feature is only visible when your homeserver has MSC3030 enabled
+    (in Synapse, add experimental_features -> msc3030_enabled to your homeserver.yaml)
+    which means GET /_matrix/client/versions responds with
+        org.matrix.msc3030 under the unstable_features key.
+    Adds a dropdown menu to the date separator headers in the timeline
+    which allows you to jump to last week, last month, the beginning of the room, or choose a date from the calendar.
+    Also adds the /jumptodate 2022-01-31 slash command.
+
+https://github.com/vector-im/element-web/blob/develop/docs/config.md
+    https://github.com/vector-im/element-desktop#user-specified-configjson
+        curl https://develop.element.io/config.json > ~/.config/Element/config.json
+    4. showLabsSettings: Shows the "labs" tab of user settings.
+        Useful to allow users to turn on experimental features they might not otherwise have access to.
+        Labs->Messaging->
+    https://github.com/vector-im/element-web/blob/develop/docs/feature-flags.md
+    You can configure the app by copying config.sample.json to config.json and customising it:
+    
+https://github.com/vector-im/element-web/issues/7677
+    !!! closed, setting at Labs page
+https://github.com/vector-im/element-web/issues/3575
+https://github.com/vector-im/element-web/issues/1606
+    ! closed
+    https://github.com/vector-im/element-web/issues/2563
+    https://github.com/vector-im/element-web/issues/3875
+    https://github.com/vector-im/element-web/issues/6460
+    ! closed
+https://github.com/vector-im/element-web/issues/11274
+
+a-timeline
+https://github.com/vector-im/element-web/labels/A-Timeline
+    https://github.com/vector-im/element-web/issues/8065
+    https://github.com/vector-im/element-web/issues/8455
+    https://github.com/vector-im/element-web/issues/8565
+        !!!
+    https://github.com/vector-im/element-web/issues/14173
+        !!! closed
+        Add command to scroll back to specific time, or by relative amount of time
+        /jumptodate 2022-01-01 was added in matrix-org/matrix-react-sdk#7372
+        (please close this issue as I no longer have triage access)
+        https://github.com/vector-im/element-web/commit/d731a2561933d8126534b9db53701b5720ed81b6
+
+synapse
+synapse/rest/client/versions.py
+    /versions
+    # Adds support for jump to date endpoints (/timestamp_to_event) as per MSC3030
+    "org.matrix.msc3030": self.config.experimental.msc3030_enabled,
+https://github.com/matrix-org/synapse/pull/9445
+# Add MSC2716 and MSC3030 to /versions -> unstable_features #11582
+    https://github.com/matrix-org/synapse/pull/11582
+
+compliance test suite
+https://github.com/matrix-org/complement
+https://github.com/matrix-org/complement/pull/178
+    ! open
+    
+filter by date
+https://github.com/vector-im/element-web/issues/4752
+    https://github.com/vector-im/element-web/issues/9761
+    https://github.com/vector-im/element-web/issues/18928

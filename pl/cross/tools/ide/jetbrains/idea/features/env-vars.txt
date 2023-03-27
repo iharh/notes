@@ -1,0 +1,26 @@
+https://www.jetbrains.com/help/idea/run-debug-configuration.html#share-configurations
+https://www.jetbrains.com/help/idea/run-debug-configuration.html#templates
+https://www.jetbrains.com/help/idea/run-debug-configuration.html#config-folders
+
+https://www.jetbrains.com/help/idea/list-of-run-debug-configurations.html
+https://stackoverflow.com/questions/53245246/where-does-intellij-idea-keep-run-debug-configurations
+
+https://www.jetbrains.com/help/idea/absolute-path-variables.html
+
+qa
+https://stackoverflow.com/questions/45696203/intellij-idea-global-environment-variable-configuration
+    https://stackoverflow.com/a/64125043/932090
+         Run -> Edit Configurations... -> expand Templates tree -> (choose a template) -> Environment variables:
+
+.idea/workspace.xml
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <envs>
+        <env name="ES_JAVA_HOME" value="$USER_HOME$/.asdf/installs/java/corretto-11.0.17.8.1" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+

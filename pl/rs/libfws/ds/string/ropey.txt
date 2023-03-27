@@ -1,0 +1,11 @@
+https://crates.io/crates/ropey
+https://docs.rs/ropey
+https://github.com/cessen/ropey
+
+https://github.com/cessen/ropey/tree/master/examples
+
+2019
+https://blog.cessen.com/post/2019_01_09_rust_community_norms_for_unsafe_code
+https://www.reddit.com/r/rust/comments/accvq7/ropey_10_an_editable_text_buffer_for_rust/
+2018
+https://www.reddit.com/r/rust/comments/7ls3g5/ropey_a_text_buffer_designed_for_editing_large/

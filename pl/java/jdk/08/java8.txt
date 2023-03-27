@@ -1,0 +1,23 @@
+2014
+http://www.infoq.com/presentations/java8-evolution
+http://www.slideshare.net/jpaumard/50-new-things-you-can-do-with-java-8
+
+books
+Konda - All about Java 8 Lambdas
+
+comprehensive look
+https://dzone.com/articles/j%CE%BBv%CE%BB-8-a-comprehensive-look
+https://dzone.com/articles/j%CE%BBv%CE%BB-8-a-comprehensive-look-part-11-lambdas-under
+https://dzone.com/articles/j%CE%BBv%CE%BB-8-a-comprehensive-look-part-12-insight-into-s
+
+optional
+https://habrahabr.ru/post/347480/
+https://habrahabr.ru/post/347576/
+https://habrahabr.ru/post/347748/
+https://habrahabr.ru/post/347836/
+https://habrahabr.ru/post/350904/
+
+java.util.function
+    Function
+    Supplier
+    Consumer

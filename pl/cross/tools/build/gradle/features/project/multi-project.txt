@@ -1,0 +1,128 @@
+https://docs.gradle.org/current/userguide/multi_project_builds.html
+https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:execution_rules_for_multi_project_builds
+https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:project_jar_dependencies
+https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:depending_on_output_of_another_project
+
+http://qaru.site/questions/20469/multi-project-test-dependencies-with-gradle
+
+2015
+https://www.petrikainulainen.net/programming/gradle/getting-started-with-gradle-creating-a-multi-project-build/
+
+samples
+https://github.com/pkainulainen/gradle-examples/tree/master/multi-project-build
+https://idodevjobs.wordpress.com/2017/02/25/gradle-multi-module-example-type-i-nested/
+https://idodevjobs.wordpress.com/2017/02/25/gradle-multi-module-example-type-ii-flat/
+
+guides
+https://guides.gradle.org/creating-multi-project-builds/
+    https://github.com/gradle-guides/creating-multi-project-builds/
+https://spring.io/guides/gs/multi-module/
+
+buildSrc:
+    can only be located for the root-project
+
+allprojects {
+    task hello {
+        doLast { task ->
+            println "I'm $task.project.name"
+        }
+    }
+}
+subprojects {
+    hello { // do not need task, append stuff to existing taksk
+        doLast {
+            println "- I depend on water"
+        }
+    }
+}
+
+project-specific behaviour for particular project
+
+project(':bluewhale').hello {
+    doLast {
+        println "bla-bla"
+    }
+}
+
+configure(subprojects.findAll {it.name != 'tropicalFish'}) {
+    hello {
+        doLast {
+            println '- I love to spend time in the arctic waters.'
+        }
+    }
+}
+
+subprojects {
+    hello {
+        doLast {println "- I depend on water"}
+        afterEvaluate { Project project ->
+            if (project.arctic) { doLast {
+                println '- I love to spend time in the arctic waters.' }
+            }
+        }
+    }
+}
+
+evaluation-order
+evaluationDependsOn(':producer')
+evaluationDependsOnChildren()
+
+
+Project lib dependencies:
+
+settings.gradle:
+include 'api', 'shared', 'services:personService'
+
+build.gradle
+...
+project(':services:personService') {
+    dependencies {
+        compile project(':shared'), project(':api')
+    }
+}
+
+
+more fine-grain dependencies control:
+
+subprojects {
+    apply plugin: 'java'
+    group = 'org.gradle.sample'
+    version = '1.0'
+}
+
+project(':api') {
+    configurations {
+        spi
+    }
+    dependencies {
+        compile project(':shared')
+    }
+    task spiJar(type: Jar) {
+        baseName = 'api-spi'
+        from sourceSets.main.output
+        include('org/gradle/sample/api/**')
+    }
+    artifacts {
+        spi spiJar
+    }
+}
+
+project(':services:personService') {
+    dependencies {
+        compile project(':shared')
+        compile project(path: ':api', configuration: 'spi')
+        testCompile "junit:junit:4.12", project(':api')
+    }
+}
+
+// The Java plugin adds per default a jar to your project libraries which contains all the classes.
+// In this example we create an additional library containing only the interfaces of the “api” project.
+// We assign this library to a new dependency configuration.
+// For the person service we declare that the project should be compiled only against the “api” interfaces but tested with all classes from “api”
+
+gra -a :api:build
+        -a - to use cached jars to resolve any project lib dependencies
+    api:buildNeeded
+        to test all the dependent projects as well
+    api:buildDependents
+        also test all the projects, dependent on :api

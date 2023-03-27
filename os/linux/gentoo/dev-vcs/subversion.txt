@@ -1,0 +1,22 @@
+https://packages.gentoo.org/packages/dev-vcs/subversion
+
+https://stackoverflow.com/questions/34687/subversion-ignoring-password-and-username-options
+    ~/.subversion/auth/
+
+https://superuser.com/questions/1473219/subversion-error-svn-e120171-error-running-context-an-error-occurred-during
+https://russianblogs.com/article/20421794284/
+    openssl s_client -connect svn.newit.gsu.by:465 -tls1_3
+    openssl s_client -connect svn.newit.gsu.by:465 -tls1
+
+https://github.com/openssl/openssl/blob/master/ssl/statem/statem_clnt.c
+https://stackoverflow.com/questions/61568215/openssl-v1-1-1-ubuntu-20-tlsv1-no-protocols-available
+https://askubuntu.com/questions/1233186/ubuntu-20-04-how-to-set-lower-ssl-security-level
+    https://askubuntu.com/questions/1233186/ubuntu-20-04-how-to-set-lower-ssl-security-level/1265095#1265095
+    https://askubuntu.com/a/1265095
+    openssl
+        version
+            -a
+            -d
+                shows OPENSSLDIR
+                    /usr/lib/ssl/openssl.cnf -> /etc/ssl/openssl.cnf
+        --trust-server-cert-failures="other,unknown-ca,cn-mistmatch,expired"

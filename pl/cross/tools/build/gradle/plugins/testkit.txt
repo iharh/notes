@@ -1,0 +1,34 @@
+gradle-testkit
+https://docs.gradle.org/current/userguide/test_kit.html
+
+????
+https://habrahabr.ru/post/282924/
+
+@Slf4j
+class TestSpecification extends Specification {
+    @Rule
+    final TemporaryFolder testProjectDir = new TemporaryFolder()
+
+    def buildFile
+
+    def setup () {
+        buildFile = testProjectDir.newFile("build.gradle")
+    }
+
+    def "bla-bla"() {
+        given:
+            buildfile << """
+                buildscript {
+                ...
+                }
+            """
+        when:
+            def result = GradleRunner.create()
+                .withProjectDir(testProjectDir.root)
+                .withArguments('documentationDistZip')
+                .withPluginClasspath(pluginClasspath) // see Tolkachev pres-n
+                .build()
+        then:
+            result.task(":documentationDistZip").outcome == TaskOutcome.UP_TO_DATE
+    }
+}

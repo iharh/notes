@@ -1,0 +1,8 @@
+-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps
+-Xloggc:Logs\GClog.log
+-XX:-UseParallelGC
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=Logs\GClog.log
+
+
+-XX:MaxPermSize=128m

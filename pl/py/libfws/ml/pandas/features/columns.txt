@@ -1,0 +1,4 @@
+https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.rename.html
+
+dfr.rename(columns={'amin': 'min', 'amax': 'max'})
+dfr.columns = [' '.join(col).strip() for col in dfr.columns.values]

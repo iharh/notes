@@ -1,0 +1,4 @@
+.monitor.
+    fs.
+        use Sigar/JMS probes
+

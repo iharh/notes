@@ -1,0 +1,8 @@
+# /etc/ansible/hosts
+localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python2
+
+
+[some-grp]
+hostname-[1:3]-server...
+hostname-[a:c]-server...
+{{my-var}}

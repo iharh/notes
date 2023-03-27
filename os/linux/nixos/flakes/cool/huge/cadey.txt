@@ -1,0 +1,10 @@
+https://tulpa.dev/cadey/nixos-configs
+    !!! deploy-rs based
+
+https://tulpa.dev/cadey/nixos-configs/src/branch/main/hardware/libvirt-generic/default.nix
+
+https://tulpa.dev/cadey/nixos-configs/src/branch/main/common/users/cadey.nix
+https://tulpa.dev/cadey/nixos-configs/src/branch/main/common/users/cadey
+https://tulpa.dev/cadey/nixos-configs/src/branch/main/common/users/cadey/default.nix
+
+https://tulpa.dev/cadey/nixos-configs/src/branch/main/common/default.nix

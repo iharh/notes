@@ -1,0 +1,50 @@
+xunsearch
+https://github.com/hightman/xunsearch
+https://github.com/hightman/scws
+
+scws
+http://www.xunsearch.com/scws/
+http://www.xunsearch.com/scws/index.php
+
+Latest:
+1.2.3
+http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2
+
+Archive:
+http://www.xunsearch.com/scws/down/scws-1.1.8.tar.bz2
+
+https://github.com/amutu/scws-port/blob/master/pkg-descr
+SCWS (Simple Chinese Word Segmentation) is a frequency dictionary based Chinese word segmentation engine,
+it can cut a whole section of the Chinese text into words.
+
+Word is the smallest unit of morpheme in Chinese,
+but in Chinese words are not separated by spaces,
+so word segmentation is an important step for Chinese language process.
+
+SCWS is written in C without other dependencies and accept GBK and UTF-8 encoding
+for both the Simple Chinese (zh_CN) and the Traditional Chinese (such as zh_TW).
+
+http://www.xunsearch.com/scws/download.php
+http://www.xunsearch.com/scws/support.php
+http://www.xunsearch.com/scws/docs.php
+
+Ruleset file:
+
+SCWS and PSCWS4 general rule set file that is used to identify people, places, and so on in the digital age.
+Contains simplified GBK, Traditional Chinese UTF8, UTF8 Simplified three files.
+You do not need to be downloaded separately, together with scws released source package already contains these files.
+
+https://github.com/hightman/scws/blob/master/etc/rules_cht.utf8.ini
+
+API:
+http://www.xunsearch.com/scws/api.php
+https://github.com/hightman/scws/blob/master/API.md
+
+scws_new, scws_set_charset, scws_add_dict, scws_[add/set]_dict, scws_set_rule
+
+
+Dictionaries:
+
+gen-dict:
+Usage:
+  scws-gen-dict [options] [-i] dict.txt [-o] dict.xdb

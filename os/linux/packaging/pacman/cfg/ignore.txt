@@ -1,0 +1,7 @@
+# Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
+#IgnorePkg = <p1> <p2> ...
+
+IgnorePkg = linux49
+
+sudo pacman -Syu --ignore=linux49
+    --ignoregroup

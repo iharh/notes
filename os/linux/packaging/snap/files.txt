@@ -1,0 +1,2 @@
+https://askubuntu.com/questions/979233/how-to-list-files-installed-by-a-snap-package
+  tree /snap/<snapname>/current/

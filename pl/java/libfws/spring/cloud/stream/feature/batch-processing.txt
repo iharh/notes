@@ -1,0 +1,18 @@
+https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_batch_consumers
+    // spring.cloud.stream.bindings.<binding-name>.consumer.batch-mode=true
+    @Bean
+    public Function<List<Person>, Person> findFirstPerson() {
+        return persons -> persons.get(0);
+    }
+https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_batch_producers
+    @Bean
+    public Function<String, List<Message<String>>> batch() {
+      return p -> {
+        List<Message<String>> list = new ArrayList<>();
+        list.add(MessageBuilder.withPayload(p + ":1").build());
+        list.add(MessageBuilder.withPayload(p + ":2").build());
+        list.add(MessageBuilder.withPayload(p + ":3").build());
+        list.add(MessageBuilder.withPayload(p + ":4").build());
+        return list;
+      };
+    }

@@ -1,0 +1,4 @@
+stack
+    --verbosity VERBOSITY    Verbosity: silent, error, warn, info, debug
+    -j<N>
+        N jobs

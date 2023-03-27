@@ -1,0 +1,73 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.logging
+https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
+
+log groups
+https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.logging.log-groups
+    web
+        org.springframework.core.codec,
+        org.springframework.http,
+        org.springframework.web,
+        org.springframework.boot.actuate.endpoint.web,
+        org.springframework.boot.web.servlet.ServletContextInitializerBeans
+    sql
+        org.springframework.jdbc.core,
+        org.hibernate.SQL,
+        org.jooq.tools.LoggerListener
+
+custom log config
+    https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.logging.custom-log-configuration
+        logging.config
+    2020
+    SpringAcademy - How to log SQL queries in Spring Boot? of 7:48
+        https://www.youtube.com/watch?v=tan2UglgvME
+            https://github.com/gavlyukovskiy/spring-boot-data-source-decorator
+                https://github.com/jdbc-observations/datasource-proxy
+                    http://jdbc-observations.github.io/datasource-proxy/docs/current/api/
+                https://p6spy.readthedocs.io/en/latest/index.html
+                https://buildmedia.readthedocs.org/media/pdf/p6spy/latest/p6spy.pdf
+                https://www.javadoc.io/doc/p6spy/p6spy/latest/index.html
+
+logback
+https://springframework.guru/using-yaml-in-spring-boot-to-configure-logback/
+https://springframework.guru/using-logback-spring-boot/
+https://springframework.guru/logback-configuration-using-groovy/
+
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-logging
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
+
+https://howtodoinjava.com/spring-boot2/logging/spring-boot-logging-configurations/
+
+logback
+https://springframework.guru/using-yaml-in-spring-boot-to-configure-logback/
+    https://dzone.com/articles/using-yaml-in-spring-boot-to-configure-logback
+https://springframework.guru/using-logback-spring-boot/
+https://springframework.guru/logback-configuration-using-groovy/
+https://www.codingame.com/playgrounds/4497/configuring-logback-with-spring-boot
+    !
+
+2022
+https://www.baeldung.com/spring-boot-logging
+2018
+https://memorynotfound.com/spring-boot-customize-actuator-info-endpoint-example-configuration/
+
+logging:
+  file:
+    path: logs
+    name: my.log
+  pattern:
+    file: "%d %-5level [%thread] %logger : %msg%n"
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(%property{PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint}[] %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wex"
+  level:
+    root: info
+
+  # does not work
+    - ".=info"
+    - "com.memorynotfound=debug"
+    - "org.springframework=info"
+
+cmd-line options 
+    --debug
+    --trace
+    TODO: how to specify them for gradle bootRun task?

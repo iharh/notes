@@ -1,0 +1,22 @@
+https://wiki.archlinux.org/index.php/Category:Getting_and_installing_Arch
+
+https://wiki.archlinux.org/index.php/Beginners%27_guide
+https://wiki.archlinux.org/index.php/Installation_guide
+https://wiki.archlinux.org/index.php/Network_Configuration
+
+https://habrahabr.ru/post/253256/
+https://habrahabr.ru/post/253573/
+https://habrahabr.ru/post/254415/
+
+http://news.softpedia.com/news/A-Beginners-Guide-to-Installing-Arch-Linux-352365.shtml
+
+!!! install.txt after booting !!!
+
+1. part-format-mount.txt
+2. inet.txt
+3. mirrors.txt
+4. bootloader.txt
+5. host-specific.txt
+6. kernel.txt
+7. reboot.txt
+

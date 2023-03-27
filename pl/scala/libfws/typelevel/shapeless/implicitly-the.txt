@@ -1,0 +1,2 @@
+We should avoid using "implicitly" when working with dependent functions.
+Shapeless provides "the"

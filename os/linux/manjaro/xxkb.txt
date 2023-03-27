@@ -1,0 +1,44 @@
+--- XXKB (obsolete)
+
+Keyboard:
+xxkb
+    ~/.xxkbrc
+
+    ~/.config/openbox/autostart:
+    setxkbmap -layout "us,ru(winkeys)" -variant -option grp:ctrl_shift_toggle,terminate:ctrl_alt_bksp
+
+    setxkbmap -query
+
+--- xxkb indicator
+
+http://www.unix-lab.org/posts/openbox/
+http://virus.org.ua/unix/mydotfiles/xxkbrc
+https://www.linux.org.ru/forum/general/9947341
+http://archlinuxer.blogspot.com/2010/03/xxkb.html
+
+    ~/.config/openbox/autostart:
+    (sleep 1s && xxkb) &
+
+~/.xxkbrc:
+XXkb.image.path: /usr/share/xxkb/
+XXkb.mainwindow.type:  tray
+XXkb.group.base: 1
+XXkb.group.alt: 2
+XXkb.mainwindow.enable:  yes
+XXkb.mainwindow.image.1: en15.xpm
+XXkb.mainwindow.image.2: ru15.xpm
+XXkb.mainwindow.image.3:
+XXkb.mainwindow.image.4:
+XXkb.mainwindow.appicon:  yes
+XXkb.mainwindow.geometry:  20x20+2+2
+XXkb.mainwindow.in_tray:  GNOME2
+XXkb.button.enable:  no
+XXkb.app_list.wm_class_name.start_alt: skype
+XXkb.controls.add_when_start: yes
+XXkb.controls.add_when_create: yes
+XXkb.controls.add_when_change: no
+XXkb.controls.focusout: no
+XXkb.mainwindow.xpm.1: en15.xpm
+XXkb.mainwindow.xpm.2: ru15.xpm
+XXkb.mainwindow.label.enable: no
+

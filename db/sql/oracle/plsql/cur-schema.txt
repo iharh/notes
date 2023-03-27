@@ -1,0 +1,7 @@
+alter session set current_schema=lin_ss;
+
+alter session set current_schema=WIN_SS;
+alter session set current_schema=WIN_PS;
+
+set serveroutput on;
+dbms_output.put_line('some val: ' || some_val);

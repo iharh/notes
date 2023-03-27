@@ -1,0 +1,7 @@
+$ java -XX:+PrintFlagsFinal -version|grep manageable
+
+Changing flags at RT:
+http://www.reddit.com/r/java/comments/2zhjde/turning_on_gc_logging_at_runtime/
+
+jinfo -flag +PrintGCDetails <pid>
+jinfo -flag +PrintGC <pid>

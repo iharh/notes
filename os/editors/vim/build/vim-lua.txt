@@ -1,0 +1,19 @@
+lua:
+http://www.thijsschreijer.nl/blog/?p=863
+
+LUA support at MSYS2:
+https://github.com/msys2/MINGW-packages/tree/master/mingw-w64-lua
+https://github.com/msys2/MINGW-packages/blob/master/mingw-w64-lua/PKGBUILD
+
+https://github.com/Alexpux/MSYS2-packages/issues/16
+They are two different tools.
+makepkg is for building MSYS2-PACKAGES and
+makepkg-mingw is for MINGW-PACKAGES
+...
+I was using mingw-devel instead of msys2-devel, thanks.
+
+http://sourceforge.net/projects/luabinaries/files/5.2.1/Windows%20Libraries/Dynamic/lua-5.2.1_Win64_dllw4_lib.zip/download
+https://bintray.com/veegee/generic/vim_x64
+
+http://stackoverflow.com/questions/31291961/compile-lua-5-3-mingw64-msys2
+http://yamini-code.com/2015/10/16/compile-lua-5-3-mingw64-msys2/

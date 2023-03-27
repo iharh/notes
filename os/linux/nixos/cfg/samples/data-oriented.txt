@@ -1,0 +1,6 @@
+https://github.com/hardselius/dotfiles
+    !!!
+    https://github.com/hardselius/dotfiles/blob/master/config/packages.nix
+      environment = {
+        systemPackages = import ./packages.nix { inherit pkgs; };
+      };

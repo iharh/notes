@@ -1,0 +1,20 @@
+functions -t func
+	enable [tracing] for function func.
+functions -n func
+	This prevents function from execution - [nonexec].
+functions -v func
+	Force each command to print [verbose] itself before expansion.
+
+
+
+
+
+zsh options:
+
+xtrace
+set -x
+#!/bin/sh -x
+	Every time the command executes - pring $PS4 and the command line.
+
+
+

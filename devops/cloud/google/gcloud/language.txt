@@ -1,0 +1,15 @@
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/__init__.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1/
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1/__init__.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1/language_v1_client.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1/language_v1_messages.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1/resources.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1beta2/
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1beta2/__init__.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1beta2/language_v1beta2_client.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1beta2/language_v1beta2_messages.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language/v1beta2/resources.py
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language_v1.json
+/opt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/language_v1beta2.json
+

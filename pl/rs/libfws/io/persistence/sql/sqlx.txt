@@ -1,0 +1,10 @@
+https://crates.io/crates/sqlx
+https://crates.io/crates/sqlx-cli
+
+https://docs.rs/sqlx/latest/sqlx/
+https://github.com/launchbadge/sqlx
+
+2023
+https://cosmichorror.dev/posts/speeding-up-sqlx-compile-times/
+2019
+https://www.reddit.com/r/rust/comments/egpw7g/announcing_sqlx_a_fully_asynchronous_pure_rust/

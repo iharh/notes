@@ -1,0 +1,25 @@
+http://carlo-hamalainen.net/blog/2011/02/11/monad-motivation/
+
+http://adit.io/posts/2013-06-10-three-useful-monads.html
+http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html
+
+Esposito:
+http://yannesposito.com/Scratch/en/blog/Category-Theory-Presentation/
+
+Monads are just Monoids
+
+    A Monad is just a monoid in the category of endofunctors, what's the problem?
+
+The real sentence was:
+
+    All told, a monad in X is just a monoid in the category of endofunctors of X,
+      with product (x) replaced by composition of endofunctors and
+      unit set by the identity endofunctor.
+
+(M, \mu, \eta), where
+  - M is endofunctor (A -> M a)
+  - \mu  : M x M -> M  is a natural transformation (join, \mu : M (M a) -> M a)
+  - \eta : I -> M      is a natural transformation (I is identity functor, \eta : a -> M a)
+
+
+

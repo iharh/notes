@@ -1,0 +1,31 @@
+https://monix.io/
+
+https://gitter.im/monixio/monix/archives/
+2016/09/06
+
+API:
+https://monix.io/api/2.0/index.html
+
+src:
+
+Observer:
+https://github.com/monixio/monix/blob/master/monix-reactive/shared/src/main/scala/monix/reactive/Observer.scala
+    + dump
+
+Subscriber:
+https://monix.io/docs/2x/reactive/observers.html # ...
+https://monix.io/api/2.0/#monix.reactive.observers.Subscriber
+    A Subscriber is an Observer with an attached Scheduler.
+    A Subscriber can be seen as an address that the data source needs in order to send events, along with an execution context. 
+
+
+Coeval:
+https://monix.io/docs/2x/eval/coeval.html
+Coeval is a data type for controlling synchronous, possibly lazy evaluation, useful for describing lazy expressions and for controlling side-effects
+
+Future Utils:
+https://monix.io/docs/2x/execution/future-utils.html
+https://github.com/monix/monix/blob/master/monix-execution/shared/src/main/scala/monix/execution/FutureUtils.scala
+
+Tagless Final:
+http://www.beyondthelines.net/programming/introduction-to-tagless-final/

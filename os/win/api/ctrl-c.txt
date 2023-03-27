@@ -1,0 +1,10 @@
+// Prevent application from shutting down due to Ctrl-Break or Ctrl-C
+// keypresses, window close button clicks, user logoff, or system shutdown.
+
+#pragma argsused
+BOOL Handler (DWORD dwCtrlType)
+{
+	return TRUE;
+}
+
+SetConsoleCtrlHandler ((PHANDLER_ROUTINE) Handler, TRUE);

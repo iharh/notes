@@ -1,0 +1,19 @@
+http://www.cakesolutions.net/teamblogs/improving-workflow-with-local-sbt-files
+
+classpath:
+http://stackoverflow.com/questions/25158689/how-to-add-custom-resource-directory-to-test-classpath-without-copying-the-files
+
+unmanagedClasspath in Test += baseDirectory.value / "special-resources"
+
+props:
+import java.util.Properties
+
+val appProperties = settingKey[Properties]("The application properties")
+
+appProperties := {
+  val prop = new Properties()
+  IO.load(prop, new File("application.properties"))
+  prop
+}
+
+name := appProperties.value.getProperty("name")

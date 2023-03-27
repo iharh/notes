@@ -1,0 +1,25 @@
+http://words.steveklabnik.com/an-overview-of-macros-in-rust
+https://www.reddit.com/r/rust/comments/5pxdpk/an_overview_of_macros_in_rust/
+
+https://users.rust-lang.org/t/procedural-macros-on-stable-rust-today-kind-of/7695
+
+2023
+https://blog.yoshuawuyts.com/ensure-macros/
+2022
+https://medium.com/the-polyglot-programmer/rust-macros-the-right-way-65a9ba8780bc
+2021
+https://habr.com/ru/post/550460/
+https://fromherotozero.dev/blog/introduction-to-rust-macros/
+2019
+https://medium.com/@benmcdonald_11671/6-useful-rust-macros-that-you-might-not-have-seen-before-59d1386f7bc5
+2018
+https://philbooth.me/blog/refactoring-with-rust-macros
+https://medium.com/@phoomparin/a-beginners-guide-to-rust-macros-5c75594498f1
+https://people.gnome.org/~federico/blog/refactoring-some-repetitive-code-to-a-macro.html
+https://kasma1990.gitlab.io/2018/03/04/why-rust-has-macros/
+    https://habrahabr.ru/post/350716/
+https://medium.com/cloudflare-blog/writing-complex-macros-in-rust-reverse-polish-notation-8222487267d2
+http://words.steveklabnik.com/an-overview-of-macros-in-rust
+
+2017
+https://jvns.ca/blog/2017/12/24/my-first-rust-macro/

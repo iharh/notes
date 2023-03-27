@@ -1,0 +1,12 @@
+Bootstrap ($JAVA_HOME/jre/lib/rt.jar)
+Extension ($JAVA_HOME/jre/lib/ext/*.jar)
+System    ($CLASSPAT)
+
+User-based classloaders inherit the System-one
+
+2019
+https://medium.com/javarevisited/java-virtual-machine-jvm-internals-part-2-class-file-format-7752e5f7dbbe
+    https://habr.com/ru/company/otus/blog/478584/
+https://medium.com/javarevisited/java-virtual-machine-internals-class-loader-eea706eb37d9
+    https://habr.com/ru/company/otus/blog/468193/
+https://www.baeldung.com/java-classloaders

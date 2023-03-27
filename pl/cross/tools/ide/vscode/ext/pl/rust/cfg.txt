@@ -1,0 +1,31 @@
+https://gist.github.com/puffybsd/aff5193465b5cba4a07d7f700a357ffc
+settings.json
+"code-runner.executorMap": {
+  "rust": "if cd $dir && cargo run 2>/dev/null; then echo 'executed with cargo.'; else cd $dir && rustc $fileName && $dir$fileNameWithoutExt; fi",
+}
+Copy the user settings for "code-runner.executorMap" and update the "rust" attribute (other languages removed for clarity).
+
+launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'rust'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=renamer",
+          "--package=renamer"
+        ],
+        "filter": {
+          "name": "renamer",
+          "kind": "bin"
+        }
+      },
+      "args": ["--", "-d", "testdir"],
+      "cwd": "${workspaceFolder}"
+    },
+  ]
+}

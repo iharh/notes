@@ -1,0 +1,35 @@
+sudo gdisk /dev/sda
+p
+    print partition table
+i <num 1..6>
+    info about partition
+v
+    verify
+    If no problems are found, this command displays a summary of unallocated disk space. 
+n
+    create a new partition (with defaults)
+???
+    change name
+w
+    write data (to save changes)
+
+vb-work:
+
+Disk /dev/sda: 409600000 sectors, 195.3 GiB
+Logical sector size: 512 bytes
+Disk identifier (GUID): DDA9CCC2-7979-4933-8927-24D087D43B33
+Partition table holds up to 128 entries
+First usable sector is 34, last usable sector is 409599966
+Partitions will be aligned on 2-sector boundaries
+Total free space is 2014 sectors (1007.0 KiB)
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048            5953   1.9 MiB     EF02  
+   2            5954          255953   122.1 MiB   EF00  
+   3          255954       128255953   61.0 GiB    0700  
+   4       128255954       144255953   7.6 GiB     0700  
+   5       144255954       272255953   61.0 GiB    0700  
+   6       272255954       409599966   65.5 GiB    0700  
+
+later - format
+    mkfs.ext4 -L lbdata /dev/sda5

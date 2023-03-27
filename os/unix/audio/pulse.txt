@@ -1,0 +1,42 @@
+PulseAudio
+https://wiki.archlinux.org/index.php/PulseAudio
+https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting
+https://wiki.archlinux.org/index.php/PulseAudio/Examples
+https://wiki.ubuntu.com/PulseAudio
+
+https://bbs.archlinux.org/viewtopic.php?id=164868
+
+http://www.opennet.ru/tips/3014_pulseaudio_sound_audio_linux.shtml
+http://0pointer.de/blog/projects/pulse-glitch-free.html
+
+pavucontrol
+
+http://forums.netrunner.com/showthread.php?tid=17344
+
+https://forum.manjaro.org/index.php?topic=3681.0
+
+sudo pacman -Sy manjaro-printer && sudo systemctl enable cups.service
+sudo pacman -Sy manjaro-pulse
+and that's it.
+
+https://forum.manjaro.org/index.php?topic=4809.0
+    manjaro-pulse, pavucontrol, pulseaudio, pulseaudio-alsa
+
+
+pactl
+    list short sinks
+
+/etc/pulse/default.pa
+~/.config/pulse/default.pa
+### Automatically load driver modules for Bluetooth hardware
+#.ifexists module-bluetooth-policy.so
+#load-module module-bluetooth-policy
+#.endif
+
+#.ifexists module-bluetooth-discover.so
+#load-module module-bluetooth-discover
+#.endif
+
+Samples
+aplay -l
+aplay [-D plughw:1,0] /usr/share/sounds/alsa/Front_Right.wav

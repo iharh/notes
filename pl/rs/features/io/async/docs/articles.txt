@@ -1,0 +1,51 @@
+2022
+https://medium.com/@KevinBGreene/async-programming-in-rust-part-2-diving-into-scoped-threads-50aace437756
+https://medium.com/@KevinBGreene/async-programming-in-rust-part-1-threads-and-channels-736f8c87b04e
+https://mulitfariousguy.medium.com/a-rust-async-primer-pt-3-8424f2fdaefb
+https://mulitfariousguy.medium.com/a-rust-async-primer-pt-2-8c5928af1869
+https://mulitfariousguy.medium.com/a-rust-async-primer-pt-1-46c68fd599f6
+2021
+https://dev.to/rogertorres/asynchronous-rust-basic-concepts-44ed
+https://os.phil-opp.com/async-await/
+2020
+https://blog.logrocket.com/a-practical-guide-to-async-in-rust/
+https://blog.yoshuawuyts.com/async-http/
+https://www.fmendez.com/rust-adventures-async/
+https://omarabid.com/async-rust
+https://medium.com/@pailee.wai/how-we-migrate-our-framework-into-async-await-c67b160e16be
+Async/Await - Asynchronous Programming in Rust - What and How of Futures
+    https://www.youtube.com/watch?v=PzEhkFaGWUE
+2019
+Clubnik - Rust's Journey to Async/Await
+    https://www.youtube.com/watch?v=lJ3NC-R3gSI
+https://stjepang.github.io/2019/12/04/blocking-inside-async-code.html
+https://blog.hwc.io/posts/rust-futures-threadsleep-and-blocking-calls-inside-async-fn/
+https://boats.gitlab.io/blog/post/global-executors/
+https://habr.com/ru/post/475272/
+https://blog.rust-lang.org/2019/11/07/Async-await-stable.html
+http://smallcultfollowing.com/babysteps/blog/2019/10/26/async-fn-in-traits-are-hard/
+https://boats.gitlab.io/blog/post/poll-drop/
+https://www.infoq.com/presentations/rust-2019/
+https://blog.rust-lang.org/inside-rust/2019/10/11/AsyncAwait-Not-Send-Error-Improvements.html
+https://blog.rust-lang.org/inside-rust/2019/10/07/AsyncAwait-WG-Focus-Issues.html
+https://blog.rust-lang.org/2019/09/30/Async-await-hits-beta.html
+https://tmandry.gitlab.io/blog/posts/optimizing-await-1/
+http://smallcultfollowing.com/babysteps/blog/2019/07/08/async-await-status-report-2/
+https://habr.com/ru/post/455010/
+https://whitfin.io/some-thoughts-on-rusts-async-await-proposals/
+https://boats.gitlab.io/blog/post/await-decision/
+    https://www.reddit.com/r/rust/comments/bld06g/a_final_proposal_for_await_syntax/
+https://blog.yoshuawuyts.com/runtime/
+    https://crates.io/crates/runtime
+    https://rustasync.github.io/runtime/runtime/index.html
+    https://github.com/rustasync/runtime
+https://boats.gitlab.io/blog/post/for-await-i/
+https://levelup.gitconnected.com/explained-how-does-async-work-in-rust-c406f411b2e2
+RustLatam 2019 - Without Boats: Zero-Cost Async IO
+    https://www.youtube.com/watch?v=skos4B5x7qE
+2018
+http://aturon.github.io/tech/2018/04/24/async-borrowing/
+https://blag.nemo157.com/2018/12/09/inside-rusts-async-transform.html
+Fey - Rust Async Programming in 2018
+    https://www.youtube.com/watch?v=j0SIcN-Y-LA
+    https://gotocph.com/2018/sessions/587

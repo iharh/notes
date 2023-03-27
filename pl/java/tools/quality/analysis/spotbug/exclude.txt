@@ -1,0 +1,7 @@
+gradle/spotbugs/spotbugs-exclude.xml
+    <Match>
+        <Bug pattern="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE"/>
+        <Or>
+            <Class name="mypackage.MyClass"/>
+        </Or>
+    </Match>

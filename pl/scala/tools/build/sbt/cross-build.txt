@@ -1,0 +1,9 @@
+http://www.scala-sbt.org/release/docs/Cross-Build.html
+http://stackoverflow.com/questions/28149283/why-is-crossscalaversion-not-scalaversion
+https://github.com/sbt/sbt/issues/1828
+https://libraries.io/github/sbt/sbt-doge
+
+crossScalaVersions := Seq("2.8.2", "2.9.2", "2.10.0")
+
+> + package
+> + publish

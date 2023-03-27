@@ -1,0 +1,22 @@
+ubuntu
+apt/openconnect
+
+!do not work
+https://launchpad.net/~dwmw2/+archive/ubuntu/openconnect
+    sudo add-apt-repository ppa:dwmw2/openconnect
+    sudo apt-get update
+
+    http://ppa.launchpad.net/dwmw2/openconnect/ubuntu/dists/
+
+ui
+apt/
+    network-manager-openconnect
+    network-manager-openconnect-gnome
+
+network-manager-openconnect-gnome responsible in GUI for page with connection settings and is a missed(?) dependency
+for network-manager-openconnec
+
+src
+https://www.infradead.org/openconnect/download.html
+https://git.infradead.org/users/dwmw2/openconnect.git
+https://gitlab.com/openconnect/openconnect

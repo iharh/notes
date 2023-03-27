@@ -1,0 +1,275 @@
+Observable:
+https://monix.io/docs/2x/reactive/observable.html
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/main/scala/monix/reactive/Observable.scala
+
+        .range(0, 10)
+        .fromIterable(0 until 10)
+        .fromInputStream(...)
+        .fromLinesReader(...)
+        .fromFuture(...)
+        .fromTask(...)
+        .tailRecM(...) ???
+        .fromStateAction(stateFunction)(initialState)
+        .fromAsyncStateAction(stateFunction)(initialState)
+
+// Given an initial state and a generator function that produces the next state and the next element in the sequence,
+// creates an observable that keeps generating elements produced by our generator function.
+
+  def fromStateAction[S, A](f: S => (A, S))(initialState: => S): Observable[A] = new builders.StateActionObservable(initialState, f)
+
+// Given an initial state and a generator function that produces the next state and the next element in the sequence,
+// creates an observable that keeps generating elements produced by our generator function.
+
+  def fromAsyncStateAction[S, A](f: S => Task[(A, S)])(initialState: => S): Observable[A] = new builders.AsyncStateActionObservable(initialState, f)
+
+// ...
+  def fromLinesReader(in: BufferedReader): Observable[String] = new builders.LinesReaderObservable(in)
+
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/test/scala/monix/reactive/internal/builders/AsyncStateActionObservableSuite.scala
+
+  test("should respect the ExecutionModel") { scheduler =>
+    implicit val s = scheduler.withExecutionModel(AlwaysAsyncExecution)
+
+    var received = 0
+    val cancelable = Observable
+      .fromAsyncStateAction(intNow)(s.currentTimeMillis())
+      .subscribe { x => received += 1; Continue }
+
+    assertEquals(received, 0)
+    s.tickOne(); s.tickOne()
+    assertEquals(received, 1)
+    s.tickOne(); s.tickOne()
+    assertEquals(received, 2)
+
+    cancelable.cancel(); s.tick()
+    assertEquals(received, 2)
+    assert(s.state.tasks.isEmpty, "tasks.isEmpty")
+  }
+
+  def intAsync(seed: Long) = Task(int(seed))
+  def intNow(seed: Long) = Task.now(int(seed))
+
+  def int(seed: Long): (Int, Long) = {
+    // `&` is bitwise AND. We use the current seed to generate a new seed.
+    val newSeed = (seed * 0x5DEECE66DL + 0xBL) & 0xFFFFFFFFFFFFL
+    // The next state, which is an `RNG` instance created from the new seed.
+    val nextRNG = newSeed
+    // `>>>` is right binary shift with zero fill. The value `n` is our new pseudo-random integer.
+    val n = (newSeed >>> 16).toInt
+    // The return value is a tuple containing both a pseudo-random integer and the next `RNG` state.
+    (n, nextRNG)
+  }
+
+https://github.com/monix/monix/blob/master/monix-execution/shared/src/main/scala/monix/execution/schedulers/TestScheduler.scala
+
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/test/scala/monix/reactive/internal/builders/FutureAsObservableSuite.scala
+https://github.com/monix/monix/blob/master/monix-eval/shared/src/test/scala/monix/eval/TaskAsyncSuite.scala
+
+  /** On execution, consumes the source observable
+    * with the given [[Consumer]], effectively transforming the
+    * source observable into a [[monix.eval.Task Task]].
+    */
+  def consumeWith[R](f: Consumer[A,R]): Task[R] =
+    f(self)
+
+
+
+
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/main/scala/monix/reactive/observables/ObservableLike.scala
+
+// Applies a binary operator to a start value and all elements of this Observable, going left to right and returns a new
+// Observable that emits on each step the result of the applied function.
+// Similar to [[foldLeftF]], but emits the state on each step. Useful for modeling finite state machines.
+
+  def scan[R](initial: => R)(f: (R, A) => R): Self[R] = self.transform(source => new ScanObservable[A,R](source, initial _, f))
+
+// Applies a binary operator to a start value and to elements produced by the source observable, going from left to right,
+// producing and concatenating observables along the way. It's the combination between [[scan]] and [[flatMap]].
+
+  def flatScan[R](initial: => R)(op: (R, A) => Observable[R]): Self[R] = self.transform(self => new FlatScanObservable[A,R](self, initial _, op, delayErrors = false))
+
+// Applies the given partial function to the source for each element for which the given partial function is defined.
+// @param pf the function that filters and maps the source
+// @return an observable that emits the transformed items by the given partial function
+
+  def collect[B](pf: PartialFunction[A, B]): Self[B] = self.liftByOperator(new CollectOperator(pf))
+
+// Maps elements from the source using a function that can do asynchronous processing by means of `scala.concurrent.Future`.
+// Given a source observable, this function is basically the equivalent of doing:
+    *
+    * {{{
+    *   observable.concatMap(a => Observable.fromFuture(f(a)))
+    * }}}
+    *
+    * However prefer this operator to `concatMap` because it
+    * is more clear and has better performance.
+    *
+    * @see [[mapTask]] for the version that can work with
+    *      [[monix.eval.Task Task]]
+    */
+  def mapFuture[B](f: A => Future[B]): Self[B] =
+    mapTask { elemA =>
+      try Task.fromFuture(f(elemA))
+      catch { case NonFatal(ex) => Task.raiseError(ex) }
+    }
+
+/** Suppress the duplicate elements emitted by the source Observable.
+  *
+  * WARNING: this requires unbounded buffering.
+  */
+  def distinct: Self[A] =
+    self.liftByOperator(new DistinctOperator[A])
+
+
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/test/scala/monix/reactive/internal/operators/MapTaskSuite.scala
+
+test("should be cancelable, test #4") { implicit s => // Scheduler
+    var sumBeforeMapTask = 0L
+    var sumAfterMapTask = 0L
+    var sumAfterMapFuture = 0L
+
+    val f = Observable.intervalAtFixedRate(1.second, 4.seconds)
+      .take(10)
+      .doOnNext { x => sumBeforeMapTask += x + 1 }
+      .mapTask(x => Task.eval(x + 1).delayExecution(2.seconds))
+      .doOnNext { x => sumAfterMapTask += x + 1 }
+      .mapFuture(x => Future.delayedResult(1.second)(x + 1))
+      .doOnNext { x => sumAfterMapFuture += x + 1 }
+      .completedL
+      .runAsync
+
+    s.tick(3.second)
+    assertEquals(sumBeforeMapTask, 1)
+    assertEquals(sumAfterMapTask, 2)
+    assertEquals(sumAfterMapFuture, 0)
+
+    f.cancel()
+    ...
+}
+
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/main/scala/monix/reactive/internal/builders/
+TaskAsObservable.scala
+FutureAsObservable.scala
+AsyncStateActionObservable.scala
+
+creating observables:
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/main/scala/monix/reactive/internal/builders/IteratorAsObservable.scala
+RepeatOneObservable
+? unsafeSubscribeFn
+
+
+? concat/concatMap
+
+  * @define concatMergeDifference The difference between the `concat` operation
+  *         and `merge`is that `concat` cares about the ordering of sequences
+  *         (e.g. all items emitted by the first observable in the sequence
+  *         will come before the elements emitted by the second observable),
+  *         whereas `merge` doesn't care about that (elements get
+  *         emitted as they come). Because of back-pressure applied to
+  *         observables, `concat` is safe to use in all contexts, whereas
+  *         `merge` requires buffering.
+  *
+  * @define concatDescription Concatenates the sequence
+  *         of observables emitted by the source into one observable,
+  *         without any transformation.
+  *
+  *         You can combine the items emitted by multiple observables
+  *         so that they act like a single sequence by using this
+  *         operator.
+  *
+  *         $concatMergeDifference
+
+
+  def endWith[B >: A](elems: Seq[B]): Self[B] =
+    self.transform(self => self ++ Observable.fromIterable(elems))
+  def flatMap[B](f: A => Observable[B]): Self[B] =
+    self.concatMap(f)
+
+  /** Concatenates the source with another observable.
+    *
+    * Ordering of subscription is preserved, so the second observable
+    * starts only after the source observable is completed
+    * successfully with an `onComplete`. On the other hand, the second
+    * observable is never subscribed if the source completes with an
+    * error.
+    */
+  def ++[B >: A](other: Observable[B]): Self[B] =
+    self.transform(self => Observable.concat(self, other))
+
+
+
+  /** Alias for [[switch]]
+    *
+    * $switchDescription
+    */
+  def flattenLatest[B](implicit ev: A <:< Observable[B]): Self[B] =
+    self.switch
+
+  /** Folds the source observable, from start to finish, until the
+    * source completes, or until the operator short-circuits the
+    * process by returning `false`.
+    *
+    * Note that a call to [[foldLeftF]] is equivalent to this function
+    * being called with an operator always returning `true` as the first
+    * member of its result.
+    *
+    * @param initial is the initial state, specified as a possibly lazy value;
+    *        it gets evaluated when the subscription happens and if it
+    *        triggers an error then the subscriber will get immediately
+    *        terminated with an error
+    *
+    * @param op is an operator that will fold the signals of the source
+    *        observable, returning either a new state along with a boolean
+    *        that should become false in case the folding must be
+    *        interrupted.
+    */
+  def foldWhileF[R](initial: => R)(op: (R,A) => (Boolean, R)): Self[R] =
+    self.transform(source => new FoldWhileObservable[A,R](source, initial _, op))
+    ??? usages ???
+
+ /** Alias for [[completed]]. Ignores all items emitted by
+    * the source and only calls onCompleted or onError.
+    *
+    * @return an empty sequence that only calls onCompleted or onError,
+    *         based on which one is called by the source Observable
+    */
+  def ignoreElements: Self[Nothing] =
+    self.liftByOperator(CompletedOperator)
+
+
+  * @define switchDescription Convert an observable that emits observables
+  *         into a single observable that emits the items emitted by
+  *         the most-recently-emitted of those observables.
+
+  * @define switchMapDescription Returns a new observable that emits the items
+  *         emitted by the observable most recently generated by the
+  *         mapping function.
+
+  /** $switchDescription */
+  def switch[B](implicit ev: A <:< Observable[B]): Self[B] =
+    self.switchMap(x => x)
+
+  /** $switchMapDescription */
+  def switchMap[B](f: A => Observable[B]): Self[B] =
+    self.transform(self => new SwitchMapObservable[A,B](self, f))
+
+  /** In case the source is empty, switch to the given backup. */
+  def switchIfEmpty[B >: A](backup: Observable[B]): Self[B] =
+    self.transform(self => new SwitchIfEmptyObservable[B](self, backup))
+
+
+  // Takes longest prefix of elements that satisfy the given predicate and returns a new Observable that emits those elements.
+  def takeWhile(p: A => Boolean): Self[A] =
+    self.liftByOperator(new TakeByPredicateOperator(p))
+
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/test/scala/monix/reactive/internal/operators/SwitchMapSuite.scala
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/test/scala/monix/reactive/internal/operators/SwitchIfEmptySuite.scala
+
+foldLeft:
+    def observableForQueries(twitter: Twitter, langCode: String, queries: Seq[String]): Observable[Seq[Status]] = {
+        queries.foldLeft(Observable.empty[Seq[Status]])((o, query) => {
+            val o1 = observableForQuery(twitter, langCode, query)
+            Observable.concat(o, o1)
+        })
+    }
+

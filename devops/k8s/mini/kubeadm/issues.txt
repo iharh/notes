@@ -1,0 +1,78 @@
+cluster upgrade:
+https://github.com/kubernetes/features/issues/296
+https://github.com/kubernetes/community/pull/825
+https://github.com/kubernetes/kubernetes/pull/48899
+https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-7/
+
+/usr/bin/kubelet
+    --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf
+    --kubeconfig=/etc/kubernetes/kubelet.conf
+    --pod-manifest-path=/etc/kubernetes/manifests
+    --allow-privileged=true
+    --network-plugin=cni
+    --cni-conf-dir=/etc/cni/net.d
+    --cni-bin-dir=/opt/cni/bin
+    --cluster-dns=10.96.0.10
+    --cluster-domain=cluster.local
+    --authorization-mode=Webhook
+    --client-ca-file=/etc/kubernetes/pki/ca.crt
+    --cadvisor-port=0
+    --rotate-certificates=true
+    --cert-dir=/var/lib/kubelet/pki
+
+
+
+https://github.com/kubernetes/kubeadm/issues/1023
+    systemctl cat kubelet.service
+        /usr/lib/systemd/system/kubelet.service
+        ### /lib/systemd/system/kubelet.service
+
+    /etc/systemd/system/kubelet.service.d/10-kubeadmin.conf
+        kubernetes-1.12.0/build/rpms/10-kubeadm.conf
+        kubernetes-1.12.0/build/debs/10-kubeadm.conf
+            # Note: This dropin only works with kubeadm and kubelet v1.11+
+            [Service]
+            Environment="KUBELET_KUBECONFIG_ARGS=--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf"
+            Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml"
+            # This is a file that "kubeadm init" and "kubeadm join" generates at runtime, populating the KUBELET_KUBEADM_ARGS variable dynamically
+            EnvironmentFile=-/var/lib/kubelet/kubeadm-flags.env
+            # This is a file that the user can use for overrides of the kubelet args as a last resort. Preferably, the user should use
+            # the .NodeRegistration.KubeletExtraArgs object in the configuration files instead. KUBELET_EXTRA_ARGS should be sourced from this file.
+            EnvironmentFile=-/etc/default/kubelet
+            ExecStart=
+            ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_EXTRA_ARGS
+
+    /usr/bin/kubelet --kubeconfig=/etc/kubernetes/kubelet.conf --config=/var/lib/kubelet/config.yaml
+        E1003 17:04:19.238747    5335 reflector.go:134] k8s.io/kubernetes/pkg/kubelet/config/apiserver.go:47: Failed to list *v1.Pod: Get https://10.0.3.15:6443/api/v1/pods?fieldSelector=spec.nodeName%3Dihmo&limit=500&resourceVersion=0: dial tcp 10.0.3.15:6443: connect: connection refused
+        E1003 17:04:19.239582    5335 reflector.go:134] k8s.io/kubernetes/pkg/kubelet/kubelet.go:442: Failed to list *v1.Service: Get https://10.0.3.15:6443/api/v1/services?limit=500&resourceVersion=0: dial tcp 10.0.3.15:6443: connect: connection refused
+        E1003 17:04:19.241042    5335 reflector.go:134] k8s.io/kubernetes/pkg/kubelet/kubelet.go:451: Failed to list *v1.Node: Get https://10.0.3.15:6443/api/v1/nodes?fieldSelector=metadata.name%3Dihmo&limit=500&resourceVersion=0: dial tcp 10.0.3.15:6443: connect: connection refused
+        E1003 17:04:19.272990    5335 kubelet.go:2236] node "ihmo" not found
+
+
+
+
+
+
+
+    # /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    [Service]
+    Environment="KUBELET_KUBECONFIG_ARGS=--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf"
+    Environment="KUBELET_SYSTEM_PODS_ARGS=--pod-manifest-path=/etc/kubernetes/manifests --allow-privileged=true"
+    Environment="KUBELET_NETWORK_ARGS=--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin"
+    Environment="KUBELET_DNS_ARGS=--cluster-dns=10.96.0.10 --cluster-domain=cluster.local"
+    Environment="KUBELET_AUTHZ_ARGS=--authorization-mode=Webhook --client-ca-file=/etc/kubernetes/pki/ca.crt"
+    Environment="KUBELET_CADVISOR_ARGS=--cadvisor-port=0"
+    Environment="KUBELET_CERTIFICATE_ARGS=--rotate-certificates=true --cert-dir=/var/lib/kubelet/pki"
+    ExecStart=
+    ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_SYSTEM_PODS_ARGS $KUBELET_NETWORK_ARGS $KUBELET_DNS_ARGS $KUBELET_AUTHZ_ARGS $KUBELET_CADVISOR_ARGS $KUBELET_CERTIFICATE_ARGS $KUBELET_EXTRA_ARGS
+
+    sudo systemctl enable docker.service
+    sudo systemctl enable kubelet.service
+
+[preflight] Running pre-flight checks.
+	[WARNING SystemVerification]: docker version is greater than the most recently validated version. Docker version: 18.06.1-ce. Max validated version: 17.03
+	[WARNING Hostname]: hostname "ihmo" could not be reached
+	[WARNING Hostname]: hostname "ihmo" lookup ihmo on 10.9.192.3:53: server misbehaving
+	[WARNING FileExisting-crictl]: crictl not found in system path
+Suggestion: go get github.com/kubernetes-incubator/cri-tools/cmd/crictl
+

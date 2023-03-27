@@ -1,0 +1,8 @@
+https://www.jetbrains.com/lp/mono/
+https://github.com/JetBrains/JetBrainsMono
+
+community/ttf-jetbrains-mono
+    https://www.archlinux.org/packages/community/any/ttf-jetbrains-mono/
+
+/usr/share/fonts/TTF/
+    JetBrainsMono-*

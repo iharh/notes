@@ -1,0 +1,76 @@
+interesting
+    /lib/bridge-utils/ifupdown.sh
+
+ip
+    l[ink]
+        l[ist]
+            show links (with mac addresses)
+        d[elete]
+            wireless
+                https://unix.stackexchange.com/questions/558839/unable-to-delete-virtual-network-interface-on-linux
+                    sudo iw dev <dev> del
+
+    a[ddress]
+        view ip address[es]
+        -4 a
+            show ipv4 addresses only
+        a[ssign]
+            assign address
+                ip -4 a add 192.168.1.12 dev eth0
+        s[how]
+            ip -4 a show dev eth0
+            scope
+                global
+        d[elete]
+            https://serverfault.com/questions/486872/remove-ip-with-ip-command-in-linux
+            https://www.baeldung.com/linux/remove-ip-interface
+                sudo ip a del fe80::250:56ff:fec0:8/64 dev vmnet8
+
+    l[ink]
+        l[ist]
+            default
+        d[elete]
+            ???
+            sudo ip link delete <bridgename> type bridge
+        s[et]
+            ip link set $interfacename down
+
+    n[eighbour]
+        s[how]
+            man ip-neighbour ??? arp-cache
+
+ip netns
+    network namespaces (for virt-n)
+ip netns add development
+    add a new network namespace
+
+ip route
+  view the routing table
+  note: we can change the metric for each row of this table
+ip route del 192.168.2.0/24 dev eth0
+    delete the roote
+ip route add 192.168.2.0/24 dev eth0 metric 10
+    add...
+
+route -n
+  view the "Kernel IP routing table"
+
+
+ls -l /sys/class/net  
+    ...
+    vmnet1 -> ../../devices/virtual/net/vmnet1
+    vmnet8 -> ../../devices/virtual/net/vmnet8
+ls -la /sys/devices/virtual/net
+    ...
+    vmnet1
+    vmnet8
+ls -la /sys/devices/virtual/net/vmnet1 
+
+
+sudo nmcli connection show
+sudo nmcli connection delete <br-name>
+
+sudo ip a del x.x.x.x/23 vmnet8
+sudo ip a del fe80::250:56ff:fec0:8/64 dev vmnet8
+sudo ip link set vmnet8 down
+    uninstall vmplayer only - helps here

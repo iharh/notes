@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/734272/how-to-use-windbg-to-analyze-the-crash-dump-for-vc-application
+https://docs.microsoft.com/en-us/windows/win32/wer/collecting-user-mode-dumps
+    DumpType=2

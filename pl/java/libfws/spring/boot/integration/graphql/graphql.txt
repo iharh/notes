@@ -1,0 +1,17 @@
+https://github.com/graphql-java/graphql-spring-boot
+
+endpoints
+/graphiql
+
+2020
+https://dzone.com/articles/a-beginners-guide-to-graphql-with-spring-boot
+    https://habr.com/ru/post/513170/
+2018
+https://habr.com/post/421985/
+https://github.com/piomin/sample-graphql-microservices
+https://github.com/lynx-r/sample-graphql-microservices
+
+
+compile('com.graphql-java:graphql-spring-boot-starter:5.0.2')
+compile('com.graphql-java:graphiql-spring-boot-starter:5.0.2')
+compile('com.graphql-java:graphql-java-tools:5.2.3')

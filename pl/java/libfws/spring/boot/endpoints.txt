@@ -1,0 +1,22 @@
+https://<host>:9090/manage/<endpoint>
+
+info
+    get a short info
+env
+    print env vars
+trace
+    last 100 or so req/resp
+dump
+   thread dump 
+logfile
+    (authorization needed)
+mappings
+    list all the @RequestMapping paths declared in your application
+heapdump
+    (authorization needed)
+    returns a GZip compressed hprof heap dump file
+auto-config
+    auto configuration report
+liquibase
+flyway
+shutdown

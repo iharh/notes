@@ -1,0 +1,2 @@
+psql -U postgres -c 'SHOW config_file'
+psql -U postgres -c 'SHOW data_directory'

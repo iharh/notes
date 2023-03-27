@@ -1,0 +1,35 @@
+gui
+    swith to the gui mode
+F6
+    help
+h
+    help dialog with specific key bindings
+tab
+    next view
+
+src/disasm
+    h
+        show help dialog
+    return
+        one-shot break to the selected line
+    b
+        set breakpoint
+    c
+        continue
+    d
+        detach and resume process
+    D
+        detach with process suspended
+    k
+        kill process
+    n
+        step over line
+    N
+        step over instruction
+    o
+        step out
+    i
+        step in (source line)
+    I
+        step in (single instruction)
+

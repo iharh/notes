@@ -1,0 +1,14 @@
+data Stream a = a :& Stream a
+
+unfoldStream :: (b -> (a, b)) -> b -> Stream a
+unfoldStream f = \b -> case f b of
+  (a, b’) -> a :& unfoldStream f b’
+
+iterate :: (a -> a) -> a -> Stream a
+iterate f = unfoldStream $ \a -> (a, f a)
+
+repeat :: a -> Stream a
+repeat = unfoldStream $ \a -> (a, a)
+
+zip :: Stream a -> Stream b -> Stream (a, b)
+zip = curry $ unfoldStream $ \(a :& as, b :& bs) -> ((a, b), (as, bs))

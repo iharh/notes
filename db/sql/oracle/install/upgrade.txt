@@ -1,0 +1,34 @@
+Linux:
+http://www.unixmen.com/upgrade-from-oracle-11g-to-oracle-12c/
+? Oracle Validate
+
+Terminology:
+Critical Patch Updates (CPU) and Patch Set Updates (PSU) are proactive quarterly patch releases.
+
+11.2.0.4.0
+To download the software from My Oracle Support:
+Log on to My Oracle Support.
+Click Patches & Updates.
+In the Patch Search section, click the Search tab.
+Enter 13390677 in the Patch Name or Number field.
+Select a platform to download from the drop-down list.
+Click Search.
+In the Patch Search Results page, under Patch Name, click the patch number to display the patch details.
+Click Download.
+From the File Download window, click each file name to download the selected software.
+https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=13390677&aru=16720989&release=80112040&plat_lang=46P&patch_num_id=1730815&
+
+readme:
+
+To locate document 880782.1:
+Log on to My Oracle Support.
+Set Article ID as the search source.
+Enter 880782.1 in the search field, then click the Search icon.
+
+https://updates.oracle.com/Orion/PatchDetails/view_readme?plat_lang=233P&patch_file=&file_id=&password_required=&password_required_readme=&merged_trans=&aru=16908159&patch_num=13390677&patch_num_id=1730815&default_release=80112040&default_plat_lang=233P&default_compatible_with=&patch_password=&orderby=&direction=&no_header=0&sortcolpressed=&tab_number=
+? PSO
+
+Oracle Patch Updates and Security Alerts
+
+video:
+https://www.youtube.com/watch?v=d4D3iQWwH38

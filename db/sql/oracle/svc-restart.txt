@@ -1,0 +1,6 @@
+Manage Oracle<tns_name>TNSListener and OracleService<tns_name>
+
+Then restart and wait for some time as TNSListener may take some time 
+
+Use "lsnrctl.exe status". It will tell whether TNSNAME KCKGS101 is being served or not
+

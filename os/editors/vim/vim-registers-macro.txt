@@ -1,0 +1,103 @@
+:h registers
+:h copy-move
+	Help on registers
+:h i_CTRL-R
+	Insert a context of register (typed as a parameter) as if typed.
+:h i_CTRL-R_CTRL-R
+	Insert a context of register (typed as a parameter) literally.
+:h i_CTRL-R_CTRL-O
+	Insert a context of register (typed as a parameter) literally and do not auto-indent.
+:h i_CTRL-R_CTRL-P
+	Insert a context of register (typed as a parameter) literally and fix the indeng
+
+
+The mentioned commands can be prefixed by register id (0..9 or a..z)
+"<id>...
+"<uppercase-id"
+	Appends to the register (instead of overwriting it).
+
+Special registers:
+"
+	%
+		Current file name
+	#
+		Alternate file name
+	-
+		Last small delete
+	.
+		Last inserted text.
+	/
+		Last search
+	:
+		Last ex command
+	=
+		Expression (:h i_CTRL-R_= is the documentation on how to use the Vim expression register)
+	*
+		System Clipboard
+	+
+		System selection (X11)
+Special registers:
+	_
+		Black hole (!!! efficient while working with a long text)
+	@
+		Ex commands and scripts (macro-execution in normal mode, ex-commands in ex-mode).
+
+
+:reg[isters] [specific]
+	View current registers (or specific one).
+
+:set clipboard=unnamed
+	Link unnamed register and OS clipboard.
+:let @a="123 Main Street".
+	Preload register a (in .vimrc script).
+:let @/="stuff
+	Search for text without moving cursor.
+:let @a=""
+	Clear a register
+
+"<register><operator>
+	Accessing a register (both at normal and visual mode)
+Note:
+	if we use a capital leter ("A-"Z) - we append its content instead of overwrite
+C-R C-R <reg-letter>
+	Access a register in INSERT-mode
+
+Expression register:
+
+"=
+@=
+\=
+
+Combine several registers:
+
+:let @* = @a . @b . @c
+
+Capture output to a register
+
+:redir @A
+... up to :redir END
+
+Yank matched lines into a register (Note the upper-case register letter).
+:g/pattern/y A
+
+
+
+
+Macro:
+
+q<reg-letter>...<commands>...q
+	Record a macro
+q<capital-reg-letter>...<commands>...q
+	Append to already recorded macro
+@<reg-letter>
+	Play a macro
+@@
+	Re-play the latest macro.
+
+Edit macro text:
+"<reg-letter>p
+... do some editing
+"<reg-letter>yy
+
+
+

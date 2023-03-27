@@ -1,0 +1,14 @@
+https://gitlab.com/gnuwget/wget2
+
+2021
+https://www.tecmint.com/10-wget-command-examples-in-linux/
+https://itsecforu.ru/2021/11/30/%f0%9f%96%a7-%d1%81%d0%be%d0%b2%d0%b5%d1%82%d1%8b-%d0%b8-%d1%80%d0%b5%d0%ba%d0%be%d0%bc%d0%b5%d0%bd%d0%b4%d0%b0%d1%86%d0%b8%d0%b8-%d0%bf%d0%be-%d0%b8%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d0%be%d0%b2/
+    ! --mirror for mirroring full site
+https://lists.gnu.org/archive/html/info-gnu/2021-09/msg00011.html
+    https://www.opennet.ru/opennews/art.shtml?num=55873
+
+wget
+    random-wait -r -p -e robots=off -U mozilla http://www.example.com
+        http://handynotes.ru/page/4
+    -i file-list.txt
+        download from file list

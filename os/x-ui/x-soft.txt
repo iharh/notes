@@ -1,0 +1,50 @@
+Need:
+
+oblogout (oblogout-py3-git)
+obconf (S - for shade mode)
+obkey
+obmenu
+dmenu (vs gmrun)
+tint2 (bottom panel)
+  tint2-svn
+  tint2conf
+  tintwizard
+
+!! /usr/share/applications
+
+turbulence
+
+LXDE stuff:
+
+LXterminal
+PCManFM (vs Thunar of XFCE)
+Viewnior ??? (why not gpicview)
+nitrogen (walpaper mgr of LXDE)
+lxappearance (customize look and feel)
+lxpanel (top panel)
+lxtask
+lxrandr
+
+Editors:
+gvim (7.4 with lua)
+Geany
+
+I-Net browsers:
+firefox
+
+cairo-compmgr (buggy)
+xcompmgr (but compton is better)
+
+compton
+
+slim (login manager)
+  packages: slim-themes, archlinux-themes
+
+  /usr/share/slim/themes/
+
+  slim -p <path_to_slim_theme>
+    look the theme
+
+  /etc/slim.conf
+
+  current_theme

@@ -1,0 +1,15 @@
+https://aws.amazon.com/sdk-for-java/
+https://github.com/aws/aws-sdk-java
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3
+
+https://mvnrepository.com/artifact/com.amazonaws
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-test-utils
+
+libraries.aws_core          = 'com.amazonaws:aws-java-sdk-core:1.11.673'
+libraries.aws_s3            = 'com.amazonaws:aws-java-sdk-s3:1.11.673'
+
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html
+
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3ClientBuilder.html

@@ -1,0 +1,60 @@
+2022
+https://habr.com/ru/company/yandex_praktikum/blog/700608/
+IFMO - Suhovitskiy - Software Projecting 18 - Messaging - RabbitMQ, Kafka of 1:34:57
+    https://www.youtube.com/watch?v=NyAr11UYKRY
+Suhovitskiy - Messaging Architecture, Kafka and Rabbit 56:00 of 2:27:27
+    https://www.youtube.com/watch?v=jgpZBpDMaxQ
+YandexPracticum - Suhovitskiy - Message Brokers Fight ru of 1:57:06
+    https://www.youtube.com/watch?v=ZPDn7tdP6Rk
+    ! 14:50 Nastya Boshnyakovich, Rabbit
+    ! AMQP, exchange, routing, queues (!!! they push messages to consumers)
+    ! right projecting pattern is then queues are created by consumer itself
+    ! Fanout Exch (without routing, -> to all queues)
+    ! Direct Exch (routing by key)
+    ! Topic  Exch (routing by key with regexp)
+    ! Headers Exch
+    ! combining distinct types of exchanges
+    ! Queue settings (durable - save on disk, exclusive - only one subscriber,
+    !   autodelete - delete self when all subscribers unsubscribe)
+    ! +: easy to develop and administer, tune routing in the process, 
+    ! -: high-load problems, horizontal scalability difficulties, either speed or agility-of-routing
+    ! we can use Rabbit if it is important to
+    !   - the fact of obtaining message itself
+    !   - order of messages
+    ! 23:00 - Dima Shelamov, Kafka
+    ! till 2018 Rabbit was popular
+    ! after 2020
+    ! Data is stored as partitions at disk, working with them by "commit log"
+    ! Partitions are grouped by sense into topics (close analog to rabbit queues)
+    !   this allows us to store distinct partitions at distinct servers
+    !   this allows us to "shard" topic
+    !   ! Any single partition can be read by only one consumer (maximum)
+    !   ! data is always aligned inside partition (from left to right as a natural order of the queue)
+    !   ! subscribers can read partitions with distinct speed
+    ! Data is persistent, configurable clean-up politics 
+    ! Subscribers do pull messages
+    ! Messages are stored in partitions for a limited period of time
+    !   - either till certan configured time threshold
+    !   - or till partition will grow for a certain amount of disk space
+    !   - persistence allow us to re-read them, read by chunks
+    ! We use pull in Kafka (vs Push in Rabbit by single-one msg)
+    ! Publisher decides to which partition of topic he puts message
+    ! ! Again: consumer can read only from one partition
+    ! -> very important Kafka rule: number of partition should be equal
+    !    to the number of parallel (concurrent) consumers or replics
+    ! Kafka is a simple thing: it just stores messages and takes them back
+    ! +: speed and scalability, message replay/re-read, possibility to read messages by batches
+    ! ... transactionality is added by kafka streams ...
+    ! -: broken messages processing (no DLQ), Need to account for the last readen message id in partition for each reader
+    ! Each partition can be replicated multi-times (with the help of keeper)
+    ! Keeper is reponsible for unique topics naming in cluster, keeps consensus, ...
+    ! !!! Not nodes, but partitions are master/slave
+    ! 48:00 Alexander Peredery - Amazon SQS/SNS (simple notif-n service like fanout -> passes further)
+    ! thematical literature review at the end
+https://habr.com/ru/company/southbridge/blog/666326/
+2021
+TechPrimers - RabbitMQ vs Kafka | Trade-off's to choose one over other of 14:31
+    https://www.youtube.com/watch?v=GMmRtSFQ5Z0
+2020
+DataOps Poland #15 Apache Kafka and RabbitMQ from a use-case perspective of 54:48
+    https://www.youtube.com/watch?v=dNEnfQIXk7s

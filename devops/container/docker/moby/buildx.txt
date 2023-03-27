@@ -1,0 +1,11 @@
+https://github.com/docker/buildx
+https://github.com/moby/buildkit
+
+https://docs.docker.com/buildx/working-with-buildx/
+https://docs.docker.com/engine/reference/commandline/buildx/
+https://docs.docker.com/engine/reference/commandline/buildx_build/
+
+2017
+https://blog.mobyproject.org/introducing-buildkit-17e056cc5317
+    https://www.youtube.com/watch?v=cbLk3Egc42E
+    https://asciinema.org/a/gPEIEo1NzmDTUu2bEPsUboqmU

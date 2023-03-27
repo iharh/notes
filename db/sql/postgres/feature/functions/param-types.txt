@@ -1,0 +1,4 @@
+https://edu.postgrespro.ru/sqlprimer/sqlprimer-2019-msu-09.pdf
+    ! p45
+    declare
+        <var> <table>.<field>%TYPE

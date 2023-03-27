@@ -1,0 +1,13 @@
+https://github.com/mailhog/mhsendmail
+
+https://hub.docker.com/r/aheadworks/mhsendmail
+
+$ go get github.com/mailhog/mhsendmail
+
+$ mhsendmail test@mailhog.local <<EOF
+From: App <app@mailhog.local>
+To: Test <test@mailhog.local>
+Subject: Test message
+
+Some content!
+EOF

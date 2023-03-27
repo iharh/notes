@@ -1,0 +1,11 @@
+http://www.linuxjournal.com/article/1060
+
+http://superuser.com/questions/161722/how-to-list-imported-symbols-in-elf-executable
+
+readelf
+    -d
+        dynamic section (imported symbols)
+
+    -s
+    -Ws
+        symbols (wide-mode)

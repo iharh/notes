@@ -1,0 +1,21 @@
+commands
+    https://www.tutorialspoint.com/gnu_debugger/gdb_commands.htm
+    https://www.tutorialspoint.com/gnu_debugger/gdb_debugging_programs.htm
+
+    set args ben/ben.automorph.bin data/in2.txt
+        set args
+    r[un] <arg1> <arg2> ... <argN>
+        run untill a break
+
+    s <N>
+        run the next line <N> times (1 by default)
+    n[ext] <N>
+        like s, but does not step into
+    f[inish]
+        step out a current function (until it finished)
+    bt
+        print a stack trace
+    l <num>|<start#>,<end#>|<filename>:<fn>|
+        list 10 lines aroung line <num> or <fn> function
+    q
+        quit

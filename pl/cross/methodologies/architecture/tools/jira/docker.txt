@@ -1,0 +1,42 @@
+https://hub.docker.com/r/atlassian/jira-software/
+https://hub.docker.com/r/atlassian/jira-core
+
+https://bitbucket.org/atlassian-docker/
+https://bitbucket.org/atlassian-docker/docker-atlassian-jira/src/master/
+    ATL_DB_DRIVER
+
+our
+v8.20.11
+atlassian/jira-software:8.20.11
+
+2022
+https://github.com/heyValdemar/jira-traefik-letsencrypt-docker-compose/blob/main/jira-traefik-letsencrypt-docker-compose.yml
+AlexeyMatveev - Run Atlassian Data Center Jira, Confluence, Bitbucket in docker of 9:40
+    https://www.youtube.com/watch?v=xfqAwLB0OWU
+        https://matveevlife.wordpress.com/2022/01/05/deploy-2-data-center-nodes-of-jira-in-docker/
+            postgresql:
+                environment:
+                    - 'POSTGRES_DB=jiradb'
+        https://matveevlife.wordpress.com/2022/01/13/deploy-2-data-center-nodes-of-confluence-in-docker/
+        https://matveevlife.wordpress.com/2022/01/18/deploy-2-data-center-nodes-of-bitbucket-in-docker/
+        ! 4:20
+            http://localhost:8080/secure/SetupApplicationProperties!default.jspa
+            https://www.atlassian.com/ex/GenerateLicense.jspa?utm_nooverride=1&ref=prod&product=jira-software&version=8.20.11&build=820011&sid=BP8A-O3C9-TO2S-EOYY&licensefieldname=setupLicenseKey&callback=http://localhost:8080/secure/SetupLicense!default.jspa
+                https://www.youtube.com/watch?v=8M61OwpHRLg
+                    ! 30:25
+                        Jira Work Management
+
+2021
+https://www.heyvaldemar.net/ustanovka-jira-s-docker-compose/
+https://www.heyvaldemar.com/install-jira-with-docker-compose/
+
+
+create role jiraadmin with login password 'jirapwd';
+create database jiradb with owner = jiraadmin encoding = 'UTF8';
+grant all privileges on database jiradb to jiraadmin;
+
+    healthcheck:
+      test: 'curl localhost:8080/status | grep -q RUNNING'
+      interval: 1m
+      start_period: 10m
+      timeout: 10s

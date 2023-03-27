@@ -1,0 +1,27 @@
+https://wiki.archlinux.org/index.php/GRUB#Theme
+http://wiki.rosalab.ru/en/index.php/Grub2_theme_tutorial
+http://wiki.rosalab.ru/en/index.php/Grub2_theme_/_reference
+
+http://www.thelinuxguy.nl/how-tos/how-to-change-the-grub2-theme-on-archlinux/
+https://github.com/Generator/Grub2-themes#faq
+https://github.com/Generator/Grub2-themes
+
+https://github.com/EndeavourOS-Community-Editions/grub2-theme-endeavouros-classic
+
+/boot/grub/themes/
+/etc/default/grub
+GRUB_THEME=/boot/grub/themes/descent/theme.txt
+GRUB_GFXMODE=1280x800
+
+collections
+https://github.com/jacksaur/Gorgeous-GRUB
+
+BigSur
+https://www.pling.com/p/1443844/
+
+Grub-theme-vimix
+https://www.pling.com/p/1009236
+    https://github.com/vinceliuice/grub2-themes
+
+2022
+https://ostechnix.com/change-grub-theme-in-linux/

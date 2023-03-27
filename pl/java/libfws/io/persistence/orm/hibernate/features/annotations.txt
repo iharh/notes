@@ -1,0 +1,6 @@
+org.hibernate.annotations
+    @Generated
+    @Source(value = SourceType.DB) // .VM
+        https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#locking-optimistic-timestamp
+    @OptimisticLock(excluded = true)
+        https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#locking-optimistic-exclude-attribute

@@ -1,0 +1,22 @@
+https://openjdk.java.net/jeps/414
+https://openjdk.java.net/jeps/417
+
+https://inside.java/u/PaulSandoz/
+
+https://github.com/PaulSandoz/vector-api-dev-live-10-2021/blob/main/src/main/java/jmh/BytesHashcode.java
+
+2022
+https://habr.com/ru/post/679492/
+2021
+Sandoz - Vector API: SIMD Programming in Java
+    https://www.youtube.com/watch?v=VYo3p4R66N8
+Sandoz - The Vector API in JDK 17 of 30:41
+    https://www.youtube.com/watch?v=1JeoNr6-pZw
+    https://www.reddit.com/r/java/comments/ptwne1/the_vector_api_in_jdk_17/
+2018
+Kharbas - Vector API for Java
+    https://www.youtube.com/watch?v=PnVw1uFxSyw
+2017
+Ivanov
+    https://assets.contentful.com/oxjq45e8ilak/1ZZZNufmfu2YQymoUcceMG/3225f94992a188d953928bb0d5bdf301/Vectors_2017_JPoint.pdf
+    https://www.youtube.com/watch?v=9Ow9FCd-bSY

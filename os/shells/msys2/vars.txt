@@ -1,0 +1,22 @@
+HOME
+    correct (/home/Ihar_Hancharenka)
+HOMEDRIVE
+HOMEPATH
+    to the win-stuff
+http://superuser.com/questions/730409/my-msys2-home-has-moved-from-a-linux-like-one-to-a-windows-like-one-how-to-rest
+
+/etc/profile
+    ...
+MSYS2_PATH_TYPE
+    strict
+    inherit
+    *
+MAYBE_FIRST_START
+    sh /usr/bin/regen-info.sh
+    sh /usr/bin/update-ca-trust
+
+http://superuser.com/questions/809974/msys2-home-folder-show
+https://cygwin.com/cygwin-ug-net/ntsec.html#ntsec-mapping-nsswitch
+
+?
+https://github.com/valtron/llvm-stuff/wiki/Set-up-Windows-dev-environment-with-MSYS2

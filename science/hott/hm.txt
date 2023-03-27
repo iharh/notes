@@ -1,0 +1,55 @@
+Licata - Homotopy Theory in Type Theory
+https://www.youtube.com/watch?v=ziN2XcK5-PQ
+
+Propositions as Types
+
+1. A proposition is represented by a type
+2. A proof is represented by an element of that type
+
+Types are sets?
+
+In set theory, an equation is a proposition
+we don't ask why 1+1 = 2
+
+In type theory, every equation has a <proof>
+
+Types are considered infinity-groupoids
+
+Type theory has a notion of <2-proof> (equality of two proofs)
+
+<2-proof> : <proof_1> = <proof_2>
+
+.. a notion of <3-proof>
+
+<3-proof> : <2-proof_1> = <2-proof_2>
+
+...
+
+Synthetic vs Analytic
+
+Synthetic (like Euclid, notion of point, lines, manipulating them)
+Analytic (like Cartesian stuff with coordinates)
+
+Clasic HoT is Analytic.
+We need to use a Synthetic approach (with notions of space, points, paths, homotopies)
+
+
+Paths
+are not a mapping of [0..1] -> X, but a basic notion 
+
+1. Space at HoTT correspond to a type in TT (Type Theory)
+2. Points (M: A, N: A) - correspond to elements of a type
+3. Paths - are proofs of equalities
+    \alpha : M =_A N
+
+Path operations:
+
+id             : M = M (refl)
+\alpha^-1      : N = M (sym)
+\beta . \alpha : M = P (trans)
+
+Homotopies:
+
+id        . \alpha       = \alpha
+\alpha^-1 . \alpha       = id
+\gama . (\beta . \alpha) = (\gama . \beta) . \alpha

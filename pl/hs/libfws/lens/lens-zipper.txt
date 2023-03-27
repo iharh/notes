@@ -1,0 +1,14 @@
+http://hackage.haskell.org/package/zippo
+http://brandon.si/code/zippo/
+
+http://hackage.haskell.org/package/zippers-0.2
+https://github.com/ekmett/zippers/
+
+Lens Zipper Tree:
+https://www.fpcomplete.com/user/davorak/code-snippets/zipper-tree-examples
+
+From Zipper to Lens:
+https://www.fpcomplete.com/user/psygnisfive/from-zipper-to-lens
+http://stackoverflow.com/questions/15489324/traversal-tree-with-lens-and-zippers/
+http://hackage.haskell.org/package/lens/docs/Data-Tree-Lens.html
+

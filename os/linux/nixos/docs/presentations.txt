@@ -1,0 +1,106 @@
+2023
+Serokel - Pitfalls of Nix and How to Avoid Them – Philipp Herzog of 16:21
+    https://www.youtube.com/watch?v=nZbXhw42cks
+    ! bla-bla
+2022
+NixOS - Connor Brewster - The Road to Nix at Replit (SoN2022 - public lecture series) 0:00 of 42:36
+    https://www.youtube.com/watch?v=jhH2LWGUHhY
+Michiel Leenaars - The Significance of Reproducible Software in International R&D (SoN2022) of 1:04:43
+    https://www.youtube.com/watch?v=TM5zpCn4piM
+NixOS - Domen Kožar - Nix Is Going Mainstream (SoN2022 - public lecture series) of 1:09:06
+    https://www.youtube.com/watch?v=WuWZqSSoLxY
+NixOS - Valentin Gagarin - Flattering the Learning Curve of 1:02:54
+    https://www.youtube.com/watch?v=WFRQvkfPoDI
+NixOS - John Ringer - The Arch and History of Nixpkgs of 1:14:07
+    https://www.youtube.com/watch?v=TKgHazs3AMw
+Armijn Hemel - The History of NixOS of 49:30
+    https://www.youtube.com/watch?v=t6goF1dM3ag
+SoN2022 - Public Lecture Series - Eelco Dolstra of 1:18:12
+    https://www.youtube.com/watch?v=h8hWX_aGGDc
+2021
+FProgSPb - Vinogradov - Nix Intro ru of 44:46
+    https://www.youtube.com/watch?v=IzeCuTbw6wE
+    ! nix lang intro
+    ! <nixpkgs> - nixpkgs=... from $NIX_PATH
+    ! import <nixpkgs> -> lambda @ /nix/store/...
+    ! nix-repl> :t import <nixpkgs>
+    ! a set
+    ! let
+    !   nixpkgs = import <nixpkgs> {};
+    ! in
+    !   nixpkgs.bash
+    ! 26:00 - derivation
+WilT - NixOS Filesystem Overview 0:00 of 20:00
+    https://www.youtube.com/watch?v=jf0nIn2oS8A
+MyLinuxDiary - My impressions and experiences of NixOS so far 2:00 of 15:54
+    https://www.youtube.com/watch?v=0p9_AqHWynw
+Xe - How Nix and NixOS Get So Close to Perfect - Xe 3:00 of of 19:40
+    https://www.youtube.com/watch?v=WwgSMgpX6TM
+    https://christine.website/talks/nixos-pain-2021-11-10
+Cadey - How Nix and NixOS Get So Close to Perfect of 16:51
+    https://www.youtube.com/watch?v=qjq2wVEpSsA
+    https://christine.website/talks/nixos-pain-2021-11-10
+    https://christine.website/static/talks/nixos-pain.pdf
+Larchenko - Unusual Distribs ru of 1:01:12
+    https://www.youtube.com/watch?v=7f19R8BWUnU
+2020
+Wagner - Why nixos (rC3 2020) 0:00 of 37:12
+    https://www.youtube.com/watch?v=bEUiXDJbwW8
+    https://www.youtube.com/watch?v=0eTgQaNiRF0
+    https://tech.ingolf-wagner.de/slides/why-nixos
+    https://tech.ingolf-wagner.de/slides/why-nixos.html
+Can't Hack This - A hard-headed introduction to Nix
+    https://www.youtube.com/watch?v=LBrWwZOjsQ4
+    https://github.com/fp-wroc/talks/blob/master/files/cant_hack_this.pdf
+Sokolowski - Nix Fundamentals
+    https://www.youtube.com/watch?v=m4sv2M9jRLg
+    https://drive.google.com/file/d/1Tt5R7QOubudGiSuZIGxuFWB1OYgcThcL/edit
+    ! need to look
+Steinbach- Sane System Management with NixOS - I Do Declare!- λC 2019
+    https://www.youtube.com/watch?v=_LDzO5_d1a0
+    ! need to look
+    ! boot.kernel.sysctl
+The Nix ecosystem - Elis Hirwing (etu) - Oslo NixOS MiniCon 2020 0:00 of 23:28
+    https://www.youtube.com/watch?v=9Su89RLoh0Q
+2019
+NixCon - Fearless Tinkering: How NixOS Works
+    https://www.youtube.com/watch?v=DK_iLg2Ekwk
+    ! need to look
+Libber - Nixcon 2019 - Nix-based development environments at Shopify  14:00 of 27:04
+    https://www.youtube.com/watch?v=rYzjKCIqUVk
+Functional programming and Nix for reproducible, immutable infrastructure 3:00 of 35:34
+    https://www.youtube.com/watch?v=mKXLAbrKrno
+    ! need to look
+Fearless Tinkering: How NixOS Works
+    https://www.youtube.com/watch?v=DK_iLg2Ekwk
+    ! need to look
+2018
+Gonzalez - Nix Under the Hood    21:00 of 1:02:49
+    https://www.youtube.com/watch?v=GMQPzv3Sx58
+    https://github.com/Gabriel439/slides/blob/master/nix-internals/slides.md
+    ! nix epression -> derivation -> build product
+    ! how to produce, transform, consume all the 3 above
+    ! need to look
+Leathers - Nix at Home - Configuration management for your house
+    https://www.youtube.com/watch?v=0pqdOnQKMKE
+Dolstra - the Nix roadmap
+    https://www.youtube.com/watch?v=8M6yvJC00J4
+    ! need to look
+2017
+Product Review - NixOS 0:00 of 26:43
+    https://www.youtube.com/watch?v=SQoUfpPAHTM
+2016
+NYLUG Presents: Charles Strahan -on- Introduction to NixOS 0:00 of 1:57:05
+    https://www.youtube.com/watch?v=VivXSoovUFI
+Franz Pletz: NixOS 0:00 of 1:02:54
+    https://www.youtube.com/watch?v=b1UoMevTgBw
+2015
+Dolstra - the Nix roadmap
+    https://www.youtube.com/watch?v=JjXJGiOgfGg
+    ! need to look
+2014
+https://speakerdeck.com/fwdays/funktsional-nyi-tulchiein-nix
+
+misc so-so
+https://www.youtube.com/watch?v=Xm2lsP7pnE4
+    https://soha.lt/presentations/warum-nix/

@@ -1,0 +1,14 @@
+books
+http://gchandbook.org/
+https://www.cs.kent.ac.uk/people/staff/rej/gcbib/gcbib.pdf
+
+2019
+https://shipilev.net/jvm/diy-gc/
+    https://habr.com/ru/company/jugru/blog/443250/
+2018
+https://www.opsian.com/blog/javas-new-zgc-is-very-exciting/
+https://jaxenter.com/jep-333-zgc-targeted-jdk-11-145414.html
+https://www.youtube.com/watch?v=tShc0dyFtgw
+
+qa
+http://stackoverflow.com/questions/895444/java-garbage-collection-log-messages

@@ -1,0 +1,39 @@
+https://www.gnu.org/software/parallel/parallel_tutorial.html
+https://stackoverflow.com/questions/28357997/running-programs-in-parallel-using-xargs
+
+books
+Ole Tange - GNU Parallel 2018
+
+samples
+
+# a list of A B C
+parallel echo ::: A B C
+parallel echo {} ::: A B C
+parallel -a abc-file echo
+cat abc-file | parallel echo
+
+# cartesian product
+parallel echo ::: A B C ::: def     
+parallel -a abc-file -a def-file echo
+parallel -a abc-file :::: def-file echo
+
+# A D
+# B E
+# C F
+# in other words - zip
+parallel --link echo ::: A B C ::: D E F     
+parallel --link echo ::: A B C D E ::: F G     
+# see also :::+ ::::+
+
+# ranges
+parallel echo ::: {1..3}
+
+# inserts none for the the arg
+parallel -N0 echo this {} ::: {1..3} 
+parallel -N0 echo this ::: {1..3} 
+
+# skips entire ...
+parallel 'echo this is {=skip()=}' ::: {1..3} 
+
+time parallel -j 4 -N0 curl -s "http://localhost:8080/analyze?text=Some+text" > /dev/null ::: {1..1000}
+

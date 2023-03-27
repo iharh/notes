@@ -1,0 +1,10 @@
+~/.jbang/
+    implicit-catalog.json
+
+    cache/
+        groovycs/
+        jars/
+            precompiled jars for compiled scripts
+        jdks/
+        kotlincs/
+    currentjdk/

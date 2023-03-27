@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+
+df0 = pd.read_csv('data/stat0.csv')
+
+def process(df, val_col):
+    dfr = df.loc[:,['name', val_col]].sort_values(by=['name', val_col]).groupby('name', as_index=False).apply(lambda grp: grp.iloc[2:-2])
+    dfr.to_csv('data/{}-percentiled.csv'.format(val_col), index=False)
+    return dfr
+    
+process(df0, 'all').boxplot(by='name')
+
+def process_agg(df, val_col):
+    dfr = df.loc[:,['name', val_col]].groupby('name', as_index=False).apply(lambda grp: grp.iloc[2:-2])
+    dfr = dfr.groupby('name').agg([np.min, np.median, np.max])
+    dfr.columns = dfr.columns.droplevel(0)
+    return dfr.rename(columns={'amin': 'min', 'amax': 'max'})
+
+process_agg(df0, 'all').plot()

@@ -1,0 +1,11 @@
+https://github.com/gradle/native-samples/blob/master/samples-dev/build.gradle
+    task generateMinimalCppListRepo(type: GitRepoTask) {
+        dependsOn cppInjectedPlugins
+        sampleDir = file("../cpp/injected-plugins/repos/list-library")
+        change { ch ->
+            tag("1.0")
+            message("initial version")
+        }
+    }
+
+https://amirnoel.wordpress.com/2016/03/09/adding-git-commit-information-to-java-jar-manifest-using-gradle/

@@ -1,0 +1,3 @@
+https://www.jbang.dev/documentation/guide/latest/usage.html#build-and-run-native-image-experimental
+    GRAALVM_HOME=/home/iharh/.asdf/installs/graalvm/22.2.0-java11 jbang --native a.java
+    GRAALVM_HOME=/home/iharh/.asdf/installs/graalvm/22.2.0-java11 jbang export native a.java

@@ -1,0 +1,24 @@
+scala.reflect
+http://docs.scala-lang.org/overviews/reflection/symbols-trees-types.html
+
+Muzychenko-RemoteFunctionsExecution
+
+import scala.reflect._
+
+def getType[T: ClassTag](x: T) =
+    classTag[T].runtimeClass.getName
+
+getType("no more erasure") // java.lang.String
+
+
+The reify method from scala.reflect takes a Scala expression as a parameter and returns an AST object representing the expression tree,
+complete with type annotations:
+
+import scala.reflect.runtime.universe._
+
+println(reify(CsvEncoder[Int]))
+// Expr[CsvEncoder[Int]]($read.$iw.$iw.$iw.$iw.CsvEncoder.apply[Int]($read.$iw.$iw.$iw.$iw.intEncoder))
+
+The types inferred during implicit resolution can give us hints about problems.
+After implicit resolution, any remaining existential types such as A or T provide a sign that something has gone wrong.
+Similarly, “top” and “bottom” types such as Any and Nothing are evidence of failure.

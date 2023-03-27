@@ -1,0 +1,22 @@
+output
+https://www.tutorialspoint.com/plsql/plsql_dbms_output.htm
+
+? get_lines
+
+set serveroutput on;
+
+-- does not eq to above
+-- DBMS_OUTPUT.ENABLE(buffer_size => NULL);
+
+dbms_output.enable(1000000);
+dbms_output.put_line('some message');
+
+
+dbms_obfuscation_toolkit
+https://docs.oracle.com/cd/B19306_01/appdev.102/b14258/d_obtool.htm#i1003449
+select rawtohex(dbms_obfuscation_toolkit.md5(input_string=> 'ARUP')) from dual;
+select id, name, type, rawtohex(dbms_obfuscation_toolkit.md5(input=> utl_raw.cast_to_raw(content))) from lin_ss.cb_shared_file_repository;
+
+
+crypto
+https://docs.oracle.com/cd/B28359_01/appdev.111/b28419/d_crypto.htm#BJFCGDIC

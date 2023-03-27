@@ -1,0 +1,36 @@
+2020
+https://habr.com/ru/company/ua-hosting/blog/489646/
+2019
+https://medium.com/better-programming/understanding-golang-and-goroutines-72ac3c9a014d
+    https://nuancesprog.ru/p/5746
+https://nuancesprog.ru/p/5518
+https://medium.com/better-programming/understanding-goroutine-go-channels-in-detail-9c5a28f08e0d
+    https://nuancesprog.ru/p/5381
+2018
+Joshi - The Scheduler Saga
+    https://www.youtube.com/watch?v=YHRO5WQGh0k
+Mills - Rethinking Classical Concurrency Patterns
+    https://www.youtube.com/watch?v=5zXAHh5tJqQ
+https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3
+    https://habr.com/post/412715/
+DeMario - Go Concurrency in the Real World
+    https://www.infoq.com/presentations/go-concurrency-demo
+Signals - Graceful Shutdown in Go ru
+    https://speakerdeck.com/player/54ce32350b894a1ab64b4f096d6f8a60#
+Scheduling in Go
+    https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part1.html
+    https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
+    https://www.ardanlabs.com/blog/2018/12/scheduling-in-go-part3.html
+2014
+https://blog.golang.org/pipelines
+2013
+Pike - Concurrency is not a Parallelism
+    https://blog.golang.org/concurrency-is-not-parallelism
+2012
+Pike - Go Concurrency Patterns
+    https://www.youtube.com/watch?v=f6kdp27TYZs
+    https://talks.golang.org/2012/concurrency.slide#1
+
+goroutines
+2017
+https://www.sohamkamani.com/blog/2017/08/24/golang-channels-explained/

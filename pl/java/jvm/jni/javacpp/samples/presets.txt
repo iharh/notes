@@ -1,0 +1,48 @@
+https://github.com/bytedeco/javacpp-presets
+
+https://github.com/bytedeco/javacpp-presets/wiki/Create-New-Presets
+https://github.com/bytedeco/javacpp-presets/wiki/Build-Environments
+https://github.com/bytedeco/javacpp-presets/wiki/Build-Environments#windows-x86-and-x86_64
+https://github.com/bytedeco/javacpp-presets/wiki/Building-on-Windows
+https://github.com/bytedeco/javacpp-presets/wiki/Building-on-Windows#installation-recipe-for-visual-studiuo-2015-and-windows-10
+
+https://github.com/bytedeco/javacpp-presets/tree/master/llvm/src/main/java/org/bytedeco/javacpp
+https://github.com/bytedeco/javacpp-presets/blob/master/llvm/src/main/java/org/bytedeco/javacpp/clang.java
+
+mingw
+https://github.com/bytedeco/javacpp-presets/blob/master/ale/pom.xml
+
+-Djavacpp.platform=windows-x86_64 
+?
+    windows-x86_64-mingw
+
+<profiles>
+    <profile>
+      <id>mingw</id>
+      <activation>
+        <os><family>windows</family></os>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacpp</artifactId>
+            <configuration>
+              <!-- properties>${javacpp.platform}-mingw</properties -->
+              <properties>windows-x86_64-mingw</properties>
+              <compilerOptions>
+                <compilerOption>-static-libgcc</compilerOption>
+                <compilerOption>-static-libstdc++</compilerOption>
+                <compilerOption>-Wl,-Bstatic</compilerOption>
+                <compilerOption>-lstdc++</compilerOption>
+                <compilerOption>-lgcc</compilerOption>
+                <compilerOption>-lgcc_eh</compilerOption>
+                <compilerOption>-lpthread</compilerOption>
+                <compilerOption>-Wl,-Bdynamic</compilerOption>
+              </compilerOptions>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+</profiles>

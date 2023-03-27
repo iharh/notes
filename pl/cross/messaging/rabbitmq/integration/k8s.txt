@@ -1,0 +1,16 @@
+https://github.com/Gsantomaggio/rabbitmq-operator
+https://github.com/Gsantomaggio/rabbitmq-operator#install-the-rabbitmq-operator-with-helm3
+
+https://github.com/rabbitmq/cluster-operator
+https://github.com/rabbitmq/cluster-operator/tree/main/docs/examples/production-ready
+    https://www.rabbitmq.com/kubernetes/operator/operator-overview.html
+
+2020
+https://www.rabbitmq.com/blog/2020/11/17/rabbitmq-kubernetes-operator-reaches-1-0/
+https://www.rabbitmq.com/blog/2020/08/10/deploying-rabbitmq-to-kubernetes-whats-involved/
+TGIR S01E06: How to run a reliable RabbitMQ on K8S
+    https://www.youtube.com/watch?v=I02oKJlOnR4
+        https://github.com/rabbitmq/tgir/tree/S01E06/s01/e06
+TGIR S01E05: I want to run RabbitMQ on K8S - Where do I start?
+    https://www.youtube.com/watch?v=-yU95ocpBYs
+    https://github.com/rabbitmq/tgir/tree/S01E05/s01/e05

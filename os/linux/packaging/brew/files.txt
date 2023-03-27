@@ -1,0 +1,10 @@
+brew --cache
+
+~/Library/Caches/Homebrew/
+    Backup/
+    Cask/
+    downloads/
+
+    all_commands_list.txt
+    external_commands_list.txt
+    cask_descriptions.json

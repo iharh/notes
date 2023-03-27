@@ -1,0 +1,12 @@
+https://github.com/GoogleContainerTools/jib
+https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin
+
+2020
+https://nuancesprog.ru/p/10062/
+https://mydeveloperplanet.com/2020/01/15/create-fast-and-easy-docker-images-with-jib/
+2018
+https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html
+
+./gradlew
+    jib (remote registry)
+    jibDockerBuild (local Daemon)

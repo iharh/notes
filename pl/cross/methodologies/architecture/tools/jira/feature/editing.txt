@@ -1,0 +1,12 @@
+#
+#*
+@Person
+{code}
+{panel}
+
+https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=links
+[^attachment-file-name.ext]
+
+https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=images
+!image.jpg!
+!image.jpg|thumbnail!

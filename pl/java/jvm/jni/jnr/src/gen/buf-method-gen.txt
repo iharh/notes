@@ -1,0 +1,29 @@
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/BufferMethodGenerator.java
+
+final class BufferMethodGenerator extends BaseMethodGenerator {
+
+    @Override
+        void generate(AsmBuilder builder, SkinnyMethodAdapter mv, LocalVariableAllocator localVariableAllocator, CallContext callContext, ResultType resultType, ParameterType[] parameterTypes, boolean ignoreError) {
+            generateBufferInvocation(builder, mv, localVariableAllocator, callContext, resultType, parameterTypes);
+    }
+    ...
+    void generateBufferInvocation(final AsmBuilder builder, final SkinnyMethodAdapter mv, LocalVariableAllocator localVariableAllocator, CallContext callContext, final ResultType resultType, final ParameterType[] parameterTypes) {
+        // [ stack contains: Invoker, Function ]
+        final boolean sessionRequired = isSessionRequired(parameterTypes);
+        final LocalVariable session = localVariableAllocator.allocate(InvocationSession.class);
+
+        if (sessionRequired) {
+            mv.newobj(p(InvocationSession.class));
+            mv.dup();
+            mv.invokespecial(InvocationSession.class, "<init>", void.class);
+            mv.astore(session);
+        }
+
+        // Create a new InvocationBuffer
+        mv.aload(0);
+        mv.getfield(builder.getClassNamePath(), builder.getCallContextFieldName(callContext), ci(CallContext.class));
+        mv.invokestatic(AsmRuntime.class, "newHeapInvocationBuffer", HeapInvocationBuffer.class, CallContext.class);
+        ...
+    }
+
+<- used by AsmLibraryLoader

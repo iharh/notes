@@ -1,0 +1,13 @@
+https://www.vagrantup.com/docs/plugins/development-basics.html
+https://www.vagrantup.com/docs/plugins/action-hooks.html
+https://www.vagrantup.com/docs/plugins/commands.html
+https://www.vagrantup.com/docs/plugins/configuration.html
+https://www.vagrantup.com/docs/plugins/guests.html
+https://www.vagrantup.com/docs/plugins/guest-capabilities.html
+https://www.vagrantup.com/docs/plugins/hosts.html
+https://www.vagrantup.com/docs/plugins/host-capabilities.html
+https://www.vagrantup.com/docs/plugins/providers.html
+https://www.vagrantup.com/docs/plugins/provisioners.html
+https://www.vagrantup.com/docs/plugins/packaging.html
+
+https://github.com/mitchellh/vagrant/blob/master/lib/vagrant/ui.rb

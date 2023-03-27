@@ -1,0 +1,1 @@
+std::io::copy(&mut resp, &mut std::io::stdout())?;

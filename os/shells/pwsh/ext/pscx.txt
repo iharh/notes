@@ -1,0 +1,4 @@
+https://github.com/Pscx/Pscx
+
+Install-Module Pscx -Scope CurrentUser
+Update-Module Pscx

@@ -1,0 +1,30 @@
+http://www.unixmen.com/logging-journald-rhel7centos7/
+
+2018
+https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs
+Journal:
+http://0pointer.de/blog/projects/journalctl.html
+
+cfg
+/etc/systemd/journald.conf
+
+SystemMaxUse
+  max disk size
+  default - 10% of the file system, the journal is at
+SystemMaxFileSize
+  the max size of each individual journal file
+
+export SYSTEMD_LESS=FRXMK
+or
+    journalctl --full
+
+
+analyze:
+systemd-analyze [blame|critical-chain|plot]
+
+systemd-bootchart
+bootchart.conf
+
+Power Management:
+https://wiki.archlinux.org/index.php/Power_Management
+https://forum.manjaro.org/index.php?topic=8351.0

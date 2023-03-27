@@ -1,0 +1,29 @@
+https://dlang.org/download.html
+
+community
+    dmd
+    dtools
+        ddemangle
+        dtools-catdoc
+        dtools-ddemangle
+        dtools-detab
+        dtools-dget
+        dtools-dustmite
+        dtools-rdmd
+        dtools-tolf
+        dustmite
+        rdmd
+
+    dmd-docs
+        /usr/share/d
+            index.html
+            html/d/spec
+            html/d/phobos
+            samples/
+            changelog/
+            articles/
+
+    libphobos (installed with dub)
+    dfmt
+
+https://dlang.org/dmd-windows.html

@@ -1,0 +1,20 @@
+https://www.docker.com/docker-security
+https://blog.docker.com/2017/02/docker-secrets-management/
+https://docs.docker.com/engine/swarm/secrets/
+
+https://www.youtube.com/watch?v=tjxkxVI_PVU
+https://www.youtube.com/watch?v=LmUw2H6JgJo
+https://www.youtube.com/watch?v=Zotjwkg9gq8
+https://www.youtube.com/watch?v=A32Yjizt2_s
+
+whitepaper:
+https://d3oypxn00j2a10.cloudfront.net/assets/img/Docker%20Security/WP_Intro_to_container_security_03.20.2015.pdf
+
+seccomp:
+https://habrahabr.ru/post/334016/
+
+swarm secrets:
+https://docs.docker.com/engine/swarm/secrets/
+
+tools:
+https://sysdig.com/blog/20-docker-security-tools/

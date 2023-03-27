@@ -1,0 +1,20 @@
+Downgrading:
+https://forum.manjaro.org/index.php?topic=4566.0
+
+ls -l /var/cache/pacman/pkg/ | grep mesa-19
+sudo pacman -U /var/cache/pacman/pkg/mesa-19.0.1+really+18.3.5-1-x86_64.pkg.tar.xz
+
+ls -l /var/cache/pacman/pkg/ | grep xf86-video-intel
+sudo pacman -U /var/cache/pacman/pkg/xf86-video-intel-2.99.911-2-x86_64.pkg.tar.xz
+sudo pacman -U /var/cache/pacman/pkg/xf86-video-intel-2.99.916-3-x86_64.pkg.tar.xz
+
+docker-1:18.09.8-1-x86_64.pkg.tar.xz
+docker-1:19.03.1-1-x86_64.pkg.tar.xz
+docker-1:19.03.1-2-x86_64.pkg.tar.xz
+docker-1:19.03.3-1-x86_64.pkg.tar.xz
+docker-1:19.03.4-1-x86_64.pkg.tar.xz
+docker-1:19.03.5-1-x86_64.pkg.tar.xz
+
+ALA (arch linux archive):
+https://wiki.archlinux.org/index.php/Arch_Linux_Archive
+https://habrahabr.ru/post/344000/

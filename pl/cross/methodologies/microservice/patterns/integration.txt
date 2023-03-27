@@ -1,0 +1,7 @@
+2022
+Slurm - Microservice Integration Patterns Review of 2:06:59
+    https://www.youtube.com/watch?v=7LtRDpELj1k
+    ! circuit breaker
+    ! ambasador
+    ! anti-corruption layer
+    ! 1:19:00 cache-aside (cache as a first source of truth)

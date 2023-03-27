@@ -1,0 +1,5 @@
+? how to check immutability
+
+immutable by definition
+Object.assign
+Array.map

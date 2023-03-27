@@ -1,0 +1,14 @@
+https://github.com/google/sanitizers
+
+http://clang.llvm.org/docs/ThreadSanitizer.html
+http://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html
+http://clang.llvm.org/docs/DataFlowSanitizer.html
+http://clang.llvm.org/docs/LeakSanitizer.html
+
+http://clang.llvm.org/docs/index.html
+
+llvm-symbolizer (part of the llvm, not a clang):
+http://llvm.org/docs/CommandGuide/llvm-symbolizer.html
+
+cmake-integration
+https://genbattle.bitbucket.io/blog/2018/01/05/Dev-Santa-Claus-Part-1/

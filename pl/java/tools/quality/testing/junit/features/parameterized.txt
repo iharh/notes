@@ -1,0 +1,58 @@
+http://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests
+
+https://junit.org/junit5/docs/current/api/org/junit/jupiter/params/provider/package-summary.html
+
+import org.junit.jupiter.params.ParameterizedTest;
+
+@ParameterizedTest
+@ValueSource
+@EnumSource
+@MethodSource
+@CsvSource, @CsvFileSource
+@ArgumentsSource, custom ArgumentsProvider
+
+2021
+https://mikemybytes.com/2021/10/19/parameterize-like-a-pro-with-junit-5-csvsource/
+2019
+https://www.baeldung.com/parameterized-tests-junit-5
+https://bmuschko.com/blog/junit5-vs-spock-showdown/#data-driven-tests
+2018
+https://nipafx.dev/junit-5-parameterized-tests/
+https://blog.codefx.org/libraries/junit-5-parameterized-tests/
+2017
+https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-parameterized-tests/
+
+combining with repeated
+https://github.com/junit-team/junit5/issues/1224
+https://github.com/junit-team/junit5/issues/871
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import static java.nio.charset.StandardCharsets.*;
+
+public class MyTests {
+
+    @Tag("stress")
+    @ParameterizedTest(name = "testTagged {index} {0}")
+    // @ValueSource(strings = { "aaa", "bbb", "ccc" })
+    @MethodSource("inputSource") 
+    void testTagged(String line) throws Exception {
+        // to check the real threads scheduling use:
+        System.out.println("line: " + line + " thread id: " + Thread.currentThread().getName());
+        ...
+    }
+
+    static Stream<String> inputSource() {
+        // Stream.of("aaa", "bbb", "ccc");
+	return getR("input.txt").lines(); 
+    }
+
+    private static BufferedReader getR(final String resName) {
+        return new BufferedReader(new InputStreamReader(MyTests.class.getResourceAsStream("/" + resName), UTF_8));
+    }
+}

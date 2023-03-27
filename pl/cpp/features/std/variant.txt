@@ -1,0 +1,33 @@
+2022
+https://www.reddit.com/r/cpp/comments/wgtdt7/building_stdvariant_from_scratch_part_1/
+    https://github.com/very-cool-name/blog-from-scratch/blob/master/part_i.md
+CppCon - Embracing (and also Destroying) Variant Types Safely - Andrei Alexandrescu 0:00 of 1:01:19
+    https://www.youtube.com/watch?v=va9I2qivBOA
+2020
+https://www.bfilipek.com/2020/04/variant-virtual-polymorphism.html
+    https://habr.com/ru/company/otus/blog/546158/
+2019
+https://speakerdeck.com/rollbear/stockholmcpp23-variant-visitation-variations
+    https://www.youtube.com/watch?v=ERHYJy5KxQo
+Nevin - The many variants of std::variant
+    https://www.youtube.com/watch?v=JUxhwf7gYLg
+https://mpark.github.io/programming/2019/01/22/variant-visitation-v2/
+2018
+Wuttke - std variant and the power of pattern matching
+    https://github.com/lethal-guitar/VariantTalk
+    https://github.com/lethal-guitar/VariantTalk/blob/master/slides/PatternMatching.pdf
+    https://www.youtube.com/watch?v=CELWr9roNno
+C++ Weekly - Ep 134 - The Best Possible Way To Create A Visitor
+https://www.youtube.com/watch?v=EsUmnLgz8QY
+https://www.bfilipek.com/2018/09/visit-variants.html
+https://pabloariasal.github.io/2018/06/26/std-variant/
+https://www.bfilipek.com/2018/06/variant.html
+https://arne-mertz.de/2018/05/overload-build-a-variant-visitor-on-the-fly/
+https://arne-mertz.de/2018/05/modern-c-features-stdvariant-and-stdvisit/
+2017
+https://bitbashing.io/std-visit.html
+    https://habr.com/post/415737/
+
+samples
+https://github.com/Liorst4/cpp-result
+https://github.com/codeinred/recursive-variant

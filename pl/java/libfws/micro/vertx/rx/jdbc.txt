@@ -1,0 +1,14 @@
+https://vertx.io/docs/vertx-jdbc-client/java/
+
+https://github.com/vert-x3/vertx-jdbc-client
+http://vertx.io/docs/apidocs/io/vertx/rxjava/ext/jdbc/JDBCClient.html
+
+https://groups.google.com/forum/#!topic/vertx/UGYtPZDBv1g
+
+https://github.com/vert-x3/vertx-examples/tree/master/rx-examples/src/main/java/io/vertx/example/rxjava/database/jdbc
+https://github.com/vert-x3/vertx-examples/blob/master/rx-examples/src/main/java/io/vertx/example/rxjava/database/jdbc/Client.java
+https://github.com/vert-x3/vertx-examples/blob/master/rx-examples/src/main/java/io/vertx/example/rxjava/database/jdbc/Streaming.java
+
+2020
+Phillips - Introduction To Vert.x: Database Access
+    https://www.youtube.com/watch?v=WLwkEzS4fXE

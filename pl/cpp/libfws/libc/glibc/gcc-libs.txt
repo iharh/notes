@@ -1,0 +1,7 @@
+https://pkgs.org/download/libstdc++
+
+manjaro
+/lib64/libstdc++.so.6.0.25
+
+gcc-libs
+    8.2.1+20180831-1

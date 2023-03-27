@@ -1,0 +1,21 @@
+2018
+Shveenkov - Milliar of Pushes (mail ru)
+
+runtime.NumGoroutine()
+- cpu - syscall.Getrusage()
+- rusage.Utime
+- rusage.Stime
+- rusage.Maxrss
+
+import "syscall"
+rusage := new(syscall.Rusage)
+syscall.Getrusage(0, rusage)
+userCPU := rusage.Utime.Sec*1e9 + int64(rusage.Utime.Usec)
+fmt.Printf("userCPU: %d", userCPU)
+
+
+VmRSSRe := regexp.MustCompile(`VmRSS:\s+(\d+)\s+kB`)
+pid := os.Getpid()
+output, _ := ioutil.ReadFile(fmt.Sprintf("/proc/%v/status", pid))
+results := VmRSSRe.FindStringSubmatch(string(output))
+currentRSS, _ := strconv.ParseInt(results[1], 10, 64)

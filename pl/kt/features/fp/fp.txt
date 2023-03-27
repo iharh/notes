@@ -1,0 +1,1 @@
+https://blog.plan99.net/kotlin-fp-3bf63a17d64a

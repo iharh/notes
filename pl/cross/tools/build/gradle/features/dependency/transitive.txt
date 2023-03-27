@@ -1,0 +1,5 @@
+https://docs.gradle.org/5.0/userguide/managing_transitive_dependencies.html
+https://docs.gradle.org/5.0/userguide/managing_transitive_dependencies.html#sec:bom_import
+
+kt
+    isTransitive = false

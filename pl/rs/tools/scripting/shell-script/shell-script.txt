@@ -1,0 +1,76 @@
+articles
+2016
+http://www.chriskrycho.com/2016/using-rust-for-scripting.html
+
+https://users.rust-lang.org/t/rust-for-shell-scripting-experiences-request/2628/3
+
+::std::process::Command
+
+https://doc.rust-lang.org/std/os/unix/process/trait.CommandExt.html#tymethod.before_exec
+https://doc.rust-lang.org/nightly/std/process/struct.Command.html
+https://doc.rust-lang.org/nightly/std/process/struct.Stdio.html
+https://doc.rust-lang.org/nightly/std/process/struct.Child.html
+
+std::io::process::CreatePipe
+http://aturon.github.io/stability-dashboard/std/io/process/struct.Process.html
+
+? (too low-level and os-specific)
+https://github.com/faradayio/cage/blob/master/src/command_runner.rs
+
+proxima shells (6yo)
+https://crates.io/crates/shells
+https://docs.rs/shells
+https://github.com/Proksima/shells
+http://proksima.github.io/shells-doc/shells/index.html
+
+
+https://crates.io/crates/command-macros
+https://github.com/krdln/command-macros
+http://krdln.github.io/command-macros/command_macros/index.html
+    a lot of operators inside a macro-arg supported
+
+? (use mio::deprecated::PipeReader)
+https://github.com/dropbox/rust-subprocess-communicate
+    https://github.com/alexcrichton/mio-named-pipes
+
+
+tokio-process
+https://crates.io/crates/tokio-process
+https://github.com/alexcrichton/tokio-process
+https://docs.rs/tokio-process/0.2.0/tokio_process/
+
+pipers
+https://crates.io/crates/pipers
+https://github.com/mgattozzi/pipers
+https://docs.rs/pipers/1.0.1/pipers/
+https://www.reddit.com/r/rust/comments/5jxap3/announcing_pipers_a_small_library_to_pipe/
+
+super
+
+subprocess:
+https://crates.io/crates/subprocess
+https://docs.rs/subprocess/0.1.4/subprocess/struct.Pipeline.html
+
+duct
+https://crates.io/crates/duct
+https://github.com/oconnor663/duct.rs
+duct uses os_pipe internally
+
+os_pipe
+https://github.com/oconnor663/os_pipe.rs
+https://crates.io/crates/os_pipe
+https://docs.rs/os_pipe/0.4.0/os_pipe/
+http://stackoverflow.com/questions/41019780/merge-child-process-stdout-and-stderr
+
+clonablechild
+https://github.com/faern/clonablechild
+
+samples:
+https://github.com/sighol/tree-rs
+http://mattgathu.github.io/writing-cli-app-rust/
+https://matthias-endler.de/2018/ls/
+
+https://milancio42.github.io/blog/2018-03-22-rjoin/
+https://crates.io/crates/rjoin
+https://docs.rs/rjoin
+https://github.com/milancio42/rjoin

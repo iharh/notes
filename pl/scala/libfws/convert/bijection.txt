@@ -1,0 +1,10 @@
+http://twitter.github.io/bijection/
+https://github.com/twitter/bijection
+
+https://github.com/twitter/bijection/wiki/Using-bijection-from-java
+
+https://mvnrepository.com/artifact/com.twitter/bijection-core_2.12
+https://mvnrepository.com/artifact/com.twitter/bijection-avro_2.12
+
+collections:
+https://github.com/twitter/bijection/blob/develop/bijection-core/src/main/scala/com/twitter/bijection/CollectionBijections.scala

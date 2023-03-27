@@ -1,0 +1,27 @@
+SIGNING OUR OWN CERTIFICATE
+
+
+?? If you have TLS server installed ???
+
+Generate a self-signed certificate...
+
+If you already have a CSR, create a certificate with:
+
+$ openssl x509 -req -days 365 -in fd.csr -signkey fd.key -out fd.crt
+
+Signature ok
+subject=/CN=www.feistyduck.com/emailAddress=webmaster@feistyduck.com/O=Feisty Duck …
+Ltd/L=London/C=GB
+Getting Private key
+Enter pass phrase for fd.key: ****************
+
+You don’t actually have to create a CSR in a separate step. The following command creates a
+self-signed certificate starting with a key alone:
+
+$ openssl req -new -x509 -days 365 -key fd.key -out fd.crt
+
+If you don’t wish to be asked any questions, use the -subj switch to provide the certificate
+subject information on the command line:
+
+$ openssl req -new -x509 -days 365 -key fd.key -out fd.crt -subj "/C=GB/L=London/O=Feisty Duck Ltd/CN=www.feistyduck.com"
+

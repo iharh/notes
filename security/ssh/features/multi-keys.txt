@@ -1,0 +1,7 @@
+2021
+https://itnext.io/how-to-handle-multiple-ssh-keys-with-gitlab-27f7cf2e77ed
+    https://nuancesprog.ru/p/11306/
+    [user]
+        email = "yourgitlabemail@example.com"
+    [core]
+        sshCommand = "ssh -i ~/.ssh/work_rsa"

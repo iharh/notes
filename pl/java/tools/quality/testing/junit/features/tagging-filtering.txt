@@ -1,0 +1,19 @@
+https://junit.org/junit5/docs/current/user-guide/#writing-tests-tagging-and-filtering
+
+2019
+https://www.baeldung.com/junit-5-gradle
+2017
+https://blog.jdriven.com/2017/10/run-one-or-exclude-one-test-with-gradle/
+
+samples
+https://stackoverflow.com/questions/817135/grouping-junit-tests
+https://stackoverflow.com/questions/40891867/junit5-tag-specific-gradle-task
+
+test {
+    useJUnitPlatform {
+        // includeTags 'aaa', 'bbb'
+        excludeTags 'stress' // , 'ci'
+        // excludeTags project.hasProperty('runIntegrationTests') ? '' : 'integration-test'
+    }
+    ...
+}

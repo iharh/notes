@@ -1,0 +1,5 @@
+https://docs.gradle.org/current/userguide/kotlin_dsl.html
+https://gradle.github.io/kotlin-dsl-docs/api/
+
+https://github.com/gradle/kotlin-dsl
+    provider/src/main/kotlin/org/gradle/kotlin/dsl/

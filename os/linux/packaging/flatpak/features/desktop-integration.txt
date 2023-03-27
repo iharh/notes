@@ -1,0 +1,9 @@
+https://docs.flatpak.org/en/latest/desktop-integration.html
+
+https://docs.flatpak.org/en/latest/desktop-integration.html#status-icons
+
+https://docs.flatpak.org/en/latest/freedesktop-quick-reference.html
+    /var/lib/flatpak/app/<tg.app>/current/active
+        export/share/applications/
+            <tg-app>.desktop
+        /app/share/icons/hicolor/$size/apps/

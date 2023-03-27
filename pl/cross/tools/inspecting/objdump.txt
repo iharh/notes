@@ -1,0 +1,15 @@
+objdump
+    -TC
+        -T - dynamic symbols
+        -C - demangle
+    -p
+        get imports table
+    -dr
+        show asm
+
+
+0000000000000000      D  *UND*	0000000000000000              _ZNK6google8protobuf7Message11GetTypeNameB5cxx11Ev
+00000000002b6938 g    DF .text	000000000000003c  Base        _ZNK6google8protobuf7Message11GetTypeNameEv
+
+libicuuc.so
+00000000000aa300 g    DF .text  00000000000000e2  Base        _ZN6icu_4913UnicodeStringC1EPKciNS0_10EInvariantE

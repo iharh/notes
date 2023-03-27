@@ -1,0 +1,53 @@
+git merge-base
+    ???
+
+grep -r'<<<<' *
+    search for all the merge conflict markers
+
+
+git config --global merge.tool
+git config --global diff.tool
+
+git merge
+    --no-ff
+        do not do a fast-forward (for one-commit merges)
+    --ff-only
+        only do a fast-forward
+
+git checkout <to-branch>
+git merge <from-branch>
+git merge <from-branch> <to-branch>
+    one-line cmd
+
+
+git merge --no-ff <issue>-<desc>
+-//- no fast-forward
+
+-s <merge-strategy>
+    recursive
+        the default one
+    subtree
+
+-X subtree=vendor/plugins/demo
+    ???
+
+--squash
+    for squash, it does not finalize the commit (you may adjust it later)
+
+
+merge-drivers:
+https://medium.com/@porteneuve/how-to-make-git-preserve-specific-files-while-merging-18c92343826b
+
+git config --global merge.ours.driver /bin/true
+
+.gitattributes
+email.json merge=ours
+
+
+conf:
+
+merge.ff
+http://stackoverflow.com/questions/2500296/can-i-make-fast-forwarding-be-off-by-default-in-git
+git config [--global] --add merge.ff false
+
+pull.ff

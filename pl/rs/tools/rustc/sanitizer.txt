@@ -1,0 +1,6 @@
+https://users.rust-lang.org/t/howto-sanitize-your-rust-code/9378
+https://github.com/rust-lang/rust/pull/38699
+https://github.com/japaric/rust-san
+
+https://www.reddit.com/r/rust/comments/5uhybj/ffi_how_to_use_something_like_valgrind/
+https://www.reddit.com/r/rust/comments/5tgxmn/optimizing_rc_memory_usage_in_rust/ddmivgi/

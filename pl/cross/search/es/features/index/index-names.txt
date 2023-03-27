@@ -1,0 +1,2 @@
+Support date math in index names for all index based apis:
+https://github.com/elastic/elasticsearch/issues/12059

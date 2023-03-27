@@ -1,0 +1,6 @@
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/instant-messengers/skypeforlinux/default.nix
+
+2020
+https://www.reddit.com/r/NixOS/comments/klwg5x/need_help_creating_a_nix_package_for_maple/
+    https://github.com/NixOS/nixpkgs/blob/71f9181fc766ed4ea1043035d4ed63d1bd0f0cbc/pkgs/development/compilers/dotnet/build-dotnet.nix#L74
+         patchelf --set-interpreter "${stdenv.cc.bintools.dynamicLinker}" $out/dotnet

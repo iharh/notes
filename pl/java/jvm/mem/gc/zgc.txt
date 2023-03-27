@@ -1,0 +1,17 @@
+https://wiki.openjdk.java.net/display/zgc/Main
+https://docs.oracle.com/en/java/javase/15/gctuning/z-garbage-collector.html
+
+https://openjdk.java.net/jeps/377
+https://openjdk.java.net/jeps/376
+
+2021
+https://malloc.se/blog/zgc-jdk16
+2020
+https://malloc.se/blog/zgc-jdk15
+https://malloc.se/blog/zgc-softmaxheapsize
+https://malloc.se/blog/zgc-jdk14
+2017
+Liden - ZGC: The Next Generation Low-Latency Garbage Collector
+    https://www.youtube.com/watch?v=88E86quLmQA
+2019
+https://habr.com/ru/post/477692/

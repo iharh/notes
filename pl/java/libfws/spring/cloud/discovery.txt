@@ -1,0 +1,10 @@
+https://spring.io/guides/gs/service-registration-and-discovery/
+
+2017
+https://habrahabr.ru/post/325714/
+
+samples
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+- spring.cloud.discovery.client.simple.instances.my-server[0].uri=http://my-host:my-port
+

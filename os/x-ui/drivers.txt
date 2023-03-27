@@ -1,0 +1,10 @@
+xf86-video-intel
+
+man intel
+
+https://wiki.archlinux.org/index.php/Intel_Graphics
+https://forum.manjaro.org/index.php?topic=14372
+
+ls -l /var/cache/pacman/pkg/ | grep xf86-video-intel
+sudo pacman -U /var/cache/pacman/pkg/xf86-video-intel-2.99.911-2-x86_64.pkg.tar.xz
+

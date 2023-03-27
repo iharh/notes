@@ -1,0 +1,12 @@
+https://github.com/paketo-buildpacks/spring-boot
+https://spring.io/guides/topicals/spring-boot-docker/
+
+https://paketo.io/docs/howto/java/
+
+????
+https://kube.academy/courses/building-images/lessons/building-images-with-buildpacks-pack-spring-boot-kpack-and-paketo-buildpacks
+2021
+https://dev.to/sabyasachi/buildpack-with-spring-boot-300o
+2020
+https://faun.pub/creating-a-docker-image-using-cloud-native-buildpacks-in-spring-boot-19ff81b5209d
+https://medium.com/@TimvanBaarsen/first-look-at-cloud-native-buildpacks-support-in-spring-boot-2-3-milestone-1-ece8e72ed93f

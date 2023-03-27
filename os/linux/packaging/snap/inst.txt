@@ -1,0 +1,2 @@
+sudo pacman -Sy snapd
+sudo systemctl enable --now snapd.socket

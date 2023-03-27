@@ -1,0 +1,136 @@
+DEBUG 1 --- [.p0.q.nlp-svc-1][] o.s.messaging.handler.HandlerMethod
+    : Could not resolve parameter [0] in public org.springframework.messaging.Message<...MyDocument> ...MyMessageHandler.processDocument(org.springframework.messaging.Message<...MyDocument>):
+    No converter found from actual payload type 'byte[]' to expected payload type '...MyDocument'
+
+    https://github.com/spring-projects/spring-framework/blob/main/spring-messaging/src/main/java/org/springframework/messaging/handler/HandlerMethod.java#L342
+        protected static String formatArgumentError(MethodParameter param, String message) {
+            return "Could not resolve parameter [" + param.getParameterIndex() + "] in " +
+                param.getExecutable().toGenericString() + (StringUtils.hasText(message) ? ": " + message : "");
+        }
+
+org.springframework.messaging.handler.HandlerMethod
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/messaging/handler/HandlerMethod.html
+https://github.com/spring-projects/spring-framework/blob/main/spring-messaging/src/main/java/org/springframework/messaging/handler/HandlerMethod.java
+
+
+org.springframework.messaging.handler.invocation.InvokableHandlerMethod {
+  ...
+	protected Object[] getMethodArgumentValues(Message<?> message, Object... providedArgs) throws Exception {
+		MethodParameter[] parameters = getMethodParameters();
+		if (ObjectUtils.isEmpty(parameters)) {
+			return EMPTY_ARGS;
+		}
+
+		Object[] args = new Object[parameters.length];
+		for (int i = 0; i < parameters.length; i++) {
+			MethodParameter parameter = parameters[i];
+			parameter.initParameterNameDiscovery(this.parameterNameDiscoverer);
+			args[i] = findProvidedArgument(parameter, providedArgs);
+			if (args[i] != null) {
+				continue;
+			}
+			if (!this.resolvers.supportsParameter(parameter)) {
+				throw new MethodArgumentResolutionException(
+						message, parameter, formatArgumentError(parameter, "No suitable resolver"));
+			}
+      ...
+    }
+    ...
+  }
+  ...
+}
+
+org.springframework.cloud.stream.config
+class SmartMessageMethodArgumentResolver extends MessageMethodArgumentResolver {
+
+	private final MessageConverter messageConverter;
+
+	SmartMessageMethodArgumentResolver() {
+		this(null);
+	}
+
+	/**
+	 * Create a resolver instance with the given {@link MessageConverter}.
+	 * @param converter the MessageConverter to use (may be {@code null})
+	 * @since 4.3
+	 */
+	SmartMessageMethodArgumentResolver(@Nullable MessageConverter converter) {
+		this.messageConverter = converter;
+	}
+
+  ...
+
+	private Object convertPayload(Message<?> message, MethodParameter parameter,
+			Class<?> targetPayloadType) {
+		Object result = null;
+		if (this.messageConverter instanceof SmartMessageConverter) {
+			SmartMessageConverter smartConverter = (SmartMessageConverter) this.messageConverter;
+			result = smartConverter.fromMessage(message, targetPayloadType, parameter);
+		}
+		else if (this.messageConverter != null) {
+			result = this.messageConverter.fromMessage(message, targetPayloadType);
+		}
+
+		if (result == null) {
+			throw new MessageConversionException(message,
+					"No converter found from actual payload type '"
+							+ ClassUtils.getDescriptiveType(message.getPayload())
+							+ "' to expected payload type '"
+							+ ClassUtils.getQualifiedName(targetPayloadType) + "'");
+		}
+		return result;
+	}
+
+
+
+????
+MessageMethodArgumentResolver
+https://github.com/spring-projects/spring-framework/blob/main/spring-messaging/src/main/java/org/springframework/messaging/handler/annotation/support/MessageMethodArgumentResolver.java
+    private Object convertPayload(Message<?> message, MethodParameter parameter, Class<?> targetPayloadType) {
+		    Object result = null;
+		    if (this.converter instanceof SmartMessageConverter smartConverter) {
+			      result = smartConverter.fromMessage(message, targetPayloadType, parameter);
+		    } else if (this.converter != null) {
+			      result = this.converter.fromMessage(message, targetPayloadType);
+		    }
+
+		    if (result == null) {
+			      throw new MessageConversionException(message, "No converter found from actual payload type '" +
+					      ClassUtils.getDescriptiveType(message.getPayload()) + "' to expected payload type '" +
+					      ClassUtils.getQualifiedName(targetPayloadType) + "'");
+		    }
+		    return result;
+	  }
+
+org.springframework.messaging.converter
+public class CompositeMessageConverter implements SmartMessageConverter {
+    	
+    private final List<MessageConverter> converters; // !!!
+
+    /**
+     * Create an instance with the given converters.
+     */
+    public CompositeMessageConverter(Collection<MessageConverter> converters) {
+        Assert.notEmpty(converters, "Converters must not be empty");
+        this.converters = new ArrayList<>(converters);
+    }
+    ...
+}
+
+org.springframework.cloud.stream.converter
+public class CompositeMessageConverterFactory {
+    ...
+    public CompositeMessageConverterFactory(
+        List<? extends MessageConverter> customConverters, // !!! our custom converters here
+        ObjectMapper objectMapper) {
+
+        this.objectMapper = objectMapper;
+        if (!CollectionUtils.isEmpty(customConverters)) {
+            this.converters = new ArrayList<>(customConverters);
+        } else {
+            this.converters = new ArrayList<>();
+        }
+        initDefaultConverters();
+      ...
+    }
+

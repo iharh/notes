@@ -1,0 +1,15 @@
+https://github.com/serokell/deploy-rs
+
+sample
+https://github.com/serokell/deploy
+https://github.com/serokell/deploy/blob/master/deploy.sh
+
+2020
+https://serokell.io/blog/deploy-rs
+    https://www.reddit.com/r/NixOS/comments/k0utpw/our_new_nix_deployment_tool_deployrs/
+
+check:
+
+{
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+}

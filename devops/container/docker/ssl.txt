@@ -1,0 +1,324 @@
+Sabharwal - Docker Hands on Deploy - Administer Docker Platform
+    Docker server access over https
+
+https://shipyard-project.com/docs/quickstart/
+
+SSL Certificate
+    cert.pem
+SSL Key
+    key.pem
+
+CA Certificate
+    ca.pem
+
+
+http://middlewaresnippets.blogspot.com.by/2015/08/spring-boot-and-docker.html
+
+/opt
+    /docker
+        /certs (contains the certificates for client-server communication)
+            /ca
+                ca-key.pem          # CA pvt signing key
+                ca.pem
+                ca.srl
+            /client
+                cert.pem
+                key.pem
+            /server
+                server-cert.pem     # server
+                server-key.pem      # server pvt rsa key
+
+
+
+If we need Docker to be reachable via the network in a safe manner, we can enable TLS by specifying the tlsverify flag
+and pointing Docker's tlscacert flag to a trusted CA certificate.
+In the daemon mode, it will only allow connections from clients authenticated by a certificate signed by that CA.
+In the client mode, it will only connect to servers with a certificate signed by that CA.
+By using OpenSSL we can generate the necessary keys and certificates.
+
+
+To generate the private and public signing keys, we can use
+
+    # create the necessary directories
+    [root@docker ~]# mkdir -p /opt/docker/certs/{ca,client,server}
+     
+    # generate private and public signing keys
+    # genrsa - generate an RSA private key
+    # -aes256: encrypt the private key with the defined cipher
+    # -out: the output filename
+    # numbits: the size of the private key to generate in bits. This must be the last option specified.
+
+    [root@docker ~]# openssl genrsa -aes256 -out /opt/docker/certs/ca/ca-key.pem 2048
+
+    Generating RSA private key, 2048 bit long modulus
+    ...........................+++
+    ...................+++
+    e is 65537 (0x10001)
+    Enter pass phrase for /opt/docker/certs/ca/ca-key.pem:
+    Verifying - Enter pass phrase for /opt/docker/certs/ca/ca-key.pem:
+     
+    # req - PKCS#10 certificate request and certificate generating utility.
+    # -new: this option generates a new certificate request. It will prompt the user for the relevant field values.
+    # -x509: this option outputs a self signed certificate instead of a certificate request.
+    # -days n: when the -x509 option is being used this specifies the number of days to certify the certificate for.
+    # -key: specifies the file to read the private key from.
+    # -[digest]: this specifies the message digest to sign the request with (run 'openssl dgst -h output' to see a list of possible values).
+    # -out filename: specifies the output filename to write to.
+    # -subj arg: sets subject name for new request or supersedes the subject name when processing a request. The arg must be formatted as /type0=value0/type1=value1/type2=...
+
+    [root@docker ~]# openssl req -new -x509 -days 365 -key /opt/docker/certs/ca/ca-key.pem -sha256 -out /opt/docker/certs/ca/ca.pem -subj '/C=NL/ST=Middleware/L=Snippets/O=Middleware Snippets/OU=Blogging/CN=*.machine.com'
+
+    Enter pass phrase for /opt/docker/certs/ca/ca-key.pem:
+
+
+Note that we have used a wild-card in the common-name (CN=*.machine.com) such that we can use the certificates on all hosts.
+
+
+To generate the server key and a certificate signing request, we can use
+
+    # generate the server key and certificate signing request
+    # genrsa - generate an RSA private key
+    # -out: the output filename
+    # numbits: the size of the private key to generate in bits. This must be the last option specified.
+
+    [root@docker ~]# openssl genrsa -out /opt/docker/certs/server/server-key.pem 2048
+
+    Generating RSA private key, 2048 bit long modulus
+    ...........................................................................................................................................+++
+    ......................................................................................................................+++
+    e is 65537 (0x10001)
+     
+    # req - PKCS#10 certificate request and certificate generating utility.
+    # -new: this option generates a new certificate request. It will prompt the user for the relevant field values.
+    # -key: specifies the file to read the private key from.
+    # -[digest]: this specifies the message digest to sign the request with (run 'openssl dgst -h output' to see a list of possible values).
+    # -out filename: specifies the output filename to write to.
+    # -subj arg: sets subject name for new request or supersedes the subject name when processing a request. The arg must be formatted as /type0=value0/type1=value1/type2=...
+    [root@docker ~]# openssl req -new -key /opt/docker/certs/server/server-key.pem -sha256 -out /opt/docker/certs/server/server.csr -subj '/C=NL/ST=Middleware/L=Snippets/O=Middleware Snippets/OU=Blogging/CN=*.machine.com'
+
+Next, we need to sign the certificate signing request by our CA
+
+    # we can also add additional subject identities if needed
+    # x509 - Certificate display and signing utility
+    # -req: by default a certificate is expected on input. With this option a certificate request is expected instead
+    # -days arg: specifies the number of days to make a certificate valid for.
+    # -[digest]: this specifies the message digest to sign the request with (run 'openssl dgst -h output' to see a list of possible values).
+    # -in filename: specifies the input filename to read a certificate from .
+    # -CA filename: specifies the CA certificate to be used for signing. When this option is present x509 behaves like a "mini CA". The input file is signed by this CA using this option: that is its issuer name is set to the subject name of the CA and it is digitally signed using the CAs private key.
+    # -CAkey filename: sets the CA private key to sign a certificate with. If this option is not specified then it is assumed that the CA private key is present in the CA certificate file.
+    # -CAcreateserial: with this option the CA serial number file is created if it does not exist: it will contain the serial number "02" and the certificate being signed will have the 1 as its serial number. Normally if the -CA option is specified and the serial number file does not exist it is an error.
+    # -out filename: specifies the output filename to write to.
+    # -extfile filename: file containing certificate extensions to use. If not specified then no extensions are added to the certificate.
+    [root@docker ~]# echo subjectAltName = IP:192.168.101.210,IP:192.168.101.220,IP:192.168.101.230,IP:127.0.0.1 > /opt/docker/certs/server/extfile.cnf
+    [root@docker ~]# openssl x509 -req -days 365 -sha256 -in /opt/docker/certs/server/server.csr -CA /opt/docker/certs/ca/ca.pem -CAkey /opt/docker/certs/ca/ca-key.pem -CAcreateserial -out /opt/docker/certs/server/server-cert.pem -extfile /opt/docker/certs/server/extfile.cnf
+    Signature ok
+    subject=/C=NL/ST=Middleware/L=Snippets/O=Middleware Snippets/OU=Blogging/CN=*.machine.com
+    Getting CA Private Key
+    Enter pass phrase for /opt/docker/certs/ca/ca-key.pem:
+     
+    # sign the public key without additional subject identities
+
+    [root@docker ~]# openssl x509 -req -days 365 -sha256 -in /opt/docker/certs/server/server.csr -CA /opt/docker/certs/ca/ca.pem -CAkey /opt/docker/certs/ca/ca-key.pem -CAcreateserial -out /opt/docker/certs/server/server-cert.pem
+
+    Signature ok
+    subject=/C=NL/ST=Middleware/L=Snippets/O=Middleware Snippets/OU=Blogging/CN=*.machine.com
+    Getting CA Private Key
+    Enter pass phrase for /opt/docker/certs/ca/ca-key.pem:
+
+
+
+Finally, we generate the client key and certificate
+
+    # generate client key and certificate signing request
+    # genrsa - generate an RSA private key
+    # -out: the output filename
+    # numbits: the size of the private key to generate in bits. This must be the last option specified.
+    [root@docker ~]# openssl genrsa -out /opt/docker/certs/client/key.pem 2048
+    Generating RSA private key, 2048 bit long modulus
+    ..+++
+    .................+++
+    e is 65537 (0x10001)
+     
+    # req - PKCS#10 certificate request and certificate generating utility.
+    # -new: this option generates a new certificate request. It will prompt the user for the relevant field values.
+    # -key: specifies the file to read the private key from.
+    # -out filename: specifies the output filename to write to.
+    # -subj arg: sets subject name for new request or supersedes the subject name when processing a request. The arg must be formatted as /type0=value0/type1=value1/type2=..
+    
+    [root@docker ~]# openssl req -new -key /opt/docker/certs/client/key.pem -out /opt/docker/certs/client/client.csr -subj '/CN=client'
+     
+    # sign the client key
+    # x509 - Certificate display and signing utility
+    # -req: by default a certificate is expected on input. With this option a certificate request is expected instead
+    # -days arg: specifies the number of days to make a certificate valid for.
+    # -[digest]: this specifies the message digest to sign the request with (run 'openssl dgst -h output' to see a list of possible values).
+    # -in filename: specifies the input filename to read a certificate from .
+    # -CA filename: specifies the CA certificate to be used for signing. When this option is present x509 behaves like a "mini CA". The input file is signed by this CA using this option: that is its issuer name is set to the subject name of the CA and it is digitally signed using the CAs private key.
+    # -CAkey filename: sets the CA private key to sign a certificate with. If this option is not specified then it is assumed that the CA private key is present in the CA certificate file.
+    # -CAcreateserial: with this option the CA serial number file is created if it does not exist: it will contain the serial number "02" and the certificate being signed will have the 1 as its serial number. Normally if the -CA option is specified and the serial number file does not exist it is an error.
+    # -out filename: specifies the output filename to write to.
+    # -extfile filename: file containing certificate extensions to use. If not specified then no extensions are added to the certificate.
+    [root@docker ~]# echo extendedKeyUsage = clientAuth > /opt/docker/certs/client/extfile.cnf
+    [root@docker ~]# openssl x509 -req -days 365 -sha256 -in /opt/docker/certs/client/client.csr -CA /opt/docker/certs/ca/ca.pem -CAkey /opt/docker/certs/ca/ca-key.pem -CAcreateserial -out /opt/docker/certs/client/cert.pem -extfile /opt/docker/certs/client/extfile.cnf
+    Signature ok
+    subject=/CN=client
+    Getting CA Private Key
+    Enter pass phrase for /opt/docker/certs/ca/ca-key.pem:
+     
+    # change the permissions of the private keys
+    [root@docker ~]# chmod 0400 /opt/docker/certs/ca/ca-key.pem /opt/docker/certs/client/key.pem /opt/docker/certs/server/server-key.pem
+     
+    # change the permissions of the public keys
+    [root@docker ~]# chmod 0444 /opt/docker/certs/ca/ca.pem /opt/docker/certs/client/cert.pem /opt/docker/certs/server/server-cert.pem
+     
+    # optionally the certificate signing requests and extention files can be removed
+
+    [root@docker ~]# rm -f /opt/docker/certs/client/client.csr /opt/docker/certs/client/extfile.cnf /opt/docker/certs/server/server.csr /opt/docker/certs/server/extfile.cnf
+     
+    # copy the certificates to the other hosts
+
+    [root@docker certs]# scp -rp * root@springboot1.machine.com:/opt/docker/certs/
+
+    root@springboot1.machine.com's password:
+    ca-key.pem                                                                                                                                                     100% 1766     1.7KB/s   00:00
+    ca.pem                                                                                                                                                         100% 1383     1.4KB/s   00:00
+    ca.srl                                                                                                                                                         100%   17     0.0KB/s   00:00
+    key.pem                                                                                                                                                        100% 1679     1.6KB/s   00:00
+    cert.pem                                                                                                                                                       100% 1155     1.1KB/s   00:00
+    server-key.pem                                                                                                                                                 100% 1675     1.6KB/s   00:00
+    server-cert.pem                                                                                                                                                100% 1265     1.2KB/s   00:00
+
+    [root@docker certs]# scp -rp * root@springboot2.machine.com:/opt/docker/certs/
+
+    root@springboot2.machine.com's password:
+    ca-key.pem                                                                                                                                                     100% 1766     1.7KB/s   00:00
+    ca.pem                                                                                                                                                         100% 1383     1.4KB/s   00:00
+    ca.srl                                                                                                                                                         100%   17     0.0KB/s   00:00
+    key.pem                                                                                                                                                        100% 1679     1.6KB/s   00:00
+    cert.pem                                                                                                                                                       100% 1155     1.1KB/s   00:00
+    server-key.pem                                                                                                                                                 100% 1675     1.6KB/s   00:00
+    server-cert.pem                                                                                                                                                100% 1265     1.2KB/s   00:00
+
+To make the Docker daemon only accept connections from clients providing a certificate trusted by our CA, we edit the /usr/lib/systemd/system/docker.service file
+
+    [root@springboot2 system]# cat docker.service
+    [Unit]
+    Description=Docker Application Container Engine
+    Documentation=https://docs.docker.com
+    After=network.target docker.socket
+    Requires=docker.socket
+     
+    [Service]
+    Type=notify
+    #ExecStart=/usr/bin/dockerd -H fd://
+    ExecStart=/usr/bin/docker -d --tlsverify --tlscacert=/opt/docker/certs/ca/ca.pem --tlscert=/opt/docker/certs/server/server-cert.pem --tlskey=/opt/docker/certs/server/server-key.pem -H=0.0.0.0:2376
+    MountFlags=slave
+    LimitNOFILE=1048576
+    LimitNPROC=1048576
+    LimitCORE=infinity
+     
+    [Install]
+    WantedBy=multi-user.target
+     
+    # Restart docker
+    [root@springboot2 system]# systemctl daemon-reload
+    [root@springboot2 system]# systemctl start docker.service
+    [root@springboot2 system]# systemctl status docker.service
+    docker.service - Docker Application Container Engine
+       Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled)
+       Active: active (running) since Wed 2015-08-19 14:36:56 CEST; 7s ago
+         Docs: https://docs.docker.com
+     Main PID: 11021 (docker)
+       CGroup: /system.slice/docker.service
+               -- 11021 /usr/bin/docker -d --tlsverify --tlscacert=/opt/docker/certs/ca/ca.pem --tlscert=/opt/docker/certs/server/server-cert.pem --tlskey=/opt/docker/certs/server/server-key.pem ...
+
+To communicate with the Docker daemon we now have to use
+
+    [root@docker ~]# docker --tlsverify --tlscacert=/opt/docker/certs/ca/ca.pem --tlscert=/opt/docker/certs/client/cert.pem --tlskey=/opt/docker/certs/client/key.pem -H=springboot2.machine.com:2376 pull docker.machine.com:5000/springbootexample:latest
+    latest: Pulling from springbootexample
+    f1b10cd84249: Pull complete
+    c852f6d61e65: Pull complete
+    7322fbe74aa5: Pull complete
+    4cfba0adf483: Pull complete
+    6a5b64d0925e: Pull complete
+    e136fb7fd983: Pull complete
+    f027b1b29898: Pull complete
+    e8261eb40ec4: Pull complete
+    20ee6480f62e: Pull complete
+    369ff136c2b5: Pull complete
+    c200531e0027: Pull complete
+    012ae7d5f8b5: Pull complete
+    c8a563965cf0: Pull complete
+    Digest: sha256:0b50559aa6d94d3a6919c5efd77b2ce262760c1bc4a9db7cb0b4f539ee854e0e
+    Status: Downloaded newer image for docker.machine.com:5000/springbootexample:latest
+     
+    [root@docker ~]# docker --tlsverify --tlscacert=/opt/docker/certs/ca/ca.pem --tlscert=/opt/docker/certs/client/cert.pem --tlskey=/opt/docker/certs/client/key.pem -H=springboot2.machine.com:2376 images
+    REPOSITORY                                  TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+    docker.machine.com:5000/springbootexample   latest              c8a563965cf0        3 hours ago         528.4 MB
+     
+    [root@docker ~]# docker --tlsverify --tlscacert=/opt/docker/certs/ca/ca.pem --tlscert=/opt/docker/certs/client/cert.pem --tlskey=/opt/docker/certs/client/key.pem -H=springboot2.machine.com:2376 run -d --name="springbootexample" --net="host" -v /home/temp:/home/temp -p 8080:8080 -p 9090:9090 docker.machine.com:5000/springbootexample
+    38a2ff01166a7c5c540c4fc6117946a535af9cf915a0c5bb7ae29b573429392e
+     
+    [root@docker ~]# docker --tlsverify --tlscacert=/opt/docker/certs/ca/ca.pem --tlscert=/opt/docker/certs/client/cert.pem --tlskey=/opt/docker/certs/client/key.pem -H=springboot2.machine.com:2376 ps
+    CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS               NAMES
+    38a2ff01166a        docker.machine.com:5000/springbootexample   "java -XX:+UnlockComm"   41 seconds ago      Up 39 seconds                           springbootexample
+     
+    [root@docker ~]# docker --tlsverify --tlscacert=/opt/docker/certs/ca/ca.pem --tlscert=/opt/docker/certs/client/cert.pem --tlskey=/opt/docker/certs/client/key.pem -H=springboot1.machine.com:2376 start springbootexample
+    springbootexample
+     
+    [root@docker ~]# docker --tlsverify --tlscacert=/opt/docker/certs/ca/ca.pem --tlscert=/opt/docker/certs/client/cert.pem --tlskey=/opt/docker/certs/client/key.pem -H=springboot1.machine.com:2376 ps
+    CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS               NAMES
+    7193fa0ef4c8        docker.machine.com:5000/springbootexample   "java -XX:+UnlockComm"   3 hours ago         Up 19 seconds                           springbootexample
+
+To secure Docker client connections by default, we can move the client certificate files to the .docker directory in the home directory, and set the DOCKER_HOST and DOCKER_TLS_VERIFY environment variables.
+
+    # create the .docker directory
+    [root@docker ~]# mkdir -p ~/.docker
+     
+    # copy the certificates
+    [root@docker ~]# cp /opt/docker/certs/ca/ca.pem ~/.docker
+    [root@docker ~]# cp /opt/docker/certs/client/cert.pem ~/.docker
+    [root@docker ~]# cp /opt/docker/certs/client/key.pem ~/.docker
+     
+    # check
+    [root@docker .docker]# ll
+    -r--r--r-- 1 root root 1383 Aug 19 15:02 ca.pem
+    -r--r--r-- 1 root root 1155 Aug 19 15:02 cert.pem
+    -r-------- 1 root root 1679 Aug 19 15:07 key.pem
+     
+    # edit .bashrc
+    [root@docker ~]# cat .bashrc
+    # .bashrc
+     
+    # User specific aliases and functions
+     
+    alias rm='rm -i'
+    alias cp='cp -i'
+    alias mv='mv -i'
+     
+    # Source global definitions
+    if [ -f /etc/bashrc ]; then
+            . /etc/bashrc
+    fi
+     
+    export DOCKER_HOST=tcp://springboot1.machine.com:2376
+    export DOCKER_TLS_VERIFY=1
+     
+    # check
+    [root@docker ~]# echo $DOCKER_HOST
+    tcp://springboot1.machine.com:2376
+    [root@docker ~]# echo $DOCKER_TLS_VERIFY
+    1
+    # this communicates only with springboot1.machine.com
+    [root@docker ~]# docker images
+    REPOSITORY                                  TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+    docker.machine.com:5000/springbootexample   latest              c8a563965cf0        4 hours ago         528.4 MB
+     
+    # note that it is better to leave out the $DOCKER_HOST and $DOCKER_TLS_VERIFY environment variables and use
+    [root@docker ~]# docker --tlsverify -H=springboot1.machine.com:2376 ps
+    CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS               NAMES
+    7193fa0ef4c8        docker.machine.com:5000/springbootexample   "java -XX:+UnlockComm"   3 hours ago         Up 15 minutes                           springbootexample
+    [root@docker ~]# docker --tlsverify -H=springboot2.machine.com:2376 ps
+    CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS               NAMES
+    38a2ff01166a        docker.machine.com:5000/springbootexample   "java -XX:+UnlockComm"   23 minutes ago      Up 23 minutes                           springbootexample
+

@@ -1,0 +1,150 @@
+update settings (realtime):
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/indices-update-settings.html
+
+index.blocks.read_only
+    Set to true to have the index read only, false to allow writes and metadata changes. 
+index.blocks.read
+    Set to true to disable read operations against the index. 
+index.blocks.write
+    Set to true to disable write operations against the index. 
+index.blocks.metadata
+    Set to true to disable metadata operations against the index. 
+
+XPUT/my_index/_settings' -d '
+{ "index" : {
+   "blocks.read_only" : true
+} }
+
+
+assertTrue(client.admin().indices().prepareUpdateSettings(indexName)
+    .setSettings(settingsBuilder().put(IndexMetaData.SETTING_READ_ONLY, true))
+    .get().isAcknowledged());
+
+
+
+Docs updating:
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-update.html
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/partial-updates.html
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/update-doc.html
+
+upserting:
+https://github.com/elasticsearch/elasticsearch/issues/2008
+http://stackoverflow.com/questions/18028280/elasticsearch-upserting-and-appending-to-array
+
+Bulk indexing:
+
+http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/master/bulk.html
+
+
+Deleting from index:
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-delete.html
+http://www.elasticsearch.org/blog/lucenes-handling-of-deleted-documents/
+
+Optimizing index:
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/indices-optimize.html
+
+
+index scaleability:
+
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/scale.html
+
+https://gibrown.wordpress.com/2014/01/09/scaling-elasticsearch-part-1-overview/
+https://gibrown.wordpress.com/2014/02/06/scaling-elasticsearch-part-2-indexing/
+https://gibrown.wordpress.com/2014/08/12/scaling-elasticsearch-part-3-queries/
+
+
+index settings:
+
+http://www.slideshare.net/kjunine/indices-apis-elasticsearch-reference
+
+Create index with mappings
+curl -XPUT 'localhost:9200/docs' -d @mappings.json
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/indices-update-settings.html
+
+curl -XPOST 'http://localhost:9200/test/_optimize?max_num_segments=5'
+
+
++ masternode (link by multi/uni cast)
+
+http://www.elasticsearch.org/blog/changing-mapping-with-zero-downtime/
+http://stackoverflow.com/questions/22304776/how-to-scale-write-and-indexs-size-dynamically-with-elasticsearch
+
+indexing modules:
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-allocation.html
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-store.html
+  - throttling is at store
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-merge.html
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-slowlog.html
+  !!! slow search log settings
+
+index throttling:
+The node level throttling will make sure that out of all the shards allocated on that node, the merge process won’t pass the specific setting bytes per second.
+It can be set by setting
+    indices.store.throttle.type                 to merge, and setting
+    indices.store.throttle.max_bytes_per_sec    to something like 5mb.
+The node level settings can be changed dynamically using the cluster update settings API.
+The default is set to 20mb with type merge.
+
+If specific index level configuration is needed, regardless of the node level settings, it can be set as well using the
+    index.store.throttle.type, and
+    index.store.throttle.max_bytes_per_sec.
+The default value for the type is node, meaning it will throttle based on the node level settings and participate in the global throttling happening.
+Both settings can be set using the index update settings API dynamically.
+
+
+custom metadata:
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-meta.html
+https://github.com/elasticsearch/elasticsearch/issues/1649
+  After discussion, this could simply be implemented by using a type meta and storing one document in it. Closing
+
+cache clear:
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/indices-clearcache.html
+
+reindexing:
+
+???
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/reindex.html
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/overallocation.html
+
+relocation of shards:
+
+https://groups.google.com/forum/#!msg/elasticsearch/k-TYhXM8dXQ/yzN81x1db4IJ
+
+1) 
+Now, if you have 2 instances, one in port 9200, and the other in 9201. And you want ALL the shards to be in 9200.
+
+Run this command to disable allocation in the 9201 instance.
+You can change persistent to transient if you want this change to not be permanent.
+I'd keep it persistent so this doesn't ever happen again.
+
+curl -XPUT localhost:9201/_cluster/settings -d '{
+    "persistent" : {
+        "cluster.routing.allocation.disable_allocation" : true
+    }
+}'
+
+2) Now, run the command to MOVE all the shards in the 9201 instance to 9200.
+
+curl -XPOST 'localhost:9200/_cluster/reroute' -d '{
+    "commands" : [ {
+          "move" : 
+            {
+              "index" : "<NAME OF INDEX HERE>", "shard" : <SHARD NUMBER HERE>, 
+              "from_node" : "<ID OF 9201 node>", "to_node" : "<ID of 9200 node>"
+            }
+        }
+    ]
+}'
+
+You need to run this command for every shard in the 9201 instance (the one you wanna get rid of).
+
+
+merge process:
+http://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-merge.html
+http://www.elastic.co/guide/en/elasticsearch/guide/current/merge-process.html
+
+cluster module:
+https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-reroute.html

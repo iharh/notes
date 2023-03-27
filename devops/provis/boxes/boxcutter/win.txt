@@ -1,0 +1,14 @@
+http://kitchen.ci/blog/test-kitchen-windows-test-flight-with-vagrant/
+
+vagrant plugin install vagrant-winrm
+
+https://github.com/boxcutter/windows
+
+aur
+    packer-io
+
+make virtualbox/eval-win2012r2-standard PACKER=packer-io
+
+Downloading or copying: http://download.microsoft.com/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96/9600.16384.WINBLUE_RTM.130821-1623_X64FRE_SERVER_EVAL_EN-US-IRM_SSS_X64FREE_EN-US_DV5.ISO
+
+vagrant box add windows-2012r2 ./eval-win2012r2-standard-nocm-1.0.4.box

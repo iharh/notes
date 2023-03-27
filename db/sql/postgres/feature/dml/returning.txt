@@ -1,0 +1,3 @@
+update ...
+returning *
+    prints data itself along with number of updated records

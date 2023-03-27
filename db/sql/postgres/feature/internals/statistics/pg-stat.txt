@@ -1,0 +1,18 @@
+https://www.postgresql.org/docs/current/monitoring.html
+https://www.postgresql.org/docs/current/monitoring-stats.html
+https://www.postgresql.org/docs/current/progress-reporting.html
+https://postgrespro.ru/docs/postgresql/current/progress-reporting
+
+pg_stat_activity view
+
+func
+    pg_stat_reset
+    pg_stat_reset_shared('bgwriter')
+
+views
+    pg_stat_database
+    pg_stat_all_tables
+    pg_stat_all_indexes
+
+    pg_stat_bgwriter
+        checkpoints...

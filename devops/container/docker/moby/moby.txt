@@ -1,0 +1,16 @@
+https://mobyproject.org/
+https://github.com/moby/moby
+
+https://blog.docker.com/2017/04/introducing-the-moby-project/
+https://habrahabr.ru/company/flant/blog/329136/
+
+components:
+runC
+linuxkit
+containerd
+  https://habrahabr.ru/company/flant/blog/325358/
+  https://github.com/docker/containerd
+  https://github.com/docker/containerd/blob/master/design/architecture.md
+opencontainers
+  https://www.opencontainers.org/
+  https://github.com/opencontainers/runtime-spec

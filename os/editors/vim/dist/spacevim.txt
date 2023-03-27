@@ -1,0 +1,47 @@
+http://spacevim.org/
+https://github.com/SpaceVim/SpaceVim
+
+https://spacevim.org/documentation/
+
+layers
+https://spacevim.org/layers/
+
+TODO:
+dbext plugin for sql completion
+    https://github.com/vim-scripts/dbext.vim
+    ! obsolete
+
+:SPUpdate SpaceVim
+    https://spacevim.org/documentation/#update-spacevim-itself
+    https://github.com/SpaceVim/SpaceVim/issues/1212
+        git checkout . on ~/.SpaceVim
+
+:h
+    SpaceVim-options
+
+inst
+curl -sLf https://spacevim.org/install.sh | bash
+
+files
+~/.vim -> ~/.SpaceVim/
+
+templates/custom cfg
+~/.SpaceVim.d/init.toml
+
+prj-specific
+$prjFoler/.SpaceVim.d/init.toml
+
+cfg
+https://spacevim.org/documentation/#custom-configuration
+https://spacevim.org/documentation/#bootstrap-functions
+
+rtp
+:set rtp?
+:set runtimepath?
+
+custom-plugins
+.cache/vimfiles/repos
+
+2022
+TuxTube - Lets Take VIM to Space : Installing SpaceVim 0:00 of 4:06
+    https://www.youtube.com/watch?v=eXlcbxbOALY

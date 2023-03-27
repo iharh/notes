@@ -1,0 +1,308 @@
+https://crates.io/crates/duct
+https://docs.rs/duct
+https://github.com/oconnor663/duct.rs
+
+https://crates.io/crates/duct_sh
+https://docs.rs/duct_sh
+
+https://www.reddit.com/r/rust/comments/5jxap3/announcing_pipers_a_small_library_to_pipe/
+https://www.reddit.com/r/rust/comments/618jvw/announcing_duct_a_child_process_library_thats/
+
+https://docs.rs/duct/0.10.0/duct/struct.Expression.html
+https://doc.rust-lang.org/nightly/std/process/struct.Output.html
+
+https://www.reddit.com/r/rust/comments/5h08jb/merge_child_process_stdout_and_stderr/
+http://stackoverflow.com/questions/41019780/merge-child-process-stdout-and-stderr
+http://stackoverflow.com/questions/29458970/how-do-i-prefix-command-stdout-with-stdout-and-sterr
+https://github.com/rust-lang/rfcs/issues/871
+
+The "right way" to do something like this, which duct is doing for you under the covers,
+is to create a double-ended OS pipe and pass the write end of it to both stdout and stderr.
+The standard library's Command class supports this sort of thing in general because Stdio implements FromRawFd,
+but unfortunately the standard library doesn't expose a way to create pipes.
+I've written another library called os_pipe to do this inside of duct, and if you want you can use it directly.
+
+!!! need to check the piping experimentally !!!
+
+https://github.com/oconnor663/duct.rs/blob/master/src/lib.rs
+    run -> Result<Output> (.. stdout: Vec<u8>)
+    stdout_capture
+        The captured bytes will be available on the stdout field of the std::process::Output object returned by run or wait.
+    stdout_to_stderr
+
+    !!!
+    exec_pipe (for piped commands)
+    https://doc.rust-lang.org/std/thread/
+        std::thread::spawn(move || { ... }); // ??? moving-closure without params
+        // google for the "Rust Essentials" book
+
+// enums defined below
+use ExpressionInner::*;
+use IoExpressionInner::*;
+...
+
+#[derive(Clone, Debug)]
+#[must_use]
+pub struct Expression(Arc<ExpressionInner>);
+
+...
+impl Expression {
+    pub fn run
+    pub fn read
+    pub fn start
+    pub fn pipe
+    pub fn then
+    input
+    stdin
+    stdin_file
+    stdin_null
+    ...
+    stdout
+    stdout_file
+    pub fn stdout_null
+    ...
+    /// Capture the standard output of an expression. The captured bytes will be
+    /// available on the `stdout` field of the
+    /// [`std::process::Output`](https://doc.rust-lang.org/std/process/struct.Output.html)
+    /// object returned by [`run`](struct.Expression.html#method.run) or
+    /// [`wait`](struct.WaitHandle.html#method.wait). In the simplest cases,
+    /// [`read`](struct.Expression.html#method.read) can be more convenient.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// # use duct::sh;
+    /// # if cfg!(not(windows)) {
+    /// // The most direct way to read stdout bytes is `stdout_capture`.
+    /// let output1 = sh("echo foo").stdout_capture().run().unwrap().stdout;
+    /// assert_eq!(&b"foo\n"[..], &output1[..]);
+    ///
+    /// // The `read` method is a shorthand for `stdout_capture`, and it also
+    /// // does string parsing and newline trimming.
+    /// let output2 = sh("echo foo").read().unwrap();
+    /// assert_eq!("foo", output2)
+    /// # }
+    /// ```
+    pub fn stdout_capture(&self) -> Self {
+        Self::new(Io(StdoutCapture, self.clone()))
+    }
+
+    pub fn stdout_to_sterr
+    ...
+}
+...
+enum IoExpressionInner {
+    Input(Arc<Vec<u8>>),
+    Stdin(PathBuf),
+    StdinFile(File),
+    StdinNull,
+    Stdout(PathBuf),
+    StdoutFile(File),
+    StdoutNull,
+    StdoutCapture,
+    StdoutToStderr,
+    Stderr(PathBuf),
+    StderrFile(File),
+    StderrNull,
+    StderrCapture,
+    StderrToStdout,
+    Dir(PathBuf),
+    Env(OsString, OsString),
+    FullEnv(HashMap<OsString, OsString>),
+    Unchecked,
+}
+
+impl IoExpressionInner {
+    fn update_context(&self,
+                      mut context: IoContext)
+                      -> io::Result<(IoContext, Option<WriterThread>)> {
+        let mut maybe_thread = None;
+        match *self {
+            Input(ref v) => {
+                let (reader, thread) = pipe_with_writer_thread(v)?;
+                context.stdin = IoValue::File(reader);
+                maybe_thread = Some(thread)
+            }
+            Stdin(ref p) => {
+                context.stdin = IoValue::File(File::open(p)?);
+            }
+            StdinFile(ref f) => {
+                context.stdin = IoValue::File(f.try_clone()?);
+            }
+            StdinNull => {
+                context.stdin = IoValue::Null;
+            }
+            Stdout(ref p) => {
+                context.stdout = IoValue::File(File::create(p)?);
+            }
+            StdoutFile(ref f) => {
+                context.stdout = IoValue::File(f.try_clone()?);
+            }
+            StdoutNull => {
+                context.stdout = IoValue::Null;
+            }
+            StdoutCapture => context.stdout = IoValue::File(context.stdout_capture.try_clone()?),
+            StdoutToStderr => {
+                context.stdout = context.stderr.try_clone()?;
+            }
+            Stderr(ref p) => {
+                context.stderr = IoValue::File(File::create(p)?);
+            }
+            StderrFile(ref f) => {
+                context.stderr = IoValue::File(f.try_clone()?);
+            }
+            StderrNull => {
+                context.stderr = IoValue::Null;
+            }
+            StderrCapture => context.stderr = IoValue::File(context.stderr_capture.try_clone()?),
+            StderrToStdout => {
+                context.stderr = context.stdout.try_clone()?;
+            }
+            Dir(ref p) => {
+                context.dir = Some(p.clone());
+            }
+            Env(ref name, ref val) => {
+                context.env.insert(name.clone(), val.clone());
+            }
+            FullEnv(ref map) => {
+                context.env = map.clone();
+            }
+            Unchecked => {
+                // No-op. Unchecked is handled in exec_io().
+            }
+        }
+        Ok((context, maybe_thread))
+    }
+}
+...
+#[derive(Debug)]
+enum ExpressionInner {
+    Cmd(Vec<OsString>),
+    Sh(OsString),
+    Pipe(Expression, Expression),
+    Then(Expression, Expression),
+    Io(IoExpressionInner, Expression),
+}
+
+impl ExpressionInner {
+    fn exec(&self, context: IoContext) -> io::Result<ExpressionStatus> {
+        match *self {
+            Cmd(ref argv) => exec_argv(argv, context),
+            Sh(ref command) => exec_sh(command, context),
+            Pipe(ref left, ref right) => exec_pipe(left, right, context),
+            Then(ref left, ref right) => exec_then(left, right, context),
+            Io(ref io_inner, ref expr) => exec_io(io_inner, expr, context),
+        }
+    }
+}
+...
+[derive(Debug)]
+enum IoValue {
+    ParentStdin,
+    ParentStdout,
+    ParentStderr,
+    Null,
+    File(File),
+}
+
+impl IoValue {
+    fn try_clone(&self) -> io::Result<IoValue> {
+        Ok(match self {
+            &IoValue::ParentStdin => IoValue::ParentStdin,
+            &IoValue::ParentStdout => IoValue::ParentStdout,
+            &IoValue::ParentStderr => IoValue::ParentStderr,
+            &IoValue::Null => IoValue::Null,
+            &IoValue::File(ref f) => IoValue::File(f.try_clone()?),
+        })
+    }
+
+    fn into_stdio(self) -> io::Result<Stdio> {
+        match self {
+            IoValue::ParentStdin => os_pipe::parent_stdin(),
+            IoValue::ParentStdout => os_pipe::parent_stdout(),
+            IoValue::ParentStderr => os_pipe::parent_stderr(),
+            IoValue::Null => Ok(Stdio::null()),
+            IoValue::File(f) => Ok(Stdio::from_file(f)),
+        }
+    }
+}
+
+...
+type ReaderThread = JoinHandle<io::Result<Vec<u8>>>;
+
+fn pipe_with_reader_thread() -> io::Result<(File, ReaderThread)> {
+    let (mut reader, writer) = os_pipe::pipe()?;
+    let thread = std::thread::spawn(move || {
+        let mut output = Vec::new();
+        reader.read_to_end(&mut output)?;
+        Ok(output)
+    });
+    Ok((File::from_file(writer), thread))
+}
+
+type WriterThread = JoinHandle<io::Result<()>>;
+
+fn pipe_with_writer_thread(input: &Arc<Vec<u8>>) -> io::Result<(File, WriterThread)> {
+    let (reader, mut writer) = os_pipe::pipe()?;
+    let new_arc = input.clone();
+    let thread = std::thread::spawn(move || {
+        writer.write_all(&new_arc)?;
+        Ok(())
+    });
+    Ok((File::from_file(reader), thread))
+}
+
+fn join_maybe_writer_thread(maybe_writer_thread: Option<WriterThread>) -> io::Result<()> {
+    if let Some(thread) = maybe_writer_thread {
+        // A broken pipe error happens if the process on the other end exits before
+        // we're done writing. We ignore those but return any other errors to the
+        // caller.
+        suppress_broken_pipe_errors(thread.join().unwrap())
+    } else {
+        Ok(())
+    }
+}
+
+// This is split out to make it easier to get test coverage.
+fn suppress_broken_pipe_errors(r: io::Result<()>) -> io::Result<()> {
+    if let &Err(ref io_error) = &r {
+        if io_error.kind() == io::ErrorKind::BrokenPipe {
+            return Ok(());
+        }
+    }
+    r
+}
+
+fn trim_right_newlines(s: &str) -> &str {
+    s.trim_right_matches(|c| c == '\n' || c == '\r')
+}
+
+// This enum allows `unchecked` to keep the original non-zero exit status,
+// while suppressing the errors it would normally cause.
+enum ExpressionStatus {
+    Checked(ExitStatus),
+    Unchecked(ExitStatus),
+}
+
+impl ExpressionStatus {
+    fn into_inner(self) -> ExitStatus {
+        match self {
+            ExpressionStatus::Checked(status) => status,
+            ExpressionStatus::Unchecked(status) => status,
+        }
+    }
+
+    fn is_checked_error(&self) -> bool {
+        match *self {
+            ExpressionStatus::Checked(ref status) => !status.success(),
+            ExpressionStatus::Unchecked(_) => false,
+        }
+    }
+
+    fn success(&self) -> bool {
+        match *self {
+            ExpressionStatus::Checked(ref status) => status.success(),
+            ExpressionStatus::Unchecked(ref status) => status.success(),
+        }
+    }
+}

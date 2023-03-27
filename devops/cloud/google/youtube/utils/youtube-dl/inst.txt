@@ -1,0 +1,2 @@
+sudo pip install --upgrade youtube_dl
+sudo youtube-dl -U

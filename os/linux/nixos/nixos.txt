@@ -1,0 +1,15 @@
+https://nixos.org/nix/about.html
+https://nixos.wiki/wiki/NixOS
+
+https://github.com/NixOS
+
+A lot of links:
+http://blog.timsears.com/posts/morenix.html
+
+Nix Error Messages:
+https://nixos.org/wiki/Error_Messages
+http://blog.gmane.org/gmane.linux.distributions.nixos/month=20140101
+
+Configuration:
+~/.bash_profile
+/etc/profile.d/nix.sh

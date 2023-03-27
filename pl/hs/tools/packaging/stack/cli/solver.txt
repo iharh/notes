@@ -1,0 +1,3 @@
+stack solver
+    --modify-stack-yaml
+    --no-system-ghc

@@ -1,0 +1,19 @@
+https://github.com/jupyterlab/jupyterlab-desktop
+https://github.com/jupyterlab/jupyterlab-desktop/releases
+
+https://github.com/jupyterlab/jupyterlab-desktop/blob/master/user-guide.md
+https://github.com/jupyterlab/jupyterlab-desktop/blob/master/user-guide.md#Customizing-the-Bundled-Python-Environment
+
+apt jupyterlab-desktop
+    /usr/local/bin/jlab
+~/.config/jupyterlab-desktop
+
+https://github.com/jupyterlab-contrib/jupyter-ui-toolkit/
+
+extensions
+https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html#overview-of-extensions
+
+2022
+https://habr.com/ru/company/skillfactory/blog/706872/
+2021
+https://blog.jupyter.org/jupyterlab-desktop-app-now-available-b8b661b17e9a

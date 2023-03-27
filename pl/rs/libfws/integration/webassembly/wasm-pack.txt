@@ -1,0 +1,20 @@
+https://rustwasm.github.io/wasm-pack/
+https://crates.io/crates/wasm-pack
+https://docs.rs/wasm-pack
+https://github.com/rustwasm/wasm-pack
+    https://github.com/ashleygwilliams/wasm-pack
+
+https://rustwasm.github.io/wasm-pack/book/
+
+inst
+https://rustwasm.github.io/wasm-pack/installer/
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+2020
+https://dev.to/sendilkumarn/rust-and-webassembly-for-the-masses-wasm-pack-3d6p
+2018
+https://hacks.mozilla.org/2018/04/hello-wasm-pack/
+    https://www.reddit.com/r/rust/comments/8d6kjp/hello_wasmpack_mozilla_hacks/
+
+whatsnew
+https://rustwasm.github.io/2018/09/24/the-biggest-wasm-pack-release-yet.html

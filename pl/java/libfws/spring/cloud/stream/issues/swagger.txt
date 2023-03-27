@@ -1,0 +1,17 @@
+2021
+https://github.com/springdoc/springdoc-openapi/issues/1299
+2020
+https://spring.io/blog/2020/12/23/cloud-events-and-spring-part-2
+
+https://github.com/springfox/springfox/issues/2899
+
+inMemorySwaggerResourcesProvider-out-0
+https://gitter.im/spring-cloud/spring-cloud-stream?at=5fd0d5b63dd3b251a4f64766
+https://github.com/spring-cloud/spring-cloud-stream/issues/2032
+    his is because springfox registers a Supplier @Bean:
+    inMemorySwaggerResourcesProvider=springfox.documentation.swagger.web.InMemorySwaggerResourcesProvider@4cad79bc
+    spring-cloud-stream can only work without configuration if exactly one Function<?>, Consumer<?> or Supplier<?> bean exists.
+    Since it can't disambiguate, no binding is implied.
+    You have to add the property
+        spring.cloud.function.definition=consumerMethodName
+    to indicate which method(s) to bind.

@@ -1,0 +1,41 @@
+sudo parted <dev>
+    just enter the interactive mode without any other args
+    h[elp] [cmd]
+        help [by cmd]
+    p[rint] devices|free|list,all
+    sel[ect] <dev/...>
+
+2020
+https://unix.stackexchange.com/questions/200582/scripteable-gpt-partitions-using-parted
+    parted /dev/mmcblk0 --script mklabel gpt
+    parted /dev/mmcblk0 --script mkpart primary ext4 32MB 132MB
+    parted /dev/mmcblk0 --script mkpart primary ext4 233MB 433MB
+    parted /dev/mmcblk0 --script mkpart primary ext4 433MB 533MB
+    parted /dev/mmcblk0 --script mkpart primary ext4 533MB 593MB
+    parted /dev/mmcblk0 --script mkpart primary ext4 593MB 793MB
+    parted /dev/mmcblk0 --script mkpart primary ext4 793MB 3800MB
+    parted /dev/mmcblk0 --script align-check min 1
+    parted --script /device \
+        mklabel gpt \
+        mkpart primary 1MiB 100MiB \
+        mkpart primary 100MiB 200MiB \
+    sudo parted -s -a <min[imal]|opt[imal]> -- /dev/sdX \
+        ...
+https://unix.stackexchange.com/questions/248939/how-to-achieve-optimal-alignment-for-emmc-partition/625740#625740
+    ...
+    sudo parted /dev/nvme0n1 align-check opt 1 align-check opt 2 align-check opt 3
+    sudo parted /dev/vda     align-check opt 1 align-check opt 2 align-check opt 3
+    
+
+samples
+https://linuxhint.com/linux-parted-command-line-examples/
+    $ parted /dev/sda – mkpart primary linux-swap -8GiB 100%
+    ...
+    1-st - at least 1Gb
+    ...
+    mkpart primary 512MiB -8GiB
+        starts the partition at 512MiB
+        and ends it at 8GiB before the end of the disk
+        ... [512Mib..N-8GiB] ... for the disk of size N
+    mkpart primary linux-swap -8GiB 100%
+        swap at the end of disk

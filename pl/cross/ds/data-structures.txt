@@ -1,0 +1,16 @@
+Encyclopedia:
+Mehta - Handbook of Data Structures and Applications
+
+MIT:
+http://courses.csail.mit.edu/6.851/spring12/
+
+Kmett - Cache Oblivious Maps
+http://www.reddit.com/r/haskell/comments/1p8sns/cacheoblivious_maps_by_edward_kmett_video/
+http://ekmett.github.io/presentations/Cache-Oblivious%20Data%20Structures.pdf
+https://www.fpcomplete.com/school/to-infinity-and-beyond/older-but-still-interesting/deamortized-st
+
+Kostyukov, RBTree:
+http://habrahabr.ru/post/208918/
+http://www.slideshare.net/vkostyukov/purely-functional-data-structures-in-scala-26175521
+http://www.youtube.com/watch?v=fWnaW3CP7OI
+http://matt.might.net/articles/red-black-delete/

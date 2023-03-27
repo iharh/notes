@@ -1,0 +1,11 @@
+https://nixos.wiki/wiki/Vim
+
+2021
+https://www.reddit.com/r/NixOS/comments/n4esfd/nixos_vim_guide/
+    https://gist.github.com/fern9001/0319d3e0c7c3fcab3008ecda0b3ddcf7
+2019
+https://www.reddit.com/r/NixOS/comments/apvoc1/how_to_add_custom_configuration_files_to_share/
+    https://github.com/NixOS/nixpkgs/tree/master/pkgs/misc/vim-plugins
+    https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/vim-plugins/vim-utils.nix
+    https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/vim-plugins/build-vim-plugin.nix
+https://www.reddit.com/r/NixOS/comments/bwcact/need_help_with_vim_plugins_and_python3/

@@ -1,0 +1,25 @@
+npm i -D pug-loader
+https://github.com/pugjs/pug-loader
+https://www.npmjs.com/package/pug-loader
+https://github.com/pugjs/pug-loader/issues/125
+    https://webpack.js.org/loaders/
+
+modern
+https://www.npmjs.com/package/html-webpack-pug-plugin
+    https://github.com/negibouze/html-webpack-pug-plugin
+https://www.npmjs.com/package/html-webpack-template-pug
+
+https://www.youtube.com/watch?v=nLR5yUCjTis
+https://www.youtube.com/watch?v=Boqpfw_s77w
+
+2019
+JackCoder - Webpack4 and pug ru
+    https://www.youtube.com/watch?v=GaLS93JBeng
+    https://tocode.ru/courses/nastroika-webpack4/webpack-dlya-verstki-pug
+    https://github.com/vedees/webpack-template-pug
+    !!! good organization
+2017
+https://extri.co/2017/05/23/using-htmlwebpackplugin-and-pug/
+
+qa
+https://qna.habr.com/q/603696

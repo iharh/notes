@@ -1,0 +1,36 @@
+.aggregate
+https://docs.spring.io/spring-integration/reference/html/dsl.html#java-dsl-aggregators
+    It aggregates a sequence of individual messages into a single message and is necessarily more complex.
+    By default, an aggregator returns a message that contains a collection of payloads from incoming messages.
+        @Bean
+        public IntegrationFlow splitAggregateFlow() {
+            return IntegrationFlow.from("splitAggregateInput")
+                    .split()
+                    .channel(MessageChannels.executor(this.taskExecutor()))
+                    .resequence()
+                    .aggregate()
+                    .get();
+        }
+    The split() method splits the list into individual messages and sends them to the ExecutorChannel.
+    The resequence() method reorders messages by sequence details found in the message headers.
+    The aggregate() method collects those messages.
+
+    However, you can change the default behavior by specifying a release strategy and correlation strategy, among other things.
+    Consider the following example:
+
+        .aggregate(aggregatorSpec ->
+                aggregatorSpec
+                    .correlationStrategy(m -> m.getHeaders().get("myCorrelationKey"))
+                    .releaseStrategy(g -> g.size() > 10)
+                    .messageStore(messageStore()))
+
+    The preceding example correlates messages that have myCorrelationKey headers and releases the messages
+    once at least ten have been accumulated.
+
+https://docs.spring.io/spring-integration/reference/html/message-routing.html#aggregator
+
+https://docs.spring.io/spring-integration/reference/html/aggregator.html
+https://docs.spring.io/spring-integration/reference/html/aggregator.html#aggregator-annotations
+
+2014
+https://spring.io/blog/2014/11/25/spring-integration-java-dsl-line-by-line-tutorial

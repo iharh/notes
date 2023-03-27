@@ -1,0 +1,2 @@
+sudo dd if=/path-to-gparted-live.x.y.z-w.iso of=/dev/sde bs=4M; sync
+

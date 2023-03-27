@@ -1,0 +1,33 @@
+https://github.com/gradle/native-samples/blob/master/c/application/build.gradle
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/NativeToolChain.html
+
+GccCompatibleToolChain
+
+toolChains {
+    myArm(Gcc) {
+        target('arm') {
+            path '/usr/local/project/build_deps/compilers/arm-cs-tools/bin'
+            cCompiler.executable 'arm-unknown-linux-gnueabi-g++'
+            cppCompiler.executable 'arm-unknown-linux-gnueabi-g++'
+            linker.executable 'arm-unknown-linux-gnueabi-g++'
+            assembler.executable 'arm-unknown-linux-gnueabi-as'
+            staticLibArchiver.executable 'arm-unknown-linux-gnueabi-ar'
+        }
+    }
+}
+
+toolChains {
+    gcc(Gcc) {
+        eachPlatform {
+            cCompiler.executable 'bla-bla'
+            cppCompiler.executable 'bla-bla++'
+        }
+    }
+}
+
+https://discuss.gradle.org/t/use-custom-toolchain-in-gradle-no-gcc-or-clang/21139
+https://github.com/gradle/gradle/issues/2568
+
+https://github.com/gradle/gradle/issues/2909
+    https://github.com/gradle/gradle/pull/3124
+    https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/integTest/groovy/org/gradle/nativeplatform/toolchain/GccToolChainCustomisationIntegrationTest.groovy

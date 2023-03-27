@@ -1,0 +1,9 @@
+https://docs.oracle.com/javase/8/docs/api/java/lang/instrument/Instrumentation.html#isRedefineClassesSupported--
+
+https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#packaging-executable-configuring-main-class
+
+2015
+https://dzone.com/articles/including-java-agent
+
+qa
+https://stackoverflow.com/questions/47874434/how-to-embed-a-javaagent-in-spring-boot-app-using-boot-gradle-plugin

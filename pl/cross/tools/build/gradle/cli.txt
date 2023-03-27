@@ -1,0 +1,24 @@
+https://docs.gradle.org/current/userguide/command_line_interface.html
+https://docs.gradle.org/current/userguide/build_environment.html
+
+--refresh-dependencies
+    !!!
+-b, --build-file
+    specify build file
+--continue
+    continue after the failure
+--profile
+    profile a build
+--parallel
+    try to build sub-projects in separate threads
+--debug-jvm
+    ? run in debug mode ?
+-x, --exclude-task
+    exclude the specified task
+-q
+:<taskName>
+-P<paramName>=<paramValue>
+    with param/prop
+
+--warning-mode=all
+    https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_warnings

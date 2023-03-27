@@ -1,0 +1,36 @@
+org.springframework.security.web.access.intercept.FilterSecurityInterceptor
+
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/apidocs/org/springframework/security/config/annotation/web/HttpSecurityBuilder.html#addFilter-javax.servlet.Filter-
+
+
+https://github.com/spring-projects/spring-security-oauth
+    ! deprecated !
+https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/authentication/OAuth2AuthenticationProcessingFilter.java
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/provider/authentication/OAuth2AuthenticationProcessingFilter.html
+
+org.springframework.security.web.DefaultSecurityFilterChain : Creating filter chain: any request, [
+    org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5226e402,
+    org.springframework.security.web.context.SecurityContextPersistenceFilter@264c5d07,
+    org.springframework.security.web.header.HeaderWriterFilter@5eeedb60,
+    org.springframework.security.web.authentication.logout.LogoutFilter@afb5821,
+    org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@59942b48,
+    org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69cac930,
+    org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@55ea2d70,
+    org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1440c311,
+    org.springframework.security.web.session.SessionManagementFilter@61d01788,
+    org.springframework.security.web.access.ExceptionTranslationFilter@3f36b447,
+    org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30cecdca]
+
+DEBUG 26736 --- [nio-8082-exec-1][] o.a.coyote.http11.Http11InputBuffer      : Received [GET /v1/resource?type=BRAND&instance=inst1&id=0 HTTP/1.1
+Authorization: Bearer d9131eb5-98f6-4a60-8bff-e582942b9781
+Accept: text/plain, application/json, application/*+json, */*
+Host: localhost:8082
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.10 (Java/11.0.6)
+Accept-Encoding: gzip,deflate
+...
+2020-02-19 21:45:12.848 DEBUG 26736 --- [nio-8082-exec-1][] o.a.c.authenticator.AuthenticatorBase    : Security checking request GET /v1/resource
+...
+
+2020-02-19 22:27:36,405 DEBUG [http-nio-8082-exec-1] org.springframework.security.web.FilterChainProxy : /v1/resource?type=BRAND&instance=inst1&id=0 at position 5 of 11 in additional filter chain; firing Filter: 'OAuth2AuthenticationProcessingFilter'
+2020-02-19 22:27:36,408 DEBUG [http-nio-8082-exec-1] org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter : Authentication request failed: error="invalid_token", error_description="Invalid access token: d9131eb5-98f6-4a60-8bff-e582942b9781"

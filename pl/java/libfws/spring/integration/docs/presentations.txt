@@ -1,0 +1,29 @@
+2020
+https://spring.io/blog/2020/04/07/spring-tips-the-spring-integration-kotlin-dsl
+    https://www.youtube.com/watch?v=1llAwgOKjTY
+2017
+SpringDeveloper - ArtemBilan - Spring Integration 5.0: What's New? of 40:26
+    https://www.youtube.com/watch?v=A9eDlMSTuE0
+2016
+SpringDeveloper - ArtemBilan - Spring Integration Java DSL 42:00 of 1:23:41
+    https://www.youtube.com/watch?v=g6P0AJIN8ZI
+    implements IntegrationFlowAdapter
+        @Override
+        protected IntegrationFlowDefinition<?> buildFlow() {
+            return from(() -> new GenericMessage<>(applicationProperties),
+                e -> e.poller(p -> p.trigger(this::nextDate))
+            )
+            .split(Files.splitter())
+            .<String, Map<String, String>>transform(p -> {
+                String []
+            })
+            .handle(mongoDbMh());
+        }
+SpringDeveloper - JoshLong - Spring Tips: A Gentle introduction to Spring Integration 0:00 of 38:50
+    https://www.youtube.com/watch?v=MTKlk8_9aAw
+2015
+SpringDeveloper - GaryRussel - Webinar: Introducing the Java DSL for Spring Integration 0:00 of 1:10:27
+    https://www.youtube.com/watch?v=W3ayvcnpO1A
+    https://speakerdeck.com/garyrussell/spring-integration-java-dsl-a-deeper-dive
+SpringDeveloper - GaryRussel - Spring Integration - Java Configuration and More 0:00 of 1:11:18
+    https://www.youtube.com/watch?v=TSW33RXoJNc

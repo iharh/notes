@@ -1,0 +1,40 @@
+http://yannesposito.com/Scratch/en/blog/Category-Theory-Presentation
+
+Natural Transformation Examples (1/4)
+
+data List a = Nil | Cons a (List a)
+
+toList :: [a] -> List a
+toList [] = Nil
+toList (x:xs) = Cons x (toList xs)
+
+toList is a natural transformation. It is also a morphism from [] to List in the Category of Hask endofunctors.
+
+
+Natural Transformation Examples (2/4)
+
+data List a = Nil | Cons a (List a)
+
+toHList :: List a -> [a]
+toHList Nil = []
+toHList (Cons x xs) = x:toHList xs
+
+toHList is a natural transformation. It is also a morphism from List to [] in the Category of Hask endofunctors.
+
+
+Natural Transformation Examples (3/4)
+
+toMaybe :: [a] -> Maybe a
+toMaybe [] = Nothing
+toMaybe (x:xs) = Just x
+
+toMaybe is a natural transformation. It is also a morphism from [] to Maybe in the Category of Hask endofunctors.
+
+
+Natural Transformation Examples (4/4)
+
+mToList :: Maybe a -> [a]
+mToList Nothing = []
+mToList Just x  = [x]
+
+toMaybe is a natural transformation. It is also a morphism from [] to Maybe in the Category of Hask endofunctors

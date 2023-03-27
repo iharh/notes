@@ -1,0 +1,52 @@
+https://www.atlassian.com/git/tutorials/refs-and-the-reflog/the-reflog
+
+
+You can also refer to commits relative to another commit.
+The ~ character lets you reach parent commits.
+
+For example, the following displays the grandparent of HEAD:
+
+git show HEAD~2
+
+But, when working with merge commits, things get a little more complicated.
+Since merge commits have more than one parent, there is more than one path that you can follow.
+For 3-way merges, the first parent is from the branch that you were on when you performed the merge,
+and the second parent is from the branch that you passed to the git merge command.
+
+The ~ character will always follow the first parent of a merge commit.
+If you want to follow a different parent, you need to specify which one with the ^ character.
+
+For example, if HEAD is a merge commit, the following returns the second parent of HEAD.
+
+git show HEAD^2
+
+You can use more than one ^ character to move more than one generation.
+For instance, this displays the grandparent of HEAD (assuming it’s a merge commit) that rests on the second parent.
+
+git show HEAD^2^1
+
+To clarify how ~ and ^ work, the following figure shows you how to reach any commit from A using relative references.
+In some cases, there are multiple ways to reach a commit.
+
+              A^2-1
+              A^2^1  A^2
+
+             -- O --- O --
+            /             \
+  O ---- O ---- O ----------- O
+
+ A-3    A-2    A-1            A
+A^2-3  A^2-2   A^1
+
+Relative refs can be used with the same commands that a normal ref can be used.
+For example, all of the following commands use a relative reference:
+
+# Only list commits that are parent of the second parent of a merge commit
+git log HEAD^2
+
+# Remove the last 3 commits from the current branch
+git reset HEAD~3
+
+# Interactively rebase the last 3 commits on the current branch
+git rebase -i HEAD~3
+

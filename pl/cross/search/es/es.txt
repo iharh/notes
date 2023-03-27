@@ -1,0 +1,46 @@
+??? Kickstarter sample at 2013:
+https://www.kickstarter.com/backing-and-hacking/elasticsearch-at-kickstarter
+
+??? rerouting/move/allocate impl
+??? translog impl
+  http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/cluster-update-settings.html
+
+!!! Routing can change hash/shard pointing
+
+Terminology
+shards -> primary, replica
+  http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/_scale_horizontally.html (number_of_replicas)
+cluster -> tribe
+node -> master, data
+  
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/root-object.html
+_id     The string ID of the document.
+_type   The type name of the document.
+_index  The index where the document lives.
+_uid    The _type and _id concatenated together as "type#id"
+
+config
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-configuration.html
+
+CAT API
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/cat.html
+
+http://www.noustuff.com/elasticsearch_in_production.slide#17
+hot_threads.
+http://aphyr.com/posts/317-call-me-maybe-elasticsearch
+
+routing
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/routing-value.html
+
+multiple indices
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/multiple-indices.html
+
+index templates
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/indices-templates.html
+
+retire data
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/retiring-data.html
+
+Done Browsing:
+[go] elasticsearch index copy
+     scale elasticsearch index

@@ -1,0 +1,18 @@
+http://christophermeiklejohn.com/distributed/systems/2013/07/12/readings-in-distributed-systems.html
+
+Distributed Systems for Fun and Profit:
+http://book.mixu.net/distsys/single-page.html
+https://github.com/mixu/distsysbook
+
+Consistency without Consensus: CRDTs in Production at SoundCloud
+http://www.infoq.com/presentations/crdt-soundcloud
+
+blogs:
+aphyr-jepsen:
+https://aphyr.com/posts/333-serializability-linearizability-and-locality
+https://aphyr.com/posts/313-strong-consistency-models
+https://aphyr.com/posts/281-jepsen-on-the-perils-of-network-partitions
+
+alex pi:
+https://medium.com/@ifesdjeen
+https://twitter.com/ifesdjeen

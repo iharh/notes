@@ -1,0 +1,27 @@
+https://www.reddit.com/r/rust/comments/5pr3ft/polymorphic_closures/
+
+worker = spawn(move {
+    worker_loop(worker_rx, worker_tx);
+});
+
+move - move means captare it's env-vars (worker_rx, worker_tx)
+by moving them into the closure value, not by borrowing them
+
+2020
+https://medium.com/nuances-of-programming/%D0%B7%D0%B0%D0%BC%D1%8B%D0%BA%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B2-rust-1c6efb34d03c
+2019
+https://stevedonovan.github.io/rustifications/2018/08/18/rust-closures-are-hard.html
+https://habr.com/ru/post/454310/
+https://medium.com/@earthengine/rust-closures-secret-life-70d2394c5827
+https://medium.com/@earthengine/rust-the-story-of-closures-8f8e5af7ea1c
+https://krishnasannasi.github.io/rust/syntactic/sugar/2019/01/17/Closures-Magic-Functions.html
+2018
+https://medium.com/@buterajay/sharing-state-in-rust-closures-e8f36d519e6a
+http://stevedonovan.github.io/rustifications/2018/08/18/rust-closures-are-hard.html
+http://smallcultfollowing.com/babysteps/blog/2018/04/24/rust-pattern-precise-closure-capture-clauses/
+https://medium.com/journey-to-rust/closures-4231062ff1a5
+https://medium.com/journey-to-rust/closures-part-2-29536393dd92
+
+https://doc.rust-lang.org/std/ops/trait.FnOnce.html
+https://doc.rust-lang.org/std/ops/trait.FnMut.html
+https://doc.rust-lang.org/std/ops/trait.Fn.html

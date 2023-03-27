@@ -1,0 +1,16 @@
+https://stackoverflow.com/questions/27644361/how-can-i-throw-checked-exceptions-from-inside-java-8-streams
+
+https://projectlombok.org/features/SneakyThrows
+    https://github.com/rzwitserloot/lombok/issues/1038
+    https://github.com/mplushnikov/lombok-intellij-plugin/issues/198
+
+https://github.com/rainerhahnekamp/sneakythrow
+    https://hackernoon.com/announcing-sneakythrow-8b41b07f9201
+    https://dzone.com/articles/announcing-sneakythrow
+
+lambdas
+https://dzone.com/articles/sneakily-throwing-exceptions-in-lambda-expressions
+https://stackoverflow.com/questions/27644361/how-can-i-throw-checked-exceptions-from-inside-java-8-streams
+
+2018
+https://www.baeldung.com/java-sneaky-throws

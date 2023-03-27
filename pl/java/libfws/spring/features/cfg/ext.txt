@@ -1,0 +1,6 @@
+spring.config.name=new_name
+spring.config.location={path_to_configuration_file/directory}
+
+2020
+https://springframework.guru/spring-external-configuration-data/
+    https://habr.com/ru/company/otus/blog/576910/

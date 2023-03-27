@@ -1,0 +1,21 @@
+CSR:
+
+$ openssl req -new -key fd.key -out fd.csr
+... (use . for the empty fields instead of the default values)
+
+After CSR is generated, it can be used for
+- sign our own certificate
+- send it to the public CA asking to sign a certificate
+
+befre that, it's good to view/check the CSR:
+
+$ openssl req -text -in fd.csr -noout
+
+to renew a CSR from the existing cert, use:
+
+$ openssl x509 -x509toreq -in fd.crt -out fd.csr -signkey fd.key
+
+We can also use a cnf-config for automating a CSR-generation:
+
+$ openssl req -new -config fd.cnf -key fd.key -out fd.csr
+

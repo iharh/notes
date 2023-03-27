@@ -1,0 +1,38 @@
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/core/AmqpAdmin.html
+    beanName = "amqpAdmin";
+
+org.springframework.amqp.rabbit.core.RabbitAdmin
+https://docs.spring.io/spring-amqp/api/org/springframework/amqp/rabbit/core/RabbitAdmin.html
+  ...
+	/**
+	 * If {@link #setAutoStartup(boolean) autoStartup} is set to true, registers a callback on the
+	 * {@link ConnectionFactory} to declare all exchanges and queues in the enclosing application context. If the
+	 * callback fails then it may cause other clients of the connection factory to fail, but since only exchanges,
+	 * queues and bindings are declared failure is not expected.
+	 *
+	 * @see InitializingBean#afterPropertiesSet()
+	 * @see #initialize()
+	 */
+	@Override
+	public void afterPropertiesSet() {
+		synchronized (this.lifecycleMonitor) {
+
+			if (this.running || !this.autoStartup) {
+				return;
+			}
+
+			if (this.retryTemplate == null && !this.retryDisabled) {
+				this.retryTemplate = new RetryTemplate();
+				this.retryTemplate.setRetryPolicy(new SimpleRetryPolicy(DECLARE_MAX_ATTEMPTS));
+				ExponentialBackOffPolicy backOffPolicy = new ExponentialBackOffPolicy();
+				backOffPolicy.setInitialInterval(DECLARE_INITIAL_RETRY_INTERVAL);
+				backOffPolicy.setMultiplier(DECLARE_RETRY_MULTIPLIER);
+				backOffPolicy.setMaxInterval(DECLARE_MAX_RETRY_INTERVAL);
+				this.retryTemplate.setBackOffPolicy(backOffPolicy);
+			}
+      ...
+    }
+    ...
+  }
+
+

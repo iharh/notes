@@ -1,0 +1,15 @@
+no man
+
+vagrant
+    help
+    list-commands
+    <cmd> -h
+        help on <cmd>
+up
+    up a vm
+status
+    status
+reload
+    reload a vm with new Vagrant config
+halt
+    halt a vm

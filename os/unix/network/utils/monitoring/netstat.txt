@@ -1,0 +1,12 @@
+!!! deprecated (use ss instead)
+
+2023
+https://linuxhandbook.com/netstat-command/
+2021
+https://www.tecmint.com/20-netstat-commands-for-linux-network-management/
+
+netstat
+  https://hostpresto.com/community/tutorials/netstat-command-line-tips-and-tricks/
+    -tulnp
+    -tulanp - show open ports
+    -lnp - ...

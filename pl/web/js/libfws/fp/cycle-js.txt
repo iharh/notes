@@ -1,0 +1,42 @@
+https://cycle.js.org/
+
+https://cycle.js.org/getting-started.html
+https://cycle.js.org/dialogue.html
+https://cycle.js.org/streams.html
+https://cycle.js.org/basic-examples.html
+
+https://cycle.js.org/api/index.html
+https://cycle.js.org/api/run.html
+https://cycle.js.org/api/rxjs-run.html
+https://cycle.js.org/api/most-run.html
+
+https://github.com/cyclejs-community/awesome-cyclejs
+
+http://widdersh.in/tricycle/
+
+https://github.com/pH200/cycle-react
+
+inst
+npm i -P xstream @cycle/run @cycle/dom
+npm i -P rxjs @cycle/rxjs-run
+npm i -P most @cycle/most-run
+
+starters
+https://github.com/cyclejs-community/create-cycle-app
+https://github.com/cyclejs-community/create-cycle-app-flavors
+https://github.com/cyclejs-community/create-cycle-app-flavors/tree/master/packages/cycle-scripts-ts-webpack
+
+testing
+https://github.com/brucou/cycle-state-machine-demo/tree/first-iteration
+
+articles
+2017
+https://www.sitepoint.com/switching-from-react-to-cycle-js/
+    https://habr.com/post/332674/
+https://ivanjov.com/working-with-http-streams-with-cycle-js/
+comments at
+    https://habr.com/post/325660/
+2016
+https://thenewstack.io/developers-need-know-mvi-model-view-intent/
+https://lucamezzalira.com/2016/05/23/cycle-js-a-reactive-framework/
+https://blog.pusher.com/building-realtime-applications-with-cyclejs-and-rxjs/

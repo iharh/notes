@@ -1,0 +1,13 @@
+sample
+    // Load public key from file
+    FileInputStream fis = new FileInputStream("public.pem");
+    BufferedInputStream bis = new BufferedInputStream(fis);
+    DataInputStream dis = new DataInputStream(bis);
+    byte[] keyBytes = new byte[dis.available()];
+    dis.readFully(keyBytes);
+    dis.close();
+
+    // convert bytes to PublicKey object
+    X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
+    KeyFactory kf = KeyFactory.getInstance("RSA");
+    PublicKey publicKey = kf.generatePublic(spec);

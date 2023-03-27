@@ -1,0 +1,19 @@
+https://plugins.gradle.org/plugin/org.ajoberstar.reckon
+
+https://github.com/ajoberstar/semver-vcs
+https://github.com/ajoberstar/reckon
+
+https://github.com/ajoberstar/reckon/blob/master/docs/index.md
+
+https://github.com/ajoberstar/reckon/blob/master/reckon-core/src/main/groovy/org/ajoberstar/reckon/core/Reckoner.java
+
+reckonTagPush
+    -Preckon.stage=beta|rc|final
+    -Preckon.scope=minor|patch
+        minor is the default
+
+kotlin support
+https://github.com/kevin-maskell-moody/reckon
+https://github.com/stevendpclark/reckon
+https://github.com/ajoberstar/reckon/issues/137
+https://github.com/ajoberstar/reckon/pull/138

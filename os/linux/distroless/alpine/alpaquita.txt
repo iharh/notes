@@ -1,0 +1,18 @@
+https://bell-sw.com/alpaquita-linux/
+https://bell-sw.com/pages/downloads/alpaquita/
+
+https://hub.docker.com/r/bellsoft/alpaquita-linux-base
+https://hub.docker.com/r/bellsoft/alpaquita-linux-gcc
+https://hub.docker.com/r/bellsoft/alpaquita-linux-python
+https://hub.docker.com/r/bellsoft/liberica-runtime-container
+    docker pull bellsoft/liberica-runtime-container
+    106m
+    docker pull bellsoft/liberica-runtime-container:jdk-all-17-musl
+    223m
+https://hub.docker.com/r/bellsoft/liberica-native-image-kit-container
+    docker pull bellsoft/liberica-native-image-kit-container
+https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine
+
+2022
+https://bell-sw.com/blog/bellsoft-introduces-alpaquita-linux/
+https://www.infoq.com/news/2022/10/alpaquita-linux/

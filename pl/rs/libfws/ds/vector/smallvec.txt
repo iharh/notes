@@ -1,0 +1,7 @@
+https://crates.io/crates/smallvec
+https://docs.rs/smallvec
+https://github.com/servo/rust-smallvec
+
+2018
+http://troubles.md/posts/improving-smallvec/
+https://www.reddit.com/r/rust/comments/8l8l7k/improving_smallvecs_speed_by_60_and_why_that/

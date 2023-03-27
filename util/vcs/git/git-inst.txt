@@ -1,0 +1,12 @@
+http://blog.hgomez.net/2015/02/26/CentOSRHEL-and-up-to-date-Subversion-and-Git.html
+
+yum remove git*
+yum clean all
+
+/etc/yum.repos.d/wandisco-git.repo
+
+[WandiscoGIT]
+name=Wandisco GIT Repo
+baseurl=http://opensource.wandisco.com/centos/$releasever/git/$basearch/
+enabled=1
+gpgcheck=0

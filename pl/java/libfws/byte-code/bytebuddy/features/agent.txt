@@ -1,0 +1,15 @@
+https://www.programcreek.com/java-api-examples/?api=net.bytebuddy.agent.ByteBuddyAgent
+!!!
+https://www.codota.com/code/java/classes/net.bytebuddy.agent.ByteBuddyAgent
+    https://github.com/stagemonitor/stagemonitor/blob/master/stagemonitor-core/src/main/java/org/stagemonitor/core/instrument/AgentAttacher.java
+    https://github.com/stagemonitor/stagemonitor/blob/master/stagemonitor-core/src/main/java/org/stagemonitor/core/instrument/EhCacheAttachmentProvider.java
+
+2020
+https://dzone.com/articles/jvm-advent-calendar-a-beginners-guide-to-java-agen
+2015
+https://www.infoq.com/articles/Easily-Create-Java-Agents-with-ByteBuddy/
+http://mydailyjava.blogspot.com/2015/01/make-agents-not-frameworks.html
+
+errors
+https://github.com/raphw/byte-buddy/issues/295
+    ! self-attach, -Djdk.attach.allowAttachSelf=true

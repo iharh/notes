@@ -1,0 +1,9 @@
+info -f grub -n 'Simple configuration'
+
+/etc/default/grub
+GRUB_THEME="/usr/share/grub/themes/starfield/theme.txt"
+
+ubuntu:
+    sudo update-grub
+other:
+    grub-mkconfig -o /boot/grub/grub.cfg

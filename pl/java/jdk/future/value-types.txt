@@ -1,0 +1,26 @@
+http://jdk.java.net/valhalla/
+
+2022
+https://habr.com/ru/post/599003/
+    https://github.com/RigelGL/MemoryEfficientList
+2021
+https://openjdk.java.net/projects/valhalla/design-notes/state-of-valhalla/03-vm-model
+https://openjdk.java.net/projects/valhalla/design-notes/state-of-valhalla/02-object-model
+https://openjdk.java.net/projects/valhalla/design-notes/state-of-valhalla/01-background
+https://github.com/openjdk/valhalla-docs/blob/main/site/design-notes/state-of-valhalla/03-vm-model.md
+2020
+Kuksenko - Do we Need Inline Types
+    https://www.youtube.com/watch?v=snrbobBVjyc
+    https://assets.ctfassets.net/oxjq45e8ilak/7cANOq8Y6N0VePlOK4zX7g/d674f025c3bfaa26df1e1c5539fea66f/100529_626865169_Sergey_Kuksenko_Nuzhny_li_v_Java_inlayn-tipy_Uzkiy_vzglyad_inzhenera_po_proizvoditelnosti_na_proyekt_Valhal.pdf
+https://www.infoq.com/articles/java-14-feature-spotlight/
+https://www.infoq.com/presentations/java-valhalla-inline-types/
+2019
+http://cr.openjdk.java.net/~briangoetz/valhalla/sov/02-object-model.html
+http://cr.openjdk.java.net/~briangoetz/valhalla/sov/01-background.html
+Evans - A First Look at Java Inline Classes
+    https://www.infoq.com/articles/inline-classes-java/
+Verhas - Java Value Types: what is it and why are they important
+    https://www.youtube.com/watch?v=vA4ZJpFNLhM
+https://www.infoq.com/news/2019/07/valhalla-openjdk-lw2-released/
+2018
+http://marxsoftware.blogspot.com/2018/08/valhalla-lworld-valuetypes-ea-build-0.html

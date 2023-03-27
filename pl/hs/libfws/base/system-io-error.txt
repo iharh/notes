@@ -1,0 +1,15 @@
+Classifying I/O errors:
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/System-IO-Error.html#g:2
+
+1. isAlreadyExistsError
+2. isAlreadyExistsError
+...
+
+Attributes of I/O errors:
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/System-IO-Error.html#g:3
+
+1. ioeGetErrorType
+2. ioeGetLocation
+...
+
+

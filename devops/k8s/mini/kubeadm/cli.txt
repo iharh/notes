@@ -1,0 +1,32 @@
+kubeadm
+    config
+        images pull
+            [config/images] Pulled k8s.gcr.io/kube-apiserver:v1.12.0
+            [config/images] Pulled k8s.gcr.io/kube-controller-manager:v1.12.0
+            [config/images] Pulled k8s.gcr.io/kube-scheduler:v1.12.0
+            [config/images] Pulled k8s.gcr.io/kube-proxy:v1.12.0
+            [config/images] Pulled k8s.gcr.io/pause:3.1
+            [config/images] Pulled k8s.gcr.io/etcd:3.2.24
+            [config/images] Pulled k8s.gcr.io/coredns:1.2.2
+    init
+        https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/
+        https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init-phase/
+        https://github.com/containernetworking/plugins/blob/master/plugins/main/bridge/README.md
+        kubectl taint nodes --all node-role.kubernetes.io/master- 
+
+        --dry-run
+        --ignore-preflight-errors=all
+        --kubernetes-version=1.11.2
+            v1.12.0-rc.1
+        --pod-network-cidr=10.244.0.0/16
+        --apiserver-advertise-address=192.168.6.135
+            docker ps -a | grep kube | grep -v pause
+
+    reset
+    join
+        --token=<some token> <master-ip-addr>
+    alpha phase <cmd>
+        alpha phase selfhosting !!!
+            https://www.slideshare.net/openstack_kr/openinfra-days-korea-2018-day-2-e4-immutable-kubernetes-architecture
+???
+--token-ttl 0

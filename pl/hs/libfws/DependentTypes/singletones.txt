@@ -1,0 +1,17 @@
+http://hackage.haskell.org/package/singletons
+https://github.com/goldfirere/singletons/
+http://www.cis.upenn.edu/~eir/packages/singletons
+
+2018
+https://blog.jle.im/entry/introduction-to-singletons-3.html
+https://blog.jle.im/entry/introduction-to-singletons-2.html
+2017
+https://blog.jle.im/entry/introduction-to-singletons-1.html
+
+R. A. Eisenberg and S. Weirich, "Dependently Typed Programming with Singletons"
+http://www.cis.upenn.edu/~eir/papers/2012/singletons/paper.pdf
+
+SOH-DependentTypesInHaskell
+https://www.fpcomplete.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell
+
+

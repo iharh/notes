@@ -1,0 +1,42 @@
+core/e2fsprogs
+
+https://en.wikipedia.org/wiki/Badblocks
+https://www.smartmontools.org/wiki/BadBlockHowto
+https://wiki.archlinux.org/index.php/Badblocks
+https://wiki.archlinux.org/index.php/Identify_damaged_files
+https://wiki.archlinux.org/index.php/fsck
+https://linoxide.com/linux-how-to/how-to-fix-repair-bad-blocks-in-linux/
+
+e2fsck
+    -C0 -fv /dev/sdNN
+    -cfpv /dev/sdaNN
+
+e2fsck -c, -cc
+# mkfs.ext4 -c /dev/device
+
+badblocks
+    -v   /dev/sdNN # ?
+    -sv  /dev/sda6 # read-only, without un-mount
+    -nvs /dev/sdNN
+    -wvs /dev/sdNN
+    # s-show, v-verbose
+tune2fs
+    -l /dev/sda2
+        | grep Block
+            Block count: 29119820
+            Block size: 4096
+        | grep "Last checked:"
+
+upstart-way of fsck:
+    sudo touch /forcefsck
+    sudo shutdown -rF now
+
+fsck.service
+https://wiki.archlinux.org/index.php/improve_boot_performance#Filesystem_mounts
+https://www.freedesktop.org/software/systemd/man/systemd-fsck@.service.html
+https://bbs.archlinux.org/viewtopic.php?id=148430
+https://bbs.archlinux.org/viewtopic.php?id=165309
+
+/etc/mkinitcpio.conf
+HOOKS="base udev autodetect modconf block resume keyboard keymap filesystems fsck"
+?? need to remove fsck

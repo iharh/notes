@@ -1,0 +1,21 @@
+!!!
+r - 4
+w - 2
+x - 1
+
+
+s
+S - s + x (which is hidden)
+t - sticky (+ x which is hidden)
+
+SUID - set user id
+SGID - set group id
+Sticky - for files - disable caching (for DB files for example). Don't used at Linux
+         for dirs  - (if I have write to any dir - I can delete files from it)
+                     user can't delete files from catalog if he does not own the mentioned files
+
+
+umask - process attribute
+    mask that subtract access permissions
+    default - 022 (files - 644, dirs - 755)
+

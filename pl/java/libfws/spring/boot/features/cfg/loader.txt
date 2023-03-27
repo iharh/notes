@@ -1,0 +1,47 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-property-launcher-features
+loader.debug
+loader.path
+    coma-separated-list of additional cp entries
+loader.system
+loader.properties
+    loader.system=true
+    loader.path=build/libs/shared
+    java.library.path=build/libs/shared
+
+https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader
+
+PropertiesLauncher:
+https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/loader/PropertiesLauncher.html
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#appendix.executable-jar.property-launcher
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/LaunchedURLClassLoader.java
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/jar/Handler.java
+https://docs.spring.io/spring-boot/docs/2.0.0.M1/gradle-plugin/reference/html/#packaging-executable-configuring-properties-launcher
+
+org/springframework/boot/loader
+    ...
+    JarLauncher.class
+    ...
+
+https://stackoverflow.com/questions/15930782/call-java-jar-myfile-jar-with-additional-classpath-option
+
+BOOT-INF
+    classes
+        user-stuff-classes
+    lib
+        -//-
+
+META-INF/MANIFEST.MF
+
+Manifest-Version: 1.0
+Start-Class: com.clarabridge.fxservice.App
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Version: 1.5.8.RELEASE
+Main-Class: org.springframework.boot.loader.JarLauncher
+
+gradle-plugin-ref:
+https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-gradle-plugin.html
+
+custom-layout-factory:
+https://github.com/malcolmp6/CustomLayout1/blob/master/build.gradle

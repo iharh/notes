@@ -1,0 +1,25 @@
+https://newcircle.com/s/post/1696/an_Introduction_to_pattern_matching_in_scala_brian_clapper_tutorial
+
+val f: String => String = { case "ping" => "pong" }
+
+
+val f: PartialFunction[String, String] = { case ... }
+f.isDefinedAt("ping") // true
+f.isDefinedAt("pong") // false
+
+trait PartialFunction[-A, +R] extends Function1[-A, +R] {
+    def apply(x: A) : R
+    def isDefinedAt(x: A): Boolean
+}
+
+the compiler will expand { case "ping" => "pong" } as
+
+new PartialFunction[String, String] {
+    def apply(x: String) = x match {
+        case "ping" => "pong"
+    }
+    def isDefinedAt(x: String) = x match {
+        case "ping" => true
+        case _      => false
+    }
+}

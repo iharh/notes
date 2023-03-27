@@ -1,0 +1,136 @@
+https://github.com/google/guice/wiki
+
+Books:
+Prasanna - Dependency Injection - Design Patterns Using Spring and Guice
+
+Module stuff
+    bind(TweetClient.class)
+
+    - provider methods (see below)
+
+
+    bind(Tweeter.class).to(SmsTweeter.class)
+
+Annotation bindings:
+    bind(String.class).annotatedWith(Username.class).toInstance("jesse");
+
+        @Injext SmsTweeter(@Username String username) {
+            this.username = username;
+        }
+
+    Another sample:
+
+    @Inject
+    public FirstBankOfPSU(
+        @Named("ServerHost") String serverHost,
+        @Named("ServerPort") int serverPort
+    )
+
+    bind(String.class).annotatedWith(Names.named("ServerHost")).toInstance("localhost");
+    bind(Integer.class).annotatedWith(Names.named("ServerPort")).toInstance(8080);
+
+    We can also create our own data-binding annotations:
+
+    import java.lang.annotation.*;
+    import com.google.inject.BindingAnnotation;
+
+    @BindingAnnotation // means that we are going to define an annotation that can be used with Guice
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target({ElementType.PARAMETER, ElementType.FIELD})
+    @Documented
+    public @interface DataDirectory {
+    }
+    ...
+    @Inject
+    public BookDatabase(@DataDirectory File directory)
+
+    bind(File.class).annotatedWith(DataDirectory.class).toInstance(new File(System.getProperty("java.io.tmpdir")));
+
+
+
+Scopes
+- unscoped (create it, use it and toss it)
+
+    This is the default one
+
+- @Singleton
+    We can annotate the object class with @Singleton
+
+    @Provides @Singleton Shortener provideShortener() {
+        return new TinyUrlShortener();
+    }
+
+    We can also bind the type in the singleton scope:
+
+    bind(CreditCardService.class).to(FirstBankOfPSU.class).in(Singleton.class)
+
+- @RequestScope
+- @SessionScope
+
+
+C-tor injection:
+    @Inject
+    public TweetClient(Shortener shortener, ...) {
+        this.shortener = shortener;
+        ...
+    }
+
+Setter injection:
+    @Injext void setShortener(Shortener shortener) {
+        this.shortener = shortener;
+    }
+
+Field injection:
+    @Inject Shortener shortener;
+
+    ! makes testing really difficult !
+
+
+Provider methods:
+
+    @Provides Shortener provideShortener() {
+        return new TinyUrlShortener();
+    }
+
+    @Provides
+    @DataDirectory
+    protected File provideDataDirectory() {
+        return new File(System.getProperty("java.io.tmpdir"));
+    }
+
+Provider classes:
+    ! need to:
+        - load lazily
+        - get multiple instances
+        - mix scopes (e.x. access req-scoped objects from a singleton-scoped objects)
+
+    public interface Provider<T> {
+        T get();
+    }
+
+    injecting a provider:
+
+    @Inject Provider<Shortener> shortenerProvider;
+
+    public void someFunc() {
+        Shortener shortener = shortenerProvider.get();
+        ...
+    }
+
+    bind(BlaBla.class).toProvider(BlaBlaProvider.class)
+
+
+Injector:
+
+    public static void main(String... args) {
+        Injector injector = Guice.createInjector(new BookStoreModule());
+        BookInventory = injector.getInstance(BookInventory.class);
+        ...
+    }
+
+
+AOP
+https://github.com/google/guice/wiki/AOP
+http://sarah-a-happy.livejournal.com/145875.html
+
+? Introspection SPI

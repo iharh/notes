@@ -1,0 +1,11 @@
+rofi
+    [-combi-modi window,drun,ssh]
+    -show
+        combi
+        run
+        window
+        ssh
+        windowcd
+        drun
+        keys
+        script

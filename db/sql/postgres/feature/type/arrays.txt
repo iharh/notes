@@ -1,0 +1,57 @@
+https://www.postgresql.org/docs/current/arrays.html
+https://www.postgresql.org/docs/current/functions-array.html
+
+2022
+https://www.w3resource.com/PostgreSQL/postgresql-array-operators-and-functions.php
+
+1-dim only
+    a1 text array;
+
+do $$
+declare
+    arr text[] := array['aa', 'bb', 'cc'];
+    eid text
+begin
+    raise notice 'ab: %', 'ab' = any(arr);
+    raise notice 'bb: %', 'bb' = any(arr);
+
+    if eid = any(arr) then
+        raise notice 'skip adding: %', eid;
+    else
+        raise notice 'adding: %', eid;
+        arr = array_append(arr, eid);
+    end if;
+
+    raise notice 'arr: %', arr;
+end$$;
+
+'{v1, v2, ..., vN}'::integer[]
+
+set arrfield=arrfield||<val>
+    array_append(arrfield, <val>)
+    array_prepend(<val>, arrfield)
+    array_remove(arrfield, <val>)
+    arrfield[idx]=val
+        idx is 1-based
+
+slices
+    arrfield[<idxfirst>:<idxlast>]=ARRAY[v1,...,vN]
+
+
+array_position(arrfield, <val>)
+    index of first occurence of <val> or null
+arrfield @> '{v1, v2}'::<primitive-type>[]
+    check that left array has all the elements of right one
+arrfield && '{v1, v2}'::<primitive-type>[]
+    checks whether arrays intesects
+unnest(arrfield)
+    array values as a column
+
+samples
+
+declare
+    ids bigint[];
+begin
+    ids := array(select id from table ...);
+    raise notice 'arr size: %', array_length(ids, 1);
+end

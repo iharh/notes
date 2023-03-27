@@ -1,0 +1,24 @@
+https://github.com/spockframework/spock/issues/581
+https://github.com/spockframework/spock/pull/582
+https://github.com/spockframework/spock/pull/582/commits/29cac0ae2c1fcca7cb83e959ea7c1ac4cba05c1a
+
+spock-spring
+http://spockframework.org/spock/docs/1.1/all_in_one.html#_spring_module
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-testing-spring-boot-applications-with-spock
+
+dependencies {
+    ...
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile project(":spock-core")
+    testCompile project(":spock-spring")
+    ...
+}
+
+https://github.com/spockframework/spock/tree/master/spock-spring
+https://github.com/spockframework/spock/tree/master/spock-spring/src/main/java/org/spockframework/spring
+https://github.com/spockframework/spock/blob/master/spock-spring/src/main/java/org/spockframework/spring/SpringExtension.java
+    https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/BootstrapWith.html
+    https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/web/client/TestRestTemplate.html
+
+spock-spring-boot-test:
+https://github.com/spockframework/spock/tree/master/spock-spring/boot-test

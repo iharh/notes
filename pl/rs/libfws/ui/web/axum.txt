@@ -1,0 +1,22 @@
+https://crates.io/crates/axum
+https://docs.rs/axum
+https://github.com/tokio-rs/axum
+
+https://crates.io/crates/axum-debug
+https://crates.io/crates/axum-server
+https://crates.io/crates/axum-debug-macros
+https://crates.io/crates/axum-core
+https://crates.io/crates/axum-extra
+
+articles
+2022
+https://medium.com/intelliconnect-engineering/using-axum-framework-to-create-rest-api-part-ii-4eba129c196b
+https://medium.com/intelliconnect-engineering/using-axum-framework-to-create-rest-api-part-1-7d434d2c5de4
+https://tokio.rs/blog/2022-03-whats-new-in-axum-0-5
+2021
+https://preettheman.medium.com/this-is-an-awesome-web-framework-for-rust-447b25550381
+
+presentations
+2022
+AdaptAgency - Hack Night - David Pedersen on Axum 0:00 of 42:09
+    https://www.youtube.com/watch?v=ETdmhh7OQpA

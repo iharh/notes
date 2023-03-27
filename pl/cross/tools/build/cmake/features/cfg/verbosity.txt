@@ -1,0 +1,5 @@
+https://cmake.org/cmake/help/latest/envvar/VERBOSE.html
+https://cmake.org/cmake/help/latest/envvar/CMAKE_NO_VERBOSE.html
+
+-DCMAKE_RULE_MESSAGES:BOOL=OFF
+-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON 

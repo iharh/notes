@@ -1,0 +1,24 @@
+https://help.ubuntu.com/community/UsingTheTerminal
+
+An extremely handy tool :: Incremental history searching
+
+in terminal enter:
+
+gedit  ~/.inputrc
+
+    then copy paste and save 
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+
+All you need to do to find a previous command is to enter say the first 2 or 3 letters and upward arrow will take you there quickly say i want: 
+
+for f in *.mid ; do timidity "$f"; done
+
+all i need to do is enter
+
+fo
+
+    and hit upward arrow command will soon appear 

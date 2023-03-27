@@ -1,0 +1,8 @@
+https://nixos.org/manual/nixos/stable/#sec-building-cd
+
+2019
+https://blog.thomasheartman.com/posts/building-a-custom-nixos-installer
+    https://github.com/NixOS/nixpkgs/issues/15162
+
+samples
+https://github.com/snabblab/snabblab-nixos/blob/master/make-iso.nix

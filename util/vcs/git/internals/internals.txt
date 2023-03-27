@@ -1,0 +1,56 @@
+https://en.wikibooks.org/wiki/Git/Internal_structure
+A commit is reachable if it is pointed to by a branch, tag or reflog entry,
+or is a parent of a commit which is reachable.
+A tree is correspondingly reachable if it is pointed to by a reachable commit,
+and a blob is reachable if it is pointed to by a reachable tree.
+Other commit/tree/blob objects are unreachable,
+and are not really serving any purpose beyond taking up space.
+
+Interesting:
+
+Types of git objects:
+  blob (every file under source control is written into a blob)
+  tree
+  commit
+  tag
+
+Tree object:
+- Header info
+For each file/dir in the directory:
+-- file permissions
+-- object type (blob/tree)
+-- sha-1
+-- file/dir name
+
+
+alias deflate="perl -MCompress::ZLib -e 'undef $/; print uncompress(<>)'"
+
+git cat-file -t <hash>  get type
+             -p <hash>  print
+
+100644 blob <sha-1>1   .gitignore
+100644 blob <sha-1>2   README.markdown
+100644 blob <sha-1>2   TODO
+100644 blob <sha-1>2   fix.txt
+
+
+Commit (how git stores "snapshots") object:
+- Author info
+- Committer info
+- Commit message (subjects)
+- sha-1 of any parent commits (we can have multiple parents for branching/merging)
+- sha-1 of the tree that the commit points to
+
+???
+git ls-tree
+
+
+References:
+- sha-1 hash
+- branches
+- HEAD
+- Ancestry Refs (HEAD~, HEAD~2, HEAD~3, HEAD^, HEAD^2)
+
+Branches:
+- reference to the latest commit on that specific branch
+  HEAD alias - reference to the latest commit on the current branch

@@ -1,0 +1,34 @@
+2018
+http://mjk.space/git-aliases-i-cant-live-without/
+
+https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git
+https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh
+
+fzf-ones
+https://github.com/fcsonline/dotfiles/blob/master/git/gitconfig
+
+aliases
+https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet
+https://vagr9k.me/making-git-usage-more-comfortable-with-aliases
+
+~/.gitconfig
+[alias]
+br = branch
+st = status
+
+
+git config --global alias.s status
+    global alias for status
+
+    purb "pull --rebase=merges"
+    rbi "rebase --interactive"
+
+    puso "push origin HEAD"
+
+    lgo  "log --oneline --graph --decorate"
+
+    conf config
+    st   status
+    ci   commit
+
+    co   checkout

@@ -1,0 +1,41 @@
+https://github.com/mrkuz/kradle
+
+2018
+https://blog.kotlin-academy.com/gradle-kotlin-the-missing-piece-of-the-puzzle-7528a85f0d2c
+https://blog.jetbrains.com/kotlin/2018/02/using-gradle-build-cache-with-kotlin/
+
+https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin/
+https://guides.gradle.org/building-kotlin-jvm-libraries/
+https://github.com/JetBrains/kotlin-examples
+
+https://github.com/nebula-plugins/nebula-kotlin-plugin
+
+https://kotlinlang.org/docs/reference/using-gradle.html
+https://kotlinlang.org/docs/reference/compatibility.html
+
+https://plugins.gradle.org/plugin/org.jetbrains.kotlin.kapt
+    https://www.reddit.com/r/Kotlin/comments/ack2r6/problem_using_kapt_in_a_multiplatform_project/
+
+https://github.com/griffio/dagger2-kotlin
+
+gradle-kotlin-dsl
+https://github.com/gradle/kotlin-dsl
+https://github.com/gradle/kotlin-dsl/tree/master/samples
+https://blog.gradle.org/gradle-kotlin-dsl-release-candidate
+https://blog.simon-wirtz.de/the-power-of-gradle-kotlin-dsl/
+
+fat-jar:
+https://blog.shrikantjagtap.com/2019/11/build-application-with-gradle-single.html
+
+dependencies {
+    compile 'org.mine:mylib:1.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'foo.bar.MainKt'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

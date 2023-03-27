@@ -1,0 +1,21 @@
+d3
+    .select("body")
+    .append("p")
+    .text("New paragraph!");
+
+
+<html>
+<head>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+<div id="grid"></div>
+<script type="text/javascript">
+d3
+    .select("body")
+    .append("p")
+    .text("New paragraph!");
+</script>
+</body>
+</html>
+

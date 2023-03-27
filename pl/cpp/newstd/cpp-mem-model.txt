@@ -1,0 +1,21 @@
+http://svr-pes20-cppmem.cl.cam.ac.uk/cppmem/
+    https://www.reddit.com/r/cpp/comments/qemtlf/cppmem_tool_broken_cas/
+
+Sutter - Atomic Weapons ...
+
+The compiler (by default) does not about our shared memory locations.
+
+2019
+Arvid Norberg - The C++ memory model: an intuition
+    https://www.youtube.com/watch?v=OyNG4qiWnmU
+Yossi Moalem - C/C++ Memory Model
+    https://www.youtube.com/watch?v=p3557aUkDbs
+2018
+https://davmac.wordpress.com/2018/04/03/understanding-the-c-c-memory-model-part-2/
+Tony van Eerd - C++ Memory Model & Lock-Free Programming
+    https://www.youtube.com/watch?v=14ntPfyNaKE
+
+2014
+Ziegler - C++ Memory Model
+    https://www.think-cell.com/en/career/talks/pdf/think-cell_talk_memorymodel.pdf
+    https://www.youtube.com/watch?v=gpsz8sc6mNU

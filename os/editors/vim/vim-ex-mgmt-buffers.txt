@@ -1,0 +1,51 @@
+2022
+https://linuxhandbook.com/vim-buffers/
+
+Buffer Management:
+
+:h buffers
+  help on windows and buffers
+
+
+:ls/files/buffers[!]
+	List buffers (all open documents) - assigns a unique integer id-number to each buffer
+	! - for showing hidden buffers (help, quickfix, l...)
+:<N>b
+:b-
+	<N>
+		Go to buffer by the mentioned id-number
+	name
+		Switch to buffer by name
+	n,p
+		Switch to the next/previous buffer
+	(r,f),l
+		Switch to the first/last buffer
+	d[elete][!]
+		Buffer delete - unload and delete from buffer list(close file)
+	w[ipeout][!]
+		Buffer wipe-out (delete all info about the buffer)
+	a[ll]
+		Open all buffers in the separate windows (:sba[ll] - in new windows).
+        unh[ide]
+		Rearrange the screen to open one window for each loaded buffer (:sun[hide] - in new windows).
+	ad[d] <file>
+		Add a file to the buffer list without loading it.
+	un[load][!]
+		Unload buffer from memory (! - without saving).
+
+C-^
+	Edit the alternate file (equivalent to ":e #").
+	Mostly the alternate file is the previously edited file.
+	This is a quick way to toggle between two files.
+	
+:bufdo /searchstr/
+	Search in all open files
+
+
+Buffer settings:
+
+'hidden' 'hid'
+	When on/off a buffer is unloaded when it is abandoned.
+'switchbuf' 'swb'
+	This option controls the behavior when switching between buffers.
+

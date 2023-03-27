@@ -1,0 +1,35 @@
+https://kernel.ubuntu.com/~kernel-ppa/mainline/
+     However, even if they’re official, they are not signed, which means that you can’t install them
+        on UEFI/Secure Boot systems if Secure Boot is enabled.
+      As such, you will have to first disable Secure Boot to install Linux kernel 6.0.
+
+2023
+https://www.linux.org/threads/ubuntu-mainline-kernel-installer.42421/
+2022
+https://9to5linux.com/how-to-install-linux-kernel-6-0-on-ubuntu-22-10
+2021
+https://9to5linux.com/how-to-install-linux-kernel-5-15-on-ubuntu-and-linux-mint
+2018
+https://www.linux.org/threads/kernel-updates.18152/#post-54550
+
+list
+     dpkg --list | grep linux-image
+remove old
+https://help.ubuntu.com/community/RemoveOldKernels
+
+linux-image-5.15.0-37-generic
+
+1. sudo apt update && sudo apt full-upgrade
+2. download
+    MANDATORY:
+    https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0/amd64/linux-image-unsigned-6.0.0-060000-generic_6.0.0-060000.202210022231_amd64.deb
+    https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0/amd64/linux-modules-6.0.0-060000-generic_6.0.0-060000.202210022231_amd64.deb
+    OPTIONAL:
+    https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0/amd64/linux-headers-6.0.0-060000-generic_6.0.0-060000.202210022231_amd64.deb
+    https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0/amd64/linux-headers-6.0.0-060000_6.0.0-060000.202210022231_all.deb
+3. sudo dpkg -i *.deb
+
+Or use the mainline GUI tool
+    sudo add-apt-repository ppa:cappelikan/ppa
+    sudo apt update
+    sudo apt install -y mainline

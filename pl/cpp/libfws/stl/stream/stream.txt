@@ -1,0 +1,62 @@
+endl
+https://accu.org/index.php/journals/2619
+https://www.reddit.com/r/cpp/comments/aupw3q/dont_use_stdendl/
+
+
+It is important to note for streams that are both read and written that it is not possible to switch arbitrarily between
+reading and writing![8] Once you started to read or to write a file you have to perform a seek operation, potentially
+to the current position, to switch from reading to writing or vice versa. The only exception to this rule is if you
+have read until end-of-file. In this case you can continue with writing characters immediately.
+Violating this rule can lead to all kinds of strange effects.
+
+8] This is a restriction inherited from C. However, it is likely that implementations of the standard C++
+library make use of this restriction.
+
+
+The exact definition of pos_type is a bit complicated: The C++ standard library defines a global template class fpos<>
+for file positions. Class fpos<> is used to define types streampos for char and wstreampos for wchar_t streams.
+These types are used to define the pos_type of the corresponding character traits.
+And the pos_type member of the traits is used to define pos_type of the corresponding stream classes.
+Thus, you could also use streampos as the type for the stream positions. However, using long or unsigned long is wrong
+because streampos is not an integral type (anymore).[9] For example:
+
+[9] Formerly, streampos was used for stream positions, and it was simply defined as unsigned long.
+
+   // save current file position
+   std::ios::pos_type pos = file.tellg();
+   ...
+   // seek to file position saved in pos
+   file.seekg(pos);
+
+Instead of
+   std::ios::pos_type pos;
+
+you could also write:
+   std::streampos pos;
+
+The type for the offset is off _type, which is an indirect definition of streamoff. Similar to pos_type, streamoff is used
+to define off_type of the traits (see page 689) and the stream classes. However, streamoff is a signed integral type, so
+you can use integral values as stream offsets. For example:
+
+   // seek to the beginning of the file
+   file.seekg (0, std::ios::beg);
+   ...
+   // seek 20 character forward
+   file.seekg (20, std::ios::cur);
+   ...
+   // seek 10 characters before the end
+   file.seekg (-10, std::ios::end);
+
+
+rdbuf (and tie) can be used for streams:
+
+// stream for hexadecimal standard output
+   ostream hexout(cout.rdbuf());
+   hexout.setf (ios::hex, ios::basefield);
+   hexout.setf (ios::showbase);
+
+   // switch between decimal and hexadecimal output
+   hexout << "hexout: " << 177 << " ";
+   cout   << "cout: "   << 177 << " ";
+
+copyfmt - could be used to copy format flags

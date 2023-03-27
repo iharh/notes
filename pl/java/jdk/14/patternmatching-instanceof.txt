@@ -1,0 +1,16 @@
+https://github.com/openjdk/amber-docs/blob/master/site/design-notes/pattern-match-object-model.md
+https://github.com/openjdk/amber-docs/blob/master/site/design-notes/pattern-match-translation.md
+
+https://openjdk.java.net/jeps/394
+https://openjdk.java.net/jeps/305
+
+2021
+https://www.infoq.com/articles/java-pattern-matching/
+2020
+https://blogs.oracle.com/javamagazine/pattern-matching-for-instanceof-in-java-14
+https://www.vojtechruzicka.com/java-pattern-matching-instanceof/
+    https://habr.com/ru/post/501252/
+2019
+https://habr.com/ru/post/477654/
+2018
+https://cr.openjdk.java.net/~briangoetz/amber/pattern-match.html

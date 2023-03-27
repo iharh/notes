@@ -1,0 +1,16 @@
+\db
+    list tablespaces
+
+pg_global
+    $PGDATA/global
+pg_default
+    $PGDATA/base/dboid
+others...
+    $PGDATA/pg_tblspc/tsoid/<path-to-catalog>/ver/dboid
+
+create tablespace <tbspname> to location '...';
+create table ... tablespace <tbspname>;
+
+
+pg_tablespace_size('<tbspname>')
+pg_tablespace_databases('<tbspname>')

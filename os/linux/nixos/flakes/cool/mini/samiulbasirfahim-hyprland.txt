@@ -1,0 +1,79 @@
+https://github.com/samiulbasirfahim/nixos
+
+sudo nixos-rebuild switch --flake ~/.config/nixos/.#nixos
+
+~/.config/hypr/modules/keybind.conf
+
+https://github.com/samiulbasirfahim/nixos/blob/main/flake.nix
+https://github.com/samiulbasirfahim/nixos/tree/main/hosts
+https://github.com/samiulbasirfahim/nixos/blob/main/hosts/default.nix
+https://github.com/samiulbasirfahim/nixos/blob/main/hosts/home.nix
+https://github.com/samiulbasirfahim/nixos/tree/main/hosts/nixos
+https://github.com/samiulbasirfahim/nixos/blob/main/hosts/nixos/default.nix
+    security.doas.enable = true;
+    users.users.fahim.extraGroups = [ "networkmanager" "wheel" ];
+https://github.com/samiulbasirfahim/nixos/blob/main/hosts/nixos/xserver.nix
+    { ... }:
+    {
+      # xserver configuration
+      services.xserver = {
+        enable = true;
+        videoDrivers = [ "amdgpu" ];
+        displayManager = {
+          defaultSession = "hyprland";
+          sessionPackages = [ inputs.hyprland.packages.${pkgs.system}.default ];
+          autoLogin = {
+            enable = true;
+            user = "fahim";
+          };
+          gdm = {
+            enable = true;
+            wayland = true;
+          };
+        };
+      };
+    }
+https://github.com/samiulbasirfahim/nixos/tree/main/modules
+https://github.com/samiulbasirfahim/nixos/tree/main/modules/desktop
+https://github.com/samiulbasirfahim/nixos/tree/main/modules/desktop/hyprland
+https://github.com/samiulbasirfahim/nixos/blob/main/modules/desktop/hyprland/default.nix
+    {inputs,pkgs, ...} : {
+      imports = [
+        inputs.hyprland.homeManagerModules.default
+      ];
+      wayland.windowManager.hyprland = {
+        enable = true;
+        xwayland = {
+          enable = true;
+          hidpi = true;
+        };
+        nvidiaPatches = false;
+        systemdIntegration = true;
+      };
+      xdg.configFile."hypr".source = ./config;
+    }
+https://github.com/samiulbasirfahim/nixos/tree/main/modules/desktop/hyprland/config
+https://github.com/samiulbasirfahim/nixos/blob/main/modules/desktop/hyprland/config/hyprland.conf
+    monitor=,preferred,auto,1
+        exec-once=$HOME/.config/hypr/autostart
+        source=~/.config/hypr/modules/keybind.conf
+        source=~/.config/hypr/modules/general.conf
+        source=~/.config/hypr/modules/appearance.conf
+https://github.com/samiulbasirfahim/nixos/blob/main/modules/desktop/hyprland/config/autostart
+    #!/usr/bin/env bash
+    dunst &
+    waybar &
+    swaybg -i $HOME/.config/hypr/wallpaper.jpg &
+    wl-paste --type text --watch cliphist store &
+    wl-paste --type image --watch cliphist store &
+    # other
+    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+    notify-send -a aurora "hello $(whoami)" &
+https://github.com/samiulbasirfahim/nixos/tree/main/modules/desktop/hyprland/config/modules
+https://github.com/samiulbasirfahim/nixos/blob/main/modules/desktop/hyprland/config/modules/general.conf
+https://github.com/samiulbasirfahim/nixos/blob/main/modules/desktop/hyprland/config/modules/keybind.conf
+https://github.com/samiulbasirfahim/nixos/blob/main/modules/desktop/hyprland/config/modules/appearance.conf
+
+2023
+FahimFF9 - [Hyprnix] Hyprland rice. nixos | hyprland | catppuccin | flakes 0:00 of 1:47
+    https://www.youtube.com/watch?v=IngqdJU62tQ

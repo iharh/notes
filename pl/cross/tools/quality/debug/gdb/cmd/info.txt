@@ -1,0 +1,12 @@
+info
+    i[nfo]
+        b[reakpoints]
+            list of breakpoints
+        line
+            core address of a code for a source line
+        set
+            info aboud all the gdb settings
+        source
+        sources
+        stack
+            backtrace of the stack

@@ -1,0 +1,23 @@
+trap 'rm /tmp/temp-$$; exit' INT TERM
+	Clear up temp files if the script is interrupted via C-c.
+
+trap '' HUP
+	Ignore HUP signal.
+trap - HUP
+	Remove the previous trap (make HUP signal terminate our process again).
+
+USR1, USR2
+	The 2 user-purpose signals.
+
+precmd() { print About to show the prompt... }
+	Executed before the prompt is printed.
+	!!! Prefer this instead of prompt customization if possible !!!
+
+periodic()
+	... only after the $PERIOD seconds have elapsed ...
+
+chpwd()
+	... then the directory changes in the shell ...
+
+
+

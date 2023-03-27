@@ -1,0 +1,13 @@
+svn ls https://svn.domain.com/svn/myproject/tags/
+svn ls https://svn.domain.com/svn/myproject/branches/
+
+svn del/rm
+
+branches:
+
+http://habrahabr.ru/post/45203/
+
+svn cp URL->URL
+svn sw ..
+
+svn del http://svn.example.com/repos/calc/branches/my-calc-branch -m "Removing obsolete branch of calc project."

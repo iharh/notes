@@ -1,0 +1,9 @@
+Then on your command line, specify this:
+
+windbg -WX -y "%_NT_SYMBOL_PATH%" ...
+
+Windbg will then use the current settings and not whatever is stored
+in the workspace it currenly uses.
+I noticed a 3X improvement in the time it takes to analyze minidump
+file this way. 
+

@@ -1,0 +1,9 @@
+sonar-maven-plugin
+https://docs.sonarqube.org/9.2/analysis/scan/sonarscanner-for-maven/
+    mvn verify sonar:sonar -V -B -ntp -P epam-staf-nexus -T 1C ${MAVEN_SONAR_OPTS} -DskipITs
+https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/
+    Global Settings
+    https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/#header-2
+    Analyzing
+    https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/#header-3
+        mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken

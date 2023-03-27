@@ -1,0 +1,8 @@
+https://crates.io/crates/pp
+https://github.com/flo-l/pp_rs/
+
+https://github.com/flo-l/pp_rs/blob/master/src/main.rs
+
+    let json: serde_json::Value = serde_json::from_slice(&buf)?;
+    let writer = BufWriter::new(io::stdout());
+    serde_json::to_writer_pretty(writer, &json)?;

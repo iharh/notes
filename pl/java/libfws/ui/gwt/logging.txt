@@ -1,0 +1,9 @@
+http://www.gwtproject.org/doc/latest/DevGuideLogging.html
+
+quick-way
+
+    public static native void log(String msg) /*-{
+        $wnd.alert(msg);
+    }-*/;
+
+

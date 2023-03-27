@@ -1,0 +1,11 @@
+https://github.com/raelgc/scudcloud/
+https://aur.archlinux.org/packages/scudcloud
+
+~/.config/scudcloud/scudcloud.cfg
+
+scudcloud
+    --debug=True
+    --debug DEBUG
+
+???
+scudcloud_log.txt

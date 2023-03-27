@@ -1,0 +1,39 @@
+https://maven.apache.org/surefire/maven-failsafe-plugin/
+https://maven.apache.org/surefire/maven-failsafe-plugin/integration-test-mojo.html
+https://maven.apache.org/surefire/maven-failsafe-plugin/faq.html
+
+2020
+https://www.baeldung.com/maven-failsafe-plugin
+
+https://maven.apache.org/surefire/maven-failsafe-plugin/examples/skipping-tests.html
+    -DskipITs
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-failsafe-plugin</artifactId>
+    <executions>
+        <execution>
+            <phase>
+                integration-test
+            </phase>
+            <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <trimStackTrace>false</trimStackTrace>
+        <runOrder>alphabetical</runOrder>
+        <!--forkCount>1</forkCount>
+        <reuseForks>true</reuseForks-->
+        <rerunFailingTestsCount>5</rerunFailingTestsCount>
+        <argLine>-Xmx2048m -javaagent:...</argLine>
+        <includes>
+            <include>com/**</include>
+        </includes>
+        <excludes>
+            <exclude>...</exclude>
+        </excludes>
+    </configuration>
+</plugin>

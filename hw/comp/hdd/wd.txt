@@ -1,0 +1,142 @@
+http://askubuntu.com/questions/224511/unable-to-mount-wd-my-passport-1-tb-hard-disk-on-ubuntu-12-10
+http://security.stackexchange.com/questions/44730/how-secure-is-wd-mypassport-lock/44733#44733
+http://www.reddit.com/r/linuxquestions/comments/1h6trq/wd_my_passport_ultra_not_working/?sort=old
+http://ubuntuforums.org/showthread.php?t=1284828
+
+https://github.com/KenMacD/wdpassport-utils
+http://sg.danny.cz/sg/sg3_utils.html
+https://github.com/hreinecke/sg3_utils
+
+http://www.reddit.com/r/linux/comments/17b64a/psa_avoid_wd_passport_drives_you_cant_reformat/
+http://community.wd.com/t5/WD-Portable-Drives/Remove-the-VCD-from-my-drive/td-p/7066
+http://community.wd.com/t5/External-Drives-for-PC/VCD-Manager-does-not-detect-drive/td-p/124508
+http://www.forensicswiki.org/wiki/DCO_and_HPA
+
+Feb 27 08:22:49 ihdesk kernel: usb 2-1: new SuperSpeed USB device number 3 using xhci_hcd
+Feb 27 08:22:49 ihdesk kernel: usb-storage 2-1:1.0: USB Mass Storage device detected
+Feb 27 08:22:49 ihdesk kernel: scsi14 : usb-storage 2-1:1.0
+Feb 27 08:22:49 ihdesk laptop-mode[3269]: Laptop mode
+Feb 27 08:22:49 ihdesk laptop-mode[3270]: enabled, not active
+Feb 27 08:22:49 ihdesk laptop-mode[3299]: Laptop mode
+Feb 27 08:22:49 ihdesk laptop-mode[3300]: enabled, not active
+Feb 27 08:22:50 ihdesk kernel: scsi 14:0:0:0: Direct-Access 	WD   	My Passport 0822 1012 PQ: 0 ANSI: 6
+Feb 27 08:22:50 ihdesk kernel: scsi 14:0:0:1: Enclosure     	WD   	SES Device   	1012 PQ: 0 ANSI: 6
+Feb 27 08:22:50 ihdesk kernel: ses 14:0:0:1: Attached Enclosure device
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] 3906963456 512-byte logical blocks: (2.00 TB/1.81 TiB)
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] Write Protect is off
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] Mode Sense: 47 00 10 08
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] No Caching mode page found
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] Assuming drive cache: write through
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] No Caching mode page found
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] Assuming drive cache: write through
+Feb 27 08:22:56 ihdesk kernel:  sdb: sdb1
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] No Caching mode page found
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] Assuming drive cache: write through
+Feb 27 08:22:56 ihdesk kernel: sd 14:0:0:0: [sdb] Attached SCSI disk
+Feb 27 08:22:57 ihdesk ntfs-3g[3319]: Version 2014.2.15 external FUSE 29
+Feb 27 08:22:57 ihdesk ntfs-3g[3319]: Mounted /dev/sdb1 (Read-Write, label "My Passport Ultra", NTFS 3.1)
+Feb 27 08:22:57 ihdesk ntfs-3g[3319]: Cmdline options: rw,nodev,nosuid,uid=1000,gid=100,dmask=0077,fmask=0177,uhelper=udisks2
+Feb 27 08:22:57 ihdesk ntfs-3g[3319]: Mount options: rw,nodev,nosuid,uhelper=udisks2,allow_other,nonempty,relatime,default_permissions,fsname=/dev/sdb1,blkdev
+Feb 27 08:22:57 ihdesk ntfs-3g[3319]: Global ownership and permissions enforced, configuration type 7
+Feb 27 08:22:57 ihdesk udisksd[1072]: Mounted /dev/sdb1 at /run/media/iharh/My Passport Ultra on behalf of uid 1000
+Feb 27 08:22:57 ihdesk org.gtk.Private.UDisks2VolumeMonitor[1016]: index_parse.c:190: indx_parse(): error opening /run/media/iharh/My Passport Ultra/BDMV/inde
+Feb 27 08:22:57 ihdesk org.gtk.Private.UDisks2VolumeMonitor[1016]: index_parse.c:190: indx_parse(): error opening /run/media/iharh/My Passport Ultra/BDMV/BACK
+
+
+
+$ sudo hdparm -I /dev/sdb
+
+/dev/sdb:
+
+ATA device, with non-removable media
+    Model Number:   	WDC WD20NMVW-11AV3S2               	 
+    Serial Number:  	WD-WX91A84JND8E
+    Firmware Revision:  01.01A01
+    Transport:      	Serial, SATA 1.0a, SATA II Extensions, SATA Rev 2.5, SATA Rev 2.6, SATA Rev 3.0
+Standards:
+    Supported: 9 8 7 6 5
+    Likely used: 9
+Configuration:
+    Logical   	 max    current
+    cylinders    16383    16383
+    heads   	 16    16
+    sectors/track    63    63
+    --
+    CHS current addressable sectors:   16514064
+    LBA	user addressable sectors:  268435455
+    LBA48  user addressable sectors: 3907029168
+    Logical  Sector size:               	512 bytes
+    Physical Sector size:              	4096 bytes
+    Logical Sector-0 offset:              	0 bytes
+    device size with M = 1024*1024: 	1907729 MBytes
+    device size with M = 1000*1000: 	2000398 MBytes (2000 GB)
+    cache/buffer size  = 8192 KBytes
+    Nominal Media Rotation Rate: 5200
+Capabilities:
+    LBA, IORDY(can be disabled)
+    Queue depth: 32
+    Standby timer values: spec'd by Standard, with device specific minimum
+    R/W multiple sector transfer: Max = 16    Current = 0
+    Advanced power management level: 128
+    DMA: *mdma0 mdma1 mdma2 udma0 udma1 udma2 udma3 udma4 udma5 udma6
+     	Cycle time: min=120ns recommended=120ns
+    PIO: pio0 pio1 pio2 pio3 pio4
+     	Cycle time: no flow control=120ns  IORDY flow control=120ns
+Commands/features:
+    Enabled    Supported:
+   	*    SMART feature set
+   		 Security Mode feature set
+   	*    Power Management feature set
+   	*    Write cache
+   	*    Look-ahead
+   	*    WRITE_BUFFER command
+   	*    READ_BUFFER command
+   	*    NOP cmd
+   	*    DOWNLOAD_MICROCODE
+   	*    Advanced Power Management feature set
+   		 Power-Up In Standby feature set
+   	*    SET_FEATURES required to spinup after power up
+   	*    48-bit Address feature set
+   	*    Device Configuration Overlay feature set
+   	*    Mandatory FLUSH_CACHE
+   	*    FLUSH_CACHE_EXT
+   	*    SMART error logging
+   	*    SMART self-test
+   	*    General Purpose Logging feature set
+   	*    64-bit World wide name
+   	*    IDLE_IMMEDIATE with UNLOAD
+   	*    {READ,WRITE}_DMA_EXT_GPL commands
+   	*    Segmented DOWNLOAD_MICROCODE
+   	*    Gen1 signaling speed (1.5Gb/s)
+   	*    Gen2 signaling speed (3.0Gb/s)
+   	*    Native Command Queueing (NCQ)
+   	*    Host-initiated interface power management
+   	*    Phy event counters
+   	*    Idle-Unload when NCQ is active
+   	*    NCQ priority information
+   	*    unknown 76[15]
+   		 DMA Setup Auto-Activate optimization
+   		 Device-initiated interface power management
+   		 Software settings preservation
+   	*    SMART Command Transport (SCT) feature set
+   	*    SCT Write Same (AC2)
+   	*    SCT Features Control (AC4)
+   	*    SCT Data Tables (AC5)
+   		 unknown 206[12] (vendor specific)
+   		 unknown 206[13] (vendor specific)
+   		 unknown 206[14] (vendor specific)
+Security:
+    Master password revision code = 65534
+   	 supported
+    not    enabled
+    not    locked
+    not    frozen
+    not    expired: security count
+   	 supported: enhanced erase
+    410min for SECURITY ERASE UNIT. 410min for ENHANCED SECURITY ERASE UNIT.
+Logical Unit WWN Device Identifier: 50014ee2b5a697ff
+    NAA   	 : 5
+    IEEE OUI    : 0014ee
+    Unique ID    : 2b5a697ff
+Checksum: correct
+

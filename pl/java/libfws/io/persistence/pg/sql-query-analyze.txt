@@ -1,0 +1,7 @@
+Set break into
+  org.postgresql.jdbc.PgPreparedStatement#executeWithFlags
+
+pg_stat_statements_reset
+make query
+and search it at pg_stat_statements
+(if we have this ext locally)

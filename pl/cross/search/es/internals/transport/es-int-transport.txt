@@ -1,0 +1,126 @@
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-transport.html
+https://www.found.no/foundation/elasticsearch-networking/
+
+Local Transport
+This is a handy transport to use when running integration tests within the JVM.
+It is automatically enabled when using NodeBuilder#local(true)
+
+
+transport.
+
+public class TransportRequestOptions {
+    ...
+    public static enum Type {
+        RECOVERY,
+        BULK,
+        REG,        // regular operations like queries
+        STATE,      // cluster state changes
+        PING;
+    }
+    ...
+}
+
+<- used at NettyTransport.NodeChannels
+?? discovery.zen.publish.PublishClusterStateAction
+?? client.transport.TransportClientNodesService
+
+
+
+public class TransportModule extends AbstractModule {
+
+    ...
+    @Override
+    protected void configure() {
+        if (configuredTransport != null) {
+            logger.info("Using [{}] as transport, overridden by [{}]", configuredTransport.getName(), configuredTransportSource);
+            bind(Transport.class).to(configuredTransport).asEagerSingleton();
+        } else {
+            Class<? extends Transport> defaultTransport = DiscoveryNode.localNode(settings) ? LocalTransport.class : NettyTransport.class; // !!! selection between local and netty transport
+            Class<? extends Transport> transport = settings.getAsClass(TRANSPORT_TYPE_KEY, defaultTransport, "org.elasticsearch.transport.", "Transport");
+            bind(Transport.class).to(transport).asEagerSingleton();
+        }
+    }
+    ...
+}
+
+
+TransportService
+    submitRequest(DiscoveryNode node, String action, TransportRequest request, ...)
+    sendRequest(final DiscoveryNode node, final String action, final TransportRequest request, ...)
+
+
+
+public interface Transport extends LifecycleComponent<Transport> {
+
+    public static class TransportSettings {
+        public static final String TRANSPORT_TCP_COMPRESS = "transport.tcp.compress";
+    }
+
+    void transportServiceAdapter(TransportServiceAdapter service);
+
+    /**
+     * The address the transport is bound on.
+     */
+    BoundTransportAddress boundAddress();
+
+    /**
+     * Returns an address from its string representation.
+     */
+    TransportAddress[] addressesFromString(String address) throws Exception;
+
+    /**
+     * Is the address type supported.
+     */
+    boolean addressSupported(Class<? extends TransportAddress> address);
+
+    /**
+     * Returns <tt>true</tt> if the node is connected.
+     */
+    boolean nodeConnected(DiscoveryNode node);
+
+    /**
+     * Connects to the given node, if already connected, does nothing.
+     */
+    void connectToNode(DiscoveryNode node) throws ConnectTransportException;
+
+    /**
+     * Connects to a node in a light manner. Used when just connecting for ping and then
+     * disconnecting.
+     */
+    void connectToNodeLight(DiscoveryNode node) throws ConnectTransportException;
+
+    /**
+     * Disconnected from the given node, if not connected, will do nothing.
+     */
+    void disconnectFromNode(DiscoveryNode node);
+
+    /**
+     * Sends the request to the node.
+     */
+    void sendRequest(DiscoveryNode node, long requestId, String action, TransportRequest request, TransportRequestOptions options) throws IOException, TransportException;
+
+    long serverOpen();
+}
+
+impls:
+    transport.local.LocalTransport
+    transport.netty.NettyTransport
+
+public interface TransportConnectionListener {
+
+    void onNodeConnected(DiscoveryNode node);
+
+    void onNodeDisconnected(DiscoveryNode node);
+}
+
+
+??? http.netty.NettyHttpServerTransport
+
+client.transport.TransportClient
+
+http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/client.html
+https://www.found.no/documentation/tutorials/using-java-transport/
+https://www.found.no/foundation/elasticsearch-networking/
+https://github.com/foundit/elasticsearch-transport-module-example/blob/master/src/main/java/no/found/elasticsearch/example/TransportExample.java
+
+http://spinscale.github.io/elasticsearch-intro-plugins/#/15

@@ -1,0 +1,3 @@
+stack init ...
+    tries to find appropriate lts-<ver>
+    --resolver lts-<num>

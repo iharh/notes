@@ -1,0 +1,47 @@
+First stab at TH:
+http://www.hyperedsoftware.com/blog/entries/first-stab-th.html
+
+SOH-TH:
+https://www.fpcomplete.com/user/marcin/template-haskell-101
+https://www.fpcomplete.com/user/marcin/quasiquotation-101
+
+Tutorials:
+https://github.com/leonidas/codeblog/blob/master/2011/2011-12-27-template-haskell.md
+https://wiki.haskell.org/A_practical_Template_Haskell_Tutorial
+
+UserGuide:
+http://www.haskell.org/ghc/docs/latest/html/users_guide/template-haskell.html
+
+Wiki:
+http://www.haskell.org/haskellwiki/Template_Haskell
+http://en.wikipedia.org/wiki/Template_Haskell
+
+monadloc:
+https://github.com/pepeiborra/monadloc
+http://hackage.haskell.org/cgi-bin/hackage-scripts/package/monadloc
+
+2020
+https://www.tweag.io/blog/2020-11-25-asterius-th/
+https://jmtd.net/log/template_haskell/boilerplate/
+https://jmtd.net/log/template_haskell/
+2015
+https://www.parsonsmatt.org/2015/11/15/template_haskell.html
+
+
+Every time you want to write something in TH, you start with:
+
+runQ [| ... |]
+
+GHC will tell you how to write it. For example, if we wanted to write a splice that will produce 
+
+\(x,_,_) -> x
+
+$ ghci –fth
+> :m +Language.Haskell.TH
+> runQ [| \(x,_,_) -> x |]
+LamE [TupP [VarP x_1,WildP,WildP]] (VarE x_1)
+
+> :t it
+it :: Exp
+
+That’s it, no need to remember anything! Just ask GHC!

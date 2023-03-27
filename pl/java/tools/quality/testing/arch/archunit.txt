@@ -1,0 +1,23 @@
+https://www.archunit.org/
+
+https://github.com/TNG/ArchUnit
+https://github.com/TNG/ArchUnit-Examples
+
+https://www.archunit.org/motivation
+https://www.archunit.org/getting-started
+https://www.archunit.org/userguide/html/000_Index.html
+https://javadoc.io/doc/com.tngtech.archunit/archunit/latest/index.html
+
+https://www.archunit.org/news
+
+2022
+https://medium.com/nexocode/archunit-forget-architecture-its-a-flexible-and-intelligent-linter-fd3c35f622db
+2021
+https://4comprehension.com/improving-java-visibility-modifiers/
+    https://habr.com/ru/post/545842/
+2020
+https://www.sivalabs.in/2020/04/impose-architecture-guidelines-using-archunit/
+    https://habr.com/ru/post/527618/
+https://reflectoring.io/java-components-clean-boundaries/
+    https://habr.com/ru/post/528128/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/boundaries

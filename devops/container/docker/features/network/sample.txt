@@ -1,0 +1,35 @@
+networks:
+  vault-network:
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
+
+
+[
+    {
+        "Name": "stafnet",
+        "Id": "b76866ceac4d612e3627bb04e9dad8a0a46d535cd1497eba288bcb92e732c720",
+        "Created": "2022-09-19T16:35:55.755889778+03:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16",
+                    "Gateway": "172.20.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        ...
+    }
+]

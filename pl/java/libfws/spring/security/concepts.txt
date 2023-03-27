@@ -1,0 +1,57 @@
+@Configuration
+public class SomeWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+        @Bean
+        @Override
+        public AuthenticationManager authenticationManagerBean() throws Exception {
+            return super.authenticationManagerBean();
+        }
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
+                .csrf(AbstractHttpConfigurer::disable)
+                .addFilterBefore(someFilterObj, SomeFilterClass.class)
+                .authenticationProvider(someAuthenticationProvider)
+                .sessionManagement(AbstractHttpConfigurer::disable)
+                .exceptionHandling(exceptionHandling -> exceptionHandling
+                        .authenticationEntryPoint(customAuthenticationEntryPoint)
+                        .accessDeniedHandler(customAccessDeniedHandler))
+                .requestMatchers(requestMatchers -> requestMatchers
+                        .antMatchers(
+                                "/oauth/status", ...
+                                "/oauth/client_details/**",
+                                "/openid/config/**", "/openid/jwks/**", "/openid/token"))
+                .authorizeRequests(authorizeRequests -> authorizeRequests
+                        .antMatchers("/oauth/status").permitAll()
+                        .antMatchers("/oauth/client_details").hasRole("AUTH_ADMIN")
+                        .antMatchers("/openid/config/**").permitAll()
+                        .anyRequest().authenticated())
+                .httpBasic();
+        }
+
+        // ???
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.authenticationProvider(someAuthenticationProvider);
+        }
+}
+
+UserDetailsService
+    - loadUserByUsername() throws AuthenticationException
+    ??? LdapUserDetailsService
+    SAMLUserDetailsService
+
+AuthenticationManager
+    delegates to one or more
+    AuthenticationProvider
+        - supports() method
+        - authenticate() methods which returns null or throws AuthenticationException
+            which modifies (if success)
+            Authentication object (isAuthenticated(), ...) for
+                Principal (user, who requested authentication)
+
+??? PreAuthenticatedAuthenticationProvider
+    DaoAuthenticationProvider,
+    LdapAuthenticationProvider
+
+5.2 using SecurityContext

@@ -1,0 +1,33 @@
+:h
+  script
+  vim-script-intro
+
+  function-list - list of functions
+    list-functions
+    string-functions
+
+
+
+
+http://learnvimscriptthehardway.stevelosh.com/
+
+if filereadable(expand("~/.vim/gvimrc.local"))
+  source ~/.vim/gvimrc.local
+
+
+:type(varname)
+  variable type
+    Number:     0
+    String:     1
+    Funcref:    2
+    List:       3
+    Dictionary: 4
+    Float:      5
+
+
+:mess[ages]
+  show last messages
+
+:set verbose=
+:set verbosefile=
+  http://stackoverflow.com/questions/3025615/is-there-a-vim-runtime-log

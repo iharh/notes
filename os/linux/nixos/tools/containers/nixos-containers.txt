@@ -1,0 +1,8 @@
+https://nixos.org/manual/nixos/stable/#ch-containers
+
+nixos-container
+    create flake-test --flake /path/to/my-flake
+
+2014
+nixos-containers for web development
+    https://www.youtube.com/watch?v=7pAsTRZBMvM

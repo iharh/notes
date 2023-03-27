@@ -1,0 +1,96 @@
+!<num>
+    expand command <num> from history
+!<first_letters>
+    expand to a history-line starting from <first_letters>
+!?<text_to_search>
+    expand to a history-line containing <text_to_search>
+d^<str>
+    recall previous cmd with <str> erased from it
+
+Usefull keys:
+Esc+/
+    lookup partial word in history
+
+history words (!<hist-cmd>:<word-cmd>)
+:0
+    command-name of the hist-cmd
+:<1-9>
+    1-9 - argument of the hist-cmd
+:<x>-<y>
+    -//- range -//-
+:*
+    everything except the command-name of the hist-cmd
+:$ (? %)
+    last argument of the hist-cmd
+Note:
+    typically we can omit double bangs (!!) if followed by a colon (:).
+
+
+history modifiers (!<hist-cmd>:<word-cmd>:<modifier>)
+:h
+    head (directory) part of the argument
+:t
+    tail (nondirectory or file-name) part of the argument
+:r
+    remove-suffix (remove file-extension) part of the argument
+:r<new-suffix>
+    replace a suffix by a <new-suffix>
+:s/<old-text>/<new-text>
+    replace <old-text> by a <new-text>
+:%
+    repeat the last substitution
+Note:
+    modifiers can be combined (via repeating the colon : each time).
+    they are evaluated from left to right.
+Note2:
+    substitution-delimiter dont have to be (/). It can be any spec-char.
+Note3:
+    substitution substitute once in each line. Use :gs instead of :s to do a global replacement
+
+^<old-text>^<new-text>
+    change -//- in the last line.
+
+foo='some value'
+echo ${foo:s/some value/some_value}
+    use braces instead of quoting space (\ )
+
+
+commands, related to the history:
+
+fc -W
+    write (can omit if inc_append_history set)
+fc -r
+    read
+r (fc -e -)
+    The same as !! - execute the previous command
+
+
+history commands:
+
+bindkey ' ' magic-space (by default)
+    inserts space and performs history expansion
+
+
+history options:
+
+histverify
+    let you check the line after modification
+hist_ignore_dups
+hist_ignore_all_dups
+hist_save_no_dups
+hist_expire_dups_first
+
+hist_ignore_space
+hist_no_functions
+
+
+history environment variables:
+
+HISTCONTROL (??? bash)
+    ignorespace - ignore lines starting from space
+    ignoredups
+    ignoreboth
+    erasedups
+
+HISTIGNORE
+    ...

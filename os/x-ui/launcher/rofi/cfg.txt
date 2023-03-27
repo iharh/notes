@@ -1,0 +1,6 @@
+/erc/rofi.conf
+    The system-wide configuration file
+$HOME/.Xresources
+    The per-user Xresources configuration file
+$HOME/config/rofi/config
+    The per-user Rofi configuration file

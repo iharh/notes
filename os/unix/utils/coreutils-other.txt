@@ -1,0 +1,49 @@
+1. translate (tr)
+
+tr     - translate
+         -d - delete
+            \! - exclamation should be back-slashed even in brackets
+            \n - newline
+
+tr 'A-Z' 'a-z' - translage upper to lower case
+
+
+2. sorting (sort)
+
+sort -u ...
+  sort and uniq togeather
+
+3. duplicates removal (uniq)
+
+4. relational database operator (join)
+
+join     -
+           -v1 - only in input source 1
+
+join -v1 my_file vocab_words - get errors (words not from a dictionary)
+
+
+5. search the "whatis" database for strings (apropos)
+
+apropos database | grep (1)   - commands that have "database" in description
+
+6. Test file/directory properties
+
+test, [
+
+7. Environment variables
+
+printenv
+
+8. Terminal settings
+
+stty -a
+	print all current settings
+stty intr '^t'
+	Use C-t (instead of C-c) to interrupt the job
+stty intr '^-'
+	Unset interrupt-function at all
+
+9. Named pipes
+
+mkfifo <pipe-name>

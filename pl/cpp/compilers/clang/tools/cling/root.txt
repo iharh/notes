@@ -1,0 +1,21 @@
+https://root.cern.ch/root/html534/guides/users-guide/ROOTUsersGuide.html
+https://en.wikipedia.org/wiki/ROOT
+
+http://ific.uv.es/~fiorini/ROOTTutorial/root_tutorial.pdf
+https://www.fisgeo.unipg.it/~duranti/metodi/metodi_19-20/_slides/Cplusplus_Makefile_ROOT.pdf
+https://etaler.readthedocs.io/en/latest/UsingWithClingROOT.html
+
+https://root.cern/install/build_from_source/
+
+!!!
+https://caiorss.github.io/C-Cpp-Notes/Root-cern-repl.html
+    ! with docker
+
+cli
+rootcling
+rootbrowse
+root
+    <filename.cpp|c>
+options
+    -l 
+        do not show banner

@@ -1,0 +1,38 @@
+bash: /dev/tty: No such device or address
+Exception in thread "main" java.lang.RuntimeException: Nonzero exit value: 1
+        at scala.sys.package$.error(package.scala:27)
+        at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.slurp(ProcessBuilderImpl.scala:132)
+        at scala.sys.process.ProcessBuilderImpl$AbstractBuilder.$bang$bang(ProcessBuilderImpl.scala:102)
+        at ammonite.terminal.TTY$.stty(Utils.scala:118)
+        at ammonite.terminal.TTY$.init(Utils.scala:97)
+        at ammonite.terminal.Terminal$.x$7$lzycompute$1(Terminal.scala:297)
+        at ammonite.terminal.Terminal$.x$7$1(Terminal.scala:297)
+        at ammonite.terminal.Terminal$.initialConfig$lzycompute$1(Terminal.scala:297)
+        at ammonite.terminal.Terminal$.initialConfig$1(Terminal.scala:297)
+        at ammonite.terminal.Terminal$.readLine(Terminal.scala:307)
+        at ammonite.repl.AmmoniteFrontEnd.readLine(AmmoniteFrontEnd.scala:114)
+        at ammonite.repl.AmmoniteFrontEnd.action(AmmoniteFrontEnd.scala:25)
+        at ammonite.repl.Repl.action(Repl.scala:74)
+        at ammonite.repl.Repl.loop$1(Repl.scala:98)
+        at ammonite.repl.Repl.run(Repl.scala:117)
+        at ammonite.Main.run(Main.scala:108)
+        at ammonite.Main$$anonfun$main$1$$anonfun$apply$1.apply(Main.scala:249)
+        at ammonite.Main$.ammonite$Main$$ifContinually$1(Main.scala:228)
+        at ammonite.Main$$anonfun$main$1.apply(Main.scala:230)
+        at ammonite.Main$$anonfun$main$1.apply(Main.scala:230)
+        at scala.Option.foreach(Option.scala:257)
+        at ammonite.Main$.main(Main.scala:230)
+        at ammonite.Main.main(Main.scala)
+
+https://github.com/lihaoyi/Ammonite/blob/master/terminal/src/main/scala/ammonite/terminal/Utils.scala
+
+object TTY {
+    ...
+    def stty(s: String) =
+        sttyCmd(s).!!
+    ...
+    def sttyFailTolerant(s: String)
+    ...
+    def restore(initialConfig: String)
+    ...
+}

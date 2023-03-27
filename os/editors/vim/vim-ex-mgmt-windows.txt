@@ -1,0 +1,86 @@
+:h windows.txt
+
+Window Management:
+
+:h CTRL-W
+	Help on the mentioned below key combinations
+
+C-w-
+	w,W
+		Move to the next window
+		Cycle focus clockwise, counter-clockwise
+	p
+		Focus previous window
+	r, R
+		Rotate windows clockwise, counter-clockwise respectively
+:split [otherfile]
+	s
+		Split window horizontally
+:vsplit [otherfile]
+	v
+		Split window vertically
+	j,k,h,l
+		Move focus down, up, left, right
+	t
+		Move to the top-leftmost window
+	b
+		Move to the bottom-rightmost window
+	c
+		Close window
+	o
+		Close all but current
+	x
+		Exchange
+	J,K
+		Move the current window to the bottom/top (using the full width of the screen)
+	H,L
+		Move the current window to the left/right (using the full height of the screen)
+	T
+		Mothe the current window to a new existing tab
+	=
+		Try to resize all windows to have equal size
+	_
+		Max height
+	1_
+		Min height
+:resize +/-N
+	-
+		Decrease the height of the current window by one.
+	+
+		Increase the height of the current window by one.
+:resize N
+		Sets the height of the current window to N.
+	>
+		Increases the window width.
+	<
+		Decreases the window width.
+	|
+		Resizes the current window to the widest size possible.
+:vertical resize N
+		Sets the width of the current window to N.
+
+
+
+:[n]split [++opt] [+cmd] [file]   - general form of split command
+	n    - how many lines to display in new window
+	opt  - optional info to pass to the window
+	cmd  - a command for execution
+	file - a file to edit in a new window
+:new
+	-//- the same as above, but with executing autocommands (WinLeave, WinEnter, BufLeave, BufEnter).
+:vsplit/vnew
+	-//- the same as above, but splitting vertically (instead of horizontally).
+:sview filename
+	Splits horizontally and opens filename for reading only
+:sfind [++opt] [+cmd] filename
+	Like :split, but looks for the filename in the path.
+
+
+:hide
+	Hide (close) the window
+:only
+	Leave only this window
+:windo {cmd}
+	Execute {cmd} in each window
+:wincmd
+

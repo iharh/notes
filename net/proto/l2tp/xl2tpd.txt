@@ -1,0 +1,83 @@
+https://wiki.archlinux.org/index.php/Openswan_L2TP/IPsec_VPN_client_setup
+
+http://linuxexplore.com/how-tos/l2tp-vpn-using-xl2tpd/
+https://wiki.archlinux.org/index.php/L2TP/IPsec_VPN_client_setup
+
+
+http://garant-tv.by/index.php?option=com_kunena&func=view&catid=44&id=59475&limit=10&limitstart=30&Itemid=200016#59643
+http://garant-tv.by/index.php?option=com_kunena&func=view&catid=44&id=29206&limit=10&limitstart=20&Itemid=200016
+
+ifconfig -- what about connection: ppp0 ?
+
+
+sudo /etc/init.d/networking restart
+
+sudo /etc/init.d/xl2tpd start
+(sudo /etc/rc.d/xl2tpd start)
+
+sudo su
+/bin/echo "c vpn-connection" > /var/run/xl2tpd/l2tp-control
+/bin/echo "d vpn-connection" > /var/run/xl2tpd/l2tp-control
+
+
+
+/etc/network/interfaces
+
+auto lo
+iface lo inet loopback
+
+# Manual mgmt of eth0
+auto eth0
+iface eth0 inet dhcp
+
+# IPTV stuff
+# http://garant-tv.by/index.php?option=com_kunena&func=view&catid=46&id=59364&Itemid=200016#59515
+up route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0
+
+
+/etc/xl2tpd/xl2tpd.conf
+
+[global]
+ access control = yes
+
+[lac garant]
+ lns = vpn.vpn
+ redial = yes
+ redial timeout = 10
+ require chap = yes
+ require authentication = no
+ name = hataevicha41_11
+ ppp debug = yes
+ pppoptfile = /etc/xl2tpd/options.xl2tpd
+ autodial = yes
+ refuse pap = yes
+
+
+/etc/ppp/options.xl2tpd
+
+remotename l2tp
+ipparam garant
+connect /bin/true
+mru 1460
+mtu 1460
+defaultroute
+nodeflate
+nobsdcomp
+persist
+maxfail 0
+nopcomp
+noaccomp
+noauth
+user <usr> 
+replacedefaultroute
+
+
+/etc/ppp/chap-secrets
+
+# Secrets for authentication using CHAP
+# client	server	secret			IP addresses
+<usr>		*	<pwd>
+
+
+ipsec auto --up L2TP-PSK
+031 "L2TP-PSK": cannot initiate connection with ID wildcards (kind=CK_TEMPLATE)

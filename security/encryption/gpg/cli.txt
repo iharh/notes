@@ -1,0 +1,8 @@
+gpg
+    --list-secret-keys
+    --full-gen-key
+        generate a new key
+    --send-keys <sec-key-id>
+    --recv-keys <sec-key-id>
+    --refresh-keys
+        to refresh your keys from a server (--keyserver or cfg at ~/.gnupg/gpg.conf)

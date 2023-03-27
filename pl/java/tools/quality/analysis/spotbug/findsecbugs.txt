@@ -1,0 +1,6 @@
+http://fb-contrib.sourceforge.net/
+http://find-sec-bugs.github.io/
+
+dependencies {
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1'
+}

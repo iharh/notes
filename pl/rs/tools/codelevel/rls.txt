@@ -1,0 +1,13 @@
+https://github.com/rust-lang-nursery/rls
+
+https://www.ncameron.org/blog/how-the-rls-works/
+http://www.jonathanturner.org/2017/04/rls-now-in-nightly.md.html
+https://www.reddit.com/r/rust/comments/660jii/rls_now_available_via_rustup/
+
+rustup default nightly
+rustup component add rls
+rustup component add rust-analysis
+rustup component add rust-src
+
+vscode-rust
+https://github.com/KalitaAlexey/vscode-rust/pull/56

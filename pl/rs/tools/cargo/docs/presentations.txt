@@ -1,0 +1,4 @@
+2022
+Jon Gjengset - Making a Rust crate compile faster 0:00 of 2:44:11
+    https://www.youtube.com/watch?v=pMiqRM5ooNw
+    ! cargo --timings

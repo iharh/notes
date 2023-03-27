@@ -1,0 +1,8 @@
+https://doc.rust-lang.org/stable/std/string/
+
+https://doc.rust-lang.org/stable/std/primitive.str.html
+
+https://doc.rust-lang.org/stable/std/string/struct.String.html
+https://doc.rust-lang.org/stable/std/ffi/struct.OsString.html
+
+https://doc.rust-lang.org/stable/std/string/trait.ToString.html

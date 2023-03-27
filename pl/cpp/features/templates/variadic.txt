@@ -1,0 +1,28 @@
+2022
+https://www.rsdn.org/article/Variadic/VariadicTemplates.xml
+
+2019
+https://www.fluentcpp.com/2019/01/25/variadic-number-function-parameters-type/
+
+2018
+https://cpptruths.blogspot.com/2018/12/simple-template-currying.html
+https://www.fluentcpp.com/2018/06/26/variadic-crtp-packs-from-opt-in-skills-to-opt-in-skillsets/
+https://www.fluentcpp.com/2018/06/22/variadic-crtp-opt-in-for-class-features-at-compile-time/
+Chain of Responsibility using vartempl
+https://habr.com/post/413765/
+
+2017
+Dewharst - Variadic CRTP
+http://stevedewhurst.com/once_weakly/once-weakly20170328/once-weakly20170328.pdf
+zero alloc continuations part 3
+https://vittorioromeo.info/index/blog/zeroalloc_continuations_p2.html
+
+2016
+http://arne-mertz.de/2016/11/modern-c-features-variadic-templates/
+C++ Variadic templates from the ground up
+http://cppisland.com/?p=194
+
+https://msdn.microsoft.com/en-us/library/ms177415.aspx
+
+samples
+https://github.com/rollbear/affine_types/blob/master/include/affine_types.hpp

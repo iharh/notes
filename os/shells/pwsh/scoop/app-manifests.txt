@@ -1,0 +1,7 @@
+https://github.com/lukesampson/scoop/wiki/App-Manifests
+https://github.com/lukesampson/scoop/wiki/Creating-an-app-manifest
+    scoop install \\shared\files\scoop\hello.json
+    scoop install https://gist.github.com/lukesampson/6446567/raw/hello.json
+https://github.com/lukesampson/scoop/wiki/App-Manifest-Autoupdate
+https://github.com/lukesampson/scoop/wiki/Persistent-data
+https://github.com/lukesampson/scoop/wiki/Dependencies

@@ -1,0 +1,14 @@
+PS and autocomplete:
+http://habrahabr.ru/sandbox/65572/
+https://github.com/git/git/tree/master/contrib/git-jump
+http://mediadoneright.com/content/ultimate-git-ps1-bash-prompt
+
+prompt and completion:
+export PS1='\[\e[01;32m\]\u\[\e[01;34m\]::\[\e[01;31m\]\h \[\e[00;34m\]{ \[\e[01;34m\]\w \[\e[00;34m\]}\[\e[01;32m\]-> \[\e[00m\]'
+if [ -f /usr/share/git/completion/git-completion.bash ]; then
+  export GIT_PS1_SHOWDIRTYSTATE=true
+  source /usr/share/git/completion/git-completion.bash
+  source /usr/share/git/completion/git-prompt.sh
+  export PS1='\[\e[01;32m\]\u\[\e[01;34m\]::\[\e[01;31m\]\h \[\e[00;34m\]{ \[\e[01;34m\]\w\[\e[00;34m\]$(__git_ps1) }\[\e[01;32m\]-> \[\e[00m\]'
+fi
+

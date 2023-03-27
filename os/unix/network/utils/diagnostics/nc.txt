@@ -1,0 +1,5 @@
+nc
+    -zv <host> <port>
+
+samples
+    nc -zv 46.56.72.97 80

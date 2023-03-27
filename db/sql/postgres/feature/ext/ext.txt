@@ -1,0 +1,2 @@
+\c template 1
+create extension pgcrypto;

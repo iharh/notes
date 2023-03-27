@@ -1,0 +1,10 @@
+from 1.26
+https://github.com/rust-lang/rfcs/blob/master/text/1937-ques-in-main.md
+
+use std::fs::File;
+
+fn main() -> Result<(), std::io::Error> {
+    let f = File::open("bar.txt")?;
+
+    Ok(())
+}

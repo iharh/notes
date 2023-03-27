@@ -1,0 +1,4 @@
+alias amm = test:console
+
+//to generate models/db/Tables.scala
+addCommandAlias("tables", "run-main utils.db.SourceCodeGenerator")

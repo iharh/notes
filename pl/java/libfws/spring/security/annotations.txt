@@ -1,0 +1,11 @@
+import com.clarabridge.common.security.annotation.AnySecureParameters;
+import com.clarabridge.common.security.annotation.SecureParameter;
+
+    @AnySecurityParameters(parameters = {  
+        @SecureParameter(ym = write_char(c, buffer, &n);
+
+
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled=true)
+    http://qaru.site/questions/490800/security-method-annotations-with-java-configuration-and-spring-security-32
+    https://stackoverflow.com/questions/29721098/enableglobalmethodsecurity-vs-enablewebsecurity

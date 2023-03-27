@@ -1,0 +1,4 @@
+systemctl reboot --firmware-setup
+
+2022
+https://itsfoss.com/access-uefi-from-linux/

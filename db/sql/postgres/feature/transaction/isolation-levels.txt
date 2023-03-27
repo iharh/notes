@@ -1,0 +1,16 @@
+mainly relevant to lock-based DB impls (while PG is an MVCC-one)
+
+read uncommitted
+    not supported by PG
+read committed (default)
+    (the same 2 selects can bring distinct results)
+repeatable read
+serializable
+    (as if all transactions are chained one-after-another)
+
+show default_transaction_isolation;
+    default_transaction_isolation
+    -----------------------------
+    read committed
+
+at distinct level we use distinct snapshoting strategies ...

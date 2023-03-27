@@ -1,0 +1,25 @@
+https://www.consul.io/
+https://github.com/hashicorp/consul
+
+https://www.consul.io/intro/index.html
+https://www.consul.io/docs/internals/architecture.html
+https://www.consul.io/intro/getting-started/services.html
+
+articles
+https://habrahabr.ru/company/oleg-bunin/blog/345842/
+https://www.spirulasystems.com/blog/2015/06/25/building-an-automatic-environment-using-consul-and-docker-part-1/
+https://www.spirulasystems.com/blog/2015/07/02/automatic-environment-using-consul-and-docker-swarm-part-2/
+https://sreeninet.wordpress.com/2016/04/17/service-discovery-with-consul/
+
+presentations
+http://www.slideshare.net/lynxmanuk/consul-first-steps
+http://www.slideshare.net/InfoQ/consul-serviceoriented-at-scale
+
+counsul health check
+
+discovery
+https://www.consul.io/docs/agent/dns.html
+
+whatsnew
+https://www.infoq.com/news/2019/07/hashicorp-consul-1-6/
+https://www.hashicorp.com/blog/consul-1-3-envoy

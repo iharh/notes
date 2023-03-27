@@ -1,0 +1,32 @@
+https://nixos.org/guides/nix-pills/enter-environment.html#idm140737320692704
+
+nix-store
+    -q --references `which hello`
+        print runtime dependencies
+    -q --referrers `which hello`
+        print reverse dependencies
+
+    -q --tree
+        ~/.nix-profile
+            tree (recursive) dependencies for all the stuff in the current user environments
+        /run/current-system
+            ...
+
+    -q --roots
+        ???
+
+    -qR ... ...
+        reverse dependency
+
+    --export
+        ?
+
+    --verify
+    --check-contents
+    --repair
+
+    -r, --realize /nix/store/z3hhlxbckx4g3n9sw91nnvlkjvyw754p-myname.drv
+        realize a derivation
+
+    --gc --print-roots
+        collect garbage and print roots

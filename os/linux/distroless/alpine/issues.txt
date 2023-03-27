@@ -1,0 +1,4 @@
+slow-alloc:
+https://superuser.com/questions/1219609/why-is-the-alpine-docker-image-over-50-slower-than-the-ubuntu-image
+glibc:
+https://github.com/gliderlabs/docker-alpine/issues/11

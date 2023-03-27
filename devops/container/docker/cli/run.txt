@@ -1,0 +1,45 @@
+https://docs.docker.com/engine/reference/commandline/run/
+
+--security-opt
+    seccomp=unconfined
+--restart
+    no/on-failure/always/unless-stopped 
+
+Constraints:
+--cpu-shares
+    1024 max
+--cpu-period, --cpu-quota
+--cpuset-cpus
+
+--oom-kill-disable = true
+--memory, --memory-swap
+
+--blkio-weight
+    500 by default (10..1000)
+
+--cgroup-parent
+--ulimit
+
+--pid="host"
+--uts="host"
+--ipc="host|container:id"
+--net="host|none"
+    network plugins: simplebridge, overlay, weave
+
+-v, --volume list
+    Bind mount a volume
+--volumes-from
+--add-host
+--dns
+--link
+    db:db
+--publish
+
+--device
+--cap-add/--cap-drop
+--priviledged=true
+    ... for docker inside docker ...
+--exec-driver
+
+-w, --workdir string
+    Working directory inside the container

@@ -1,0 +1,35 @@
+org.springframework.cloud.client.HostInfoEnvironmentPostProcessor
+  ...
+	private HostInfo getFirstNonLoopbackHostInfo(ConfigurableEnvironment environment) {
+		InetUtilsProperties target = new InetUtilsProperties();
+		ConfigurationPropertySources.attach(environment);
+    // !!!
+		Binder.get(environment).bind(InetUtilsProperties.PREFIX, Bindable.ofInstance(target));
+		try (InetUtils utils = new InetUtils(target)) {
+			return utils.findFirstNonLoopbackHostInfo();
+		}
+	}
+  ...
+}
+
+org.springframework.cloud.commons.util.InetUtilsProperties {
+  public static final String PREFIX = "spring.cloud.inetutils";
+      https://cloud.spring.io/spring-cloud-commons/reference/html/appendix.html
+        spring.cloud.inetutils.default-hostname
+        spring.cloud.inetutils.default-ip-address
+        spring.cloud.inetutils.timeout-seconds
+
+  defaultHostname: localhost
+  defaultIpAddress: "127.0.0.1"
+  timeoutSeconds: 1
+  ignoredInterfaces:
+  useOnlySiteLocalInterface: false
+  preferedNetworks:
+}
+
+long
+    dig -x 192.168.1.82
+    nslookup 192.168.1.82
+https://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html#getHostName--
+https://stackoverflow.com/questions/10420317/java-inetaddress-gethostname-taking-a-very-long-time-to-execute
+https://en.wikipedia.org/wiki/Reverse_DNS_lookup

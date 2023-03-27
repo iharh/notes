@@ -1,0 +1,38 @@
+java-plugin
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.JavaExec.html
+
+kotlin sample
+...
+    classpath = sourceSets["main"].runtimeClasspath
+    classpath(
+            { main.output.allOutputs.files },
+            { configurations["jvmRuntimeClasspath"] }
+    )
+...
+
+groovy sample
+project.ext.db = file("$buildDir/baseball.h2.db")
+
+task generateTestDb(dependsOn: classes, type: JavaExec) {
+    onlyIf { !db.exists() }
+    main = 'service.populate_stadium_data'
+    classpath sourceSets.main.runtimeClasspath
+}
+...
+dependencies {
+    compile '...groovy-all...'
+    testCompile '...spock-core...'
+    testRuntime '...cglib-nodep...'
+    runtime 'com.h2database:h2:<ver>'
+}
+
+// jvmArgs = [ '-Xmx1024M', '-Xss10M', '-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=1337' ]
+
+
+// kt
+    enrironment(name, value)
+    environment(mapOf(...))
+
+    workingDir = file(...)
+
+    systemProperties(mapOf(...))

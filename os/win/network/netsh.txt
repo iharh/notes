@@ -1,0 +1,1 @@
+netsh interface show interface

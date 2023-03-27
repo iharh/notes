@@ -1,0 +1,93 @@
+https://cloud.google.com/logging/
+https://cloud.google.com/logging/docs/view/overview
+
+https://cloud.google.com/logging/docs/reference/v2/rest
+https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry
+curl 'https://logging.googleapis.com/$discovery/rest?version=v2'
+    https://cloud.google.com/logging/docs/view/advanced-queries
+    -> filter field ->
+    https://cloud.google.com/logging/docs/view/building-queries
+    https://cloud.google.com/logging/docs/view/logging-query-language
+
+log explorer
+https://cloud.google.com/logging/docs/view/logs-explorer-summary#existing_and_upcoming_features
+https://cloud.google.com/logging/docs/view/logs-explorer-interface
+    https://stackoverflow.com/questions/66844681/is-there-an-api-for-programmatically-creating-saved-searches-in-google-logs-expl
+
+api key
+https://localcoder.org/google-cloud-platform-rest-api-acquiring-access-token-and-api-key
+
+???
+http://price2meet.com/gcp/docs/run_docs_logging.pdf
+
+api misc
+https://cloud.google.com/logging/docs/reference/v2/rest/v2/logs/list
+https://cloud.google.com/logging/docs/reference/v2/rest/v2/entries/list
+
+!!!
+query language
+https://cloud.google.com/logging/docs/view/logging-query-language
+
+tools
+https://cloud.google.com/logging/docs/reference/tools/gcloud-logging
+    gcloud config set project
+https://cloud.google.com/logging/docs/reference/tools/gcloud-logging#listing_logs
+    gcloud logging resource-descriptors list --filter="type:instance"
+    gcloud logging logs list
+        [--filter=EXPRESSION] [--limit=LIMIT] [--sort-by=[FIELD,...]]
+
+        projects/cb-platform-dev/logs/stdout
+        projects/cb-platform-dev/logs/stderr
+        projects/cb-platform-dev/logs/docker
+        projects/cb-platform-dev/logs/container-runtime
+https://cloud.google.com/logging/docs/reference/tools/gcloud-logging#reading_log_entries
+    gcloud logging read --help
+        --format json
+        --format="value(textPayload)"
+        --format='value[terminator=""](textPayload)'
+            $ gcloud topic formats
+            https://cloud.google.com/sdk/gcloud/reference#--format
+            https://cloud.google.com/sdk/gcloud/reference/topic/formats
+        --order=asc|desc
+
+
+        gcloud topic filters
+            "... AND timestamp>=2022-05-01 ..."
+
+        gcloud topic datetimes
+            https://cloud.google.com/sdk/gcloud/reference/topic/datetimes
+            --freshness=p1m
+            --freshness=1d
+            --freshness=1y
+
+    gcloud logging read [FILTER] ...
+    gcloud logging read "resource.type=k8s_container AND resource.labels.container_name=configurer" --limit 2
+
+    ! good
+    gcloud logging read 'resource.type=k8s_container AND labels.k8s-pod/job-name:cx-nlp-zinc-configurer AND timestamp>=2022-05-01' --limit 1 --format json
+
+read
+    https://cloud.google.com/sdk/gcloud/reference/logging/read
+    https://helpmanual.io/man1/gcloud_beta_logging_read/
+
+UI
+    resource.type="k8s_container"
+    resource.labels.project_id="cb-platform-dev"
+    resource.labels.location="us-central1-a"
+    resource.labels.cluster_name="application-cluster"
+    resource.labels.namespace_name="application"
+    labels.k8s-pod/job-name: "cx-nlp-zinc-configurer" severity>=DEFAULT
+    resource.labels.pod_name="cx-nlp-zinc-configurer-2pdnf"
+
+https://console.cloud.google.com/logs/query;
+    query=resource.type%3D%22k8s_container%22%0A
+    resource.labels.project_id%3D%22cb-platform-dev%22%0A
+    resource.labels.location%3D%22us-central1-a%22%0A
+    resource.labels.cluster_name%3D%22application-cluster%22%0A
+    resource.labels.namespace_name%3D%22application%22%0A
+    labels.k8s-pod%2Fjob-name:%20%22cx-nlp-zinc-configurer%22%20severity%3E%3DDEFAULT%0A
+    resource.labels.pod_name%3D%22cx-nlp-zinc-configurer-2pdnf%22
+    ;timeRange=P7D
+    ;cursorTimestamp=2022-05-14T19:36:56.089225523Z
+    ?authuser=1
+    &project=cb-platform-dev

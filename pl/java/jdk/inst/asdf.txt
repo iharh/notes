@@ -1,0 +1,2 @@
+sudo apt install musl
+... corretto-musl-11.0.16.9.1

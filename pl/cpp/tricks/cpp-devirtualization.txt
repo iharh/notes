@@ -1,0 +1,19 @@
+class Base
+{
+  typedef void (*FP)();
+  typedef int (*FPGet) (const Base &);
+  typedef void (*FPSet) (Base &, int);
+
+  static FP vtbl[totalMethods][totalClasses];
+
+  uint8_t tag;
+public:
+  int get() const {
+    return ((FPGet)(vtbl[0][tag]))(*this);
+  }
+  void set(int x) {
+    ((FPSet)vtbl[1][tag])(*this, x);
+  }
+};
+
+// double index is just a single address calculation.

@@ -1,0 +1,10 @@
+https://faq.i3wm.org/question/772/floating-workspace/?answer=773#post-id-773
+https://faq.i3wm.org/question/61/forcing-windows-as-always-floating/?answer=62#post-id-62
+
+for_window [ workspace="9" ] floating enable
+
+for_window [class="Nautilus" instance="file_progress"] floating enable
+# force floating for all new windows
+for_window [class="[.]*"] floating enable
+# browser pop-ups
+for_window [window_role="pop-up"] floating enable

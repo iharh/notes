@@ -1,0 +1,15 @@
+http://www.elasticsearch.org/blog/disk-based-field-data-a-k-a-doc-values/
+
+commit e0334dcb9e0059cdb010e3ac03bcc512b08b4b0f
+Author: Ryan Ernst <ryan@iernst.net>
+Date:   Tue Mar 17 16:14:08 2015 -0700
+
+    Core: Enable doc values by default, when appropriate
+    
+    Doc values significantly reduced heap usage, which results in faster
+    GCs. This change makes the default for doc values dynamic: any
+    field that is indexed but not analyzed now has doc values. This only
+    affects fields on indexes created with 2.0+.
+    
+    closes #8312
+    closes #10209

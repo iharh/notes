@@ -1,0 +1,80 @@
+install:
+https://github.com/docker/compose/releases
+community/docker-compose
+
+pyinstaller:
+https://github.com/docker/compose/blob/master/script/build/windows.ps1
+https://github.com/docker/compose/blob/master/script/build/linux-entrypoint
+https://github.com/docker/compose/blob/master/docker-compose.spec
+
+k8s
+https://blog.docker.com/2018/12/simplifying-kubernetes-with-docker-compose-and-friends/
+
+compose-file:
+https://docs.docker.com/compose/compose-file/
+
+docker-compose.yml and docker-compose.override.yml
+    -f file1.yml -f file2.yml
+
+    env-vars...
+        ports:
+            - "${EXTERNAL_PORT}:5000"
+            - "#EXTERNAL_PORT:5000"
+            # $$... to skip env-vars processing
+
+somename:
+  build: folder/
+  image: imggrp/imgname:1.0
+  image: tonistiigi/dnsdock
+  ports:
+    - "8761:8761"
+  links:
+    - postgres:postgres
+  hostname: cmp
+  links:
+    - dnsdock
+  dns:
+    - 172.17.0.1
+  environment:
+    - DNSDOCK_NAME=tmp1
+    - DNSDOCK_IMAGE=
+  volumes:
+    - /var/run/docker.sock:/run/docker.sock
+
+? dns, dns_search
+healthcheck
+extends
+
+networking:
+https://docs.docker.com/compose/networking/
+
+network-aliases:
+https://medium.com/@yani/two-way-link-with-docker-compose-8e774887be41
+https://myshittycode.com/2017/06/01/docker-handling-circular-dependency-between-containers/
+
+network-ambassador:
+https://stackoverflow.com/questions/29307645/how-to-link-docker-container-to-each-other-with-docker-compose
+https://docs.docker.com/engine/admin/ambassador_pattern_linking/
+https://github.com/cpuguy83/docker-grand-ambassador
+
+
+compose-env:
+https://docs.docker.com/compose/env-file/
+
+secrets
+https://pythonspeed.com/articles/build-secrets-docker-compose/
+    https://habr.com/ru/company/otus/blog/501580/
+
+tools:
+https://github.com/vishnubob/wait-for-it
+    services:
+        web:
+            ...
+            depends_on:
+                - db
+            entrypoint: "./wait-for-it.sh db:5432"
+
+addons:
+https://github.com/dnephin/compose-addons
+https://github.com/dnephin/compose-addons#dcao-include
+https://github.com/docker/compose/issues/318

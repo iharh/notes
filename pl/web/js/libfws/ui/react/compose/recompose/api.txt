@@ -1,0 +1,238 @@
+https://github.com/acdlite/recompose/blob/master/docs/API.md
+
+pure
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#pure
+    Prevents the component from updating unless a prop has changed.
+    Uses shallowEqual() to test for changes.
+
+compose
+    function compose(...funcs) {   return funcs.reduce((a, b) => (...args) => a(b(...args))) } 
+
+withState
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#withstate
+    withState('isVisible', 'toggleVis', false)
+        * (stateName) the state key isVisible,
+        * (stateUpdaterName) a method to toggleVis,
+        * (initialState) - false.
+withReducer
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#withreducer
+    Similar to withState(), but state updates are applied using a reducer function.
+    A reducer is a function that receives a state and an action, and returns a new state.
+    const counterReducer = (count, action) => {
+        switch (action.type) {
+        case INCREMENT:
+            return count + 1
+        case DECREMENT:
+            return count - 1
+        default:
+            return count
+        }
+    }
+
+    const enhance = withReducer('counter', 'dispatch', counterReducer, 0)
+    const Counter = enhance(({ counter, dispatch }) =>
+    <div>
+        Count: {counter}
+        <button onClick={() => dispatch({ type: INCREMENT })}>Increment</button>
+        <button onClick={() => dispatch({ type: DECREMENT })}>Decrement</button>
+    </div>
+
+withHandlers
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#withhandlers
+    create higher-order functions that accept a set of props and return a function handler
+    https://hackernoon.com/mastering-react-functional-components-with-recompose-d4dd6ac98834
+    withHandlers is a special version of withProps, which is intended to be used with arrow functions (which degrade performance in a usual case)
+
+    withHandlers({
+        toggleVisibility: ({ toggleVis, isVisible }) => {
+            return (event) => {
+                return toggleVis(!isVisible);
+            };
+        },
+    })
+    Handlers are passed to the base component as immutable props, whose identities are preserved across renders.
+    This avoids a common pitfall where functional components create handlers inside the body of the function,
+    which results in a new handler on every render and breaks downstream shouldComponentUpdate() optimizations that rely on prop equality.
+    This is the main reason to use withHandlers to create handlers instead of using mapProps or withProps,
+    which will create new handlers every time when it get updated.
+
+withStateHadlers
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#withstatehandlers
+    ... both withState and withHandlers
+    https://hackernoon.com/mastering-react-functional-components-with-recompose-d4dd6ac98834
+
+withProps
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#withprops
+    withProps(({ isVisible }) => {
+        return {
+            title  : isVisible ? 'This is the visible title' : 'This is the default title',
+            message: isVisible ? 'Hello I am Visible'        : 'I am not visible yet, click the button!',
+        };
+    })
+
+defaultProps
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#defaultprops
+    Specifies props to be passed by default to the base component.
+    Similar to withProps(), except the props from the owner take precedence over props provided to the HoC.
+
+mapProps
+    map one props to another
+mapAsyncProps
+    ?
+when
+    ?
+renderComponent
+    ?
+pipe/mapValue/enhance
+    ?
+
+branch
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#branch
+    const cashOnDelivery = 'CASH_ON_DELIVERY';
+    const enhance = branch(
+      (props) => (props.paymentType === cashOnDelivery)
+      renderComponent(CashScreen),
+      renderNothing
+    )
+
+renderComponent
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#rendercomponent
+    takes a component and returns an HOC version of it
+
+renderNothing
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#rendernothing
+    always renders null
+
+
+onlyUpdateForKeys
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#onlyupdateforkeys
+    Prevents the component from updating unless a prop corresponding to one of the given keys has updated.
+    Uses shallowEqual() to test for changes.
+
+fromRenderProps
+    https://github.com/acdlite/recompose/issues/702
+
+====== CONTEXT =======
+
+2017
+https://medium.com/@leathcooper/roll-your-own-provider-and-connect-with-recompose-ceb73ba29dd3
+
+getContext
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#getcontext
+    Gets values from context and passes them along as props. Use along with withContext().
+    https://lilydbarrett.com/2018/05/05/recompose-with-react-vr-pt-2/
+    getContext, used in a child component, allows us to pull out useful information from the parent context and provide it to the component at hand — No need to drill props down through the app!
+
+withContext
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#withcontext
+    Provides context to the component's children.
+
+======= REDUX ========
+
+mapProps
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#mapprops
+    Accepts a function that maps owner props to a new collection of props that are passed to the base component.
+
+withProps
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#withprops
+    Like mapProps(), except the newly created props are merged with the owner props.
+
+====== STATIC PROPERTY HELPERS
+
+componentFromProp
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#componentfromprop
+    Creates a component that accepts a component as a prop and renders it with the remaining props.
+    https://www.zivtech.com/blog/how-use-recompose-transform-react-development
+    <Button component="a">This is a link element</a>
+    <Button component="button">This is a button element</a>
+    <Button component="p">This is a paragraph element</a>
+    ...
+    import { Link } from 'react-router'
+    <Button component={Link}>This is a router link!</Button>
+
+nest
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#nest
+    Composes components by nesting each one inside the previous.
+        https://medium.com/@abhiaiyer/top-5-recompose-hocs-1a4c9cc4566
+
+    // Given components A, B, and C
+    const ABC = nest(A, B, C)
+    <ABC pass="through">Child</ABC>
+
+    // Effectively the same as
+    <A pass="through">
+        <B pass="through">
+            <C pass="through">
+                Child
+            </C>
+        </B>
+    </A>
+
+====== UTILS
+
+getDisplayName
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#getdisplayname
+    Returns the display name of a React component. Falls back to 'Component'.
+
+wrapDisplayName
+
+toClass
+
+shallowEqual
+
+====== OBSERVABLE UTILS
+
+https://github.com/acdlite/recompose/blob/master/docs/API.md#observable-utilities
+
+https://medium.freecodecamp.org/how-to-build-a-github-search-in-react-with-rxjs-6-and-recompose-e9c6cc727e7f
+    https://habr.com/post/419559/
+
+setObservableConfig
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#setobservableconfig
+
+    import { from } from 'rxjs';
+    import { setObservableConfig } from 'recompose';
+    setObservableConfig({
+        fromESObservable: from
+    });
+
+componentFromStream
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#componentfromstream
+
+    const App = componentFromStream(prop$ => {
+      return prop$.pipe(
+        map(() => (
+          <div>
+            <input placeholder="GitHub username" />
+          </div>
+        ))
+      )
+    });
+
+createEventHandler
+    https://github.com/acdlite/recompose/blob/master/docs/API.md#createeventhandler
+
+    const App = componentFromStream(prop$ => {
+      const { handler, stream } = createEventHandler();
+      return prop$.pipe(
+        map(() => (
+          <div>
+            <input
+              onChange={handler}
+              placeholder="GitHub username"
+            />
+          </div>
+        ))
+      )
+    });
+
+======== PROP TYPES =====
+
+setPropTypes
+    https://www.zivtech.com/blog/how-use-recompose-transform-react-development
+
+
+======== OPTIMIZATION =====
+
+? createEagerComponent
+? statelessFunctionalComponent

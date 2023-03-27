@@ -1,0 +1,7 @@
+https://wiki.archlinux.org/title/Power_management
+
+/etc/systemd/sleep.conf
+/etc/systemd/logind.conf
+
+sudo poweroff
+sudo reboot

@@ -1,0 +1,255 @@
+Talks:
+2020
+Gabriel Gonzalez – How to market Haskell to a mainstream programmer
+    https://www.youtube.com/watch?v=fNpsgTIpODA
+    https://www.reddit.com/r/haskell/comments/i9h54g/how_to_market_haskell_to_a_mainstream_programmer/
+2017
+Gabriel Gonzales - Data science APIs in Haskell
+    https://www.youtube.com/watch?v=pXjBcoe3M2s
+Gabriel Gonzales - Applied category theory and abstract algebra
+    https://www.youtube.com/watch?v=WsA7GtUQeB8
+
+Ecosystem:
+https://www.haskellforall.com/2015/12/how-to-contribute-to-haskell-ecosystem.html
+https://www.haskellforall.com/2015/08/state-of-haskell-ecosystem-august-2015.html
+
+Applicative
+https://www.haskellforall.com/2022/03/applicatives-should-usually-implement.html
+https://www.haskellforall.com/2013/06/the-resource-applicative.html
+
+https://hackage.haskell.org/package/defaultable-map
+https://www.haskellforall.com/2022/06/defaultable-map-applicative-wrapper-for.html
+
+Tutorials:
+
+Consumer ... Client (generalizes Consumer)
+Producer ... Server (generalizes Producer)
+
+Proxys generalize Pipes because they allow information to flow upstream
+
+https://www.haskellforall.com/2014/03/introductions-to-advanced-haskell-topics.html
+
+https://www.haskellforall.com/2014/04/scalable-program-architectures.html
+https://www.haskellforall.com/2012/08/the-category-design-pattern.html
+https://www.haskellforall.com/2012/09/the-functor-design-pattern.html (note: see mmorph also)
+https://www.haskellforall.com/2012/09/concurrency-lists-of-kleisli-arrows.html
+
+Type Classes:
++!https://www.haskellforall.com/2012/05/scrap-your-type-classes.html
+
+ADTs, GADTs:
+https://www.haskellforall.com/2012/01/haskell-for-mainstream-programmers.html
+https://www.haskellforall.com/2012/06/gadts.html
+
+CT:
+https://www.haskellforall.com/2016/02/from-mathematics-to-map-reduce.html
+
+Functors:
+https://www.haskellforall.com/2011/12/haskell-for-mainstream-programmers-code.html
+https://www.haskellforall.com/2012/01/haskell-for-mainstream-programmers_04.html
+
+Folds (composable auto-strict stuff):
+  https://hackage.haskell.org/package/foldl
+https://www.haskellforall.com/2013/08/composable-streaming-folds.html
+https://www.haskellforall.com/2013/08/foldl-100-composable-streaming-and.html
+
+IO monad:
++!https://www.haskellforall.com/2013/01/introduction-to-haskell-io.html
+
+Free monads:
+https://www.haskellforall.com/2012/07/purify-code-using-free-monads.html
+https://www.haskellforall.com/2012/06/you-could-have-invented-free-monads.html
+https://debasishg.blogspot.com/2013/01/a-language-and-its-interpretation.html
+
+Free transformers:
+https://www.haskellforall.com/2013/06/from-zero-to-cooperative-threads-in-33.html
+https://www.haskellforall.com/2012/09/the-monadtrans-class-is-missing-method.html
+https://www.haskellforall.com/2012/07/free-monad-transformers.html
+
+Continuation monad:
+https://www.haskellforall.com/2014/04/how-continuation-monad-works.html
+https://www.haskellforall.com/2012/12/the-continuation-monad.html
+
+EitherT-ErrorT:
+https://www.haskellforall.com/2013/12/lift-error-handling-with-lens-like.html
+https://www.haskellforall.com/2012/07/breaking-from-loop.html
+https://www.haskellforall.com/2012/07/errors-10-simplified-error-handling.html
+https://stackoverflow.com/questions/14538294/correct-design-for-haskell-exception-handling
+
+Comonads:
+https://www.haskellforall.com/2013/02/you-could-have-invented-comonads.html
+
+Pipes:
+https://www.haskellforall.com/2014/03/how-to-model-handles-with-pipes.html
+https://www.haskellforall.com/2014/02/streaming-logging.html
+https://www.haskellforall.com/2014/01/stream-fusion-for-pipes.html
+https://www.haskellforall.com/2013/10/manual-proofs-for-pipes-laws.html
+  https://github.com/Gabriel439/Haskell-Pipes-Library/blob/master/laws.md
+https://www.haskellforall.com/2013/09/pipes-40-simpler-types-and-api.html
+https://www.haskellforall.com/2013/05/pipes-330-folds-and-uniting-listt-with.html
+https://www.haskellforall.com/2013/03/pipes-32-listt-codensity-arrowchoice.html
+https://www.haskellforall.com/2013/01/pipes-safe-10-resource-management-and.html
+https://www.haskellforall.com/2012/12/pipes-30-simpler-unified-api.html
+https://www.haskellforall.com/2012/10/pipes-25-faster-and-slimmer.html
+https://www.haskellforall.com/2012/10/pipes-24-proxy-transformers-extra.html
+https://www.haskellforall.com/2012/09/pipes-23-bidirectional-pipes.html
+https://www.haskellforall.com/2012/07/pipes-21-and-index-core-10-indexed.html
+https://www.haskellforall.com/2012/05/pipes-20-pipe-finalization.html
+https://www.haskellforall.com/2012/03/haskell-for-purists-pipe-finalization.html
+https://www.haskellforall.com/2012/05/conduit-bugs.html
+
+pipes-safe:
+https://hackage.haskell.org/packages/archive/pipes-safe/1.0.0/doc/html/Control-Proxy-Safe-Tutorial.html
+
+pipes-concurrency:
+https://www.haskellforall.com/2013/06/pipes-concurrency-120-behaviors-and.html
+https://www.haskellforall.com/2013/04/pipes-concurrency-100-reactive.html
+
+pipes-parse:
+http://www.haskellforall.com/2014/02/pipes-parse-30-lens-based-parsing.html
+  http://www.yesodweb.com/blog/2014/02/ideas-pipes-parse
+https://www.haskellforall.com/2013/10/how-to-reimplement-conduit-parsing-api.html
+https://www.haskellforall.com/2013/06/pipes-parse-100-pushback-delimited.html
+
+pipes-bytestring:
+https://www.haskellforall.com/2013/09/perfect-streaming-using-pipes-bytestring.html
+
+pipes-http:
+https://www.haskellforall.com/2014/02/pipes-http-10-streaming-httphttps.html
+  http://www.reddit.com/r/haskell/comments/1xfaj9/haskell_for_all_pipeshttp10_streaming_httphttps/
+
+io-streams:
+https://www.haskellforall.com/2013/04/pipes-and-io-streams.html
+
+Mmorph:
+https://www.haskellforall.com/2022/02/what-is-monad-morphism-in-haskell.html
+https://www.haskellforall.com/2013/03/mmorph-100-monad-morphisms.html
+
+list-transformer:
+https://www.haskellforall.com/2016/07/list-transformer-beginner-friendly-listt.html
+
+Lenses:
+https://www.haskellforall.com/2021/09/optics-are-monoids.html
+https://www.haskellforall.com/2015/10/explicit-is-better-than-implicit.html
+https://www.haskellforall.com/2012/01/haskell-for-mainstream-programmers_28.html
+https://www.haskellforall.com/2013/05/program-imperatively-using-haskell.html
+
+Total (incl Prisms of Lens):
+https://www.haskellforall.com/2015/01/total-100-exhaustive-pattern-matching.html
+
+Core:
+https://www.haskellforall.com/2015/10/polymorphism-for-dummies.html
+https://www.haskellforall.com/2012/10/hello-core.html
+
+Serialization:
+https://www.haskellforall.com/2012/02/haskell-for-java-programmers.html
+
+Unicode:
+https://www.haskellforall.com/2012/01/haskell-for-engineers-unicode.html
+
+Defaults:
+https://www.haskellforall.com/2013/04/defaults.html
+
+Test QuickCheck:
+https://www.haskellforall.com/2013/11/test-stream-programming-using-haskells.html
+
+MVC
+https://www.haskellforall.com/2014/04/model-view-controller-haskell-style.html
+https://www.haskellforall.com/2014/06/spreadsheet-like-programming-in-haskell.html
+
+MVC-managed (!!! usefull for resource handling !!!)
+https://www.haskellforall.com/2014/08/managed-100-monad-for-managed-resources.html
+
+Streaming:
+https://www.haskellforall.com/2014/11/how-to-build-library-agnostic-streaming.html
+
+Examples:
+https://www.haskellforall.com/2015/10/basic-haskell-examples.html
+https://www.haskellforall.com/2012/10/parsing-chemical-substructures.html
+https://www.haskellforall.com/2012/01/haskell-for-c-programmers-for-loops.html
+https://www.haskellforall.com/2012/08/code-example-1.html
+
+https://stackoverflow.com/questions/14192018/pipes-3-0-non-linear-topologies/
+https://stackoverflow.com/questions/14327327/dependency-injection-in-haskell-solving-the-task-idiomatically
+https://stackoverflow.com/questions/13920695/what-is-the-connection-between-iteratees-and-frp/
+
+Chemistry:
+https://www.haskellforall.com/2013/10/an-all-atom-protein-search-engine.html
+
+Equational Reasoning:
+https://www.haskellforall.com/2014/07/equational-reasoning-at-scale.html
+https://www.haskellforall.com/2014/02/reasoning-about-stream-programming.html
+https://www.haskellforall.com/2013/12/equational-reasoning.html
+
+CCC-Optimization-Morte:
+https://www.haskellforall.com/2014/09/morte-intermediate-language-for-super.html
+https://www.haskellforall.com/2015/05/the-internet-of-code.html
+
+Shellscripting-Turtle:
+https://www.haskellforall.com/2015/01/use-haskell-for-shell-scripting.html
+https://www.haskellforall.com/2015/04/mathematical-apis.html
+
+monad-break:
+https://www.haskellforall.com/2015/06/break-100-small-library-for-breaking.html
+
+optional-args
+https://www.haskellforall.com/2015/06/optional-args-100-optional-function.html
+
+typed-spreadsheet:
+https://www.haskellforall.com/2015/11/haskell-native-spreadsheets.html
+https://www.haskellforall.com/2015/11/interactive-and-composable-charts.html
+
+optparse-generic:
+https://www.haskellforall.com/2016/02/auto-generate-command-line-interface.html
+
+bench:
+https://www.haskellforall.com/2016/05/a-command-line-benchmark-tool.html
+
+generics:
+https://hackage.haskell.org/package/server-generic
+https://www.haskellforall.com/2016/07/auto-generate-service-api-endpoints.html
+
+
+nix-diff:
+https://hackage.haskell.org/package/nix-diff
+https://github.com/Gabriel439/nix-diff
+https://www.haskellforall.com/2017/11/compare-nix-derivations-using-nix-diff.html
+
+nixos
+https://www.haskellforall.com/2022/01/nixpkgs-overlays-are-monoids.html
+https://www.haskellforall.com/2020/11/how-to-use-nixos-for-lightweight.html
+
+grace
+https://www.haskellforall.com/2022/05/generate-web-forms-from-pure-functions.html
+
+Misc:
+https://www.haskellforall.com/2022/06/the-appeal-of-bidirectional-type.html
+https://www.haskellforall.com/2022/05/why-does-haskells-take-function-accept.html
+https://www.haskellforall.com/2022/05/introductory-resources-to-type-theory.html
+    https://www.andres-loeh.de/LambdaPi/LambdaPi.pdf
+    https://web.cecs.pdx.edu/~mpj/thih/thih.pdf
+    https://www.microsoft.com/en-us/research/wp-content/uploads/1997/01/henk.pdf
+    https://www.cl.cam.ac.uk/~nk480/bidir.pdf
+https://www.haskellforall.com/2021/10/co-applicative-programming-style.html
+https://www.haskellforall.com/2021/10/the-return-command-trick.html
+https://www.haskellforall.com/2021/05/the-trick-to-avoid-deeply-nested-error.html
+https://www.haskellforall.com/2021/04/the-end-of-history-for-programming.html
+https://www.haskellforall.com/2021/04/how-to-replace-proxy-with.html
+https://www.haskellforall.com/2021/01/the-visitor-pattern-is-essentially-same.html
+https://www.haskellforall.com/2020/10/why-i-prefer-functional-programming.html
+https://www.haskellforall.com/2020/07/record-constructors.html
+https://www.haskellforall.com/2020/01/dhall-year-in-review-2019-2020.html
+https://www.haskellforall.com/2019/12/prefer-to-use-fail-for-io-exceptions.html
+https://www.haskellforall.com/2019/06/the-cap-theorem-for-software-engineering.html
+https://www.haskellforall.com/2019/02/haskell-command-line-utility-using-ghc.html
+https://www.haskellforall.com/2016/04/worst-practices-should-be-hard.html
+https://www.haskellforall.com/2015/09/how-to-make-your-haskell-code-more.html
+https://www.haskellforall.com/2014/12/a-very-general-api-for-relational-joins.html
+https://www.haskellforall.com/2014/10/how-to-desugar-haskell-code.html
+https://www.haskellforall.com/2014/04/worst-practices-are-viral-for-wrong.html
+
+Talks
+
+https://www.reddit.com/r/haskell/comments/3c735q/how_to_prove_large_software_projects_correct_talk/
+https://www.techcast.com/events/bigtechday8/maffei-1450
+https://www.techcast.com/events/bigtechday8/maffei-1450/maffei-1450.mp4?start=0

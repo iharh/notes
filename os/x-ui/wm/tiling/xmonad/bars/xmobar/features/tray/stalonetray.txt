@@ -1,0 +1,31 @@
+stalonetray
+https://kolbusa.github.io/stalonetray/
+https://github.com/kolbusa/stalonetray
+
+https://wiki.archlinux.org/title/stalonetray
+
+https://kolbusa.github.io/stalonetray/wmhints.html
+
+https://github.com/lfont/dotfiles/blob/master/xmobar/.xmobarrc#L6
+    , position = TopW L 100
+
+stalonetray
+    -c ~/.xmonad/stalonetrayrc-cfg
+
+cfg file
+/usr/share/doc/stalonetray/examples/stalonetrayrc.sample.gz
+~/.stalonetrayrc
+
+https://beginners-guide-to-xmonad.readthedocs.io/configure_stalonetray.html
+
+2020
+BrodieRobertson - Stalonetray: Need A System Tray Look No Futher of 12:46
+    https://www.youtube.com/watch?v=wxUUeZcSq28
+RoelVanDePaar - System Tray Icons on Xmonad - Xmobar Or any other minimal status bar of 2:34
+    https://www.youtube.com/watch?v=q8R6L9MSEAM
+2018
+https://unix.stackexchange.com/questions/436787/system-tray-icons-on-xmonad-xmobar-or-any-other-minimal-status-bar
+    TopP 0 20 is a slightly more flexible way
+    than Static { ... } to specify a gap on the right side
+qa
+https://unix.stackexchange.com/questions/436787/system-tray-icons-on-xmonad-xmobar-or-any-other-minimal-status-bar

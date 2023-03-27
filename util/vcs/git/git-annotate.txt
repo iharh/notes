@@ -1,0 +1,2 @@
+git annotate <file>
+    Shows each line of a file next to information about which commit last changed that line, when it changed and who changed it.

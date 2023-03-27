@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <contextName>!!!-some-service</contextName>
+    <jmxConfigurator/>
+    <springProperty name="application.name" source="spring.application.name"/>
+    <springProperty name="application.version" source="spring.application.version"/>
+    <springProperty name="application.lang.id" source="lang.id"/>
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex"
+                    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <message/>
+                <loggerName/>
+                <threadName/>
+                <logLevel/>
+                <stackTrace/>
+                <mdc/>
+                <logstashMarkers/>
+                <pattern>
+                    <pattern>
+                        {
+                        "app_name": "${application.name}",
+                        "version":"${application.version}",
+                        "host":"${HOSTNAME}",
+                        "lang_id":"${application.lang.id}"
+                        }
+                    </pattern>
+                </pattern>
+                <arguments/>
+            </providers>
+        </encoder>
+    </appender>
+    <root level="info">
+        <!-- Output to stdout -->
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

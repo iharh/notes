@@ -1,0 +1,5 @@
+https://github.com/llvm-mirror/llvm/blob/master/include/llvm/Support/Compiler.h
+
+#if !LLVM_MSC_PREREQ(1900)
+#error LLVM requires at least MSVC 2015.
+#endi

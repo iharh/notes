@@ -1,0 +1,11 @@
+https://github.com/robertjlooby/dhall-ssh-config
+
+2021
+https://linuxize.com/post/using-the-ssh-config-file/
+2020
+https://goteleport.com/blog/ssh-config/
+https://www.cloudsavvyit.com/4274/how-to-manage-an-ssh-config-file-in-windows-linux/
+https://freehost.com.ua/faq/articles/kak-nastroit-ssh-s-pomoschju--ssh-config/
+
+man
+    ssh_config

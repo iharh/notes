@@ -1,0 +1,488 @@
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-scopes
+
+Scope iface
+Creating custom scope
+Threading scopes
+
+public class MyScope implements Scope {
+    @Override
+    public Object get(String name, ObjectFactory<?> objectFactory) {
+    }
+    @Override
+    public Object remove(String name) {
+    }
+    @Override
+    public void registerDestructionCallback(String name, Runable callback) {
+    }
+    @Override
+    public Object resolveContextualObject(String key) {
+    }
+    @Override
+    public String getConversationId() {
+    }
+}
+
+// Singleton
+
+private Map<String, Object> singletons = new ConcurrentHashMap<>();
+
+@Override
+public Object get(String name, ObjectFactory<?> objectFactory) {
+    Object result = singletons.get(name)
+    if (result == null) {
+        result = objectFactory.getObject();
+        singletons.put(name, result);
+    }
+    return result;
+}
+
+// Prototype
+
+@Override
+public Object get(String name, ObjectFactory<?> objectFactory) {
+    return objectFactory.getObject();
+}
+
+They could look like this. But there is no actual implementation for those scopes.
+
+
+// Custom Scope implementation
+
+public class CustomScope implements Scope {
+    private Map<String, Object> storage = new ConcurrentHashMap<String, Object>();
+
+    @Override
+    public Object get(String name, ObjectFactory<?> objectFactory) {
+        Object object = storage.get(name);
+        if (object == null) {
+            object = objectFactory.getObject();
+            storage.put(name, object);
+        }
+        return object;
+    }
+
+    @Override
+    public Object remove(String name) {
+        return storage.remove(name);
+    }
+    ...
+}
+
+@Configuration
+public class CustomScopeConfig {
+    @Bean
+    public CustomScope customScope() {
+        return new CustomScope();
+    }
+
+    @Bean
+    public CustomScopeConfigurer customScopeConfigurer(CustomScope customScope) { // ? CustomScopeConfigurer is a native Spring ?
+        CustomScopeConfigurer configurer = new CustomScopeConfigurer();
+
+        Map<String, Object> scopes = Maps.newHashMap();
+        scopes.put("custom", customScope);
+        configurer.setScopes(scopes);
+
+        return configurer;
+    }
+
+    @Bean
+    @Scope("custom")
+    public Logger logger() {
+        return new Logger();
+    }
+}
+
+// 2-nd way to do this:
+ConfigurableListableBeanFactory::registerScope
+
+// Runner
+ApplicationContext ctx = new AnnotationConfigApplicationContext(CustomScopeConfig.class);
+
+Logger logger = ctx.getBean(Logger.class);
+System.out.println(logger);
+
+CustomScope customScope = ctx.getBean(CustomScope.class);
+customScope.remove(logger);
+
+logger = ctx.getBean(Logger.class);
+System.out.println(logger);
+
+// Output
+...scopes.entity.Logger@6a472554
+...scopes.entity.Logger@7ff2a664
+
+// Problem
+
+What about injection? We need proxy!
+What about handling multiple beans of the same scope?
+
+// 1-st problem solution is simple:
+
+// Config
+@Bean
+@Scope(value="custom", proxyMode=ScopedProxyMode.TARGET_CLASS)
+public Logger logger() {
+    return new Logger();
+}
+
+// Runner
+ApplicationContext ctx = new AnnotationConfigApplicationContext(CustomScopeConfig2.class);
+
+Logger logger = ctx.getBean(Logger.class);
+System.out.println(logger);
+System.out.println(logger.getClass());
+
+// Output
+...scopes.entity.Logger@184cf7cf
+class ...scopes.entity.Logger$$EnhancerBySpringCGLIB$$103d1ffd
+
+Now proxying will be handled by CGLib (which is able to override classes and not only interfaces)
+(JDK can only create proxy for i-faces)
+
+
+// 2-nd problem solution:
+
+public class ScopeWrapper implements BeanFactoryPostProcessor {
+    private Scope scope;
+    private String scopeName;
+
+    private List<String> scopeBeanDefinitions;
+
+    public ScopeWrapper(Scope scope, String scopeName) {
+        this.scope = scope;
+        this.scopeName = scopeName;
+    }
+
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        scopeBeanDefinitions = Lists.newArrayList(beanFactory.getBeanDefinitionNames()).stream()
+            .filter(beanDefinitionName -> {
+                BeanDefinition beanDefinition = beanFactory.getBeanDefinition(beanDefinitionName);
+                return scopeName.equals(beanDefinition.getScope());
+            })
+            .collect(Collectors.toList());
+    }
+
+    public void clear() {
+        for (String beanDefinitionName : scopeBeanDefinitions) {
+            scope.remove(beanDefinitionName);
+        }
+    }
+}
+
+@Configuration
+public class ScopeWrapperConfig {
+    public CustomScope customScope() {...}
+    public ScopeWrapper customScopeWrapper(CustomScope customScope) {...}
+    public CustomScopeConfigurer simpleThreadScopeConfigurer(CustomScope customScope) {...}
+    public Logger logger() {...}
+    public Service service() {...}
+}
+
+// Runner
+ApplicationContext ctx = new AnnotationConfigApplicationContext(ScopeWrapperConfig.class);
+
+Logger logger = ctx.getBean(Logger.class);
+System.out.println(logger);
+Service service = ctx.getBean(Service.class);
+System.out.println(service);
+
+ScopeWrapper scopeWrapper = ctx.getBean(ScopeWrapper.class);
+scopeWrapper.clear();
+
+logger = ctx.getBean(Logger.class);
+System.out.println(logger);
+service = ctx.getBean(Service.class);
+System.out.println(service);
+
+// Output
+...scopes.entity.Logger@5762806e
+...scopes.entity.Service@17c386de
+...scopes.entity.Logger@5af97850
+...scopes.entity.Service@5ef60048
+
+// Problem
+I have http-interface application. And it's multithreaded. I need the Request scope.
+
+/// org.springframework.context.support.SimpleThreadScope
+
+private final ThreadLocal<Map<String, Object>> threadScope =
+    new NamedThreadLocal<Map<String, Object>>("SimpleThreadScope") {
+        @Override
+        protected Map<String, Object> initialValue() {
+            return new HashMap<String, Object>();
+        }
+    }
+
+@Override
+public Object get(String name, ObjectFactory<?> objectFactory) {
+    Map<String, Object> scope = this.threadScope.get();
+    Object object = scope.get(name);
+    if (object == null) {
+        object = objectFactory.getObject();
+        scope.put(name, object);
+    }
+    return object;
+}
+
+@Override
+public Object remove(String name) {
+    Map<String, Object> scope = this.threadScope.get();
+    return scope.remove(name);
+}
+
+// 1. get() - populates bean in ThreadLocal map
+// 2. remove() - removes bean from ThreadLocal map
+
+// Thread scope logging
+
+// Model
+public class Logger {
+    private List<String> events;
+    public Logger() {
+        this.events = Lists.newArrayList();
+    }
+    public void addEvent(String event) {
+        this.events.add(event);
+    }
+    public List<String> getEvents() {
+        return this.events;
+    }
+}
+
+// Config
+@Configuration
+public class SimpleThreadScopeConfig {
+    @Bean
+    public SimpleThreadScope simpleThreadScope() {
+        return new SimpleThreadScope();
+    }
+    @Bean
+    public CustomScopeConfigurer simpleThreadScopeConfigurer(SimpleThreadScope simpleThreadScope) {
+        CustomScopeConfigurer configurer = new CustomScopeConfigurer();
+        Map <String, Object> scopes = Maps.newHashMap();
+        scopes.put("thread", simpleThreadScope);
+        configurer.setScope(scopes)
+        return configurer;
+    }
+    @Bean
+    @Scope(value="thread", proxyMode=ScopedProxyMode.TARGET_CLASS)
+    public Logger logger() {
+        return new Logger();
+    }
+}
+
+// Runner
+ApplicationContext ctx = new AnnotationConfigApplicationContext(SimpleThreadScopeConfig.class);
+
+Runnable r = () -> {
+    Logger logger = ctx.getBean(Logger.class);
+    logger.addEvent("Hello, i'm thread " + Thread.currentThread().getId());
+    System.out.println(logger.getEvents());
+};
+
+new Thread(r).start();
+new Thread(r).start();
+
+// Output
+[Hello, i'm thread 12]
+[Hello, i'm thread 11]
+
+// Problem
+What about thread pools???
+
+
+// Thread pool and thread scope
+
+// Runner
+ApplicationContext ctx = new AnnotationConfigApplicationContext(SimpleThreadScopeConfig.class);
+
+Runnable r = () -> {
+    Logger logger = ctx.getBean(Logger.class);
+    logger.addEvent("Hello, i'm thread " + Thread.currentThread().getId());
+};
+
+ExecutorService executor = Executors.newSingleThreadExecutor();
+
+executor.execute(r);
+executor.shutdown();
+executor.awaitTermination(10, TimeUnit.SECONDS);
+
+System.out.println(ctx.getBean(Logger.class).getEvents());
+
+// Output
+[]
+
+// Problem
+Thread pool thread is not associated with the current thread.
+
+
+// Wrap Runnable and Callable
+
+private Callable<?> wrapCallable(Callable<?> callable) {
+    Map<String, Object> callingThreadContext = scope.getCurrentThreadContext();
+    return () -> {
+        scope.replaceContext(callingThreadContext);
+        try {
+            return callable.call();
+        } finally {
+            scope.removeContext();
+        }
+    }
+}
+
+private Runnable wrapRunnable(Runnable runnable) {
+    Map<String, Object> callingThreadContext = scope.getCurrentThreadContext();
+    return () -> {
+        scope.replaceContext(callingThreadContext);
+        try {
+            return runnable.run();
+        } finally {
+            scope.removeContext();
+        }
+    }
+}
+
+// from the Spring src:
+
+public void replaceContext(Map<Spring, Object> context) {
+    this.threadScope.set(context);
+}
+public void removeContext() {
+    this.threadScope.remove();
+}
+public Map<String, Object> getCurrentThreadContext() {
+    return this.threadScope.get();
+}
+
+// AssociatableExecutorFactory
+
+@SuppressWarnings({"rawtypes", "unchecked"})
+public ExecutorService wrap(ExecutorService executor) {
+    //
+    // 1. Proxying ExecutorService
+    //
+    return (ExecutorService) Proxy.newProxyInstance(
+        ExecutorService.class.getClassLoader(),
+        new Class[] { ExecutorService.class },
+        new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object [] args) throws Throwable {
+                if (args != null) {
+                    //
+                    // 2. Iterate over the arguments of the method call
+                    //
+                    for (int i = 0; i < args.length; ++i) {
+                        //
+                        // 3. Wrap collection or single object
+                        //
+                        if (Collection.class.isAssibnableFrom(arg.getClass())) {
+                            args[i] = ((Collection) arg).stream().map((listItem) -> {
+                                return tryToWrapSingleObject(listItem);
+                            })
+                            .collect(Collectors.toList());
+                        } else {
+                            args[i] = tryToWrapSingleObject(arg);
+                        }
+                    }
+                }
+                return method.invoke(executor, args);
+            }
+
+            private Object tryToWrapSingleObject(Object arg) {
+                if (Callable.class.isAssignableFrom(arg.getClass())) {
+                    return wrapCallable((Callable) arg);
+                } else if (Runnable.class.isAssignableFrom(arg.getClass())) {
+                    return wrapRunnable((Runnable) arg);
+                } else {
+                    return arg;
+                }
+            }
+
+            private Callable<?> wrapCallable(Callable<?> callable) { ... }
+            private Runnable wrapRunnable(Runnable runnable) { ... }
+        }
+    );
+}
+
+// Thread pool and thread scope
+
+// Runner
+ApplicationContext ctx = new AnnotationConfigApplicationContext(AssociatableThreadScopeConfig.class);
+
+Runnable r = () -> {
+    Logger logger = ctx.getBean(Logger.class);
+    logger.addEvent("Hello, i'm thread " + Thread.currentThread().getId());
+};
+
+AssociatableExecutorFactory executorFactory = ctx.getBean(AssociatableExecutorFactory.class);
+ExecutorService executor = executorFactory.wrap(Executors.newSingleThreadExecutor());
+
+executor.execute(r);
+executor.shutdown();
+executor.awaitTermination(10, TimeUnit.SECONDS);
+
+System.out.println(ctx.getBean(Logger.class).getEvents());
+
+// Output
+[Hello, i'm thread 11]
+Current thread is 1
+
+
+// Readl HTTP server application case
+
+//
+// 1. Define scope
+//
+@Configuration
+private static class Config {
+    @Bean @Scope("request") public Logger logger() ...
+    @Bean public RequestScope requestScope() ...
+    @Bean CustomScopeConfigurere requestScope() ...
+    ...
+}
+//
+// 2. Create request filter
+//
+private static class RequestFilter {
+    @Autowired
+    private ScopeWrapper requestScopeWrapper;
+
+    public void filterRequest(Object request) {
+        requestScopeWrapper.clear();
+        requestScopeWrapper.getScope().put("request", request);
+    }
+}
+//
+// 3. Create response filter
+//
+private static class ResponseFilter {
+    @Autowired
+    private Logger logger;
+    @Autowired
+    private Object request; // this will be proxy
+
+    public void filterResponse(Object response) {
+        System.out.println(logger.getEvents());
+    }
+}
+//
+// 4. Inject your "request" scope bean
+//
+private static class UserService {
+    @Autowired
+    private Logger logger; // this will be proxy
+
+    public void registerUser(Object user) {
+        // login
+        logger.addEvent("User " + user + " was registered.");
+    }
+}
+
+
+// Conclusion
+
+1. Custom scopes are needed to modify bean lifetime
+2. Always think about concurrency, when creating custom scopes
+3. Reuse Spring infrastructure to create custom scopes

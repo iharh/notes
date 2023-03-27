@@ -1,0 +1,83 @@
+https://github.com/d3/d3/blob/master/API.md#selections-d3-selection
+https://github.com/d3/d3-selection
+
+2013
+https://bost.ocks.org/mike/join/
+https://bost.ocks.org/mike/selection/
+https://bost.ocks.org/mike/nest/
+https://bost.ocks.org/mike/circles/
+
+2012
+https://bost.ocks.org/mike/constancy/
+https://website.education.wisc.edu/~swu28/d3t/concept.html
+
+d3.select
+    #id
+        by id
+
+
+https://bost.ocks.org/mike/selection/#group
+Another reason selections aren’t literally arrays of elements is that they are arrays of arrays of elements:
+    a selection is an array of groups, and each group is an array of elements
+
+data binding
+https://bost.ocks.org/mike/selection/#data
+Data is bound to elements one of several ways:
+    Joined to groups of elements via selection.data.
+    Assigned to individual elements via selection.datum.
+    Inherited from a parent via append, insert, or select. 
+
+However, unlike the other selection methods,
+    selection.data defines data per-group rather than per-element: 
+    data is expressed as an array of values for the group, or a function that returns such an array.
+
+For selections with only a single group, you can pass the corresponding single array to selection.data directly;
+you only need a function when binding different data to different groups. 
+
+
+https://bost.ocks.org/mike/selection/#enter-update-exit
+These are the three selections returned by
+    selection.data
+    selection.enter
+    selection.exit
+
+While update and exit are normal selections, enter is a subclass of selection.
+This is necessary because it represents elements that do not yet exist.
+An enter selection contains placeholders rather than DOM elements;
+    these placeholders are simply objects with a __data__ property. 
+
+The implementation of
+    enter.select (https://github.com/d3/d3-selection/blob/master/src/selection/enter.js)
+is then specialized such that nodes are inserted into the group’s parent, replacing the placeholder
+
+This is why it is critical to call selection.selectAll prior to a data join:
+    it establishes the parent node for entering elements. 
+
+
+https://bost.ocks.org/mike/selection/#enter-update
+general update pattern
+https://bl.ocks.org/mbostock/3808218
+
+Often, there’s overlap between properties of updating and entering elements.
+
+To reduce duplicate code, enter.append has a convenient side-effect:
+it replaces null elements in the update selection with the newly-created elements from the enter selection.
+
+Thus, after enter.append, the update selection is modified to contain both entering and updating elements.
+The update selection subsequently contains all currently-displayed elements: 
+
+[picture]
+
+With the selection once again consistent with the document, the life-cycle of the data join is complete. 
+
+https://bost.ocks.org/mike/constancy/#key-functions
+
+When you join the top-ten states to the bars, three selections are returned:
+
+var bar = svg.selectAll(".bar")
+    .data(top, function(d) { return d.State; });
+
+The selection bar is the update selection:
+    states that persist across the transition.
+The selections bar.enter() and bar.exit() are the enter and exit selections:
+    states that are incoming or outgoing, respectively. 

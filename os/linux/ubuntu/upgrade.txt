@@ -1,0 +1,6 @@
+https://linuxconfig.org/how-to-upgrade-ubuntu-to-21-04
+
+sudo apt update
+sudo apt upgrade
+sudo apt dist-upgrade
+sudo do-release-upgrade

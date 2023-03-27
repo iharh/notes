@@ -1,0 +1,61 @@
+http://hackage.haskell.org/packages/archive/transformers-free/latest/doc/html/Control-Monad-Trans-Free.html
+https://github.com/Gabriel439/Haskell-Transformers-Free-Library/blob/master/Control/Monad/Trans/Free.hs
+
+data FreeF f a x = Pure a | Free (f x)
+
+{-|
+    A free monad transformer alternates nesting the base monad @m@ and the base
+    functor @f@, terminating with a value of type @a@.
+
+    * @f@ - The functor that generates the free monad transformer
+
+    * @m@ - The base monad
+
+    * @a@ - The return value
+-}
+newtype FreeT f m a = FreeT { runFreeT :: m (FreeF f a (FreeT f m a)) }
+
+instance (Functor f, Monad m) => Functor (FreeT f m) where
+    fmap = liftM
+
+instance (Functor f, Monad m) => Applicative (FreeT f m) where
+    pure  = return
+    (<*>) = ap
+
+instance (Functor f, Monad m) => Monad (FreeT f m) where
+    return  = FreeT . return . Pure
+    m >>= f = FreeT $ do
+        x <- runFreeT m
+        runFreeT $ case x of
+            Pure a -> f a
+            Free w -> wrap $ fmap (>>= f) w
+
+instance MonadTrans (FreeT f) where
+    lift = FreeT . liftM Pure
+
+instance (Functor f, MonadIO m) => MonadIO (FreeT f m) where
+    liftIO = lift . liftIO 
+
+-- | Prepend one layer of the functor to the free monad
+wrap :: (Monad m) => f (FreeT f m a) -> FreeT f m a
+wrap = FreeT . return . Free
+
+-- | Convert one layer of a functor into an operation in the free monad
+liftF :: (Functor f, Monad m) => f a -> FreeT f m a
+liftF x = wrap $ fmap return x
+
+{-|
+    @Free f a@ is a list of nested @f@s terminating with a return value of type
+    @a@.
+
+    * @f@ - The functor that generates the free monad
+
+    * @a@ - The return value
+-}
+type Free f = FreeT f Identity
+
+-- | Observation function that exposes the next step
+runFree :: Free f r -> FreeF f r (Free f r)
+runFree = runIdentity . runFreeT
+
+

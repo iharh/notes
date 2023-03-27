@@ -1,0 +1,14 @@
+https://zhuyifei1999.github.io/guppy3/
+
+guppy3
+
+from guppy import hpy
+
+in the
+__init__():
+    ...
+    self.h = hpy()
+
+later
+    heap_status = self.h.heap()
+    self.logger.info("Heap size is: %s bytes", heap_status.size)

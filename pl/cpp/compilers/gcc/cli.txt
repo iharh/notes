@@ -1,0 +1,3 @@
+gcc
+    -S -o <output-file.s>
+        output asm

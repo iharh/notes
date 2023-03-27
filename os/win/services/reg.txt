@@ -1,0 +1,4 @@
+https://docs.microsoft.com/en-us/windows-hardware/drivers/install/hklm-system-currentcontrolset-services-registry-tree
+
+HKLM\SYSTEM\CurrentControlSet\Services\<name>
+    Parameters

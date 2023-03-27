@@ -1,0 +1,13 @@
+https://www.archlinux.org/news/deprecation-of-net-tools/
+
+arp
+ifconfig
+ipmaddr
+iptunnel
+mii-tool
+nameif
+netstat
+plipconfig
+rarp
+route
+slattach

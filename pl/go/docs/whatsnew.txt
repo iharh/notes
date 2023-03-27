@@ -1,0 +1,48 @@
+2.x
+https://www.infoq.com/news/2018/11/go-2-evolution-process
+Rob Pike - Go 2 Draft Specifications
+    https://www.youtube.com/watch?v=RIvL2ONhFBI
+https://blog.golang.org/go2draft
+    https://www.youtube.com/watch?v=6wIP3rO6On8
+https://go.googlesource.com/proposal/+/master/design/go2draft.md
+https://go.googlesource.com/proposal/+/master/design/go2draft-error-handling-overview.md
+https://go.googlesource.com/proposal/+/master/design/go2draft-generics-overview.md
+    https://habr.com/post/422049/
+https://go.googlesource.com/proposal/+/master/design/go2draft-contracts.md
+
+1.x
+https://tip.golang.org/doc/go1.19
+    https://habr.com/ru/company/ozontech/blog/674190/
+    https://www.opennet.ru/opennews/art.shtml?num=57591
+https://go.dev/blog/go1.18
+    https://www.opennet.ru/opennews/art.shtml?num=56864
+    https://www.linux.org.ru/news/opensource/16819672
+    ! pseudo-generics
+https://go.dev/blog/go1.18beta1
+    https://habr.com/ru/company/skillfactory/blog/595799/
+    ! generics beta
+https://blog.golang.org/go1.16
+    https://www.opennet.ru/opennews/art.shtml?num=54605
+https://blog.golang.org/go1.15
+    https://www.opennet.ru/opennews/art.shtml?num=53539
+    https://habr.com/ru/company/selectel/blog/515118/
+https://blog.golang.org/go1.14
+    https://www.opennet.ru/opennews/art.shtml?num=52443
+https://blog.golang.org/go1.13
+    http://www.opennet.ru/opennews/art.shtml?num=51417
+    https://www.infoq.com/news/2019/09/go-1-13-module-mirror-checksumdb/
+https://blog.golang.org/go1.12
+    https://golang.org/doc/go1.12
+    http://www.opennet.ru/opennews/art.shtml?num=50210
+    https://www.infoq.com/news/2019/03/golang-1.12-released
+https://tip.golang.org/doc/go1.11
+    http://www.opennet.ru/opennews/art.shtml?num=49183
+    https://habr.com/post/421355/
+https://blog.golang.org/go1.10
+    http://www.opennet.ru/opennews/art.shtml?num=48096
+    https://www.infoq.com/news/2018/02/golang-1.10-released
+    https://golang.org/doc/go1.10
+    https://speakerdeck.com/badoo_tech/novoie-v-go-1-dot-10-alieksiei-palazhchienko-percona
+
+compatibility
+https://golang.org/doc/go1compat

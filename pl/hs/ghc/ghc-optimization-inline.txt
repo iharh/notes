@@ -1,0 +1,22 @@
+ToRead:
+Jones - Secrets of the GHC Inliner
+
+Inlining:
+-- | Function composition.
+{-# INLINE (.) #-}
+-- Make sure it has TWO args only on the left, so that it inlines
+-- when applied to two functions, even if there is no final argument
+(.) :: (b -> c) -> (a -> b) -> a -> c
+(.) f g = \x -> f (g x)
+
+-- The following will not be inlined for 2 args available, since it has 3:
+(.) f g x = f (g x)
+
+INLINABLE pragma - for recommendation to inline, not a force
+
+-funfolding-use-threshold=16
+
+Note: not-exported functions are inlined by default within a module
+
+-ddump-hi - to dump the hi-file (inlined functions should not be there).
+

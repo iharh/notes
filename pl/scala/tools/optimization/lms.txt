@@ -1,0 +1,17 @@
+LMS-RewriteRules
+http://scala-lms.github.io/
+
+tutorials:
+http://scala-lms.github.io/tutorials/
+http://scala-lms.github.io/tutorials/staging.html
+http://scala-lms.github.io/tutorials/shonan.html
+http://scala-lms.github.io/tutorials/regex.html
+
+https://github.com/julienrf/lms-tutorial/wiki
+http://www.stanford.edu/class/cs442/
+
+articles:
+http://lampwww.epfl.ch/~amin/pub/lms-verify.pdf
+Odersky - Optimizing Data Structures in High-Level Programs
+RompfOdersky - A Pragmatic Approach to Runtime Code Generation and Compiled DSL
+Rompf - LMS and Embedded Compilers phd

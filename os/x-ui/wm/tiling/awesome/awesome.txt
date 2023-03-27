@@ -1,0 +1,49 @@
+https://awesomewm.org/
+https://github.com/awesomeWM/awesome
+
+!!!
+https://github.com/atsepkov/awesome-awesome-wm
+https://github.com/lcpz/awesome-copycats
+
+community
+    awesome
+    awesome-freedesktop
+        Freedesktop.org menu and desktop icons support for Awesome WM
+    manjaro-awesome-settings
+    awesome-wallpapers
+        Wallpapers for awesome wm
+    cesious-theme
+        Cesious theme for awesome wm
+    lain
+    vicious
+        widgets
+
+
+aur
+    awesome-scratch-git
+    awesome-themes-git
+    awesome-terminal-fonts-git
+    awesome-terminal-fonts-patched
+    awesome-treetile
+    vicious-git
+
+/usr/share/doc/awesome/
+    ...
+
+https://awesomewm.org/doc/
+
+https://awesomewm.org/community/
+
+faq
+https://github.com/awesomeWM/awesome/blob/master/docs/90-FAQ.md
+
+api
+https://awesomewm.org/doc/api/
+https://awesomewm.org/apidoc/
+
+screenshots
+https://github.com/awesomeWM/awesome/issues/1395
+
+wiki
+https://wiki.archlinux.org/index.php/awesome
+https://forum.manjaro.org/t/testing-for-manjaro-awesome-edition/41490/55

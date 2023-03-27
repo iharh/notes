@@ -1,0 +1,8 @@
+:ar[gs]
+	Print the argument list, with the current file in square brackets.
+:ar[gs] *.txt
+        a.txt b.txt c.txt
+	Load multiple files
+:argadd
+:argdel
+	-//-

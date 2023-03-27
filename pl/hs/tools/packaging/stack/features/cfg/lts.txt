@@ -1,0 +1,10 @@
+http://www.stackage.org/
+https://github.com/fpco/lts-haskell
+http://www.stackage.org/lts-3.0
+
+Edit your stack.yaml and set the following:
+resolver: lts-19.5
+You can also use --resolver lts-3.0 on the command line
+
+resolver:
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/19/5.yaml

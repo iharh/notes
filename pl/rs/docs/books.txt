@@ -1,0 +1,137 @@
+TRPL
+https://doc.rust-lang.org/book/second-edition/
+https://rust-lang.github.io/book/second-edition/
+
+https://rust-lang.github.io/book/
+https://github.com/rust-lang/book
+
+https://doc.rust-lang.org/book/
+https://doc.rust-lang.org/nightly/book/
+https://github.com/rust-lang/rust/tree/master/src/doc/book
+
+https://doc.rust-lang.org/nightly/unstable-book/
+
+https://killercup.github.io/trpl-ebook/
+
+https://users.rust-lang.org/t/the-bookshelf-is-largely-implemented-please-check-out-the-new-docs/9715
+
+https://github.com/kgv/rust_book_ru
+https://github.com/ruRust/rust_book_2ed/tree/ru_version/second-edition/src
+
+easy_rust
+https://dhghomon.github.io/easy_rust/
+    https://www.youtube.com/playlist?list=PLfllocyHVgsRwLkTAhG0E-2QxCf-ozBkk
+
+Nomicon
+https://doc.rust-lang.org/nomicon/
+https://github.com/rust-lang-nursery/nomicon
+
+Porting Cpp to Rust
+https://locka99.gitbooks.io/a-guide-to-porting-c-to-rust/
+
+TooManyLists
+https://rust-unofficial.github.io/too-many-lists/
+https://github.com/rust-unofficial/too-many-lists
+http://cglab.ca/%7Eabeinges/blah/too-many-lists/book/
+    2020
+    https://medium.com/the-data-dump/graph-tree-traversals-in-rust-3c9c93a0feba
+
+Snake
+https://snake.rustbridge.com/
+https://github.com/rustbridge/Rusty-Snake-Book
+
+Cookbook
+https://rust-lang-nursery.github.io/rust-cookbook/
+https://github.com/rust-lang-nursery/rust-cookbook
+https://brson.github.io/rust-cookbook/
+https://github.com/brson/rust-cookbook
+still need a lot of help:
+https://internals.rust-lang.org/t/rust-libz-blitz/5184/47
+Ferner - 2018 - Rust Standard Library Cookbook
+
+api-guidelines
+https://rust-lang-nursery.github.io/api-guidelines/
+https://github.com/rust-lang-nursery/api-guidelines
+
+ecma
+https://freemasen.github.io/rusty-ecma-book/
+
+async-book
+https://rust-lang.github.io/async-book/
+
+Published
+Kaihlavirta - Mastering Rust
+    https://www.packtpub.com/application-development/mastering-rust
+Gomez - Rust Programming by Example
+    https://www.packtpub.com/application-development/rust-programming-example
+Chanda - Network Programming with Rust
+    https://www.packtpub.com/application-development/network-programming-rust
+Manning-MEAP
+    https://www.manning.com/books/rust-servers-services-and-apps
+    https://www.manning.com/books/refactoring-to-rust
+
+2023
+KlabnikNichols - The Rust Programming Language 2nd ed
+    A8451E371255ACA9803D3B7D2FCBB400
+Bos - Rust Atomics and Locks
+    B79EA2BEF2D8BCF5870E0927FB61254E
+2022
+Youens-Clark - Command-Line Rust
+    magnet:?xt=urn:btih:8a159f5328927740c47e9e08f0ab613ed9cb450e
+    ! 399p
+Palmieri - Zero To Production In Rust
+    https://www.zero2prod.com/index.html
+    6527506AE9300147DE372521FC134C3A
+    0EA744C1A1CE8ABD954FC0E2BAC855CE
+Smith - Game Development with Rust and WebAssembly
+    ???
+2021
+BlandyOrendorff - Programming Rust 2nd ed
+    BE8F942065F8AED49ABE0414C9602182 
+KlabnikNichols - The Rust Programming Language ru
+    57FC451B6927457078601721158474B9
+Gjengset - Rust for Rustaceans
+    079201FBCD6E51022C478FA34BC87237
+Ric - Beginning Rust Programming
+    0FB67E531BF1CB7B188BF84F817291AE
+McNamara - Rust in Action
+    38FD5C0062ED46D7574BE9987952D655
+    16695D0E89FD4FCD06371F1D2B471A03
+    39E362F954A303551828CC7062233905
+    !!!
+Messier - Beginning Rust Programming
+    0FB67E531BF1CB7B188BF84F817291AE
+2020
+Eshwarla - Practical System Programming for Rust Developers of 388p
+    46C9B5B1BED7E89C1326087FB6224676
+    C1119759384389DA35E418769D631D23
+MurrayWeiss - Fullstack Rust r4
+    CA6746FACB53B6E87E1A76D748737438
+    14717023D105B1230F90A7BA47DE04CD
+    625F142D6B167458009E324B549E32AA
+2019
+SharmaKaihlavirtaMatzinger - The Complete Rust Programming Reference Guide
+    958E4C5C523567190D8265F739D2C753
+    5AD74B290DC6C40D338C87E65891BEE2
+2018
+Johnson - Hands-On Functional Programming in Rust
+Troutwine - Hands-On Concurrency with Rust
+Klabnik - The Rust Programming Language
+Milanesi - Beginning Rust
+Gomez - Rust Programming by Example (Gamedev)
+Chanda - Network Programming with Rust
+Milanesi - Beginning Rust
+Blandy - Programming Rust ru
+    http://downloadanybooks.com/?book=1491927283
+2017
+Kaihlarita - Mastering Rust
+Johnson - Learning Rust
+2016
+Blandy - Programming Rust
+2015 
+Blandy - Why Rust:
+    http://www.oreilly.com/programming/free/files/why-rust.pdf
+    https://www.reddit.com/r/cpp/comments/3kkgfz/why_rust_brief_introduction_but_good_for_c/
+    http://feederio.com/book/46/why-rust
+    http://feederio.com/files/book/14853357981385_30cfdedd0fe9372c2505f762cb70d575.pdf
+Balbaert - Rust Essentials

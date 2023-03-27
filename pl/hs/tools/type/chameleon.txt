@@ -1,0 +1,11 @@
+https://github.com/maybetonyfu/chameleon
+
+2021
+FuDwyerStuckey - Interactive Haskell Type Inference Exploration
+    https://icfp21.sigplan.org/details/TyDe-2021/6/Interactive-Haskell-Type-Inference-Exploration-Extended-Abstract-
+    https://open-box.s3.ap-southeast-2.amazonaws.com/tyde21-paper7.pdf
+TyDe 2021 - Interactive Haskell Type Inference Exploration (Extended Abstract) of 19:54
+    https://www.youtube.com/watch?v=SLBzu_ArXHA
+    ! 1:20 chameleon ... by typescript and mypy
+    ! 6:00 type-compare view (constraint-based type inference vs HM-one)
+    ! 8:50 type-deduction view

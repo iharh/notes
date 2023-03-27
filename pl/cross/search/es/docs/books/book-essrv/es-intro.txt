@@ -1,0 +1,81 @@
+https://blog.codecentric.de/en/2014/02/elasticsearch-101/
+
+curl -XGET   http://localhost:9020/...
+     -XPOST
+     -XPUT
+     -XDELETE
+
+
+info
+    curl -XGET   http://localhost:9020/
+      get info about instance as a whole
+
+
+health:
+
+GET  /_cluster/health?pretty
+     /_cluster/nodes/
+     
+POST /_cluster/nodes/_shutdown
+     /_cluster/nodes/<your-node-id>/_shutdown
+
+
+putting docs:
+
+curl -XPUT http://localhost:9200/blog/article/1 -d
+  '{"title": "New version of Elastic Search released!", "content": "...", "tags": ["announce", "elasticsearch", "release"] }'
+
+resp:
+{ "ok":true, "_index":"blog", "_type":"article", "_id":"1", "_version":1 }
+
+for auto-generating id:
+... -XPOST .../article/ -d '{...}'
+resp:
+{ ... "id":"<your-ugly-id>" ... }
+
+
+retrieving docs:
+
+GET /blog/article/1
+resp:
+{ "_index":"blog", "_type":"article", "_id":"1", "_version":1, "exists":true, "_source":{ "title":... } }
+resp if not found:
+{ "_index":"blog", "_type":"article", "_id":"9999", "exists":false }
+
+
+updating docs:
+
+...is implemented via scripts...
+
+curl -XPOST http://localhost:9200/blog/article/1/_update -d '{ "script": "ctx._source.content = \"new content\"" }'
+resp:
+{"ok":true,"_index":"blog","_type":"article","_id":"1","_version":2}
+
+default values must be in upsert section:
+
+curl -XPOST http://localhost:9200/blog/article/1/_update -d '{ "script": "ctx._source.counter += 1",
+  "upsert": { "counter" : 0 }
+}'
+
+
+Deleting documents:
+
+curl -XDELETE http://localhost:9200/blog/article/1
+resp:
+{"ok":true,"found":true,"_index":"blog","_type":"article","_id":"1","_version":3}
+
+
+Index creation:
+
+curl -XPOST 'http://localhost:9200/posts'
+resp:
+{"ok":true,"acknowledged":true}
+
+
+Index deletioin:
+
+curl -XDELETE 'http://localhost:9200/posts'
+resp:
+{"ok":true,"acknowledged":true}
+
+

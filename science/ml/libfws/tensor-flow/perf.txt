@@ -1,0 +1,9 @@
+https://stackoverflow.com/questions/41164426/cpu-faster-than-gpu-on-prettytensor-demo-shakespeare-py
+https://stackoverflow.com/questions/37751739/tensorflow-code-optimization-strategy/37774430#37774430
+https://stackoverflow.com/questions/33956956/counter-on-gpu-insanely-slow-compared-to-default-counter
+
+https://www.tensorflow.org/programmers_guide/threading_and_queues
+https://blog.metaflow.fr/tensorflow-how-to-optimise-your-input-pipeline-with-queues-and-multi-threading-e7c3874157e0
+
+batching:
+https://github.com/tensorflow/serving/tree/master/tensorflow_serving/batching

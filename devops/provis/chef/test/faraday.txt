@@ -1,0 +1,55 @@
+https://github.com/lostisland/faraday
+http://www.rubydoc.info/gems/faraday
+
+connection = Faraday.new("http://google.com/") do |faraday|
+  faraday.use MyMiddleware
+  faraday.adapter Faraday.default_adapter
+end
+
+
+http://zetcode.com/web/rubyfaraday/
+
+https://gist.github.com/mislav/938183
+
+ssl:
+https://gist.github.com/mislav/938183
+https://www.mobomo.com/2012/03/faraday-one-http-client-to-rule-them-all/
+
+auth:
+http://www.rubydoc.info/github/lostisland/faraday/Faraday%2FConnection%3Aauthorization
+https://github.com/lostisland/faraday/issues/144
+https://github.com/lostisland/faraday/issues/127
+https://github.com/lostisland/faraday/issues/597
+https://github.com/lostisland/faraday/issues/57
+https://github.com/lostisland/faraday/pull/60
+https://github.com/lostisland/faraday/issues/127
+
+https://github.com/lostisland/faraday/blob/master/lib/faraday/request.rb
+https://github.com/lostisland/faraday/blob/master/lib/faraday/request/authorization.rb
+https://github.com/lostisland/faraday/blob/master/lib/faraday/request/basic_authentication.rb
+https://github.com/lostisland/faraday/blob/master/lib/faraday/request/token_authentication.rb
+
+https://github.com/lostisland/faraday/blob/master/lib/faraday/connection.rb
+
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/adapter/net_http.rb:81:in `perform_request'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/adapter/net_http.rb:41:in `block in call'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/adapter/net_http.rb:88:in `with_net_http_connection'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/adapter/net_http.rb:33:in `call'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/response.rb:8:in `call'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/response/logger.rb:24:in `call'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/request/url_encoded.rb:15:in `call'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/rack_builder.rb:139:in `build_response'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/connection.rb:377:in `run_request'
+# /tmp/verifier/gems/gems/faraday-0.10.0/lib/faraday/connection.rb:140:in `get'
+# /tmp/verifier/gems/gems/infrataster-0.3.2/lib/infrataster/contexts/http_context.rb:28:in `public_send'
+# /tmp/verifier/gems/gems/infrataster-0.3.2/lib/infrataster/contexts/http_context.rb:28:in `block in response'
+# /tmp/verifier/gems/gems/infrataster-0.3.2/lib/infrataster/server.rb:82:in `call'
+# /tmp/verifier/gems/gems/infrataster-0.3.2/lib/infrataster/server.rb:82:in `forward_port'
+# /tmp/verifier/gems/gems/infrataster-0.3.2/lib/infrataster/contexts/http_context.rb:8:in `response'
+# /tmp/verifier/gems/gems/infrataster-0.3.2/lib/infrataster/helpers/rspec_helper.rb:6:in `public_send'
+# /tmp/verifier/gems/gems/infrataster-0.3.2/lib/infrataster/helpers/rspec_helper.rb:6:in `method_missing'
+# /tmp/verifier/suites/serverspec/localhost/default_spec.rb:18:in `block (3 levels) in <top (required)>
+
+http://stackoverflow.com/questions/38644576/faraday-tokenauthentication
+
+https://github.com/ryotarai/infrataster/blob/master/lib/infrataster/contexts/http_context.rb

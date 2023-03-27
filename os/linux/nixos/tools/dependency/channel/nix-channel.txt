@@ -1,0 +1,19 @@
+https://nixos.org/manual/nix/stable/#sec-nix-channel
+https://nixos.org/guides/nix-pills/enter-environment.html#idm140737320665184
+
+critice
+https://functor.tokyo/blog/2018-02-18-install-packages-from-nixos-unstable
+
+2020
+https://lucperkins.dev/blog/nix-channel/
+
+nix-channel
+    --list
+        no output for the using inside nixos (default is actually using)
+    --add https://nixos.org/channels/nixpkgs-unstable
+        http://nixos.org/channels/nixos-14.12
+    --add https://channels.nixos.org/nixos-20.09 nixos
+
+    --update
+
+~/.nix-channels

@@ -1,0 +1,11 @@
+my
+    https://github.com/kovidgoyal/kitty/issues/2237
+    https://forum.manjaro.org/t/kitty-terminal-start-error-inside-virtualbox-after-the-recent-stable-upgrade/117166
+    https://forum.manjaro.org/t/vboxclient-failures-after-updates-oracle-virtualbox/117718/6
+misc
+    https://github.com/kovidgoyal/kitty/issues/1964
+mesa-19-related
+    https://github.com/kovidgoyal/kitty/issues/1484
+    https://bugs.freedesktop.org/show_bug.cgi?id=110201
+        https://gitlab.freedesktop.org/mesa/mesa/merge_requests/512
+        https://gitlab.freedesktop.org/mesa/mesa/merge_requests/512.diff

@@ -1,0 +1,14 @@
+https://github.com/pystardust/ytfzf
+
+https://github.com/pystardust/ytfzf/blob/master/docs/INSTALL.md
+    sudo apt install jq mpv youtube-dl fzf
+    sudo apt install libx11-dev libxext-dev ueberzug
+        https://github.com/seebye/ueberzug#installation
+        https://pypi.org/project/ueberzug/
+
+    curl -sL "https://raw.githubusercontent.com/pystardust/ytfzf/master/ytfzf" | sudo tee /usr/local/bin/ytfzf >/dev/null && sudo chmod 755 /usr/local/bin/ytfzf
+
+
+2021
+Gotbletu - ytfzf - Search Youtube via FZF Dmenu or Rofi - Linux CLI GUI of 13:13
+    https://www.youtube.com/watch?v=Ml55xp--ahA

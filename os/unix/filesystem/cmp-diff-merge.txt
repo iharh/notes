@@ -1,0 +1,22 @@
+cmp:
+  finds the first difference
+
+comm
+  What is it?
+
+diff/patch
+https://git-scm.com/docs/git-difftool
+
+icdiff:
+http://www.jefftk.com/icdiff
+https://github.com/jeffkaufman/icdiff
+/usr/share/doc/icdiff/README.md
+
+## Using with git
+http://stackoverflow.com/questions/6412516/configuring-diff-tool-with-gitconfig
+
+To install this as a tool you can use with git, copy
+git-icdiff onto your path and run:
+git icdiff
+
+git difftool --extcmd icdiff

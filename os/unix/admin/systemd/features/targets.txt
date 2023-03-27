@@ -1,0 +1,28 @@
+systemctl list-dependencies multi-user.target
+  !!! tree-like deps !!!
+systemctl get-default
+  view the default target that triggers others
+  (graphical.target - in my case)
+  https://www.reddit.com/r/commandline/comments/i4bjky/how_do_i_get_my_laptop_to_boot_directly_to_a/
+systemctl
+  [list-units] --type=target
+  list-unit-files --type=target
+  --state=failed
+
+0  runlevel0.target, poweroff.target   Shut down and power off
+1  runlevel1.target, rescue.target     Launch a rescue shell
+2  runlevel2.target, multiuser.target  Launch a nonGUI, multiuser system
+3  runlevel3.target, multiuser.target  Launch a nonGUI, multiuser system
+4  runlevel4.target, multiuser.target  Launch a nonGUI, multiuser system
+5  runlevel5.target, graphical.target  Launch a GUI, multiuser system
+6  runlevel6.target, reboot.target     Shut down and reboot
+
+multi-user (multiuser)
+  for services
+
+in case of bood errors we can add to boot params:
+  systemd.unit=multi-user.target
+  ?? rescue, emergency
+
+2019
+https://habr.com/ru/post/478846/

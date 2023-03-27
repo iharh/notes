@@ -1,0 +1,32 @@
+opam
+    init
+        --help
+        --root <root>
+        --dry-run
+    config
+        setup -a
+            auto-setup
+        env
+            to configure opam in the current shell session
+
+files:
+~/.opam
+~/.ocamlinit
+
+
+1. To configure OPAM in the current shell session, you need to run:
+
+      eval `opam config env`
+
+2. To correctly configure OPAM for subsequent use, add the following
+   line to your profile file (for instance ~/.zshrc):
+
+      . /home/iharh/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+3. To avoid issues related to non-system installations of `ocamlfind`
+   add the following lines to ~/.ocamlinit (create it if necessary):
+
+      let () =
+        try Topdirs.dir_directory (Sys.getenv "OCAML_TOPLEVEL_PATH")
+        with Not_found -> ()
+      ;;

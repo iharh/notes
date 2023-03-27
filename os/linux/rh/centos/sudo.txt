@@ -1,0 +1,6 @@
+sudo -
+	become a superuser
+
+sudo
+    lid -g <grp>
+        list ids of the users belonging to the <grp>

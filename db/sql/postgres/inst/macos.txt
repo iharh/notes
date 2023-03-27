@@ -1,0 +1,17 @@
+brew/postgresql@11
+
+created default db cluster
+    initdb --locale=C -E UTF-8 /usr/local/var/postgresql@11
+for details
+    https://www.postgresql.org/docs/11/app-initdb.html
+
+to restart
+    brew services restart postgresql@11
+if no service needed
+    /usr/local/opt/postgresql@11/bin/postgres -D /usr/local/var/postgresql@11
+
+echo 'export PATH="/usr/local/opt/postgresql@11/bin:$PATH"' >> ~/.zshrc
+
+issues
+https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist
+    /usr/local/opt/postgresql@11/bin/createuser -s postgres

@@ -1,0 +1,34 @@
+https://serde.rs/
+https://crates.io/crates/serde
+https://docs.serde.rs/serde/
+https://github.com/serde-rs/serde
+
+https://crates.io/crates/serde-value
+http://arcnmx.github.io/serde-value/serde_value/
+https://github.com/arcnmx/serde-value
+
+https://github.com/sfackler/serde-transcode
+
+https://crates.io/crates/serde_shims
+
+erased-serde
+https://github.com/dtolnay/erased-serde
+https://www.reddit.com/r/rust/comments/6pgyy1/serde_trait_objects_work_again/
+
+recursive
+https://www.reddit.com/r/rust/comments/74bkz5/serde_question_about_serializing_recursively/
+
+unit-testing
+https://serde.rs/unit-testing.html
+https://docs.serde.rs/serde_test/
+
+json-to-serde
+https://transform.now.sh/json-to-rust-serde
+http://vestera.as/json_typegen/
+
+ext typetag
+https://github.com/dtolnay/typetag
+https://www.reddit.com/r/rust/comments/aj2b7u/announcing_serde_trait_objects_finally_the_way/
+
+skip default
+https://www.mth.st/blog/skip-default/

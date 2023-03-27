@@ -1,0 +1,7 @@
+https://developer.hashicorp.com/vault/downloads
+
+https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-minikube-tls
+
+https://developer.hashicorp.com/vault/tutorials/kubernetes
+helm search repo
+    hashicorp/vault

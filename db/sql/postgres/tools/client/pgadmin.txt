@@ -1,0 +1,73 @@
+https://www.pgadmin.org/download/
+https://www.pgadmin.org/download/pgadmin-4-apt/
+
+apt/
+    pgadmin4
+        6.9 - both desktop and web
+    pgadmin4-desktop
+    pgadmin4-server
+        ??? why do we need it
+    https://gist.github.com/dweldon/cfe080d7cc189df3217dcc1c15ae96db
+        https://askubuntu.com/questions/1286545/what-commands-exactly-should-replace-the-deprecated-apt-key
+        https://www.pgadmin.org/download/pgadmin-4-apt/
+
+    gpg_file="pgadmin4.gpg"
+
+    wget https://www.pgadmin.org/static/packages_pgadmin_org.pub
+    gpg --no-default-keyring --keyring ./temp-keyring.gpg --import packages_pgadmin_org.pub
+    gpg --no-default-keyring --keyring ./temp-keyring.gpg --export --output "${gpg_file}"
+    rm temp-keyring.*
+    rm packages_pgadmin_org.pub
+    sudo chown root:root "${gpg_file}"
+    sudo mv "${gpg_file}" /etc/apt/keyrings/
+    echo "deb [signed-by=/etc/apt/keyrings/${gpg_file}] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" | sudo tee /etc/apt/sources.list.d/pgadmin4.list
+    sudo apt-get update
+
+    # Choose one of pgadmin4, pgadmin4-desktop, pgadmin4-web
+    sudo apt-get install -y pgadmin4-desktop
+
+https://www.pgadmin.org/download/pgadmin-4-container/
+https://hub.docker.com/r/dpage/pgadmin4/
+    dpage/pgadmin4
+    https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
+
+files
+/usr/share/applications/pgadmin4.desktop
+
+inst
+2021
+PythonToday - PostgreSQL and pgAdmin4 inst on Ubuntu of 8:18
+    https://www.youtube.com/watch?v=kWUW3sMK0Mk
+apt-key
+    https://zalinux.ru/?p=5066
+    https://itsfoss.com/apt-key-deprecated/
+
+#
+# Setup the repository
+#
+
+# Install the public key for the repository (if not done previously):
+sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+
+# Create the repository configuration file:
+sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+#
+# Install pgAdmin
+#
+
+# Install for desktop mode only:
+sudo apt install pgadmin4-desktop
+
+# Install for web mode only:
+sudo apt install pgadmin4-web
+
+# Configure the webserver, if you installed pgadmin4-web:
+sudo /usr/pgadmin4/bin/setup-web.sh
+
+# Install for both desktop and web modes:
+sudo apt install pgadmin4
+
+
+debugger
+https://www.pgadmin.org/docs/pgadmin4/latest/debugger.html

@@ -1,0 +1,26 @@
+https://nixos.org/manual/nixos/stable/index.html#sec-installation
+https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual-summary
+
+https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual-partitioning
+    /dev/vda \
+    mklabel gpt \
+    mkpart primary 512MB -8GB \
+    mkpart primary linux-swap -8GB 100% \
+    mkpart ESP fat32 1MB 512MB \
+    set 3 esp on
+https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual-partitioning-formatting
+    mkfs.ext4 -L nixos /dev/sda1
+    mkswap -L swap /dev/sda2
+    mkfs.fat -F 32 -n boot /dev/sda3
+https://nixos.org/manual/nixos/stable/index.html#sec-installation-manual-installing
+    mount /dev/disk/by-label/nixos /mnt
+    mkdir -p /mnt/boot
+    mount /dev/disk/by-label/boot /mnt/boot
+    swapon /dev/sda2
+    nixos-generate-config --root /mnt
+        ...
+        # check the
+        boot.loader.systemd-boot.enable = true; # (for UEFI systems only)
+        ...
+    nixos-install
+    reboot

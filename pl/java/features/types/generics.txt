@@ -1,0 +1,30 @@
+2022
+https://habr.com/ru/post/588252/
+https://habr.com/ru/company/piter/blog/656377/
+2021
+https://habr.com/ru/company/raiffeisenbank/blog/588949/
+    https://github.com/artglorin/article-how-generic-inference-work-in-Java
+2020
+http://cr.openjdk.java.net/~briangoetz/valhalla/erasure.html
+2019
+https://medium.com/androidiots/generics-variance-2def0411ce1b
+2018
+https://habr.com/company/sberbank/blog/416413/
+2016
+https://advancedweb.hu/2016/05/03/java_variance/
+
+https://www.infoq.com/presentations/java-generics
+
+Matorin - Tricky Java Generics
+
+PECS (Producer-extends, consumer-super)
+
+If a parameterized type represents a T producer, use
+    <? extends T>;
+
+If it represents a T consumer, use
+    <? super T>
+
+public static <T> T max(
+    Collection<? extends T> collection,
+    Comparator<? super T> comparator)

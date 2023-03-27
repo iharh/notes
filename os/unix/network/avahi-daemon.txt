@@ -1,0 +1,29 @@
+http://avahi.org/wiki/AvahiAndUnicastDotLocal
+https://ubuntuusertips.wordpress.com/2012/09/13/get-rid-of-avahi-service/
+http://en.kioskea.net/faq/739-disabling-the-avahi-daemon
+http://www.linux.org.ru/forum/admin/5055652
+http://forum.ubuntu.ru/index.php?topic=200451.0
+
+Edit the Avahi daemon config file:
+
+% sudo vi /etc/init/avahi-daemon.conf
+Search for the following lines, edit the line with “start on” and add “never and”:
+
+-start on (filesystem and started dbus)
++start on (never and filesystem and started dbus)
+stop on stopping dbus
+
+One more thing to do in order to avoid the popup notice:
+% sudo vi /etc/default/avahi-daemon
+AVAHI_DAEMON_DETECT_LOCAL=0
+
+To stop the daemon from the command line:
+% sudo service avahi-daemon stop
+
+And then, find out if it is really gone:
+% ps -ef | grep -i [a]vahi
+If you get no match, then it means that it is gone for good.
+
+
+DNS and avahi:
+/usr/lib/avahi/avahi-daemon-check-dns.sh

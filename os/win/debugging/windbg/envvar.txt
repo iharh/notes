@@ -1,0 +1,4 @@
+set _NT_SYMBOL_PATH=srv*DownstreamStore*http://msdl.microsoft.com/download/symbols
+symsrv*symsrv.dll*D:\dev\MsSymbols*http://msdl.microsoft.com/download/symbols
+
+set _NT_SYMBOL_PATH=SRV*c:\dev\symbols*http://internal.server/downloads/symbols;SRV*c:\dev\symbols*http://msdl.microsoft.com/download/symbols

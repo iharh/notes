@@ -1,0 +1,63 @@
+???
+switch-to-configuration
+
+https://github.com/NixOS/nixpkgs/tree/master/nixos/modules/installer/
+├── cd-dvd
+│   ├── channel.nix
+│   ├── installation-cd-base.nix
+│   ├── installation-cd-graphical-base.nix
+│   ├── installation-cd-graphical-calamares-gnome.nix
+│   ├── installation-cd-graphical-calamares.nix
+│   ├── installation-cd-graphical-calamares-plasma5.nix
+│   ├── installation-cd-graphical-gnome.nix
+│   ├── installation-cd-graphical-plasma5-new-kernel.nix
+│   ├── installation-cd-graphical-plasma5.nix
+│   ├── installation-cd-minimal-new-kernel.nix
+│   ├── installation-cd-minimal-new-kernel-no-zfs.nix
+│   ├── installation-cd-minimal.nix
+│   ├── iso-image.nix // !!!
+│   ├── sd-image-aarch64-new-kernel.nix
+│   ├── sd-image-aarch64.nix
+│   ├── sd-image-armv7l-multiplatform.nix
+│   ├── sd-image.nix
+│   └── sd-image-raspberrypi.nix
+├── netboot
+│   ├── netboot-base.nix
+│   ├── netboot-minimal.nix
+│   └── netboot.nix
+├── scan
+│   ├── detected.nix
+│   └── not-detected.nix
+├── sd-card
+│   ├── sd-image-aarch64-installer.nix
+│   ├── sd-image-aarch64-new-kernel-installer.nix
+│   ├── sd-image-aarch64-new-kernel.nix
+│   ├── sd-image-aarch64-new-kernel-no-zfs-installer.nix
+│   ├── sd-image-aarch64.nix
+│   ├── sd-image-armv7l-multiplatform-installer.nix
+│   ├── sd-image-armv7l-multiplatform.nix
+│   ├── sd-image.nix
+│   ├── sd-image-powerpc64le.nix
+│   ├── sd-image-raspberrypi-installer.nix
+│   ├── sd-image-raspberrypi.nix
+│   ├── sd-image-riscv64-qemu-installer.nix
+│   ├── sd-image-riscv64-qemu.nix
+│   └── sd-image-x86_64.nix
+├── tools
+│   ├── get-version-suffix
+│   ├── nix-fallback-paths.nix
+│   ├── nixos-build-vms
+│   │   ├── build-vms.nix
+│   │   └── nixos-build-vms.sh
+│   ├── nixos-enter.sh
+│   ├── nixos-generate-config.pl  // !!!
+│   ├── nixos-install.sh
+│   ├── nixos-option
+│   │   └── default.nix
+│   ├── nixos-version.sh
+│   └── tools.nix
+└── virtualbox-demo.nix
+
+https://github.com/NixOS/nixpkgs/tree/master/nixos/modules/installer/tools
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/tools/nixos-install.sh
+    https://github.com/NixOS/nixpkgs/issues/114182

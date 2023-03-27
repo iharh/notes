@@ -1,0 +1,11 @@
+https://github.com/kubernetes/kops
+
+AUR
+    kops
+
+https://github.com/kubernetes/kops/blob/master/docs/install.md
+https://github.com/kubernetes/kops/blob/master/docs/aws.md
+
+http://kubecloud.io/setup-ha-k8s-kops/
+https://blog.mrtrustor.net/post/k8s-aws-kops/
+

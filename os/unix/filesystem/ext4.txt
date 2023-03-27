@@ -1,0 +1,24 @@
+https://wiki.archlinux.org/index.php/ext4
+
+core
+    e2fsprogs
+e4defrag
+    e4defrag /some/folder
+    e4defrag -c -v /dev/sdxX
+    sudo e4defrag -c -v /dev/sda6
+    
+http://jsmylinux.no-ip.org/performance/using-e4defrag/
+http://rus-linux.net/MyLDP/admin/defragment-ext4.html
+    0-30% 56%-
+
+community
+    shake
+http://zenway.ru/page/shake
+https://vleu.net/shake/
+https://github.com/unbrice/shake
+
+qa
+https://superuser.com/questions/536788/do-ext4-filesystems-need-to-be-defragmented
+
+2022
+https://linuxrussia.com/file-system-linux-ext4.html

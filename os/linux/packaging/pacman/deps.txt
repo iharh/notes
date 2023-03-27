@@ -1,0 +1,14 @@
+pactree <package>
+whoneeds <package>
+makepkg
+
+pacman -Qdt
+  list all packages no longer required as dependencies (orphans)
+
+Detect all AUR packages for rebuild with libstdc++.so.6:
+#!/bin/bash
+for i in $(pacman -Qmq); do
+    if pacman -Qql $i | xargs readelf -d 2>/dev/null | grep -q libstdc++.so.6; then
+        echo $i;
+    fi;
+done

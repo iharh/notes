@@ -1,0 +1,77 @@
+cargo
+    --version [--verbose]
+    install
+        --list
+            list installed crates/packages
+        --git https://github.com/org/name
+        --vers ="^0.1.0"
+        -f <name>
+            update installed <name>
+        --path .
+            from local path
+    new <prj-name>
+        create a new cargo package
+        --bin (default)
+        --lib
+    init <prj-name>
+        create a new cargo package in existing directory
+        --bin (default)
+        --lib
+    add <crate>
+        https://doc.rust-lang.org/nightly/cargo/commands/cargo-add.html
+    c[heck]
+        check without codegen (faster)
+    build
+        [-v] --verbose
+        --all
+        --example <example-name>
+        [--release]
+        --features 'simd-accel avx-accel'
+        --features="experimental"
+        --target x86_64-unknown-linux-musl
+    rustc
+        --release -- -C target-cpu=skylake
+    update
+        figure out all the latest versions and try to update (Cargo.lock)
+    install-update -a
+        https://www.reddit.com/r/rust/comments/5a21b8/cargoupdate_check_for_updates_to_your/
+    t[est] [--no-build]
+    run
+        --example <example-name>
+        --bin <bin-name>
+            https://windmaomao.medium.com/run-multiple-targets-using-rust-cargo-900145acb6ec
+    add
+        <dep-name> [--vers <ver>]
+            add a dependency
+    rm
+        <dep-name>
+    edit
+        https://github.com/killercup/cargo-edit
+        + add
+        + rm
+        + list --tree
+    search
+        https://github.com/Byron/crates-io-cli-rs
+        ?
+    doc
+        --open
+    deadlinks
+        to show dead links
+    fix
+        fix warning
+    clippy
+        check code for common mistakes
+    test [test-name-or-substr]
+        --help
+        --test test-name-or-substr
+        --test-threads=1
+        --
+            options after -- go to the testing binary
+            --help
+            --nocapture
+                disable output capture behaviour (it's also usefull to set --test-threads to 1)
+            --ignored
+                test only ignored
+    vendor
+        https://github.com/alexcrichton/cargo-vendor
+        https://benjamincongdon.me/blog/2019/12/04/Fast-Rust-Docker-Builds-with-cargo-vendor/

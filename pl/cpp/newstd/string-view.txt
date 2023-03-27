@@ -1,0 +1,22 @@
+https://en.cppreference.com/w/cpp/string/basic_string_view
+https://isocpp.org/files/papers/N3762.html
+
+2022
+https://dev.to/sandordargo/what-are-stringviews-and-why-should-we-use-them-dn9
+2021
+Arisaif - string_view in cpp and why you should use it
+    https://www.youtube.com/watch?v=vek110N918Y
+2020
+https://www.nextptr.com/question/qa1344313286/differences-between-stdstring_view-and-stdspan
+2019
+https://www.nextptr.com/tutorial/ta1217154594/cplusplus-stdstring_view-for-better-performance-an-example-use-case
+2018
+https://www.bfilipek.com/2018/12/fromchars.html
+https://blogs.msdn.microsoft.com/vcblog/2018/08/21/stdstring_view-the-duct-tape-of-string-types/
+https://www.bfilipek.com/2018/08/init-string-member.html
+    https://www.reddit.com/r/cpp/comments/94ze01/how_to_initialize_a_string_member/
+https://www.bfilipek.com/2018/07/string-view-perf-followup.html
+https://www.bfilipek.com/2018/07/string-view-perf.html
+2017
+https://www.modernescpp.com/index.php/c-17-avoid-copying-with-std-string-view
+    https://habr.com/ru/company/otus/blog/715608/

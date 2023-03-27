@@ -1,0 +1,24 @@
+https://github.com/James-Yu/LaTeX-Workshop
+
+https://github.com/James-Yu/LaTeX-Workshop/wiki
+https://github.com/James-Yu/LaTeX-Workshop/wiki/Install
+https://github.com/James-Yu/LaTeX-Workshop/wiki/Compile
+
+https://github.com/James-Yu/LaTeX-Workshop/tree/master/samples/docker
+    https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+    ??? Docker
+    https://github.com/James-Yu/LaTeX-Workshop/issues/302
+
+2022
+Federico Tartarini - LaTeX of 54 parts
+    https://www.youtube.com/playlist?list=PLY91jl6VVD7wnyOlAgPRe-i9ov4_ZqHV8
+2020
+https://dev.to/ucscmozilla/how-to-create-and-compile-latex-documents-on-visual-studio-code-3jbk
+????
+https://mathjiajia.github.io/vscode-and-latex/
+    ! need to check jsons
+
+
+Execute the external PDF viewer command: zathura
+Execute the external PDF viewer command args:
+    ["--synctex-editor-command","code --no-sandbox -r -g \"%{input}:%{line}\"","/workspaces/prj/latex/doc1/latexout/doc1.pdf"]

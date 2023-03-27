@@ -1,0 +1,20 @@
+https://dashboard.ngrok.com/get-started/setup
+https://dashboard.ngrok.com/get-started/your-authtoken
+
+https://ngrok.com/docs/secure-tunnels/tunnels/http-tunnels#local-https
+https://dashboard.ngrok.com/tunnels/ssh-keys
+    ssh -R 443:localhost:80 tunnel.us.ngrok.com http
+
+tls
+https://ngrok.com/docs/ngrok-agent/ngrok#ngrok-tls
+    ngrok tls [address:port | port] [flags]
+    ngrok tls 8443
+
+
+ngrok config add-authtoken 2HcXX5DET1z2gDKa2YJl4a9QWPc_7UeSRCYM1Uf5T5fUuFvZf
+
+ngrok config edit
+# in ngrok.yml
+authtoken: 2HcXX5DET1z2gDKa2YJl4a9QWPc_7UeSRCYM1Uf5T5fUuFvZf
+
+ngrok http 80

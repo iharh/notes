@@ -1,0 +1,9 @@
+VirtualBox Host-Only Network Adapter
+Adapter
+    IPv4 Address:           192.168.235.1
+    IPv4 Network Mask:      255.255.255.0
+DHCP Server (enabled)
+    Server Address:         192.168.235.2
+    Server Mask:            255.255.255.0
+    Lower Address Bound:    192.168.235.50
+    Upper Address Bound:    192.168.235.100

@@ -1,0 +1,38 @@
+https://doc.rust-lang.org/book/ch09-00-error-handling.html
+    https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html#handling-potential-failure-with-the-result-type
+    https://habr.com/post/270371/
+
+https://stevedonovan.github.io/rust-gentle-intro/6-error-handling.html
+
+io::Error
+https://rust-lang-nursery.github.io/edition-guide/rust-2018/error-handling-and-panics/question-mark-in-main-and-tests.html
+
+http://blog.burntsushi.net/rust-error-handling/
+
+https://doc.rust-lang.org/book/ch17-02-trait-objects.html
+type DynErrT = Box<dyn std::error::Error>;
+type ResT<T> = Result<T, DynErrT>;
+
+?-operator
+https://www.reddit.com/r/rust/comments/6e9bvb/extend_to_operate_over_other_types_rfc_has_been/
+
+https://github.com/rust-lang/rfcs/blob/master/text/1937-ques-in-main.md
+https://github.com/rust-lang/rfcs/pull/1937
+
+Try-trait
+https://github.com/rust-lang/rfcs/pull/1859
+
+2020
+https://www.halcyon.hr/posts/error-handling-in-rust/
+2019
+https://medium.com/@knoldus/different-ways-for-error-propagation-in-rust-6f2cad663b43
+2018
+https://www.reddit.com/r/rust/comments/a9wbs8/eli5_error_handling_errorchain_failure_upcoming/ecnosdi/
+https://medium.com/learning-rust/rust-error-handling-72a8e036dd3
+
+misc
+https://stackoverflow.com/questions/49785136/unwrap-or-continue-in-a-loop
+https://www.reddit.com/r/rust/comments/3ovk6p/what_to_use_when_you_want_to_unwrap_or/
+
+warn!
+skip_fail!

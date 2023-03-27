@@ -1,0 +1,4 @@
+https://www.postgresql.org/docs/devel/transactions.html
+
+select txid_current();
+    id of cur trans

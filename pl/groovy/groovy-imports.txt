@@ -1,0 +1,9 @@
+Auto-imports
+java.lang.*
+java.util.*
+java.net.*
+java.io.*
+java.math.BigInteger
+java.math.BigDecimal
+groovy.lang.*
+groovy.util.*

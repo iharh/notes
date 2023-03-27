@@ -1,0 +1,5 @@
+enterprise management
+http://localhost:8080/em
+user: sys
+password: oracle
+connect as sysdba: true

@@ -1,0 +1,6 @@
+(case
+ when predicate1 then val1
+ when predicate2 then val2
+ ...
+ else else-val
+)

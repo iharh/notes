@@ -1,0 +1,49 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+menuentry "Ubuntu 21.04 Live"{
+    set isofile="/live/ubuntu-20.04.3-desktop-amd64.iso"
+    loopback loop (hd0,msdos5)$isofile
+    linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=${isofile} quiet splash
+    initrd (loop)/casper/initrd
+}
+menuentry "Fedora 35 Live"{
+    insmod ext2
+    set isofile="/live/Fedora-Workstation-Live-x86_64-35_Beta-1.2.iso"
+    loopback loop (hd0,msdos5)$isofile
+    linux (loop)/isolinux/vmlinuz root=live:CDLABEL=Fedora-WS-Live-35_B-1-2 rd.live.image verbose iso-scan/filename=$isofile
+    initrd (loop)/isolinux/initrd.img
+}
+menuentry "Kali Linux 2021 Live"{
+    insmod ext2
+    set isofile="/live/kali-linux-2021.3-live-amd64.iso"
+    loopback loop (hd0,msdos5)$isofile
+    linux (loop)/live/vmlinuz boot=live findiso=$isofile
+    initrd (loop)/live/initrd.img
+}
+menuentry "Linux Mint 20.2 Live"{
+    set isofile="/live/linuxmint-20.2-cinnamon-64bit.iso"
+    loopback loop (hd0,msdos5)$isofile
+    linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=${isofile} quiet splash
+    initrd (loop)/casper/initrd.lz
+}
+menuentry "Manjaro Live"{
+    set isofile="/live/manjaro-gnome-20.2.1-210103-linux59.iso"
+    search --no-floppy -f --set=root $isofile
+    probe -u $root --set=abc
+    set pqr="/dev/disk/by-uuid/$abc"
+    loopback loop $isofile
+    linux  (loop)/boot/vmlinuz-x86_64  img_dev=$pqr img_loop=$isofile copytoram
+    initrd  (loop)/boot/intel_ucode.img (loop)/boot/initramfs-x86_64.img
+}
+menuentry "MX Linux 21 Live"{
+    set isofile="/live/MX-21_KDE_RC1_x64.iso"
+    search --no-floppy --set=root --file $isofile
+    probe -u $root --set=buuid
+    loopback loop $isofile
+    set root=(loop)
+    linux  /antiX/vmlinuz buuid=$buuid fromiso=$isofile quiet 
+    initrd /antiX/initrd.gz
+}

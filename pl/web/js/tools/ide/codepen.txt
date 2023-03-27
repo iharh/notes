@@ -1,0 +1,24 @@
+https://codepen.io/
+
+https://codepen.io/hello/
+https://codepen.io/pens/#
+
+async npm modules
+https://codepen.io/developit/pen/NBbgNb?editors=0010
+// quick tip: an import alias that loads npm modules!
+const npm = p => import(`https://unpkg.com/${p}?module`);
+
+(async () => {
+    const { h, Component, render } = await npm('preact');
+    class Clock extends Component {
+        componentWillMount() {
+            const tick = () => this.setState({ time: new Date() });
+                setInterval(tick, 1000);
+                tick();
+        }
+        render({ }, { time }) {
+            return h('time', { title: time+'' }, time.toLocaleTimeString());
+        }
+    }
+    render(h(Clock), document.body);
+})();

@@ -1,0 +1,56 @@
+https://github.com/asciidoctor/asciidoctor-gradle-plugin
+http://asciidoctor.org/docs/asciidoctor-gradle-plugin/
+
+http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
+http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+http://asciidoctor.org/docs/user-manual/
+http://asciidoctor.org/docs/asciidoc-writers-guide/
+
+samples:
+https://github.com/spring-projects/spring-framework/blob/master/CONTRIBUTING-DOCUMENTATION.adoc
+https://github.com/spring-projects/spring-framework/blob/master/gradle/docs.gradle
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        //classpath("io.spring.gradle:propdeps-plugin:0.0.8")
+        //classpath("io.spring.gradle:docbook-reference-plugin:0.3.1")
+        //classpath("org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.14")
+        //classpath("org.asciidoctor:asciidoctorj-epub3:1.5.0-alpha.6")
+        classpath("org.asciidoctor:asciidoctor-gradle-plugin:1.5.3")
+	}
+}
+
+// 3rd party plugin repositories can be configured in settings.gradle
+plugins {
+        ...
+	id "org.jetbrains.kotlin.jvm" version "1.1.4-3" apply false
+	id "org.jetbrains.dokka" version "0.9.15"
+	id "org.asciidoctor.convert" version "1.5.3"
+}
+
+asciidoctor {
+    sources {
+        include '*.adoc'
+    }
+    logDocuments = true
+    backends = ["html5"]
+    // only ouput PDF documentation for non-SNAPSHOT builds
+    if(!project.getVersion().toString().contains("BUILD-SNAPSHOT")) {
+        backends += "pdf"
+    }
+    options doctype: 'book', eruby: 'erubis'
+    attributes  'icons': 'font',
+                    'idprefix': '',
+                    'idseparator': '-',
+                    docinfo: '',
+                    revnumber: project.version,
+                    sectanchors: '',
+                    sectnums: '',
+                    'source-highlighter': 'coderay@', // TODO switch to 'rouge' once supported by the html5 backend
+                    stylesdir: 'stylesheets/',
+                    stylesheet: 'spring.css',
+                    'spring-version': project.version
+}

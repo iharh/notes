@@ -1,0 +1,10 @@
+2022
+SpringIO - Bootiful Kubernetes Operators by Cora Iberkleid and Josh Long @ Spring I/O 2022 25:00 of 46:59
+    https://www.youtube.com/watch?v=5IROOj7sLKg
+    https://github.com/kubernetes-native-java/controllers-101
+    ! 24:30 io.kubernetes.client-java-spring-integration
+2018
+https://lairdnelson.wordpress.com/2018/01/07/understanding-kubernetes-tools-cache-package-part-3/
+
+crd-model-gen
+https://github.com/kubernetes-client/java/blob/master/docs/generate-model-from-third-party-resources.md

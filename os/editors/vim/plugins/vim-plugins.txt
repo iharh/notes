@@ -1,0 +1,18 @@
+Plugins:
+
+BufferExplorer (bufexplorer.zip)
+	\be
+		Activate Buffer Explorer
+	let g:bufExplorerShowRelativePath=1
+
+taglist.vim (http://vim-taglist.sourceforge.net)
+
+Project stuff:
+
+Search for a code-base (need ack.vim - script id 2572 - http://github.com/mileszs/ack.vim):
+
+:Ack text-to-search
+
+
+Pathogen
+!!! http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/

@@ -1,0 +1,8 @@
+https://github.com/marketplace/actions/install-nix
+https://github.com/cachix/install-nix-action
+
+2022
+https://danth.me/posts/post/update_your_nix_flake_using_github_actions.html
+2021
+https://gvolpe.com/blog/nixos-binary-cache-ci/
+https://thewagner.net/blog/2020/12/06/deploying-with-github-actions-and-more-nix/

@@ -1,0 +1,7 @@
+People:
+http://www.stlport.org/resources/StepanovUSA.html
+
+STL Notes
+
+std::advance - advance itr pos by n
+std::generate, generate_n

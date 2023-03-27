@@ -1,0 +1,62 @@
+https://github.com/ehcache/ehcache3/blob/master/core/src/main/java/org/ehcache/core/EhcacheManager.java
+
+import org.ehcache.config.Configuration;
+...
+public class EhcacheManager implements PersistentCacheManager, InternalCacheManager {
+    private final DefaultConfiguration configuration;
+    ...
+    protected final ServiceLocator serviceLocator;
+
+    public EhcacheManager(Configuration config) {
+        this(config, Collections.emptyList(), true);
+    }
+
+    public EhcacheManager(Configuration config, Collection<Service> services) {
+        this(config, services, true);
+    }
+
+    public EhcacheManager(Configuration config, Collection<Service> services, boolean useLoaderInAtomics) {
+        this(config, dependencies -> dependencies.with(services), useLoaderInAtomics);
+    }
+
+    public EhcacheManager(Configuration config, UnaryOperator<ServiceLocator.DependencySet> customization, boolean useLoaderInAtomics) {
+        final String simpleName = this.getClass().getSimpleName();
+        this.simpleName = (simpleName.isEmpty() ? this.getClass().getName() : simpleName);
+        this.configuration = new DefaultConfiguration(config);
+        this.cacheManagerClassLoader = config.getClassLoader() != null ? config.getClassLoader() : ClassLoading.getDefaultClassLoader();
+        this.useLoaderInAtomics = useLoaderInAtomics;
+        validateServicesConfigs();
+        this.serviceLocator = resolveServices(customization);
+    }
+
+    private ServiceLocator resolveServices(UnaryOperator<ServiceLocator.DependencySet> customization) {
+        ServiceLocator.DependencySet builder = dependencySet()
+            .with(Store.Provider.class)
+            .with(CacheLoaderWriterProvider.class)
+            .with(WriteBehindProvider.class)
+            .with(CacheEventDispatcherFactory.class)
+            .with(CacheEventListenerProvider.class)
+            .with(ResilienceStrategyProvider.class);
+
+        builder = customization.apply(builder);
+
+        if (!builder.contains(CacheManagerProviderService.class)) {
+            builder = builder.with(new DefaultCacheManagerProviderService(this));
+        }
+        for (ServiceCreationConfiguration<?, ?> serviceConfig : configuration.getServiceCreationConfigurations()) {
+            builder = builder.with(serviceConfig);
+        }
+        return builder.build();
+    }
+
+    // ??? configuration.getServiceCreationConfigurations
+    https://github.com/ehcache/ehcache3/blob/master/api/src/main/java/org/ehcache/config/Configuration.java
+        ...
+        Collection<ServiceCreationConfiguration<?, ?>> getServiceCreationConfigurations();
+    https://github.com/ehcache/ehcache3/blob/master/core/src/main/java/org/ehcache/core/config/DefaultConfiguration.java
+        ...
+        public DefaultConfiguration(Map<String, CacheConfiguration<?, ?>> caches, ClassLoader classLoader, ServiceCreationConfiguration<?, ?>... services) {
+            this.services = unmodifiableCollection(Arrays.asList(services)); // !!!
+            this.caches = new ConcurrentHashMap<>(caches);
+            this.classLoader = classLoader == null ? ClassLoading.getDefaultClassLoader() : classLoader;
+        }

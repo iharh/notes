@@ -1,0 +1,52 @@
+http://stackoverflow.com/questions/32859038/java-8-list-to-map-with-stream
+
+IntStreams:
+http://www.deadcoderising.com/2015-05-19-java-8-replace-traditional-for-loops-with-intstreams/
+
+Characteristics:
+SIZED
+SUBSIZED
+SORTED
+ORDERED
+DISTINCT
+NONNULL
+IMMUTABLE
+CONCURRENT
+
+characterized by Spliterator
+.trySplit()
+
+.boxed()
+    ???
+
+.sorted()
+    full-barier operation (downstream ops can't start until this one ends)
+.skip() and .limit()
+    does not preserve the stream size :(
+    .sublis() - is more effective
+    .parallell() stream really utilize Spliterator and do a HUGE perf-boost
+.distinct()
+    .parallell().unordered() - can speed-up according to doc-n, but 10x slower than parallell and 3x to seq-l
+    .parallell.ordered and .parallell.unordered a just 2 distinct algos
+.concat()
+    ??? temporary or terminal
+    preserves SIZED if parts are SIZED
+.flatMap()
+    like concat but better with ORDERED streams than .concat()
+    disadvantages (vs concat) are:
+        - no more speedup more than 2x using parallel
+        - don't preserves SIZED
+        - uses more memory
+        - short-circuiting (find result earlier than finishing consuming all the input)
+        - .flatMap...spliterator().tryAdvance() - throws OOM because of the buffering
+
+.orElseThrow(IllegalStateException::new)
+
+Java9 stuff:
+.ofNullable(System.getProperty("bla-bla"))
+.takeWhile(predicate)
+    stops once a failed-to-match element found
+.dropWhile(predicate)
+    -//- inverse
+.iterate(3, x -> x < 100, x -> x + 3)
+    java9 adds a middle/second bound-parameter

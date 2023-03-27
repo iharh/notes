@@ -1,0 +1,107 @@
+http://yannesposito.com/Scratch/en/blog/Category-Theory-Presentation
+!!! look for the natural transformation samples also !!!
+
+
+73. Cata-morphism: fold generalization
+
+acc type of the "accumulator":
+fold :: (acc -> a -> acc) -> acc -> [a] -> acc
+
+Idea: put the accumulated value inside the type.
+
+-- Equivalent to fold (+1) 0 "cata"
+(Cons 'c' (Cons 'a' (Cons 't' (Cons 'a' Nil))))
+(Cons 'c' (Cons 'a' (Cons 't' (Cons 'a' 0))))
+(Cons 'c' (Cons 'a' (Cons 't' 1)))
+(Cons 'c' (Cons 'a' 2))
+(Cons 'c' 3)
+4
+
+But where are all the informations? (+1) and 0?
+
+
+74. Cata-morphism: Missing Information
+
+Where is the missing information?
+
+    Functor operator fmap
+    Algebra representing the (+1) and also knowing about the 0.
+
+First example, make length on [Char]
+
+
+75. Cata-morphism: Type work
+
+data StrF a = Cons Char a | Nil
+data Str' = StrF Str'
+
+-- generalize the construction of Str to other datatype
+-- Mu: type fixed point
+-- Mu :: (* -> *) -> *
+
+data Mu f = InF { outF :: f (Mu f) }
+data Str = Mu StrF
+
+-- Example
+foo=InF { outF = Cons 'f'
+        (InF { outF = Cons 'o'
+            (InF { outF = Cons 'o'
+                (InF { outF = Nil })})})}
+
+
+76. Cata-morphism: missing information retrieved
+
+type Algebra f a = f a -> a
+instance Functor (StrF a) =
+    fmap f (Cons c x) = Cons c (f x)
+    fmap _ Nil = Nil
+
+cata :: Functor f => Algebra f a -> Mu f -> a
+cata f = f . fmap (cata f) . outF
+
+
+77. Cata-morphism: Finally length
+
+All needed information for making length.
+
+instance Functor (StrF a) =
+    fmap f (Cons c x) = Cons c (f x)
+    fmap _ Nil = Nil
+
+length' :: Str -> Int
+length' = cata phi where
+    phi :: Algebra StrF Int -- StrF Int -> Int
+    phi (Cons a b) = 1 + b
+    phi Nil = 0
+
+main = do
+    l <- length' $ stringToStr "Toto"
+    ...
+
+
+78. Cata-morphism: extension to Trees
+
+Once you get the trick, it is easy to extent to most Functor.
+
+type Tree = Mu TreeF
+data TreeF x = Node Int [x]
+
+instance Functor TreeF where
+  fmap f (Node e xs) = Node e (fmap f xs)
+
+depth = cata phi where
+  phi :: Algebra TreeF Int -- TreeF Int -> Int
+  phi (Node x sons) = 1 + foldr max 0 sons
+
+
+79. Conclusion
+
+Category Theory oriented Programming:
+
+    Focus on the type and operators
+    Extreme generalisation
+    Better modularity
+    Better control through properties of types
+
+No cat were harmed in the making of this presentation.
+

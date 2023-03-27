@@ -1,0 +1,12 @@
+LoggerContext ctx = (LoggerContext) LogManager.getContext(false);
+// LoggerContext ctx = LoggerContext.getContext();
+Configuration cfg = ctx.getConfiguration();
+...
+ctx.updateLoggers();
+
+if (saveLog4j2Config == null) {
+    System.clearProperty(ConfigurationFactory.CONFIGURATION_FILE_PROPERTY);
+} else {
+    System.setProperty(ConfigurationFactory.CONFIGURATION_FILE_PROPERTY, saveLog4j2Config);
+    ((LoggerContext) LogManager.getContext(false)).reconfigure();
+}

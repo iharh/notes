@@ -1,0 +1,24 @@
+http://www.oracle.com/technetwork/articles/java/vmoptions-jsp-140102.html
+
+To bypass the file system type check, set the -XX:+PerfBypassFileSystemCheck option on the java command line for both the
+applications you want to monitor and for the jvmstat tools. Setting this option for target applications is application
+specific. For the jvmstat tools, the following environment variable can be set before running any of the commands:
+set VMARGS=-XX:+PerfBypassFileSystemCheck
+
+_JAVA_LAUNCHER_DEBUG
+
+
+javac options:
+javac -Xpring classname
+
+memory
+-XX:CompressedClassSpaceSize=160m
+    by default is 1GB.
+-XX:MaxRAMPercentage"
+    for java 10, but we still need to know this percentage
+ -XX:UseCGroupMemoryLimitForHeap
+    It'll tell JVM to calculate how much memory it could use for heap based on memory available to Docker container,
+    so you don't need to guess heap size.
+for-containers
+    https://blog.gceasy.io/2020/11/05/best-practices-java-memory-arguments-for-containers/
+    https://www.reddit.com/r/Kotlin/comments/kuedd9/best_practices_jvm_memory_arguments_for_containers/

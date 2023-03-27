@@ -1,0 +1,8 @@
+https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Here-Strings
+
+qa
+https://unix.stackexchange.com/questions/80362/what-does-mean
+
+cat << EOF > file.txt
+abc
+EOF

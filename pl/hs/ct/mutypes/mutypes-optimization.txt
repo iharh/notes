@@ -1,0 +1,5 @@
+recursive-functions optimization (using let):
+http://stackoverflow.com/questions/13099203/is-it-possible-to-make-ghc-optimize-deforest-generic-functions-such-as-catamor
+http://markmail.org/message/evwnjwn5mtzulxd4
+http://stackoverflow.com/questions/12999385/why-does-ghc-make-fix-so-confounding
+

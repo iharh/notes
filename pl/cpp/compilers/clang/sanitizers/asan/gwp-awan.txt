@@ -1,0 +1,13 @@
+http://llvm.org/docs/GwpAsan.html
+
+https://chromium.googlesource.com/chromium/src/+/master/docs/gwp_asan.md
+    https://sites.google.com/a/chromium.org/dev/Home/chromium-security/articles/gwp-asan
+https://github.com/google/tcmalloc/blob/master/docs/gwp-asan.md
+https://developer.android.com/ndk/guides/gwp-asan
+
+2020
+https://cppconf-piter.ru/2020/spb/talks/3s5hcfovrw5naffxx4g343/
+    https://assets.ctfassets.net/oxjq45e8ilak/Rq21VTBlLGneXCBHsE4L5/f33461251478e598208ac3e3c1f25896/Konstantin_Serebryanyy_Ishchem_bagi_v_prodakshene_vsem_mirom_GWP-ASan_i_chto_dalshe_2020_11_12_05_24_04.pdf
+2019
+https://llvm.org/devmtg/2019-10/slides/Morehouse-GWP-ASan.pdf
+    https://www.youtube.com/watch?v=RQGWMLkwrKc

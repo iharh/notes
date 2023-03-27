@@ -1,0 +1,79 @@
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-cluster.html
+
+cluster.routing.allocation.*
+
+cluster.routing.allocation.disable
+  deprecated
+
+cluster.routing.allocation.enable
+
+Controls shard allocation for all indices, by allowing specific kinds of shard to be allocated.
+  Replaces cluster.routing.allocation.disable*.
+  Can be set to:
+
+    all (default) - Allows shard allocation for all kinds of shards.
+    primaries     - Allows shard allocation only for primary shards.
+    new_primaries - Allows shard allocation only for primary shards for new indices.
+    none          - No shard allocations of any kind are allowed for all indices.
+
+
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/cluster-update-settings.html
+  (zones)
+
+Filter allocation
+
+cluster.routing.allocation.include.*
+
+cluster.routing.allocation.exclude.*
+
+cluster.routing.allocation.require.*
+
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/index-modules-allocation.html
+  -//-
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-upgrade.html
+
+XGET/_cluster/settings
+{"persistent":{},"transient":{}}
+
+XPUT/_cluster/settings -d 
+'{ "transient" : { "cluster.routing.allocation.enable" : "none" } }'
+
+
+rerouting (relocating shards from one node to another):
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/cluster-reroute.html
+http://stackoverflow.com/questions/25135869/how-to-rebalance-shard-elasticsearch
+
+http://www.slideshare.net/kucrafal/battle-of-the-giants-round-2
+slide 44
+  "cluster.routing.allocation.exclude._ip" : "192.168.2.1"
+
+  XPUT/idxname/_settings/
+  "index.routing.allocation.include.tag" : "nodeOne,nodeTwo"
+
+  Moving Shards and ReplicasMove shards between nodes on demand
+  XPOST/_cluster/reroute -d
+  {"commands" : [
+    {"move" : {"index" : "sematext", "shard" : 0, "from_node" : "node1","to_node" : "node2"}},
+    {"allocate" : {"index" : "sematext", "shard" : 1, "node" : "node3"}}
+  ]}  
+
+shard placement control:
+
+http://blog.sematext.com/2012/05/29/elasticsearch-shard-placement-control/
+
+
+
+
+Cluster stuff:
+
+XPOST/_shutdown
+  shutdown the cluster
+
+XGET/?pretty
+  ES info
+
+XGET/_nodes?jvm=true&pretty

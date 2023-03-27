@@ -1,0 +1,19 @@
+https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/config/EvictionConfig.html
+https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/config/EvictionPolicy.html
+    LFU, LRU, NONE, RANDOM
+https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/spi/eviction/EvictableEntryView.html
+https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/spi/eviction/EvictionPolicyComparator.html
+    https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/map/MapEvictionPolicyComparator.html
+    https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/cache/CacheEvictionPolicyComparator.html
+
+https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/cache/CacheEntryView.html
+
+!!! of EvictionConfig of NearCacheConfig (???)
+https://docs.hazelcast.org/docs/latest/javadoc/com/hazelcast/config/MaxSizePolicy.html
+    ENTRY_COUNT
+    FREE_HEAP_PERCENTAGE
+    ...
+    FREE_NATIVE_MEMORY_SIZE
+    USED_NATIVE_MEMORY_SIZE
+    //
+    https://github.com/hazelcast/hazelcast/blob/master/hazelcast/src/main/java/com/hazelcast/internal/config/ConfigValidator.java#L144

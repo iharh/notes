@@ -1,0 +1,6 @@
+:echo
+    log a messages (will not be in :messages)
+:echom
+    log a messages (will not be in :messages)
+:mes[sages]
+    show list of messages

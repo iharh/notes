@@ -1,0 +1,29 @@
+ps aux
+
+xmobar "property-based" logging
+    https://xmonad.org/TUTORIAL.html
+    https://github.com/jaor/xmobar/blob/master/doc/window-managers.org
+    xmobarProp
+    Do note that you will also need to add the XMonadLog plugin to your xmobar configuration
+    , template = "%XMonadLog% }{ %alsa:default:Master% | %cpu% | %memory% * %swap% | %EGPF% | %date% "
+    https://codeberg.org/jao/xmobar-config
+    https://tea.filefighter.de/qvalentin/xmonad/blame/commit/90fd606fb31f033373a3bd40030f19e5a1d586a0/xmonad.hs
+
+https://github.com/jaor/xmobar/issues/517
+    ! still open
+    https://github.com/xmonad/xmonad-contrib/pull/408
+    it (xmobar) needs to be told to use XMonadLog explicitly
+
+https://github.com/xmonad/xmonad-contrib/issues/433
+    https://github.com/xmonad/xmonad-contrib/pull/434
+
+https://github.com/jaor/xmobar/issues/442
+    https://github.com/jaor/xmobar/pull/445/files
+        System.IO (hPrint)
+
+https://github.com/jaor/xmobar/issues/468
+    ! updating ...
+    ! expected beh
+
+!!!
+https://unix.stackexchange.com/questions/175127/xmobar-doesnt-appear

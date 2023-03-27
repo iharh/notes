@@ -1,0 +1,46 @@
+2019
+https://habr.com/ru/post/328624/
+https://habr.com/ru/company/jugru/blog/444212/
+
+2018
+https://mariusbancila.ro/blog/2018/05/22/transform-and-reduce-alternatives/
+
+Blogs:
+http://yapb-soc.blogspot.com/
+http://functionalcpp.wordpress.com/
+
+TypeClasses in Cpp:
+http://habrahabr.ru/post/205482/
+
+Monads in Cpp:
+http://habrahabr.ru/post/205026/
+
+Folds in Cpp:
+http://habrahabr.ru/post/126275/ (http://software.intel.com/ru-ru/articles/reduce-intel-cilk-plus/)
+http://habrahabr.ru/post/112394/
+
+ADTs in CPP:
+http://cpp-next.com/archive/2010/07/algebraic-data-types/
+
+F-Algebras in Cpp:
+http://ericniebler.com/2013/07/16/f-algebras-and-c/
+  https://github.com/ericniebler/fpxx
+  https://code.google.com/p/catatonic/
+
+DosReis - What is Generic Programming (mostly for cpp)
+  Either, lift impl in raw c++
+
+Sankel
+ Sankel - Modern Functional Programming for Cpp
+
+
+Fun with Tuples:
+http://yapb-soc.blogspot.com/2012/12/fun-with-tuples.html
+
+Quick and Easy: Manipulating C++ Containers Functionally:
+http://yapb-soc.blogspot.com/2012/12/quick-and-easy-manipulating-c.html
+
+Streams:
+http://jscheiny.github.io/Streams/
+https://github.com/jscheiny/Streams
+

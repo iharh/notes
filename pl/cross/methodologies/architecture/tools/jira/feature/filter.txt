@@ -1,0 +1,6 @@
+https://jira.epam.com/jira/secure/ManageFilters.jspa?filterView=search
+
+project = <...> AND
+issuetype in (Story, "Dev Task ST", "Dev task", "Development task","Bug ST", "Bug") AND
+Sprint in openSprints() AND
+assignee in (Ihar_Hancharenka)

@@ -1,0 +1,23 @@
+M-x
+	<long-command-name>
+		Execute command (lisp function)
+	kill-emacs
+		To kill Emacs without being prompted about saving. 
+
+	make-frame
+		open a new frame
+	delete-frame
+		delete a frame
+	cua-mode
+		go to cua mode (can edit prefix/suffix for all the rectangle)
+	whitespace-mode
+		activate whitespace-mode
+	shell-command
+		execute shell command
+	list-color-display
+		list of available colors
+	customize-group
+		faces
+
+	goto-line
+		or M-g g Goto the indicated line.

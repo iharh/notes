@@ -1,0 +1,17 @@
+https://clang.llvm.org/docs/CrossCompilation.html
+http://clang-developers.42468.n3.nabble.com/Anyone-uses-Clang-3-8-and-higher-on-Windows-with-MinGW-w64-td4055898.html
+
+scoop
+    gcc (mingw-w64)
+        x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z
+
+clang -target x86_64-w64-mingw32 main.c 
+(-DLLVM_DEFAULT_TARGET_TRIPLE=x86_64-w64-mingw32)
+
+
+https://github.com/llvm-mirror/llvm/blob/master/include/llvm/ADT/Triple.h#L549
+
+clang -target x86_64-w64-pc-windows-gnu main.c 
+
+includes
+https://stackoverflow.com/questions/6525245/getting-clang-to-work-on-windows?answertab=active#tab-top

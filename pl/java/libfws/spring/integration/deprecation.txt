@@ -1,0 +1,7 @@
+https://docs.spring.io/spring-integration/api/org/springframework/integration/dsl/IntegrationFlows.html
+    Deprecated, for removal:
+        This API element is subject to removal in a future version.
+        since version 6.0 in favor of fluent API methods straight from IntegrationFlow interface.
+
+
+https://docs.spring.io/spring-integration/api/org/springframework/integration/dsl/IntegrationFlow.html

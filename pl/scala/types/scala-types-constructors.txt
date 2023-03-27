@@ -1,0 +1,21 @@
+// Way to build generalized types to take generics as a parameter
+
+trait Iterable[T} {
+  def filter(p: T => Boolean): Iterable[T]
+  def remove(p: T => Boolean): Iterable[T] = filter(x => !p(x))
+}
+
+trait List[T] extends Iterable[T] {
+  def filter(p: T => Boolean): List[T]             // copy/paste 
+  override def remove(p: T => Boolean): List[T] =  // -> redundant code
+    filter(x => !p(x))
+}
+
+---------------
+
+trait Iterable[T, Container[X]] {
+  def filter(p: T => Boolean): Container[T]
+  def remove(p: T => Boolean): Container[T] = filter(x => !p(x))
+}
+
+trait List[T] extends Iterable[T, List]  // remove code duplication

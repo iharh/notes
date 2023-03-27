@@ -1,0 +1,2 @@
+pg_tables
+    view based on pg_class ... where relkind='r'

@@ -1,0 +1,20 @@
+https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs
+
+conf-sync:
+https://habrahabr.ru/company/JetBrains/blog/335646/
+
+./IdeaIC*.*
+
+.local/share/JetBrains/Toolbox/apps/IDEA-C/ch-0/
+    181.4203.550.vmoptions
+??? /ch-1/
+
+project settings -> sdk
+    https://www.jetbrains.com/help/idea/sdk.html#
+
+files
+.config/JetBrains/IdeaIC<YYYY.N>
+    options/
+        trusted-paths.xml
+        recentProjects.xml
+        other.xml

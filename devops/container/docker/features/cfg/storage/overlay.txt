@@ -1,0 +1,29 @@
+https://docs.docker.com/storage/storagedriver/overlayfs-driver/
+
+The overlay and overlay2 drivers are supported on xfs backing filesystems,
+    but only with d_type=true enabled.
+Use xfs_info to verify that the ftype option is set to 1.
+To format an xfs filesystem correctly,
+    use the flag -n ftype=1.
+
+issues
+https://github.com/docker/for-linux/issues/711
+
+https://docs.docker.com/storage/storagedriver/overlayfs-driver/#how-the-overlay2-driver-works
+
+If you want to use a separate backing filesystem from the one used by /var/lib/,
+format the filesystem and mount it into /var/lib/docker.
+Make sure add this mount to /etc/fstab to make it permanent
+
+fs
+/var/lib/docker/overlay2
+
+kernell stuff
+https://stackoverflow.com/questions/46787983/what-native-overlay-diff-mean-in-overlay2-storage-driver
+https://dev.to/jarekprzygodzki/a-curious-case-of-slow-docker-image-builds-2o7k
+    # https://github.com/docker/docker-ce/blob/18.09/components/engine/daemon/graphdriver/overlay2/overlay.go#L287
+    Not using native diff for overlay2, this may cause degraded performance for building images:
+    kernel has CONFIG_OVERLAY_FS_REDIRECT_DIR enabled
+        https://github.com/torvalds/linux/blob/v4.18/fs/overlayfs/Kconfig#L13
+
+    echo 'options overlay redirect_dir=off' > /etc/modprobe.d/disable_overlay_redirect_dir.conf

@@ -1,0 +1,3 @@
+KUBERNETES_PROVIDER
+    gce, gke, aws, azure, vagrant, vsphere, libvirt-coreos, juju
+KUBE_AWS_ZONE

@@ -1,0 +1,63 @@
+1.26
+https://habr.com/ru/company/flant/blog/703372/
+
+1.25
+https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.25.md
+    https://habr.com/ru/company/flant/blog/684142/
+1.24
+https://kubernetes.io/blog/2022/04/07/upcoming-changes-in-kubernetes-1-24/
+    https://habr.com/ru/company/flant/blog/661763/
+    https://www.opennet.ru/opennews/art.shtml?num=57139
+
+1.23
+https://containerjournal.com/features/kubernetes-v1-23-coming-dec-7-are-you-ready/
+
+1.21
+https://habr.com/ru/company/southbridge/blog/551684/
+
+1.19
+https://kubernetes.io/docs/setup/release/notes/#v1-19-0
+https://github.com/kubernetes/sig-release/tree/master/releases/release-1.19
+    https://thenewstack.io/kubernetes-1-19-brings-fully-mature-ingress-secure-computing-mode/
+
+1.18
+https://kubernetes.io/blog/2020/03/25/kubernetes-1-18-release-announcement/
+    https://www.opennet.ru/opennews/art.shtml?num=52635
+1.16
+https://kubernetes.io/blog/2019/09/18/kubernetes-1-16-release-announcement/
+    https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.16.md
+    https://habr.com/ru/company/southbridge/blog/467883/
+
+1.15
+https://kubernetes.io/blog/2019/06/19/kubernetes-1-15-release-announcement/
+    https://www.infoq.com/news/2019/08/kubernetes-release-1-15/
+
+1.13
+https://kubernetes.io/blog/2018/12/03/kubernetes-1-13-release-announcement/
+    http://www.opennet.ru/opennews/art.shtml?num=49722
+    https://habr.com/ru/company/flant/blog/432208/
+
+1.12
+https://kubernetes.io/blog/2018/09/27/kubernetes-1.12-kubelet-tls-bootstrap-and-azure-virtual-machine-scale-sets-vmss-move-to-general-availability/
+https://cloud.google.com/blog/products/containers-kubernetes/digging-into-kubernetes-1-12
+https://habr.com/company/flant/blog/424331/
+https://www.infoq.com/news/2018/10/kubernetes-1-12
+
+1.11
+https://kubernetes.io/blog/2018/06/27/kubernetes-1.11-release-announcement/
+
+1.10
+https://kubernetes.io/blog/2018/03/27/kubernetes-1.10-stabilizing-storage-security-networking/
+https://www.infoq.com/news/2018/04/kubernetes-1.10-cross-cloud
+https://habrahabr.ru/company/flant/blog/353114/
+
+1.9
+http://blog.kubernetes.io/2017/12/kubernetes-19-workloads-expanded-ecosystem.html
+http://www.opennet.ru/opennews/art.shtml?num=47762
+https://www.infoq.com/news/2017/12/kubernetes-1.9
+
+1.8
+https://www.infoq.com/news/2017/11/kubernetes-1.8-secure-stable
+https://habrahabr.ru/company/flant/blog/338230/
+http://blog.kubernetes.io/2017/09/kubernetes-18-security-workloads-and.html
+https://github.com/kubernetes/features/blob/master/release-1.8/release-notes-draft.md

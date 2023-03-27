@@ -1,0 +1,35 @@
+https://containers.dev/
+https://github.com/devcontainers
+
+https://containers.dev/implementors/json_reference/
+    "remoteUser": "someusername",
+    "build": {
+      "args": {
+        "USER_UID": "${localEnv:UID}"
+      }
+    },
+https://containers.dev/implementors/spec/
+
+https://containers.dev/features
+    https://containers.dev/implementors/features-distribution/
+    https://github.com/devcontainers/feature-starter
+https://containers.dev/templates
+    https://github.com/devcontainers/template-starter
+
+https://github.com/Microsoft/vscode-remote-release
+    codium --install-extension ms-vscode-remote.remote-containers
+https://code.visualstudio.com/docs/remote/remote-overview
+https://code.visualstudio.com/docs/devcontainers/containers
+    ! need to read
+
+non-root
+https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user
+    Dev Containers: Rebuild Container
+
+https://github.com/flathub/com.visualstudio.code/issues/55
+    sudo flatpak override --system --filesystem=/run/docker.sock com.visualstudio.code
+    flatpak override --user --filesystem=/run/docker.sock com.visualstudio.code
+    flatpak info --show-permissions com.visualstudio.code
+    https://www.systutorials.com/docs/linux/man/1-flatpak-override/
+    https://gist.github.com/FilBot3/4424d312a87f7b4178722d3b5eb20212
+        https://github.com/flathub/com.visualstudio.code/issues/203

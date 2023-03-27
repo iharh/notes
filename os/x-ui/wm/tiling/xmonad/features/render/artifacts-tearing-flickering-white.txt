@@ -1,0 +1,48 @@
+gfx.webrender.compositor=false
+gfx.xrender.enabled=false
+layers.acceleration.force-enabled=true
+
+https://wiki.archlinux.org/title/intel_graphics#Tearing
+    Option "TripleBuffer" "true"
+    https://neamil.de/en/how-to-solve-screen-tearing-on-linux-here-are-some-basic-tips-for-ubuntu-manjaro-arch-opensuse-fedora-and-most-popular-linux-distributions/
+
+compton
+    https://ubuntuforums.org/showthread.php?t=2144468&p=12644745#post12644745
+    https://bbs.archlinux.org/viewtopic.php?id=201230
+        compton --backend glx --vsync opengl &
+picom
+    https://wiki.archlinux.org/title/Picom
+    https://www.reddit.com/r/xmonad/comments/lak1xc/xmonad_and_picom/
+    https://travishorn.com/the-xmonad-window-manager-on-arch-linux
+        ~/.config/picom/picom.conf
+        vsync=false
+    https://github.com/LelsersLasers/xmonad-vm/blob/main/xmonad-vm/picom/picom.conf
+
+2022
+https://stackoverflow.com/questions/72102828/graphics-artifacts-white-horizontal-lines-at-xmonad
+    ! my q
+    https://stackoverflow.com/editing-help#simple-lists
+    Managed to fix this in 2 ways:  
+* Option "TearFree" "true at /etc/X11/xorg.conf.d/20-intel.conf
+* using picom with glx backend
+
+https://www.reddit.com/r/firefox/comments/sf7l56/using_firefox_on_a_4k_display_causes/
+https://linuxconfig.org/how-to-improve-firefox-font-rendering-on-linux
+    gfx.font_rendering.ahem_antialias_none
+2021
+https://www.reddit.com/r/linuxquestions/comments/k6zy7o/screen_tearing_in_xmonad/
+     tearing flickering white
+     white flickering lines
+2020
+https://www.reddit.com/r/xmonad/comments/got2o0/gtk_flicker/
+    ! ??? picom
+2019
+https://www.reddit.com/r/archlinux/comments/by3ufa/get_rid_of_screen_tearing_while_scrolling/
+    xorg.conf.d
+    Option "TearFree" "true"
+    ??? You can activate V-Sync for X too
+????
+http://wiki.rosalab.ru/ru/index.php/%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_%D0%B2%D0%B5%D1%80%D1%82%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8
+    ! image tiring, Effects, XRender engine -> OpenGL, VSync = full redraw
+    ! tear-free
+

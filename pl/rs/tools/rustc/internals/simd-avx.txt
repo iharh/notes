@@ -1,0 +1,3 @@
+http://github.mirror.nyanye.com:3333/bryant/argon2rs/issues/11
+
+RUSTFLAGS="-C target-feature=+avx" cargo bench --features=simd

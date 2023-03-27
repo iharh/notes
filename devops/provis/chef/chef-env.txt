@@ -1,0 +1,6 @@
+https://docs.chef.io/environments.html
+
+env attr
+- default_attributes
+- override_attributes
+- can't be a normal attributes

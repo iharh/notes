@@ -1,0 +1,29 @@
+for Oracle 9i it is possible to use STATSPACK - predecessor of AWR.
+ 
+See details by link and in attached PPT.
+Ian Jones. "Using Statspack in Oracle8i and 9i to Identify Problems"
+http://www.powershow.com/view/3ebc7-MDg1N/Using_Statspack_in_Oracle8i_and_9i_to_Identify_Problems_powerpoint_ppt_presentation
+ 
+https://jonathanlewis.wordpress.com/statspack-examples/
+
+http://www.orafaq.com/wiki/Statspack
+http://www.akadia.com/services/ora_statspack_survival_guide.html
+http://www.adp-gmbh.ch/ora/tuning/statspack.html
+http://jonathanlewis.wordpress.com/statspack-examples/
+
+http://docs.oracle.com/cd/B10501_01/server.920/a96533/statspac.htm
+http://docs.oracle.com/cd/E13160_01/wli/docs10gr3/dbtuning/statsApdx.html
+
+http://www.oracle-base.com/articles/8i/statspack-8i.php
+http://sohannin.wordpress.com/2011/05/26/statspack-scheduling-through-dbms_scheduler/
+
+http://www.dba-oracle.com/art_statspack.htm
+http://www.dba-oracle.com/t_statspack_install_scripts.htm
+
+http://kerryosborne.oracle-guy.com/2008/11/statspack-still-works-in-10g-and-11g/
+http://kerryosborne.oracle-guy.com/2008/10/oracle-management-packs/
+
+files:
+.../oracle/product/11.2./dbhome_1/RDBMS/ADMIN/
+- spdoc.txt
+- spcreate.sql

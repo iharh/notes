@@ -1,0 +1,43 @@
+Help
+
+C-h
+	Enter the help system
+
+	q - exit
+
+	? - possible help options
+
+	C-h (second time) - help-on-help
+
+	n - what's new
+	t - tutorial
+	r - manual
+	
+	a - what commands include this word? (apropos-command)
+	d - show a list of functions, variables, and other items whose documentation matches the PATTERN (apropos-documentation)
+	    (a list of words or a regexp)
+	(Note: see other apropos-* commands)
+
+	f - what does this function do? (describe-function)
+	v - what does this variable mean, and what is its value? (describe-variable)
+
+
+	k - what command does this keystroke sequence run, and what does it do? (describe-key)
+		describe help on specific key-command (you should type it next - ex. <C-f>)
+	c - what command does this keystroke sequence run? (describe-key-briefly)
+	b - what are all the key bindings for this buffer? (describe-bindings)
+ 	w - what is the key binding for this command? (where is)
+
+
+	i - info - open the info reader
+	e - display messages buffer (view-echo-area-messages)
+
+	m - tell me about the modes the current buffer is in (describe-modes)
+	s - what is the syntax table for this buffer? (describe-syntax)
+	l - What are the last 100 characters I typed? (view-lossage)
+
+C-h C-a
+	Open About (startup) screen
+
+Ctrl+u Ctrl+h a
+	To search both function and command name spaces, call apropos-command with a empty argument.

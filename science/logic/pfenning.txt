@@ -1,0 +1,272 @@
+!!! Park-CSE-490 !!!
+Valentini - Another Introduction to Martin-Lof Intuitionistic Type Theory
+
+Judgement - суждение (Park. - A judgement is an object of knowledge, or simply a statement, that may or may not be provable).
+Proposition - предложение (Pierce - утверждение) (Park - An object of verification whose truth can be checked by inf-rules).
+
+(A)                                            - IS A PROPOSITION
+(A is true), (A is false), (A maybe true), ... - ARE JUDGEMENTS
+
+Premise - посылка.
+Conclusion - вывод.
+Evidence - доказательство
+
+
+judgement - something we may know (evident if we know it)
+In other words: a judgement is evident if we have a proof for it.
+E.x: "A is true", "A is false", "A is true at time t", "A is necessarily true",
+"program M has type \tau"
+
+
+Hypothetical Deduction:
+
+
+J_1 ... J_n               A true  B true
+-----------name   ex is   --------------&I (And intro)
+     J                      A && B true
+
+J_1 ... J_n |- J    (|- - entailment of consequent relation).
+This is the localized-notation.
+
+Judgements J_1 ... J_n are premises here (assumptions, antecedents),
+J is - conclusion (succedent).
+The collection of antecedends is often marked as a big-greek-gamma (Г |- J).
+A, B, ... - propositions.
+
+
+Example (of hypothetical judgements):
+
+  ------ u (under the assumption)
+  A true
+     .
+     .
+     .
+  B true
+----------- =>I^u (intro under the assumption)
+A => B true
+
+
+
+
+proposition / 
+
+
+premice
+----------
+conclusion
+
+
+Verification approach: when can I conclude it???
+Pragmatist   approach: how can I use it???
+
+
+
+Harmony:
+
+Local soundness - shows that the elimination rules are "not too strong":
+- we can not gain any new info no matter how we apply the elimination rules.
+
+in other words - elimination rules do not gain a new knowledge comparing to the inroduction rules
+
+Local completeness - shows that the elimination rules are "not too weak":
+- there is always a way to apply elimination rules so that we can reconstinute
+a proof of the original proposition from the results by applying introduction rules.
+
+in other words - elimination rules gain all the knowledge, provided by the introduction rules
+
+
+
+Verification:
+
+A  - the judgement "A has a verification" (denoted by arrow pointed up).
+
+A ver   B ver
+--------------- &I
+ (A && B) ver 
+
+
+Uses:
+
+!!! here we become pragmatists !!!
+A use - the judgement "A may be used" (denoted by arrow pointed down):
+  - either "A true" is a hypothesis
+  - or A is deduced from a hypothesis via elimination rules.
+
+Local soundness provide some evidence that we can't deduce anything incorrect in this manner.
+
+
+Conjunction case:
+
+A ver  B ver     (A && B) use       (A && B) use
+------------ &I  ------------ &E_L  ------------ &E_R
+(A && B) ver        A use              B use
+
+If we can use (A && B) we can use A and we can use B (E_L and E_R).
+
+
+Implication case:
+
+The introduction rule creates a new hypothesis, which we may use in a proof.
+
+  ----- u (under the assumption)
+  A use
+    .
+    .
+    .
+  B ver
+------------- =>^u
+(A => B) ver
+
+In order to use an implication (A => B) we require a verification of A.
+Just recuring that A may be used would be too weak.
+
+(A => B) use  A ver
+------------------- =>E
+      B use
+
+
+Disjunction case:
+
+The verification of disjunction immediately follow from their intro-rules:
+
+    A ver               B ver
+------------ ||I_L  ------------ ||I_R
+(A || B) ver        (A || B) ver
+
+A disjunction is used in a proof by cases, called here ||E.
+
+The conclusion of ||E should be a verification (with uses of hypotheses):
+
+              ----- u  ----- w
+              A use    B use
+              .        .
+              .        .
+    .
+(A || B) use  C ver    C ver
+---------------------------- ||E^(u,w)
+ C ver
+
+
+Truch case:
+
+The only verification of truth is the trivial one:
+
+----- TI
+T ver
+
+A hypothesis (T use) can not be used because there is no elimination rule for T.
+
+
+Falsehood case:
+
+There is no verification of falsehood because we have no introduction rule.
+
+We can use falsehood, signifying a contradiction from our current hypothesis,
+to verify any conclusion (C). This is a zero-ary case of disjunction.
+
+
+Bot use
+------- Bot E
+ C ver
+
+
+Atomic propositions case:
+
+We can not break down the structure of P because there is none, so we can only verify it
+if we already know that P is true (can use P). !!! P need to be atomic !!!
+
+P use
+----- use-ver
+P ver
+
+
+This (use-ver) rule is of a special status - judgemental rule (as opposed to introduction
+and elimination rules).
+
+
+***********************************************
+Global soundness (Oregon 10 44:00):
+
+If an arbitrary proposition A has a verification then we may use A without gaining any information
+
+                A use
+                .
+                .
+If (A ver) and (C ver) then (C ver).
+
+***********************************************
+Global soundness (Oregon 11-2 51:00)
+
+Any proven truth-judgement (A true) can be turned to the verification (A ver).
+
+Verifications could be thought of as a normal forms (Oregon 11-2 1:03:00).
+
+
+Global completeness (Oregon 10 43:00):
+
+If we may use A then we can construct from this a verification of A:
+
+A use
+  .
+  .
+A ver
+
+
+Proof normalization:
+
+Takes an arbitrary proof of (A true) and constructs a verification of A.
+
+
+
+CURRY-HOWARDT
+
+2010 Pfenning-ProofTheoryFoundation 1 - Implication case (lambda abstraction - 43:00).
+
+Substitution:
+
+[N/x]M      -      N substituted for x in M
+
+(\x:A.M)N   ==>R   [N/x]M
+This corresponds to beta-reduction in LC.
+
+
+M : (A => B)  ==>E   \x:A.Mx  (x is free/not-bound in M)
+This corresponds to eta-reduction inversed in LC.
+
+
+
+Г |- M : A      Г, x : A, Г' |- N : B
+-------------------------------------
+      Г, Г' |- [M/x]N : B  
+
+2010 Pfenning-ProofTheoryFoundation 1 - Substitution operation 1:01:00.
+
+[M/x](x) = M
+[M/x](y) = y, if y != x
+[M/x]<N1,N2> = <[M/x]N1,[M/x]N2>
+[M/x](\y:A.N) = (\y:A. [M/x]N), if y !=x  AND  y not in FV(M) in order to exclude accidental binding
+
+
+Sequent Calculus:
+
+A Sequent is a particular form of hypothetical judgement.
+
+(A1 left), ..., (AN left) |- (C right)
+
+Where (A left) corresponds to (A use), (C right) - (C ver).
+
+Let us go through all the verification rules and construct appropriate sequent rules.
+
+1. Atomic use-ver
+
+P use
+----- use-ver
+P ver
+
+
+-------------------- init
+Г, P left |- P right
+
+2. Conjunction
+
+

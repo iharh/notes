@@ -1,0 +1,9 @@
+https://forum.manjaro.org/t/trouble-booting-with-linux49/49265/2
+
+sudo mount /dev/sda3 /mnt
+manjaro-chroot /mnt
+mount /dev/sda2 /boot
+pacman -U /var/cache/pacman/pkg/linux49-4.9.105-1-x86-64.pkg.tar.xz
+umount /boot
+exit #chroot
+sudo umount /mnt

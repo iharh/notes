@@ -1,0 +1,47 @@
+https://docs.docker.com/storage/storagedriver/device-mapper-driver/
+https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/
+
+-s devicemapper
+# direct-mode
+--storage-opt dm.datadev=/dev/vgdocker/lvdocdata --storage-opt dm.metadatadev=/dev/vgdocker/lvdocmeta
+# loopback-mode
+--data-root /data/wrk/docker-data
+
+# pvcreate /dev/xvdf1
+# vgextend centos /dev/xvdf1   # centos - volume group
+## vgreduce centos /dev/xvdf1   # centos - volume group
+# vgcreate vgdocker /dev/xvdf1
+# lvcreate -l 95%FREE -n lvdocmeta vgdocker
+# lvcreate -l 100%FREE -n lvdocdata vgdocker
+# lsblk
+
+xvdc                     202:32   0  200G  0 disk
+|- docker-thinpool_tmeta 253:0    0    2G  0 lvm
+|-- docker-thinpool      253:2    0  190G  0 lvm
+|- docker-thinpool_tdata 253:1    0  190G  0 lvm
+|-- docker-thinpool      253:2    0  190G  0 lvm
+
+ISSUES:
+
+http://blog.hashbangbash.com/2014/11/docker-devicemapper-fix-for-device-or-resource-busy-ebusy/
+
+aufs:
+https://github.com/docker/docker/issues/6980
+https://github.com/lxc/lxd/issues/1245
+https://github.com/oracle/docker-images/issues/53
+
+https://github.com/docker/docker/issues/5928
+https://github.com/docker/docker/pull/5930/files
+https://github.com/docker/docker/pull/5773
+
+https://github.com/docker/docker/issues/8966
+https://github.com/docker/hub-feedback/issues/461
+
+https://github.com/dayreiner/centos7-php56/commit/e800c805a8769c387cd1aa5462c73543132cbd3a
+
+RUN yum -y update && yum clean all
+RUN yum -y install httpd && yum clean all
+
+OPTIONS:
+
+--storage-opt dm.basesize=20G

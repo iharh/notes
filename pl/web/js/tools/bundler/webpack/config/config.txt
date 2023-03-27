@@ -1,0 +1,40 @@
+https://webpack.js.org/configuration/
+
+So here is the first news: webpack 4 doesn’t need a configuration file.
+It will look in ./src/index.js as the default entry point. Moreover, it will spit out the bundle in ./dist/main.js.
+
+webpack.config.js
+module.exports = {
+    entry: "./src/app.js",
+    output: {
+        path: __dirname + "/public", // need to be absolute
+        // publicPath: '/public',
+        filename: "bundle.js"
+    },
+    devServer: {
+        // publicPath: '/public',
+        contentBase: __dirname + "/public",
+        port: 3000 // 8080
+    }
+};
+
+? mode ?
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/
+
+"scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+}
+
+" ... ./foo/src/js/index.js --output ./foo/main.js"
+
+webpack.config.d
+https://github.com/Kotlin/kotlin-fullstack-sample/tree/master/frontend/webpack.config.d
+
+2018
+Big - Welch - An Annotated webpack 4 Config for Frontend Web Development
+    https://nystudio107.com/blog/an-annotated-webpack-4-config-for-frontend-web-development
+Webpack config splitting
+    https://habr.com/post/422697/

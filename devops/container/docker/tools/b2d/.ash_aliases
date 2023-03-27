@@ -1,0 +1,7 @@
+
+# docker aliases
+alias doc-ps='sudo docker ps -a'
+alias doc-img='sudo docker images'
+alias doc-rmd='sudo docker rmi $(sudo docker images -q -f "dangling=true")'
+alias doc-rmc='sudo docker rm -v $(sudo docker ps -aqf status=exited && sudo docker ps -aqf status=dead)'
+

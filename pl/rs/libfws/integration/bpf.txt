@@ -1,0 +1,25 @@
+https://crates.io/crates/rebpf
+https://docs.rs/rebpf
+https://github.com/uccidibuti/rebpf
+https://github.com/uccidibuti/rebpf/tree/master/examples
+
+https://crates.io/crates/rebpf-macro
+https://docs.rs/rebpf-macro
+https://crates.io/crates/rebpf-sys
+https://docs.rs/rebpf-sys
+
+https://github.com/libbpf/libbpf-rs
+
+https://aya-rs.dev/
+    https://aya-rs.dev/book/
+    https://github.com/aya-rs/aya
+    https://github.com/aya-rs/awesome-aya
+
+2022
+https://deepfence.io/aya-your-trusty-ebpf-companion/
+    https://github.com/aya-rs/aya-template
+2021
+https://medium.com/nttlabs/bpf-and-async-rust-c1818f03aff7
+2020
+https://medium.com/@alessandrodecina/adding-bpf-target-support-to-the-rust-compiler-3ef113dbbd09
+https://confused.ai/posts/rust-bpf-target

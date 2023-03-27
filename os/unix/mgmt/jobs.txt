@@ -1,0 +1,24 @@
+Background Jobs Control:
+
+set CYGWIN=tty
+- for enabling Ctlr+Z suspending
+
+jobs - list of running jobs
+bg
+fg
+
+disown -h <pid>
+
+is a useful bash built-in. Unlike nohup, you can run disown on an already-running process.
+First, stop your job with control-Z, get the pid from ps (or use echo $!), use bg to send it to the background,
+then use disown with the -h flag.
+
+Don't forget to background your job or it will be killed when you logout.
+
+
+Looking up the manpage for bash, disown is mentioned, to my surprise. Reminds me what my unix sensei taught me:
+never forget to try the manpages.
+
+After some googling, the best way to do this in one swoop is to use the 'nohup' command, which is a program
+(part of GNU coreutils), and is not built-in to bash:
+$ nohup command &

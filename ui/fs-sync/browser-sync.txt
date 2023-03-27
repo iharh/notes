@@ -1,0 +1,16 @@
+https://browsersync.io/
+https://github.com/Browsersync/browser-sync
+https://www.npmjs.com/package/browser-sync
+
+gulp
+https://github.com/Browsersync/recipes
+https://browsersync.io/docs/gulp
+https://webref.ru/dev/automate-with-gulp/live-reloading
+
+2016
+https://asciinema.org/a/42553
+
+2014
+https://www.youtube.com/watch?v=Rv5f_v5gqw4
+
+browser-sync start --server --files="index.html"

@@ -1,0 +1,62 @@
+https://vk.com/@1077823-esche-ob-avtomatnom-programmirovanii
+    ! tons of links
+
+Dvorkin, Stankevich, Shalyto - On using Automatas for AVL Trees Implementation 43p
+    http://is.ifmo.ru/works/_avl.pdf
+http://is.ifmo.ru/works/turing
+    http://is.ifmo.ru/download/turing.pdf
+
+2019
+Shalyto - Automata Programming of 1:10:32
+    https://www.youtube.com/watch?v=PPWTxceMutk
+    ! i nechego hvatatsya za ify, nado risovat sostoyaniya
+    ! states: controlable and calculatable
+2013
+http://is.ifmo.ru/works/2013/ulyantsev-shalyto-verification.pdf
+    ! just 2p
+2012
+http://is.ifmo.ru/present/2012/Tsarev-Shalyto-automata-generation.pdf
+    ! 45p !!!
+    ! SBSE - search based software engeneering
+    ! evolutionary
+2010
+Shalyto - Automata Programming
+    http://is.ifmo.ru/works/_2010_09_08_automata_progr.pdf
+    !!! 30p, good, tons of links
+Shalyto - Automata Based Programming (16p)
+    http://is.ifmo.ru/works/2008/Vestnik/53/01-automata-based-programming.pdf
+2009 - Implementing FSM
+    https://habr.com/ru/post/60342/
+PolikarpovaShalyto - 2008 - Automata Programming
+    http://is.ifmo.ru/books/_book.pdf
+ShalytoPolikarpova - 2007 - Automata Based Programming
+    http://is.ifmo.ru/books/_umk.pdf
+Shalyto - Automata based Programming Paradigm (4p)
+    http://is.ifmo.ru/works/_2007_09_27_shalyto.pdf
+2008
+KuzminSokolov - Modelling, Specification and Verification of Automata Programs
+    http://is.ifmo.ru/download/2008-03-12_verification.pdf
+2004
+KorneevShamgunovShalyto - Traversing Trees using Automata Approach ru
+    https://www.kgeorgiy.info/papers/Korneev_GA__Shamgunov_NN__Shalyto_AA_--_Tree_traversal.pdf
+    ! 13p, need to read
+    http://is.ifmo.ru/works/2004/korneev-tm-2004.pdf
+    ! 2p
+2002
+ShalytoTukkelShamgunov - Using Automata-Based Approach for Realizing Recursive Algorithms ru
+    http://is.ifmo.ru/works/recurse/
+    http://is.ifmo.ru/download/recurse.pdf
+    ! 23p, need to read
+ShalytoTukkel - From Turing Programming to Automata Ones ru
+    http://is.ifmo.ru/works/turing
+    http://is.ifmo.ru/download/turing.pdf
+    ! 14p, need to read
+2001
+ShalytoTukkel - Translating Iterative Programs to Automata ones ru
+    http://is.ifmo.ru/works/iter/
+    http://is.ifmo.ru/download/iter.pdf
+    ! 15p, need to read
+2000
+Kuznetsov - 2000 - Automata Programming Psychology ru
+    http://softcraft.ru/design/ap/
+    ! problem of cycles at automata-based program

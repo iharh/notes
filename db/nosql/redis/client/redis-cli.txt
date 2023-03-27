@@ -1,0 +1,16 @@
+https://lightrun.com/using-the-redis-command-line/
+https://cloud.google.com/memorystore/docs/redis/connect-redis-instance
+    sudo apt-get install redis-tools
+
+127.0.0.1:6379> ?
+redis-cli 6.0.16
+To get help about Redis commands type:
+      "help @<group>" to get a list of commands in <group>
+      "help <command>" for help on <command>
+      "help <tab>" to get a list of possible help topics
+      "quit" to exit
+
+To set redis-cli preferences:
+      ":set hints" enable online hints
+      ":set nohints" disable online hints
+Set your preferences in ~/.redisclirc

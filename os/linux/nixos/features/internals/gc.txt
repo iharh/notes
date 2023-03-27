@@ -1,0 +1,2 @@
+nix.gc.options
+    https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/misc/nix-gc.nix

@@ -1,0 +1,158 @@
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/AsmLibraryLoader.java
+
+public class AsmLibraryLoader extends LibraryLoader {
+...
+}
+
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/NativeLibraryLoader.java
+
+package jnr.ffi.provider.jffi;
+
+import jnr.ffi.*;
+
+import java.util.Collection;
+import java.util.Map;
+
+import static jnr.ffi.provider.jffi.Util.getBooleanProperty;
+
+class NativeLibraryLoader<T>  extends jnr.ffi.LibraryLoader<T> {
+    static final boolean ASM_ENABLED = getBooleanProperty("jnr.ffi.asm.enabled", true);
+
+    NativeLibraryLoader(Class<T> interfaceClass) {
+        super(interfaceClass);
+    }
+
+    public T loadLibrary(Class<T> interfaceClass, Collection<String> libraryNames, Collection<String> searchPaths,
+                             Map<LibraryOption, Object> options) {
+        NativeLibrary nativeLibrary = new NativeLibrary(libraryNames, searchPaths);
+
+        try {
+            return ASM_ENABLED
+                ? new AsmLibraryLoader().loadLibrary(nativeLibrary, interfaceClass, options)
+                : new ReflectionLibraryLoader().loadLibrary(nativeLibrary, interfaceClass, options);
+
+        } catch (RuntimeException ex) {
+            throw ex;
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+}
+
+<-
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/Provider.java
+
+package jnr.ffi.provider.jffi;
+
+import jnr.ffi.Runtime;
+import jnr.ffi.provider.FFIProvider;
+
+public final class Provider extends FFIProvider {
+    private final NativeRuntime runtime;
+    
+    public Provider() {
+        this.runtime = NativeRuntime.getInstance();
+    }
+
+    public final Runtime getRuntime() {
+        return runtime;
+    }
+
+    public <T> jnr.ffi.LibraryLoader<T> createLibraryLoader(Class<T> interfaceClass) {
+        return new NativeLibraryLoader<T>(interfaceClass);
+    }
+}
+
+<-
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/LibraryLoader.java
+
+package jnr.ffi;
+
+import jnr.ffi.mapper.*;
+import jnr.ffi.provider.FFIProvider;
+import jnr.ffi.provider.LoadedLibrary;
+import jnr.ffi.provider.NativeInvocationHandler;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.*;
+
+public abstract class LibraryLoader<T> {
+    private final List<String> searchPaths = new ArrayList<String>();
+    private final List<String> libraryNames = new ArrayList<String>();
+    private final List<SignatureTypeMapper> typeMappers = new ArrayList<SignatureTypeMapper>();
+    private final List<FunctionMapper> functionMappers = new ArrayList<FunctionMapper>();
+    private final Map<LibraryOption, Object> optionMap = new EnumMap<LibraryOption, Object>(LibraryOption.class);
+    private final TypeMapper.Builder typeMapperBuilder = new TypeMapper.Builder();
+    private final FunctionMapper.Builder functionMapperBuilder = new FunctionMapper.Builder();
+    private final Class<T> interfaceClass;
+    private boolean failImmediately = false;
+
+    ...
+    public static <T> LibraryLoader<T> create(Class<T> interfaceClass) {
+        return FFIProvider.getSystemProvider().createLibraryLoader(interfaceClass); // !!!
+    }
+    ...
+    /**
+     * Loads a native library and links the methods defined in {@code interfaceClass}
+     * to native methods in the library.
+     *
+     * @param libraryName The name or path of library to load.
+     * @return an implementation of the interface provided to {@link #create(Class)} that will call the native methods.
+     */
+    public T load(String libraryName) {
+        return library(libraryName).load();
+    }
+
+    /**
+     * Adds a library to be loaded.  Multiple libraries can be specified using additional calls
+     * to this method, and all libraries will be searched to resolve symbols (e.g. functions, variables).
+     *
+     * @param libraryName The name or path of library to load.
+     * @return The {@code LibraryLoader} instance.
+     */
+    public LibraryLoader<T> library(String libraryName) {
+        this.libraryNames.add(libraryName);
+        return this;
+    }
+
+    /**
+     * Loads a native library and links the methods defined in {@code interfaceClass}
+     * to native methods in the library.
+     *
+     * @return an implementation of the interface provided to {@link #create(Class)} that will call the native methods.
+     */
+    public T load() {
+        if (libraryNames.isEmpty()) {
+            throw new UnsatisfiedLinkError("no library names specified");
+        }
+
+        typeMappers.add(0, new SignatureTypeMapperAdapter(typeMapperBuilder.build()));
+        optionMap.put(LibraryOption.TypeMapper, typeMappers.size() > 1 ? new CompositeTypeMapper(typeMappers) : typeMappers.get(0));
+
+        functionMappers.add(0, functionMapperBuilder.build()); // !!! functionMapper, SimpleFunctionMapper !!!
+        optionMap.put(LibraryOption.FunctionMapper, functionMappers.size() > 1 ? new CompositeFunctionMapper(functionMappers) : functionMappers.get(0)); // !!!
+
+        try {
+            return loadLibrary(interfaceClass, Collections.unmodifiableList(libraryNames), getSearchPaths(),
+                Collections.unmodifiableMap(optionMap));
+        
+        } catch (LinkageError error) {
+            if (failImmediately) throw error;
+            return createErrorProxy(error);
+        
+        } catch (Exception ex) {
+            RuntimeException re = ex instanceof RuntimeException ? (RuntimeException) ex : new RuntimeException(ex);
+            if (failImmediately) throw re;
+            
+            return createErrorProxy(re);
+        }
+    }
+}
+

@@ -1,0 +1,97 @@
+Continuation monad:
+
+https://github.com/quchen/articles/blob/master/cont_monad.md
+  The purpose of the Cont monad is getting rid of all the explicit \k -> k ... you would have to introduce manually,
+  much like State takes care of dragging along the \s -> ... explicitly.
+
+http://igstan.ro/posts/2011-05-02-understanding-monads-with-javascript.html
+http://igstan.ro/posts/2010-12-01-deriving-the-y-combinator-in-7-easy-steps.html
+
+http://www.haskellforall.com/2012/12/the-continuation-monad.html
+http://en.wikibooks.org/wiki/Haskell/Continuation_passing_style
+
+This suggests a basic starting intuition for the continuation monad: we transform handlers.
+
+Piponi
+http://blog.sigfpe.com/2008/12/mother-of-all-monads.html
+https://www.fpcomplete.com/school/advanced-haskell/the-mother-of-all-monads
+
+Kabanov - FP - Continuation Monad and Monad Transformers
+
+
+newtype Cont r a = Cont { runCont :: (a -> r) -> r }   -- r is the final result type of the whole computation 
+
+-- The Continuation monad represents computations in continuation-passing style.
+-- Cont r a is a CPS computation that produces an intermediate result of type a within a CPS computation
+-- whose final result type is r. 
+
+informal definition:
+
+instance Monad (Cont r) where
+    return a = \k -> k a
+    m >>= f  = \k -> m (\a -> f a k)   -- actually    (f a) k
+
+
+formal definition:
+
+instance Monad (Cont r) where
+    return a       = Cont $ \k -> k a                         -- i.e. return a = \k -> k a 
+    (Cont c) >>= f = Cont $ \k -> c (\a -> runCont (f a) k)   -- i.e. c >>= f = \k -> c (\a -> f a k)
+
+
+Short sample:
+
+square :: Int -> Cont r Int
+square x = return (x * x)
+
+addThree :: Int -> Cont r Int
+addThree x = return (x + 3)
+
+> runCont (square 4 => addThree) print
+19
+
+
+informal definition:
+
+callCC :: ((a ->    m   b )->    m   a) ->    m   a
+callCC :: ((a -> Cont r b) -> Cont r a) -> Cont r a
+
+-- callCC captures the current continuation and passes it as an argument
+
+
+formal definition:
+
+
+class (Monad m) => MonadCont m where
+    {- | @callCC@ (call-with-current-continuation)
+    calls a function with the current continuation as its argument.
+    Provides an escape continuation mechanism for use with Continuation monads.
+    Escape continuations allow to abort the current computation and return
+    a value immediately.
+    They achieve a similar effect to 'Control.Monad.Error.throwError'
+    and 'Control.Monad.Error.catchError' within an 'Control.Monad.Error.Error' monad.
+    Advantage of this function over calling @return@ is that it makes
+    the continuation explicit, allowing more flexibility and better control
+    (see examples in "Control.Monad.Cont").
+
+    The standard idiom used with @callCC@ is to provide a lambda-expression
+    to name the continuation. Then calling the named continuation anywhere
+    within its scope will escape from the computation,
+    even if it is many layers deep within nested computations.
+    -}
+    callCC :: ((a -> m b) -> m a) -> m a
+
+
+instance MonadCont (Cont r) where
+    callCC f = Cont $ \k -> runCont (f (\a -> Cont $ \_ -> k a)) k
+
+
+-- The MonadCont class provides the callCC function, which provides an escape continuation mechanism
+-- for use with Continuation monads.
+-- Escape continuations allow you to abort the current computation and return a value immediately.
+-- They achieve a similar effect to throwError and catchError within an Error monad.
+
+-- callCC calls a function with the current continuation as its argument (hence the name).
+-- The standard idiom used with callCC is to provide a lambda-expression to name the continuation.
+-- Then calling the named continuation anywhere within its scope will escape from the computation,
+-- even if it is many layers deep within nested computations. 

@@ -1,0 +1,30 @@
+class Foo {
+    def target
+}
+
+class Bar {
+    Foo foo = new Foo()
+    void do something (Closure c) {
+        c.delegate = foo
+        c()
+    }
+}
+
+Bar bar = new Bar()
+bar.dosomething {
+    target = 10
+}
+
+// If a groovy class has a method call(Closure), the object can be passed a closure directly
+
+class Foo {
+    def call(Closure c) { ... }
+}
+
+Foo foo = new Foo()
+foo {
+    println 'Hello, world'
+}
+
+// This avoids ugly syntax
+foo.call({ println 'Hello, world' })

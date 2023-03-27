@@ -1,0 +1,15 @@
+1. some versions of networkmanager plugin (at least in plasma) have a bug with openconnect
+    when you create openconnect vpn connection with GP protocol specified it's not really saved in config and stays as "Pulse"
+    AFAIR after you save and reopen connection properties.
+
+    to change it you need to stop networkmanger service and change line to "protocol=gp" in corresponding file in
+        /etc/NetworkManager/system-connections/
+    the start NM service back. at
+
+    but it was unresolved for a long time and in many versions and still could be encountered somewhere
+
+2. connecting to global vpn.<org>.com portal or any local portal like vpn-eu.<org>.com causes unnecessary checks on vpn server side
+   I believe as GP vpn portal may have several gateways configured actually (not very <org> case but still).
+   to connect to the exact gate avoiding those checks or resolve any other possible issue you can specify it as /gateway
+    like vpn-eu.<org>.com/gateway
+   in connection config.

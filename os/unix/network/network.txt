@@ -1,0 +1,60 @@
+cat /proc/sys/net/ipv4/ip_forward
+0 - not a router
+1 - is a router
+
+MTU
+  maximum transmission unit (2-nd level)
+  1500 bytes (if no Jumbo Frames)
+  1492 bytes (PPPOE)
+  min - 576 (to work with IPv4)
+  min - 1280 (... IPv6)
+  ... MF flag - more fragments
+  Detecting optimal MTU via probing:
+    sending big packet with DF (don't fragment) flag
+
+MSS
+    maximum segment size (at TCP options)
+
+
+ARP table (cache) matching MAC to IP addresses
+ARP protocol - 
+  Who has 192.168.0.1
+  reply - MAC addr
+
+arp -n
+  show ARP cache
+
+
+ICMP protocol
+  ping (Type 8 Echo)
+
+
+Kernell params:
+
+sysctl -a | grep net.ipv4
+
+# switched off packet forwarding
+net.ipv4.conf.all.forwarding=0
+
+sysctl net.ipv4.conf.all.forwarding=0
+cat /proc/sys/net/ipv4/ip_forwarding
+1
+
+
+TCP/IP handshake
+-> SYN <num>
+<- SYN,ACK <num+1>
+-> ACK
+
+
+FIREWALL:
+
+netfilter - system name
+    Stateful(SPI - stateful packet inspection)
+
+Routers:
+
+SNAT
+DNAT
+
+ConTracking - connection tracking (for IPv4 limitations overcoming).

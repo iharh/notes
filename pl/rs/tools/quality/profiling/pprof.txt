@@ -1,0 +1,12 @@
+https://crates.io/crates/pprof
+https://docs.rs/pprof
+https://github.com/tikv/pprof-rs
+    https://github.com/google/pprof
+
+[dev-dependencies]
+pprof = { version = "0.9.1", features = ["criterion", "flamegraph"] }
+
+2022
+https://inspektor.cloud/blog/how-profiler-works/
+2020
+https://medium.com/@PingCAP/quickly-find-rust-program-bottlenecks-online-using-a-go-tool-37be0546aa8f

@@ -1,0 +1,151 @@
+courses
+Build Reactive MicroServices using Spring WebFluxSpringBoot
+    https://tutsnode.com/build-reactive-microservices-using-spring-webflux-springboot/
+
+fn-functional
+2018
+Fun with the Functional Web Framework
+    https://www.youtube.com/watch?v=jCjrxG9pHZ8
+
+articles
+2021
+https://habr.com/ru/company/sberdevices/blog/554942/
+    ! help with connections closing
+2020
+https://mister11.github.io/posts/spring_webflux/
+https://habr.com/ru/company/domclick/blog/504304/
+https://habr.com/ru/post/493448/
+2019
+https://spring.io/blog/2019/04/12/going-reactive-with-spring-coroutines-and-kotlin-flow
+https://habr.com/post/434810/
+    https://github.com/lynx-r/tictactoe-microservices-example
+2018
+https://dzone.com/articles/understanding-spring-reactiveintroducing-spring-we
+https://www.e4developer.com/2018/04/11/getting-reactive-with-spring-boot-2-0-and-reactor/
+https://www.e4developer.com/2018/04/28/springs-webflux-reactor-parallelism-and-backpressure/
+https://medium.com/@the.raj.saxena/springboot-2-performance-servlet-stack-vs-webflux-reactive-stack-528ad5e9dadc
+https://www.infoq.com/articles/Servlet-and-Reactive-Stacks-Spring-Framework-5
+https://habrahabr.ru/company/funcorp/blog/350996/
+DefogTech - What is Spring Webflux and when to use it? 0:00 of 17:45
+    https://www.youtube.com/watch?v=M3jNn3HMeWg
+2017
+http://blog.alexnesterov.com/post/spring-your-next-microframework/
+    https://habrahabr.ru/post/337604/
+https://spring.io/blog/2017/02/23/spring-framework-5-0-m5-update
+http://www.java-allandsundry.com/2017/03/spring-web-flux-first-steps.html
+https://dzone.com/articles/spring-webflux-first-steps
+https://habr.com/post/342498/
+https://habr.com/post/342506/
+
+presentations
+2021
+SergeyPetrelevich - Spring WebFlux Reactive Application Example ru 0:00 of 1:52:09
+    https://www.youtube.com/watch?v=UDGZV0tzPQ8
+2018
+Stoyanchev - Guide to "Reactive" for Spring MVC Developers
+    https://www.infoq.com/presentations/spring-reactive-webflux
+    https://github.com/rstoyanchev/reactive-for-webmvc
+2017
+Long - Spring Web Flux Reactive Client
+    https://www.youtube.com/watch?v=leZdgr-O4LE
+
+doc
+https://github.com/spring-projects/spring-framework/blob/master/src/docs/asciidoc/web/webflux.adoc
+
+ref
+http://docs.spring.io/spring-framework/docs/5.0.x/spring-framework-reference/html/web-reactive.html
+https://docs.spring.io/spring/docs/5.0.x/spring-framework-reference/htmlsingle/#web-reactive-feature-overview
+https://docs.spring.io/spring/docs/5.0.x/spring-framework-reference/web.html#web-reactive
+
+artifacts
+http://mvnrepository.com/artifact/org.springframework/spring-webflux
+
+error-handling
+https://www.mednikov.tech/error-handling-webflux/
+
+src
+https://github.com/spring-projects/spring-framework/tree/master/spring-webflux
+
+webfluxtest
+https://amarszalek.net/blog/2018/04/11/rant-integration-tests-spring-webflux-kotlin/
+
+bench
+https://habr.com/ru/company/usetech/blog/680948/
+
+samples
+https://habrahabr.ru/post/351994/
+https://github.com/Hixon10/grpc-nginx
+
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.5'
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'com.google.protobuf'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+...
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	compile('org.springframework.boot:spring-boot-starter-webflux')
+	compile('org.lognet:grpc-spring-boot-starter:2.2.0')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('io.projectreactor:reactor-test')
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src/main/protoGen'
+		}
+	}
+}
+
+protobuf {
+	protoc {
+		artifact = 'com.google.protobuf:protoc:3.5.1'
+	}
+	plugins {
+		grpc {
+			artifact = "io.grpc:protoc-gen-grpc-java:1.10.0"
+		}
+	}
+
+	generateProtoTasks {
+		ofSourceSet('main').each { task ->
+			task.builtins {
+				java{
+					outputSubDir = 'protoGen'
+				}
+			}
+			task.plugins {
+				grpc {
+					outputSubDir = 'protoGen'
+				}
+			}
+		}
+	}
+	generatedFilesBaseDir = "$projectDir/src/"
+}
+
+task cleanProtoGen{
+	doFirst{
+		delete("$projectDir/src/main/protoGen")
+	}
+}
+
+clean.dependsOn cleanProtoGen

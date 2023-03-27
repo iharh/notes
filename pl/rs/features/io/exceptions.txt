@@ -1,0 +1,27 @@
+?-operator
+https://github.com/rust-lang/rfcs/blob/master/text/0243-trait-based-exception-handling.md
+
+unwrap, expect
+https://www.reddit.com/r/rust/comments/5rbage/the_practicability_of_unwrap_function/
+
+samples:
+https://www.reddit.com/r/rust/comments/5s7uu1/trivialities_about_early_returning_an_option/
+
+/// Like try, but for iterators that return `Option<Result<_, _>>`.
+macro_rules! itry {
+    ($e:expr) => {
+        match $e {
+            Ok(v) => v,
+            Err(err) => return Some(Err(From::from(err))),
+        }
+    }
+}
+
+try_opt!, option_try!, otry!
+unwrap_or_return! (mac-crate)
+https://doc.rust-lang.org/std/ops/trait.Carrier.html
+
+2020
+https://www.reddit.com/r/rust/comments/jdvtu4/javas_error_handling_system_is_better_than_that/
+2018
+https://www.reddit.com/r/rust/comments/8lt8k6/do_i_really_need_failureerrorchain/

@@ -1,0 +1,25 @@
+pipes (like gonzalez)
+https://crates.io/crates/pipes
+https://github.com/freebroccolo/pipes.rs
+
+pipers
+https://crates.io/crates/pipers
+https://docs.rs/pipers/1.0.1/pipers/
+https://mgattozzi.com/pipers
+https://github.com/mgattozzi/pipers
+https://github.com/mgattozzi/pipers/blob/master/src/lib.rs
+https://www.reddit.com/r/rust/comments/5jxap3/announcing_pipers_a_small_library_to_pipe/
+
+ppipe
+https://crates.io/crates/ppipe
+https://github.com/MichaelJWelsh/ppipe
+
+pipe-channel
+https://crates.io/crates/pipe-channel
+https://github.com/bugaevc/pipe-channel
+https://docs.rs/pipe-channel/1.1.1/pipe_channel/
+
+fd - pipe
+https://github.com/stemjail/fd-rs/blob/master/src/pipe.rs
+
+rust_subprocess.txt

@@ -1,0 +1,107 @@
+    tasks.matching({ it.name == "installDebug" }).all {
+        dependsOn installApplicationBundleDebugTask
+        enabled = false
+    }
+    ...
+    someTask.configure { sources.from layout.projectDirectory.file("src/main/resources/Info.plist") }
+    otherTask.configure { sources.from fileTree(dir: 'src/main/resources', includes: ['*.lproj/*.storyboard']) }
+    ...
+
+at builSrc/build.gradle[.kts]
+-----------------------------
+gradlePlugin {
+    plugins {
+        register("some-plugin") {
+            id = "some-id"
+            implementationClass = "some.package.SomePlugin"
+        }
+    }
+}
+
+
+Project-Plugin
+--------------
+package some.package
+
+import org.gradle.api.*
+
+// groovy-ver
+class SomePlugin implements Plugin<Project> {
+    @Override void apply(Project project) {
+        ...
+    }
+}
+
+// kt-ver
+class GreetPlugin : Plugin<Project> {
+    override fun apply(project: Project): Unit = project.run {
+        ...
+    }
+}
+
+
+Settings-Plugin
+---------------
+class ListBuildPlugin implements Plugin<Settings> {
+    @Override void apply(Settings settings) {
+        ...
+    }
+}
+
+
+project-apply
+-------------
+    project.allprojects {
+        group = 'org.gradle.cpp-samples'
+        version = '1.0-SNAPSHOT'
+
+        apply plugin: 'cpp-library'
+        apply plugin: 'xcode'
+        apply plugin: 'visual-studio'
+    }
+
+    tasks { // inside project.run { ... }
+        register("greet") {
+            group = "sample"
+            description = "Prints a description of ${project.name}."
+            doLast {
+                println("I'm ${project.name}.")
+            }
+        }
+    }
+    
+
+settings-apply
+--------------
+    settings.with {
+        rootProject.name = 'list'
+        gradle.rootProject {
+            // share common configuration across several builds
+            apply plugin: CommonPlugin
+        }
+    }
+
+    settings.with {
+        rootProject.name = 'utilities'
+        gradle.rootProject {
+            // share common configuration across several builds
+            apply plugin: CommonPlugin
+
+            // Supply build information for utilities build
+            library {
+                dependencies {
+                    api 'org.gradle.cpp-samples:list:1.+'
+                }
+            }
+        }
+    }
+
+extensions
+----------
+    // in apply method body
+    val greeting = extensions.create("greeting", Greeting::class)
+    ...  println(greeting.message)
+    // later 
+    open class Greeting {
+        var message = "Hello!"
+    }

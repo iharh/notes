@@ -1,0 +1,32 @@
+https://help.github.com/articles/about-supported-custom-domains/
+https://help.github.com/articles/using-a-custom-domain-with-github-pages/
+https://help.github.com/articles/securing-your-github-pages-site-with-https/
+https://gist.github.com/coolaj86/e07d42f5961c68fc1fc8
+
+https://habrahabr.ru/post/304600/
+
+https://blog.jeaye.com/2016/03/01/github-pages-https/
+
+https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/
+    https://github.com/sheharyarn/sheharyarn.github.io/blob/master/CNAME
+
+https://about.gitlab.com/2016/04/11/tutorial-securing-your-gitlab-pages-with-tls-and-letsencrypt/
+
+https://www.linkedin.com/pulse/free-https-hosting-gitlab-lets-encrypt-amr-elsekilly
+
+https://gitlab-pages-custom-domain-lets-encrypt.info/
+
+paid:
+support.by
+
+gh-pages:
+http://stackoverflow.com/questions/23375422/how-to-setup-github-pages-to-redirect-dns-requests-from-subdomain-e-g-www-to
+
+https://habrahabr.ru/post/323430/
+CNAME:
+pretty-house.ru
+
+# 2 github IP addresses:
+@ A 192.30.252.153
+@ A 192.30.252.154
+www CNAME *your-github-account*.github.io.

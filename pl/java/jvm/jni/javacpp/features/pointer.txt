@@ -1,0 +1,38 @@
+https://github.com/bytedeco/javacpp/wiki/Basic-Architecture#the-pointer
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/Pointer.html
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/PointerScope.html
+
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/IntPointer.java
+    // java
+    public native void getInt(@ByPtr IntPointer i);
+    // cpp
+    void getInt(int *pI) { *pI = 7; }
+    // test
+    IntPointer iP = new IntPointer(1); // 1 element
+    try {
+        l.getInt(iP);
+        assertThat(iP.get()).isEqualTo(7);
+    } finally {
+        if (iP != null) {
+            iP.deallocate();
+        }
+    }
+
+    // java
+    public native int getArr(@ByRef @StdVector int [] elements);
+    // cpp
+    int
+    getArr(std::vector<int> &elements)
+    {
+        elements[0] = 5;
+        elements[1] = 7;
+        return 2;
+    }    
+    // test
+    int [] elements = new int[10000];
+
+    int res = l.getArr(elements);
+    assertThat(res).isEqualTo(2);
+
+    assertThat(elements[0]).isEqualTo(5);
+    assertThat(elements[1]).isEqualTo(7);

@@ -1,0 +1,59 @@
+https://github.com/bytedeco/javacpp-presets/blob/master/openblas/src/main/java/org/bytedeco/javacpp/presets/openblas.java
+
+import org.bytedeco.javacpp.ClassProperties;
+import org.bytedeco.javacpp.annotation.NoException;
+import org.bytedeco.javacpp.annotation.Platform;
+import org.bytedeco.javacpp.annotation.Properties;
+
+@Properties(inherit = openblas_nolapack.class, target = "org.bytedeco.javacpp.openblas", value = {
+    @Platform(
+        include = {"openblas_config.h", "cblas.h"}),
+    @Platform(
+        value = {"linux", "macosx", "windows"},
+        include = {"openblas_config.h", "cblas.h", "lapacke_config.h", "lapacke_mangling.h", "lapacke.h", "lapacke_utils.h"})})
+@NoException
+public class openblas extends openblas_nolapack {
+    ...
+}
+
+https://github.com/bytedeco/javacpp-presets/blob/master/openblas/src/main/java/org/bytedeco/javacpp/presets/openblas_nolapack.java
+
+import org.bytedeco.javacpp.ClassProperties;
+import org.bytedeco.javacpp.FunctionPointer;
+import org.bytedeco.javacpp.Loader;
+import org.bytedeco.javacpp.LoadEnabled;
+import org.bytedeco.javacpp.Pointer;
+import org.bytedeco.javacpp.annotation.NoException;
+import org.bytedeco.javacpp.annotation.Platform;
+import org.bytedeco.javacpp.annotation.Properties;
+import org.bytedeco.javacpp.tools.Info;
+import org.bytedeco.javacpp.tools.InfoMap;
+import org.bytedeco.javacpp.tools.InfoMapper;
+
+@Properties(target = "org.bytedeco.javacpp.openblas_nolapack", value = {
+    @Platform(define = {"__OPENBLAS 1", "LAPACK_COMPLEX_CPP"},
+              include = {"openblas_config.h", "cblas.h"},
+              link    =  "openblas_nolapack@.0", resource = {"include", "lib"},
+              preload = {"gcc_s@.1", "quadmath@.0", "gfortran@.3", "openblas@.0#openblas_nolapack@.0"},
+              preloadpath = {"/opt/intel/lib/", "/opt/intel/mkl/lib/"}),
+    @Platform(value = "android", link = "openblas", preload = ""),
+    @Platform(value = "macosx",  link = "openblas_nolapack", preload = "openblas#openblas_nolapack"),
+    @Platform(value = "windows", preload = "libopenblas#libopenblas_nolapack"),
+    @Platform(value = "windows-x86",    preloadpath = {"C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/redist/ia32/compiler/",
+                                                       "C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/redist/ia32/mkl/"}),
+    @Platform(value = "windows-x86_64", preloadpath = {"C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/redist/intel64/compiler/",
+                                                       "C:/Program Files (x86)/IntelSWTools/compilers_and_libraries/windows/redist/intel64/mkl/"}),
+    @Platform(value = "linux",          preloadpath = {"/usr/lib/", "/usr/lib32/", "/usr/lib64/"}),
+    @Platform(value = "linux-armhf",    preloadpath = {"/usr/arm-linux-gnueabihf/lib/", "/usr/lib/arm-linux-gnueabihf/"}),
+    @Platform(value = "linux-x86",      preloadpath = {"/lib32/", "/lib/", "/usr/lib32/", "/usr/lib/", "/opt/intel/lib/ia32/", "/opt/intel/mkl/lib/ia32/"}),
+    @Platform(value = "linux-x86_64",   preloadpath = {"/lib64/", "/lib/", "/usr/lib64/", "/usr/lib/", "/opt/intel/lib/intel64/", "/opt/intel/mkl/lib/intel64/"}),
+    @Platform(value = "linux-ppc64",    preloadpath = {"/usr/powerpc64-linux-gnu/lib/", "/usr/powerpc64le-linux-gnu/lib/",
+                                                       "/usr/lib/powerpc64-linux-gnu/", "/usr/lib/powerpc64le-linux-gnu/"}),
+    @Platform(value = "ios", preload = "libopenblas") })
+@NoException
+public class openblas_nolapack implements LoadEnabled, InfoMapper {
+    ...
+}
+
+!!!
+Loader.load(concrete class)

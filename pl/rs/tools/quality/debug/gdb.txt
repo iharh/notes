@@ -1,0 +1,17 @@
+https://www.reddit.com/r/rust/comments/61z0bj/which_gdb_do_i_use_on_windows/
+
+I'm using GDB from MSYS2: http://www.msys2.org/
+
+You can install GDB in the MinGW64 shell via:
+
+pacman -S mingw-w64-x86_64-gdb
+
+In Visual Studio Code's launch.json then add:
+    "windows": {
+        "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe"
+    },
+
+
+https://crates.io/crates/debug-here
+https://docs.rs/debug-here
+https://github.com/ethanpailes/debug-here

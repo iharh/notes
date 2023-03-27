@@ -1,0 +1,39 @@
+https://help.ubuntu.ru/wiki/%D1%88%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B2%D1%81%D0%B5%D0%B3%D0%BE_%D0%B4%D0%B8%D1%81%D0%BA%D0%B0
+
+2019
+https://askubuntu.com/questions/918021/encrypted-custom-install
+    ! recommended by work
+https://help.ubuntu.com/community/Full_Disk_Encryption_Howto_2019
+https://www.reddit.com/r/zfs/comments/anpyku/zfs_encryption_vs_luks_zfs/
+    Been using luks + zfs (ubuntu 18.04) for over a year now on my server without issues.
+    I don't have it mount on boot, but log in and unlock & mount the pool with a bash script.
+
+    #!/bin/bash
+    echo "Unlocking encrypted drives..."
+    cryptsetup --tries=999 luksOpen ./.luks_key.luks cryptkey
+    cryptsetup --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/fd88c126-375e-4c2a-9011-a7901169abca crypt8tb1
+    cryptsetup --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/705f3ee9-0d96-4770-92a0-113dd3ee16ae crypt8tb2
+    cryptsetup --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/3fb98aa4-ed50-4419-a237-8867b27aff71 crypt8tb3
+    cryptsetup --allow-discards --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/67178586-e968-4e6d-baba-938f3c7f65f1 cryptlog
+    cryptsetup --allow-discards --key-file=/dev/mapper/cryptkey --keyfile-size=4096 luksOpen /dev/disk/by-uuid/2a746b4e-5e34-4330-a2d6-6d24cee0f6e7 cryptcache
+    cryptsetup luksClose cryptkey
+    echo "Importing ZFS pool..."
+    zpool import storage
+
+    .luks_key.luks is a small image file that i keep in the root folder that was luksFormatted,
+    and then filled with random data of which the first 4096 bytes were added as a keyfile to each disk,
+    just so it only prompts me once for the password instead of once for each disk.
+
+    It's just going to be a problem to recover the data if I were to die, or suffer severe memory loss.
+
+https://serverspace.by/support/help/sozdanie-zashifrovannogo-luks-razdela/
+https://losst.ru/shifrovanie-diskov-v-linux
+2016
+https://askubuntu.com/questions/733488/lvm-luks-manual-partitioned-but-issues-with-loader-init-grub/893906
+Mozhenkov - LUKS+ext4 (using gnome disk utility)
+    https://www.youtube.com/watch?v=6Lg1lmx0Rng
+2015
+Kosichkin - About Encryption
+    https://www.youtube.com/watch?v=fGM_d6j3Yd0
+2014
+https://askubuntu.com/questions/293028/how-can-i-install-ubuntu-encrypted-with-luks-with-dual-boot

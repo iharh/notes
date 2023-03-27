@@ -1,0 +1,67 @@
+https://reactjs.org/docs/higher-order-components.html
+
+critice
+http://andrew-r.ru/notes/react-hocs
+
+articles
+2020
+https://www.smashingmagazine.com/2020/06/higher-order-components-react/
+2019
+https://blog.bitsrc.io/understanding-higher-order-components-in-react-12de3ab2cca5
+    https://nuancesprog.ru/p/3992
+2018
+https://medium.com/@evedes/how-to-develop-your-react-superpowers-with-the-hoc-pattern-61293651d59
+https://tylermcginnis.com/react-higher-order-components/
+https://css-tricks.com/what-are-higher-order-components-in-react/
+2017
+https://www.robinwieruch.de/gentle-introduction-higher-order-components/
+2015
+http://jamesknelson.com/structuring-react-applications-higher-order-components/
+
+presentations
+2016
+ReactCasts - Higer Order Components
+https://www.youtube.com/watch?v=LTunyI2Oyzw
+
+
+import React from 'react';
+
+function byArchived(archivedItems) {
+    return function(item) {
+        return !archivedItems.includes(item.id);
+    };
+}
+
+function withArchive(Component) {
+    class WithArchive extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                archivedItems: []
+            };
+            this.onArchive = this.onArchive.bind(this);
+        }
+
+        onArchive(id) {
+            const { archivedItems } = this.state;
+            this.setState({
+                archivedItems: [...archivedItems, id]
+            });
+        }
+
+        render() {
+            const { list } = this.props;
+            const { archivedItems } = this.state;
+            const filteredList = list
+                .filter(byArchived(archivedItems));
+
+            return <Component
+                list={filteredList}
+                onArchive={this.onArchive}
+            />
+        }
+    }
+
+    return WithArchive;
+}
+

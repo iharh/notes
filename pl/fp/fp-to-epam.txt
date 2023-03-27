@@ -1,0 +1,48 @@
+http://epmsp002/Training/Portal/Seminars/?seminardetails=9283&studytype=28&scope=approved
+
+This is the Unix philosophy:
+- Write programs that do one thing and do it well.
+- Write programs to work together.
+- Write programs to handle text streams, because that is a universal interface.
+
+Douglas Malcolm McIlroy (inventor of Unix pipes) - http://www.faqs.org/docs/artu/ch01s06.html
+
+Motivational:
+- Yevgeny Kirpichev (in the past - Lead Scientist of IntelliJ Idea):
+http://antilamer.livejournal.com/288854.html
+http://antilamer.livejournal.com/245962.html
+
+Alex Ott:
+http://experience.openquality.ru/alex-ott-interview/
+
+FP Generally:
+https://speakerdeck.com/igstan/functional-programming
+
+Haskell:
+WhyHaskell (http://docs.google.com/fileview?id=0B8QbnXA7SzxSNzY1YTJmZTQtMWE2Mi00YTFlLWJlM2ItYmU1ZjA5ZmFkYjBh&hl=ru)
+Haskell Strong Sides (http://ru.wikibooks.org/wiki/%D0%A1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D1%8B_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0_Haskell)
+http://www.slideshare.net/TiagoBabo/haskell-being-lazy-with-class
+
+FP for C++:
+http://habrahabr.ru/post/126275/ (http://software.intel.com/ru-ru/articles/reduce-intel-cilk-plus/)
+http://habrahabr.ru/post/112394/
+
+FP in Java:
+1. General
+- Solntsev Presentation - http://www.slideshare.net/asolntsev/functional-programming-in-java, http://vimeo.com/7863984
+- JF Smart Presentation - http://www.slideshare.net/wakaleo/functional-programming-in-java-14580186
+2. Yevgeny Kirpichev (in the past - Lead Scientist of IntelliJ Idea):
+http://antilamer.livejournal.com/245962.html
+3. Google Guava (http://code.google.com/p/guava-libraries/wiki/GuavaExplained )
+Presentation - http://www.slideshare.net/alexkorotkikh/google-guava-12991826
+4. Op4j (http://www.op4j.org)
+http://www.op4j.org/basics.html
+5. Netflix RxJava
+https://github.com/Netflix/RxJava/wiki
+
+
+Long:
+http://kchri.narod.ru/lecs.pdf
+
+CT and Monads:
+http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html

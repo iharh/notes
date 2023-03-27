@@ -1,0 +1,11 @@
+https://github.com/x-motemen/ghq
+
+options
+    https://github.com/neko-neko/dotfiles/blob/master/gitconfig
+    at ~/.gitconfi
+    [ghq]
+        root = ~/ghq
+        root = ~/go/src
+
+2019
+https://fotoallerlei.com/blog/post/2019/ghq/post

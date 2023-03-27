@@ -1,0 +1,16 @@
+https://gn.googlesource.com/gn/
+
+https://gn.googlesource.com/gn/+/master/docs/
+https://gn.googlesource.com/gn/+/master/docs/reference.md
+https://gn.googlesource.com/gn/+/master/docs/style_guide.md
+
+articles
+https://fuchsia.dev/fuchsia-src/concepts/build_system/intro
+https://habr.com/ru/company/mailru/blog/455956/
+
+presentations
+https://docs.google.com/presentation/d/15Zwb53JcncHfEwHpnG_PoIbbzQ3GQi_cpujYwbpcbZo
+
+samples
+https://www.chromium.org/developers/gn-build-configuration
+https://v8.dev/docs/build-gn

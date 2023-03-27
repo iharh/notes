@@ -1,0 +1,114 @@
+https://hub.docker.com/_/postgres/
+     docker run -it --rm --network some-network postgres psql -h some-postgres -U postgres
+     docker run -i --rm postgres cat /usr/share/postgresql/postgresql.conf.sample > my-postgres.conf
+
+https://hub.docker.com/r/bitnami/postgresql
+    https://docs.bitnami.com/tutorials/work-with-non-root-containers/
+        https://docs.bitnami.com/tutorials/running-non-root-containers-on-openshift
+        ...
+        USER 1001
+    https://github.com/bitnami/containers
+
+    https://github.com/bitnami/containers/tree/main/bitnami/postgresql
+    https://github.com/bitnami/containers/tree/main/bitnami/postgresql/11/debian-11
+        USER 1001
+        ENTRYPOINT [ "/opt/bitnami/scripts/postgresql/entrypoint.sh" ]
+        CMD [ "/opt/bitnami/scripts/postgresql/run.sh" ]
+
+        https://github.com/bitnami/containers/tree/main/bitnami/postgresql/11/debian-11/rootfs/opt/bitnami/scripts/postgresql
+        https://github.com/bitnami/containers/blob/main/bitnami/postgresql/11/debian-11/rootfs/opt/bitnami/scripts/postgresql/entrypoint.sh
+        https://github.com/bitnami/containers/blob/main/bitnami/postgresql/11/debian-11/rootfs/opt/bitnami/scripts/postgresql/run.sh
+
+    https://github.com/bitnami/containers/tree/main/bitnami/postgresql#creating-a-database-on-first-run
+    ... or by modifying the docker-compose.yml file present in this repository:
+        services:
+          postgresql:
+          ...
+            volumes:
+              - /path/to/postgresql-persistence:/bitnami/postgresql
+          ...
+
+        NOTE: As this is a non-root container, the mounted files and directories must have the proper permissions for the UID 1001.
+
+    https://github.com/bitnami/containers/blob/main/bitnami/postgresql/docker-compose.yml
+    https://github.com/bitnami/containers/blob/main/bitnami/postgresql/docker-compose-replication.yml
+
+https://github.com/docker-library/postgres
+https://github.com/docker-library/docs/blob/master/postgres/README.md
+
+https://github.com/gitpod-io/workspace-images/blob/main/chunks/tool-postgresql/Dockerfile
+
+11
+https://github.com/docker-library/postgres/blob/master/11/bullseye/Dockerfile
+
+2022
+https://www.redhat.com/sysadmin/migrate-database-container
+2021
+https://linuxiac.com/postgresql-docker/
+2017
+https://habrahabr.ru/post/328226/
+
+docker run --rm\
+    --name pgclb\
+    -p 5432:5432\
+    --user "$(id -u):$(id -g)"\
+    -v /etc/passwd:/etc/passwd:ro\
+    -v $PG_SRC_DIR/data:/var/lib/postgresql/data:rw\
+    -v $PG_SRC_DIR/postgres-passwd:/run/secrets/postgres-passwd:ro\
+    -e POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd\
+    -d postgres:9.3
+    #
+    # in case of chown problems, run:
+    #
+    # sudo chown -R "$(id -u):$(id -g)" $PG_SRC_DIR
+    
+    #-e POSTGRES_USER=$(id -un)\
+    #-e POSTGRES_PASSWORD=pwd\
+
+    # data/pg_hba.conf
+    # host    all             all             172.17.0.1/16           trust
+
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:9.2
+
+VOLUME /var/lib/postgresql/data
+
+data/pg_hba.conf
+# ...
+# IPv4 local connections:
+# TBD
+#host    all             all             127.0.0.1/32            trust
+host    all             all             172.17.0.1/16           trust
+#host    all             all             all                     trust
+# ...
+
+
+# example Dockerfile for https://docs.docker.com/examples/postgresql_service/
+FROM ubuntu
+
+# Add the PostgreSQL PGP key to verify their Debian packages.
+# It should be the same key as https://www.postgresql.org/media/keys/ACCC4CF8.asc
+RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
+
+# Add PostgreSQL's repository. It contains the most recent stable release of PostgreSQL, ``9.5``.
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+
+# Install ``python-software-properties``, ``software-properties-common`` and PostgreSQL 9.5
+#  There are some warnings (in red) that show up during the build. You can hide
+#  them by prefixing each apt-get statement with DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y python-software-properties software-properties-common postgresql-9.5 postgresql-client-9.5 postgresql-contrib-9.5
+# Note: The official Debian and Ubuntu images automatically ``apt-get clean`` after each ``apt-get``
+
+USER postgres
+RUN    /etc/init.d/postgresql start &&\
+    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
+    createdb -O docker docker
+RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.5/main/pg_hba.conf
+RUN echo "listen_addresses='*'" >> /etc/postgresql/9.5/main/postgresql.conf
+EXPOSE 5432
+VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
+CMD ["/usr/lib/postgresql/9.5/bin/postgres", "-D", "/var/lib/postgresql/9.5/main", "-c", "config_file=/etc/postgresql/9.5/main/postgresql.conf"]
+
+issues:
+ERROR:  could not resize shared memory segment "/PostgreSQL.1197429420" to 12615680 bytes: No space left on device
+shm_size: 1g
+https://stackoverflow.com/questions/56751565/pq-could-not-resize-shared-memory-segment-no-space-left-on-device

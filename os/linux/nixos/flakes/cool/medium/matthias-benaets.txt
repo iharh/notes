@@ -1,0 +1,40 @@
+2022
+MatthiasBenaets - NixOS Setup Guide - Configuration / Home-Manager / Flakes 0:00 of 3:01:38
+    https://matthias.benaets.com/posts/nixos/
+    https://www.youtube.com/watch?v=AGVXJ-TIv3Y
+    !       mount /dev/disk/by-label/nixos /mnt
+    ! 22:00 nixos-generate-config --root /mnt
+                /mnt/etc/nixos
+                    hardware-configuration.nix
+                    configuration.nix
+    ! 56:00 cd /mnt/etc/nixos
+    !               nixos-install
+    ! 2:13:00 create flake.nix (with configuration.nix, hardware-configuration.nix)
+    !             sudo nixos-rebuild switch --flake .#
+    !             sudo nixos-rebuild switch --flake .#matthias
+    https://github.com/MatthiasBenaets/nixos-config
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/guide.org
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/nixos.org
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/flake.nix
+        ... 
+        # Function that tells my flake which to use and what do what to do with the dependencies.
+        outputs = inputs @ { self, nixpkgs, home-manager, darwin, nur, nixgl, doom-emacs, hyprland, ... }:   
+          let                                             # Variables that can be used in the config files.
+            user = "matthias";
+        ...
+    https://github.com/MatthiasBenaets/nixos-config/tree/master/hosts
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/hosts/configuration.nix
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/hosts/default.nix
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/hosts/home.nix
+    https://github.com/MatthiasBenaets/nixos-config/tree/master/hosts/desktop
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/hosts/desktop/default.nix
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/hosts/desktop/home.nix
+    https://github.com/MatthiasBenaets/nixos-config/tree/master/nix
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/nix/default.nix
+    https://github.com/MatthiasBenaets/nixos-config/blob/master/nix/pacman.nix
+
+    misc
+        https://releases.nixos.org/?prefix=nixos
+        https://releases.nixos.org/?prefix=nixos/unstable/
+        https://releases.nixos.org/?prefix=nixos/unstable-small/
+        https://christitus.com/vm-setup-in-linux/

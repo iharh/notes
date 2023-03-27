@@ -1,0 +1,6 @@
+children
+    ? children stuff
+
+SomeComponentName.defaultProps = {
+  text: DEFAULT_HEADER_TEXT
+};

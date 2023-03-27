@@ -1,0 +1,235 @@
+[168462 ms] Start: Run: docker inspect --type image vsc-doc1-fe82081771a69b793a3d7c5eaddf9b68
+[168527 ms] Start: Run: docker -v
+[168551 ms] Start: Run: docker events --format {{json .}} --filter event=start
+[168554 ms] Start: Starting container
+[168554 ms] Start: Run: docker run --sig-proxy=false -a STDOUT -a STDERR --mount type=bind,source=/data/wrk/prj,target=/workspaces/prj --mount type=volume,src=vscode,dst=/vscode -l devcontainer.local_folder=/data/wrk/prj/latex/doc1 --entrypoint /bin/sh vsc-doc1-fe82081771a69b793a3d7c5eaddf9b68 -c echo Container started
+Container started
+[168957 ms] Start: Run: docker ps -q -a --filter label=devcontainer.local_folder=/data/wrk/prj/latex/doc1
+[168993 ms] Start: Run: docker inspect --type container 6e45a988a0f9
+[169031 ms] Start: Inspecting container
+[169031 ms] Start: Run: docker inspect --type container 6e45a988a0f9d49ba32bd86a256cacbfa9f8042ef1db4a1bc3a491b9640b4bd1
+[169069 ms] Start: Run in container: /bin/sh
+[169075 ms] Start: Run in container: uname -m
+[169170 ms] x86_64
+[169170 ms] 
+[169170 ms] Start: Run in container: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[169171 ms] PRETTY_NAME="Ubuntu 22.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.1 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+[169171 ms] 
+[169171 ms] Start: Run in container: cat /etc/passwd
+[169172 ms] Start: Run in container: test -f '/var/devcontainer/.patchEtcEnvironmentMarker'
+[169173 ms] 
+[169173 ms] 
+[169173 ms] Exit code 1
+[169173 ms] Start: Run in container: test ! -f '/var/devcontainer/.patchEtcEnvironmentMarker' && set -o noclobber && mkdir -p '/var/devcontainer' && { > '/var/devcontainer/.patchEtcEnvironmentMarker' ; } 2> /dev/null
+[169174 ms] 
+[169174 ms] 
+[169174 ms] Start: Run in container: cat >> /etc/environment <<'etcEnvrionmentEOF'
+[169178 ms] 
+[169178 ms] 
+[169178 ms] Start: Run in container: test -f '/var/devcontainer/.patchEtcProfileMarker'
+[169179 ms] 
+[169179 ms] 
+[169179 ms] Exit code 1
+[169179 ms] Start: Run in container: test ! -f '/var/devcontainer/.patchEtcProfileMarker' && set -o noclobber && mkdir -p '/var/devcontainer' && { > '/var/devcontainer/.patchEtcProfileMarker' ; } 2> /dev/null
+[169180 ms] 
+[169180 ms] 
+[169180 ms] Start: Run in container: sed -i -E 's/((^|\s)PATH=)([^\$]*)$/\1${PATH:-\3}/g' /etc/profile || true
+[169181 ms] 
+[169181 ms] 
+[169186 ms] Start: Run: docker inspect --type container 6e45a988a0f9d49ba32bd86a256cacbfa9f8042ef1db4a1bc3a491b9640b4bd1
+[169209 ms] Start: Run: /usr/share/code/code --ms-enable-electron-run-as-node /home/iharh/.vscode/extensions/ms-vscode-remote.remote-containers-0.266.1/dist/spec-node/devContainersSpecCLI.js read-configuration --workspace-folder /data/wrk/prj/latex/doc1 --id-label devcontainer.local_folder=/data/wrk/prj/latex/doc1 --container-id 6e45a988a0f9d49ba32bd86a256cacbfa9f8042ef1db4a1bc3a491b9640b4bd1 --log-level debug --log-format json --config /data/wrk/prj/latex/doc1/.devcontainer/devcontainer.json --mount-workspace-git-root true
+[169406 ms] (node:131755) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+[169406 ms] (Use `code --trace-deprecation ...` to show where the warning was created)
+[169408 ms] @devcontainers/cli 0.25.2. Node.js v16.14.2. linux 5.15.0-37-generic x64.
+[169408 ms] Start: Run: git rev-parse --show-cdup
+[169414 ms] Start: Run: docker inspect --type container 6e45a988a0f9d49ba32bd86a256cacbfa9f8042ef1db4a1bc3a491b9640b4bd1
+[169442 ms] Start: Run: /usr/share/code/code --ms-enable-electron-run-as-node /home/iharh/.vscode/extensions/ms-vscode-remote.remote-containers-0.266.1/dist/spec-node/devContainersSpecCLI.js read-configuration --workspace-folder /data/wrk/prj/latex/doc1 --id-label devcontainer.loal_folder=/data/wrk/prj/latex/doc1 --container-id 6e45a988a0f9d49ba32bd86a256cacbfa9f8042ef1db4a1bc3a491b9640b4bd1 --log-level debug --log-format json --config /data/wrk/prj/latex/doc1/.devcontainer/devcontainer.json --include-merged-configuration --mount-workspace-git-root true
+[169642 ms] (node:131781) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+[169642 ms] (Use `code --trace-deprecation ...` to show where the warning was created)
+[169644 ms] @devcontainers/cli 0.25.2. Node.js v16.14.2. linux 5.15.0-37-generic x64.
+[169644 ms] Start: Run: git rev-parse --show-cdup
+[169649 ms] Start: Run: docker inspect --type container 6e45a988a0f9d49ba32bd86a256cacbfa9f8042ef1db4a1bc3a491b9640b4bd1
+[169678 ms] Start: Inspecting container
+[169679 ms] Start: Run: docker inspect --type container 6e45a988a0f9d49ba32bd86a256cacbfa9f8042ef1db4a1bc3a491b9640b4bd1
+[169702 ms] Start: Run in container: /bin/sh
+[169705 ms] Start: Run in container: uname -m
+[169830 ms] x86_64
+[169830 ms] 
+[169830 ms] Start: Run in container: (cat /etc/os-release || cat /usr/lib/os-release) 2>/dev/null
+[169831 ms] PRETTY_NAME="Ubuntu 22.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.1 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+[169831 ms] 
+[169831 ms] Start: Run in container: cat /etc/passwd
+[169833 ms] Start: Updating configuration state
+[169838 ms] Start: Setup shutdown monitor
+[169838 ms] Forking shutdown monitor: /home/iharh/.vscode/extensions/ms-vscode-remote.remote-containers-0.266.1/dist/shutdown/shutdownMonitorProcess /run/user/1000/vscode-remote-containers-1d9340242cd6d6d393028b4491795b51facf4b1c.sock singleContainer Debug /home/iharh/.config/Code/logs/20230101T132552/window1/exthost/ms-vscode-remote.remote-containers 1672568774384
+[169841 ms] Start: Run in container: test -d /root/.vscode-server
+[169842 ms] 
+[169842 ms] 
+[169842 ms] Exit code 1
+[169842 ms] Start: Run in container: test -d /root/.vscode-remote
+[169843 ms] 
+[169843 ms] 
+[169843 ms] Exit code 1
+[169843 ms] Start: Run in container: test ! -f '/root/.vscode-server/data/Machine/.writeMachineSettingsMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.writeMachineSettingsMarker' ; } 2> /dev/null
+[169845 ms] 
+[169845 ms] 
+[169845 ms] Start: Run in container: cat /root/.vscode-server/data/Machine/settings.json
+[169846 ms] 
+[169846 ms] cat: /root/.vscode-server/data/Machine/settings.json: No such file or directory
+[169846 ms] Exit code 1
+[169846 ms] Start: Run in container: test -d /root/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161
+[169847 ms] 
+[169847 ms] 
+[169847 ms] Exit code 1
+[169847 ms] Start: Run in container: test -d /vscode/vscode-server/bin/linux-x64/e8a3071ea4344d9d48ef8a4df2c097372b0c5161
+[169848 ms] 
+[169848 ms] 
+[169848 ms] Exit code 1
+[169848 ms] Installing VS Code Server for commit e8a3071ea4344d9d48ef8a4df2c097372b0c5161
+[169848 ms] Start: Downloading VS Code Server
+[169848 ms] e8a3071ea4344d9d48ef8a4df2c097372b0c5161 linux-x64 stable 
+[176148 ms] Start: Installing VS Code Server
+[176148 ms] Start: Run in container: mkdir -p /vscode/vscode-server/bin/linux-x64/e8a3071ea4344d9d48ef8a4df2c097372b0c5161_1672568950532
+[176152 ms] 
+[176152 ms] 
+[176201 ms] Start: Run in container: (dd iflag=fullblock bs=8192 count=8142 2>/dev/null; dd iflag=fullblock bs=2956 count=1 2>/dev/null) | tar --no-same-owner -xz -C /vscode/vscode-server/bin/linux-x64/e8a3071ea4344d9d48ef8a4df2c097372b0c5161_1672568950532
+[177459 ms] 
+[177459 ms] 
+[177459 ms] Start: Run in container: mv -n /vscode/vscode-server/bin/linux-x64/e8a3071ea4344d9d48ef8a4df2c097372b0c5161_1672568950532/* /vscode/vscode-server/bin/linux-x64/e8a3071ea4344d9d48ef8a4df2c097372b0c5161 && rmdir /vscode/vscode-server/bin/linux-x64/e8a3071ea4344d9d48ef8a4df2c097372b0c5161_1672568950532
+[177461 ms] 
+[177461 ms] 
+[177462 ms] Start: Run in container: mkdir -p '/root/.vscode-server/bin' && ln -snf '/vscode/vscode-server/bin/linux-x64/e8a3071ea4344d9d48ef8a4df2c097372b0c5161' '/root/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161'
+[177464 ms] 
+[177464 ms] 
+[177464 ms] Start: Run in container: touch '/vscode/vscode-server/bin/linux-x64/e8a3071ea4344d9d48ef8a4df2c097372b0c5161' && cd '/vscode/vscode-server/bin/linux-x64' && ls -td *[^_]????????????? | tail -n +10 | xargs rm -rf
+[177464 ms] Start: Launching Dev Containers helper.
+[177465 ms] ssh-agent: SSH_AUTH_SOCK not set on host.
+[177465 ms] Start: Run: gpgconf --list-dir agent-extra-socket
+[177469 ms] 
+[177469 ms] 
+[177470 ms] /run/user/1000/gnupg/S.gpg-agent.extra
+[177470 ms] 
+[177470 ms] Start: Run in container: gpgconf --list-dir agent-socket
+[177471 ms] 
+[177471 ms] /bin/sh: 15: gpgconf: not found
+[177471 ms] Exit code 127
+[177472 ms] Start: Run in container: /bin/sh
+[177476 ms] userEnvProbe: loginInteractiveShell (default)
+[177476 ms] Start: Run in container: echo ~
+[177477 ms] userEnvProbe shell: /bin/bash
+[177477 ms] Start: Run in container: # Test for /root/.ssh/known_hosts and ssh
+[177478 ms] ssh not found
+[177478 ms] 
+[177478 ms] Exit code 1
+[177479 ms] Start: Run in container: command -v git >/dev/null 2>&1 && git config --system --replace-all credential.helper '!f() { /root/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node /tmp/vscode-remote-containers-c1494d977a8c5aa0ccb7db51cc0efc16692b2658.js $*; }; f' || true
+[177480 ms] 
+[177480 ms] 
+[177481 ms] Start: Run in container: for pid in `cd /proc && ls -d [0-9]*`; do { echo $pid ; readlink /proc/$pid/cwd ; readlink /proc/$pid/ns/mnt ; cat /proc/$pid/stat | tr "
+[177497 ms] Start: Run in container: cat '/root/.vscode-server/data/Machine/.connection-token-e8a3071ea4344d9d48ef8a4df2c097372b0c5161' 2>/dev/null || (umask 377 && echo '0189bb4a-a118-4bf8-8763-2953ec7ba544' >'/root/.vscode-server/data/Machine/.connection-token-e8a3071ea4344d9d48ef8a4df2c097372b0c5161-df7cd923-e30e-4488-ba55-3455c95a59d6' && mv -n '/root/.vscode-server/data/Machine/.connection-token-e8a3071ea4344d9d48ef8a4df2c097372b0c5161-df7cd923-e30e-4488-ba55-3455c95a59d6' '/root/.vscode-server/data/Machine/.connection-token-e8a3071ea4344d9d48ef8a4df2c097372b0c5161' && rm -f '/root/.vscode-server/data/Machine/.connection-token-e8a3071ea4344d9d48ef8a4df2c097372b0c5161-df7cd923-e30e-4488-ba55-3455c95a59d6' && cat '/root/.vscode-server/data/Machine/.connection-token-e8a3071ea4344d9d48ef8a4df2c097372b0c5161')
+[177499 ms] 0189bb4a-a118-4bf8-8763-2953ec7ba544
+[177500 ms] 
+[177500 ms] Start: Starting VS Code Server
+[177500 ms] Start: Preparing Extensions
+[177501 ms] Start: Run in container: test ! -f '/root/.vscode-server/data/Machine/.installExtensionsMarker' && set -o noclobber && mkdir -p '/root/.vscode-server/data/Machine' && { > '/root/.vscode-server/data/Machine/.installExtensionsMarker' ; } 2> /dev/null
+[177502 ms] 
+[177502 ms] 
+[177503 ms] Extensions cache, install extensions: james-yu.latex-workshop
+[177504 ms] Start: Run in container: test -d /root/.vscode-server/extensionsCache && ls /root/.vscode-server/extensionsCache || true
+[177504 ms] 
+[177504 ms] 
+[177504 ms] Start: Run in container: test -d /vscode/vscode-server/extensionsCache && ls /vscode/vscode-server/extensionsCache || true
+[177505 ms] 
+[177505 ms] 
+[177505 ms] Extensions cache, link in container: None
+[177505 ms] Start: Run in container: /root/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/bin/code-server --log debug --force-disable-user-env --server-data-dir /root/.vscode-server --use-host-proxy --telemetry-level all --accept-server-license-terms --host 127.0.0.1 --port 0 --connection-token-file /root/.vscode-server/data/Machine/.connection-token-e8a3071ea4344d9d48ef8a4df2c097372b0c5161 --extensions-download-dir /root/.vscode-server/extensionsCache --install-extension james-yu.latex-workshop --start-server --disable-websocket-compression
+[177582 ms] /root
+[177582 ms] 
+[177582 ms] Start: Run in container: cat <<'EOF-/tmp/vscode-remote-containers-c1494d977a8c5aa0ccb7db51cc0efc16692b2658.js' >/tmp/vscode-remote-containers-c1494d977a8c5aa0ccb7db51cc0efc16692b2658.js
+[177583 ms] 
+[177583 ms] 
+[177583 ms] Start: Run in container: cat <<'EOF-/tmp/vscode-remote-containers-server-c1494d977a8c5aa0ccb7db51cc0efc16692b2658.js' >/tmp/vscode-remote-containers-server-c1494d977a8c5aa0ccb7db51cc0efc16692b2658.js_1672568951967
+[177585 ms] 
+[177585 ms] 
+[177647 ms] userEnvProbe PATHs:
+Probe:     '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+Container: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+[177663 ms] *
+* Visual Studio Code Server
+*
+* By using the software, you agree to
+* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+*
+[177667 ms] Server bound to 127.0.0.1:33973 (IPv4)
+Extension host agent listening on 33973
+
+[177667 ms] Start: Run in container: echo 33973 >'/root/.vscode-server/data/Machine/.devport-e8a3071ea4344d9d48ef8a4df2c097372b0c5161'
+[177668 ms] 
+[177669 ms] 
+[177669 ms] Port forwarding for container port 33973 starts listening on local port.
+[177670 ms] Port forwarding local port 33973 to container port 33973
+[177677 ms] Start: Run in container: # Test for /root/.gitconfig and git
+[177683 ms] 
+[177683 ms] 
+[177684 ms] Start: Run in container: # Copy /home/iharh/.gitconfig to /root/.gitconfig
+[177684 ms] Port forwarding connection from 40596 > 33973 > 33973 in the container.
+[177685 ms] Start: Run in container: /root/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node -e 
+[177692 ms] 
+[177692 ms] 
+[177692 ms] Start: Run in container: command -v git >/dev/null 2>&1 && git config --global --replace-all credential.helper '!f() { /root/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node /tmp/vscode-remote-containers-c1494d977a8c5aa0ccb7db51cc0efc16692b2658.js $*; }; f' || true
+[177694 ms] 
+[177694 ms] 
+[177813 ms] Installing extensions...
+[177815 ms] [10:29:12] Extension host agent started.
+[177832 ms] Port forwarding 40596 > 33973 > 33973 stderr: Connection established
+[177843 ms] [10:29:12] ComputeTargetPlatform: linux-x64
+[177850 ms] [10:29:12] Started initializing default profile extensions in extensions installation folder. file:///root/.vscode-server/extensions
+[177853 ms] [10:29:12] ComputeTargetPlatform: linux-x64
+[177857 ms] Port forwarding connection from 40602 > 33973 > 33973 in the container.
+[177857 ms] Start: Run in container: /root/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node -e 
+[177861 ms] [10:29:12] [127.0.0.1][44aec02c][ManagementConnection] New connection established.
+[10:29:12] Completed initializing default profile extensions in extensions installation folder. file:///root/.vscode-server/extensions
+[177974 ms] Port forwarding 40602 > 33973 > 33973 stderr: Connection established
+[178090 ms] [10:29:12] [127.0.0.1][8626b98e][ExtensionHostConnection] New connection established.
+[178096 ms] [10:29:12] [127.0.0.1][8626b98e][ExtensionHostConnection] <252> Launched Extension Host Process.
+[178507 ms] Installing extension 'james-yu.latex-workshop'...
+[178508 ms] [10:29:12] Getting Manifest... james-yu.latex-workshop
+[178852 ms] [10:29:13] Installing extension: james-yu.latex-workshop
+[181218 ms] [10:29:15] Extracted extension to /root/.vscode-server/extensions/.e5c0e3c8-c46b-47c6-af41-895338f0001e: james-yu.latex-workshop
+[181234 ms] [10:29:15] Renamed to /root/.vscode-server/extensions/james-yu.latex-workshop-9.2.2
+[181236 ms] [10:29:15] Extracting completed. james-yu.latex-workshop
+[181240 ms] [10:29:15] Extension installed successfully: james-yu.latex-workshop
+[181242 ms] Extension 'james-yu.latex-workshop' v9.2.2 was successfully installed.
+[187513 ms] Start: Run in container: mkdir -p '/vscode/vscode-server/extensionsCache' && cd '/root/.vscode-server/extensionsCache' && cp 'james-yu.latex-workshop-9.2.2' '/vscode/vscode-server/extensionsCache'
+[187538 ms] 
+[187539 ms] 
+[187542 ms] Start: Run in container: cd '/vscode/vscode-server/extensionsCache' && ls -t | tail -n +50 | xargs rm -f
+[187551 ms] 
+[187552 ms] 
+[204391 ms] Port forwarding connection from 40606 > 33973 > 33973 in the container.
+[204392 ms] Start: Run in container: /root/.vscode-server/bin/e8a3071ea4344d9d48ef8a4df2c097372b0c5161/node -e 
+[204542 ms] Port forwarding 40606 > 33973 > 33973 stderr: Connection established
+[209554 ms] Port forwarding 40606 > 33973 > 33973 stderr: Remote close
+[209559 ms] Port forwarding 40606 > 33973 > 33973 terminated with code 0 and signal null.c

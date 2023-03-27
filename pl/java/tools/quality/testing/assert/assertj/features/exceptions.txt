@@ -1,0 +1,13 @@
+2021
+https://stackoverflow.com/questions/64541192/assertthatthrownby-check-field-on-custom-exception
+2019
+https://www.baeldung.com/assertj-exception-assertion
+
+assertThatExceptionOfType
+assertThatIllegalStateException
+assertThatIOException
+assertThatNullPointerException
+
+hasMessage
+hasMessageContaining
+hasMessageStartingWith

@@ -1,0 +1,36 @@
+silent mode:
+https://docs.oracle.com/cd/E11882_01/em.112/e12255/oui3_response_files.htm
+
+Silent Mode
+https://www.youtube.com/watch?v=REQDBTjj6JQ
+https://www.youtube.com/watch?v=VIhkM8c0F_o
+https://www.youtube.com/watch?v=ASUjxxy5a_8
+??? dbca - util is absent
+
+oui
+    -help
+    -silent
+    -paramFile
+    -responseFile
+
+https://docs.oracle.com/cd/E11882_01/install.112/e49703/toc.htm#CHDHAHCA
+setup.exe (database\setup.exe)
+    -help
+    -silent -responseFile <filename> <optional_parameters> 
+    -executeSysPrereqs
+        check and exit
+    -executePrereqs
+        check and exit
+    -ignorePrereqs
+    -downloadUpdates
+        UI with ora-support login creds in order to download updates
+    -noconfig
+        ???
+
+...
+Please check 'D:\dev\utils\oracle\Inventory\logs\silentInstall2017-04-27_02-25-29PM.log' for more details.
+...
+PATH...D:\dev\utils\oracle\product\11.2.0\dbhome_1\bin
+
+home selecting:
+https://docs.oracle.com/cd/E11882_01/em.112/e12255/oui2_manage_oracle_homes.htm#OUICG165

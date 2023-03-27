@@ -1,0 +1,31 @@
+https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb
+https://github.com/vadimcn/vscode-lldb
+
+https://github.com/vadimcn/vscode-lldb/wiki
+https://github.com/vadimcn/vscode-lldb/wiki/Installing-LLDB
+https://github.com/vadimcn/vscode-lldb/wiki/Installing-on-Linux
+https://github.com/vadimcn/vscode-lldb/wiki/Installing-on-Windows
+https://github.com/vadimcn/vscode-lldb/wiki/Data-visualization
+
+https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md
+
+{
+    "name": "Launch",
+    "type": "lldb",
+    "request": "launch",
+    "program": "${workspaceFolder}/<my program>",
+    "args": ["-arg1", "-arg2"],
+
+    # auto-generated
+            "targetCreateCommands": [
+                "target create ${workspaceFolder}/ltlib/build/exe/lt/lt"
+            ],
+            "processCreateCommands": [
+                "settings set target.run-args value1 value2 value3",
+                "process launch"
+            ]
+}
+
+issues
+can't attach
+    https://github.com/Microsoft/vscode-cpptools/issues/115

@@ -1,0 +1,27 @@
+https://wiki.archlinux.org/index.php/xorg
+
+Try pressing Ctrl+Alt+F2 (Host+F2 in vbox) to switch to another virtual terminal.
+Then do a text login.
+
+Then you can query what the problem is, for example in .local/share/xorg/Xorg.0.log
+
+https://forum.manjaro.org/t/xorg-still-broken-in-virtualbox-after-update-2016-05-22-stable/1999/3
+etc/X11/xorg.conf.d/90-mhwd.conf
+
+#Section "Device"
+#      Identifier  "Device0"
+#       Driver      "vboxvideo"
+#EndSection
+
+Xorg -configure
+/var/log/Xorg.0.log
+
+startx
+
+/etc/modules-load.d/virtualbox.conf
+
+vboxguest
+vboxsf
+vboxvideo
+
+group/xorg-apps

@@ -1,0 +1,26 @@
+/etc/sysconfig/docker-network
+#DOCKER_NETWORK_OPTIONS=-H fd:// -H tcp://0.0.0.0:2375
+DOCKER_NETWORK_OPTIONS='-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock'
+
+docker network
+    ls
+    rm <network-name>
+    create -d --driver=... [--label=...] net-name
+        for overlay-driver we need external KV-storage (like a consul) --kv-store=consul:host:port
+
+    connect <net-name> <container-name>
+    plug <net-name> <container-name>
+    inspect <net-name>
+
+docker run ... --publish-service=... --net=net-name ...
+
+Discovery tools:
+Registrator, wagl
+
+2014
+http://rosenberg.io/2014/08/08/docker-boot2docker-and-dns-resolution-of-containers.html
+
+https://github.com/gliderlabs/resolvable
+
+Load balancing:
+https://www.infoq.com/news/2016/08/docker-service-load-balancing

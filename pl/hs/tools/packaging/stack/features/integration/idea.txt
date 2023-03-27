@@ -1,0 +1,18 @@
+https://plus.google.com/u/0/+MarkWatsonme/posts/PocRRq7gjN5
+
+I have a pretty good dev setup using stack and IntelliJ (either the free community edition or the ultimate edition)
+and the Haskell plugin (there are four - choose the one with the most installs that is from Jetbrains).
+
+Open a project that uses stack, create an execution target.
+
+Under the "Before launch:" area, add two external tools:
+
+1. tool settings: program: stack parameters: build
+
+2. tool settings: program: stack parameters: exec <project name>
+
+where <project name> is the name defined in the first line of your <project name>.cabal file.
+
+If the build breaks, the exec target is not run and the compiler errors are shown.
+
+I have mostly been using Emacs for Haskell development but this setup is also nice to use.?

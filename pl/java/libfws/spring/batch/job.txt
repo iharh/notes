@@ -1,0 +1,55 @@
+          JobParameters
+               |
+Job ->    JobInstance    -> JobExecution
+class  sched-d. instance      attempt
+
+
+JobInstance = Job + JobParameters
+
+
+It is also worth noting that Jobs can now be stopped via the database, removing the requirement
+to maintain a handle to the JobExecution on the JVM the job was launched in.
+
+
+JobRepository
+
+Each job could be configurable by an instance of JobRepository
+
+
+
+JobExecutionListener (before, after the job)
+
+
+Job can inherit from a parent Job
+
+
+
+
+JobFactory and statefull components in Steps:
+
+The strategy provided by Spring Batch to deal with this scenario is the JobFactory,
+and the samples provide an example of a specialized implementation that can load an
+ApplicationContext and close it properly when the job is finished. A relevant examples is
+ClassPathXmlApplicationContextJobFactory and its use in the adhoc-job-launcher-context.xml
+and the quartz-job-launcher-context.xml, which can be found in the Samples project.
+
+
+
+
+<job-repository id="jobRepository"
+dataSource="dataSource"
+transactionManager="transactionManager"
+isolation-level-for-create="SERIALIZABLE"
+table-prefix="BATCH_"
+/>
+
+
+JobExplorer, JobOperator
+The JobExplorer and JobOperator interfaces, which will be discussed below, add additional
+functionality for querying and controlling the meta data.
+
+
+Stopping a Job:
+
+Set<Long> executions = jobOperator.getRunningExecutions("sampleJob");
+jobOperator.stop(executions.iterator().next());

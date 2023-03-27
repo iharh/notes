@@ -1,0 +1,7 @@
+https://labs.fedoraproject.org/en/python-classroom/
+https://labs.fedoraproject.org/python-classroom/download/index.html
+
+2017
+https://fedoramagazine.org/introducing-python-classroom-lab/
+    sudo dnf group install "Python Classroom"
+    dnf install @python-classroom

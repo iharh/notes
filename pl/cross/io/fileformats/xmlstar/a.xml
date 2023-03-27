@@ -1,0 +1,7 @@
+<root>
+	<el1>
+		<el2 errcnt="0"/>
+		<el2 errcnt="1"/>
+		<el2 errcnt="2"/>
+	</el1>
+</root>

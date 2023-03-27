@@ -1,0 +1,39 @@
+https://www.baeldung.com/security-spring
+
+2023
+https://reflectoring.io/spring-security/
+    ! good architecture and filters with urls
+    https://docs.spring.io/spring-security/reference/6.0.0-M4/servlet/authentication/architecture.html#servlet-authentication-providermanager
+    https://spring.io/guides/topicals/spring-security-architecture/
+    !!!
+2019
+https://habr.com/ru/post/470786/
+2018
+https://www.baeldung.com/security-spring
+https://www.baeldung.com/role-and-privilege-for-spring-security-registration
+https://octoperf.com/blog/2018/03/08/securing-rest-api-spring-security/
+    !!!
+https://habr.com/ru/post/346628/
+https://habr.com/ru/post/346296/
+
+2017
+!!!
+    https://medium.com/@darutk/the-simplest-guide-to-oauth-2-0-8c71bd9a15bb
+    https://medium.com/@darutk/diagrams-and-movies-of-all-the-oauth-2-0-flows-194f3c3ade85
+    https://medium.com/@darutk/new-architecture-of-oauth-2-0-and-openid-connect-implementation-18f408f9338d
+https://developer.okta.com/blog/2017/08/08/secure-spring-microservices
+https://developer.okta.com/blog/2017/07/13/apache-shiro-spring-boot
+Stateless auth using Spring Security and JWT (JJWT)
+https://habrahabr.ru/post/337600/
+
+2016
+http://www.devglan.com/spring-security/spring-boot-security-custom-form-login-example
+http://www.devglan.com/spring-security/spring-boot-security-rest-basic-authentication
+https://stormpath.com/blog/service-to-service
+
+2014
+https://habr.com/ru/post/245415/
+https://habr.com/ru/post/226791/
+
+2013
+https://habr.com/ru/post/203318/

@@ -1,0 +1,57 @@
+XX. fix
+
+fix :: (a -> a) -> a
+fix f = let x = f x
+        in  x
+
+fix f is the least fixed point of the function f, i.e. the least defined x such that f x = x.
+
+fix f = f (fix f)
+
+f (fix f) = fix f
+
+
+fix g = h, where g h = h
+fix g = g (fix g) = g (g (fix g)) = ... = g (g ... (fix g)...).
+
+Because of Lazy evaluation the sequence is not infinite but has maximum the number of steps needed
+for g to bring result for some arbitrary argument.
+
+
+
+
+Least fixed-point combinator
+
+let fac f x = if x==0 then 1 else x * f (x - 1)
+
+let fix f = f (fix f)
+
+>fix fac 5
+120
+
+fix :: (x -> x) -> x
+fix f = f (fix f)
+
+
+fact :: Int -> Int
+ff :: (Int -> Int) -> (Int -> Int)
+
+
+http://en.wikibooks.org/wiki/Haskell/Fix_and_recursion
+
+
+Kholomiov - part 16
+
+-- | 'repeat' @x@ is an infinite list, with @x@ the value of every element.
+repeat :: a -> [a]
+{-# INLINE [0] repeat #-}
+-- The pragma just gives the rules more chance to fire
+repeat x = xs where xs = x : xs
+
+> repeat f = f : f : f : ...
+
+
+fix :: (a -> a) -> a
+fix = foldr ($) undefined . repeat
+
+(replace (:) c-tor of repeat by application - ($)).

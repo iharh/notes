@@ -1,0 +1,32 @@
+Church encoding:
+http://web.archiveorange.com/archive/v/nDNOvgzSRV6TNq8KhCgZ
+http://stackoverflow.com/questions/9806729/practical-reasons-for-hurch-encoding
+http://stackoverflow.com/questions/10161009/input-checks-in-haskell-data-constructors
+
+Harper - A Library Writers Guide to Shortcut Fusion
+
+
+Leaf Tree sample:
+
+data Tree a = Empty | Leaf a | Fork (Tree a) (Tree a)
+
+data Tree_ a b = Empty_ | Leaf_ a | Fork_ b b
+
+data Tree+ a = exist s. Tree+ (s -> Tree_ a s) s  -- as a pair with stepper and initial seed
+
+
+toCoCh :: Tree a -> Tree+ a
+toCoCh t = Tree+ out t
+  where
+    out Empty      = Empty_
+    out (Leaf a)   = Leaf_ a
+    out (Fork l r) = Fork_ l r
+
+fromCoCh :: Tree+ a -> Tree a
+fromCoCh (Tree+ h s) = unfold h s
+  where
+    unfold h s = case h s of
+      Empty_      -> Empty
+      Leaf_ a     -> Leaf a
+      Fork_ sl sr -> Fork (unfold h sl) (unfold h sr)
+

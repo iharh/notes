@@ -1,0 +1,27 @@
+https://crates.io/crates/xsv
+https://docs.rs/crate/xsv
+https://github.com/BurntSushi/xsv
+
+http://blog.faraday.io/how-we-made-our-csv-processing-142x-faster/
+
+aur
+    xsv
+
+xsv
+    count
+    search
+        -s, --select <arg> 
+    select <options> <regex> <input>
+        headers ...
+    split
+    fmt
+        --quote <arg> (default - ")
+    table
+
+https://github.com/BurntSushi/xsv/blob/master/Cargo.toml
+[dependencies]
+byteorder = "1"
+crossbeam-channel = "0.2.4"
+csv = "1"
+csv-index = "0.1.5"
+...

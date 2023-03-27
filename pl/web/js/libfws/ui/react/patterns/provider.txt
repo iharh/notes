@@ -1,0 +1,46 @@
+class ThemeProvider extends React.Component {
+    getChildContext() {
+        return {
+            coloredTheme: this.props.coloredTheme
+        };
+    }
+    render() {
+        return <div>{this.props.children}</div>;
+    }
+}
+
+const coloredTheme = "green";
+// hardcoded theme
+// however, imagine the configuration is located somewhere else
+// and would be different for every user of your application
+// it would need to be fetched first
+// and varies depending on the app user
+ReactDOM.render(
+    <ThemeProvider coloredTheme={coloredTheme}>
+        <App />
+    </ThemeProvider>,
+    document.getElementById('app')
+);
+
+class App extends React.Component {
+    render() {
+        return (
+            <div>
+                <Paragraph>
+                    That's how you would use children in React
+                </Paragraph>
+            </div>
+        );
+    }
+}
+
+class Paragraph extends React.Component {
+    render() {
+        const { coloredTheme } = this.context;
+        return (
+            <p style={{ color: coloredTheme }}>
+                {this.props.children}
+            </p>
+        );
+    }
+}

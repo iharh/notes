@@ -1,0 +1,68 @@
+2020
+https://daneden.me/blog/2020/anatomy-of-a-typed-react-component
+https://habr.com/ru/post/461541/
+https://itnext.io/write-clean-er-components-jsx-1e70491baded
+https://dev.to/jsmanifest/how-to-maximize-reusability-for-your-react-components-875
+    ! reusability
+https://jrsinclair.com/articles/2020/algebraic-structure-of-functions-illustrated-with-react-components/
+    ! fp
+2019
+https://pomb.us/build-your-own-react/
+    https://habr.com/ru/company/timeweb/blog/586972/
+    https://github.com/harryheman/my-react
+https://medium.freecodecamp.org/reintroducing-react-every-react-update-since-v16-demystified-60686ee292cc
+https://habr.com/ru/post/448122/
+https://overreacted.io/how-are-function-components-different-from-classes/
+    https://habr.com/ru/company/ruvds/blog/444348/
+https://overreacted.io/react-as-a-ui-runtime/
+https://medium.freecodecamp.org/the-react-handbook-b71c27b0a795
+https://proglib.io/p/react-developer-2019/
+2018
+https://tproger.ru/translations/react-after-learning-basics/
+https://hackernoon.com/react-js-a-better-introduction-to-the-most-powerful-ui-library-ever-created-ecd96e8f4621
+    https://habr.com/company/ruvds/blog/428077/
+https://medium.freecodecamp.org/these-react-fundamentals-you-skip-may-be-killing-you-7629fb87dd4a
+    https://habr.com/company/plarium/blog/426197/
+https://auth0.com/blog/react-tutorial-building-and-securing-your-first-app/
+https://www.robinwieruch.de/javascript-fundamentals-react-requirements/
+https://tylermcginnis.com/reactjs-tutorial-a-comprehensive-guide-to-building-apps-with-react/
+https://habr.com/post/416511/
+https://proglib.io/p/react-tutorial/
+https://codeburst.io/step-by-step-guide-for-writing-awesome-react-components-210c6def902b
+https://medium.freecodecamp.org/how-to-conquer-webpack-4-and-build-a-sweet-react-app-236d721e6745
+https://habrahabr.ru/post/353564/
+React game using svg
+https://auth0.com/blog/developing-games-with-react-redux-and-svg-part-1/
+    https://habr.com/post/350274/
+https://auth0.com/blog/developing-games-with-react-redux-and-svg-part-2/
+    https://habr.com/post/350278/
+
+2017
+https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488
+https://engineering.opsgenie.com/how-to-organize-react-files-before-its-messed-up-c85387f691be
+internals
+    http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/
+    http://www.mattgreer.org/articles/react-internals-part-two-componentWillMount-and-componentDidMount/
+    http://www.mattgreer.org/articles/react-internals-part-three-basic-updating/
+    http://www.mattgreer.org/articles/react-internals-part-four-setState/
+    http://www.mattgreer.org/articles/react-internals-part-five-transactions/
+https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d
+    https://habr.com/post/358090/
+https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
+https://habrahabr.ru/post/326162/
+
+Modular Architecture
+https://habr.com/post/326484/
+https://habr.com/post/327196/
+https://americanexpress.io/clean-code-dirty-code/
+https://daveceddia.com/react-project-structure/
+https://learnreact.design/2017/06/08/what-is-react/
+https://edgecoders.com/learning-react-js-is-easier-than-you-think-fbd6dc4d935a
+
+2016
+https://scotch.io/tutorials/reactjs-components-learning-the-basics
+!!!
+https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
+
+2015
+https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html

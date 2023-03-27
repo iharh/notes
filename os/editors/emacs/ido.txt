@@ -1,0 +1,18 @@
+http://www.masteringemacs.org/articles/2010/10/10/introduction-to-ido-mode/
+
+C-f
+	Reverts to the old find-file completion engine
+C-s
+	Cycle forward
+C-r
+	Cycle back
+
+From Buffer List:
+C-k
+	Kill buffer 
+
+From File List:
+C-k
+	Delete a file (with confirmation)
+C-d
+	Open dired

@@ -1,0 +1,26 @@
+https://wiki.gnome.org/action/show/Projects/GnomeKeyring
+https://wiki.archlinux.org/index.php/GNOME_Keyring
+
+http://www.nurdletech.com/linux-notes/agents/keyring.html
+http://blog.schmichael.com/2008/10/30/listing-all-passwords-stored-in-gnome-keyring/
+
+https://github.com/kparal/gkeyring
+https://aur.archlinux.org/packages/gkeyring-git/
+https://aur.archlinux.org/packages/gkeyring/
+
+https://pypi.python.org/pypi/keyring
+https://github.com/jaraco/keyring
+https://github.com/ervandew/keyring
+
+https://aur.archlinux.org/packages/gnome-keyring-query/
+http://www.gentoo-wiki.info/HOWTO_Use_gnome-keyring_to_store_SSH_passphrases
+
+/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets
+iharh@github.com
+
+pacman -Ss manjaro-keyring archlinux-keyring
+/usr/share/pacman/keyrings/
+  manjaro.gpg manjaro-revoked manjaro/trusted
+
+/etc/pacman.d/gnupg
+  pubring.gpg secring.gpg trustdb.gpg

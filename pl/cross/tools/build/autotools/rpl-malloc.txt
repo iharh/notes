@@ -1,0 +1,60 @@
+2007
+https://www.linuxquestions.org/questions/linux-software-2/undefined-reference-to-%60rpl_malloc%27-587256/
+
+https://www.gnu.org/software/autoconf/manual/autoconf-2.68/autoconf.html
+
+— Macro: AC_FUNC_MALLOC
+
+    If the malloc function is compatible with the GNU C library malloc (i.e., ‘malloc (0)’ returns a valid pointer), define HAVE_MALLOC to 1. Otherwise define HAVE_MALLOC to 0, ask for an AC_LIBOBJ replacement for ‘malloc’, and define malloc to rpl_malloc so that the native malloc is not used in the main project.
+
+    Typically, the replacement file malloc.c should look like (note the ‘#undef malloc’):
+
+         #include <config.h>
+         #undef malloc
+
+         #include <sys/types.h>
+
+         void *malloc ();
+
+         /* Allocate an N-byte block of memory from the heap.
+            If N is zero, allocate a 1-byte block.  */
+
+         void *
+         rpl_malloc (size_t n)
+         {
+           if (n == 0)
+             n = 1;
+           return malloc (n);
+         }
+
+    The result of this macro is cached in the ac_cv_func_malloc_0_nonnull variable.
+
+for c++ compilers
+malloc.cpp
+
+//#include <config.h>
+#include <stdlib.h>
+#undef malloc
+
+#include <sys/types.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// void *malloc ();
+
+/* Allocate an N-byte block of memory from the heap.
+   If N is zero, allocate a 1-byte block.  */
+
+void *
+rpl_malloc (size_t n)
+{
+  if (n == 0)
+    n = 1;
+  return malloc (n);
+}
+
+#ifdef __cplusplus
+} // extern "C"
+#endif

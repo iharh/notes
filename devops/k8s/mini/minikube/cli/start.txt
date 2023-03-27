@@ -1,0 +1,47 @@
+https://github.com/kubernetes/minikube/blob/master/cmd/minikube/cmd/start.go
+https://github.com/kubernetes/minikube/blob/master/docs/configuring_kubernetes.md
+
+start
+    --kubernetes-version=v1.12.0
+        kubernetes version that the minikube VM will use (ex: v1.2.3) (default "v1.10.0")
+
+    --vm-driver=virtualbox
+    --cpus <n>
+    --disk-size <n><b,k,m,g>
+        default - 20g
+    --memory <n>
+        in MB
+
+    --extra-config=apiserver.v=10
+    --extra-config=kubelet.max-pods=100
+
+    --host-only-cidr <cidr>
+
+        The CIDR to be used for the minikube VM
+        (only supported with Virtualbox driver)
+        (default "192.168.99.1/24")
+
+    --insecure-registry <strings>
+        Insecure Docker registries to pass to the Docker daemon.
+        The default service CIDR range will automatically be added.
+    --registry-mirror <strings>
+
+    --iso-url string
+        Location of the minikube iso
+        (default "https://storage.googleapis.com/minikube/iso/minikube-v0.30.0.iso")
+
+globl flags
+    -b, --bootstrapper <string>
+        The name of the cluster bootstrapper that will set up the kubernetes cluster.
+        (default "kubeadm")
+    -p, --profile <string>
+        The name of the minikube VM being used.  
+        This can be modified to allow for multiple minikube instances to be run independently
+        (default "minikube")
+
+    -v, --v Level
+        log level for V logs
+        https://github.com/kubernetes/minikube/blob/master/docs/debugging.md
+
+    --vmodule moduleSpec
+        comma-separated list of pattern=N settings for file-filtered logging

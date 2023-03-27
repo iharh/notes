@@ -1,0 +1,111 @@
+UNSTAGING:
+
+git rm --cached database.yml
+  remove from staging, leaving it at work-dir (to be added to .gitignore later)
+
+
+https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/commit-level-operations
+http://blog.ctp.com/2013/11/21/git-recovering-from-mistakes/
+
+Command         Scope           Common use cases
+--------------- --------------- ----------------------------
+git reset       Commit-level    Discard commits in a private branch or throw away uncommited changes
+git reset       File-level      Unstage a file
+git checkout    Commit-level    Switch between branches or inspect old snapshots
+git checkout    File-level      Discard changes in the working directory
+git revert      Commit-level    Undo commits in a public branch
+git revert      File-level      (N/A)
+
+
+File-level Operations:
+
+The git reset and git checkout commands also accept an optional file path as a parameter.
+This dramatically alters their behavior.
+Instead of operating on entire snapshots, this forces them to limit their operations to a single file.
+
+
+CHECKING OUT
+
+Checkout a branch or paths to the working tree
+Updates files in the working tree to match the version in the index or the specified tree.
+If no paths are given, git checkout will also update HEAD to set the specified branch as the current branch.
+
+git checkout
+    <sha>
+        specific commit, endin up in a detached head state (need to create a new branch for it or force to the existing one)
+    <tree-ish> -- <path>
+        <tree-ish> refers to a commit hash, tag or branch,
+        <path> is the path of the file relative to the top directory of the project
+
+    -b <branch-name>
+        checks out a branch [branch-to-start-from]
+    -B <branch-name> <sha>
+        ... at a specific <sha>
+
+git checkout --track <remote>/<branch-name>
+    create a branch which will track remote branch
+    --track is needed if you have more than one remote, otherwise - by default
+
+
+file-level checkout:
+
+Checking out a file is similar to using git reset with a file path, except it updates the working directory instead of the stage.
+Unlike the commit-level version of this command, this does not move the HEAD reference, which means that you won't switch branches.
+
+git checkout [HEAD] -- <file>
+    check the <file> out to the latest state, known to git
+git checkout -- .
+
+
+RESETTING
+
+git reset
+    --soft  The staged snapshot and working directory are not altered in any way.
+    --mixed The staged snapshot is updated to match the specified commit, but the working directory is not affected. This is the default option.
+    --hard  The staged snapshot and the working directory are both updated to match the specified commit.
+
+git reset <commit>
+  reset to commit
+  result in a new dirty wrk dir in unsaved state
+  undo a commits (they will be dangling and GC-ed the next time)
+  
+  use get checkout -- <file>
+    to compeletely remove <file>
+
+  git reflog can show us details about such tricks
+
+
+  git checkout <commit-id>
+  git rebase/merge <branch-name>
+  git branch -d <branch-name>
+
+
+file-level reset:
+
+When invoked with a file path, git reset updates the staged snapshot to match the version from the specified commit
+
+git reset HEAD file
+  rollback the <file> to a HEAD (current committed branch rev) state
+
+  The --soft, --mixed, and --hard flags do not have any effect on the file-level version of git reset,
+  as the staged snapshot is always updated, and the working directory is never updated.
+
+  rollback the indexation
+git rm --cached database.yml
+  remove from staging, leaving it at work-dir (to be added to .gitignore later)
+
+
+REVERTING:
+Reverting undoes a commit by creating a new commit.
+This is a safe way to undo changes, as it has no chance of re-writing the commit history. 
+
+git revert <commit-id>
+    reverts changes, made by the <commit-id>
+    Note: do nota actually remove history log, like reset-cmd
+
+Note: revert does not have a file-level counterparts like checkout/reset
+
+Contrast this with git reset, which does alter the existing commit history.
+For this reason, git revert should be used to undo changes on a public branch,
+and git reset should be reserved for undoing changes on a private branch.
+

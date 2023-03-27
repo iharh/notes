@@ -1,0 +1,18 @@
+2022
+https://www.debugpoint.com/remove-snap-ubuntu/
+    ...
+    sudo snap remove --purge snapd
+    sudo apt remove --autoremove snapd
+
+TechHut - How to PURGE Snap from Ubuntu 0:00 of 9:38
+    https://www.youtube.com/watch?v=ZSsrXH_q33w
+????
+https://superuser.com/questions/1310825/how-to-remove-old-version-of-installed-snaps
+https://askubuntu.com/questions/803275/how-do-i-manage-how-many-revisions-snapd-keeps-of-an-application
+https://askubuntu.com/questions/1036633/how-to-remove-disabled-unused-snap-packages-with-a-single-line-of-command
+    https://gitlab.com/-/snippets/1927120
+    sudo snap get system
+    snap set system refresh.retain=N
+    cache
+    sudo du -sh /var/lib/snapd/cache/
+    sudo find /var/lib/snapd/cache/ -exec rm -v {} \;

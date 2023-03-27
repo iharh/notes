@@ -1,0 +1,36 @@
+Bekesi - Intro to ScalaTest
+https://www.youtube.com/watch?v=2yfq_xHcVV0
+
+http://tudorzgureanu.com/whats-new-in-scalatest-3/
+
+samples:
+https://github.com/ScaleChain/scalechain/blob/master/scalechain-script/src/test/scala/io/scalechain/blockchain/script/ArithmeticSpec.scala
+
+intercept:
+test("...") {
+    intercept[NoSuchElementException] {
+        Set.empty.head
+    }
+}
+
+Inside (? mockito sugar)
+
+// For example, given the following case classes:
+case class Address(street: String, city: String, state: String, zip: String)
+case class Name(first: String, middle: String, last: String)
+case class Record(name: Name, address: Address, age: Int)
+// you could write
+inside (rec) { case Record(name, address, age) =>
+    inside (name) {case Name(first, middle, last) =>
+        first should be ("Sally")
+        middle should be ("Ann")
+        last should be ("Jones")
+    }
+    inside (address) { case Address(street, city, state, zip) =>
+        street should startWith ("25")
+        city should endWith ("Angeles")
+        state should equal ("CA")
+        zip should be ("12345")
+    }
+    age should be < 99
+}

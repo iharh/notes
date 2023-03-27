@@ -1,0 +1,12 @@
+evolved value analysis EVA:
+http://frama-c.com/value.html
+http://frama-c.com/download/frama-c-value-analysis.pdf
+
+tutorial:
+http://blog.frama-c.com/index.php?post/2017/03/07/A-simple-EVA-tutorial
+http://blog.frama-c.com/index.php?post/2017/03/17/A-simple-tutorial-part-two
+http://blog.frama-c.com/index.php?post/2017/04/11/A-simple-EVA-tutorial%2C-part-3
+
+http://blog.frama-c.com/index.php?post/2016/09/23/mini-acsl-tutorial
+http://blog.frama-c.com/index.php?post/2016/09/30/mini-ACSL-tutorial-for-value-part-2
+http://blog.frama-c.com/index.php?post/2016/10/11/indirect-assigns

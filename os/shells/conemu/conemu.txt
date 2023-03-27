@@ -1,0 +1,14 @@
+Alt+... - select/copy/paste
+
+cmd -new_console
+cmd -new_console:a
+notepad -new_console
+
+vim redraw issue
+https://github.com/Maximus5/ConEmu/issues/1143
+Setting ttyscroll to a low value solved the issue entirely for me as well.
+
+http://tahirhassan.blogspot.com.by/2017/10/conemu-redraw-problems-with-vim.html
+Apparently, adding this to your vimrc file fixes the issue:
+
+set ttyscroll=0

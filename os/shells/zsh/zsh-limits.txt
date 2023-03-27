@@ -1,0 +1,6 @@
+ulimit -a
+	View all (soft) limits.
+ulimit -Ha
+	View hard limits.
+ulimit -<X> value
+	Set the limit <X> to value.

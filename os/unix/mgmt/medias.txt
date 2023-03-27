@@ -1,0 +1,9 @@
+HDD:
+
+lsblk
+
+blkid
+fdisk -l
+ls /dev/disk/by-uuid -alh
+sudo mount -a # re-read /etc/fstab
+

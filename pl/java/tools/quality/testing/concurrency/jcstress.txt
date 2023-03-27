@@ -1,0 +1,28 @@
+https://openjdk.org/projects/code-tools/jcstress/
+http://openjdk.java.net/projects/code-tools/jcstress/
+https://wiki.openjdk.java.net/display/CodeTools/jcstress
+
+https://github.com/openjdk/jcstress
+https://github.com/jwoschitz/jcstress-examples
+
+https://plugins.gradle.org/plugin/com.github.erizo.gradle.jcstress
+https://github.com/jerzykrlk/jcstress-gradle-plugin
+
+articles:
+2017:
+https://habrahabr.ru/post/327186/
+
+presentations:
+2022
+Hydra - Aleksey Shipilev — Workshop: Java Concurrency Stress (JCStress)
+    https://www.youtube.com/playlist?list=PLC5OGTO4dWxYC9Eh9RJYRSP85GKRoho3S
+        https://www.youtube.com/watch?v=iTZNhknTGrg
+        https://www.youtube.com/watch?v=koU38cczBy8
+articles
+2022
+https://habr.com/ru/post/673624/
+    https://github.com/stsypanov/jcstress-example
+2017
+https://www.youtube.com/watch?v=_0_HOnTSS0E
+https://assets.contentful.com/oxjq45e8ilak/9303Z3yhY4gC4YwYwIeIi/b0682a7086ff5a35eb06c0e13569a849/Nikita_Koval_Lock-free_algorithms_testing__2_.pdf
+

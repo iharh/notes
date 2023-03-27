@@ -1,0 +1,23 @@
+Saving passwords
+WARNING: You have opted to save your password. It will be stored in plain text in your home directory on *nix systems, or in your user profile on Windows.
+If you do not want this to happen, please press the Cancel button.
+
+pgAdmin uses PostgreSQL's 'pgpass' mechanism to store your passwords.
+
+On *nix systems, the password will be stored in ~/.pgpass,
+whilst on Windows systems it will be stored in %APPDATA%\PostgreSQL\pgpass.conf
+(%APPDATA% is the 'Application Data' folder in your user profile).
+
+This mechanism is used by default by all programs that use the libpq library to access the server,
+which includes command line applications such as pg_dump and pg_restore,
+other GUI applications, and drivers such as psqlODBC.
+
+This means that those applications may automatically connect to the server using your stored password.
+If you do not want this to happen, you should not use the Store Password option in pgAdmin.
+
+
+
+...\AppData\Roaming\postgresql\pgpass.conf
+localhost:5432:*:postgres:<pwd>
+
+ALTER USER <postgres> WITH PASSWORD 'yournewpassword';

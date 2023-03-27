@@ -1,0 +1,11 @@
+/ostree/
+    boot.1 -> boot.1.1
+    boot.1.1
+    deploy
+    repo/
+        config/
+        extensions/
+        objects/
+        refs/
+        state/
+        tmp/

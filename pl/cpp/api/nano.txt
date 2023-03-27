@@ -1,0 +1,34 @@
+#define NANOS_PER_SEC         CONST64(1000000000)
+
+static jlong performance_frequency;
+
+static void initialize_performance_counter() {
+  LARGE_INTEGER count;
+  if (QueryPerformanceFrequency(&count)) {
+    has_performance_count = 1;
+    performance_frequency = as_long(count);
+    QueryPerformanceCounter(&count);
+    initial_performance_count = as_long(count);
+  } else {
+    has_performance_count = 0;
+    FILETIME wt;
+    GetSystemTimeAsFileTime(&wt);
+    first_filetime = jlong_from(wt.dwHighDateTime, wt.dwLowDateTime);
+  }
+}
+
+
+    LARGE_INTEGER current_count;
+    QueryPerformanceCounter(&current_count);
+    double current = as_long(current_count);
+    double freq = performance_frequency;
+    jlong time = (jlong)((current/freq) * NANOS_PER_SEC);
+    return time;
+
+
+D:\Knova\native_repo\boost_1_43_0\libs\spirit\optimization\high_resolution_timer.hpp
+
+// Now start a timer
+util::high_resolution_timer time;
+// ... some actions
+double elapsed = time.elapsed();          // return the elapsed time

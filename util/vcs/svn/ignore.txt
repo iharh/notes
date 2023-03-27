@@ -1,0 +1,18 @@
+https://stackoverflow.com/questions/86049/how-do-i-ignore-files-in-subversion/86052
+2015
+https://codeyarns.com/2015/04/13/how-to-ignore-files-and-directories-in-svn/
+
+svn pg svn:ignore .
+
+svn ps
+    svn ps svn:ignore "gradle.properties" .
+    svn ps svn:ignore "platform.properties" .
+    svn ps svn:ignore -F ignorelist .
+
+    svn ps svn:ignore -R .build .
+    svn ps svn:ignore -R -F ignorelist .
+        .build
+        build
+        dist
+
+        ... svn revert -R .

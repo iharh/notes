@@ -1,0 +1,51 @@
+http://d-i.debian.org/manual/example-preseed.txt
+https://www.debian.org/releases/wheezy/example-preseed.txt
+https://wiki.debian.org/DebianInstaller/Preseed
+
+https://fak3r.com/2011/08/18/howto-automate-debian-installs-with-preseed/
+
+hit ESC and then:
+
+install auto=true priority=critical preseed/url=http://DOMAIN.COM/path/preseed.cfg
+
+
+# post install script
+d-i preseed/late_command string \
+    cd /target; \
+    wget http://DOMAIN.COM/path/post-install.sh; \
+    chmod +x ./post-install.sh; \
+    chroot ./ ./post-install.sh; \
+    rm -f ./post-install.sh
+
+
+# post-install.sh
+
+#!/bin/bash
+
+echo "Post install started on `date`" > /root/manifest
+
+echo "* Updating Apt sources..." >> /root/manifest
+wget "$SCRIPTURL/sources.list"
+cp sources.list /etc/apt/sources.list
+
+echo "* Updating system..." >> /root/manifest
+apt-get update
+apt-get -y upgrade
+apt-get -y install monit screen
+
+echo "Post install completed on `date`" >> /root/manifest
+
+exit 0
+
+
+http://linux.india365.org/2012/02/create-preseed-file/
+
+debconf-get-selections –installer > preseed.cfg
+debconf-get-selections >> preseed.cfg
+
+debconf-set-selections -c preseed.cfg
+
+(apt-get install debconf-utils)
+
+http://ftp.dc.volia.com/pub/debian/preseed/partman-auto-recipe.txt
+https://wikitech.wikimedia.org/wiki/PartManAuto

@@ -1,0 +1,45 @@
+https://en.cppreference.com/w/cpp/language/constexpr
+https://en.cppreference.com/w/cpp/language/consteval
+
+https://medium.com/@buckaroo.pm/a-tour-of-c-17-if-constexpr-3ea62f62ff65
+
+2023
+https://www.cppstories.com/2022/sso-cpp20-checks/
+
+2022
+https://www.cppstories.com/2022/const-options-cpp20/
+https://www.cppstories.com/2018/03/ifconstexpr/
+https://betterprogramming.pub/c-constexpr-what-it-really-is-d6ca81023dcd
+    https://nuancesprog.ru/p/15877/
+
+2021
+https://habr.com/ru/post/579490/
+
+2020
+https://artificial-mind.net/blog/2020/11/14/cpp17-consteval
+
+2019
+Vandevoorde - Cpp Constants
+    https://www.youtube.com/watch?v=m9tcmTjGeho
+https://shafik.github.io/c++/undefined%20behavior/2019/05/11/explporing_undefined_behavior_using_constexpr.html
+https://brevzin.github.io/c++/2019/01/15/if-constexpr-isnt-broken/
+
+2018
+https://www.hanicka.net/ctre/#/
+    https://github.com/hanickadot/compile-time-regular-expressions
+    https://github.com/hanickadot/compile-time-regular-expressions/tree/v2
+http://www.bfilipek.com/2018/03/ifconstexpr.html
+    https://habrahabr.ru/post/351970/
+https://www.meetingcpp.com/blog/items/How-if-constexpr-simplifies-your-code-in-Cpp17.html
+
+2017
+Deane and Jason Turner - constexpr ALL the Things!
+https://www.youtube.com/watch?v=xtf9qkDTrZE
+https://www.youtube.com/watch?v=PJwd4JLYJJY
+https://github.com/CppCon/CppCon2017/blob/master/Presentations/constexpr%20ALL%20the%20things/constexpr%20ALL%20the%20things%20-%20Jason%20Turner%20and%20Ben%20Deane%20-%20CppCon%202017.pdf
+
+samples
+https://github.com/arturbac/stralgo
+https://github.com/foonathan/lex
+https://github.com/mkitzan/constexpr-sql
+    https://old.reddit.com/r/cpp/comments/g5l2nt/constexpr_sql_a_compile_time_sql_library/

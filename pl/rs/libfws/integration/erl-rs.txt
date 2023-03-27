@@ -1,0 +1,9 @@
+https://crates.io/crates/rustler
+https://docs.rs/rustler/0.13.0/rustler/
+https://github.com/hansihe/Rustler
+
+https://crates.io/crates/rustler_codegen
+https://github.com/hansihe/Rustler/tree/master/rustler_codegen
+
+http://hansihe.com/2017/02/05/rustler-safe-erlang-elixir-nifs-in-rust.html
+https://www.reddit.com/r/rust/comments/5szz3r/rustler_safe_elixir_and_erlang_nifs_in_rust/

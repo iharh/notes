@@ -1,0 +1,16 @@
+https://www.rabbitmq.com/quorum-queues.html
+    https://www.rabbitmq.com/blog/2019/11/11/rabbitmq-3-8-release-overview/
+
+2020
+https://www.rabbitmq.com/blog/2020/06/23/quorum-queues-local-delivery/
+https://www.rabbitmq.com/blog/2020/06/18/cluster-sizing-case-study-quorum-queues-part-2/
+https://www.rabbitmq.com/blog/2020/06/18/cluster-sizing-case-study-quorum-queues-part-1/
+https://www.rabbitmq.com/blog/2020/05/15/quorum-queues-and-flow-control-stress-tests/
+https://www.rabbitmq.com/blog/2020/05/14/quorum-queues-and-flow-control-single-queue-benchmarks/
+https://www.rabbitmq.com/blog/2020/05/04/quorum-queues-and-flow-control-the-concepts/
+https://www.rabbitmq.com/blog/2020/04/21/quorum-queues-and-why-disks-matter/
+https://www.rabbitmq.com/blog/2020/04/20/rabbitmq-gets-an-ha-upgrade/
+https://www.erlang-solutions.com/blog/rabbitmq-quorum-queues-explained-what-you-need-to-know.html
+https://seroter.wordpress.com/2020/01/28/lets-try-out-the-new-durable-replicated-quorum-queues-in-rabbitmq/
+2019
+https://www.cloudamqp.com/blog/2019-03-28-rabbitmq-quorum-queues.html

@@ -1,0 +1,38 @@
+debug logs
+2020-04-06T17:57:12.946+0300 [DEBUG] [TestEventLogger] Gradle Test Run :ehcache-size:test STARTED
+
+2020-04-06T17:57:13.397+0300 [DEBUG] [TestEventLogger] Gradle Test Executor 1 STARTED
+2020-04-06T17:57:13.559+0300 [DEBUG] [TestEventLogger] 
+2020-04-06T17:57:13.559+0300 [DEBUG] [TestEventLogger] Gradle Test Executor 1 PASSED
+2020-04-06T17:57:12.984+0300 [INFO] [org.gradle.process.internal.DefaultExecHandle] Starting process 'Gradle Test Executor 1'. Working directory: /data/wrk/prj/gra/boot/misc/ehcache-size Command: /home/iharh/.sdkman/candidates/java/11.0.6-amzn/bin/java -Dorg.gradle.native=false @/tmp/gradle-worker-classpath7068657015125330334txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+
+
+
+good logs
+!!!
+2020-04-06T18:44:41.406+0300 [DEBUG] [org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor] Executing test class com.clarabridge.resourcerepo.ResourceRepositoryControllerTests
+
+2020-04-06T19:27:12.176+0300 [DEBUG] [org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor] Executing test class morfeusz.MorfeuszTests
+...
+2020-04-06T19:27:12.584+0300 [DEBUG] [org.gradle.internal.operations.DefaultBuildOperationExecutor] Build operation 'Generate HTML test report for MorfeuszTests' completed
+...
+2020-04-06T18:44:40.286+0300 [INFO] [org.gradle.process.internal.DefaultExecHandle] Successfully started process 'Gradle Test Executor 3'
+2020-04-06T18:44:41.406+0300 [DEBUG] [TestEventLogger] 
+2020-04-06T18:44:41.406+0300 [DEBUG] [TestEventLogger] Gradle Test Executor 3 STARTED
+2020-04-06T18:44:42.377+0300 [DEBUG] [TestEventLogger] 
+2020-04-06T18:44:42.377+0300 [DEBUG] [TestEventLogger] ResourceRepositoryControllerTests STARTED
+2020-04-06T18:44:42.521+0300 [DEBUG] [TestEventLogger] 
+2020-04-06T18:44:42.521+0300 [DEBUG] [TestEventLogger] ResourceRepositoryControllerTests STANDARD_OUT
+2020-04-06T18:44:42.521+0300 [DEBUG] [TestEventLogger]     18:44:42.510 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+2020-04-06T18:44:42.540+0300 [DEBUG] [TestEventLogger]     18:44:42.540 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+2020-04-06T18:44:42.578+0300 [DEBUG] [TestEventLogger]     18:44:42.578 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.clarabridge.resourcerepo.ResourceRepositoryControllerTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+2020-04-06T18:44:42.653+0300 [DEBUG] [TestEventLogger]     18:44:42.653 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.clarabridge.resourcerepo.ResourceRepositoryControllerTests], using SpringBootContextLoader
+...
+2020-04-06T18:45:01.214+0300 [DEBUG] [TestEventLogger] 
+2020-04-06T18:45:01.214+0300 [DEBUG] [TestEventLogger] ResourceRepositoryControllerTests > testResourceAbsent() PASSED
+2020-04-06T18:45:01.219+0300 [DEBUG] [TestEventLogger] 
+2020-04-06T18:45:01.219+0300 [DEBUG] [TestEventLogger] ResourceRepositoryControllerTests STANDARD_OUT
+...
+2020-04-06T18:45:01.583+0300 [DEBUG] [org.gradle.process.internal.DefaultExecHandle] Changing state to: SUCCEEDED
+2020-04-06T18:45:01.583+0300 [DEBUG] [org.gradle.process.internal.DefaultExecHandle] Process 'Gradle Test Executor 3' finished with exit value 0 (state: SUCCEEDED)
+

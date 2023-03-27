@@ -1,0 +1,13 @@
+https://github.com/yahoo/CMAK
+
+docker
+https://github.com/yahoo/CMAK/issues/814
+https://hub.docker.com/r/kafkamanager/kafka-manager/tags
+    3yo
+https://github.com/116davinder/kafka-cluster-ansible/blob/master/docker/cmak/Dockerfile
+    2yo
+https://github.com/vimagick/dockerfiles/blob/master/cmak/Dockerfile
+https://raw.githubusercontent.com/vimagick/dockerfiles/master/cmak/Dockerfile
+    latest
+
+https://www.scala-sbt.org/download.html

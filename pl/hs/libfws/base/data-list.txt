@@ -1,0 +1,153 @@
+List Processing Reference:
+http://en.wikibooks.org/wiki/Haskell/List_processing
+
+Hughes list, fast reverse:
+GilHutton - Worker-Wrapper Transformation
+
+1. intersperse, prependToAll, intercalate
+
+--  The 'intersperse' function takes an element and a list and `intersperses'
+--  that element between the elements of the list. For example,
+-- > intersperse ',' "abcde" == "a,b,c,d,e"
+
+intersperse             :: a -> [a] -> [a]
+intersperse _   []      = []
+intersperse sep (x:xs)  = x : prependToAll sep xs
+
+
+-- Not exported:
+-- We want to make every element in the 'intersperse'd list available
+-- as soon as possible to avoid space leaks. Experiments suggested that
+-- a separate top-level helper is more efficient than a local worker.
+prependToAll            :: a -> [a] -> [a]
+prependToAll _   []     = []
+prependToAll sep (x:xs) = sep : x : prependToAll sep xs
+
+
+
+-- 'intercalate' xs xss is equivalent to 'concat' ('intersperse' xs xss)
+-- It inserts the list xs in between the lists in xss and concatenates the result.
+intercalate :: [a] -> [[a]] -> [a]
+intercalate xs xss = concat (intersperse xs xss)
+
+
+2. reverse
+
+reverse'       :: [a] -> [a] -> [a]
+reverse' [] ys = ys
+reverse' (x : xs) ys = reverse' xs (x : ys)
+
+Note: reverse = foldl(:) []
+Note1: reverse = foldl (flip (:)) []
+Note2: append (++) of lists is inefficient (comparing to :)
+
+
+3. concat, concatMap
+
+Bird:
+cat x = foldl(x, snoc)
+cat x y = x ++ y
+
+Optimization (++)
+Wadler - The concatenate wanishes
+
+
+-- | Map a function over a list and concatenate the results.
+concatMap               :: (a -> [b]) -> [a] -> [b]
+concatMap f             =  foldr ((++) . f) []
+
+
+4. difference
+...
+\\ - list difference
+> [1..10] \\ [2,5,9]
+[1,3,4,6,7,8,10]  - like delete 2 . delete 5 . delete 9 $ [1..10]
+> "Im a big baby" \\ "big"
+"Im a baby"
+
+5. null test
+
+-- | Test whether a list is empty.
+null                    :: [a] -> Bool
+null []                 =  True
+null (_:_)              =  False
+
+genericLength, genericTake, genericDrop, genericSplitAt, genericIndex, genericReplicate
+- are more-generic (using Integral or Num typeclass insead of Int type)
+
+nubBy, deleteBy, unionBy, intersectBy, groupBy - take an equality function insead of (==) operator.
+
+6. unfoldr
+
+-- | The 'unfoldr' function is a \`dual\' to 'foldr': while 'foldr'
+-- reduces a list to a summary value, 'unfoldr' builds a list from
+-- a seed value.  The function takes the element and returns 'Nothing'
+-- if it is done producing the list or returns 'Just' @(a,b)@, in which
+-- case, @a@ is a prepended to the list and @b@ is used as the next
+-- element in a recursive call.  For example,
+--
+-- > iterate f == unfoldr (\x -> Just (x, f x))
+--
+-- In some cases, 'unfoldr' can undo a 'foldr' operation:
+--
+-- > unfoldr f' (foldr f z xs) == xs
+--
+-- if the following holds:
+--
+-- > f' (f x y) = Just (x,y)
+-- > f' z       = Nothing
+--
+-- A simple use of unfoldr:
+--
+-- > unfoldr (\b -> if b == 0 then Nothing else Just (b, b-1)) 10
+-- >  [10,9,8,7,6,5,4,3,2,1]
+--
+unfoldr      :: (b -> Maybe (a, b)) -> b -> [a]
+unfoldr f b  =
+  case f b of
+   Just (a,new_b) -> a : unfoldr f new_b
+   Nothing        -> []
+
+Or, for short:
+unfoldr f = maybe [] (\(a, b) -> a : unfoldr f b)
+
+-- | The 'maybe' function takes a default value, a function, and a 'Maybe'
+-- value.  If the 'Maybe' value is 'Nothing', the function returns the
+-- default value.  Otherwise, it applies the function to the value inside
+-- the 'Just' and returns the result.
+maybe :: b -> (a -> b) -> Maybe a -> b
+maybe n _ Nothing  = n
+maybe _ f (Just x) = f x
+
+Sample:
+zip :: [a] -> [b] -> [(a, b)]
+zip = curry $ unfoldr $ \x -> case x of
+  ([]   , _   ) -> Nothing
+  (_    ,[]   ) -> Nothing
+  (a:as , b:bs) -> Just ((a, b), (as, bs))
+
+Note:
+-- | 'curry' converts an uncurried function to a curried function.
+curry                   :: ((a, b) -> c) -> a -> b -> c
+curry f x y             =  f (x, y)
+
+
+Note (Hutton - Compact fusion):
+
+unfold :: (a -> Bool) -> (a -> b) -> (a -> a) -> a -> [b]
+unfold p hd tl = f
+  where f x = if p x then [] else hd x : f (tl x )
+
+The resulting list is therefore of the form:
+
+unfold p hd tl x = [hd x ; hd (tl x ); hd (tl (tl x )); ...]
+
+Ex.
+
+downFrom = unfold (==0) id pred  -- builds a list from a given number down to 0
+
+  
+7. words/unwords
+
+splits/mergets a string to a list ...
+

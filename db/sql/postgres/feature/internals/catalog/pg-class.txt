@@ -1,0 +1,11 @@
+pg_class - descriptions of relations (column prefix is 'rel')
+    tables (pg_tables view - \dt)
+    views (pg_views vies - , \d+ <viewname>)
+    materialized vies
+    indices (\di)
+    sequences
+    external tables
+
+    ??? functions - \df[S]
+
+\d+

@@ -1,0 +1,5 @@
+https://support.sonatype.com/hc/en-us/articles/213464768-Nexus-2-Logging-Guide
+https://support.sonatype.com/hc/en-us/articles/213464648-How-can-I-monitor-the-user-requesting-content-from-Nexus-
+    Administration->Logging-Loggers
+
+org.sonatype.security.internal.UserIdMdcHelper -> TRACE

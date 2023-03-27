@@ -1,0 +1,20 @@
+samples
+https://techbeacon.com/how-perform-api-testing-rest-assured
+
+with()
+    .parameters("firstName", "John", "lastName", "Doe")
+.when()
+    .post("/greetXML")
+.then()
+    .assertThat()
+        .body("greeting.firstName", equalTo("John"));
+
+given()
+    .param("text",originalText)
+.when()
+    .get("http://md5.jsontest.com")
+.then()
+    .assertThat()
+        .body("md5",equalTo(expectedMd5CheckSum));
+
+https://github.com/dmetzler/java-k8s-playground/blob/main/src/test/java/org/dmetzler/TakeDownResourceTest.java

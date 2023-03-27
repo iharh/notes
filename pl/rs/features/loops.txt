@@ -1,0 +1,7 @@
+https://doc.rust-lang.org/book/ch03-05-control-flow.html
+
+2018
+https://blog.codeship.com/understanding-rust-loops/
+
+samples
+for i in (0..a.len()).step_by(4) { ... }

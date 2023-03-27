@@ -1,0 +1,15 @@
+https://crates.io/crates/snafu
+https://docs.rs/snafu
+https://github.com/shepmaster/snafu
+    ! 32 usages
+
+https://docs.rs/snafu/*/snafu/guide/index.html
+https://docs.rs/snafu/*/snafu/guide/philosophy/index.html
+
+https://docs.rs/snafu/*/snafu/guide/opaque/index.html
+https://docs.rs/snafu/*/snafu/guide/generics/index.html
+https://docs.rs/snafu/*/snafu/guide/comparison/failure/index.html
+https://docs.rs/snafu/*/snafu/guide/the_macro/index.html
+
+cargo
+snafu = { version = "0.6.6", features = ["backtraces"] }

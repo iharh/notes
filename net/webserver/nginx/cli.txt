@@ -1,0 +1,2 @@
+nginx
+    -t  test config file (/etc/nginx/nginx.conf)

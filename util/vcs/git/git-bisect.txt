@@ -1,0 +1,19 @@
+git bisect start
+    start the bisect process
+git bisect good <hash-good>
+    tell the good (starting point) commit
+git bisect bad <hash-bad>
+    tell the bad (wrong) state commit
+then - moving to the fs, checking and exec:
+    git bisect good
+        to continue
+    or
+    git bisect bad
+        to go to the detached-HEAD state
+
+git bisect reset
+    stop the bisect process
+
+2021
+https://remimercier.com/how-to-use-git-bisect/
+    https://habr.com/ru/post/591447/

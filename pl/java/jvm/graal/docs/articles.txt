@@ -1,0 +1,43 @@
+2022
+https://bookflow.ru/optimiziruem-java-prilozheniya-s-pomoshhyu-graalvm/
+https://www.i-programmer.info/programming/java/15129-graalvm-under-the-covers.html
+2021
+https://blogs.oracle.com/javamagazine/pedal-to-the-metal-high-performance-java-with-graalvm-native-image
+    https://www.reddit.com/r/java/comments/ngzwuh/pedal_to_the_metal_highperformance_java_with/
+https://www.infoq.com/news/2021/01/graalvm-21-jvm-java/
+    ! finally java on java
+2020
+https://habr.com/ru/post/526484/
+https://medium.com/graalvm/graalvm-ten-things-12d9111f307d
+https://medium.com/graalvm/static-compilation-of-java-applications-at-alibaba-at-scale-2944163c92e
+https://spring.io/blog/2020/04/16/spring-tips-the-graalvm-native-image-builder-feature
+    https://www.youtube.com/watch?v=u1XJTI1PVLw
+    https://habr.com/ru/company/otus/blog/503328/
+https://jpgough.github.io/blog/2020/03/29/hacking-graal-compiler
+https://habr.com/ru/company/odnoklassniki/blog/480808/
+2019
+https://medium.com/graalvm/isolates-and-compressed-references-more-flexible-and-efficient-memory-management-for-graalvm-a044cc50b67e
+https://medium.com/graalvm/getting-started-with-graalvm-for-scala-d0a006dec1d1
+https://medium.com/graalvm/announcing-graalvm-19-4590cf354df8
+https://www.infoq.com/presentations/graal-jit-c2
+https://habr.com/ru/post/445978/
+2018
+https://medium.com/graalvm/under-the-hood-of-graalvm-jit-optimizations-d6e931394797
+    https://habr.com/ru/company/jugru/blog/485024/
+https://medium.com/graalvm/graalvm-ten-things-12d9111f307d
+    https://habr.com/company/haulmont/blog/433432/
+https://www.javacodegeeks.com/2018/10/java-graalvm-database-stream-performance.html
+https://chrisseaton.com/truffleruby/jokerconf17/
+    https://habr.com/post/419637/
+    https://www.youtube.com/watch?v=sFf15TvSXZ0
+https://www.infoq.com/articles/Graal-Java-JIT-Compiler
+https://habr.com/post/358700/
+http://www.opennet.ru/opennews/art.shtml?num=48472
+https://habr.com/post/351996/
+https://habr.com/company/billing/blog/351682/
+https://medium.com/graalvm/graalvm-ten-things-12d9111f307d
+https://medium.com/graalvm/instant-netty-startup-using-graalvm-native-image-generation-ed6f14ff7692
+https://habr.com/company/jugru/blog/424237/
+2017
+https://blog.plan99.net/graal-truffle-134d8f28fb69
+    https://habrahabr.ru/post/319424/

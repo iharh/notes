@@ -1,0 +1,36 @@
+package somepackage;
+
+//@Properties(target = "somepackage.SomeProviderLib", value = {
+//    @Platform(include = "some_lib.h")
+//})
+@Platform(include = "some_lib.h")
+@Namespace("somepackage")
+public class SomeProviderLib {
+
+    public static class SomeResultItem extends Pointer {
+        public native int getFieldI();
+        public native @StdString String getFieldS();
+    }
+
+    @Namespace // intentionally to clean up namespace
+    @Name("std::vector<somepackage::SomeResultItem>")
+    public static class SomeResultVector extends Pointer {
+        public native long size();
+        @Index(function = "at") public native @Const @ByRef SomeResultItem get(@Cast("std::size_t") long i);
+    }
+
+    public static class SomeProviderImpl extends Pointer {
+        static {
+            // load(getCallerClass(2), loadProperties(), Loader.pathsFirst);
+            // Loader.load(SomeProviderImpl.class);
+            Loader.load();
+        }
+
+        public SomeProviderImpl() { allocate(); }
+        private native void allocate();
+
+        // custom part
+        public native @StdString String someMethod0(@StdString String text);
+        public native @UniquePtr SomeResultVector someOther0(@StdString String text);
+    }
+}

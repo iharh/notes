@@ -1,0 +1,21 @@
+https://en.cppreference.com/w/cpp/language/sfinae
+
+2022
+MIPT - Cpp Programming Practice 0:00 of 1:27:40
+    https://www.youtube.com/watch?v=sz-FNV7zUxQ
+https://www.cppstories.com/2022/sfinea-immediate-context/
+2020
+https://www.cppstories.com/2016/02/notes-on-c-sfinae/
+https://www.bfilipek.com/2016/02/notes-on-c-sfinae.html
+2019
+https://eli.thegreenplace.net/2014/sfinae-and-enable_if/
+2018
+https://quuxplusone.github.io/blog/2018/09/08/problems-concepts-should-solve/
+    https://www.reddit.com/r/cpp/comments/9ebd9l/the_big_problems_for_c11_sfinae/
+https://www.fluentcpp.com/2018/05/15/make-sfinae-pretty-1-what-value-sfinae-brings-to-code/
+https://www.fluentcpp.com/2018/05/18/make-sfinae-pretty-2-hidden-beauty-sfinae/
+2017
+Dewhurst - Modern cpp interfaces
+    https://www.youtube.com/watch?v=PFdWqa68LmA
+2013
+https://habr.com/post/205772/

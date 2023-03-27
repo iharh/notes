@@ -1,0 +1,2 @@
+stack exec -- pacman -Sy mingw64/mingw-w64-x86_64-icu
+stack build text-icu

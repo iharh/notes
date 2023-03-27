@@ -1,0 +1,26 @@
+!!! patching vs fallback
+https://github.com/gabrielelana/awesome-terminal-fonts
+
+!!! Font cfg - MesloLGS NF
+https://github.com/romkatv/powerlevel10k/blob/master/font.md
+
+!!! MacOS fonts
+https://github.com/Powerlevel9k/powerlevel9k/wiki/Install-Instructions#step-2-install-a-powerline-font
+https://github.com/powerline/fonts/issues/185
+https://github.com/gabrielelana/awesome-terminal-fonts/wiki/OS-X
+https://www.swtestacademy.com/customize-mac-terminal/
+https://gist.github.com/kevin-smets/8568070
+    ! super-huge and informative
+QuentinWattTutorials - 2020 - Customize Iterm 2 with ZSH and Powerlevel10k of 19:04
+    https://www.youtube.com/watch?v=D2PSsnqgBiw
+
+!!! Win-wsl
+TheDigitalLife - 2020 - Make your WSL or WSL2 terminal awesome - with Windows Terminal, zsh, oh-my-zsh and Powerlevel10k
+https://www.youtube.com/watch?v=235G6X5EAvM
+    https://www.youtube.com/watch?v=oF6gLyhQDdw
+        https://github.com/xcad2k/dotfiles
+
+!!! Nerd fonts
+https://github.com/romkatv/dotfiles-public/tree/master/.local/share/fonts/NerdFonts
+    ??? https://en.m.fontke.com/font/16578806/download/
+https://github.com/romkatv/dotfiles-public/issues/3

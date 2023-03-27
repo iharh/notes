@@ -1,0 +1,10 @@
+neovim.url = github:neovim/neovim?dir=contrib;
+
+https://github.com/NixOS/nixpkgs
+
+???
+# nix-env -iA
+# nixos.nixUnstable
+
+https://www.paretooptimal.dev/installing-nixos-using-devos-and-nix-flakes/
+    nixos-install --flake .#NixOS

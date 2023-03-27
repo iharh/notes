@@ -1,0 +1,25 @@
+Logical group of PODs
+New pods are added dynamically
+Dead-ones are removed
+Single point of contact
+    implemented by kube-proxy (daemons, running on each node)
+
+Membership of the service LP-bool is determined by the use of:
+    selectors
+    labels
+
+
+nodejs-rc-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+    name: node-js
+    labels:
+        name: node-js
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 80
+    selector:
+        name: node-js

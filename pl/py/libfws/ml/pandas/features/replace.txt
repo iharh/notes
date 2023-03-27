@@ -1,0 +1,1 @@
+df.replace(u'Moscow', u'Ufa') # ? replace cell values

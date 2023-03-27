@@ -1,0 +1,400 @@
+http://skillsmatter.com/podcast/scala/lenses-compositional-data-access-and-manipulation/
+http://gist.io/6923187
+
+17:17
+
+newtype Identity a = Identity { runIdentity :: a } 
+
+instance Functor Identity where
+  fmap f (Identity x) = Identity (f x)
+
+
+type Lens' s a = forall f. Functor f => (a -> f a) -> s -> f s
+
+-- set
+
+We need to go from (f s) to (s). Let's use Identity/runIdentity for that
+
+set :: forall s a. Lens' s a -> (a -> s -> s)
+
+set ln x s = runIdentity (ln set_fld s)
+  where
+    set_fld :: a -> Identity a
+    set_fld _ = Identity x  -- discard current value, return new value 'x'
+
+-- Edward would write it
+
+const :: a -> b -> a
+const x _ = x
+
+set :: forall s a. Lens' s a -> (a -> s -> s)
+set ln x = runIdentity . ln (Identity . const x)
+
+-- over
+
+Let's generalize what we've done with const - approach to arbitrary function f
+
+set  :: forall s a. Lens' s a ->  a       -> s -> s
+over :: forall s a. Lens' s a -> (a -> a) -> s -> s
+
+set  ln x = runIdentity . ln (Identity . const x)
+over ln f = runIdentity . ln (Identity . f      )
+
+over :: forall s a. Lens' s a -> (a -> a) -> s -> s
+over ln f = runIdentity . ln (Identity . f)
+
+-- view
+
+We need to go from (f s) to (a) ???
+
+set  :: forall s a. Lens' s a ->  a       -> s -> s
+view :: forall s a. Lens' s a             -> s -> s
+
+view :: forall s a. Lens' s a -> s -> s
+view = ???
+
+We need to go from (f s) to (a)... Let's pack (a) inside the (f).
+
+newtype Const v a = Const v
+
+getConst :: Const v a -> v
+getConst (Const x) = a
+
+instance Functor (Const v) where
+  fmap f (Const x) = Const x  -- (Const v) functor ignores its argument a
+
+
+view :: forall s a. Lens' s a -> s -> s
+view ln s = getConst (ln Const s)  -- here we using  Const :: a -> Const a a
+
+-- Edward would write it
+
+view :: forall s a. Lens' s a -> s -> s
+view ln = getConst . ln Const
+
+-- Example: Lens construction
+
+type Lens' s a = forall f. Functor f => (a -> f a) -> s -> f s
+
+data Person = P { _name :: String, _salary :: Int }
+
+name :: Lens' Person String
+-- name :: Functor f => (String -> f String) -> Person -> f Person
+
+name elt_fn (P n s) = fmap (\n' -> P n' s) (elt_fn n)
+
+1. elt_fn :: String -> f String  -- :: a -> fa
+
+2. fmap :: Functor f => (a -> b) -> f a -> f b
+
+3. (\n' -> P n' s) :: String -> Person  -- This function is like a data structure with a hole in it
+
+4. (elt_fn n) :: f String
+
+name elt_fn (P n s) = (\n' -> P n' s) <$> (elt_fn n)  -- (<$>) = fmap in Data.Functor
+
+-- ... Lens usage
+
+> let fred = P { _name = "Fred", _salary = 100 }
+
+> view name
+"Fred"
+
+> set name "Bill" fred
+P { _name = "Bill", _salary = 100 }
+
+
+-- How does things work ???
+
+view name (P { _name = "Fred", _salary = 100 } )
+  -- inline view
+= getConst (name Const (P { _name = "Fred", _salary = 100 } ))
+  -- inline name
+= getConst (fmap (\n' -> P n' 100) (Const "Fred"))
+  -- fmap f (Const x) = Const x
+= getConst (Const "Fred")
+  -- getConst (Const x) = x
+= "Fred"
+
+Note: The newtype has no runtime cost
+      It just tells the "Functor f => " which functor dictionary to pass to 'ln'.
+
+-- Making lenses easily
+
+import Control.Lens.TH
+
+$(makeLenses ''Person)  -- expands to a lens for 'name' and one for 'salary'.
+
+
+-- Lenses composition
+
+Note: is just an ordinary functional composition
+
+data Person = P { _name :: String, _addr :: Address, _salary :: Int }
+
+data Address = A { _road :: String, _city :: String, _postcode :: String }
+
+
+$(makeLenses ''Person)
+$(makeLenses ''Address)
+
+setPostcode :: String -> Person -> Person
+setPostcode pc p = set (addr . postcode) pc s
+
+-- Line noise (infix operators)
+
+(.~) = set
+f $ x = f x
+
+setPostcode = addr.postcode .~ pc $ p
+
+-- What are the other usages of (Functor f) other than Const and Identity ???
+
+-- Application (Virtual fields) --
+
+data Temp = T { _farenheit :: Float }
+
+$(makeLenses ''Temp)
+-- farenheit :: Lens Temp Float
+
+centigrade :: Lens Temp Float
+centigrade centi_fn (T faren)
+  = (\centi' -> T (cToF centi'))
+    <$> (centi_fn (fToC faren))
+
+cToF :: Float -> Float  -- Centigrade to Farenheit
+fToC :: Float -> Float  -- Farenheit to Centigrade
+
+-- the 'centigrade' field isn't "really there", 
+   but the centigrade lens is fully first class
+
+
+-- Application (invariants)
+
+data Time = T { _hours :: Int, _mins :: Int }
+
+- We want adding to mins to affect hours
+
+> let now = T { _hours = 3, _mins = 58 }
+> over mins (+ 4) now
+T { _hours = 4, _mins = 2 }
+
+mins :: Lens Time Int
+mins min_fn (T h m)
+  = wrap <$> (min_fn m)  -- (min_fn m) :: f Int
+  where
+    wrap :: Int -> Time
+    wrap m' | m' >= 60  = T (h + 1) (m' - 60)
+            | m'  < 0   = T (h - 1) (m' + 60)
+	    | otherwise = T h m'
+
+
+-- Application (Non-record data structures from Control.Lens.At)
+
+at :: Ord k => k -> Lens' (Map k v) (Maybe v)
+
+- Focus is the value for a key
+- Can be Nothing (key not mapped) or (Just v)
+
+at k mb_fn m
+  = wrap <$> (mb_fn mv)
+  where
+    mv = Map.lookup k m
+
+    wrap :: Maybe v -> Map k v
+    wrap (Just v') = Map.insert k v' m
+    wrap Nothing   = case mv of
+                       Nothing -> m
+		       Just _  -> Map.delete k m
+
+- at is a parameterized (by key k) lens
+
+
+-- Application (Bit fields from Data.Bits.Lens)
+
+bitAt :: Int -> Lens' Int Bool
+
+> view (bitAt 1) 3
+True
+> view (bitAt 1) 2
+True
+> view (bitAt 1) 5
+False
+
+bitAt :: Bits b => Int -> Lens' b Bool
+
+
+-- Application (Fumbling in deep data structures -- Web-scraper from hexpat-lens package)
+
+p ^.. _HTML' . to allNodes
+             . traverse . named "a"
+	     . traverse . ix "href"
+	     . filtered isLocal
+	     . to trimSpaces
+
+
+- The second great Edward's idea about generalization
+
+type Lens' s a = forall f. Functor f => (a -> f a) -> (s -> f s)
+
+- We have seen that we can instantiate 'f' in various ways
+- But what if we changed "Functor" ?
+
+type Traversal' s a = forall f. Applicative f => (a -> f a) -> (s -> f s)
+
+-- A Traversal is a lens with multiple foci (focuses)
+-- Traversal' s a   --- can point to multiple places withing a data structure.
+
+- What on earth is Applicative ?
+
+class Functor f => Applicative f where
+  pure  :: a -> f a
+  (<*>) :: f (a -> b) -> f a -> f b
+
+-- A bit like Monad but weaker
+
+class Monad m where
+  return :: a -> m a
+  (>>=)  :: m a -> (a -> m b) -> m b
+
+-- Every Monad is an Applicative
+
+  pure = return
+  mf <*> mx = do { f <- mf; x <- mx; return (f x) }
+
+- But not vice versa
+
+-- How does Applicative support multi-focus lenses ?
+
+data Address = A { _road :: String, _city :: String, _postcode :: String }
+
+Note: Reminder:
+
+road :: Lens' Address String
+road elt_fn (A r c p) = (\r' -> A r' c p) <$> (elt_fn r)
+
+-- (\r' -> A r' c p)  -- box with hole in it
+-- (elt_fn r)         -- thing to put in the hole
+
+
+type Traversal' s a = forall f. Applicative f => (a -> f a) -> (s -> f s)
+
+- Imagine a Traversal focusing on 'road' and 'city' (but not 'postcode').
+
+addr_strs :: Traversal' Address String
+addr_strs elt_fn (A r c p)
+  = ... (\r' c' -> A r' c' p) ... (elt_fn r) ... (elt_fn c) ...
+
+-- (\r' c' -> A r' c' p)  -- Box with two holes :: String -> String -> Address
+-- (elt_fn r) :: f String
+-- (elt_fn c) :: f String
+
+Note: fmap (<$>) isn't powerfull enough to feed the mentioned three pieces togeather.
+
+-- So, the final code is:
+
+type Traversal' s a = forall f. Applicative f => (a -> f a) -> (s -> f s)
+
+addr_strs :: Traversal' Address String
+addr_strs elt_fn (A r c p)
+  = pure (\r' c' -> A r' c' p) <*> (elt_fn r) <*> (elt_fn c)
+
+- In fact, you'll see code like this:
+addr_strs elt_fn (A r c p)
+  = (\r' c' -> A r' c' p) <$> (elt_fn r) <*> (elt_fn c)
+  
+Note:
+class Functor f => Applicative f where
+  pure  :: a -> f a
+  (<*>) :: f (a -> b) -> f a -> f b
+
+
+-- What can we do with Traversal ???
+
+- Reminder:
+
+over :: Lens' s a -> (a -> a) -> s -> s
+over ln f = runIdentity . ln (Identity . f)
+
+- Imagine instead ln :: Traversal' s a
+- Does that work ???
+
+over :: Traversal' s a -> (a -> a) -> s -> s
+over ln f = runIdentity . ln (Identity . f)
+
+- Yes, if Identity is an instance of Applicative, which it is.
+
+- So, our new over will apply the (a -> a) function to all the focuses (foci)
+
+!!! Just going from Functor to Applicative gives you a lenses with multiple focuses (foci)
+
+
+-- Very similar things with 'view'
+
+view :: Lens' s a -> (s -> a)
+view ln s = getConst (ln Const s)
+
+- Try replacing Lens with Traversable
+
+view :: Traversable' s a -> (s -> a)
+view ln s = getConst (ln Const s)
+
+- This obviously can't work (Why not?)
+- We need Const to be an instance of Applicative
+
+- The Applicative instance of Const requires element values to be a Monoid !
+
+~~~~
+class Monoid a where
+  mempty :: a
+  mappend :: a -> a -> a
+
+class Functor f => Applicative f where
+  pure  :: a -> f a
+  (<*>) :: f (a -> b) -> f a -> f b
+
+newtype Const v a = Const v
+
+getConst :: Const v a -> v
+getConst (Const x) = a
+
+instance Functor (Const v) where
+  fmap f (Const x) = Const x  -- (Const v) functor ignores its argument a
+~~~
+
+instance Monoid a => Applicative (Const a) where
+  pure x = Const mempty
+  (Const vf) <*> (Const va) = Const (vf 'mappend' va)
+
+> let fredA = A "71 Humberstone Rd" "Cambridge" "CB4 1JD"
+> view addr_strs fredA
+"71 HumberstoneRdCambridge"
+
+
+-- Lenses aren't abstract
+
+type Lens' s a = forall f. Functor f => (a -> f a) -> (s -> f s)
+
+- .. and not
+
+newtype Lens' s a = L (forall f. Functor f => (a -> f a) -> (s -> f s))
+
+- Lenses and traversal would not compose (or would require lots of different functions to compose)
+
+
+-- A real type of lenses (type-changing lenses)
+
+type Lens' s a = Lens s s a a
+
+type Lens s t a b = forall f. Functor f => (a -> f b) -> (s -> f t)
+
+-- over :: Lens' s a -> (a -> a) -> s -> s
+
+over :: Profunctor p => Setting p s t a b -> p a b -> s -> t
+
+
+-- We extensively used the following to make amazing amount of abstractions:
+
+- The ability to abstract over type constructors (a lot of them a of a kind * -> *)
+- HigherRanked types (the lens themselves are polymorphic functions)
+- TypeClasses  

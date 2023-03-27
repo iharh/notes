@@ -1,0 +1,53 @@
+!!!
+We actually need only YARN from HADOOP
+
+SparkContext:
+
+SparkConf conf = new SparkConf();
+conf.setAppName("my spark app");
+conf.setMaster("local[*]");
+JavaSparkContext sc = new JavaSparkContext(conf)
+
+@Bean
+@Profile("local") // "prod" spring.profiles.active
+public JavaSparkContext sc() {
+    ...
+    // only for "local" - conf.setMaster("local[1]");
+    ...
+}
+
+
+RDD:
+JavaRDD<String> rdd = sc.textFile("file:/home/data/data.txt");
+
+rdd = sc.textFile("/data/data.txt") // hdfs://, s3://data/*
+
+flow ops:
+intermediate-rdd
+action-terminal
+- map, flatMap, mapToPair
+- reduceByKey (Tuple2::swap)
+- sortByKey
+- take
+
+persist (non-action)
+    store intermediate results to distinct places
+
+Broadcast:
+sparkctx.broadcast(any serializ-le obj)
+! bad thing to inject spark-ctx
+
+@AutowiredBroadcast // custom an-n
+Broadcast<UserConfig> userConfig;
+
+userConfig.garbage()....
+
+
+DataFrames
+distributed col-n of data organized into named columns (vs tuple or other stuff)
+they generate RDDs
+has a broad DSL linked with SqlContext
+    sqlContext.sql("select ...").toDF();
+    registerTable...
+    DataFrame linkedIn = sqlContext.read().json("data/file");
+    linkedIn.show();

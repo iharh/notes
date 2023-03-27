@@ -1,0 +1,14 @@
+https://docs.haskellstack.org/en/stable/docker_integration/
+
+stack.yaml
+# https://github.com/utdemir/ghc-musl
+docker:
+  enable: true
+  image: utdemir/ghc-musl:v24-ghc922
+
+# ghc-options: -static -optl-static -optl-pthread -fPIC -threaded -rtsopts -with-rtsopts=-N
+
+2022
+https://www.reddit.com/r/haskell/comments/uxru95/build_a_docker_image_from_a_simple_stack_project/
+2021
+https://www.fpcomplete.com/blog/2017/12/building-haskell-apps-with-docker/

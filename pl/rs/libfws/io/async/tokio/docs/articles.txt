@@ -1,0 +1,19 @@
+2022
+https://opensource.com/article/22/10/asynchronous-programming-rust
+2021
+https://dev.to/rogertorres/rust-tokio-stack-overview-runtime-9fh
+https://tomaka.medium.com/a-look-back-at-asynchronous-rust-d54d63934a1c
+    https://nuancesprog.ru/p/13146/
+https://fasterthanli.me/articles/pin-and-suffering
+2019
+https://www.snoyman.com/blog/2019/12/rust-crash-course-09-tokio-0-2
+https://tokio.rs/blog/2019-08-tracing/
+2018
+https://tokio.rs/blog/2018-12-recap-2018/
+https://tokio.rs/blog/2018-03-tokio-runtime/
+    https://www.reddit.com/r/rust/comments/834d55/new_tokio_release_the_tokio_runtime/
+https://manishearth.github.io/blog/2018/01/10/whats-tokio-and-async-io-all-about
+https://rustycrate.ru/%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/2018/01/29/tokio-asyncio.html
+2017
+http://asquera.de/blog/2017-03-01/the-future-with-futures/
+https://medium.com/@carllerche/announcing-tokio-df6bb4ddb34

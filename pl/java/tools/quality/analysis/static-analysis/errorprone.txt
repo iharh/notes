@@ -1,0 +1,27 @@
+http://errorprone.info/
+
+docs
+http://errorprone.info/docs/installation
+http://errorprone.info/docs/flags
+http://errorprone.info/docs/criteria
+http://errorprone.info/docs/plugins
+http://errorprone.info/docs/patching
+long read
+http://errorprone.info/docs/refaster
+
+bugpatterns
+http://errorprone.info/bugpatterns
+http://errorprone.info/bugpattern/PreconditionsCheckNotNull
+
+api
+http://errorprone.info/api/latest/
+
+gradle plugin
+https://github.com/tbroyer/gradle-errorprone-plugin
+https://github.com/google/error-prone/tree/master/examples/gradle
+https://github.com/google/error-prone/blob/master/examples/gradle/build.gradle
+
+2022
+https://www.infoq.com/news/2022/10/error-prone/
+2018
+https://cacm.acm.org/magazines/2018/4/226371-lessons-from-building-static-analysis-tools-at-google/fulltext

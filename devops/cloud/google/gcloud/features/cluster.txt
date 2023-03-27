@@ -1,0 +1,7 @@
+container
+    cluster
+        list
+            list available clusters
+        describe <name>
+        get-credentials <name>
+            write kubeconfig file ~/.kube/config

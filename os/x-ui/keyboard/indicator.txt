@@ -1,0 +1,8 @@
+Indicator:
+http://www.unix-lab.org/posts/openbox/
+http://virus.org.ua/unix/mydotfiles/xxkbrc
+https://www.linux.org.ru/forum/general/9947341
+http://archlinuxer.blogspot.com/2010/03/xxkb.html
+
+    ~/.config/openbox/autostart:
+    (sleep 1s && xxkb) &

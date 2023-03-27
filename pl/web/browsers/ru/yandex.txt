@@ -1,0 +1,20 @@
+https://browser.yandex.ru/
+    try pacstall
+
+inst
+pacstall -I yandex-browser-stable-deb
+    https://pacstall.dev/packages/yandex-browser-stable-deb
+    https://github.com/pacstall/pacstall-programs/blob/master/packages/yandex-browser-stable-deb/yandex-browser-stable-deb.pacscript
+    https://repo.yandex.ru/yandex-browser/deb/pool/main/y/yandex-browser-stable/
+
+sha256sum
+    hash="d88f61d8667377b5af3e6894a8da30946ec1136689d6afd92a730e328851c006"
+    version="22.9.1.1107-1"
+    url="https://repo.yandex.ru/yandex-browser/deb/pool/main/y/${gives}/${gives}_${version}_amd64.deb"
+    https://repo.yandex.ru/yandex-browser/deb/pool/main/y/yandex-browser-stable/yandex-browser-stable_22.9.1.1107-1_amd64.deb
+
+cert
+https://browser.yandex.ru/help/security/untrusted-sertificates.html?lang=ru
+
+yandex cert-mgr
+https://cloud.yandex.ru/docs/certificate-manager/operations/import/cert-get-content

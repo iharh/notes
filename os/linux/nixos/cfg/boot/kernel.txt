@@ -1,0 +1,5 @@
+boot.kernel.sysctl
+boot.kernelPackages
+
+boot.initrd.availableKernelModules
+    https://www.reddit.com/r/NixOS/comments/fvceeg/internal_keyboard_not_recognized_at_early_boot/

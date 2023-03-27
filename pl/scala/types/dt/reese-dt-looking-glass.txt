@@ -1,0 +1,304 @@
+https://www.youtube.com/watch?v=jgFAkmnBHwU
+http://wheaties.github.io/Presentations/NEScala2015/looking-glass.html#/
+
+- WHAT DO THEY LOOK LIKE?
+trait Foo {
+  type Bar
+
+  val value: Bar
+}
+						
+The type returned depends on the argument.
+
+def bar(foo: Foo): foo.Bar = foo.value
+
+
+-- WITH TYPE CLASSES
+
+def foo[T](that: T)(implicit bar: Bar[T]): bar.R
+
+def query[T](that: T)(implicit bar: Bar[T]): Result[bar.R]
+
+
+--
+There can't be bees - nobody ever saw bees a mile off, you know - Alice
+--
+
+- FLATSIZE
+
+implicit class ListOps[A](l: List[A]) {
+  def flatSize: Int = l.flatten.size
+}
+
+
+-- PROBLEM
+
+error: No implicit view available from
+    A => scala.collection.GenTraversableOnce[B].def flatSize = l.flatten.size
+                 ^
+
+Aren't problems good?
+
+
+-- FLATTEN
+
+! the flatten actually has implicit at def ...
+
+def flatten[B](implicit asTraversable: A => GenTraversableOnce[B]): List[B] = {
+  val b = genericBuilder[B]
+  for (xs <- sequential)
+    b ++= asTraversable(xs).seq
+  b.result()
+}
+
+
+-- FULL SIGNATURE
+
+implicit class ListOps[A](l: List[A]) {
+  def flatSize[B]
+    (implicit ast: A => GenTraversableOnce[B]): Int = 
+      l.flatten.size
+}
+						
+def flatSize[B]: Int
+
+
+-- REWRITTEN
+
+! If Oweit would rewrite it (using DTs):
+
+def flatten(implicit itl: IsTraversableOnce[A]): List[itl.A] = {
+  val b = genericBuilder[itl.A]
+  for (xs <- sequential)
+    b ++= itl.conversion(xs).seq
+  b.result()
+}
+						
+using something found in Scala itself
+
+trait IsTraversableOnce[Repr]{
+  type A
+
+  abstract val conversion: Repr => GenTraversableOnce[A]
+}
+
+
+-- NEW SIGNATURE
+
+! In the case of rewritten-flatten:
+
+implicit class ListOps[A](l: List[A]) {
+  def flatSize(implicit itl: IsTraversableOnce[A]): Int =
+    l.flatten.size
+}
+
+def flatSize: Int
+
+
+-- TYPE DISCOVERY
+
+! This is just a compile-time type reification
+
+trait IsMyType[MA]{
+  type A
+
+  def apply(ma: MA): SomeType[A]
+}
+
+implicit def isMT[A0] = new IsMyType[SomeType[A0]]{
+  type A = A0
+
+  def apply(ma: SomeType[A0]) = ma
+}
+						
+compile time psuedo-type reification
+
+
+--
+The rule is, jam to-morrow and jam yesterday – but never jam to-day. - the Queen
+--
+
+! No-one uses flatten-method too often because of the flatmap
+
+
+-- FLATMAP
+
+def map[B](f: A => B): M[B]
+
+def flatMap[B](f: A => M[B]): M[B]
+						
+because (no one want to deal with Some(None) ...
+
+opt map f match {
+  case None => //...code
+  case Some(Some(x)) => //...code
+  case Some(None) => //...!?
+}
+
+
+-- MORE INTUITIVE
+
+! ??? Oween would change that to
+
+def map[B](f: A => B)(implicit not: IsNotM[B]): M[B]
+
+def flatMap[B](f: A => B)(implicit ism: IsM[B]): M[ism.A]
+						
+one less possible mistake, right?
+
+
+-- DON'T MAKE ME THINK
+
+def map[B](f: T => B)(implicit tie: Tie[B]): M[tie.A] = 
+  dmap(f)(tie)
+
+def flatMap[B](f: T => B)(implicit tie: Tie[B]): M[tie.A] = 
+  dmap(f)(tie)
+
+def dmap[B](f: T => B)(implicit tie: Tie[B]): M[tie.A]
+
+
+-- THE CONTINUATION MONAD
+trait Cont[+T, R] { self =>
+  def apply(f: T => R): R
+
+  def map[B](f: T => B): Cont[B, R] = new Cont[B, R] {
+    def apply(g: B => R): R = self(f andThen g)
+  }
+
+  def flatMap[B](f: T => Cont[B, R]): Cont[B, R] = new Cont[B, R] {
+    def apply(g: B => R): R = self(f(_)(g))
+  }
+}
+
+
+-- REWRITTEN
+! If Owein were to rewrite this:
+
+trait Cont[+T, R] { self =>
+  def apply(f: T => R): R
+
+  def dmap[B](f: T => B)(implicit tie: Tie[B, R]) = new Cont[tie.In, R] {
+    def apply(g: tie.In => R): R = self(x => tie(f(x), g))
+  }
+}
+						
+with Tie as
+
+trait Tie[B, R] {
+  type In
+
+  def apply(b: B, f: In => R): R
+}
+
+
+-- TIE
+
+object Tie extends LowPriorityTie {
+  def apply[C, R](implicit tie: Tie[C, R]): Aux[C, R, tie.In] = tie
+
+  implicit def tieFM[B, R]: Aux[Cont[B, R], R, B] =
+    new Tie[Cont[B, R], R]{
+      type In = B
+
+      def apply(cont: Cont[B, R], f: B => R): R = cont(f)
+    }
+}
+
+trait LowPriorityTie {
+  type Aux[C, R, In0] = Tie[C, R]{ type In = In0 }
+
+  implicit def tieM[B, R]: Aux[B, R, B] =
+    new Tie[B, R] {
+      type In = B
+
+      def apply(b: B, f: B => R): R = f(b)
+    }
+}
+
+! here a "type-level" pattern-matching is going on
+
+
+-- TIE APPLY IN CONTEXT
+
+def dmap[B](f: T => B)(implicit tie: Tie[B, R]) = new Cont[tie.In, R]{
+  def apply(g: tie.In => R): R = self(x => tie(f(x), g))
+}
+						
+flatMap
+
+def apply(c: Cont[In, R], f: In => R): R = r(f)
+						
+map
+
+def apply(b: B, f: B => R): R = f(b)
+
+
+--
+Contrariwise, if it was so, it might be;
+and if it were so, it would be;
+but as it isn't, it ain't.
+That's logic. - Tweedledee
+--
+
+-- NEW RULE
+
+def yourMethod[B](f: AType => B): Future[B]
+						
+Don't do this.
+
+
+-- BECAUSE...
+
+val futfut: Future[Future[Unit]]
+val futtry: Future[Try[B]]
+						
+parse this
+
+futtry onComplete{
+  case Failure(ex) => //...
+  case Success(Success(x)) => //...
+  case Sucess(Failure(ex)) => //...!?
+}
+
+! our onSuccess - have to process failure
+
+-- REWRITTEN
+
+def yourMethod[B](f: AType => B)(implicit knot: Knot[B]): Future[knot.R]
+						
+with
+
+trait Knot[B]{
+  type R
+
+  def apply[A](in: Future[A], f: A => B): Future[R]
+}
+
+
+-- KNOT
+
+object Knot extends LowPriorityKnot {
+  def apply[FA](implicit knot: Knot[FA]): Aux[FA, knot.R] = knot
+
+  implicit def futFM[B]
+    (implicit ex: ExecutionContext): Aux[Future[B], B] =
+      new Knot[Future[B]]{
+        type R = B
+
+        def apply[A](in: Future[A], f: A => Future[B]) = in flatMap f
+      }
+
+  implicit def tryFM[B]
+    (implicit ex: ExecutionContext): Aux[Try[B], B] =
+      new Knot[Try[B]]{
+        type R = B
+
+        def apply[A](in: Future[A], f: A => Try[B]) = in flatMap { x => 
+          f(x) match{
+            case Success(x) => Future successful x
+            case Failure(ex) => Future failed ex
+          }
+        }
+      }
+}

@@ -1,0 +1,35 @@
+https://github.com/linuxkit/linuxkit
+
+2017:
+https://blog.docker.com/2017/04/introducing-linuxkit-container-os-toolkit/
+https://www.infoq.com/news/2017/05/Docker-Moby-LinuxKit
+https://techblog.rakuten.co.jp/2017/07/26/moby-and-linuxkit/
+https://www.mirantis.com/blog/ok-i-give-up-is-docker-now-moby-and-what-is-linuxkit/
+http://www.zdnet.com/article/docker-linuxkit-secure-linux-containers-for-windows-macos-and-clouds/
+https://medium.com/aishik/getting-started-with-linuxkit-and-moby-project-ff7121c4e321
+http://blog.wercker.com/what-is-linuxkit
+https://gianarb.it/blog/linuxkit-operating-system-build-for-containers
+https://www.opennet.ru/opennews/art.shtml?num=46420
+https://www.wintellect.com/quick-start-moby-linuxkit/
+https://www.weave.works/blog/docker-linux-distributions-that-work-with-kubernetes-linuxkit
+Cormack - Docker Linux Distributions that work with Kubernetes:
+    https://www.youtube.com/watch?v=kLeLaNVEH5k
+Introducing LinuxKit:
+    https://www.youtube.com/watch?v=FEtVxwsCUBY
+
+samples:
+https://nuald.blogspot.com.by/2017/10/running-arbitrary-containers-in-linuxkit.html
+
+presentations:
+https://fntlnz.wtf/downloads/containerday17-moby-linuxkit.pdf
+http://events.linuxfoundation.org/sites/events/files/slides/LSS%20Talk.pdf
+
+tutorials:
+http://training.play-with-docker.com/LinuxKit/
+https://www.gesellix.net/post/running-docker-linuxkit-on-linode/
+
+integration-kubernetes:
+http://provision.readthedocs.io/en/stable/doc/os-support/linuxkit.html
+https://www.youtube.com/watch?v=kITojfeYaPQ
+Kubernetes on LinuxKit:
+    https://www.youtube.com/watch?v=6Pe8GWLlzDw

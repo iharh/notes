@@ -1,0 +1,13 @@
+http://kheafield.com/code/kenlm/
+https://github.com/kpu/kenlm
+
+https://kheafield.com/code/kenlm/structures/
+https://libraries.io/github/kpu/kenlm
+http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.222.5293
+
+nplm
+http://nlg.isi.edu/software/nplm/
+https://www3.nd.edu/~dchiang/papers/vaswani-emnlp13.pdf
+http://nlg.isi.edu/software/nplm/vaswani-emnlp13.pdf
+http://www.aclweb.org/anthology/D13-1140
+https://github.com/kpu/misc/blob/master/lm/wrappers/nplm.hh

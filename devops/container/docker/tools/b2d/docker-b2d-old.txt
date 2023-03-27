@@ -1,0 +1,6 @@
+echo                               >> /home/$USER/.ashrc
+echo '# docker aliases'            >> /home/$USER/.ashrc
+echo alias doc-ps=\'docker ps -a\' >> /home/$USER/.ashrc
+echo alias doc-rmd=\'sudo docker rmi \$\(sudo docker images -q -f \"dangling=true\"\)\' >> /home/$USER/.ashrc
+echo alias doc-rmc=\'sudo docker rm -v \$\(sudo docker ps -aqf status=exited \&\& sudo docker ps -aqf status=dead\)\' >> /home/$USER/.ashrc
+

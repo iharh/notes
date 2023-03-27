@@ -1,0 +1,17 @@
+https://clap.rs/
+https://crates.io/crates/clap
+https://docs.rs/clap
+https://github.com/clap-rs/clap
+
+cargo add clap --features derive
+
+2023
+https://blog.railway.app/p/rust-cli-rewrite
+2022
+https://www.joshfinnie.com/blog/a-command-line-application-in-rust/
+https://epage.github.io/blog/2022/06/clap-32-last-call-before-40/
+2020
+https://kbknapp.dev/rust-cli/
+https://fpcomplete.com/command-line-parsing-with-clap/
+2019
+https://tech.fpcomplete.com/rust/command-line-parsing-clap

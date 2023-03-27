@@ -1,0 +1,69 @@
+https://github.com/jthegedus/asdf-gcloud.git
+
+https://raw.githubusercontent.com/jthegedus/asdf-gcloud/main/lib/utils.bash
+https://raw.githubusercontent.com/jthegedus/asdf-gcloud/main/bin/post-plugin-add
+    check_dependencies "/home/iharh/dependencies.txt" "warning"
+
+python deps
+!!!
+sudo apt install libreadline-dev libbz2-dev libsqlite3-dev
+
+https://github.com/jthegedus/asdf-gcloud/issues/26
+    ModuleNotFoundError: No module named '_sqlite3' 
+https://github.com/jthegedus/asdf-gcloud/issues/52
+    bug: error during installation with Python 3.10
+
+https://github.com/danhper/asdf-python/issues/49
+    . $HOME/.asdf/asdf.sh && PYTHONNOUSERSITE=1
+
+sqlite
+https://github.com/asdf-vm/asdf/issues/770
+    ????
+https://www.codegrepper.com/code-examples/sql/how+to+install+sqlite3+in+python
+    pysqlite3, db-sqlite3
+https://github.com/danhper/asdf-python/issues/83
+https://stackoverflow.com/questions/1210664/no-module-named-sqlite3
+    a lot stuff
+    /usr/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+
+    ~/.asdf/installs/python/3.9.5/lib/python3.9/lib-dynload
+
+    $ dpkg-query -S /usr/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+    libpython3.9-stdlib:amd64: /usr/lib/python3.9/lib-dynload/_sqlite3.cpython-39-x86_64-linux-gnu.so
+    https://packages.debian.org/sid/libpython3.9-stdlib
+
+    $ dpkg-query -L libpython3.9-stdlib
+
+
+sys path
+https://www.geeksforgeeks.org/sys-path-in-python/
+    import sys
+    sys.path
+site
+    https://docs.python.org/3/library/site.html
+    python -m site [--user-base]
+????
+    export PYTHONHOME=/usr
+
+asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud
+asdf install gcloud latest
+asdf list gcloud
+asdf global gcloud latest
+
+~/.asdf/installs/gcloud/379.0.0
+
+gcloud components list
+gcloud components install kubectl
+
+WARNING:   There are other instances of Google Cloud tools on your system PATH.
+  Please remove the following to avoid confusion or accidental invocation:
+
+  /home/iharh/.asdf/shims/gsutil
+/home/iharh/.asdf/shims/java_dev_appserver.sh
+/home/iharh/.asdf/shims/endpointscfg.py
+/home/iharh/.asdf/shims/git-credential-gcloud.sh
+/home/iharh/.asdf/shims/docker-credential-gcloud
+/home/iharh/.asdf/shims/bq
+/home/iharh/.asdf/shims/gcloud
+/home/iharh/.asdf/shims/anthoscli
+/home/iharh/.asdf/shims/dev_appserver.py

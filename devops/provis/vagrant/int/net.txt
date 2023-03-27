@@ -1,0 +1,37 @@
+-----> Starting Kitchen (v1.11.1)
+-----> Creating <linux-centos-72>...
+       Bringing machine 'default' up with 'virtualbox' provider...
+       ==> default: Importing base box 'bento/centos-7.2'...
+==> default: Matching MAC address for NAT networking...
+       ==> default: Checking if box 'bento/centos-7.2' is up to date...
+       ==> default: Setting the name of the VM: kitchen-cb-eureka-linux-centos-72_default_1474954015266_42122
+       ==> default: Clearing any previously set network interfaces...
+       ==> default: Preparing network interfaces based on configuration...
+           default: Adapter 1: nat
+
+/opt/vagrant/embedded/gems/gems/vagrant-1.8.5/
+
+templates/locales/en.yml
+
+       network:
+          ...
+          preparing: |-
+            Preparing network interfaces based on configuration...
+
+        host_only_network:
+          preparing: "Preparing host only network..."
+
+
+plugins/providers/virtualbox/driver/meta.rb
+101:          :create_host_only_network,
+105:          :delete_unused_host_only_networks,
+
+plugins/providers/virtualbox/driver/base.rb
+96:        def create_host_only_network(options)
+104:        def delete_unused_host_only_networks
+284:        # of read_host_only_networks). This is a sad function that only
+
+lib/vagrant/errors.rb
+440:      error_key(:collides, "vagrant.actions.vm.host_only_network")
+448:      error_key(:not_found, "vagrant.actions.vm.host_only_network")
+

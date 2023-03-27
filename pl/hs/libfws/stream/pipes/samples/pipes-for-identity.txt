@@ -1,0 +1,29 @@
+http://stackoverflow.com/questions/18973499/folding-a-subset-of-a-stream-using-pipes-4-0/
+
+import Pipes
+import qualified Pipes.Prelude as P
+import Control.Monad.Identity
+
+nums :: Producer Int Identity ()
+nums = each [1..20]
+
+process :: Producer Int Identity ()
+process = nums >-> (P.drop 5) >-> (P.take 5)
+
+result :: Identity Int
+result = P.fold (+) 0 id process
+
+main = print $ runIdentity result
+
+
+
+import Pipes
+import Pipes.Parse
+import qualified Pipes.Prelude as P
+
+main :: IO ()
+main = do
+    res <- (`evalStateT` (each [1..20])) $ do
+        runEffect $ for (input >-> P.take 5) discard
+        P.sum (input >-> P.take 5)
+    print res

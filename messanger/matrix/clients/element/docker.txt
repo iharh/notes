@@ -1,0 +1,9 @@
+https://github.com/spantaleev/matrix-docker-ansible-deploy
+
+https://hub.docker.com/r/vectorim/element-web/dockerfile
+https://github.com/vector-im/element-web
+    ! 1.10.1
+
+https://hub.docker.com/r/bubuntux/element-web/
+https://hub.docker.com/r/bubuntux/element-web/tags
+    ! 4 month ago - 1.9.0

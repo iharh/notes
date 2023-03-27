@@ -1,0 +1,22 @@
+2017
+Skillmatters - YOW! 2016 Robert C. Martin - Effective Estimation (or: How not to Lie) of 47:45
+    https://www.youtube.com/watch?v=eisuQefYw_o
+2015
+gnbitcom - Robert C Martin - Professional Software Development of 1:00:07
+    https://www.youtube.com/watch?v=zwtg7lIMUaQ
+gnbitcom - Robert C Martin - Software Architecture of 59:25
+    https://www.youtube.com/watch?v=oL7wwyu2P-E
+    ! Interactor -> UseCase (better name), contains app-specific business rules
+    ! Entities (cotain app independent business rules), Business/Domain Objects
+    ! in/out Boundaries (i-faces) allow data in/out
+    ! 36:30 Architecture is an Art of Making Sure your Arrows go into the Right Direction
+2014
+gnbitcom - Robert C Martin - The Single Responsibility Principle of 51:08
+    https://www.youtube.com/watch?v=Gt0M_OHKhQE
+gnbitcom - Robert C Martin - Clean Architecture of 57:24
+    https://www.youtube.com/watch?v=Nltqi7ODZTM
+    ! 22:00 A Good Architecture maximizes the number of decisions not made!
+    ! 33:30 Good Architecture are not composed of tool and framework decisions, but allow to defer them
+gnbitcom - Robert C Martin - Clean Architecture and Design of 58:38
+    https://www.youtube.com/watch?v=Nsjsiz2A9mg
+    ! 10:30 arch is about intent

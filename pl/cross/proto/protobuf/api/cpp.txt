@@ -1,0 +1,16 @@
+https://developers.google.com/protocol-buffers/docs/cpptutorial
+https://developers.google.com/protocol-buffers/docs/reference/cpp/
+https://developers.google.com/protocol-buffers/docs/reference/cpp-generated
+https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message
+https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message
+https://github.com/google/protobuf-gradle-plugin/issues/139
+
+bool SerializeToString(string* output) const;
+    serializes the message and stores the bytes in the given string.
+    Note that the bytes are binary, not text; we only use the string class as a convenient container.
+bool ParseFromString(const string& data);
+    parses a message from the given string.
+bool SerializeToOstream(ostream* output) const;
+    writes the message to the given C++ ostream.
+bool ParseFromIstream(istream* input)
+    parses a message from the given C++ istream

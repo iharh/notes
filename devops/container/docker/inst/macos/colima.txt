@@ -1,0 +1,13 @@
+https://github.com/abiosoft/colima
+
+brew install [--HEAD] colima
+
+colima
+    [cmd] --help
+    start
+        --with-kubernetes
+        --runtime containerd
+        --cpu <num>
+        --memory <num>
+        --disk <num>
+    delete

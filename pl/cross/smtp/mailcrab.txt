@@ -1,0 +1,14 @@
+https://github.com/tweedegolf/mailcrab
+    docker run --rm -p 1080:1080 -p 1025:1025 marlonb/mailcrab:latest
+    version: "3.8"
+    services:
+        mailcrab:
+            image: marlonb/mailcrab:latest
+            ports:
+                - "1080:1080"
+                - "1025:1025"
+            networks:
+                [default]
+
+2023
+https://tweedegolf.nl/en/blog/86/introducing-mailcrab

@@ -1,0 +1,43 @@
+https://www.cppstories.com/tags/ranges/
+
+2023
+https://www.cppstories.com/2023/projections-examples-ranges/
+https://hackingcpp.com/news/2023-02-19.html
+2022
+https://www.modernescpp.com/index.php/improved-iterators-with-ranges
+https://www.cppstories.com/2022/ranges-alg-part-three/
+    https://habr.com/ru/company/skillfactory/blog/707946/
+https://www.cppstories.com/2022/ranges-alg-part-two/
+    https://habr.com/ru/company/skillfactory/blog/707948/
+https://www.cppstories.com/2022/ranges-alg-part-one/
+    https://habr.com/ru/company/skillfactory/blog/706458/
+https://www.cppstories.com/2022/ranges-perf/
+https://www.cppstories.com/2022/ranges-composition/
+2021
+https://marcoarena.wordpress.com/2021/06/23/reversing-words-of-a-string-with-ranges-thatsarotate/
+https://itnext.io/c-20-ranges-complete-guide-4d26e3511db0
+    https://github.com/HappyCerberus/article-cpp20-ranges
+https://oleksandrkvl.github.io/2021/10/11/projected-ranges.html
+    !!!
+https://habr.com/ru/company/yandex_praktikum/blog/557890/
+https://itnext.io/c-20-ranges-complete-guide-4d26e3511db0
+    https://habr.com/ru/company/otus/blog/594251/
+2020
+https://vector-of-bool.github.io/2019/10/21/rngs-static-ovr.html
+https://tristanbrindle.com/posts/numeric-ranges-for-cpp20
+https://tristanbrindle.com/posts/rvalue-ranges-and-views
+2019
+https://gieseanw.wordpress.com/2019/10/20/we-dont-need-no-stinking-expression-templates/
+https://www.nextptr.com/tutorial/ta1208652092/how-cplusplus-rangebased-for-loop-works
+https://www.fluentcpp.com/2019/09/13/the-surprising-limitations-of-c-ranges-beyond-trivial-use-cases/
+https://mariusbancila.ro/blog/2019/01/20/cpp-code-samples-before-and-after-ranges/
+    https://habr.com/ru/company/otus/blog/456452/
+https://ezoeryou.github.io/blog/article/2019-01-22-ranges-projection.html
+    https://github.com/EzoeRyou/blog/blob/master/article/2019-01-22-ranges-projection.html
+2018
+http://aras-p.info/blog/2018/12/28/Modern-C-Lamentations/
+    https://habr.com/ru/company/jugru/blog/438260/
+https://www.fluentcpp.com/2018/12/07/algorithms-on-ranges/
+http://ericniebler.com/2018/12/05/standard-ranges/
+https://brevzin.github.io/c++/2018/12/03/span-best-span/
+https://cor3ntin.github.io/posts/rangeof/

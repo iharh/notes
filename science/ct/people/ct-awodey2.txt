@@ -1,0 +1,113 @@
+Inverse:
+
+f : A -> B
+left  inverse is  g : B -> A  such that  g . f = 1_A (id-morphism in A) - retraction
+right inverse is  g : B -> A  such that  f . g = 1_B (id-morphism in B) - section
+
+Monomorphism:
+is a morphism (f : A -> B) which can be canceled on the left:
+forall g, h : C -> A  :  f . g = f . h  =>  g = h
+
+C -- (g) --> A -- (f) --> B
+  -- (h) -->
+
+We typically write f : A >--> B for mono-s.
+
+Epiomorphism:
+is a morphism (f : A -> B) which can be canceled on the right:
+forall g, h : B -> C  :  g . f = h . f  =>  g = h
+
+A -- (f) --> B -- (f) --> C
+               -- (g) -->
+
+We typically write : f : A -->> B for epi-s.
+
+
+In Set, monos are injective functions, epis - are the surjective ones.
+In Set, is = mono and epi (in general this in NOT true).
+
+Isomorphisms:
+
+Every iso is mono and epi (Prop 2.6)
+The opposite is true only in Set-cat.
+
+
+In any category \bold(C), an object
+
+0 is initial if for any object C there is a unique morphism
+  0 -> C
+
+1 is terminal if for any object C there is a unique morphism
+  C -> 1
+
+A Terminal object is just an initial object in C^op.
+
+Prop (2.8) Initial (terminal) objects are unique up to the isomorphism.
+
+Example: In Sets the empty set is initial and every singletone-set is terminal.
+
+Boolean algebra (p 45): is a POset with distinguished el-s (0, 1), operations (and/meet, or/join, not) and axioms.
+Boolean algebra examples:
+	PowerSet.
+	2-el bool-algebra at {0, 1}
+
+In a poset, an object is initial if it is the least one and terminal - if greatest one.
+
+For any X of C, the X -> X is initial in X/C and terminal in C/X.
+
+
+
+Def(2.13) A split mono(epi) is an arrow with a left (right) inverse.
+Terminology: Given arrows
+  e: X -> A
+  s: A -> X
+such that
+  e . s = 1_A,
+then s is called a section/splitting of e
+and  e is called a retraction        of s
+The object A is called a retract of X.
+
+Note: since functors preserver identities, they also preserver split-epis and split-monos.
+
+
+Products:
+
+Def (2.16) In any category C, a product-diagram for the objects A and B consists of an object P and arrorws
+
+  A <-- (p1) -- P -- (p2) --> B
+
+  satisfying the following UMP:
+
+  Given any diagram of the form
+
+  A <-- (x1) -- X -- (x2) --> B
+
+  there exists a unique u : X -> P, making the diagram:
+
+  A <-- (x1) -- X -- (x2) --> B
+                .
+               (u)
+                .
+  A <-- (p1) -- P -- (p2) --> B
+
+  commute, i.e. such that x1 = p1 . u  and x2 = p2 . u
+
+Remark (2.17) As in the other UMPs, there are two parts:
+  Existence : There is some u : X -> P such that x1 = p1 . u  and x2 = p2 . u
+  Uniqueness: Given any     v : X -> P, if       x1 = p1 . v  and x2 = p2 . v , then v = u 
+
+Prop (2.18) Products are unique up to isomorphism.
+		
+A category which has a product for every pair of objects is said to have binary products.
+
+If a category has binary products, it has ternary and so on products ...
+
+Observe also that a terminal object is a "null-ary" product (i.e. a product of no objects):
+for any other object X, there is a unique arrow
+  ! : X -> 1
+
+
+Def (2.19) A category C is said to have all finite products if it has a terminal object and all binary products
+(and products of any finite cardinality). The category C has all (small) products if every set of objects in C has a product.
+
+

@@ -1,0 +1,29 @@
+https://docs.oracle.com/cd/B28359_01/install.111/b32006/advance.htm
+
+post-inst:
+dbca.exe (databace configuration assistant)
+
+??? dbca.rsp
+
+
+NLS_LENGTH_SEMANTICS
+
+!!! try to restart the DB right after the install !!!
+
+https://docs.oracle.com/cd/E24693_01/server.11203/e24448/initparams149.htm
+https://docs.oracle.com/cd/B28359_01/server.111/b28320/initparams142.htm
+
+http://abcdba.com/abcdbaservernlslengthsemantics
+The NLS_LENGTH_SEMANTICS parameter can be set at instance level in the init.ora or spfile. One will then see the parameter change in NLS_INSTANCE_PARAMETERS.
+
+http://stackoverflow.com/questions/11044086/which-nls-length-semantics-for-we8mswin1252-character-set
+ALTER SYSTEM SET NLS_LENGTH_SEMANTICS=CHAR;
+
+
+Reference:
+https://docs.oracle.com/cd/E24693_01/index.htm
+https://docs.oracle.com/cd/E24693_01/nav/installation.htm
+https://docs.oracle.com/cd/E24693_01/em.11203/e12255/toc.htm
+
+https://docs.oracle.com/cd/E24693_01/nav/getstarted.htm
+https://docs.oracle.com/cd/E24693_01/server.11203/e24448/toc.htm

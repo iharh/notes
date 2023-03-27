@@ -1,0 +1,6 @@
+https://gitlab.freedesktop.org/pipewire/wireplumber
+
+systemctl --user enable --now wireplumber
+
+2021
+https://fedoramagazine.org/wireplumber-the-new-pipewire-session-manager/

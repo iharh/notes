@@ -1,0 +1,50 @@
+http://ajoberstar.org/grgit/index.html
+
+https://plugins.gradle.org/plugin/org.ajoberstar.grgit
+
+https://github.com/ajoberstar/grgit
+https://github.com/ajoberstar/grgit/releases
+
+http://ajoberstar.org/grgit/grgit-reference.html
+    http://ajoberstar.org/grgit/grgit-gradle.html
+    http://ajoberstar.org/grgit/grgit-authentication.html
+    http://ajoberstar.org/grgit/grgit-clone.html
+    http://ajoberstar.org/grgit/grgit-fetch.html
+    http://ajoberstar.org/grgit/grgit-pull.html
+    http://ajoberstar.org/grgit/grgit-push.html
+    http://ajoberstar.org/grgit/grgit-init.html
+    http://ajoberstar.org/grgit/grgit-open.html
+
+http://ajoberstar.org/gradle-git/docs/groovydoc/overview-summary.html
+
+usage
+    import org.ajoberstar.grgit.Grgit
+    plugins {
+        id("org.ajoberstar.grgit").version("4.1.0")
+    }
+
+samples
+https://github.com/duckietown/hatchery/blob/master/build.gradle.kts
+    https://github.com/MobileToolkit/firebase-android/blob/master/buildSrc/src/main/kotlin/Git.kt
+    https://github.com/MobileToolkit/databinding-android/blob/master/buildSrc/src/main/kotlin/Git.kt
+https://github.com/vlsi/vlsi-release-plugins/blob/master/plugins/stage-vote-release-plugin/src/main/kotlin/com/github/vlsi/gradle/release/ReleaseExtension.kt
+    val grgit = project.property("grgit") as Grgit
+    val jgit = grgit.repository.jgit
+
+    updload
+        https://github.com/snrostov/Robot-Scouter-build-perf-test/blob/master/buildSrc/src/main/kotlin/com/supercilex/robotscouter/build/tasks/UploadAppToVc.kt
+
+    clone
+        https://github.com/Durun/nh3-lite/blob/master/build.gradle.kts
+        https://github.com/goblinr/git-changelog-gradle-plugin/blob/master/plugin/src/main/kotlin/com/a65apps/changelog/utils/GitUtils.kt
+
+    val cloneRepo by registering {
+        doLast {
+            val repo = kotlin.runCatching {
+                Grgit.open(mapOf("dir" to clonePath))
+            }.getOrElse {
+                Grgit.clone(mapOf("dir" to clonePath, "uri" to cloneUrl))
+            }
+            repo.pull(mapOf("branch" to cloneBranch))
+        }
+    }

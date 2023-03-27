@@ -1,0 +1,8 @@
+https://github.com/acdlite/recompose/issues/653
+
+const MyLifecycle = Component => class Bla extends React.Component {
+    ...any lifecycles you like
+   render() {
+       return <Component {...this.props} {...this.state} myHandler={this.handler} etc... />
+   }
+}

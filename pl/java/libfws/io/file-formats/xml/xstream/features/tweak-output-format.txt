@@ -1,0 +1,37 @@
+https://x-stream.github.io/manual-tweaking-output.html
+
+xmlns
+https://github.com/x-stream/xstream/blob/master/xstream/src/test/com/thoughtworks/acceptance/QNameMappedConcreteClassesTest.java
+https://x-stream.github.io/javadoc/com/thoughtworks/xstream/io/xml/QNameMap.html
+https://x-stream.github.io/javadoc/com/thoughtworks/xstream/io/xml/class-use/QNameMap.html
+https://github.com/x-stream/xstream/issues/9
+
+    QNameMap nsm = new QNameMap();
+    // nsm.setDefaultPrefix("a");
+    nsm.setDefaultNamespace("http://clarabridge.com/fx/config");
+    StaxWriter staxWriter = staxDriver.createStaxWriter(
+        staxDriver.getOutputFactory().createXMLStreamWriter(new FileWriter(xmlOutputFileName)), 
+        false); // do not write the XML declaration
+
+    xstream.marshal(rootObjToMarshal, new PrettyPrintWriter(staxWriter));
+
+faq
+    HierarchicalStreamDriver driver = new JsonHierarchicalStreamDriver() {
+        public HierarchicalStreamWriter createWriter(Writer out) {
+            return new WriterWrapper(super.createWriter(out)) {
+                public void startNode(String name) {
+                    startNode(name, null);
+                }
+                public void startNode(String name, Class clazz) {
+                    wrapped.startNode(name.replace('-', '_'), clazz);
+                }
+            }
+        }
+    };
+    XStream xstream = new XStream(driver);
+
+
+    HierarchicalStreamWriter hierarchicalStreamWriter = staxDriver.createWriter(new FileWriter(xmlOutputFileName));
+    xstream.marshal(cfg, hierarchicalStreamWriter);
+
+    xstream.toXML(cfg, new FileWriter(xmlOutputFileName));

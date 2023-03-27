@@ -1,0 +1,10 @@
+sudo rpm -qa <some_str>
+	Info about installed packages
+
+PubKeys:
+sudo rpm -qa gpg-pubkey*
+sudo rpm -qi gpg-pubkey-35bcca43-483536b7
+sudo rpm -e --allmatches gpg-pubkey-35bcca43-483536b7
+
+Files:
+/etc/pki/rpm-gpg/*

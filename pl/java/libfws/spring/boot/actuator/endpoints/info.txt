@@ -1,0 +1,26 @@
+Info Endpoint
+https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info
+    InfoEndpoint.java
+    EnvironmentInfoContributor.java
+
+InfoContributor
+https://memorynotfound.com/spring-boot-customize-actuator-info-endpoint-example-configuration/
+
+https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator-autoconfigure/src/main/java/org/springframework/boot/actuate/autoconfigure/info
+    InfoEndpointAutoConfiguration.java
+    InfoContributorAutoConfiguration.java
+
+        @Bean
+	@ConditionalOnEnabledInfoContributor("env")
+	@Order(DEFAULT_ORDER)
+	public EnvironmentInfoContributor envInfoContributor(ConfigurableEnvironment environment) {
+		return new EnvironmentInfoContributor(environment);
+        }
+
+
+misc
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/context/properties/bind/
+    Binder.java
+
+!!! env: StandardServletEnvironment {activeProfiles=[], defaultProfiles=[default], propertySources=[MapPropertySource {name='server.ports'}, ConfigurationPropertySourcesPropertySource {name='configurationProperties'}, StubPropertySource {name='servletConfigInitParams'}, ServletContextPropertySource {name='servletContextInitParams'}, MapPropertySource {name='systemProperties'}, OriginAwareSystemEnvironmentPropertySource {name='systemEnvironment'}, RandomValuePropertySource {name='random'}, OriginTrackedMapPropertySource {name='applicationConfig: [classpath:/application.yml]'}, MapPropertySource {name='springCloudClientHostInfo'}, MapPropertySource {name='defaultProperties'}]}
+

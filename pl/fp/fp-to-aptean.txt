@@ -1,0 +1,42 @@
+This is the Unix philosophy:
+- Write programs that do one thing and do it well.
+- Write programs to work together.
+- Write programs to handle text streams, because that is a universal interface.
+
+Douglas Malcolm McIlroy (inventor of Unix pipes) - http://www.faqs.org/docs/artu/ch01s06.html
+
+
+FP Generally:
+https://speakerdeck.com/igstan/functional-programming
+
+FP in Java:
+1. Java8
+http://www.slideshare.net/garthbrown/lambda-functions-in-java-8
+2. General
+- JF Smart Presentation - http://www.slideshare.net/wakaleo/functional-programming-in-java-14580186
+- Solntsev Presentation - http://www.slideshare.net/asolntsev/functional-programming-in-java, http://vimeo.com/7863984
+3. Google Guava 
+http://www.slideshare.net/alexkorotkikh/google-guava-12991826
+4. Op4j (http://www.op4j.org)
+http://www.op4j.org/basics.html
+5. Netflix RxJava
+https://github.com/Netflix/RxJava/wiki
+
+
+FP in Scala:
+Venkat Subramanian - Scala for the Intrigued (http://marakana.com/s/post/1488/scala_for_the_intrigued_venket_subramaniam_video)
+http://www.slideshare.net/jboner/pragmatic-real-world-scala-45-min-presentation
+http://www.slideshare.net/sbjug/introduction-to-scala-for-java-programmers-15050372
+
+
+FP in Clojure:
+http://www.infoq.com/presentations/Clojure-Towards-The-Essence-Of-Programming (http://www.slideshare.net/hlship/clojure-essenceprogramming)
+http://www.slideshare.net/hlship/clojure-deep-dive
+
+
+Advanced stuff:
+
+CT and Monads:
+http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html
+
+

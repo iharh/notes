@@ -1,0 +1,9 @@
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/util/UriComponentsBuilder.html
+
+sample
+    return UriComponentsBuilder.newInstance()
+        .scheme("http")
+        .host("localhost").port(18080)
+        .path("some/rest/path")
+        .build()
+        .toUriString();

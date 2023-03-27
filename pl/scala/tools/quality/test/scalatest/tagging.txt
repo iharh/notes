@@ -1,0 +1,19 @@
+import org.scalates.Tag
+object SlowTest extends Tag("com.mycompany.tags.SlowTest")
+object DbTest extends Tag("com.mycompany.tags.DbTest")
+import org.scalatest.FlatSpec
+class ExampleSpec extends FlatSpec {
+    "The Scala language" must "add correctly" taggedAs(SlowTest) in {
+        val sum = 1 + 1
+        assert(sum === 2)
+    }
+    it must "subtract correctly" taggedAs(SlowTest, DbTest) in {
+        val diff = 4 - 1
+        assert(diff === 3)
+    }
+}
+
+class ...Spec extends Tag("tagName")
+
+sbt
+> testOnly *ExampleSpec -- -l com.mycompaty.tags.SlowTest // Exclude SlowTest-s

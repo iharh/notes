@@ -1,0 +1,19 @@
+generates CMakeCache.txt
+
+CMakeLists.txt samples:
+http://derekmolloy.ie/hello-world-introductions-to-cmake/
+https://mirkokiefer.com/cmake-by-example-f95eb47d45b1
+https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/chap1/chap1.html
+
+faq
+http://wiki.inkscape.org/wiki/index.php/Working_with_CMake
+
+out-of-source build
+http://cprieto.com/posts/2016/10/cmake-out-of-source-build.html
+    cmake -H. -Bbuild
+    cmake --build build --clean-first
+
+CMakeSetup on win
+ccmake
+    --help-full
+

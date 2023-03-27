@@ -1,0 +1,24 @@
+https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/
+
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/reference/html/
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/reference/htmlsingle/
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/reference/pdf/spring-security-reference.pdf
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/apidocs/
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/guides/html5/
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/guides/html5/helloworld-xml.html
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/guides/html5/hellomvc-javaconfig.html
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/guides/html5/helloworld-boot.html
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/guides/html5/helloworld-javaconfig.html
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/guides/html5/form-javaconfig.html
+
+https://docs.spring.io/spring-security/reference/6.0.0-M4/servlet/authentication/architecture.html#servlet-authentication-providermanager
+    !!!
+
+api
+https://docs.spring.io/spring-security/site/docs/4.2.11.RELEASE/apidocs/org/springframework/security/config/annotation/web/builders/HttpSecurity.html
+
+old
+https://docs.spring.io/spring-security/site/docs/4.1.3.RELEASE/reference/htmlsingle/
+Expression-based access control
+https://docs.spring.io/spring-security/site/docs/4.1.3.RELEASE/reference/htmlsingle/#el-access

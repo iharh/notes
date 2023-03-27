@@ -1,0 +1,139 @@
+https://github.com/Brooooooklyn/redux-epics-decorator
+https://github.com/Brooooooklyn/redux-epics-decorator/tree/master/docs
+
+2018
+https://reactjsexample.com/dumb-decorators-for-redux-redux-observable-react-redux/
+
+redux redux-observable rxjs redux-actions react-redux
+    redux-epics-decorator
+
+// module.ts
+import { Action } from 'redux-actions'
+import { ActionsObservable } from 'redux-observable'
+import { Observable } from 'rxjs'
+import { exhaustMap, takeUntil } from 'rxjs/operators'
+
+import { generateMsg, Msg } from '../service'
+import { EffectModule, Module, Effect, Reducer, ModuleActionProps, DefineAction } from 'redux-epics-decorator'
+
+export interface StateProps {
+  currentMsgId: string | null
+  allMsgs: Msg[]
+}
+
+@Module('your_module_name')
+export class Module1 extends EffectModule<StateProps> {
+  readonly defaltState: StateProps = {
+    currentMsgId: null,
+    allMsgs: []
+  }
+
+  @DefineAction('dispose') dispose: Observable<void>
+
+  @Effect({
+    success: (state: StateProps, { payload }: Action<Msg>) => {
+      const { allMsgs } = state
+      return { ...state, allMsgs: allMsgs.concat([payload!]) }
+    }
+  })
+  getMsg(action$: Observable<void>) {
+    return action$.pipe(
+      exhaustMap(() => generateMsg().pipe(
+        takeUntil(this.dispose),
+        map(this.createAction('success')), // up in Effect Decorator
+        // dispatch a normal Redux Action
+        // intergrate to your existed redux system
+        endWith(this.markAsGlobal({
+          type: 'notification',
+          payload: {
+            type: 'success',
+            msg: '✨ Get message success!'
+          }
+        })),
+      ))
+    )
+  }
+
+  @Reducer('select_msg')
+  selectMsg(state: StateProps, { payload }: Action<string>) {
+    return { ...state, currentMsgId: payload }
+  }
+}
+
+export type DispatchProps = ModuleActionProps<Module1>
+
+
+
+// container.tsx
+import { Module1, StateProps, DispatchProps } from './module'
+
+interface OtherProps {
+  price: number
+  count: number
+}
+type Props = StateProps & OtherProps & DispatchProps
+
+const mapStateToProps = (state: GlobalState): StateProps => ({
+  ...state.yourcomponent,
+  price: otherModule.price,
+  count: otherModule.count,
+})
+
+class YourComponent extends React.PureComponent<Props> {
+  // your codes ...
+
+  render() {
+    // this is same to this.props.dispatch({ type: 'Module1/getMsg' })
+    this.props.getMsg() // () => Action<void>, type safe here
+    return (
+      <div />
+    )
+  }
+}
+
+export connect(Module1)(mapStateToProps)(YourComponent)
+
+
+// store/epic.ts and ...
+import { combineModuleEpics, combineModuleReducers, createEpicMiddleware } from 'redux-epics-decorator'
+
+import { StateProps as YourComponentStateProps, Module1 } from './yourcomponent/module'
+
+interface GlobalState {
+  yourcomponent: YourComponentStateProps
+}
+
+const rootEpic = combineEpics(
+  combineModuleEpics(
+    Module1,
+    Module2,
+    Module3,
+  ),
+  // other normal epics from redux-observable
+  epic1,
+  epic2,
+  epic3,
+)
+
+
+const rootReducer = combineReducers({
+  ...combineModuleReducers({
+    module1: Module1,
+    module2: Module2,
+    module3: Module3,
+  }),
+  // other normal reducers from redux-actions
+  other1: otherReducers1,
+  other2: otherReducers2,
+})
+
+const epicMiddleware = createEpicMiddleware()
+
+export default store = createStore<GlobalState>(rootReducer, compose<any>(
+  applyMiddleware(
+    epicMiddleware
+  )
+))
+
+epicMiddleware.run(rootEpic)
+

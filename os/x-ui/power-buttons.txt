@@ -1,0 +1,28 @@
+XF86PowerOff
+
+http://crunchbang.org/forums/viewtopic.php?id=28461
+
+xmodmap -pke | grep PowerOff
+
+keycode 124 = XF86PowerOff NoSymbol XF86PowerOff
+
+
+~/.config/openbox/rc.xml:
+
+<keybind key="0x7C">
+    <action name="Execute">
+        <command>oblogout</command>
+    </action>
+</keybind>
+
+
+It still may be worth adding 'acpi=force' to the list of kernel parameters.
+If that doesn't work try 'apm=off acpi=force'
+
+ACPI:
+https://wiki.archlinux.org/index.php/Power_Management
+
+acpid
+https://wiki.archlinux.org/index.php/Acpid
+http://askubuntu.com/questions/334168/my-power-button-doesnt-work-under-lxde-how-can-i-fix-this
+

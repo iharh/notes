@@ -1,0 +1,35 @@
+https://openjdk.java.net/jeps/395
+https://openjdk.java.net/jeps/384
+https://openjdk.java.net/jeps/359
+
+https://docs.oracle.com/en/java/javase/14/docs/specs/records-serialization.html
+    https://inside.java/2020/07/20/serializablerecords/
+
+draft
+https://bugs.openjdk.java.net/browse/JDK-8246771
+
+lib
+https://github.com/Monospark/remix
+
+https://github.com/openjdk/amber-docs/blob/master/eg-drafts/reconstruction-records-and-classes.md
+    https://www.reddit.com/r/java/comments/mkin1q/early_stage_draft_functional_transformation_of/
+
+2022
+https://mikemybytes.com/2022/02/16/java-records-and-compact-constructors/
+Records Patterns, Performance and Serialization - JEP Café #8 of 15:27
+    https://www.youtube.com/watch?v=1oC9ESbyvqs
+2021
+https://codeahoy.com/java/record-keyword/
+https://nipafx.dev/java-record-semantics/
+    https://www.reddit.com/r/java/comments/n6ueqh/why_javas_records_are_better_than_lomboks_data/
+https://inside.java/2021/04/06/record-serialization-in-practise/
+https://inside.java/2021/03/12/simpler-serilization-with-records/
+2020
+https://topjava.ru/blog/zapisi-records-v-java
+https://vladmihalcea.com/java-records-guide/
+https://github.com/odrotbohm/spring-record-support
+https://www.javaspecialists.eu/archive/Issue276.html
+https://dzone.com/articles/java-records-a-closer-look
+https://aboullaite.me/java-14-records/
+2019
+https://habr.com/ru/post/482300/

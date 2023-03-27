@@ -1,0 +1,12 @@
+AST:
+https://jonasdevlieghere.com/understanding-the-clang-ast/
+http://clang.llvm.org/docs/IntroductionToTheClangAST.html
+https://www.youtube.com/watch?v=VqCkCDFLSsc
+
+clang -Xclang -ast-dump <file.cc>
+
+http://clang.llvm.org/docs/LibASTMatchers.html
+
+cppast:
+https://github.com/foonathan/cppast
+http://foonathan.net/blog/2017/04/20/cppast.html

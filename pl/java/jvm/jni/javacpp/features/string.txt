@@ -1,0 +1,179 @@
+https://github.com/bytedeco/javacpp/issues/261
+https://groups.google.com/forum/#!topic/javacpp-project/H297oJCl3WM
+
+@StdString
+@StdWString
+
+sizeof(wchar_t) == 4
+
+-fshort-wchar is problematic (for wcslen and other functions)
+    https://www.gamedev.net/forums/topic/403700-g-with-short-wchar_t-and-stdwstring/
+https://github.com/bytedeco/javacpp/issues/200
+
+static const char* JavaCPP_classNames[18] = {
+        "org/bytedeco/javacpp/Loader",
+        "org/bytedeco/javacpp/Pointer",
+        "org/bytedeco/javacpp/BytePointer",
+        "org/bytedeco/javacpp/ShortPointer",
+        "org/bytedeco/javacpp/IntPointer",
+        "org/bytedeco/javacpp/LongPointer",
+        "org/bytedeco/javacpp/FloatPointer",
+        "org/bytedeco/javacpp/DoublePointer",
+        "org/bytedeco/javacpp/CharPointer", // idx = 8
+        "org/bytedeco/javacpp/PointerPointer",
+        "org/bytedeco/javacpp/BoolPointer",
+        "org/bytedeco/javacpp/CLongPointer",
+        "org/bytedeco/javacpp/SizeTPointer",
+        "java/lang/String",
+        "org/bytedeco/javacpp/Pointer$NativeDeallocator",
+        "java/nio/Buffer",
+        "java/lang/Object",
+        "java/lang/NullPointerException" };
+
+???
+static int JavaCPP_offsets[18][11] = {
+        { -1 },
+        { sizeof(void*) },
+        { sizeof(signed char) },
+        { sizeof(short) },
+        { sizeof(int) },
+        { sizeof(jlong) },
+        { sizeof(float) },
+        { sizeof(double) },
+        { sizeof(unsigned short) }, // idx = 8 ??? Why not wchar_t for CharPointer?
+        { sizeof(void*) },
+        { sizeof(bool) },
+        { sizeof(long) },
+        { sizeof(size_t) },
+        { -1 },
+        { -1 },
+        { -1 },
+        { -1 },
+        { -1 } };
+
+
+tools/Generator.java
+
+    boolean classes(boolean handleExceptions, boolean defineAdapters, boolean convertStrings, boolean declareEnums,
+            String loadSuffix, String baseLoadSuffix, String classPath, Class<?> ... classes) {
+        ...
+
+        out.println("static int JavaCPP_offsets[" + jclasses.size() + "][" + maxMemberSize + 1 + "] = {");
+        classIterator = jclasses.iterator();
+        while (classIterator.hasNext()) {
+            out.print("        { ");
+            Class c = classIterator.next();
+            Set<String> m = members.get(c);
+            Iterator<String> memberIterator = m == null ? null : m.iterator();
+            if (memberIterator == null || !memberIterator.hasNext()) {
+                out.print("-1");
+            } else while (memberIterator.hasNext()) {
+                String[] typeName = cppTypeName(c);
+                String valueTypeName = valueTypeName(typeName);
+                String memberName = memberIterator.next();
+                if ("sizeof".equals(memberName)) {
+                    if ("void".equals(valueTypeName)) {
+                        valueTypeName = "void*";
+                    }
+                    out.print("sizeof(" + valueTypeName + ")");
+                } else {
+                    out.print("offsetof(" + valueTypeName  + ", " + memberName + ")");
+                }
+                if (memberIterator.hasNext()) {
+                    out.print(", ");
+                }
+            }
+            out.print(" }");
+            if (classIterator.hasNext()) {
+                out.println(",");
+            }
+        }
+        ...
+    }
+
+    // L:3588
+    String[] cppTypeName(Class<?> type) {
+        String prefix = "", suffix = "";
+        if (type == Buffer.class || type == Pointer.class) {
+            prefix = "void*";
+        } else if (type == byte[].class || type == ByteBuffer.class || type == BytePointer.class) {
+            prefix = "signed char*";
+        } else if (type == short[].class || type == ShortBuffer.class || type == ShortPointer.class) {
+            prefix = "short*";
+        } else if (type == int[].class || type == IntBuffer.class || type == IntPointer.class) {
+            prefix = "int*";
+        } else if (type == long[].class || type == LongBuffer.class || type == LongPointer.class) {
+            prefix = "jlong*";
+        } else if (type == float[].class || type == FloatBuffer.class || type == FloatPointer.class) {
+            prefix = "float*";
+        } else if (type == double[].class || type == DoubleBuffer.class || type == DoublePointer.class) {
+            prefix = "double*";
+        } else if (type == char[].class || type == CharBuffer.class || type == CharPointer.class) {
+            prefix = "unsigned short*";
+        } else if (type == boolean[].class) {
+            prefix = "unsigned char*";
+        } else if (type == PointerPointer.class) {
+            prefix = "void**";
+        } else if (type == String.class) {
+            prefix = "const char*";
+        } else if (type == byte.class) {
+            prefix = "signed char";
+        } else if (type == long.class) {
+            prefix = "jlong";
+        } else if (type == char.class) {
+            prefix = "unsigned short";
+        } else if (type == boolean.class) {
+            prefix = "unsigned char";
+        } else if (type.isPrimitive()) {
+            prefix = type.getName();
+        } else if (FunctionPointer.class.isAssignableFrom(type)) {
+            Method[] functionMethods = functionMethods(type, null);
+            String[] prefixSuffix = cppFunctionTypeName(functionMethods);
+            if (prefixSuffix != null) {
+                return prefixSuffix;
+            }
+        } else {
+            String scopedType = cppScopeName(type);
+            if (scopedType.length() > 0) {
+                prefix = scopedType + (Enum.class.isAssignableFrom(type) ? "" : "*");
+            } else {
+                logger.warn("The class " + type.getCanonicalName() +
+                        " does not map to any C++ type. Compilation will most likely fail.");
+            }
+        }
+        return new String[] { prefix, suffix };
+    }
+
+    static String constValueTypeName(String ... typeName) {
+        String type = typeName[0];
+        if (type.endsWith("*") || type.endsWith("&")) {
+            type = type.substring(0, type.length()-1);
+        }
+        return type;
+    }
+
+    static String valueTypeName(String ... typeName) {
+        String type = typeName[0];
+        if (type.startsWith("const ")) {
+            type = type.substring(6, type.length()-1);
+        } else if (type.endsWith("*") || type.endsWith("&")) {
+            type = type.substring(0, type.length()-1);
+        }
+        return type;
+    }
+
+
+misc check
+            CharPointer res = l.getSuffix2();
+            System.out.println("addSuffix2: " + res.getString()); 
+            System.out.println("limit: " + res.limit()); 
+            System.out.println("capacity: " + res.capacity()); 
+            System.out.println("sizeof: " + res.sizeof()); 
+            System.out.println("position: " + res.position()); 
+
+            long resCharNum = res.limit() * res.sizeof();
+            System.out.println("resCharNum: " + resCharNum); 
+            char[] c2 = new char[(int)resCharNum];
+            res.get(c2);
+            System.out.println("c2: " + new String(c2)); 
+

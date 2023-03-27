@@ -1,0 +1,8 @@
+https://github.com/sestrella/asdf-ghcup
+
+prerequisite
+apt/libgmp-dev
+https://www.haskell.org/ghcup/
+    ghcup tui
+
+asdf plugin add stack https://github.com/sestrella/asdf-ghcup.git

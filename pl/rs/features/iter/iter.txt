@@ -1,0 +1,4 @@
+https://doc.rust-lang.org/std/iter/trait.Iterator.html
+
+An iterator adaptor that produces a single default value in the event no other values are produced 
+https://github.com/archer884/iter-or

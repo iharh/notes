@@ -1,0 +1,12 @@
+http://http4s.org/
+https://github.com/http4s/http4s
+https://github.com/http4s/http4s_demo
+
+doc:
+http://http4s.org/v0.17/
+http://http4s.org/v0.17/api/org/http4s/
+
+rho:
+https://github.com/http4s/rho
+
+https://github.com/http4s/http4s-websocket

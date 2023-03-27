@@ -1,0 +1,9 @@
+The update functionality with this.setState() is performing a shallow merge of objects
+
+! setState executes async oper-n
+
+2-nd version (functional approach)
+
+this.setState((prevState, props) => ({
+    ...
+}));

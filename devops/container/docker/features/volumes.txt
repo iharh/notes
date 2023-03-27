@@ -1,0 +1,37 @@
+https://docs.docker.com/storage/bind-mounts/
+https://docs.docker.com/userguide/dockervolumes/
+https://www.digitalocean.com/community/tutorials/how-to-share-data-between-docker-containers
+https://www.digitalocean.com/community/tutorials/how-to-share-data-between-the-docker-container-and-the-host
+
+2022
+https://www.baeldung.com/ops/docker-volume-listing
+
+:ro
+:rw
+:z
+
+docker run --volume-driver=...
+    flocker, glusterfs, nfs, rexray
+
+    -v /src/webapp:/webapp:ro
+    [MacOnly] -v /src/webapp:/webapp:cached
+
+docker volume
+    prune
+        prune obsolete stuff
+    ls -q --f[ilter] 'name=<feature-name>'
+    rm ...
+    create -d convoy --opt o=size=20GB my-named-volume
+
+
+docker service create
+    --name ...
+    --mount type=volume,source=...,destination=/tmp
+
+
+Local:
+https://github.com/CWSpear/local-persist
+
+Convoy:
+https://github.com/rancher/convoy
+http://rancher.com/introducing-convoy-a-docker-volume-driver-for-backup-and-recovery-of-persistent-data/

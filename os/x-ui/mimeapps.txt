@@ -1,0 +1,58 @@
+~/.config/mimeapps.list
+[Default Applications]
+text/html=org.mozilla.firefox.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
+x-scheme-handler/about=org.mozilla.firefox.desktop
+x-scheme-handler/unknown=org.mozilla.firefox.desktop
+
+check:
+gio open http:\\www.google.com
+gio mime x-scheme-handler/http
+gio mime x-scheme-handler/https
+    https://github.com/telegramdesktop/tdesktop/issues/24506
+    https://help.gnome.org/admin/system-admin-guide/stable/mime-types-application-user.html.en
+xdg-mime query default x-scheme-handler/https
+
+xdg-open https://google.com
+xdg-settings get default-web-browser
+xdg-settings get default-url-scheme-handler https
+xdg-settings get default-url-scheme-handler http
+xdg-settings set default-url-scheme-handler https
+
+update-alternatives --display x-www-browser
+sudo update-alternatives --config x-www-browser
+    ls -l /etc/alternatives/x-www-browser
+    ls -l /usr/bin/x-www-browser
+sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /var/lib/flatpak/exports/bin/org.mozilla.firefox 210
+sudo update-alternatives --remove x-www-browser /var/lib/flatpak/exports/bin/org.mozilla.firefox 210
+    https://unix.stackexchange.com/questions/584478/how-to-add-browser-to-update-alternatives
+
+update-alternatives --display gnome-www-browser
+sudo update-alternatives --config gnome-www-browser
+sudo update-alternatives --install /usr/bin/gnome-www-browser gnome-www-browser /var/lib/flatpak/exports/bin/org.mozilla.firefox 210
+sudo update-alternatives --remove gnome-www-browser /var/lib/flatpak/exports/bin/org.mozilla.firefox 210
+
+
+2021
+https://saveriomiroddi.github.io/Linux-associating-file-types-to-applications/
+????
+https://unix.stackexchange.com/questions/614899/setting-a-flatpak-app-as-the-default-web-browser
+
+$ flatpak permissions desktop-used-apps
+
+
+$ file --mime demo.fakeext.txt
+demo.fakeext.txt: image/gif; charset=binary
+
+$ xdg-mime query default text/markdown
+code.desktop
+$ xdg-mime default code.desktop text/markdown
+
+application/epub+zip=FBReader.desktop
+
+xdg-mime default FBReader.desktop application/epub+zip
+xdg-mime default com.github.johnfactotum.Foliate.desktop application/epub+zip
+
+
+xdg-settings get default-web-browser

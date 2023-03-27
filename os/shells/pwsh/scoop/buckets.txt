@@ -1,0 +1,15 @@
+https://github.com/lukesampson/scoop/wiki/Buckets
+
+scoop bucket list
+
+https://github.com/lukesampson/scoop/blob/master/buckets.json
+main bucket
+https://github.com/lukesampson/scoop/tree/master/bucket
+extra bucket
+https://github.com/lukesampson/scoop-extras
+java bucket
+https://github.com/ScoopInstaller/Java/tree/master/bucket
+    corretto8
+    https://github.com/ScoopInstaller/Java/blob/master/bucket/corretto8.json
+    corretto11
+    https://github.com/ScoopInstaller/Java/blob/master/bucket/corretto11.json

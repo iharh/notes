@@ -1,0 +1,8 @@
+"3 - Network Configuration.mp4"
+
+Private Networks:
+class C -> 192.168.x.x   (256)
+class B -> 172.16-31.x.x (16)
+class A -> 10.x.x.x      (1)
+
+what about 240.x.x.x?

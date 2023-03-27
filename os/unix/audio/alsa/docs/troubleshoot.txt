@@ -1,0 +1,8 @@
+https://wiki.archlinux.org/title/PulseAudio/Troubleshooting#Daemon_startup_failed
+https://askubuntu.com/questions/882198/no-sound-device-detected
+
+/etc/sysctl.conf
+fs.inotify.max_user_watches = 524288
+
+sudo dpkg-reconfigure pulseaudio
+pulseaudio -k

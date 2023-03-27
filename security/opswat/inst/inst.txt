@@ -1,0 +1,29 @@
+wget https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient_deb.tar
+tar -xvf opswatclient_deb.tar
+cd opswatclient_deb
+
+# byod
+sudo ./setup.sh -s=3445 -l=835dc08839b78a925c9f8882b85b3592 -g=15009832
+# corp
+sudo ./setup.sh -s=3445 -l=835dc08839b78a925c9f8882b85b3592 -g=6151106
+
+https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/6151106
+    ! corp policy (+ sentinel and other stuff, quallis-scanner, opswat + 100500 chekers)
+https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/15009832
+    ! byod, 802-1 auth req
+
+https://docs.opswat.com/macloud-sdp/kb/what-is-system-requirement-for-opswat-client-
+https://docs.opswat.com/macloud-sdp/kb/where-can-i-find-opswat-client-logs-on-my-machine-
+    /var/log/opswatclient
+
+dpkg --list
+sudo apt --installed list | grep opswat
+    opswatclient/now 15.4.72.0 amd64 [installed,local]
+sudo apt remove opswatclient
+sudo apt purge opswatclient
+
+check
+https://eapi.opswatgears.com:11369/opswat/devinfo?count=10&callback=myCallback
+
+/etc/hosts
+127.0.0.1	eapi.opswatgears.com

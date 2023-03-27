@@ -1,0 +1,33 @@
+McMuse
+    https://github.com/yeyushengfan258/McMuse-icon-theme
+    https://github.com/yeyushengfan258/McMuse-icon-theme/blob/master/install.sh
+
+McSur
+https://www.pling.com/p/1569024
+    https://github.com/yeyushengfan258/McSur-kde
+
+HarmonyGloval
+https://www.pling.com/p/1356766/
+    https://github.com/yeyushengfan258/Harmony-kde
+
+2020
+HMB - How to customize Lubuntu (LXQt) - Mac OS theme of 13:12
+    https://www.youtube.com/watch?v=GWU2EWNnI6g
+    ! graphical based
+AddictiveTipsTV - How to install the McMuse-circle icon theme in Linux of 2:36
+    https://www.youtube.com/watch?v=hZVzjRPD1Zg
+    https://github.com/yeyushengfan258/McMuse-icon-theme
+    https://www.addictivetips.com/ubuntu-linux-tips/install-the-mcmuse-circle-icon-theme-in-linux/
+    https://www.pling.com/p/1362227
+    ! console based
+    ! sudo -s
+    ! mv McMuse-circle* /usr/share/icons
+    ! settings->appearance
+    ! icons:    https://store.kde.org/p/1348081
+        https://github.com/yeyushengfan258/McMuse-icon-theme
+    ! cursor:   https://store.kde.org/p/1355701/
+    ! openbox:  https://www.box-look.org/p/1336941/
+    ! plank:    https://www.gnome-look.org/p/1399398/
+
+https://aur.archlinux.org/packages/mcmuse-icon-theme-git/
+    https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=mcmuse-icon-theme-git

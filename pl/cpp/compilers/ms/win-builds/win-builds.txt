@@ -1,0 +1,72 @@
+http://win-builds.org/stable/
+
+Automated install
+
+As a stop-gap measure for the lack of an up-to-date installer, a .bat file has been written. Simply download the win-builds binaries, extract them and run ‘win-install.bat’. It will install files in ‘C:\win-builds-32’ and ‘C:\win-builds-64’; if you want to change the path, simply edit the .bat file in any text editor.
+Note
+
+That if you want to update packages later on, you will need the content of the archive.
+
+The toolchain will then be setup and can be used standalone or from an IDE. The only settings needed is to set the PATH and PKG_CONFIG_LIBDIR environment variable to chose between the 32 bits and 64 bits toolchain:
+
+    for 32 bits:
+        prepend C:\win-builds-32\bin to PATH
+        set PKG_CONFIG_LIBDIR to C:\win-builds-32\lib\pkgconfig 
+
+    for 64 bits:
+	call D:\dev\bin\cmd\vars-path-prepend.bat D:\win-builds-64\bin
+	set PKG_CONFIG_LIBDIR=D:\win-builds-64\lib64\pkgconfig
+
+    start %ComSpec% %* 
+
+Note
+
+The 64 bits toolchain requires a 64 bits host to run.
+Manual steps
+
+The code below is a summary of what is done at installation on Windows. If you want all the details, you should look at the source of win-install.bat.
+
+Download and extract the yypkg binaries. Note that if you want to update packages later on, you will need the content of the archive. Then, start a command prompt (cmd.exe), enter the directory where you’ve extracted the files and run:
+
+set YYPREFIX=C:/win-builds-32
+yypkg -init
+yypkg -config -setpreds host="i686-w64-mingw32"
+yypkg -config -setpreds target="i686-w64-mingw32"
+sherpa -set-mirror http://win-builds.org/1.3.0/packages/windows_32
+sherpa -install all
+
+
+http://win-builds.org/stable/msys-cygwin.html
+
+\msys\1.0\opt\windows_64\var\cache\packages\
+
+
+Download the yypkg binaries and extract them into the home directory of MSYS/Cygwin:
+  for MSYS: C:/win_builds/msys/1.0/home/[your_account_name]
+  for Cygwin: C:/Cygwin/home/[your_account_name] 
+
+Note
+
+If you want to update packages later on, you will need the content of the archive.
+
+    In the MSYS/Cygwin prompt, enter the directory where you’ve extracted the yypkg binaries (typically win-builds-bundle) and run one of:
+
+    ./msys-cygwin-install.sh x86_64
+
+    Check gcc is running well:
+
+    gcc --version
+
+    Set a default toolchain (optional):
+
+    echo '. win-builds-switch.sh 64' >> ~/.profile
+    echo '. win-builds-switch.sh 32' >> ~/.profile
+
+3. Change toolchain on-the-fly
+
+The win-builds-switch.sh script takes care of everything; run it in your shell like:
+
+# To switch to the x86_64 toolchain
+. win-builds-switch.sh 64
+# To switch to the i686 toolchain
+. win-builds-switch.sh 32

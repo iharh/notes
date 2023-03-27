@@ -1,0 +1,29 @@
+globalprotect !!! Ctrl+X (to get a screen display)
+    collect-log
+    launch-ui
+    import-certificate
+        --location <location>
+    disconnect
+    connect
+        --gateway <ip|fqdn>
+        -p
+        --portal <vpn-portal>
+    show
+        --status
+            just a one-line status
+        --details
+        --host-state
+            some hip info (like "ip a")
+        --manual-gateway
+        --notification
+        --statistics
+            some traffic info
+        --welcome-page
+        --error
+        --version
+        --help
+    remove-user
+
+PanGPA
+    dqueue
+        clear message queue

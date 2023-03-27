@@ -1,0 +1,18 @@
+https://docs.python.org/3/library/profile.html
+https://github.com/python/cpython/blob/3.6/Lib/profile.py
+https://github.com/python/cpython/blob/3.6/Lib/pstats.py
+
+https://docs.python.org/2/library/profile.html
+https://github.com/python/cpython/blob/2.7/Lib/pstats.py
+https://github.com/python/cpython/blob/2.7/Lib/profile.py
+
+https://pymotw.com/2/profile/
+https://ymichael.com/2014/03/08/profiling-python-with-cprofile.html
+
+import cProfile
+import pstats
+
+
+https://jiffyclub.github.io/snakeviz/
+https://pypi.python.org/pypi/snakeviz
+https://github.com/jiffyclub/snakeviz/

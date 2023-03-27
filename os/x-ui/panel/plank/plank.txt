@@ -1,0 +1,19 @@
+https://launchpad.net/plank
+https://github.com/ricotz/plank
+
+https://code.launchpad.net/plank
+https://answers.launchpad.net/plank
+
+~/.config/plank/dock1/launchers
+com.viber.Viber.dockitem:
+[PlankDockItemPreferences]
+Launcher=file:///var/lib/flatpak/exports/share/applications/com.viber.Viber.desktop
+
+org.jitsi.jitsi-meet
+
+plank
+    -h, --help
+    --help-all
+    --help-gapplication
+
+    --preferences

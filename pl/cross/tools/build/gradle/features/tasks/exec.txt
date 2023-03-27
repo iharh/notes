@@ -1,0 +1,10 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html
+
+val out = ByteArrayOutputStream()
+exec {
+    // isIgnoreExitValue = true
+    // errorOutput =
+    // this.workingDir = workingDir
+    commandLine = listOf("gcc", "--version")
+    standardOutput = out // out.toString()
+}

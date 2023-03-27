@@ -1,0 +1,40 @@
+https://aka.ms/terminal-profiles-schema
+
+https://aka.ms/terminal-profile-settings
+https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings
+https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#text-settings
+
+https://github.com/microsoft/terminal/blob/master/doc/user-docs/UsingJsonSettings.md
+https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md
+    https://akr.am/blog/posts/using-utf-8-in-the-windows-terminal
+
+
+    "defaultProfile": "{1b008894-9b94-49d2-89b4-9fa0c2e44c2d}",
+
+    "profiles":
+    {
+        "defaults":
+        {
+            // Put settings here that you want to apply to all profiles
+            "fontSize": 13,
+            "fontFace": "Cascadia Code PL"
+        },
+        "list":
+        [
+            // [guid]::NewGuid()
+            {
+                "guid": "{1b008894-9b94-49d2-89b4-9fa0c2e44c2d}",
+                "name" : "pwsh",
+                "commandline" : "pwsh.exe",
+                "hidden": false,
+                "startingDirectory": "%USERPROFILE%",
+                "closeOnExit": "graceful",
+                "colorScheme": "Campbell Powershell",
+                "cursorColor": "#FFFFFF",
+                "cursorShape": "bar",
+                "historySize": 9001,
+                "padding": "8, 8, 8, 8",
+                "snapOnInput": true,
+                "useAcrylic": false                
+            },
+

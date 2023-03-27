@@ -1,0 +1,6 @@
+common.util.concurrent.EsExecutors
+    .daemonThreadFactory(settings, "some_name").newThread(new BlaBlaThread());
+
+http://spinscale.github.io/elasticsearch-intro-plugins/#/29
+
+

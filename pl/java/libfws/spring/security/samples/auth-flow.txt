@@ -1,0 +1,11 @@
+1. unite username and pwd into  UsernamePasswordAuthenticationToken
+    then it passed to AuthenticationManager for comparison
+
+2. Throw BadCredentialsException if does not match
+    LoggedDaoAuthenticationProvider
+    SamlAuthenticationProvider/SamlAuthenticationProviderFilter
+
+3. In case of success - return Authentication object
+
+4. Object, returned by AuthenticationManager, passed to
+    SecurityContextHolder.getContext().setAuthentication(...)

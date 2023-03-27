@@ -1,0 +1,5 @@
+https://github.com/vercel/hyper/pull/6007
+    pacstall -I hyper-deb
+    pacstall -Up
+    pacstall -R hyper-deb
+

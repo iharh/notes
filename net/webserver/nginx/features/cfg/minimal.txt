@@ -1,0 +1,19 @@
+/etc/nginx/nginx.conf
+
+http {
+    server {
+        listen      8080;
+        server_name localhost;
+
+        location / {
+            root      /www/html;
+            index     index.html intex.htm;
+            autoindex on;
+        }
+
+        error_page  500 502 503 504  /50x.html;
+        location /50x.html {
+            root  /www/html;
+        }
+    }
+}

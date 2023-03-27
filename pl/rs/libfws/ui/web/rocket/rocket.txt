@@ -1,0 +1,13 @@
+https://rocket.rs
+https://github.com/SergioBenitez/Rocket
+
+https://rocket.rs/overview/
+
+2FA
+https://skinkade.github.io/rocket-auth-demo/
+
+multipart
+https://www.reddit.com/r/rust/comments/65ikab/help_with_rocket_abonandermultipart/
+http://stackoverflow.com/questions/43424982/how-to-parse-multipart-forms-using-abonander-multipart-with-rocket
+
+https://github.com/kpcyrd/rocket_failure

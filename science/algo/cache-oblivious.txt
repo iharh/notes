@@ -1,0 +1,29 @@
+https://en.wikipedia.org/wiki/Cache-oblivious_algorithm
+
+2013
+MIT - Demaine - Advanced Data Structures
+    https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/
+    https://www.youtube.com/watch?v=bY8f4DSkQ6M
+    https://www.youtube.com/watch?v=Fs4-E4Nj1Ks
+
+2012
+Frigo - Cache-oblivious Algorithms
+    https://cs.uwaterloo.ca/~imunro/cs840/Notes16/frigo.pdf
+
+2007
+https://blogs.msdn.microsoft.com/devdev/2007/06/12/cache-oblivious-data-structures/
+
+2005
+Bender - Concurrent Cache-oblivious B-Trees
+    http://supertech.csail.mit.edu/papers/cobtree.pdf
+
+2003
+Kumar - Cache-oblivious Algorithms 1
+
+2002
+Demaine - Cache-oblivious Algorithms and Data Structures
+    http://erikdemaine.org/papers/BRICS2002/paper.pdf
+
+1999
+Procop - Cache-oblivious Algorithms
+    http://supertech.csail.mit.edu/papers/Prokop99.pdf

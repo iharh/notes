@@ -1,0 +1,28 @@
+resources
+https://github.com/dbartolini/data-oriented-design
+
+book
+Fabian - 2018 - Data Oriented Design
+    http://dataorienteddesign.com/site.php?postid=138
+    http://www.dataorienteddesign.com/dodbook/
+
+2019
+http://gamesfromwithin.com/data-oriented-design
+    https://habr.com/ru/post/472052/
+2018
+Prackevicius - ECS and DOD
+    http://aras-p.info/texts/files/2018Academy%20-%20ECS-DoD.pdf
+Nikolov - OOP is dead, long live DOD
+    https://www.youtube.com/watch?v=g1TsP60z2OQ
+    https://www.youtube.com/watch?v=yy8jQgmhbAU
+    https://meetingcpp.com/mcpp/slides/2018/Data-oriented%20design%20in%20practice_Nikolov_MeetingCpp18.pdf
+    https://github.com/CppCon/CppCon2018/blob/master/Presentations/oop_is_dead_long_live_dataoriented_design/oop_is_dead_long_live_dataoriented_design__stoyan_nikolov__cppcon_2018.pdf
+    https://www.reddit.com/r/cpp/comments/9rnof7/cppcon_2018_stoyan_nikolov_oop_is_dead_long_live/
+Nikolov - DOD in Practice of 1:03:33
+    https://www.youtube.com/watch?v=NWMx1Q66c14
+2014
+Mike Acton - Data-Oriented Design and C++
+    https://www.youtube.com/watch?v=rX0ItVEVjHc
+    https://github.com/CppCon/CppCon2014/blob/master/Presentations/Data-Oriented%20Design%20and%20C%2B%2B/Data-Oriented%20Design%20and%20C%2B%2B%20-%20Mike%20Acton%20-%20CppCon%202014.pptx
+Albrecht - Pitfalls of OOP
+    https://www.slideshare.net/EmanWebDev/pitfalls-of-object-oriented-programminggcap09

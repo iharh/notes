@@ -1,0 +1,47 @@
+2022
+https://www.baeldung.com/ops/kafka-docker-setup
+    ! tip about healthcheck in comment
+https://medium.com/@TimvanBaarsen/apache-kafka-cli-commands-cheat-sheet-a6f06eac01b
+
+bitnami
+https://hub.docker.com/r/bitnami/kafka
+    ALLOW_PLAINTEXT_LISTENER=yes
+    https://insertafter.com/en/blog/kafka_docker_compose.html
+        ! need to read
+archived
+https://github.com/bitnami/bitnami-docker-kafka/blob/master/docker-compose.yml
+fresh
+https://blog.bitnami.com/2022/07/new-source-of-truth-bitnami-containers.html
+    https://docs.bitnami.com/tutorials/work-with-non-root-containers/
+https://github.com/bitnami/containers/
+https://github.com/bitnami/containers/tree/main/bitnami/kafka
+https://raw.githubusercontent.com/bitnami/containers/main/bitnami/kafka/docker-compose.yml
+https://github.com/bitnami/containers/tree/main/bitnami/kafka/3.3/debian-11
+https://raw.githubusercontent.com/bitnami/containers/main/bitnami/kafka/3.3/debian-11/docker-compose.yml
+
+https://hub.docker.com/r/landoop/lenses
+https://hub.docker.com/r/landoop/kafka-lenses-dev
+https://hub.docker.com/r/landoop/fast-data-dev/dockerfile
+https://github.com/lensesio/fast-data-dev
+    landoop/fast-data-dev:cp3.3.0
+
+    docker run --rm \
+        -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 -p 9581-9585:9581-9585 -p 9092:9092 \
+        -e ADV_HOST=192.168.99.100 \
+       landoop/fast-data-dev:cp3.3.0
+
+# lensesio/fast-data-dev:latest
+
+    That's it. Visit http://192.168.99.100:3030 to get into the fast-data-dev environment
+
+    docker run --rm --net=host \
+           -e ENABLE_SSL=1 \
+           lensesio/fast-data-dev
+
+security
+https://www.youtube.com/watch?v=bj5SKXanaAI
+https://docs.confluent.io/platform/current/security/security_tutorial.html
+https://jaceklaskowski.gitbooks.io/apache-kafka/content/kafka-security-ssl-authentication-and-authorization.html
+https://wiki.folio.org/pages/viewpage.action?spaceKey=FOLIJET&title=Enabling+SSL+and+ACL+for+Kafka
+https://code.kx.com/insights/1.2/microservices/stream-processor/examples/kafka-with-tls.html
+    https://github.com/bitnami/bitnami-docker-kafka/issues/174

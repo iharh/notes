@@ -1,0 +1,33 @@
+ops:
+http://www.lihaoyi.com/Ammonite/#Ammonite-Ops
+  http://www.lihaoyi.com/Ammonite/#Paths
+  http://www.lihaoyi.com/Ammonite/#Operations
+    http://www.lihaoyi.com/Ammonite/#Chaining
+    http://www.lihaoyi.com/Ammonite/#ReadingResources
+
+https://github.com/lihaoyi/Ammonite/issues/367
+
+https://github.com/lihaoyi/Ammonite/blob/master/ops/src/main/scala/ammonite/ops/FileOps.scala
+
+https://github.com/lihaoyi/Ammonite/blob/master/ops/src/test/scala/test/ammonite/ops/ExampleTests.scala
+
+ls! wd/'dir2 |? (_.ext == "java") | read |> write! wd/'target/"bundled.java"
+ls.rec! pwd |? (_.ext == "scala") | read |> write! pwd/'target/'test/"omg.txt"
+
+http://www.lihaoyi.com/Ammonite/#CurrentWorkingDirectory
+
+import ammonite.ops._
+import ammonite.ops.ImplicitWd._
+
+val d: Path = pwd/'out
+rm! d
+mkdir! d
+write(d/"file1.txt", "I am cow")
+write.append(...)
+write.over(...)
+
+%.ls()
+ls!
+%('sbt, "test")
+%("sbt", "test")
+%sbt("test")

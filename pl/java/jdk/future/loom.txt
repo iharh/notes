@@ -1,0 +1,65 @@
+http://jdk.java.net/loom/
+https://openjdk.java.net/projects/loom/
+https://wiki.openjdk.java.net/display/loom/Main
+
+https://wiki.openjdk.java.net/display/loom/Getting+started
+https://inside.java/2020/07/15/loomqa/
+
+fibers and continuations form JVM
+https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html
+
+demo
+https://github.com/tipsy/loomylin
+
+2023
+https://blog.rockthejvm.com/ultimate-guide-to-java-virtual-threads/
+    ! cool
+Jacov - Filichkin - Project Loom: revolution in Java concurrency 0:00 of 1:22:08
+    https://www.youtube.com/watch?v=LNWdG_O2gEI
+https://habr.com/ru/post/702628/
+2022
+JPointJokerAndJUGRu - Mychka - Project Loom BE Reactive Programming Influence 0:00 of 32:09
+    https://www.youtube.com/watch?v=NCjVw16U55o
+JPointJokerAndJUGRu - Rodionov - Dokuka - Is Loom a Friend or Foe of Reactive 0:00 of 1:00:21
+    https://www.youtube.com/watch?v=tG6bSC1VKLg
+https://www.marcobehler.com/guides/java-project-loom
+https://spring.io/blog/2022/10/11/embracing-virtual-threads
+https://www.infoq.com/articles/java-virtual-threads/
+    ! cmp with rx: Virtual threads, on the other hand, allow us to gain the same throughput benefit without giving up key language and runtime features.
+Devnexus 2022 - Subramaniam - What's Looming in Java The Why and What of Project Loom 0:00 of 50:30
+    https://www.youtube.com/watch?v=y-SXxp1Kx_Y
+Java - Java Asynchronous Programming Full Tutorial with Loom and Structured Concurrency - JEP Café #13 0:00 of 41:27
+    https://www.youtube.com/watch?v=2nOj8MKHvmw
+https://www.reactivesystems.eu/2022/06/17/introduction-to-project-loom.html
+https://habr.com/ru/post/669582/
+https://www.davidvlijmincx.com/posts/pitfalls-of-virtual-threads/
+https://www.davidvlijmincx.com/posts/how-many-virtual-threads-run-in-parallel/
+https://www.davidvlijmincx.com/posts/create_virtual_threads_with_project_loom/
+https://www.davidvlijmincx.com/posts/loom/jep_428_structured_concurrency/
+2021
+ReactiveSummit - Project Loom - A Friend or Foe of Reactive? - Oleh Dokuka, VMware & Andrii Rodionov of 36:46
+    https://www.youtube.com/watch?v=YwG04UZP2a0
+Modern, Scalable Concurrency for the Java Platform of 22:14
+    https://www.youtube.com/watch?v=t14NE5ziOBM
+https://habr.com/ru/company/jugru/blog/543272/
+Bateman — Project loom: Modern scalable concurrency for the Java platform
+    https://www.youtube.com/watch?v=7GLVROqgQJY
+https://blogs.oracle.com/javamagazine/going-inside-javas-project-loom-and-virtual-threads
+2020
+https://www.javaadvent.com/2020/12/project-loom-and-structured-concurrency.html
+https://blog.frankel.ch/project-loom-reactive-coroutines/
+https://habr.com/ru/post/503412/
+https://renato.athaydes.com/posts/taking-loom-for-a-spin.html
+http://cr.openjdk.java.net/%7Erpressler/loom/loom/sol1_part2.html
+http://cr.openjdk.java.net/~rpressler/loom/loom/sol1_part1.html
+2019
+https://mail.openjdk.java.net/pipermail/loom-dev/2019-December/000931.html
+https://dzone.com/articles/a-new-java-with-a-stronger-fiber
+https://www.infoq.com/presentations/continuations-java/
+https://www.baeldung.com/openjdk-project-loom
+2018
+https://habr.com/ru/company/jugru/blog/422519/
+Bateman - Project Loom - Fibers and Continuations for Java
+    https://www.youtube.com/watch?v=vbGbXUjlRyQ
+2016
+https://250bpm.com/blog:71/

@@ -1,0 +1,58 @@
+search
+
+
+install
+
+git:
+http://jrsoftware.org/ishelp/index.php?topic=setupcmdline
+
+choco install -ia="'/DIR="d:\dev\utils\vcs\git"'" git
+choco install -ia="'/DIR="d:\dev\utils\vcs\git-cred"'" git-credential-manager-for-windows
+choco install -ia="'/DIR="d:\dev\utils\vcs\git-cred"'" git-credential-winstore
+
+git --params="'/GitAndUnixToolsOnPath /NoAutoCrlf'" -y
+
+msi-stuff:
+http://www.advancedinstaller.com/user-guide/msiexec.html
+http://stackoverflow.com/questions/33484750/msiexec-differnce-between-qn-quiet-and-passive
+
+choco install -ia "INSTALLDIR=""d:\dev\utils\term\conemu""" conemu
+/p:x64 /quiet /norestart "INSTALLDIR=""d:\dev\utils\term\conemu"""
+
+ConEmuSetup.160724.exe /p:x64 /q INSTALLDIR=d:\dev\utils\term\conemu
+
+
+Note: To confirm automatically next time, use '-y' or consider setting
+ 'allowGlobalConfirmation'. Run 'choco feature -h' for more details.
+
+https://chocolatey.org/docs/features-install-directory-override
+https://chocolatey.org/docs/getting-started#overriding-default-install-directory-or-other-advanced-install-concepts
+
+
+1. Yes we support that through the use of install arguments - see Install Arguments
+2. If you wanted to pass native argument to the installer, like the install directory,
+   you would need to know the silent argument passed to that particular installer
+   and then you would specify it on the command line or in the packages.config.
+3. If it was an MSI, then usually you could pass -ia "INSTALLDIR=""D:\Program Files"""
+   (for cmd.exe, it's different for PowerShell).
+   See how to pass options/switches for specifics on passing quoted values through.
+4. For example, Notepad++ uses the NSIS (NullSoft Scriptable Install System) installer.
+   If we look at the silent options, we see that /D is how we influence the install directory.
+   So we would pass choco install notepadplusplus.install -ia "'/D=E:\SomeDirectory\somebody\npp'"
+   -note that we are looking at the specific package over the virtual
+   (although you can do the same with notepadplusplus as well).
+
+
+update (deprecated)
+    <pgk-name>
+    chocolately
+
+upgrade
+    <pkg-name>
+    -y
+
+list
+    -l
+        local
+    --detail
+        detailed info

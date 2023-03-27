@@ -1,0 +1,67 @@
+postgresql:
+
+initdb
+oid2name
+pg_archivecleanup
+pg_basebackup
+pg_controldata
+pg_ctl
+pg_receivexlog
+pg_recvlogical
+pg_resetxlog
+pg_rewind
+pg_standby
+pg_test_fsync
+pg_test_timing
+pg_upgrade
+pg_xlogdump
+pgbench
+pltcl_delmod
+pltcl_listmod
+pltcl_loadmod
+postgres
+postgresql-check-db-dir
+postmaster
+vacuumlo
+
+
+postgresql-libs:
+
+clusterdb
+createdb
+    createdb is a wrapper around the SQL command CREATE DATABASE (CREATE_DATABASE(7)).
+    There is no effective difference between creating databases via this utility and via other methods for accessing the server.
+createlang
+createuser
+dropdb
+    dropdb is a wrapper around the SQL command DROP DATABASE (DROP_DATABASE(7)).
+    There is no effective difference between dropping databases via this utility and via other methods for accessing the server.
+droplang
+dropuser
+ecpg
+pg_config
+    info about the installed version of postgres
+    ...
+    SYSCONFDIR = /etc/postgresql
+pg_dump
+pg_dumpall
+pg_isready
+pg_restore
+psql
+reindexdb
+vacuumdb
+
+
+???:
+pgtune-git
+    cfg-tuner
+pgagent
+    job scheduler
+pgtop
+    previously known as ptop
+pg_view-git
+    activity view util
+pgadger
+    log analysis report
+pgweb-bin
+    go web-browser

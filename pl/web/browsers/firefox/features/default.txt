@@ -1,0 +1,52 @@
+check:
+gio open http:\\www.google.com
+gio mime x-scheme-handler/http
+gio mime x-scheme-handler/https
+    https://github.com/telegramdesktop/tdesktop/issues/24506
+    https://help.gnome.org/admin/system-admin-guide/stable/mime-types-application-user.html.en
+xdg-mime query default x-scheme-handler/https
+
+xdg-open https://google.com
+xdg-settings get default-web-browser
+xdg-settings get default-url-scheme-handler https
+xdg-settings get default-url-scheme-handler http
+xdg-settings set default-url-scheme-handler https
+
+update-alternatives --display x-www-browser
+sudo update-alternatives --config x-www-browser
+    ls -l /etc/alternatives/x-www-browser
+    ls -l /usr/bin/x-www-browser
+sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /var/lib/flatpak/exports/bin/org.mozilla.firefox 210
+sudo update-alternatives --remove x-www-browser /var/lib/flatpak/exports/bin/org.mozilla.firefox 210
+    https://unix.stackexchange.com/questions/584478/how-to-add-browser-to-update-alternatives
+
+update-alternatives --display gnome-www-browser
+sudo update-alternatives --config gnome-www-browser
+sudo update-alternatives --install /usr/bin/gnome-www-browser gnome-www-browser /var/lib/flatpak/exports/bin/org.mozilla.firefox 210
+sudo update-alternatives --remove gnome-www-browser /var/lib/flatpak/exports/bin/org.mozilla.firefox 210
+
+~/.config/mimeapps.list
+[Default Applications]
+text/html=org.mozilla.firefox.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
+x-scheme-handler/about=org.mozilla.firefox.desktop
+x-scheme-handler/unknown=org.mozilla.firefox.desktop
+
+
+https://support.mozilla.org/en-US/kb/make-firefox-your-default-browser
+https://support.mozilla.org/en-US/kb/setting-firefox-default-browser-does-not-work
+
+https://osnote.com/ubuntu-default-browser/
+        ??? no choice for firefox
+
+about:policies
+    DontCheckDefaultBrowser: true
+
+flatpak firefox default browser
+https://unix.stackexchange.com/questions/614899/setting-a-flatpak-app-as-the-default-web-browser
+https://ubuntu-mate.community/t/setting-the-flatpak-firefox-app-as-the-default-web-browser/25895/2
+2019
+https://github.com/flatpak/flatpak/issues/3216
+    gio mime x-scheme-handler/http firefox.desktop
+    gio mime x-scheme-handler/https firefox.desktop

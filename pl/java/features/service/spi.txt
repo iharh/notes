@@ -1,0 +1,17 @@
+https://en.wikipedia.org/wiki/Service_provider_interface
+
+https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html
+https://docs.oracle.com/javase/tutorial/sound/SPI-providing-sampled.html
+https://docs.oracle.com/javase/tutorial/sound/SPI-providing-MIDI.html
+
+https://docs.oracle.com/javase/8/docs/api/java/util/spi/package-summary.html
+https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html
+
+    ServiceLoader.load(Whether.class)
+
+2019
+https://www.baeldung.com/java-spi
+2011
+https://habr.com/ru/post/118488/
+2002
+https://resources.sei.cmu.edu/asset_files/TechnicalNote/2002_004_001_13958.pdf

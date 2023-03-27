@@ -1,0 +1,5 @@
+https://tug.org/twg/edutex/2016_Strakhov/3_AdvancedLaTeXSlides_handout.pdf
+    \usepackage{intentfirst}
+    \setlength{\parindent}{1.25cm} % for 14pt font
+
+    \setlength{\parskip}{6pt}

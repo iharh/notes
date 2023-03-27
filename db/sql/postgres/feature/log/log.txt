@@ -1,0 +1,19 @@
+https://www.postgresql.org/docs/current/runtime-config-logging.html
+https://chartio.com/resources/tutorials/how-to-log-queries-in-postgresql/
+
+data/pg_log
+
+macos
+/usr/local/var/log/
+
+log_connections
+https://postgresqlco.nf/doc/ru/param/log_connections/
+
+postgres -c log_connections=on
+
+postgresql.conf
+
+#log_checkpoints = off
+#log_connections = off
+#log_disconnections = off
+#log_duration = off

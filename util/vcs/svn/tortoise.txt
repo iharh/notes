@@ -1,0 +1,8 @@
+scoop
+    tortoisesvn
+
+https://osdn.net/projects/tortoisesvn/
+
+To add TortoiseSVN as a context menu option, run 'D:\dev\utils\scoop\apps\tortoisesvn\current\tortoisesvn-install.reg'
+For file associations, run 'D:\dev\utils\scoop\apps\tortoisesvn\current\tortoisesvn-install-tools.reg'
+Before uninstalling TortoiseSVN, run 'D:\dev\utils\scoop\apps\tortoisesvn\current\tortoisesvn-uninstall.reg'

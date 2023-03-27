@@ -1,0 +1,13 @@
+yaourt -Ss "password manager"
+https://en.wikipedia.org/wiki/List_of_password_managers
+
+kpcli
+https://www.digitalocean.com/community/tutorials/how-to-use-kpcli-to-manage-keepass2-password-files-on-an-ubuntu-14-04-server
+
+https://revelation.olasagasti.info/
+
+vim-gpg
+https://github.com/jamessan/vim-gnupg
+
+https://github.com/caodonnell/passman.sh
+https://github.com/drduh/pwd.sh

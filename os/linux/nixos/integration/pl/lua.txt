@@ -1,0 +1,15 @@
+https://nixos.org/manual/nixpkgs/stable/#users-guide-to-lua-infrastructure
+
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/lua-packages.nix
+
+lua-5
+https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/interpreters/lua-5
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/interpreters/lua-5/default.nix
+    ! lua5_2, lua5_2_compat, luajit...
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/interpreters/lua-5/setup-hook.nix    
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/interpreters/lua-5/interpreter.nix
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/interpreters/lua-5/wrap-lua.nix
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/interpreters/lua-5/build-lua-package.nix
+
+luajit
+https://github.com/NixOS/nixpkgs/tree/master/pkgs/development/interpreters/luajit

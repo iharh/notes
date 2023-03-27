@@ -1,0 +1,5 @@
+at
+    $ORA_HOME/product/11.2.0/dbhome_1/database
+
+win:
+oradim -startup -sid ihorcl -usrpwd rqsxrruq "" -log oradim.log -nocheck 0

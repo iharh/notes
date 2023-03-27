@@ -1,0 +1,8 @@
+https://github.com/facebook/create-react-app/tree/master/packages/babel-preset-react-app
+https://github.com/facebook/create-react-app/blob/master/packages/babel-preset-react-app/package.json
+    ! use @babel/preset-typescript under the hood
+
+https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/webpack.config.js
+    presets: [
+      [require.resolve('babel-preset-react-app'), { runtime: hasJsxRuntime ? 'automatic' : 'classic', }],
+    ],

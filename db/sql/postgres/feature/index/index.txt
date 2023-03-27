@@ -1,0 +1,42 @@
+https://postgrespro.ru/docs/postgresql/14/indexes-types
+
+create index <name>
+    on ... concurrently;
+
+2020
+https://habr.com/ru/post/490824/
+
+9 - BRIN
+https://habrahabr.ru/company/postgrespro/blog/346460/
+8
+https://habrahabr.ru/company/postgrespro/blog/343488/
+7
+https://habrahabr.ru/company/postgrespro/blog/340978/
+6
+https://habrahabr.ru/company/postgrespro/blog/337502/
+5
+https://habrahabr.ru/company/postgrespro/blog/333878/
+4
+https://habrahabr.ru/company/postgrespro/blog/330544/
+3
+https://habrahabr.ru/company/postgrespro/blog/328280/
+2
+https://habrahabr.ru/company/postgrespro/blog/326106/
+1
+https://habrahabr.ru/company/postgrespro/blog/326096/
+
+https://habrahabr.ru/company/postgrespro/blog/326096/
+
+http://www.sai.msu.su/~megera/wiki/Gevel
+
+EgorRogov
+https://habr.com/en/company/postgrespro/blog/444742/
+    https://habr.com/ru/company/postgrespro/blog/333878/
+https://habr.com/en/company/postgrespro/blog/443284/
+    https://habr.com/ru/company/postgrespro/blog/330544/
+https://habr.com/en/company/postgrespro/blog/442776/
+    https://habr.com/ru/company/postgrespro/blog/328280/
+https://habr.com/en/company/postgrespro/blog/442546/
+    https://habr.com/ru/company/postgrespro/blog/326106/
+https://habr.com/en/company/postgrespro/blog/441962/
+    https://habr.com/ru/company/postgrespro/blog/326096/

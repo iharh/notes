@@ -1,0 +1,8 @@
+https://github.com/test-kitchen/busser-serverspec
+
+https://github.com/test-kitchen/busser-serverspec/issues/2
+https://github.com/test-kitchen/busser-serverspec/commit/dc73c0e3bbb4a6ec3733eeff6549bda92b8a4b8e
+https://github.com/test-kitchen/busser-serverspec/blob/master/lib/busser/runner_plugin/serverspec.rb
+
+.../test/integration/linux/serverspec/...
+(busser-integration framework is chosen based on the serverspec)

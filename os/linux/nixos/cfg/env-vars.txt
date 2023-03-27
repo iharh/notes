@@ -1,0 +1,4 @@
+http://nixos.org/nix/manual/#ch-env-variables
+https://nixos.org/releases/nix/latest/manual/#sec-common-env
+
+NIX_SSL_CERT_FILE

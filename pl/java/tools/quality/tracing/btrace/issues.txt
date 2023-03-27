@@ -1,0 +1,12 @@
+In JDK8 you have to change permissions on hsperfdata_username in whatever %TMP% is for it to work.
+I received an error message when visual VM first started and I went to the link which described the problem with access permissions
+and when I checked the permissions on the file using “properties” the permissions were set to read-only on the first page and no access permissions were granted on the following pages.
+
+I changed the permissions to grant everything to everybody on my home computer and that worked.
+
+attach issues:
+http://stackoverflow.com/questions/14574308/unable-to-use-jvisualvm-profiling-for-tomcat7-running-as-a-service-on-windows7
+http://frvabe.blogspot.com/2013/03/monitoring-windows-tomcat-service-with.html
+https://blogs.oracle.com/nbprofiler/entry/monitoring_java_processes_running_as
+
+psexec -s "%JAVA_HOME%\bin\jstack.exe" PID >stack.txt

@@ -1,0 +1,37 @@
+book
+https://rust-lang.github.io/unsafe-code-guidelines/
+https://doc.rust-lang.org/nomicon/working-with-unsafe.html
+    unsafe does more than pollute a whole function: it pollutes a whole module.
+    Generally, the only bullet-proof way to limit the scope of unsafe code is at the module boundary with privacy.
+http://cliffle.com/p/dangerust/
+
+2019
+https://blog.knoldus.com/safe-way-to-access-private-fields-in-rust/
+https://www.ralfj.de/blog/2019/01/12/rust-2019.html
+
+2018
+Orendorf - Building on an unsafe foundation
+https://www.youtube.com/watch?v=rTo2u13lVcQ
+https://rustycrate.ru/%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/2018/01/08/unsafe_abstractions.html
+https://boats.gitlab.io/blog/post/2018-01-04-unsafe-abstractions/
+http://smallcultfollowing.com/babysteps/blog/2016/05/23/unsafe-abstractions/
+    https://habrahabr.ru/post/346336/
+
+2017
+https://www.ralfj.de/blog/2017/07/17/types-as-contracts.html
+https://gankro.github.io/blah/only-in-rust/
+    https://www.reddit.com/r/rust/comments/6h81cx/bugs_youll_probably_only_have_in_rust/
+http://smallcultfollowing.com/babysteps/blog/2017/01/22/assigning-blame-to-unsafe-code/
+http://smallcultfollowing.com/babysteps/blog/2017/02/01/unsafe-code-and-shared-references/
+http://smallcultfollowing.com/babysteps/blog/2016/05/23/unsafe-abstractions/
+http://smallcultfollowing.com/babysteps/blog/2016/05/27/the-tootsie-pop-model-for-unsafe-code/
+http://smallcultfollowing.com/babysteps/blog/2016/09/12/thoughts-on-trusting-types-and-unsafe-code/
+http://smallcultfollowing.com/babysteps/blog/2016/10/02/observational-equivalence-and-unsafe-code/
+
+http://smallcultfollowing.com/babysteps/blog/2016/05/27/the-tootsie-pop-model-for-unsafe-code/
+
+http://blog.regehr.org/archives/1467
+https://www.reddit.com/r/rust/comments/5u3vrq/undefined_behavior_unsafe_programming/
+
+2016
+http://smallcultfollowing.com/babysteps/blog/2016/05/23/unsafe-abstractions/

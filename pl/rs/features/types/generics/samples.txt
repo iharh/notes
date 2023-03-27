@@ -1,0 +1,21 @@
+http://rickyhan.com/jekyll/update/2018/12/03/make-burgers-context-free-grammar.html
+
+type RuleID = usize;
+
+struct Grammar<T: Debug + Clone + PartialEq + Hash + Eq> {
+    start: String,
+    rules: Vec<Rule<T>>,
+    first_sets: Option<HashMap<String, HashSet<(Token<T>, Rule<T>)>>>,
+}
+
+struct Rule<T: Debug + Clone + PartialEq + Hash + Eq> {
+    name: String,
+    id: RuleID,
+    production: Vec<Token<T>>,
+}
+
+enum Token<T: Debug + Clone + PartialEq + Hash + Eq> {
+    Terminal(T),
+    Epsilon,
+    NonTerminal(String),
+}

@@ -1,0 +1,4 @@
+https://www.http4k.org/guide/howto/moshi_lite/
+https://github.com/http4k/http4k/blob/master/src/docs/guide/howto/moshi_lite/index.md
+    https://github.com/http4k/http4k/blob/master/http4k-format/moshi/src/main/kotlin/org/http4k/format/Moshi.kt
+    https://github.com/http4k/http4k/blob/master/src/docs/guide/howto/moshi_lite/example.kt

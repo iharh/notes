@@ -1,0 +1,15 @@
+https://github.com/aws/aws-sdk-java-v2
+https://mvnrepository.com/artifact/software.amazon.awssdk
+https://mvnrepository.com/artifact/software.amazon.awssdk/s3
+https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-0-developer-preview/
+    ! short async s3-client sample
+https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/welcome.html
+
+api
+https://sdk.amazonaws.com/java/api/latest/
+
+2018
+https://aws.amazon.com/blogs/developer/aws-sdk-for-java-2-x-released/
+
+encrypt
+https://github.com/aws/aws-sdk-java-v2/issues/34

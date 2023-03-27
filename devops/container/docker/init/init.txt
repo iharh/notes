@@ -1,0 +1,5 @@
+docker run --init
+
+from the docs
+--init        API 1.25+
+Run an init inside the container that forwards signals and reaps processes

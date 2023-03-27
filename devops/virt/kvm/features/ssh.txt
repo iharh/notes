@@ -1,0 +1,28 @@
+https://help.ubuntu.com/community/KVM/Access
+    systemctl enable serial-getty@ttyS0.service
+    systemctl start serial-getty@ttyS0.service
+
+    http://0pointer.de/blog/projects/serial-console.html
+    man
+        kernel-command-line(7)
+        agetty(8)
+        systemd-getty-generator(8)
+            konsole=... kernel param
+                ttyS0
+
+    # does not work for standard nixos installer vm
+    sudo systemctl enable --now serial-getty@ttyS0
+
+    https://ostechnix.com/how-to-enable-virsh-console-access-for-kvm-guests/
+        virsh edit <vmname>
+        # nixos gui installer vm already have:
+            <serial type='pty'>
+                <target type='isa-serial' port='0'>
+                    <model name='isa-serial'/>
+                </target>
+            </serial>
+            <console type='pty'>
+                <target type='serial' port='0'/>
+            </console>
+
+# serial-getty@hvc0.service - enabled (not a ttyS0)

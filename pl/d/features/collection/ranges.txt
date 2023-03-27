@@ -1,0 +1,3 @@
+http://ddili.org/ders/d.en/ranges.html
+
+import std.range; // automatically imports std.array

@@ -1,0 +1,35 @@
+import bsh.EvalError;
+import bsh.Interpreter;
+
+// client
+  public void startBeanShell(final int port) {
+    try {
+      final Interpreter i = new Interpreter();
+      i.set("client", this);
+      i.set("objectManager", this.objectManager);
+      i.set("lockmanager", this.lockManager);
+      i.set("txManager", this.txManager);
+      i.set("portnum", port);
+      i.eval("setAccessibility(true)"); // turn off access restrictions
+      i.eval("server(portnum)");
+      CONSOLE_LOGGER.info("Bean shell is started on port " + port);
+    } catch (final EvalError e) {
+      e.printStackTrace();
+    }
+  }
+
+// server
+  public void startBeanShell(final int port) {
+    try {
+      final Interpreter i = new Interpreter();
+      i.set("dsoServer", this);
+      i.set("objectManager", this.objectManager);
+      i.set("txnObjectManager", this.txnObjectManager);
+      i.set("portnum", port);
+      i.eval("setAccessibility(true)"); // turn off access restrictions
+      i.eval("server(portnum)");
+      consoleLogger.info("Bean shell is started on port " + port);
+    } catch (final EvalError e) {
+      e.printStackTrace();
+    }
+  }

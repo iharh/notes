@@ -1,0 +1,10 @@
+src:
+https://github.com/gradle/gradle/tree/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/msvcpp
+
+class CppCompiler extends VisualCppNativeCompiler<CppCompileSpec> { ... }
+
+class VisualCppNativeCompiler<T extends NativeCompileSpec> extends NativeCompiler<T> { ... }
+
+https://github.com/gradle/gradle/tree/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal
+
+public abstract class NativeCompiler<T extends NativeCompileSpec> implements Compiler<T> { ... }

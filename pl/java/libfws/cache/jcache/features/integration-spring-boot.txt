@@ -1,0 +1,21 @@
+    @Bean
+    public JCacheManagerCustomizer cacheManagerCustomizer() {
+        return new JCacheManagerCustomizer() {
+            @Override
+            public void customize(CacheManager cacheManager) {
+                FactoryBuilder.SingletonFactory<MyCacheListener> listenerFactory =
+                    new FactoryBuilder.SingletonFactory<MyCacheListener>(myCacheListener());
+
+                cacheManager.createCache("myCache", new MutableConfiguration<ResourceKey, ResourceValue>()
+                    // there is no any memory-based config here available
+                    .setExpiryPolicyFactory(CreatedExpiryPolicy.factoryOf(new Duration(TimeUnit.MINUTES, 1)))
+                    .setStoreByValue(false)
+                    .setStatisticsEnabled(true)
+                    .addCacheEntryListenerConfiguration(
+                        new MutableCacheEntryListenerConfiguration<ResourceKey, ResourceValue>(
+                            listenerFactory, null, false, true
+                    )));
+            }
+        };
+    }
+

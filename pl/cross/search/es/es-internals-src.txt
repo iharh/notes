@@ -1,0 +1,277 @@
+https://www.found.no/foundation/elasticsearch-internals/
+
+src:
+
+the common root is:
+org\elasticsearch\...
+
+
+bootstrap.Bootstrap:
+
+    private void setup(boolean addShutdownHook, Tuple<Settings, Environment> tuple) throws Exception {
+//        Loggers.getLogger(Bootstrap.class, tuple.v1().get("name")).info("heap_size {}/{}", JvmStats.jvmStats().mem().heapCommitted(), JvmInfo.jvmInfo().mem().heapMax());
+        if (tuple.v1().getAsBoolean("bootstrap.mlockall", false)) {
+            Natives.tryMlockall();
+        }
+        tuple = setupJmx(tuple);
+
+        NodeBuilder nodeBuilder = NodeBuilder.nodeBuilder().settings(tuple.v1()).loadConfigSettings(false);
+        node = nodeBuilder.build();
+        if (addShutdownHook) {
+            Runtime.getRuntime().addShutdownHook(new Thread() {
+                @Override
+                public void run() {
+                    node.close();
+                }
+            });
+        }
+    }
+
+node.NodeBuilder
+    /**
+     * Builds the node without starting it.
+     */
+    public Node build() {
+        return new InternalNode(settings.build(), loadConfigSettings);
+    }
+
+    public InternalNode(Settings preparedSettings, boolean loadConfigSettings) throws ElasticsearchException {
+        final Settings pSettings = settingsBuilder().put(preparedSettings)
+                .put(Client.CLIENT_TYPE_SETTING, CLIENT_TYPE).build();
+        Tuple<Settings, Environment> tuple = InternalSettingsPreparer.prepareSettings(pSettings, loadConfigSettings);
+        tuple = new Tuple<>(TribeService.processSettings(tuple.v1()), tuple.v2());
+
+        // The only place we can actually fake the version a node is running on:
+        Version version = pSettings.getAsVersion("tests.mock.version", Version.CURRENT);
+
+        ESLogger logger = Loggers.getLogger(Node.class, tuple.v1().get("name"));
+        logger.info("version[{}], pid[{}], build[{}/{}]", version, JvmInfo.jvmInfo().pid(), Build.CURRENT.hashShort(), Build.CURRENT.timestamp());
+
+        logger.info("initializing ...");
+
+        if (logger.isDebugEnabled()) {
+            Environment env = tuple.v2();
+            logger.debug("using home [{}], config [{}], data [{}], logs [{}], work [{}], plugins [{}]",
+                    env.homeFile(), env.configFile(), Arrays.toString(env.dataFiles()), env.logsFile(),
+                    env.workFile(), env.pluginsFile());
+        }
+
+        this.pluginsService = new PluginsService(tuple.v1(), tuple.v2());
+        this.settings = pluginsService.updatedSettings();
+        // create the environment based on the finalized (processed) view of the settings
+        this.environment = new Environment(this.settings());
+
+        CompressorFactory.configure(settings);
+
+        NodeEnvironment nodeEnvironment = new NodeEnvironment(this.settings, this.environment);
+
+        boolean success = false;
+        try {
+            ModulesBuilder modules = new ModulesBuilder();
+            modules.add(new Version.Module(version));
+            modules.add(new PageCacheRecyclerModule(settings));
+            modules.add(new CircuitBreakerModule(settings));
+            modules.add(new BigArraysModule(settings));
+            modules.add(new PluginsModule(settings, pluginsService));
+            modules.add(new SettingsModule(settings));
+            modules.add(new NodeModule(this));
+            modules.add(new NetworkModule());
+            modules.add(new ScriptModule(settings));
+            modules.add(new EnvironmentModule(environment));
+            modules.add(new NodeEnvironmentModule(nodeEnvironment));
+            modules.add(new ClusterNameModule(settings));
+            modules.add(new ThreadPoolModule(settings));
+            modules.add(new DiscoveryModule(settings));
+            modules.add(new ClusterModule(settings));
+            modules.add(new RestModule(settings));
+            modules.add(new TransportModule(settings));
+            if (settings.getAsBoolean(HTTP_ENABLED, true)) {
+                modules.add(new HttpServerModule(settings));
+            }
+            modules.add(new RiversModule(settings));
+            modules.add(new IndicesModule(settings));
+            modules.add(new SearchModule());
+            modules.add(new ActionModule(false));
+            modules.add(new MonitorModule(settings));
+            modules.add(new GatewayModule(settings));
+            modules.add(new NodeClientModule());
+            modules.add(new ShapeModule());
+            modules.add(new PercolatorModule());
+            modules.add(new ResourceWatcherModule());
+            modules.add(new RepositoriesModule());
+            modules.add(new TribeModule());
+            modules.add(new BenchmarkModule(settings));
+
+            injector = modules.createInjector();
+
+            client = injector.getInstance(Client.class);
+            success = true;
+        } finally {
+            if (!success) {
+                nodeEnvironment.close();
+            }
+        }
+
+        logger.info("initialized");
+    }
+
+
+
+
+
+
+REST registries:
+transport.ActionNames
+ActionModule
+
+rest.action.RestActionModule
+
+    @Override
+    protected void configure() {
+        for (Class<? extends BaseRestHandler> restAction : restPluginsActions) {
+            bind(restAction).asEagerSingleton();
+        }
+        ...
+        bind(RestRestoreSnapshotAction.class).asEagerSingleton();
+        ...
+    }
+
+  Rest...Action
+  
+
+rest.action.admin.cluster.snapshots.status.RestActionModule
+/**
+ * Returns status of currently running snapshot
+ */
+public class RestSnapshotsStatusAction extends BaseRestHandler {
+
+    @Inject
+    public RestSnapshotsStatusAction(Settings settings, RestController controller, Client client) {
+        super(settings, controller, client);
+        controller.registerHandler(GET, "/_snapshot/{repository}/{snapshot}/_status", this);
+        controller.registerHandler(GET, "/_snapshot/{repository}/_status", this);
+        controller.registerHandler(GET, "/_snapshot/_status", this);
+    }
+
+    @Override
+    public void handleRequest(final RestRequest request, final RestChannel channel, final Client client) {
+    ...
+    }
+}
+
+
+package org.elasticsearch.common.inject;
+
+/**
+ * A module contributes configuration information, typically interface bindings, which will be used to create an {@link Injector}.
+ * A Guice-based application is ultimately composed of little more than a set of {@code Module}s and some bootstrapping code.
+ *
+ * Your Module classes can use a more streamlined syntax by extending {@link AbstractModule} rather than implementing this interface directly.
+ * 
+ * In addition to the bindings configured via {@link #configure}, bindings will be created for all methods annotated with {@literal @}{@link Provides}.
+ * Use scope and binding annotations on these methods to configure the bindings.
+ */
+public interface Module {
+
+    /**
+     * Contributes bindings and other configurations for this module to {@code binder}.
+     * 
+     * <strong>Do not invoke this method directly</strong> to install submodules.
+     * Instead use {@link Binder#install(Module)}, which ensures that {@link Provides provider methods} are discovered.
+     */
+    void configure(Binder binder);
+}
+
+
+common.inject.AbstractModule
+  bind...
+
+<- rest.RestModule
+  class RestModule extends AbstractModule {
+    ...
+    @Override
+    protected void configure() {
+        ...
+        new RestActionModule(restPluginsActions).configure(binder());
+    }
+  }
+
+<- (see above) node.internal.InternalNode
+  c-tor {
+    ModulesBuilder modules = new ModulesBuilder();
+    ...
+    modules.add(new RestModule(settings));
+    ...
+    injector = modules.createInjector();
+
+    client = injector.getInstance(Client.class);
+  }
+  
+
+...
+
+org.elasticsearch.common.inject.spi.Elements
+    /**
+     * Records the elements executed by {@code modules}.
+     */
+    public static List<Element> getElements(Stage stage, Iterable<? extends Module> modules) {
+        RecordingBinder binder = new RecordingBinder(stage);
+        for (Module module : modules) {
+            binder.install(module);
+        }
+        return Collections.unmodifiableList(binder.elements);
+    }
+
+    private static class RecordingBinder implements Binder, PrivateBinder {
+        ...
+        public void install(Module module) {
+            if (modules.add(module)) {
+                Binder binder = this;
+                if (module instanceof PrivateModule) {
+                    binder = binder.newPrivateBinder();
+                }
+
+                try {
+                    module.configure(binder);
+                } catch (RuntimeException e) {
+                    Collection<Message> messages = Errors.getMessagesFromThrowable(e);
+                    if (!messages.isEmpty()) {
+                        elements.addAll(messages);
+                    } else {
+                        addError(e);
+                    }
+                }
+                binder.install(ProviderMethodsModule.forModule(module));
+            }
+        }
+        ...
+    }
+
+
+???
+org.elasticsearch.common.inject.util.Modules
+    /**
+     * Returns a new module that installs all of {@code modules}.
+     */
+    public static Module combine(Iterable<? extends Module> modules) {
+        final Set<Module> modulesSet = ImmutableSet.copyOf(modules);
+        return new Module() {
+            public void configure(Binder binder) {
+                binder = binder.skipSources(getClass());
+                for (Module module : modulesSet) {
+                    binder.install(module);
+                }
+            }
+        };
+    }
+
+
+
+AbstractClient
+
+
+!!!
+ModulesBuilder
+<- TransportClient
+<- InternalNode
+

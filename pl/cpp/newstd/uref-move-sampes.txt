@@ -1,0 +1,145 @@
+https://en.cppreference.com/w/cpp/language/move_assignment
+https://docs.microsoft.com/en-us/cpp/cpp/move-constructors-and-move-assignment-operators-cpp
+
+2022
+CppCon - Fertig - Back to Basics: C++ Move Semantics 0:00 of 1:02:05
+    https://www.youtube.com/watch?v=knEaMpytRMA
+CppCon - Iglberger - Back to Basics: Cpp Value Semantics 0:00 of 48:27
+    https://www.youtube.com/watch?v=G9MxNwUoSt0
+https://itnext.io/move-semantics-and-rvalue-references-modern-c-fundamentals-cbbe38760c05
+FPMI - Ibragimov - Cpp and Algorithms
+    https://www.youtube.com/playlist?list=PL4_hYwCyhAvY1CNC2azvnDjkQfx5_S13l
+    ! last videos of course
+2021
+https://proglib.io/p/osnovy-move-semantics-v-c-2021-09-21
+    !!! tons of cppreference links
+Josuttis - Modern Cpp - Move Semantics
+    https://www.youtube.com/watch?v=YcZJsVPqOdc
+https://artificial-mind.net/blog/2021/10/23/return-moves
+https://www.thecodedmessage.com/posts/cpp-move/
+https://radekvit.medium.com/move-semantics-in-c-and-rust-the-case-for-destructive-moves-d816891c354b
+2020
+CppCon - Josuttis - The Hidden Secrets of Move Semantics 0:00 of 1:05:29
+    https://www.youtube.com/watch?v=TFMKjL38xAI
+https://herbsutter.com/2020/02/17/move-simply/
+https://habr.com/ru/post/484380/
+2019
+https://www.bfilipek.com/2019/07/move-debug.html
+https://medium.com/@winwardo/c-moves-for-people-who-dont-know-or-care-what-rvalues-are-%EF%B8%8F-56ee122dda7
+2018
+O'Dwyer - Trivially Relocatable
+    https://www.youtube.com/watch?v=xxta6LEn9Hk
+    https://p1144.godbolt.org/z/Qvyuvr
+O'Dwyer - Return Value Optimization: Harder Than It Looks
+    https://www.youtube.com/watch?v=hA1WNtNyNbo
+https://www.fluentcpp.com/2018/12/11/overview-of-std-map-insertion-emplacement-methods-in-cpp17/
+https://blogs.msdn.microsoft.com/vcblog/2018/12/10/guaranteed-copy-elision-does-not-elide-copies/
+Aloni - Rust - System Programming Language
+    http://blog.aloni.org/rust-featurewise-slides-1/#/front-page
+https://www.fluentcpp.com/2018/07/17/how-to-construct-c-objects-without-making-copies/
+
+From Meyers:
+std::move    is an unconditional cast to r-val
+  the better name for std::move will be rvalue_cast
+  std::move turns its arg to rval even if it isn't, and achieves that by "hiding the name"
+
+std::forward ...     conditional ...
+  casts param to rval iff rval was passed in
+
+// conceptual impl at namespace std
+
+template<typename T>
+T &&forward(T &&param)
+{
+    if (is_lvalue_reference<T>::value)
+      return param
+    else
+      return move(param); // cast to rval
+}
+
+Universal ref - can become either lval or rval
+
+decltype(auto) - for return type
+
+Ex 1:
+
+class string {
+public:
+  ...
+  string &operator=(const string &rhs); // copy assignment
+  string &operator=(string &&rhs);      // move assignment
+  ...
+};
+
+void processAndAdd(const string s)
+{
+  ...
+  sds.name = std::move(s); // copies s! since s is declared as const
+  ...
+}
+
+Ex 2:
+
+void process(Widget &lvalParam);
+void process(Widget &&rvalParam);
+
+template<typename T>
+void logAndProcess(T &&param)
+{
+  ...
+  process(std::forward<T>(param));
+}
+
+Widget w;
+logAndProcess(w);            // call with lval
+logAndProcess(std::move(w)); // call with rval
+
+
+From Lavavej:
+don't return by &&
+don't return by const &
+(NOTE: RVO, NRVO optimizations do the job)
+
+
+From ... Becker:
+
+Derived(Derived &&rhs)
+: Base (std::move(rhs))  // !!! very important to cast to rval here, maybe using std::forward
+{
+  // other stuff
+}
+
+RVO (return value optimization)
+
+X foo()
+{
+  X x;
+  // ...
+  return x;  // !!! don't need to call std::move since compiler does RVO and would construct X object directly at the location of foo's return value
+}
+
+Ex 3. We use URef when there is a type-deduction, if there is no - we just about RRef
+
+void std::vector<Widget>::push_back(Widget &&x);  // no type-deduction needed, so - RRef
+
+template<class ...Args>
+void std::vector<Widget>::emplace_back(Args &&... args);  // type-deduction, so - URef
+
+Ex 4.
+
+Reference collapsing is used for:
+- template arg deduction
+- auto-vars
+- decltypes
+
+Ex 5.
+http://candcplusplus.com/c-difference-between-emplace_back-and-push_back-function/
+
+template<class... Args>
+void emplace_back(Args &&... args);
+
+Appends a new element to the end of the container. The element is constructed in-place, i.e. no copy or move operations are performed.
+
+vector samples
+https://pagefault.blog/2018/03/01/common-misconception-with-cpp-move-semantics/
+https://habr.com/ru/post/174019/

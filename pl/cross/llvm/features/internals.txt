@@ -1,0 +1,19 @@
+tour of llvm sources:
+https://blog.regehr.org/archives/1453
+https://habrahabr.ru/post/343344/
+
+https://github.com/llvm-mirror/llvm/blob/release_39/docs/LangRef.rst
+https://raw.githubusercontent.com/llvm-mirror/llvm/release_39/docs/LangRef.rst
+
+2021
+https://blog.yossarian.net/series#llvm-internals
+    https://blog.yossarian.net/2021/11/29/LLVM-internals-part-4-attributes-and-attribute-groups
+    https://blog.yossarian.net/2021/09/14/LLVM-internals-part-3-from-bitcode-to-IR
+    https://blog.yossarian.net/2021/08/10/LLVM-internals-part-2-parsing-the-bitstream
+    https://blog.yossarian.net/2021/07/19/LLVM-internals-part-1-bitcode-format
+2018
+https://blog.gopheracademy.com/advent-2018/llvm-ir-and-go/
+    https://habr.com/ru/post/459704/
+????
+https://habrahabr.ru/post/277717/
+https://habrahabr.ru/post/267239/

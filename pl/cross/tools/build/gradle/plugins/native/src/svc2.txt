@@ -1,0 +1,469 @@
+org.gradle.tooling.internal.provider
+
+subprojects\launcher\src\main\resources\META-INF\services\org.gradle.internal.service.scopes.PluginServiceRegistry
+1:org.gradle.tooling.internal.provider.LauncherServices
+
+public class LauncherServices implements PluginServiceRegistry, GradleUserHomeScopePluginServices {
+    @Override
+    public void registerGlobalServices(ServiceRegistration registration) {
+        registration.addProvider(new ToolingGlobalScopeServices());
+    }
+
+    @Override
+    public void registerGradleUserHomeServices(ServiceRegistration registration) {
+        registration.addProvider(new ToolingBuildSessionScopeServices());
+    }
+
+    @Override
+    public void registerBuildSessionServices(ServiceRegistration registration) {
+    }
+
+    @Override
+    public void registerBuildServices(ServiceRegistration registration) {
+    }
+
+    @Override
+    public void registerGradleServices(ServiceRegistration registration) {
+    }
+
+    @Override
+    public void registerProjectServices(ServiceRegistration registration) {
+    }
+
+    static class ToolingGlobalScopeServices {
+        BuildExecuter createBuildExecuter(List<BuildActionRunner> buildActionRunners,
+                                          List<SubscribableBuildActionRunnerRegistration> registrations,
+                                          GradleLauncherFactory gradleLauncherFactory,
+                                          BuildOperationService buildOperationService,
+                                          FileWatcherFactory fileWatcherFactory,
+                                          ListenerManager listenerManager,
+                                          StyledTextOutputFactory styledTextOutputFactory,
+                                          ExecutorFactory executorFactory,
+                                          Factory<LoggingManagerInternal> loggingManagerFactory,
+                                          GradleUserHomeScopeServiceRegistry userHomeServiceRegistry) {
+            return new SetupLoggingActionExecuter(
+                new SessionFailureReportingActionExecuter(
+                    new StartParamsValidatingActionExecuter(
+                        new GradleThreadBuildActionExecuter(
+                            new ServicesSetupBuildActionExecuter(
+                                new ContinuousBuildActionExecuter(
+                                    new InProcessBuildActionExecuter(gradleLauncherFactory,
+                                        new SubscribableBuildActionRunner(
+                                            new RunAsBuildOperationBuildActionRunner(
+                                                new ValidatingBuildActionRunner(
+                                                    new ChainingBuildActionRunner(buildActionRunners))),
+                                            buildOperationService, registrations)),
+                                    fileWatcherFactory,
+                                    listenerManager,
+                                    styledTextOutputFactory,
+                                    executorFactory),
+                                userHomeServiceRegistry))),
+                    styledTextOutputFactory),
+                loggingManagerFactory.create());
+        }
+
+        ExecuteBuildActionRunner createExecuteBuildActionRunner() {
+            return new ExecuteBuildActionRunner();
+        }
+
+        ClassLoaderCache createClassLoaderCache() {
+            return new ClassLoaderCache();
+        }
+    }
+
+    static class ToolingBuildSessionScopeServices {
+        PayloadClassLoaderFactory createClassLoaderFactory(CachedClasspathTransformer cachedClasspathTransformer) {
+            return new DaemonSidePayloadClassLoaderFactory(
+                new ModelClassLoaderFactory(),
+                cachedClasspathTransformer);
+        }
+
+        PayloadSerializer createPayloadSerializer(ClassLoaderCache classLoaderCache, PayloadClassLoaderFactory classLoaderFactory) {
+            return new PayloadSerializer(
+                new WellKnownClassLoaderRegistry(
+                    new DefaultPayloadClassLoaderRegistry(
+                        classLoaderCache,
+                        classLoaderFactory))
+            );
+        }
+    }
+}
+
+
+public class GradleScopeServices extends DefaultServiceRegistry {
+
+    private final CompositeStoppable registries = new CompositeStoppable();
+
+    public GradleScopeServices(final ServiceRegistry parent, GradleInternal gradle) {
+        super(parent);
+        add(GradleInternal.class, gradle);
+        addProvider(new TaskExecutionServices());
+        register(new Action<ServiceRegistration>() {
+            public void execute(ServiceRegistration registration) {
+                for (PluginServiceRegistry pluginServiceRegistry : parent.getAll(PluginServiceRegistry.class)) {
+                    pluginServiceRegistry.registerGradleServices(registration);
+                }
+            }
+        });
+    }
+
+    TaskSelector createTaskSelector(GradleInternal gradle, ProjectConfigurer projectConfigurer) {
+        return new TaskSelector(gradle, projectConfigurer);
+    }
+
+    OptionReader createOptionReader() {
+        return new OptionReader();
+    }
+
+    CommandLineTaskParser createCommandLineTaskParser(OptionReader optionReader, TaskSelector taskSelector) {
+        return new CommandLineTaskParser(new CommandLineTaskConfigurer(optionReader), taskSelector);
+    }
+
+    BuildExecuter createBuildExecuter() {
+        return new DefaultBuildExecuter(
+            asList(new DryRunBuildExecutionAction(),
+                new SelectedTaskExecutionAction()));
+    }
+
+    BuildConfigurationActionExecuter createBuildConfigurationActionExecuter(CommandLineTaskParser commandLineTaskParser, TaskSelector taskSelector, ProjectConfigurer projectConfigurer) {
+        List<BuildConfigurationAction> taskSelectionActions = new LinkedList<BuildConfigurationAction>();
+        taskSelectionActions.add(new DefaultTasksBuildExecutionAction(projectConfigurer));
+        taskSelectionActions.add(new TaskNameResolvingBuildConfigurationAction(commandLineTaskParser));
+        return new DefaultBuildConfigurationActionExecuter(Arrays.asList(new ExcludedTaskFilteringBuildConfigurationAction(taskSelector)), taskSelectionActions);
+    }
+
+    ProjectFinder createProjectFinder(final GradleInternal gradle) {
+        return new ProjectFinder() {
+            public ProjectInternal getProject(String path) {
+                return gradle.getRootProject().project(path);
+            }
+
+            @Override
+            public ProjectInternal findProject(String path) {
+                return gradle.getRootProject().findProject(path);
+            }
+        };
+    }
+
+    TaskGraphExecuter createTaskGraphExecuter(ListenerManager listenerManager, TaskPlanExecutor taskPlanExecutor, BuildCancellationToken cancellationToken, BuildOperationExecutor buildOperationExecutor, WorkerLeaseService workerLeaseService, ResourceLockCoordinationService coordinationService) {
+        Factory<TaskExecuter> taskExecuterFactory = new Factory<TaskExecuter>() {
+            @Override
+            public TaskExecuter create() {
+                return get(TaskExecuter.class);
+            }
+        };
+        return new DefaultTaskGraphExecuter(listenerManager, taskPlanExecutor, taskExecuterFactory, cancellationToken, buildOperationExecutor, workerLeaseService, coordinationService);
+    }
+
+    ServiceRegistryFactory createServiceRegistryFactory(final ServiceRegistry services) {
+        final Factory<LoggingManagerInternal> loggingManagerInternalFactory = getFactory(LoggingManagerInternal.class);
+        return new ServiceRegistryFactory() {
+            public ServiceRegistry createFor(Object domainObject) {
+                if (domainObject instanceof ProjectInternal) {
+                    ProjectScopeServices projectScopeServices = new ProjectScopeServices(services, (ProjectInternal) domainObject, loggingManagerInternalFactory);
+                    registries.add(projectScopeServices);
+                    return projectScopeServices;
+                }
+                throw new UnsupportedOperationException();
+            }
+        };
+    }
+
+    PluginRegistry createPluginRegistry(PluginRegistry parentRegistry) {
+        return parentRegistry.createChild(get(GradleInternal.class).getClassLoaderScope());
+    }
+
+    PluginManagerInternal createPluginManager(Instantiator instantiator, GradleInternal gradleInternal, PluginRegistry pluginRegistry, InstantiatorFactory instantiatorFactory, BuildOperationExecutor buildOperationExecutor) {
+        PluginTarget target = new ImperativeOnlyPluginTarget<Gradle>(gradleInternal);
+        return instantiator.newInstance(DefaultPluginManager.class, pluginRegistry, instantiatorFactory.inject(this), target, buildOperationExecutor);
+    }
+
+    FileContentCacheFactory createFileContentCacheFactory(ListenerManager listenerManager, FileSystemSnapshotter fileSystemSnapshotter, CacheRepository cacheRepository, InMemoryCacheDecoratorFactory inMemoryCacheDecoratorFactory, Gradle gradle) {
+        return new DefaultFileContentCacheFactory(listenerManager, fileSystemSnapshotter, cacheRepository, inMemoryCacheDecoratorFactory, gradle);
+    }
+
+    protected BuildOutputCleanupRegistry createBuildOutputCleanupRegistry(FileResolver fileResolver) {
+        return new DefaultBuildOutputCleanupRegistry(fileResolver);
+    }
+
+    protected BuildOutputDeleter createBuildOutputDeleter(BuildOperationExecutor buildOperationExecutor, GradleInternal gradle, FileResolver fileResolver, FileLookup lookup, DocumentationRegistry documentationRegistry) {
+        return new BuildOperationBuildOutputDeleterDecorator(gradle, buildOperationExecutor, new DefaultBuildOutputDeleter(documentationRegistry, new Deleter(fileResolver, lookup.getFileSystem())));
+    }
+
+    protected BuildOutputCleanupCache createBuildOutputCleanupCache(CacheRepository cacheRepository, GradleInternal gradle, BuildOutputDeleter buildOutputDeleter, BuildOutputCleanupRegistry buildOutputCleanupRegistry) {
+        return new DefaultBuildOutputCleanupCache(cacheRepository, gradle, buildOutputDeleter, buildOutputCleanupRegistry);
+    }
+
+    // Note: This would be better housed in a scope that encapsulated the tree of Gradle objects.
+    // as we don't have this right now we simulate it by reaching up the tree.
+    protected BuildScopeId createBuildScopeId(GradleInternal gradle) {
+        if (gradle.getParent() == null) {
+            return new BuildScopeId(UniqueId.generate());
+        } else {
+            return gradle.getRoot().getServices().get(BuildScopeId.class);
+        }
+    }
+
+    BuildOperationNotificationBridge createBuildOperationNotificationBridge(BuildOperationService buildOperationService) {
+        return new BuildOperationNotificationBridge(buildOperationService);
+    }
+
+    BuildOperationNotificationListenerRegistrar createBuildOperationNotificationListenerRegistrar(BuildOperationNotificationBridge bridge) {
+        return bridge.notificationListenerRegistrar();
+    }
+
+    @Override
+    public void close() {
+        registries.stop();
+        super.close();
+    }
+
+}
+
+
+public class SettingsScopeServices extends DefaultServiceRegistry {
+    private final SettingsInternal settings;
+
+    public SettingsScopeServices(final ServiceRegistry parent, final SettingsInternal settings) {
+        super(parent);
+        this.settings = settings;
+        register(new Action<ServiceRegistration>() {
+            public void execute(ServiceRegistration registration) {
+                for (PluginServiceRegistry pluginServiceRegistry : parent.getAll(PluginServiceRegistry.class)) {
+                    if (pluginServiceRegistry instanceof SettingScopePluginServiceRegistry) {
+                        ((SettingScopePluginServiceRegistry) pluginServiceRegistry).registerSettingsServices(registration);
+                    }
+                }
+            }
+        });
+    }
+
+    protected FileResolver createFileResolver() {
+        return new BaseDirFileResolver(get(FileSystem.class), settings.getSettingsDir(), getFactory(PatternSet.class));
+    }
+
+    protected PluginRegistry createPluginRegistry(PluginRegistry parentRegistry) {
+        return parentRegistry.createChild(settings.getClassLoaderScope());
+    }
+
+    protected PluginManagerInternal createPluginManager(Instantiator instantiator, PluginRegistry pluginRegistry, InstantiatorFactory instantiatorFactory, BuildOperationExecutor buildOperationExecutor) {
+        PluginTarget target = new ImperativeOnlyPluginTarget<SettingsInternal>(settings);
+        return instantiator.newInstance(DefaultPluginManager.class, pluginRegistry, instantiatorFactory.inject(this), target, buildOperationExecutor);
+    }
+
+    protected ProjectDescriptorRegistry createProjectDescriptorRegistry() {
+        return new DefaultProjectDescriptorRegistry();
+    }
+}
+
+<- BuildScopeServiceRegistryFactory
+
+class BuildScopeServiceRegistryFactory implements ServiceRegistryFactory, Closeable {
+    private final ServiceRegistry services;
+    private final CompositeStoppable registries = new CompositeStoppable();
+
+    public BuildScopeServiceRegistryFactory(ServiceRegistry services) {
+        this.services = services;
+    }
+
+    public ServiceRegistry createFor(Object domainObject) {
+        if (domainObject instanceof GradleInternal) {
+            GradleScopeServices gradleServices = new GradleScopeServices(services, (GradleInternal) domainObject);
+            registries.add(gradleServices);
+            return gradleServices;
+        }
+        if (domainObject instanceof SettingsInternal) {
+            SettingsScopeServices settingsServices = new SettingsScopeServices(services, (SettingsInternal) domainObject);
+            registries.add(settingsServices);
+            return settingsServices;
+        }
+        throw new IllegalArgumentException(String.format("Cannot create services for unknown domain object of type %s.",
+                domainObject.getClass().getSimpleName()));
+    }
+
+    public void close() {
+        registries.stop();
+    }
+}
+
+<- BuildScopeServices
+
+package org.gradle.internal.service.scopes;
+
+public class BuildScopeServices extends DefaultServiceRegistry {
+    public static BuildScopeServices forSession(BuildSessionScopeServices sessionServices) { // !!! we call this from place to place
+        return new BuildScopeServices(sessionServices);
+    }
+
+    protected BuildScopeServices(ServiceRegistry parent, StartParameter startParameter) {
+        this(new BuildSessionScopeServices(parent, startParameter, ClassPath.EMPTY));
+    }
+
+    private BuildScopeServices(final BuildSessionScopeServices sessionServices) {
+        super(sessionServices);
+        addProvider(new BuildScanConfigServices());
+        register(new Action<ServiceRegistration>() {
+            public void execute(ServiceRegistration registration) {
+                for (PluginServiceRegistry pluginServiceRegistry : sessionServices.getAll(PluginServiceRegistry.class)) {
+                    pluginServiceRegistry.registerBuildServices(registration);
+                }
+            }
+        });
+    }
+    ...
+    protected ServiceRegistryFactory createServiceRegistryFactory(final ServiceRegistry services) {
+        return new BuildScopeServiceRegistryFactory(services);
+    }
+    ...
+}
+
+public class GradleScopeServices extends DefaultServiceRegistry {
+
+    private final CompositeStoppable registries = new CompositeStoppable();
+
+    public GradleScopeServices(final ServiceRegistry parent, GradleInternal gradle) {
+        super(parent);
+        add(GradleInternal.class, gradle);
+        addProvider(new TaskExecutionServices());
+        register(new Action<ServiceRegistration>() {
+            public void execute(ServiceRegistration registration) {
+                for (PluginServiceRegistry pluginServiceRegistry : parent.getAll(PluginServiceRegistry.class)) {
+                    pluginServiceRegistry.registerGradleServices(registration);
+                }
+            }
+        });
+    }
+    ...
+    ???
+}
+
+public class ComponentModelBaseServiceRegistry implements PluginServiceRegistry {
+
+    @Override
+    public void registerGlobalServices(ServiceRegistration registration) {
+        registration.addProvider(new GlobalScopeServices());
+    }
+
+    @Override
+    public void registerBuildSessionServices(ServiceRegistration registration) {
+
+    }
+
+    @Override
+    public void registerBuildServices(ServiceRegistration registration) {
+        registration.addProvider(new BuildScopeServices());
+    }
+
+    @Override
+    public void registerGradleServices(ServiceRegistration registration) {
+    }
+
+    @Override
+    public void registerProjectServices(ServiceRegistration registration) {
+    }
+
+    private static class BuildScopeServices {
+        ProjectModelResolver createProjectLocator(final ProjectRegistry<ProjectInternal> projectRegistry) {
+            return new DefaultProjectModelResolver(projectRegistry);
+        }
+    }
+
+    private static class GlobalScopeServices {
+        MethodModelRuleExtractor createComponentModelPluginInspector(ModelSchemaStore schemaStore) {
+            return new ComponentTypeModelRuleExtractor(schemaStore);
+        }
+
+        MethodModelRuleExtractor createComponentBinariesPluginInspector() {
+            return new ComponentBinariesModelRuleExtractor();
+        }
+
+        MethodModelRuleExtractor createBinaryTaskPluginInspector() {
+            return new BinaryTasksModelRuleExtractor();
+        }
+
+        ModelSchemaAspectExtractionStrategy createVariantAspectExtractionStrategy() {
+            return new VariantAspectExtractionStrategy();
+        }
+    }
+}
+
+<-
+
+public class DefaultGradleLauncherFactory implements GradleLauncherFactory {
+    ...
+    @Override
+    public GradleLauncher newInstance(StartParameter startParameter, BuildRequestContext requestContext, ServiceRegistry parentRegistry) {
+        // This should only be used for top-level builds
+        if (rootBuild != null) {
+            throw new IllegalStateException("Cannot have a current build");
+        }
+
+        if (!(parentRegistry instanceof BuildSessionScopeServices)) {
+            throw new IllegalArgumentException("Service registry must be of build session scope");
+        }
+        BuildSessionScopeServices sessionScopeServices = (BuildSessionScopeServices) parentRegistry;
+
+        DefaultGradleLauncher launcher = doNewInstance(startParameter, null, requestContext.getCancellationToken(), requestContext, requestContext.getEventConsumer(), sessionScopeServices, ImmutableList.of(new Stoppable() {
+            @Override
+            public void stop() {
+                rootBuild = null;
+            }
+        }));
+        rootBuild = launcher;
+
+        DeploymentRegistry deploymentRegistry = parentRegistry.get(DeploymentRegistry.class);
+        deploymentRegistry.onNewBuild(launcher.getGradle());
+
+        return launcher;
+    }
+    ...
+}
+
+ServiceRegistryBuilder
+
+BuildActionsFactory {
+...
+    private Runnable runBuildInProcess(StartParameter startParameter, DaemonParameters daemonParameters, ServiceRegistry loggingServices) {
+        ServiceRegistry globalServices = ServiceRegistryBuilder.builder()
+                .displayName("Global services")
+                .parent(loggingServices)
+                .parent(NativeServices.getInstance())
+                .provider(new GlobalScopeServices(startParameter.isContinuous()))
+                .build();
+
+        return runBuildAndCloseServices(startParameter, daemonParameters, globalServices.get(BuildExecuter.class), globalServices);
+    }
+...
+}
+
+public class GlobalScopeServices {
+    private final ClassPath additionalModuleClassPath;
+
+    private GradleBuildEnvironment environment;
+
+    public GlobalScopeServices(final boolean longLiving) {
+        this(longLiving, new DefaultClassPath());
+    }
+
+    public GlobalScopeServices(final boolean longLiving, ClassPath additionalModuleClassPath) {
+        this.additionalModuleClassPath = additionalModuleClassPath;
+        this.environment = new GradleBuildEnvironment() {
+            public boolean isLongLivingProcess() {
+                return longLiving;
+            }
+        };
+    }
+
+    // !!!
+    void configure(ServiceRegistration registration, ClassLoaderRegistry classLoaderRegistry) {
+        final List<PluginServiceRegistry> pluginServiceFactories = new DefaultServiceLocator(classLoaderRegistry.getRuntimeClassLoader(), classLoaderRegistry.getPluginsClassLoader()).getAll(PluginServiceRegistry.class);
+        for (PluginServiceRegistry pluginServiceRegistry : pluginServiceFactories) {
+            registration.add(PluginServiceRegistry.class, pluginServiceRegistry);
+            if (pluginServiceRegistry instanceof GradleUserHomeScopePluginServices) {
+                registration.add(GradleUserHomeScopePluginServices.class, (GradleUserHomeScopePluginServices) pluginServiceRegistry);
+            }
+            pluginServiceRegistry.registerGlobalServices(registration);
+        }
+    }
+    ...
+}

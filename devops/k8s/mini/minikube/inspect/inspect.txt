@@ -1,0 +1,51 @@
+https://kubernetes.io/docs/setup/minikube/
+
+tips
+docker save <registry-name>:<registry-port>/<img-name>:<img-tag> | ssh -i $(minikube ssh-key) docker@$(minikube ip) 'docker load'
+
+https://stackoverflow.com/questions/38870277/how-do-i-ssh-into-the-vm-for-minikube
+
+kubectl
+    version
+
+    options
+        -n, --namespace (kube-system)
+        --all-namespaces
+        list available global options
+
+    cluster-info
+        Kubernetes master is running at https://192.168.0.103:8443
+        CoreDNS is running at https://192.168.0.103:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+        dump
+            --all-namespaces
+            --namespaces default,kube-system
+            --output=json|yaml|name|template|go-template|go-template-file|templatefile|jsonpath-file|jsonpath.
+            --output-directory=/path/to/cluster-state
+                creates directory hier...
+
+            detailed json-dump
+
+    describe
+        --all-namespaces
+        --namespace
+
+    config
+        get-clusters
+        current-context
+        get-contexts
+
+        set-context
+        use-context
+
+        view
+
+    get
+        po[ds]
+        --all-namespaces
+        --context=minikube
+        -n kube-system
+
+
+kubectl config set-context minikube
+kubectl get po -n kube-system

@@ -1,0 +1,26 @@
+https://github.com/monsta-hd/boltzmann-machines
+
+from tensorflow.examples.tutorials.mnist import input_data
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+
+    28*28 = 784 pixels (55000 samples)
+    mnist.train
+        mnist.train.images
+        mnist.train.labels
+            [0, 0, 0, 1, 0, 0, 0, 0, 0, 0] - one-hot vector for number 3
+    mnist.test
+    mnist.validate
+
+    import tensorflow as tf
+
+    x = tf.placeholder(tf.float32, [None, 784])     # use arbitrary number of 784-dim vectors for learning
+
+    W = tf.Variable(tf.zeros[784, 10])              # matrix for mult-n
+    b = tf.Variable(tf.zeros[10])                   # bias vector (to add)
+
+    y = tf.nn.softmax(tf.matmul(x, W) + b)
+
+    y_ = tf.placeholder(tf.float32, [None, 10])     # stub-function
+
+    cross_entropy = tf.reduce_mean(
+        -tf.reduce_sum(y_ * tf.log(y), reduction_idices=[1]))

@@ -1,0 +1,81 @@
+https://nixos.wiki/wiki/Nvidia
+https://github.com/codyopel/nixpkgs/blob/master/nixos/modules/hardware/opengl.nix
+
+nix-env -i
+    glxinfo
+    xrandr
+    ? lsmod
+    openarena (for test)
+
+openarena
+/nix/store/vgbnfmr1z7mmmnsp2kwc762cbdjjrcsi-openarena-0.8.8/openarena-0.8.8/openarena.x86_64:
+    error while loading shared libraries: libGL.so.1: cannot open shared object file:
+
+    /usr/lib/libGL.so
+
+libgl-shim
+    https://github.com/NixOS/nixpkgs/issues/9840
+
+??? opengl-driver
+    https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/hardware/opengl.nix
+    https://gitlab.cern.ch/lhcb-nix/nixpkgs/blob/62204a59c73bffbaf013906c7c6834ca003512a5/nixos/modules/hardware/opengl.nix
+    https://nixos.org/releases/tmp/release-nixos-18.03-small/nixos-18.03pre131752.bc632a2f550/unpack/nixos-18.03pre131752.bc632a2f550/nixos/modules/hardware/opengl.nix
+    https://github.com/corngood/nixos-mesa-git/blob/master/configuration.nix
+
+https://github.com/deepfire/nix-install-vendor-gl
+    https://github.com/deepfire/nix-install-vendor-gl/blob/master/nix-install-vendor-gl.sh
+
+https://github.com/guibou/nixGL
+    https://github.com/guibou/nixGL/issues/10
+
+        mkdir -p $out/bin
+          cat > $out/bin/nixGLIntel << FOO
+          #!/usr/bin/env sh
+          export LIBGL_DRIVERS_PATH=${mesa_drivers}/lib/dri
+          export LD_LIBRARY_PATH=${mesa_drivers}/lib:\$LD_LIBRARY_PATH
+          "\$@"
+          FOO
+          chmod u+x $out/bin/nixGLIntel
+          '';
+
+          ... use nixGLIntel
+    https://www.reddit.com/r/NixOS/comments/5822qn/how_do_i_get_opengl_31_working/
+
+    extra/mesa-demos
+        glxinfo
+    nix/glxinfo
+        /nix/store/1vlc6hmnkmq7zb1nrqi2iw9iyis24pkc-libXext-1.3.3
+        /nix/store/bipxm6sajr44w88kpzdnx99mbvn8fqvy-libglvnd-1.0.0
+        /nix/store/dh1ww24aiiaa84gzg0ibmnb1k0nag65v-libGL-1.0.0
+        /nix/store/l5zdk56k8yvc1lhnyyqj3hvzyx65ibv8-glxinfo-8.4.0
+
+lor
+https://www.linux.org.ru/forum/desktop/11997968
+
+find /nix/store ... | grep mesa
+4m520jaj0rx9ckhcqnmnbswgz2m5ar0c-mesa-18.2.1.tar.xz.drv
+9rfc24h0zhy4h1nis51k68z624bh545c-mesa-noglu-18.2.1.drv
+imz28mgrs7ah59mrqi1dqs499sl0mn4b-mesa-demos-8.4.0.tar.bz2.drv
+8jvmf9idk3zhfr9amwif4ggr5nrwnykp-cmake-3.12.1/share/cmake-3.12/Help/command/use_mangled_mesa.rst
+5vlia9c81z2k638wk3llpnygxzbljg36-nixpkgs-19.03pre155767.8070a6333f3/nixpkgs/pkgs/development/libraries/mesa/disk_cache-include-dri-driver-path-in-cache-key.patch
+5vlia9c81z2k638wk3llpnygxzbljg36-nixpkgs-19.03pre155767.8070a6333f3/nixpkgs/pkgs/development/libraries/mesa/darwin-clock-gettime.patch
+5vlia9c81z2k638wk3llpnygxzbljg36-nixpkgs-19.03pre155767.8070a6333f3/nixpkgs/pkgs/development/libraries/mesa/missing-includes.patch
+5vlia9c81z2k638wk3llpnygxzbljg36-nixpkgs-19.03pre155767.8070a6333f3/nixpkgs/pkgs/development/libraries/mesa/symlink-drivers.patch
+5vlia9c81z2k638wk3llpnygxzbljg36-nixpkgs-19.03pre155767.8070a6333f3/nixpkgs/pkgs/development/libraries/mesa/default.nix
+5vlia9c81z2k638wk3llpnygxzbljg36-nixpkgs-19.03pre155767.8070a6333f3/nixpkgs/pkgs/development/libraries/mesa-glu/default.nix
+
+issues
+"Could not initialize GLX"
+https://github.com/NixOS/nixpkgs/issues/9415
+    https://nixos.wiki/wiki/How_to_give_Nix_software_access_to_native_libraries_when_running_Nix_package_manager_on_a_non-NixOS_distribution
+        https://github.com/NixOS/nixpkgs/issues/9415#issuecomment-139655485
+    https://github.com/NixOS/nixpkgs/issues/31189
+        https://github.com/NixOS/nixpkgs/issues/16779
+    https://github.com/NixOS/nixpkgs/issues/11390
+    https://github.com/NixOS/nixpkgs/issues/10857
+    https://github.com/matthewbauer/nix-bundle/issues/23
+    https://github.com/NixOS/nixpkgs/issues/40001
+
+video (alex f)
+https://github.com/NixOS/nixpkgs/issues/24711
+

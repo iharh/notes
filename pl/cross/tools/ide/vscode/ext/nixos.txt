@@ -1,0 +1,6 @@
+https://marketplace.visualstudio.com/items?itemName=bbenoist.Nix
+
+https://github.com/the-nix-way/nix-flake-dev-environments/blob/main/.gitpod.yml
+    vscode:
+      extensions:
+        - bbenoist.Nix

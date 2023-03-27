@@ -1,0 +1,48 @@
+https://boostorg.github.io/build/
+https://github.com/boostorg/build
+
+http://www.boost.org/more/getting_started/unix-variants.html
+
+https://boostorg.github.io/build/tutorial.html
+https://boostorg.github.io/build/manual/master/index.html
+
+https://github.com/boostorg/build/tree/develop/doc/src
+https://github.com/boostorg/build/blob/develop/doc/src/standalone.adoc
+https://github.com/boostorg/build/blob/develop/doc/src/overview.adoc
+https://github.com/boostorg/build/blob/develop/doc/src/tutorial.adoc
+https://github.com/boostorg/build/blob/develop/doc/src/reference.adoc
+https://github.com/boostorg/build/blob/develop/doc/src/examples.adoc
+https://github.com/boostorg/build/blob/develop/doc/src/debug.adoc
+https://github.com/boostorg/build/blob/develop/doc/src/bjam.adoc
+https://github.com/boostorg/build/blob/develop/doc/src/install.adoc
+    https://github.com/boostorg/build/blob/develop/doc/src/path.adoc
+    https://github.com/boostorg/build/blob/develop/doc/src/project-target.adoc
+    https://github.com/boostorg/build/blob/develop/doc/src/property-set.adoc
+    https://github.com/boostorg/build/blob/develop/doc/src/sequence.adoc
+    https://github.com/boostorg/build/blob/develop/doc/src/tasks.adoc
+    https://github.com/boostorg/build/blob/develop/doc/src/type.adoc
+    https://github.com/boostorg/build/blob/develop/doc/src/typed-target.adoc
+
+
+bootstrap.sh # single dashed variant of option is also supported
+    --prefix=<prefix>
+    --show-libraries
+    --with-icu=<dir>
+    --with-toolset=<toolset>
+    --with-libraries=datetime,filesystem,system,thread
+
+cli
+b2 app
+    --build-type=minimal
+    --link=static
+    --variant=debug
+    --threading=multi
+    --runtime-link=static
+    --cxxflags=-fPIC
+    // optimization=full
+    // define=USE_ASM
+    install
+
+    --clean
+    toolset=gcc
+    install --prefix=PREFIX

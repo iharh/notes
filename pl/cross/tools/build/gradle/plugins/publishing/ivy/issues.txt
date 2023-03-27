@@ -1,0 +1,10 @@
+https://github.com/gradle/gradle/issues/11862
+    ! spring dependencyManagement plugin
+    https://stackoverflow.com/questions/61500897/gradle-springboot-mavenpublish-publication-only-contains-dependencies-and-or
+    !!! This is because components.java is configured for default java plugin task: jar or war.
+    ! However for Spring Boot, after applying plugin org.springframework.boot, the default task become bootJar or bootWar.
+https://github.com/gradle/gradle/issues/3451
+https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/191
+    ! status:declined
+https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/161
+https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/98

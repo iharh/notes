@@ -1,0 +1,16 @@
+2020
+https://rebrainme.com/blog/linux/ustanavlivaem-distributiv-nixos/
+https://foo-dogsquared.github.io/blog/posts/moving-into-nixos/
+    nix-env -i git gnumake
+    sudo git clone $MY_NIXOS_CONFIG_URL /etc/dotfiles
+    PREFIX=/mnt USER=foo-dogsquared HOST=zilch make -C /etc/dotfiles install
+
+    or with using https://nix.dev/tutorials/ad-hoc-developer-environments.html#reproducible-executables
+    #! /usr/bin/env nix-shell
+    #! nix-shell -i bash -p git gnumake
+
+2019
+http://johnduhamel.io/posts/2019-01-18-nixos-install.html
+    ! small
+2017
+https://www.linux.org.ru/forum/linux-install/13885117

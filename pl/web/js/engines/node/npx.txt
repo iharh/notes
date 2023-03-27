@@ -1,0 +1,9 @@
+https://www.npmjs.com/package/npx
+https://github.com/zkat/npx
+
+https://github.com/suarasaur/awesome-npx
+
+2017
+https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
+
+This can be integrated with npm scripts to try some npm package without installing it

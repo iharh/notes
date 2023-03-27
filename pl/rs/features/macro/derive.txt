@@ -1,0 +1,30 @@
+https://www.infoq.com/news/2017/02/rust-115-custom-derive
+https://github.com/rust-lang/rfcs/blob/master/text/1681-macros-1.1.md
+
+https://crates.io/crates/derive_more
+https://github.com/JelteF/derive_more
+
+https://crates.io/crates/derive-new
+https://github.com/nrc/derive-new
+
+https://crates.io/crates/derive-error
+https://crates.io/crates/derive-error-chain
+
+https://crates.io/crates/derivative
+https://mcarton.github.io/rust-derivative/
+https://github.com/mcarton/rust-derivative
+
+https://crates.io/crates/accessors
+https://github.com/emk/accessors
+
+https://crates.io/crates/derive_builder
+https://docs.rs/derive_builder/0.3.0/derive_builder/
+https://github.com/colin-kiegel/rust-derive-builder
+https://users.rust-lang.org/t/announcing-derive-builder-which-generates-setter-methods-for-your-struct/6990
+https://aturon.github.io/ownership/builders.html
+
+2021
+https://blog.turbo.fish/proc-macro-simple-derive/
+2019
+Ramine - Making life easier with Derive and other tools
+    https://www.youtube.com/watch?v=k1SOQH3wbSI

@@ -1,0 +1,224 @@
+CABAL - Common Architecture for Building Applications and Libraries
+
+Constraint Solver
+??? --max-backjumps=-1
+
+http://taylor.fausak.me/2014/03/04/haskeleton-a-haskell-project-skeleton/
+http://habrahabr.ru/post/165559/
+http://bob.ippoli.to/archives/2013/01/11/getting-started-with-haskell/
+http://www.reddit.com/r/haskell/comments/16qpi7/best_practice_of_using_haskellcabal_on_windows/
+
+Sandboxes:
+http://www.edsko.net/2015/03/09/sandboxes-revisited/
+https://www.fpcomplete.com/school/to-infinity-and-beyond/older-but-still-interesting/an-introduction-to-cabal-sandboxes-copy
+http://coldwa.st/e/blog/2013-08-20-Cabal-sandbox.html
+
+$ cd /path/to/shared-sandbox
+$ cabal sandbox init --sandbox .
+$ cd /path/to/package-a
+$ cabal sandbox init --sandbox /path/to/shared-sandbox
+
+
+--require-sandbox
+Note: The option can be turned on via the per-user configuration file ('~/.cabal/config') use-sandbox-by-default
+https://github.com/haskell/cabal/issues/1101
+put
+"require-sandbox: True" in your ~/.cabal/config
+
+sandman:
+http://hackage.haskell.org/package/sandman
+http://hackage.haskell.org/package/sandman
+
+
+
+cabal get --source-repository
+https://plus.google.com/u/0/+MikhailGlushenkov/posts/deEMzNUxNV9
+
+
+http://www.haskell.org/haskellwiki/Cabal-Install
+http://hackage.haskell.org/trac/hackage/wiki/CabalInstall
+
+--allow-newer
+https://github.com/haskell/cabal/pull/1604
+
+Documentation:
+http://eax.me/mini-notes-issue-17/
+
+sdist:
+http://eax.me/hackage-upload/
+
+PVP Check:
+cabal check
+
+-- The package version. See the Haskell package versioning policy (PVP)
+-- for standards guiding when and how versions should be incremented.
+-- http://www.haskell.org/haskellwiki/Package_versioning_policy
+-- PVP summary: +-+------- breaking API changes
+-- | | +----- non-breaking API additions
+-- | | | +--- code changes with no API change
+version: 0.1.0.3
+
+
+Get a pre-built cabal.exe from:
+
+http://www.haskell.org/cabal/download.html
+
+You must put the cabal.exe in a directory that is on your %PATH%, for example C:\Program Files\Haskell\bin. 
+
+
+To install cabal-packages globally:
+
+http://www.volkerschatz.com/haskell/glocabal.html
+
+
+Config Location:
+C:\Users\Ihar_Hancharenka\AppData\Roaming\cabal\config
+NOTE: use cabal --config-file=<...your config location...>
+
+To turn on --global by default:
+
+ user-install: False
+
+
+http://www.haskell.org/cabal/users-guide/installing-packages.html#path-variables-in-the-simple-build-system
+"Paths in the simple build system"
+https://github.com/haskell/cabal/blob/master/Cabal/Distribution/Simple/InstallDirs.hs
+
+* configure *
+
+cabal configure -v
+
+* update *
+
+cabal update --verbose=3
+
+* list *
+
+cabal list <pack-name-pattern>
+
+* install *
+
+cabal install cabal-install
+cabal install <package>
+
+cabal install --constraint="HTTP >= 4000.2.5" http://johantibell.com/files/Cabal-1.20.0-rc.tar.gz http://johantibell.com/files/cabal-install-1.20.0-rc.tar.gz
+
+* unpack *
+
+cabal unpack <package>
+
+* init *
+
+generate package.cabal file
+
+* repl *
+
+run a ghci repl
+
+* run *
+
+* bench *
+
+benchmarking with criterion
+
+****************************************************************************************************
+documentation
+****************************************************************************************************
+
+cabal install <name> --enable-documentation
+
+http://eax.me/mini-notes-issue-17/
+
+~/.cabal/config:
+or at cabal.config at the current sandbox!!!
+
+documentation: True
+
+cabal install haskell-docs
+
+* haddock *
+
+cabal haddock <package> --hyperlink-source --executable -v
+
+http://stackoverflow.com/questions/13153747/errors-on-building-haddock-documentation-with-cabal
+http://stackoverflow.com/questions/18238975/haddock-cant-find-the-documentation-for-installed-packages
+
+* hoogle *
+
+http://neilmitchell.blogspot.com/2008/08/hoogle-database-generation.html
+http://chromaticleaves.com/posts/how-to-hoogle.html
+
+****************************************************************************************************
+cabal files
+****************************************************************************************************
+
+  ghc-options: -Wall
+
+
+****************************************************************************************************
+testing
+****************************************************************************************************
+
+running
+    cabal test --show-details=always --test-options=--color
+    
+is a nice way of seeing all your test results listed in color
+
+
+****************************************************************************************************
+usefull options
+****************************************************************************************************
+
+http://blog.ezyang.com/2011/06/pinpointing-space-leaks-in-big-programs/:
+
+After you have your test case, the next step is to compile with profiling enabled.
+With GHC, this is as simple as switching your build settings to build a profiled stage 2 compiler;
+for a more ordinary Haskell project, all you need to do is add
+  -prof -auto-all to your ghc invocation,
+or invoke Cabal with
+  --enable-executable-profiling --enable-library-profiling --ghc-option=-auto-all.
+
+
+!!!
+You may need to install profiling versions of your libraries, so a useful line to have in your .cabal/config file is
+
+  library-profiling: True,
+
+which causes all libraries you cabal install or cabal configure to have profiling enabled.
+
+ghc-prof-options: -auto-all
+
+Sample cabal configs:
+https://github.com/snapframework/snap-server/blob/master/snap-server.cabal
+
+Coverage:
+    --enable-library-coverage
+
+****************************************************************************************************
+flags
+****************************************************************************************************
+
+http://stackoverflow.com/questions/12393750/how-can-i-configure-cabal-to-use-different-folders-for-32-bit-and-64-bit-package
+  cabal configure -fflagname or cabal install -fflagname
+
+http://www.haskell.org/cabal/users-guide/installing-packages.html#controlling-flag-assignments
+  -f flagname or -f -flagname
+  --flags=flagspecs
+  --flags="debug -feature1 feature2" is equivalent to -fdebug -f-feature1 -ffeature2.
+
+https://github.com/haskell/cabal/blob/master/Cabal/Distribution/Simple/InstallDirs.hs
+  instance Read PathTemplateVariable where
+
+****************************************************************************************************
+cabal options
+****************************************************************************************************
+
+  Ghc-Options: -Wall
+  Ghc-Prof-Options: -auto-all -caf-all
+  Cpp-options:
+    -DSOME_DEFINE
+
+  --For modules that do not form part of your package’s public interface,
+  Other-Modules:
+
+

@@ -1,0 +1,13 @@
+emit-stuff
+https://llvm.org/docs/LangRef.html#data-layout
+https://llvm.org/docs/LangRef.html#function-attributes
+https://llvm.org/docs/LangRef.html#attribute-groups
+https://llvm.org/docs/LangRef.html#terminators
+https://llvm.org/docs/LangRef.html#well-formedness
+https://llvm.org/docs/LangRef.html#getelementptr-instruction
+https://llvm.org/docs/GetElementPtr.html
+
+-O0 -S -emit-llvm
+    -c -emit-llvm
+    2018
+    https://blog.regehr.org/archives/1605

@@ -1,0 +1,18 @@
+http-builder-0.7.x
+groovy.codehaus.org/modules/http-builder/
+https://github.com/jgritman/httpbuilder
+https://github.com/jgritman/httpbuilder/tree/master/src/main/java/groovyx/net/http
+
+http-client-4.5.1
+http-core-4.4.3
+
+http://stackoverflow.com/questions/28843915/how-to-get-complete-response-for-groovy-restclient-failed-response
+
+restClient = new RESTClient("http://${Server}")
+restClient.handler.failure = { resp, data ->
+...
+    throw new HttpResponseException(resp.getStatus(),
+        "HTTP call failed. Status code: ${resp.getStatus()}\n${headers}\n" +
+        "Response: " + (resp as HttpResponseDecorator).getData())
+    return resp
+}

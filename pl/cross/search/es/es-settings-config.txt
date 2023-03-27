@@ -1,0 +1,9 @@
+Netty stuff
+transport.netty.worker_count: 100
+http.netty.worker_count: 100
+
+"http.netty.worker_count"
+transport.netty.worker_count
+
+"transport.netty.NettyTransport"
+http.netty.NettyHttpServerTransport

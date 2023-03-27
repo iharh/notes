@@ -1,0 +1,38 @@
+community
+    xmlstarlet
+
+content
+/usr/bin/xml
+/usr/bin/xmlstarlet
+/usr/share/doc/xmlstarlet/xmlstarlet-ug.html
+/usr/share/doc/xmlstarlet/xmlstarlet-ug.pdf
+/usr/share/doc/xmlstarlet/xmlstarlet-ug.ps
+/usr/share/doc/xmlstarlet/xmlstarlet.txt
++ man
+
+xml <
+    fo
+        format
+    el
+        display the elements structure
+
+a.xml:
+<root>
+	<el1>
+		<el2 errcnt="0"/>
+		<el2 errcnt="1"/>
+		<el2 errcnt="2"/>
+	</el1>
+</root>
+
+!!!
+-o "-----" -n -f -n -o "-----" -n
+
+> xml sel -t -m "root/el1/el2" -i "@errcnt > 0" -v "@errcnt" -n *.xml
+1
+2
+
+S:Envelope/S:Body/ns2:processMultiVerbatimDocumentResponse/return/verbatimSet/verbatim/sentences/sentence/attributes/attributeValues/attributeName
+
+Namespaces
+http://xmlstar.sourceforge.net/doc/UG/ch05s01.html

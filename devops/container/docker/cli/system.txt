@@ -1,0 +1,9 @@
+docker
+    system
+        df
+            usage
+        prune
+            -af ???
+
+2020
+https://nuancesprog.ru/p/9730/

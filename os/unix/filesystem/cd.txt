@@ -1,0 +1,28 @@
+cd -
+	Go to the previous dir
+
+
+Env vars:
+
+cdpath
+	use it for quick cd
+OLDPWD
+	filled by "cd -"
+
+
+zsh options:
+
+chase_links
+	stop lie about [soft] links
+
+g/a and hit the Up-button
+    cd /var/log/apache2 - will be found at the history
+
+2:
+http://habrahabr.ru/post/151484/
+
+xiki:
+https://www.youtube.com/watch?v=bUR_eUVcABg
+http://xiki.org/
+https://www.kickstarter.com/projects/xiki/xiki-the-command-revolution?ref=card
+https://www.facebook.com/xikirevolution

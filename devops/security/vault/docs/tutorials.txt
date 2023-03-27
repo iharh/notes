@@ -1,0 +1,34 @@
+https://developer.hashicorp.com/vault/tutorials
+https://developer.hashicorp.com/vault/tutorials/getting-started
+https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-secrets-engines
+    ???
+https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-first-secret
+    curl \
+        -H "X-Vault-Token: f3b09679-3001-009d-2b80-9c306ab81aa6" \
+        -H "X-Vault-Namespace: ns1/ns2/" \
+        -X GET \
+        http://127.0.0.1:8200/v1/secret/foo
+    <or...>
+    curl \
+        -H "X-Vault-Token: f3b09679-3001-009d-2b80-9c306ab81aa6" \
+        -X GET \
+        http://127.0.0.1:8200/v1/ns1/ns2/secret/foo
+
+    vault kv put secret/hello foo=world
+        secret - arbitary secret
+    vault kv get [-format=json] secret/hello
+    vault kv delete secret/hello
+
+
+https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-dev-server
+    vault server -dev
+    export VAULT_ADDR='http://127.0.0.1:8200'
+    save the unseakey.txt
+    export VAULT_DEV_ROOT_TOKEN_ID=...
+    vault status
+https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install
+https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-intro
+
+
+https://www.bogotobogo.com/DevOps/Docker/Docker-Vault-Consul.php
+https://www.bogotobogo.com/DevOps/Docker/Docker-Vault-Consul-B.php

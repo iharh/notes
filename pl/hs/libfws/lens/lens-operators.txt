@@ -1,0 +1,27 @@
+http://intolerable.me/lens-operators-intro/
+
+https://github.com/quchen/articles/blob/master/lens-infix-operators.md
+http://www.reddit.com/r/haskell/comments/20pgym/lens_infix_operator_nomenclature_overview/
+
+http://hackage.haskell.org/package/lens/docs/Control-Lens-Operators.html
+
+Symbols meaning:
+~ operating not in a state monad
+. setter
+^ getter
+% performing a function over whatever it is
+@ with index
+
+traversed  - traverse a traversable
+
+.=         - set the field in a state monad
+
+
+(^..) :: s -> Getting (Endo [a]) s a -> [a]
+s ^.. l = toListOf l s
+
+
+$@=        - 
+
+<>~
+

@@ -1,0 +1,5 @@
+https://crates.io/crates/nickel-lang-lsp
+
+https://github.com/tweag/nickel/tree/master/lsp
+    cargo install nickel-lang-lsp
+https://github.com/tweag/nickel/tree/master/lsp#vs-code

@@ -1,0 +1,129 @@
+TODO: paccache
+
+https://wiki.manjaro.org/index.php?title=Manjaro-tools
+https://github.com/manjaro/manjaro-tools
+
+https://wiki.manjaro.org/index.php?title=Build_Manjaro_ISOs_with_buildiso
+https://forum.manjaro.org/index.php?topic=21976.0
+
+You can download manjaro-tools-iso and the current profiles from our master branch and give it a try yourself by building a ISO:
+
+sudo pacman -S manjaro-tools-iso
+# manjaro-tools-base
+# manjaro-tools-pkg
+
+
+mkdir ~/dev
+cd ~/dev
+git clone https://github.com/manjaro/manjaro-tools-iso-profiles.git
+sudo buildiso -p gnome [-qv]
+
+It may or may not give you a proper result.
+You may want to edit /etc/manjaro-tools/manjaro-tools.conf and copy it over to ~/.config/manjaro-tools/.
+Also take a look at the profile.conf of the gnome profile.
+
+
+
+$ pacman -Qql manjaro-tools-iso
+/etc/
+/etc/manjaro-tools/
+/etc/manjaro-tools/iso.d/
+/etc/manjaro-tools/iso.d/community-minimal.set
+/etc/manjaro-tools/iso.d/community.set
+/etc/manjaro-tools/iso.d/default.set
+/etc/manjaro-tools/iso.d/official.set
+/usr/
+/usr/bin/
+/usr/bin/buildiso
+/usr/bin/deployiso
+/usr/bin/testiso
+/usr/lib/
+/usr/lib/initcpio/
+/usr/lib/initcpio/hooks/
+/usr/lib/initcpio/hooks/miso
+/usr/lib/initcpio/hooks/miso_loop_mnt
+/usr/lib/initcpio/hooks/miso_overlayfs
+/usr/lib/initcpio/hooks/miso_pxe_common
+/usr/lib/initcpio/hooks/miso_pxe_http
+/usr/lib/initcpio/install/
+/usr/lib/initcpio/install/miso
+/usr/lib/initcpio/install/miso_kms
+/usr/lib/initcpio/install/miso_loop_mnt
+/usr/lib/initcpio/install/miso_overlayfs
+/usr/lib/initcpio/install/miso_pxe_common
+/usr/lib/initcpio/install/miso_pxe_http
+/usr/lib/manjaro-tools/
+/usr/lib/manjaro-tools/util-iso-aufs.sh
+/usr/lib/manjaro-tools/util-iso-boot.sh
+/usr/lib/manjaro-tools/util-iso-calamares.sh
+/usr/lib/manjaro-tools/util-iso-image.sh
+/usr/lib/manjaro-tools/util-iso-log.sh
+/usr/lib/manjaro-tools/util-iso-overlayfs.sh
+/usr/lib/manjaro-tools/util-iso.sh
+/usr/lib/manjaro-tools/util-livecd.sh
+/usr/lib/manjaro-tools/util-publish.sh
+/usr/share/
+/usr/share/man/
+/usr/share/man/man1/
+/usr/share/man/man1/buildiso.1.gz
+/usr/share/man/man1/deployiso.1.gz
+/usr/share/man/man5/
+/usr/share/man/man5/manjaro-tools.conf.5.gz
+/usr/share/man/man5/profile.conf.5.gz
+/usr/share/manjaro-tools/
+/usr/share/manjaro-tools/pacman-gfx.conf
+/usr/share/manjaro-tools/profile.conf.example
+/usr/share/manjaro-tools/scripts/
+/usr/share/manjaro-tools/scripts/kbd-model-map
+/usr/share/manjaro-tools/scripts/livecd
+/usr/share/manjaro-tools/scripts/mhwd-live
+
+
+$ pacman -Qql manjaro-tools-base
+/etc/
+/etc/manjaro-tools/
+/etc/manjaro-tools/manjaro-tools.conf
+/usr/
+/usr/bin/
+/usr/bin/basestrap
+/usr/bin/chroot-run
+/usr/bin/fstabgen
+/usr/bin/manjaro-chroot
+/usr/bin/mkchroot
+/usr/lib/
+/usr/lib/manjaro-tools/
+/usr/lib/manjaro-tools/util-fstab.sh
+/usr/lib/manjaro-tools/util-mount.sh
+/usr/lib/manjaro-tools/util-msg.sh
+/usr/lib/manjaro-tools/util-pac-conf.sh
+/usr/lib/manjaro-tools/util.sh
+/usr/share/
+/usr/share/manjaro-tools/
+/usr/share/manjaro-tools/pacman-default.conf
+/usr/share/manjaro-tools/pacman-mirrors-stable.conf
+/usr/share/manjaro-tools/pacman-mirrors-testing.conf
+/usr/share/manjaro-tools/pacman-mirrors-unstable.conf
+/usr/share/manjaro-tools/pacman-multilib.conf
+
+conf:
+manjaro-tools.conf
+profile.conf
+
+
+$ ls /etc/manjaro-tools/iso.d/
+default.set
+official.set
+community-minimal.set
+community.set
+
+
+$ pacman -Ss manjaro-artwork
+extra/manjaro-artwork 1.0.8-2
+    Artwork for Manjaro (default)
+extra/manjaro-artwork-extra 1.0.7-2
+    Artwork for Manjaro (extra)
+extra/manjaro-artwork-icons 1.0.7-2
+    Artwork for Manjaro (icons)
+extra/manjaro-artwork-openbox 1.0.7-1
+    Artwork for Manjaro (openbox)
+

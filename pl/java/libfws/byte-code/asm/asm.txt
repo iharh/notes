@@ -1,0 +1,12 @@
+If you want the bytecode instructions themselves, use TraceClassVisitor. If you want the ASM code to generate these bytecode
+instructions, use ASMifierClassVisitor. Both classes provide a "main" method to allow them to be called from the command line,
+passing your fully qualified class name as a parameter. Example:
+
+java -classpath "asm.jar;asm-util.jar;yourjar.jar" org.objectweb.asm.util.ASMifierClassVisitor org.domain.package.YourClass
+
+or
+
+java -classpath "asm.jar;asm-util.jar" org.objectweb.asm.util.ASMifierClassVisitor org/domain/package/YourClass.class
+
+Another, much easier method, if you are using Eclipse, is to use the "Bytecode Outline" plugin.
+Artiom_2008

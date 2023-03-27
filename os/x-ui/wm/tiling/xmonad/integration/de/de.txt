@@ -1,0 +1,23 @@
+https://specifications.freedesktop.org/wm-spec/wm-spec-latest.html
+
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Doc/Extending.hs
+    !!!
+
+https://github.com/xmonad/xmonad-contrib/tree/master/XMonad/Config
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Config/Desktop.hs
+
+https://github.com/xmonad/xmonad-contrib/tree/master/XMonad/Hooks
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Hooks/ManageDebug.hs
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Hooks/EwmhDesktops.hs
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Hooks/DynamicIcons.hs
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Hooks/ManageDocks.hs
+
+https://github.com/xmonad/xmonad-contrib/tree/master/XMonad/Util
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Util/DebugWindow.hs
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Prelude.hs
+    ! specialKey, multimediaKeys
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Util/EZConfig.hs
+    Configure key bindings easily in Emacs style.
+    ... Keybinding parsing
+    ??? readKey...
+    XMonad.Util.Parser

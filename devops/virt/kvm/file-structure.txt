@@ -1,0 +1,76 @@
+/var/lib/libvirt
+├── boot
+├── dnsmasq
+│   ├── default.addnhosts
+│   ├── default.conf
+│   ├── default.hostsfile
+│   ├── virbr0.macs
+│   └── virbr0.status
+├── images
+│   └── nixos.qcow2
+├── qemu
+│   ├── channel
+│   │   └── target
+│   ├── checkpoint
+│   ├── dump
+│   ├── nvram
+│   ├── ram
+│   ├── save
+│   └── snapshot
+└── sanlock
+
+/etc/libvirt
+.
+├── hooks
+├── libvirt-admin.conf
+├── libvirt.conf
+├── libvirtd.conf
+├── libxl.conf
+├── libxl-lockd.conf
+├── libxl-sanlock.conf
+├── lxc.conf
+├── nwfilter
+│   ├── allow-arp.xml
+│   ├── allow-dhcp-server.xml
+│   ├── allow-dhcpv6-server.xml
+│   ├── allow-dhcpv6.xml
+│   ├── allow-dhcp.xml
+│   ├── allow-incoming-ipv4.xml
+│   ├── allow-incoming-ipv6.xml
+│   ├── allow-ipv4.xml
+│   ├── allow-ipv6.xml
+│   ├── clean-traffic-gateway.xml
+│   ├── clean-traffic.xml
+│   ├── no-arp-ip-spoofing.xml
+│   ├── no-arp-mac-spoofing.xml
+│   ├── no-arp-spoofing.xml
+│   ├── no-ip-multicast.xml
+│   ├── no-ip-spoofing.xml
+│   ├── no-ipv6-multicast.xml
+│   ├── no-ipv6-spoofing.xml
+│   ├── no-mac-broadcast.xml
+│   ├── no-mac-spoofing.xml
+│   ├── no-other-l2-traffic.xml
+│   ├── no-other-rarp-traffic.xml
+│   ├── qemu-announce-self-rarp.xml
+│   └── qemu-announce-self.xml
+├── qemu
+│   ├── networks
+│   │   ├── autostart
+│   │   │   └── default.xml -> /etc/libvirt/qemu/networks/default.xml
+│   │   └── default.xml
+!!!!!!!!!
+│   └── nixos1.xml
+!!!!!!!!!
+├── qemu.conf
+├── qemu-lockd.conf
+├── qemu-sanlock.conf
+├── secrets  [error opening dir]
+├── storage
+│   ├── autostart
+│   │   ├── default.xml -> /etc/libvirt/storage/default.xml
+│   │   └── dist.xml -> /etc/libvirt/storage/dist.xml
+│   ├── default.xml
+│   └── dist.xml
+├── virtlockd.conf
+└── virtlogd.conf

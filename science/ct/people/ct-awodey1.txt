@@ -1,0 +1,263 @@
+  TOC (9)
+  46 - Generalized el-s
+  56 - STLC Category
+
+
+Category examples:
+
+Preorder Cats:
+If cat contains no more than a single morphism for each A, B, ...
+
+Poset Cats:
+P(X) - powerset of X is a poset under the usual set-inclusion operation.
+
+Discrete Cats:
+Dis(X) - objects are X objects, arrows - just the identity arrows one for each x from X (no arrows between objects)
+
+Monoids:
+Mon - a category with just one object.
+Hom_Sets(X, X) a monoid for the set of functions from X to X (under the composition).
+More generally, Hom_C(C, C) - the set of arrows of category C (under the composition operation of C) form a monoid.
+Mon - category of monoids as objects and monoidal homomorphisms (structure preserving maps).
+
+
+
+Functors:
+
+A functor F : C -> D is 
+
+- faithful when it is injective on morphisms:
+forall f, g : A -> B, if Ff = Fg then f = g.
+
+- full when it is surjective on morphisms:
+for every g : FA -> FB there exists f : A -> B such that g = Ff.
+
+
+George - Strict/Forgetful Functors:
+
+A functor F : C_1 -> C_2 is
+
+- strict when
+for all A, B, f,g : A -> B from C_1   F(f) = F(g)  =>  f = g
+in other words, F maps injectively
+
+A category C is strict if exists a strict/forgetful f-tor F : C -> Set
+
+Theorem(George 4.3) : forall small category C
+exists strict functor F : C -> Set
+proof: F(A)    = { f from Mor(C) | cod(f) = A }  -  set of all morphisms ended in A
+       F(g)(f) = g . f                           - 
+          each arror g : A -> B  mapped into F(g) : F(A) -> F(B), which
+	  maps f from F(A) to g.f from F(B)
+
+       g is uniquely defined by A and F(g), since g = F(g)(id_A).
+       This proves a strictness of F
+qed.
+
+Note: in partial case (when C determines a group) we get a known Cayley theorem.
+
+
+Functor examples:
+
+A functor F : P -> Q between poset (PO) categories P and Q is just a monotone function
+
+
+Constructions on categories:
+
+- A product of categories (C x D). Projection functors - \pi_1, \pi_2
+
+
+- The opposite category - (C^op).
+
+A functor F : C^op -> D is a contravariant, 
+          F : C    -> D is a covariant.
+
+F^op : C^op -> D^op.
+
+
+- The arrow category (C^->) has the arrows of C as objects.
+An arrow g from f : A -> B to f' : A' -> B' is a commutative square (see the original picture).
+
+g = (g1, g2) such that  g2 . f = f' . g1
+
+The identity-arrow of an object f : A -> B is the pair (1_A, 1_B).
+
+Composition is done componentwise:
+(h1, h2) . (g1, g2) = (h1 . g1, h2 . g2)
+
+
+- The slice category C/A over some object A (at category C)
+Objects: all arrows f of C, such that cod(f) = A
+Arrows : for f : B -> A and f' : B' -> a, the arrow g : B -> B', such that f = f' . g
+
+There is appropriate forgetful functor U_A : C/A -> C, which maps:
+  an object (f : B -> A) to its domain B
+  an arrow (g between f and f') to appropriate arrow g : B -> B'
+
+For each arrow h : A -> A' in C, there is a functor named "composition by h" (between 2 slice categories).
+  C/h : C/A -> C/A'
+
+it maps an object (f : B -> A) to the object h . f : B -> A'
+and an arrow (g between f and f') to appropriate arrow g : B -> B' (see notes on page 11).
+
+The construction of slice categories (for small C) itself is a functor
+  C/- : C -> Cat
+
+This functor maps
+  each object A of C to the category C/A
+  each arrow h : A -> A' to the functor C/h : C/A -> C/A'
+
+
+- The coslice category A/C ... objecs are all the arrows f of C, such that dom(f) = A
+
+
+Representible functors:
+
+Let C be a locally-small. For each pair of objects A, B of C, the collection of all morphisms A -> B forms a set,
+written
+  Hom_C(A, B), or, for the simplicity, just a Hom(A, B) or C(A, B).
+  Hom(A, B) = { f of Mor(C) | f : A -> B)
+
+For every A of C there is a functor (covariant representable functor):
+  C(A, -) : C -> Set
+
+defined by
+  C(A, B) = { f of Mor(C) | f : A -> B }
+  C(A, g) : f -> g . f
+    this is a "composition by g"
+
+
+We can also define another functor (contravariant representable functor):
+  C(-, B) : C^op -> Set
+  ...
+  C(f, B) : g -> g . f
+
+Hom-set is a functor
+  C(-, -) : C^op x C -> Set
+  which maps a pair of objects (A, B) of C to the set C(A, B) of morphisms from A to B,
+  and a pair of morphisms f : A' -> A, g : B -> B' in C to the function
+    C(f, g) : C(A, B) -> C(A', B'), defined by
+    C(f, g) : h -> g . h . f
+
+
+
+Monoids and Free cats:
+
+Let A = {a, b, c, ... } be an alphabet of letters (a set)
+A word over A is a FINITE sequence of letters.
+
+We write a "-" for the empty word.
+
+The "Kleene clusure" of A is:
+  A^* = {words over A}.
+
+A binary-operation for concatenation "*" on A^* is defined:
+  w*w' = ww' (for w, w' of A^*).
+
+So, A^* with "-" and "*" is called a free-monoid over A.
+
+The elements of A (a of A) can be regarded as one-lenght-words of A^*, so we have a function
+  i : A -> A^*,  defined by i(a) = a  and called the "insertion of generators".
+
+The elements of A "generate" the free monoid in the sense that every w of A^* is a *-product of a's.
+  i.e.  w = a_1*a_2*...*a_n  for some a_1, a_2, ..., a_n in A
+
+Every monoid N has an underlined set |N|
+and every monoidal homomorphism f : N -> M has an underlying function |f| : |N| -> |M|
+It is easy to see that this is a functor, called the "forgetful functor".
+
+The free monoid M(A) on a set A is by definition "the" monoid with the following so called
+universal mappling property (or UMP)
+
+- http://www.proofwiki.org/wiki/Definition:Free_Monoid.
+
+Let
+  M be a monoid,
+  i : A -> |M| - be a function [mapping] 
+Then (M, i) is said to be a free monoid over A iff:
+  For all monoid N and f : A -> |N|,
+  there is [exists] a unique monoidal-homomorphism f^- : M -> N, such that
+    |f^-| . i = f
+
+as indicated in the following commutative-diagrams:
+
+  in Mon-cat:  M(A) ......> N
+
+  in Set-cat:  A --(i)--> |M(A)| --(|f^-|)--> |N|
+               A ----------(f)--------------> |N|
+
+
+Proposition (1.10) Given monoids M and N with UMPs and functions:
+  i : A -> |M|
+  j : A -> |N|
+There is a unique monoidal homomorphism h : M =^~ N such that:
+  |h| i = j  and  |h^-1| j = i
+
+For example, the free monoid on a single-element set is isomorphic to the add-monoid of nat-numbers (the generator is 1).
+
+
+
+Free cats:
+http://en.wikipedia.org/wiki/Free_category
+
+Instead of underlying sets, categories have underlying graphs (directed).
+
+A graph (G) consists of two sets, E(edges) and V(vertices), and two functions:
+  s : E -> V  for sources
+  t : E -> V  for targets
+
+Every graph generates a free category \bold C(G)
+The vertices of G are objects, the paths in G are arrows.
+The path is a finite sequence of edges such that:
+  t(e_i) = s (e_i+1) for all i = 1..n
+
+Composition is defined by concatenation, identities are empty pathes of each vertex (1_v).
+
+Note: If G has only one vertex then it is a free monoid. If G has no edges then it is a discrete category.
+
+A forgetful functor:
+  U : Cat -> Graphs  or Cat -> Quiv  (a category of Quivers)
+
+It sends the original category (C):
+
+C_2 --- (.) --> C_1 --- (cod) --> C_0
+                    <--  (i)  ---
+              	    --- (dom) -->
+
+  where C_2 = { (f, g) of C_1xC_1 : cod(f) = dom(g) }
+
+to the underlying graph:
+
+                C_1 --- (cod) --> C_0
+              	    --- (dom) -->
+
+
+The free category on a graph has the following UMP:
+
+There is a graph homomorphism
+  i : G -> |C(G)|
+and any given category D
+and any graph homomorphism
+  h : G -> |D|
+
+there is a unique functor
+  h^- : C(G) -> D  with  |h^-| . i = h
+
+in Cat:
+  C(G) ... (h^-) ... D
+
+in Graph:
+  G --- (i) ---> |C(G)| --- (h^-) ---> |D|
+
+  G ------------- (h) ---------------> |D|
+  
+
+Note: The free-cat on a graph with just one vertex is just a free-monoid.
+      .. and 2 vertices with 1 edge between them   is the finite category 2.
+      .. and 2 vertices (A, B) with 2 edges (e, f) in both directions
+      has (in addition to the id-arrows) the infinitely many arrows:
+      e, f, ef, fe, efe, fef, efef, ...
+
+
+
+

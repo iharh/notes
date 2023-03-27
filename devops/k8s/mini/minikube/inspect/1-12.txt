@@ -1,0 +1,10 @@
+NAME                                    READY   STATUS    RESTARTS   AGE
+coredns-576cbf47c7-wnfjw                1/1     Running   1          11h
+etcd-minikube                           1/1     Running   0          9m50s
+kube-addon-manager-minikube             1/1     Running   1          11h
+kube-apiserver-minikube                 1/1     Running   0          9m49s
+kube-controller-manager-minikube        1/1     Running   1          11h
+kube-proxy-nfmcm                        1/1     Running   0          8m59s
+kube-scheduler-minikube                 1/1     Running   1          11h
+kubernetes-dashboard-5bb6f7c8c6-drxzg   1/1     Running   3          11h
+storage-provisioner                     1/1     Running   3          11h

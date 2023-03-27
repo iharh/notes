@@ -1,0 +1,1100 @@
+https://gist.github.com/leonardo-m/6e9315a57fe9caa893472c2935e9d589
+https://users.rust-lang.org/t/some-c-linq-samples-to-rust/9429
+
+https://www.reddit.com/r/rust/comments/5nzjlo/equivalent_of_linqs_defaultifempty/
+
+// Port of the C# 101 LINQ Samples rewritten into Apple's Swift 3.
+
+#![feature(ordering_chaining, step_by)]
+
+fn main() {
+    // linq5: Where - Indexed
+    /*
+    //c#
+    public void Linq5()
+    {
+        string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+        var shortDigits = digits.Where((digit, index) => digit.Length < index);
+
+        Console.WriteLine("Short digits:");
+        foreach (var d in shortDigits)
+        {
+            Console.WriteLine("The word {0} is shorter than its value.", d);
+        }
+    }
+
+    //swift
+    func linq5(){
+        let digits = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
+        let shortDigits = digits.filteri { $0.length < $1 }
+
+        print("Short digits:")
+        for d in shortDigits {
+            print("The word \(d) is shorter than its value.")
+        }
+    }
+    */
+
+    // Rust
+    {
+        let digits = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+        let short_digits = digits
+                           .iter()
+                           .enumerate()
+                           .filter(|&(index, &digit)| digit.len() < index)
+                           .map(|(_, &digit)| digit);
+
+        println!("Short digits:");
+        for d in short_digits {
+            println!("The word {} is shorter than its value.", d);
+        }
+    }
+
+    //-------------------------------------------------------
+
+    // linq9: Select - Anonymous Types 1
+    /*
+    //c#
+    public void Linq9()
+    {
+        string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+
+        var upperLowerWords =
+            from w in words
+            select new { Upper = w.ToUpper(), Lower = w.ToLower() };
+
+        foreach (var ul in upperLowerWords)
+        {
+            Console.WriteLine("Uppercase: {0}, Lowercase: {1}", ul.Upper, ul.Lower);
+        }
+    }
+
+    //swift
+    func linq9(){
+        let words = ["aPPLE", "BlUeBeRrY", "cHeRry"]
+
+        let upperLowerWords = words.map { s -> (Upper: String, Lower:String) in
+            (s.uppercased(), s.lowercased())
+        }
+
+        for ul in upperLowerWords {
+            print("Uppercase: \(ul.Upper), Lowercase: \(ul.Lower)")
+        }
+    }
+    */
+
+    // Rust
+    {
+        let words = ["aPPLE", "BlUeBeRrY", "cHeRry"];
+
+        struct ULPair { upper: String, lower: String }
+        let upper_lower_words =
+            words
+            .iter()
+            .map(|&w| ULPair {upper: w.to_uppercase(), lower: w.to_lowercase()});
+
+        for ul in upper_lower_words {
+            println!("Uppercase: {}, Lowercase: {}", ul.upper, ul.lower);
+        }
+    }
+
+    //-------------------------------------------------------
+
+    // linq14: SelectMany - Compound from 1
+    /*
+    //c#
+    public void Linq14()
+    {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+
+        var pairs =
+            from a in numbersA
+            from b in numbersB
+            where a < b
+            select new { a, b };
+
+        Console.WriteLine("Pairs where a < b:");
+        foreach (var pair in pairs)
+        {
+            Console.WriteLine("{0} is less than {1}", pair.a, pair.b);
+        }
+    }
+
+    //swift
+    func linq14(){
+        let numbersA = [ 0, 2, 4, 5, 6, 8, 9 ]
+        let numbersB = [ 1, 3, 5, 7, 8 ]
+
+        let pairs = numbersA.expand { a in
+            numbersB
+                .filter { b in a < b }
+                .map { i -> (a: Int, b:Int) in (a, i) }
+            }
+
+        print("Pairs where a < b:")
+        for pair in pairs {
+            print("\(pair.a) is less than \(pair.b)")
+        }
+    }
+    */
+
+    // Rust
+    {
+        let numbers_a = [0, 2, 4, 5, 6, 8, 9];
+        let numbers_b = [1, 3, 5, 7, 8];
+
+        let pairs = numbers_a
+                    .iter()
+                    .flat_map(|&a| numbers_b
+                                   .iter()
+                                   .filter(move |&&b| a < b)
+                                   .map(move |&b| (a, b)));
+
+        println!("Pairs where a < b:");
+        for (a, b) in pairs {
+            println!("{} is less than {}", a, b);
+        }
+    }
+
+    //-------------------------------------------------------
+
+    // linq25: TakeWhile - Indexed
+    /*
+    //c#
+    public void Linq25()
+    {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+        var firstSmallNumbers = numbers.TakeWhile((n, index) => n >= index);
+
+        Console.WriteLine("First numbers not less than their position:");
+        foreach (var n in firstSmallNumbers)
+        {
+            Console.WriteLine(n);
+        }
+    }
+
+    //swift
+    func linq25(){
+        let numbers = [ 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 ]
+
+        var index = 0
+        let firstSmallNumbers = numbers.takeWhile { index += 1; return $0 >= index }
+
+        print("First numbers not less than their position:")
+        firstSmallNumbers.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let numbers = [5, 4, 1, 3, 9, 8, 6, 7, 2, 0];
+
+        let first_small_numbers = numbers
+                                  .iter()
+                                  .enumerate()
+                                  .take_while(|&(index, &n)| n >= index)
+                                  .map(|(_, &n)| n);
+
+        println!("First numbers not less than their position:");
+        for n in first_small_numbers {
+            println!("{}", n);
+        }
+    }
+
+    //-------------------------------------------------------
+    // linq27: SkipWhile - Indexed
+    /*
+    //c#
+    public void Linq27()
+    {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+        var laterNumbers = numbers.SkipWhile((n, index) => n >= index);
+
+        Console.WriteLine("All elements starting from first element less than its position:");
+        foreach (var n in laterNumbers)
+        {
+            Console.WriteLine(n);
+        }
+    }
+
+    //swift
+    func linq27(){
+        let numbers = [ 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 ]
+
+        var index = 0
+        let laterNumbers = numbers.skipWhile { index += 1; return $0 >= index }
+
+        print("All elements starting from first element less than its position:")
+        laterNumbers.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let numbers = [5, 4, 1, 3, 9, 8, 6, 7, 2, 0];
+
+        let later_numbers = numbers
+                            .iter()
+                            .enumerate()
+                            .skip_while(|&(index, &n)| n >= index)
+                            .map(|(_, &n)| n);
+
+        println!("All elements starting from first element less than its position:");
+        for n in later_numbers {
+            println!("{}", n);
+        }
+    }
+
+    //-------------------------------------------------------
+
+    // linq31: OrderBy - Comparer
+    /*
+    //c#
+    public void Linq31()
+    {
+        string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+        var sortedWords = words.OrderBy(a => a, new CaseInsensitiveComparer());
+
+        ObjectDumper.Write(sortedWords);
+    }
+
+    //swift
+    func linq31(){
+        let words = [ "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" ]
+
+        let sortedWords = words.sorted(by: caseInsensitiveComparer)
+
+        sortedWords.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let words = ["aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry"];
+
+        let mut sorted_words = words.to_vec();
+        sorted_words.sort_by_key(|&w| w.to_lowercase());
+
+        println!("{:?}", sorted_words);
+    }
+
+    //-------------------------------------------------------
+    // linq32: OrderByDescending - Simple 1
+    /*
+    //c#
+    public void Linq32()
+    {
+        double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
+
+        var sortedDoubles =
+            from d in doubles
+            orderby d descending
+            select d;
+
+        Console.WriteLine("The doubles from highest to lowest:");
+        foreach (var d in sortedDoubles)
+        {
+            Console.WriteLine(d);
+        }
+    }
+
+    //swift
+    func linq32(){
+        let doubles = [ 1.7, 2.3, 1.9, 4.1, 2.9 ]
+
+        let sortedDoubles = doubles.sorted().reversed()
+
+        print("The doubles from highest to lowest:")
+        sortedDoubles.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let doubles = [1.7, 2.3, 1.9, 4.1, 2.9];
+
+        use std::cmp::Ordering::*;
+        let mut sorted_doubles = doubles.to_vec();
+        //sorted_doubles.sort_by(|a, b| b.partial_cmp(a).unwrap());
+        sorted_doubles.sort_by(|a, b| if a < b {Greater} else if a > b {Less} else {Equal});
+
+        println!("The doubles from highest to lowest:");
+        println!("{:?}", sorted_doubles);
+    }
+
+    //-------------------------------------------------------
+    // linq35: ThenBy - Simple
+
+    /*
+    //c#
+    public void Linq35()
+    {
+        string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+        var sortedDigits =
+            from d in digits
+            orderby d.Length, d
+            select d;
+
+        Console.WriteLine("Sorted digits:");
+        foreach (var d in sortedDigits)
+        {
+            Console.WriteLine(d);
+        }
+    }
+
+    //swift
+    func linq35(){
+        let digits = [ "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ]
+
+        let sortedDigits = digits.sorted { $0 < $1 }.sorted { $0.length < $1.length }
+
+        print("Sorted digits:")
+        sortedDigits.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let digits = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+
+        let mut sorted_digits = digits.to_vec();
+        sorted_digits.sort_by_key(|&w| (w.len(), w));
+
+        // Alternative solution 1:
+        // sorted_digits.sort_by(|a, b| a.len().cmp(&b.len()).then(a.cmp(b)));
+
+        // Alternative solution 2:
+        // sorted_digits.sort_by(|a, b| a.len().cmp(&b.len()).then_with(|| a.cmp(b)));
+
+        println!("Sorted digits:");
+        println!("{:?}", sorted_digits);
+    }
+
+    //-------------------------------------------------------
+
+    // linq38: ThenByDescending - Comparer
+
+    /*
+    //c#
+    public void Linq38()
+    {
+        string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+        var sortedWords =
+            words.OrderBy(a => a.Length)
+                 .ThenByDescending(a => a, new CaseInsensitiveComparer());
+
+        ObjectDumper.Write(sortedWords);
+    }
+
+    //swift
+    func linq38(){
+        let words = [ "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" ]
+
+        let sortedWords = words.sortBy(
+            { compare($0.length,$1.length) },
+            { compareIgnoreCase($1,$0) }
+        )
+
+        sortedWords.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let words = ["aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry"];
+
+        let mut sorted_words = words.to_vec();
+
+        sorted_words.sort_by(|a, b| a.len().cmp(&b.len())
+                                    .then_with(|| b.to_lowercase().cmp(&a.to_lowercase())));
+
+        println!("{:?}", sorted_words);
+    }
+
+    //-------------------------------------------------------
+    // linq39: Reverse
+    /*
+    //c#
+    public void Linq39()
+    {
+        string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+        var reversedIDigits = (
+            from d in digits
+            where d[1] == 'i'
+            select d)
+            .Reverse();
+
+        Console.WriteLine("A backwards list of the digits with a second character of 'i':");
+        foreach (var d in reversedIDigits)
+        {
+            Console.WriteLine(d);
+        }
+    }
+
+    //swift
+    func linq39(){
+        let digits = [ "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" ]
+
+        let reversedIDigits = digits
+            .filter { $0.charAt(1) == "i" }
+            .reversed()
+
+        print("A backwards list of the digits with a second character of 'i':")
+        reversedIDigits.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let digits = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+
+        let reversed_i_digits = digits
+                                .iter()
+                                .filter(|&w| w.chars().nth(1).unwrap() == 'i')
+                                .rev();
+
+        println!("A backwards list of the digits with a second character of 'i':");
+        for d in reversed_i_digits {
+            println!("{}", d);
+        }
+    }
+
+    //-------------------------------------------------------
+    // linq40: GroupBy - Simple 1
+    /*
+    //c#
+    public void Linq40()
+    {
+        int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+        var numberGroups =
+            from n in numbers
+            group n by n % 5 into g
+            select new { Remainder = g.Key, Numbers = g };
+
+        foreach (var g in numberGroups)
+        {
+            Console.WriteLine("Numbers with a remainder of {0} when divided by 5:", g.Remainder);
+            foreach (var n in g.Numbers)
+            {
+                Console.WriteLine(n);
+            }
+        }
+    }
+
+    //swift
+    func linq40(){
+        let numbers = [ 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 ]
+
+        let numberGroups = numbers.groupBy { $0 % 5 }
+            .map { g -> (Remainder: Int, Numbers: Group<Int,Int>) in
+                (g.key, g)
+            }
+
+        for g in numberGroups {
+            print("Numbers with a remainder of \(g.Remainder) when divided by 5:")
+            g.Numbers.items.forEach { print($0) }
+        }
+    }
+    */
+
+    // Rust
+    {
+        let numbers = [5, 4, 1, 3, 9, 8, 6, 7, 2, 0];
+
+        use std::collections::HashMap;
+        let mut number_groups = HashMap::new();
+        for &n in &numbers {
+            number_groups.entry(n % 5).or_insert(vec![]).push(n);
+        }
+
+        for (m, group) in number_groups.iter() {
+            println!("Numbers with a remainder of {} when divided by 5:", m);
+            println!("{:?}", group);
+        }
+    }
+
+    //-------------------------------------------------------
+
+    // linq44: GroupBy - Comparer
+    /*
+    //c#
+    public void Linq44()
+    {
+        string[] anagrams = { "from   ", " salt", " earn ", "  last   ", " near ", " form  " };
+
+        var orderGroups = anagrams.GroupBy(w => w.Trim(), new AnagramEqualityComparer());
+
+        ObjectDumper.Write(orderGroups, 1);
+    }
+
+    //swift
+    func linq44(){
+        let anagrams = [ "from   ", " salt", " earn ", "  last   ", " near ", " form  " ]
+
+        let orderGroups = anagrams.groupBy({ (s:String) in s.trim() }, matchWith: anagramComparer)
+
+        orderGroups.forEach { print($0.items) }
+    }
+    */
+
+    // Rust
+    {
+        let words = ["from   ", " salt", " earn ", "  last   ", " near ", " form  "];
+
+        use std::collections::HashMap;
+        let mut anagram_groups = HashMap::new();
+        for &w in &words {
+            let mut key = w.trim().chars().collect::<Vec<_>>();
+            key.sort();
+            anagram_groups.entry(key).or_insert(vec![]).push(w);
+        }
+
+        for group in anagram_groups.values() {
+            println!("{:?}", group);
+        }
+    }
+    //-------------------------------------------------------
+
+    // linq46: Distinct - 1
+    /*
+    //c#
+    public void Linq46()
+    {
+        int[] factorsOf300 = { 2, 2, 3, 5, 5 };
+
+        var uniqueFactors = factorsOf300.Distinct();
+
+        Console.WriteLine("Prime factors of 300:");
+        foreach (var f in uniqueFactors)
+        {
+            Console.WriteLine(f);
+        }
+    }
+
+    //swift
+    func linq46(){
+        let factorsOf300 = [ 2, 2, 3, 5, 5 ]
+
+        let uniqueFactors = distinct(factorsOf300)
+
+        print("Prime factors of 300:")
+        uniqueFactors.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let factors_of_300 = [2, 2, 3, 5, 5];
+
+        let mut unique_factors = factors_of_300.to_vec();
+        unique_factors.dedup();
+
+        println!("Prime factors of 300:");
+        println!("{:?}", unique_factors);
+
+        // Alternative solution 1:
+        use std::collections::HashSet;
+        let unique_factors = factors_of_300.iter().cloned().collect::<HashSet<_>>();
+
+        println!("Prime factors of 300:");
+        for f in unique_factors {
+            println!("{}", f);
+        }
+
+        // Alternative solution 2:
+        // https://docs.rs/itertools/0.5.9/itertools/trait.Itertools.html#method.dedup
+    }
+
+    //-------------------------------------------------------
+    // linq48: Union - 1
+
+    /*
+    //c#
+    public void Linq48()
+    {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+
+        var uniqueNumbers = numbersA.Union(numbersB);
+
+        Console.WriteLine("Unique numbers from both arrays:");
+        foreach (var n in uniqueNumbers)
+        {
+            Console.WriteLine(n);
+        }
+    }
+
+    //swift
+    func linq48(){
+        let numbersA = [ 0, 2, 4, 5, 6, 8, 9 ]
+        let numbersB = [ 1, 3, 5, 7, 8 ]
+
+        let uniqueNumbers = union(numbersA, numbersB)
+
+        print("Unique numbers from both arrays:")
+        uniqueNumbers.forEach { print($0) }
+    }
+
+    Output
+
+    Unique numbers from both arrays:
+    0
+    2
+    4
+    5
+    6
+    8
+    9
+    1
+    3
+    7
+    */
+
+    // Rust
+    {
+        let numbers_a = [0, 2, 4, 5, 6, 8, 9];
+        let numbers_b = [1, 3, 5, 7, 8];
+
+        use std::collections::HashSet;
+        let sa = &numbers_a.iter().cloned().collect::<HashSet<u32>>();
+        let sb = &numbers_b.iter().cloned().collect::<HashSet<u32>>();
+        let unique_numbers = sa.union(&sb);
+
+        println!("Unique numbers from both arrays:");
+        for n in unique_numbers {
+            println!("{}", n);
+        }
+    }
+
+    //-------------------------------------------------------
+    // linq50: Intersect - 1
+    /*
+    //c#
+    public void Linq50()
+    {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+
+        var commonNumbers = numbersA.Intersect(numbersB);
+
+        Console.WriteLine("Common numbers shared by both arrays:");
+        foreach (var n in commonNumbers)
+        {
+            Console.WriteLine(n);
+        }
+    }
+
+    //swift
+    func linq50(){
+        let numbersA = [ 0, 2, 4, 5, 6, 8, 9 ]
+        let numbersB = [ 1, 3, 5, 7, 8 ]
+
+        let commonNumbers = intersection(numbersA, numbersB)
+
+        print("Common numbers shared by both arrays:")
+        commonNumbers.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let numbers_a = [0, 2, 4, 5, 6, 8, 9];
+        let numbers_b = [1, 3, 5, 7, 8];
+
+        use std::collections::HashSet;
+        let sa = &numbers_a.iter().cloned().collect::<HashSet<u32>>();
+        let sb = &numbers_b.iter().cloned().collect::<HashSet<u32>>();
+        let common_numbers = sa.intersection(&sb);
+
+        println!("Common numbers shared by both arrays:");
+        for n in common_numbers {
+            println!("{}", n);
+        }
+    }
+
+    //-------------------------------------------------------
+    // linq52: Except - 1
+    /*
+    //c#
+    public void Linq52()
+    {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+
+        IEnumerable<int> aOnlyNumbers = numbersA.Except(numbersB);
+
+        Console.WriteLine("Numbers in first array but not second array:");
+        foreach (var n in aOnlyNumbers)
+        {
+            Console.WriteLine(n);
+        }
+    }
+
+    //swift
+    func linq52(){
+        let numbersA = [ 0, 2, 4, 5, 6, 8, 9 ]
+        let numbersB = [ 1, 3, 5, 7, 8 ]
+
+        let aOnlyNumbers = difference(numbersA, other: numbersB)
+
+        print("Numbers in first array but not second array:")
+        aOnlyNumbers.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let numbers_a = [0, 2, 4, 5, 6, 8, 9];
+        let numbers_b = [1, 3, 5, 7, 8];
+
+        use std::collections::HashSet;
+        let sa = &numbers_a.iter().cloned().collect::<HashSet<u32>>();
+        let sb = &numbers_b.iter().cloned().collect::<HashSet<u32>>();
+        let common_numbers = sa.difference(&sb);
+
+        println!("Numbers in first array but not second array:");
+        for n in common_numbers {
+            println!("{}", n);
+        }
+    }
+
+    //-------------------------------------------------------
+    // linq54: ToArray
+    /*
+    //c#
+    public void Linq54()
+    {
+        double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
+
+        var sortedDoubles =
+            from d in doubles
+            orderby d descending
+            select d;
+        var doublesArray = sortedDoubles.ToArray();
+
+        Console.WriteLine("Every other double from highest to lowest:");
+        for (int d = 0; d < doublesArray.Length; d += 2)
+        {
+            Console.WriteLine(doublesArray[d]);
+        }
+    }
+
+    //swift
+    func linq54(){
+        let doubles = [ 1.7, 2.3, 1.9, 4.1, 2.9 ]
+
+        let sortedDoubles = doubles.sorted().reversed()
+
+        let doublesArray = sortedDoubles.toArray()
+
+        print("Every other double from highest to lowest:")
+        var d = 0
+        while d < doublesArray.count {
+            print(doublesArray[d])
+            d += 2
+        }
+    }
+    */
+
+    // Rust
+    {
+        let mut doubles = [1.7, 2.3, 1.9, 4.1, 2.9];
+
+        use std::cmp::Ordering::*;
+        doubles.sort_by(|a, b| if a < b {Greater} else if a > b {Less} else {Equal});
+        let doubles_vector = doubles.to_vec();
+
+        println!("Every other double from highest to lowest:");
+        for i in (0 .. doubles_vector.len()).step_by(2) {
+            println!("{}", doubles_vector[i]);
+        }
+    }
+
+    //-------------------------------------------------------
+    // linq56: ToDictionary
+    /*
+    //c#
+    public void Linq56()
+    {
+        var scoreRecords = new[] { new {Name = "Alice", Score = 50},
+                                    new {Name = "Bob"  , Score = 40},
+                                    new {Name = "Cathy", Score = 45}
+                                };
+
+        var scoreRecordsDict = scoreRecords.ToDictionary(sr => sr.Name);
+
+        Console.WriteLine("Bob's score: {0}", scoreRecordsDict["Bob"]);
+    }
+
+    //swift
+    func linq56(){
+        let scoreRecords = [
+            ( Name: "Alice", Score: 50),
+            ( Name: "Bob", Score: 40),
+            ( Name: "Cathy", Score: 45),
+        ]
+
+        let scoreRecordsDict = scoreRecords.toDictionary {
+            (x:(Name:String,Score:Int)) in x.Name
+        }
+
+        let bobsScore = scoreRecordsDict["Bob"]!
+        print("Bob's score: \(bobsScore)")
+    }
+    */
+
+    // Rust
+    {
+        let score_tuples = [("Alice", 50), ("Bob", 40), ("Cathy", 45)];
+
+        use std::collections::HashMap;
+        let score_dict: HashMap<_,_> = score_tuples.iter().cloned().collect();
+
+        println!("Bob's score: {}", score_dict["Bob"]);
+    }
+
+    //-------------------------------------------------------
+    // linq61: FirstOrDefault - Simple
+    /*
+    //c#
+    public void Linq61()
+    {
+        int[] numbers = { };
+
+        int firstNumOrDefault = numbers.FirstOrDefault();
+
+        Console.WriteLine(firstNumOrDefault);
+    }
+
+    //swift
+    func linq61(){
+        let numbers:[Int] = []
+
+        let firstNumOrDefault = numbers.firstWhere({ n in true }, orElse: { 0 })
+
+        print(firstNumOrDefault)
+    }
+    */
+
+    // Rust
+    {
+        let numbers: [u32; 0] = [];
+        let zero = 0;
+        let first_num_or_default = numbers.get(0).unwrap_or(&zero);
+
+        println!("{}", first_num_or_default);
+    }
+
+    //-------------------------------------------------------
+    // linq73: Count - Simple
+    /*
+    //c#
+    public void Linq73()
+    {
+        int[] factorsOf300 = { 2, 2, 3, 5, 5 };
+
+        int uniqueFactors = factorsOf300.Distinct().Count();
+
+        Console.WriteLine("There are {0} unique factors of 300.", uniqueFactors);
+    }
+
+    //swift
+    func linq73(){
+        let factorsOf300 = [ 2, 2, 3, 5, 5 ]
+
+        let uniqueFactors = distinct(factorsOf300).count
+
+        print("There are \(uniqueFactors) unique factors of 300.")
+    }
+    */
+
+    // Rust
+    {
+        let factors_of_300 = [2, 2, 3, 5, 5];
+
+        use std::collections::HashSet;
+        let unique_factors = factors_of_300
+                             .iter()
+                             .cloned()
+                             .collect::<HashSet<_>>()
+                             .len();
+
+        println!("There are {} unique factors of 300.", unique_factors);
+    }
+    //-------------------------------------------------------
+
+    // linq88: Max - Elements
+    /*
+    //c#
+    public void Linq88()
+    {
+        List<Product> products = GetProductList();
+
+        var categories =
+            from p in products
+            group p by p.Category into g
+            let maxPrice = g.Max(p => p.UnitPrice)
+            select new { Category = g.Key, MostExpensiveProducts = g.Where(p => p.UnitPrice == maxPrice) };
+
+        ObjectDumper.Write(categories, 1);
+    }
+
+    //swift
+    func linq88(){
+        let products = productsList()
+
+        let categories = products.groupBy { (p:Product) in p.category }
+            .map { g -> (Category:String, MostExpensiveProducts:[Product]) in
+                let maxPrice:Double = g.items.maxElement { (p:Product) in p.unitPrice }
+                return (g.key, g.items.filter { $0.unitPrice == maxPrice })
+        }
+
+        categories.forEach {
+            print("\($0.Category): ")
+            $0.MostExpensiveProducts.forEach { print($0) }
+        }
+    }
+    */
+
+    // Rust
+    {
+        let products = [(5, 2), (1, 4), (3, 1), (7, 4)];
+
+        let max_price = products.iter().map(|&(_, b)| b).max().unwrap();
+        let result = products.iter().filter(|&&(_, b)| b == max_price);
+
+        println!("Max pairs:");
+        for pair in result {
+            println!("{:?}", pair);
+        }
+    }
+
+    //-------------------------------------------------------
+    // linq90: Average - Projection
+    /*
+    //c#
+    public void Linq90()
+    {
+        string[] words = { "cherry", "apple", "blueberry" };
+
+        double averageLength = words.Average(w => w.Length);
+
+        Console.WriteLine("The average word length is {0} characters.", averageLength);
+    }
+
+    //swift
+    func linq90(){
+        let words = [ "cherry", "apple", "blueberry" ]
+
+        let averageLength = words.map { $0.length }.avg { $0 as Int }
+
+        print("The average word length is \(averageLength) characters.")
+    }
+    */
+
+    // Rust
+    {
+        let words = ["cherry", "apple", "blueberry"];
+
+        let average_len: usize = words.iter().map(|w| w.chars().count()).sum();
+
+        println!("The average word length is {} characters.",
+                 average_len as f64 / words.len() as f64);
+    }
+
+    //-------------------------------------------------------
+    // linq94: Concat - 1
+    /*
+    //c#
+    public void Linq94()
+    {
+        int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+        int[] numbersB = { 1, 3, 5, 7, 8 };
+
+        var allNumbers = numbersA.Concat(numbersB);
+
+        Console.WriteLine("All numbers from both arrays:");
+        foreach (var n in allNumbers)
+        {
+            Console.WriteLine(n);
+        }
+    }
+
+    //swift
+    func linq94(){
+        let numbersA = [ 0, 2, 4, 5, 6, 8, 9 ]
+        let numbersB = [ 1, 3, 5, 7, 8 ]
+
+        let allNumbers = numbersA + numbersB
+
+        print("All numbers from both arrays:")
+        allNumbers.forEach { print($0) }
+    }
+    */
+
+    // Rust
+    {
+        let numbers_a = [0, 2, 4, 5, 6, 8, 9];
+        let numbers_b = [1, 3, 5, 7, 8];
+
+        let all_numbers = [&numbers_a[..], &numbers_b[..]].concat();
+
+        println!("All numbers from both arrays:");
+        println!("{:?}", all_numbers);
+
+        // Alternative version:
+        for el in numbers_a.iter().chain(&numbers_b) {
+            println!("{}", el);
+        }
+    }
+
+    //-------------------------------------------------------
+    // linq96: EqualAll - 1
+    /*
+    //c#
+    public void Linq96()
+    {
+        var wordsA = new string[] { "cherry", "apple", "blueberry" };
+        var wordsB = new string[] { "cherry", "apple", "blueberry" };
+
+        bool match = wordsA.SequenceEqual(wordsB);
+
+        Console.WriteLine("The sequences match: {0}", match);
+    }
+
+    //swift
+    func linq96(){
+        let wordsA = [ "cherry", "apple", "blueberry" ]
+        let wordsB = [ "cherry", "apple", "blueberry" ]
+
+        let match = wordsA == wordsB
+
+        print("The sequences match: \(match)")
+    }
+    */
+
+    // Rust
+    {
+        let words_a = ["cherry", "apple", "blueberry"];
+        let words_b = ["cherry", "apple", "blueberry"];
+
+        let equal_words = words_a == words_b;
+        println!("The sequences match: {}", equal_words);
+
+        // Alternative solution:
+        let equal_words2 = words_a.iter().eq(&words_b);
+        println!("The sequences match: {}", equal_words2);
+    }
+
+    //-------------------------------------------------------
+}

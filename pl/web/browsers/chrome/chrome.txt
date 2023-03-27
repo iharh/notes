@@ -1,0 +1,17 @@
+The launcher is called: 'google-chrome-stable'
+Custom flags should be put directly in: ~/.config/chrome-flags.conf
+
+DevConsole:
+http://frontender.info/chrome-developer-tools/
+
+tabs
+chrome://net-internals
+
+presentations
+2018
+NEW Debugger Features for JavaScript
+    https://www.youtube.com/watch?v=foDOYyWNg3I
+
+sync
+https://chrome.google.com/sync
+https://support.google.com/chrome/answer/165139

@@ -1,0 +1,8 @@
+~/.cargo/config
+
+[alias]
+c = "check"
+br = "build --release"
+rr = "run --release"
+gen  = "run --package tools --bin gen"
+todo = "run --package tools --bin todo"

@@ -1,0 +1,26 @@
+https://developers.google.com/protocol-buffers/
+
+https://github.com/google/protobuf
+https://github.com/google/protobuf/tree/master/src
+https://github.com/google/protobuf/tree/master/java
+https://github.com/google/protobuf/tree/master/python
+
+https://developers.google.com/protocol-buffers/docs/overview
+https://developers.google.com/protocol-buffers/docs/proto3
+https://developers.google.com/protocol-buffers/docs/encoding
+    https://www.sigmainfy.com/blog/protocol-buffers-encoding-and-message-structure.html
+
+https://developers.google.com/protocol-buffers/docs/tutorials
+https://developers.google.com/protocol-buffers/docs/javatutorial
+https://developers.google.com/protocol-buffers/docs/pythontutorial
+
+
+json
+return JsonFormat.printer().includingDefaultValueFields().print(res);
+
+py
+pip install grpcio protobuf
+
+from google.protobuf.internal.decoder import _DecodeVarint32
+from google.protobuf.internal.encoder import _VarintBytes
+import grpc

@@ -1,0 +1,5 @@
+https://github.com/japaric/rust-san
+
+https://www.reddit.com/r/rust/comments/8bajcu/request_for_review_rcctree_a_domlike_tree_that/
+
+RUSTFLAGS="-Z sanitizer=leak" cargo test --target x86_64-unknown-linux-gnu

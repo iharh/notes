@@ -1,0 +1,10 @@
+https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum
+
+2022
+https://habr.com/ru/company/otus/blog/670440/
+    docker compose exec kafka1 kafka-storage.sh random-uuid
+    provectuslabs/kafka-ui:v0.4.0
+https://www.confluent.io/blog/why-replace-zookeeper-with-kafka-raft-the-log-of-all-logs/
+    https://habr.com/ru/company/southbridge/blog/685694/
+https://www.confluent.io/blog/kafka-without-zookeeper-a-sneak-peek/
+https://developer.confluent.io/learn/kraft/

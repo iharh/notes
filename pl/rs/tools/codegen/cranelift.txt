@@ -1,0 +1,12 @@
+https://cranelift.readthedocs.io/en/latest/
+https://github.com/CraneStation/cranelift
+https://github.com/bytecodealliance/wasmtime/tree/main/cranelift
+https://github.com/bjorn3/rustc_codegen_cranelift
+
+2022
+https://bytecodealliance.org/articles/cranelift-progress-2022
+https://bytecodealliance.org/articles/wasmtime-1-0-fast-safe-and-production-ready
+2021
+https://bytecodealliance.org/articles/cranelift-progress-2021
+2020
+https://hacks.mozilla.org/2020/10/a-new-backend-for-cranelift-part-1-instruction-selection/

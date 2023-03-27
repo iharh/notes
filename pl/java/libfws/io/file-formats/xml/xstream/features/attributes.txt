@@ -1,0 +1,4 @@
+https://www.tutorialspoint.com/xstream/xstream_attribute_aliasing.htm
+    aliasAttribute, useAttributeFor
+    https://x-stream.github.io/javadoc/com/thoughtworks/xstream/XStream.html#aliasAttribute-java.lang.Class-java.lang.String-java.lang.String-
+    https://github.com/x-stream/xstream/blob/master/xstream/src/java/com/thoughtworks/xstream/XStream.java#L1451

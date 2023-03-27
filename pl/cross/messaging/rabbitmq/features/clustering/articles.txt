@@ -1,0 +1,8 @@
+2020
+https://www.rabbitmq.com/blog/2020/07/07/disaster-recovery-and-high-availability-101/
+https://medium.com/thron-tech/clustering-rabbitmq-on-ecs-using-ec2-autoscaling-groups-107426a87b98
+https://medium.com/@saurabh.singh0829/how-to-create-rabbitmq-cluster-in-docker-aws-linux-4b26a31f90bc
+https://nick.barrett.org.nz/setting-up-rabbitmq-ha-in-kubernetes-with-external-https-and-amqps-access-1ce1f3632dd2
+2019
+https://medium.com/@kailashyogeshwar/rabbitmq-cluster-using-docker-compose-7397ea378d73
+    https://github.com/kailashyogeshwar85/docker-rabbitmq-cluster

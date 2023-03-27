@@ -1,0 +1,84 @@
+http://stackoverflow.com/questions/4959802/how-to-specify-dependency-on-external-c-library-in-cabal
+
+http://haskell.forkio.com/Home/curl-win32:
+
+to build:
+foo$ CPPFLAGS=-Ic:/packages/curl-7.19.4/include cabal install curl --ld-options=-Lc:/packages/curl-7.19.4/pre/lib
+
+to test:
+foo$ ghci -package curl ..... Network.Curl.curlGetString "http://www.haskell.org/" >>= putStrLn.fst
+
+building by mingw:
+
+foo$ cd <top of distribution tree>
+foo$ PKG_CONFIG_PATH=/c/src/openssl_mingw32-0.9.8e/:/c/src/openldap/ ./configure --with-ssl=c:/src/openssl_mingw32-0.9.8e/
+....
+foo$ make
+foo$ mkdir curl-7.19.4
+foo$ make install prefix=`pwd`/curl-7.19.4
+....
+foo$ cp curl-7.19.4/bin/libcurl-4.dll curl-7.19.4/bin/libcurl.dll
+foo$ cp README CHANGES COPYING curl-7.19.4/
+foo$ zip -r curl-7.19.4-mingw32.zip curl-7.19.4
+
+
+Idris:
+https://github.com/idris-lang/Idris-dev/wiki/Idris-on-Windows
+
+cabal install --extra-lib-dirs=/usr/local/lib --extra-include-dirs=/usr/local/include
+
+
+icu:
+https://www.reddit.com/r/haskell/comments/3mpav4/ask_for_help_windows_stack_texticu_icu4c/
+http://www.reddit.com/r/haskell/comments/36if08/texticu_and_ffi_in_general_on_windows_64_bits/
+https://mail.haskell.org/pipermail/haskell-cafe/2015-May/119737.html
+http://markmail.org/message/haqu23l56nptff5u
+
+So the solution is:
+
+1. Download and install 64-bit MSYS2, following the instructions on the site:
+
+http://msys2.github.io
+
+2. In the MSYS2 shell window, get the ICU package for mingw-w64:
+
+pacman -S mingw64/mingw-w64-x86_64-icu
+
+3. Now you can build the Haskell text-icu library using this command:
+
+cabal install --extra-lib-dirs="c:\path\to\msys64\mingw64\lib" --extra-include-dirs="c:\path\to\msys64\mingw64\include" text-icu
+
+4. Provide the following DLLs with your EXE that uses text-icu:
+
+libicudt55.dll
+libicuin55.dll
+libicuuc55.dll
+libgcc_s_seh-1.dll
+libstdc++-6.dll
+
+Get them from: c:\path\to\msys64\mingw64\bin
+
+This not only compiles, but EXEs produced using this library actually run without segfaulting.
+
+You can even compile native Windows EXEs from C using ICU this way, with the gcc that is put on your path by the Haskell Platform installer
+(and probably also MinGHC, but I didn't try that).
+Just include -L and -I options to gcc with the same paths as above, and make sure to specify -licuuc -licudt etc. as needed.
+
+stack-icu:
+stack exec -- pacman -S mingw64/mingw-w64-x86_64-icu && stack build text-icu
+
+
+hmatrix:
+https://www.reddit.com/r/haskell/comments/3y7ysk/installing_hmatrix_in_windows/
+
+open MSYS2 console and run
+  update-core
+to update runtime system
+
+close and reopen console and install openblas with
+
+pacman -S mingw-w64-x86_64-openblas
+
+now, assuming you installed MSYS2 to C:\msys64, install hmatrix with
+
+cabal install hmatrix -fopenblas --extra-lib-dir=c:\msys64\mingw64\bin --extra-include-dir=c:\msys32\mingw32\include

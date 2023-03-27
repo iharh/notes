@@ -1,0 +1,12 @@
+-jvm-target 1.8
+kotlin-stdlib
+kotlin-stdlib-jre8
+
+https://www.linkedin.com/pulse/from-java-8-kotlin-aliaksandr-liakh
+
+so:
+http://stackoverflow.com/documentation/kotlin/707/java-8-stream-equivalents
+
+http://stackoverflow.com/questions/36952815/java-8-lambda-to-kotlin-lambda
+http://stackoverflow.com/questions/34642254/what-java-8-stream-collect-equivalents-are-available-in-the-standard-kotlin-libr
+http://stackoverflow.com/questions/35721528/how-can-i-call-collectcollectors-tolist-on-a-java-8-stream-in-kotlin

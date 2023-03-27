@@ -1,0 +1,23 @@
+cli
+  -E, --encoding=ENCODING   set default encoding for new databases
+      --locale=LOCALE       set default locale for new databases
+            https://www.postgresql.org/docs/9.6/locale.html
+            https://www.postgresql.org/docs/current/locale.html
+            https://www.postgresql.org/docs/current/multibyte.html
+            http://www.g-loaded.eu/2011/02/27/locale-windows/
+                american_usa
+      --lc-collate=, --lc-ctype=, --lc-messages=LOCALE
+      --lc-monetary=, --lc-numeric=, --lc-time=LOCALE
+                            set default locale in the respective category for
+                            new databases (default taken from environment)
+      --no-locale           equivalent to --locale=C
+      --pwfile=FILE         read password for the new superuser from file
+  ...
+  -U, --username=NAME       database superuser name
+  -W, --pwprompt            prompt for a password for the new superuser
+  -X, --xlogdir=XLOGDIR     location for the transaction log directory
+
+!!!
+  -A, --auth=METHOD         default authentication method for local connections
+      --auth-host=METHOD    default authentication method for local TCP/IP connections
+      --auth-local=METHOD   default authentication method for local-socket connections

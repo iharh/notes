@@ -1,0 +1,10 @@
+https://www.postgresql.org/docs/current/sql-do.html
+
+sample
+
+do $$
+declare
+    r record;
+begin
+    raise notice 'hello';
+end$$;

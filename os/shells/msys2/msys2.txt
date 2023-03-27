@@ -1,0 +1,66 @@
+http://msys2.github.io/
+http://sourceforge.net/projects/msys2/
+
+http://sourceforge.net/projects/msys2/
+
+GHC on MSYS2:
+https://ghc.haskell.org/trac/ghc/wiki/Building/Preparation/Windows
+
+Starter:
+@echo off
+setlocal
+call vars-ems-p.bat
+
+set MSYSTEM=MSYS
+rem To activate windows native symlinks uncomment next line
+set MSYS=winsymlinks
+::set MSYS=winsymlinks:nativestrict
+rem Set debugging program for errors
+rem set MSYS=error_start:%WD%../../mingw32/bin/qtcreator.exe|-debug|<process-id>
+set MSYSCON=mintty.exe
+
+start %MSYS_ROOT%\usr\bin\mintty -i /msys2.ico /usr/bin/bash --login %*
+:: -c %USERPROFILE%\.minttyrc
+endlocal
+
+
+TODO:
+pacman -S bash-completion vim git openssh dos2unix man-pages-posix
+
+
+mingw install:
+https://github.com/rust-lang/rust
+
+$ pacman -S base-devel
+
+simplistic-way:
+    mingw-w64-x86_64
+    mingw-w64-x86_64-gcc
+    mingw-w64-x86_64-make
+
+    (msys/vim msys/bash-completion msys/openssh)
+
+
+GROUPS:
+msys2-devel
+mingw-devel
+
+
+mintty:
+https://github.com/mavnn/mintty-colors-solarized
+
+
+
+pacman:
+
+http://msys2.github.io/
+http://sourceforge.net/p/msys2/wiki/MSYS2%20installation/
+
+I prefer the next update scenario:
+
+update-core
+#pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime
+
+restart
+
+pacman -Su

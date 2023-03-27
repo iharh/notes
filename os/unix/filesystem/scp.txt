@@ -1,0 +1,8 @@
+# scp -rp * root@springboot1.machine.com:/opt/docker/certs/
+-r
+    recursively copy dirs
+-p
+    preserve modification time
+
+2021
+https://linuxiac.com/scp-command-in-linux/

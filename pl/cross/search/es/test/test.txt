@@ -1,0 +1,30 @@
+index.store.
+    ExceptionRetryTests
+
+org.elasticsearch.network
+    DirectBufferNetworkTests
+
+    - traversing threads, threadlocals
+    - sun.nio.ch.Util$BufferCache buffers
+
+commit 2fb3cdceff39b1853f032aab75249be0dbe0e4d0
+Author: Ryan Ernst <ryan@iernst.net>
+Date:   Fri Jul 15 14:34:21 2016 -0700
+
+    Build: Simplify plugin configuration for rest tests
+    
+    This change removes the multiple ways that plugins can be added to the
+    integ test cluster. It also removes the use of the default
+    configuration, and instead adds a zip configuration to all plugins. This
+    will enable using project substitutions with plugins, which must be done
+    with the default configuration.
+
+M	build.gradle
+M	buildSrc/src/main/groovy/org/elasticsearch/gradle/plugin/PluginBuildPlugin.groovy
+M	buildSrc/src/main/groovy/org/elasticsearch/gradle/test/ClusterConfiguration.groovy
+M	buildSrc/src/main/groovy/org/elasticsearch/gradle/test/ClusterFormationTasks.groovy
+M	buildSrc/src/main/groovy/org/elasticsearch/gradle/test/RestIntegTestTask.groovy
+M	buildSrc/src/main/groovy/org/elasticsearch/gradle/test/RunTask.groovy
+M	docs/build.gradle
+M	qa/smoke-test-ingest-with-all-dependencies/build.gradle
+M	qa/smoke-test-plugins/build.gradle

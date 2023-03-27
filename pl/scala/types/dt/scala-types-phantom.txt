@@ -1,0 +1,40 @@
+Seeberger - Phantom Types in Scala
+https://blog.codecentric.de/en/2016/02/phantom-types-scala
+https://github.com/hseeberger/demo-phantom-types
+
+Zhizhelev - Scala Type System in Applied Problems
+https://www.youtube.com/watch?v=Cr0j6eh8P7I
+
+sealed trait Bool {
+    type Branch[T, F]  // just like defining a function by pattern-matching
+}
+sealed trait True extends Bool {
+    type Branch[T, F] = T
+}
+sealed trait False extends Bool {
+    type Branch[T, F] = F
+}
+
+// to help the compiler
+type Branch2[T <: Upper, F <: Upper,Upper]
+
+type &&[A <: Bool, B <: Bool] = A#Branch[B, False]
+type ||[A <: Bool, B <: Bool] = A#Branch[True, B]
+type Not[A <: Bool] = A#Branch[False, True]
+type If[A <: Bool, TrueT, FalseT] = A#Branch[TrueT, FalseT]
+
+// how to use this stuff?
+case class TypeConverter[A, B](value: B) { type Value = B; def _value: Value
+implicit def valueOfType[A] (implicit tc: TypeConverter[A, _]):tc.Value = t
+
+implicit val trueConverter = TypeConverter[True, Boolean](true)
+implicit val trueConverter = TypeConverter[False, Boolean](false)
+
+assert(valueOfType[True])
+assert(!valueOfType[False])
+
+// sample usage as a phantom type
+
+case class Service[Started <: Bool](name: String, resources: Any)
+def start(service: Service[False]) = service.copy { resources = Some('resour
+def stop(service: Service[True]) = service.copy { resources = None).asInstan

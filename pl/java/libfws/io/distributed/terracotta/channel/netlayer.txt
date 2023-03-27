@@ -1,0 +1,660 @@
+OnceAndOnlyOnceProtocolNetworkLayerFactory
+
+public interface OnceAndOnlyOnceProtocolNetworkLayerFactory {
+	public OnceAndOnlyOnceProtocolNetworkLayer createNewClientInstance(Sink sendSink, Sink receiveSink, ReconnectConfig reconnectConfig);
+	public OnceAndOnlyOnceProtocolNetworkLayer createNewServerInstance(Sink sendSink, Sink receiveSink, ReconnectConfig reconnectConfig);
+}
+
+
+OnceAndOnlyOnceProtocolNetworkLayerFactoryImpl
+/**
+ * Creates new instances of OnceAndOnlyOnceProtocolNetworkLayers. This is used so that a mock one may be injected into
+ * the once and only once network stack harness for testing.
+ */
+public class OnceAndOnlyOnceProtocolNetworkLayerFactoryImpl implements OnceAndOnlyOnceProtocolNetworkLayerFactory {
+	public static final String RESTORE_TIMERTHREAD_NAME = "OOO Connection Restore Timer";
+	private Timer              restoreConnectTimer      = null;
+
+	public synchronized OnceAndOnlyOnceProtocolNetworkLayer createNewClientInstance(Sink sendSink, Sink receiveSink,
+		ReconnectConfig reconnectConfig
+	) {
+		OOOProtocolMessageFactory messageFactory = new OOOProtocolMessageFactory();
+		OOOProtocolMessageParser messageParser = new OOOProtocolMessageParser(messageFactory);
+		return new OnceAndOnlyOnceProtocolNetworkLayerImpl(messageFactory, messageParser, sendSink, receiveSink,
+			reconnectConfig, true
+		);
+	}
+
+	public synchronized OnceAndOnlyOnceProtocolNetworkLayer createNewServerInstance(Sink sendSink, Sink receiveSink,
+		ReconnectConfig reconnectConfig
+	) {
+		// ooo connection restore timers are needed only for servers
+		if (restoreConnectTimer == null) {
+			restoreConnectTimer = new Timer(RESTORE_TIMERTHREAD_NAME, true);
+		}
+
+		OOOProtocolMessageFactory messageFactory = new OOOProtocolMessageFactory();
+		OOOProtocolMessageParser messageParser = new OOOProtocolMessageParser(messageFactory);
+		return new OnceAndOnlyOnceProtocolNetworkLayerImpl(messageFactory, messageParser, sendSink, receiveSink,
+			reconnectConfig, false, restoreConnectTimer
+		);
+	}
+}
+
+
+MessageTransport
+
+/**
+ * Interface for message transport layer-- the connection-side endcap to the message communications stack.
+ */
+public interface MessageTransport extends NetworkLayer {
+	public static final int CONNWEIGHT_TX_HANDSHAKED = 1;
+
+	public ConnectionID getConnectionId();
+
+	public void addTransportListener(MessageTransportListener listener);
+	public void addTransportListeners(List transportListeners);
+	public void removeTransportListeners();
+
+	public void attachNewConnection(TCConnection connection) throws IllegalReconnectException;
+
+	public void receiveTransportMessage(WireProtocolMessage message);
+
+	public void sendToConnection(TCNetworkMessage message);
+
+	public void setAllowConnectionReplace(boolean allow);
+
+	public short getCommunicationStackFlags(NetworkLayer parentLayer);
+	public String getCommunicationStackNames(NetworkLayer parentLayer);
+
+	public void setRemoteCallbackPort(int callbackPort);
+	public int getRemoteCallbackPort();
+
+	public void initConnectionID(ConnectionID cid);
+}
+
+
+MessageTransportListener
+
+/**
+ * Listener for MessageTransport events
+ */
+public interface MessageTransportListener {
+	public void notifyTransportConnected(MessageTransport transport);
+	public void notifyTransportDisconnected(MessageTransport transport, boolean forcedDisconnect);
+	public void notifyTransportConnectAttempt(MessageTransport transport);
+	public void notifyTransportClosed(MessageTransport transport);
+}
+
+
+OnceAndOnlyOnceProtocolNetworkLayer
+
+/**
+ * This is not a very intersting interface. It's here to allow testing of the once and only once network stack harness
+ * with mock objects. The stack harness needs to treat the OOOP network layer as both a network layer and a transport
+ * listener, hence this interface which combines the two.
+ */
+public interface OnceAndOnlyOnceProtocolNetworkLayer extends NetworkLayer, MessageTransport, MessageTransportListener {
+	void start();
+	void pause();
+	void resume();
+
+	void startRestoringConnection();
+	void connectionRestoreFailed();
+	Timer getRestoreConnectTimer();
+
+	boolean isClosed();
+}
+
+
+
+AbstractMessageTransport
+
+public abstract class AbstractMessageTransport implements MessageTransport, ConnectionIDProvider {
+	private static final int           DISCONNECTED      = 1;
+	private static final int           FORCED_DISCONNECT = 2;
+	private static final int           CONNECTED         = 3;
+	private static final int           CONNECT_ATTEMPT   = 4;
+	private static final int           CLOSED            = 5;
+
+	protected final ConnectionIdLogger logger;
+	private final List                 listeners         = new CopyOnWriteArrayList();
+
+	public AbstractMessageTransport(TCLogger logger) {
+		this.logger = new ConnectionIdLogger(this, logger);
+	}
+
+	public ConnectionIdLogger getLogger() {
+		return logger;
+	}
+
+  public final void addTransportListeners(List toAdd) {
+    for (Iterator i = toAdd.iterator(); i.hasNext();) {
+      MessageTransportListener l = (MessageTransportListener) i.next();
+      addTransportListener(l);
+    }
+  }
+
+  protected List getTransportListeners() {
+    return new ArrayList(listeners);
+  }
+
+  public void addTransportListener(MessageTransportListener listener) {
+    synchronized (listeners) {
+      if (listeners.contains(listener)) throw new AssertionError("Attempt to add the same listener more than once: "
+                                                                 + listener);
+      listeners.add(listener);
+    }
+  }
+
+  public final void removeTransportListeners() {
+    synchronized (listeners) {
+      this.listeners.clear();
+    }
+  }
+
+  protected final void fireTransportConnectAttemptEvent() {
+    fireTransportEvent(CONNECT_ATTEMPT);
+  }
+
+  protected final void fireTransportConnectedEvent() {
+    logFireTransportConnectEvent();
+    fireTransportEvent(CONNECTED);
+  }
+
+  private void logFireTransportConnectEvent() {
+    if (logger.isDebugEnabled()) {
+      logger.debug("Firing connect event...");
+    }
+  }
+
+  protected final void fireTransportForcedDisconnectEvent() {
+    fireTransportEvent(FORCED_DISCONNECT);
+  }
+
+  protected final void fireTransportDisconnectedEvent() {
+    fireTransportEvent(DISCONNECTED);
+  }
+
+  protected final void fireTransportClosedEvent() {
+    fireTransportEvent(CLOSED);
+  }
+
+  private void fireTransportEvent(int type) {
+    for (Iterator i = listeners.iterator(); i.hasNext();) {
+      MessageTransportListener listener = (MessageTransportListener) i.next();
+      switch (type) {
+        case DISCONNECTED:
+          listener.notifyTransportDisconnected(this, false);
+          break;
+        case FORCED_DISCONNECT:
+          listener.notifyTransportDisconnected(this, true);
+          break;
+        case CONNECTED:
+          listener.notifyTransportConnected(this);
+          break;
+        case CONNECT_ATTEMPT:
+          listener.notifyTransportConnectAttempt(this);
+          break;
+        case CLOSED:
+          listener.notifyTransportClosed(this);
+          break;
+        default:
+          throw new AssertionError("Unknown transport event: " + type);
+      }
+    }
+  }
+
+  public short getCommunicationStackFlags(NetworkLayer parentLayer) {
+    short stackLayerFlags = 0;
+    while (parentLayer != null) {
+      stackLayerFlags |= parentLayer.getStackLayerFlag();
+      parentLayer = parentLayer.getReceiveLayer();
+    }
+    return stackLayerFlags;
+  }
+
+  public String getCommunicationStackNames(NetworkLayer parentLayer) {
+    String currentLayer = "";
+    while (parentLayer != null) {
+      currentLayer += "\n" + parentLayer.getStackLayerName();
+      parentLayer = parentLayer.getReceiveLayer();
+    }
+    return currentLayer;
+  }
+
+  public void initConnectionID(ConnectionID cid) {
+    throw new UnsupportedOperationException();
+  }
+
+}
+
+
+
+OnceAndOnlyOnceProtocolNetworkLayerImpl
+
+/**
+ * NetworkLayer implementation for once and only once message delivery protocol.
+ */
+public class OnceAndOnlyOnceProtocolNetworkLayerImpl extends AbstractMessageTransport implements
+	OnceAndOnlyOnceProtocolNetworkLayer, OOOProtocolMessageDelivery 
+{
+	private static final TCLogger           logger           = TCLogging.getLogger(OnceAndOnlyOnceProtocolNetworkLayerImpl.class);
+	private final OOOProtocolMessageFactory messageFactory;
+	private final OOOProtocolMessageParser  messageParser;
+	boolean                                 wasConnected     = false;
+	private MessageChannelInternal          receiveLayer;
+	private MessageTransport                sendLayer;
+	private GuaranteedDeliveryProtocol      delivery;
+	private final SynchronizedBoolean       reconnectMode    = new SynchronizedBoolean(false);
+	private final SynchronizedBoolean       handshakeMode    = new SynchronizedBoolean(false);
+	private final SynchronizedBoolean       channelConnected = new SynchronizedBoolean(false);
+	private boolean                         isClosed         = false;
+	private final boolean                   isClient;
+	private final String                    debugId;
+	private UUID                            sessionId        = UUID.NULL_ID;
+	private final Timer                     restoreConnectTimer;
+	private static final boolean            debug            = false;
+
+	public OnceAndOnlyOnceProtocolNetworkLayerImpl(OOOProtocolMessageFactory messageFactory,
+		OOOProtocolMessageParser messageParser, Sink sendSink,
+		Sink receiveSink, ReconnectConfig reconnectConfig, boolean isClient)
+	{
+		this(messageFactory, messageParser, sendSink, receiveSink, reconnectConfig, isClient, null);
+	}
+
+	public OnceAndOnlyOnceProtocolNetworkLayerImpl(OOOProtocolMessageFactory messageFactory,
+		OOOProtocolMessageParser messageParser, Sink sendSink,
+		Sink receiveSink, ReconnectConfig reconnectConfig, boolean isClient,
+		Timer restoreConnectTimer)
+	{
+		super(logger);
+		this.messageFactory = messageFactory;
+		this.messageParser = messageParser;
+		this.isClient = isClient;
+		this.delivery = new GuaranteedDeliveryProtocol(this, sendSink, receiveSink, reconnectConfig, isClient); // !!! create delivery
+		this.delivery.start();
+		this.delivery.pause();
+		this.restoreConnectTimer = restoreConnectTimer;
+		this.sessionId = (this.isClient) ? UUID.NULL_ID : UUID.getUUID();
+		this.debugId = (this.isClient) ? "CLIENT" : "SERVER";
+	}
+
+  /*********************************************************************************************************************
+   * Network layer interface...
+   */
+
+  public void setSendLayer(NetworkLayer layer) {
+    if (!(layer instanceof MessageTransport)) { throw new IllegalArgumentException(
+                                                                                   "Error: send layer must be MessageTransport!"); }
+    this.setSendLayer((MessageTransport) layer);
+  }
+
+  public void setSendLayer(MessageTransport transport) {
+    this.sendLayer = transport;
+  }
+
+  public void setReceiveLayer(NetworkLayer layer) {
+    if (!(layer instanceof MessageChannelInternal)) { throw new IllegalArgumentException(
+                                                                                         "Error: receive layer must be MessageChannelInternal, was "
+                                                                                             + layer.getClass()
+                                                                                                 .getName()); }
+    this.receiveLayer = (MessageChannelInternal) layer;
+  }
+
+  public NetworkLayer getReceiveLayer() {
+    return this.receiveLayer;
+  }
+
+	// !!! actual send
+	public void send(TCNetworkMessage message) {
+		delivery.send(message);
+	}
+
+  public void receive(TCByteBuffer[] msgData) {
+    OOOProtocolMessage msg = createProtocolMessage(msgData);
+    debugLog("receive -> " + msg.getHeader().toString());
+    if (msg.isSend() || msg.isAck()) {
+      Assert.inv(!handshakeMode.get());
+      if (!channelConnected.get()) {
+        logger.warn("Drop stale message " + msg.getHeader().toString() + " from " + sendLayer.getConnectionId());
+        return;
+      }
+      if (!sessionId.equals(msg.getSessionId())) return; // drop bad message
+      delivery.receive(msg);
+    } else if (msg.isHandshake()) {
+      Assert.inv(!isClient);
+      debugLog("Got Handshake message...");
+      if (msg.getSessionId().equals(UUID.NULL_ID)) {
+        debugLog("A brand new client is trying to connect - reply OK");
+        OOOProtocolMessage reply = createHandshakeReplyOkMessage(delivery.getReceiver().getReceived());
+        sendMessage(reply);
+        delivery.resume();
+        delivery.receive(createHandshakeReplyOkMessage(-1));
+        handshakeMode.set(false);
+        if (!channelConnected.get()) {
+          channelConnected.set(true);
+          receiveLayer.notifyTransportConnected(this);
+        }
+        reconnectMode.set(false);
+      } else if (msg.getSessionId().equals(getSessionId())) {
+        debugLog("A same-session client is trying to connect - reply OK");
+        OOOProtocolMessage reply = createHandshakeReplyOkMessage(delivery.getReceiver().getReceived());
+        sendMessage(reply);
+        handshakeMode.set(false);
+        delivery.resume();
+        // tell local sender the ackseq of client
+        delivery.receive(createHandshakeReplyOkMessage(msg.getAckSequence()));
+        if (!channelConnected.get()) {
+          channelConnected.set(true);
+          receiveLayer.notifyTransportConnected(this);
+        }
+        reconnectMode.set(false);
+      } else {
+        debugLog("A DIFF-session client is trying to connect - reply FAIL");
+        logger.info("Sending OOO handshake fail message to a different session client " + getConnectionId());
+        long localAck = delivery.getReceiver().getReceived();
+        sendMessage(createHandshakeReplyFailMessage(localAck));
+        handshakeMode.set(false);
+        if (channelConnected.get()) receiveLayer.notifyTransportDisconnected(this, false);
+        channelConnected.set(false);
+        resetStack();
+        delivery.resume();
+        delivery.receive(createHandshakeReplyFailMessage(localAck));
+        if (!channelConnected.get()) {
+          channelConnected.set(true);
+          receiveLayer.notifyTransportConnected(this);
+        }
+        reconnectMode.set(false);
+      }
+    } else if (msg.isHandshakeReplyOk()) {
+      Assert.inv(isClient);
+      Assert.inv(handshakeMode.get());
+      debugLog("Got reply OK");
+      // current session is still ok:
+      // 1. might have to resend some messages
+      // 2. no need to signal to Higher Level
+      handshakeMode.set(false);
+      sessionId = msg.getSessionId();
+      delivery.resume();
+      delivery.receive(msg);
+      if (!channelConnected.get()) {
+        channelConnected.set(true);
+        receiveLayer.notifyTransportConnected(this);
+      }
+      reconnectMode.set(false);
+    } else if (msg.isHandshakeReplyFail()) {
+      debugLog("Received handshake fail reply");
+      Assert.inv(isClient);
+      Assert.inv(handshakeMode.get());
+      // we did not synch'ed the existing session.
+      // 1. clear OOO state (drop messages, clear counters, etc)
+      // 2. set the new session
+      // 3. signal Higher Lever to re-synch
+      if (channelConnected.get()) receiveLayer.notifyTransportDisconnected(this, false);
+      channelConnected.set(false);
+      resetStack();
+      sessionId = msg.getSessionId();
+      handshakeMode.set(false);
+      delivery.resume();
+      delivery.receive(msg);
+      if (!channelConnected.get()) {
+        channelConnected.set(true);
+        receiveLayer.notifyTransportConnected(this);
+      }
+    } else if (msg.isGoodbye()) {
+      debugLog("Got GoodBye message - shutting down");
+      isClosed = true;
+      sendLayer.close();
+      receiveLayer.close();
+      delivery.pause();
+    } else {
+      Assert.inv(false);
+    }
+  }
+
+  private void debugLog(String msg) {
+    if (debug) {
+      DebugUtil.trace("OOOLayer-" + debugId + "-" + sendLayer.getConnectionId() + " -> " + msg);
+    }
+  }
+
+  public boolean isConnected() {
+    return (channelConnected.get() && !delivery.isPaused());
+  }
+
+  public NetworkStackID open() throws TCTimeoutException, UnknownHostException, IOException,
+      MaxConnectionsExceededException, CommStackMismatchException {
+    Assert.assertNotNull(sendLayer);
+    return sendLayer.open();
+  }
+
+  public void close() {
+    Assert.assertNotNull(sendLayer);
+    // send goobye message with session-id on it
+    OOOProtocolMessage opm = messageFactory.createNewGoodbyeMessage(getSessionId());
+    sendMessage(opm);
+    sendLayer.close();
+  }
+
+  public void initConnectionID(ConnectionID cid) {
+    Assert.assertNotNull(sendLayer);
+    sendLayer.initConnectionID(cid);
+  }
+
+  /*********************************************************************************************************************
+   * Transport listener interface...
+   */
+
+  public void notifyTransportConnected(MessageTransport transport) {
+    handshakeMode.set(true);
+    if (isClient) {
+      OOOProtocolMessage handshake = createHandshakeMessage(delivery.getReceiver().getReceived());
+      debugLog("Sending Handshake message...");
+      sendMessage(handshake);
+    } else {
+      // reuse for missing transportDisconnected events
+      if (!delivery.isPaused()) {
+        notifyTransportDisconnected(null, false);
+      }
+    }
+    reconnectMode.set(false);
+  }
+
+  public void notifyTransportDisconnected(MessageTransport transport, final boolean forcedDisconnect) {
+    final boolean restoreConnectionMode = reconnectMode.get();
+    debugLog("Transport Disconnected - pausing delivery, restoreConnection = " + restoreConnectionMode);
+    this.delivery.pause();
+    if (!restoreConnectionMode) {
+      if (channelConnected.get()) receiveLayer.notifyTransportDisconnected(this, forcedDisconnect);
+      channelConnected.set(false);
+    }
+  }
+
+  public void start() {
+    //
+  }
+
+  public void pause() {
+    this.delivery.pause();
+  }
+
+  public void resume() {
+    this.delivery.resume();
+  }
+
+  public void notifyTransportConnectAttempt(MessageTransport transport) {
+    if (!reconnectMode.get()) {
+      receiveLayer.notifyTransportConnectAttempt(this);
+    }
+  }
+
+  public void notifyTransportClosed(MessageTransport transport) {
+    // XXX: do we do anything here? We've probably done everything we need to do when close() was called.
+    debugLog("Transport Closed - notifying higher layer");
+    receiveLayer.notifyTransportClosed(this);
+    channelConnected.set(false);
+  }
+
+  /*********************************************************************************************************************
+   * Protocol Message Delivery interface
+   */
+
+  public OOOProtocolMessage createHandshakeMessage(long ack) {
+    OOOProtocolMessage rv = this.messageFactory.createNewHandshakeMessage(getSessionId(), ack);
+    return rv;
+  }
+
+  public OOOProtocolMessage createHandshakeReplyOkMessage(long ack) {
+    // FIXME: need to use correct ack
+    OOOProtocolMessage rv = this.messageFactory.createNewHandshakeReplyOkMessage(getSessionId(), ack);
+    return rv;
+  }
+
+  public OOOProtocolMessage createHandshakeReplyFailMessage(long ack) {
+    // FIXME: need to use correct ack
+    OOOProtocolMessage rv = this.messageFactory.createNewHandshakeReplyFailMessage(getSessionId(), ack);
+    return rv;
+  }
+
+  private UUID getSessionId() {
+    return sessionId;
+  }
+
+  public OOOProtocolMessage createAckMessage(long ack) {
+    return (this.messageFactory.createNewAckMessage(getSessionId(), ack));
+  }
+
+  public boolean sendMessage(OOOProtocolMessage msg) {
+    // this method doesn't do anything at the moment, but it is a good spot to plug in things you might want to do
+    // every message flowing down from the layer (like logging for example)
+    if (this.sendLayer.isConnected()) {
+      this.sendLayer.send(msg);
+      return (true);
+    } else {
+      return (false);
+    }
+  }
+
+  public void receiveMessage(OOOProtocolMessage msg) {
+    Assert.assertNotNull("Receive layer is null.", this.receiveLayer);
+    Assert.assertNotNull("Attempt to null msg", msg);
+    Assert.eval(msg.isSend());
+
+    this.receiveLayer.receive(msg.getPayload());
+  }
+
+  public OOOProtocolMessage createProtocolMessage(long sequence, final TCNetworkMessage msg) {
+    OOOProtocolMessage rv = messageFactory.createNewSendMessage(getSessionId(), sequence, msg);
+    final Runnable callback = msg.getSentCallback();
+    if (callback != null) {
+      rv.setSentCallback(new Runnable() {
+        public void run() {
+          callback.run();
+        }
+      });
+    }
+
+    return rv;
+  }
+
+  private OOOProtocolMessage createProtocolMessage(TCByteBuffer[] msgData) {
+    try {
+      return messageParser.parseMessage(msgData);
+    } catch (TCProtocolException e) {
+      // XXX: this isn't the right thing to do here
+      throw new TCRuntimeException(e);
+    }
+  }
+
+  public void attachNewConnection(TCConnection connection) {
+    throw new AssertionError("Must not call!");
+  }
+
+  public void setAllowConnectionReplace(boolean allow) {
+    throw new AssertionError("Must not call!");
+  }
+
+  public ConnectionID getConnectionId() {
+    return sendLayer != null ? sendLayer.getConnectionId() : null;
+  }
+
+  public TCSocketAddress getLocalAddress() {
+    return sendLayer.getLocalAddress();
+  }
+
+  public TCSocketAddress getRemoteAddress() {
+    return sendLayer.getRemoteAddress();
+  }
+
+  public void receiveTransportMessage(WireProtocolMessage message) {
+    throw new AssertionError("Must not call!");
+  }
+
+  public void sendToConnection(TCNetworkMessage message) {
+    throw new AssertionError("Must not call!");
+  }
+
+  public void startRestoringConnection() {
+    debugLog("Switched to restoreConnection mode");
+    reconnectMode.set(true);
+  }
+
+  public Timer getRestoreConnectTimer() {
+    Assert.assertNotNull(this.restoreConnectTimer);
+    return this.restoreConnectTimer;
+  }
+
+  public void connectionRestoreFailed() {
+    debugLog("RestoreConnectionFailed - resetting stack");
+    if (channelConnected.get()) {
+      // forcedDisconnect flag is not useful in above layers. defaulting to false
+      receiveLayer.notifyTransportDisconnected(this, false);
+      channelConnected.set(false);
+    }
+    reconnectMode.set(false);
+    delivery.pause();
+    delivery.reset();
+    sessionId = UUID.getUUID();
+  }
+
+  private void resetStack() {
+    // we need to reset because we are talking to a new stack on the other side
+    reconnectMode.set(false);
+    delivery.pause();
+    delivery.reset();
+  }
+
+  public boolean isClosed() {
+    return isClosed;
+  }
+
+  /**
+   * this function gets the stackLayerFlag, added to build the communication stack information
+   */
+  public short getStackLayerFlag() {
+    // this is the OOO layer
+    return TYPE_OOO_LAYER;
+  }
+
+  /**
+   * This function gets the stack layer name of the present layer, added to build the communication stack information
+   */
+  public String getStackLayerName() {
+    // this is the OOO layer
+    return NAME_OOO_LAYER;
+  }
+
+  public void setRemoteCallbackPort(int callbackPort) {
+    throw new AssertionError();
+  }
+
+  public int getRemoteCallbackPort() {
+    throw new AssertionError();
+  }
+
+  // for testing
+  public NetworkLayer getSendLayer() {
+    return this.sendLayer;
+  }
+}

@@ -1,0 +1,35 @@
+Background processing
+
+<cmd> &
+	Start a background-process
+jobs
+	View the list of background tasks
+kill -TSTP %<num>
+	Send SIGTSTP to background job <num>
+bg
+	Restart a stopped job (and put it to the background) -//- kill -CONT
+fg %num
+	bring the job to foreground.
+	Note: %num also works (without fg) or even %<name_of_cmd>.
+disown
+	Tell the shell to ignore the job completely (start with &! at the end).
+
+
+C-z
+	SIGTSTP - stop process (can restart later by fg)
+C-c
+	SIGINT  - terminate/interrupt process
+C-\
+	IGQUIT  - terminate and make "core dump"
+
+
+zsh options:
+
+auto_resume
+	Allow to resume the job just by typing its name without starting %.
+nohup
+	Running jobs will not be killed on exit (Stopped jobs are killed by OS anyway).
+check_jobs (on by default)
+	Warn about stopped and background jobs on exit.
+bg_nice (on by default)
+	Use the lowest priority for background jobs (see nice command for controlling priority).

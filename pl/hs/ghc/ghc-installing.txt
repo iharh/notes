@@ -1,0 +1,84 @@
+http://www.reddit.com/r/haskell/comments/25d8f2/how_can_i_install_a_second_version_of_ghc/
+http://www.extellisys.com/articles/haskell-on-debian-wheezy
+http://byorgey.wordpress.com/2012/11/01/using-multiple-versions-of-ghc-in-parallel-with-gnu-stow/
+
+MinGHC
+https://github.com/fpco/minghc/blob/master/README.md
+http://www.reddit.com/r/haskell/comments/31i8o3/installing_ghc_710_from_scratch_on_windows/
+
+https://github.com/ekalinin/envirius
+
+https://github.com/bitemyapp/learnhaskell
+
+GHC Docker Image:
+https://github.com/gregwebs/ghc-docker-dev
+https://www.haskell.org/pipermail/ghc-devs/2014-December/007606.html
+https://ghc.haskell.org/trac/ghc/wiki/Building/Preparation/Linux
+
+
+Debian/Ubuntu:
+
+This PPA is excellent and is what I use on all my Linux dev and build machines: http://launchpad.net/~hvr/+archive/ghc
+
+Specifically:
+
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository -y ppa:hvr/ghc
+    sudo apt-get update
+    sudo apt-get install cabal-install-1.20 ghc-7.8.2 happy-1.19.3 alex-3.1.3
+
+Then add ~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.2/bin:/opt/happy/1.19.3/bin:/opt/alex/3.1.3/bin to your PATH (bash_profile, zshrc, bashrc, etc)
+
+https://github.com/begriffs/haskell-pair/blob/master/bootstrap.sh
+    more-detailed linux instrs.
+
+
+Arch Linux:
+https://wiki.archlinux.org/index.php/ArchHaskell
+http://www.stackage.org/install
+
+To install Haskell from the official repos on Arch Linux
+
+Update your mirrorlist
+
+    sudo pacman -Syy
+
+Download Haskell
+
+    sudo pacman -S cabal-install ghc happy alex haddock
+
+cblrepo:
+http://nponeccop.livejournal.com/419579.html
+http://funloop.org/post/2014-01-06-using-cblrepo-in-arch-linux.html
+http://therning.org/magnus/posts/2011-04-27-914-maintaining-haskell-packages-for-a-linux-distribution-cblrepo.html
+
+
+RedHad/CentOS:
+https://www.haskell.org/ghc/download_ghc_7_8_4
+https://medium.com/@jtpaasch/install-haskell-on-centos-5be42b76c7a4
+https://www.madboa.com/blog/2014/10/07/haskell-platform-centos-6/
+
+
+Building from sources:
+http://www.reddit.com/r/haskell/comments/26immi/so_how_is_a_noob_supposed_to_get_the_latest/
+
+That being said, GHC is pretty straightforward to build (at least on Linux; I can't comment on OS X).
+If you have a burning desire to try the latest and greatest don''t let the fact that you need to build from source discourage you.
+On my Linux box (where I admittedly already have the build dependencies installed),
+
+$ git clone git://git.haskell.org/ghc
+$ cd ghc
+$ git checkout -b origin/ghc-7.8
+$  ./sync-all get
+$ ./boot
+$ ./configure --prefix=/opt/ghc-head
+$ make -j4 && make install
+[get some coffee]
+$ PATH=/opt/ghc-head/bin:$PATH
+$ ghc -V
+The Glorious Glasgow Haskell Compilation System, version 7.8.1
+
+To upgrade, ./sync-all pull and follow the same steps starting at ./boot.
+
+Building with GMP:
+http://markmail.org/message/ap2fbnm4zxrmgjf4

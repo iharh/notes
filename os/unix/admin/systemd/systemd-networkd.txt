@@ -1,0 +1,37 @@
+Articles:
+https://habrahabr.ru/company/ruvds/blog/309010/
+
+man systemd.network
+systemctl enable/start systemd-networkd
+
+
+/etc/systemd/network
+  *.network (units of network type)
+
+Samples
+[Match]
+Name=en2sp...
+#MACAddress, Driver, Type
+
+[Network]
+Description=Wired network
+DHCP=yes
+# static net settings:
+Address=192.168.2.5/24
+Gateway=192.168.2.42
+DNS=192.168.2.42
+
+#[Address]
+#[Route]
+
+sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+/etc/systemd/system/systemd-networkd.service.d/
+  *.conf
+
+[Service]
+ExecStartPost=/bin/ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+ExecStopPost=/bin/rm -f /etc/resolv.conf
+ExecStopPost=/usr/bin/touch /etc/resolv.conf
+ExecStopPost=-/bin/cp -pf /etc/resolv/conf.bak /etc/resolv.conf
+#- here just for ignoring any possible errors

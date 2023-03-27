@@ -1,0 +1,21 @@
+Shares:
+http://stackoverflow.com/questions/26639968/boot2docker-startup-script-to-mount-local-shared-folder-with-host
+https://github.com/boot2docker/boot2docker/issues/678
+
+In Virtualbox go to settings of your boot2docker machine.
+In the last menu add all folders you need.
+clb -> D:\clb
+
+And add some code to the
+sudo vi /var/lib/boot2docker/bootlocal.sh
+
+# clb
+mkdir /clb
+mount -t vboxsf clb /clb
+
+# obsolete
+mkdir /cps-test-qaa
+mount -t vboxsf cps-test-qaa /cps-test-qaa
+mkdir /cps-test-logs
+mount -t vboxsf cps-test-logs /cps-test-logs
+

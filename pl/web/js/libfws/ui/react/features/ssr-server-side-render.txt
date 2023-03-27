@@ -1,0 +1,30 @@
+import ReactDOMServer from 'react-dom/server';
+...
+const body = ReactDOMServer.renderToString(<Application>);
+
+
+articles
+2021
+https://medium.com/javascript-in-plain-english/intro-to-react-server-side-rendering-3c2af3782d08
+2018
+https://medium.com/@atahani/reactjs-ssr-tips-and-tricks-be9edff5b7bb
+https://medium.com/airbnb-engineering/operationalizing-node-js-for-server-side-rendering-c5ba718acfc9
+    https://habr.com/company/ruvds/blog/418009/
+2017
+https://hackernoon.com/whats-new-with-server-side-rendering-in-react-16-9b0d78585d67
+
+presentations
+http://elijahmanor.com/talks/react-to-the-future/dist/#/slide/7/4
+2017
+https://www.moscowjs.ru/talk/pogruzhenie-v-ssr
+    https://cloud.mail.ru/public/LH9C/cAgdAzQp5
+    https://www.youtube.com/watch?v=uB7Yz4nH8nc
+2015
+https://www.slideshare.net/denisizmaylov/isomorphic-react-applications-performance-and-scalability
+https://www.slideshare.net/denisizmaylov/react-55511991
+
+
+import { hydrate } from "react-dom"
+import MyPage from "./MyPage"
+
+hydrate(<MyPage/>, document.getElementById("content"));

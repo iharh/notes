@@ -1,0 +1,26 @@
+https://github.com/nix-community/home-manager/blob/master/modules/programs/zsh.nix
+    https://stackoverflow.com/questions/57007977/nix-config-outside-of-nixos
+
+initExtra = ''
+    ...
+
+good samples
+https://github.com/ib250/nixconfigs/blob/master/home.nix
+https://github.com/balsoft/nixos-config/blob/master/modules/workspace/zsh.nix
+
+arbitrary runcommand:
+https://github.com/utdemir/dotfiles/blob/main/nix/mk-scripts.nix
+    { runCommand, makeWrapper }:
+
+    { path, postBuild ? "" }:
+
+    runCommand "scripts"
+    {
+      buildInputs = [ makeWrapper ];
+      preferLocalBuild = true;
+    } ''
+      mkdir -p $out/bin
+      cp -v ${path}/* $out/bin
+      chmod +x $out/bin/*
+      ${postBuild}
+    ''

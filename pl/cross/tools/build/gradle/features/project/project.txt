@@ -1,0 +1,44 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.Project.html
+
+property("name")
+https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:property(java.lang.String)
+    val prjMy = project(":folder:name")
+    val libsDirectory: DirectoryProperty by prjMy
+    println("libsDirectory: ${libsDirectory.getLocationOnly().get()} !!!")
+
+ext-props
+    https://docs.gradle.org/current/userguide/kotlin_dsl.html#kotdsl:properties
+        val valLibsDirectory: Directory = (somePrj.property("libsDirectory") as DirectoryProperty).getLocationOnly().get()
+        valLibsDirectory.file("<name>.jar").getAsFile().getAbsolutePath()
+
+
+configurations
+    https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:configurations
+        https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.ConfigurationContainer.html
+    getByName, named
+        prjJfx.getByName("default")
+        prjJfx.configurations["default"]
+        https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html
+            artifacts, allArtifacts
+                val aA = somePrj.configurations.getByName("default").allArtifacts;
+
+                aA.files.files.joinToString(",")
+                aA.files.singleFile()
+
+        https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/PublishArtifactSet.html
+
+convention
+    private fun startSpringProcess(springProject: Project): Process {
+        val libsDir = springProject.buildDir.resolve(libsDirName)
+        val jarFile = libsDir.listFiles()?.singleOrNull()
+        val libsDirName = springProject.convention.getPlugin(BasePluginConvention::class.java).libsDirName
+
+artifacts
+https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:artifacts
+https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.ArtifactHandler.html
+    https://discuss.gradle.org/t/how-to-express-the-artifact-built-by-a-project/
+        configurations.archives.artifacts.files
+    https://discuss.gradle.org/t/how-to-get-a-complete-list-of-all-artifacts-generated-by-a-build/
+        configurations.archives.allArtifacts
+
+    config.allArtifacts.files.files...

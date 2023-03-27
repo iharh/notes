@@ -1,0 +1,246 @@
+C-d
+	Activate tab-completion (:set nocp - nocompatible is needed)
+
+Help:
+
+:h
+	user-manual
+		Open a user-manual (gf - to go to the file name at the cursor)
+	vimrc-intro
+		Help on vimrc configuration
+	movement
+		Help on movements
+	motion.txt
+		Help on motion
+	jump-motions
+		Help on jumps
+	copy-move
+		Help on copy and move commands
+	filetype
+		Help on filetypes
+	startup
+		Startup and initialization
+	text-objects
+		Help on text objects
+	ex-cmd-index, holy-grail, :index
+		List of ex-cmd index
+	cmdline-editing
+		Help on ex cmd line editing
+	cmdline-ranges
+		Help on ex cmd line-ranges
+	visual-mode
+		Help on visual mode
+	registers
+		Help on registers
+	map-which-keys
+		What keys to map	
+
+C-]
+	Follow the link
+C-t
+	Return from the link
+C-o
+	Go back
+C-i
+	Go forward
+
+       WHAT            PREPEND    EXAMPLE	~
+Normal mode command   (nothing) :help x
+Visual mode command   v_        :help v_u
+Insert mode command   i_        :help i_<Esc>
+Command-line command  :         :help :quit
+Command-line editing  c_        :help c_<Del>
+Vim command argument  -         :help -r
+Option                '         :help 'textwidth'
+
+|
+	Combine several commands (only the first one have to start with semicolon (:))
+
+
+
+Editing Commands:
+d (delete)
+	Delete lines
+m (move)
+	Move lines
+t/co (copy)
+	Copy lines
+ya (yank)
+	Yank
+pu (put)
+	Put
+
+Yank/Paste commands:
+:reg
+	List all the registers and their content.
+
+
+Line Numbers:
+.
+	Current line
+$
+	Last line of the file
+% (1,$)
+	Each line of the file
+:3,18
+	Lines 3 through 18
+:100;+5
+	+5 is now calculated relative to line 100
+:.,.+20
+	From current line through the next 20 lines (actuaaly, (.) can be ommitted - :.,+20)
+:-,+
+	Three lines, starting before the cursor and ending after it
+:1,10#
+	To temporary display the set of lines
+:=
+	Print the total number of lines
+:.=
+	Print the line number of the current line
+:/pattern/=
+	Print the number of first line matching pattern
+:/pattern1/,/pattern2/
+	Lines from /patern1/ to /pattern2/
+
+
+
+Note:
+:e $VIM/_vimrc
+	To use a rel-variable
+:r $VIMRUNTIME/vimrc_example.vim
+
+
+Retrieve(read) from
+
+:r FILENAME (read)
+	To insert the contents of a file (below the cursor position)
+:r !<ext-cmd>
+	To insert the contents of an executed external command <ext-cmd>
+
+
+Write a File:
+
+:w
+	Write(Save) file
+:w <new-name>
+	Write (Save) a file to a new file name <new-name>
+:w!
+	Force Write
+:wq
+	Save the file with changes and exit Vim
+:x[it]
+:wq! filename
+	Write to specified filename and quit without confirmation
+:w !sudo tee %
+	' !' means shell command
+	% meand current file name
+:w >> filename
+	Append the buffer to filename
+
+v motion :w <file-name>
+	Saves the Visually selected lines in file <file-name>
+	Note: [:'v,'>w] should appear at command-line.
+
+
+Multiple-files editing
+vim file1 file2
+
+:n
+	Switch to the next file
+:last
+	Switch to the last file
+:ar (args)
+	Displays the argument list in the status line
+:ar[gs] *.txt
+	Open all the files (by mask) for editing
+:rew (rewind)
+	Resets the current file to be the first file named on the command line
+
+
+Execute External Command:
+
+:!<ext-cmd>
+	Execute external command <ext-cmd>.
+:sh[ell]
+	Open a new shell window
+:r !<cmd>
+	Execute external command and edit its output
+:!!<cmd>
+	Execute <cmd> on cur-line (spec-object).
+:!<object>!
+	To repeat the previous <cmd>
+$exit
+	Returns to vim (probably Unix only).
+
+
+Examples:
+:99,106!sort
+	Execute sort for the specified lines and replace those lines with appropriate output.
+4!!sort
+	Execute sort for the current four lines
+!4!sort
+	-//-
+:h sort
+	Help on the sort-command
+	
+
+
+Replace Text:
+
+:s/old/new/g
+	Replaces old by new, g is the flag to substitue globally in the line
+:#,#s/old/new/g
+	-//- starting and ending by the line numbers #
+:%s/old/new/g
+	-//- in the whole file
+:%s/old/new/g
+	-//- in the whole file
+-//- gc (instead of g)
+	with the prompt for each replacement
+:&
+	Repeat the last substitue.
+
+Marks
+
+:marks
+	See all the marks
+	
+
+Abbreviations:
+
+:ab <abbr> <phrase>
+	Define an abbrevation. Expanded in insert-mode only. No tail-recursion allowed (<abbr> at the end of <phrase>).
+:unab <abbr>
+	Undefine an <abbr>.
+
+
+
+Session saving:
+:mks[session] <s.vim>
+	Save session to file (use :so[urce] later to open).
+
+Quitting:
+:q
+	Quit
+:q!
+	Force quit without confirmation (DISCARD any changes)
+:qa!
+	Force quit from ALL
+:pre[server]
+	Writes all the unsaved content to swap-file and exits (later you can continue from where you finished)
+
+
+Writing system settings:
+
+:mkv[imrc][!] [file]	Like ":mkexrc", but the default is ".vimrc" in the
+			current directory.  The ":version" command is also
+			written to the file.  {not in Vi}
+
+These commands will write ":map" and ":set" commands to a file, in such a way
+that when these commands are executed, the current key mappings and options
+will be set to the same values.
+
+
+Re-Formatting:
+
+:retab
+  change tabulation

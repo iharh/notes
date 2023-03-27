@@ -1,0 +1,13 @@
+frama-c
+    -help
+    -kernel-help
+        options provided by kernel
+    -<plugin>-help
+    -e-acsl-help
+        E-ACSL specific options
+    -value-h
+        help
+    -slevel 10
+        the precision of the value analysis
+    -val main.c
+        value analysis plugin

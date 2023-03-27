@@ -1,0 +1,30 @@
+http://ngrx.github.io/
+https://github.com/ngrx
+https://github.com/ngrx/platform
+https://github.com/ngrx/core
+
+https://github.com/ngrx/ngrx.github.io
+
+npm i -S
+    @ngrx/store
+    @ngrx/effects
+
+resources
+https://blog.strongbrew.io/Redux-best-practices/
+https://github.com/orizens/ngrx-styleguide
+https://gist.github.com/btroncone/a6e4347326749f938510
+https://toddmotto.com/ngrx/
+https://medium.com/ngrx
+
+https://www.npmjs.com/package/ngx-reduxor
+https://github.com/kmathy/ngx-reduxor
+https://blog.cloudboost.io/ngx-reduxor-generate-a-complete-ngrx-architecture-in-one-command-574e3ea76f2d
+https://blog.cloudboost.io/ngx-reduxor-do-you-use-ngrx-in-your-angular-app-check-this-generator-b3386e7bf8bf
+
+@ngrx/effects
+https://github.com/ngrx/platform/blob/master/docs/effects/README.md
+http://semanticbits.com/understanding-ngrx-effects/
+
+@ngrg/forms
+https://github.com/MrWolfZ/ngrx-forms
+https://www.ng-conf.org/redux-form-validation-ngrx-forms/

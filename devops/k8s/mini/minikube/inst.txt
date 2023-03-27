@@ -1,0 +1,26 @@
+https://github.com/kubernetes/minikube/releases
+
+https://kubernetes.io/docs/tasks/tools/
+https://minikube.sigs.k8s.io/docs/start/
+
+binary
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+deb
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+
+scoop
+    minikube
+AUR
+    minikube
+        https://aur.archlinux.org/packages/minikube/
+        https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=minikube
+    minikube-bin
+        https://aur.archlinux.org/packages/minikube-bin/
+        https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=minikube-bin
+    crictl
+    crictl-bin
+        cli tool for kubelet container runtime interface (CRI)
+    kubectl-bin

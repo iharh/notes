@@ -1,0 +1,7 @@
+2021
+https://www.reddit.com/r/xmonad/comments/malqju/how_can_i_add_space_between_windows/
+
+samples
+https://github.com/RubikCubed/nixos-config/blob/main/home/programs/xmonad/Main.hs#L11
+https://github.com/rleppink/dotfiles/blob/master/xmonad/xmonad.hs#L34
+    ! need to check

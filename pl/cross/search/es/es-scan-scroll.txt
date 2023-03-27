@@ -1,0 +1,10 @@
+scan and scroll:
+
+https://github.com/taskrabbit/elasticsearch-dump
+
+http://www.elasticsearch.org/guide/en/elasticsearch/guide/current/scan-scroll.html
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-request-scroll.html
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/common-options.html#time-units
+
+org.elasticsearch.action.search.SearchRequestBuilder
+

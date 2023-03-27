@@ -1,0 +1,9 @@
+aur/xxgdb
+
+Warning: Cannot convert string "variable" to type FontStruct
+Warning: Unable to load any usable ISO8859 font
+Warning: Unable to load any usable ISO8859 font
+Error: Aborting: no font found
+
+https://forum.manjaro.org/t/xxgdb-no-font-found/58512
+xorg-fonts-misc 

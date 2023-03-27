@@ -1,0 +1,207 @@
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/plugins/IvyPublishPlugin.java
+    private static class IvyPublicationFactory implements NamedDomainObjectFactory<IvyPublication> {
+            ...
+        private IvyPublicationFactory(DependencyMetaDataProvider dependencyMetaDataProvider, Instantiator instantiator, ObjectFactory objectFactory, FileResolver fileResolver,
+                                      PluginManager plugins, ExtensionContainer extensionContainer) {
+            this.dependencyMetaDataProvider = dependencyMetaDataProvider;
+            this.instantiator = instantiator;
+            this.objectFactory = objectFactory;
+            this.fileResolver = fileResolver;
+            this.plugins = plugins;
+            this.extensionContainer = extensionContainer;
+        }
+
+        @Override
+        public IvyPublication create(String name) {
+            Module module = dependencyMetaDataProvider.getModule();
+            IvyPublicationIdentity publicationIdentity = new DefaultIvyPublicationIdentity(module);
+            NotationParser<Object, IvyArtifact> notationParser = new IvyArtifactNotationParserFactory(instantiator, fileResolver, publicationIdentity).create();
+            VersionMappingStrategyInternal versionMappingStrategy = objectFactory.newInstance(DefaultVersionMappingStrategy.class);
+            configureDefaultConfigurationsUsedWhenMappingToResolvedVersions(versionMappingStrategy);
+
+            return objectFactory.newInstance(DefaultIvyPublication.class, name, publicationIdentity, notationParser, versionMappingStrategy);
+        }
+        ...
+        private void createTasksLater(final Project project, final PublishingExtension publishingExtension, final DirectoryProperty buildDir) {
+            final TaskContainer tasks = project.getTasks();
+            final NamedDomainObjectSet<IvyPublicationInternal> publications = publishingExtension.getPublications().withType(IvyPublicationInternal.class);
+            final NamedDomainObjectList<IvyArtifactRepository> repositories = publishingExtension.getRepositories().withType(IvyArtifactRepository.class);
+            repositories.all(repository -> tasks.register(publishAllToSingleRepoTaskName(repository), publish -> {
+                publish.setDescription("Publishes all Ivy publications produced by this project to the " + repository.getName() + " repository.");
+                publish.setGroup(PublishingPlugin.PUBLISH_TASK_GROUP);
+            }));
+
+            publications.all(publication -> {
+                final String publicationName = publication.getName();
+                createGenerateIvyDescriptorTask(tasks, publicationName, publication, buildDir);
+                createGenerateMetadataTask(tasks, publication, publications, buildDir, repositories);
+                createPublishTaskForEachRepository(tasks, publication, publicationName, repositories);
+            });
+        }
+        ...
+        private void createPublishTaskForEachRepository(final TaskContainer tasks, final IvyPublicationInternal publication, final String publicationName, NamedDomainObjectList<IvyArtifactRepository> repositories) {
+            repositories.all(repository -> {
+                final String repositoryName = repository.getName();
+                final String publishTaskName = "publish" + capitalize(publicationName) + "PublicationTo" + capitalize(repositoryName) + "Repository";
+                createPublishToRepositoryTask(tasks, publication, publicationName, repository, repositoryName, publishTaskName);
+            });
+        }
+
+        private void createPublishToRepositoryTask(TaskContainer tasks, final IvyPublicationInternal publication, final String publicationName, final IvyArtifactRepository repository, final String repositoryName, final String publishTaskName) {
+            tasks.register(publishTaskName, PublishToIvyRepository.class, publishTask -> {
+                publishTask.setPublication(publication);
+                publishTask.setRepository(repository);
+                publishTask.setGroup(PublishingPlugin.PUBLISH_TASK_GROUP);
+                publishTask.setDescription("Publishes Ivy publication '" + publicationName + "' to Ivy repository '" + repositoryName + "'.");
+            });
+            tasks.named(PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME, task -> task.dependsOn(publishTaskName));
+            tasks.named(publishAllToSingleRepoTaskName(repository), publish -> publish.dependsOn(publishTaskName));
+        }
+
+    }
+
+https://github.com/gradle/gradle/blob/master/subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publication/DefaultIvyPublication.java
+    private static final String API_VARIANT = "api";
+    private static final String API_ELEMENTS_VARIANT = "apiElements";
+    private static final String RUNTIME_VARIANT = "runtime";
+    private static final String RUNTIME_ELEMENTS_VARIANT = "runtimeElements";
+    ...
+    private void populateDependencies(Set<? extends UsageContext> usageContexts, PublicationWarningsCollector publicationWarningsCollector) {
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/artifact/DefaultIvyArtifactSet.java
+    public class DefaultIvyArtifactSet extends DefaultDomainObjectSet<IvyArtifact> implements IvyArtifactSet, PublicationArtifactSet<IvyArtifact> {
+        ...
+        private final String publicationName;
+        private final FileCollection files;
+        private final NotationParser<Object, IvyArtifact> ivyArtifactParser;
+
+        public DefaultIvyArtifactSet(String publicationName, NotationParser<Object, IvyArtifact> ivyArtifactParser, FileCollectionFactory fileCollectionFactory, CollectionCallbackActionDecorator collectionCallbackActionDecorator) {
+            super(IvyArtifact.class, collectionCallbackActionDecorator);
+            this.publicationName = publicationName;
+            this.ivyArtifactParser = ivyArtifactParser;
+            this.files = fileCollectionFactory.create(new ArtifactsTaskDependency(), new ArtifactsFileCollection());
+        }
+
+        @Override
+        public IvyArtifact artifact(Object source) {
+            IvyArtifact artifact = ivyArtifactParser.parseNotation(source);
+            add(artifact);
+            return artifact;
+        }
+
+        @Override
+        public IvyArtifact artifact(Object source, Action<? super IvyArtifact> config) {
+            IvyArtifact artifact = artifact(source);
+            config.execute(artifact);
+            return artifact;
+        }
+        ...
+    }
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/artifact/IvyArtifactNotationParserFactory.java
+    public class IvyArtifactNotationParserFactory implements Factory<NotationParser<Object, IvyArtifact>> {
+        private final Instantiator instantiator;
+        private final FileResolver fileResolver;
+        private final IvyPublicationIdentity publicationIdentity;
+
+        public IvyArtifactNotationParserFactory(Instantiator instantiator, FileResolver fileResolver, IvyPublicationIdentity publicationIdentity) {
+            this.instantiator = instantiator;
+            this.fileResolver = fileResolver;
+            this.publicationIdentity = publicationIdentity;
+        }
+
+        @Override
+        public NotationParser<Object, IvyArtifact> create() {
+            FileNotationConverter fileNotationConverter = new FileNotationConverter(fileResolver);
+            ArchiveTaskNotationConverter archiveTaskNotationConverter = new ArchiveTaskNotationConverter();
+            PublishArtifactNotationConverter publishArtifactNotationConverter = new PublishArtifactNotationConverter();
+
+            NotationParser<Object, IvyArtifact> sourceNotationParser = NotationParserBuilder
+                    .toType(IvyArtifact.class)
+                    .converter(archiveTaskNotationConverter)
+                    .converter(publishArtifactNotationConverter)
+                    .converter(fileNotationConverter)
+                    .toComposite();
+
+            IvyArtifactMapNotationConverter ivyArtifactMapNotationConverter = new IvyArtifactMapNotationConverter(sourceNotationParser);
+
+            return NotationParserBuilder
+                    .toType(IvyArtifact.class)
+                    .converter(archiveTaskNotationConverter)
+                    .converter(publishArtifactNotationConverter)
+                    .converter(ivyArtifactMapNotationConverter)
+                    .converter(fileNotationConverter)
+                    .toComposite();
+        }
+
+        private class ArchiveTaskNotationConverter extends TypedNotationConverter<AbstractArchiveTask, IvyArtifact> {
+            private ArchiveTaskNotationConverter() {
+                super(AbstractArchiveTask.class);
+            }
+
+            @Override
+            protected IvyArtifact parseType(AbstractArchiveTask archiveTask) {
+                return instantiator.newInstance(ArchiveTaskBasedIvyArtifact.class, archiveTask, publicationIdentity);
+            }
+        }
+
+        private class PublishArtifactNotationConverter extends TypedNotationConverter<PublishArtifact, IvyArtifact> {
+            private PublishArtifactNotationConverter() {
+                super(PublishArtifact.class);
+            }
+
+            @Override
+            protected IvyArtifact parseType(PublishArtifact publishArtifact) {
+                return instantiator.newInstance(PublishArtifactBasedIvyArtifact.class, publishArtifact, publicationIdentity);
+            }
+        }
+
+        private class FileNotationConverter implements NotationConverter<Object, IvyArtifact> {
+            private final NotationParser<Object, File> fileResolverNotationParser;
+
+            private FileNotationConverter(FileResolver fileResolver) {
+                this.fileResolverNotationParser = fileResolver.asNotationParser();
+            }
+
+            @Override
+            public void convert(Object notation, NotationConvertResult<? super IvyArtifact> result) throws TypeConversionException {
+                File file = fileResolverNotationParser.parseNotation(notation);
+                IvyArtifact ivyArtifact = instantiator.newInstance(FileBasedIvyArtifact.class, file, publicationIdentity);
+                if (notation instanceof TaskDependencyContainer) {
+                    TaskDependencyContainer taskDependencyContainer;
+                    if (notation instanceof Provider) {
+                        // wrap to disable special handling of providers by DefaultTaskDependency in this case
+                        // (workaround for https://github.com/gradle/gradle/issues/11054)
+                        taskDependencyContainer = context -> context.add(notation);
+                    } else {
+                        taskDependencyContainer = (TaskDependencyContainer) notation;
+                    }
+                    ivyArtifact.builtBy(taskDependencyContainer);
+                }
+                result.converted(ivyArtifact);
+            }
+
+            @Override
+            public void describe(DiagnosticsVisitor visitor) {
+                fileResolverNotationParser.describe(visitor);
+            }
+        }
+
+        private static class IvyArtifactMapNotationConverter extends MapNotationConverter<IvyArtifact> {
+            private final NotationParser<Object, IvyArtifact> sourceNotationParser;
+
+            private IvyArtifactMapNotationConverter(NotationParser<Object, IvyArtifact> sourceNotationParser) {
+                this.sourceNotationParser = sourceNotationParser;
+            }
+
+            protected IvyArtifact parseMap(@MapKey("source") Object source) {
+                return sourceNotationParser.parseNotation(source);
+            }
+
+            @Override
+            public void describe(DiagnosticsVisitor visitor) {
+                visitor.candidate("Maps containing a 'source' entry").example("[source: '/path/to/file', extension: 'zip']");
+            }
+        }
+    }
+

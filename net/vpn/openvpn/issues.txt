@@ -1,0 +1,8 @@
+https://www.mail-archive.com/ubuntu-bugs@lists.ubuntu.com/msg5175752.html
+https://github.com/systemd/systemd/issues/6338
+https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=866624
+https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1685900
+https://ubuntuforums.org/showthread.php?t=2359491
+https://bugs.archlinux.org/task/54796
+sudo ln -s /usr/lib/systemd/system/systemd-resolved.service dbus-org.freedesktop.resolve1.service
+https://github.com/systemd/systemd/issues/6338

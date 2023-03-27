@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+  find a user-specific path to node
+
+https://www.baeldung.com/linux/bash-shebang-lines
+
+qa
+https://unix.stackexchange.com/questions/399690/multiple-arguments-in-shebang
+https://stackoverflow.com/questions/4303128/how-to-use-multiple-arguments-for-awk-with-a-shebang-i-e
+
+args
+https://jhermann.github.io/blog/linux/know-how/2020/02/28/env_with_arguments.html
+
+samples
+#!nickel -f
+#!/usr/bin/env -S nickel export -f

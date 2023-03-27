@@ -1,0 +1,17 @@
+books
+2021
+Woodbeck - Network Programming with Go
+    C90E0E38864F41B8C282FACD9DBB05D3
+2017
+Newmarch - Network Programming with Go
+
+presentations
+2020
+Bogdanov - Configuring Go Http Package for Production
+    https://github.com/avito-tech/avitotech-presentations/blob/master/Stay%20home%20and%20GOnline/%D0%91%D0%BE%D0%B3%D0%B4%D0%B0%D0%BD%D0%BE%D0%B2%20%E2%80%94%20%D0%BF%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F.pdf
+
+articles
+2021
+https://wutch.medium.com/zero-downtime-api-in-golang-d5b6a52cc0ed
+    https://nuancesprog.ru/p/13993/
+    https://github.com/wutchzone/zero-downtime-application

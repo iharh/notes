@@ -1,0 +1,44 @@
+book
+https://doc.rust-lang.org/stable/book/first-edition/macros.html
+https://doc.rust-lang.org/stable/book/first-edition/procedural-macros.html
+
+https://danielkeep.github.io/tlborm/book/index.html
+https://danielkeep.github.io/tlborm/book/README.html
+https://github.com/DanielKeep/tlborm/
+https://danielkeep.github.io/practical-intro-to-macros.html
+
+courses
+http://cis198-2016s.github.io/slides/13/#1
+
+podcasts
+http://www.newrustacean.com/show_notes/e010/index.html
+https://users.rust-lang.org/t/new-rustacean-e010-macros-rule/4330
+
+codegen
+https://github.com/serde-rs/syntex
+
+controlflow
+https://github.com/erickt/stateful
+
+quasi-quoting
+https://github.com/dtolnay/quote
+
+unreachable
+https://doc.rust-lang.org/std/macro.unreachable.html
+
+1.1
+https://github.com/rust-lang/rfcs/blob/master/text/1681-macros-1.1.md
+https://github.com/dtolnay/syn
+https://github.com/dtolnay/quote
+
+1.2
+https://www.reddit.com/r/rust/comments/5v7s7h/macros_12_rfc_fasttrack_to_stabilize_functionlike/
+https://github.com/rust-lang/rfcs/pull/1913
+https://github.com/SimonSapin/rfcs/blob/ea572265da96e19c57668c436973deded18f8dfd/text/0000-macros-1.2.md
+
+2.0 (declarative)
+https://github.com/rust-lang/rfcs/pull/1584
+https://github.com/rust-lang/rfcs/blob/master/text/1584-macros.md
+https://github.com/rust-lang/rust/pull/40847
+- macro_rules!
+- macro (macro by example for 2.0 or just a declarative macro)

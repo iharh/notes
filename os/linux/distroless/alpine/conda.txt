@@ -1,0 +1,12 @@
+miniconda:
+https://github.com/CognitiveScale/alpine-miniconda
+https://github.com/youske/alpine-conda/blob/master/miniconda2/Dockerfile
+https://github.com/youske/alpine-conda
+https://github.com/smly/alpine-kaggle/blob/master/Dockerfile
+
+https://hub.docker.com/r/frolvlad/alpine-miniconda3/~/dockerfile/
+https://hub.docker.com/r/c12e/alpine-miniconda/~/dockerfile/
+https://hub.docker.com/r/show0k/alpine-miniconda/~/dockerfile/
+
+# Clean APK cache
+RUN rm -rf /var/cache/apk/*

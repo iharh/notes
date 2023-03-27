@@ -1,0 +1,37 @@
+StatefulSet
+      initContainers:
+        - name: bootstrap
+          image: busybox:<tag>
+          securityContext:
+              ...
+          command: ['sh']
+          args:
+          - "-c"
+          - |
+            set -ex
+            cp /configmap/* /etc/rabbitmq
+            ...
+          volumeMounts:
+            - name: configmap
+              mountPath: /configmap
+            - name: config
+              mountPath: /etc/rabbitmq
+            - name: {{ .Values.persistentVolume.name }}
+              mountPath: /var/lib/rabbitmq
+
+
+      volumes:
+        - name: definitions
+          secret:
+            secretName: ...
+            items:
+            - key: {{ .Values.definitionsSource }}
+              path: definitions.json
+
+
+          volumeMounts:
+            - name: config
+              mountPath: /etc/rabbitmq
+            - name: definitions
+              mountPath: /etc/definitions
+              readOnly: true

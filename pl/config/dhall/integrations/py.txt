@@ -1,0 +1,36 @@
+https://pypi.org/project/dhall/
+
+https://github.com/s-zeng/dhall-python
+https://github.com/s-zeng/dhall-python/blob/master/src/lib.rs
+https://github.com/s-zeng/dhall-python/blob/master/tests/test_docs.py
+https://github.com/s-zeng/dhall-python/blob/master/tests/test_hypothesis.py
+https://github.com/s-zeng/dhall-python/blob/master/tests/test_known_bad_behaviour.py
+https://github.com/s-zeng/dhall-python/tree/master/dhall
+https://github.com/s-zeng/dhall-python/blob/master/dhall/py.typed
+    <empty>
+https://github.com/s-zeng/dhall-python/blob/master/dhall/__init__.py
+    from .dhall import __version__, dump, dumps, load, loads
+https://github.com/s-zeng/dhall-python/blob/master/dhall/__init__.pyi
+    from typing import IO, Any, Protocol, TypeVar, Union
+
+    _T_co = TypeVar("_T_co", covariant=True)
+
+    class SupportsRead(Protocol[_T_co]):
+        def read(self, __length: int = ...) -> _T_co: ...
+
+    def dumps(obj: Any) -> str: ...
+    def dump(obj: Any, fp: IO[str]) -> None: ...
+    def loads(s: Union[str, bytes]) -> Any: ...
+    def load(fp: SupportsRead[Union[str, bytes]]) -> Any: ...
+https://github.com/s-zeng/dhall-python/blob/master/Cargo.toml
+
+pip install dhall
+
+dhall-python implements a similar API to Python's json module:
+    https://docs.python.org/3/library/json.html
+
+>>> import dhall
+>>> dhall.dumps({"keyA": 81, "keyB": True, "keyC": "value"})
+'{ keyA = 81, keyB = True, keyC = "value" }'
+>>> dhall.loads("""{ keyA = 81, keyB = True, keyC = "value" }""")
+{'keyA': 81, 'keyB': True, 'keyC': 'value'}

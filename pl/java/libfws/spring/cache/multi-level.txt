@@ -1,0 +1,10 @@
+hierarchical cache java
+
+2016
+https://stackoverflow.com/questions/40296338/what-is-the-better-option-for-a-multi-level-in-process-cache
+
+issues
+https://github.com/ben-manes/caffeine/issues/125
+https://github.com/ben-manes/caffeine/issues/234
+    https://github.com/teris-io/caffeinated
+    https://stackoverflow.com/questions/50045033/evicting-cache-with-multiple-keys-for-the-same-value

@@ -1,0 +1,136 @@
+http://gatling.io
+https://github.com/gatling/gatling
+
+http://gatling.io/docs/2.2.1/whats_new/2.2.html
+http://gatling.io/#/docs/talks
+http://gatling.io/docs/2.2.1/advanced_tutorial.html
+http://gatling.io/docs/current/cheat-sheet/
+
+https://github.com/lkishalmi/gradle-gatling-plugin
+https://github.com/buhe/gradle-gatling-plugin
+https://github.com/alphagov/gradle-gatling-plugin
+https://github.com/mraible/21-points/blob/master/gradle/gatling.gradle
+
+http://gatling.io/docs/2.2.1/http/index.html
+http://gatling.io/docs/2.2.1/http/http_protocol.html
+http://gatling.io/docs/2.2.1/http/http_request.html
+http://gatling.io/docs/2.2.1/http/http_check.html
+
+http://gatling.io/docs/2.2.1/general/index.html
+http://gatling.io/docs/2.2.1/general/operations.html
+http://gatling.io/docs/2.2.1/general/scenario.html
+http://gatling.io/docs/2.2.1/session/feeder.html
+http://gatling.io/docs/2.2.1/general/assertions.html
+
+articles
+2020
+https://www.james-willett.com/gatling-vscode/
+    https://habr.com/ru/company/otus/blog/509854/
+https://www.opsian.com/blog/performance-test-spring-boot-gatling/
+????
+https://habrahabr.ru/company/tinkoff/blog/344818/
+https://habrahabr.ru/company/tinkoff/blog/323316/
+http://callistaenterprise.se/blogg/teknik/2014/04/16/a-first-look-at-gatling-a-dsl-based-load-test-tool/
+
+presentations
+2017
+Ludwikowski - Gatling Distiled
+https://www.youtube.com/watch?v=gbDfkk-C4Aw
+
+http://www.slideshare.net/xebia/testworks-conf-performance-testing-made-easy-with-gatling-guillaume-corre
+
+whatsnew
+https://gatling.io/2018/09/17/gatling-3-launching-release-candidates/
+
+sbt plugin:
+https://github.com/Pravoru/gatling-remote-sbt
+
+http://gatling.io/docs/2.2.1/extensions/sbt_plugin.html
+http://gatling.io/docs/2.2.1/migration_guides/2.0-to-2.1.html#sbt-plugin
+
+https://bintray.com/gatling/sbt-plugins/gatling-sbt/view
+
+project/plugins.sbt:
+    addSbtPlugin("io.gatling" % "gatling-sbt" % "2.2.0")
+
+build.sbt:
+    enablePlugins(GatlingPlugin)
+
+    "io.gatling" % "gatling-sbt" % "2.1.0" for the SBT Plugin
+    "io.gatling" % "gatling-test-framework" % "2.1.0" for the testing framework.
+
+    javaOptions in Gatling := overrideDefaultJavaOptions("-Xms1024m", "-Xmx2048m")
+
+In order to not conflict with "standard" tests frameworks, you're now required to prefix your command with gatling:
+, e.g. gatling:test instead of test.
+
+sbt
+    gatling(-it):copyConfigFiles
+    gatling(-it):copyLogbackXml
+    gatling(-it):lastReport
+
+
+samples:
+
+val scn = scenario("Basic login") // scenario name
+    .exec(http("Home page").get("/index.html"))
+
+    .exec(http("Login page").get("/login.html")
+        .headers(...)
+            // asXml, asJSON
+            // https://github.com/gatling/gatling/blob/master/gatling-http/src/main/scala/io/gatling/http/request/builder/RequestBuilder.scala
+        .basicAuth(username: Expression[String], password: Expression[String]) // can also be on httpProtocol-level
+        .queryParam("q", "whatever"))
+
+    .exec(http("Login").post("/login")
+        .param("username", "me")
+        .param("password", "foo")
+
+        .body(RawFileBody("myFileBody.json")).asJSON // can use fastring templating
+
+        .check(css("#username").is("me"))
+
+    Our own scala code
+    .exec((session: Session) => {
+        val location = session.getTypedAttribute[String]("location")
+        val regex = """([^?]+)?.*""".r
+        val regex(stripLocation) = location
+        session.setAttribute("stripedParamsLocation", stripLocation)
+    })
+
+    .feed(csv("creds.csv"))
+    .exec(
+        http("request_3")
+            .post("/login")
+            .param("username", "${username}") // according to the csv header names
+            .param("password", "${password}")
+
+    //
+    .get(...)
+    .check(regex("""<td class="number">ACC(\d+)</td>""")
+        .saveAs("account_id"))
+    ...
+        .get("/account/ACC${account_id}/operations.html")
+
+???
+    .pause(100 milliseconds, 1 seconds)
+Checks
+    check(status.is(200)) // 302 or whatever
+    reges/css/xpath/jsonPath
+    find/findAll/count
+    is/in/not/whatever
+Structures
+    doIf/repeat/during/asLongAs
+    randomSwitch/roundRobinSwitch
+Error handling
+    tryMax/exitBlockOnFail
+Feeders
+    csv/tsv/jdbc
+
+
+sbt-gatling:
+http://gatling.io/docs/2.2.1/extensions/sbt_plugin.html
+
+conf:
+https://github.com/gatling/gatling/blob/master/gatling-core/src/main/resources/gatling-defaults.conf#L78
+http://gatling.io/docs/current/http/http_protocol/#connection-sharing

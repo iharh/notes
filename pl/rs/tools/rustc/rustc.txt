@@ -1,0 +1,17 @@
+guide
+https://github.com/rust-lang-nursery/rustc-guide
+
+crates
+https://crates.io/crates/rustc_version
+https://crates.io/crates/rustc_version_runtime
+https://crates.io/crates/rustc_info
+https://crates.io/crates/version_check
+https://crates.io/crates/cargo-when
+
+exe-size
+https://lifthrasiir.github.io/rustlog/why-is-a-rust-executable-large.html
+    -C opt-level=s or -C opt-level=z
+    ? lto
+    https://doc.rust-lang.org/nightly/unstable-book/language-features/global-allocator.html
+    https://doc.rust-lang.org/nightly/unstable-book/library-features/alloc-system.html
+    https://github.com/google/bloaty

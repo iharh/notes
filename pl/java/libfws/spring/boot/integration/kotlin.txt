@@ -1,0 +1,60 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.kotlin
+https://spring.io/guides/tutorials/spring-boot-kotlin/
+https://docs.spring.io/spring-framework/docs/current/kdoc-api/spring-framework/
+
+https://kotlinlang.org/docs/comparison-to-java.html
+
+2023
+https://spring.io/blog/2023/03/16/kotlin-dsls-in-the-world-of-springdom
+    https://github.com/coffee-software-show/lets-code-kotlin
+    https://github.com/coffee-software-show/lets-code-kotlin/blob/main/dsls/dsls.md
+    https://github.com/coffee-software-show/lets-code-kotlin/tree/main/dsls/fn-mvc
+        plugins { kotlin("plugin.spring") version "1.7.22" }
+        ? https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.spring
+        https://kotlinlang.org/docs/all-open-plugin.html#command-line-compiler
+        https://mvnrepository.com/artifact/org.jetbrains.kotlin.plugin.spring/org.jetbrains.kotlin.plugin.spring.gradle.plugin
+        https://github.com/coffee-software-show/lets-code-kotlin/blob/main/dsls/fn-mvc/src/main/kotlin/com/example/fnmvc/FnMvcApplication.kt
+2021
+https://blog.frankel.ch/annotation-free-spring/
+2020
+Long - Bootiful Kotlin
+    https://www.youtube.com/watch?v=nso-sPLfaTk
+Minkowski - Microservices With Spring Boot And Spring Cloud: Part 5 - Event-driven microservices
+    https://www.youtube.com/watch?v=fwhP9k0e1BY
+    https://github.com/piomin/course-spring-microservices
+Frankel - Migrating Spring Boot Apps From Annotation-based Config to Functional With Kotlin
+    https://www.youtube.com/watch?v=7t5YMEg2i1A
+https://blog.pusher.com/getting-started-rest-kotlin-using-spring-boot/
+https://www.infoq.com/presentations/kotlin-spring-boot/
+    ! too kt-specific, almost no stuff about spring boot
+2019
+Frankel - From Spring Boot Apps to Functional Kotlin
+    https://www.youtube.com/watch?v=f6a78mCrSeE
+2018
+Spring, the Kotlin and Functional Way
+    https://www.youtube.com/watch?v=MUGS0i-JXZU
+2017
+Heckler, Deleuze - From Spring Boot 1 in Java to Spring Boot 2 in Kotlin
+    https://www.youtube.com/watch?v=MUa_Yp2KbBI
+https://spring.io/blog/2017/08/01/spring-framework-5-kotlin-apis-the-functional-way
+    https://github.com/sdeleuze/spring-kotlin-functional
+https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0
+    ! incl reactor
+2016
+https://spring.io/blog/2016/03/20/a-geospatial-messenger-with-kotlin-spring-boot-and-postgresql
+https://spring.io/blog/2016/02/15/developing-spring-boot-applications-with-kotlin
+    https://github.com/sdeleuze/spring-boot-kotlin-demo
+
+samples
+https://github.com/MarioAriasC/KotlinPrimavera
+https://github.com/MarioAriasC/KotlinPrimavera/wiki
+https://github.com/MarioAriasC/KotlinPrimavera/wiki/Beans
+https://github.com/MarioAriasC/KotlinPrimavera/wiki/Context
+https://github.com/MarioAriasC/KotlinPrimavera/wiki/Core
+https://github.com/MarioAriasC/KotlinPrimavera/wiki/JDBC
+https://github.com/MarioAriasC/KotlinPrimavera/wiki/Security
+https://github.com/MarioAriasC/KotlinPrimavera/wiki/WebMVC
+
+https://github.com/spring-projects-experimental/spring-fu
+https://github.com/spring-projects-experimental/spring-fu/tree/main/kofu
+https://github.com/spring-projects-experimental/spring-fu/tree/main/jafu

@@ -1,0 +1,2 @@
+https://wiki.gentoo.org/wiki/Eix
+    emerge -qv app-portage/eix

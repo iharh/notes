@@ -1,0 +1,110 @@
+https://docs.gradle.org/current/userguide/publishing_maven.html
+https://docs.gradle.org/current/userguide/maven_plugin.html
+
+dsl:
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.maven.MavenPublication.html
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.PublishingExtension.html
+
+apply plugin: "java"
+apply plugin: "maven-publish"
+
+task sourceJar(type: Jar) {
+  from sourceSets.main.allJava
+  classifier "sources"
+}
+
+publishing {
+  publications {
+    myPublication(MavenPublication) {
+      from components.java
+      artifact sourceJar
+      pom.withXml {
+        asNode().appendNode('description', 'A demonstration of Maven POM customization')
+      }
+    }
+  }
+}
+
+src:
+https://github.com/gradle/gradle/blob/master/subprojects/core/src/main/java/org/gradle/api/artifacts/repositories/FlatDirectoryArtifactRepository.java
+
+https://github.com/gradle/gradle/blob/master/subprojects/core/src/main/java/org/gradle/api/internal/artifacts/dsl/DefaultRepositoryHandler.java
+
+public class DefaultRepositoryHandler extends DefaultArtifactRepositoryContainer implements RepositoryHandler {
+    public static final String DEFAULT_BINTRAY_JCENTER_REPO_NAME = "BintrayJCenter";
+    public static final String BINTRAY_JCENTER_URL = "https://jcenter.bintray.com/";
+
+    public static final String FLAT_DIR_DEFAULT_NAME = "flatDir";
+    private static final String MAVEN_REPO_DEFAULT_NAME = "maven";
+    private static final String IVY_REPO_DEFAULT_NAME = "ivy";
+    ...
+}
+
+https://github.com/gradle/gradle/blob/master/subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/ivyservice/projectmodule/ProjectPublicationRegistry.java
+
+https://github.com/gradle/gradle/blob/master/subprojects/plugins/src/main/java/org/gradle/api/plugins/BasePlugin.java
+    public static final String UPLOAD_ARCHIVES_TASK_NAME = "uploadArchives";
+
+https://github.com/gradle/gradle/blob/master/subprojects/plugins/src/test/groovy/org/gradle/api/plugins/BasePluginTest.groovy
+    def buildArchives = project.tasks['buildArchives']
+    buildArchives instanceOf(DefaultTask)
+    ...
+    def uploadArchives = project.tasks['uploadArchives']
+    uploadArchives instanceOf(Upload)
+
+https://github.com/gradle/gradle/blob/master/subprojects/maven/src/main/java/org/gradle/api/publish/maven/MavenPublication.java
+https://github.com/gradle/gradle/blob/master/subprojects/maven/src/main/java/org/gradle/api/publish/maven/internal/publication/MavenPublicationInternal.java
+https://github.com/gradle/gradle/blob/master/subprojects/maven/src/main/java/org/gradle/api/publish/maven/internal/publication/DefaultMavenPublication.java
+https://github.com/gradle/gradle/blob/master/subprojects/maven/src/main/java/org/gradle/api/publish/maven/internal/artifact/DefaultMavenArtifactSet.java
+
+MavenPublishPlugin {
+    ...
+    public void apply(final Project project) {
+        project.getPluginManager().apply(PublishingPlugin.class);
+
+        final TaskContainer tasks = project.getTasks();
+        final Task publishLocalLifecycleTask = tasks.create(PUBLISH_LOCAL_LIFECYCLE_TASK_NAME);
+        publishLocalLifecycleTask.setDescription("Publishes all Maven publications produced by this project to the local Maven cache.");
+        publishLocalLifecycleTask.setGroup(PublishingPlugin.PUBLISH_TASK_GROUP);
+
+        // Can't move this to rules yet, because it has to happen before user deferred configurable actions
+        project.getExtensions().configure(PublishingExtension.class, new Action<PublishingExtension>() {
+            public void execute(PublishingExtension extension) {
+                // Register factory for MavenPublication
+                extension.getPublications().registerFactory(MavenPublication.class, new MavenPublicationFactory(dependencyMetaDataProvider, instantiator, fileResolver));
+            }
+        });
+    }
+    ...
+    private class MavenPublicationFactory implements NamedDomainObjectFactory<MavenPublication> {
+        private final Instantiator instantiator;
+        private final DependencyMetaDataProvider dependencyMetaDataProvider;
+        private final FileResolver fileResolver;
+
+        private MavenPublicationFactory(DependencyMetaDataProvider dependencyMetaDataProvider, Instantiator instantiator, FileResolver fileResolver) {
+            this.dependencyMetaDataProvider = dependencyMetaDataProvider;
+            this.instantiator = instantiator;
+            this.fileResolver = fileResolver;
+        }
+
+        public MavenPublication create(final String name) {
+            Module module = dependencyMetaDataProvider.getModule();
+            MavenProjectIdentity projectIdentity = new DefaultMavenProjectIdentity(module.getGroup(), module.getName(), module.getVersion());
+            NotationParser<Object, MavenArtifact> artifactNotationParser = new MavenArtifactNotationParserFactory(instantiator, fileResolver).create();
+
+            return instantiator.newInstance( // !!!
+                    DefaultMavenPublication.class,
+                    name, projectIdentity, artifactNotationParser, instantiator, projectDependencyResolver, fileCollectionFactory
+            );
+        }
+    }
+    ...
+}
+
+!!!
+https://github.com/gradle/gradle/blob/master/subprojects/maven/src/main/java/org/gradle/api/publish/maven/internal/artifact/MavenArtifactNotationParserFactory.java
+https://github.com/gradle/gradle/blob/master/subprojects/core/src/main/java/org/gradle/internal/typeconversion/NotationParser.java
+
+https://github.com/gradle/gradle/blob/master/subprojects/maven/src/main/java/org/gradle/api/publish/maven/tasks/PublishToMavenLocal.java
+https://github.com/gradle/gradle/blob/master/subprojects/maven/src/main/java/org/gradle/api/publish/maven/tasks/PublishToMavenRepository.java
+https://github.com/gradle/gradle/blob/master/subprojects/publish/src/main/java/org/gradle/api/publish/PublishingExtension.java

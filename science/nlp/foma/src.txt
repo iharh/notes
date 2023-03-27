@@ -1,0 +1,21 @@
+/** Main automaton structure */
+struct fsm {
+  char name[40];
+  int arity;
+  int arccount;
+  int statecount;
+  int linecount;
+  int finalcount;
+  long long pathcount;
+  int is_deterministic;
+  int is_pruned;
+  int is_minimized;
+  int is_epsilon_free;
+  int is_loop_free;
+  int is_completed;
+  int arcs_sorted_in;
+  int arcs_sorted_out;
+  struct fsm_state *states;             /* pointer to first line */
+  struct sigma *sigma;
+  struct medlookup *medlookup;
+};

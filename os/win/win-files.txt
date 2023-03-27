@@ -1,0 +1,4 @@
+'C:\WINDOWS\system32\drivers\etc\hosts' -> '/etc/hosts'
+'C:\WINDOWS\system32\drivers\etc\protocol' -> '/etc/protocols'
+'C:\WINDOWS\system32\drivers\etc\services' -> '/etc/services'
+'C:\WINDOWS\system32\drivers\etc\networks' -> '/etc/networks'

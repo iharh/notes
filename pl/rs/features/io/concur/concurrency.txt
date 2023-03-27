@@ -1,0 +1,16 @@
+Send/Sync traits:
+
+Major exceptions include:
+    raw pointers are neither Send nor Sync (because they have no safety guards).
+    UnsafeCell isn't Sync (and therefore Cell and RefCell aren't).
+    Rc isn't Send or Sync (because the refcount is shared and unsynchronized).
+...
+In the incredibly rare case that a type is inappropriately automatically derived to be Send or Sync, then one can also unimplement Send and Sync:
+
+#![feature(optin_builtin_traits)]
+
+// I have some magic semantics for some synchronization primitive!
+struct SpecialThreadToken(u8);
+
+impl !Send for SpecialThreadToken {}
+impl !Sync for SpecialThreadToken {}

@@ -1,0 +1,13 @@
+1047525 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/aws-java-sdk-s3-1.11.699.jar
+405822 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/aws-java-sdk-kms-1.11.415.jar
+981174 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/aws-java-sdk-core-1.11.699.jar
+774640 Tue Dec 17 19:19:20 MSK 2019 BOOT-INF/lib/httpclient-4.5.10.jar
+565410 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/ion-java-1.0.2.jar
+ 26879 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/jmespath-java-1.11.415.jar
+1403051 Tue Dec 17 19:19:22 MSK 2019 BOOT-INF/lib/jackson-databind-2.10.1.jar
+ 58563 Fri Dec 27 17:52:10 MSK 2019 BOOT-INF/lib/jackson-dataformat-cbor-2.10.1.jar
+643043 Wed Dec 18 15:35:54 MSK 2019 BOOT-INF/lib/joda-time-2.10.5.jar
+328347 Tue Dec 17 19:19:22 MSK 2019 BOOT-INF/lib/httpcore-4.4.12.jar
+344339 Fri Nov 22 13:23:54 MSK 2019 BOOT-INF/lib/commons-codec-1.13.jar
+ 68081 Tue Dec 17 19:19:22 MSK 2019 BOOT-INF/lib/jackson-annotations-2.10.1.jar
+348625 Tue Dec 17 19:19:24 MSK 2019 BOOT-INF/lib/jackson-core-2.10.1.jar

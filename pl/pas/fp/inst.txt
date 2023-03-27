@@ -1,0 +1,7 @@
+https://linux-packages.com/ubuntu-jammy-jellyfish/package/fp-compiler-322
+
+fp-compiler/jammy 3.2.2+dfsg-9ubuntu1 amd64
+  Free Pascal - compiler dependency package
+
+fp-compiler-3.2.2/jammy,now 3.2.2+dfsg-9ubuntu1 amd64 [installed,automatic]
+  Free Pascal - compiler

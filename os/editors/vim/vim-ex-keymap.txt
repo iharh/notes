@@ -1,0 +1,141 @@
+:h map.txt
+    Help on key mapping
+:h map-which-keys
+    What keys to map
+:h index.txt
+    Index of all the vim keys
+:h {key}
+    CTRL-V
+    Help on mapped keys, contained <key>
+
+Arguments:
+{cmd} {attr} {lhs} {rhs}
+
+{cmd} Without args (just :nmap)
+	Display keymap
+
+{cmd} {lhs-key}
+	Displyay mapping for key (<C-A> for example)
+
+:verbose map {key}
+	Display mappings for key and show at which file it has been defined.
+
+	
+
+! Key Assignments !
+
+:map x sequence
+	Define character x as a sequence of editing commands.
+:unmap x
+	Disable the sequence defined for x.
+:map
+	List the characters that are currently mapped.
+
+
+:nmap    - normal           mode map
+:vmap    - visual           mode map
+:imap    - insert           mode map
+:cmap    - language         mode map (ins, command-line, enter search pattern, cmd-arg)
+:lmap    - cmdommand-line   mode map 
+:omap    - operator-pending mode map
+:smap    - select           mode map
+:map     - normal, visual and operating-pending modes
+:map!    - command and insert modes.
+:noremap - not-recursive map
+
+
+:vunmap - remove a mapping from a visual mode
+
+Attributes:
+
+<silent>
+	To define a mapping which will not be echoed on the command line
+<buffer>
+	The mapping will be effective in the current buffer only
+<expr>
+	Define a new mapping or abbreviation, the argument is an expression.
+	The expression is evaluated to obtain the {rhs} that is used.
+<unique>
+	The command will fail if the mapping or abbreviation already exists
+<script>
+	The mapping will only remap characters in the {rhs} using mappings that were defined local to a script,
+	starting with "<SID>".
+	This can be used to avoid that mappings from outside a script interfere
+	(e.g., when CTRL-V is remapped in mswin.vim), but do use other mappings defined in the script)
+<special>
+	Define a mapping with <> notation for special keys, even though the "<" flag may appear in 'cpoptions'.
+	This is useful if the side effect of setting 'cpoptions' is not desired.
+
+Chars, available in cmd-mode (for mapping):
+Letters: g, K, q, V, v
+Conrol : ^A, ^K, ^O, ^W, ^X
+Symbols: _, *, \, =
+F-keys: #1 .. 
+Specials: <Home>, ..
+
+Protecting keys from interpretation: ^V (CTRL-V).
+
+NOTE1: You can't insert vert-bar (|) in ex-commands!
+NOTE2: Vim remap option controls nested mapped commands!
+
+
+Examples:
+:vmap - reassign visual mode keys
+	:vmap > >gv - then you type '>' execute '>gv' (shift the text right, re-select it, and go back to the visual mode)
+:imap <Tab> <C-N> - map tab to auto-complete
+
+:map <silent> <F2> :echo 'Hello!'<CR>
+:nnoremap <C-L> :nohlsearch<CR><C-L>
+	Overload C-L to also clear search highlighting.
+:inoremap <MiddleMouse> <Nop>
+	Disable paste-on-middle-click
+:nnoremap n nzz
+:nnoremap N Nzz
+:nnoremap * *zz
+:nnoremap # #zz
+:nnoremap g* g*zz
+:nnoremap g# g#z
+	Center display line after searches
+:nnoremap ,ev :tabedit $MYVIMRC<CR>
+	Edit vimrc in new tab
+:inoremap <C-K> <C-O>D
+	Delete to end of line, bash-style
+	
+:nnoremap <silent> <C-Up> :move -2<CR>
+:nnoremap <silent> <C-Down> :move +<CR>
+:xnoremap <silent> <C-Up> :move '<-2<CR>gv
+:xnoremap <silent> <C-Down> :move '>+<CR>gv
+:imap <silent> <C-Up> <C-O><C-Up>
+:imap <silent> <C-Down> <C-O><C-Down>
+:smap <silent> <C-Up> <C-G><C-Up><C-G>
+:smap <silent> <C-Down> <C-G><C-Down><C-G>
+	Control+Up/Down move lines & selections up and down
+	Define maps for Normal and Visual modes, then re-use them for Insert and Select modes.
+
+
+Dump key mappings to a file
+
+:mkv[imrc][!] [file]
+	These commands will write ":map" and ":set" commands to a file, in such a way
+	that when these commands are executed, the current key mappings and options
+	will be set to the same values.
+
+
+nnoremap <Up> gk
+nnoremap <Down> gj
+	Move up/down by display lines (instead of physical ones).
+
+
+Leader:
+
+let mapleader=","
+	Change the personal hotkey (leader)
+
+
+Examples:
+
+" f2 runs hasktags
+map <F2> :exec ":!hasktags -x -c --ignore src"<CR><CR>
+
+" rebuild hasktags after saving
+au BufWritePost *.hs silent! :exec ":!hasktags -x -c --ignore src"

@@ -1,0 +1,6 @@
+<home>/.stack/precompiled/ghc-7.10.2/1.22.4.0/aeson-0.8.0.2/Vr6rCTNr+UeoWMN1qGJGhFfxIDSFqTgJixKuD6TtVEQ\=
+
+This encodes the GHC version, Cabal version, package name, and package version.
+The last bit is a hash of all of the configuration information, including flags, GHC options, and dependencies.
+We then hash those flags and put them in the filepath, ensuring that when we look up a precompiled package,
+we're getting something that matches what we'd be building ourselves now.

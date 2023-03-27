@@ -1,0 +1,5 @@
+https://systemd.io/CONTAINER_INTERFACE/
+    https://github.com/kubernetes-sigs/kind/blob/main/images/base/Dockerfile
+
+systemd-nspawn
+machinectl

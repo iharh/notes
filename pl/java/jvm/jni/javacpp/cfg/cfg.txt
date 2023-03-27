@@ -1,0 +1,37 @@
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/Loader.java
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/ClassProperties.java
+
+-Dorg.bytedeco.javacpp.maxbytes
+    this allows you to specify the off-heap memory limit.
+-Dorg.bytedeco.javacpp.maxphysicalbytes
+    also for off-heap, this usually should be set equal to maxbytes.
+
+The important point here is that the on-heap (JVM) memory and off-heap (ND4J/JavaCPP) are two separate memory pools. It is possible to configure the size of each independently; by default, JavaCPP will allow the off-heap memory allocation to grow as large as the Runtime.maxMemory() setting (see: code) - this default is essentially equivalent to the size of the JVM 'Xmx' memory setting, used for configuring Java memory.
+    https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/Pointer.java
+
+-Dorg.bytedeco.javacpp.logger.debug 
+-Dorg.bytedeco.javacpp.logger=slf4j
+
+...
+     systemProperty 'org.bytedeco.javacpp.logger.debug', 'true' 
+...
+
+platform
+-Dplatform.root=/usr/local/opt/android-ndk
+-Dplatform.compiler=/usr/local/opt/android-ndk/toolchains/x86-4.6/prebuilt/darwin-x86_64/bin/i686-linux-android-g++
+-Dplatform.includepath=sources/cxx-stl/gnu-libstdc++/4.6/include/:sources/cxx-stl/gnu-libstdc++/4.6/libs/x86/include/:$projectDir/jni/include
+
+prefix
+platform.includepath.prefix=-I
+
+cache
+.javacpp/cache/<name>.jar/.../*.so
+
+skip
+-Djavacpp.cppbuild.skip=true
+-Djavacpp.parser.skip=true
+-Djavacpp.compiler.skip=true
+
+props
+https://github.com/psibre/javacpp/tree/master/src/main/resources/com/googlecode/javacpp/properties
+https://github.com/psibre/javacpp/blob/master/src/main/resources/com/googlecode/javacpp/properties/linux-x86_64.properties

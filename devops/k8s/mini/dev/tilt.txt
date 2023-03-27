@@ -1,0 +1,60 @@
+https://tilt.dev/
+    ! is written in starlark py dialect
+    ! https://github.com/bazelbuild/starlark
+    ! https://github.com/bazelbuild/starlark/blob/master/spec.md
+
+https://github.com/tilt-dev/tilt
+
+https://docs.tilt.dev/
+
+https://docs.tilt.dev/install.html
+    https://github.com/eaceaser/asdf-tilt.git
+https://docs.tilt.dev/choosing_clusters.html
+
+https://docs.tilt.dev/tiltfile_authoring.html
+https://docs.tilt.dev/tiltfile_concepts.html
+https://docs.tilt.dev/snippets.html
+https://docs.tilt.dev/controlloop.html
+
+https://docs.tilt.dev/api.html
+    ? docker_build(... live_update=[... sync(...), ..., run(...), ...])
+
+extensions
+https://docs.tilt.dev/extensions.html
+    https://blog.tilt.dev/2020/11/03/load-dynamic.html
+https://github.com/tilt-dev/tilt-extensions
+    https://github.com/tilt-dev/tilt-extensions/tree/master/hello_world
+    https://github.com/tilt-dev/tilt-extensions/tree/master/dotenv
+
+https://blog.tilt.dev/
+
+2022
+DevOpsToolkit - Development Environments Made Easy With Tilt Rebuilds And Live Updates 0:00 of 17:05
+    https://www.youtube.com/watch?v=fkODRlobR9I
+2020
+GetTilt - Tilt Demystified of 7:09
+    https://www.youtube.com/watch?v=mN31_O-B4ss
+GetTilt - Tilt: The Main Concepts of 5:46
+    https://www.youtube.com/watch?v=HSFGKxvxsWs
+GetTilt - Tilt In Two Minutes of 2:15
+    https://www.youtube.com/watch?v=FSMc3kQgd5Y
+2019
+Alternatives Review
+    https://blog.tilt.dev/2019/09/05/put-down-particle-accelerator.html
+Fast Kubernetes Development with Live Update
+    https://blog.tilt.dev/2019/04/02/fast-kubernetes-development-with-live-update.html
+        ! live_update sample
+        https://github.com/tilt-dev/live_update
+            ! 3yo
+
+samples
+https://docs.tilt.dev/example_static_html.html
+    https://github.com/tilt-dev/tilt-example-html/tree/master/2-recommended
+    https://github.com/tilt-dev/tilt-example-html/blob/master/2-recommended/Tiltfile
+https://docs.tilt.dev/example_go.html
+https://docs.tilt.dev/example_java.html
+    https://github.com/tilt-dev/tilt-example-java
+    https://github.com/tilt-dev/tilt-example-java/tree/master/0-base
+https://docs.tilt.dev/example_python.html
+https://github.com/k3d-io/k3d-demo/blob/main/Tiltfile
+https://github.com/k3d-io/k3d-demo/tree/main/sample/conf/charts/sample-app

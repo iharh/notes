@@ -1,0 +1,19 @@
+https://podman.io/
+https://github.com/containers/libpod
+
+https://podman.io/getting-started/
+https://podman.io/getting-started/installation
+https://podman.io/getting-started/network
+https://podman.io/getting-started/checkpoint
+https://podman.io/blogs/
+    https://www.redhat.com/sysadmin/podman-inside-container
+    https://www.redhat.com/sysadmin/podman-inside-kubernetes
+
+https://docs.podman.io/en/latest/index.html
+https://docs.podman.io/en/latest/Introduction.html
+https://docs.podman.io/en/latest/Commands.html
+    https://github.com/containers/podman/blob/main/commands.md
+
+https://docs.podman.io/en/latest/Search.html
+
+https://github.com/containers/podman/blob/main/troubleshooting.md

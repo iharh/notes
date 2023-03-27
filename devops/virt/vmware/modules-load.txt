@@ -1,0 +1,18 @@
+sudo vmware-modconfig --console --install-all
+    https://communities.vmware.com/t5/VMware-Workstation-Pro/quot-modprobe-ERROR-could-not-insert-vmmon-Exec-format-error/td-p/2230908
+    https://communities.vmware.com/t5/VMware-Workstation-Pro/VM-Workstation-16-1-gt-16-2-1-on-Ubuntu-21-10-broke-everything/td-p/2878200
+https://superuser.com/questions/1255099/vmware-workstation-not-enough-physical-memory-since-last-update/1255963
+
+sudo modprobe vmmon
+
+gentoo stuff
+https://forums.gentoo.org/viewtopic-p-7654814.html
+
+signing
+https://kb.vmware.com/s/article/2146460
+    openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=VMware/"
+    sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vmmon)
+    sudo mokutil --import MOK.der
+
+mokutil
+https://stackoverflow.com/questions/39226185/kernel-module-mokutil-failed-to-enroll-new-keys

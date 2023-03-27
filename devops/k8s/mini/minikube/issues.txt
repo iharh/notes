@@ -1,0 +1,8 @@
+E1204 21:28:03.688697   29317 start.go:168] Error starting host: Error creating host: Error executing step: Running precreate checks.
+: VirtualBox is configured with multiple host-only adapters with the same IP "192.168.99.1". Please remove one.
+
+k8s 1.12 instead of 1.10
+    https://github.com/kubernetes/minikube/issues/3254
+
+--vm-driver=none
+    https://github.com/kubernetes/minikube/issues/3217

@@ -1,0 +1,11 @@
+articles:
+https://habrahabr.ru/company/otus/blog/340870/
+
+service procps status
+● systemd-sysctl.service - Apply Kernel Variables
+     Loaded: loaded (/lib/systemd/system/systemd-sysctl.service; static)
+     Active: active (exited)
+       Docs: man:systemd-sysctl.service(8)
+             man:sysctl.d(5)
+    Process: 10142 ExecStart=/lib/systemd/systemd-sysctl (code=exited, status=0/SUCCESS)
+   Main PID: 10142 (code=exited, status=0/SUCCESS)

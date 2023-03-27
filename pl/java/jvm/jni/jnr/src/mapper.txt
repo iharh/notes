@@ -1,0 +1,130 @@
+FunctionMapper:
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/mapper/FunctionMapper.java
+package jnr.ffi.mapper;
+
+import jnr.ffi.Library;
+
+import java.lang.annotation.Annotation;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+public interface FunctionMapper {
+    public static interface Context {
+        @Deprecated
+        public abstract Library getLibrary();
+        public abstract boolean isSymbolPresent(String name);
+        public Collection<Annotation> getAnnotations();
+    }
+
+    /**
+     * Translate the (Java) function name into its (native) equivalent. If the
+     * name is not present in the map, it is to return the supplied name (same
+     * object exactly).
+     *
+     * @param functionName to translate
+     * @param context for translation
+     * @return native equivalent or <code>functionName</code> if not in map
+     */
+    public String mapFunctionName(String functionName, Context context);
+
+    public static final class Builder {
+        private final Map<String, String> functionNameMap = Collections.synchronizedMap(new HashMap<String, String>());
+
+        public Builder map(String javaName, String nativeFunction) {
+            functionNameMap.put(javaName, nativeFunction);
+            return this;
+        }
+
+        public FunctionMapper build() {
+            return new SimpleFunctionMapper(functionNameMap);
+        }
+    }
+
+    /**
+     * An implementation of {@link jnr.ffi.mapper.FunctionMapper} that maps 1:1 between java symbols and native functions
+     */
+    public static final FunctionMapper IDENTITY = new FunctionMapper() {
+        @Override
+        public String mapFunctionName(String functionName, Context context) {
+            return functionName;
+        }
+    };
+}
+
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/mapper/CompositeFunctionMapper.java
+
+package jnr.ffi.mapper;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+public final class CompositeFunctionMapper implements FunctionMapper {
+    private final Collection<FunctionMapper> functionMappers;
+
+    public CompositeFunctionMapper(Collection<FunctionMapper> functionMappers) {
+        this.functionMappers = Collections.unmodifiableList(new ArrayList<FunctionMapper>(functionMappers));
+    }
+    @Override
+    public String mapFunctionName(String functionName, Context context) {
+        for (FunctionMapper functionMapper : functionMappers) {
+            String mappedName = functionMapper.mapFunctionName(functionName, context);
+            if (mappedName != functionName) {
+                // A translation was explicit in this mapper.
+                return mappedName;
+            }
+        }
+        return functionName;
+    }
+}
+
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/mapper/SimpleFunctionMapper.java
+
+package jnr.ffi.mapper;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+class SimpleFunctionMapper implements FunctionMapper {
+    private final Map<String, String> functionNameMap;
+
+    SimpleFunctionMapper(Map<String, String> map) {
+        functionNameMap = Collections.unmodifiableMap(new HashMap<String, String>(map));
+    }
+
+    public String mapFunctionName(String functionName, Context context) {
+        String nativeFunction = functionNameMap.get(functionName);
+        return nativeFunction != null ? nativeFunction : functionName;
+    }
+}
+
+<- CompositeFunctionMapper <- LibraryLoader
+IdentityFunctionMapper
+<- 
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/AsmLibraryLoader.java
+
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/DefaultInvokerFactory.java
+
+? SignatureTypeMapper, SignatureTypeMapperAdapter
+
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/NativeFunctionMapperContext.java
+.. isSymbolPresent
+<- unused !!!
+
+
+TypeMapper:
+-//-
+?InvokerTypeMapper
+
+Invoker:
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/InvokerUtil.java
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/DefaultInvokerFactory.java
+
+
+Types:
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/InvokerUtil.java
+
+NativeType, Type

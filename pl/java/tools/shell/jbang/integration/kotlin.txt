@@ -1,0 +1,166 @@
+// KOTLIN 1.7.22
+// https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib
+
+https://github.com/jbangdev/jbang/blob/main/src/main/java/dev/jbang/net/KotlinManager.java
+    ...
+    public class KotlinManager {
+	      private static final String KOTLIN_DOWNLOAD_URL = "https://github.com/JetBrains/kotlin/releases/download/v%s/kotlin-compiler-%s.zip";
+	      public static final String DEFAULT_KOTLIN_VERSION = "1.6.10";
+        ...
+    }
+    ...
+https://github.com/jbangdev/jbang/blob/main/src/main/java/dev/jbang/source/sources/KotlinSource.java
+    ...
+    public String getKotlinVersion() {
+		    return tagReader.collectOptions("KOTLIN")
+						.stream()
+						.findFirst()
+						.orElse(KotlinManager.DEFAULT_KOTLIN_VERSION);
+	  }
+    ...
+    protected class KotlinCompileBuildStep extends CompileBuildStep {
+			public KotlinCompileBuildStep() {
+				super(KotlinAppBuilder.this.project);
+			}
+			@Override
+			protected String getCompilerBinary(String requestedJavaVersion) {
+				return resolveInKotlinHome("kotlinc", ((KotlinSource) project.getMainSource()).getKotlinVersion());
+			}
+		}
+    ...
+
+src/main/java/dev/jbang/source/Source.java
+https://github.com/jbangdev/jbang/blob/main/src/main/java/dev/jbang/source/Source.java
+    public abstract class Source {
+
+      private final ResourceRef resourceRef;
+      private final String contents;
+      protected final TagReader tagReader;
+
+      public enum Type {
+        java("java"), jshell("jsh"), kotlin("kt"),
+        groovy("groovy"), markdown("md");
+
+        public final String extension;
+
+        Type(String extension) {
+          this.extension = extension;
+        }
+
+        public static List<String> extensions() {
+          return Arrays.stream(values()).map(v -> v.extension).collect(Collectors.toList());
+        }
+      }
+
+      public Source(String contents, Function<String, String> replaceProperties) {
+        this(ResourceRef.nullRef, contents, replaceProperties);
+      }
+
+      protected Source(ResourceRef resourceRef, Function<String, String> replaceProperties) {
+        this(resourceRef, Util.readFileContent(resourceRef.getFile()), replaceProperties);
+      }
+
+      protected Source(ResourceRef resourceRef, String contents, Function<String, String> replaceProperties) {
+        this.resourceRef = resourceRef;
+        this.contents = contents;
+        this.tagReader = createTagReader(contents, replaceProperties);
+      }
+
+      protected TagReader createTagReader(String contents, Function<String, String> replaceProperties) {
+        return new TagReader.Extended(contents, replaceProperties);
+      }
+      ...
+    }
+
+src/main/java/dev/jbang/source/TagReader.java
+public abstract class TagReader {
+	protected final String contents;
+	protected final Function<String, String> replaceProperties;
+
+	// Cached values
+	private List<String> lines;
+
+	private static final String REPOS_COMMENT_PREFIX = "REPOS ";
+	private static final String DEPS_COMMENT_PREFIX = "DEPS ";
+	private static final String FILES_COMMENT_PREFIX = "FILES ";
+	private static final String SOURCES_COMMENT_PREFIX = "SOURCES ";
+	private static final String DESCRIPTION_COMMENT_PREFIX = "DESCRIPTION ";
+	private static final String GAV_COMMENT_PREFIX = "GAV ";
+
+	private static final Pattern EOL = Pattern.compile("\\r?\\n");
+
+	public TagReader(String contents, Function<String, String> replaceProperties) {
+		this.contents = contents;
+		this.replaceProperties = replaceProperties != null ? replaceProperties : Function.identity();
+	}
+
+  protected String getContents() {
+		return contents;
+	}
+
+	protected abstract Stream<String> getTags();
+
+  ...
+	@Nonnull
+	public List<String> collectOptions(String... prefixes) {
+		List<String> options;
+		if (prefixes.length > 1) {
+			options = new ArrayList<>();
+			for (String prefix : prefixes) {
+				options.addAll(collectRawOptions(prefix));
+			}
+		} else {
+			options = collectRawOptions(prefixes[0]);
+		}
+
+		// convert quoted content to list of strings as
+		// just passing "--enable-preview --source 14" fails
+		return Project.quotedStringToList(String.join(" ", options));
+	}
+
+  @Nonnull
+	List<String> collectRawOptions(String prefix) {
+		List<String> javaOptions = getTags()
+											.map(it -> it.split(" // ")[0]) // strip away nested comments.
+											.filter(it -> it.startsWith(prefix + " ")
+													|| it.startsWith(prefix + "\t") || it.equals(prefix))
+											.map(it -> it.replaceFirst(prefix, "").trim())
+											.collect(Collectors.toList());
+
+		String envOptions = System.getenv("JBANG_" + prefix);
+		if (envOptions != null) {
+			javaOptions.add(envOptions);
+		}
+		return javaOptions;
+	}
+  ...
+	/**
+	 * This class extends the default <code>TagReader</code> with support for Groovy
+	 * "grab" annotations.
+	 */
+	public static class Extended extends TagReader {
+		private static final String DEPS_ANNOT_PREFIX = "@Grab(";
+		private static final Pattern DEPS_ANNOT_PAIRS = Pattern.compile("(?<key>\\w+)\\s*=\\s*\"(?<value>.*?)\"");
+		private static final Pattern DEPS_ANNOT_SINGLE = Pattern.compile("@Grab\\(\\s*\"(?<value>.*)\"\\s*\\)");
+
+		private static final String REPOS_ANNOT_PREFIX = "@GrabResolver(";
+		private static final Pattern REPOS_ANNOT_PAIRS = Pattern.compile("(?<key>\\w+)\\s*=\\s*\"(?<value>.*?)\"");
+		private static final Pattern REPOS_ANNOT_SINGLE = Pattern.compile(
+				"@GrabResolver\\(\\s*\"(?<value>.*)\"\\s*\\)");
+
+		public Extended(String contents, Function<String, String> replaceProperties) {
+			super(contents, replaceProperties);
+		}
+
+		@Override
+		protected Stream<String> getTags() {
+			return EOL	.splitAsStream(contents)
+						.filter(s -> s.startsWith("//")
+								|| s.contains(DEPS_ANNOT_PREFIX)
+								|| s.contains(REPOS_ANNOT_PREFIX))
+						.map(s -> s.contains(DEPS_ANNOT_PREFIX)
+								|| s.contains(REPOS_ANNOT_PREFIX) ? s : s.substring(2));
+		}
+    ...
+  }
+  ...

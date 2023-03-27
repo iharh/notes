@@ -1,0 +1,8 @@
+https://github.com/test-kitchen/kitchen-vagrant/issues/86
+
+/opt/chefdk/embedded/lib/ruby/gems/2.1.0/
+gems/kitchen-vagrant-0.20.0/
+
+https://github.com/test-kitchen/kitchen-vagrant/blob/master/
+
+templates/Vagrantfile.erb

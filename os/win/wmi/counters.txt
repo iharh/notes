@@ -1,0 +1,3 @@
+:: wmic process get /? - for the list of properties
+wmic.exe process where (Name="KRetriever.exe") get Name, ProcessId, VirtualSize, WorkingSetSize > counters.txt 2>&1
+

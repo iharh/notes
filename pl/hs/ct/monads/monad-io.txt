@@ -1,0 +1,10 @@
+http://blog.ezyang.com/2011/05/unraveling-the-mystery-of-the-io-monad/
+
+http://stefan-klinger.de/files/monadGuide.pdf
+
+fun :: IO String
+fun = do n <- (readLn::IO Int) -- explicit type specifier
+
+Strict version:
+System.IO.Strict (readFile)
+

@@ -1,0 +1,10 @@
+https://github.com/wiltaylor/neovim-flake
+
+2021
+https://www.reddit.com/r/NixOS/comments/mvk5l9/neovim_homemanager_custom_initvim/
+notusknot - Full configuration of Neovim on NixOS (Treesitter, native lsp, and more!) 0:00 of 1:44:16
+    https://www.youtube.com/watch?v=rUvjkBuKua4
+    https://github.com/notusknot/dotfiles-nix
+    https://github.com/notusknot/dotfiles-nix/tree/main/modules/nvim
+    https://github.com/notusknot/dotfiles-nix/blob/main/modules/nvim/default.nix
+    https://github.com/notusknot/dotfiles-nix/blob/main/modules/nvim/init.lua

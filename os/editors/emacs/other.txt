@@ -1,0 +1,26 @@
+You can read more about it in the file itself — see M-x find-library smie — or its newly-minted info manual at M-:
+(info "(elisp) SMIE").
+
+
+(defmacro bind (key fn)
+	"shortcut for global-set-key"
+	`(global-set-key (kbd ,key)
+		;; handle unquoted function names and lambdas
+		,(if (listp fn)
+			fn 
+			`',fn
+		)
+	)
+)
+
+(defmacro cmd (name &rest body)
+	"declare an interactive command without all the boilerplate"
+	`(defun ,name ()
+		,(if (stringp (car body)) (car body))
+			;; tried (let (documented (stringp (first body))) but didn't know gensym
+			;; and couldn't get it to work. should be possible
+			(interactive)
+			,@(if (stringp (car body)) (cdr `,body) body
+		)
+	)
+)

@@ -1,0 +1,8 @@
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000
+
+# - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000
+
+-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9010 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
+
+2021
+https://www.rookout.com/blog/remote-java-debugging

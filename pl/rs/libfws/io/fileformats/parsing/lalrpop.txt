@@ -1,0 +1,24 @@
+https://lalrpop.github.io/lalrpop/
+lalrpop-util
+
+https://crates.io/crates/lalrpop
+https://crates.io/crates/lalrpop-snap
+https://docs.rs/lalrpop
+
+https://github.com/lalrpop/lalrpop
+
+http://lalrpop.github.io/lalrpop/quick_start_guide.html
+http://lalrpop.github.io/lalrpop/tutorial/index.html
+http://lalrpop.github.io/lalrpop/advanced_setup.html
+
+https://crates.io/crates/lalrproc
+https://github.com/dtolnay/lalrproc
+
+build sample
+https://github.com/tweag/nickel/blob/master/build.rs
+    fn main() {
+    lalrpop::Configuration::new()
+        .use_cargo_dir_conventions()
+        .process_file("src/parser/grammar.lalrpop")
+        .unwrap();
+    }

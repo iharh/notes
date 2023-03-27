@@ -1,0 +1,21 @@
+minikube addons
+    list
+        storage-provisioner
+        dashboard
+        kudashboard
+        efk
+        istio
+        ingress
+        ingress-dns
+        metrics-server
+        registry
+    enable
+        ingress
+    service
+        -h
+            1. creates a tunell from local host to server
+            2. opens it
+        -n<namespace> <servicename>
+            opens browser with default k8s dashboard
+    dashboard
+        the shortest way ...

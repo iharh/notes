@@ -1,0 +1,5 @@
+The all-packages.nix expression accepts the config parameter.
+If it's null, then it reads the NIXPKGS_CONFIG environment variable.
+If not specified, nixpkgs will peek $HOME/.nixpkgs/config.nix.
+
+... editor = "${pkgs.vim}/bin/vim";

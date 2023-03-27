@@ -1,0 +1,210 @@
+Books:
+Hinojosa - Testing in Scala
+
+Articles:
+https://jazzy.id.au/2015/03/03/sbt-task-engine.html
+https://jazzy.id.au/2015/03/04/sbt-declarative-dsl.html
+
+http://www.scala-sbt.org/release/docs/Getting-Started/Basic-Def.html
+http://twitter.github.com/scala_school/sbt.html
+
+console
+	launch a repl
+
+about
+    print sbt/prj about info (+versions)
+    
+
+Common Commands
+
+    tasks         - show all the available tasks
+     -v
+     help tasks -v
+    actions       - show actions available for this project
+
+    reload        - reload modified project description (build.sbt)
+    update        - downloads dependencies
+    compile       - compiles source
+
+    package       - creates a publishable jar file
+    package-doc
+    package-src
+
+    publish-local - installs the built jar in your local ivy cache
+    publish       - pushes your jar to a remote repo (if configured)
+
+    clean
+
+    set <var><val>- set a variable ...
+    session save  - save session vars
+
+    console
+    console-quick - ... without compiling everything before
+    console-procect ... for plugin dev
+
+Evaluation:
+    eval
+      eval Array(1,2,3).map(n=>println("Number "+n))
+    < file_name
+      eval commands from the filename
+    ;comd1;cmd2
+      eval cmd1, and then - cmd2 only if cmd1 is successfull
+
+Moar Commands
+
+    test-failed   - run any specs that failed
+    test-quick    - run any specs that failed and/or had dependencies updated
+    clean-*       - see the help...
+
+Note:
+    sbt reload update
+        Execute multiple commands
+
+History commands:
+
+!         Show history help
+!!        Execute the last command again
+!:        Show all previous commands
+!:n       Show n   n commands
+!n        Execute the command with index n, as shown by the !: command
+!-n       Execute the nth command before this one
+!string   Execute the most recent command starting with 'string'
+!?string  Execute the most recent command containing 'string'
+
+Dependency Mgmt:
+
+external-deps:
+http://stackoverflow.com/questions/24345745/how-to-use-external-dependencies-in-sbts-scala-files
+http://www.scala-sbt.org/release/tutorial/Organizing-Build.html
+
+http://www.scala-sbt.org/0.13/docs/Library-Management.html
+http://www.scala-sbt.org/0.13/docs/Update-Report.html
+
+A useful application of configurations is to group dependencies that are not used on normal classpaths. For example, your project might use a "js" configuration
+to automatically download jQuery and then include it in your jar by modifying resources. For example:
+
+ivyConfigurations += config("js") hide
+libraryDependencies += "jquery" % "jquery" % "1.3.2" % "js->default" from "https://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"
+resources ++= update.value.select(configurationFilter("js"))
+...
+
+Vars:
+libraryDependencies (library-dependencies)
+  withSources() withJavadocs()
+resolvers
+
+Test tags (for test-only after --)
+  -n include by the name-of-tag/tags
+  -l exclude -//-
+
+unmanagedBase
+unmanagedJars (:= file(...))
+  sbt show unmanaged-jars
+
+libraryDependencies ++=
+    if(os ==Windows)
+        ("org.example" % "windows-only" % "1.0") :: Nil
+    else
+        Nil
+
+Keys:
+http://www.scala-sbt.org/release/docs/Getting-Started/Basic-Def.html#keys
+http://www.scala-sbt.org/release/sxr/sbt/Keys.scala.html
+http://www.scala-sbt.org/release/docs/Getting-Started/More-About-Settings.html#computing-a-value-based-on-other-keys-values
+http://www.scala-sbt.org/release/docs/Getting-Started/Basic-Def.html#keys-in-sbt-interactive-mode
+
+Show/Inspection:
+
+show
+    <taskName>
+    full-classpath
+
+show
+    update
+        show the lib updates/eviction status
+
+evicted
+    show brief evicted info
+
+
+inspect
+  <settingKey>
+
+set
+  <setting-expr>
+
+session
+  clear|list|remove|save|clear-all|list-all|save-all
+
+clear, list, save - has appropriate [-all] commands at build level also
+save-all
+  temp settings are appended to the first .sbt file in the project
+
+reload[plugins|return(optional)]
+
+
+Tasks:
+
+sbt tasks
+
+http://www.scala-sbt.org/release/docs/Detailed-Topics/Tasks
+
+Log Messages:
+http://www.scala-sbt.org/release/docs/Howto/logging.html
+
+last <task>
+print-warnings
+
+
+.sbt file
+
+initialCommands in console := """
+    |import scalaz._
+    |import Scalaz._
+    |""".stripMargin
+
+~/.sbtconfig
+SBT_OPTS="-XX:PermSize=256M -XX:MaxPermSize=512M"
+
+
+Logging:
+
+~/.sbt/plugins/build.sbt
+logLevel := Level.Warn
+
+persistLogLevel
+...
+
+traceLevel
+  negative - No stack trace
+  0 - up to the first stack frame
+  N - up to the N stack frames
+persistTraceLevel
+
+logBuffered := false
+
+
+Forking:
+
+fork in run := true
+fork in (Compile,run) := true
+fork in (Test,run) := true
+
+connectInput in run := true
+
+outputStrategy := Some(BufferedOutput(log: Logger))
+
+
+Manifest:
+// http://www.scala-sbt.org/release/docs/Howto/package.html
+packageOptions in (Compile, packageBin) += Package.ManifestAttributes(java.util.jar.Attributes.Name.CLASS_PATH -> "org.snu.ids.ha.jar" )
+
+Options:
+logLevel := Level.Debug
+
+Samples:
+https://github.com/cos/IteRace/blob/master/build.sbt
+
+!!!
+http://blog.codacy.com/2015/05/20/sbt-the-easy-way/
+private val buildVersion = sys.props.getOrElse("build.number", "dev")

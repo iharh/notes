@@ -1,0 +1,44 @@
+http://getquill.io/
+https://github.com/getquill/quill
+
+Articles:
+http://blog.scalac.io/2016/07/21/compile-time-queries-with-quill.html
+
+Presentations:
+Brasil-2016-ScyllaCharybdisAndTheMysteryOfQuill
+https://www.youtube.com/watch?v=nqSYccoSeio
+
+
+modules:
+quill-core
+    quotations, normalization, macros
+quill-sql
+    driver-agnostic sql generation
+quill-async
+    mysql and postgres async
+quill-finagle-mysql
+    mysql throught finagle
+quill-jdbc
+    good old blocking JDBC
+quill-cassandra
+    CQL, java driver, reactive streams
+quill-finagle-postgres
+
+BLOBs:
+https://github.com/getquill/quill/blob/master/quill-sql/src/test/scala/io/getquill/context/sql/EncodingSpec.scala
+
+case class EncodingTestEntity(
+    ...
+    v10: Array[Byte],
+    ...
+)
+
+SqlTypes, Encoders, Decoders
+
+
+https://finagle.github.io/finagle-postgres/
+https://github.com/finagle/finagle-postgres
+https://github.com/finagle/finagle-postgres/pull/28
+https://github.com/getquill/quill/pull/649
+
+https://github.com/getquill/quill/blob/master/quill-finagle-postgres/src/main/scala/io/getquill/context/finagle/postgres/FinaglePostgresEncoders.scala

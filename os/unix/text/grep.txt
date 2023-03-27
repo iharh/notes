@@ -1,0 +1,19 @@
+tips:
+https://geekflare.com/grep-command-examples/
+    https://proglib.io/p/16-opciy-grep-kotorye-pomogut-vam-v-realnom-mire-2021-03-16
+http://www.fromdev.com/2016/09/powerful-grep-command-tips.html
+
+grep "exception" --color=always a.txt | grep -v "no subscriptions refer to assertion" | grep -v "Overlimit original text"
+
+grep
+    -f, --file=
+        obtain patterns from file
+
+
+fgrep
+    -F, --fixed-strings
+        use fixed string vs regexp-patterns
+
+2022
+LearnLinuxTV - Linux Essentials - The grep Command 0:00 of 14:56
+    https://www.youtube.com/watch?v=Tc_jntovCM0

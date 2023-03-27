@@ -1,0 +1,101 @@
+$ sudo vmware-modconfig --console --install-all
+[sudo] password for iharh: 
+[AppLoader] Use shipped Linux kernel AIO access library.
+An up-to-date "libaio" or "libaio1" package from your system is preferred.
+[AppLoader] GLib does not have GSettings support.
+Stopping VMware services:
+   VMware Authentication Daemon                                        done
+   Virtual machine monitor                                             done
+make: Entering directory '/tmp/modconfig-U8rDmY/vmmon-only'
+Using kernel build system.
+/usr/bin/make -C /lib/modules/5.15.0-39-generic/build/include/.. M=$PWD SRCROOT=$PWD/. \
+  MODULEBUILDDIR= modules
+make[1]: Entering directory '/usr/src/linux-headers-5.15.0-39-generic'
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/linux/driver.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/linux/driverLog.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/linux/hostif.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/apic.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/comport.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/cpuid.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/crosspage.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/memtrack.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/moduleloop.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/phystrack.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/sharedAreaVmmon.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/statVarsVmmon.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/task.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/common/vmx86.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/bootstrap/bootstrap.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/bootstrap/monLoader.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/bootstrap/monLoaderVmmon.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/bootstrap/vmmblob.o
+  LD [M]  /tmp/modconfig-U8rDmY/vmmon-only/vmmon.o
+  MODPOST /tmp/modconfig-U8rDmY/vmmon-only/Module.symvers
+  CC [M]  /tmp/modconfig-U8rDmY/vmmon-only/vmmon.mod.o
+  LD [M]  /tmp/modconfig-U8rDmY/vmmon-only/vmmon.ko
+make[1]: Leaving directory '/usr/src/linux-headers-5.15.0-39-generic'
+/usr/bin/make -C $PWD SRCROOT=$PWD/. \
+  MODULEBUILDDIR= postbuild
+make[1]: Entering directory '/tmp/modconfig-U8rDmY/vmmon-only'
+make[1]: 'postbuild' is up to date.
+make[1]: Leaving directory '/tmp/modconfig-U8rDmY/vmmon-only'
+cp -f vmmon.ko ./../vmmon.o
+make: Leaving directory '/tmp/modconfig-U8rDmY/vmmon-only'
+make: Entering directory '/tmp/modconfig-U8rDmY/vmnet-only'
+Using kernel build system.
+/usr/bin/make -C /lib/modules/5.15.0-39-generic/build/include/.. M=$PWD SRCROOT=$PWD/. \
+  MODULEBUILDDIR= modules
+make[1]: Entering directory '/usr/src/linux-headers-5.15.0-39-generic'
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/driver.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/hub.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/userif.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/netif.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/bridge.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/procfs.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/smac_compat.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/smac.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/vnetEvent.o
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/vnetUserListener.o
+/tmp/modconfig-U8rDmY/vmnet-only/hub.c:237:24: warning: argument 1 of type ‘uint8[]’ {aka ‘unsigned char[]’} with mismatched bound [-Warray-parameter=]
+  237 | VNetHub_AllocPvn(uint8 id[]) // IN: the PVN ID to alloc on
+      |                  ~~~~~~^~~~
+In file included from /tmp/modconfig-U8rDmY/vmnet-only/hub.c:43:
+/tmp/modconfig-U8rDmY/vmnet-only/vnetInt.h:173:34: note: previously declared as ‘uint8[20]’ {aka ‘unsigned char[20]’}
+  173 | VNetJack *VNetHub_AllocPvn(uint8 id[VNET_PVN_ID_LEN]);
+      |                            ~~~~~~^~~~~~~~~~~~~~~~~~~
+/tmp/modconfig-U8rDmY/vmnet-only/hub.c:261:20: warning: argument 3 of type ‘uint8[]’ {aka ‘unsigned char[]’} with mismatched bound [-Warray-parameter=]
+  261 |              uint8 id[])    // IN: PVN ID to use (NULL if allocPvn == FALSE)
+      |              ~~~~~~^~~~
+/tmp/modconfig-U8rDmY/vmnet-only/hub.c:68:37: note: previously declared as ‘uint8[20]’ {aka ‘unsigned char[20]’}
+   68 |                               uint8 id[VNET_PVN_ID_LEN]);
+      |                               ~~~~~~^~~~~~~~~~~~~~~~~~~
+/tmp/modconfig-U8rDmY/vmnet-only/driver.c: In function ‘VNetFileOpUnlockedIoctl’:
+/tmp/modconfig-U8rDmY/vmnet-only/driver.c:966:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  966 |       {
+      |       ^
+/tmp/modconfig-U8rDmY/vmnet-only/driver.c:976:4: note: here
+  976 |    case SIOCGETAPIVERSION:
+      |    ^~~~
+  LD [M]  /tmp/modconfig-U8rDmY/vmnet-only/vmnet.o
+  MODPOST /tmp/modconfig-U8rDmY/vmnet-only/Module.symvers
+  CC [M]  /tmp/modconfig-U8rDmY/vmnet-only/vmnet.mod.o
+  LD [M]  /tmp/modconfig-U8rDmY/vmnet-only/vmnet.ko
+make[1]: Leaving directory '/usr/src/linux-headers-5.15.0-39-generic'
+/usr/bin/make -C $PWD SRCROOT=$PWD/. \
+  MODULEBUILDDIR= postbuild
+make[1]: Entering directory '/tmp/modconfig-U8rDmY/vmnet-only'
+make[1]: 'postbuild' is up to date.
+make[1]: Leaving directory '/tmp/modconfig-U8rDmY/vmnet-only'
+cp -f vmnet.ko ./../vmnet.o
+make: Leaving directory '/tmp/modconfig-U8rDmY/vmnet-only'
+Starting VMware services:
+   Virtual machine monitor                                            failed
+   Virtual machine communication interface                             done
+   VM communication interface socket family                            done
+   Virtual ethernet                                                   failed
+   VMware Authentication Daemon                                        done
+Unable to start services
+
+$ sudo modprobe vmmon
+[sudo] password for iharh:
+modprobe: ERROR: could not insert 'vmmon': Exec format error

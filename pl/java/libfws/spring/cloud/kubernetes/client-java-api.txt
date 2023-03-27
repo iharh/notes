@@ -1,0 +1,5 @@
+https://github.com/kubernetes-client/java/
+https://github.com/kubernetes-client/java/wiki/1.-Installation
+    "io.kubernetes:client-java:15.0.1"
+
+https://javadoc.io/doc/io.kubernetes/client-java-api/latest/index.html

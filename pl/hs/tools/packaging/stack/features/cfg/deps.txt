@@ -1,0 +1,5 @@
+allow-newer:
+  true
+
+extra-deps:
+  - ConfigFile-1.1.4@sha256:ca56261e1deae6ef958a337b03812987bfd94ab37b047e27f262bc3137813165,2056

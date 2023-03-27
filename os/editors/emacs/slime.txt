@@ -1,0 +1,182 @@
+Configuration:
+
+slime-complete-symbol-function
+lisp-indent-function
+common-lisp-hyperspec-root
+
+C-c C-o
+	(slime-repl-clear-output)
+
+
+Commonly-used SLIME commands:
+
+Navigation
+
+(slime-selector) - can be mapped to f12
+	Quick select buffer by pressing single key 
+	? - help on available commands
+	r - the REPL buffer
+	d - the most recent SLDB
+	l - the most resent lisp-mode source buffer
+	s - the *slime-scratch* buffer
+
+C-c C-z
+	Switch from a Clojure buffer to the repl buffer.
+	Select the output buffer, when possible in an existing window (slime-switch-to-output-buffer)
+C-c M-p
+	Switch the repl namespace to match the current buffer (slime-repl-set-package)
+M-.
+	Jump to the definition of a var. Lookup the definition of the name at point (slime-edit-definition)
+M-,
+	Return back from it. Pop the edit-definition stack and goto the location. (slime-pop-find-definition-stack)
+
+C-M-f (maybe C-n)
+	Move forward across one balanced expression [sexp] (forward-sexp)
+C-M-b (maybe C-p)
+	Move backward across one balanced expression [sexp] (backward-sexp)
+C-M-t (maybe C-t)
+	Transpose 2 balanced expressions (transpose-sexps)
+C-M-k (maybe C-k)
+	Kill the [sexp] following point (kill-sexp)
+??? f8
+	Switch slime/last clojure buffer (see http://www.youtube.com/watch?v=mhWkOf_CGBg 5:00)
+
+
+Cross-Ref:
+C-c <
+	List callers of the function (slime-list-callers).
+C-c >
+	List calees of the functions (slime-list-callees).
+
+
+
+Compilation:
+
+C-c C-k
+	Compile the current buffer (slime-compile-and-load-file)
+C-c C-c
+	Compile the current toplevel form (slime-compile-defun)
+
+
+Evaluation:
+C-M-x
+	evaluate the current top-level form (slime-eval-defun)
+C-x C-e
+	Eval the form under the point, evaluate the expression behind the cursor (slime-eval-last-expression)
+	C-u C-x C-e
+		evaluate the expression and paste the result into the buffer!
+???C-M-S-x
+	Evaluate closest form/sexp (eval-paren-sexp) - see http://www.youtube.com/watch?v=mhWkOf_CGBg 4:40
+
+
+Tracing:
+C-c C-t
+	Toggle trace (slime-toggle-trace-fdefinition).
+
+
+Editing:
+
+C-M-q
+	Reindent the s-expression (indent-sexp)
+C-c TAB, M-TAB
+	(slime-complete-symbol)
+C-c M-i
+	(slime-fuzzy-complete-symbol)
+	slime-complete-symbol-function - 'slime-fuzzy-complete-symbol
+	*Fuzzy completions*
+	need slime-fuzzy to set-up
+
+
+
+Debugging (sldb)
+t
+	Toggle details (sldb-toggle-details)
+v
+	View the frame's current source expression (sldb-show-source).
+a
+	Invoke the ABORT restart (sldb-abort)
+i
+	Prompt for expression and inspect it in frame in the context of the frame (sldb-inspect-in-frame)
+Ret ???
+	Inspect local var
+
+
+Inspector
+C-c I
+C-c S-i
+	Inspect a value (slime-inspect)
+
+
+Documentation:
+
+C-c C-d C-d
+	Look up documentation for a var, describe symbol under cursor (slime-describe-symbol)
+C-c C-d h
+	(slime-hyperspec-lookup)
+
+
+
+
+
+
+
+
+
+
+
+
+    * C-c TAB: Autocomplete symbol at point
+    * C-c C-m: Macroexpand the call under the point
+    * C-c C-w c: List all callers of a given function
+
+
+
+*, **, *** - previous...
+, - command (help - for slime help)
+
+
+
+
+http://www.learningclojure.com/2009/12/favourite-keys-for-emacs-and-slime.html
+
+Lisp editing and evaluating keys 
+
+Note that in Gnome, Ctrl-Alt-D is 'show desktop', Ctrl-Alt-L is 'lock', and so on.
+I turn all those off so that I can edit LISP code easily.
+Use System/Preferences/Keyboard Shortcuts)
+
+
+
+
+C-M-k
+kill by s-expression
+
+C-M-h
+mark this top-level s-expression
+
+C-M-@
+mark next s-expression
+
+(these last three repeat nicely. C-M-h C-M-h marks the next two top-level expressions)
+
+
+C-M-t
+transpose s-expressions (weirdly useful)
+repeated presses move an s-expression along inside a larger one.
+
+C-M-a
+C-M-e
+beginning and end of top level s-expressions (defn ....)
+
+C-M-f
+C-M-b
+C-M-p
+C-M-n
+backwards and forwards by list, previous and next s-expression
+(the difference is subtle and not terribly important)
+
+C-M-u
+C-M-d
+up and down list nest levels
+
+

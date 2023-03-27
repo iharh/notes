@@ -1,0 +1,18 @@
+https://pwmt.org/
+https://pwmt.org/projects/zathura/index.html
+
+https://git.pwmt.org/pwmt
+https://git.pwmt.org/pwmt/zathura
+
+https://pwmt.org/news/
+
+https://defkey.com/zathura-shortcuts
+https://man.cx/zathura(1)
+    a, s    Adjust window in best-fit or width mode
+    F5      Switch to presentation mode
+    F11     Switch to fullscreen mode
+    ^m      Toggle inputbar
+    ^n      Toggle statusbar
+    +, -, = Zoom in, out or to the original size
+
+https://github.com/gennaro-tedesco/zathuraconf

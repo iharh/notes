@@ -1,0 +1,36 @@
+https://github.com/chef/chef
+
+tutorials
+https://learn.chef.io/#/
+
+presentations
+http://www.slideshare.net/chef-software/chef-for-beginners-module-5-61251285
+https://speakerdeck.com/nathenharvey/intro-to-chef-scale12x
+
+books
+Cowie - Customizing Chef
+Joshi - Mastering Chef
+
+chef-apply:
+    applies individual resources, does not work with cookbooks
+    https://docs.chef.io/ctl_chef_apply.html
+
+    -e "package 'nano'"
+        execute ad-hoc resource
+    res-file.rb
+        execute resources from <res-file.rb>
+
+chef:
+    generate
+        create a new app, cookbook or component
+    generate cookbook --help
+    generate cookbook apache
+    generate recipe apache server
+    gem
+        install knife-playground (knife pg <playground> delete <node>)
+    exec
+    install
+    push
+
+Errors:
+https://docs.chef.io/errors.html

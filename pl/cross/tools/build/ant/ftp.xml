@@ -1,0 +1,20 @@
+<project name="KnovaInstall" default="do-ftp">
+	<target name="do-ftp">
+		<ftp
+			action="put"
+
+			server="ftp.knova.com"
+                        userid="<uid>"
+                        password="<pwd>"
+
+			passive="yes"
+			verbose="yes"
+
+			remotedir="7.2.11"
+		>
+			<fileset dir=".">
+				<include name="**/*.7z"/>
+			</fileset>
+		</ftp>
+	</target>
+</project>

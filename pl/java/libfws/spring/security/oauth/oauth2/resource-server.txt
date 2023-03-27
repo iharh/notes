@@ -1,0 +1,67 @@
+https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-resource-server
+
+2021
+https://www.baeldung.com/spring-security-oauth-resource-server
+
+https://github.com/spring-projects/spring-security/blob/master/docs/manual/src/docs/asciidoc/_includes/servlet/oauth2/oauth2-resourceserver.adoc
+https://github.com/spring-projects/spring-security/tree/master/samples/boot/oauth2resourceserver-opaque
+
+https://github.com/spring-projects/spring-security/blob/master/samples/boot/oauth2resourceserver-opaque/src/main/java/sample/OAuth2ResourceServerSecurityConfiguration.java
+https://github.com/spring-projects/spring-security/blob/master/samples/boot/oauth2resourceserver-opaque/src/main/resources/application.yml
+
+OpaqueTokenIntrospector
+https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/oauth2/server/resource/introspection/OpaqueTokenIntrospector.html
+https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-resource-server/src/main/java/org/springframework/security/oauth2/server/resource/introspection/OpaqueTokenIntrospector.java
+
+    https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/oauth2/core/OAuth2AuthenticatedPrincipal.html
+    https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/GrantedAuthority.html
+
+
+org.springframework.security.web.DefaultSecurityFilterChain : Creating filter chain: any request, [
+    ...
+    org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter@d1f74b8,
+    ...
+
+BearerTokenAuthenticationFilter
+https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-resource-server/src/main/java/org/springframework/security/oauth2/server/resource/web/BearerTokenAuthenticationFilter.java
+
+    @Configuration
+    @EnableWebSecurity
+    public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+        static class MyOpaqueTokenIntrospector implements OpaqueTokenIntrospector {
+            public OAuth2AuthenticatedPrincipal introspect(String token) {
+                Collection<GrantedAuthority> grantedAuthorities = List.of("SCOPE_some.api[group='stuff']").stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+                return new DefaultOAuth2AuthenticatedPrincipal(Map.of("active", true), grantedAuthorities);
+            }
+        }
+        private MyOpaqueTokenIntrospector mybIntrospector() {
+            return new MyOpaqueTokenIntrospector();
+        }
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            //@formatter:off
+            http
+                    .cors().disable()
+                    .csrf().disable()
+                    .sessionManagement().disable()
+                    .authorizeRequests(authorizeRequests ->
+                        authorizeRequests
+                            // TODO: fix group names
+                            .antMatchers(HttpMethod.GET, "/v1/**").hasAuthority("SCOPE_some.api[group=''stuff'']")
+                            .antMatchers(HttpMethod.POST, "/v1/**").hasAuthority("SCOPE_some.api[group=''stuff'']")
+                            .anyRequest().permitAll()
+                    )
+                    .oauth2ResourceServer(oauth2ResourceServer ->
+                        oauth2ResourceServer
+                            .opaqueToken(opaqueToken -> opaqueToken
+                                .introspector(myIntrospector())
+                            )
+                    );
+            //@formatter:on
+        }
+    }
+
+to-find-replacement-for:
+https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/token/RemoteTokenServices.java
+https://github.com/spring-projects/spring-security-oauth/blob/master/spring-security-oauth2/src/main/java/org/springframework/security/oauth2/provider/token/DefaultAccessTokenConverter.java
+    extractAuthentication

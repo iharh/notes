@@ -1,0 +1,93 @@
+https://www.testcontainers.org/modules/vault/
+
+    import com.github.tomakehurst.wiremock.junit.WireMockRule;
+    import org.testcontainers.vault.VaultContainer;
+
+    import static com.github.tomakehurst.wiremock.client.WireMock.*;
+
+    @ActiveProfiles("test")
+    @RunWith(SpringRunner.class)
+    @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+            properties = {
+                    "spring.cloud.vault.enabled=true",
+                    "spring.cloud.vault.token=mytoken",
+                    "spring.cloud.vault.scheme=http",
+                    "spring.cloud.vault.fail-fast=true",
+                    "vault.secrets=secret/my-app/oauth2"
+            })
+    public class MyTests {
+
+        @ClassRule
+        public static final WireMockRule wireMockRule = new WireMockRule(12345);
+
+        @ClassRule
+        public static final VaultContainer<?> vaultContainer = new VaultContainer<>()
+                .withVaultToken("mytoken")
+                .withSecretInVault("secret/ingestion-msg-router/oauth2",
+                        "oauth2-client-id=my-id",
+                        "oauth2-client-secret=my-secret");
+
+        @Autowired
+        private Sink sink;
+
+        @Value("${path.access-token}")
+        private String accessTokenPath;
+
+        @Value("${path.my}")
+        private String myMessagePath;
+
+        @Before
+        public void init() {
+            stubFor(post(accessTokenPath)
+                    .withBasicAuth("my-user", "my-secret")
+                    .willReturn(aResponse()
+                            .withStatus(HttpStatus.OK.value())
+                            .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                            .withBodyFile("responses/correct_access_token.json")));
+
+            stubFor(post(myMessagePath)
+                    .willReturn(aResponse()
+                            .withStatus(HttpStatus.OK.value())));
+        }
+
+        @Test
+        public void testRouteMessage() {
+            MyDocument testDocument = testDocument();
+
+            sink.input().send(MessageBuilder.withPayload(testDocument.toByteArray()).setHeader("contentType",
+                    "application/x-protobuf").build(), 1000);
+
+            verify(postRequestedFor(urlEqualTo(accessTokenPath))
+                    .withHeader("Authorization", containing("Basic")));
+            verify(postRequestedFor(urlEqualTo(myMessagePath))
+                    .withHeader("Authorization", matching("Bearer aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee")));
+
+            verify(exactly(1), postRequestedFor(urlEqualTo(accessTokenPath)));
+            verify(exactly(1), postRequestedFor(urlEqualTo(myMessagePath)));
+        }
+
+        private MyDocument testDocument() {
+            return MyDocument.newBuilder()
+                    .setMetadata(
+                            Metadata.newBuilder()
+                                    .setInstance("my-test")
+                                    .set ...
+                                    .build())
+                    .build();
+        }
+
+        @BootstrapConfiguration
+        public static class TestBootstrapConfig {
+
+            @Bean
+            public VaultProperties vaultProperties() {
+                VaultProperties vaultProperties = new VaultProperties();
+                if (vaultContainer.isRunning()) {
+                    vaultProperties.setHost(vaultContainer.getContainerIpAddress());
+                    vaultProperties.setPort(vaultContainer.getFirstMappedPort());
+                }
+                return vaultProperties;
+            }
+
+        }
+    }

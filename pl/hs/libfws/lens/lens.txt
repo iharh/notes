@@ -1,0 +1,126 @@
+Lenses:
+
+Kmett - Lenses Folds and Traversals
+  over, both, first
+https://github.com/ekmett/lens/wiki (check Derivation)
+
+Lens wiki:
+https://en.wikibooks.org/wiki/Haskell/Lenses_and_functional_references
+https://www.reddit.com/r/haskell/comments/3kvrkh/a_new_introduction_to_lens_at_the_wikibook/
+
+http://comonad.com/reader/2012/mirrored-lenses/
+
+http://google-opensource.blogspot.com/2012/10/lenses-folds-and-traversals-haskell.html (https://docs.google.com/file/d/0ByK3AAy5ubqady1YczU2UEYzODQ/edit)
+OConnor - Functor is to Lens as Applicative is to Biplate - Introducing Multiplate
+
+http://fvisser.nl/post/2013/okt/11/why-i-dont-like-the-lens-library.html
+http://www.reddit.com/r/haskell/comments/1o6iqs/why_i_dont_like_the_lens_library/
+
+AdditIO
+http://adit.io/posts/2013-07-22-lenses-in-pictures.html
+
+From Zippers to Lens ... unzip, view, over, ... :
+http://www.reddit.com/r/haskell/comments/1zgr2h/from_zipper_to_lens_school_of_haskell_shameless/
+https://www.fpcomplete.com/user/psygnisfive/from-zipper-to-lens
+https://github.com/psygnisfive/LensTutorial
+http://www.reddit.com/r/haskell/comments/1xh0as/inventing_lenses_a_lens_tutorial/
+
+Gonzalez - Lenses:
+http://www.haskellforall.com/2012/01/haskell-for-mainstream-programmers_28.html
+http://www.haskellforall.com/2013/05/program-imperatively-using-haskell.html
+  http://habrahabr.ru/post/190442/
+http://www.reddit.com/r/haskell/comments/223i80/haskell_application_architecture_best_practices/
+
+  zoom :: Monad m => Lens' a b -> StateT b m r -> StateT a m r
+
+  ekmett:
+    If you use something like makeClassy from lens then you don't even need to zoom in.
+
+    That'll derive classes like:
+
+    class HasS1 s where
+	s1 :: Lens' s S1
+	... with the lenses for S1 precomposed with the s1 lens.
+
+Mlot - Lenses you can make at home:
+http://duplode.github.io/posts/lenses-you-can-make-at-home.html
+
+Hilbert - Lens from the ground up:
+https://speakerdeck.com/markhibberd/lens-from-the-ground-up
+http://mth.io/talks/lens-from-the-ground-up/
+https://github.com/markhibberd/lens-talk
+
+Misc:
+http://hackage.haskell.org/package/Clean
+
+fclabels:
+Visser - fclabels (https://vimeo.com/41098956)
+
+XML:
+http://hackage.haskell.org/package/xml-lens (https://github.com/fumieval/xml-lens)
+
+Pointwise Lenses:
+http://www.well-typed.com/blog/92/
+
+Prisms:
+https://www.fpcomplete.com/user/tel/lens-aeson-traversals-prisms
+
+
+http://www.reddit.com/r/haskell/comments/2413fc/idiomaticlenshs/
+http://www.reddit.com/r/haskell/comments/23uzpg/lens_is_unidiomatic_haskell/ch0v5iw
+
+Getter' s a    -- Gets one a from an s
+Setter' s a    -- Sets any number of a in s
+Fold' s a      -- Gets any number of a in s
+Traversal' s a -- Gets or Sets any number of a in s
+Lens' s a      -- Gets or Sets one a in s
+Review' s a    -- Can construct s from a
+Prism' s a     -- Gets zero or one a in s / Can construct s from a
+
+
+
+Samples:
+
+(.~) = over
+
+>(2, 3) & _2 .~ "Hello"
+>_2 .~ "Hello" $ (2, 3)
+(2, "Hello")
+
+^.
+anyOf, both
+
+>anyOf text (== 'c') ("hello"^.packed)
+ False
+
+>anyOf (both.text) (== 'c') ("chello"^.packed, "world"^.packed)
+ True
+
+
+>(1, 2)^..both
+[1, 2]
+
+>((1, 2), (3, 4))^..traverse.both
+[1, 2, 3, 4]
+
+> Left 3 ^? _left
+Just 3
+
+> Right 3 ^? _left
+Nothing
+
+http://stackoverflow.com/questions/15489324/traversal-tree-with-lens-and-zippers
+http://stackoverflow.com/questions/14100387/create-new-list-from-list-of-string-in-haskell/
+http://stackoverflow.com/questions/6270214/haskell-list-of-tuples-to-list/
+
+> import Control.Lens
+> toListOf (traverse.both) [(1,2),(3,4)]
+            ^        ^
+            |        |> Traversal of the tuple (a, a)
+            |> Traversal of a list [b]
+[1,2,3,4]
+
+To convert from a list of lists:
+
+> toListOf (traverse.traverse) [[1,2],[3,4],[5,6,7]]
+[1,2,3,4,5,6,7]

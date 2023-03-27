@@ -1,0 +1,4 @@
+jmap -dump:format=b,file=heap.hprof
+• -XX:+HeapDumpOnOutOfMemoryError
+• -XX:HeapDumpPath=./java_pid<pid>.hpro
+

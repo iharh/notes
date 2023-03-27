@@ -1,0 +1,20 @@
+dbg!(expr)
+    https://doc.rust-lang.org/beta/std/macro.dbg.html
+    https://www.reddit.com/r/rust/comments/ah1mzu/announcing_rust_1320/
+
+https://quodlibetor.github.io/posts/debugging-rusts-new-custom-derive-system/
+
+cargo-expand
+
+$ # expanded code relies on some internal rust features:
+$ echo '#![feature(box_syntax, test, fmt_internals)]' > tests/derive-enum-unit-expanded.rs
+$ cargo expand --test derive-enum-struct > tests/derive-enum-struct-expanded.rs
+$ cargo test --test derive-enum-struct-expanded
+
+file!  line!  column!
+https://doc.rust-lang.org/std/macro.file.html
+https://doc.rust-lang.org/std/macro.line.html
+https://doc.rust-lang.org/std/macro.column.html
+
+2019
+https://medium.com/@knoldus/are-you-still-using-println-in-rust-for-debugging-fcffd4df5da5

@@ -1,0 +1,37 @@
+worker_processes 4;
+  
+events {
+  worker_connections 1024;
+}
+
+http {
+  upstream kafdrop {
+    server 127.0.0.1:9000;
+    keepalive 64;
+  }
+
+  server {
+    listen *:8080;
+    server_name _;
+    access_log /usr/local/var/log/nginx/nginx.access.log;
+    error_log /usr/local/var/log/nginx/nginx.error.log;
+    auth_basic "Restricted Area";
+    auth_basic_user_file /usr/local/etc/nginx/.htpasswd;
+
+    location / {
+      proxy_pass http://kafdrop;
+    }
+
+    location /logout {
+      return 401;
+    }
+
+    error_page 401 /errors/401.html;
+
+    location /errors {
+      auth_basic off;
+      ssi        on;
+      alias /usr/local/opt/nginx/html;
+    }
+  }
+}

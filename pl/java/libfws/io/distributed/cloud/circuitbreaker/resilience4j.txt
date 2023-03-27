@@ -1,0 +1,23 @@
+https://resilience4j.readme.io/
+
+https://github.com/resilience4j/resilience4j
+
+https://resilience4j.readme.io/docs
+
+2022
+https://arnoldgalovics.com/feign-rate-limiter-resilience4j/
+https://arnoldgalovics.com/resilience4j-resttemplate/
+    ! resttemplate is obsolete, need to use webclient instead
+2021
+https://arnoldgalovics.com/spring-cloud-feign-traffic-cut-off-with-resilience4j-timelimiter/
+https://habr.com/ru/post/544074/
+2020
+https://www.javaadvent.com/2020/12/resilient-applications-spring-resilience4j.html
+HackerHeap - Resilience4j Circuit Breaker, Spring Circuit Breaker, Spring Cloud Circuit Breaker
+    https://www.youtube.com/watch?v=fkQHtw35alY
+2017
+http://engineering.autotrader.co.uk/2017/09/13/resilience4j-circuit-breaker.html
+
+samples
+https://git.epam.com/daniel_imre/resiliency-patterns-exercise
+    https://web.yammer.com/main/org/epam.com/threads/eyJfdHlwZSI6IlRocmVhZCIsImlkIjoiMTg2NDc1NjE1MTE0MDM1MiJ9

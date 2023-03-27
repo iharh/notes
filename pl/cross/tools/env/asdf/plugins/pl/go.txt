@@ -1,0 +1,20 @@
+https://github.com/kennyp/asdf-golang
+
+!!! after go install/get, call
+    asdf reshim golang
+
+...
+    https://onsi.github.io/ginkgo/
+
+2021
+https://www.ookangzheng.com/asdf-to-manage-multiple-golang-on-mac/
+
+    nano ~/.zshrc
+
+    # TODO: detect
+    export MY_CUR_GO_VER=1.17.2
+    export GOROOT=~/.asdf/installs/golang/$MY_CUR_GO_VER/go
+    export GOPATH=$(go env GOPATH)
+    export PATH="$PATH:$(go env GOPATH)/bin"
+    # export GOBIN=$GOROOT/bin
+    export CGO_ENABLED=1

@@ -1,0 +1,6 @@
+2022
+https://thorben-janssen.com/persist-postgresqls-jsonb-data-type-hibernate/
+    https://github.com/thjanssen/HibernateJSONBSupport
+    https://habr.com/ru/company/otus/blog/688714/
+    https://www.postgresql.org/docs/current/datatype-json.html
+    https://www.postgresql.org/docs/current/functions-json.html

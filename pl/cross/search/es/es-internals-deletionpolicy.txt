@@ -1,0 +1,32 @@
+From Lucene:
+
+IndexDeletionPolicy
+SnapshotDeletionPolicy
+PersistentSnapshotDeletionPolicy
+
+LINA2ed: p375
+
+org.apache.lucene.index.SnapshotDeletionPolicy
+
+From ES:
+package org.elasticsearch.index.deletionpolicy;
+
+SnapshotDeletionPolicy
+- snapshot()
+    // onCommit should be called here to set up lastCommit there, otherwise - Ex
+
+
+SnapshotIndexCommit
+<- SnapshotDeletionPolicy
+    commits, lastCommit
+    snapshot()
+    snapshots()
+
+<- Engine, InternalEngine, IndexShard, InternalIndexShard
+    shapshotIndex
+      { return deletionPolicy.snapshot(); } // create a Lucene commit snapshot (commit point)
+!!!     <- called by IndexShardSnapshotAndRestoreService only just for the time of snapshots taking.
+
+<- IndexShardRepository, BlobStoreIndexShardRepository 
+    shapshot(4)
+    shapshot(1)

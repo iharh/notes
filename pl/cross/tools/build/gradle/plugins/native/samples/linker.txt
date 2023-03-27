@@ -1,0 +1,3 @@
+if (toolChain in VisualCpp) {
+    linker.args 'psapi.lib'
+}

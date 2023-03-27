@@ -1,0 +1,4 @@
+https://github.com/Microsoft/service-fabric
+https://docs.microsoft.com/en-us/azure/service-fabric/
+
+internal runtime tries to track memory allocations

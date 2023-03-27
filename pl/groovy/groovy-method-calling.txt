@@ -1,0 +1,12 @@
+class Foo {
+    void bar(def a, def b) {}
+}
+
+def foo = new Foo()
+
+foo.bar('123', 456)
+foo.bar '123', 456
+
+foo.with {
+    bar '123', 456
+}

@@ -1,0 +1,15 @@
+https://wiki.archlinux.org/index.php/Access_Control_Lists
+http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/
+http://users.suse.com/~agruen/acl/linux-acls/online/
+
+sudo tune2fs -l /dev/sdXY | grep "Default mount options:"
+sudo cat /proc/mounts | grep noacl
+
+http://superuser.com/questions/237802/how-to-set-default-permissions-for-files-moved-or-copied-to-a-directory
+http://superuser.com/questions/180545/setting-differing-acls-on-directories-and-files?rq=1
+http://stackoverflow.com/questions/580584/setting-default-permissions-for-newly-created-files-and-sub-directories-under-a
+
+http://www.unixmen.com/introduction-access-control-lists-acl/
+
+2019
+https://habr.com/ru/post/469667/

@@ -1,0 +1,10 @@
+https://nix.dev/tutorials/ad-hoc-developer-environments.html
+https://nix.dev/tutorials/declarative-and-reproducible-developer-environments.html
+    https://nix.dev/reference/pinning-nixpkgs.html
+https://nix.dev/tutorials/towards-reproducibility-pinning-nixpkgs.html
+
+https://nixos.org/guides/nix-pills/our-first-derivation.html
+    ??? I remind you how to enter the Nix environment: source ~/.nix-profile/etc/profile.d/nix.sh 
+
+2013
+https://sandervanderburg.blogspot.com/2013/09/composing-fhs-compatible-chroot.html

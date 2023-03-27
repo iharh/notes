@@ -1,0 +1,6 @@
+git fetch
+  -p, --prune
+    After fetching, remove any remote-tracking references that no longer exist on the remote
+    http://stackoverflow.com/questions/1072171/how-do-you-remove-an-invalid-remote-branch-reference-from-git
+  --prune-tags
+    prune obsolete local tags

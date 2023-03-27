@@ -1,0 +1,20 @@
+asdf
+    plugin
+        list
+            list installed plugins
+        list all
+            list all available plugins
+        add <plugin-name>
+        update [--all]
+    list <plugin>
+        list installed versions
+    list all <plugin>
+        list all versions
+    install <plugin> latest
+    uninstall <plugin> <version>
+    global <plugin> latest
+        ~/.tool-versions
+            ???
+        ~/.asdf/.tool-versions
+    which <plugin>
+    latest <plugin>|--all

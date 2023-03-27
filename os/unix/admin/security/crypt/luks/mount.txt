@@ -1,0 +1,49 @@
+blkid | grep crypto
+
+auto mounted to
+    /dev/mapper/luks-<UUID> -> ../dm-0 (/dev/dm-0)
+
+sudo cryptsetup
+    luksUUID /dev/sdX
+    luksOpen /dev/sdX <name>
+        old syntax
+    open /dev/sdX <name>
+        new syntax
+    close <name>
+    luksDump /dev/sdX
+
+files
+/etc/crypttab
+    https://averagelinuxuser.com/auto-mount-encrypted-partitions-at-boot/
+        !!!
+    sdX /dev/disk/by-uuid/<long-uuid> none luks
+
+manual mount
+    sudo cryptsetup luksOpen /dev/disk/by-uuid/<disk-uuid> luks-<uuid>
+    sudo mount /dev/mapper/luks-<uuid> $MNT_DIR
+https://ru.wikipedia.org/wiki/Fstab
+https://www.computerhope.com/unix/umount.htm
+    ! tons of help and samples
+sudo mount /dev/sdX /data/crypted
+    ! auto chown of /data/crypted to root:root
+    /dev/mapper/luks-<uuid> /data/crypted ext4 defaults            0 0
+    /dev/mapper/luks-<uuid> /data/crypted ext4 rw,user,exec,noauto 0 0
+    /etc/fstab
+        ...relatime, unhide, uid=...,gid=...,umask=...
+
+auto-mount with key file
+https://itectec.com/ubuntu/ubuntu-mount-luks-encrypted-hard-drive-at-boot/
+https://www.howtoforge.com/automatically-unlock-luks-encrypted-drives-with-a-keyfile
+https://withblue.ink/2020/01/19/auto-mounting-encrypted-drives-with-a-remote-key-on-linux.html
+    ! systemd-service
+
+2020
+RoelVanDePaar - Ubuntu: How do I auto-mount LUKS partition?
+    https://askubuntu.com/questions/1020390/how-do-i-auto-mount-luks-partition
+    https://itectec.com/ubuntu/ubuntu-how-to-auto-mount-luks-partition/
+    https://www.youtube.com/watch?v=bZqH45Mru50
+    ! using pam-mount (libpam-mount)
+    /etc/security/pam_mount.conf.xml
+
+misc
+https://superuser.com/questions/919590/dm-crypt-with-luks-etc-crypttab-using-either-keyfile-or-passphrase

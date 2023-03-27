@@ -1,0 +1,26 @@
+https://github.com/testcontainers/testcontainers-java-examples
+
+gradle-based:
+https://github.com/bsideup/javaagent-boilerplate
+https://github.com/bsideup/javaagent-boilerplate/blob/master/src/test/java/support/GroovyTestApp.java
+https://github.com/bsideup/javaagent-boilerplate/blob/master/src/test/java/support/BasicTestApp.java
+https://github.com/bsideup/javaagent-boilerplate/blob/master/src/test/java/AgentTest.java
+https://github.com/lumberjackdev/spring-boot-java-11-postgres-template
+
+https://hub.docker.com/r/zeroturnaround/groovy/~/dockerfile/
+FROM java:8
+
+simple-alpine-file-copy:
+https://github.com/testcontainers/testcontainers-java/blob/master/core/src/test/java/org/testcontainers/utility/DirectoryTarResourceTest.java
+
+2021
+https://candrews.integralblue.com/2021/08/cypress-testing-integrated-with-gradle-and-spring-boot/
+https://mister11.github.io/posts/testing_spring_webflux_application/
+https://github.com/jobrunr/jobrunr/blob/master/tests/e2e-vm-jdk/src/test/java/org/jobrunr/tests/fromhost/MavenBuildAndTestContainer.java
+    .withFileSystemBind(Paths.get(System.getProperty("user.home"), ".m2").toString(), "/root/.m2");
+    .withCopyFileToContainer(MountableFile.forHostPath(Paths.get(".")), "/app/jobrunr")
+    .waitingFor(Wait.forLogMessage(".*BUILD SUCCESS.*|.*BUILD FAILED.*|.*FAILURE: Build failed.*", 1));
+https://github.com/jobrunr/jobrunr/blob/master/tests/e2e-vm-jdk/src/test/java/org/jobrunr/tests/fromhost/JdkTest.java
+
+https://github.com/DarrenForsythe/testing-databases
+https://github.com/nielsutrecht/spring-datastore-examples

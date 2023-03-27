@@ -1,0 +1,6 @@
+2020
+https://www.baeldung.com/spring-boot-auto-configuration-report
+
+qa
+https://stackoverflow.com/questions/50273570/how-can-i-exclude-the-conditions-evaluation-report-from-the-console-of-a-spring
+    logging.level.org.springframework.boot.autoconfigure=INFO

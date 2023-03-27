@@ -1,0 +1,96 @@
+Doc:
+http://projects.haskell.org/diagrams/documentation.html
+
+Tutorial:
+http://projects.haskell.org/diagrams/tutorials.html
+http://projects.haskell.org/diagrams/doc/quickstart.html
+http://projects.haskell.org/diagrams/doc/cmdline.html
+
+Manual:
+http://projects.haskell.org/diagrams/doc/manual.html
+
+API:
+http://projects.haskell.org/diagrams/haddock/index.html
+http://projects.haskell.org/diagrams/haddock/Diagrams.html
+API-Core:
+http://projects.haskell.org/diagrams/haddock/Diagrams-Core-V.html
+API-Utils:
+http://projects.haskell.org/diagrams/haddock/Diagrams-Util.html
+with (a synonym for Default.def), #, ##
+API-Points:
+http://projects.haskell.org/diagrams/haddock/Diagrams-Points.html
+API-Combinators:
+http://projects.haskell.org/diagrams/haddock/Diagrams-Combinators.html
+API-TwoD:
+http://projects.haskell.org/diagrams/haddock/Diagrams-TwoD.html
+http://projects.haskell.org/diagrams/haddock/Diagrams-TwoD-Shapes.html
+http://projects.haskell.org/diagrams/haddock/Diagrams-TwoD-Text.html
+http://projects.haskell.org/diagrams/haddock/Diagrams-TwoD-Combinators.html
+http://projects.haskell.org/diagrams/haddock/Diagrams-TwoD-Image.html
+
+atop, beneath,
+
+beside (next to each other along the given vector), |||, ===
+
+atDirection,
+strut, strutX, strutY, strutR2
+? unitX, unitY
+snug, snugR, snugL
+
+cat, cat', hcat, hcat', vcat, vcat'
+
+sep, hsep, vsep
+hsep s === hcat' (with & sep .~ s) -- horizontal concat with separation 
+
+
+Wiki:
+https://wiki.haskell.org/Diagrams
+
+SVG:
+https://hackage.haskell.org/package/diagrams-svg
+
+Internals:
+http://www.cmears.id.au/articles/diagrams-internals.html
+
+Reference:
+http://projects.haskell.org/diagrams/doc/core.html
+
+Samples:
+https://readerunner.wordpress.com/2022/01/06/graphs-kites-and-darts/
+    https://github.com/chrisreade/PenroseKiteDart
+https://readerunner.wordpress.com/2021/09/13/diagrams-for-penrose-tiles/
+https://hackage.haskell.org/package/diagrams-contrib
+Diagrams.TwoD.Layout.Tree
+
+VectorsAndPoints:
+http://projects.haskell.org/diagrams/doc/vector.html
+
+Arrow:
+http://projects.haskell.org/diagrams/doc/arrow.html
+
+Paths:
+http://projects.haskell.org/diagrams/doc/paths.html
+http://projects.haskell.org/diagrams/doc/metafont.html
+
+Fibonacci-tree:
+http://projects.haskell.org/diagrams/gallery/FibCalls.html
+
+Images:
+http://projects.haskell.org/diagrams/doc/tutorials.html
+http://projects.haskell.org/diagrams/doc/manual.html#images
+http://projects.haskell.org/diagrams/haddock/Diagrams-TwoD-Image.html
+https://github.com/diagrams/diagrams-svg/blob/master/src/Diagrams/Backend/SVG.hs
+loadImageSvg -- Load images (JPG/PNG/...) in a SVG specific way.
+
+Input:
+https://github.com/diagrams/diagrams-input
+https://github.com/diagrams/diagrams-input-test
+http://permalink.gmane.org/gmane.comp.lang.haskell.diagrams/757
+
+Presentations:
+Diagrams: Declarative Vector Graphics in Haskell with Brent Yorgey
+https://vimeo.com/84104226
+https://vimeo.com/84249042
+
+http://gbaz.github.io/slides/13-11-25-nyhaskell-diagrams.pdf
+https://www.reddit.com/r/haskell/comments/1vawif/diagrams_declarative_vector_graphics_in_haskell/

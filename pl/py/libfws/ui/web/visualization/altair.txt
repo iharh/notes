@@ -1,0 +1,168 @@
+https://altair-viz.github.io/
+
+https://github.com/altair-viz/altair
+
+examples
+https://altair-viz.github.io/gallery/index.html
+https://github.com/altair-viz/altair_notebooks
+https://github.com/altair-viz/altair_notebooks/blob/master/notebooks/01-Index.ipynb
+https://github.com/altair-viz/altair_notebooks/blob/master/notebooks/02-Tutorial.ipynb
+
+api
+https://altair-viz.github.io/API.html
+https://altair-viz.github.io/documentation/marks.html
+
+presentations
+2018
+Exploratory Data Visualization with Vega, Vega-Lite, and Altair
+https://www.youtube.com/watch?v=CYgHWN7vApA
+2016
+https://speakerdeck.com/jakevdp/visualization-in-python-with-altair
+Granger - Altair - Declarative Statistical Visualization for Python
+https://www.youtube.com/watch?v=aRxahWy-ul8
+
+install
+$ pip install altair
+$ pip install --upgrade notebook
+$ conda install altair --channel conda-forge
+
+https://github.com/vega/ipyvega
+  jupyter nbextension install --sys-prefix --py vega
+  jupyter nbextension enable --sys-prefix --py vega
+
+deps:
+    ipython, vega, pandas
+
+
+https://dsaber.com/2016/10/02/a-dramatic-tour-through-pythons-data-visualization-landscape-including-ggplot-and-altair/
+
+mark_nnn(
+    opacity=.75,
+    color='red',
+    color='#03A9F4',
+)
+
+mark_bar
+mark_line
+    https://github.com/altair-viz/altair_notebooks/blob/master/notebooks/09-CarsDataset.ipynb
+mark_point
+    point with empty-dot inside
+    filled=True
+mark_circle
+    point without any empty-dots inside (just like mark_point(filled=True))
+mark_tick
+mark_rule
+
+
+alt.Data(
+    format=alt.DataFormat(type='csv',),
+    url='https://vega.github.io/vega-lite/data/stocks.csv',
+)
+
+
+https://altair-viz.github.io/gallery/errorbar_aggregate.html
+https://altair-viz.github.io/gallery/line_slope.html
+https://github.com/altair-viz/altair_notebooks/blob/master/notebooks/examples/errorbar_aggregate.ipynb
+https://github.com/altair-viz/altair_notebooks/blob/master/notebooks/examples/errorbar_horizontal_aggregate.ipynb
+
+ald.tutorial()
+
+Code    Data Type       Description
+Q       quantitative    number (real-valued)
+N       nominal         unordred categorial
+O       ordinal         ordered categorial
+T       temporal        date/time
+
+transformations
+    x='average(b)'
+    -//- data.groupby('a').mean()
+    x = alt.X('average(b):Q')
+    x = alt.X('b', aggregate='average', type='quantitative')
+    axis=alt.Axis(title='Average of b')
+
+    color=
+    shape=
+
+.transform_data(
+    calculate=[Formula(
+            expr='datum.sex == 2 ? "Female" : "Male"',
+            field='gender',
+        )],
+    filter='datum.year == 2000',
+    filter="datum.symbol==='GOOG'",
+)
+
+other cfg
+https://altair-viz.github.io/documentation/config.html
+
+alt.X(
+    axis=False, # disable axis
+    'Acceleration:Q',
+    scale=alt.Scale(
+        type='log',
+        domain=(5, 15),
+        range='...',
+        nice='month', # for T
+        bandSize=17.0,
+
+    ),
+    clamp=True, # to clamp the data out of border
+    color=alt.Color('gender:N',
+        range=['#EA98D2', '#659CCA'],
+        legend=Legend(
+            title='Weather type',
+        ),
+        scale=Scale(
+            domain=['sun', 'fog', 'drizzle', 'rain', 'snow'],
+            range=['#e7ba52', '#c7c7c7', '#aec7e8', '#1f77b4', '#9467bd'],
+        ),
+    ),
+    axis=alt.Axis(format='%', title='percentage'),
+    axis=alt.Axis(format='$', title='dollar amount')
+        # https://github.com/d3/d3-format/blob/master/README.md#format
+    timeUnit='yearmonth' # for T
+),
+path='year', # ? for T
+
+.configure_scale(
+    bandSize=50  # scale.bandSize adjusts thickness (in pixels) of bars
+).
+
+configure_cell(
+    width=300.0,  # cell.width adjusts the width (in pixels) of the chart
+    width=200.0,
+)
+
+display vega spec
+c.to_dict(data=False)
+
+???
+https://github.com/altair-viz/altair_notebooks/blob/master/notebooks/12-Measles.ipynb
+https://altair-viz.github.io/gallery/bar_grouped.html
+https://altair-viz.github.io/gallery/line_slope.html
+column
+https://altair-viz.github.io/gallery/trellis_anscombe.html
+https://altair-viz.github.io/gallery/trellis_scatter.html
+https://altair-viz.github.io/gallery/trellis_stacked_bar.html
+row
+https://altair-viz.github.io/gallery/trellis_bar_histogram.html
+https://altair-viz.github.io/gallery/trellis_barley.html
+
+LayeredChart
+https://github.com/altair-viz/altair_notebooks/blob/master/notebooks/07-LayeredCharts.ipynb
+https://github.com/altair-viz/altair/issues/424
+chart = alt.LayeredChart(df, layers=[
+    alt.Chart(df).mark_line().encode(
+        alt.X('name:N'),
+        alt.Y('min:Q'), #, scale=alt.Scale(domain=(1780, 1830))
+    ), alt.Chart(df).mark_line().encode(
+        alt.X('name:N'),
+        alt.Y('max:Q'),
+    )])
+
+alt.Chart(df).mark_line().encode(
+    alt.X('name'),
+    alt.Y('min:Q', scale=alt.Scale(domain=(1780, 1830))),
+)
+
+y='count(*):Q'

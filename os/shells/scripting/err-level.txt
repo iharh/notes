@@ -1,0 +1,8 @@
+ERROR_CODE=$?
+printf "${ERROR_CODE}" > $LOGS_PATH/cps-test-error-code.txt
+cp $CPS_TEST_HOME/output.xml $CPS_TEST_HOME/log.html $CPS_TEST_HOME/report.html $LOGS_PATH/
+if [ ${ERROR_CODE} != 0 ]; then
+    printf "Error executing robot tests. Code: '${ERROR_CODE}'\n"
+    exit ${ERROR_CODE}
+fi
+

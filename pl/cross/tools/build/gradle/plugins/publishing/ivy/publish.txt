@@ -1,0 +1,1154 @@
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/tasks/PublishToIvyRepository.java
+    import org.gradle.api.publish.internal.PublishOperation;
+
+    /**
+     * Publishes an IvyPublication to an IvyArtifactRepository.
+     *
+     * @since 1.3
+     */
+    public class PublishToIvyRepository extends DefaultTask {
+
+        private IvyPublicationInternal publication;
+        private IvyArtifactRepository repository;
+        private final Property<Credentials> credentials = getProject().getObjects().property(Credentials.class);
+
+        public PublishToIvyRepository() {
+            ...
+        }
+
+        ...
+        @TaskAction
+        public void publish() {
+            IvyPublicationInternal publicationInternal = getPublicationInternal();
+            if (publicationInternal == null) {
+                throw new InvalidUserDataException("The 'publication' property is required");
+            }
+
+            IvyArtifactRepository repository = getRepository();
+            if (repository == null) {
+                throw new InvalidUserDataException("The 'repository' property is required");
+            }
+            getDuplicatePublicationTracker().checkCanPublish(publicationInternal, repository.getUrl(), repository.getName());
+
+            doPublish(publicationInternal, repository);
+        }
+
+        @Inject
+        protected IvyPublisher getIvyPublisher() {
+            throw new UnsupportedOperationException();
+        }
+
+        private void doPublish(final IvyPublicationInternal publication, final IvyArtifactRepository repository) {
+            new PublishOperation(publication, repository.getName()) { // !!! just calls publish() method
+                @Override
+                protected void publish() {
+                    IvyNormalizedPublication normalizedPublication = publication.asNormalisedPublication();
+                    IvyPublisher publisher = getIvyPublisher();
+                    publisher.publish(normalizedPublication, repository);
+                }
+            }.run();
+        }
+
+        @Inject
+        protected DuplicatePublicationTracker getDuplicatePublicationTracker() {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publisher/IvyNormalizedPublication.java
+    public class IvyNormalizedPublication {
+
+        private final String name;
+        private final IvyPublicationIdentity projectIdentity;
+        private final File ivyDescriptorFile;
+        private final Set<IvyArtifact> allArtifacts;
+        private final IvyArtifactSet mainArtifacts;
+        ... // DTO
+    }
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publisher/IvyPublisher.java
+    import org.gradle.api.artifacts.repositories.IvyArtifactRepository;
+
+    public interface IvyPublisher {
+        void publish(IvyNormalizedPublication publication, IvyArtifactRepository repository);
+    }
+
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/IvyServices.java
+    public class IvyServices extends AbstractPluginServiceRegistry {
+        @Override
+        public void registerBuildServices(ServiceRegistration registration) {
+            registration.addProvider(new BuildServices());
+        }
+
+        private static class BuildServices {
+
+            IvyPublisher createIvyPublisher(IvyContextManager ivyContextManager, ImmutableModuleIdentifierFactory moduleIdentifierFactory, FileResourceRepository fileResourceRepository, IvyMutableModuleMetadataFactory metadataFactory) {
+                IvyPublisher publisher = new DependencyResolverIvyPublisher();
+                publisher = new ValidatingIvyPublisher(publisher, moduleIdentifierFactory, fileResourceRepository, metadataFactory);
+                return new ContextualizingIvyPublisher(publisher, ivyContextManager);
+            }
+            ...
+        }
+        ...
+    }
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publisher/ContextualizingIvyPublisher.java
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publisher/ValidatingIvyPublisher.java
+    just validation stuff
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publisher/DependencyResolverIvyPublisher.java
+    public class DependencyResolverIvyPublisher implements IvyPublisher {
+        private final NetworkOperationBackOffAndRetry networkOperationBackOffAndRetry = new NetworkOperationBackOffAndRetry();
+
+        @Override
+        public void publish(IvyNormalizedPublication publication, IvyArtifactRepository repository) {
+            IvyResolver publisher = ((DefaultIvyArtifactRepository) repository).createPublisher(); // ???
+            IvyPublicationIdentity projectIdentity = publication.getProjectIdentity();
+            ModuleComponentIdentifier moduleVersionIdentifier = DefaultModuleComponentIdentifier.newId(
+                DefaultModuleIdentifier.newId(projectIdentity.getOrganisation(), projectIdentity.getModule()),
+                projectIdentity.getRevision()
+            );
+
+            for (IvyArtifact artifact : publication.getAllArtifacts()) {
+                ModuleComponentArtifactMetadata artifactMetadata = new DefaultModuleComponentArtifactMetadata(moduleVersionIdentifier, createIvyArtifact(artifact));
+                publish(publisher, artifact, artifactMetadata);
+            }
+        }
+
+        private void publish(IvyResolver publisher, IvyArtifact artifact, ModuleComponentArtifactMetadata artifactMetadata) {
+            networkOperationBackOffAndRetry.withBackoffAndRetry(new Runnable() {
+                @Override
+                public void run() {
+                    publisher.publish(artifactMetadata, artifact.getFile());
+                }
+
+                @Override
+                public String toString() {
+                    return "Publish " + artifactMetadata;
+                }
+
+            });
+        }
+
+        private IvyArtifactName createIvyArtifact(IvyArtifact artifact) {
+            return new DefaultIvyArtifactName(artifact.getName(), artifact.getType(), artifact.getExtension(), artifact.getClassifier());
+        }
+    }
+
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/DefaultIvyArtifactRepository.java
+    public class DefaultIvyArtifactRepository extends AbstractAuthenticationSupportedRepository implements IvyArtifactRepository, ResolutionAwareRepository, PublicationAwareRepository {
+        ...
+        public DefaultIvyArtifactRepository(FileResolver fileResolver,
+                                            RepositoryTransportFactory transportFactory, // !!!
+                                            LocallyAvailableResourceFinder<ModuleComponentArtifactMetadata> locallyAvailableResourceFinder,
+                                            FileStore<ModuleComponentArtifactIdentifier> artifactFileStore,
+                                            FileStore<String> externalResourcesFileStore,
+                                            AuthenticationContainer authenticationContainer,
+                                            IvyContextManager ivyContextManager,
+                                            ImmutableModuleIdentifierFactory moduleIdentifierFactory,
+                                            InstantiatorFactory instantiatorFactory,
+                                            FileResourceRepository fileResourceRepository,
+                                            GradleModuleMetadataParser moduleMetadataParser,
+                                            IvyMutableModuleMetadataFactory metadataFactory,
+                                            IsolatableFactory isolatableFactory,
+                                            ObjectFactory objectFactory,
+                                            DefaultUrlArtifactRepository.Factory urlArtifactRepositoryFactory, // !!!
+                                            ChecksumService checksumService,
+                                            ProviderFactory providerFactory) {
+            super(instantiatorFactory.decorateLenient(), authenticationContainer, objectFactory, providerFactory);
+            this.fileResolver = fileResolver;
+            this.urlArtifactRepository = urlArtifactRepositoryFactory.create("Ivy", this::getDisplayName); // !!!
+            this.transportFactory = transportFactory;
+            this.locallyAvailableResourceFinder = locallyAvailableResourceFinder;
+            this.artifactFileStore = artifactFileStore;
+            this.externalResourcesFileStore = externalResourcesFileStore;
+            this.additionalPatternsLayout = new AdditionalPatternsRepositoryLayout(fileResolver);
+            this.moduleIdentifierFactory = moduleIdentifierFactory;
+            this.instantiatorFactory = instantiatorFactory;
+            this.fileResourceRepository = fileResourceRepository;
+            this.moduleMetadataParser = moduleMetadataParser;
+            this.metadataFactory = metadataFactory;
+            this.isolatableFactory = isolatableFactory;
+            this.checksumService = checksumService;
+            this.layout = new GradleRepositoryLayout();
+            this.metaDataProvider = new MetaDataProvider();
+            this.instantiator = instantiatorFactory.decorateLenient();
+            this.ivyContextManager = ivyContextManager;
+            this.metadataSources.setDefaults();
+        }
+
+        @Override
+        public IvyResolver createPublisher() {
+            return createRealResolver();
+        }
+        ...
+        private IvyResolver createRealResolver() {
+            Set<String> schemes = getSchemes();
+            validate(schemes);
+
+            IvyResolver resolver = createResolver(schemes);
+            @Nullable
+            URI uri = urlArtifactRepository.getUrl();
+            layout.apply(uri, resolver);
+            additionalPatternsLayout.apply(uri, resolver);
+
+            return resolver;
+        }
+        ...
+        private IvyResolver createResolver(Set<String> schemes) {
+            // !!!
+            return createResolver(transportFactory.createTransport(schemes, getName(), getConfiguredAuthentication(), urlArtifactRepository.createRedirectVerifier()));
+        }
+
+        private void validate(Set<String> schemes) {
+            if (schemes.isEmpty()) {
+                throw new InvalidUserDataException("You must specify a base url or at least one artifact pattern for the Ivy repository '" + getDisplayName() + "'.");
+            }
+        }
+
+        private Set<String> getSchemes() {
+            if (schemes == null) {
+                URI uri = getUrl();
+                schemes = new LinkedHashSet<>();
+                layout.addSchemes(uri, schemes);
+                additionalPatternsLayout.addSchemes(uri, schemes);
+            }
+            return schemes;
+        }
+
+        private IvyResolver createResolver(RepositoryTransport transport) {
+            Instantiator injector = createInjectorForMetadataSuppliers(transport, instantiatorFactory, getUrl(), externalResourcesFileStore);
+            InstantiatingAction<ComponentMetadataSupplierDetails> supplierFactory = createComponentMetadataSupplierFactory(injector, isolatableFactory);
+            InstantiatingAction<ComponentMetadataListerDetails> listerFactory = createComponentMetadataVersionLister(injector, isolatableFactory);
+            return new IvyResolver(getName(), transport, locallyAvailableResourceFinder, metaDataProvider.dynamicResolve, artifactFileStore, supplierFactory, listerFactory, createMetadataSources(), IvyMetadataArtifactProvider.INSTANCE, injector, checksumService);
+        }
+        ...
+    }
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/AbstractAuthenticationSupportedRepository.java
+    public abstract class AbstractAuthenticationSupportedRepository extends AbstractResolutionAwareArtifactRepository implements AuthenticationSupportedInternal {
+        private final AuthenticationSupporter delegate;
+        private final ProviderFactory providerFactory;
+
+        AbstractAuthenticationSupportedRepository(Instantiator instantiator, AuthenticationContainer authenticationContainer, ObjectFactory objectFactory, ProviderFactory providerFactory) {
+            super(objectFactory);
+            this.delegate = new AuthenticationSupporter(instantiator, objectFactory, authenticationContainer, providerFactory);
+            this.providerFactory = providerFactory;
+        }
+        ...
+        @Override
+        public Collection<Authentication> getConfiguredAuthentication() { // !!!
+            Collection<Authentication> configuredAuthentication = delegate.getConfiguredAuthentication(); // !!!
+
+            // ??? for some reason
+            for (Authentication authentication : configuredAuthentication) {
+                AuthenticationInternal authenticationInternal = (AuthenticationInternal) authentication;
+                for (URI repositoryUrl : getRepositoryUrls()) {
+                    // only care about HTTP hosts right now
+                    if (repositoryUrl.getScheme().startsWith("http")) {
+                        authenticationInternal.addHost(repositoryUrl.getHost(), repositoryUrl.getPort());
+                    }
+                }
+            }
+            return configuredAuthentication;
+        }
+        ...
+    }
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/DefaultUrlArtifactRepository.java
+    public class DefaultUrlArtifactRepository implements UrlArtifactRepository {
+
+        private Object url;
+        private boolean allowInsecureProtocol;
+        private final String repositoryType;
+        private final FileResolver fileResolver;
+        private final Supplier<String> displayNameSupplier;
+
+        DefaultUrlArtifactRepository(
+            final FileResolver fileResolver,
+            final String repositoryType,
+            final Supplier<String> displayNameSupplier
+        ) {
+            this.fileResolver = fileResolver;
+            this.repositoryType = repositoryType;
+            this.displayNameSupplier = displayNameSupplier;
+        }
+
+        HttpRedirectVerifier createRedirectVerifier() {
+            @Nullable
+            URI uri = getUrl();
+            return HttpRedirectVerifierFactory
+                .create(
+                    uri,
+                    allowInsecureProtocol,
+                    this::throwExceptionDueToInsecureProtocol,
+                    redirection -> throwExceptionDueToInsecureRedirect(uri, redirection)
+                );
+        }
+
+        public static class Factory {
+            private final FileResolver fileResolver;
+
+            @Inject
+            public Factory(FileResolver fileResolver) {
+                this.fileResolver = fileResolver;
+            }
+
+            DefaultUrlArtifactRepository create(String repositoryType, Supplier<String> displayNameSupplier) {
+                return new DefaultUrlArtifactRepository(fileResolver, repositoryType, displayNameSupplier);
+            }
+        }
+    }
+
+subprojects/resources/src/main/java/org/gradle/internal/verifier/HttpRedirectVerifierFactory.java
+    /**
+     * Used to create instances of {@link HttpRedirectVerifier}.
+     */
+    public class HttpRedirectVerifierFactory {
+        /**
+         * Verifies that the base URL and all subsequent redirects followed during an interaction with a server are done so securely unless
+         * the user has explicitly opted out from this protection.
+         *
+         * @param baseHost The host specified by the user.
+         * @param allowInsecureProtocol If true, allows HTTP based connections.
+         * @param insecureBaseHost Callback when the base host URL is insecure.
+         * @param insecureRedirect Callback when the server returns an 30x redirect to an insecure server.
+         */
+        public static HttpRedirectVerifier create(
+            @Nullable URI baseHost,
+            boolean allowInsecureProtocol,
+            Runnable insecureBaseHost,
+            Consumer<URI> insecureRedirect
+        ) {
+            requireNonNull(insecureBaseHost, "insecureBaseHost must not be null");
+            requireNonNull(insecureRedirect, "insecureRedirect must not be null");
+            if (allowInsecureProtocol) {
+                return NoopHttpRedirectVerifier.instance;
+            } else {
+                // Verify that the base URL is secure now.
+                if (baseHost != null && !GUtil.isSecureUrl(baseHost)) {
+                    insecureBaseHost.run();
+                }
+
+                // Verify that any future redirect locations are secure.
+                // Lambda will be called back on for every redirect in the chain.
+                return redirectLocations ->
+                    redirectLocations
+                        .stream()
+                        .filter(url -> !GUtil.isSecureUrl(url))
+                        .forEach(insecureRedirect);
+            }
+        }
+
+        private static class NoopHttpRedirectVerifier implements HttpRedirectVerifier {
+            private static NoopHttpRedirectVerifier instance = new NoopHttpRedirectVerifier();
+
+            @Override
+            public void validateRedirects(Collection<URI> redirectLocations) {
+                // Noop
+            }
+        }
+    }
+
+
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/AuthenticationSupporter.java
+    import org.gradle.api.artifacts.repositories.AuthenticationContainer;
+    import org.gradle.api.artifacts.repositories.PasswordCredentials;
+    import org.gradle.api.credentials.AwsCredentials;
+    import org.gradle.api.credentials.Credentials;
+    import org.gradle.api.credentials.HttpHeaderCredentials;
+    ...
+    import org.gradle.authentication.Authentication;
+    import org.gradle.internal.Cast;
+    import org.gradle.internal.authentication.AllSchemesAuthentication;
+    import org.gradle.internal.authentication.AuthenticationInternal;
+    import org.gradle.internal.credentials.DefaultAwsCredentials;
+    import org.gradle.internal.credentials.DefaultHttpHeaderCredentials; // ???
+    import org.gradle.internal.credentials.DefaultPasswordCredentials; // ???
+    import org.gradle.internal.reflect.Instantiator;
+
+    public class AuthenticationSupporter {
+        private final Instantiator instantiator;
+        private final AuthenticationContainer authenticationContainer; // !!!
+        private final ProviderFactory providerFactory;
+
+        private final Property<Credentials> credentials;
+        private boolean usesCredentials = false;
+
+        public AuthenticationSupporter(Instantiator instantiator, ObjectFactory objectFactory, AuthenticationContainer authenticationContainer, ProviderFactory providerFactory) {
+            this.instantiator = instantiator;
+            this.authenticationContainer = authenticationContainer;
+            this.credentials = objectFactory.property(Credentials.class);
+            this.providerFactory = providerFactory;
+        }
+        ...
+        public void credentials(Class<? extends Credentials> credentialsType, Provider<String> identity) {
+            this.usesCredentials = true;
+            this.credentials.set(providerFactory.credentials(credentialsType, identity)); // !!!
+        }
+
+        public void setConfiguredCredentials(Credentials credentials) {
+            this.usesCredentials = true;
+            this.credentials.set(credentials);
+        }
+
+        private <T extends Credentials> T setCredentials(Class<T> clazz) {
+            this.usesCredentials = true;
+            T t = newCredentials(clazz);
+            credentials.set(t);
+            return t;
+        }
+        ...
+        public AuthenticationContainer getAuthentication() {
+            return authenticationContainer;
+        }
+
+        public Collection<Authentication> getConfiguredAuthentication() { // !!!
+            populateAuthenticationCredentials();
+            if (usesCredentials() && authenticationContainer.size() == 0) {
+                return Collections.singleton(new AllSchemesAuthentication(credentials.get())); // !!!
+            } else {
+                return getAuthentication();
+            }
+        }
+
+        boolean usesCredentials() {
+            return usesCredentials;
+        }
+
+        private void populateAuthenticationCredentials() {
+            // TODO: This will have to be changed when we support setting credentials directly on the authentication
+            for (Authentication authentication : authenticationContainer) {
+                ((AuthenticationInternal) authentication).setCredentials(credentials.getOrNull());
+            }
+        }
+
+
+
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/DefaultBaseRepositoryFactory.java
+    public class DefaultBaseRepositoryFactory implements BaseRepositoryFactory {
+        ...
+        private final RepositoryTransportFactory transportFactory;
+        ...
+        public DefaultBaseRepositoryFactory(LocalMavenRepositoryLocator localMavenRepositoryLocator,
+                                            FileResolver fileResolver,
+                                            FileCollectionFactory fileCollectionFactory,
+                                            RepositoryTransportFactory transportFactory, // !!!
+                                            LocallyAvailableResourceFinder<ModuleComponentArtifactMetadata> locallyAvailableResourceFinder,
+                                            FileStore<ModuleComponentArtifactIdentifier> artifactFileStore,
+                                            FileStore<String> externalResourcesFileStore,
+                                            MetaDataParser<MutableMavenModuleResolveMetadata> pomParser,
+                                            GradleModuleMetadataParser metadataParser,
+                                            AuthenticationSchemeRegistry authenticationSchemeRegistry,
+                                            IvyContextManager ivyContextManager,
+                                            ImmutableModuleIdentifierFactory moduleIdentifierFactory,
+                                            InstantiatorFactory instantiatorFactory,
+                                            FileResourceRepository fileResourceRepository,
+                                            MavenMutableModuleMetadataFactory mavenMetadataFactory,
+                                            IvyMutableModuleMetadataFactory ivyMetadataFactory,
+                                            IsolatableFactory isolatableFactory,
+                                            ObjectFactory objectFactory,
+                                            CollectionCallbackActionDecorator callbackActionDecorator,
+                                            DefaultUrlArtifactRepository.Factory urlArtifactRepositoryFactory,
+                                            ChecksumService checksumService,
+                                            ProviderFactory providerFactory) {
+            this.localMavenRepositoryLocator = localMavenRepositoryLocator;
+            this.fileResolver = fileResolver;
+            this.fileCollectionFactory = fileCollectionFactory;
+            this.metadataParser = metadataParser;
+            this.instantiator = instantiatorFactory.decorateLenient();
+            this.transportFactory = transportFactory;
+            this.locallyAvailableResourceFinder = locallyAvailableResourceFinder;
+            this.artifactFileStore = artifactFileStore;
+            this.externalResourcesFileStore = externalResourcesFileStore;
+            this.pomParser = pomParser;
+            this.authenticationSchemeRegistry = authenticationSchemeRegistry;
+            this.ivyContextManager = ivyContextManager;
+            this.moduleIdentifierFactory = moduleIdentifierFactory;
+            this.instantiatorFactory = instantiatorFactory;
+            this.fileResourceRepository = fileResourceRepository;
+            this.mavenMetadataFactory = mavenMetadataFactory;
+            this.ivyMetadataFactory = ivyMetadataFactory;
+            this.isolatableFactory = isolatableFactory;
+            this.objectFactory = objectFactory;
+            this.callbackActionDecorator = callbackActionDecorator;
+            this.urlArtifactRepositoryFactory = urlArtifactRepositoryFactory;
+            this.checksumService = checksumService;
+            this.providerFactory = providerFactory;
+        }
+        ...
+        @Override
+        public IvyArtifactRepository createIvyRepository() {
+            // !!! create DefaultIvyArtifactRepository
+            return instantiator.newInstance(DefaultIvyArtifactRepository.class, fileResolver, transportFactory, locallyAvailableResourceFinder, artifactFileStore, externalResourcesFileStore, createAuthenticationContainer(), ivyContextManager, moduleIdentifierFactory, instantiatorFactory, fileResourceRepository, metadataParser, ivyMetadataFactory, isolatableFactory, objectFactory, urlArtifactRepositoryFactory, checksumService, providerFactory);
+        }
+        ...
+    }
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/DefaultDependencyManagementServices.java
+    public class DefaultDependencyManagementServices implements DependencyManagementServices {
+        ...
+        private static class DependencyResolutionScopeServices {
+            ...
+            BaseRepositoryFactory createBaseRepositoryFactory(
+                    LocalMavenRepositoryLocator localMavenRepositoryLocator,
+                    FileResolver fileResolver,
+                    FileCollectionFactory fileCollectionFactory,
+                    RepositoryTransportFactory repositoryTransportFactory, // !!!
+                    LocallyAvailableResourceFinder<ModuleComponentArtifactMetadata> locallyAvailableResourceFinder,
+                    FileStoreAndIndexProvider fileStoreAndIndexProvider,
+                    VersionSelectorScheme versionSelectorScheme,
+                    AuthenticationSchemeRegistry authenticationSchemeRegistry,
+                    IvyContextManager ivyContextManager,
+                    ImmutableAttributesFactory attributesFactory,
+                    ImmutableModuleIdentifierFactory moduleIdentifierFactory,
+                    InstantiatorFactory instantiatorFactory,
+                    FileResourceRepository fileResourceRepository,
+                    MavenMutableModuleMetadataFactory metadataFactory,
+                    IvyMutableModuleMetadataFactory ivyMetadataFactory,
+                    IsolatableFactory isolatableFactory,
+                    ObjectFactory objectFactory,
+                    CollectionCallbackActionDecorator callbackDecorator,
+                    NamedObjectInstantiator instantiator,
+                    DefaultUrlArtifactRepository.Factory urlArtifactRepositoryFactory,
+                    ChecksumService checksumService,
+                    ProviderFactory providerFactory
+            ) {
+                return new DefaultBaseRepositoryFactory(
+                        localMavenRepositoryLocator,
+                        fileResolver,
+                        fileCollectionFactory,
+                        repositoryTransportFactory,
+                        locallyAvailableResourceFinder,
+                        fileStoreAndIndexProvider.getArtifactIdentifierFileStore(),
+                        fileStoreAndIndexProvider.getExternalResourceFileStore(),
+                        new GradlePomModuleDescriptorParser(versionSelectorScheme, moduleIdentifierFactory, fileResourceRepository, metadataFactory),
+                        new GradleModuleMetadataParser(attributesFactory, moduleIdentifierFactory, instantiator),
+                        authenticationSchemeRegistry,
+                        ivyContextManager,
+                        moduleIdentifierFactory,
+                        instantiatorFactory,
+                        fileResourceRepository,
+                        metadataFactory,
+                        ivyMetadataFactory,
+                        isolatableFactory,
+                        objectFactory,
+                        callbackDecorator,
+                        urlArtifactRepositoryFactory,
+                        checksumService,
+                        providerFactory
+                );
+            }
+        ...
+        }
+    ...
+    }
+
+
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/resolver/IvyResolver.java
+    public class IvyResolver extends ExternalResourceResolver<IvyModuleResolveMetadata> implements PatternBasedResolver {
+
+        private final boolean dynamicResolve;
+        private boolean m2Compatible;
+        private final IvyLocalRepositoryAccess localRepositoryAccess;
+        private final IvyRemoteRepositoryAccess remoteRepositoryAccess;
+
+        public IvyResolver(String name,
+                           RepositoryTransport transport,
+                           LocallyAvailableResourceFinder<ModuleComponentArtifactMetadata> locallyAvailableResourceFinder,
+                           boolean dynamicResolve,
+                           FileStore<ModuleComponentArtifactIdentifier> artifactFileStore,
+                           @Nullable InstantiatingAction<ComponentMetadataSupplierDetails> componentMetadataSupplierFactory,
+                           @Nullable InstantiatingAction<ComponentMetadataListerDetails> componentMetadataVersionListerFactory,
+                           ImmutableMetadataSources repositoryContentFilter,
+                           MetadataArtifactProvider metadataArtifactProvider,
+                           Instantiator injector, ChecksumService checksumService) {
+            super(
+                name,
+                transport.isLocal(),
+                transport.getRepository(),  // !!!
+                transport.getResourceAccessor(),
+                locallyAvailableResourceFinder,
+                artifactFileStore,
+                repositoryContentFilter,
+                metadataArtifactProvider,
+                componentMetadataSupplierFactory,
+                componentMetadataVersionListerFactory,
+                injector,
+                checksumService);
+            this.dynamicResolve = dynamicResolve;
+            this.localRepositoryAccess = new IvyLocalRepositoryAccess();
+            this.remoteRepositoryAccess = new IvyRemoteRepositoryAccess();
+        }
+        ...
+    }
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/resolver/ExternalResourceResolver.java
+    public abstract class ExternalResourceResolver<T extends ModuleComponentResolveMetadata> implements ModuleVersionPublisher, ConfiguredModuleComponentRepository {
+        ...
+        private final ExternalResourceRepository repository;
+        ...
+        protected ExternalResourceResolver(String name,
+                                   boolean local,
+                                   ExternalResourceRepository repository,
+                                   CacheAwareExternalResourceAccessor cachingResourceAccessor,
+                                   LocallyAvailableResourceFinder<ModuleComponentArtifactMetadata> locallyAvailableResourceFinder,
+                                   FileStore<ModuleComponentArtifactIdentifier> artifactFileStore,
+                                   ImmutableMetadataSources metadataSources,
+                                   MetadataArtifactProvider metadataArtifactProvider,
+                                   @Nullable InstantiatingAction<ComponentMetadataSupplierDetails> componentMetadataSupplierFactory,
+                                   @Nullable InstantiatingAction<ComponentMetadataListerDetails> providedVersionLister,
+                                   Instantiator injector,
+                                   ChecksumService checksumService) {
+            this.name = name;
+            this.local = local;
+            this.cachingResourceAccessor = cachingResourceAccessor;
+            this.repository = repository;
+            this.locallyAvailableResourceFinder = locallyAvailableResourceFinder;
+            this.artifactFileStore = artifactFileStore;
+            this.metadataSources = metadataSources;
+            this.metadataArtifactProvider = metadataArtifactProvider;
+            this.componentMetadataSupplierFactory = componentMetadataSupplierFactory;
+            this.providedVersionLister = providedVersionLister;
+            this.injector = injector;
+            this.checksumService = checksumService;
+        }
+        ...
+        @Override
+        public void publish(IvyModulePublishMetadata moduleVersion) {
+            for (IvyModuleArtifactPublishMetadata artifact : moduleVersion.getArtifacts()) {
+                publish(new DefaultModuleComponentArtifactMetadata(artifact.getId()), artifact.getFile());
+            }
+        }
+
+        public void publish(ModuleComponentArtifactMetadata artifact, File src) {
+            ResourcePattern destinationPattern;
+            if ("ivy".equals(artifact.getName().getType()) && !ivyPatterns.isEmpty()) {
+                destinationPattern = ivyPatterns.get(0);
+            } else if (!artifactPatterns.isEmpty()) {
+                destinationPattern = artifactPatterns.get(0);
+            } else {
+                throw new IllegalStateException("impossible to publish " + artifact + " using " + this + ": no artifact pattern defined");
+            }
+            ExternalResourceName destination = destinationPattern.getLocation(artifact);
+
+            put(src, destination);
+            LOGGER.info("Published {} to {}", artifact, destination);
+        }
+
+        private void put(File src, ExternalResourceName destination) {
+            repository.withProgressLogging().resource(destination).put(new FileReadableContent(src));
+            publishChecksums(destination, src);
+        }
+
+        private void publishChecksums(ExternalResourceName destination, File content) {
+            publishChecksum(destination, content, "sha1", 40);
+
+            if (!ExternalResourceResolver.disableExtraChecksums()) {
+                publishPossiblyUnsupportedChecksum(destination, content, "sha-256", 64);
+                publishPossiblyUnsupportedChecksum(destination, content, "sha-512", 128);
+            }
+        }
+
+        private void publishPossiblyUnsupportedChecksum(ExternalResourceName destination, File content, String algorithm, int length) {
+            try {
+                publishChecksum(destination, content, algorithm, length);
+            } catch (Exception ex) {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.warn("Cannot upload checksum for " + content.getName() + " because the remote repository doesn't support " + algorithm + ". This will not fail the build.", ex);
+                } else {
+                    LOGGER.warn("Cannot upload checksum for " + content.getName() + " because the remote repository doesn't support " + algorithm + ". This will not fail the build.");
+                }
+            }
+        }
+
+        private void publishChecksum(ExternalResourceName destination, File content, String algorithm, int length) {
+            byte[] checksum = createChecksumFile(content, algorithm.toUpperCase(), length);
+            ExternalResourceName checksumDestination = destination.append("." + algorithm.replaceAll("-", ""));
+            repository.resource(checksumDestination).put(new ByteArrayReadableContent(checksum));
+        }
+        ...
+    }
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/repositories/transport/RepositoryTransportFactory.java
+    public class RepositoryTransportFactory {
+        private final List<ResourceConnectorFactory> registeredProtocols = Lists.newArrayList();
+
+        ...
+        public RepositoryTransportFactory(Collection<ResourceConnectorFactory> resourceConnectorFactory, // !!!
+                                          ProgressLoggerFactory progressLoggerFactory,
+                                          TemporaryFileProvider temporaryFileProvider,
+                                          CachedExternalResourceIndex<String> cachedExternalResourceIndex,
+                                          BuildCommencedTimeProvider timeProvider,
+                                          ArtifactCacheLockingManager artifactCacheLockingManager,
+                                          BuildOperationExecutor buildOperationExecutor,
+                                          StartParameterResolutionOverride startParameterResolutionOverride,
+                                          ProducerGuard<ExternalResourceName> producerGuard,
+                                          FileResourceRepository fileRepository,
+                                          ChecksumService checksumService,
+                                          FileResourceListener listener) {
+            this.progressLoggerFactory = progressLoggerFactory;
+            this.temporaryFileProvider = temporaryFileProvider;
+            this.cachedExternalResourceIndex = cachedExternalResourceIndex;
+            this.timeProvider = timeProvider;
+            this.artifactCacheLockingManager = artifactCacheLockingManager;
+            this.buildOperationExecutor = buildOperationExecutor;
+            this.startParameterResolutionOverride = startParameterResolutionOverride;
+            this.producerGuard = producerGuard;
+            this.fileRepository = fileRepository;
+            this.checksumService = checksumService;
+            this.listener = listener;
+
+            registeredProtocols.addAll(resourceConnectorFactory); // !!!
+        }
+        ...
+        public RepositoryTransport createTransport(String scheme, String name, Collection<Authentication> authentications, HttpRedirectVerifier redirectVerifier) {
+            return createTransport(Collections.singleton(scheme), name, authentications, redirectVerifier);
+        }
+
+        public RepositoryTransport createTransport(Set<String> schemes, String name, Collection<Authentication> authentications, HttpRedirectVerifier redirectVerifier) {
+            validateSchemes(schemes);
+
+            ResourceConnectorFactory connectorFactory = findConnectorFactory(schemes);
+
+            // Ensure resource transport protocol, authentication types and credentials are all compatible
+            validateConnectorFactoryCredentials(schemes, connectorFactory, authentications);
+
+            // File resources are handled slightly differently at present.
+            // file:// repos are treated differently
+            // 1) we don't cache their files
+            // 2) we don't do progress logging for "downloading"
+            if (schemes.equals(Collections.singleton("file"))) {
+                return createFileTransport(name);
+            }
+            ResourceConnectorSpecification connectionDetails = new DefaultResourceConnectorSpecification(authentications, redirectVerifier); // !!!
+
+            ExternalResourceConnector resourceConnector = connectorFactory.createResourceConnector(connectionDetails); // !!! check HttpConnectorFactory
+            resourceConnector = startParameterResolutionOverride.overrideExternalResourceConnector(resourceConnector);
+
+            ExternalResourceCachePolicy cachePolicy = new DefaultExternalResourceCachePolicy();
+            cachePolicy = startParameterResolutionOverride.overrideExternalResourceCachePolicy(cachePolicy);
+
+            return new ResourceConnectorRepositoryTransport(name, progressLoggerFactory, temporaryFileProvider, cachedExternalResourceIndex, timeProvider, artifactCacheLockingManager, resourceConnector, buildOperationExecutor, cachePolicy, producerGuard, fileRepository, checksumService);
+        }
+        ...
+        private ResourceConnectorFactory findConnectorFactory(Set<String> schemes) {
+            for (ResourceConnectorFactory protocolRegistration : registeredProtocols) {
+                if (protocolRegistration.getSupportedProtocols().containsAll(schemes)) {
+                    return protocolRegistration;
+                }
+            }
+            throw new InvalidUserDataException("You cannot mix different URL schemes for a single repository. Please declare separate repositories.");
+        }
+
+    }
+
+subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/DependencyManagementBuildScopeServices.java
+    /**
+     * The set of dependency management services that are created per build.
+     */
+    class DependencyManagementBuildScopeServices {
+        ...
+        RepositoryTransportFactory createRepositoryTransportFactory(ProgressLoggerFactory progressLoggerFactory,
+                                                                    TemporaryFileProvider temporaryFileProvider,
+                                                                    FileStoreAndIndexProvider fileStoreAndIndexProvider,
+                                                                    BuildCommencedTimeProvider buildCommencedTimeProvider,
+                                                                    ArtifactCachesProvider artifactCachesProvider,
+                                                                    List<ResourceConnectorFactory> resourceConnectorFactories, // !!!
+                                                                    BuildOperationExecutor buildOperationExecutor,
+                                                                    ProducerGuard<ExternalResourceName> producerGuard,
+                                                                    FileResourceRepository fileResourceRepository,
+                                                                    ChecksumService checksumService,
+                                                                    StartParameterResolutionOverride startParameterResolutionOverride,
+                                                                    ListenerManager listenerManager) {
+            return artifactCachesProvider.withWritableCache((md, manager) -> new RepositoryTransportFactory(
+                resourceConnectorFactories, // !!!
+                progressLoggerFactory,
+                temporaryFileProvider,
+                fileStoreAndIndexProvider.getExternalResourceIndex(),
+                buildCommencedTimeProvider,
+                manager,
+                buildOperationExecutor,
+                startParameterResolutionOverride,
+                producerGuard,
+                fileResourceRepository,
+                checksumService,
+                listenerManager.getBroadcaster(FileResourceListener.class)));
+        }
+        ...
+    }
+
+
+subprojects/dependency-management/src/main/java/org/gradle/internal/resource/transport/ResourceConnectorRepositoryTransport.java
+    public class ResourceConnectorRepositoryTransport extends AbstractRepositoryTransport {
+        private final ExternalResourceRepository repository;
+        private final DefaultCacheAwareExternalResourceAccessor resourceAccessor;
+
+        public ResourceConnectorRepositoryTransport(String name,
+                                                    ProgressLoggerFactory progressLoggerFactory,
+                                                    TemporaryFileProvider temporaryFileProvider,
+                                                    CachedExternalResourceIndex<String> cachedExternalResourceIndex,
+                                                    BuildCommencedTimeProvider timeProvider,
+                                                    ArtifactCacheLockingManager artifactCacheLockingManager,
+                                                    ExternalResourceConnector connector, // !!!
+                                                    BuildOperationExecutor buildOperationExecutor,
+                                                    ExternalResourceCachePolicy cachePolicy,
+                                                    ProducerGuard<ExternalResourceName> producerGuard,
+                                                    FileResourceRepository fileResourceRepository,
+                                                    ChecksumService checksumService) {
+            super(name);
+            ProgressLoggingExternalResourceUploader loggingUploader = new ProgressLoggingExternalResourceUploader(connector, progressLoggerFactory);
+            ProgressLoggingExternalResourceAccessor loggingAccessor = new ProgressLoggingExternalResourceAccessor(connector, progressLoggerFactory);
+            repository = new DefaultExternalResourceRepository(name, connector, connector, connector, loggingAccessor, loggingUploader, buildOperationExecutor); // !!!
+            resourceAccessor = new DefaultCacheAwareExternalResourceAccessor(repository, cachedExternalResourceIndex, timeProvider, temporaryFileProvider, artifactCacheLockingManager, cachePolicy, producerGuard, fileResourceRepository, checksumService);
+        }
+
+        @Override
+        public ExternalResourceRepository getRepository() {
+            return repository;
+        }
+
+        @Override
+        public CacheAwareExternalResourceAccessor getResourceAccessor() {
+            return resourceAccessor;
+        }
+
+        @Override
+        public boolean isLocal() {
+            return false;
+        }
+    }
+
+subprojects/dependency-management/src/main/java/org/gradle/internal/resource/transport/DefaultExternalResourceRepository.java
+    public class DefaultExternalResourceRepository implements ExternalResourceRepository {
+        private final String name;
+        private final ExternalResourceAccessor accessor;
+        private final ExternalResourceUploader uploader;
+        private final ExternalResourceLister lister;
+        private final ExternalResourceAccessor loggingAccessor;
+        private final ExternalResourceUploader loggingUploader;
+        private final BuildOperationExecutor buildOperationExecutor;
+
+        public DefaultExternalResourceRepository(String name,
+                                                 ExternalResourceAccessor accessor,
+                                                 ExternalResourceUploader uploader, // !!!
+                                                 ExternalResourceLister lister,
+                                                 ExternalResourceAccessor loggingAccessor,
+                                                 ExternalResourceUploader loggingUploader,
+                                                 BuildOperationExecutor buildOperationExecutor) {
+            this.name = name;
+            this.accessor = accessor;
+            this.uploader = uploader;
+            this.lister = lister;
+            this.loggingAccessor = loggingAccessor;
+            this.loggingUploader = loggingUploader;
+            this.buildOperationExecutor = buildOperationExecutor;
+        }
+
+        @Override
+        public ExternalResourceRepository withProgressLogging() {
+            if (loggingAccessor == accessor && loggingUploader == uploader) {
+                return this;
+            }
+            return new DefaultExternalResourceRepository(name, loggingAccessor, loggingUploader, lister, loggingAccessor, loggingUploader, buildOperationExecutor);
+        }
+
+        @Override
+        public ExternalResource resource(ExternalResourceName resource, boolean revalidate) {
+            return new BuildOperationFiringExternalResourceDecorator(resource, buildOperationExecutor, new AccessorBackedExternalResource(resource, accessor, uploader, lister, revalidate));
+        }
+
+        @Override
+        public ExternalResource resource(ExternalResourceName resource) {
+            return resource(resource, false);
+        }
+
+        public String toString() {
+            return name;
+        }
+    }
+
+subprojects/resources/src/main/java/org/gradle/internal/resource/BuildOperationFiringExternalResourceDecorator.java
+    public class BuildOperationFiringExternalResourceDecorator implements ExternalResource {
+        private final ExternalResourceName resourceName;
+        private final BuildOperationExecutor buildOperationExecutor;
+        private final ExternalResource delegate;
+
+        public BuildOperationFiringExternalResourceDecorator(ExternalResourceName resourceName, BuildOperationExecutor buildOperationExecutor, ExternalResource delegate) {
+            this.resourceName = resourceName;
+            this.buildOperationExecutor = buildOperationExecutor;
+            this.delegate = delegate;
+        }
+        ...
+        @Override
+        public ExternalResourceWriteResult put(final ReadableContent source) throws ResourceException {
+            return buildOperationExecutor.call(new CallableBuildOperation<ExternalResourceWriteResult>() {
+                @Override
+                public ExternalResourceWriteResult call(BuildOperationContext context) {
+                    final ExternalResourceWriteResult result = delegate.put(source); // !!!
+                    context.setResult(new ExternalResourceWriteBuildOperationType.Result() {
+                        @Override
+                        public long getBytesWritten() {
+                            return result.getBytesWritten();
+                        }
+                    });
+                    return result;
+                }
+
+                @Override
+                public BuildOperationDescriptor.Builder description() {
+                    return BuildOperationDescriptor
+                        .displayName("Upload " + resourceName.getDisplayName())
+                        .progressDisplayName(resourceName.getShortDisplayName())
+                        .details(new PutOperationDetails(resourceName.getUri()));
+                }
+            });
+        }
+        ...
+    }
+    
+
+subprojects/resources/src/main/java/org/gradle/internal/resource/transfer/AccessorBackedExternalResource.java
+    public class AccessorBackedExternalResource extends AbstractExternalResource {
+        private final ExternalResourceName name;
+        private final ExternalResourceAccessor accessor;
+        private final ExternalResourceUploader uploader;
+        private final ExternalResourceLister lister;
+        // Should really be a parameter to the 'withContent' methods or baked into the accessor
+        private final boolean revalidate;
+
+        public AccessorBackedExternalResource(ExternalResourceName name, ExternalResourceAccessor accessor, ExternalResourceUploader uploader, ExternalResourceLister lister, boolean revalidate) {
+            this.name = name;
+            this.accessor = accessor;
+            this.uploader = uploader;
+            this.lister = lister;
+            this.revalidate = revalidate;
+        }
+        ...
+        @Override
+        public ExternalResourceWriteResult put(final ReadableContent source) throws ResourceException {
+            try {
+                CountingReadableContent countingResource = new CountingReadableContent(source);
+                uploader.upload(countingResource, getURI()); // !!!
+                return new ExternalResourceWriteResult(countingResource.getCount());
+            } catch (IOException e) {
+                throw ResourceExceptions.putFailed(getURI(), e);
+            }
+        }
+
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpResourcesPluginServiceRegistry.java
+    public class HttpResourcesPluginServiceRegistry extends AbstractPluginServiceRegistry {
+        ...
+        @Override
+        public void registerGlobalServices(ServiceRegistration registration) {
+            registration.addProvider(new GlobalScopeServices());
+        }
+
+        @Override
+        public void registerBuildServices(ServiceRegistration registration) {
+            registration.addProvider(new AuthenticationSchemeAction());
+        }
+
+        private static class GlobalScopeServices {
+            SslContextFactory createSslContextFactory() {
+                return new DefaultSslContextFactory();
+            }
+
+            HttpClientHelper.Factory createHttpClientHelperFactory(DocumentationRegistry documentationRegistry) {
+                return HttpClientHelper.Factory.createFactory(documentationRegistry);
+            }
+
+            ResourceConnectorFactory createHttpConnectorFactory(SslContextFactory sslContextFactory, HttpClientHelper.Factory httpClientHelperFactory) {
+                return new HttpConnectorFactory(sslContextFactory, httpClientHelperFactory);
+            }
+        }
+        ...
+    }
+
+
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpConnectorFactory.java
+    public class HttpConnectorFactory implements ResourceConnectorFactory {
+        private final static Set<String> SUPPORTED_PROTOCOLS = ImmutableSet.of("http", "https");
+        private final static Set<Class<? extends Authentication>> SUPPORTED_AUTHENTICATION = ImmutableSet.of(
+            BasicAuthentication.class,
+            DigestAuthentication.class,
+            HttpHeaderAuthentication.class,
+            AllSchemesAuthentication.class // ???
+        );
+
+        private SslContextFactory sslContextFactory; // !!!
+        private HttpClientHelper.Factory httpClientHelperFactory;
+
+        public HttpConnectorFactory(SslContextFactory sslContextFactory, HttpClientHelper.Factory httpClientHelperFactory) {
+            this.sslContextFactory = sslContextFactory;
+            this.httpClientHelperFactory = httpClientHelperFactory;
+        }
+
+        @Override
+        public Set<String> getSupportedProtocols() {
+            return SUPPORTED_PROTOCOLS;
+        }
+
+        @Override
+        public Set<Class<? extends Authentication>> getSupportedAuthentication() {
+            return SUPPORTED_AUTHENTICATION;
+        }
+
+        @Override
+        public ExternalResourceConnector createResourceConnector(ResourceConnectorSpecification connectionDetails) {
+            HttpClientHelper http = httpClientHelperFactory.create(DefaultHttpSettings.builder()
+                .withAuthenticationSettings(connectionDetails.getAuthentications()) // !!!
+                .withSslContextFactory(sslContextFactory)
+                .withRedirectVerifier(connectionDetails.getRedirectVerifier())
+                .build()
+            );
+            HttpResourceAccessor accessor = new HttpResourceAccessor(http);
+            HttpResourceLister lister = new HttpResourceLister(accessor);
+            HttpResourceUploader uploader = new HttpResourceUploader(http);
+            return new DefaultExternalResourceConnector(accessor, lister, uploader);
+        }
+    }
+
+subprojects/resources/src/main/java/org/gradle/internal/resource/transfer/DefaultExternalResourceConnector.java
+    public class DefaultExternalResourceConnector implements ExternalResourceConnector { // mainly for STATS tracking
+        ...
+        private final ExternalResourceAccessor accessor;
+        private final ExternalResourceLister lister;
+        private final ExternalResourceUploader uploader;
+
+        public DefaultExternalResourceConnector(ExternalResourceAccessor accessor, ExternalResourceLister lister, ExternalResourceUploader uploader) {
+            this.accessor = accessor;
+            this.lister = lister;
+            this.uploader = uploader;
+        }
+        ...
+        @Override
+        public void upload(ReadableContent resource, URI destination) throws IOException {
+            STATS.upload(destination);
+            uploader.upload(resource, destination);
+        }
+        ...
+    }
+
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpResourceUploader.java
+    import org.apache.http.client.methods.HttpPut;
+    import org.apache.http.entity.ContentType;
+    import org.gradle.internal.resource.ReadableContent;
+    import org.gradle.internal.resource.transfer.ExternalResourceUploader;
+
+    public class HttpResourceUploader implements ExternalResourceUploader {
+
+        private final HttpClientHelper http;
+
+        public HttpResourceUploader(HttpClientHelper http) {
+            this.http = http;
+        }
+
+        @Override
+        public void upload(ReadableContent resource, URI destination) throws IOException {
+            HttpPut method = new HttpPut(destination);
+            final RepeatableInputStreamEntity entity = new RepeatableInputStreamEntity(resource, ContentType.APPLICATION_OCTET_STREAM);
+            method.setEntity(entity);
+            try (HttpClientResponse response = http.performHttpRequest(method)) {
+                if (!response.wasSuccessful()) {
+                    URI effectiveUri = response.getEffectiveUri();
+                    throw new HttpErrorStatusCodeException(response.getMethod(), effectiveUri.toString(), response.getStatusLine().getStatusCode(), response.getStatusLine().getReasonPhrase());
+                }
+            }
+        }
+    }
+
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpClientHelper.java
+    import org.gradle.api.internal.DocumentationRegistry;
+
+    public class HttpClientHelper implements Closeable {
+        private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientHelper.class);
+        private CloseableHttpClient client;
+        private final DocumentationRegistry documentationRegistry;
+        private final HttpSettings settings;
+        ...
+        /**
+         * Use {@link HttpClientHelper.Factory#create(HttpSettings)} to instantiate instances.
+         */
+        @VisibleForTesting
+        HttpClientHelper(DocumentationRegistry documentationRegistry, HttpSettings settings) {
+            this.documentationRegistry = documentationRegistry;
+            this.settings = settings;
+            if (!settings.getAuthenticationSettings().isEmpty()) {
+                sharedContext = new ConcurrentLinkedQueue<HttpContext>();
+            } else {
+                sharedContext = null;
+            }
+        }
+        ...
+        public HttpClientResponse performHttpRequest(HttpRequestBase request) throws IOException {
+            if (sharedContext == null) {
+                // There's no authentication involved, requests can be done concurrently
+                return performHttpRequest(request, new BasicHttpContext());
+            }
+            HttpContext httpContext = nextAvailableSharedContext();
+            try {
+                return performHttpRequest(request, httpContext);
+            } finally {
+                sharedContext.add(httpContext);
+            }
+        }
+
+        private HttpContext nextAvailableSharedContext() {
+            HttpContext context = sharedContext.poll();
+            if (context == null) {
+                return new BasicHttpContext();
+            }
+            return context;
+        }
+
+        private HttpClientResponse performHttpRequest(HttpRequestBase request, HttpContext httpContext) throws IOException {
+            // Without this, HTTP Client prohibits multiple redirects to the same location within the same context
+            httpContext.removeAttribute(REDIRECT_LOCATIONS);
+            LOGGER.debug("Performing HTTP {}: {}", request.getMethod(), stripUserCredentials(request.getURI()));
+
+            try {
+                CloseableHttpResponse response = getClient().execute(request, httpContext);
+                return toHttpClientResponse(request, httpContext, response);
+            } catch (IOException e) {
+                validateRedirectChain(httpContext);
+                URI lastRedirectLocation = stripUserCredentials(getLastRedirectLocation(httpContext));
+                throw (lastRedirectLocation == null) ? e : new FailureFromRedirectLocation(lastRedirectLocation, e);
+            }
+        }
+
+        private HttpClientResponse toHttpClientResponse(HttpRequestBase request, HttpContext httpContext, CloseableHttpResponse response) {
+            validateRedirectChain(httpContext);
+            URI lastRedirectLocation = getLastRedirectLocation(httpContext);
+            URI effectiveUri = lastRedirectLocation == null ? request.getURI() : lastRedirectLocation;
+            return new HttpClientResponse(request.getMethod(), effectiveUri, response);
+        }
+        ...
+        /*
+         * Factory for creating the {@link HttpClientHelper}
+         */
+        @FunctionalInterface
+        public interface Factory {
+            HttpClientHelper create(HttpSettings settings);
+
+            /**
+             * Method should only be used for DI registry and testing.
+             * For other uses of {@link HttpClientHelper}, inject an instance of {@link Factory} to create one.
+             */
+            static Factory createFactory(DocumentationRegistry documentationRegistry) {
+                return settings -> new HttpClientHelper(documentationRegistry, settings);
+            }
+        }
+    }
+
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpClientResponse.java
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/HttpSettings.java
+subprojects/resources-http/src/main/java/org/gradle/internal/resource/transport/http/DefaultHttpSettings.java
+    get as is
+

@@ -1,0 +1,31 @@
+https://www.freedesktop.org/wiki/Software/fontconfig/
+https://www.freedesktop.org/software/fontconfig/fontconfig-user.html
+https://keithp.com/~keithp/talks/guadec2002/fontconfig.pdf
+
+https://en.wikipedia.org/wiki/Fontconfig
+https://wiki.debian.org/Fonts
+
+    Fontconfig uses XML format for its configuration files.
+    The document type definition (DTD) for fontconfig files is normally located at /etc/fonts/fonts.dtd.
+
+    The master configuration file
+        - usually /etc/fonts/fonts.conf -
+    references a few other configuration locations which may or may not exist:
+
+        /etc/fonts/fonts.conf
+        /etc/fonts/conf.d
+        $XDG_CONFIG_HOME/fontconfig/conf.d
+        $XDG_CONFIG_HOME/fontconfig/fonts.conf
+        ~/.fonts.conf.d
+        ~/.fonts.conf
+
+    A simple example of a configuration file:
+
+    <?xml version="1.0"?>
+    <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+    <fontconfig>
+        <!-- Enable antialiasing for all fonts -->
+        <match target="font">
+            <edit mode="assign" name="antialias"><bool>true</bool></edit>
+        </match>
+    </fontconfig>

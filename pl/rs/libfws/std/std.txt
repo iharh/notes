@@ -1,0 +1,6 @@
+https://doc.rust-lang.org/std/
+https://doc.rust-lang.org/std/index.html
+
+#![no_std]
+
+https://doc.rust-lang.org/src/std/io/error.rs.html#67-75

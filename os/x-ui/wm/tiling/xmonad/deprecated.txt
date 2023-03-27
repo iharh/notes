@@ -1,0 +1,5 @@
+https://www.reddit.com/r/archlinux/comments/qz3kyu/cant_configure_dynamiclogwithpp_in_xmonad/
+    If you're using the latest xmonad and xmonad-contrib (0.17),
+    then XMonad.Hooks.DynamicLog is deprecated*,
+    and you should migrate over to XMonad.Hooks.StatusBar and XMonad.Hooks.StatusBar.PP.
+        https://github.com/brianbuccola/dotfiles/blob/main/xmonad/.xmonad/xmonad.hs

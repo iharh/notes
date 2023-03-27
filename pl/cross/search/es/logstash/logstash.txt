@@ -1,0 +1,63 @@
+http://www.slideshare.net/NETWAYS/osmc-2014-using-elasticsearch-logstash-kibana-in-system-administration-alexander-reelsen
+
+config:
+http://logstash.net/docs/1.4.2/configuration
+
+plugins:
+http://logstash.net/docs/1.4.2/index
+
+inputs:
+http://logstash.net/docs/1.4.2/inputs/file
+
+filters:
+http://logstash.net/docs/1.4.2/filters/date
+http://logstash.net/docs/1.4.2/filters/grok
+  http://grokdebug.herokuapp.com/
+
+outputs:
+http://logstash.net/docs/1.4.2/outputs/stdout
+
+Samples - Tomcat:
+http://blog.lanyonm.org/articles/2014/01/12/logstash-multiline-tomcat-log-parsing.html
+http://blog.lanyonm.org/articles/2013/11/27/pushing-web-server-response-codes-graphite-logstash.html
+
+Multiline log parsing:
+http://blog.sematext.com/2015/05/26/handling-stack-traces-with-logstash/
+
+input {
+  file {
+    path => "/var/log/test.log"
+    start_position => "beginning"
+    codec => multiline {
+      pattern => "^%{TIMESTAMP_ISO8601}"
+      negate => true
+      what => "previous"
+    }   
+  } 
+}
+
+filter {
+  mutate {
+    gsub => [ "message", "\r", "" ]
+  }
+  ...
+}
+
+?Logstash forwarder
+
+{
+  "network" {
+    "servers" : [ "<ip>:<port>" ],
+    "ssl ca" : "<file>.ort",
+    "ssl key" : "<file>.key",
+    "timeout" : 15
+  },
+
+  "files" : [
+    {
+      "paths" : [ "c:/apps/.../logs/realtime*" ],
+      "fields" : { "type" : "realtime" }
+    },
+    ...
+  ]
+}

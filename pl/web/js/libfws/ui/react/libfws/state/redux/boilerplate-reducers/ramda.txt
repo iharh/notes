@@ -1,0 +1,32 @@
+google
+    ramda redux
+
+https://redux-actions.js.org/
+https://www.npmjs.com/package/redux-actions
+https://github.com/redux-utilities/redux-actions
+
+https://www.npmjs.com/package/ramda-redux
+https://www.npmjs.com/package/redux-ramda
+    https://github.com/davidgtonge/redux-ramda
+
+https://tommmyy.github.io/ramda-react-redux-patterns/
+https://tommmyy.github.io/ramda-react-redux-patterns/pages/redux-ramda.html
+https://tommmyy.github.io/ramda-react-redux-patterns/pages/react-ramda.html
+
+2018
+https://medium.com/front-end-hacking/redux-lets-refactor-our-higher-order-duck-e44b0110befc
+https://medium.com/front-end-hacking/redux-ramda-lets-code-a-higher-order-duck-dc87021406cc
+https://callaa.rs/2018-06-08/how-to-empower-redux-with-ramda
+https://callaa.rs/2018-06-10/how-to-empower-redux-with-ramda-2
+2017
+https://www.garrettnay.com/post/better-redux-selectors-with-ramda/
+https://mitchgavan.com/redux-state-updates-with-ramda-part-1/
+?
+https://alligator.io/redux/functional-redux-reducers-with-ramda
+2016
+http://randycoulman.com/blog/2016/02/16/using-ramda-with-redux/
+    https://habr.com/post/421313/
+
+samples
+https://github.com/panayi/calculator
+

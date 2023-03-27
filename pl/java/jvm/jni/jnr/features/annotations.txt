@@ -1,0 +1,10 @@
+import jnr.ffi.annotations...
+* Clear (?no usages), In, Out
+* Pinned - lock/unlock JVM memory instead of copying to/from native-memory
+* Transient
+    This means it can be backed by a temporarily allocated native memory block,
+ and after the method call, the native memory can be freed again.
+* NulTerminate - for strings
+
+Pinned (?No check for this annotation):
+https://github.com/jnr/jnr-ffi/blob/master/src/test/java/jnr/ffi/struct/UTF8StringFieldTest.java

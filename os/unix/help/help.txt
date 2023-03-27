@@ -1,0 +1,3 @@
+apropos - search the "whatis" database for strings (apropos)
+  apropos database | grep (1)   - commands that have "database" in description
+

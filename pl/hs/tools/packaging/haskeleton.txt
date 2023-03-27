@@ -1,0 +1,7 @@
+http://taylor.fausak.me/haskeleton/
+https://github.com/tfausak/haskeleton
+    ! built into stack as a template
+    stack new myprojectname haskeleton -p 'github-username:xtendo-org' -p 'author-name:XT'
+
+2014
+http://taylor.fausak.me/2014/03/04/haskeleton-a-haskell-project-skeleton/

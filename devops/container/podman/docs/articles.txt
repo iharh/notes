@@ -1,0 +1,29 @@
+2022
+https://xebia.com/blog/podman-the-free-container-engine-alternative-to-docker/
+    !!! OCI, CNI, CNM arch
+    https://github.com/dankohn/libpod
+    https://github.com/containers/conmon
+https://pakstech.com/blog/replace-docker-with-podman/
+    !!!, incl buildah
+https://www.redhat.com/sysadmin/podman-features-1
+https://www.redhat.com/sysadmin/update-container-images-podman
+    https://habr.com/ru/company/first/blog/653781/
+https://www.fosslinux.com/49839/how-to-build-run-and-manage-container-images-with-podman.htm
+https://opensource.com/article/22/1/run-containers-without-sudo-podman
+2021
+https://www.linuxtechi.com/run-containers-systemd-service-podman/
+https://habr.com/ru/company/timeweb/blog/585758/
+https://www.redhat.com/sysadmin/compose-kubernetes-podman
+https://www.atlantic.net/dedicated-server-hosting/how-to-install-and-use-podman-on-ubuntu-20-04/
+2020
+https://fedoramagazine.org/podman-pods-fedora-containers/
+https://www.redhat.com/sysadmin/compose-podman-pods
+2019
+https://habr.com/ru/company/redhatrussia/blog/467105/
+https://cloudnweb.dev/2019/06/replacing-docker-with-podman-power-of-podman/
+    https://github.com/ganeshmani/podman-demo
+2018
+https://habr.com/ru/company/flant/blog/426141/
+https://habr.com/company/flant/blog/426141/
+https://media.ccc.de/v/ASG2018-177-replacing_docker_with_podman
+    https://podman.io/slides/2018_10_01_Replacing_Docker_With_Podman.pdf

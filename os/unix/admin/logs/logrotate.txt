@@ -1,0 +1,7 @@
+logrotate
+
+/etc/logrotate.conf
+/etc/logrotate.d/
+
+https://github.com/cookbooks/logrotate
+https://github.com/cookbooks/logrotate/blob/master/definitions/logrotate_app.rb

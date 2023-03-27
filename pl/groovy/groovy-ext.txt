@@ -1,0 +1,80 @@
+Extension methods
+/META-INF/services/org.codehaus.groovy.runtime.ExtensionModule
+
+moduleName=runtime-metaprogramming
+moduleVersion=1.0
+extensionClasses=devoxx.demo.StringExtensions [, ...]
+
+StringExtensions.groovy
+package devoxx.demo
+class StringExtensions {
+    static int getMagicNumber(String instance) {
+        42
+    }
+    static int doSomething(Integer instance, Integer arg1, Ingeter arg2) {
+        ...
+    }
+}
+
+Metaclass:
+class Widget {}
+
+Widget.metaClass.methodMissing = { String mn, args ->
+    println "in methodMissing for method: $mn"
+}
+
+
+Extension modules:
+http://docs.groovy-lang.org/latest/html/documentation/#_extension_modules
+
+http://habrahabr.ru/post/215343/
+http://habrahabr.ru/post/205084/
+http://habrahabr.ru/post/145977/
+
+http://www.slideshare.net/SpringCentral/groovy-asttransforms-paulkingsep2014b
+
+@CompileStatic
+@Field
+@Bindable
+@Vetoable
+@Delegate
+@ToString
+    a lot of params like includeNames, ignoreNulls, excludes, includePackage, includeFields
+@EqualsAndHashCode
+    includes, excludes, cache, callSuper, includeFields, useCanEqual
+@Immutable
+    class - final, fields - private final, equals/hashCode/toString
+@InheritConstructors
+@TupleConstructor
+@Cannonical
+    combines: TupleConstructor, ToString, EqualsAndHashCode
+    make right java-class ... combining all the mentioned above
+@Sortable
+    includes/excludes
+@AutoClone
+@AutoExternalize
+@Category
+@Mixin
+    obsolete
+@Lazy
+@Memoized
+@Singleton
+@Newify
+@PackageScope
+    make all the class field non-public
+@Builder
+    builderStrategy
+@TailRecursive
+@Log
+@Synchronized
+@With[Read/Write]Lock
+@AutoClone
+@AutoExternalize
+@TimedInterrupt/ThreadInterrupt/ConditionalInterrupt
+@Main
+@Trace
+    println ("method begin") / ... / println ("method end")
+@BaseScript
+    annotation on imports&package
+@NotYetImplemented
+

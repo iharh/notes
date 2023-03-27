@@ -1,0 +1,36 @@
+https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=kubeadm-bin
+    source_x86_64=(
+      'https://packages.cloud.google.com/apt/pool/kubeadm_1.10.0-00_amd64_ea6b408af5de27ae3df9a1f96724067104998608b64869fee2c680ea9f9c000d.deb'
+    )
+
+https://kubernetes.io/docs/setup/independent/install-kubeadm/
+    https://storage.googleapis.com/kubernetes-release/release/${RELEASE}/bin/linux/amd64/{kubeadm,kubelet,kubectl}
+
+AUR
+kubeadm-bin (kubeadm-git)
+    /usr/bin/kubeadm
+    /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+kubectl-bin
+    /usr/bin/kubectl
+kubelet-bin
+    /usr/bin/kubelet
+    /lib/systemd/system/kubelet.service
+kubernetes-cni-bin
+    /opt/cni/bin/*
+crictl-bin
+    /etc/crictl.yaml
+    /usr/bin/crictl 
+
+aur
+    ebtables
+    socat
+        http://www.dest-unreach.org/socat/
+
+apt
+    apt-transport-https
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+    sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+    sudo apt install kubeadm kubelet kubectl kubernetes-cni
+
+2020
+https://linuxconfig.org/how-to-install-kubernetes-on-ubuntu-20-04-focal-fossa-linux

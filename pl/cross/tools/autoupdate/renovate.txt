@@ -1,0 +1,24 @@
+https://www.whitesourcesoftware.com/free-developer-tools/renovate/
+https://github.com/apps/renovate
+https://www.npmjs.com/package/renovate
+
+https://github.com/orgs/renovatebot/repositories
+https://github.com/renovatebot/renovate
+https://github.com/renovatebot/github-action
+
+https://docs.renovatebot.com/
+https://docs.renovatebot.com/getting-started/use-cases/
+https://docs.renovatebot.com/configuration-options/
+    https://github.com/jbangdev/jbang/blob/main/renovate.json
+    https://reset.inso.tuwien.ac.at/repo/pub/docker/-/blob/master/renovate.json
+    https://cakebuild.net/blog/2021/04/cake-support-in-renovate
+    https://www.fuscin.com/gabrielseco/front-linter/blob/master/renovate.json
+https://docs.renovatebot.com/presets-schedule/
+https://docs.renovatebot.com/self-hosted-configuration/
+https://docs.renovatebot.com/config-presets/
+
+2021
+https://www.whitesourcesoftware.com/resources/blog/renovating-with-renovate/
+https://dev.to/arxeiss/update-dependencies-with-renovate-37on
+https://nickymeuleman.netlify.app/blog/automate-dependency-updates
+https://grischuk.de/%F0%9F%A4%96-how-to-configure-renovate-automated-dependencies-updates-for-your-project

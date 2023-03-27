@@ -1,0 +1,35 @@
+https://docs.docker.com/compose/compose-file/
+
+command
+https://dev.to/serhatteker/how-to-run-multiple-long-commands-in-docker-compose-1f13
+
+docker-compose.yml and docker-compose.override.yml
+    -f file1.yml -f file2.yml
+
+    env-vars...
+        ports:
+            - "${EXTERNAL_PORT}:5000"
+            - "#EXTERNAL_PORT:5000"
+            # $$... to skip env-vars processing
+
+somename:
+  build: folder/
+  image: imggrp/imgname:1.0
+  image: tonistiigi/dnsdock
+  ports:
+    - "8761:8761"
+  links:
+    - postgres:postgres
+  hostname: cmp
+  links:
+    - dnsdock
+  dns:
+    - 172.17.0.1
+  environment:
+    - DNSDOCK_NAME=tmp1
+    - DNSDOCK_IMAGE=
+  volumes:
+    - /var/run/docker.sock:/run/docker.sock
+  mem_limit: 512m
+  mem_reservation: 256m
+

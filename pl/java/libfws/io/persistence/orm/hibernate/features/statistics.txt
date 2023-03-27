@@ -1,0 +1,3 @@
+http://www.thoughts-on-java.org/2015/03/how-to-activate-hibernate-statistics-to.html
+hibernate.generate_statistics=true
+org.hibernate.stat=DEBUG

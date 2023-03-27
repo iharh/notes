@@ -1,0 +1,26 @@
+https://en.cppreference.com/w/cpp/header/codecvt
+/usr/include/c++/<gcc-ver>/codecvt
+
+codecvt_utf8_utf16
+
+https://en.cppreference.com/w/cpp/locale/wstring_convert/converted
+https://en.cppreference.com/w/cpp/locale/codecvt_utf8
+
+qa
+https://stackoverflow.com/questions/2573834/c-convert-string-or-char-to-wstring-or-wchar-t
+https://stackoverflow.com/questions/17103925/how-well-is-unicode-supported-in-c11
+http://qaru.site/questions/300873/converting-c-stdwstring-to-utf8-with-stdcodecvtxxx
+http://qaru.site/questions/42416/how-to-convert-wstring-into-string
+
+compiler support
+https://stackoverflow.com/questions/15615136/is-codecvt-not-a-std-header
+
+deprecation
+http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0618r0.html
+
+boost locale
+https://www.boost.org/doc/libs/develop/libs/locale/doc/html/files.html
+https://www.boost.org/doc/libs/develop/libs/locale/doc/html/encoding__utf_8hpp_source.html
+
+clang locale
+https://www.linux.org.ru/forum/development/11400521

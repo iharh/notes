@@ -1,0 +1,405 @@
+Command Line Options -N
+	Use newer Vim mode (not compatible with the original vi)
+
+:viu
+    Help on normal mode commands
+:h c_
+    Help on command-mode keys
+
+*****************
+* Text Objects: *
+*****************
+
+:h text-objects
+
+w/W   - word-punct-delimited/Word-space-delimited
+s     - sentence
+p     - paragraph
+t     - tagged blocks
+"/`/' - qutes-block
+(/[/{ - parenthesis-block
+
+General commands form
+
+Operators:
+
+:h operator
+
+operator [number] motion
+
+operator: d, ...
+motion: h, l, j, k, b, w, e, 0, $, ...
+
+!<cmd>
+	Filter through the external program <cmd>
+=
+	Filter through 'equalprg' or C-indenting if empty
+
+
+Repeating
+.
+	Repeats the last change.
+&
+	Repeat the last substitute command (:s/....).
+;/,
+	Repeat the last one-symbol-search (f/F/t/T) in forward/backward direction
+
+Redrawing
+C-l
+	Redraw the screen
+
+
+**********
+* MOTION *
+**********
+
+:h motion.txt
+
+Basic movements (motions):
+
+h
+	Move the cursor left one char
+l
+	Move the cursor right one char
+j
+	Move the cursor down one line
+k
+	Move the cursor up one line
+	
++/<ENTER>
+	The first character of next line
+-
+	The first character of previous line
+
+b,B
+	Move the cursor backward one word/code-word
+w,W
+	Move the cursor forward one word/code-word (to the beginning of the next word)
+e,E
+	Move the cursor forward one word/code-word (to the end of this word)
+?W
+
+
+0
+	Move the cursor to the beginning of the line
+^
+	Move the cursor to the first char
+$
+	Move the cursor to the end of the line
+<n>|
+	Move to the n-th character of the current line
+
+(/)
+	To the beginning/end of the sentence
+{/}
+	To the beginning/end of the paragraph
+[[/]]
+	To the beginning of the current/next section
+
+Navigation back/forth:
+
+C-o
+	Navigate back
+C-i
+	Navigate forward
+
+	
+Go to:
+<N>G or
+<N>gg
+	Go to line by number <N>
+<N>%
+	Go to the <N> percent of file (%)
+<N>|
+	Go to the <N> column of line (|)
+<N>[[/]]/][/[]
+	Go to the <N> sections forward/backward/...
+<N>_
+	Go to the <N>-1 lines downwards
+	
+
+gg/G
+	Go to the first/last line of the file (document)
+g-
+	g
+		Go to to the top of the file
+	f/F
+		Go to this file under the cursor/line of file.
+	m
+		Go to the middle of the line.
+	0,$,^
+		Go to the beginning/end/first-non-blank-char of the long/wrapped line.
+	_
+		Go to the last non-blank character of the line.
+	k
+		Up screen line
+	j
+		Down screen line
+	t/T
+		Next/prev tab
+	d
+		Go to definition
+	e
+		Go to the previous word ending
+	E
+		-//- ignoring punctuation.
+	*/#
+		Go to the next/prev word under the cursor
+	q
+		Text formatting
+	u/U/~<motion>
+		Make <motion> text lower/upper/change case
+	?<motion>
+		Make <motion> text Rot13 encode
+	
+
+C-g
+	Where you are (the current line number, total number of lines, percentage)
+``/`.
+	Return the cursor to the site of your last edit
+	
+f/F{x}
+	Move to the next/previous occurence of x in a line
+t/T{x}
+	Move before/after the occurence of x in a line
+
+
+Scrolling:
+
+M
+	To the middle of the screen
+H
+	Near top (nH - n-lines below top line)
+L
+	Near bottom (nL - n-lines above last line)
+
+C-f/C-b
+	Down/up one screen
+C-d/C-u
+	Down/up one half of ther screen
+C-e/C-y
+	Down/up one line
+
+
+value	meaning		equivalent command
+--------------------------------------
+0	Window top	normal! |z<CR>|
+50	Window centre	normal! |z.|
+100	Window bottom	normal! |z-|
+
+
+z
+	<RET>/t
+		Move current line to the top
+	-/b
+		Move current line to the bottom
+	./m/z
+		Move current line to the center
+
+	
+
+****************
+* MODIFICATION *
+****************
+
+<num>cmd
+	repeat modification-cmd (except o/O) <num> times.
+	50i*ESC - insert 50 asterisks
+	2r&     - replace 2 chars by $ ($$).
+
+
+Inserting text:
+i/I
+	Insert text (at the cursor position)/(at the start of the line)
+a/A
+	Append text (after the character at the cursor)/(at the end of the line). A is the same as $a.
+o/O
+	Insert a blank line below/above and go to the insert mode
+
+
+
+Deleting a text:
+
+x/X
+	Delete the character under/before the cursor
+dw
+	Delete a [single] word (until the start of the next word, EXCLUDING its first character).
+de
+	Delete a [single] word (to the end of the current word, INCLUDING the last character).
+d2w
+	Delete two words
+D/d$
+	Delete to the end of the line
+
+dd
+	Delete the whole line
+2dd
+	Delete 2 lines
+
+in general - d [motion]
+
+
+Replacint a text:
+
+r<char>
+	Replace a current character by <char> and return back to NORMAL mode.
+R
+	Start replacing (go to the replace mode) the content at the cursor position
+s/c[SPACE]
+	Substitue a [num] chars - go to the INSERT mode.
+S/cc
+	Substitute entire line - go to the INSERT mode then.
+
+
+Changing text
+Y, yy
+	Yank(Copy) a line (yy is not like dd or cc which operate on the rest of line)
+p
+	Put(past) text (after cursor/below the current line)
+P
+	Put(past) the text (before cursor/above the current line)
+YP
+	Duplicate (yank/paster) the current line.
+C/c$
+	Change up to the end of the current line
+cc
+	Change the entire line
+~
+	Change the case of the letter at the cursor
+
+
+in general - c [motion]
+
+J
+	Join 2 lines of text
+<N>J
+	Join <N> lines of text
+gJ
+	To join without spacing
+
+
+Shifting a text
+[N]>>
+	Shift [N] lines to the right
+[N]<<
+	Shift [N] lines to the left
+
+
+Undo/redo
+u
+	Undo
+U
+	To fix the whole line
+C-r
+	Redo
+
+
+Selection
+v/V
+	Enter the characterwise/linewise-visual mode (select chars/lines)
+C-V/C-q(for Windows)
+	Enter the blockwise-visual mode.
+y
+	Yank (copy) selected text
+	w
+		Yank one word
+p
+	Paste after the current symbol/line
+P
+	Past before the current symbol/line
+]p
+	Just like p, but auto-indent also.
+d
+	Delete the selected region (to the past-register - clipboard).
+c
+	Delete text and to into Insert-mode
+
+*******
+* VIT *
+*******
+
+vit/zone_selection - pattern
+v - operator (c, d, y, v -- change, delete, yank, visual)
+i - extent (i/a - inside/around)
+t - Text Object (see below)
+
+
+**********
+* Search *
+**********
+
+/text_to_search
+	Search a text. Puts the cursor at the start of the match
+?text_to_search
+	Search a text backward
+
+*/#
+	Search forward/backward for a word under the cursor (for the whole word)
+g*/g#
+	Prev/Next partial match 
+
+%
+	Search for a matching parenthesis
+n
+	Search again
+N
+	Search the previous match (back)
+fN
+	Move forward to the next occurence of 'N'
+
+/text_to_search\c
+	To ignore case for just a one search.
+/text_to_search/+N
+	To jump N line after (before in case of -) the found text
+?text_to_search?+N
+	--/--
+/text_to_search/e+N
+	To jump N chars after (before in case of -) the found text
+
+search could be combined with other commands:
+d/text_to_search/e
+	Delete from the cursor to the end of a search
+y?text_to_search
+	Yank from cursor to beginning of previous def
+
+
+
+Marks
+m<single-letter>
+	Create a mark named <single-letter> (ex. 'a')
+`<single-letter> (backquote)
+	Jump to a mark [line and colon] named <single-letter> (ex. 'a')
+'<single-letter> (apostrophe)
+	Jump to a mark [just to the beginning of a line] named <single-letter> (ex. 'a')
+
+`0-`9
+	The location of the cursor you last exited Vim ('0 - the most recent)
+`` (backquotes)
+	Returns to the exact position of the previous mark or context after a move (the last position before the jump).
+'' (apostrophes)
+	Returns to the beginning of the line of the previous mark or context.
+`.
+	The location of the last change (edit)
+(:marks)
+	See all the marks
+
+
+Notes:
+	lowercase mark letters - are for jump within a document,
+	uppercase ones - are for global cross-file jumps (ex. 'A')
+Note2:
+	d't - delete up to the mark 't'.
+	Can use other operations (not just d) also.
+
+
+*******************
+* Command history *
+*******************
+
+q:
+	Open a command history from normal mode
+q/
+	Open a search history from normal mode
+q?
+	Open a search history from normal mode (to search backward)
+

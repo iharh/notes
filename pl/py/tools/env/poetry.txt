@@ -1,0 +1,69 @@
+https://python-poetry.org
+https://github.com/python-poetry/poetry
+
+https://python-poetry.org/blog/
+
+https://python-poetry.org/docs/
+https://python-poetry.org/docs/basic-usage/
+https://python-poetry.org/docs/configuration
+
+https://python-poetry.org/docs/pyproject/
+
+inst
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+
+
+https://ru.hexlet.io/courses/python-setup-environment/lessons/start-with-poetry/theory_unit
+    !!!
+
+To get started you need Poetry's bin directory ($HOME/.poetry/bin) in your `PATH`
+environment variable. Next time you log in this will be done automatically.
+
+To configure your current shell run `source $HOME/.poetry/env`
+
+https://python-poetry.org/docs/cli/
+poetry
+    help
+    about
+    completions zsh > ~/.zfunc/_poetry
+    self
+        update
+    show
+        --tree
+    config
+        --list
+        virtualenvs.in-project true
+        virtualenvs.path
+    env
+        use python3.9
+        info
+    init
+    new
+    install
+        ... install project dependencies
+    shell
+        ... activate appropriate virtual env
+    run
+        <what-to-execute>
+        <script name ... [tool.poetry.script]>
+    show
+        --latest
+            check if there are new version of our packages
+
+cfg
+[tool.poetry.scripts]
+somecommand = "tmp.main:run"
+
+files
+~/.cache/pypoetry
+    [venv-name]
+
+2021
+https://habr.com/ru/post/593529/
+Digitalize - Poetry as Advanced Pip Replacement of 17:19
+    https://www.youtube.com/watch?v=KOC0Gbo_0HY
+https://dev.to/frostming/a-review-pipenv-vs-poetry-vs-pdm-39b4
+2020
+https://dev.to/bowmanjd/build-command-line-tools-with-python-poetry-4mnc
+2018
+https://khashtamov.com/ru/python-poetry-dependency-management/

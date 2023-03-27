@@ -1,0 +1,10 @@
+http://www.drdobbs.com/jvm/java-se-7-new-file-io/231600403
+http://www.javabeat.net/creating-writing-reading-java-files-api-java-7/
+
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+
+...
+        Path path = FileSystems.getDefault().getPath(".").toAbsolutePath();
+        System.out.println("cur path: " + path);
+...

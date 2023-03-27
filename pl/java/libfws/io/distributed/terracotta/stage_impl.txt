@@ -1,0 +1,236 @@
+http://www.terracotta.org/confluence/display/devdocs/Architecture
+
+public class DistributedObjectClient extends SEDA implements TCClient {
+
+	public synchronized void start() {
+		...
+		// Create the SEDA stages
+		final Stage lockResponse = stageManager.createStage(
+			ClientConfigurationContext.LOCK_RESPONSE_STAGE,
+			new LockResponseHandler(sessionManager),
+			this.channel.getGroupIDs().length,
+			1,
+			maxSize
+		);
+		...
+	}
+	...
+	public DistributedObjectClient(
+		final DSOClientConfigHelper config,
+		final TCThreadGroup threadGroup,
+		final ClassProvider classProvider,
+		final PreparedComponentsFromL2Connection connectionComponents,
+		final Manager manager,
+		final StatisticsAgentSubSystem statisticsAgentSubSystem,
+		final DsoClusterInternal dsoCluster,
+		final RuntimeLogger runtimeLogger
+	) {
+		this(
+			config,
+			threadGroup,
+			classProvider,
+			connectionComponents,
+			manager,
+			statisticsAgentSubSystem,
+			dsoCluster,
+			runtimeLogger,
+			BoundedLinkedQueue.class.getName()
+		);
+	}
+
+	public DistributedObjectClient(
+		final DSOClientConfigHelper config,
+		final TCThreadGroup threadGroup,
+		final ClassProvider classProvider,
+		final PreparedComponentsFromL2Connection connectionComponents,
+		final Manager manager,
+		final StatisticsAgentSubSystem statisticsAgentSubSystem,
+		final DsoClusterInternal dsoCluster,
+		final RuntimeLogger runtimeLogger,
+		final String sedaStageQueueClassName
+	) {
+		super(threadGroup, sedaStageQueueClassName);
+		Assert.assertNotNull(config);
+		this.config = config;
+		this.classProvider = classProvider;
+		this.connectionComponents = connectionComponents;
+		this.manager = manager;
+		this.dsoCluster = dsoCluster;
+		this.threadGroup = threadGroup;
+		this.statisticsAgentSubSystem = statisticsAgentSubSystem;
+		this.threadIDMap = ThreadIDMapUtil.getInstance();
+		this.runtimeLogger = runtimeLogger;
+		this.dsoClientBuilder = createClientBuilder();
+	}
+	...
+	public synchronized void start() {
+		...
+		if (useOOOLayer) {
+			final Stage oooSendStage = stageManager.createStage(
+				ClientConfigurationContext.OOO_NET_SEND_STAGE,
+				new OOOEventHandler(),
+				1,
+				maxSize
+			);
+		}
+		...
+		final Stage lockRecallStage = stageManager.createStage(
+			ClientConfigurationContext.LOCK_RECALL_STAGE,
+			new LockRecallHandler(),
+			8,
+			maxSize
+		);
+		...
+		stageManager.startAll(cc, Collections.EMPTY_LIST);
+
+		this.channel.addClassMapping(TCMessageType.BATCH_TRANSACTION_ACK_MESSAGE, BatchTransactionAcknowledgeMessageImpl.class);
+		this.channel.addClassMapping(TCMessageType.REQUEST_ROOT_MESSAGE, RequestRootMessageImpl.class);
+		this.channel.addClassMapping(TCMessageType.LOCK_REQUEST_MESSAGE, LockRequestMessage.class);
+		...
+		DSO_LOGGER.debug("Added class mappings.");
+
+		final Sink hydrateSink = hydrateStage.getSink();
+		this.channel.routeMessageType(TCMessageType.LOCK_RESPONSE_MESSAGE, lockResponse.getSink(), hydrateSink);
+		this.channel.routeMessageType(TCMessageType.LOCK_QUERY_RESPONSE_MESSAGE, lockResponse.getSink(), hydrateSink);
+
+		// !!! See route.txt - TCMessageRouterImpl.routeMessageType
+
+		//   private DSOClientMessageChannel channel;
+
+	}
+}
+
+
+
+
+// common
+
+public class SEDA {
+	private final StageManager stageManager;
+	private final TCThreadGroup threadGroup;
+
+	public SEDA(TCThreadGroup threadGroup) {
+		this.threadGroup = threadGroup;
+		this.stageManager = new StageManagerImpl(threadGroup, new QueueFactory());
+	}
+
+	public SEDA(TCThreadGroup threadGroup, String className) {
+		this.threadGroup = threadGroup;
+		this.stageManager = new StageManagerImpl(threadGroup, new QueueFactory(className));
+	}
+  
+	public StageManager getStageManager() {
+		return stageManager;
+	}
+
+	protected TCThreadGroup getThreadGroup() {
+		return this.threadGroup;
+	}
+}
+
+public class StageManagerImpl implements StageManager {
+	...
+	public synchronized Stage createStage(String name, EventHandler handler, int threads, int maxSize) {
+		return createStage(name, handler, threads, threads, maxSize);
+	}
+
+	public synchronized Stage createStage(String name, EventHandler handler, int threads, int threadsToQueueRatio, int maxSize) {
+		int capacity = maxSize > 0 ? maxSize : Integer.MAX_VALUE;
+		Stage s = new StageImpl(
+			loggerProvider,
+			name,
+			handler,
+			threads,
+			threadsToQueueRatio,
+			group,
+			this.queueFactory,
+			capacity
+		);
+		addStage(name, s);
+		return s;
+	}
+
+	private synchronized void addStage(String name, Stage s) {
+		Object prev = stages.put(name, s);
+		Assert.assertNull(prev);
+		s.getSink().enableStatsCollection(MONITOR);
+		stageNames = (String[]) stages.keySet().toArray(new String[stages.size()]);
+		Arrays.sort(stageNames);
+	}
+	...
+	public void startStage(Stage stage, ConfigurationContext context) {
+		stage.start(context);
+	}
+
+	public synchronized void startAll(ConfigurationContext context, List<PostInit> toInit) {
+		for (Object element : toInit) {
+			PostInit mgr = (PostInit) element;
+			mgr.initializeContext(context);
+		}
+
+		for (Iterator i = stages.values().iterator(); i.hasNext();) {
+			Stage s = (Stage) i.next();
+			s.start(context);
+		}
+	}
+}
+
+
+public interface Stage {
+	public void destroy();
+	public Sink getSink();
+	public void start(ConfigurationContext context);
+}
+
+
+public class StageImpl implements Stage {
+	...
+	public StageImpl(TCLoggerProvider loggerProvider, String name, EventHandler handler, int threadCount,
+		int threadsToQueueRatio, ThreadGroup group, QueueFactory queueFactory, int queueSize) {
+
+		this.logger = loggerProvider.getLogger(Stage.class.getName() + ": " + name);
+		this.name = name;
+		this.handler = handler;
+		this.threads = new WorkerThread[threadCount];
+		if (threadsToQueueRatio > threadCount) {
+			logger.warn("Thread to Queue Ratio " + threadsToQueueRatio + " > Worker Threads " + threadCount);
+		}
+		this.stageQueue = new StageQueueImpl(
+			threadCount, threadsToQueueRatio, queueFactory, loggerProvider, name, queueSize
+		);
+		this.group = group;
+	}
+	...
+	private synchronized void startThreads() {
+		for (int i = 0; i < threads.length; i++) {
+			String threadName = "WorkerThread(" + name + ", " + i;
+			if (threads.length > 1) {
+				threadName = threadName + ", " + this.stageQueue.getSource(i).getSourceName() + ")";
+			} else {
+				threadName = threadName + ")";
+			}
+			threads[i] = new WorkerThread(threadName, this.stageQueue.getSource(i), handler, group);
+			threads[i].start();
+		}
+	}
+	...
+}
+
+/**
+ * This StageQueueImpl represents the sink and gives a handle to the source. We are internally justun using a queue
+ * since our queues are locally processed. This class can be replaced with a distributed queue to enable processing
+ * across process boundaries.
+ */
+public class StageQueueImpl implements Sink {
+	...
+	public boolean addLossy(EventContext context) {
+		...
+	}
+	public void addMany(Collection contexts) {
+		...
+	}
+	public void add(EventContext context) {
+		...
+	}
+	...
+}

@@ -1,0 +1,15 @@
+std:
+pg_stat_statements
+    stat by queries
+pgstattuple
+    by string versions
+pg_buffercache
+    state of buffer cache
+
+other ext
+pg_wait_sampling
+    wait statistics
+pg_stat_kcache
+    by CPU and IO
+pg_qualstats
+    by predicates

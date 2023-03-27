@@ -1,0 +1,65 @@
+https://en.cppreference.com/w/cpp/language/constraints
+
+http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r2.pdf
+http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4674.pdf
+
+primer
+https://eriksvjansson.net/papers/cppcpdac.pdf
+https://eriksvjansson.net/papers/cppcpdacd.pdf
+
+book
+https://justinmeiners.github.io/efficient-programming-with-components/
+
+2021
+https://thecodepad.com/cpp/c20-concepts-the-definitive-guide/
+https://itnext.io/c-20-concepts-complete-guide-42c9e009c6bf
+2020
+https://andreasfertig.blog/2020/08/cpp20-concepts-testing-constrained-functions/
+https://andreasfertig.blog/2020/07/how-cpp20-concepts-can-simplify-your-code/
+Niemeyer - Intro to Cpp20 Concepts
+    https://www.youtube.com/watch?v=rROoYqDr2KM
+https://akrzemi1.wordpress.com/2020/05/07/ordering-by-constraints/
+https://www.bfilipek.com/2016/02/notes-on-c-sfinae.html
+https://habr.com/ru/post/495396/
+https://akrzemi1.wordpress.com/2020/03/26/requires-clause/
+Demo - C++20 Concepts Feature
+    https://www.youtube.com/watch?v=B_KjoLid5gw
+https://omnigoat.github.io/2020/01/19/cpp20-concepts/
+https://akrzemi1.wordpress.com/2020/01/29/requires-expression/
+https://github.com/hniemeyer/IntroToConcepts/blob/master/IntroToConcepts.pdf
+2019
+Raz - C++20 Concepts: A Day in the Life
+    https://www.youtube.com/watch?v=qawSiMIXtE4
+    https://github.com/saarraz/slides/blob/master/concepts_a_day_in_the_life.pdf
+
+https://devblogs.microsoft.com/cppblog/c20-concepts-are-here-in-visual-studio-2019-version-16-3/
+Saar - Clang Concepts
+    https://corecppil.github.io/CoreCpp2019/Presentations/Saar_clang_concepts.pdf
+    https://www.youtube.com/watch?v=Nuiwb4Dbefw
+https://brevzin.github.io/c++/2019/01/09/concept-templates/
+2018
+https://blog.feabhas.com/2018/12/a-brief-introduction-to-concepts-part-2/
+https://blog.feabhas.com/2018/12/a-brief-introduction-to-concepts-part-1/
+Pusz - Concepts and Ranges
+    https://meetingcpp.com/mcpp/slides/2018/C++%20Concepts%20and%20Ranges%20-%20How%20to%20use%20them.pdf
+    https://www.youtube.com/watch?v=pe05ZWdh0N0
+https://www.reddit.com/r/cpp/comments/9w8q4f/resourcesinspirations_for_using_c20_concepts/
+https://brevzin.github.io/c++/2018/10/20/concepts-declarations/
+https://www.inversepalindrome.com/blog/2018/9/26/concepts
+Stroustrup - Concepts: The Future of Generic Programming (the future is here)
+    https://www.youtube.com/watch?v=HddFGPTAmtU
+    https://www.youtube.com/watch?v=IT3AA1JHoYY
+    https://www.reddit.com/r/cpp/comments/9itcz6/cppcon_2018_bjarne_stroustrup_concepts_the_future/
+https://www.cjdb.com.au/blog/2018/05/15/prepping-yourself-to-conceptify-algorithms
+https://www.cjdb.com.au/transforming-std-find-into-std-ranges-find
+https://www.cjdb.com.au/a-prime-opportunity-for-ranges
+https://quuxplusone.github.io/blog/2018/09/24/concepts-as-door-opening-robots/
+https://quuxplusone.github.io/blog/2018/09/17/i-can-haz-member-concepts/
+https://quuxplusone.github.io/blog/2018/07/06/thoughts-on-sanely-move-assignable/
+https://www.reddit.com/r/cpp/comments/9w8q4f/resourcesinspirations_for_using_c20_concepts/e9je6bv/
+2017
+Jusiak - Concepts driven design
+    https://www.youtube.com/watch?v=TorW5ekkL_w
+
+gcc
+    -fconcepts

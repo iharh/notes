@@ -1,0 +1,5 @@
+verbosity - https://github.com/lukesampson/scoop/issues/2133
+    scoop update -v
+https://github.com/lukesampson/scoop/issues/1807
+https://github.com/lukesampson/scoop/blob/master/libexec/scoop-update.ps1
+https://github.com/lukesampson/scoop/blob/master/lib/config.ps1

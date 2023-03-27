@@ -1,0 +1,34 @@
+https://gitlab.haskell.org/ghc/ghc/
+https://github.com/alpmestan/ghc.nix
+
+2019
+https://vaibhavsagar.com/blog/2019/06/22/easy-ghc-hacking/index.html
+2018
+https://mgsloan.com/posts/ghcinception/
+
+https://github.com/takenobu-hs/haskell-ghc-illustrated
+
+http://www.reddit.com/r/haskell/comments/2regln/write_you_a_haskell/
+http://dev.stephendiehl.com/fun/
+
+http://hackage.haskell.org/trac/ghc/wiki/ReadingList
+Mitchell - Transformation and Analysis of Functional Programs
+Jones - Implementing Functional Languages - a tutorial.pdf (better and smaller than old-book, p 46 - WHNF).
+Santos - Compilation by Transformation in Non-Strict Functional Languages phd
+Vries - Graph Reduction - The Implementation of Functional Languages slides
+
+Coercions:
+http://hackage.haskell.org/trac/ghc/wiki/IntermediateTypes
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Compiler/FC
+
+PatternCalculus:
+\rightsquigarrow
+
+Patterns (Typesafe, Combinators)
+http://hackage.haskell.org/package/first-class-patterns
+
+Parallel:
+http://www.cse.chalmers.se/edu/course/pfp/ - pfp2012
+
+PrimOps:
+https://www.fpcomplete.com/blog/2015/02/primitive-haskell

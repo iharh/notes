@@ -1,0 +1,28 @@
+https://github.com/NixOS/nix/tree/master/src/nix
+https://github.com/NixOS/nix/blob/master/src/nix/main.cc
+
+2018
+http://www.opennet.ru/opennews/art.shtml?num=48133
+
+nix
+    --version
+        ... nix-shell -p nixUnstable
+    shell
+        nix shell should set IN_NIX_SHELL variable
+        https://github.com/NixOS/nix/issues/3862
+    develop
+        -f file.nix -c $SHELL
+
+$ ls -l ./result/bin/
+.r-xr-xr-x 1.8M root  1 Jan  1970 nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-build -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-channel -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-collect-garbage -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-copy-closure -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-daemon -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-env -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-hash -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-instantiate -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-prefetch-url -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-shell -> nix
+lrwxrwxrwx    3 root  1 Jan  1970 nix-store -> nix

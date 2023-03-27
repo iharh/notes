@@ -1,0 +1,29 @@
+https://docs.gradle.org/current/userguide/war_plugin.html
+built-in plugin
+
+apply plugin: 'war'
+
+src/main/webapp
+    web-app sources (jsp, ...)
+
+we can foolow the gretty plugin
+apply from 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+alternatively
+
+apply from: 'gretty.plugin'
+
+buildScript {
+    repositories {
+        jcenter{}
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
+repositories {
+    jcenter{}
+}
+
+apply plugin: 'org.akhikhl.gretty'

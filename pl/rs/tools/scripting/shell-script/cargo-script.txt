@@ -1,0 +1,64 @@
+!!! unmaintained (4yo)
+
+cargo-script (part of cargo-extras)
+https://crates.io/crates/cargo-script
+https://github.com/DanielKeep/cargo-script
+
+2020
+https://neosmart.net/blog/2020/self-compiling-rust-code/
+
+inst
+  Installing .../.cargo/bin/cargo-script
+  Installing .../.cargo/bin/run-cargo-script
+
+folders
+.../.cargo/script-cache
+.../.cargo/script-templates
+
+USAGE:
+    cargo script [FLAGS OPTIONS] [--] <script> <args>...
+
+FLAGS:
+        --bench           Compile and run benchmarks.  Requires a nightly toolchain.
+        --build-only      Build the script, but don't run it.
+        --clear-cache     Clears out the script cache.
+        --count           Invoke the loop closure with two arguments: line, and line number.
+        --debug           Build a debug executable, not an optimised one.
+    -e, --expr            Execute <script> as a literal expression and display the result.
+        --force           Force the script to be rebuilt.
+        --gen-pkg-only    Generate the Cargo package, but don't compile or run it.
+    -h, --help            Prints help information
+    -l, --loop            Execute <script> as a literal closure once for each line from stdin.
+        --test            Compile and run tests.
+    -V, --version         Prints version information
+
+OPTIONS:
+    -d, --dep <dep>...
+            Add an additional Cargo dependency.  Each SPEC can be either just the package name (which will assume the
+            latest version) or a full `name=version` spec.
+    -D, --dep-extern <dep_extern>...
+            Like `dep`, except that it *also* adds a `#[macro_use] extern crate name;` item for expression and loop
+            scripts.  Note that this only works if the name of the dependency and the name of the library it generates
+            are exactly the same.
+    -x, --extern <extern>...
+            Adds an `#[macro_use] extern crate name;` item for expressions and loop scripts.
+
+        --features <features>                        Cargo features to pass when building and running.
+        --migrate-data <migrate_data>                Migrate data from older versions. [values: dry-run, for-real]
+        --pkg-path <pkg_path>                        Specify where to place the generated Cargo package.
+    -t, --template <template>                        Specify a template to use for expression scripts.
+    -u, --unstable-feature <unstable_features>...    Add a #![feature] declaration to the crate.
+        --use-shared-binary-cache <use_bincache>
+            Override whether or not the shared binary cache will be used for compilation. [values: no, yes]
+
+
+ARGS:
+    <script>     Script file (with or without extension) to execute.
+    <args>...    Additional arguments passed to the script.
+
+
+cargo-script
+    templates
+        list
+        show
+            show the folder in which they should be stored

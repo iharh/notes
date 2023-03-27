@@ -1,0 +1,49 @@
+https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/flags.html
+
+autocompetion:
+http://www.reddit.com/r/haskell/comments/236qkb/autocomplete_command_line_options_with_ghc_78/
+
+ghc options
+-O2 -funbox-strict-fields
+{-# OPTIONS_GHC -funbox-strict-fields #}
+
+-fhpc // coverage
++RTS -stderr // GC, mem, threads
+
+You can specify -O2 on a per-module basis with an {-# OPTIONS_GHC -O2 #-}
+
+-Asize
+-qa       - enables the use of processor affinity
+-Iseconds - deadlock detection time
+-Cseconds - context switch time
+
+-dshow-passes
+    show compiler passes
+-dverbose-core2core
+    like the above but dump the output after each phase
+-ddump-parsed
+-ddump-rn
+-ddump-tc
+-ddump-dc
+    
+-dcore-lint
+    run Core Lint after each Core-to-Core phase
+
+-ddump-inlinings
+-ddump-rule-firings
+-ddump-rule-rewrites
+
+-ddump-occur-anal
+    show occurence-analysed code, immediately before
+    each simplifier pass
+
+-dppr-debug
+    print more info about everything
+
+-dsuppress-module-prefixes
+-dsuppress-uniques
+-dsuppress-unfoldings
+-dsuppress-type-applications
+-dsuppress-coercions
+...
+

@@ -1,0 +1,5 @@
+RECOVERING
+http://blog.ctp.com/2013/11/21/git-recovering-from-mistakes/
+
+git fsck --full --strict
+	to check the repo-validity

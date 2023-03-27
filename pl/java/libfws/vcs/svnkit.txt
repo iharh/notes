@@ -1,0 +1,21 @@
+https://svnkit.com/index.html
+https://wiki.svnkit.com/
+https://svnkit.com/javadoc/org/tmatesoft/svn/core/io/package-summary.html
+
+<repositories>
+    <repository>
+        <id>SVNKit</id>
+        <url>http://maven.tmatesoft.com/content/repositories/releases/</url>
+    </repository>
+</repositories>
+
+<dependency>
+    <groupId>org.tmatesoft.svnkit</groupId>
+    <artifactId>svnkit</artifactId>
+    <version>1.8.14</version>
+</dependency>
+
+
+https://mvnrepository.com/artifact/org.tmatesoft.svnkit/svnkit
+
+compile group: 'org.tmatesoft.svnkit', name: 'svnkit', version: '1.9.0-r10609-atlassian-hosted'

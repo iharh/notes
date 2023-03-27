@@ -1,0 +1,88 @@
+Prop (3.1) (Formal Duality) For any statement \Sigma in the language of CT,
+  if \Sigma follows from the axioms for categories, then does so \Sigma^*
+
+  if C |- \Sigma,  then  C |- \Sigma^*
+
+Prop (3.2) (Conceptual Duality) For any statement \Sigma about categories,
+  if \Sigma holds foa all categories, the so does the dual statement \Sigma^*
+
+
+Def (3.3) (Coproducts)
+  A diagram
+
+  A -- (q1) --> Q <-- (q2) -- B
+
+  is a "dual-product" (actuall called a coproduct) of A and B if for any Z and
+
+  A -- (z1) --> Z <-- (z2) -- B
+
+  there is a unique u : Q -> Z with z_i = u . q_i
+
+  A -- (z1) --> Z <-- (z2) -- B
+                .
+               (u)
+                .
+  A -- (q1) --> Q <-- (q2) -- B
+
+  We usually write A -- (i1) --> A + B <-- (i2) -- B
+  for the coproduct and 
+  u = [f,g] for the uniquely determined arrow u : A + B -> Z
+
+  The coprojections i1 : A -> A + B  and  i2 : B -> A + B
+  are usually called injections,
+  even though they not be "injective" in any sense.
+
+
+  A coproduct of two objects is therefore exactly their product in the opposite category.
+
+
+
+
+
+Def (3.13) (Equalizers)
+  In any category C, given parallel arrows f, g : A -> B
+  an equalizer of f and g consists of E and e : E -> A, universal such that:
+    f . e = g . e
+
+  That is, given any Z and z : Z -> A with f . z = g . z,
+  there is a unique u : Z -> E with e . u = z :
+
+  Z .. (u) ..> E -- (e) --> A -- (f) --> B
+  Z --------- (z) --------> A -- (g) --> B
+
+
+Prop (3.15) In any category, if e : E -> A is an equalizer of some pair of arrows, then it is monic
+  See p77 for proof.
+
+
+
+Consider equivalence relation (~) at some set X (i.e. - reflexive, symmetrical, transitive).
+It define equivalence classes:
+  [x] = { y of X | x ~ y }
+
+They form a partition of X.
+
+The set of all equivalence classes,
+  X/~ = { [x] | x of X }
+
+may be called a quotient of X by ~
+
+Def (3.17) (Coequalizers)
+  For any parrallel arrows f, g : A -> B in a category C,
+  a coequalizer of f and g consists of Q and q : B -> Q, universal with the property:
+    q . f = q . g
+
+  That is, given any Z and z : B -> Z,
+  if z . f = z . g, then
+  there exists a unique u : Q -> Z  such that u . q = z :
+
+  A -- (f) --> B -- (q) --> Q .. (u) ..> Z
+  A -- (g) --> B --------- (z) --------> Z
+
+
+First, observe that by duality, such a coequalizer q in a category C is an equalizer
+in C^op, hence monic by the last proposition, and so q is epic in C.
+
+Prop (3.18) If q : B -> Q is a coequalizer of some pair of arrows, then q is epic.
+
+

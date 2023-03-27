@@ -1,0 +1,35 @@
+https://abseil.io/
+
+https://github.com/abseil/abseil-cpp
+
+docs
+https://abseil.io/about/intro
+https://abseil.io/about/philosophy
+https://abseil.io/about/design/
+https://abseil.io/about/compatibility
+
+dev-guide
+https://abseil.io/docs/cpp.html
+https://abseil.io/docs/cpp/quickstart
+https://abseil.io/docs/cpp/platforms/
+https://abseil.io/docs/cpp/platforms/platforms
+https://abseil.io/docs/cpp/platforms/feature_checks
+https://abseil.io/about/compatibility
+
+prog-guide:
+https://abseil.io/docs/cpp/guides/
+https://abseil.io/docs/cpp/guides/base
+https://abseil.io/docs/cpp/guides/synchronization
+https://abseil.io/docs/cpp/guides/strings
+https://abseil.io/docs/cpp/guides/format
+
+clang-tidy checks
+https://abseil.io/blog/20180830-clang-tidy
+https://abseil.io/docs/cpp/tools/clang-tidy
+https://github.com/llvm-mirror/clang-tools-extra/tree/master/clang-tidy/abseil
+
+tips !!!
+https://abseil.io/tips/
+
+regular types
+https://abseil.io/blog/20180531-regular-types

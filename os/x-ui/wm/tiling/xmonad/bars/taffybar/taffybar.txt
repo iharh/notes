@@ -1,0 +1,85 @@
+https://hackage.haskell.org/package/taffybar
+https://github.com/taffybar/taffybar
+
+inst
+sudo apt-get install libgirepository1.0-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev
+sudo apt-get install libdbusmenu-glib-dev libdbusmenu-gtk3-dev
+
+
+dynamic reconfiguration
+https://github.com/willdonnelly/dyre
+
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Hooks/EwmhDesktops.hs
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Hooks/TaffybarPagerHints.hs
+
+gi stuff
+https://hackage.haskell.org/package/gi-dbusmenu
+https://github.com/haskell-gi/haskell-gi/blob/master/lib/Data/GI/GIR/Repository.hs#L89
+  Dbusmenu-0.4 in [
+    "/usr/share/xubuntu/gir-1.0",
+    "/usr/share/xfce4/gir-1.0",
+    "/home/iharh/.local/share/flatpak/exports/share/gir-1.0",
+    "/var/lib/flatpak/exports/share/gir-1.0",
+    "/usr/local/share/gir-1.0",
+!!! "/usr/share/gir-1.0",
+    "/var/lib/snapd/desktop/gir-1.0",
+    "/usr/share/gir-1.0"
+].
+dbusmenu
+https://hackage.haskell.org/package/gi-dbusmenu
+https://github.com/haskell-gi/haskell-gi/issues/174
+https://github.com/commercialhaskell/stack/issues/3154
+
+samples
+https://github.com/taffybar/taffybar/tree/master/example
+https://github.com/taffybar/taffybar/blob/master/example/xmonad.hs
+https://github.com/taffybar/taffybar/blob/master/src/System/Taffybar/Example.hs
+    https://github.com/taffybar/taffybar#starttaffybar
+    startTaffybar
+
+widgets
+https://github.com/taffybar/taffybar/tree/master/src/System/Taffybar/Widget
+
+????
+https://github.com/taffybar/taffybar/blob/master/example/stack.yaml
+
+cfg
+https://github.com/IvanMalison/dotfiles/blob/master/dotfiles/config/taffybar/taffybar.hs
+https://github.com/search?l=Haskell&type=Code&q=startTaffybar
+https://github.com/search?l=Haskell&type=Code&q=startTaffybar&p=2
+https://github.com/search?l=Haskell&type=Code&q=startTaffybar&p=3
+https://github.com/search?l=Haskell&type=Code&q=startTaffybar&p=4
+
+nixos-cfg
+https://github.com/IvanMalison/dotfiles
+https://github.com/sherubthakur/dotfiles
+https://github.com/srid/nix-config/
+    ! taffybar configured as a systemd service
+https://github.com/srid/nix-config/blob/master/nixos/taffybar-srid/Main.hs
+https://github.com/Icy-Thought/Snowflake/tree/main/config
+    https://github.com/Icy-Thought/Snowflake/blob/main/config/my-xmonad/xmonad.hs#L141
+        ! interesting composition in main
+    https://github.com/Icy-Thought/Snowflake/blob/main/config/my-taffybar/taffybar.hs
+        !!!
+
+
+https://github.com/podiki/dot.me/blob/master/taffybar/.config/taffybar/taffybar.hs
+    ! log stuff
+https://github.com/mankyKitty/dootfeelz
+    ! no integration
+https://github.com/Xervon/dotfiles/blob/master/xmonad/xmonad.hs
+    ! just System.Taffybar.Support.PagerHints (pagerHints)
+
+https://github.com/karthikiyengar/dotfiles/blob/master/xmonad/.xmonad/xmonad.hs#L167
+https://github.com/abyssability/home/blob/master/.config/xmonad/xmonad.hs
+    ! spawn-based integration using startupHook
+https://github.com/norrs/dotfiles/blob/master/dot.config/systemd/user/taffybar.service
+    ! systemd-based integration
+https://github.com/evanjs/gentoo-dotfiles/blob/master/.xmonad/xmonad1.hs#L387
+    ! main with composition, spaw-based
+
+issues
+https://github.com/taffybar/taffybar/issues/501
+    ???
+https://github.com/taffybar/taffybar/issues/542
+    https://github.com/taffybar/taffybar/pull/541

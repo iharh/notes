@@ -1,0 +1,132 @@
+http://www.cyberciti.biz/faq/rhel-centos-fedora-linux-yum-command-howto/
+http://www.tecmint.com/20-linux-yum-yellowdog-updater-modified-commands-for-package-mangement/
+
+http://www.unixmen.com/managing-software-packages-yum-rhel7centos7/
+https://www.centos.org/docs/5/html/5.1/Deployment_Guide/s1-yum-useful-commands.html
+
+http://www.computerhope.com/unix/yum.htm
+http://blog.packagecloud.io/eng/2015/04/05/yum-cheat-sheet/
+
+https://habrahabr.ru/post/301292/
+
+80|LXF205 - rpm, yum and dnf
+
+On your system, two package databases are maintained:
+The yum database and the rpm database.
+When you are installing packages through yum, the yum database is updated first,
+after which the updated information is synchronized to the RPM database.
+If you install packages using the rpm command,
+the update is written to the rpm database only and will not be updated to the yum database,
+which is an important reason not to use the rpm command anymore to install software packages.
+
+Kernels:
+http://www.if-not-true-then-false.com/2012/delete-remove-old-kernels-on-fedora-centos-red-hat-rhel/
+
+permanent number of kernels:
+
+/etc/yum.conf
+installonly_limit=2
+# The proxy server - proxy server:port number
+proxy=http://proxy-ip:8080  # in this example the port 8080.it can be other ports  
+# The account details for yum connections
+proxy_username=domain\username     # if you don't have domain put only  username
+proxy_password=mypassword
+exclude=kernel*
+
+
+Installing:
+
+yum install <package>
+
+Removing:
+http://unix.stackexchange.com/questions/23330/how-can-i-remove-orphan-packages-in-fedora
+# package-cleanup --quiet --leaves --exclude-bin | xargs yum remove -y
+
+yum remove|erase <package>
+  search
+  list|info|deplist
+
+Repositories:
+
+yum repolist
+
+ll /etc/yum.repos.d/
+
+wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+
+yum makecache fast
+    update repos metadata
+
+Groups:
+
+yum grouplist
+yum group list
+
+yum groupinfo    <group>
+yum groupinstall <group>
+yum groupremove  <group>
+
+interesting:
+   Development tools
+   Additional Development
+   Server Platform Development
+
+ui stuff
+   Desktop Platform Development
+
+
+OPTIONS
+-y
+    always yes
+
+UPDATES
+
+yum list updates
+
+yum update <package-name>
+    –exclude=kernel*
+
+yum updateinfo list security
+    list available security updates
+
+yum check-update
+    check updates
+
+Upgrade All:
+
+yum upgrade yum kernel
+yum -y upgrade
+cat /etc/centos-release
+
+
+searching:
+yum list [installed|all|available|updates]
+yum grouplist|repolist
+
+yum provides "*/g++"
+yum whatprovides "*/g++"
+rpm -ql <package>
+    list files of the <package>
+
+clean-up:
+
+yum clean all
+    clean package cache and headers
+yum clean packages
+    ... package cache only ...
+yum clean headers
+    ... headers only ...
+
+yum-db-sync:
+
+yum clean all
+yum history sync
+rpm --rebuilddb
+yum -y update
+
+
+history:
+yum history
+    history of yum runs
+yum history undo <num>
+    undo the chane with <num>

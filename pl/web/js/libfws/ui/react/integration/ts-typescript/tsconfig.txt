@@ -1,0 +1,19 @@
+tsconfig.json
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+    http://json.schemastore.org/tsconfig
+    https://www.typescriptlang.org/docs/handbook/compiler-options.html
+
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs", // es6
+        "target": "es5",
+        "jsx": "react",
+        "lib": ["es6", "dom"]
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

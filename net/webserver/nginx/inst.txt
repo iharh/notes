@@ -1,0 +1,22 @@
+2021
+https://linuxiac.com/install-and-configure-nginx/
+2018
+https://proglib.io/p/nginx/
+
+sudo systemctl enable nginx.service
+
+
+Depends: nginx-core (<< 1.18.0-6ubuntu14.1~) |
+         nginx-full (<< 1.18.0-6ubuntu14.1~) |
+         nginx-light (<< 1.18.0-6ubuntu14.1~) |
+         nginx-extras (<< 1.18.0-6ubuntu14.1~), nginx-core (>= 1.18.0-6ubuntu14) |
+         nginx-full (>= 1.18.0-6ubuntu14) | 
+         nginx-light (>= 1.18.0-6ubuntu14) | 
+         nginx-extras (>= 1.18.0-6ubuntu14)
+Breaks: libnginx-mod-http-lua (<< 1.18.0-6ubuntu5)
+
+This is a dependency package to install either
+    nginx-core (by default),
+    nginx-full,
+    nginx-light or
+    nginx-extras.

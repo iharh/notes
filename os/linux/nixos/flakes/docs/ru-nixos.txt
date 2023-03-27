@@ -1,0 +1,94 @@
+t.me/ru_nixos
+
+2021-11-18
+
+Skurikhin:
+    сгенерил флейк по этому гайду https://www.tweag.io/blog/2020-07-31-nixos-flakes/, заимпортил там текущий configuration.nix
+    {
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.03";
+
+      outputs = { self, nixpkgs }: {
+
+        nixosConfigurations.container = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./configuration.nix ];
+        };
+      };
+    }
+
+    flake 'git+file:///home/nish/Projects/my-nix' does not provide attribute
+        'packages.x86_64-linux.nixosConfigurations."nixos".config.system.build.toplevel',
+        'legacyPackages.x86_64-linux.nixosConfigurations."nixos".config.system.build.toplevel'
+            or
+        'nixosConfigurations."nixos".config.system.build.toplevel'
+
+Kanashimia:
+    sudo nixos-rebuild switch --flake ./path/to/flake#container
+
+Skurikhin:
+    я из дирректории с флейком делал —flake ./
+
+Kanashimia:
+    когда ты делаешь без #blah то оно берёт твой хостнейм как название атрибута
+    аналогично этому вообщем:
+        --flake ./#$(hostname)
+
+Skurikhin:
+    ну это я понял
+    я что-то не понял причём тут контейнер
+
+Kanashimia:
+    Это название конфигурации, посмотри что ты написал в flake.nix
+    можно ещё смотреть что в outputs путём nix flake show ./flake/path
+
+Skurikhin:
+    а, точно
+    я не понял про пин пакетов
+        nix.registry.nixpkgs.flake = nixpkgs;
+    я думал смысл флейков в том, чтобы зафиксировать версию через лок файл
+        It’s often convenient to pin the nixpkgs flake to the exact version of nixpkgs used to build the system.
+        This ensures that commands like nix shell nixpkgs#<package> work more efficiently since many or all
+        of the dependencies of <package> will already be present.
+        Here is a bit of NixOS configuration that pins nixpkgs in the system-wide flake registry:
+    или здесь ключевое "work more efficiently"?
+
+Kanashimia:
+        nix.registry.nixpkgs.flake = nixpkgs;
+    Это меняет регистр флеков системный, вообщем когда ты делаешь
+        nix build nixpkgs#hello,
+    то nix смотрит  в регистр и видит там что nixpkgs это алиас к
+        github:nixos/nixpkgs
+    и выполняет тоже самое что и
+        nix build github:nixos/nixpkgs#hello
+    Ты можешь посмотреть что в регистре путём
+        nix registry list
+
+Skurikhin:
+    у меня там есть
+        global flake:nix github:NixOS/nix
+
+Kanashimia:
+    Вообщем а зачем конкретно это - поскольку в данном случае nixpkgs в регистре незапиненый,
+    то время от времени тебе нужно его будет перекачивать.
+    Да и никос ты с одного никспкг билдишь - зачем ещё один качать?
+    Поэтому вместо этого лучше из конфига никос запинить штуку в регистре,
+    чтобы и для ос и для пакетов были одни исходники,
+    и обновлять лок файл только в репе ОС
+
+Skurikhin:
+        nix.registry.nixpkgs.flake = nixpkgs;
+    Это сообственно то для чего ^
+    а nixpkgs, который в параметре - это не адрес с гитхаба
+        nixos/nix?
+    или это тот, который указан в
+        inputs.nixpkgs.url?
+
+Kanashimia:
+    Нет, это аргумент что у в функции, тут:
+        outputs = { self, nixpkgs }: {
+    Это уже скачанный флейк, а соурс его это тот урл что в
+          inputs.nixpkgs.url,
+    и запиненый в flake.lock
+    если нет inputs.nixpkgs.url, то никс смотрит в регистр и берёт урл оттуда
+    В мануале ВСЁ это описано, лучше почитай
+        https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html

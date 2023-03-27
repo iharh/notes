@@ -1,0 +1,45 @@
+https://github.com/Alexpux/MSYS2-packages
+https://github.com/Alexpux/MSYS2-packages/tree/master/mingw-w64-cross-conemu-git
+
+https://sourceforge.net/p/msys2/mailman/message/35197802/
+
+Server = http://repo.msys2.org/msys/x86_64
+Server = https://sourceforge.net/projects/msys2/files/REPOS/MSYS2/x86_64
+
+/etc/pacman.conf
+...
+[mingw32]
+Include = /etc/pacman.d/mirrorlist.mingw32
+
+[mingw64]
+Include = /etc/pacman.d/mirrorlist.mingw64
+
+[msys]
+Include = /etc/pacman.d/mirrorlist.msys
+...
+
+cat pacman.d/mirrorlist.mingw64
+##
+## 64-bit Mingw-w64 repository mirrorlist
+##
+
+## Primary
+## msys2.org
+Server = http://repo.msys2.org/mingw/x86_64
+Server = http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/x86_64
+Server = http://www2.futureware.at/~nickoe/msys2-mirror/x86_64/
+
+
+Interesing packages
+mingw-w64-x86_64-ag
+    ag - the silver searcher
+    (? choco install ag)
+
+mingw-w64-cross-conemu-git
+mingw-w64-x86_64-icu
+
+pacman -Sy pacman-mirrors
+
+# Choose one based on platform:
+$ pacman -S mingw-w64-i686-toolchain
+$ pacman -S mingw-w64-x86_64-toolchain

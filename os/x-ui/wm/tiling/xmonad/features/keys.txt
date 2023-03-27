@@ -1,0 +1,51 @@
+https://github.com/xmonad/xmonad/blob/master/src/XMonad/Config.hs#L184
+https://xmonad.org/images/cheat/xmbindings.png
+
+2022
+https://gist.github.com/c33k/1ecde9be24959f1c738d
+    sudo apt install suckless-tools
+    # dmenu is there
+2012
+https://www.howtogeek.com/114728/how-to-use-xmonad-a-tiling-window-manager-for-linux/
+
+mod - alt
+
+M-S-/
+    help cmd
+M-S-q
+    exit
+M-S-c
+    close current window
+M-S-enter
+    terminal
+
+M-q
+    reload (recompile) xmonad cfg
+M-p
+    dmenu
+
+M-enter:
+    move focused window to the master pane on the left
+M-tab
+    move focus to the next window
+
+M-space
+    change layout (rotate throught the available layouts)
+M-h, M-l
+    decreases/increases (shrink/expand) border size between windows
+M-k, M-j
+    change window focus
+M-button1
+    start moving windows (and set it to floating mode)
+M-button2
+    start resizing window (and set it to floating mode)
+M-t
+    move floating windows back into tiling
+
+M-, M-.
+    inc/dec the number of windows at the master pane on the left
+M-<1..9>
+    switch to workspace number <num>
+M-S-<1..9>
+    move current windows to workspace number <num>
+

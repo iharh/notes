@@ -1,0 +1,12 @@
+https://gist.github.com/jaymutuku/1891ee0c2e7c9584a42b99587716f69c#partition-scheme-for-450-g3-uefi-system
+    parted /dev/sda -s mklabel gpt 
+
+Device Name Partition Type  Size (GB/MB) 	Type 		                                    Partition Type
+/dev/sda1 	/boot 	        250MB 	      UEFI System 	          1024 First Sector 	1
+/dev/sda2 	/var 	          180GB 	      Linux Filesystem(ex4) 	+120G Last Sector 	20
+/dev/sda3 	/ 	            40GB 	        Linux Filesystem(ex4) 	+100G Last 	        20
+/dev/sda4 	/home 	        190 GB 	      Linux Filesystem(ex4) 	+190G Last 	        20
+/dev/sda5 	/swap 	        32 GB 	      Linux Swap 	            +32G Last Sector 	  19
+
+https://wiki.archlinux.org/title/partitioning#Choosing_between_GPT_and_MBR
+    2.3.1 UEFI/GPT layout example

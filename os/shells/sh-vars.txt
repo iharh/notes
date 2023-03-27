@@ -1,0 +1,4 @@
+http://unix.stackexchange.com/questions/813/how-to-determine-where-an-environment-variable-came-from
+
+/etc/profile
+/etc/environment

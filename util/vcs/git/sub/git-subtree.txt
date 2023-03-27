@@ -1,0 +1,26 @@
+https://hpc.uni.lu/blog/2014/understanding-git-subtree/
+
+http://git.kernel.org/cgit/git/git.git/plain/contrib/subtree/git-subtree.sh
+https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt
+https://github.com/git/git/tree/master/contrib/subtree
+
+http://stackoverflow.com/questions/12858199/how-to-rebase-after-git-subtree-add
+
+
+http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree/
+https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/
+...
+Is there a reason why you don't use the external repository as remote, and then add the remote as subtree?
+
+git remote add -f tpope-vim-fireplace https://github.com/tpope/vim-f...
+git subtree add --prefix .vim/bundle/tpope-vim-fireplace tpope-vim-fireplace
+master --squash
+
+This way, you don't need to remember the URL for the next time, but can just fetch from the remote instead:
+
+git fetch tpope-vim-surround master
+git subtree pull --prefix .vim/bundle/tpope-vim-surround tpope-vim-surround master --squash
+...
+
+alternatives:
+http://www.mos6581.org/git_subtree_alternative

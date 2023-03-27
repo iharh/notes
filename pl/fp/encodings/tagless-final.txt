@@ -1,0 +1,33 @@
+2020
+CppUG - Granin - As in Haskell - Final Tagless and eDSL on Concepts 1:00 of 1:12:45
+    https://www.youtube.com/watch?v=9-P7rRbsoZc
+    ! 3:00 list of Granin's presentations
+2019
+JUG.RU - Nizhnikov - Modern FP with Tagless Final of 54:24
+    https://www.youtube.com/watch?v=sWEtnq0ReZA
+    ! real cases of using algebras
+    ! 28:20 - trait Monoid, LinSpace
+    ! 28:30 - MonoidF, LinSpaceF
+    ! 28:50 - Algebra of Endofunctor   F[A] -> A
+    ! 29:10 - Sample (of correspondence)
+    ! 30:00 - Sample of simple algebras (Size, Names)
+    ! 31:40 - Algebras form a sobstvennaya-category
+    ! 32:00 - Category of algebras
+    ! 34:30 - Initial Algebra
+    ! 39:00 - Composition
+    ! Vladimir Samoilov - Tagless-Final Style Testing ???
+    https://t.me/odomontois
+    https://t.me/scala_ru
+        https://github.com/scala-russian/about/blob/master/README.md
+FPURE - Final Tagless vs Free Monad. Александр Гранин 2:00 of 35:12
+    https://www.youtube.com/watch?v=u1GGqDQyGfc
+2018
+https://typelevel.org/blog/2018/05/09/tagless-final-streaming.html
+2017
+https://www.beyondthelines.net/programming/introduction-to-tagless-final/
+https://typelevel.org/blog/2017/12/27/optimizing-final-tagless.html
+    https://github.com/LukaJCB/sphynx
+    https://github.com/typelevel/cats-tagless
+    https://typelevel.org/cats-tagless/
+2014
+https://oleksandrmanzyuk.wordpress.com/2014/06/18/from-object-algebras-to-finally-tagless-interpreters-2/

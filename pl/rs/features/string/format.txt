@@ -1,0 +1,9 @@
+https://doc.rust-lang.org/std/fmt/
+
+format!
+
+hexadecimal:
+assert!(format!("{:02x?}", b"Foo\0") == "[46, 6f, 6f, 00]")
+
+2020
+https://articles.bchlr.de/display-adapter-pattern

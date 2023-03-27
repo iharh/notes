@@ -1,0 +1,2 @@
+wrapped command pipe issue:
+	'cmd1 ^| cmd2'

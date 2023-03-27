@@ -1,0 +1,2 @@
+mkfifo - create process
+    first letter (at ls -l output) is p

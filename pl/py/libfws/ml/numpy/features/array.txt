@@ -1,0 +1,19 @@
+https://machinelearningmastery.com/gentle-introduction-n-dimensional-arrays-python-numpy/
+https://docs.scipy.org/doc/numpy-1.13.0/user/quickstart.html
+http://www.scipy-lectures.org/intro/numpy/operations.html
+https://www.tutorialspoint.com/numpy/numpy_indexing_and_slicing.htm
+https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html
+http://www.scipy-lectures.org/intro/numpy/array_object.html
+    a[from-idx:to-idx]
+    a[from-idx:]
+    a[:to-idx]
+    a = np.arange(15) -> [0, 1, ..., 14]
+        a[2:13] - trim first and last 2 items
+https://pythonworld.ru/numpy/1.html
+
+a=[2, 4, 7, 10]
+for p in [0, 25, 33, 50, 66, 75, 100]:
+    print numpy.percentile(a, p, interpolation='linear')
+
+a = np.random.randn(10, 5)
+    10 vectors, 5 elements each

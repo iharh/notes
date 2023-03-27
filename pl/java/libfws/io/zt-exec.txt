@@ -1,0 +1,41 @@
+https://github.com/zeroturnaround/zt-exec
+https://github.com/zeroturnaround/zt-process-killer
+
+https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html
+
+https://zeroturnaround.com/rebellabs/how-to-deal-with-subprocesses-in-java/
+http://automated-testing.info/t/kak-zapustit-shell-komandu-sredstvami-java/10333/5
+
+https://github.com/zeroturnaround/zt-exec/blob/master/src/main/java/org/zeroturnaround/exec/ProcessExecutor.java
+    startInternal  java.lang.Process process, WaitForProcess
+https://github.com/zeroturnaround/zt-exec/blob/master/src/main/java/org/zeroturnaround/exec/stream/StreamPumper.java
+https://github.com/zeroturnaround/zt-exec/blob/master/src/main/java/org/zeroturnaround/exec/stream/PumpStreamHandler.java
+
+import org.zeroturnaround.exec.stream.LogOutputStream;
+import org.zeroturnaround.exec.stream.slf4j.Slf4jStream;
+
+(new ProcessExecutor().command(...))
+    .environment("foo", "bar")
+    .environment(env) // Map<String, String> env
+    .redirectInput(is) // InputStream ByteArrayInputStream
+    .redirectOutput(Slf4jStream.of(
+        LoggerFactory.getLogger(getClass().getName() + ".MyProcess")
+    ).asInfo())
+    .redirectOutput(out) // OutputStream out ...
+    .redirectOutput(Slf4jStream.of(
+        "MyProcess"
+    ).asInfo())
+    .redirectError(...)
+    .redirectOutputAlsoTo(...)
+    .redirectErrorAlsoTo(...)
+
+    .exitValue(3) // ? expect 3 as correct exit val
+    .readOutput(true)
+    .execute()
+        .outputUTF8(); // do we need a .readOutput(true) ?
+        .getExitValue();
+
+
+new LogOutputStream() {
+    @Override protected void processLine(String line) { ... }
+}

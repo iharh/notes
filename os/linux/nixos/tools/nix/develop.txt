@@ -1,0 +1,13 @@
+nix develop nixpkgs#hello
+    inside the shell, you can call:
+        - unpackPhase
+        - configurePhase
+        - buildPhase
+
+{...
+    devShell.x86_64-linux =
+        pkgs.mkShell { buildInputs = [ self.packages.x86_64-linux.hello pkgs.cowsay ]; };
+}
+
+2021
+https://serokell.io/blog/practical-nix-flakes

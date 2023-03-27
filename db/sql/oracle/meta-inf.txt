@@ -1,0 +1,16 @@
+login via specified user and run:
+select column_name from user_tab_columns where table_name = '<your_table>';
+
+
+[DBA/ALL]_USERS
+
+Default schemas:
+http://abcdba.com/abcdbaserver11gdefaultschema
+https://docs.oracle.com/cd/B16351_01/doc/server.102/b14196/users_secure001.htm
+
+select username, account_status, lock_date from DBA_USERS where default_tablespace = 'USERS' and account_status='OPEN';
+
+space occupation:
+http://www.sql.ru/forum/941605/kak-otlichit-sozdannyh-polzovateley-ot-oraklovyh
+http://remidian.com/2009/08/purging-sysaux-tablespace-purging-awr-reports/
+

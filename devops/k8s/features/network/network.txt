@@ -1,0 +1,20 @@
+https://github.com/ahmetb/kubernetes-network-policy-recipes
+
+2019
+https://github.blog/2019-11-21-debugging-network-stalls-on-kubernetes/
+    https://habr.com/ru/company/itsumma/blog/477390/
+2018
+https://itnext.io/kubernetes-networking-behind-the-scenes-39a1ab1792bb
+    https://habr.com/company/flant/blog/420813/
+https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-3-f35957784c8e
+    https://habr.com/ru/company/flant/blog/433382/
+2017
+https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-2-13fdc6c4e24c
+https://medium.com/@ApsOps/an-illustrated-guide-to-kubernetes-networking-part-1-d1ede3322727
+    https://habr.com/company/flant/blog/346304/
+https://jvns.ca/blog/2017/10/10/operating-a-kubernetes-network/
+2016
+https://www.slideshare.net/MuratMukhtarov/kubernetes-networking-introduction-to-overlay-networks-communication-models-and-implementation
+    https://www.slideshare.net/MuratMukhtarov/designing-scalable-docker-networks
+2015
+https://www.slideshare.net/CJCullen/kubernetes-networking-55835829

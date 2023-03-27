@@ -1,0 +1,2 @@
+    @Value("${prefix.suffix:#{null}}")
+    private String prefixSuffix;

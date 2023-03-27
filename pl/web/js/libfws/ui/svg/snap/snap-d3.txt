@@ -1,0 +1,14 @@
+I have never written a tutorial but I will try to give a summary.
+Assuming basic familiarity with both D3 and Snap: The following is possible.
+
+d3.select('.somethingsvg').data(data).each(function(d) { Snap(this).whatever; });
+
+d3 selects the nodes and takes the data.
+(You may have to use .enter and/or .append if you are creating more nodes or have more data than current nodes.)
+The .each function runs for each selected node and inside that anon fn
+you can use Snap(this) to reference the node for which the iteration of each is running and perform some kind of action.
+
+In my project, I am using Snap to implement some hover event listeners.
+I could use jQuery to implement the hover events because it integrates equally well,
+however, since it is an svg I am using Snap since I am drawing more svg on hover.
+

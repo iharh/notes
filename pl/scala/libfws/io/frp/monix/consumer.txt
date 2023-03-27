@@ -1,0 +1,37 @@
+https://monix.io/docs/2x/reactive/consumer.html
+A Consumer specifies how to consume observables.
+A Consumer is a factory of subscribers with a completion callback attached,
+  being effectively a way to transform observables into tasks for less error prone consuming of streams.
+  + complete, cancel, raiseError, foldLeft, head,
+  foreach, foreachAsync, forEachParallel
+
+https://github.com/monixio/monix/blob/master/monix-reactive/shared/src/main/scala/monix/reactive/Consumer.scala
+
+/** The `Consumer` is a specification of how to consume an observable.
+  *
+  * It is a factory of subscribers with a completion callback attached,
+  * being effectively a way to transform observables into
+  * [[monix.eval.Task tasks]] for less error prone consuming of streams.
+  */
+trait Consumer[-In, +R] extends ((Observable[In]) => Task[R])
+    with Serializable { self =>
+    ...
+}
+
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/test/scala/monix/reactive/consumers/CompleteConsumerSuite.scala
+https://github.com/monix/monix/blob/master/monix-reactive/shared/src/test/scala/monix/reactive/consumers/MapAsyncConsumerSuite.scala
+
+  /** Builds a consumer that will consume the stream, applying the given
+    * function to each element and then finally signaling its completion.
+    *
+    * @param cb is the function that will be called for each element
+    */
+  def foreach[A](cb: A => Unit): Consumer.Sync[A, Unit] =
+    new ForeachConsumer[A](cb)
+
+        //val printer = Consumer.foreach[Long](x => log.info("el: {}", x))
+        //source.runWith(printer)
+        //val task = source.foreach(x => log.info("el: {}", x))
+        // task: Task[Unit] = Async(<function3>)/
+        //val task: Task[Long] = source.runWith(printer).runAsync
+        //val task: Task[Long] = source.foreach(x => log.info("el: {}", x))

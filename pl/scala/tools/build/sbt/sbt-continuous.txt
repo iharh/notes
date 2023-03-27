@@ -1,0 +1,13 @@
+https://gist.github.com/paulp/895ba644174b8a2bf39126787218078b
+
+// These lines go in ~/.sbt/0.13/global.sbt
+watchSources ++= (
+     (baseDirectory.value * "*.sbt").get
+  ++ (baseDirectory.value / "project" * "*.scala").get
+  ++ (baseDirectory.value / "project" * "*.sbt").get
+)
+
+addCommandAlias("rtu", "; reload ; test:update")
+addCommandAlias("rtc", "; reload ; test:compile")
+addCommandAlias("ru", "; reload ; update")
+addCommandAlias("rc", "; reload ; compile")

@@ -1,0 +1,14 @@
+test          - runs tests
+test:compile
+test-only
+test:console
+test:console-quick ... with test-dependencies
+
+sbt "testOnly *Spec"
+
+Moar Commands
+    test-failed   - run any specs that failed
+    test-quick    - run any specs that failed and/or had dependencies updated
+
+Tags:
+http://stackoverflow.com/questions/10302458/excluding-a-scalatest-test-when-calling-my-tests-from-within-sbt

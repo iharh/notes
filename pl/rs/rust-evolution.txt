@@ -1,0 +1,17 @@
+The Typesystem Years
+- As the typesystem grows, more and more moves from the language to the libraries.
+- Distributed leadership (no single dictator)
+The Typesystem Years
+- March 2014: RFC process begins
+- for introducing "significant" language changes
+- even the core team goes through this process
+The Release Yearsh
+- The language will change in backward-compatible way
+- Continual pushing the boundaries of what's possible
+-- It's not about the language, it's about the [ecosystem/tooling/stability/community]
+- A new 1.x every six weeks (which is very aggressive)
+- Semver means painless upgrades
+- Additive change is the way to go
+- Build every crate on crates.io as part of the release process
+Community:
+- We have a code of conduct. Treat each other like humans. It's just a software

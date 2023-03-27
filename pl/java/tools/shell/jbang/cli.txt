@@ -1,0 +1,45 @@
+jbang
+    [--java 15]
+    [--debug]
+    [--debug=*:4321]
+    [edit --live=idea]
+    [--javaagent=org.jboss.byteman:byteman:4.0.11=script.btm]
+    --config
+        https://github.com/jbangdev/jbang/releases/tag/v0.85.0
+        https://github.com/jbangdev/jbang/pull/604
+
+    hello.(java|jsh|jar)
+    <url> like https://raw.githubusercontent.com/microsoft/jfr-streaming/main/samples/jbang/Sample.java
+    io.quarkus:quarkus-cli:999-SNAPSHOT:runner
+        # jar via GAV's
+
+    alias
+        list --show-origin
+        add hello hello.java
+    catalog
+        list
+        add --name <name> https://github.com/jbangdev/jbang-catalog/blob/HEAD/jbang-catalog.json
+        add --name <name> jbangdev
+    template
+        [--fresh] [--verbose] list
+    init
+        -t cli <name>.java
+        -t githubbot@quarkusio mybot.java
+        -t hello.kt hello.kt
+    edit
+        --open=[eclipse|...] or set JBANG_EDITOR=eclipse
+        default: vscodium
+            vscjava.vscode-java-debug
+            redhat.java
+    build
+        ...
+    --native
+        ...
+    run@jruby -e "puts 'Hello Ruby World'"
+        jruby/jbang-catalog
+    properties@jbang.dev
+        github/gitlab/bitbucket powered catalogs
+    publish
+        ...
+    app install [jbang]
+        https://github.com/jbangdev/jbang/pull/1125

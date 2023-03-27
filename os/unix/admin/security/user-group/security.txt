@@ -1,0 +1,33 @@
+https://wiki.archlinux.org/index.php/Permissions
+https://wiki.archlinux.org/index.php/Users_and_groups
+
+usermod -aG <additional_groups> <username>
+gpasswd -a|--add <username> <group>
+gpasswd -d|--delete <username> <group>
+
+
+- Go to the Grub-Menu (e) line of Linux 16 and change
+ro
+with
+rw init=/sysroot/bin/sh.
+
+- Now press Control+x to start on single user mode.
+
+- Now access the system with this command.
+chroot /sysroot
+- Reset the password.
+passwd root
+- Update selinux information
+touch /.autorelabel
+- Exit chroot
+exit
+- Reboot your system
+reboot
+
+
+login:
+/etc/login.defs
+/etc/pam.d/
+/etc/pam.d/system-auth
+/etc/security/access.conf
+  commented out

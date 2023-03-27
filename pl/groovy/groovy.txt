@@ -1,0 +1,28 @@
+groovy mvn repo:
+http://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all
+
+Metaprogramming:
+http://www.groovy-lang.org/metaprogramming.html
+
+http://www.slideshare.net/ilopmar/metaprogramming-with-groovy
+
+DSL:
+http://www.slideshare.net/alotor/greach-2015-dsling-your-groovy
+
+
+AST:
+http://www.slideshare.net/aalmiray/groovy-ast-demyistified-33degree
+http://www.slideshare.net/SpringCentral/groovy-asttransforms-paulkingsep2014b
+
+http://melix.github.io/ast-workshop/
+http://hamletdarcy.blogspot.com.by/2010/01/groovy-ast-transformations-by-example.html
+
+AST - AstBuilder:
+http://joesgroovyblog.blogspot.com.by/2011/10/ast-transformation-using-astbuilder.html
+http://mrhaki.blogspot.com.by/2014/05/groovy-goodness-use-builder-ast.html
+http://www.javacodegeeks.com/2014/05/groovy-goodness-use-builder-ast-transformation-for-fluent-api.html
+
+
+Traits:
+http://docs.groovy-lang.org/latest/html/documentation/core-traits.html
+http://www.slideshare.net/SpringCentral/traits-design

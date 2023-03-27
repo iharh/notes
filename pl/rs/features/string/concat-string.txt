@@ -1,0 +1,44 @@
+https://doc.rust-lang.org/std/macro.concat.html
+works for literals only (? statics ?)
+
+https://crates.io/crates/concat-string
+https://docs.rs/concat-string
+
+https://github.com/FaultyRAM/concat-string
+https://github.com/FaultyRAM/concat-string/blob/master/src/lib.rs
+...
+macro_rules! concat_string {
+    () => { String::with_capacity(0) };
+    ($($s:expr),+) => {{
+        use std::ops::AddAssign;
+        let mut len = 0;
+        $(len.add_assign(AsRef::<str>::as_ref(&$s).len());)+
+        let mut buf = String::with_capacity(len);
+        $(buf.push_str($s.as_ref());)+
+        buf
+    }};
+}
+...
+
+// The addition assignment operator +=.
+https://doc.rust-lang.org/std/ops/trait.AddAssign.html
+
+https://github.com/hoodie/concatenation_benchmarks-rs
+...
+#[bench]
+#[cfg(unix)]
+fn from_bytes(b: &mut Bencher) {
+    use std::slice;
+    use std::ffi::OsStr;
+    use std::os::unix::ffi::OsStrExt;
+
+    b.iter(|| {
+               let bytes = unsafe { slice::from_raw_parts(DATE.as_ptr(), 20) };
+
+               let datetime = OsStr::from_bytes(bytes);
+               test::black_box(datetime);
+           });
+}
+
+2017
+https://www.reddit.com/r/rust/comments/48fmta/seven_ways_to_concatenate_strings_in_rust_the/

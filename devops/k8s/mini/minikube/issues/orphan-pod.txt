@@ -1,0 +1,8 @@
+https://github.com/kubernetes/kubernetes/issues/38498
+https://github.com/kubernetes/kubernetes/issues/60987
+    ?
+https://github.com/kubernetes/kubernetes/issues/48716
+    cleanupOrphanedPodDirs
+https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#limitations
+
+https://github.com/kubernetes/kubernetes/issues/64788

@@ -1,0 +1,23 @@
+https://k6.io/
+https://github.com/grafana/k6
+
+https://k6.io/docs/
+https://github.com/grafana/k6-docs
+
+https://k6.io/docs/getting-started/installation/
+https://k6.io/docs/getting-started/running-k6/
+
+https://k6.io/docs/extensions/
+https://k6.io/docs/javascript-api/xk6-browser/
+    https://github.com/grafana/xk6-browser
+https://github.com/grafana/xk6-amqp
+https://github.com/grafana/xk6-kubernetes
+
+https://github.com/grafana/k6-operator
+
+2022
+https://habr.com/ru/company/otus/blog/675044/
+2021
+HighLoad - Samir - K6 Load Testing ru 7:00 of 47:45
+    https://www.youtube.com/watch?v=iu6X4QNgFig
+    https://www.highload.ru/spb/2021/abstracts/7816

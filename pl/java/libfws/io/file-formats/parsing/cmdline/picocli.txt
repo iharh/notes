@@ -1,0 +1,26 @@
+http://picocli.info/
+https://github.com/remkop/picocli
+
+https://github.com/kakawait/picocli-spring-boot-starter
+
+whatsnew
+https://dzone.com/articles/announcing-picocli-10
+
+issues
+https://github.com/remkop/picocli/issues/183
+
+2021
+https://www.infoq.com/articles/java-native-cli-graalvm-picocli/
+    https://habr.com/ru/post/597105/
+Coder4Life - Create Java CLI applications with picocli of 6:38
+    https://www.youtube.com/watch?v=PaxBXABJIzY
+2020
+https://www.infoq.com/articles/java-native-cli-graalvm-picocli/
+2018
+https://dzone.com/articles/java-command-line-interfaces-part-10-picocli
+    https://habr.com/company/otus/blog/419401/
+
+samples
+https://asciinema.org/a/AVwA19yijKRNKEO0bJENN2ME3
+    //DEPS info.picocli:picocli:4.6.1
+    jbang --init=cli helloworld.java

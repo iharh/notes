@@ -1,0 +1,3 @@
+2020
+https://www.valentinog.com/blog/webpack/
+    ! const getUserModule = () => import("./common/usersAPI");

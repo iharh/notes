@@ -1,0 +1,183 @@
+http://stackoverflow.com/questions/23185690/event-handler-stack/23187159#23187159
+http://www.reddit.com/r/haskell/comments/2667un/pipes_why_must_a_producer_block_on_yield/
+
+This is exactly what the Proxy type from pipes does.
+Diagramatically, it looks a bit like this:
+
+ Upstream | Downstream
+     +---------+
+     |         |
+ a' <==       <== b'
+     |         |
+ a  ==>       ==> b
+     |    |    |
+     +----|----+
+          v
+          r
+
+It has two interfaces:
+  an upstream  interface and
+  a  downstream interface.
+  
+It sends and receives information on both interfaces.
+This is analogous to a layer in your stack where "upstream" might be the stack frame above it "downstream" might be the stack frame below it.
+
+
+To communicate to the upstream interface, you use request, which has this type:
+
+request :: Monad m => a' -> Proxy a' a b' b m a
+
+In other words, request sends a value of type a' upstream and waits for a response of type a.
+
+
+
+The dual of request is respond, which communicates on the downstream interface:
+
+respond :: Monad m => b -> Proxy a' a b' b m b'
+
+respond sends a value of type b downstream and waits for a response of type b'.
+
+
+
+A Proxy can be in one of three states. It can either be:
+
+1. Waiting for a response from upstream
+
+Its type would indicates that it's waiting for an a:
+
+waitingUp :: a -> Proxy a' a b' b m r
+
+
+2. Waiting for a response from downstream:
+
+Its type would indicate that it's waiting for a b':
+
+waitingDn :: b' -> Proxy a' a b' b m r
+
+
+3. Currently active, and not waiting for anything:
+
+Its type would indicate that it's not waiting for any value:
+
+notWaiting :: Proxy a' a b' b m r
+
+
+
+There are four ways you can connect these three states:
+
+    Connect a Proxy waiting on downstream to an active Proxy, which generates a new active Proxy.
+
+This is what the (+>>) operator does:
+
+(+>>)
+    :: Monad m
+    => (b' -> Proxy a' a b' b m r)  -- Waiting on downstream
+    ->        Proxy b' b c' c m r   -- Active
+    ->        Proxy a' a c' c m r   -- Active
+
+    Connect an active Proxy to a Proxy waiting on upstream, which generates a new active Proxy.
+
+This is what the (>>~) operator does:
+
+(>>~)
+    :: Monad m
+    =>       Proxy a' a b' b m r   -- Active
+    -> (b -> Proxy b' b c' c m r)  -- Waiting on upstream
+    ->       Proxy a' a c' c m r   -- Active
+
+    Connect two Proxys that are both waiting on upstream, to generate a new Proxy waiting on upstream.
+
+This is what the (>~>) operator does:
+
+(>~>)
+    :: Monad m
+    => (a -> Proxy a' a b' b m r)  -- Waiting on upstream
+    -> (b -> Proxy b' b c' c m r)  -- Waiting on upstream
+    -> (a -> Proxy a' a c' c m r)  -- Waiting on upstream
+
+    Connect two Proxys that are both waiting on downstream, to generate a new Proxy waiting on downstream.
+
+This is what the (>+>) operator does:
+
+(>+>)
+    :: Monad m
+    => (b' -> Proxy a' a b' b m r)  -- Waiting on downstream
+    -> (c' -> Proxy b' b c' c m r)  -- Waiting on downstream
+    -> (c' -> Proxy a' a c' c m r)  -- Waiting on downstream
+
+Here's an example of three stack frames implemented and connected this way. I will use the convention that the stack starts from upstream, although the implementation is totally symmetric and you can use the opposite convention if you prefer:
+
+import Pipes.Core
+import Pipes
+
+--                +-+-- Closed upstream interface
+--                | |
+--                v v
+up :: () -> Proxy X () String Int IO ()
+up () = do
+    str1 <- respond 4
+    lift (putStrLn str1)
+    str2 <- respond 5
+    lift (putStrLn str2)
+
+middle :: Int -> Proxy String Int Double Char IO ()
+middle int = do
+    lift (print int)
+    double <- respond (head (show int))
+    lift (print double)
+    int' <- request (show double)
+    middle int'
+
+--  Closed downstream interface --+-+
+--                                | |
+--                                v  v
+down :: Char -> Proxy Double Char () X IO ()
+down char1 = do
+    lift (print char1)
+    char2 <- request (1.0)
+    lift (print char2)
+    char3 <- request (2.0)
+    lift (print char3)
+
+--                   +-+--+--+-- Everything closed
+--                   | |  |  |
+--                   v v  v  v
+total :: () -> Proxy X () () X IO ()
+total = up >~> middle >~> down
+
+main :: IO ()
+main = runEffect $ total ()
+
+This produces the following output:
+
+>>> main
+4
+'4'
+1.0
+1.0
+5
+'5'
+2.0
+2.0
+
+Try to trace the execution path by hand, starting from the up Proxy. Every time that up responds with a value, that hands off control to middle, and every time middle respond with a value that hands off control to down. Vice versa, every time down requests a value, that hands off control to middle, and every time middle requests a value that hands off control to up. If any pipe in the chain terminates then the whole chain terminates.
+
+Edit: To answer your question, yes, you can change the behavior based on the result. Just write middle like this:
+
+middle :: Int -> Proxy String Int Double Char IO ()
+middle int = do
+    lift (print int)
+    double <- respond (head (show int))
+    case double of
+        0.0 -> foo
+        _   -> bar
+
+... where foo and bar are both Proxys with the same inputs and outputs as middle:
+
+foo :: Proxy String Int Double Char IO ()
+
+bar :: Proxy String Int Double Char IO ()
+
+when you sequence two Proxys, the second Proxy begins where the first Proxy ends. You're not limited to sequencing primitive commands like request and respond. You can call any Proxy of an arbitrary number of steps as a subroutine within a larger Proxy as long as it shares the same upstream and downstream interface
+
+

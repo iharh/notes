@@ -1,0 +1,20 @@
+man zshoptions
+
+set -o
+	show which options are on/off
+setopt
+	show options (??? with non-default settings)
+
+
+setopt <option>:
+ignore_eof
+	ignore EOF (while C-D) up to 10 times
+nobeep
+	disable beep
+extended_glob
+	more powerfull pattern matching features.
+hist_ho_store
+	disable history storing
+noclobber
+	stop clobbering (overwrite files while redirecting output)
+	(we can redirect anyway via echo ... >| logfile.txt)

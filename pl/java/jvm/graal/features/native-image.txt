@@ -1,0 +1,24 @@
+https://www.graalvm.org/22.2/reference-manual/native-image/
+
+gu
+    install native-image
+
+https://www.graalvm.org/docs/reference-manual/native-image/#lower-latency-garbage-collection
+https://www.graalvm.org/docs/reference-manual/aot-compilation/
+https://medium.com/graalvm/instant-netty-startup-using-graalvm-native-image-generation-ed6f14ff7692
+--no-server
+
+https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md
+
+2022
+GraalVM Native Image for Containerised Applications 0:00 of 29:19
+    https://www.youtube.com/watch?v=tUdR2Gow3ek
+2021
+https://medium.com/graalvm/working-with-native-image-efficiently-c512ccdcd61b
+https://medium.com/graalvm/graalvm-native-image-quick-reference-4ceb84560fd8
+2020
+https://info.michael-simons.eu/2020/09/15/about-the-tooling-available-to-create-native-graalvm-images/
+https://simply-how.com/fix-graalvm-native-image-compilation-issues
+https://blogs.oracle.com/developers/building-cross-platform-native-images-with-graalvm
+2019
+https://habr.com/ru/post/454790/

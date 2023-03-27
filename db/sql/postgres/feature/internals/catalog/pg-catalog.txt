@@ -1,0 +1,3 @@
+select amname from pg_catalog.pg_am;
+
+select viewname from pg_catalog.pg_views;

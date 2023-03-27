@@ -1,0 +1,5 @@
+core
+    bashrc-manjaro
+
+/etc/bash.bashrc
+/etc/skel/.bashrc

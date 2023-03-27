@@ -1,0 +1,606 @@
+TCConnectionImpl
+this.commWorker.requestWriteInterest
+
+
+
+
+TCByteBufferImpl
+
+// java.nio.channels.SocketChannel
+
+CoreNIOServices
+
+class CoreNIOServices implements TCListenerEventListener, TCConnectionEventListener {
+
+	void requestConnectInterest(TCConnectionImpl conn, SocketChannel sc) {
+		readerComm.requestConnectInterest(conn, sc);
+	}
+
+	private void requestAcceptInterest(TCListenerImpl lsnr, ServerSocketChannel ssc) {
+		readerComm.requestAcceptInterest(lsnr, ssc);
+	}
+
+	void requestReadInterest(TCChannelReader reader, ScatteringByteChannel channel) {
+		readerComm.requestReadInterest(reader, channel);
+	}
+
+	void removeReadInterest(TCConnectionImpl conn, SelectableChannel channel) {
+		readerComm.removeReadInterest(conn, channel);
+	}
+
+	void requestWriteInterest(TCChannelWriter writer, GatheringByteChannel channel) {
+		writerComm.requestWriteInterest(writer, channel);
+	}
+
+	void removeWriteInterest(TCConnectionImpl conn, SelectableChannel channel) {
+		writerComm.removeWriteInterest(conn, channel);
+	}
+
+	private void requestReadWriteInterest(TCConnectionImpl conn, SocketChannel sc) {
+		readerComm.requestReadInterest(conn, sc);
+		writerComm.requestWriteInterest(conn, sc);
+	}
+
+
+	protected class CommThread extends Thread {
+		private final Selector         selector;
+		private final LinkedQueue      selectorTasks;
+		private final String           name;
+		private final SynchronizedLong bytesRead    = new SynchronizedLong(0);
+		private final SynchronizedLong bytesWritten = new SynchronizedLong(0);
+		private final COMM_THREAD_MODE mode;
+
+		public CommThread(final COMM_THREAD_MODE mode) {
+			name = commThreadName + (mode == COMM_THREAD_MODE.NIO_READER ? "_R" : "_W");
+			setDaemon(true);
+			setName(name);
+
+			this.selector = createSelector();
+			this.selectorTasks = new LinkedQueue();
+			this.mode = mode;
+		}
+
+		@Override
+		public void run() {
+			try {
+				selectLoop();
+			}
+			catch (Throwable t) {
+				logger.error("Unhandled exception from selectLoop", t);
+				throw new RuntimeException(t);
+			}
+			finally {
+				dispose(selector, selectorTasks);
+			}
+		}
+
+		public void requestStop() {
+			try {
+				this.selector.wakeup();
+			}
+			catch (Exception e) {
+				logger.error("Exception trying to stop " + getName() + ": ", e);
+			}
+		}
+
+		private void updateThreadName() {
+			setName(name + getListenerString());
+		}
+
+		private Selector createSelector() {
+			Selector selector1 = null;
+
+			final int tries = 3;
+
+			boolean interrupted = false;
+			try {
+				for (int i = 0; i < tries; i++) {
+					try {
+						selector1 = Selector.open();
+						return selector1;
+					}
+					catch (IOException ioe) {
+						throw new RuntimeException(ioe);
+					}
+					catch (NullPointerException npe) {
+						if (i < tries && NIOWorkarounds.selectorOpenRace(npe)) {
+							System.err.println("Attempting to work around sun bug 6427854 (attempt " + (i + 1) + " of " + tries + ")");
+							try {
+								Thread.sleep(new Random().nextInt(20) + 5);
+							}
+							catch (InterruptedException ie) {
+								interrupted = true;
+							}
+							continue;
+						}
+						throw npe;
+					}
+				}
+			}
+			finally {
+				Util.selfInterruptIfNeeded(interrupted);
+			}
+
+			return selector1;
+		}
+
+		private void selectLoop() throws IOException {
+			Assert.eval(Thread.currentThread() == this);
+
+			Selector localSelector = this.selector;
+			LinkedQueue localSelectorTasks = this.selectorTasks;
+
+			while (true) {
+				final int numKeys;
+				try {
+					numKeys = localSelector.select();
+				}
+				catch (IOException ioe) {
+					if (NIOWorkarounds.linuxSelectWorkaround(ioe)) {
+						logger.warn("working around Sun bug 4504001");
+						continue;
+					}
+					throw ioe;
+				}
+				catch (CancelledKeyException cke) {
+					logger.warn("Cencelled Key " + cke);
+					continue;
+				}
+
+				if (isStopRequested()) {
+					if (logger.isDebugEnabled()) {
+						logger.debug("Select loop terminating");
+					}
+					return;
+				}
+
+				boolean isInterrupted = false;
+				// run any pending selector tasks
+				while (true) {
+					Runnable task = null;
+					while (true) {
+						try {
+							task = (Runnable) localSelectorTasks.poll(0);
+							break;
+						}
+						catch (InterruptedException ie) {
+							logger.error("Error getting task from task queue", ie);
+							isInterrupted = true;
+						}
+					}
+
+					if (null == task) {
+						break;
+					}
+
+					try {
+						task.run();
+					}
+					catch (Exception e) {
+						logger.error("error running selector task", e);
+					}
+				}
+
+				Util.selfInterruptIfNeeded(isInterrupted);
+
+				final Set selectedKeys = localSelector.selectedKeys();
+				if ((0 == numKeys) && (0 == selectedKeys.size())) {
+					continue;
+				}
+
+				for (Iterator iter = selectedKeys.iterator(); iter.hasNext();) {
+					SelectionKey key = (SelectionKey) iter.next();
+					iter.remove();
+
+					if (null == key) {
+						logger.error("Selection key is null");
+						continue;
+					}
+
+					try {
+						if (key.isAcceptable()) {
+							doAccept(key);
+							continue;
+						}
+
+						if (key.isConnectable()) {
+							doConnect(key); // !!! doConnect call - the only place
+							continue;
+						}
+
+						if (isReader() && key.isValid() && key.isReadable()) {
+							int read;
+							TCChannelReader reader = (TCChannelReader) key.attachment();
+							ScatteringByteChannel channel = (ScatteringByteChannel) key.channel();
+							do {
+								read = reader.doRead(channel); // !!! actual channel read
+								this.bytesRead.add(read);
+							}
+							while ((read != 0) && key.isReadable());
+						}
+
+						if (key.isValid() && !isReader() && key.isWritable()) {
+							int written = ((TCChannelWriter) key.attachment()).doWrite((GatheringByteChannel) key.channel()); // !!! actual channel write
+							this.bytesWritten.add(written);
+						}
+					}
+					catch (CancelledKeyException cke) {
+						logger.info("selection key cancelled key@" + key.hashCode());
+					}
+				} // for
+			} // while (true)
+		}
+
+		private void doAccept(final SelectionKey key) {
+			SocketChannel sc = null;
+
+			final TCListenerImpl lsnr = (TCListenerImpl) key.attachment();
+
+			try {
+				final ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
+				sc = ssc.accept();
+				sc.configureBlocking(false);
+				final TCConnectionImpl conn = lsnr.createConnection(sc, CoreNIOServices.this, socketParams);
+				requestReadInterest(conn, sc);
+			}
+			catch (IOException ioe) {
+				if (logger.isInfoEnabled()) {
+					logger.info("IO Exception accepting new connection", ioe);
+				}
+
+				cleanupChannel(sc, null);
+			}
+		}
+
+		private void doConnect(SelectionKey key) {
+			SocketChannel sc = (SocketChannel) key.channel();
+			TCConnectionImpl conn = (TCConnectionImpl) key.attachment();
+
+			try {
+				if (sc.finishConnect()) {
+					sc.register(selector, SelectionKey.OP_READ, conn); // !!! register SocketChannel at selector
+					conn.finishConnect();
+				}
+				else {
+					String errMsg = "finishConnect() returned false, but no exception thrown";
+
+					if (logger.isInfoEnabled()) {
+						logger.info(errMsg);
+					}
+
+					conn.fireErrorEvent(new Exception(errMsg), null);
+				}
+			}
+			catch (IOException ioe) {
+				if (logger.isInfoEnabled()) {
+					logger.info("IOException attempting to finish socket connection", ioe);
+				}
+
+				conn.fireErrorEvent(ioe, null);
+			}
+		}
+
+		private void handleRequest(final InterestRequest req) {
+			// ignore the request if we are stopped/stopping
+			if (isStopRequested()) {
+				return;
+			}
+
+			if (Thread.currentThread() == this) {
+				modifyInterest(req); // !!! modifyInterest call
+			}
+			else {
+				final CommThread commTh = req.getCommNIOServiceThread();
+				Assert.assertNotNull(commTh);
+				commTh.addSelectorTask(new Runnable() {
+					public void run() {
+						commTh.handleRequest(req);
+					}
+				});
+			}
+		}
+
+		private boolean isStopRequested() {
+			return stopRequested.isSet();
+		}
+
+		private void modifyInterest(InterestRequest request) {
+			Assert.eval(Thread.currentThread() == this);
+
+			Selector localSelector = null;
+			localSelector = selector;
+
+			try {
+				final int existingOps;
+
+				SelectionKey key = request.channel.keyFor(localSelector);
+				if (key != null) {
+					if (!key.isValid()) {
+						logger.warn("Skipping modifyInterest - " + Constants.interestOpsToString(request.interestOps) + " on "
+							+ request.attachment
+						);
+						return;
+					}
+					existingOps = key.interestOps();
+				}
+				else {
+					existingOps = 0;
+				}
+
+				if (logger.isDebugEnabled()) {
+					logger.debug(request);
+				}
+
+				if (request.add) {
+					// !!! register channel for selector
+					request.channel.register(localSelector, existingOps | request.interestOps, request.attachment);
+				}
+				else if (request.set) {
+					// !!! register channel for selector
+					request.channel.register(localSelector, request.interestOps, request.attachment);
+				}
+				else if (request.remove) {
+					// !!! register channel for selector
+					request.channel.register(localSelector, existingOps ^ request.interestOps, request.attachment);
+				}
+				else {
+					throw new TCInternalError();
+				}
+			}
+			catch (ClosedChannelException cce) {
+				logger.warn("Exception trying to process interest request: " + cce);
+			}
+			catch (CancelledKeyException cke) {
+				logger.warn("Exception trying to process interest request: " + cke);
+			}
+		}
+
+		// !!! handleRequest callers
+
+		void requestConnectInterest(TCConnectionImpl conn, SocketChannel sc) {
+			handleRequest(InterestRequest.createSetInterestRequest(sc, conn, SelectionKey.OP_CONNECT, this));
+		}
+
+		void requestReadInterest(TCChannelReader reader, ScatteringByteChannel channel) {
+			Assert.eval(isReader());
+			handleRequest(InterestRequest.createAddInterestRequest((SelectableChannel) channel, reader, SelectionKey.OP_READ, this));
+		}
+
+		void requestWriteInterest(TCChannelWriter writer, GatheringByteChannel channel) {
+			Assert.eval(!isReader());
+			handleRequest(InterestRequest.createAddInterestRequest((SelectableChannel) channel, writer, SelectionKey.OP_WRITE, this));
+		}
+
+		private void requestAcceptInterest(TCListenerImpl lsnr, ServerSocketChannel ssc) {
+			Assert.eval(isReader());
+			handleRequest(InterestRequest.createSetInterestRequest(ssc, lsnr, SelectionKey.OP_ACCEPT, this));
+		}
+
+		void removeWriteInterest(TCConnectionImpl conn, SelectableChannel channel) {
+			Assert.eval(!isReader());
+			handleRequest(InterestRequest.createRemoveInterestRequest(channel, conn, SelectionKey.OP_WRITE, this));
+		}
+
+		void removeReadInterest(TCConnectionImpl conn, SelectableChannel channel) {
+			Assert.eval(isReader());
+			handleRequest(InterestRequest.createRemoveInterestRequest(channel, conn, SelectionKey.OP_READ, this));
+		}
+	}
+
+
+}
+
+
+doAccept
+
+
+
+TCChannelReader
+
+/**
+ * Interface used by {@link CoreNIOServices comms threads} to request reading from a channel. This interface makes it
+ * possible to slide a stack of between the read calls and the socket. An example layer would be something that can deal
+ * with encrypt/decrypt of the stream
+ * 
+ * @author teck
+ */
+interface TCChannelReader {
+	public int doRead(ScatteringByteChannel channel);
+}
+
+
+TCChannelWriter
+
+/**
+ * Interface used by {@link CoreNIOServices comms threads} to request writing a channel. This interface makes it
+ * possible to slide a stack of between the write calls and the socket. An example layer would be something that can
+ * deal with encrypt/decrypt of the stream
+ * 
+ * @author teck
+ */
+interface TCChannelWriter {
+	int doWrite(GatheringByteChannel channel);
+}
+
+
+
+NetworkMessageSink
+
+public interface NetworkMessageSink {
+	public void putMessage(TCNetworkMessage message);
+}
+
+
+TCConnection
+
+public interface TCConnection extends NetworkMessageSink {
+...
+}
+
+
+
+
+TCConnectionImpl
+
+final class TCConnectionImpl implements TCConnection, TCChannelReader, TCChannelWriter {
+
+	public int doRead(final ScatteringByteChannel sbc) {
+		final int read = doReadInternal(sbc);
+		this.totalRead.add(read);
+		return read;
+	}
+
+	public int doWrite(final GatheringByteChannel gbc) {
+		final int written = doWriteInternal(gbc);
+		this.totalWrite.add(written);
+		return written;
+	}
+
+
+	private void connectImpl(final TCSocketAddress addr, final int timeout) throws IOException, TCTimeoutException {
+		SocketChannel newSocket = null;
+		final InetSocketAddress inetAddr = new InetSocketAddress(addr.getAddress(), addr.getPort());
+		for (int i = 1; i <= 3; i++) {
+			try {
+				newSocket = createChannel();
+				newSocket.configureBlocking(true);
+				newSocket.socket().connect(inetAddr, timeout);
+				break;
+			}
+			catch (final SocketTimeoutException ste) {
+				Assert.eval(this.commWorker != null);
+				this.commWorker.cleanupChannel(newSocket, null);
+				throw new TCTimeoutException("Timeout of " + timeout + "ms occured connecting to " + addr, ste);
+			}
+			catch (final ClosedSelectorException cse) {
+				if (NIOWorkarounds.connectWorkaround(cse)) {
+					logger.warn("Retrying connect to " + addr + ", attempt " + i);
+					ThreadUtil.reallySleep(500);
+					continue;
+				}
+				throw cse;
+			}
+		}
+
+		this.channel = newSocket;
+		newSocket.configureBlocking(false);
+		Assert.eval(this.commWorker != null);
+		this.commWorker.requestReadInterest(this, newSocket); // // !!! call requestReadInterest for further read
+	}
+
+	private void putMessageImpl(final TCNetworkMessage message) {
+		// ??? Does the message queue and the WriteContext belong in the base connection class?
+		final boolean debug = logger.isDebugEnabled();
+
+		long bytesToWrite = 0;
+		bytesToWrite = message.getTotalLength();
+		if (bytesToWrite >= TCConnectionImpl.WARN_THRESHOLD) {
+			logger.warn("Warning: Attempting to send a message (" + message.getClass().getName() + ") of size " + bytesToWrite + " bytes");
+		}
+
+		// TODO: outgoing queue should not be unbounded size!
+		final boolean newData;
+		final int msgCount;
+
+		synchronized (this.writeMessages) {
+			if (this.closed.isSet()) {
+				return;
+			}
+			this.writeMessages.addLast(message);
+			msgCount = this.writeMessages.size();
+			newData = (msgCount == 1);
+		}
+
+		if (debug) {
+			logger.debug("Connection (" + this.channel.toString() + ") has " + msgCount + " messages queued");
+		}
+
+		if (newData) {
+			if (debug) {
+				logger.debug("New message on connection, registering for write interest");
+			}
+
+			// NOTE: this might be the very first message on the socket and
+			// given the current implementation, it isn't necessarily
+			// safe to assume one can write to the channel. Long story
+			// short, always enqueue the message and wait until it is selected
+			// for write interest.
+
+			// If you're trying to optimize for performance by letting the calling thread do the
+			// write, we need to add more logic to connection setup. Specifically, you need register
+			// for, as well as actually be selected for, write interest immediately
+			// after finishConnect(). Only after this selection occurs it is always safe to try
+			// to write.
+			this.commWorker.requestWriteInterest(this, this.channel); // !!! call requestWriteInterest for further write
+		}
+	}
+
+	public final void putMessage(final TCNetworkMessage message) {
+		this.lastDataWriteTime.set(System.currentTimeMillis());
+
+		// if (!isConnected() || isClosed()) {
+		// logger.warn("Ignoring message sent to non-connected connection");
+		// return;
+		// }
+
+		putMessageImpl(message);
+	}
+
+}
+
+
+AbstractMessageChannel
+.receive (...putMessage)
+
+ClientMessageChannelImpl
+
+CommunicationsManagerImpl.createClientChannel
+
+public class StandardDSOClientBuilder implements DSOClientBuilder {
+	public DSOClientMessageChannel createDSOClientMessageChannel(final CommunicationsManager commMgr,
+		final PreparedComponentsFromL2Connection connComp,
+		final SessionProvider sessionProvider,
+		final int maxReconnectTries,
+		final int socketConnectTimeout, final TCClient client
+	) {
+		final ConnectionAddressProvider cap = createConnectionAddressProvider(connComp);
+		final ClientMessageChannel cmc = commMgr.createClientChannel( // !!! call createClientChannel
+			sessionProvider, maxReconnectTries, null, 0, socketConnectTimeout, cap
+		);
+		return new DSOClientMessageChannelImpl(cmc, new GroupID[] { new GroupID(cap.getGroupId()) });
+	}
+...
+}
+
+
+DistributedObjectClient {
+	...
+	private DSOClientMessageChannel                    channel;
+	...
+	public synchronized void start() {
+		...
+		this.channel = this.dsoClientBuilder.createDSOClientMessageChannel(this.communicationsManager,
+			this.connectionComponents, sessionProvider,
+			maxConnectRetries, socketConnectTimeout, this
+		);
+		...
+	}
+}
+
+
+ServerMessageChannelImpl
+
+
+
+TCConnectionManagerImpl
+
+
+TCCommImpl
+
+TCWorkerCommManager
+
+
+TCListenerImpl
+
+
+ClientConnectionEstablisher.java 

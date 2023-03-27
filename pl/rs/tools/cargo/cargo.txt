@@ -1,0 +1,16 @@
+https://doc.rust-lang.org/cargo
+http://doc.crates.io/
+http://doc.crates.io/guide.html
+
+manifest
+http://doc.crates.io/manifest.html
+https://doc.rust-lang.org/cargo/reference/manifest.html
+
+warning: be sure to add `$CARGO_HOME/.cargo/bin` to your PATH to be able to run the installed binaries
+
+$CARGO_HOME/.cargo/
+    bin/
+    registry/
+        cache/
+        index/ - tons of stuff
+        src/

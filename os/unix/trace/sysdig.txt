@@ -1,0 +1,63 @@
+https://www.sysdig.org
+https://github.com/draios/sysdig
+
+https://www.sysdig.org/install/
+https://github.com/draios/sysdig/wiki/How-to-Install-Sysdig-for-Linux
+    sysdig-probe
+
+aur:
+    community/sysdig
+    core/linux49-headers
+
+Getting Started with sysdig
+https://www.youtube.com/watch?v=UJ4wVrbP-Q8
+https://www.youtube.com/channel/UCDbiexphNqm5BkSFpQuxRAA/videos
+
+articles
+https://habrahabr.ru/company/selectel/blog/222839/
+
+blog
+https://sysdig.com/blog/announcing-sysdig/
+https://sysdig.com/blog/ps-lsof-netstat-time-travel/
+https://sysdig.com/blog/interpreting-sysdig-output/
+https://sysdig.com/blog/csysdig-explained-visually/
+https://sysdig.com/blog/announcing-csysdig-strace-htop-lua-container-support/
+https://sysdig.com/blog/let-light-sysdig-adds-container-visibility/
+https://sysdig.com/blog/troubleshooting-containers-when-theyre-gone/
+
+wiki
+https://www.sysdig.org/wiki/
+https://www.sysdig.org/wiki/sysdig-overview/
+https://www.sysdig.org/wiki/chisels-overview/
+https://www.sysdig.org/wiki/chisels-user-guide/
+https://www.sysdig.org/wiki/csysdig-view-format-reference/
+https://github.com/draios/sysdig/wiki
+https://github.com/draios/sysdig/wiki/Tracers
+https://github.com/draios/sysdig/wiki/csysdig-View-Format-Reference
+
+https://www.sysdig.org/wiki/sysdig-examples/
+
+man
+https://github.com/draios/sysdig/blob/dev/userspace/sysdig/man/sysdig.md
+https://github.com/draios/sysdig/blob/dev/userspace/sysdig/man/csysdig.md
+
+chisels
+https://github.com/draios/sysdig/wiki/Chisels%20User%20Guide
+https://sysdig.com/blog/using-sysdig-to-explore-io/
+
+syscalls
+https://sysdig.com/blog/fascinating-world-linux-system-calls/
+
+hotkeys
+https://sysdig.com/blog/csysdigs-hotkeys-turning-csysdig-into-a-control-panel-for-processes-connections-and-containers/
+
+cheatsheet
+https://sysdig.com/blog/opensource-sysdig-cheatsheet/
+https://sysdig.com/blog/linux-troubleshooting-cheatsheet/
+http://478h5m1yrfsa3bbe262u7muv-wpengine.netdna-ssl.com/wp-content/uploads/2017/01/Sysdig_cheat_sheet_2017_download_version-2.pdf
+
+sysdig-probe-loader
+
+sysdig
+    -pc
+        list of processes with container context

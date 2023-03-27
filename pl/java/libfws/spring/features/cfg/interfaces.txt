@@ -1,0 +1,10 @@
+PostConstruct and PreDestroy
+    https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-postconstruct-and-predestroy-annotations
+    https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-java-lifecycle-callbacks
+org.springframework.beans.factory.InitializingBean
+    void afterPropertiesSet() throws Exception;
+org.springframework.beans.factory.DisposableBean
+    void destroy() throws Exception;
+BeanPostProcessor
+    https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-extension
+Lifecycle

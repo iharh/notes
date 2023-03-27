@@ -1,0 +1,6 @@
+2021
+https://developers.redhat.com/blog/2021/05/05/memory-error-checking-in-c-and-c-comparing-sanitizers-and-valgrind/
+    https://www.reddit.com/r/cpp/comments/n61axk/memory_error_checking_in_c_and_c_comparing/
+2019
+https://blog.trailofbits.com/2019/06/25/creating-an-llvm-sanitizer-from-hopes-and-dreams/
+    https://github.com/trailofbits/llvm-sanitizer-tutorial

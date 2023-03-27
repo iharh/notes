@@ -1,0 +1,31 @@
+GCLOUD WIDE FLAGS
+    These flags are available to all commands:
+        --help
+        --account
+        --configuration
+        --flatten
+        --format
+        --log-http
+        --project
+        --quiet
+        --trace-token
+        --user-output-enabled
+        --verbosity
+
+properties
+lib/surface/projects/create.py 
+
+
+/opt/google-cloud-sdk/lib/googlecloudsdk/core/properties.py 
+
+# Try to parse the command line flags at import time to see if someone provided
+# the --configuration flag.  If they did, this could affect the value of the
+# properties defined in that configuration.  Since some libraries (like logging)
+# use properties at startup, we want to use the correct configuration for that.
+
+/opt/google-cloud-sdk/properties
+[core]
+disable_usage_reporting = True
+
+vars
+export GOOGLE_APPLICATION_CREDENTIALS=/home/.../apikey.json 

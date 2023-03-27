@@ -1,0 +1,15 @@
+https://direnv.net/
+https://github.com/nix-community/nix-direnv
+https://github.com/cab404/nixdirenv/
+
+https://github.com/direnv/direnv/wiki/Nix
+
+https://streaming.lassul.us/records/nix-flakes-101-slides/#/13
+    # .envrc
+    use flake # this will use the .devShell attribute
+
+cfg samples
+https://github.com/abcdw/rde/blob/master/stale/nix-related/nix/modules/programs/direnv.nix
+
+see also
+lorri

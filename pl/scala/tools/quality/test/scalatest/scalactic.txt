@@ -1,0 +1,86 @@
+Nice equality
+
+import org.scalactic._
+import TripleEquals._
+import StringNormalizations._
+import Explicitly._
+
+("Hello" === "hello") (after being lowerCased) // true
+
+Normalization
+
+import NormMethods._
+
+implicit val strNormalization = lowerCased // !!! .toEquality
+
+"WHISPER".norm               // "whisper"
+"WHISPER".norm === "whisper" // true
+
+Implicit string equality
+
+implicit val strEquality = decided by defaultEquality[String] afterBeing lowerCased
+
+"Hello" === "hello"           // true
+"normalized" === "NORMALIZED" // true
+
+Tolerance
+
+import Tolerance._
+
+2.00001 === 2.0 +- 0.01
+
+import TolerantNumerics._
+
+implicit val dblEquality = tolerantDoubleEquality(0.01)
+
+2.00001 === 2.0
+
+Type checked ===
+
+import TypeCheckedTripleEquals._
+
+Some("hi") === "hi"
+error: types Some[String] and String do not adhere to the type constraints
+selected for the === and !== operators; the missing implicit parameter is
+of type org.scalactic.Constraint[Some[String], String]
+          Some("hi") === "hi"
+                     ^
+
+Or and Every
+
+case class Person(name: String, age: Int)
+
+def parseName(input: String): String Or One[ErrorMessage] = {
+    val trimmed = input.trim
+    if (!trimmed.isEmpty)
+        Good(trimmed)
+    else
+        Bad(One(s"""${input} is not a valid name"""))
+}
+
+def parsePerson(inputName: String, inputAge: String): Person Or Every[ErrorMessage] = {
+    val name = parseName(inputName)
+    val age = parseAge(inputAge)
+    withGood(name, age) { Person(_, _) }
+}
+
+parsePerson("Bridget Jones", "29")
+// Result: Good(Person(Bridget Jones, 29))
+
+parsePerson("Bridget Jones", "")
+// Result: Bad(One("" is not a valid integer))
+
+parsePerson("Bridget Jones", "-29")
+// Result: Bad(One("-29" is not a valid integer))
+
+parsePerson("", "")
+// Result: Bad(Manye("" is not a valid name, "" is not a valid integer))
+
+
+Snapshots - easy logging
+
+val a = 1
+val b = '2'
+val c = "3"
+
+snap(a, b, c) // Result: a was 1, b was '2', c was "3"

@@ -1,0 +1,13 @@
+https://docs.gradle.org/current/dsl/org.gradle.language.cpp.tasks.CppCompile.html
+
+    The platform being compiled for.
+    Property<NativeToolChain> toolChain
+        https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/NativeToolChain.html
+        https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/Gcc.html
+        https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/GccCompatibleToolChain.html
+        https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/GccCompatibleToolChain.html#eachPlatform-org.gradle.api.Action-
+            void eachPlatform​(Action<? super GccPlatformToolChain> action)
+            Adds an action that can fine-tune the tool configuration for each platform supported by this tool chain.
+
+        https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/clang/ClangToolChain.java
+

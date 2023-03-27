@@ -1,0 +1,54 @@
+https://nixos.wiki/wiki/Awesome
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/window-managers/awesome/default.nix
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/x11/window-managers/awesome.nix
+https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/awesome.nix
+
+makeWrapper, .awesome-wrapper
+https://nixos.org/manual/nixpkgs/stable/#ssec-stdenv-functions
+https://github.com/NixOS/nixpkgs/issues/60260
+https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
+https://github.com/NixOS/nixpkgs/issues/60229
+    ! wrapProgram (awesome-wrapper)
+
+xephyr-dbg
+https://github.com/NixOS/nixpkgs/pull/61043
+
+samples
+https://github.com/actionless/dotfiles/blob/master/workstation-dell/nixos/xserver.nix
+    ! custom session
+https://github.com/Mic92/dotfiles/blob/master/nixos/modules/awesome.nix
+https://github.com/Mic92/dotfiles/blob/master/nixos/modules/xserver.nix
+https://github.com/ar1a/dotfiles
+https://github.com/ar1a/dotfiles/tree/master/awesome/.config/awesome    
+
+using awesome-nightly
+https://github.com/pta2002/dotfiles.nix/blob/main/nixos/common.nix
+https://github.com/pta2002/dotfiles.nix/blob/main/nixos/overlays/awesome.nix
+
+awesome-stuff samples
+https://github.com/matyklug18/nix-dotfiles/blob/master/modules/awesomewmgen.nix
+    ! pretty minimal
+https://awesomewm.org/apidoc/documentation/05-awesomerc.md.html
+https://awesomewm.org/apidoc/documentation/07-my-first-awesome.md.html
+
+hotkeys
+S-s
+    show help
+
+# disabling xterm makes awesome a default
+services.xserver.desktopManager.xterm.enable = false;
+
+issues:
+LGI
+https://github.com/NixOS/nixpkgs/issues/60232
+    ! don't use LUA_PATH at runtime, but rather - --search option
+https://discourse.nixos.org/t/awesomewm-luamodules-apparently-not-taking-effect/8507
+https://github.com/NixOS/nixpkgs/issues/75410
+https://github.com/NixOS/nixpkgs/issues/75410#issuecomment-586672178
+
+LUA_PATH
+https://serverfault.com/questions/789897/how-do-i-set-up-a-nix-shell-script-for-lua
+https://github.com/actionless/dotfiles/blob/master/workstation-dell/nixos/xserver.nix
+    !!! 2 distinct session, LUA_PATH
+https://github.com/4rg0/nixpkgs/blob/master/nixos/modules/services/x11/window-managers/awesome.nix
+    !!! 1 distinct session, LUA_PATH

@@ -1,0 +1,23 @@
+https://nixos.wiki/wiki/Overview_of_the_Nix_Language
+
+With expression
+
+    This kind of expression is something you rarely see in other languages.
+    You can think of it like a more granular version of using from C++, or from module import * from Python.
+    You decide per-expression when to include symbols into the scope.
+
+        nix-repl> longName = { a = 3; b = 4; }
+        nix-repl> longName.a + longName.b
+            7
+        nix-repl> with longName; a + b
+            7
+
+    That's it, it takes an attribute set and includes symbols from it in the scope of the inner expression.
+    Of course, only valid identifiers from the keys of the set will be included.
+    If a symbol exists in the outer scope and would also be introduced by the with, it will not be shadowed.
+    You can however still refer to the attribute set:
+
+        nix-repl> let a = 10; in with longName; a + b
+            14
+        nix-repl> let a = 10; in with longName; longName.a + b
+            7

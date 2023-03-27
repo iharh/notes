@@ -1,0 +1,13 @@
+Articles:
+http://www.sommarskog.se/sqlutil/aba_lockinfo.html
+http://epmst011/index.php/Deadlocks_%28rus%29
+http://rsdn.ru/article/db/deadlocks.xml?print
+
+Sql 2000: DBCC TRACEON(1204, 3406, -1)
+
+Sql 2005: DBCC TRACEON(1204, 1222, 3406, -1)
+
+1222 - deadlock graph
+
+Later see logs at %MSSQL_HOME%\LOG
+

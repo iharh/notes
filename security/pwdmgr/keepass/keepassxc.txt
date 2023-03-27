@@ -1,0 +1,32 @@
+https://keepassxc.org/
+
+https://github.com/keepassxreboot/keepassxc
+
+https://keepassxc.org/project/
+https://keepassxc.org/screenshots/
+https://keepassxc.org/docs/
+https://keepassxc.org/docs/KeePassXC_GettingStarted.html
+    sudo snap connect keepassxc:raw-usb core:raw-usb
+
+https://keepassxc.org/download/#linux
+    https://launchpad.net/~phoerious/+archive/ubuntu/keepassxc
+
+cli
+https://www.mankier.com/1/keepassxc-cli
+https://outerhaven.de/keepassc/
+    https://www.youtube.com/watch?v=9POlABMMQF8
+
+keepassxc-cli
+    open
+    ls [path]
+    show <path/entry>
+    clip <path/entry>
+    close
+    quit
+
+2021
+SirSudo - KeePassXC vs KeePass2 , a comparison on Linux
+    https://www.youtube.com/watch?v=k2ABe6NL8vM
+
+whatsnew
+https://www.opennet.ru/opennews/art.shtml?num=56895

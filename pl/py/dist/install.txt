@@ -1,0 +1,7 @@
+msys2:
+python
+python3-setuptools
+
+
+easy_install pip
+pip install urllib3

@@ -1,0 +1,38 @@
+tsdiscon
+    disconnect
+shutdown /l
+    log off
+
+copy /Z \\tsclient\D\Welcome\tscbox\curl-7.33.0-win64-ssl-sspi.zip .
+
+copy /Z D:\iharh\*.7z \\tsclient\D
+
+:: wmic process get /? - for the list of properties
+::Name, ProcessId, VirtualSize, WorkingSetSize
+
+wmic.exe process where (Name="ClarabridgeService.exe") get ProcessId, Commandline
+
+wmic logicaldisk get DeviceID,FreeSpace
+
+net use k: \\<share> /u:<usr> <pwd>
+    <pwd> can even go before
+    /savecred ???
+net use k: /delete
+
+
+7z:
+
+7z a -w -mx=9 -ssw
+7z a -w -mx=9 -ssw <arc-file>.7z <files-to-arc>
+::-w -r
+
+"c:\Program Files\7-Zip\7z.exe" 7z a -w -mx=9 -ssw <arc-file>.7z <files-to-arc>
+
+
+eventvwr
+
+jvisualvm:
+"c:\Program Files (x86)\Notepad++\notepad++.exe"
+c:\apps\clarabridge\clarabridge_cmp\java\lib\visualvm\etc\visualvm.conf
+
+default_options="-J-client -J-Xms24m -J-Xmx1024m -J-Dsun.jvmstat.perdata.syncWaitMs=10000 -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.d3d=false"

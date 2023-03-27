@@ -1,0 +1,39 @@
+http://stackoverflow.com/questions/26021181/not-enough-entropy-to-support-dev-random-in-docker-containers-running-in-boot2d
+-v /dev/urandom:/dev/random
+
+https://github.com/ewindisch/docker-rngd/blob/master/Dockerfile
+rng-tools:
+CMD ["rngd", "-f", "-r", "/dev/hwrng", "-o", "/dev/random"]
+
+
+# pgp --gen-key
+...
+
+
+# gpg -k
+/root/.gnupg/pubring.gpg
+------------------------
+pub   2048R/0149AC94 2015-09-21
+uid                  netlib
+sub   2048R/92061E42 2015-09-21
+
+
+export:
+https://fedoraproject.org/wiki/Creating_GPG_Keys
+gpg --export-secret-keys --armor netlib > /netlib-privkey.asc
+gpg --export --armor netlib > /netlib-pubkey.asc
+
+
+docker cp <container-id>:/netlib-privkey.asc -
+docker cp <container-id>:/netlib-privkey.asc c/Users/<user-name>/<file>
+
+
+import:
+http://irtfweb.ifa.hawaii.edu/~lockhart/gpg/
+
+gpg --allow-secret-key-import --import /netlib-privkey.asc
+gpg --allow-secret-key-import --import --armor /netlib-privkey.asc
+
+seems to be not needed:
+gpg --import netlib-pubkey.asc
+gpg --import --armor netlib-pubkey.asc

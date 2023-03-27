@@ -1,0 +1,17 @@
+https://mvnrepository.com/artifact/org.mozilla/rhino
+
+https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino/Documentation
+http://www-archive.mozilla.org/rhino/apidocs/org/mozilla/javascript/Context.html
+http://www-archive.mozilla.org/rhino/apidocs/org/mozilla/javascript/ScriptableObject.html    
+
+https://github.com/mozilla/rhino/blob/master/src/org/mozilla/javascript/ScriptableObject.java
+
+...
+final Scriptable scope = ctx.initStandardObjects();
+ScriptableObject.putProperty(scope, "input", input);
+ScriptableObject.putProperty(scope, "log", LOG);
+ScriptableObject.putProperty(scope, "name", name);
+...
+
+org.mozilla.javascript.tools.shell.Main some-file.js
+...

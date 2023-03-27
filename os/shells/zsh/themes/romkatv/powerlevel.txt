@@ -1,0 +1,9 @@
+https://github.com/romkatv/powerlevel10k
+    zplug romkatv/powerlevel10k, as:theme, depth:1
+    https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
+    p10k configure
+    ~/.p10k.zsh
+
+deprecated
+https://github.com/bhilburn/powerlevel9k
+https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions

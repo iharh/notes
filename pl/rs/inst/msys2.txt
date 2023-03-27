@@ -1,0 +1,12 @@
+pacman -Ss rust:
+mingw64/mingw-w64-x86_64-rust 1.13.0-1
+    Systems programming language focused on safety, speed and concurrency (mingw-w64)
+
+!!! important prerequisits !!!
+pacman -S base-devel, mingw-w64-x86_64-toolchain, mingw-w64-x86_64-libssh2
+
+https://github.com/rust-lang/rust/issues/28843
+https://github.com/rust-lang/rust/issues/15684
+https://github.com/Manishearth/rust-clippy/issues/964
+
+http://stackoverflow.com/questions/27676206/installing-cargo-on-windows-with-rust-from-msys2

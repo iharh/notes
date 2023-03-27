@@ -1,0 +1,83 @@
+!!!!!
+https://github.com/shapetheLOLa/kube-mediabox
+    https://longhorn.io/
+
+!
+https://usenetreviewz.com/
+    https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/sabnzbd/
+    https://top10usenet.com/usenet-search/sabnzbd-review/
+    https://usenetreviewz.com/sabnzbd-review/
+    https://www.reddit.com/r/SABnzbd/
+    https://snapcraft.io/install/sabnzbd/fedora
+
+https://qballjos.github.io/portainer_templates/
+https://github.com/Qballjos/portainer_templates
+https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Template/template.json
+
+https://trash-guides.info/
+    ?https://github.com/bmcgonag/docker_installs/blob/main/insstall_docker_nproxyman.sh
+        docker/portainer/nginx inst
+    !!! AwesomeOpenSource - Force Docker containers to use a VPN for web connections with confidence! Open Source & Self Hosted of 13:26
+        https://www.youtube.com/watch?v=vUyHGF1HMsw
+        https://shownotes.opensourceisawesome.com/force-containers-to-use-vpn/
+        ! need to look
+    !!! AwesomeOpenSource - Docker and Firewalls - Docker wants to punch holes in the local firewall, let's mitigate that issue of 22:40
+        https://www.youtube.com/watch?v=bpWytcz4uMw
+    !!!
+        AwesomeOpenSource - Docker and Running your self-hosted applications in a more secure way behind a reverse proxy of 23:56
+        https://www.youtube.com/watch?v=8T68pB_Fkm4
+        https://shownotes.opensourceisawesome.com/docker-security-follow-up/
+        ! need to look
+    !!! AwesomeOpenSource - Monitoring Docker with Puma
+        https://www.youtube.com/watch?v=ausjbvJrjFI
+        https://shownotes.opensourceisawesome.com/uptime-kuma/
+        https://github.com/louislam/uptime-kuma
+    !!! AwesomeOpenSource - Get Docker organized for easier backups & replication. Trust me, an hour can save you days! of 20:07
+        https://www.youtube.com/watch?v=sGtTvV0xbYg
+
+    ? hower dns
+        https://www.hover.com/
+    ? AwesomeOpenSource - DuckDNS for Routing Internet Traffic to your Home Lab with Dynamic IPs from your ISP. of 23:50
+        https://www.youtube.com/watch?v=Dm5MyuUdq2s
+        https://shownotes.opensourceisawesome.com/duckdns-dynamic-dns-updates/
+        https://hub.docker.com/r/linuxserver/duckdns/
+        https://www.duckdns.org/
+        ! need to look
+    ? https://trash-guides.info/Downloaders/NZBGet/Basic-Setup/
+    https://trash-guides.info/Downloaders/NZBGet/Paths-and-Categories/
+    https://trash-guides.info/Downloaders/NZBGet/scripts/
+        https://sabnzbd.org/
+        https://github.com/sabnzbd/sabnzbd
+        https://sabnzbd.org/wiki/
+        https://sabnzbd.org/wiki/extensions-for-sabnzbd
+        https://wiki.archlinux.org/title/SABnzbd
+
+        https://top10usenet.com/
+        https://top10usenet.com/usenet-providers/
+        https://top10usenet.com/usenet-search/sabnzbd-review/
+
+        https://www.authelia.com/
+        https://github.com/authelia/authelia
+        2021
+
+            https://www.youtube.com/watch?v=5KtbmrUwYNQ&list=PLjLkaXQ35321q4IpOpAif7kmoExySwpF-
+
+2021
+AwewsomeOpenSource - Calloboration with the IBRACORP channel on Sonarr, Jackett, QBittorrent, in Portainer and Docker. 7:00 of 59:57
+    https://www.youtube.com/watch?v=Cth-bsLAa_M
+    ! add a bridge network (the_arrs)
+    subnet:   172.32.0.0/24
+    gateway:  172.32.0.1
+    ip range: 172.32.0.20/25
+    + enable mgmt container attach
+    ! need to look
+StevesTechStuff - Sonarr Radarr Jellyfin And Portainer On A Ubuntu Server of 10:08
+    https://www.youtube.com/watch?v=-s6RHq2DOeM
+    !! torguard
+    https://torguard.net
+    https://torguard.net/checkmytorrentipaddress.php?hash=d0551011374621da58ad39bcb7032c51ab019372
+    ! need to look
+2020
+DublinUniversity - Intro to Sonarr and Radarr - 2020 of 41:09
+    https://www.youtube.com/watch?v=jxL_LyA2Z0I
+    ! need to look

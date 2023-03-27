@@ -1,0 +1,20 @@
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/?view=powershell-6
+
+
+echo - aliased to Write-Output
+
+write-output
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-output?view=powershell-6
+
+write-host
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-host?view=powershell-6
+
+write-debug
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-debug?view=powershell-6
+write-error
+
+write-verbose
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-verbose?view=powershell-6
+
+$DebugPreference
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-6#debugpreference

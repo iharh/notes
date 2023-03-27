@@ -1,0 +1,27 @@
+2022
+https://nuancesprog.ru/p/15972/
+https://martinheinz.dev/blog/70
+    https://habr.com/ru/company/wunderfund/blog/674866/
+2020
+https://habr.com/ru/company/ruvds/blog/500296/
+
+interpolation
+https://www.programiz.com/python-programming/string-interpolation
+
+'
+''
+'''
+
+"
+    <control-char>s are interpreted
+r"...
+    to skip interpreting \<control-char>
+
+python 2:
+u"..."
+    UCS-16 unicode strings
+
+python 3:
+by default we use u"..."
+
+bytearray("...") - for the old-way byte strings

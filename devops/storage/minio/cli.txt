@@ -1,0 +1,4 @@
+minio
+    server
+        --compat    trade off performance for S3 compatibility
+        --address   192.168.1.101:9000

@@ -1,0 +1,19 @@
+https://crates.io/crates/git2
+https://docs.rs/git2
+https://github.com/alexcrichton/git2-rs
+http://alexcrichton.com/git2-rs/git2/index.html
+    https://libgit2.org/
+    AUR/libgit2
+
+https://crates.io/crates/nicegit
+https://crates.io/crates/libgit2-sys
+https://crates.io/crates/git2-curl
+https://crates.io/crates/git-journal
+https://crates.io/crates/git-box
+
+https://crates.io/crates/built
+https://crates.io/crates/git-build-version
+https://crates.io/crates/git-latest-commit
+
+samples:
+https://github.com/PlasmaPower/ghcl

@@ -1,0 +1,24 @@
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/PageRequest.html
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Pageable.html
+    ofSize(pageSize) - first page...
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Page.html
+    int getTotalPages
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Slice.html
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/util/Streamable.html
+    toList()
+
+Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
+Pageable secondPageWithFiveElements = PageRequest.of(1, 5);
+
+Pageable sortedByName =
+  PageRequest.of(0, 3, Sort.by("name"));
+Pageable sortedByPriceDesc =
+  PageRequest.of(0, 3, Sort.by("price").descending());
+Pageable sortedByPriceDescNameAsc =
+  PageRequest.of(0, 5, Sort.by("price").descending().and(Sort.by("name")));
+
+2023
+https://vladmihalcea.com/spring-data-findall-anti-pattern/
+2022
+https://www.baeldung.com/spring-data-jpa-pagination-sorting
+https://www.bezkoder.com/spring-boot-pagination-filter-jpa-pageable/

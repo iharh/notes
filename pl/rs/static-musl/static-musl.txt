@@ -1,0 +1,25 @@
+rustup target list
+rustup target install i686-unknown-linux-musl
+cargo build --target=i686-unknown-linux-musl --release
+
+https://github.com/fornwall/rust-static-builder
+
+docker
+ekidd/rust-musl-builder:stable
+ekidd/rust-musl-builder:nightly
+clux/muslrust:stable
+https://github.com/clux/muslrust/
+
+https://github.com/messense/rust-musl-cross
+https://github.com/richfelker/musl-cross-make
+
+https://www.rust-lang.org/en-US/faq.html#why-do-rust-programs-have-larger-binary-sizes-than-C-programs
+https://lifthrasiir.github.io/rustlog/why-is-a-rust-executable-large.html
+
+https://github.com/rust-lang/rust/tree/master/src/ci/docker/dist-x86_64-musl
+
+cargo-bloat
+https://github.com/RazrFalcon/cargo-bloat
+https://clap.rs/2018/01/09/new-years-weight-loss/
+
+rustc hello.rs -C opt-level=s

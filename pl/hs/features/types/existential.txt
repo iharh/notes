@@ -1,0 +1,13 @@
+ExistentialTypes:
++http://iveselov.info/posts/2012-08-30-existential-types.html
+http://www.haskell.org/haskellwiki/Existential_type
+http://hackage.haskell.org/trac/haskell-prime/wiki/ExistentialQuantification
+http://en.wikibooks.org/wiki/Haskell/Existentially_quantified_types
+
+http://fprog.ru/2010/issue4/roman-dushkin-existentials/
+http://lukepalmer.wordpress.com/2010/01/24/haskell-antipattern-existential-typeclass/
++http://stackoverflow.com/questions/7787317/list-of-different-types
+http://mainisusuallyafunction.blogspot.com/2010/10/quantification-in-haskell.html
+http://johnlato.blogspot.com/2012/03/existential-quantification-pt-1.html
+http://johnlato.blogspot.com/2012/03/faking-it-with-higher-rank-existential.html
+

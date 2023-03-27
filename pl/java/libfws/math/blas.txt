@@ -1,0 +1,32 @@
+
+
+
+
+
+JBLAS
+http://www.jblas.org/
+https://github.com/mikiobraun/jblas
+https://github.com/mikiobraun/jblas/wiki/Java-Native-Code-Background
+http://blog.mikiobraun.de/2008/10/matrices-jni-directbuffers-and-number.html
+
+jblas-multithreaded
+https://github.com/mikiobraun/jblas/wiki/Multithreaded-ATLAS
+https://groups.google.com/forum/#!topic/jblas-users/snbLVrAFdDY
+
+jblas-win64:
+https://github.com/mikiobraun/jblas/wiki/Why-There-Is-No-64bit-Support-for-Windows
+...
+What I managed to do, though is to compile lapack-lite with the 64bit compiler.
+This results in a full implementation of all subroutines, but it isn’t much more performant than pure Java.
+You still get a 50% boost for some operations like matrix-matrix-multiplication.
+Given that you can still use the same code (and jar file!), this is better than nothing.
+Starting with version 1.2.0, lapack-lite is bundled with the 64bit version of Windows.
+
+bench-perf:
+https://github.com/mikiobraun/jblas/wiki/Benchmarks
+http://lessthanoptimal.github.io/Java-Matrix-Benchmark/
+https://github.com/lessthanoptimal/Java-Matrix-Benchmark
+http://blog.mikiobraun.de/2009/04/some-benchmark-numbers-for-jblas.html
+http://code.google.com/p/java-matrix-benchmark/wiki/Runtime_2xXeon_2010_08
+http://stackoverflow.com/questions/529457/performance-of-java-matrix-math-libraries
+

@@ -1,0 +1,351 @@
+Let's trace one of the simplest pipes program:
+
+main01 :: IO ()
+main01 = runEffect $ for (yield "str0") (lift . putStrLn)
+
+according to the source code:
+
+for = (//>)
+
+let's use a point-full version of the (lift . putStrLn) also:
+
+so this is equivalent to
+
+main02 = runEffect $ (yield "str0") //> (\str -> lift $ putStrLn str)
+
+Let's open a ghci (cabal repl) session:
+
+
+$ ghci or "cabal repl"
+
+Prelude Main> :t putStrLn
+putStrLn :: String -> IO ()
+
+Prelude Main> :module + Pipes Pipes.Core Pipes.Internal
+Prelude Pipes Pipes.Core Pipes.Internal Main>
+
+
+
+1. Internal type
+
+{-| A 'Proxy' is a monad transformer that receives and sends information on both
+    an upstream and downstream interface.
+
+    The type variables signify:
+
+    * @a'@ and @a@ - The upstream interface, where @(a')@s go out and @(a)@s
+      come in
+
+    * @b'@ and @b@ - The downstream interface, where @(b)@s go out and @(b')@s
+      come in
+
+    * @m @ - The base monad
+
+    * @r @ - The return value
+-}
+data Proxy a' a b' b m r
+    = Request a' (a  -> Proxy a' a b' b m r )     -- Request a' fa
+    | Respond b  (b' -> Proxy a' a b' b m r )     -- Respond b  fb'
+    | M          (m    (Proxy a' a b' b m r))
+    | Pure    r
+
+--- Core.hs ---
+
+{-|
+Proxy Monad Transformer
+
+Diagrammatically, you can think of a Proxy as having the following shape:
+
+ Upstream | Downstream
+     +---------+
+     |         |
+ a' <==       <== b'
+     |         |
+ a  ==>       ==> b
+     |    |    |
+     +----|----+
+          v
+          r
+-}
+
+
+2. Producing end
+
+yield :: Monad m => a -> Producer' a m ()
+yield = respond
+{-# INLINABLE yield #-}
+
+-- | Like 'Producer', but with a polymorphic type
+type Producer' b m r = forall x' x . Proxy x' x () b m r
+
+-- | 'Producer's can only 'Pipes.yield'
+type Producer b = Proxy X () () b
+
+{-| Send a value of type @a@ downstream and block waiting for a reply of type
+    @a'@
+
+    'respond' is the identity of the respond category.
+-}
+respond :: Monad m => a -> Proxy x' x a' a m a'
+respond a = Respond a Pure
+{-# INLINABLE respond #-}
+
+
+So, let's investigate
+
+Prelude Pipes Pipes.Core Pipes.Internal Main> :t (yield "str0")
+(yield "str0") :: Monad m => Proxy x' x () [Char] m ()
+
+yield "str0" :: Monad m => Producer' String m ()
+  =
+ ...
+  = Respond "str0" Pure
+
+-- Pure here is a function:
+
+Prelude Pipes Pipes.Core Pipes.Internal Main> :t Pure
+Pure :: r -> Proxy a' a b' b m r
+
+And this is equivalent to:
+
+main03 = runEffect $ (Respond "str0" Pure) //> (\str -> lift $ putStrLn str)
+
+
+
+
+
+2. Consuming end
+
+Taking into the account:
+
+instance MonadTrans (Proxy a' a b' b) where
+    lift m = M (m >>= \r -> return (Pure r))
+
+main04 = runEffect $ (Respond "str0" Pure) //> (\str -> M (putStrLn str >>= \r -> return (Pure r)))
+
+
+
+2.extra:
+
+await :: Monad m => Consumer' a m a
+await = request ()
+{-# INLINABLE await #-}
+
+
+{-| Send a value of type @a'@ upstream and block waiting for a reply of type @a@
+
+    'request' is the identity of the request category.
+-}
+request :: Monad m => a' -> Proxy a' a y' y m a
+request a' = Request a' Pure
+{-# INLINABLE request #-}
+
+
+
+
+3. Gluing operators:
+
+http://hackage.haskell.org/package/pipes/docs/src/Pipes-Core.html#%2F%2F%3E
+
+{-| @(p \/\/> f)@ replaces each 'respond' in @p@ with @f@.
+
+    Point-ful version of ('/>/')
+-}
+(//>)
+    :: Monad m
+    =>       Proxy x' x b' b m a'
+    -- ^
+    -> (b -> Proxy x' x c' c m b')
+    -- ^
+    ->       Proxy x' x c' c m a'
+    -- ^
+p0 //> fb = go p0
+  where
+    go p = case p of
+        Request x' fx  -> Request x' (\x -> go (fx x))
+        Respond b  fb' -> fb b >>= \b' -> go (fb' b')
+        M          m   -> M (m >>= \p' -> return (go p'))
+        Pure       a   -> Pure a
+{-# INLINABLE (//>) #-}
+
+
+According to the "Respond b fb'" case and taking into account:
+
+  b    is  "str0"
+  fb'  is  Pure
+  fb   is  (\str -> M (putStrLn str >>= \r -> return (Pure r)))
+
+  go fb' b'  is (Pure b')
+
+
+main05 = runEffect $ (M (putStrLn "str0" >>= \r -> return (Pure r))) >>= \b' -> Pure b'
+
+Let's look at the final part (\b' -> Pure b'). This is just a Pure:
+
+main06 = runEffect $ (M (putStrLn "str0" >>= \r -> return (Pure r))) >>= Pure
+
+
+Now it's time to look at the Monad instance for Proxy:
+
+instance Monad m => Monad (Proxy a' a b' b m) where
+    return = Pure
+    (>>=)  = _bind
+
+So, we can replace the last pure by return:
+
+main07 = runEffect $ (M (putStrLn "str0" >>= \r -> return (Pure r))) >>= return
+
+
+from the Monad laws (http://hackage.haskell.org/package/base/docs/src/GHC-Base.html#Monad) we have:
+
+Instances of 'Monad' should satisfy the following laws:
+
+> return a >>= k  ==  k a
+> m >>= return  ==  m
+> m >>= (\x -> k x >>= h)  ==  (m >>= k) >>= h
+
+Note: Mike Vanier has a great serie of monad-related posts. He shows that the mentioned laws are more beautiful being written for the point-full version of bind (>=>).
+
+Let's rewrite the tail bind operator (>>=) of our main07 using the second law (Note: the second bind is for the Proxy-monad, while the first one is for the base IO monad):
+
+main08 = runEffect $ (M (putStrLn "str0" >>= \r -> return (Pure r)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+Remember that:
+
+data Proxy a' a b' b m r
+    = ...
+    | M          (m    (Proxy a' a b' b m r))
+    ...
+
+Let's check that:
+
+Prelude Pipes Pipes.Core Pipes.Internal Main> :t (putStrLn "str0" >>= \r -> return (Pure r))
+(putStrLn "str0" >>= \r -> return (Pure r))
+  :: IO (Proxy a' a b' b m ())
+
+Yes - in our case we have a type - IO (Proxy ... m ())
+
+And it's time to look at the runEffect:
+
+-- | Run a self-contained 'Effect', converting it back to the base monad
+runEffect :: Monad m => Effect m r -> m r
+runEffect = go
+  where
+    go p = case p of
+        Request v _ -> closed v
+        Respond v _ -> closed v
+        M       m   -> m >>= go
+        Pure    r   -> return r
+{-# INLINABLE runEffect #-}
+
+main08 = runEffect $ (M (putStrLn "str0" >>= \r -> return (Pure r)))
+
+after substituting
+  m_val = (putStrLn "str0" >>= \r -> return (Pure r))
+  
+becomes:
+
+main?? = m_val >>= go.
+
+What's the type of putStrLn "str0" ?
+
+obviously - IO ().
+
+So, m_val = (putStrLn "str0" >>= \u -> return (Pure ()))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+instance Monad m => Monad (Proxy a' a b' b m) where
+    return = Pure
+    (>>=)  = _bind
+
+_bind
+    :: Monad m
+    => Proxy a' a b' b m r
+    -> (r -> Proxy a' a b' b m r')
+    -> Proxy a' a b' b m r'
+p0 `_bind` f = go p0 where
+    go p = case p of
+        Request a' fa  -> Request a' (\a  -> go (fa  a ))
+        Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+        M          m   -> M (m >>= \p' -> return (go p'))
+        Pure    r      -> f r
+
+
+instance MonadTrans (Proxy a' a b' b) where
+    lift m = M (m >>= \r -> return (Pure r))
+
+
+
+
+
+
+4. Appendices
+
+{-| An effect in the base monad
+
+    'Effect's neither 'Pipes.await' nor 'Pipes.yield'
+-}
+type Effect = Proxy X () () X
+
+-- | 'Producer's can only 'Pipes.yield'
+type Producer b = Proxy X () () b
+
+-- | 'Pipe's can both 'Pipes.await' and 'Pipes.yield'
+type Pipe a b = Proxy () a () b
+
+-- | 'Consumer's can only 'Pipes.await'
+type Consumer a = Proxy () a () X
+
+{-| @Client a' a@ sends requests of type @a'@ and receives responses of
+    type @a@.
+
+    'Client's only 'request' and never 'respond'.
+-}
+type Client a' a = Proxy a' a () X
+
+{-| @Server b' b@ receives requests of type @b'@ and sends responses of type
+    @b@.
+
+    'Server's only 'respond' and never 'request'.
+-}
+type Server b' b = Proxy X () b' b
+
+-- | Like 'Effect', but with a polymorphic type
+type Effect' m r = forall x' x y' y . Proxy x' x y' y m r
+
+-- | Like 'Producer', but with a polymorphic type
+type Producer' b m r = forall x' x . Proxy x' x () b m r
+
+-- | Like 'Consumer', but with a polymorphic type
+type Consumer' a m r = forall y' y . Proxy () a y' y m r
+
+-- | Like 'Server', but with a polymorphic type
+type Server' b' b m r = forall x' x . Proxy x' x b' b m r
+
+-- | Like 'Client', but with a polymorphic type
+type Client' a' a m r = forall y' y . Proxy a' a y' y m r
+

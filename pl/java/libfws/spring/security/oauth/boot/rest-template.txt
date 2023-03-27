@@ -1,0 +1,12 @@
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/client/OAuth2RestTemplate.html
+
+cfg
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/client/token/grant/client/ClientCredentialsAccessTokenProvider.html
+    https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/client/token/OAuth2AccessTokenSupport.html
+https://stackoverflow.com/questions/27864295/how-to-use-oauth2resttemplate
+
+2019
+https://www.baeldung.com/spring-security-oauth2-authentication-with-reddit
+
+samples
+https://github.com/mariubog/oauth-client-sample

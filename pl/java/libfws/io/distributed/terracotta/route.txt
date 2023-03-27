@@ -1,0 +1,71 @@
+public class TCMessageRouterImpl implements TCMessageRouter {
+	...
+	public void putMessage(TCMessage msg) {
+		final boolean debug = logger.isDebugEnabled();
+		if (debug) logger.debug("Received a message: " + msg.toString());
+
+		// try routing by message type
+		final TCMessageSink route = (TCMessageSink) routesByType.get(msg.getMessageType());
+
+		if (route != null) {
+			if (debug) logger.debug(msg.getMessageType().toString() + " message being routed by message type");
+			route.putMessage(msg); // !!!
+		} else {
+			defaultRoute.putMessage(msg);
+		}
+	}
+
+	public void routeMessageType(TCMessageType type, TCMessageSink sink) {
+		if (null == sink) { throw new IllegalArgumentException("Sink cannot be null"); }
+		routesByType.put(type, sink);
+	}
+	
+	...
+}
+
+
+class TCMessageSinkToSedaSink implements TCMessageSink {
+	private final Sink destSink;
+	private final Sink hydrateSink;
+  
+	public TCMessageSinkToSedaSink(Sink destSink, Sink hydrateSink) {
+		this.destSink = destSink;
+		this.hydrateSink = hydrateSink;
+	}
+
+	public void putMessage(TCMessage message) {    
+		HydrateContext context = new HydrateContext(message, destSink);
+		hydrateSink.add(context); // !!!
+	}
+}
+
+class NetworkListenerImpl implements NetworkListener {
+	...
+	public void routeMessageType(final TCMessageType messageType, final TCMessageSink sink) {
+		this.tcmRouter.routeMessageType(messageType, sink);
+	}
+
+	/**
+	 * Routes a TCMessage to a sink. The hydrate sink will do the hydrate() work
+	 */
+	public void routeMessageType(final TCMessageType messageType, final Sink destSink, final Sink hydrateSink) {
+		routeMessageType(messageType, new TCMessageSinkToSedaSink(destSink, hydrateSink)); // !!!
+	}
+	...
+}
+
+
+abstract class AbstractMessageChannel implements MessageChannel, MessageChannelInternal {
+	...
+	public void routeMessageType(TCMessageType messageType, TCMessageSink dest) {
+		router.routeMessageType(messageType, dest);
+	}
+
+	/**
+	 * Routes a TCMessage to a sink. The hydrate sink will do the hydrate() work
+	 */
+	public void routeMessageType(TCMessageType messageType, Sink destSink, Sink hydrateSink) {
+		routeMessageType(messageType, new TCMessageSinkToSedaSink(destSink, hydrateSink));
+	}
+	...
+}

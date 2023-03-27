@@ -1,0 +1,6 @@
+STATUS
+
+git status -s
+    --short
+    less verbose status
+

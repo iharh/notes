@@ -1,0 +1,49 @@
+https://github.com/spinscale/elasticsearch-suggest-plugin/blob/master/src/main/java/de/spinscale/elasticsearch/rest/action/suggest/RestRefreshSuggestAction.java
+
+public class RestSuggestAction extends BaseRestHandler {
+
+    @Inject
+    public RestSuggestAction(Settings settings, Client client, RestController controller) {
+        super(settings, client);
+        controller.registerHandler(GET, "/{index}/__suggest", this);
+        controller.registerHandler(GET, "/{index}/{type}/__suggest", this);
+        controller.registerHandler(POST, "/{index}/__suggest", this);
+        controller.registerHandler(POST, "/{index}/{type}/__suggest", this);
+    }
+
+    @Override
+    public void handleRequest(final RestRequest request, final RestChannel channel, Client client) {
+        final String[] indices = Strings.splitStringByCommaToArray(request.param("index"));
+
+        try {
+            Map<String, Object> parserMap = null;
+
+            if (request.hasContent()) {
+                XContentParser parser = XContentFactory.xContent(request.content()).createParser(request.content());
+                parserMap = parser.mapAndClose();
+            } else if (request.hasParam("source")) {
+                String source = request.param("source");
+                XContentParser parser = XContentFactory.xContent(source).createParser(source);
+                parserMap = parser.mapAndClose();
+            } else {
+                channel.sendResponse(new BytesRestResponse(BAD_REQUEST, "Please provide body data or source parameter"));
+            }
+
+            SuggestRequest suggestRequest = new SuggestRequest(indices);
+
+            // ... fill it
+
+            // !!! execute the action by client
+
+            client.execute(SuggestAction.INSTANCE, suggestRequest, new RestToXContentListener<SuggestResponse>(channel));
+        } catch (IOException e) {
+            try {
+                channel.sendResponse(new BytesRestResponse(channel, RestStatus.BAD_REQUEST, e));
+            } catch (IOException e1) {
+                logger.error("Failed to send failure response", e1);
+            }
+        }
+    }
+}
+
+

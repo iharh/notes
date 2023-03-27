@@ -1,0 +1,42 @@
+https://hackage.haskell.org/package/located-base
+https://github.com/gridaphobe/located-base
+
+https://hackage.haskell.org/package/base-4.8.1.0/docs/GHC-Stack.html
+
+exceptionWithCallStack
+
+
+
+https://downloads.haskell.org/%7Eghc/7.10.2/docs/html/users_guide/other-type-extensions.html#special-implicit-params
+
+7.13.4.5. Special implicit parameters
+
+GHC treats implicit parameters of type GHC.Stack.CallStack specially, by resolving them to the current location in the program. Consider:
+
+  f :: String
+  f = show (?loc :: CallStack)
+
+GHC will automatically resolve ?loc to its source location. If another implicit parameter with type CallStack is in scope, GHC will append the two locations,
+creating an explicit call-stack. For example:
+
+  f :: (?stk :: CallStack) => String
+  f = show (?stk :: CallStack)
+
+will produce the location of ?stk, followed by f's call-site. Note that the name of the implicit parameter does not matter (we used ?loc above),
+GHC will solve any implicit parameter with the right type. The name does, however, matter when pushing new locations onto existing stacks. Consider:
+
+  f :: (?stk :: CallStack) => String
+  f = show (?loc :: CallStack)
+
+When we call f, the stack will include the use of ?loc, but not the call to f; in this case the names must match.
+
+CallStack is kept abstract, but GHC provides a function
+
+  getCallStack :: CallStack -> [(String, SrcLoc)]
+
+to access the individual call-sites in the stack. The String is the name of the function that was called, and the SrcLoc provides the package, module, and file name,
+as well as the line and column numbers. The stack will never be empty, as the first call-site will be the location at which the implicit parameter was used.
+GHC will also never infer ?loc :: CallStack as a type constraint, which means that functions must explicitly ask to be told about their call-sites.
+
+A potential "gotcha" when using implicit CallStacks is that the :type command in GHCi will not report the ?loc :: CallStack constraint, as the typechecker will immediately solve it.
+Use :info instead to print the unsolved type.

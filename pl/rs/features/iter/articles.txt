@@ -1,0 +1,30 @@
+2022
+https://www.geekabyte.io/2022/08/intoiterator-and-for-in-syntax-in-rust.html
+
+2021
+https://aloso.github.io/2021/03/09/creating-an-iterator
+https://depth-first.com/articles/2020/06/22/returning-rust-iterators/
+https://fasterthanli.me/articles/recursive-iterators-rust
+https://dev.to/elshize/transposing-options-results-with-iterators-aj3
+
+2020
+https://www.snoyman.com/blog/2018/11/rust-crash-course-04-crates-more-iterators
+    https://habr.com/ru/post/533204/
+https://www.fpcomplete.com/blog/collect-rust-traverse-haskell-scala/
+https://dpbriggs.ca/blog/Rust-Traits-Iterator
+
+2018
+https://www.freedomlayer.org/offst/option-iterator/
+https://paulkernfeld.com/2018/11/03/flatten-nested-iterator-result.html
+    https://www.reddit.com/r/rust/comments/9u6846/rust_puzzle_flatten_a_nested_iterator_of_results/
+
+2017
+https://www.reddit.com/r/rust/comments/5piytc/how_to_create_custom_filters/
+https://blog.guillaume-gomez.fr/articles/2017-03-09+Little+tour+of+multiple+iterators+implementation+in+Rust
+http://xion.io/post/code/rust-iter-patterns.html
+
+2016
+http://xion.io/post/code/rust-for-loop.html
+
+SO
+https://stackoverflow.com/questions/36368843/whats-the-most-idiomatic-way-of-working-with-an-iterator-of-results

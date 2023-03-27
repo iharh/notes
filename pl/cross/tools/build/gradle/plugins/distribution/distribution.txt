@@ -1,0 +1,18 @@
+https://docs.gradle.org/current/userguide/distribution_plugin.html
+https://docs.gradle.org/current/dsl/org.gradle.api.distribution.DistributionContainer.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/distribution/Distribution.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/file/CopySpec.html
+
+
+distributions {
+    main { // getByName("main")
+        distributionBaseName.set("${project.name}-dist-$someVersion")
+        // or
+        baseName = "${project.name}-dist-$someVersion"
+        contents {
+            from(someInstDir)
+            exclude("**/libblabla.a")
+        }
+    }
+}
+

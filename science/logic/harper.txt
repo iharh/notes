@@ -1,0 +1,10 @@
+|- turnstyle (Frege)
+Meet - GLB (Lower semilattice)
+Join - LUB (Upper semilattice)
+
+Weekening
+    G |- A true  =>  G,B true |- A true
+Contraction
+    We can use assumption twice
+Exchange
+    Order does not matter

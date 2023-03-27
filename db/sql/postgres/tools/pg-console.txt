@@ -1,0 +1,18 @@
+https://www.postgresql.org/docs/current/static/plpgsql-errors-and-messages.html
+
+set search_path to 'win_ps';
+create or replace function test_abc() returns void as $$
+declare
+    v_count numeric;
+    c record;
+begin
+  for c in (select 'cb_bc_product'::text as attrName, 'CB Person'::text as dispName, 'IX_PDMVD_PERSON_DOC'::text as idx) loop
+    select count(*) into v_count from P_ATTRIBUTE where upper(ATTRIBUTE_NAME) = upper(c.attrName);
+    raise notice 'v_count %', v_count;
+  end loop;
+end;  
+$$ language plpgsql;
+select test_abc();
+
+-- http://stackoverflow.com/questions/17693259/need-to-printing-postgresql-database-console
+-- http://www.postgresql.org/docs/8.1/static/plpgsql-errors-and-messages.html

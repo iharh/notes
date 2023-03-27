@@ -1,0 +1,30 @@
+http://www.reddit.com/r/haskell/comments/1oa9qx/beginners_cheatsheet_to_the_lens_library/
+http://www.haskell.org/haskellwiki/LensBeginnersCheatsheet
+https://www.fpcomplete.com/user/yiding/lens-cheat-sheet
+
+3 Types (stab stab stabbity stab stab stab)
+
+Mostly of the form
+
+type Something s t a b = forall f. {- some constraint on f -} => (a -> f b) -> (s -> f t)
+
+with a simple "primed" form
+
+type Something' s a = Something s s a a
+
+These allow us to
+
+    focus on an inner value of type a... within an outer value of type s; and perhaps
+    provide (a) new inner value(s) of type b... to produce a new outer value of type t 
+
+The simple types therefore describe lenses that produce new values without changing the types.
+Setter s t a b 	set or modify value
+Getter s a 	get value
+Traversal s t a b 	focus on one, none or many values; can be used as a Setter;can be used as a Getter if a is a Monoid
+Lens s t a b 	can be used as a Getter/Setter/Traversal/etc
+
+Many other lens types are available. You can use a value of a more general type where a value of a more specific type is required. Some values are presented in this document with a more specific and less esoteric type than the more general and less common type they really have. 
+
+--- http://www.haskellforall.com/2014/02/pipes-parse-30-lens-based-parsing.html
+
+...Define a Getter instead of a Lens' for transformations that are not reversible:

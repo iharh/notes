@@ -1,0 +1,65 @@
+MemoryIOTest
+    allocateDirect/allocate
+
+https://github.com/jnr/jnr-ffi/tree/master/libtest
+
+void ptr_set_array_element(@Out Pointer[] array, int index, Pointer value);
+
+ptr_set_array_element(void **ptrArray, int arrayIndex, void *value) {    
+    ptrArray[arrayIndex] = value;
+}
+
+AddressByReferenceTest
+
+public static interface TestLibOutOnly {
+Address ptr_ret_pointer(@Out AddressByReference p, int offset);
+
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/byref/AddressByReference.java
+
+interface Lib {
+    void get_a(@Out AddressByReference ap);
+}
+
+AddressByReference ap = new AddressByReference();
+lib.get_a(ap);
+System.out.println("a from lib=" + a.getValue());
+
+
+https://github.com/jnr/jnr-ffi/blob/master/src/test/java/jnr/ffi/BufferTest.java
+
+public static interface TestLib {
+    void fillByteBuffer(@Out ByteBuffer buf, byte value, int size);
+    void fillByteBuffer(@Out Buffer buf, byte value, int size);
+    ...
+}
+
+https://github.com/jnr/jnr-ffi/blob/master/libtest/BufferTest.c
+
+
+https://github.com/jnr/jnr-ffi/blob/master/libtest/ClosureTest.c
+
+int testClosureNull(int (*closure)(void), int defaultValue)
+{
+    return closure ? (*closure)() : defaultValue;
+}
+void testClosureVrV(void (*closure)(void))
+{
+    (*closure)();
+}
+
+https://github.com/jnr/jnr-ffi/blob/master/src/test/java/jnr/ffi/DelegateTest.java
+
+public static interface TestLib {
+    public static interface CallableNull {
+        @Delegate public int call();
+    }
+    int testClosureNull(CallableNull closure, int defaultValue);
+    public static interface CallableVrV {
+        @Delegate public void call();
+    }
+    void testClosureVrV(CallableVrV closure);
+    public static interface CallableVrB {
+        @Delegate public byte call();
+    }
+    ...
+}

@@ -1,0 +1,10 @@
+Laziness
+
+    Nix evaluates expression only when needed.
+    This is a great feature when working with packages.
+
+        nix-repl> let a = builtins.div 4 0; b = 6; in b
+            6
+
+    Since a is not needed, there's no error about division by zero, because the expression is not in need to be evaluated.
+    That's why we can have all the packages defined on demand, yet have access to specific packages very quickly. 

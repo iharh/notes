@@ -1,0 +1,22 @@
+If a module named foo has no submodules, you should put the declarations for foo in a file named
+    foo.rs.
+If a module named foo does have submodules, you should put the declarations for foo in a file named
+    foo/mod.rs.
+
+.
+  src
+    types
+      mod.rs
+      qarray.rs
+      qinteger.rs        
+  qstring.rs
+
+src/types/mod.rs
+
+mod qarray;
+mod qinteger;
+mod qstring;
+
+pub use self::qarray::QArray;
+pub use self::qinteger::QInteger;
+pub use self::qstring::QString;

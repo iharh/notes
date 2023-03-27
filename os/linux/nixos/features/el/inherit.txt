@@ -1,0 +1,27 @@
+https://nixos.org/manual/nix/stable/language/constructs.html#inheriting-attributes
+
+let
+  x = 123;
+in { 
+  inherit x;
+  y = 456;
+}
+
+is equivalent to
+
+let
+  x = 123;
+in {
+  x = x;
+  y = 456;
+}
+
+
+...
+inherit x y z;
+inherit (src-set) a b c;
+...
+is equivalent to
+...
+x = x; y = y; z = z;
+a = src-set.a; b = src-set.b; c = src-set.c;

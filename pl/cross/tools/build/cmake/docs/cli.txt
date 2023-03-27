@@ -1,0 +1,19 @@
+https://cmake.org/cmake/help/latest/manual/cmake.1.html
+
+cmake
+    --help
+    --help-modules
+    --help-module <name>
+
+    --build [build-dir]
+            no options for quick help
+        -t <target>
+        --clean-first
+        -v
+        -- [native-options]
+
+    -E
+        capabilities
+        environment
+
+    --config <cfg>

@@ -1,0 +1,20 @@
+https://github.com/kotlintest/kotlintest
+
+reference
+https://github.com/kotlintest/kotlintest/blob/master/doc/reference.md
+
+articles
+2019
+https://proandroiddev.com/introducing-the-kotlintest-intellij-plugin-cf8005e9177a
+2018
+https://proandroiddev.com/data-driven-testing-with-kotlintest-a07ac60e70fc
+https://medium.com/@sam_57450/kotlintest-pro-tips-54ce19c32c68
+
+whatsnew
+https://proandroiddev.com/whats-new-in-kotlintest-3-2-and-3-3-affbc1b25e1d
+
+
+{ ... }.config(invocations = 20, threads = 4, tags = setOf(ElasticSearch, Windows))
+
+-DincludeTags=Windows,ElasticSearch
+-DexcludeTags=Windows

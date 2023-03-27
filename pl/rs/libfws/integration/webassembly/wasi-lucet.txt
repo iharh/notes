@@ -1,0 +1,20 @@
+https://wasi.dev/
+https://github.com/CraneStation/wasi
+
+https://github.com/fastly/lucet
+
+https://github.com/kubkon/rust-wasi-tutorial
+https://github.com/bytecodealliance/wasmtime/blob/master/docs/WASI-tutorial.md
+
+2019
+https://medium.com/swlh/how-to-build-zxing-c-to-wasm-using-wasi-sdk-in-linux-c1c618ac83f4
+    https://nuancesprog.ru/p/5635
+    https://github.com/yushulx/wasi-zxing-wasm
+https://www.theregister.co.uk/2019/03/29/mozilla_wasi_spec/
+    https://habr.com/ru/post/449554/
+Levick - WebAssembly/WASI Deep Dive
+    https://www.youtube.com/watch?v=Evc3T9Zk2pk
+https://hacks.mozilla.org/2019/03/standardizing-wasi-a-webassembly-system-interface/
+https://hermanradtke.com/2019/04/01/wasi-example-using-rust-and-lucet.html
+https://hermanradtke.com/2019/03/31/lucet-in-five-minutes.html
+https://www.fastly.com/blog/announcing-lucet-fastly-native-webassembly-compiler-runtime

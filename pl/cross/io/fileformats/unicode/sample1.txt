@@ -1,0 +1,15 @@
+খালি
+
+xxd (for utf-8 encoded)
+e0a6 96e0 a6be e0a6 b2e0 a6bf
+
+codecvt_utf8_utf16
+96 09 00 00 be 09 00 00 b2 09 00 00 bf 09 00 00 
+    // std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+    // converter.from_bytes(text);
+
+https://www.branah.com/unicode-converter
+UTF-16
+\u0996\u09be\u09b2\u09bf
+UTF-32
+00000996000009be000009b2000009bf

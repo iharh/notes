@@ -1,0 +1,56 @@
+apt
+    smbclient
+
+https://tldp.org/HOWTO/SMB-HOWTO-8.html
+
+68|LXF205 - Samba
+
+http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch10_:_Windows,_Linux,_and_Samba
+http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch11_:_Sharing_Resources_Using_Samba
+http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch12_:_Samba_Security_and_Troubleshooting
+
+
+?
+allinfo
+altname
+archive
+backup         
+blocksize
+cancel
+case_sensitive
+cd
+chmod          
+chown
+close
+del
+deltree
+dir            
+du
+echo
+exit
+get
+getfacl        
+geteas
+hardlink
+help
+history
+iosize         
+lcd
+link
+lock
+lowercase
+ls             
+l
+mask
+md             mget           mkdir          
+more           mput           newer          notify         open           
+posix          posix_encrypt  posix_open     posix_mkdir    posix_rmdir    
+posix_unlink   posix_whoami   print          prompt         put            
+pwd            q              queue          quit           readlink       
+rd             recurse        reget          rename         reput          
+rm             rmdir          showacls       setea          setmode        
+scopy          stat           symlink        tar            tarmode        
+timeout        translate      unlock         volume         vuid           
+wdel           logon          listconnect    showconnect    tcon           
+tdis           tid            utimes         logoff         ..             
+!

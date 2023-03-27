@@ -1,0 +1,21 @@
+https://developers.google.com/youtube/v3/
+https://developers.google.com/youtube/v3/getting-started
+    api key, quota
+
+https://developers.google.com/youtube/v3/docs/search/list
+    use pageToken for page-nav (up to 50 results per page)
+
+https://developers.google.com/youtube/v3/libraries
+java
+    https://developers.google.com/api-client-library/java/
+    https://github.com/googleapis/google-api-java-client-services
+    com.google.api-client:google-api-client
+    https://developers.google.com/api-client-library/java/google-api-java-client/dev-guide
+    https://developers.google.com/api-client-library/java/google-api-java-client/oauth2
+
+2020
+PythonEngineer - YouTube Data API - Python Tutorials
+    https://www.youtube.com/playlist?list=PLqnslRFeH2UpC8EqlF2aax9A-VLiPDwxP
+2018
+TraversyMedia - YouTube API Project With Auth
+    https://www.youtube.com/watch?v=r-yxNNO1EI8

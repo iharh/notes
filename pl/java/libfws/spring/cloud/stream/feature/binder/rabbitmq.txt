@@ -1,0 +1,24 @@
+https://cloud.spring.io/spring-cloud-stream-binder-rabbit/multi/multi__rabbitmq_binder_overview.html
+https://cloud.spring.io/spring-cloud-stream-binder-rabbit/multi/multi__configuration_options.html
+https://cloud.spring.io/spring-cloud-stream-binder-rabbit/multi/multi__retry_with_the_rabbitmq_binder.html
+https://docs.spring.io/spring-cloud-stream-binder-rabbit/docs/current/reference/html/spring-cloud-stream-binder-rabbit.html
+
+https://github.com/Tradeshift/spring-rabbitmq-tuning/wiki/Properties-Documentation
+https://github.com/spring-cloud/spring-cloud-stream/blob/main/spring-cloud-stream/src/test/java/org/springframework/cloud/stream/function/ImplicitFunctionBindingTests.java
+
+autoconf-disabling
+https://stackoverflow.com/questions/30140808/is-it-possible-to-disable-spring-boots-autoconfigurations-via-profile
+
+dlq
+https://progressivecoder.com/setting-up-rabbitmq-dead-letter-queue-with-spring-cloud-stream/
+
+retry
+https://cloud.spring.io/spring-cloud-stream-binder-rabbit/multi/multi__retry_with_the_rabbitmq_binder.html
+
+2020
+https://www.baeldung.com/spring-amqp-error-handling
+2019
+https://medium.com/tradeshift-engineering/spring-rabbitmq-tuning-f94723598312
+    https://habr.com/ru/company/otus/blog/500936/
+2018
+https://www.infoq.com/presentations/rabbitmq-reactor-spring-cloud

@@ -1,0 +1,12 @@
+https://github.com/gradle/gradle-native/issues/36
+
+sources {
+    cpp {
+        generatedBy project.tasks.generateSource
+    }
+}
+
+https://github.com/gradle/gradle-native/issues/251
+
+https://github.com/google/protobuf-gradle-plugin/issues/136
+!!!

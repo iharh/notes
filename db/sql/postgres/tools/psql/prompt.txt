@@ -1,0 +1,3 @@
+https://psql-tips.org/psql_tips_all.html#tip050
+    laetitia=# \set PROMPT1 '%M '
+    myHost.myAwesomeDomain.com

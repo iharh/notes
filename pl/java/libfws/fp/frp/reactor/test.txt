@@ -1,0 +1,19 @@
+reactor-test lib
+
+StepVerifier
+
+@Test
+public void testMultipleValues() {
+    Flux.just("alpha", "beta")
+    .as(StepVerifier.create)
+    .expectNext("alpha")
+    .expectNext("beta")
+    .expectComplete()
+    .verify(Duration.ofSeconds(5));
+}
+
+    ...
+    .consumeErrorWith(t -> assertThat(t)
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("bla-bla-bla"))
+

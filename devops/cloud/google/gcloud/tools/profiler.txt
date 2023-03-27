@@ -1,0 +1,18 @@
+https://cloud.google.com/profiler/docs
+https://cloud.google.com/profiler/docs/samples
+https://cloud.google.com/profiler/docs/about-profiler
+https://cloud.google.com/profiler/docs/using-profiler
+https://cloud.google.com/profiler/docs/concepts-profiling
+https://cloud.google.com/profiler/docs/profiling-java
+https://github.com/googleapis/java-profiler
+https://cloud.google.com/profiler/docs/profiling-python
+    pip3 install google-cloud-profiler
+https://cloud.google.com/profiler/docs/profiling-go
+    go get -u cloud.google.com/go/profiler
+https://github.com/googleapis/cloud-profiler-nodejs
+    https://www.npmjs.com/package/@google-cloud/profiler
+https://cloud.google.com/java/docs/reference/google-cloud-profiler/latest/history
+
+gcloud
+    services
+    services enable cloudprofiler.googleapis.com

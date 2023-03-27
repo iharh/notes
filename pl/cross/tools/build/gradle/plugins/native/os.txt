@@ -1,0 +1,8 @@
+https://github.com/gradle/native-samples/blob/master/cpp/prebuilt-binaries/build.gradle
+    ...
+    def libDebugLib = file(OperatingSystem.current().getSharedLibraryName('../simple-library/build/lib/main/debug/list'))
+    def libReleaseLib = file(OperatingSystem.current().getSharedLibraryName('../simple-library/build/lib/main/release/list'))
+
+    def libDebugLinkLib = file(OperatingSystem.current().getLinkLibraryName('../simple-library/build/lib/main/debug/list'))
+    def libReleaseLinkLib = file(OperatingSystem.current().getLinkLibraryName('../simple-library/build/lib/main/release/list'))
+    ...

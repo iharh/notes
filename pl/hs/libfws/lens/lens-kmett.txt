@@ -1,0 +1,21 @@
+https://github.com/ekmett/lens/wiki/Derivation
+
+Addit.IO:
+http://www.reddit.com/r/haskell/comments/1isryj/lenses_in_pictures/
+http://adit.io/posts/2013-07-22-lenses-in-pictures.html
+http://habrahabr.ru/post/189712/
+
+Traversable reference:
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-Traversable.html#fmapDefault
+http://hackage.haskell.org/package/labeled-tree-1.0.0.0/docs/src/Data-LabeledTree.html#Tree
+http://hackage.haskell.org/package/mono-traversable
+
+https://www.fpcomplete.com/user/edwardk/cellular-automata
+https://www.fpcomplete.com/user/edwardk/cellular-automata/part-1
+https://www.fpcomplete.com/user/edwardk/cellular-automata/part-2
+https://www.fpcomplete.com/user/edwardk/cellular-automata/part-3
+
+http://www.youtube.com/watch?v=D6sva6hGJ-s
+  24:40 - problem with Store
+
+http://stackoverflow.com/questions/11532050/what-is-the-const-applicative-functor-useful-for

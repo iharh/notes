@@ -1,0 +1,12 @@
+https://phoenixnap.com/kb/install-vscode-ubuntu
+
+https://askubuntu.com/questions/1245227/how-to-add-the-apt-key-for-microsoft-packages
+    https://stackoverflow.com/questions/60137344/docker-how-to-solve-the-public-key-error-in-ubuntu-while-installing-docker/68059722#68059722
+
+https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu
+
+sudo apt install software-properties-common apt-transport-https wget -y
+# wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/packages.microsoft.gpg
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt install code

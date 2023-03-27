@@ -1,0 +1,62 @@
+Super !!!
+MIT - Abstract Interpretation - http://web.mit.edu/afs/athena.mit.edu/course/16/16.399/www/
+
+Logical Relations (Predicates)
+TAPL - 150
+
+
+Discrete Math
+Selezneva - MSU - Discrete Math
+
+
+
+Logic
+Zaharov - MSU - Math Logic 
+Paulson - Logic and Proof - local copy and http://www.cl.cam.ac.uk/teaching/1011/LogicProof/
+
+
+Software Verification:
+
+Meyer at ETH: http://se.inf.ethz.ch/courses/2011b_fall/sv/
+
+
+Hoare Logic
+
+Chakraborty - A Short Introduction to Hoare Logic
+Aldrich - Hoare Logic
+Mu - Program Construction and Reasoning
+Heining - Program Verification using Hoare Logic - An Introduction
+
+Java - JML/KeY-Hoare
+
+
+Separation Logic:
+
+Frohardt - A Brief Introduction to Separation Logic
+Calgano - Program Verification using Separation Logic
+Reinolds - An Introduction to Separation Logic
+
+Yang - ER04 - Separation Logics And Applications
+
+Parkinson - Ribbon Proofs for Separation Logic
+Parkinson - An Introduction to Separation Logic
+VanStaaden - An Introduction to Separation Logic
+
+Meyer at ETH: http://se.inf.ethz.ch/courses/2011b_fall/seplogic/
+
+OHern - Lectures on Separation Logic 
+
+
+Talks:
+Kolanski - Introduction to Separation Logic 2008
+and others
+
+
+Tools:
+JML/Key
+jStar
+
+
+Model Checking
+Zaharov - MSU - Model Checking
+

@@ -1,0 +1,36 @@
+https://i3wm.org/docs/refcard.html
+
+2015
+https://www.slideshare.net/kkthegamer/i3-tiling-window-manager?qid=74631c8a-4624-4bcd-b0f6-a3382a03c7d5
+
+mod-CR
+    terminal
+mod-d
+    dmenu
+
+mod-shift-e
+    exit i3 session
+mod-shift-c
+    reload i3 config
+mod-shift-r
+    restart i3 in place
+
+mod-<num>
+    go to workspace number <num>
+mod-n
+    go to next workspace
+mod-p
+    go to previous workspace
+mod-shift-<num>
+    move the current window to workspace <num>
+
+mod-shift-q
+    close a title
+mod-space
+    toggle focus on floating tiles
+mod-shift-space
+    toggle floating
+mod-r
+    toggle resize
+mod-f
+    toggle fullscreen

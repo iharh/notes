@@ -1,0 +1,63 @@
+2022
+DevOpsJourney - Kubernetes - From Zero to Hero 0:00 of 1:01:18
+    https://www.youtube.com/watch?v=1Lu1F94exhU
+2021
+Hillel - What K8s is: Pod, ReplicaSet, Deploy ru of 2:00:55
+    https://www.youtube.com/watch?v=jqzo99f-D4o
+    ! need to look
+Stolyarov - How to Make K8s Right ru of 47:45
+    https://www.youtube.com/watch?v=fpM_QOtRdmc
+    https://speakerdeck.com/flant/kak-pravil-no-sdielat-kubernetes
+    ! good ideology !!!
+    https://habr.com/ru/company/flant/blog/562246/
+ListenIT - What k8s is 0:00 of 9:54
+    https://www.youtube.com/watch?v=ZI7w6ZeBI8k
+HighLoadChannel - Ibraev - HA k8s Cluster Masterclass 0:00 of 1:02:41
+    https://www.youtube.com/watch?v=n_yd84GlvIY
+HighLoadChannel - Ibraev - HA k8s Cluster 0:00 of 41:05
+    https://www.youtube.com/watch?v=AKq5sl-UDZ8
+    https://www.highload.ru/spring/2021/abstracts/7241
+2020
+NetworkChuck - you need to learn Kubernetes RIGHT NOW!! of 29:33
+    https://www.youtube.com/watch?v=7bA0gTroJjw
+    !!!
+2019
+Hillel - Kubernetes Operators ru of 48:05
+    https://www.youtube.com/watch?v=oPDNCe_jKL0
+AirBnb - Developing Kubernetes Services
+    https://www.infoq.com/news/2019/03/airbnb-kubernetes-workflow
+    https://qconlondon.com/system/files/presentation-slides/qcon_london_2019.pdf
+Slynko - All you need to know to deploy applications on Kubernetes
+    https://www.infoq.com/presentations/kubernetes-yaml
+    https://www.slideshare.net/offslinker/all-you-need-to-know-to-deploy-applications-on-kubernetes-116440914
+    https://gist.github.com/alex-slynko/f9d51244e3351c40b475568cc560fe18
+2018
+https://www.slideshare.net/offslinker/all-you-need-to-know-to-deploy-applications-on-kubernetes-116440914
+Edureka - Kubernetes Tutorial for Beginners
+    https://www.youtube.com/playlist?list=PL9ooVrP1hQOF907pPru97cKY9nKwOrDTP
+Kubernetess Webinars
+    https://www.youtube.com/playlist?list=PLF3s2WICJlqOiymMaTLjwwHz-MSVbtJPQ
+Kubernetes The Easy Way
+    https://www.youtube.com/watch?v=kOa_llowQ1c
+Lukyanchenko - K8s in local dev
+    https://www.youtube.com/watch?v=RRuqzYunXsE
+
+2017
+JavaScriptNinja - Intro to Kubernetes
+    https://www.youtube.com/watch?v=L3tgJXsMUTU
+Kubernetes Deconstructed
+    https://www.youtube.com/watch?v=90kZRyPcRZw
+Orlov - Kubernetess as a Microservice Platform
+    https://www.youtube.com/watch?v=7JqgxJpCfRE
+Grebennikov-KubernetessDeployAsATsar
+    https://www.youtube.com/watch?v=TFj-w2-ISVg
+Izmailov - from CoreOS to Kubernetess
+    https://www.slideshare.net/denisizmaylov/from-coreos-to-kubernetes-and-concourse-ci
+Hoffer - Orchestrating Microservices with Kubernetes
+    https://www.slideshare.net/weaveworks/orchestrating-microservices-with-kubernetes
+
+2016
+Ghe Children Guide
+    https://www.youtube.com/watch?v=4ht22ReBjno
+Hightower - k8s for sysadmins
+    https://www.youtube.com/watch?v=HlAXp0-M6SY

@@ -1,0 +1,68 @@
+http://docs.groovy-lang.org/latest/html/groovy-jdk/java/lang/Character.html
+http://docs.groovy-lang.org/latest/html/groovy-jdk/java/lang/CharSequence.html
+http://docs.groovy-lang.org/latest/html/groovy-jdk/java/lang/String.html
+
+def s = 'this is a string'
+assert s.getClass() == java.lang.String
+
+def s = "this is a string"
+assert s.getClass() == java.lang.String // compiler optimized out because there are no any interpolation
+
+def s = "this is a string ${1 + 1}"
+assert s.instanceOf GString == org.codehaus.groovy.runtime.GStringImpl // GString in the groovy docs API
+assert s.getClass() == org.codehaus.groovy.runtime.GStringImpl // GString in the groovy docs API
+
+
+CharSequence i-face
+
+def s = 'this is a string'
+s + ' and more'
+s - 'is' // look at CharSequence.minus - removes a first occurence
+s * 3
+s[0]
+s[-1]    // last letter
+s[-2]    // but last last letter
+s[0..3]  // groovy range
+s[0..3,5..7,8,10..-1]
+
+Regular multiline strings
+def picard = '''\
+line 1
+line 2
+'''
+
+Interpolated (Groovy) multiline strings:
+def picard = """...
+...
+${...}
+...
+"""
+
+Slashy strings:
+def zip = /\d{5}(-\d{4})?/
+    java.lang.String
+    we don't have to backslash the backslashes
+def zip = ~/\d{5}(-\d{4})?/
+    java.util.regex.Pattern
+
+assert '....' =~ zip
+assert '....' ==~ zip
+
+string.split()
+    split string by spaces as delimiters
+
+String [] strs = "a b c".split()
+List strsList = "a b c".split() // auto-convert
+
+String.toURL()
+URL.getText()
+
+'http://oreilly.com'.goURL().text  // return URL page content :)
+
+String(CharSequence).eachLine(Closure c)
+URL.eachLine(Closure c)
+List readLines()
+
+padding:
+padLeft(numChars, padding)
+    toBinaryString(str).padLeft(4, '0') 

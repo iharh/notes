@@ -1,0 +1,17 @@
+https://wiki.archlinux.org/title/Xfce#Keyboard_Shortcuts
+    Settings > Window Manager > Keyboard
+    and
+    Settings > Keyboard > Shortcuts
+
+????
+xfce4-xkb-plugin
+
+xfconf
+
+qa
+https://www.reddit.com/r/xfce/comments/jr6y3s/problems_using_the_super_key_for_keyboard/
+    https://github.com/alols/xcape
+    apt/xcape
+https://askubuntu.com/questions/807919/how-do-i-configure-the-superd-keybinding-in-xfce-to-show-desktop
+https://unix.stackexchange.com/questions/585799/xfce-how-to-unbind-super-keyboard-shortcut-from-whiskermenu
+    xconf-query

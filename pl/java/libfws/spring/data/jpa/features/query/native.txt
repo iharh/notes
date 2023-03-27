@@ -1,0 +1,15 @@
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.at-query.native
+    @Query(value="...", nativeQuery = true)
+    @NamedNativeQuery
+
+    public interface UserRepository extends JpaRepository<User, Long> {
+        @Query(value = "SELECT * FROM USERS WHERE EMAIL_ADDRESS = ?1", nativeQuery = true)
+        User findByEmailAddress(String emailAddress);
+    }
+
+2022
+https://www.baeldung.com/spring-data-jpa-query
+    !!!
+CodeJava - Spring Data JPA Native Query Examples of 16:39
+    https://www.youtube.com/watch?v=yXwHu6g-wlY
+https://www.codejava.net/frameworks/spring-boot/spring-data-jpa-native-query-examples

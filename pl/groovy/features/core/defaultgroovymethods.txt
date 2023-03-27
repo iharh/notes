@@ -1,0 +1,26 @@
+https://github.com/groovy/groovy-core/blob/master/src/main/org/codehaus/groovy/runtime/DefaultGroovyMethods.java
+https://github.com/groovy/groovy-core/blob/master/src/main/org/codehaus/groovy/runtime/ResourceGroovyMethods.java
+    https://github.com/groovy/groovy-core/blob/master/src/main/org/codehaus/groovy/runtime/ResourceGroovyMethods.java#L667
+    public static String getText(URL url, Map parameters, String charset) throws IOException {
+        BufferedReader reader = newReader(url, parameters, charset);
+        return IOGroovyMethods.getText(reader);
+    }
+    https://github.com/groovy/groovy-core/blob/master/src/main/org/codehaus/groovy/runtime/ResourceGroovyMethods.java#L2134
+    public static BufferedReader newReader(URL url, Map parameters, String charset) throws MalformedURLException, IOException {
+        return new BufferedReader(new InputStreamReader(configuredInputStream(parameters, url), charset));
+    }
+    https://github.com/groovy/groovy-core/blob/master/src/main/org/codehaus/groovy/runtime/ResourceGroovyMethods.java#L2010
+    private static InputStream configuredInputStream(Map parameters, URL url) throws IOException {
+        final URLConnection connection = url.openConnection();
+        if (parameters != null) {
+            ...
+        }
+    }
+https://github.com/groovy/groovy-core/blob/master/src/main/org/codehaus/groovy/runtime/IOGroovyMethods.java
+
+
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URLConnection.html
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/HttpURLConnection.html
+    https://stackoverflow.com/questions/12732422/adding-header-for-httpurlconnection
+    .setRequestProperty(<name>, <value>)
+    https://self-learning-java-tutorial.blogspot.com/2017/09/adding-headers-using-httpurlconnection.html

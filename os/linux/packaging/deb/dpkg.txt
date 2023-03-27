@@ -1,0 +1,7 @@
+dpkg
+    -L <package>
+        list files, installed by package
+    -S|--search <pattern>
+        find package(s) owning file(s)
+    -r [--force-all] <pkg_name>
+        remove

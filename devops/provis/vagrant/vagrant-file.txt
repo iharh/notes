@@ -1,0 +1,81 @@
+https://www.vagrantup.com/docs/vagrantfile/machine_settings.html
+https://www.vagrantup.com/docs/vagrantfile/ssh_settings.html
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.ssh.insert_key = false
+
+  config.vm.box = "centos-7.2"
+  config.vm.box = "ubuntu/trusty64"
+
+  # The url from where the 'config.vm.box' box will be fetched if it
+  # doesn't already exist on the user's system.
+  #config.vm.box_url = "file:///F:/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box"
+
+  config.vm.box_url = "centos-7.2.box"
+  config.vm.hostname = "centos-7.2"
+
+  config.vm.synced_folder ".", "/vagrant"
+  config.vm.synced_folder "../../.", "/vagrant", :mount_options => ["dmode=777", "fmode=666"]
+
+  #config.vm.boot_timeout = 300
+  #config.vm.network "private_network", ip: "192.168.56.2"
+
+  #config.ssh.username = "vagrant"
+  #config.ssh.password = "vagrant"
+  #config.ssh.private_key_path = "~/.ssh/id_rsa"
+
+  config.vm.provider :virtualbox do |vb, override|
+    vb.name = "centos-7.2"
+
+    vb.vm.network "private_network", ip: "192.168.56.2"
+    vb.vm.network :forwarded_port, guest: 2375, host: 2375
+
+    vb.memory = 2048
+    vb.customize ["modifyvm", :id, "--memory", "4096"]
+    vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
+
+    # --cpuexecutioncap 50
+    # intel card funciona no CentOS
+    vb.customize ["modifyvm", :id, "--nictype2", "82540EM"]
+
+    vb.vm.provision :shell,
+    inline: 'PYTHONUNBUFFERED=1 ansible-playbook \
+      /vagrant/ansible/dev.yml -c local'
+  end
+
+  config.vm.define :dev do |dev|
+    # dev.vm...provision :shell, path: "bootstrap.sh"
+  end
+
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+  end
+end
+
+samples:
+      config.vm.provision "prompt", type: "shell", inline: <<-SHELL
+        cat \<\<PROMPT > /etc/profile.d/elasticsearch_prompt.sh
+export PS1='#{name}:\\w$ '
+PROMPT
+        grep 'source /etc/profile.d/elasticsearch_prompt.sh' ~/.bashrc |
+          cat \<\<SOURCE_PROMPT >> ~/.bashrc
+# Replace the standard prompt with a consistent one
+source /etc/profile.d/elasticsearch_prompt.sh
+SOURCE_PROMPT
+        grep 'source /etc/profile.d/elasticsearch_prompt.sh' ~vagrant/.bashrc |
+          cat \<\<SOURCE_PROMPT >> ~vagrant/.bashrc
+# Replace the standard prompt with a consistent one
+source /etc/profile.d/elasticsearch_prompt.sh
+SOURCE_PROMPT
+      SHELL
+
+
+  config.vm.define "opensuse-13" do |config|
+    config.vm.box = "elastic/opensuse-13-x86_64"
+    opensuse_common config
+  end
+  ...
+  config.vm.defined_vms.each do |name, config|
+    config.options[:autostart] = false
+    ...
+  end

@@ -1,0 +1,10 @@
+https://reactjsexample.com/a-react-utility-belt-for-function-components-and-higher-order-components/
+
+const debug = withProps(console.log)
+
+const enhance = compose(
+    withState(/*...args*/),
+    debug, // print out the props here
+    mapProps(/*...args*/),
+    pure
+)

@@ -1,0 +1,58 @@
+https://kubernetes.io/docs/concepts/storage/volumes/
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+
+2023
+https://habr.com/ru/company/otus/blog/717486/
+2022
+https://kubernetes.io/blog/2022/05/05/volume-expansion-ga/
+2021
+https://loft.sh/blog/kubernetes-persistent-volumes-examples-and-best-practices/
+https://kubernetes.io/blog/2021/04/16/volume-health-monitoring-alpha-update/
+
+persistent
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+https://www.youtube.com/watch?v=E8uGIeiaaUQ
+https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/
+
+https://github.com/IntelAI/vck
+    https://ai.intel.com/kubernetes-volume-controller-kvc-data-management-tailored-for-machine-learning-workloads-in-kubernetes/
+
+local
+sample-pv.yaml
+
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: <NAME_GOES_HERE>
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: <SIZE_GOES_HERE>
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "<PATH_GOES_HERE._NOTE_THE_DOUBLE_QUOTES>"
+
+Run `kubectl create -f  sample-pv.yaml --namespace=<YOUR_NAMESPACE_HERE>` to create the PV.
+
+sample-pv-claim.yaml
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: <CLAIM_NAME_HERE>
+spec:
+  storageClassName: manual
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: <SPECIFY_SIZE_HERE>```
+
+Run `kubectl create -f sample-pv-claim.yaml --namespace=<YOUR_NAMESPACE_HERE` to create the PV Claim.
+The intuition here is that *Volumes need to be name-spaced.
+Else `claims` for those volumes will go unbounded*!
+This is not apparent from their documentation.
+

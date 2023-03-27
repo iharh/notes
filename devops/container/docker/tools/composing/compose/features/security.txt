@@ -1,0 +1,43 @@
+secrets
+https://docs.docker.com/compose/compose-file/compose-file-v3/#secrets
+    ! docker system create
+https://pythonspeed.com/articles/build-secrets-docker-compose/
+    https://habr.com/ru/company/otus/blog/501580/
+
+samples (short)
+
+version: "3.9"
+services:
+  redis:
+    image: redis:latest
+    deploy:
+      replicas: 1
+    secrets:
+      - my_secret
+      - my_other_secret
+secrets:
+  my_secret:
+    file: ./my_secret.txt
+  my_other_secret:
+    external: true
+
+samples (long)
+
+version: "3.9"
+services:
+  redis:
+    image: redis:latest
+    deploy:
+      replicas: 1
+    secrets:
+      - source: my_secret
+        target: redis_secret
+        uid: '103'
+        gid: '103'
+        mode: 0440
+secrets:
+  my_secret:
+    file: ./my_secret.txt
+  my_other_secret:
+    external: true
+

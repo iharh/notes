@@ -1,0 +1,71 @@
+Articles:
+http://www.akadia.com/services/ssh_test_certificate.html
+https://www.rabbitmq.com/ssl.html
+http://blog.tataranovich.com/2012/07/workflow-ssl.html
+
+
+openssl version [-a]
+
+OPENSSLDIR: "/usr/lib/ssl"
+    tells the path to certs
+
+    misc subfolder contains additional scripts
+    ... for impl private CA authority
+
+
+# wget http://openssl.org/source/openssl-<ver>.tar.gz
+
+# ./config --frefix=/opt/openssl --openssldir=/opt/openssl ...
+# make depend
+# make
+# sudo make install
+
+# ls openssl
+bin
+certs/
+    empty unless ... root certificates
+    OS probaly already comes with a trust store to use
+    or you can build your own
+include
+lib
+man
+misc
+
+openssl.cnf
+private/
+    empty unless you have some pvt keys
+
+
+openssl help
+    list of available commands
+    man <cmd> for specific commands
+
+
+
+CA certs of Mozilla:
+http://curl.haxx.se/docs/caextract.html
+
+(PEM) - Privacy-Enhanced Mail format
+
+conversion (convert Mozilla trust store):
+https://raw.githubusercontent.com/bagder/curl/master/lib/mk-ca-bundle.pl
+
+$ ./mk-ca-bundle.pl
+Downloading 'certdata.txt' ...
+Processing 'certdata.txt' ...
+Done (156 CA certs processed, 19 untrusted skipped).
+
+! works incrementally !
+
+
+The Go-version of conversion:
+https://github.com/agl/extract-nss-root-certs
+
+
+
+Running a Web-server which supports SSL:
+
+1-pvt.txt - generate a strong pvt-key
+2-csr.txt - create a CSR (cert-sign-req) and send it to CA
+3-sig.txt - install a CA-provided cert in the Web-server
+

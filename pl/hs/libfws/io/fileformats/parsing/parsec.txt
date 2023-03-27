@@ -1,0 +1,124 @@
+Ben Clifford - Parsing stuff in Haskell:
+http://www.youtube.com/watch?v=r_Enynu_TV0
+https://www.fpcomplete.com/user/adinapoli/the-pragmatic-haskeller/episode-5-a-simple-dsl
+
+
+import Control.Applicative hiding ((<|>), optional, many)
+
+
+Booleans:
+
+...
+data JSONValue = B Bool | ... 
+-- B :: Bool -> JSONValue
+...
+bool :: Parser Bool
+...
+jsonBool :: Parser JSONValue
+jsonBool = fmap B bool
+         =  B <$> bool
+...
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+(<$>) :: Functor f => (a -> b) -> Parser a -> Parser b
+
+Strings:
+...
+
+Arrays:
+
+["Hello","Goodbye",true,false,true]
+...
+data JSONValue = ... | A [JSONValue] | ...
+...
+array :: Parser [JSONValue]
+array = (char '[')
+        *>
+	( jsonValue 'sepBy' (char ',') )
+	<*
+	(char ']')
+
+...
+($>) ::
+(<$) ::
+(<|>) ::
+...
+jsonArray :: Parser JSONValue
+jsonArray = A <$> array
+
+jsonValue = jsonBool <|> jsonString <|> ... <|> jsonArray
+
+
+Objects
+
+{"name":"Ben","beer":true}
+
+data JSONValue = ... | O [(String, JSONValue)] | ...
+
+jsonObject :: Parser JSONValue
+jsonObject =
+  O <$> ((char '{') *>
+         (objectEntry 'sepBy' comma)
+	 <* (char '}'))
+
+objectEntry :: Parser (String, JSONValue)
+objectEntry = do
+  key <- stringLiteral
+  char ':'
+  value <- jsonValue
+  return (key, value)
+
+
+Whitespaces:
+
+ws :: Parser String
+ws = many (oneOf " \t\n")
+
+lexeme p = p <* ws
+
+jsonBool' = B <$> bool
+
+jsonBool = lexeme jsonBool'
+
+jsonStringLiteral = lexeme (S <$> stringLiteral)
+
+jsonArray = A <$> array
+array = (lexeme $ char '[') $> 
+          ( jsonValue 'sepBy' (lexeme $ char ',') )
+	<* (lexeme $ char ']')
+
+Alternatives with a common prefix:
+
+day = (string "Monday" *> pure 1)
+  <|> try (string "Tuesday" *> pure 2)
+  <|> (string "Wednesday" *> pure 3)
+  <|> (string "Thursday" *> pure 4)
+
+(<||>) :: Parser a -> Parser a -> Parser a
+p <||> q = try p <|> q
+
+day = (string "Monday" *> pure 1)
+  <||> (string "Tuesday" *> pure 2)
+  <||> (string "Wednesday" *> pure 3)
+  <||> (string "Thursday" *> pure 4)
+
+
+<?> :: Parser p -> String -> Parser p
+
+jsonValue = jsonBool
+  <|> (jsonStringLiteral "string literal")
+  <|> jsonArray
+  <|> jsonObject
+  <|> jsonNumber
+
+> parse jsonBool "test" "falsehood"
+Right (B False)
+
+To fix this - 
+
+> parse (jsonBool <* eof) "test" "falsehood"
+Left (line 1, column 6)
+unexpected 'h'
+unexpected end of input
+
+
+

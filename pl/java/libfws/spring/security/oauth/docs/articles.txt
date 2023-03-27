@@ -1,0 +1,23 @@
+2019
+http://www.zakariaamine.com/2018-03-01/using-oauth2-in-spring-scopes
+https://dzone.com/articles/build-secure-microservices-in-your-spring-rest-api
+https://www.baeldung.com/spring-security-method-security
+    https://github.com/eugenp/tutorials/tree/master/spring-security-core
+https://www.baeldung.com/spring-security-oauth2-enable-resource-server-vs-enable-oauth2-sso
+https://www.baeldung.com/spring-security-5-oauth2-login
+    https://github.com/Baeldung/spring-security-oauth
+http://www.baeldung.com/rest-api-spring-oauth2-angularjs
+https://www.baeldung.com/rest-api-spring-oauth2-angular
+    modern sample of auth-server
+    AuthorizationServerConfigurerAdapter
+    WebSecurityConfigurerAdapter
+2018
+https://www.baeldung.com/spring-security-oauth2-authentication-with-reddit
+https://dzone.com/articles/secure-spring-rest-with-spring-security-and-oauth2
+    https://github.com/adamzareba/company-structure-spring-security-oauth2-authorities
+https://www.infoq.com/presentations/oauth-2-spring-security-google
+https://blog.couchbase.com/spring-security-oauth2_authentication/
+https://www.baeldung.com/spring-security-oauth
+    just references to the other articles
+2017
+http://www.littlebigextra.com/spring-boot-oauth2-tutorial-for-authorizing-through-facebook-google-linkedin-and-twitter/

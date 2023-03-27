@@ -1,0 +1,23 @@
+import org.gradle.api.Project
+import org.gradle.internal.jvm.Jvm
+
+import java.io.File
+
+// fun Project.extractJavaDirForFile(fileName: String): File {
+//    // val javaParent = this.file(System.getProperty("java.home")).getParentFile().getCanonicalFile()
+//    val javaParent = this.file(System.getProperty("java.home")).getCanonicalFile() // works for sdkman
+//    return this.fileTree(javaParent).matching {
+//        include("**/$fileName")
+//    }.getSingleFile().getParentFile()
+//}
+
+val Project.javaInclude: File
+    get() = file("${Jvm.current().javaHome.canonicalPath}/include")
+    // this.extractJavaDirForFile("jni.h")
+val Project.javaPlatformInclude: File
+    get() = file("${Jvm.current().javaHome.canonicalPath}/include/linux")
+    // this.extractJavaDirForFile("jni_md.h")
+
+samples
+https://github.com/eskatos/jni-library-sample/blob/master/jni-library-plugin/src/main/kotlin/jni-library.gradle.kts
+    https://github.com/gradle/gradle-native/issues/208

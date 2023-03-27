@@ -1,0 +1,20 @@
+https://github.com/FasterXML/woodstox
+
+https://github.com/FasterXML/woodstox/blob/master/src/main/resources/META-INF/services/javax.xml.stream.XMLOutputFactory
+
+https://github.com/FasterXML/woodstox/blob/master/src/main/java/com/ctc/wstx/sw/BufferingXmlWriter.java
+https://github.com/FasterXML/woodstox/blob/master/src/main/java/com/ctc/wstx/sw/BufferingXmlWriter.java#L494
+    ...
+    c = handleInvalidChar(c); // throws an error usually
+    ...
+
+https://github.com/FasterXML/woodstox/blob/master/src/main/java/com/ctc/wstx/api/InvalidCharHandler.java
+
+xstream-integration
+https://github.com/x-stream/xstream/blob/master/xstream/src/java/com/thoughtworks/xstream/io/xml/WstxDriver.java
+
+enableXml11
+https://github.com/FasterXML/woodstox/blob/master/src/main/java/com/ctc/wstx/dtd/DTDSchemaFactory.java
+
+2017
+https://cowtowncoder.medium.com/configuring-woodstox-xml-parser-woodstox-specific-properties-1ce5030a5173

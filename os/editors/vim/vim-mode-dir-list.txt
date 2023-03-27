@@ -1,0 +1,22 @@
+Directory Listing Mode:
+
+i
+	Thing, long, wide or tree listings
+s
+	Sort on name, time or file size
+r
+	Reverse sort order
+gh
+	Hide/Unhide dotfiles
+<Enter>
+	Open the file or dir
+x
+	View file with associated application
+d
+	Make a directory
+D
+	Delete file or directory
+R
+	Rename the directory or file
+-
+	Go up a directory

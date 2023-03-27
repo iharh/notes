@@ -1,0 +1,8 @@
+nix-env
+    --list-generations
+        list generations
+    -qaP --description <package_name>
+        search for a package
+    -iA <package>
+        install a package
+    --uninstall <package>

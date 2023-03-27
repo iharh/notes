@@ -1,0 +1,15 @@
+2023
+https://blog.vashishtha.in/temporary-lifetimes/
+    https://doc.rust-lang.org/reference/lifetime-elision.html#lifetime-elision-in-functions
+
+2021
+https://proglib.io/p/vladenie-i-zaimstvovanie-v-rust-detalno-o-lifetime-dlya-nachinayushchih-i-bolee-opytnyh-2021-10-22
+    !!!
+2020
+https://umairakbar.medium.com/understanding-rust-lifetimes-540d548c2b26
+https://blog.thoughtram.io/lifetimes-in-rust/
+https://hashrust.com/blog/lifetimes-in-rust/
+https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md
+    https://habr.com/ru/post/515034/
+2019
+https://medium.com/nearprotocol/understanding-rust-lifetimes-e813bcd405fa

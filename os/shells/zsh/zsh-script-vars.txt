@@ -1,0 +1,185 @@
+cat -v /proc/$$/environ
+	List env vars of current shell ($$ is for pid). -v - is for displaying zero-chars.
+
+
+set -A arr one two three
+arr=( one two three )
+	Set an arr array-variable.
+src_files=( **/*.[ch] )
+	You can yse any form of subsitution for array also
+	Note: for bash - use src_files=( $(find . -name '*.[ch]' -print) ).
+
+declare (typeset is also possible instead of declare) - Assign attributes to vars.
+	-a - arrray.
+	-A - associated array (hash).
+		declare -A people = (name1 val1 name2 val2 name3 val3)
+	-p - print...
+	-U - make unique (path/PATH - path is a companion array).
+	-T LD_LIBRARY_PATH ld_library_path
+		Tie -//- in the same way (tied arrays).
+	-u - uppercase.
+	-l - lowercase.
+	-R <num> - right justification.
+	-L <num> - left justification.
+	-x - the same as "export" command.
+	-r - readonly.
+	-i - integer variable (integer <var> can also be used).
+	-i optional_base - -//- for specifying base.
+	-F - floating variable (float <var> can also be used).
+	-E - -//- scientific.
+	Note: f='1.0/3' - specify how many significant digit is needed (3).
+
+
+echo ${#arr}
+3
+	Get the number of elements in the array.
+echo ${arr[3]}
+echo $arr[1]
+	Array element access (index is 1-based in zsh, but 0-based in bash).
+echo $arr
+	Echo just the first element of arr in case of ksh and ALL the elements for zsh.
+arr[2,3] = ( zwei drei )
+	Replace a range of elements.
+arr[2] = ()
+	Delete the second element.
+echo $arr[2,-1]
+	Here -1 indicates the last element.
+
+!!! Word-splitting is disabled in zsh by default !!!
+
+var='one two'
+showargs $=var
+>>one<<
+>>two<<
+	Directly specify splitting a variable.
+
+${arr[@]}
+	Expand array elements. Each one is a separate word.
+${arr[*]}
+	Join all the elements to the string, separated by space.
+
+Numbers:
+
+echo $(( 3*4 ))
+	Integer expression calculation.
+echo $(( 0xff ))
+echo $(( [#16] 255 ))
+	For hexadecimal numbers.
+echo $(( 12#193 ))
+	For arbitrary base.
+echo $(( 1. / 3 ))
+	For floating-point output (0.3333333).
+
+
+Alternative and default values:
+echo ${var:-default}
+	Specify default value in case if the variable is unset.
+echo ${var:+alternative}
+	Do the opposite (... if variable is set).
+
+Variable patterns:
+
+${var#pattern}, ${var##pattern}
+	Expand var removing text that matches pattern (the least/most possible text) from the left.
+${var%pattern}, ${var%%pattern}
+	from the right.
+${var//pattern/string}
+	This does not enable greedy patterns.
+	Note: to disable greedy pattern matching which is on by default, use (S) var-expansion flag.
+$a[3,5]
+	Extract substring from 3 to 5 symbol. Indices can be math-expressions.
+
+
+Nested Expansion:
+${${file##*/}%.$}
+	Accept a file name and remove an initial path and file extension.
+
+Variable expansion flags:
+${(<flag>var}, where <flag> is one of the following:
+
+L, U, C - Lower/Upper/Capitalize-First-Letter case.
+a, i    - Array-Index/Case-Independent order.
+o, O    - Ascending/Descending order.
+f, s, z - Split at Lines/Specified-Char/Into-Words-Taking-Shell-Quoting-Into-Account.
+F, j    - Join words using Newlines/Specified-Character.
+c, w, W - Count Characters/Words/Words-Including-Empty-Ones.
+Q       - Remove one level of quoting.
+q       - Quote the resulting words.
+V       - Make special characters visible.
+l, r    - Pad words on the Left/Right.
+t, k, v - Return the Type/Associative-Array-Keys/Associative-Array-Values of variable.
+%, e    - Perform Prompt/Shell expansion of the value.
+P       - Reinterpret values as a further variable name.
+
+Example:
+echo ${(ops:\n:)"$(cut -d: -f5 /etc/passwd)"}
+echo ${(of)"$(cut -d: -f5 /etc/passwd)"}
+	Here s flag define separator char (\n), 
+
+Matching patterns against arrays:
+${arr:#pattern}
+	Each array element is matched against pattern and those that match are discarded.
+${(M}arr:#pattern}
+	Do the opposite - return only those elements that are matched.
+
+echo ${(k)assoc_array}
+	extract keys of associated array:
+echo $assoc_array
+echo ${(v)assoc_array}
+	extract values of associated array:
+echo ${(kv)assoc_array}
+	extract keys/values of associated array:
+assoc_array+=( key4 val4 ... )
+	add other key/value pairs.
+unset 'assoc_array[keyN]'
+	remove a key/value.
+echo ${(k)assoc_array[(r)val]}
+	reverse lookup a single match.
+echo ${(k)assoc_array[(R)val]}
+	to reverse lookup all matches.
+echo ${(v)assoc_array[(i)pattern}
+	(i) allows us to use a pattern-match.
+
+
+Loading files to vars:
+input="$(cat config.ini)"
+input="$(<config.ini)"
+	The equiv forms.
+
+while read; do
+	echo $REPLY
+done < config.ini
+	Read one line at a time.
+
+ps | while read; do
+	echo $REPLY
+done
+
+ps | while read pid tty time cmd; do
+	echo $cmd $pid
+done
+	The same, but using word-splitting.
+
+while IFS=: read user pw uid gid name home shell; do
+	echo $user $name
+done </etc/passwd
+	... Using internal field separator (IFS) var, changed locally.
+	
+
+
+
+
+zsh options
+
+ksh_arrays
+	To make 0-based array element index access.
+octal_zeroes
+	Enable octal zeroes.
+c_bases
+	Output standard c-convension bases.
+
+
+zsh modules
+
+zmodload zsh/mathfunc
+	Load math functions (pi, atan, ...).

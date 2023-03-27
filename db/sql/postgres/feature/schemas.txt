@@ -1,0 +1,20 @@
+\dn
+    list [non-sys] schemas
+\dt
+    list tables
+
+current_schemas(true)
+    pg_temp_<N>, pg_catalog, public, app
+
+search_path
+    pg_temp (pg_temp_<N>)
+    $user
+    gp_catalog
+    public
+
+alter database <dbname> set search_path=...;
+
+alter table <tablename> set schema=...;
+
+create schema...
+drop schema ... drop cascade;

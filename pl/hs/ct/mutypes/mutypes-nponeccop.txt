@@ -1,0 +1,73 @@
+http://nponeccop.livejournal.com/289076.html
+Anton K - Categorial types (http://anton-k.github.com/ru-haskell-book/book/16.html) - fold/unfold diagrams !
+http://hackage.haskell.org/package/recursion-schemes
+https://github.com/ekmett/recursion-schemes/
+Cunha - Deriving Animations from Recursive Definitions
+Mark P Jones - FP with Overloading and Higher-Order Polymorphism
+Meijer - Bananas in Space
+http://hackage.haskell.org/package/fixpoint
+Vries - Recursion Patterns (http://www.cs.tcd.ie/Edsko.de.Vries/talks/)
+Scala - http://www.slideshare.net/remeniuk/algebraic-data-types-and-origami-patterns
+
+1. Tim Sheard (2001) Generic Unification via Two-Level Types and Paramterized Modules, Functional Pearl, ICFP.
+2. Tim Sheard & Emir Pasalic (2004) Two-Level Types and Parameterized Modules. JFP 14(5): 547--587. This is an expanded version of Sheard (2001) with new examples.
+3. Wouter Swierstra (2008) Data types a la carte, Functional Pearl. JFP 18: 423--436.
++++ Swierstra - Stream Fusion
+4. Functional Programming with Bananas, Lenses,. Envelopes and Barbed Wire. Erik Meijer. Maarten Fokkinga y. Ross Paterson
+5. Ralf Lammel - Going bananas (http://lambda-the-ultimate.org/node/4185)
+
+Я въехал постепенно - сначала прочитал [3] и переделал унификацию в тайпчекере HNC на двухуровневые типы, затем несколько лет чесал репу, и в конце нашло прояснение и я стал хоть что-то понимать в [4].
+
+Идея относительно простая, на примере списка. У нас есть обычный рекурсивный список: data List a = Cons a (List a) | Nil. Мы делаем ход конём, и заменяем рекурсивную часть на параметр: data PreList a b = PreCons a b | PreNil. При этом PreList a у нас всегда получается функтором по параметру b (instance Functor (PreList a), даже deriving Functor сработает) - например в случае деревьев из data Tree a = Node a (Tree a) (Tree a) | Leaf мы получаем data PreTree a b = PreNode a b b | PreLeaf.
+
+Дальше мы параметризуем типы PreTree a b и PreList a b самими собой и получаем обратно наши рекурсивные деревья. Напрямую PreList a (PreList a b) написать не получается, поэтому придумали такой хелпер:
+
+newtype Fix f = Fix { unFix :: f (Fix f) }
+
+После чего Fix (PreList a) и Fix (PreTree a) получаются изоморфными нашим старым List и Tree. Конструировать руками их теперь длиннее:
+
+cons = Fix . PreCons
+nil = Fix PreNil
+
+foo = cons 5 $ cons 6 nil
+
+Но интерфейс деконструкции получается гениальный. Если раньше для свертки списка надо было использовать
+
+foldr :: (a -> b -> b) -> b -> [a] -> b
+foldr f x0 [] = x0
+foldr f x0 (x : xs) = f x0 $ foldr xs x
+
+а для свертки дерева
+
+foldTree :: (a -> a -> b -> b) -> b -> Tree a -> b
+
+и вообще в зависимости от структуры свертываемого типа у функции свертки меняется кол-во параметров и кол-во и тип аргументов у каждого параметров, то теперь всё иначе.
+
+foldFixTree :: (PreTree a b -> b) -> Fix (PreTree a) -> b
+
+То есть, мы прямо в дереве поддеревья заменяем на результат их свертки и передаем в обработчик узел с уже замененными поддеревьями! Сигнатура свертки списка получается аналогичным:
+
+foldFixList :: (PreList a b -> b) -> Fix (PreList a) -> b
+
+Более того, оказывается можно сделать единую реализацию свертки для всех типов, используя лишь fmap:
+
+cata :: (Functor f) => (f b -> b) -> Fix f -> b
+cata phi x = phi $ fmap (cata phi) $ unFix x
+
+Т.е. достаем из обертки значение, с помощью fmap заменяем в нем дочерние узлы на результат их свертки, и результат пропускаем через обработчик.
+
+Божественно! И да, таким же путем реализуется и развертка, и работает фьюжен для разных композиций сверток и разверток, и попутно решается expression problem.
+
+
+**************************************************
+
+...
+Вот держите обещанную переделку на а ля карт:
+
+http://hpaste.org/78604
+
+Data.Functor.Fixedpoint находится в unification-fd, импорт можно заменить на ровно две строчки:
+
+newtype Fix f = Fix { unFix :: f (Fix f) }
+cata phi = phi . fmap self . unFix
+

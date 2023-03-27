@@ -1,0 +1,7 @@
+Gibbons - Datatype-Generic Programming
+
+class Bifunctor f where
+  bimap :: (a -> c) -> (b -> d) > (f a b -> s c d)
+
+bimap id id = id
+bimap f g . bimap h j = bimap (f . h) (g . j)

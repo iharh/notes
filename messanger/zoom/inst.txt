@@ -1,0 +1,10 @@
+https://zoom.us/support/down4j
+    https://explore.zoom.us/en/opensource/?product=zoom&platform=linux&onlycontent=1
+    https://explore.zoom.us/en/opensource/source/?product=zoom&platform=linux&onlycontent=1
+
+snap
+    zoom-client
+    https://snapcraft.io/install/zoom-client/ubuntu
+
+flatpak
+us.zoom.Zoom

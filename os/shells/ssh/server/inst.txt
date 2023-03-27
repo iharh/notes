@@ -1,0 +1,10 @@
+2020
+https://www.cyberciti.biz/faq/ubuntu-linux-install-openssh-server/
+    sudo apt-get install openssh-server
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
+
+arch
+core/openssh
+    sudo systemctl enable sshd.service
+        ExecStart=/usr/bin/sshd -d

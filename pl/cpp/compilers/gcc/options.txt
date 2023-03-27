@@ -1,0 +1,25 @@
+2018
+https://developers.redhat.com/blog/2018/03/21/compiler-and-linker-flags-gcc/
+
+-fPIC
+    position-independent (for shared libs)
+    https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/GCC/create-libraries/index
+    https://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html
+
+optimization
+http://www.fsfla.org/~lxoliva/writeups/gOlogy/gOlogy.txt
+-O3
+-fomit-frame-pointer
+-funroll-all-loops
+
+profiling
+-pg
+LDFLAGS="-pg"
+
+debug
+-g
+
+gcc @args.file
+
+warnings
+https://habr.com/ru/post/490850/

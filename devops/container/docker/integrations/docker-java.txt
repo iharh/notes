@@ -1,0 +1,23 @@
+https://habrahabr.ru/company/ruvds/blog/324756/
+https://codefresh.io/blog/java_docker_pipeline/
+
+RAM usage, limits:
+http://blog.jelastic.com/2017/04/13/java-ram-usage-in-containers-top-5-tips-not-to-lose-your-memory/
+https://blog.csanchez.org/2017/05/31/running-a-jvm-in-a-container-without-getting-killed/
+https://dzone.com/articles/running-a-jvm-in-a-container-without-getting-kille
+
+https://developers.redhat.com/blog/2017/03/14/java-inside-docker/
+
+https://blogs.oracle.com/developers/official-docker-image-for-oracle-java-and-the-openjdk-roadmap-for-containers
+
+OpenJDK
+https://hub.docker.com/_/openjdk/
+
+presentations
+2018
+Batey - The JVM and Docker. A good idea?
+https://www.youtube.com/watch?v=6ePUiQuaUos
+
+2017
+https://www.youtube.com/watch?v=yHLAaA4gPxw
+https://www.slideshare.net/Docker/docker-for-java-developers-fabiane-pardon-and-arun-gupta

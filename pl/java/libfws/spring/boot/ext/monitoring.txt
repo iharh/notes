@@ -1,0 +1,12 @@
+2020
+https://medium.com/swlh/monitoring-spring-boot-application-with-micrometer-prometheus-and-grafana-using-custom-metrics-9d33de107ad8
+    https://habr.com/ru/company/otus/blog/650871/
+https://www.mokkapps.de/blog/monitoring-spring-boot-application-with-micrometer-prometheus-and-grafana-using-custom-metrics/
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // runtime 'io.micrometer:micrometer-spring-legacy:1.0.0-rc.4'
+    runtime 'io.micrometer:micrometer-registry-prometheus'
+    runtime 'io.micrometer:micrometer-registry-jmx'
+}

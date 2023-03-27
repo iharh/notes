@@ -1,0 +1,7 @@
+http://unix.stackexchange.com/questions/210604/how-to-write-a-systemd-service-unit-file-so-it-waits-until-a-specific-interface
+
+/usr/lib/systemd/systemd-networkd-wait-online.service
+
+http://marc.info/?l=systemd-devel&m=142419650520851&w=2
+exit-on-idle
+

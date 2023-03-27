@@ -1,0 +1,33 @@
+treeish
+	tree hashes
+commitish
+	commit hashes
+
+- full SHA1
+- partial SHA1
+- branch, remote or tag name
+  (adding a date spec like @{yesterday} or @{1 mongh ago}, @{5} 5 prior values...)
+- carrot parents (history)
+  <hash>^
+    one commit back (parent)
+  <hash>^2
+    second parent (in case if <hash> is a merge commit)
+  <hash>^^
+    two ...
+  <hash>~5
+    five ...
+- tilde specs
+  master~2
+    2nd generation grandparent of master (grandparent)
+- tree spec
+  master^{tree}
+    tree that 'master' points to (tree object, usefull for running ls-tree)
+- blob spec
+  master:/path/to/file
+    if you need a certain file of the 'master' commit
+- ranges
+  <hash1>..<hash2>
+    between ... note - branches can also be used here.
+  <hash1>..
+    everything since a commit
+

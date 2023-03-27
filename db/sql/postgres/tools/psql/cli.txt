@@ -1,0 +1,63 @@
+!!! set ECHO_HIDDEN on
+    to print underlying sql-s
+
+Usage:
+  psql [OPTION]... [DBNAME [USERNAME]]
+
+help:
+  \? [commands]          show help on backslash commands
+  \? options             show help on psql command-line options
+  \? variables           show help on special variables
+  \h [NAME]              help on syntax of SQL commands, * for all commands
+
+General options:
+    -h <dbhost>
+        connect to <dbhost> host
+    -d, --dbname=DBNAME      database name to connect to (default: "iharh")
+        or connection URL
+            postgresql://localhost
+            https://psql-tips.org/psql_tips_all.html#tip013
+    -U, --username <dbuser>
+        connect by <dbuser> user
+
+    -L filename
+    --log-file=filename
+        Write all query output into file filename, in addition to the normal output destination.
+    -v assignment
+    --set=assignment
+    --variable=assignment
+        Perform a variable assignment, like the \set meta-command. Note that you must separate name and value, if any, by an equal sign on the command line. To unset a variable,
+        leave off the equal sign. To set a variable with an empty value, use the equal sign but leave off the value. These assignments are done during a very early stage of start-up,
+        so variables reserved for internal purposes might get overwritten later.
+
+    -c, --command=COMMAND
+        run only single command (SQL or internal) and exit
+    -f, --file=FILENAME
+        execute commands from file, then exit.
+        If you use the value - (hyphen) in the flag -f or --filename, psql will read commands and queries from the standard input.
+        The read will end when reaching EOF command (CTRL+D) or the \q command.
+            https://psql-tips.org/psql_tips_all.html#tip007
+        or just redirect (with "<" or "|")
+            https://psql-tips.org/psql_tips_all.html#tip009
+
+    -l, --list
+        list available databases, then exit 
+
+    -e, --echo-queries
+        display the query just before the query result in the standard output.
+    -x, --expand
+        expand the output for better readability
+        https://psql-tips.org/psql_tips_all.html#tip043
+
+    -s, --single-step
+        stop after each command (for debug)
+
+    -t, --tuples-only
+        turn off printing column names and result row count footers
+
+    -1, --single-transaction
+        execute all in single transaction
+
+samples
+$ psql "service=myservice sslmode=require"
+$ psql postgresql://dbmaster:5433/mydb?sslmode=require

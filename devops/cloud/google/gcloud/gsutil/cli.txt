@@ -1,0 +1,33 @@
+gsutil
+    ...options...
+        https://cloud.google.com/storage/docs/gsutil/addlhelp/TopLevelCommandLineOptions
+        https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames
+        https://cloud.google.com/storage/docs/request-endpoints
+    mb
+        https://cloud.google.com/storage/docs/gsutil/commands/mb
+        https://cloud.google.com/storage/docs/creating-buckets
+    cp
+        https://cloud.google.com/storage/docs/gsutil/commands/cp
+        https://cloud.google.com/storage/docs/uploading-objects
+        https://cloud.google.com/storage/docs/gsutil/addlhelp/ScriptingProductionTransfers
+        https://cloud.google.com/storage/docs/folders
+    rsync
+        https://cloud.google.com/storage/docs/gsutil/commands/rsync
+    ls
+        https://cloud.google.com/storage/docs/gsutil/commands/ls
+        https://cloud.google.com/storage/docs/listing-buckets
+    rm
+        https://cloud.google.com/storage/docs/gsutil/commands/rm
+        https://cloud.google.com/storage/docs/deleting-buckets
+    du
+        https://cloud.google.com/storage/docs/getting-bucket-information
+    ...moving... cp+rm
+        https://cloud.google.com/storage/docs/moving-buckets
+    label
+        https://cloud.google.com/storage/docs/using-bucket-labels
+    defstorageclass
+        https://cloud.google.com/storage/docs/changing-default-storage-class
+    iam
+        https://cloud.google.com/storage/docs/gsutil/commands/iam
+    defacl
+        https://cloud.google.com/storage/docs/gsutil/commands/defacl

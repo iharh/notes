@@ -1,0 +1,43 @@
+https://github.com/NixOS/nixpkgs/blob/master/lib/modules.nix
+    mkIf, mkMerge
+https://nixos.org/manual/nix/stable/#ssec-builtins
+    
+currentSystem
+    "x86_64-linux"
+
+isInt
+isAttrs
+    is attribute set
+attrNames <attr-set>
+    get attribute names
+    (a list of keys of a given set)
+
+<derivation>.drvAttrs
+
+intersectAttrs
+
+toString
+
+reflection
+    functionArgs
+        nix-repl> add = { a ? 3, b }: a+b
+        nix-repl> builtins.functionArgs add
+            { a = true; b = false; }
+
+map
+filter
+
+trace
+
+toPath
+    deprecated, use toString with path-param instead
+pathExists
+    https://github.com/NixOS/nix/blob/master/tests/lang/eval-okay-pathexists.nix
+readFile
+    zsh = { ... initExtraBeforeCompInit = builtins.readFile ../../configs/zsh/fedora_zshrc.zsh; }
+    home.file.".p10k.zsh".text = builtins.readFile "/etc/nixos/dot.p10k.zsh";
+    home.file.".aws/config".source = ../configs/aws/aws_config;
+    home.file.".dircolors".source = sources.LS_COLORS.outPath + "/LS_COLORS";
+
+getEnv
+    getEnv "HOME"; # home directory

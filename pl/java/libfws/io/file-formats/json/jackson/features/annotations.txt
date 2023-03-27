@@ -1,0 +1,10 @@
+com.fasterxml.jackson.annotation.JsonInclude
+     @JsonInclude(JsonInclude.Include.NON_NULL) 
+
+JsonView
+2020
+https://www.baeldung.com/jackson-json-view-annotation
+    https://javadoc.io/doc/com.fasterxml.jackson.core/jackson-annotations/latest/com/fasterxml/jackson/annotation/JsonView.html
+
+2019
+https://habr.com/ru/post/480158/

@@ -1,0 +1,17 @@
+https://github.com/commercialhaskell/stack/blob/master/src/Stack/Config.hs
+
+-- | Get the location of the implicit global project directory.
+-- If the directory already exists at the deprecated location, its location is returned.
+-- Otherwise, the new location is returned.
+getImplicitGlobalProjectDir
+    :: (MonadIO m, MonadLogger m)
+    => Config -> m (Path Abs Dir)
+getImplicitGlobalProjectDir config =
+    --TEST no warning printed
+    liftM fst $ tryDeprecatedPath
+        Nothing
+        doesDirExist
+        (implicitGlobalProjectDir stackRoot)
+        (implicitGlobalProjectDirDeprecated stackRoot)
+  where
+stackRoot = configStackRoot config

@@ -1,0 +1,10 @@
+2020
+MentalOutflow - Qbittorrent - Best Settings for Privacy and High Performance Torrenting of 7:55
+    https://www.youtube.com/watch?v=do0y_Z_lPU0
+        connection tab
+            enable protocol: both tcp and udp
+            proxy settings: use vpn
+        bittorrent tab
+            enable DHT, PeX, Local Peer Discovery
+            encryption mode: require encryption
+            enable Torrent Queueng

@@ -1,0 +1,5 @@
+https://www.collabora.com/assets/pdfs/OSTree_CLI_for_OS_management.pdf
+
+ostree
+    --help
+    --version

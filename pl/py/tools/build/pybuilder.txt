@@ -1,0 +1,11 @@
+pybuilder-completions                - shell and zsh completions for pybuilder
+pybuilder-smart-copy-resources       - PyBuilder plugin for copying additional resources
+pybuilder_jedi_plugin                - Lint python sources with the jedi linter (experimental)
+pybuilder                            - An extensible, easy to use continuous build tool for Python
+pybuilder_header_plugin              - PyBuilder Header Plugin
+pybuilder-nose                       - PyBuilder Nose Plugin
+pyb_init                             - pybuilder project initialization
+PyBuilder-for-Py2exe                 - A tool to asist in compiling python scripts with py2exe
+pybuilder-django-enhanced-plugin     - Plugin for pybuilder providing some useful tasks for django development
+pybuilder-gitexport                  - PyBuilder Git Export
+pybuilder_release_plugin             - PyBuilder Release PlugIn

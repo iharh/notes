@@ -1,0 +1,21 @@
+flatpak
+    -h, --help
+    remotes
+    remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    search
+        ...
+    build-init
+    build ...
+    install
+        gimp
+        flathub org.gimp.GIMP
+        https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
+    list
+        [--app]
+    update
+    repair
+    history
+    permission-reset org.gimp.GIMP
+    run
+        org.gimp.GIMP
+    uninstall [--unused]

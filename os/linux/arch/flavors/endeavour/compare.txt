@@ -1,0 +1,5 @@
+2022
+https://itsfoss.com/endeavouros-vs-manjaro/
+    EndeavourOS does not have their own software repositories.
+    They depend on the main Arch Linux repositories and doing so,
+    you get the most “vanilla” experience if you use EndeavourOS.

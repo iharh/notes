@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/8149210/how-do-i-find-duplicates-across-multiple-columns
+     SELECT name, city, count(*) as qty 
+     FROM stuff 
+     GROUP BY name, city HAVING count(*)> 1

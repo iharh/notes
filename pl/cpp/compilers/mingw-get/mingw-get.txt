@@ -1,0 +1,61 @@
+1. Install mingw-get-setup with CLI interface only
+2. Install a (meta) package:
+  mingw-get install msys-base msys-man msys-zip msys-unzip
+3. (optionally) install mingw-get-info (http://blog.fourthwoods.com/2013/01/04/managing-mingw-packages-with-mingw-get/)
+4. Note: msys-vim is still 7.3.2
+
+
+Sources:
+  git://git.code.sourceforge.net/p/mingw/mingw-get
+
+
+1. Download and unpack mingw-get bin archive from:
+http://sourceforge.net/projects/mingw/files/Installer/mingw-get/
+http://sourceforge.net/projects/mingw/files/Installer/mingw-get/mingw-get-0.6.2-beta-20131004-1/
+http://sourceforge.net/projects/mingw/files/Installer/mingw-get/mingw-get-0.6.2-beta-20131004-1/mingw-get-0.6.2-mingw32-beta-20131004-1-bin.zip/download
+
+2. Run cmd-line mingw-get.exe
+
+mingw-get update
+mingw-get install mingw-get
+
+
+Files at
+..\var\lib\mingw-get\data\
+1. manifest-*.xml
+   installed packages (one by one)
+2. sysroot-*.xml
+   installed packages (grouped by run/transaction)
+   Note: one file per <sysroot.../> element of profile.xml
+
+
+3. MSYS notes (probably move to the separate file)
+
+...\msys\1.0\etc\profile
+
+...
+# Set up USER's home directory
+if [ -z "$HOME" ]; then
+  HOME="/home/$LOGNAME"
+fi
+
+if [ ! -d "$HOME" ]; then
+  mkdir -p "$HOME"
+  cp /etc/inputrc.default "$HOME"/.inputrc
+fi
+
+if [ "x$HISTFILE" == "x/.bash_history" ]; then
+  HISTFILE=$HOME/.bash_history
+fi
+
+export HOME LOGNAME MSYSTEM HISTFILE
+
+for i in /etc/profile.d/*.sh ; do
+  if [ -f $i ]; then
+    . $i
+  fi
+done
+...
+
+MSYS + Extra VCSes:
+http://sourceforge.net/projects/mingwbuilds/files/external-binary-packages/

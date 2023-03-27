@@ -1,0 +1,9 @@
+https://github.com/pingcap/grpc-rs
+https://github.com/stepancheg/grpc-rust
+
+2018
+https://medium.com/@KevinHoffman/streaming-grpc-with-rust-d978fece5ef6
+https://medium.com/@KevinHoffman/creating-a-stream-chunking-iterator-in-rust-d4063ffd21ed
+2017
+https://pingcap.github.io/blog/2017/09/12/futuresandgrpc/
+https://air.mozilla.org/bay-area-rust-meetup-august-2017/

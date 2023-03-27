@@ -1,0 +1,45 @@
+https://github.com/commercialhaskell/stack/blob/master/src/Stack/Constants.hs
+
+-- | The filename used for the stack config file.
+stackDotYaml :: Path Rel File
+stackDotYaml = $(mkRelFile "stack.yaml")
+
+...
+
+-- | Implicit global project directory used when outside of a project.
+-- Normally, @getImplicitGlobalProjectDir@ should be used instead.
+implicitGlobalProjectDir :: Path Abs Dir -- ^ Stack root.
+                         -> Path Abs Dir
+implicitGlobalProjectDir p =
+    p </>
+    $(mkRelDir "global-project")
+
+-- | Deprecated default global config path.
+defaultUserConfigPathDeprecated :: Path Abs Dir -> Path Abs File
+defaultUserConfigPathDeprecated = (</> $(mkRelFile "stack.yaml"))
+
+-- | Default global config path.
+-- Normally, @getDefaultUserConfigPath@ should be used instead.
+defaultUserConfigPath :: Path Abs Dir -> Path Abs File
+defaultUserConfigPath = (</> $(mkRelFile "config.yaml"))
+
+
+
+
+-- | Environment variable used to override the '~/.stack' location.
+stackRootEnvVar :: String
+stackRootEnvVar = "STACK_ROOT"
+
+-- | Option name for the global stack root.
+stackRootOptionName :: String
+stackRootOptionName = "stack-root"
+
+-- | Deprecated option name for the global stack root.
+--
+-- Deprecated since stack-1.1.0.
+--
+-- TODO: Remove occurences of this variable and use 'stackRootOptionName' only
+-- after an appropriate deprecation period.
+deprecatedStackRootOptionName :: String
+deprecatedStackRootOptionName = "global-stack-root"
+

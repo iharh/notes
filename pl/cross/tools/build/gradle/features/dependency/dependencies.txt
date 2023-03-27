@@ -1,0 +1,136 @@
+https://docs.gradle.org/current/userguide/core_dependency_management.html
+https://docs.gradle.org/current/userguide/dependency_management_terminology.html
+    artifact
+    capability
+        https://docs.gradle.org/current/userguide/component_capabilities.html
+        https://docs.gradle.org/current/userguide/dependency_capability_conflict.html
+            !!! capability tuning
+            https://discuss.gradle.org/t/copy-from-transitive-native-dependencies/34047
+            https://github.com/romainbsl/kodein-issue-258/blob/master/build.gradle.kts
+    component
+    configuration
+        https://docs.gradle.org/current/userguide/declaring_dependencies.html#sec:what-are-dependency-configurations
+        https://docs.gradle.org/current/userguide/declaring_dependencies.html#sec:resolvable-consumable-configs
+    dependency
+    dependency constraint
+    feature variant
+        A feature variant is identified by one or more capabilities.
+        https://docs.gradle.org/current/userguide/feature_variants.html
+
+    ...
+    variants (see variants.txt here)
+        https://docs.gradle.org/current/userguide/variant_model.html
+        https://docs.gradle.org/current/userguide/variant_attributes.html
+        https://docs.gradle.org/current/userguide/variant_attributes.html#native_ecosystem_specific_attributes
+        https://docs.gradle.org/current/userguide/feature_variants.html
+
+https://docs.gradle.org/current/userguide/declaring_dependencies.html
+https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
+https://docs.gradle.org/current/userguide/dependency_resolution.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html#getIncoming--
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#getResolutionResult--
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#getArtifacts--
+    https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/ResolvableDependencies.html#artifactView-org.gradle.api.Action-
+
+https://docs.gradle.org/current/userguide/cross_project_publications.html
+    !!! ? builtBy
+    ! Don’t reference other project tasks directly
+
+list lGroovy = ["...grovy-all:2.3.10@jar", ...]
+
+configurations {
+    sealife
+    alllife
+}
+
+dependencies {
+    sealife "sea....", "sea..."
+    alllife configurations.sealife
+    alllife "air....."
+
+    runtime lGroovy, ...
+
+    compile project(path: ':api', configuration: 'spi')
+
+    compile module('org.codehaus.groovy:groovy:2.3.10') {
+        dependency('asm:asm-all:2.2.3')
+        ...
+        module('org.apache.ant:ant:1.9.4@jar') {
+            dependencies('org.apache.ant:ant-junit:1.9.4@jar',
+                         'org.apache.ant:ant-launcher:1.9.4')
+        }
+    }
+
+    compile files("$buildDir/classes") {
+        ...
+    }
+    compile gradleApi()
+    compile localGroovy()
+    compile.exclude module: 'commons'
+    all*.exclude group: 'org.gradle.test.excludes", module: 'reports'
+    compile("org.gradle.test.excludes:api:1.0") {
+        exclude module: 'shared'
+    }
+
+    runtime(
+        [group: '...', name: '...', ...],
+        [group: '...', name: '...', ...]
+    )
+    runtime(...) {
+        transitive = true
+    }
+    runtime files('libs/q.jar', 'libs/b.jar')
+    runtime fileTree(dir: 'libs', include '*.jar')
+}
+
+Note:
+@jar is the same as ext: 'jar'
+
+long version of this DSL is:
+dependencies {
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '3.6.7.Final'
+    ...
+}
+
+Dependencies are grouped in configurations:
+    ( gra projects --info)
+- compileOnly
+    https://blog.gradle.org/introducing-compile-only-dependencies
+- compile
+- runtime
+- testCompile
+- testRuntime
+   (jdbc driver for test DB only)
+...
+- integrationTest
+
+configurations {
+    compile {
+        description = 'compile classpath'
+        transitive = true
+    }
+    runtime {
+        extendsFrom compile
+    }
+}
+configurations.compile {
+    description = 'compile classpath'
+}
+
+
+sample tasks
+task listJars << {
+    configurations.compile.each { File file -> println file.name }
+}
+
+BuildScript dependencies
+https://solidsoft.wordpress.com/2016/06/07/gradle-tricks-display-buildscript-dependencies/
+dependencies
+sub-prj-name:dependencies
+buildEnvironment task
+subprojects {
+    task allDeps(type: DependencyReportTask) {
+    }
+    task allDepsInsight(type: DependencyInsightReportTask) {
+    }
+}

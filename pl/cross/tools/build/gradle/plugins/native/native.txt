@@ -1,0 +1,13 @@
+https://github.com/gradle/gradle-native
+https://blog.gradle.org/introducing-the-new-cpp-plugins
+https://guides.gradle.org/building-cpp-libraries/
+https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/CppLibrary.html
+    !!!
+
+DesignDocs
+https://github.com/gradle/gradle/blob/master/design-docs/done/continuous-delivery-for-c-plus-plus.md
+? cpp-lib ?
+#story-allow-library-binaries-to-be-used-as-input-to-executable-binaries
+
+src:
+https://github.com/gradle/gradle/tree/master/subprojects/platform-native

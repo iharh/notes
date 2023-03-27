@@ -1,0 +1,12 @@
+https://webpack.js.org/guides/code-splitting/
+https://webpack.js.org/guides/code-splitting/#dynamic-imports
+
+tools
+https://github.com/webpack-contrib/webpack-bundle-analyzer
+https://github.com/danvk/source-map-explorer
+
+2019
+https://webdevblog.ru/optimizaciya-razmera-sborki-webpack/
+2018
+https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c
+http://blog.jakoblind.no/webpack-code-splitting-libraries-what-to-do-with-the-files/

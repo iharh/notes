@@ -1,0 +1,15 @@
+https://www.npmjs.com/package/apollo-boost
+https://www.npmjs.com/package/apollo-client
+https://www.apollographql.com/docs/react/essentials/get-started.html
+https://www.apollographql.com/docs/react/advanced/boost-migration.html
+https://flaviocopes.com/apollo/
+https://itnext.io/keeping-up-with-the-apollos-40097584714b
+https://alligator.io/react/graphql-apollo-boost/
+https://hackernoon.com/introduction-to-using-graphql-in-react-with-apollo-f62e5737efbe
+https://www.youtube.com/watch?v=UrhRCipL2aI
+https://www.youtube.com/playlist?list=PLN3n1USn4xlnsOPMwzSG4RiaGvtKMNCmn
+https://www.youtube.com/playlist?list=PLN3n1USn4xlm-U9utmVqte_-5kOoYqvud
+
+inst
+npm i -S apollo-boost react-apollo graphql-tag graphql
+npm i -S react-router-dom

@@ -1,0 +1,73 @@
+https://github.com/Microsoft/TypeScript/wiki/Roadmap
+
+npm
+    typescript@rc
+
+5.0
+https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/
+4.9
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-9-beta/
+    https://habr.com/ru/company/surfstudio/blog/695900/
+4.8
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-8-rc/
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-8-beta/
+4.7
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-7/
+4.4
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-4/
+4.3
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-3/
+4.2
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/
+4.1
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/
+    https://nuancesprog.ru/p/11006/
+4.0
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-0/
+https://devblogs.microsoft.com/typescript/announcing-typescript-4-0-beta/
+https://httptoolkit.tech/blog/whats-coming-in-typescript-4
+3.9
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-9/
+3.8
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-8/
+3.7
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-7/
+https://morioh.com/p/4f7ac56ebe8f
+3.6
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-6/
+    https://www.infoq.com/news/2019/09/typescript-3-6-release/
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-6-beta/
+3.5
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-5/
+    https://www.infoq.com/news/2019/06/typescript-3-5-release/
+3.4
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-4/
+    https://www.infoq.com/news/2019/03/typescript-3-4-release
+3.3
+https://www.infoq.com/news/2019/02/typescript-3-3-release
+3.2
+https://tproger.ru/news/microsoft-release-typescript32/
+https://blogs.msdn.microsoft.com/typescript/2018/11/29/announcing-typescript-3-2/
+https://www.infoq.com/news/2018/11/typescript-3-2-release-bigint
+3.1
+https://blogs.msdn.microsoft.com/typescript/announcing-typescript-3-1/
+https://blogs.msdn.microsoft.com/typescript/2018/09/13/announcing-typescript-3-1-rc/
+https://www.infoq.com/news/2018/10/typescript-mappable-tuple-array
+3.0
+https://medium.com/webbdev/typescript-3-0-d25109306e40
+https://blogs.msdn.microsoft.com/typescript/2018/07/12/announcing-typescript-3-0-rc/
+    https://habr.com/company/microsoft/blog/420761/
+https://www.infoq.com/news/2018/08/typescript-3-0-release
+2.9
+https://blogs.msdn.microsoft.com/typescript/2018/05/16/announcing-typescript-2-9-rc/
+https://www.infoq.com/news/2018/05/typescript-2-9-es-next
+2.8
+https://www.infoq.com/news/2018/04/typescript-2-8-conditional-types
+https://blogs.msdn.microsoft.com/typescript/2018/03/27/announcing-typescript-2-8/
+2.4
+https://blogs.msdn.microsoft.com/typescript/2017/06/27/announcing-typescript-2-4/
+
+2017
+https://www.slideshare.net/moscowjs/typescript-2-in-action-72453488
+https://channel9.msdn.com/Events/Build/2017/B8088/

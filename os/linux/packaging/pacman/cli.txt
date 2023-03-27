@@ -1,0 +1,66 @@
+Query a SYNC package DB:
+pacman -S --help
+
+pacman -S <package>
+    install package (docky)
+
+pacman -Ss <search-str>
+    search all the package by string
+
+pacman -Sg <grp-str>
+    list all the package groups, or packages which belong to <grp-str>
+
+pacman -Syu [package]
+    y --refresh    - download and refresh sync database
+    u --sysupgrade - upgrade all the outdated
+    i.e: pacman -Syu fontconfig
+
+Query local package DB:
+pacman -Q --help
+    -q
+        quiet
+
+pacman -Qs <package>
+    search locally installed package for names or descriptions
+    if <package> is absent - list all the installed packages
+
+pacman -Qo /path/to/file_name
+    which package a file belongs to
+
+pacman -Qi <package> <package>
+    extensive info about the installed package
+
+pacman -Ql <package>
+    list all the files of package
+
+
+pacman -Qn
+    list all the native (sync database) packages
+
+pacman -Qe
+    list all the explicitly-installed packages
+pacman -Qm
+    -Qmdq
+    list all the foreign packages
+pacman -Qqem
+    list all the installed + foreign packages (from AUR)
+
+
+Remove packages:
+pacman -R --help
+
+pacman -Rns <package>
+    remove with config files [and dependencies]
+
+
+options
+    --noconfirm
+        Bypass any and all “Are you sure?” messages. It’s not a good idea to do this unless you want to run pacman from a script.
+
+upgrade options (-S, -U)
+    --needed
+        Do not reinstall the targets that are already up-to-date.
+
+sample
+    sudo pacman -S --needed --noconfirm expac yay
+    yay -S --rebuildtree $(pacman -Qmq $(expac %N python))

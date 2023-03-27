@@ -1,0 +1,10 @@
+https://docs.spring.io/spring-integration/docs/current/reference/html/testing.html
+    https://github.com/spring-projects/spring-integration-samples
+
+https://docs.spring.io/spring-integration/docs/current/reference/html/testing.html#assertj-conditions-and-predicates
+    Starting with version 5.2,
+    the MessagePredicate is introduced to be used in the AssertJ matches() assertion.
+    It requires a Message object as an expectation.
+    And also ot can be configured with headers to exclude from expectation as well as from actual message to assert.
+
+https://livebook.manning.com/book/spring-integration-in-action/chapter-18/

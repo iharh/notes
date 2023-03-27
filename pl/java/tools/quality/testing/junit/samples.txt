@@ -1,0 +1,26 @@
+https://github.com/junit-team/junit5-samples
+    https://github.com/junit-team/junit5-samples/tree/main/junit5-jupiter-starter-gradle-kotlin
+        dependencies {
+            testImplementation(platform("org.junit:junit-bom:5.9.1"))
+            testImplementation("org.junit.jupiter:junit-jupiter")
+        }
+        https://github.com/junit-team/junit5-samples/blob/main/junit5-jupiter-starter-gradle-kotlin/src/test/kotlin/com/example/project/CalculatorTests.kt
+
+https://github.com/junit-team/junit5-samples/tree/master/junit5-gradle-consumer
+
+export LD_LIBRARY_PATH=$TGT_DIR/lib:$TGT_DIR/$PLAT
+#echo $LD_LIBRARY_PATH
+
+CP=some1.jar
+CP+=:some2.jar
+
+JAVA_OPTS="-Dlog4j.debug=true -Djava.library.path=$LD_LIBRARY_PATH -cp $CP"
+
+JUNIT_RUNNER=org.junit.runner.JUnitCore 
+
+TEST_CLASS=some.package.SomeTest
+
+java $JAVA_OPTS $JUNIT_RUNNER $TEST_CLASS
+
+2019
+https://habr.com/ru/post/464881/

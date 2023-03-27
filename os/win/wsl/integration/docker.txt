@@ -1,0 +1,32 @@
+https://docs.docker.com/desktop/windows/wsl/
+
+Enable-WindowsOptionalFeature -Online -FeatureName:Microsoft-Hyper-V -All
+
+https://www.docker.com/products/docker-desktop
+https://www.docker.com/get-started
+https://store.docker.com/editions/community/docker-ce-desktop-windows
+https://docs.docker.com/docker-for-windows/
+    #kubernetes
+https://docs.docker.com/docker-for-windows/install/
+https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
+
+https://docs.docker.com/docker-for-windows/kubernetes/
+    https://docs.docker.com/get-started/
+    https://blog.docker.com/2018/04/docker-desktop-certified-kubernetes/
+    https://github.com/juliostanley/scoop-windows-linux-containers
+
+2020
+https://www.docker.com/blog/how-we-test-docker-desktop-with-wsl-2/
+https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa
+    https://habr.com/ru/company/vdsina/blog/496804/
+2019
+https://habr.com/ru/post/474346/
+2018
+https://medium.freecodecamp.org/how-to-set-up-docker-and-windows-subsystem-for-linux-a-love-story-35c856968991
+    https://nuancesprog.ru/p/2971/
+https://embed.vidyard.com/share/txhmiXXLzoQqDKKnZeo5nj
+https://dockercon2018.hubs.vidyard.com/watch/w3RJr1Su6oamQmemhGtaK3
+    https://www.slideshare.net/Docker/docker-for-developers-on-mac-and-windows
+
+2017
+http://tattoocoder.com/setting-up-my-wsl-environment-azure-cli-docker-and-net/

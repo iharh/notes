@@ -1,0 +1,8 @@
+https://github.com/dgrunwald/rust-cpython
+
+https://developers.redhat.com/blog/2017/11/16/speed-python-using-rust/
+https://github.com/rochacbruno/rust-python-example
+
+fork:
+https://github.com/PyO3/pyo3
+https://pypi.python.org/pypi/setuptools-rust

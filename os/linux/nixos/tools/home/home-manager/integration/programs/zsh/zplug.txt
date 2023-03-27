@@ -1,0 +1,29 @@
+https://github.com/nix-community/home-manager/blob/master/modules/programs/zplug.nix
+
+usage
+https://github.com/nix-community/home-manager/blob/master/tests/modules/programs/zplug/modules.nix
+    zplug = {
+        enable = true;
+        plugins = [
+          {
+            name = "plugins/git";
+            tags = [ "from:oh-my-zsh" ];
+          }
+          {
+            name = "lib/clipboard";
+            tags = [ "from:oh-my-zsh" ''if:"[[ $OSTYPE == *darwin* ]]"'' ];
+          }
+        ];
+      };
+https://github.com/lunamystry/dotfiles/blob/master/nixpkgs/zsh.nix
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "mafredri/zsh-async"; tags = [ "from:github" ]; }
+        { name = "sindresorhus/pure"; tags = [ "use:pure.zsh" "from:github" "as:theme" ]; }
+        { name = "supercrabtree/k"; }
+        { name = "zsh-users/zsh-autosuggestions"; tags = [ "defer:2" ]; }
+        { name = "zsh-users/zsh-history-substring-search"; tags = [ "defer:1" ]; }
+        { name = "zsh-users/zsh-syntax-highlighting"; tags = [ "defer:2" ]; }
+      ];
+    };

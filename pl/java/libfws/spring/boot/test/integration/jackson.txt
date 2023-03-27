@@ -1,0 +1,19 @@
+jackson:
+https://springframework.guru/processing-json-jackson/
+
+http://jsonassert.skyscreamer.org/
+https://github.com/skyscreamer/JSONassert
+
+https://github.com/json-path/JsonPath
+
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
+import org.springframework.boot.test.json.JacksonTester;
+import org.springframework.boot.test.json.JsonContent
+
+2022
+DanVega - Spring Boot @JsonTest Annotation: How to write better JSON tests in Spring of 28:59
+    https://www.youtube.com/watch?v=AiiprfLqriY
+    https://github.com/danvega/appearances
+    https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.spring-boot-applications.json-tests
+2020
+https://www.wimdeblauwe.com/blog/2020/02/26/value-objects-with-spring-boot-rest-api/

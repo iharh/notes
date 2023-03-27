@@ -1,0 +1,4 @@
+https://github.com/bazelbuild/bazelisk
+
+bazelisk
+    --migrate

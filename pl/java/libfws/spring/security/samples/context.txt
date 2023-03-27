@@ -1,0 +1,62 @@
+https://docs.spring.io/autorepo/docs/spring-security/3.0.x/apidocs/org/springframework/security/core/context/SecurityContextHolder.html
+    ? setStrategyName
+
+Authentication - Principal
+GrantedAuthority(Roles)
+UserDetails - necessary info for building "Authentication object"
+    from application DAO-objects or from other sources
+    has name, pwd, class, isEnabled and other isNNNN stuff...
+UserDetailsService with only one method
+    org.springframework.security.core.userdetails.UserDetailsService;
+    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+
+    .../applicationContext-spring-security.xml
+        <bean id="userDetailsService" class="...common.security.spring.UserDetailsServiceImpl">
+
+import org.springframework.security.access.intercept.RunAsUserToken;
+import org.springframework.security.authentication.CredentialsExpiredException;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import ...Role;
+import ...User;
+import ...SomeAuthenticationToken;
+
+public final class SecurityContext {
+    private SecurityContext() {
+    }
+
+    public static User getUser() {
+        return (isAuthenticated()) ? getUserDetails().getUser() : null;
+    }
+
+    public static boolean isAuthenticated() {
+        return isAuthenticated(SecurityContextHolder.getContext());
+    }
+    
+    public static boolean isAuthenticated(org.springframework.security.core.context.SecurityContext context) {
+        return context != null && context.getAuthentication() != null 
+                        && context.getAuthentication().getPrincipal() instanceof UserDetailsImpl;
+    }
+
+    public static boolean isAuthenticatiedBySomeToken() {
+        return isAuthenticated() && SecurityContextHolder.getContext().getAuthentication() instanceof SomeAuthenticationToken;
+    }
+
+    private static UserDetailsImpl getUserDetails() {
+        final Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetailsImpl) {
+            return (UserDetailsImpl) principal;
+        } else {
+            log.debug("Principal is " + principal);
+            throw new CredentialsExpiredException("Authentication failed");
+        }
+    }
+
+    public static void changeCurrentUser(User user, List<Role> roles) {
+        UserDetailsImpl userDetailsImpl  = new UserDetailsImpl(user, roles.toArray(new Role[] {}));
+        RunAsUserToken authToken = new RunAsUserToken(userDetailsImpl.toString(), userDetailsImpl, userDetailsImpl, null, RunAsUserToken.class);
+
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+    }
+    ...
+}

@@ -1,0 +1,28 @@
+MinGW 64 for x64:
+pushd /d/dev/src/vim74/src
+mingw32-make -f Make_ming.mak ARCH=x86-64 STATIC_STDCPLUS=yes GUI=yes OLE=yes NETBEANS=no
+popd
+
+::OPTIMIZE=MAXSPEED FEATURES=HUGE
+  PYTHON="D:/Applications/Python 2.7.3" PYTHON_VER=27 DYNAMIC_PYTHON=yes
+  PYTHON3="D:/Applications/Python 3.2.3" PYTHON3_VER=32 DYNAMIC_PYTHON3=yes
+  gvim.exe
+
+XPM=E:\HG\xpm\x64
+
+Building Vim on Windows is very frustrating.
+Do not use configure!!!.
+You should use Make_ming.mak directly, for example: - See more at: http://efreedom.net/Question/1-13976355/Build-Vim-MinGW#sthash.xRCLRAVA.dpuf
+
+See more at:
+http://efreedom.net/Question/1-13976355/Build-Vim-MinGW#sthash.xRCLRAVA.dpuf
+
+
+Microsoft Visual C++ on x64 (tested with versions 2008 and 2010):
+nmake -f Make_mvc.mak GUI=yes CSCOPE=yes XPM=E:\HG\xpm\x64
+
+
+https://gist.github.com/rpuntaie/8510218
+http://nomad.so/2013/07/compiling-vim-and-gvim-64bit-on-windows-7/
+http://solar-blogg.blogspot.com/p/vim-build.html
+

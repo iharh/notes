@@ -1,0 +1,50 @@
+Windows:
+
+Install steps.
+1. Create and configure a database
+2. Desktop class
+3. Oracle base
+     D:\dev\utils\oracle
+   Database Edition
+     Enterprise Edition
+   Character Set
+     Unicode (AL32UTF8)
+   Global database name
+     ihorcl
+   Administrative password
+     System11
+4. Remove the following stuff from PATH var:
+  D:\dev\utils\oracle\product\11.2.0\dbhome_1\bin;
+
+Logs:
+  D:\dev\Utils\oracle\cfgtoollogs\dbca\
+  D:\dev\Utils\oracle\cfgtoollogs\dbca\ihorcl\
+
+ToBackup:
+  D:\dev\Utils\oracle\product\11.2.0\dbhome_1\localhost_ihorcl\sysman\config\emkey.ora 
+
+Non-Locked accounts:
+  SYS, SYSTEM, DBSNMP, SYSMAN
+
+Useful Oracle Services
+  OracleServiceIHORCL
+  OracleOraDb11g_home1TNSListener
+
+Adjust defaults:
+
+  sqlplus.exe system/System11@ihorcl
+  SQL> alter system set processes=600 scope=spfile;
+  SQL> alter system set sessions=600 scope=spfile;
+  SQL> alter system set nls_length_semantics='CHAR' scope=both;
+  SQL> exit
+
+Restarting Oracle:
+  http://docs.oracle.com/cd/B19306_01/server.102/b14231/start.htm
+
+  sqlplus.exe sys/System11@ihorcl as SYSDBA
+  SQL> shutdown immediate
+
+Services Start Order:
+  OracleServiceIHORCL
+  OracleOraDb11g_home1TNSListener
+  OracleDBConsoleihorcl

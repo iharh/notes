@@ -1,0 +1,5 @@
+:set list
+:set listchars=eol:^,tab:-,trail:!,extends:>,precedes:<
+
+2022
+https://linuxhandbook.com/show-special-characters-vim/

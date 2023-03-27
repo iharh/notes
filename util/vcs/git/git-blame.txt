@@ -1,0 +1,7 @@
+git blame <file>
+
+    -w
+        ignore whitespaces
+
+git log -L 6,13:<file>
+    log changes of certain lines of the <file>

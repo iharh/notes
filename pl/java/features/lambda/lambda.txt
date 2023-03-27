@@ -1,0 +1,9 @@
+2020
+https://blogs.oracle.com/javamagazine/behind-the-scenes-how-do-lambda-expressions-really-work-in-java
+https://www.programiz.com/java-programming/lambda-expression
+    https://habr.com/ru/post/512730/
+2018
+https://dzone.com/articles/hacking-lambda-expressions-in-java
+    https://habr.com/company/haulmont/blog/432418/
+    ! lambdas works in current scope (impossible to shadow existing var)
+    ! anon inner classes - make new scopes

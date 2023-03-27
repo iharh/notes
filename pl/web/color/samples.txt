@@ -1,0 +1,31 @@
+2019
+https://css-tricks.com/re-pleasing-color-palettes/
+
+https://greensock.com/tweenmax
+https://codepen.io/GreenSock/pen/HxzEl
+
+.green  { background-color:#6fb936; }
+.orange { background-color:#f38630; }
+.grey   { background-color:#989898; }
+
+"#2C93E8"
+"#F56C4E"
+"#838690"
+
+red   : #cb0f09
+green : #058f31
+blue  : #2479bb
+yellow: #fdc109
+
+red   : #e25655
+green : #68c187
+blue  : #6caee0
+purple: #a397c9
+yellow: #ffd42f
+
+red   : #ff6663
+yellow: #ffa737
+
+orange: #fbc0a0
+yellow: #feed91
+blue  : #9fced8

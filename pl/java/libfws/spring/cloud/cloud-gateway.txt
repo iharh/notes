@@ -1,0 +1,24 @@
+https://spring.io/projects/spring-cloud-gateway
+https://github.com/spring-cloud/spring-cloud-gateway
+
+https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
+
+2023
+https://spring.io/blog/2023/01/18/interesting-new-filters-on-spring-cloud-gateway-4-0
+2021
+https://spring.io/blog/2021/12/08/spring-cloud-gateway-and-grpc
+https://spring.io/blog/2021/04/05/api-rate-limiting-with-spring-cloud-gateway
+    https://github.com/Haybu/blog-spring-cloud-gateway/tree/rate-limiting
+2020
+Microservices With Spring Boot And Spring Cloud: Part 4 - API gateway
+    https://www.youtube.com/watch?v=XIkSWHX38Tg
+2018
+http://slides.com/spencer/spring-cloud-gateway#/
+https://www.infoq.com/presentations/spring-cloud-gateway
+
+? Zuul2
+
+samples
+https://github.com/spring-tips/kubernetes-native-java-redux-2022-07/blob/main/edge/src/main/java/com/example/edge/EdgeApplication.java
+    https://www.youtube.com/watch?v=Xe7K1biKcs0
+https://github.com/spring-tips/kubernetes-native-java-redux-2022-07/blob/main/controllers/src/main/java/com/example/controllers/ControllersApplication.java

@@ -1,0 +1,22 @@
+https://wiki.archlinux.org/title/SDDM
+
+/usr/share/xsessions/awesome.desktop
+[Desktop Entry]
+Name=awesome
+Comment=Highly configurable framework window manager
+TryExec=awesome
+Exec=awesome
+Type=Application
+Icon=/usr/share/pixmaps/awesome.xpm
+Keywords=Window manager
+
+wallpapers
+/usr/share/sddm/themes/ubuntu-theme/theme.conf
+
+themes
+https://gitlab.com/dwt1/multicolor-sddm-theme
+https://aur.archlinux.org/packages/multicolor-sddm-theme
+
+2021
+DistroTube - Theming My Login Screen For Maximum Gains (sddm) 9:00 of 22:34
+    https://www.youtube.com/watch?v=16nduwlYioc

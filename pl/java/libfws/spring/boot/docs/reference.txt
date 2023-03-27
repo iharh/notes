@@ -1,0 +1,13 @@
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Release-Notes
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0.0-M1-Configuration-Changelog
+
+https://docs.spring.io/spring-boot/docs/2.0.0.M6/reference/htmlsingle/
+
+https://docs.spring.io/spring-boot/docs/2.0.0.BUILD-SNAPSHOT/gradle-plugin/reference/html/
+
+management -> management.server
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0.0-M6-Release-Notes
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0.0-M6-Configuration-Changelog
+https://spring.io/blog/2017/09/15/security-changes-in-spring-boot-2-0-m4
+https://spring.io/blog/2017/08/22/introducing-actuator-endpoints-in-spring-boot-2-0
+https://stackoverflow.com/questions/46796899/how-to-make-the-endpointid-health-working-in-spring-boot-2-0

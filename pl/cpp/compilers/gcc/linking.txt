@@ -1,0 +1,5 @@
+rel/abs so path
+https://stackoverflow.com/questions/50556472/linking-shared-library-absolute-vs-relative-path
+https://unix.stackexchange.com/questions/479421/how-to-link-to-a-shared-library-with-a-relative-path
+
+-Wl,--no-allow-shlib-undefined

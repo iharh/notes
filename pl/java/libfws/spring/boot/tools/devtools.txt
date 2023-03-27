@@ -1,0 +1,35 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools
+https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools.livereload
+
+https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+
+https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-devtools
+https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-devtools/src/main/java/org/springframework/boot/devtools
+https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-devtools/src/main/java/org/springframework/boot/devtools/env/DevToolsPropertyDefaultsPostProcessor.java
+    !!!
+https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-devtools/src/main/resources/org/springframework/boot/devtools/env/devtools-property-defaults.properties
+
+https://central.sonatype.com/artifact/org.springframework.boot/spring-boot-devtools/3.0.4
+
+cfg
+~/.spring-boot-devtools.properties
+
+2022
+https://www.geeksforgeeks.org/spring-boot-devtools/
+https://howtodoinjava.com/spring-boot/developer-tools-module-tutorial/
+coder4life - Autoreloading with Spring Boot Devtools in IntelliJ of 1:37
+    https://www.youtube.com/watch?v=BvIM9gNTDM4
+    https://github.com/another-coder4life
+    ijea->compiler->build project automatically
+    advanced settings -> Allow auto-make to start even if developed application is currently running
+2021
+https://www.baeldung.com/spring-boot-devtools
+https://for-each.dev/lessons/b/-spring-boot-devtools
+2018
+https://www.vojtechruzicka.com/spring-boot-devtools/
+    https://habr.com/ru/post/479382/
+????
+https://www.javatpoint.com/spring-boot-devtools
+
+issues
+https://youtrack.jetbrains.com/issue/IDEA-141638/Spring-Boot-Devtools-reload-Make-in-Background-experimental

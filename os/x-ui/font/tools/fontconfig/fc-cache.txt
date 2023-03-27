@@ -1,0 +1,6 @@
+https://help.gnome.org/admin/system-admin-guide/stable/fonts-user.html.en
+https://help.gnome.org/admin/system-admin-guide/stable/fonts.html.en
+
+fc-cache
+    -fv
+        rebuild cache (in ~/.cache/fontconfig or old ~/.fontconfig)

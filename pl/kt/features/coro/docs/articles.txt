@@ -1,0 +1,95 @@
+2022
+https://betterprogramming.pub/understanding-structured-concurrency-with-java-and-kotlin-53db895967f9
+    https://nuancesprog.ru/p/16883/
+https://maxkim.eu/things-every-kotlin-developer-should-know-about-coroutines-part-5-cancellation
+https://maxkim.eu/things-every-kotlin-developer-should-know-about-coroutines-part-4-exception-handling
+https://maxkim.eu/things-every-kotlin-developer-should-know-about-coroutines-part-3-structured-concurrency
+https://maxkim.eu/things-every-kotlin-developer-should-know-about-coroutines-part-2-coroutinescope
+https://maxkim.eu/things-every-kotlin-developer-should-know-about-coroutines-part-1-coroutinecontext
+https://proandroiddev.com/resilient-use-cases-with-kotlin-result-coroutines-and-annotations-511df10e2e16
+https://www.thedevtavern.com/blog/posts/structured-concurrency-exceptions-and-cancellations/
+https://www.thedevtavern.com/blog/posts/structured-concurrency-explained/
+2021
+https://medium.com/digitalfrontiers/reactive-or-coroutines-between-a-rock-and-a-hard-place-6a41a151195a
+    https://nuancesprog.ru/p/15052/
+https://victorbrandalise.com/coroutines-part-iii-structured-concurrency-and-cancellation/
+https://victorbrandalise.com/coroutines-part-ii-job-supervisorjob-launch-and-async/
+https://victorbrandalise.com/coroutines-part-i-grasping-the-fundamentals/
+https://mbrizic.com/blog/coroutine-cancellation-exceptions/
+https://habr.com/ru/post/537716/
+https://recheecodes.com/kotlin-coroutines-suspend-function/
+2020
+https://blog.danlew.net/2020/01/28/coroutines-and-java-synchronization-dont-mix/
+    https://habr.com/ru/company/funcorp/blog/528778/
+https://blog.frankel.ch/reactor-to-coroutines/
+https://piotrminkowski.com/2020/06/23/kotlin-coroutines-vs-java-threads/
+https://simply-how.com/kotlin-coroutines-introduction
+https://codingwithmohit.com/coroutines/custom-coroutine-context-uses-cases/
+https://medium.com/@magdamiu/kotlin-coroutines-7938b5c7a11b
+    ! simple
+https://www.rockandnull.com/coroutines-and-exceptions/
+https://medium.com/androiddevelopers/cancellation-in-coroutines-aa6b90163629
+    https://nuancesprog.ru/p/7900/
+https://medium.com/androiddevelopers/coroutines-first-things-first-e6187bf3bb21
+    https://nuancesprog.ru/p/7397
+https://medium.com/@shelbyc0hen/kotlin-coroutined-8c57acd3c45e
+https://www.infoq.com/articles/kotlin-coroutines-bottom-up/
+2019
+https://medium.com/@marcogomiero/a-journey-from-async-task-to-kotlin-coroutines-735c273d76cb
+https://geoffreymetais.github.io/code/coroutines/
+    https://habr.com/ru/company/piter/blog/457224/
+https://itnext.io/moving-from-rxjava-to-coroutines-4e1c34419111
+https://medium.com/@elizarov/kotlin-flows-and-coroutines-256260fb3bdb
+https://habr.com/ru/company/e-Legion/blog/442920/
+    https://www.youtube.com/watch?v=wsYou5lx6zA
+https://medium.com/@elizarov/coroutine-context-and-scope-c8b255d59055
+https://medium.com/@trionkidnapper/launching-a-kotlin-coroutine-for-immediate-execution-on-the-main-thread-8555e701163b
+https://medium.com/@elizarov/deadlocks-in-non-hierarchical-csp-e5910d137cc
+https://medium.com/@desaismital/kotlin-coroutines-chain-of-responsibility-924a1ac95a9d
+https://medium.com/@desaismital/understanding-suspending-functions-in-kotlin-3aae4bfd9991
+https://medium.com/@desaismital/declarative-pipelines-in-kotlin-b9e18e77f2c5
+https://proandroiddev.com/forget-rxjava-kotlin-coroutines-are-all-you-need-d4dbdb509708
+2018
+https://proandroiddev.com/kotlin-coroutines-patterns-anti-patterns-f9d12984c68e
+https://proandroiddev.com/forget-rxjava-kotlin-coroutines-are-all-you-need-part-1-2-4f62ecc4f99b
+    https://habr.com/post/432942/
+https://medium.com/@patricksteiger/migrating-experimental-kotlin-coroutines-to-stable-version-ccc683092339
+https://blog.frankel.ch/even-odd-coroutines/
+    https://www.reddit.com/r/programming/comments/a6qoc7/even_and_odd_with_coroutines/
+https://developers.redhat.com/blog/2018/12/03/how-kotlins-coroutines-improve-code-readability/
+https://codinginfinite.com/kotlin-coroutines-best-practices-example/
+https://medium.com/@elizarov/explicit-concurrency-67a8e8fd9b25
+https://kotlinexpertise.com/kotlin-coroutines-concurrency/
+https://medium.com/@elizarov/blocking-threads-suspending-coroutines-d33e11bf4761
+https://medium.com/@elizarov/futures-cancellation-and-coroutines-b5ce9c3ede3a
+https://nuancesprog.ru/p/2149/
+https://codinginfinite.com/exploring-kotlin-coroutine-continuation/
+https://kotlinexpertise.com/kotlin-coroutines-guide/
+https://medium.com/@martin.devillers/demystifying-coroutinecontext-1ce5b68407ad
+https://proandroiddev.com/how-coroutines-switch-back-to-the-main-thread-413fa6dc507a
+https://medium.com/@elizarov/structured-concurrency-722d765aa952
+https://habr.com/post/421739/
+https://blog.mindorks.com/what-are-coroutines-in-kotlin-bf4fecd476e9
+    https://habr.com/post/421473/
+https://blog.drako.guru/2018/07/31/introduction-to-coroutines-part-2/
+https://blog.drako.guru/2018/07/23/introduction-to-coroutines-part-1/
+https://blog.pronghorn.tech/optimizing-suspending-functions-in-kotlin/
+https://medium.com/@chrisbanes/rxjava-to-kotlin-coroutines-1204c896a700
+https://blog.pronghorn.tech/cooperative-multitasking-with-kotlin-coroutines/
+https://medium.com/@elizarov/how-do-you-color-your-functions-a6bb423d936d
+https://medium.com/@elizarov/kotlin-coroutines-a-deeper-look-180536305c3f
+https://habrahabr.ru/post/346004/
+2017
+https://superkotlin.com/coroutines/
+https://www.linkedin.com/pulse/multithreading-kotlin-korhan-bircan/
+http://blog.alexnesterov.com/post/kotlin-coroutines-and-spring-5/
+https://dzone.com/articles/approaching-kotlin-coroutines-concurrent-programmi
+http://akarnokd.blogspot.com.by/2017/09/rxjava-vs-kotlin-coroutines-quick-look.html
+http://akarnokd.blogspot.com.by/2017/09/rewriting-rxjava-with-kotlin-coroutines.html
+http://akarnokd.blogspot.com/2017/09/interoperation-between-rxjava-and.html
+
+https://blog.simon-wirtz.de/kotlin-coroutines-guide/
+https://habrahabr.ru/company/alfa/blog/336228/
+https://blog.mindorks.com/what-are-coroutines-in-kotlin-bf4fecd476e9
+
+https://habrahabr.ru/post/339618/

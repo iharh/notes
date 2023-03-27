@@ -1,0 +1,17 @@
+used mainly for .o files
+    and static .a libraries
+
+nm
+    -l
+        line numbers
+    --no-demangle
+        this is a default
+    --demangle[=<style>]
+    --defined-only
+    --undefined-only
+
+https://sourceware.org/binutils/docs/binutils/nm.html
+U
+    The symbol is undefined. 
+T, t
+    The symbol is in the text (code) section.

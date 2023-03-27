@@ -1,0 +1,36 @@
+https://github.com/creationix/nvm
+https://github.com/coreybutler/nvm-windows
+
+https://www.powershellgallery.com/packages/nvm
+https://www.powershellgallery.com/packages/nvm/2.1.1
+
+2020
+https://habr.com/ru/company/timeweb/blog/541452/
+2019
+https://alligator.io/nodejs/node-version-manager/
+
+aur
+    nvm
+    https://aur.archlinux.org/packages/nvm/
+scoop
+    nvm
+
+nmv
+    install
+        [--lts|stable|node]
+            install/upgrade lts|stable|latest
+        !!! creating alias default !!!
+    use
+        default
+            aliased to default
+        v9.10.1 
+            select specified version
+    deactivate
+        deactivate current selection
+    alias
+        list aliases
+    install-latest-npm
+        uttempt to upgrade to the latest npm
+    cache
+        dir
+        clear

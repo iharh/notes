@@ -1,0 +1,26 @@
+POWERLEVEL9K_CONFIG_FILE
+
+issues
+https://github.com/nix-community/home-manager/issues/1338
+    https://www.reddit.com/r/NixOS/comments/fenb4u/zsh_with_ohmyzsh_with_powerlevel10k_in_nix/
+    initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+https://github.com/nix-community/home-manager/pull/1447
+    https://github.com/nix-community/home-manager/pull/1447/files
+https://github.com/romkatv/powerlevel10k/issues/967
+
+global-zsh sample
+https://github.com/LeoMBach/nixos-config/blob/master/pkgs/zsh.nix
+    environment.systemPackages = with pkgs; [
+      zsh-powerlevel10k
+      gitAndTools.gitstatus
+    ];
+    # zsh-powerlevel10k is a system package, so it's sourced instead of used in "ohMyZsh.theme"
+    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+
+p10k configure stuff
+    home.file.".p10k.zsh".text = builtins.readFile "/etc/nixos/dot.p10k.zsh";
+    https://github.com/yoctocell/nixrc/blob/master/users/profiles/shells/zsh/default.nix
+        home.file.".config/zsh/.p10k.zsh".source = ./p10k.zsh;
+        ...
+        initExtra ...
+        [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

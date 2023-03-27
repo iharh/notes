@@ -1,0 +1,26 @@
+https://www.testcontainers.org/modules/docker_compose/
+
+docker-compose.backend.yml:
+
+version '2'
+services:
+    db:
+        image: mongo:3.0.15
+    cache:
+        image: redis:3.2.8
+    search:
+        image: elasticsearch:5.4.0
+
+@Rule
+public DockerComposeContainer backend = new DockerComposeContainer(new File("./docker-compose.backend.yml"))
+    .withExposedService("db", 27017)
+    .withExposedService("cache", 6379)
+    .withExposedService("search", 9200)
+
+@Test
+public void simpleTest() {
+    // obtain host/ports for each container as follows:
+    // backend.getServiceHost("db", 27017);
+    // backend.getServicePort("db", 27017);
+    // ...
+}

@@ -1,0 +1,3 @@
+scoop config proxy currentuser@default
+https://github.com/lukesampson/scoop/wiki/Using-Scoop-behind-a-proxy
+https://github.com/lukesampson/scoop/issues/1615

@@ -1,0 +1,41 @@
+why:
+    babel loader applies polyfills (es5 vs es6 for ts-loader)
+    babel used by CRA
+
+https://webpack.js.org/loaders/babel-loader/
+https://babeljs.io/docs/en/babel-preset-typescript
+    https://github.com/Jimmydalecleveland/webpack-starters/tree/react-full-project
+https://babeljs.io/docs/en/babel-plugin-transform-typescript#caveats
+
+2020
+https://www.robinwieruch.de/webpack-babel-setup-tutorial
+https://www.carlrippon.com/creating-react-and-typescript-apps-with-webpack/
+    ! good starting point sample
+https://www.smashingmagazine.com/2020/05/typescript-modern-react-projects-webpack-babel/
+    ! method 2
+2019
+https://iamturns.com/typescript-babel/
+    ! npm run check-types
+https://blog.logrocket.com/choosing-between-babel-and-typescript-4ed1ad563e41/
+    ! tsc --noEmit
+https://www.mattzeunert.com/2019/10/23/migrating-your-webpack-typescript-build-from-ts-loader-to-babel-loader.html
+    ! we cat take advantage of babel-preset-env
+        https://babeljs.io/docs/en/babel-preset-env
+    ! and remove deprecated polyfil @babel/polyfill
+2017
+https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
+    ! starting simple preset-env case
+
+samples
+https://github.com/Microsoft/TypeScript-Babel-Starter
+    ! good sample of scripts
+https://github.com/a-tarasyuk/react-webpack-typescript-babel/tree/master/src/components
+
+issues
+https://kevinwil.de/differences-in-output-of-typescript-compiler-and-babel-for-classes/
+
+usage stats
+https://www.npmtrends.com/@babel/preset-typescript-vs-awesome-typescript-loader-vs-ts-loader
+
+????
+https://dennis-emmental.gitbooks.io/typescript-deep-dive-korean/content/docs/jsx/tsx.html

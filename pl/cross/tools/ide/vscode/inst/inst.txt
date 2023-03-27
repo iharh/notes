@@ -1,0 +1,22 @@
+https://code.visualstudio.com/docs/setup/windows
+https://code.visualstudio.com/docs/?dv=win
+https://code.visualstudio.com/docs/?dv=winzip
+
+https://code.visualstudio.com/docs/setup/linux
+https://wiki.archlinux.org/index.php/Visual_Studio_Code
+
+snap
+    https://snapcraft.io/code
+
+aur
+    visual-studio-code-bin
+        https://aur.archlinux.org/packages/visual-studio-code-bin/
+    code (requires node-lts and npm)
+        https://aur.archlinux.org/packages/code/
+
+scoop
+    vscode
+    https://github.com/lukesampson/scoop-extras/blob/master/vscode.json
+
+extensions
+https://www.npmjs.com/package/vscode

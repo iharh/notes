@@ -1,0 +1,9 @@
+2020
+https://www.reddit.com/r/rust/comments/i04as7/getting_live_output_from_a_running_command_process/
+    https://rust-lang-nursery.github.io/rust-cookbook/os/external.html#continuously-process-child-process-outputs
+    https://doc.rust-lang.org/std/process/struct.Stdio.html#method.piped
+    let output = Command::new("echo")
+        .arg("hello")
+        .stdout(Stdio::inherit())
+        .output()
+        .expect("failed to run")

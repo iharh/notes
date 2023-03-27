@@ -1,0 +1,36 @@
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
+
+google
+    vscode linux c#
+
+https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code
+https://stackoverflow.com/questions/39504919/writing-c-sharp-on-linux-with-visual-studio-code
+https://stackoverflow.com/questions/11203171/developing-c-sharp-on-linux
+
+https://code.visualstudio.com/docs/languages/csharp
+https://code.visualstudio.com/docs/other/dotnet
+
+https://www.microsoft.com/net/learn/get-started/linux/rhel
+
+aur
+    dotnet-sdk
+        dotnet-runtime
+        dotnet-host
+
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
+
+Extensions (C-S-X)
+    C#
+
+Quick Open (C-P)
+    ext install ms-vscode.csharp
+
+https://docs.microsoft.com/en-us/dotnet/csharp/quick-starts/arrays-and-collections
+
+https://github.com/OmniSharp/omnisharp-vscode/wiki/Desktop-.NET-Framework
+
+?mono
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug
+
+razor
+https://habr.com/company/microsoft/blog/430962/

@@ -1,0 +1,42 @@
+https://create-react-app.dev/
+
+https://facebook.github.io/create-react-app/
+https://www.npmjs.com/package/create-react-app
+https://www.npmjs.com/package/react-scripts
+https://github.com/facebook/create-react-app
+
+https://reactjs.org/docs/add-react-to-a-new-app.html
+
+npx create-react-app <app-name>
+
+create-react-app-typescript
+https://github.com/wmonk/create-react-app-typescript
+https://github.com/wmonk/create-react-app-typescript/blob/master/packages/react-scripts/template/README.md
+https://www.npmjs.com/package/react-scripts-ts
+!!!
+https://habr.com/post/334572/
+!!!
+https://levelup.gitconnected.com/typescript-and-react-using-create-react-app-a-step-by-step-guide-to-setting-up-your-first-app-6deda70843a4
+https://decembersoft.com/posts/starting-a-react-redux-project-with-typescript/
+    create-react-app hello-world --scripts-version=react-scripts-ts
+
+
+https://www.npmjs.com/package/react-scripts-redux-ts
+https://github.com/diabelb/create-react-app-typescript-redux
+
+https://react-styleguidist.js.org/docs/webpack.html
+
+?
+https://github.com/timarney/react-app-rewired
+
+2019
+CodingTech - React + TypeScript: Why and How
+    https://www.youtube.com/watch?v=DXgMrYI7O5w
+    https://github.com/hidjou/classsed-react-typescript-tutorial
+2018
+https://github.com/tuchk4/awesome-create-react-app
+https://elijahmanor.com/cra2-playlist/
+2017
+https://habrahabr.ru/company/plarium/blog/326520/
+https://github.com/nitishdayal/cra_closer_look
+    ! internals

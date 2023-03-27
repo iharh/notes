@@ -1,0 +1,13 @@
+get last tag in history:
+http://12rockets.com/journal/versioning-system-with-git-and-gradle/
+
+http://www.slideshare.net/breskeby/releasing-with-gradle-gradle-exchange-2014
+
+version = file('version.txt').text
+
+version = MyVersion.load(file('version.txt'))
+
+class MyVersion {
+    int major, minor, bugfix, build
+    String toString() { "${major}.${minor}.${bugfix}.${build}" }
+}

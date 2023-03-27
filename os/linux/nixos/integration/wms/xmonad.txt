@@ -1,0 +1,21 @@
+2020
+https://www.reddit.com/r/NixOS/comments/j93u78/custom_xmonadhs_ignored_defaults_to_plain_xterm/
+
+    windowsManager = {
+        xmonad.enable = true;
+        xmonad.enableContribAndExtras = true;
+        xmonad.extraPackages = hpkgs: [
+            hpkgs.xmonad
+            hpkgs.xmonad-contrib
+            hpkgs.xmonad-extras
+        ];
+    };
+    ...
+    xmobar
+    nitrogen
+    picom
+    dmenu
+
+modularized-config
+https://github.com/kanashimia/nixos/tree/mistress/modules/window-managers/xmonad
+https://github.com/kanashimia/nixos/blob/mistress/modules/window-managers/xmonad/default.nix

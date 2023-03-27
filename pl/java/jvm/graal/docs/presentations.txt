@@ -1,0 +1,38 @@
+2022
+SpringDeveloper - Long - Spring Tips: the road to Spring Boot 3: ahead-of-time compilation and GraalVM of 2:08:31
+    https://www.youtube.com/watch?v=TOfYlLjXufw
+ManchesterJavaCommunity - Gaikwad - JIT Compilation with Graal (Journey of a Java Program) 0:00 of 1:01:20
+    https://www.youtube.com/watch?v=FVef7IlwHD8
+2021
+Andrew Dinn — Static Java, GraalVM Native and OpenJDK of 59:56
+    https://www.youtube.com/watch?v=QUbA4tcYrTM
+Exploring how to use idiomatic JavaScript in Java applications with GraalVM
+    https://www.youtube.com/watch?v=wQK-jn7L2lk
+    https://github.com/shelajev/livestreams/tree/b44cda6cf8af668be0ad0cea449afa7214bd6907/bare-se
+2020
+Virth - Goodbye Nashorn, Hello GraalVM for high performance JavaScript on the JVM
+    https://www.youtube.com/watch?v=50-PqwqQn8o
+Maucherat – Apache Tomcat, your webapp, and the Graal
+    https://www.youtube.com/watch?v=HvNlaPBNRqE
+Gough - How HotSpot and Graal JVMs Execute Java Code for Blazing Native Performance
+    https://www.youtube.com/watch?v=oIcU6Emxj_s
+    https://jpgough.github.io/assets/slide-decks/graal-compiler-java-printable.pdf
+2019
+Wuerthinger — Maximizing performance with GraalVM
+    https://www.youtube.com/watch?v=R_SeDk16PLY
+https://www.infoq.com/presentations/quarkus-graalvm-sao-paulo-2019/
+https://www.infoq.com/presentations/graalvm-performance/
+2018
+One VM to Rule Them All? Lessons Learned with Truffle and Graal
+    https://www.youtube.com/watch?v=MUECwHdr07Q
+Selajev - Run Programs Faster Anywhere
+    https://www.youtube.com/watch?v=MN6jNIwl2FQ
+Chiruhin - Graal Value Types and Loom
+https://www.youtube.com/watch?v=hnadkXBIC1k
+Sedlar - Graal VM
+https://www.youtube.com/watch?v=wBegU4d4GRc
+? - Grall - how to use the new JVM JIT compiler in real life
+https://downloads.ctfassets.net/oxjq45e8ilak/1r4i54cCKIicQckSGUCWu2/24589d235f05db55cd3532fa64886ed5/Chris_Thalinger_Graal_-_How_to_use_the_new_JVM_JIT_compiler_in_real_life__1_.pdf
+2016
+Wimmer - One VM to Rule Them All
+https://www.youtube.com/watch?v=FJY96_6Y3a4

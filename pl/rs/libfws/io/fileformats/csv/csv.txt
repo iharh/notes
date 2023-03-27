@@ -1,0 +1,25 @@
+https://crates.io/crates/csv
+https://docs.rs/csv
+http://burntsushi.net/rustdoc/csv/
+https://github.com/BurntSushi/rust-csv
+
+csv-core
+https://crates.io/crates/csv-core
+https://docs.rs/csv-core
+https://blog.burntsushi.net/csv/#csv-parsing-without-the-standard-library
+
+csv-indes
+https://crates.io/crates/csv-index
+https://docs.rs/csv-index
+
+tutorial
+2018
+http://blog.burntsushi.net/csv/
+https://docs.rs/csv/1.0.0-beta.1/csv/tutorial/index.html
+
+whatsnew
+https://blog.burntsushi.net/csv/
+
+let mut rdr = csv::ReaderBuilder::new()
+    .has_headers(false)
+    .from_reader(io::stdin());

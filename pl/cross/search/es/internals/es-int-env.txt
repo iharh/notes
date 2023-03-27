@@ -1,0 +1,7 @@
+env.
+
+NodeEnvironment
+    File [] shardLocations(ShardId shardId)
+    Set<ShardId> findAllShardIds()
+
+<- indices.store.IndicesStore

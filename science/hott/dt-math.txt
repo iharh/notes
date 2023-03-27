@@ -1,0 +1,10 @@
+Shulman - In praise of dependent types
+https://golem.ph.utexas.edu/category/2010/03/in_praise_of_dependent_types.html
+
+Avigad - Type Inference in mathematics
+
+https://arxiv.org/abs/1111.5885
+http://repository.cmu.edu/cgi/viewcontent.cgi?article=1614&context=philosophy
+http://bulletin.eatcs.org/index.php/beatcs/article/view/81/77
+
+With DT we can carry out proofs as math-objects and don't need 2 separate languages for proofs and terms

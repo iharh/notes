@@ -1,0 +1,2 @@
+https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-flake-update.html
+    nix flake update --commit-lock-file && nixos-rebuild switch --flake path:.

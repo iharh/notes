@@ -1,0 +1,2663 @@
+https://mitpress.mit.edu/books/little-typer
+
+http://thelittletyper.com/
+http://thelittletyper.com/errata.html
+    38, 
+
+http://davidchristiansen.dk/
+http://davidchristiansen.dk/tutorials/
+http://davidchristiansen.dk/tutorials/nbe/
+https://corecursive.com/023-little-typer-and-pie-language/
+
+Downloading repository
+    https://github.com/the-little-typer/pie.git
+dependencies of pie:
+   todo-list
+    https://github.com/david-christiansen/todo-list.git
+
+#lang pie
+
+2018
+https://www.reddit.com/r/haskell/comments/9igdgx/the_little_typer_by_daniel_p_friedman_and_david/
+2017
+David Christiansen - A Little Taste of Types
+    https://www.youtube.com/watch?v=3z9nISI4ppw
+
+! The Law of Tick Marks
+A tick mark, directly followed by one or more letters and hyphens
+is an Atom.
+
+! The Commandment of Tick Marks
+Two expressions are the same Atom if their values are tick marks
+followed by identical letters and hyphens
+
+notes
+expressions, that describe other expressions, such as Atom, are called types
+
+! The Law of Atom
+Atom is a type
+
+A form of judgement is an observation with blank spaces in it:
+
+! The Four Forms of Judgement
+1. ___ is a ___
+2. ___ is the same ___ as ___
+3. ___ is a type
+4. ___ and ___ are the same types
+
+
+Judgements are acts of knowing, and
+believing is part of knowing
+
+Some forms of judgement only make sense after an earlier judgement (pre-supposition)
+
+The normal [form] of an expression is the most direct way of writing it
+    Sameness is always according to a type
+
+Sameness is always according to a type, so normal forms are also determined by a type
+
+!Normal Forms
+Given a type, every expression described by that type has
+    a normal form,
+which is the most direct way of writing it.
+If two expressions are the same, then they have
+    identical normal forms,
+and if they have identical normal forms, then
+    they are the same
+
+! Normal Forms and types:
+Sameness is always
+    according to a type,
+so normal forms are also
+    determined by a type
+
+! The first commandment of cons
+Two cons-expressions are the same (Pair A D) if their cars
+are the same A and their cdrs are the same D.
+Here, A and D stand for any type.
+
+Note: types themselves also have a normal form ...
+
+! Normal Forms of Types
+Every expression that is a type has a normal form,
+which is the most direct way of writing that type.
+If two expressions are the same type,
+then they have identical normal forms,
+and if two types have identical normal forms,
+then they are the same types
+    - expr is a ___  (expr has a type of ___)
+
+(claim one
+    Nat)
+(define one
+    (add1 zero))
+
+(claim two
+    Nat)
+(define two
+    (add1 one))
+
+! Claims Before Definitions
+Using define to associate a name with an expression requires
+that the expression's type has previously been associated with
+the name using claim
+
+! An expression with a constructor at the top is called a value
+    - a value is not always normal
+
+The c-tors of
+    - Nat are "zero" and "add1"
+    - Pair - "cons" 
+
+In a value, the top constructor's arguments need not be normal
+    - each expression has only one normal form
+but if they are, then the entiere c-tor expression is in normal form
+
+! Values and Normal Forms
+Not every value is in normal form. This is because the arguments to a c-tor
+need not be normal. Each expression has only one normal form, but it is sometimes
+possible to write it as a value in more than one way ???
+
+! Everyting is an expression
+In Pie, values are also expressions.
+Evaluation in Pie finds an expression, not some other kind of thing
+
+!!!
+Note: normal expressions has no remaining opportunities for evaluation
+
+! The Commandment of zero
+zero is the same Nat as zero.
+
+! The Commandment of add1
+If
+    n is the same Nat as k
+, then
+    (add1 n)
+is the same Nat as
+    (add1 k).
+
+
+! Definitions are forever !
+Once a name has been claimed, it cannot be reclaimed, and
+once a name has been defined, it cannot be redefined
+
+Note! zero - is a c-tor, but it has no arguments
+Note! atoms are constructors (construct themselves),
+    atoms are also values (of type Atom)
+
+Note! Pair, Nat and Atom - are type constructors (not a [value] constructors)
+
+Note! car, however, is neigher a c-tor, nor a type c-tor
+    ! car (and cdr) are eliminators
+
+
+### 2: Doin' What Comes Naturally
+
+! Constructors and Eliminators
+Constructors build values, and eliminators take apart values built by constructors
+
+Note! every lambda-expression is a value
+
+! Eliminating Functions
+Applying a [lambda] function to arguments is the eliminator for functions
+
+Note! Alpha-conversion is renaming lambda-variables in a consistent way (per Alonzo Church) 
+
+
+! The initial law of application:
+if f is an
+    (-> Y  X)
+and arg is a
+    Y
+then (f arg) is an
+    X.
+
+! The initial first Commandment of lambda
+Two lambda-expressions, that expect the same number of arguments are the same if their bodies are the same
+after consistently renaming their variables (arguments)
+
+! The initial second Commandment of lambda
+if f is an (-> Y  X)
+then f is the same (-> Y  X)
+as
+    (\ (y)
+      (f y))
+as long as y does not occur in f.
+
+! The law of renaming variables
+Consistently renaming variables can't change the meaning of anything.
+
+Note! Neutral expressions - are not values and can not yet be evaluated due to a variable
+    - (cdr x)  where x is a (Pair Nat Atom) is a neutral expression, because cdr is not a c-tor, but an elim
+but
+    - (cons y, 'rutabaga) is a value because (by definition) it has c-tor at the top
+???
+    maybe they are just like a lambda-expressions wihtout arguments part ???
+
+Note! If two expressions have identical eliminators at the top
+    and all arguments to the eliminators are the same,
+    then the expressions are the same
+
+! The Commandment of Neutral Expressions
+Neutral expressions that are written identically are the same, no matter their type
+
+! The Law and Commandment of define
+Following
+    (claim name X) and (define name expr)
+if
+    expr is an X [has type of X],
+then
+    name is an X [has type of X]
+and
+    name is the same X as expr.
+
+! The seconce Commandment of cons
+If p is a (Pair A D), then it is the same (Pair A D) as
+    (cons (car p) (cdr p))
+
+! Names in definitions
+In Pie, only names that are not already used, whether for constructors, eliminators,
+or previous definitions, can be used with claim or define.
+
+Nat-eliminator:
+(which-Nat target
+    base
+    step)
+
+! Dim names
+Unused names are written dimly, but they do need to be there
+
+! The law or which-Nat
+If target is a Nat, base is an X, and step is an
+    (-> Nat
+        X),
+then
+    (which-Nat target
+        base
+        step)
+is an X.
+
+! The first Commandment of which-Nat
+If (which-Nat zero
+    base
+    step)
+is an X, then it is the same X as base.
+
+! The second Commandment of which-Nat
+If (which-Nat (add1 n)
+    base
+    step)
+is an X, then it is the same X as (step n).
+
+sample 1:
+    (which-Nat 5
+        (\ (n)
+            (+ 6 n)))
+is 10 because
+    ((\ (n)
+        (+ 6 n))
+        4)
+is 10
+
+sample 2:
+    (claim gauss
+        (-> Nat
+            Nat))
+    (define gauss
+        (\ (n)
+            (which-Nat n
+                0
+                (\ (n-1)
+                    (+ (add1 n-1) (gauss n-1))))))
+
+Note! recurstion is not an option (at least now, infinite recursion)
+    so, a different eliminator is needed here (not a which-Nat)
+
+! Type Values
+An expression that is described by a type is a value when it has a "c-tor" at its top.
+Similarly, an expression that is a type is a value when it has a "type c-tor" at its top.
+
+Note: Type c-tors:
+    Nat, Atom, Pair, ->, U
+
+Note: The following expression is a type, but not a value
+    (car (cons Atom 'prune))
+    because car is neither c-tor, not a type c-tor
+
+Judging that expr is a type requires knowing its c-tors.
+But the meaning of U is not given by knowing all the type c-tors,
+because new types can be introduced
+
+! Every U Is a Type
+Every expression, described by U is a type,
+but not every type is described by U.
+
+Sample:
+(clame Pear
+    U)
+(define Pear
+    (Pair Nat Nat))
+
+Pear is not a value (names, defined with "define", are nither c-tor, nor type-c-tors)
+
+! Definitions are unnecessary
+Everything can be done without definitions, but they do improve understanding
+
+
+
+### Recess: A Forkful of Pie
+
+the-expressions are also referred as "type annotations"
+
+! The law of "the"
+If X is a type and e is an X, then
+    (the X e)
+is an X.
+
+! The Commandment of "the"
+If X is a type and e is an X, then
+    (the X e)
+is the same X as e.
+
+Note: U is a type, but it does not have a type
+    when expression is a type, but does not have its own type,
+    Pie replies with just its normal form
+Other such samples ar:
+    (Pair U U), (Pair Atom U), (-> U U)
+
+
+
+### 3: Eliminate all Natural Numbers
+
+! Sameness
+If a "same as" chart could show that two expressions are the same,
+then this fact can be used anywhere without further justification.
+"Same as" charts are only to help build understanding.
+
+Remember: value is the stuff that has a c-tor at the top
+
+! Total function
+A function that always assigns a value to every possible argument
+is called a total function
+
+Note: both + and "gaus" are total
+Note: in Pie all functions are total. That's why the order of subexpressions evaluation is not important
+
+Nat-eliminators
+    - which-Nat
+    - iter-Nat
+
+! The law of iter-Nat
+If target is a Nat, base is an X, and step is an
+    (-> X
+        X),
+then
+    (iter-Nat target
+        base
+        step)
+is an X.
+
+! The First Commandment of iter-Nat
+If (iter-Nat zero
+        base
+        step)
+is an X, then it is the same X as base.
+
+! The Second Commandment of iter-Nat
+If (iter-Nat (add1 n)
+        base
+        step)
+is an X, then it is the same X as
+    (step
+        (iter-Nat n
+            base
+            step)).
+
+Sample:
+    (iter-Nat 5
+        3
+        (\ (smaller)
+            (add1 smaller)))
+    is 8 because it is the same as
+        (add1 (add1 (add1 (add1 (add1 3)))))
+
+
+(claim step-+
+    (-> Nat
+        Nat))
+(define step-+
+    (\ (+_(n-1))
+        (add1 +_(n-1)))
+
+(define +
+    (\ (n j)
+        (iter-Nat n
+            j
+            step-+)))
+
+Note!
+gaus needs an eliminator, which combines the expresiveness of both which-Nat and iter-Nat.
+this eliminator is called rec-Nat.
+1. which-Nat is replaced by rec-Nat
+2. the inner \-expression has one more variable, gaus_n-1
+3. the recursion (gaus n-1) is replaced by the almost-answer gaus_n-1
+
+(define gaus
+    (\ (n)
+        (rec-Nat n
+            0
+            (\ (n-1 gaus_(n-1))
+                (+ (add1 n-1) gaus_(n-1))))))
+
+Note! Like which-Nat, rec-Nat's step accepts the smaller Nat
+tucked under the target's add1. Like iter-Nat, it also accepts
+the recursive almost-answer.
+
+Note! which-Nat is easy to explain, but rec-Nat can do anything
+that which-Nat (ant iter-Nat) can do.
+
+Note! in book - sample with zerop (using a lot of dim vars)
+
+(claim step-gaus
+    (-> Nat Nat
+        Nat))
+
+(define step-gaus
+    (\ (n-1 gaus_(n-1))
+        (+ (add1 n-1) gaus_(n-1))))
+
+(define gaus
+    (\ (n)
+        (rec-Nat n
+            0
+            step-gaus)))
+
+(claim *
+    (-> Nat Nat
+        Nat))
+
+(claim make-step-*
+    (-> Nat
+        (-> Nat Nat
+            Nat)))
+
+(claim make-step-*
+    (-> Nat
+        (-> Nat Nat
+            Nat)))
+
+(define make-step-*
+    (\ (j)
+        (\ (n-1 *_(n-1))
+            (+ j *_(n-1)))))
+
+Note! No matter what j is, make-step-* constructs an appropriate step
+
+(define *
+    (\ (n j)
+        (rec-Nat n
+            0
+            (make-step-* j))))
+
+Note! The shorter way would be
+
+(claim step-*
+    (-> Nat Nat Nat
+        Nat))
+
+(define step-*
+    (\ (j n-1 *_(n-1))
+        (+ j *_(n-1))))
+
+(define *
+    (\ (n j)
+        (rec-Nat n
+            0
+            (step-* j))))
+
+! The Law of rec-Nat
+If target is a Nat, base is an X, and step is an
+    (-> Nat X
+        X)
+then
+    (rec-Nat target
+        base
+        step)
+is an X.
+
+! The First Commandment of rec-Nat
+If
+    (rec-Nat zero
+        base
+        step)
+is an X, then it is the same X as base.
+
+! The Second Commandment of rec-Nat
+If
+    (rec-Nat (add1 n)
+        base
+        step)
+is an X, then it is the same X as
+    (step n
+        (rec-Nat n
+            base
+            step)).
+
+
+### 4: Easy a Pie
+
+# in-dashed-box
+(claim Pear
+    U)
+(define Pear
+    (Pair Nat Nat))
+
+(claim kar
+    (-> (Pair Nat Nat)
+        Nat))
+(define kar  # in-dashed-box because elim-Pair has not been defined yet
+    (\ (p)
+        (elim-Pair
+            Nat Nat
+            Nat
+            p
+            (\ (a d)
+                a))))
+
+Note: elim-Pair has not been defined yet
+
+(claim kdr
+    (-> (Pair Nat Nat)
+        Nat))
+(define kdr  # in-dashed-box ...
+    (\ (p)
+        (elim-Pair
+            Nat Nat
+            Nat
+            p
+            (\ (a d)
+                d))))
+
+Note!: elim-Pair has not been defined yet (as well as for the case of kar)
+
+(claim swap
+    (-> (Pair Nat Atom)
+        (Pair Atom Nat)))
+(define swap  # in-dashed-box ...
+    (\ (p)
+        (elim-Pair
+            Nat Atom
+            (Pair Atom Nat)
+            p
+            (\ (a d)
+                (cons d a)))))
+
+Note! Types of A, D, X don't have to be defined
+    They refer to whatever arguments are.
+
+
+!!!!! PI
+
+(claim flip
+    (PI ((A U))
+         (D U))
+        (-> (Pair A D)
+            (Pair D A)))
+(define flip
+    (\ (A D)
+        (\ p)
+            (cons (cdr p) (car p))))
+
+Note! The difference between PI and -> is in the type of an expression
+    in which a function is applied to arguments.
+    (flip Nat Atom)'s
+        type is
+    (-> (Pair Nat Atom)
+        (Pair Atom Nat))
+    This is because when an expression described by a PI-expression is applied,
+    the argument expression replace the "argument names" in the body of the PI-expression
+
+Note! PI-expressions can have one or more argument names, which can occur in the body
+
+
+! The Intermediate Law of Application
+if f is a
+    (PI ((Y U))
+        X)
+and Z is a U, then
+    (f Z)
+is an X
+    where every Y has been consistently replaced by Z.
+
+
+(claim elim-Pair
+    (PI ((A U)
+         (D U)
+         (X U))
+        (-> (Pair A D)
+            (-> A D
+                X)
+            X)))
+(define elim-Pair
+    (\ (A D X)
+        (\ (p f)
+            (f (car p) (cdr p)))))
+
+(define kar
+    (\ (p)
+        (elim-Pair
+            Nat Nat
+            Nat
+            p
+            (\ (a d)
+                a))))
+(define kdr
+    (\ (p)
+        (elim-Pair
+            Nat Nat
+            Nat
+            p
+            (\ (a d)
+                d))))
+
+(define swap
+    (\ (p)
+        (elim-Pair
+            Nat Atom
+            (Pair Atom Nat)
+            p
+            (\ (a d)
+                (cons d a)))))
+
+!!!!! PI definition
+
+To be a
+    (PI ((Y U))
+        X)
+is to be a lambda-expression that, when applied to a type T,
+results in an expression with the type that is a result of
+consistently replacing every Y in X with T.
+
+Note: as a sample - let's define a function "twin" as:
+
+(claim twin  
+    (PI ((Y U))
+        (-> Y
+            (Pair Y Y))))
+(define twin
+    (\ (Y)
+        (\ (x)
+            (cons x x))))
+
+(claim twin-Atom
+    (-> Atom
+        (Pair Atom Atom)))
+(define twin-Atom
+    (twin Atom))
+
+
+### 5: Lists, Lists and more Lists
+
+
+(claim expectations
+    (List Atom))
+(define expressions
+    (:: 'cooked
+        (:: 'eaten
+            (:: 'tried-cleaning
+                (:: 'understood
+                    (:: 'slept nil))))))
+
+! The Law of List
+If E is a type,
+then (List E) is a type.
+
+nil - is a c-tor
+::  - is another c-tor
+
+! The Law of nil
+nil is a (List E),
+no matter what type E is.
+
+! The Law of ::
+If e is an E and es is a (List E),
+then (:: e es) is a (List E).
+
+
+! The Law of rec-List
+If target is a (List E), base is an X, and step is an
+    (-> E (List E)  X
+        X)
+then
+    (rec-List target
+        base
+        step)
+is an X.
+
+! The First Commandment of rec-List
+If (rec-List nil
+        base
+        step)
+is an X, then it is the same X as base.
+
+! The Second Commandment of rec-List
+If (rec-List (:: e es)
+        base
+        step)
+is an X, then it is the same X as an
+    (step e es
+        (rec-List es
+            base
+            step)).
+
+Note: the rec-List expression replaces each :: in "condiments"
+    with an add1, and it ralaces nil with 0
+
+(claim length
+    (PI ((E U))
+        (-> (List E)
+            Nat)))
+(claim step-length
+    (PI ((E U))
+        (-> E (List E) Nat
+            Nat)))
+
+(define step-length
+    (\ (E)
+        (\ (e es length_es)
+            (add1 length_es))))
+(define length
+    (\ (E)
+        (\ (es)
+            (rec-List es
+                (step-length E)))))
+
+Narrowing this down to concrete types (of E) gieves us
+
+(claim length-Atom
+    (-> (List Atom)
+        Nat))
+(define length-Atom
+    (length Atom))
+
+
+! List Entry Types
+All the entries in a list must have the same type
+
+(claim append
+    (PI ((E U))
+        (-> (List E) (List E)
+            (List E))))
+
+(claim step-append
+    (PI ((E U))
+        (-> E (List E) (List E)
+            (List E))))
+(define step-append
+    (\ (E)
+        (\ (e es append_es)
+            (:: e append_es))))
+
+(define append
+    (\ (E)
+        (\ (start end)
+            (rec-List start
+                end
+                (step-append E)))))
+
+Note: instead of using :: to "cons" entries from the first list to the front of the result,
+    it is also possible to "snoc" entries from the second list to the back of the result
+
+(claim snoc
+    (PI ((E U))
+        (-> (List E) E
+            (List E))))
+
+(define snoc
+    (\ (E)
+        (\ (start e)
+            (rec-List start
+                (:: e nil)
+                (step-append E)))))
+
+(claim concat
+    (PI ((E U))
+        (-> (List E) (List E)
+            (List E))))
+(claim step-concat
+    (PI ((E U))
+        (-> E (List E) (List E)
+            (List E))))
+(define step-concat
+    (\ (E)
+        (\ (e es concat_es)
+            (snoc E concat_es e))))
+(define concat
+    (\ (E)
+        (\ (start end)
+            (rec-List end
+                start
+                (step-concat E)))))
+
+(claim reverse
+    (PI ((E U))
+        (-> (List E)
+            (List E))))
+(define reverse
+    (\ (E)
+        (\ (es)
+            (rec-List es
+                nil
+                (step-reverse E)))))
+
+
+### 6. Precisely How Many?
+
+Note: To write a total functions first/last
+    we must use a more specific type-ctor than List
+
+! The Law of Vec
+If E is a type and k is a Nat,
+then (Vec E k) is a type
+
+! The Law of vecnil
+vecnil is a (Vec E zero).
+
+! The Law of vec::
+If e is an E and es is a (Vec E, k),
+then (vec:: e es) is a (Vec E (add1 k)).
+
+eliminators - head and tail
+
+(claim first-of-one
+    (PI ((E U))
+        (-> (Vec E 1)
+            E)))
+(define first-of-one
+    (\ (E)
+        (\ (es)
+            (head es))))
+
+(claim first-of-two
+    (PI ((E U))
+        (-> (Vec E 2)
+            E)))
+(define first-of-two
+    (\ (E)
+        (\ (es)
+            (head es))))
+
+
+! probably the first sample of real dependent type is !
+(claim first
+    (PI ((E U)
+         (l Nat))
+        (-> (Vec E (add1 l))
+            E)))
+
+! The Law of PI !
+The expression
+    (PI ((y Y))
+        X)
+is a type when Y is a type, and X is a type if y is a Y.
+
+! Now we can
+(define first
+    (\ (E l)
+        (\ (es)
+            (head es))))
+
+
+! Use a More Specific Type
+Make a function total by using a more specific type
+to rule out unwanted arguments
+
+Note: In fact, ->-expressions are a shorter way of writing PI-expressions
+    when the argument name is not used in the PI-expression's body
+
+! The -> and PI
+The type
+    (-> Y
+        X)
+is a shorter way of writing
+    (PI ((y Y))
+        X)
+when y is not used in X.
+
+! The Final Law of \
+If x is an X when y is an Y, then
+    (\ (y)
+        x)
+is a
+    (PI ((y Y))
+        X)
+
+! The Final Law of Application
+If f is a
+    (PI ((y Y))
+        X)
+and z is an Y, then
+    (f z)
+is an X
+    where every y has been consistently replaced by z.
+
+! The Final First Commandment of \
+If two \-expressions can be made the same
+    (PI ((y Y))
+        X),
+by consistent renaming their variables, then they are the same
+
+! The Final Second Commandment of \
+If f is
+    (PI ((y Y))
+        X),
+and y does not occur if f, then f is the same as
+    (\ (y)
+        (f y)).
+
+The type
+    (PI ((es (Vec E (add1 l)))))
+could have been written
+    (-> (Vec E (add1 l))
+        E)
+because es is not used in E.
+
+
+(claim rest
+    (PI ((E U)
+         (l Nat))
+        (-> (Vec E (add1 l))
+            (Vec E l))))
+(define rest
+    (\ (E l)
+        (\ (es)
+            (tail es))))
+
+
+### 7: All Depends on the Motive
+
+! Dependent Types
+A type that is determined by something that is not a type is called a dependent type
+
+(claim peas
+    (PI ((how-many-peas Nat))
+        (Vec Atom how-many-peas)))
+
+the rec-Nat can't be used to define peas (because the base must have the same type as the peas_l-1)
+
+We need ind-Nat, who need a motive of type
+    (-> Nat
+        U)
+
+! Use ind-Nat for Dependent Types
+Use ind-Nat instead of rec-Nat when the rec-Nat- or ind-Nat-expression's type depends on target Nat.
+The ind-Nat-expression's type is the motive applied to the target.
+
+(claim mot-peas
+    (-> Nat
+        U))
+(define mot-peas
+    (\ (k)
+        (Vec Atom k)))
+
+(claim step-peas
+    (PI ((l-1 Nat))
+        (-> (mot-peas l-1)
+            (mot-peas (add1 l-1)))))
+(define step-peas
+    (\ (l-1)
+        (\ (peas_l-1)
+            (vec:: 'pea peas_l-1))))
+
+! The Law of ind-Nat
+If target is a Nat, mot is an
+    (-> Nat
+        U),
+base is a (mot zero), and step is a
+    (PI ((n-1 Nat))
+        (-> (mot n-1)
+            (mot (add1 n-1)))),
+then
+    (ind-Nat target
+        mot
+        base
+        step)
+is a (mot target).
+
+! The First Commandment of ind-Nat
+The ind-Nat expression
+    (ind-Nat zero
+        mot
+        base
+        step)
+is the same (mot zero) as base.
+
+! The Second Commandment of ind-Nat
+The ind-Nat expression
+    (ind-Nat (add1 n)
+        mot
+        base
+        step)
+and
+    (step n
+        (ind-Nat n
+            mot
+            base
+            step))
+are the same (mot (add1 n)).
+
+
+! Induction on Natural Numbers
+Building a value for any natural number by giving a value for zero and
+a way to transform a value for n into a value for (n + 1)
+is called "induction on natural numbers"
+
+The base replaces each zero with vecnil (because vecnil is the only (Vec Atom zero)),
+step-peas replaces each add1 with a vec::
+
+(define peas
+    (\ (how-many-peas)
+        (ind-Nat how-many-peas
+            mot-peas
+            vecnil
+            step-peas)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(claim last
+    (PI ((E U)
+         (l Nat))
+        (-> (Vec E (add1 l))
+            E)))
+
+(claim base-last
+    (PI ((E U))
+        (-> (Vec E (add1 l))
+            E)))
+(define base-last
+    (\ (E)
+        (\ (es)
+            (head es))))
+
+! ind-Nat's Base Type
+In ind-Nat, the base's type is the motive, applied to the the target zero.
+
+The step transforms a
+    last
+function for
+    l
+into a
+    last
+function for
+    (add1 l).
+
+! ind-Nat's Step Type
+In ind-Nat, the step must take two arguments: some Nat n
+and an almost-answer, whose type is the motive, applied to n.
+The type of the answer from the step is the motive, applied to (add1 n).
+The step's type is:
+    (PI ((n Nat))
+        (-> (mot n)
+            (mot (add1 n))))
+
+(claim step-last
+    (PI ((E U)
+         (l-1 Nat))
+        (-> (mot-last E l-1)
+            (mot-last E (add1 l-1)))))
+
+(define step-last
+    (\ (E l-1)
+        (\ (last_l-1)
+            (\ (es)
+                (last_l-1 (tail es))))))
+
+last_l-1 - is almost the right function, but only for a list of l-1 entries
+es type is
+    (Vec E (add1
+        (add1 l-1))
+(tail es) type is
+    (Vec E (add1 l-1))
+last_l-1 type is
+    (-> (Vec E (add1 l-1))
+        E)
+which is the value of (mot-last l-1).
+
+Now it is a time to
+(define last
+    (\ (E l)
+        (ind-Nat l
+            (mot-last E)
+            (base-last E)
+            (step-last E))))
+
+
+(claim drop-last
+    (PU ((E U)
+        (l Nat))
+        (-> (Vec E (add1 l))
+            (Vec E l))))
+
+(claim base-drop-last
+    (PU ((E U)
+        (l Nat))
+        (-> (Vec E (add1 l))
+            (Vec E l))))
+(define base-drop-last
+    (\ (E)
+        (\ (es)
+            (vecnil))))
+
+(claim mot-drop-last
+    (-> U Nat
+        U))
+(define mot-drop-last
+    (\ (E k)
+        (-> (Vec E (add1 k))
+            (Vec E k))))
+
+(claim step-drop-last
+    (PI ((E U)
+         (l-1 Nat))
+        (-> (mot-drop-last E l-1)
+            (mot-drop-last E (add1 l-1)))))
+(define step-drop-last
+    (\ (E l-1)
+        (\ (drop-last_l-1)
+            (\ (es)
+                (vec:: (head es)
+                    (drop-last_l-1 (tail es)))))))
+
+This is the familiar pattern of induction:
+    step-drop-last
+transforms
+    drop-last
+that works for
+    (Vec E l-1)
+into a
+    drop-last
+that works for
+    (Vec E (add1 l-1))
+
+(define drop-last
+    (\ (E l)
+        (ind-Nat l
+            (mot-drop-last E)
+            (base-drop-last E)
+            (step-drop-last E))))
+
+
+## One piece at a time
+
+### 8. Peak a Number, any Number
+
+(claim incr
+    (-> Nat
+        Nat))
+(define incr
+    (\ (n)
+        (iter-Nat n
+            1
+            (+ 1))))
+
+Note: both
+    (+ 1) and incr
+find the same answer,
+no matter what the argument is
+
+BTW, they are not the same because have distinct normal forms
+NF of (+ 1) is
+    (\ (n)
+        (add1 n))
+NF of incr is
+    (\ (n)
+        (iter-Nat n
+            1
+            (\ (j)
+                (add1 j))))
+
+! The Law of =
+An expression
+    (= X from to)
+is a type if X is a type, [from] is an X, and [to] is an X.
+
+! Reading from and to as Nouns
+Because [from] and [to] are convenient names, the corresponding parts of an =-expression
+are referred to as the FROM and the TWO.
+
+Note: types can be read as statements (sometimes called propositions)
+
+A PI-expression can be read as "for every"
+    (PI ((n Nat))
+        (= Nat (+ 1 n) (add1 n)))
+
+Q: What is the point of reading types as statements?
+A: If a type can be read as statement, then judging
+        the statement to be true
+    means that
+        there is an expression with that type
+
+Sample: So, saying "(+ n 0) and n   are equal Nats"
+    means that there is an expression of type
+        (= Nat (+ n 0) n)
+        
+Another way to think about statements is an expectation of a proof,
+or as a problem to be solved
+    - having seen a claim, it makes sense to expect a definition
+
+There is only one c-tor for (=) and it is called "same" (with 2 arguments)
+
+! The Law of same
+The expression (same e) is an (= X e e) if e is an X.
+
+The expression
+    (same 21)
+is an
+    (= Nat (+ 17 4) (+ 11 10))
+
+The
+    (same (incr 3))
+is a proof of
+    (= Nat (+ 2 2) 4).
+
+(=) - is a type c-tor, (same) - its c-tor
+
+(claim +1=add1
+    (PI ((n Nat))
+        (= Nat (+ 1 n) (+1 n))))
+(define +1=add1
+    (\ (n)
+        (same (add1 n))))
+
+Here "+1=add1" is a statement and we show the appropriate proof
+
+
+(claim incr=add1
+    (PI ((n Nat))
+        (= Nat (incr n) (add1 n))))
+
+! Neutral Expressions
+Variables that are not defined are neutral.
+If the target of an eliminator expression is neutral,
+then the eliminator expression is neutral
+
+Neutral expressions do not have a c-tor at the top
+
+! "If" and "Then" as Types
+The expression
+    (-> X
+        Y)
+can be read as the statement,
+    "if X then Y."
+
+! Observation about incr
+No matter which Nat n is,
+    (incr (add1 n))
+is the same Nat as
+    (add1 (incr n)).
+
+! The Law of cong
+If f is an
+    (-> X
+        Y)
+and "target" is an
+    (= X from to),
+then (cong target f) is and
+    (= Y (f from) (f to)).
+
+(define step-incr=add1
+    (\ (n-1)
+        (\ (incr=add1_(n-1))
+            (cong incr=add1_(n-1) (+1)))))
+
+(define incr=add1
+    (\ (n)
+        (ind-Nat n
+            mot-incr=add1
+            base-incr=add1
+            step-incr=add1)))
+
+Neutral expressions are those that cannot yet be evaluated, but replacing their variables with values
+could allow evaluation
+
+! The Commandment of cong
+If x is an X, and f is an
+    (-> X
+        Y),
+then (cong (same x) f) is the same
+    (= Y (f x) (f x))
+as
+    (same (f x)).
+
+The interplay between judging sameness and stating equality
+is at the heart of working with dependent types.
+
+### 9. Double your Money, Get Twice as Much
+
+the general-case of cong-eliminator is "replace"
+
+In "replace" the motive explains what is true
+for both expressions in Leibnit'z Law. It is an
+    (-> X
+        U)
+
+The "base" is evidence that (mot from) is true.
+The "base" type is
+    (mot from)
+
+The whole replace-expression is evidence that (mot to) is true.
+In other words, its type is
+    (mot to)
+
+! The Law of replace
+If target is an
+    (= X from to),
+mot is an
+    (-> X
+        U),
+and base is a
+    (mot from)
+then
+    (replace target
+        mot
+        base)
+is a
+    (mot to).
+
+
+(claim mot-step-incr=add1
+    (-> Nat Nat
+        U))
+(define mot-step-incr=add1
+    (\ (n-1 k)
+        (= Nat
+            (add1
+                (incr n-1))
+            (add1
+                k))))
+
+dashed-def
+(define step-incr=add1
+    (\ (n-1)
+        (\ (incr=add1_n-1)
+            (replace incr=add1_n-1
+                (mot-step-incr=add1 n-1
+                (same (add1 (incr n-1))))))))
+
+
+(claim double
+    (-> Nat
+        Nat))
+(define double
+    (\ (n)
+        (iter-Nat n
+            0
+            (+2))))
+
+another function for doing this is
+
+(claim twice
+    (-> Nat
+        Nat))
+(define twice
+    (\ (n)
+        (+ n n)))
+
+How can their equality be written as a type?
+
+(claim twice=double
+    (PI ((n Nat))
+        (= Nat (twice n) (double n))))
+
+The statement to be proved is...
+    add1+=+add1
+
+(claim add1+=+add1
+    (PI ((n Nat)
+         (j Nat))
+        (= Nat
+            (add1 (+n j))
+            (+ n (add1 j)))))
+
+(claim mod-add1+=+add1
+    (-> Nat Nat
+        U))
+(define mod-add1+=+add1
+    (\ (j k)
+        (= Nat
+            (add1 (+ k j)
+            (+ k (add1 j))))))
+
+(claim step-add1+=+add1
+    (PI ((j Nat)
+         (n-1 Nat))
+        (-> (mot-add1+=+add1 j
+                n-1)
+            (mot-add1+=+add1 j
+                (add1 n-1)))))
+(define step-add1+=+add1
+    (\ (j n-1)
+        (\ (add1+=+add1_n-1)
+            (cong add1+=+add1_n-1
+                (+ 1)))))
+
+(define add1+=+add1
+    (\ (n j)
+        (ind-Nat n
+            (mot-add1+=+add1 j)
+            (same (add1 j)
+            (step-add1+=+add1 j)))))
+
+
+(claim mot-twice=double
+    (-> Nat
+        U))
+(define mot-twice=double
+    (\ (k)
+        (= Nat
+            (twice k)
+            (double k))))
+
+(claim step-twice=double
+    (PI ((n-1 Nat))
+        (-> (mot-twice=double n-1)
+            (mot-twice=double (add1 n-1)))))
+
+! Observation about +
+No matter which Nats j and k are,
+    (+ (add1 j) k)
+is the same Nat as
+    (add1 (+j k))
+
+
+(claim mot-step-twice=double
+    (-> Nat Nat
+        U))
+(define mot-step-twice=double
+    (\ (n-1 k)
+        (= Nat
+            (add1
+                k)
+            (add1
+                (add1 (double n-1))))))
+
+(define step-twice=double
+    (\ (n-1)
+        (\ (twice=double_n-1)
+            (replace (add1+=+add1 n-1 n-1)
+                (mot-step-trice=double n-1)
+                (cong twice=double_n-1
+                    (+2))))))
+
+(define twice=double
+    (\ (n)
+        (ind-Nat n
+            mot-twice=double
+            (same zero)
+            step-twice=double)))
+
+
+(claim twice-Vec
+    (PI ((E U)
+         (l Nat))
+        (-> (Vec E l)
+            (Vec E (twice l)))))
+
+(claim double-Vec
+    (PI ((E U)
+         (l Nat))
+        (-> (Vec E l)
+            (Vec E (double l)))))
+
+(claim base-double-Vec
+    (PI ((E U))
+        (-> (Vec E zero)
+            (Vec E (double zero)))))
+(define base-double-Vec
+    (\ (E)
+        (\ (es)
+            (vecnil))))
+
+(claim mot-double-Vec
+    (-> U Nat
+        U)) 
+(define mot-double-Vec
+    (\ (E k)
+        (-> (Vec E k)
+            (Vec E (double k)))))
+
+(claim step-double-Vec
+    (PI ((E U)
+         (l-1 Nat))
+        (-> (-> (Vec E l-1)
+                (Vec E (double l-1)))
+            (-> (Vec E (add1 l-1))
+                (Vec E (double (add1 l-1)))))))
+(define step-double-Vec
+    (\ (E l-1)
+        (\ (double-Vec_l-1)
+            (\ (es)
+                (vec:: (head es)
+                    (vec:: (head es)
+                        (double-Vec_l-1
+                            (tail es))))))))
+
+(define double-Vec
+    (\ (E l)
+        (ind-Nat l
+            (mot-double-Vec E)
+            (base-double-Vec E)
+            (step-double-Vec E))))
+
+! Solve Easy Problems First
+If two functions produce equal results, then use the easier
+one when defining a dependent function, and then use "replace"
+to give it the desired type
+
+Another special eliminator for "=" called "symm" (symmetry)
+
+If target is an
+    (= X from to)
+then
+    (symm target)
+is an
+    (= X to from)
+
+(define twice-Vec
+    (\ (E l)
+        (\ (es)
+            (replace (symm (twice=double l))
+                (\ (k)
+                    (Vec E k))
+                (double-Vec E l es)))))
+
+! The Law of symm
+If e is an
+    (= X from to)
+then
+    (symm e)
+is an
+    (= X to from)
+
+! The commandment of symm
+If x is an X, then
+    (symm (same x))
+is the same 
+    (= X x x)
+as
+    (same x)
+
+
+### 10. It Also Depends on the List
+
+! The Law of SIGma
+The expression
+    (SIG ((x A))
+        D)
+is a type when A is a type, and D is a type if x is an A
+
+! The commandment of cons
+If p is a
+    (SIH ((x A))
+        D),
+then p is the same as
+    (cons (car p) (cdr p)).
+
+Note:
+    (Pair A D)
+is the short way of writing
+    (SIG ((x A))
+        D)
+where x is not used in D
+
+Note: a Sigma-expression can be read as
+    "there exists!"
+
+If p is a
+    (SIG ((x A))
+        D),
+then
+    (car p)
+is an A,
+    (cdr p)
+is D, where every x has been consistently replaced with (car p)
+
+
+! Use a Specific Type for Correctness
+Specific types can rule out foolish definitions.
+
+(cleaim replicate
+    (PI ((E U)
+         (l Nat))
+        (-> E
+            (Vec E l))))
+
+(claim mot-replicate
+    (-> U Nat
+        U))
+(define mot-replicate
+    (\ (E k)
+        (Vec E k)))
+        
+(claim step-replicate
+    (PI ((E U)
+         (e E)
+         (l-1 Nat))
+        (-> (mot-replicate E l-1)
+            (mot-replicate E (add1 l-1)))))
+(define step-replicate
+    (\ (E e l-1)
+        (\ (step_replicate_l-1)
+            (vec:: e step-replicate_l-1))))
+
+(define replicate
+    (\ (E l)
+        (\ (e)
+            (ind-Nat l
+                (mot-replicate E)
+                vecnil
+                (step-replicate E e)))))
+
+because of currying, mot-replicate and step-replicate here are applied to smaller number of arguments
+
+More specific typer of list->vec is
+(claim list->vec
+    (PI ((E U)
+         (es (List E)))
+        (Vec E (length E es))))
+
+
+adding and entry (e) to (es) with (::) is like adding one with add1 in ind-Nat.
+
+! The Law of ind-List
+If "target" is a (List E),
+"mot" is an
+    (-> (List E)
+        U),
+"base" is a (mot nil), and "step" is a
+    (PI ((e E)
+         (es (List E)))
+        (-> (mot es)
+            (mot (:: e es))))
+then
+    (ind-List target
+        mot
+        base
+        step)
+is a
+    (mot target).
+
+! The first commandment of ind-List
+The ind-List expression
+    (ind-List nil
+        mot
+        base
+        step)
+is the same (mot nil) as
+    base.
+
+! The second commandment of ind-List
+The ind-List expression
+    (ind-List (:: e es)
+        mot
+        base
+        step)
+is the same (mot (:: e es)) as
+    (step e es
+        (ind-List es
+            mot
+            base
+            step)).
+
+
+(claim mot-list->vec
+    (PI ((E U))
+        (-> (List E)
+            U)))
+(define mot-list->vec
+    (\ (E)
+        (\ (es)
+            (Vec E (length E es)))))
+
+(claim step-list->vec
+    (PI ((E U)
+         (e E)
+         (es (List E)))
+        (-> (mot-list->vec E es)
+            (mot-list->vec E (:: e es)))))
+(define step-list->vec
+    (\ (E e es)
+        (\ (list->vec_es)
+            (vec:: e list->vec_es))))
+
+(define list->vec
+    (\ (E es)
+        (ind-List es
+            (mot-list->vec E)
+            vecnil
+            (step-list->vec E))))
+
+
+### 11. All Lists are Created Equal
+
+(claim vec-append
+    (PI ((E U)
+         (l Nat)
+         (j Nat))
+        (-> (Vec E l) (Vec E j)
+            (Vec E (+ l j)))))
+
+ind-Vec is much like an ind-List:
+
+(ind-Vec n es
+    mot
+    base
+    step)
+
+n - is the number of elements in es
+
+mot's tytpe is
+    (PI ((k Nat))
+        (-> (Vec E k)
+            U))
+
+! The Law of ind-Vec
+If n is a Nat, target is a (Vec E n), mot is a
+    (PI ((k Nat))
+        (-> (Vec E k)
+            U)),
+base is a
+    (mot zero vecnil),
+and step is a
+    (PI ((k Nat)
+         (h E)
+         (t (Vec E k)))
+        (-> (mot k t)
+            (mot (add1 k) (vec:: h t))))
+then
+    (ind-Vec n target
+        mot
+        base
+        step)
+is a
+    (mot n target)
+
+! The First Commandment of ind-Vec
+The ind-Vec expression
+    (ind-Vec zero vecnil
+        mot
+        base
+        step)
+is the same
+    (mot zero vecnil)
+as
+    base
+
+! The Second Commandment of ind-Vec
+The ind-Vec expression
+    (ind-Vec (add1 n) (vec:: e es)
+        mot
+        base
+        step)
+is the same
+    (mot (add1 n) (vec:: e es))
+as
+    (step n e es
+        (ind-Vec n es
+            mot
+            base
+            step))
+
+
+(claim mot-vec-append
+    (PI ((E U)
+         (j Nat)
+         (k Nat))
+        (-> (Vec E k)
+            U)))
+(define mot-vec-append
+    (\ (E j k)
+        (\ (es)
+            (Vec E (+ k j)))))
+
+(claim step-vec-append
+    (PI ((E U)
+         (j Nat)
+         (k Nat)
+         (e E)
+         (es (Vec E k)))
+        (-> (mot-vec-append E j
+                k es)
+            (mot-vec-append E j
+                (add1 k) (vec:: e es)))))
+(define step-vec-append
+    (\ (E j l-1 e es)
+        (\ (vec-append_es)
+            (vec:: e vec-append_es))))
+
+(defien vec-append
+    (\ (E l j)
+        (\ (es end)
+            (ind-Vec l es
+                (mot-vec-append E j)
+                end
+                (step-vec-append E j)))))
+
+
+(claim mot-vec-list
+    (PI ((E U)
+         (l Nat))
+        (-> (Vec E l)
+            U)))
+(define mot-vec-list
+    (\ (E l)
+        (\ (es)
+            (List E))))
+
+(claim step-vec-list
+    (PI ((E U)
+         (l-1 Nat)
+         (e E)
+         (es (Vec E l-1)))
+        (-> (mot-vec-list E
+                l-1 es)
+            (mot-vec-list E
+                (add1 l-1) (vec:: e es)))))
+(define step-vec-list
+    (\ (E l-1 e es)
+        (\ (vec->list_es)
+            (:: e vec->list_es)))) 
+
+(claim vec->list
+    (PI ((E U)
+         (l Nat))
+        (-> (Vec E l)
+            (List E))))
+(define vec->list
+    (\ (E l)
+        (\ (es)
+            (ind-Vec l es
+                (mot-vec->list E
+                nil
+                (step-vec->list E))))))
+
+
+(claim list->vec->list=
+    (PI ((E U)
+         (es (List E)))
+        (= (List E)
+            es
+            (vec->list E
+                (length es)
+                (list->vec E es)))))
+(claim mot->list->vec->list=
+    (PI ((E U))
+        (-> (List E)
+            U)))
+(define mot->list->vec->list=
+    (\ (E es)
+        (= (List E)
+            es
+            (vec->list E
+                (length E es)
+                (list->vec E es)))))
+(claim step->list->vec->list
+    (PI ((E U)
+         (e E)
+         (es (List E)))
+        (-> (mot->list->vec->list= E
+                es)
+            (mot->list->vec->list= E
+                (:: e es)))))
+
+(claim length-treats=
+    (PI ((some-treats (List Atom))
+         (more-threats (List Atom)))
+        (-> (= (List Atom)
+                some-treats
+                more-treats)
+            (= Nat
+                (length Atom some-treats)
+                (length Atom more-treats)))))
+(define length-treats=
+    (\ (some-treats more-treats)
+        (\ (treats)
+            (cong treats= (length Atom)))))
+
+! When in Doubt, Evaluate
+Gain insight by finding the values of expressions in types
+and working out examples in "same-as" charts
+
+(claim ::-fun
+    (PI ((E U))
+        (-> E (List E)
+            (List E))))
+(define ::-fun
+    (\ (E)
+        (\ (e es)
+            (:: e es))))
+
+Now we can write
+
+(define step-list->vec->list=
+    (\ (E e es)
+        (\ (list->vec->list=_es)
+            (cong list->vec->list=_es
+                (::-fun E e)))))
+ 
+(define list->vec->list=
+    (\ (E es)
+        (ind-List es
+            (mot-list->vec->list= E)
+            (same nil)
+            (step-list->vec->list= E))))
+
+
+### 12. Even Numbers can be Odd
+
+(claim even
+    (-> Nat
+        U))
+(define even
+    (\ (n)
+        (SIG ((half Nat))
+            (= Nat n (double half)))))
+
+(claim zero-is-even
+    (Even 0))
+(define zero-is-even
+    (cons 0
+        (same 0)))
+
+For every natural number n, if
+    n is even,
+then
+    (2 + n) is also even
+
+"Every" sounds like PI
+
+(claim +two-even
+    (PI ((n Nat))
+        (-> (Even n)
+            (Even (+ 2 n)))))
+
+Remember:
+If p is a
+    (SIG ((x A))
+        D),
+then (car p) is an
+    A
+and (cdr p)'s type is found by consistently replacing each "x" in "D" with (car p)
+
+! Carefully Choose Definitions
+... they can greately simplify later proofs
+
+Note: the expression
+    (cong (cdr e_n) (+ 2)
+has a type
+    (= Nat
+        (+ 2 n)
+        (add1 (add1 (double (car e_n)))))
+because
+    (+ 2 n)
+is the same Nat as
+    (add1 (add1 n))
+
+(define +two-even
+    (\ (n e_n)
+        (cons (add1 (car e_n))
+            (cong (cdr e_n) (+ 2)))))
+
+(claim Odd
+    (-> Nat
+        U))
+(define Odd
+    (\ (n)
+        (SIG ((haf Nat))
+            (= Nat n (add1 (double haf))))))
+
+(claim one-is-odd
+    (Odd 1))
+(define one-is-odd
+    (cons 0
+        (same 1)))
+because
+    (same 1)
+is an
+    (= Nat 1 (add1 (double 0)))
+
+(claim thirteen-is-odd
+    (Odd 13))
+(define thirteen-is-odd
+    (cons 6
+        (same 13)))
+
+(claim add1-even->odd
+    (PI ((n Nat))
+        (-> (Even n)
+            (Odd (add1 n)))))
+(define add1-even->odd
+    (\ (n e_n)
+        (cons (car e_n)
+            (cong (cdr e_n) (+1)))))
+
+(claim add1-odd->even
+    (PI ((n Nat))
+        (-> (Odd n)
+            (Even (add1 n)))))
+(define add1-odd->even
+    (\ (n o_n)
+        (cons (add1 (car o_n))
+            (cong (cdr o_n) (+1)))))
+
+### 13. Even Half a Baker's Dozen
+
+! The Law of Either
+(Either L R) is a type if L is a type and R is a type
+
+! The Law of left
+(left lt) is an (Either L R) if lt is an L
+
+! The Law of right
+(right lt) is an (Either L R) if lt is an R
+
+! The Law of ind-Either
+If target is
+    (Either L R)
+mot is an
+    (-> (Either L R)
+        U)
+base-left is a
+    (PI ((x L))
+        (mot (left x)))
+and base-right is a
+    (PI ((y R))
+        (mot (right y)))
+then
+    (ind-Either target
+        mot
+        base-left
+        base-right)
+is a
+    (mot target)
+
+! The First Commandment of ind-Either
+(ind-Either (left x)
+    mot
+    base-left
+    base-right)
+is the same
+    (mot (left x))
+as
+    (base-left x)
+
+! The Second Commandment of ind-Either
+(ind-Either (right y)
+    mot
+    base-left
+    base-right)
+is the same
+    (mot (right y))
+as
+    (base-right y)
+
+Now we know how to write "Every natural number is even or odd"
+
+(claim even-or-odd
+    (PI ((n Nat))
+        (Either (Even n) (Odd n))))
+
+(claim mot-even-or-odd
+    (-> Nat
+        U))
+(define mot-even-or-odd
+    (\ (k)
+        (Either (Even k) (Odd k))))
+
+the base is (Either (Even zero) (Odd zero))
+the base is (left (zero-is-even)
+
+(claim step-even-or-odd
+    (PI ((n-1 Nat))
+        (-> (mot-even-or-odd n-1)
+            (mot-even-or-odd (add1 n-1)))))
+(define step-even-or-odd
+    (\ (n-1)
+        (\ (e-or-o_n-1)
+            (ind-Either e-or-o_n-1
+                (\ (e-or-o_n-1)
+                    (mot-even-or-odd
+                        (add1 n-1)))
+                (\ (e_n-1)
+                    (right
+                        (add1-even->odd
+                            n-1 e_n-1)))
+                (\ (o_n-1)
+                    (left
+                        (add1-odd->even
+                            n-1 o_n-1)))))))
+
+(define even-or-odd
+    (\ (n)
+        (ind-Nat n
+            mot-even-or-odd
+            (left zero-is-even)
+            step-even-or-odd)))
+
+### 14. There's Safety in Numbers
+
+! The Law of Trivial
+Trivial is a type
+
+! The Law of sole
+sole is a Trivial
+
+! The Commandment of sole
+If e is a
+    Trivial
+, then e is the same as
+    sole
+
+(claim Maybe
+    (-> U
+        U))
+(define Maybe
+    (\ (X)
+        (Either X Trivial)))
+
+(claim nothing
+    (PI ((E U))
+        (Maybe E)))
+(define nothing
+    (\ (E)
+        (right sole)))
+
+(claim just
+    (PI ((E U))
+        (-> E
+            (Maybe E))))
+(define just
+    (\ (E e)
+        (left e)))
+
+(claim maybe-head
+    (PI ((E U))
+        (-> (List E)
+            (Maybe E))))
+(define maybe-head
+    (\ (E es)
+        (rec-List es
+            (nothing E)
+            (\ (hd tl head_tl)
+                (just E hd)))))
+
+(claim maybe-tail
+    (PI ((E U))
+        (-> (List E)
+            (Maybe E))))
+(define maybe-tail
+    (\ (E es)
+        (rec-List es
+            (nothing E)
+            (\ (hd tl head_tl)
+                (just (List E) tl)))))
+
+(claim list-ref
+    (PI ((E U))
+        (-> Nat (List E)
+            (Maybe E))))
+
+(claim step-list-ref
+    (PI ((E U))
+        (-> Nat
+            (-> (List E)
+                (Maybe E))
+            (-> (List E)
+                (Maybe E)))))
+(define step-list-ref
+    (\ (E)
+        (\ (n-1 list-ref_n-1)
+            (\ (es)
+                (ind-Either (maybe-tail E es)
+                    (\ (maybe_tl)
+                        (Maybe E))
+                    (\ (tl)
+                        (list-ref_n-1 tl))
+                    (\ (empty)
+                        (nothing E)))))))
+
+(define list-ref
+    (\ (E n)
+        (rec-Nat n
+            (maybe-Head E)
+            (step-list-ref E))))
+
+To define a vec-ref, a new type is needed:
+    one, that represents only numbers, smaller than the lenght of the Vec
+    (Fin l)
+
+! The Law of Absurd (sometimes called an empty type)
+Absurd is a type
+
+(claim similarly-absurd
+    (-> Absurd
+        Absurd))
+(define similarly-absurd
+    (\ (x)
+        x))
+
+! The Commandment of Absurdities
+Every expression of type Absurd is neutral, and all of them are the same
+
+Even though there are no c-tors for Absurd, there is an eliminator
+ind-Absurd has neigher base, nor step, because there are no Absurd values
+
+! The Law of ind-Absurd
+The expression
+    (ind-Absurd target
+        mot)
+is a mot if target is an Absurd and mot is a U.
+
+Note: it is used to express that some expressions can never be evaluated,
+or in other words, that the expression is permanently neutral
+
+Any neutral expressions cannot yet be evaluated because the values
+of their variables are not yet known.
+
+For each Nat n, (Fin n) should be a type with n values
+
+(claim Fin
+    (-> Nat
+        U))
+
+(Fin zero) should have zero values, so Absurd is appropriate
+
+(define Fin
+    (\ (n)
+        (iter-Nat n
+            Absurd
+            Maybe)))
+
+Note: if a type X has n values, then (Maybe X) has (add1 n) values
+
+(claim fzero
+    (PI ((n Nat))
+        (Fin (add1 n))))
+
+Note: it is the same as
+(claim fzero
+    (PI ((n Nat))
+        (Maybe (Fin n))))
+
+(define fzero
+    (\ (n)
+        (nothing (Fin n))))
+
+(claim fadd1
+    (PI ((n Nat))
+        (-> (Fin n)
+            (Fin (add1 n)))))
+(define fadd1
+    (\ (n)
+        (\ (i-1)
+            (just (Fin n) i-1))))
+
+(claim vec-ref
+    (PI ((E U)
+         (l Nat))
+        (-> (Fin l) (Vec E l)
+            E)))
+
+(claim base-vec-rev
+    (PI ((E U))
+        (-> (Fin zero) (Vec E zero)
+            E)))
+
+Note: The value of (Fin zero) is Absurd
+Because there are no Absurd values, the base can never be applied to
+it's second argument's value
+
+(define base-vec-rev
+    (\ (E)
+        (\ (no-value-ever es)
+            (ind-Absurd no-value-ever
+                E))))
+
+(claim step-vec-rev
+    (PI ((E U)
+         (l-1 Nat))
+        (-> (-> (Fin l-1) 
+                (Vec E l-1)
+                E)
+            (-> (Fin (add1 l-1))
+                (Vec E (add1 l-1))
+                E))))
+(define step-vec-rev
+    (\ (E l-1)
+        (\ (vec-ref_l-1)
+            (\ i es)
+                (ind-Either i
+                    (\ (i)
+                        E)
+                    (\ (i-1)
+                        (vec-ref_l-1
+                            i-1 (tail es)))
+                    (\ (triv)
+                        (head es))))))
+
+(define vec-ref
+    (\ (E l)
+        (ind-Nat l
+            (\ (k)
+                (-> (Fin k) (Vec E k)
+                    E))
+            (base-vec-ref E)
+            (step-vec-ref E))))
+
+### 15. Imagine That ...
+
+(claim =consequence
+    (-> Nat Nat
+        U))
+
+There is only one Trivial value
+every expression with type Trivial is the same as sole
+
+(define =consequence
+    (\ (n j)
+        (which-Nat n
+            (which-Nat j
+                Trivial
+                (\ (j-1)
+                    Absurd))
+            (\ (n-1)
+                (which-Nat j
+                    Absurd
+                    (\ (j-1)
+                        (= Nat n-1 j-1)))))))
+
+(claim =consequence-same
+    (PI ((n Nat))
+        (=consequence n n)))
+
+(define =consequence-same
+    (\ (n)
+        (ind-Nat n
+            (\ (k)
+                (=consequence k k))
+            sole
+            (\ (n-1 =consequence_n-1)
+               (same n-1)))))
+
+! Imagine That
+Using types, it is possible to assume things that may or may not be true,
+and then see what can be concluded from these assumptions
+
+Sameness is not a type, it is a judgement
+
+! Sameness versus Equality
+Either two expressions are the same, or they are not.
+It is impossible to prove that they are the same because
+sameness is a judgement, not a type, and a proof
+is an expression with a specific type
+
+Here is a statement as a type that explains
+how a proof that n and j are equal
+can be used
+
+(claim use-Nat=
+    (PI ((n Nat)
+         (j Nat))
+        (-> (= Nat n j)
+            (=consequence n j))))
+
+(define use-Nat=
+    (\ (n j)
+        (\ (n=j)
+            (replace n=j
+                (\ (k)
+                    (=consequence n k))
+                (=consequence-same n)))))
+
+Remember that:
+    (=consequence-same n)
+is an
+    (=consequence n n)
+
+(claim zero-not-add1
+    (PI ((n Nat))
+        (-> (= Nat zero (add1 a))
+            Absurd)))
+(claim zero-not-add1
+    (\ (n)
+        (use-Nat= zero (add1 n))))
+
+(claim donub-absurdity
+    (-> (= Nat 0 6)
+        (= Atom 'powdered 'glazed)))
+(define donub-absurdity
+    (\ (zero=six)
+        (ind-Absurd
+            (zero-not-add1 5 zero=six)
+            (= Atom 'powdered 'glazed))))
+
+(claim sub1=
+    (PI ((n Nat)
+         (j Nat))
+        (-> (= Nat (add1 n) (add1 j))
+            (= Nat n j))))
+(define sub1=
+    (\ (n j)
+        (use-Nat= (add1 n) (add1 j))))
+
+(claim one-not-six
+    (-> (= Nat 1 6)
+        Absurd))
+(define one-not-six
+    (\ (one=six)
+        (zero-not-add1 4)
+            (sub1= 0 5 one=six)))
+
+(claim front
+    (PI ((E U)
+         (n Nat))
+        (-> (Vec E (add1 n)
+            E))))
+
+(claim mot-front
+    (PI ((E U)
+         (k Nat))
+        (-> (Vec E k)
+            U)))
+(define mot-front
+    (\ (E)
+        (\ (k es)
+            (PI ((j Nat))
+                (-> (= Nat k (add1 j))
+                    E)))))
+
+Note: The argument k is a target of ind-Vec.
+    Both the base and the step now have two extra arguments:
+    a Nat called j and a proof that k is (add1 j).
+
+    In the base, k is zero, thus there is no such j
+    If there where such a j, then zero would equal (add1 j).
+    But zero-not-add1 proves that this is impossible.
+
+(claim step-front
+    (PI ((E U)
+         (l Nat)
+         (e Nat)
+         (es (Vec E l)))
+        (-> (mot-front E
+                l
+                es)
+            (mot-front E
+                (add1 l)
+                (vec:: e es)))))
+(define step-front
+    (\ (E l e es)
+        (\ (front_es)
+            (\ (j eq)
+                e))))
+
+(define front
+    (\ (E l ls)
+        ((ind-Vec (add1 l) es
+            (mot-front E)
+            (\ (j eq)
+                (ind-Absurd
+                    (zero-not-add1 j eq)
+                        E))
+            (step-front E))
+        l (same (add1 l)))))
+
+Notes: "X is false" is written
+    (-> X
+        Absurd)
+
+??????
+(claim pem
+    (PI ((X U))
+        (Either X
+            (-> X
+                Absurd))))
+??????
+
+Evidence for pem would be a function, that determines the truth
+or falsify of every statement that can be written as a type
+! This would mean that there are no unsolved problems !
+
+(claim pem-not-false
+    (PI ((X U))
+        (-> (-> (Either X
+            (-> X
+                Absurd))
+            Absurd)
+        Absurd)))
+
+(define pem-not-false
+    (\ (X)
+        (\ (pem-false)
+            (pem-false
+                (right
+                    (\ (x)
+                        (pem-false
+                            (left x))))))))
+
+Note: There are, however, some statements
+that are eighter true or false.
+These statements are called decideable
+because there is a function that decides
+whether they are true or false
+
+(claim Dec
+    (-> U
+        U))
+(define Dec
+    (\ (X)
+        (Either X
+            (-> X
+                Absurd))))
+
+Note: this looks like a pem.
+Another way of to phrase pem is
+    "All statements are decideable"
+
+?????
+(claim Pem
+    (PI ((X U))
+        (Dec X)))
+
+
+### 16. If It's All the Same to You
+
+(claim zero?
+    (PI ((j Nat))
+        (Dec
+            (= Nat zero j))))
+
+Note: For every Nat j it is decideable whether j is zero
+    (Dec
+        (= Nat zero j))
+and
+    (Either
+        (= Nat zero n)
+        (-> (= Nat zero n)
+            Absurd))
+are the same types
+
+(define zero?
+    (\ (j)
+        (ind-Nat j
+            (\ (k)
+                (Dec
+                    (= Nat zero k)))
+            (left
+                (same zero))
+            (\ (j-1 zero?_n-1)
+                (right
+                    (zero-not-add1 j-1))))))
+
+In fact, for every 2 natural numbers n and j,
+it is decidable whether n equal j
+
+(claim nat=?
+    (PI ((n Nat)
+         (j Nat))
+        (Dec
+            (= Nat n j))))
+
+(claim mot-nat=?
+    (-> Nat
+        U))
+(define mot-nat=?
+    (\ (k)
+        (PI ((j Nat))
+            (Dec
+                (= Nat k j)))))
+
+The type of base is
+    (PI ((j Nat))
+        (Dec
+            (= Nat zero j)))
+
+(claim add1-not-zero
+    (PI ((n Nat))
+        (-> (= Nat (add1 n) zero)
+            Absurd)))
+(define add1-not-zero
+    (\ (n)
+        (use-Nat= (add1 n) zero)))
+
+(claim dec-add1=
+    (PI ((n-1 Nat)
+         (j-1 Nat))
+        (-> (Dec
+                (= Nat n-1 j-1))
+            (Dec
+                (= Nat (add1 n-1) (add1 j-1))))))
+(define dec-add1=
+    (\ (n-1 j-1 eq-or-not)
+        (ind-Either
+            (\ (target)
+                (Dec
+                    (= Nat (add1 n-1) (add1 j-1))))
+            (\ (yes)
+                (left
+                    (cong yes (+1))))
+            (\ (no)
+                (right
+                    (\ (n=j)
+                        (no
+                            (sub1= n-1 j-1
+                                n=j))))))))
+
+(claim step-nat=?
+    (PI ((n-1 Nat))
+        (-> (mot-nat=? n-1)
+            (mot-nat=? (add1 n-1)))))
+(define step-nat=?
+    (\ (n-1 nat=?_n-1 j)
+        (ind-Nat j
+            (\ (k)
+                (Dec
+                    (= Nat (add1 n-1) k)))
+            (right
+                (add1-not-zero n-1))
+            (\ (j-1 nat=?_n-1)
+                (dec-add1= n-1 j-1
+                    (nat=?_n-1 j-1))))))
+
+(define nat=?
+    (\ (n j)
+        ((ind-Nat n
+            mot-nat=?
+            zero?
+            step-nat=?)
+        j)))
+
+
+### The Way Forward ###
+

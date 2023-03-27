@@ -1,0 +1,68 @@
+http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html
+http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html
+http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html
+
+12c R2 (12.2.0.1.0) 
+http://www.oracle.com/technetwork/database/enterprise-edition/downloads/oracle12c-linux-12201-3608234.html
+
+https://github.com/oracle/docker-images
+http://ajitabhpandey.info/2018/02/running-oracle-11g-release-2-11-2-0-2-xe-in-docker-container/
+
+https://github.com/oracle/docker-images/tree/master/OracleDatabase
+https://github.com/oracle/docker-images/tree/master/OracleDatabase/dockerfiles
+https://github.com/oracle/docker-images/blob/master/OracleDatabase/dockerfiles/buildDockerImage.sh
+
+https://sqlmaria.com/2017/04/27/oracle-database-12c-now-available-on-docker/
+
+
+
+
+11.2.0.2
+https://www.youtube.com/watch?v=9vc7qe4kUnU
+
+cp oracle-xe-11.2.0-1.0.x86_64.rpm.zip 11.2.0.2/
+./buildDockerImage.sh -v 11.2.0.2 -x
+docker run --name oracle --shm-size=1g -p 1521:1521 -p 8080:8080 -e ORACLE_PWD=oracle -v /data/wrk/clb/ora11xe:/u01/app/oracle/oradata oracle/database:11.2.0.2-xe
+
+-e ORACLE_PWD=Passw0rd123
+
+docker stop oracle
+docker start oracle
+docker exec -it --user oracle oracle bash
+bash-4.2$ sqlplus / as sysdba
+
+buildDockerImage.sh
+    -v [11.2.0.2|12.1.0.2|12.2.0.1]
+    -e: creates image based on Enterprise-ed
+    -s: creates image based on Standard-ed 2
+    -x: creates image based on Express-ed
+    -i: ignores the MD5 checksums
+    -o: passes on Docker build option
+
+->
+EDITION="ee|se2|xe"
+DOCKEROPS="--shm-size=1G $DOCKEROPS"; # ???
+IMAVE_NAME="oracle/database:$VERSION-EDITION"
+
+docker build --force-rm=true --no-cache=true $DOCKEROPS $PROXY_SETTINGS -t $IMAGE_NAME -f Dockerfile.$EDITION . || {
+  echo ""
+  echo "ERROR: Oracle Database Docker Image was NOT successfully created."
+  echo "ERROR: Check the output and correct any reported problems with the docker build operation."
+  exit 1
+}
+
+
+./buildDockerImage.sh -v 12.2.0.1 -s
+# remove HEALTHCHECK line from Dockerfile
+# ? --start-period
+
+
+oracle container registry
+https://technology.amis.nl/2017/12/30/oracle-database-in-a-docker-container-from-oracle-container-registry/
+https://technology.amis.nl/2017/11/17/quick-introduction-to-oracle-container-registry-running-one-of-oracles-prebaked-images/
+https://technology.amis.nl/2017/11/18/run-oracle-database-in-docker-using-prebaked-image-from-oracle-container-registry-a-two-minute-guide/
+
+docker login -u <usr> -p <pwd> container-registry.oracle.com  
+
+misc
+https://dzone.com/articles/creating-an-oracle-database-docker-image

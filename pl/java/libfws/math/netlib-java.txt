@@ -1,0 +1,90 @@
+netlib-java
+https://github.com/fommil/netlib-java/
+https://github.com/fommil/netlib-java/blob/master/native_system/xbuilds/linux-x86_64/pom.xml
+
+http://fommil.github.io/scalax14/#/
+http://fommil.github.io/scalax14/#/9/6
+Java_com_github_fommil_netlib_NativeSystemBLAS_dgemm
+https://github.com/fommil/scalax-linear-algebra
+https://github.com/fommil/scalax-linear-algebra/blob/master/scalax-linear-algebra.org
+
+https://libraries.io/maven/com.github.fommil.netlib:netlib-native_system-linux-x86_64
+
+Customisation
+
+A specific implementation may be forced like so:
+
+    -Dcom.github.fommil.netlib.BLAS=com.github.fommil.netlib.NativeRefBLAS
+    -Dcom.github.fommil.netlib.LAPACK=com.github.fommil.netlib.NativeRefLAPACK
+    -Dcom.github.fommil.netlib.ARPACK=com.github.fommil.netlib.NativeRefARPACK
+
+And a specific (non-standard) native binary may be forced like so:
+
+    -Dcom.github.fommil.netlib.NativeSystemBLAS.natives=netlib-native_system-myos-myarch.so
+
+To turn off natives altogether, add these to the JVM flags:
+
+    -Dcom.github.fommil.netlib.BLAS=com.github.fommil.netlib.F2jBLAS
+    -Dcom.github.fommil.netlib.LAPACK=com.github.fommil.netlib.F2jLAPACK
+    -Dcom.github.fommil.netlib.ARPACK=com.github.fommil.netlib.F2jARPACK
+
+nd4j-java\src\main\java\org\nd4j\linalg\java\JavaBlasWrapper.java
+
+public class JavaBlasWrapper extends BaseBlasWrapper {
+    static {
+        System.setProperty("com.github.fommil.netlib.BLAS","com.github.fommil.netlib.F2jBLAS");
+        System.setProperty("com.github.fommil.netlib.LAPACK","com.github.fommil.netlib.F2jLAPACK");
+        System.setProperty("com.github.fommil.netlib.ARPACK","com.github.fommil.netlib.F2jARPACK");
+
+    }
+}
+
+
+fftw
+http://www.fftw.org/fftw-3.3.4.tar.gz
+
+
+building:
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO]
+[INFO] netlib for Java
+[INFO] core
+[INFO] netlib-java
+[INFO] native_ref
+[INFO] native_ref-java
+[INFO] netlib-native_ref-osx-x86_64
+[INFO] netlib-native_ref-win-i686
+[INFO] netlib-native_ref-win-x86_64
+[INFO] native_system
+[INFO] native_system-java
+[INFO] netlib-native_system-osx-x86_64
+[INFO] netlib-native_system-win-i686
+[INFO] netlib-native_system-win-x86_64
+
+https://github.com/fommil/netlib-java/issues/74
+
+Downloading: https://oss.sonatype.org/content/repositories/releases/net/sourceforge/f2j/arpack_combined_all/0.1/arpack_combined_all-0.1.jar
+Downloading: https://oss.sonatype.org/content/repositories/releases/net/sourceforge/f2j/arpack_combined_all/0.1/arpack_combined_all-0.1-javadoc.jar
+
+find . -type f -name "pom.xml" -exec sed -i 's/1.2-SNAPSHOT/1.1/g' {} \;
+
+/usr/local/netlib/netlib-java/native_ref/xbuilds/linux-x86_64
+
+
+generator:
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.4</version>
+            <executions>
+                <execution>
+                    <id>sign-artifacts</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>sign</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>

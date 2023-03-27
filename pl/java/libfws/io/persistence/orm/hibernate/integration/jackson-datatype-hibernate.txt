@@ -1,0 +1,4 @@
+https://github.com/FasterXML/jackson-datatype-hibernate
+https://github.com/FasterXML/jackson-datatype-hibernate/wiki
+
+      com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.12.5

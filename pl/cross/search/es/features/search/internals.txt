@@ -1,0 +1,37 @@
+https://www.found.no/foundation/optimizing-elasticsearch-searches/
+
+http://grokbase.com/t/gg/elasticsearch/149f4mjysv/write-a-plugin-to-query-and-aggregate-results-from-multiple-shards
+
+See the TransportSearchAction, in the doExecute() method, the SearchRequest is dispatched to several transport actions of the search types.
+
+Assuming you write your own custom action: the shard level request is ShardSearchRequest.
+It is easier to add information to SearchRequest, pass it down, and extract relevant parts from the SearchRequest later.
+See ShardSearchRequest constructor for repacking the parameters and delegate it to a shard.
+
+
+In the TransportSearchAction, the doExecute() delegates to one of the six different search types.
+It is inside the execute methods of those individual six actions, that they will look at the shards.
+Correct me if I am wrong. Even if I modify the SearchRequest in this case, I will not be able to identify the shardId that is operating on this request object before doing the modification.
+
+Which class/module should I use to write my custom action?
+If I write a seventh SearchAction type extending TransportSearchTypeAction, then in the executeQuery()/executeFetch() first/second phases,
+I will probably get a hold of the shardsearchrequest object.
+Are you saying that I should modify it there? Please let me know.
+My concern is that if I write a new searchaction custom plugin like this,
+I will not be able to replicate ES functionality of the existing six search types and I will also be referring to some Internal classes of ES.
+Will that be okay?
+
+Maybe I am missing something.
+But I need to modify the request object with the insertion of the shardID identifier when it is known.
+The reason I need to insert the shardID is so that the Filter Parser Plugin can then take a look at the SearchRequest (or ShardSearchRequest at that time)
+and do something specific for that shard.
+
+
+!SearchRequest/ActionRequest - listenerThreaded (execute listener code on a single thread)
+
+
+
+
+
+TransportSearchAction (doExecute)
+SearchRequest, ShardSearchRequest

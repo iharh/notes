@@ -1,0 +1,5 @@
+svn co --config-option servers:global:http-timeout=7200 ...
+
+/etc/subversion/config
+[auth]
+# ssl-client-cert-file-prompt = no

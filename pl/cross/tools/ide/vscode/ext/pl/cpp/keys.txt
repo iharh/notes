@@ -1,0 +1,17 @@
+F5
+    start debug/continue
+F9
+    toggle breakpoint
+F10
+    step over
+F11
+    step into
+S-F11
+    step out
+
+C-` (C-grave)
+    open terminal
+C-S-P
+    tasks (.vscode/tasks.json)
+C-S-B
+    compile (create .vscode/tasks.json)

@@ -1,0 +1,35 @@
+1. bracket
+
+-- | When you want to acquire a resource, do some work with it, and
+-- then release the resource, it is a good idea to use 'bracket',
+-- because 'bracket' will install the necessary exception handler to
+-- release the resource in the event that an exception is raised
+-- during the computation.  If an exception is raised, then 'bracket' will
+-- re-raise the exception (after performing the release).
+--
+-- A common example is opening a file:
+--
+-- > bracket
+-- >   (openFile "filename" ReadMode)
+-- >   (hClose)
+-- >   (\fileHandle -> do { ... })
+--
+-- The arguments to 'bracket' are in this order so that we can partially apply
+-- it, e.g.:
+--
+-- > withFile name mode = bracket (openFile name mode) hClose
+--
+bracket
+        :: IO a         -- ^ computation to run first (\"acquire resource\")
+        -> (a -> IO b)  -- ^ computation to run last (\"release resource\")
+        -> (a -> IO c)  -- ^ computation to run in-between
+        -> IO c         -- returns the value from the in-between computation
+bracket before after thing =
+  mask $ \restore -> do
+    a <- before
+    r <- restore (thing a) `onException` after a
+    _ <- after a
+    return r
+
+
+

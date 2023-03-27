@@ -1,0 +1,9 @@
+https://docs.spring.io/spring-integration/docs/current/reference/html/
+https://docs.spring.io/spring-integration/docs/current/reference/html/index.html
+https://docs.spring.io/spring-integration/docs/current/reference/html/index-single.html
+https://docs.spring.io/spring-integration/docs/current/reference/pdf/spring-integration-reference.pdf
+
+@MessagingGateway
+@Gateway
+
+org.springframework.integration.dsl.IntegrationFlow;

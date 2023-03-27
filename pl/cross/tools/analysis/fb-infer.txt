@@ -1,0 +1,54 @@
+http://fbinfer.com/
+https://github.com/facebook/infer
+
+http://fbinfer.com/docs/getting-started.html
+
+https://github.com/facebook/infer/releases
+https://github.com/facebook/infer/blob/master/INSTALL.md
+
+http://fbinfer.com/docs/linters.html
+http://fbinfer.com/docs/linters-bug-types.html
+http://fbinfer.com/docs/limitations.html
+
+http://fbinfer.com/blog/
+
+aur/infer
+aur/infer-bin
+    https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=infer-bin
+
+VERSION=0.17.0; curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" | sudo tar -C /opt -xJ
+# && ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
+
+src
+https://github.com/facebook/infer/blob/master/infer/src/base/Config.ml
+
+https://github.com/facebook/infer/tree/master/docker
+https://github.com/facebook/infer/blob/master/docker/master/Dockerfile
+
+!!!
+https://fbinfer.com/docs/analyzing-apps-or-projects.html
+    ./gradlew clean && infer run -- ./gradlew build
+
+man
+https://github.com/facebook/infer/tree/master/infer/man/man1
+https://github.com/facebook/infer/blob/master/infer/man/man1/infer-capture.txt
+
+capture
+https://github.com/facebook/infer/tree/master/infer/lib/python/inferlib/capture
+https://github.com/facebook/infer/blob/master/infer/lib/python/inferlib/capture/gradle.py
+
+articles
+2019
+https://towardsdatascience.com/machine-learning-for-detecting-code-bugs-a79f37f144b7
+    https://habr.com/ru/company/skillbox/blog/440536/
+2017
+https://code.facebook.com/posts/277643589367408/al-a-new-declarative-language-for-detecting-bugs-with-infer
+https://www.infoq.com/news/2017/05/facebook-al-infer-static-checker
+2015
+https://www.infoq.com/news/2015/06/facebook-infer
+
+samples
+https://github.com/facebook/infer/tree/master/examples
+    infer -- javac Hello.java
+    infer -- gcc -c hello.c
+    infer -- ./gradlew build

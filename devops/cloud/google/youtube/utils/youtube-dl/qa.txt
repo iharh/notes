@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/18953499/youtube-api-to-fetch-all-videos-on-a-channel
+https://stackoverflow.com/questions/56483045/list-all-videos-from-all-the-playlists-on-a-youtube-channel-without-downloading
+    youtube-dl --ignore-errors --write-info-json --skip-download -o "./%(playlist)s/%(title)s.%(ext)s" https://www.youtube.com/channel/UCvrLvII5oxSWEMEkszrxXEA/playlists
+    up to 30 videos

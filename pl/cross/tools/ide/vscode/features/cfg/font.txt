@@ -1,0 +1,41 @@
+https://fonts.google.com/?selection.family=Source+Code+Pro
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontSize": 18
+    "editor.fontFamily": "SourceCodePro-Medium",
+}
+
+{
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true,
+}
+
+Change Background Color
+
+I use the dark theme (View > Theme > Dark theme).
+But the background is semi transparent which I find hugely distracting.
+To change the background, locate the file
+    native.main.css
+within VS Code distribution.
+
+Open the file. Change the background to full black like this:
+	
+.monaco-editor.vs-dark .zone-widget .monaco-editor {
+    color: #BBB;
+    background: #000000;
+}
+
+
+ligature
+https://github.com/Microsoft/vscode/issues/192
+https://github.com/Microsoft/vscode/pull/1510
+https://github.com/adobe-fonts/source-code-pro/issues/96
+https://github.com/siegebell/vsc-prettify-symbols-mode
+    Prettify Symbols Mode
+
+blury
+https://github.com/Microsoft/vscode/issues/1896
+
+text-sharp:
+https://vlasovstudio.com/text-sharp/

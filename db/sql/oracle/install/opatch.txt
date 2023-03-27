@@ -1,0 +1,4 @@
+https://docs.oracle.com/cd/E11882_01/em.112/e12255/oui7_opatch.htm#CEGCJGJD
+opatch prereq CheckConflictAgainstOHWithDetail -phBaseDir ./9654983
+opatch apply
+https://www.youtube.com/watch?v=3oGt0vzwcH4

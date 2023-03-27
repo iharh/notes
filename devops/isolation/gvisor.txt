@@ -1,0 +1,13 @@
+https://github.com/google/gvisor
+
+articles
+2018
+https://cloudplatform.googleblog.com/2018/05/Open-sourcing-gVisor-a-sandboxed-container-runtime.html
+https://www.cbronline.com/opinion/need-to-know-about-containers
+
+presentations
+2018
+gVisor Demo - a new open source sandboxed container runtime
+https://www.youtube.com/watch?v=TJJT8wc0T_c
+Container Isolation at Scale (Introducing gVisor) - Dawn Chen & Zhengyu He, Google
+https://www.youtube.com/watch?v=pWyJahTWa4I

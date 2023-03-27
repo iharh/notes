@@ -1,0 +1,25 @@
+2019
+A new look at TMP - Ivan Cukic - Meeting C++ 2018
+    https://meetingcpp.com/mcpp/slides/2018/tmp.pdf
+    https://www.youtube.com/watch?v=Q17nCnXGRQs
+
+Joren Heit - TMPP: Template Metaprogramming Programming
+http://www.codeproject.com/Articles/650289/TMPP-Template-Metaprogramming-Programming
+
+Josh Walker - make your compiler work for you
+http://accu.org/index.php/journals/424
+
+Golodetz - Functional Programming Using C++ Templates
+http://accu.org/index.php/journals/1422
+http://accu.org/index.php/journals/1616
+  pHaskell
+
+Aleksey Gurtovoy and David Abrahams. The boost c++ metaprogramming library.
+http://www.boost.org/libs/mpl/doc/paper/html/index.html
+
+mpllibs (Sinkovics)
+http://abel.web.elte.hu/mpllibs/metamonad/manual.html
+
+FP With Cpp Template Metaprograms:
+Implementing Monads for Cpp Template Metaprograms:
+http://aszt.inf.elte.hu/~gsd/s/cikkek/abel/metamonad.pdf

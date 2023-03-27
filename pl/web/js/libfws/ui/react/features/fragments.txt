@@ -1,0 +1,16 @@
+2019
+https://blog.bitsrc.io/understanding-fragments-in-react-a1b6e534b01a
+2018
+https://css-tricks.com/render-children-in-react-using-fragment-or-array-components/
+2017
+https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html
+
+render() {
+    return (
+        <> // or <React.Fragment>
+            <p>I am</p>
+            <p>returning a list</p>
+            <p>of things!</p>
+        </>
+    );
+}

@@ -1,0 +1,97 @@
+http://d3tetris.herokuapp.com/
+http://d3tetris.herokuapp.com/tetris.js
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="text/javascript" src="/d3.min.js"></script>
+    <script type="text/javascript" src="/tetris.js"></script>
+  </head>
+  <body>
+    <body>
+      <div class="container">
+        <div class="svg-container">
+        	<div id="modal">
+        		<a href="#" id="new-game">New Game</a>
+        	</div>
+
+        	<div id="pause">
+        		<p>Paused</p>
+
+        		<table>
+        			<tr>
+        				<td class="hotkey">Left arrow</td>
+        				<td class="description"> - move left</td>
+        			</tr>
+
+        			<tr>
+        				<td class="hotkey">Right arrow</td>
+        				<td class="description"> - move right</td>
+        			</tr>
+
+        			<tr>
+        				<td class="hotkey">Down arrow</td>
+        				<td class="description"> - move down</td>
+        			</tr>
+
+        			<tr>
+        				<td class="hotkey">Up arrow</td>
+        				<td class="description"> - rotate</td>
+        			</tr>
+
+        			<tr>
+        				<td class="hotkey">Space</td>
+        				<td class="description"> - drop</td>
+        			</tr>
+
+        			<tr>
+        				<td class="hotkey">p</td>
+        				<td class="description"> - pause/unpause</td>
+        			</tr>
+
+        		</table>
+        	</div>
+        </div>
+
+        <aside>
+        	<div class="next">
+        	</div>
+        	<div class="score">
+        		<table>
+        			<tr><td style="width: 50px">Level:</td>
+        				<td class="num" id="level">1</td></tr>
+        			<tr><td>Lines:</td>
+        				<td class="num" id="lines">0</td></tr>
+        			<tr><td>Time:</td>
+        				<td class="num" id="time">0</td></tr>
+        		</table>
+        	</div>
+
+        	<div class="pause">
+        		<input type="checkbox" onclick="toggleGrid()"></input>Grid</br>
+        		<span class="hotkey">p</span> - pause</div>
+        </aside>
+
+        <footer>
+        	by
+          <a href="http://www.linkedin.com/pub/nikolay-smirnov/22/ba7/5a1" target="_blank">
+            Nikolay Smirnov
+          </a>
+        </footer>
+
+      </div>
+
+      <script>
+        tetris();
+
+        document.querySelector("#new-game").onclick = function(e) {
+          e.preventDefault();
+          newGame();
+        };
+      </script>
+    </body>
+  </body>
+</html>

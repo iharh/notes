@@ -1,0 +1,29 @@
+https://docs.chef.io/debug.html
+
+clients:
+/var/chef/cache/chef-stacktrace.out
+
+/tmp/vagrant-chef/client.rb
+
+
+knife bootstrap...
+Creating new client for epbygomw0024t2
+Creating new node for epbygomw0024t2
+Connecting to 192.168.235.50
+192.168.235.50 -----> Installing Chef Omnibus (-v 12)
+192.168.235.50 downloading https://omnitruck-direct.chef.io/chef/install.sh
+192.168.235.50   to file /tmp/install.sh.18364/install.sh
+192.168.235.50 trying curl...
+192.168.235.50 el 7 x86_64
+192.168.235.50 Getting information for chef stable 12 for el...
+192.168.235.50 downloading https://omnitruck-direct.chef.io/stable/chef/metadata?v=12&p=el&pv=7&m=x86_64
+192.168.235.50   to file /tmp/install.sh.18370/metadata.txt
+192.168.235.50 trying curl...
+192.168.235.50 sha1	92d14fa522ff14b1e22622312c8271db3cc0d512
+192.168.235.50 sha256	ce1f216242f26d7274c108a9cb9d8add7095727e039bac968de9291f56a90c25
+192.168.235.50 url	https://packages.chef.io/stable/el/7/chef-12.12.15-1.el7.x86_64.rpm
+192.168.235.50 version	12.12.15
+192.168.235.50 downloaded metadata file looks valid...
+192.168.235.50 downloading https://packages.chef.io/stable/el/7/chef-12.12.15-1.el7.x86_64.rpm
+192.168.235.50   to file /tmp/install.sh.18370/chef-12.12.15-1.el7.x86_64.rpm
+

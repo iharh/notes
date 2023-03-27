@@ -1,0 +1,11 @@
+type -a <func-name>
+command -v <func-name>
+
+bash -ixlc : 2>&1 | grep <func-name>
+zsh -ixc : 2>&1 | grep <func-name>
+
+functions
+alias
+
+qa
+https://unix.stackexchange.com/questions/322459/is-it-possible-to-check-where-an-alias-was-defined

@@ -1,0 +1,64 @@
+https://jusrin.dev/why-nix-shorts-talk/#5
+
+# Your First Derivation
+
+A Derivation in Nix is a definition of a build, which takes some inputs and produces an output.
+
+The inputs are almost always in a src attribute, and outputs are almost always some /nix/store/some-hash-pkg-name path.
+
+# Basic derivation example
+
+Start with some inputs you want to build with.
+
+$ mkdir src
+$ echo hello > src/hi.txt
+
+$ ls src
+hi.txt
+
+Then prepare a default.nix, which will be used by default when we later run nix-build.
+
+# allow our nixpkgs import to be overridden if desired
+{ pkgs ? import <nixpkgs> {} }:
+
+# let's write an actual basic derivation
+# this uses the standard nixpkgs mkDerivation function
+pkgs.stdenv.mkDerivation {
+
+  # name of our derivation
+  name = "basic-derivation";
+
+  # sources that will be used for our derivation.
+  src = ./src;
+
+  # see https://nixos.org/nixpkgs/manual/#ssec-install-phase
+  # $src is defined as the location of our `src` attribute above
+  installPhase = ''
+    # $out is an automatically generated filepath by nix,
+    # but it's up to you to make it what you need
+    ln -s $src $out
+  '';
+}
+
+# Building our derivation
+
+With our derivation defined, we can build this derivation using nix-build.
+
+$ nix-build # or nix-build default.nix
+# some build logs
+/nix/store/some-hash-basic-derivation
+
+nix-build will create a symlink to the output by default in ./result.
+
+$ readlink result
+/nix/store/kgjcq77210jkjppc8628vcl27i6f22k8-basic-derivation
+
+$ readlink -f result
+/nix/store/54992nknd3av7j4p7fmsh96ja5hp1vli-src
+
+$ ls result
+hi.txt
+
+$ cat result/hi.txt
+hello
+

@@ -1,0 +1,6 @@
+configure
+    https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+
+credentials
+2014
+https://aws.amazon.com/blogs/security/a-new-and-standardized-way-to-manage-credentials-in-the-aws-sdks/

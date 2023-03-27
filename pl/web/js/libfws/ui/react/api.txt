@@ -1,0 +1,28 @@
+import React from 'react';
+
+createFactory
+createElement
+
+React.DOM
+    .li(...)
+    .ul(...)
+
+import ReactDOMServer from 'react-dom/server';
+
+ReactDOMServer.renderToString(ReactElement);
+ReactDOMServer.renderToStaticMarkup(ReactElement);
+
+
+types
+ReactNode
+    ReactElement
+        virtual representation of a DOMElement
+    ReactText
+
+ReactFragment
+    array of ReactNode-s
+
+2019
+https://habr.com/ru/post/459380/
+https://habr.com/ru/post/459378/
+https://habr.com/ru/post/459272/

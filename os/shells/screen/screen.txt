@@ -1,0 +1,35 @@
+https://wiki.archlinux.org/index.php/GNU_Screen
+http://hlabs.org/development/screen/
+http://www.xgu.ru/wiki/Man:screen
+https://nathan.chantrell.net/linux/an-introduction-to-screen/
+http://www.bangmoney.org/posts/2004-03-24-screen.html
+https://www.linux.com/learn/taking-command-terminal-gnu-screen
+
+http://overapi.com/linux
+http://aperiodic.net/screen/quick_reference
+
+^A (C-A)
+    ?
+        display help
+    d
+        deattach
+    a
+        send C-A to the current window
+    c
+        create a new instance of terminal
+    n/p
+        go to the next/previous instance of terminal
+    0..9
+        go to the 0..9 instance of terminal
+    "
+        terminal/window list
+    :sessionname session_name
+        rename current session
+
+screen
+    -S [session_name]
+        create a named session
+    -r/-x [session-name]
+        reattach/resume a screen session
+    -list
+        list sessions

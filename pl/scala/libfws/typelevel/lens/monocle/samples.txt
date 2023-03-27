@@ -1,0 +1,54 @@
+https://julien-truffaut.github.io/jsonpath.pres
+https://github.com/julien-truffaut/jsonpath.pres
+
+type Getter[A, B] = A => B
+
+case class Street(name: String, ...)
+def nameGetter = (s: String) => s.name
+
+type Setter[A, B] = A => B => A
+// A - type of obj, B - type of value to be changed
+
+def nameSetter = (s: Street) => (newName: String) => s.copy(name = newName)
+
+// usage:
+val street = Street("Prospect ...", ...)
+val streetModified = nameSetter(street)("New street name")
+assert(nameGetter(streetModified) == "New street name")
+
+// Lens
+case class Lens[A, B](get: Getter[A, B])(set: Setter[A, B])
+
+val nameLens = Lens[Street, String](_.name)(s => n => s.copy(name = n))
+// or
+val nameLens = GenLens[Street](_.name)
+
+// Lens composition
+def compose[A, B, C](l1: Lens[A, B], l2: Lens[B, C]): Lens[A, C] =
+    Lens(l1.get andThen l2.get)(a => c => l1.set(a, l2.set(l1.get(a))(c)))
+
+// ... sample ...
+case class Address(street: Street, ...)
+val streetLens = Lens[Address, Street](_.street)(a => s => a.copy(street = s))
+
+val nameOfAddressLens = streetLens composeLens nameLens // ^|->
+
+// Lens creation
+GenLens...
+
+@Lenses
+case class Street(name: String, ...)
+
+
+// ISO - unique corresponding between multiple forms (classes)
+
+val addressToJsonIso: Iso[Address, JsValue] = ...
+val jsValueToString = Iso[JsValue, String](_.toString)(JSON.parse)
+val addressToStringIso = addressToJsonIso composeIso jsValueToString
+
+// usage sample
+val addr = Address(Street("bla-bla"))
+val json = AddressToStringIso.get(addr)
+// .. send recive
+val addr2 = addressToStringIso.reverseGet(json)
+assert(addr === addr2)

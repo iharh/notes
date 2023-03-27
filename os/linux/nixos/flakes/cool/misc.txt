@@ -1,0 +1,12 @@
+https://github.com/gytis-ivaskevicius/nixfiles
+https://github.com/fufexan/dotfiles
+
+2022
+https://myme.no/posts/2022-06-14-nixos-confederation.html
+    ! need to read
+    https://github.com/myme/dotfiles
+    https://github.com/myme/dotfiles/blob/main/flake.nix
+    ! deploy-rs based
+https://discourse.nixos.org/t/how-to-get-nixos-install-flake-to-work/10069
+    nix-env -iA nixpkgs.nixUnstable
+    nixos-install --impure --flake /mnt/flake#somehost

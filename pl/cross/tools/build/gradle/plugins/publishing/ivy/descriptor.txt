@@ -1,0 +1,89 @@
+src
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/tasks/GenerateIvyDescriptor.java
+    @TaskAction
+    public void doGenerate() {
+        IvyModuleDescriptorSpecInternal descriptorInternal = toIvyModuleDescriptorInternal(getDescriptor());
+
+        IvyDescriptorFileGenerator ivyGenerator = new IvyDescriptorFileGenerator(descriptorInternal.getProjectIdentity(),
+                                                                                 descriptorInternal.writeGradleMetadataMarker(),
+                                                                                 descriptorInternal.getVersionMappingStrategy());
+        ...
+    }
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publication/DefaultIvyModuleDescriptorSpec.java
+    public DefaultIvyModuleDescriptorSpec(IvyPublicationInternal ivyPublication, Instantiator instantiator, ObjectFactory objectFactory) {
+        this.ivyPublication = ivyPublication;
+        this.instantiator = instantiator;
+        this.objectFactory = objectFactory;
+    }
+    @Override
+    public IvyPublicationIdentity getProjectIdentity() {
+        return ivyPublication.getIdentity();
+    }
+    @Override
+    public boolean writeGradleMetadataMarker() {
+        return ivyPublication.writeGradleMetadataMarker();
+    }
+    @Override
+    public VersionMappingStrategyInternal getVersionMappingStrategy() {
+        return ivyPublication.getVersionMappingStrategy();
+    }
+
+subprojects/ivy/src/main/java/org/gradle/api/publish/ivy/internal/publisher/IvyDescriptorFileGenerator.java
+    private void writeDescriptor(final Writer writer) throws IOException {
+        OptionalAttributeXmlWriter xmlWriter = new OptionalAttributeXmlWriter(writer, "  ", IVY_FILE_ENCODING);
+        xmlWriter.startElement("ivy-module").attribute("version", "2.0");
+        if (usesClassifier()) {
+            xmlWriter.attribute("xmlns:m", "http://ant.apache.org/ivy/maven");
+        }
+
+        xmlWriter.startElement("info")
+            .attribute("organisation", projectIdentity.getOrganisation())
+            .attribute("module", projectIdentity.getModule())
+            .attribute("branch", branch)
+            .attribute("revision", projectIdentity.getRevision())
+            .attribute("status", status)
+            .attribute("publication", ivyDateFormat.format(new Date()));
+
+        for (IvyModuleDescriptorLicense license : licenses) {
+            xmlWriter.startElement("license")
+                .attribute("name", license.getName().getOrNull())
+                .attribute("url", license.getUrl().getOrNull())
+                .endElement();
+        }
+
+        for (IvyModuleDescriptorAuthor author : authors) {
+            xmlWriter.startElement("ivyauthor")
+                .attribute("name", author.getName().getOrNull())
+                .attribute("url", author.getUrl().getOrNull())
+                .endElement();
+        }
+
+        if (description != null) {
+            xmlWriter.startElement("description")
+                .attribute("homepage", description.getHomepage().getOrNull())
+                .characters(description.getText().getOrElse(""))
+                .endElement();
+        }
+
+        if (extraInfo != null) {
+            for (Map.Entry<QName, String> entry : extraInfo.entrySet()) {
+                if (entry.getKey() != null) {
+                    xmlWriter.startElement("ns:" + entry.getKey().getLocalPart())
+                        .attribute("xmlns:ns", entry.getKey().getNamespaceURI())
+                        .characters(entry.getValue())
+                        .endElement();
+                }
+            }
+        }
+
+        xmlWriter.endElement();
+
+        writeConfigurations(xmlWriter);
+        writePublications(xmlWriter);
+        writeDependencies(xmlWriter);
+        xmlWriter.endElement();
+    }
+
+idea
+https://github.com/JetBrains/gradle-intellij-plugin/blob/master/src/main/kotlin/org/jetbrains/intellij/IntelliJIvyDescriptorFileGenerator.kt

@@ -1,0 +1,9 @@
+https://en.wikipedia.org/wiki/Block_cipher
+
+2022
+https://itsecforu.ru/2022/08/22/%f0%9f%94%90-%d0%ba%d0%b0%d0%ba-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d1%82%d1%8c-%d0%bf%d1%80%d0%be%d1%81%d1%82%d0%be%d0%b5-%d0%b7%d0%b0%d1%88%d0%b8%d1%84%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%bd%d0%be%d0%b5/
+2021
+https://dev.to/blastoise/aes-encryption-in-linux-585f
+    https://unix.stackexchange.com/questions/507131/openssl-1-1-1b-warning-using-iter-or-pbkdf2-would-be-better-while-decrypting/507132#507132
+    openssl enc -aes-256-cbc    -md sha512 -pbkdf2 -iter 250000 -salt -in <InputFilePath> -out <OutputFilePath>
+    openssl enc -aes-256-cbc -d -md sha512 -pbkdf2 -iter 250000 -salt -in <InputFilePath> -out <OutputFilePath>

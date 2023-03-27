@@ -1,0 +1,17 @@
+https://root.cern/install/
+
+https://iscinumpy.gitlab.io/post/root-conda/
+
+binary
+https://root.cern.ch/download/cling/
+
+snap
+https://snapcraft.io/install/root-framework/ubuntu
+    https://root.cern/install/
+    https://root.cern/blog/snap-announcement/
+    https://root-forum.cern.ch/t/a-snap-package-for-root/42636
+    sudo snap install root-framework
+    root
+
+build from source
+https://root.cern/cling/cling_build_instructions/

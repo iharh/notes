@@ -1,0 +1,13 @@
+vim-router
+  https://github.com/airblade/vim-rooter
+localcfg (load files based on local settings like a hostname)
+  https://gitlab.com/magus/localcfg/snippets/661
+vim-localrc (load .localvimcfg files from dir to parents)
+  http://www.reddit.com/r/vim/comments/12tpf9/per_project_vim_settings/
+  http://www.vim.org/scripts/script.php?script_id=3393
+  https://github.com/thinca/vim-localrc
+vim-sauce (need to fork and extend merging some features of VIP)
+  https://github.com/joonty/vim-sauce
+  http://www.vim.org/scripts/script.php?script_id=3992
+    https://github.com/joonty/myvim
+

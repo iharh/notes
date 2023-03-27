@@ -1,0 +1,16 @@
+https://github.com/containers/storage
+https://github.com/containers/storage/tree/master/docs
+
+https://docs.docker.com/storage/storagedriver/select-storage-driver/
+
+storage.conf
+https://github.com/containers/storage/blob/master/docs/containers-storage.conf.5.md
+
+http://www.projectatomic.io/docs/docker-storage-recommendation
+
+-s, --storage-driver
+
+/etc/docker/daemon.json
+{
+  "storage-driver": "overlay2"
+}

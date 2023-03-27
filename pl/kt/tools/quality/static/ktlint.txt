@@ -1,0 +1,19 @@
+https://ktlint.github.io/
+https://github.com/shyiko/ktlint
+https://github.com/pinterest/ktlint
+
+https://github.com/JLLeitschuh/ktlint-gradle
+https://plugins.gradle.org/plugin/org.jlleitschuh.gradle.ktlint
+
+asdf
+works fine
+sdkman
+https://github.com/pinterest/ktlint/issues/1363
+
+[*.{kt,kts}]
+disabled_rules=indent,curly-spacing
+
+2021
+https://habr.com/ru/company/epam_systems/blog/545040/
+2019
+https://goobar.io/2019/07/25/adding-ktlint-to-your-kotlin-project/

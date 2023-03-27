@@ -1,0 +1,48 @@
+https://reactjs.org/
+https://ru.reactjs.org/
+https://github.com/facebook/react/
+
+packages
+https://reactjs.org/blog/2015/07/03/react-v0.14-beta-1.html#two-packages
+https://www.npmjs.com/package/react
+https://www.npmjs.com/package/prop-types
+    Runtime type checking for React props and similar objects
+react
+react-dev-utils
+react-dom
+react-hot-loader
+react-redux
+react-router-dom
+...
+react-native
+react-canvas
+    https://www.npmjs.com/package/react-canvas
+    https://github.com/Flipboard/react-canvas
+react-art
+react-three
+    https://www.npmjs.com/package/react-three
+    https://github.com/Izzimach/react-three
+    https://hackernoon.com/react-webgl-different-ways-of-creating-3d-apps-with-react-3af844f61257
+react-three-renderer
+    https://www.npmjs.com/package/react-three-renderer
+    https://github.com/toxicFork/react-three-renderer/
+    http://toxicfork.github.io/react-three-renderer-example/#/webgl_camera
+    https://www.sitepoint.com/building-a-game-reactjs-and-webgl/
+    https://github.com/AndrewRayCode/r3r-sitepoint-demo
+    https://github.com/toxicFork/react-three-renderer-example
+react-threejs
+    https://www.npmjs.com/package/react-threejs
+    https://github.com/fritx/react-threejs
+    http://fritx.github.io/react-threejs/example/
+
+redux
+redux-devtools-extension
+redux-logger
+redux-promise-middleware
+redux-thunk (does not scale)
+
+cdn
+https://reactjs.org/docs/cdn-links.html
+
+babel preset
+https://babeljs.io/docs/plugins/preset-react/

@@ -1,0 +1,14 @@
+https://developer.apple.com/reference
+  https://developer.apple.com/reference/swift
+    https://developer.apple.com/reference/swift/int
+  https://developer.apple.com/reference/foundation
+    https://developer.apple.com/reference/foundation/filemanager
+
+Initialization and argument labels:
+https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-XID_272
+
+https://swift.org/migration-guide/
+http://blog.udacity.com/2016/04/getting-ready-for-swift-3-0.html
+
+shell:
+https://github.com/kareman/SwiftShell/blob/Swift3.0/Sources/SwiftShell/Bash.swift

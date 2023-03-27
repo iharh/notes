@@ -1,0 +1,12 @@
+services.yggdrasil = {
+  enable = true;
+  persistentKeys = false;
+  config = {
+    Peers = [
+      tls://ygg.tomasgl.ru:61944?key=c5e0c28a600c2118e986196a0bbcbda4934d8e9278ceabea48838dc5d8fae576
+    ];
+  };
+};
+
+# list of public proxies and bridges
+http://[319:3cf0:dd1d:47b9:20c:29ff:fe2c:39be]/services.html

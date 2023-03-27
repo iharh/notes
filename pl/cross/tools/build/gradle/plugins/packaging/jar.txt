@@ -1,0 +1,40 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html
+
+https://stackoverflow.com/questions/4871656/using-gradle-to-build-a-jar-with-dependencies
+https://stackoverflow.com/questions/24724383/add-resources-config-files-to-your-jar-using-gradle
+
+sourceSets {
+    main {
+        resources {
+            srcDirs += [someLibDir] // TODO: executed early at the config-stage !!!
+        }
+    }
+}
+
+doFirst {
+    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+jar {
+    manifest { 
+        attributes "Main-Class": "$mainClassName"
+    }  
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    eachFile { details ->
+        println "!!! add details.path = $details.path"
+    }
+
+    doLast {
+        // sleep(3 * 1000)
+        println "!!! include the following shared libs as resources:"
+        (new File(someLibDir)).eachFileRecurse (groovy.io.FileType.FILES) { println it.canonicalPath }
+        copy {
+            from someLibDir
+            into "${buildDir}/resources/main"
+        }
+    }
+}

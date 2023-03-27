@@ -1,0 +1,9 @@
+http://detexify.kirelabs.org/classify.html
+https://github.com/kirel/detexify-hs-backend
+
+\hookrightarrow
+  injection
+\rightsquigarrow
+  eta-reduction, pattern-calculus
+\leadsto
+  funcional dependencies

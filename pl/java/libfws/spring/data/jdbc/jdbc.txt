@@ -1,0 +1,6 @@
+https://spring.io/projects/spring-data-jdbc
+https://github.com/spring-projects/spring-data-jdbc
+https://github.com/spring-projects/spring-data-examples/tree/master/jdbc
+
+starter
+org.springframework.boot:spring-boot-starter-data-jdbc

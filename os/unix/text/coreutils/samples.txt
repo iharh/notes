@@ -1,0 +1,21 @@
+Super-presentation!!!
+Wilson - Unix CommandLine Tools
+  http://www.slideshare.net/EricWilson4/unix-commandline-tools
+
+cut certain string from all the files and then - sort
+$find . -name "mem_*.txt" | xargs -n 1 grep "Unfreed memory bytes: " | sort
+
+$find . -name "mem_*.txt" | xargs -n 1 tail -n 1 | sort
+
+#
+# find a file with "102189705pdf"
+# -B 1 - print before context (filled by xargs withoun -n 1)
+#
+$find . -name "mem_*.txt" | xargs head -n 1 | grep "1021897905pdf" -B 1
+
+
+svn info | grep "^Revision:" | cut -c 11-
+#                            | sed -ne 's/^Revision: //p'
+#                            | awk '/^Revision:/{print $2}'
+#                            | tr -d 'Revison: '
+

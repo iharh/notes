@@ -1,0 +1,9 @@
+https://www.infoq.com/news/2018/06/deprecate-nashorn
+
+standalone
+http://openjdk.java.net/projects/nashorn/
+    https://github.com/openjdk/nashorn
+https://search.maven.org/artifact/org.openjdk.nashorn/nashorn-core
+https://search.maven.org/artifact/org.openjdk.nashorn/nashorn-core/15.0/jar
+    ????
+    https://mvnrepository.com/artifact/org.openjdk

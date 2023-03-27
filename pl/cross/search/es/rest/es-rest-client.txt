@@ -1,0 +1,6 @@
+client/rest
+src/main/java/org/elasticsearch/client/RestClient.java
+
+src/test/java/org/elasticsearch/client/
+    RestClientBuilderTests.java
+    RestClientIntegTests.java

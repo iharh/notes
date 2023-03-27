@@ -1,0 +1,19 @@
+https://wiki.archlinux.org/index.php/xdg-open
+
+xdg-settings set default-web-browser browser.desktop
+    firefox_firefox.desktop
+ui
+sudo update-alternatives --config x-www-browser
+cli
+sudo update-alternatives --config www-browser
+BROWSER=/usr/bin/google-chrome >> ~/.bashrc
+
+gnome-default-applications-properties
+
+http://superuser.com/questions/1007807/xdg-open-hogging-the-cpu-by-forking-itself-endlessly
+https://bbs.archlinux.org/viewtopic.php?id=140028
+https://forum.manjaro.org/index.php?topic=7961.0
+
+https://aur.archlinux.org/packages/linopen/
+
+perl-file-mimeinfo

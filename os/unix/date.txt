@@ -1,0 +1,17 @@
+10. dates:
+
+uptime
+  how much does the session ...
+
+tzselect
+    select a TZ
+
+date
+  print date
+    -U
+        in UTC
+    TZ='Europe/Paris' date
+        in Paris TZ
+
+cal
+  print a calendar

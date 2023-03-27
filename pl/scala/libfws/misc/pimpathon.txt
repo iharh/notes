@@ -1,0 +1,6 @@
+Argonaut:
+https://github.com/stacycurl/pimpathon/blob/master/src/main/scala/pimpathon/argonaut.scala
+https://github.com/stacycurl/pimpathon/blob/master/src/test/scala/pimpathon/argonautTests/TraversalFrills.scala
+
+IO:
+https://github.com/stacycurl/pimpathon/blob/master/src/test/scala/pimpathon/file.scala

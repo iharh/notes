@@ -1,0 +1,28 @@
+\set var val
+\echo :var
+... \gset
+
+-- only one line should be resulted
+select now() as curr_time \gset
+
+https://psql-tips.org/psql_tips_all.html#tip037
+
+$ cat query.sql 
+select * from :tablename;
+$ psql -v tablename=test -f query.sql 
+ id | value 
+----+-------
+  1 | test
+(1 row)
+
+$ cat query2.sql 
+select * from test where value = :'var';
+$ psql --set var=test -f query2.sql 
+ id | value 
+----+-------
+  1 | test
+(1 row)
+
+
+select oid as tsoid from pg_tablespaces where spcname = 'ts' \gset
+select datname from pg_database where oid in (select pg_tablespace_databases(:tsoid));

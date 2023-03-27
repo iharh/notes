@@ -1,0 +1,18 @@
+jupyter
+    notebook [--help]
+        Writing notebook server cookie secret to
+            /run/user/1000/jupyter/notebook_cookie_secret
+        http://localhost:8888/?token=1447f600382119ef815bb991b04bc89ddba58dac57c7bff7
+        Writing notebook-signing key to
+            ~/.local/share/jupyter/notebook_secret
+
+
+kernels
+python -m ipykernel install --user --name=my-virtualenv-name
+pipenv install ipykernel
+    # ipykernel is auto-installed by jupyter
+
+extensions
+vega
+https://github.com/vega/ipyvega
+$ jupyter nbextension enable --sys-prefix --py vega

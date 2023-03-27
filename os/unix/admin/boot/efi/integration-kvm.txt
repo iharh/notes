@@ -1,0 +1,5 @@
+2020
+https://ostechnix.com/enable-uefi-support-for-kvm-virtual-machines-in-linux/
+    "customize configuration before install"
+    UEFI x86_64: /usr/share/OVMF/OVMF_CODE.fd
+    loader=/usr/share/OVMF/OVMF_CODE.fd

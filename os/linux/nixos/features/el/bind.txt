@@ -1,0 +1,4 @@
+https://nixos.org/manual/nix/stable/language/
+    A function that expects a set with required attributes x and y, and binds the whole set to args
+    { x, y } @ args: x + y
+    args @ { x, y }: x + y

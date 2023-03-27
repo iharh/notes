@@ -1,0 +1,9 @@
+2019
+Bandela - Polymorphism != Virtual: Easy, Flexible Runtime Polymorphism Without Inheritance
+    https://www.youtube.com/watch?v=PSxo85L2lC0
+    https://github.com/CppCon/CppCon2019/blob/master/Presentations/polymorphism__virtual/polymorphism__virtual__john_bandela__cppcon_2019.pdf
+    https://github.com/google/cpp-from-the-sky-down/blob/master/metaprogrammed_polymorphism/polymorphic.hpp
+2018
+Pusz - Effective replacement of dynamic polymorphism with std::variant
+    https://www.youtube.com/watch?v=gKbORJtnVu8
+    https://github.com/CppCon/CppCon2018/blob/master/Presentations/effective_replacement_of_dynamic_polymorphism_with_stdvariant/effective_replacement_of_dynamic_polymorphism_with_stdvariant__mateusz_pusz__cppcon_2018.pdf

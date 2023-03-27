@@ -1,0 +1,83 @@
+https://en.cppreference.com/w/cpp/header/algorithm
+
+cheatsheet
+https://www.srcmake.com/home/cpp-stl-algorithms
+https://github.com/srcmake/cpp-stl-algorithms
+    https://www.youtube.com/watch?v=9XGqSDjaW24
+
+2022
+https://itnext.io/divide-conquer-and-sets-the-114-c-algorithms-series-d0085a38046e
+https://itnext.io/sorting-partitioning-the-114-c-algorithms-series-6503ad41cede
+https://itnext.io/the-114-standard-c-algorithms-introduction-2a75a2df4300
+2021
+https://www.betamark.com/blog/stl-algorithms-for-programming-interviews/
+2019
+Hoekstra - Algorithm Intuition
+    https://www.youtube.com/watch?v=M1lNNFwxUVI
+https://awfulcode.io/2019/02/07/inside-the-stl-the-implementation-of-rotate/
+    rotate
+CodeReport - stl algorithms
+    https://www.youtube.com/playlist?list=PLVFrD1dmDdve4h3Shk0uePpXp8JUMM1w5
+    https://github.com/codereport/Algorithms
+2018
+https://medium.com/@vgasparyan1995/generalizing-std-transform-8d2c41e1f958
+CodingTech - 105 STL Algorithms in Less Than an Hour
+    https://www.youtube.com/watch?v=bFSnXNIsK4A
+https://blogs.msdn.microsoft.com/vcblog/2018/10/16/standard-library-algorithms-changes-and-additions-in-c17/
+https://foonathan.net/blog/2018/10/01/ordering-algorithms.html
+https://foonathan.net/blog/2018/09/07/three-way-comparison.html
+https://foonathan.net/blog/2018/07/19/ordering-relations-programming.html
+https://foonathan.net/blog/2018/07/19/ordering-relations-math.html
+https://foonathan.net/blog/2018/06/20/equivalence-relations.html
+CodeReport - Algorithms
+https://www.youtube.com/playlist?list=PLVFrD1dmDdve4h3Shk0uePpXp8JUMM1w5
+
+
+std::for_each (coll.begin(), coll.end(), MyValue()) returns MyValue (Returns a copy of the [internally modified] op)
+
+std::remove_copy, remove_copy_if
+std::replace_copy
+
+std::copy_backward
+
+std::transform - for transformation (2 forms - for single range and 2 ranges)
+
+swap, fill, generate,
+
+std::rotate, rotate_copy
+std::next_permutation, std::random_shuffle
+std::partition, stable_partition
+
+std::sord, std::stable_sord(keep an order of equal elems).
+std::partial_sort - sorts only a part of range
+std::partial_sort_copy
+std::nth_element - sorts according to the n-th element
+
+heap algorithms:
+std::make_heap, std::push_heap, std::pop_heap, std::sort_heap (convert a heap into sorted collection)
+
+sorted range algorithms:
+
+std::binary_search - check Whether one element is present (to obtain the position of an element for which
+you are searching, use lower_bound(), upper_bound(), or equal_range() )
+
+std::includes - checking Whether Several elements are present
+
+std::lower_bound, std::upper_bound - searching first  /  last possible position
+std::equal_range                   - searching first AND last possible position
+
+std::merge - processing the sum of two sorted sets
+The destination range contains all elements that are in the first source range plus those that are in the
+second source range.
+
+std::set_union
+Elements that are in both ranges are in the union range only once. However, duplicates are possible if elements
+occur more than once in one of the source ranges. The number of occurrences of equal elements in the destination
+range is the maximum of the number of their occurrences in both source ranges
+
+std::set_intersection - Processing the Intersection of Two Sorted Sets
+
+std::set_difference, std::set_symmetric_difference - Processing the Difference of Two Sorted Sets
+
+std::inplace_merge - Merging Consecutive Sorted Ranges
+

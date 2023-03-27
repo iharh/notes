@@ -1,0 +1,4 @@
+apt/hwinfo
+
+hwinfo
+    --monitor [--short]

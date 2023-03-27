@@ -1,0 +1,15 @@
+schema samples:
+??? what a table! macro is ???
+
+table! {
+    posts (id) {
+        id -> Int4,
+        title -> Varchar,
+        body -> Text,
+        published -> Bool,
+    }
+}
+
+src/schema.rs
+infer_schema!("dotenv:DATABASE_URL");
+

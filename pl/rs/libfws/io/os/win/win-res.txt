@@ -1,0 +1,6 @@
+https://crates.io/crates/embed-resource
+https://www.reddit.com/r/rust/comments/5r4k90/embedresource_cargo_build_script_library_to/
+
+kernel32-sys
+winapi
+winapi-build v0.1.1

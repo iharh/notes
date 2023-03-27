@@ -1,0 +1,42 @@
+https://www.npmjs.com/package/reselect
+https://github.com/reduxjs/reselect
+https://redux.js.org/recipes/computing-derived-data
+
+https://www.npmjs.com/package/re-reselect
+https://github.com/toomuchdesign/re-reselect
+
+articles
+https://codebrahma.com/reselect-tutorial-optimizing-react-redux-application-development-with-reselect/
+http://fullstackdeveloper.info/redux-state-with-immutable-js-normalizr-and-reselect/
+https://reactrocket.com/post/react-redux-optimization/
+2017
+https://decembersoft.com/posts/redux-hero-part-3-choose-wisely-a-fun-introduction-to-reselect-js/
+http://blog.isquaredsoftware.com/2017/12/idiomatic-redux-using-reselect-selectors/
+https://www.saltycrane.com/blog/2017/05/what-are-redux-selectors-why-use-them/
+https://spin.atomicobject.com/2017/10/24/react-reselect/
+https://marmelab.com/blog/2017/02/06/react-is-slow-react-is-fast.html
+https://blog.shakacode.com/a-year-of-development-with-redux-part-i-a5791e124a7d
+https://medium.com/dailyjs/react-is-slow-react-is-fast-optimizing-react-apps-in-practice-394176a11fba
+    https://habr.com/post/327364/
+    https://stackblitz.com/edit/redux-simple-with-reselect
+https://dzone.com/articles/reselect-selectors-how-to-avoid-an-endless-cycle-i
+https://rajdee.gitbooks.io/redux-in-russian/content/docs/recipes/ComputingDerivedData.html
+https://hackernoon.com/usage-of-reselect-in-a-react-redux-application-fcdca05cc00d
+https://medium.com/@parkerdan/react-reselect-and-redux-b34017f8194c
+http://blog.rangle.io/react-and-redux-performance-with-reselect/
+    https://medium.com/devschacht/neil-fenton-improving-react-and-redux-performance-with-reselect-40f1d3efba89
+    https://github.com/devSchacht/translations/tree/master/articles/neil-fenton-improving-react-and-redux-performance-with-reselect
+    https://github.com/neilff/react-redux-performance
+https://codeburst.io/unit-testing-react-redux-selectors-and-epics-664e7b4798a8
+
+Q
+http://qaru.site/questions/1688866/reselect-does-it-ever-make-sense-to-create-a-memorized-selector-which-is-just-used-to-get-part-of-the-state
+
+presentations
+2017
+Petrov - Reselect
+https://www.youtube.com/watch?v=tg3CRiAMz-s
+http://slides.com/dbashford/redux-reselect-ember-best-pratices#/
+Reselect with Redux and React.js
+https://www.youtube.com/watch?v=6Xwo5mVxDqI
+    https://github.com/brigand/react-scratch/tree/master/src/reselect-redux

@@ -1,0 +1,17 @@
+
+2021
+https://devblogs.microsoft.com/oldnewthing/20211206-00/?p=106002
+    https://godbolt.org/z/TWzM41YME
+      #include <immintrin.h>
+
+      // Print any macro it'll look all nice.
+      #print_macro _mm512_maskz_shuffle_ps
+
+      // Print the current value of a macro and error.
+
+      #define CONTOSO_VERSION 301
+
+      #if CONTOSO_VERSION != 314
+      #print_macro CONTOSO_VERSION
+      #error CONTOSO_VERSION must equal 314
+      #endif

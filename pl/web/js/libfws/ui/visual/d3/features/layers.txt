@@ -1,0 +1,69 @@
+https://www.w3.org/TR/SVG2/
+    https://www.w3.org/TR/SVG2/render.html#ZIndexProperty
+    https://github.com/d3/d3/issues/252
+    https://stackoverflow.com/questions/13595175/updating-svg-element-z-index-with-d3
+
+raise/lower
+https://bl.ocks.org/mbostock/22994cc97fefaeede0d861e6815a847e
+https://bl.ocks.org/mbostock/c206c20294258c18832ff80d8fd395c3
+https://github.com/d3/d3-selection/blob/master/README.md#selection_raise
+https://github.com/d3/d3-selection/blob/master/README.md#selection_lower
+
+obsolete
+http://d3indepth.com/selections/
+https://dev.w3.org/SVG/modules/renderorder/SVGRenderOrder.html
+    render-order
+https://www.w3.org/Graphics/SVG/WG/wiki/Proposals/z-index
+
+!!!
+https://stackoverflow.com/questions/17786618/how-to-use-z-index-in-svg-elements/36736155#36736155
+
+http://bl.ocks.org/eesur/4e0a69d57d3bfc8a82c2
+
+    // https://github.com/wbkd/d3-extended
+    d3.selection.prototype.moveToFront = function() {  
+      return this.each(function(){
+        this.parentNode.appendChild(this);
+      });
+    };
+    d3.selection.prototype.moveToBack = function() {  
+        return this.each(function() { 
+            var firstChild = this.parentNode.firstChild; 
+            if (firstChild) { 
+                this.parentNode.insertBefore(this, firstChild); 
+            } 
+        });
+    };
+
+just groups
+https://www.dashingd3js.com/svg-group-element-and-d3js
+https://bl.ocks.org/mbostock/4063318
+http://jsfiddle.net/yDErU/
+
+<div id="viz"></div>
+
+svg {
+    border: 1px solid #ccc;
+}
+
+var svg = d3.select('#viz').append('svg')
+    .attr('width', 100)
+    .attr('height', 100)
+    .attr('viewBox', '0 0 100 100');
+
+var layer1 = svg.append('g');
+var layer2 = svg.append('g');
+
+var redCircle = layer2.append('circle')
+    .attr('cx', 50)
+    .attr('cy', 50)
+    .attr('r', 16)
+    .attr('fill', 'red')
+
+var blueSquare = layer1.append('rect')
+    .attr('x', 25)
+    .attr('y', 25)
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr('fill', 'blue');
+

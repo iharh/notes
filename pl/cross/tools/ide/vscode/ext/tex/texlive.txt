@@ -1,0 +1,19 @@
+FROM registry.gitlab.com/islandoftex/images/texlive:latest
+FROM texlive/texlive:latest
+
+https://hub.docker.com/r/texlive/texlive
+https://hub.docker.com/r/texlive/texlive/tags
+    thetexnician
+
+https://latex.net/iot/
+
+???
+https://github.com/islandoftex/texlive
+    https://gitlab.com/islandoftex/images/texlive
+https://github.com/islandoftex/texlive/blob/master/Dockerfile
+https://gitlab.com/islandoftex
+https://github.com/islandoftex/texlive/blob/master/Dockerfile.tree
+https://gitlab.com/islandoftex/images/texlive/-/wikis/home
+
+whatsnew
+https://www.overleaf.com/blog/tex-live-2022-now-available

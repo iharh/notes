@@ -1,0 +1,104 @@
+https://www.atlassian.com/git/tutorials/git-log/
+
+git log
+    --all
+        from all the branches
+    --all --simplify-by-decoration
+        show only commits that are tagged, branched, etc
+
+    --oneline
+        single-line log
+    --graph
+        log in a graph form
+    --decorate
+        add a ref-names to the tree
+    --pretty="%h, %cn, %cr"
+        pretty-printed log accrording to the specified format
+        https://www.kernel.org/pub/software/scm/git/docs/git-log.html#_pretty_formats
+
+        %an - committer name
+        %cn - committer name
+        %h  - hash
+        %cd - commit date
+        %cr - commit date relative
+        %s  - ???
+        %x09- tab
+
+    --patch <filename>
+        show history of a single file
+    --stat   ...
+        files + statistics (number of changed files, number of changed/deleted/modified lines)
+
+    --name-status
+        list modified files
+
+    -p
+        includes the diff on the file at each commit
+
+    --show-signature
+        show gpg signature
+
+
+Filtering the commit history
+
+git log
+    -<N>
+        top <N> commits
+
+    HEAD^
+        except the top-one commit (HEAD)
+
+    HEAD~3
+        except the top 3 commits
+
+    --after/--before="2015-7-1", "yesterday"
+    --since/--untill
+        filter by date
+
+    --author="<regex>"
+        by author
+
+    --grep="<regex>" [-i]
+        by commit message
+
+
+    -- file1 file2
+        by file1 or file2
+    -- folder/subfolder
+        by subfolder
+
+    -S"msg" [--patch]
+    -G"<regex>"
+        by content (pickaxe) (--patch for statistics)
+
+    <since>..<untill>
+        by range (<since> and <untill> are commit messages here)
+        in particular:
+            <branch1>..<branch2> --oneline
+                difference between branch1 and branch2
+            <branch>..
+                changes made locally, but not pushed
+            ..<remote-branch>
+                ???
+
+    --no-merges
+        exclude merge commits
+    --merges
+        merge commits only
+
+    -L 6,13:<file>
+        log changes of certain lines of the <file>
+
+
+we can combine ... --oneline --graph --all --decorate
+
+git shortlog
+    Summarizes git log output in a format suitable for inclusion in release announcements. Each commit will be grouped by author and title.
+    -n
+        to sort by the number of commits per author
+
+Samples:
+git log --author="Ihar Hancharenka" --oneline
+git log --pretty=format:"%h%x09%aN%x09%s"
+
+git log --name-status --diff-filter="ACDMRT" -1 -U <commit-hash>

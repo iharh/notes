@@ -1,0 +1,85 @@
+? KafkaManager
+
+kafka-topic.sh
+    most topic operations
+kafka-config.sh
+    config changes
+
+    --zookeper
+    --config
+    --disable-rack-aware
+    --if-not-exists
+    --if-exists
+
+samples:
+kafka-topics.sh --zookeeper <zk-connect> --create --topic <topic-name> --replication-factor <int> --partitions <int>
+    ... --alter --topic <topic-name> --partitions <int>
+    ... --delete --topic <topic-name>
+    ... --list
+    ... --describe [--topic <topic-name>]
+        --topics-with-overrides
+        --under-replicated-partitions
+        --unavailable-partitions
+
+kafka-consumer-groups.sh
+    --zookeeper <zk> # for old consumer-groups
+    --bootstrap-server <kafka.host:9092/kafka-cluster> # for new consumer-groups
+        --list
+        --describe <grp>
+
+
+kafka-run-class.sh
+    Run a java-class in appropriate environment
+
+    kafka.tools.ExportZkOffsets --zkconnect zoo1.example.com:2181/kafka-cluster --group testgroup --output-file offsets
+    kafka.tools.DumpLogSegments --files 000123.log
+        --print-data-log
+        --index-sanity-check
+
+kafka-config.sh
+    per-topic, per-client or overrides
+
+    --zookeeper <zk> --alter --entity-type topics --entity-name <topic-name> --add-config <key>=<value>[,<key>=<value>...]
+    ... retention.ms=3600000
+    --zookeeper <zk> --alter --entity-type clients --entyty-name <client-id> --add-config <key>=<value>[,<key>=<value>...]
+    ... --describe
+        describe the default overrides
+    --alter ... --detete-config retention.ms
+        delete a config-override
+
+kafka-preferred-replica-election.sh
+    --zookeper <zk> --path-to-json-file partitions.json
+
+kafka-reassign-partitions.sh
+    --zookeper <zk> --topics-to-move-json-file topics.json --brokers-list 0,1
+        generate a set of partition moves
+    --verify --reassignment-json-file reassing.json
+
+kafka-replica-verrification.sh
+    --broker-list <host1,host2,...> --topic-white-list 'my-.*'
+
+kafka-console-consumer.sh
+    --zookeeper # for old clients
+    --new-consumer-flag --broker-list <br1,br2,...> # for new clients
+        --topic ... --whitelist ... --blacklist ...
+        --consumer-config CONFIGFILE
+        --consumer-property <key>=<val>
+        --formatter CLASSNAME
+        --max-messages NUM
+        --partition NUM
+
+Check the offset:
+kafka-console-consumer.sh
+    --zookeeper <zk> --topic __consumer_offsets --formatter 'kafka.coordinator.GroupMetadataManager$OffsetsMessageFormatter' --max-messages 1
+
+[my-group-name,my-topic,0]::[OffsetMetadata[481690879,NO_METADATA],CommitTime
+1479708539051,ExpirationTime 1480313339051]
+Processed a total of 1 messages
+
+kafka-console-producer.sh
+    --line-reader <classname> # kafka.common.MessageReader
+    --broker-list <br-list> --topic <topic-name>
+    --producer-config <conf-file> --producer-property <key>=<val>
+    --key-serializer <classname> --value-serializer <classname>
+    --compression-codec <none|gzip|snappy|lz4>
+    --sync

@@ -1,0 +1,11 @@
+select * from pg_stat_activity where current_query <> '<IDLE>';
+
+- current_query (text)
+- client_addr/client_port
+- [backend/xact/query]_start (timestamp with timezone)
+- waiting (boolean)
+
+pg_stat_statement
+pg_stat_statements_for_readonly
+
+explain(analyze, costs, json, ...)

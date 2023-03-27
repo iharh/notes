@@ -1,0 +1,11 @@
+https://crates.io/crates/github-rs
+https://docs.rs/crate/github-rs
+https://github.com/mgattozzi/github-rs
+
+https://crates.io/crates/github_auth
+https://docs.rs/github_auth
+https://github.com/yoshuawuyts/github_auth
+
+ariticles:
+https://mgattozzi.com/refactor-rust
+https://www.reddit.com/r/rust/comments/6813vi/lessons_learned_redesigning_and_refactoring_a/

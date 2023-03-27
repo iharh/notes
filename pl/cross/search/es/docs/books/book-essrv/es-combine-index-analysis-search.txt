@@ -1,0 +1,28 @@
+Indexing tree-like structures
+
+Trees! Trees are everywhere. If you develop a shop application, you probably have categories. If you look at the filesystem, the files and directories are arranged in tree-like structures. This book may also be represented as a tree; chapters contain topics and subtopics. ElasticSearch has functionalities that help us handle tree-like structures. Let's check how we can navigate such data using path_analyzer.First we'll create a simple mapping:{
+ "settings" : {
+  "index" : {
+   "analysis" : {
+    "analyzer" : {
+     "path_analyzer" : {"tokenizer" : "path_hierarchy"}
+    }
+   }
+  }
+ },
+ "mappings" : {
+  "category" : {
+   "properties" : {
+    "category" : { 
+     "type" : "multi_field",
+     "fields" : {
+      "name" : { "type" : "string", "index" : "not_analyzed" },
+      "path" : { "type" : "string", "analyzer" : "path_analyzer", "store" : true }
+     }
+    }
+   }
+  }
+ }
+} In order to put those mappings during index creation use the following command:
+curl -XPOST 'localhost:9200/path/' --data-binary '..
+

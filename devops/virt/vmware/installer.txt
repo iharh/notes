@@ -1,0 +1,9 @@
+vmware-installer
+    --help
+
+    -l, --list-products
+                        List installed products
+    -t, --list-components
+                        List the installed components
+
+    -u vmware-player

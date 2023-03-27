@@ -1,0 +1,3 @@
+/etc/definitions/
+    rabbitmq.conf
+    enabled_plugins

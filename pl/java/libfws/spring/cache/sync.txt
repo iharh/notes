@@ -1,0 +1,5 @@
+https://www.foreach.be/blog/spring-cache-annotations-some-tips-tricks
+
+@Cacheable(... sync=true)
+
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/transaction/TransactionAwareCacheDecorator.html

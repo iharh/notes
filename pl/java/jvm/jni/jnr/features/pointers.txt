@@ -1,0 +1,14 @@
+http://stackoverflow.com/questions/26199515/callback-closure-with-jnr-taking-a-pointer-argument
+import jnr.ffi.Memory;
+import jnr.ffi.Pointer;
+import jnr.ffi.Runtime;
+
+@Test
+public void testMetaUtf8() throws UnsupportedEncodingException {
+    Pointer ptr = Runtime.getRuntime(c).getMemoryManager().allocate(5000);
+    int size = c.snprintf(ptr, 5000, "%s", UTF8Encoding.class, "\u7684");
+    Assert.assertEquals(3, size);
+    String result = ptr.getString(0, size, Charset.forName("UTF-8"));
+    String expected = new String("\u7684".getBytes("UTF-8"), "UTF-8");
+    Assert.assertEquals(expected, result);
+}

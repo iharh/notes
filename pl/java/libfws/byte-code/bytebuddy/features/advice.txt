@@ -1,0 +1,46 @@
+http://bytebuddy.net/javadoc/1.10.1/net/bytebuddy/asm/Advice
+https://www.programcreek.com/java-api-examples/?api=net.bytebuddy.asm.Advice
+
+qa
+https://stackoverflow.com/questions/44747219/byte-buddy-advice-onmethodexit-constructor-retransformation
+issues
+https://github.com/raphw/byte-buddy/issues/110
+https://github.com/raphw/byte-buddy/issues/143
+https://github.com/raphw/byte-buddy/issues/459
+
+2018
+https://medium.com/@shehan.a.perera/java-agents-with-byte-buddy-93185305c9e9
+    https://github.com/ShehanPerera/javaagent-bytebuddy/tree/master/samples/execution-time/src/main/java/com/github/shehanperera/timers
+2017
+https://www.javacodegeeks.com/2017/07/instrumenting-java-web-applications-without-modifying-source-code.html
+
+misc
+https://www.programcreek.com/java-api-examples/?code=lhotari/gradle-profiling/gradle-profiling-master/bytebuddy-interceptor/src/main/java/gradle/advice/FileSystemOperationsInterceptor.java
+https://www.programcreek.com/java-api-examples/?code=ivanyu/java-agents-demo/java-agents-demo-master/agent/src/main/java/me/ivanyu/javaagentsdemo/MetricsCollectionByteBuddyAgent.java
+
+errors
+Caused by: java.lang.IllegalStateException: Cannot call super (or default) method for ...
+https://stackoverflow.com/questions/46706709/redefine-class-intercepting-getter-method-in-order-to-modify-the-getter-return
+
+sample
+import net.bytebuddy.asm.Advice;
+
+public class TimerAdvice {
+    /**
+     * From this  enter method we start the timer and pass that value to exit method and the we getting the time
+     * speed for each method
+     */
+    @Advice.OnMethodEnter
+    static long enter(@Advice.Origin String method) throws Exception {
+        long start = System.currentTimeMillis();
+        return start;
+    }
+
+    @Advice.OnMethodExit
+    static void exit(@Advice.Origin String method, @Advice.Enter long start) throws Exception {
+        long end = System.currentTimeMillis();
+        System.out.println(method + " took " + (end - start) + " milliseconds");
+    }
+}
+
+

@@ -1,0 +1,20 @@
+Searching:
+
+/pattern - search forward
+?pattern - search backward
+
+n - next search
+N - prev search
+
+Jumping:
+
+g  <  ESC-<       *  Go to first line in file (or line N).
+G  >  ESC->       *  Go to last line in file (or line N).
+p  %              *  Go to beginning of file (or N percent into file).
+
+Options
+
+ -g  ........  --hilite-search
+                 Highlight only last match for searches.
+ -G  ........  --HILITE-SEARCH
+                 Don't highlight any matches for searches.

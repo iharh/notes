@@ -1,0 +1,8 @@
+action="/j_spring_security_check"
+inputs with name="j_username" and name="j_password"
+checkbox with name="_spring_security_remember_me"
+
+if we don't specify form and url at <http.../> element
+    we will use basic auth
+    https://docs.spring.io/spring-security/site/docs/3.0.x/reference/basic.html
+    or directly specify <http-basic />

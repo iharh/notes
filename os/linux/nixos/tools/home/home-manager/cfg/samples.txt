@@ -1,0 +1,32 @@
+https://github.com/badly-drawn-wizards/dotfiles/blob/master/nixos/flake.nix
+    !!!
+https://github.com/chayward1/dotfiles
+    ! hosts and host names are grabbed from file
+    https://github.com/chayward1/dotfiles/blob/main/flake.nix
+https://github.com/hlissner/dotfiles
+    ! hey-util for misc stuff
+    https://github.com/hlissner/dotfiles/blob/master/bin/hey
+
+https://github.com/epage/nix-home
+https://gitlab.com/luc65r/dotfiles
+https://git.catgirl.ai/ext0l/nixos-config
+    https://catgirl.ai/log/nixos-experience/
+
+https://github.com/JonathanReeve/dotfiles/blob/minimal/dotfiles/home.nix
+https://github.com/bobvanderlinden/nix-home
+
+https://github.com/quasi-coherent/nixpkgs
+    incl direnv, zsh
+    https://www.reddit.com/r/NixOS/comments/jznwne/effectively_combining_homemanager_and_nixdarwin/
+        https://github.com/jwiegley/nix-config
+        https://github.com/kclejeune/system
+
+https://code.balsoft.ru/balsoft/nixos-config
+    flakes, home-manager, secrets, tons of stuff
+
+https://github.com/thomashoneyman/.dotfiles/blob/main/home.nix
+    small-one
+
+2020
+https://www.reddit.com/r/NixOS/comments/klbuu2/unstable_packages_in_configurationnix_using_flakes/
+    ! modules parameters for adding overlays

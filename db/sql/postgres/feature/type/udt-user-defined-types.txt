@@ -1,0 +1,7 @@
+https://www.postgresql.org/docs/current/xtypes.html
+    create type <udt-name>...
+
+\dT
+    list of udt-s
+\dT+, \dTS+ <udt-name>
+    describe udt

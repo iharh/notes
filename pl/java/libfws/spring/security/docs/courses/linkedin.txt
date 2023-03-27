@@ -1,0 +1,49 @@
+https://www.linkedin.com/learning/search?entityType=COURSE&keywords=spring%20security
+    ! 216
+
+2022
+https://www.linkedin.com/learning/instructors/frank-p-moley-iii
+https://www.linkedin.com/learning/spring-spring-security-15832928/
+    ! 1h31m, 2022
+    https://www.linkedin.com/learning/spring-spring-security-15832928/in-memory-authentication
+        deps (org.springframework.boot)
+            * spring-boot-starter-security
+            * spring-security-test
+
+        create a new class ...config/WebSecurityConfig
+            ...
+            import org.springframework.context.annotation.Bean;
+            import org.springframework.context.annotation.Configuration;
+            import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+            import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+            import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+            import org.springframework.security.core.userdetails.User;
+            import org.springframework.security.core.userdetails.UserDetails;
+            import org.springframework.security.core.userdetails.UserDetailsService;
+            import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+            ...
+            @Configuration
+            @EnableWebSecurity
+            public class WebSecurityConfig extends WebSecurityConfigurerAdopter {
+                @Override
+                protected void configure(HttpSecurity httpSecurity) throws Exception {
+                    http
+                        .authorizeRequest()
+                        .antMatchers("/", "/home").permitAll()
+                        .anyRequest().authenticated()
+                        .and()
+                        .httpBasic();
+                }
+                @Bean
+                @Override
+                public UserDetailsService userDetailsService() {
+                    UserDetails user = User
+                        .withDefaultPasswordEncoder() // deprecated, for test purp only
+                        .username("user")
+                        .password("password")
+                        .roles("USER")
+                        .build();
+                    return new InMemoryUserDatailsManager(user);
+                }
+            }
+    https://www.linkedin.com/learning/spring-spring-security-15832928/jdbc-authentication

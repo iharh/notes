@@ -1,0 +1,11 @@
+https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-error-handling
+    --spring.cloud.stream.bindings.uppercase-in-0.consumer.max-attempts=1
+    --spring.cloud.stream.rabbit.bindings.uppercase-in-0.consumer.auto-bind-dlq=true
+
+... anything, related to RetryTemplate, dropping failed msg, DLQ, ... only applies to message handlers (imperative functions)
+    not to the reactive stream processors
+Reactive API provides a very rich library of its own operators and mechanisms to assist you with error handling
+specific to variety of reactive uses cases which are far more complex then simple Message handler cases,
+So use them, such as public final Flux<T> retryWhen(Retry retrySpec); that you can find in reactor.core.publisher.Flux.
+
+https://github.com/spring-projects/spring-retry

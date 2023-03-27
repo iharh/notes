@@ -1,0 +1,85 @@
+https://github.com/xiaohanyu/awesome-tikz
+https://github.com/topics/tikz
+https://github.com/topics/tikz-figures
+
+https://github.com/HuidaeCho/tikz2svg
+
+!!! 3d
+https://github.com/2b-t/latex_examples
+
+https://mirror.datacenter.by/pub/mirrors/CTAN/graphics/pgf/base/doc/pgfmanual.pdf
+https://en.wikibooks.org/wiki/LaTeX/PGF/TikZ
+http://cremeronline.com/LaTeX/minimaltikz.pdf
+
+
+https://pypi.org/project/tikzplotlib/
+
+https://q.uiver.app/
+https://github.com/varkor/quiver
+https://tikzcd.yichuanshen.de/
+https://github.com/yishn/tikzcd-editor
+https://mirror.datacenter.by/pub/mirrors/CTAN/graphics/pgf/contrib/tikz-cd/tikz-cd-doc.pdf
+https://github.com/astoff/tikz-cd
+https://github.com/tabascoeye/TikZ-diagrams
+
+https://texample.net/tikz/examples/
+https://texample.net/tikz/examples/tag/plots/
+https://github.com/PetarV-/TikZ
+http://leg.ufpr.br/~walmes/Tikz/
+
+!!! py
+https://github.com/has2k1/plotnine
+!!! ggplot
+https://easystats.github.io/see/
+https://github.com/easystats/see
+!!! sketchy
+https://github.com/jwilber/roughViz
+!!! uber vis-gl
+https://vis.gl/
+https://github.com/visgl
+https://medium.com/vis-gl
+!!! deck-gl
+https://deck.gl
+https://github.com/visgl/deck.gl
+https://deck.gl/docs
+https://deck.gl/showcase
+https://deck.gl/docs/get-started/using-with-map
+https://medium.com/vis-gl
+
+https://github.com/nschloe/tikzplotlib
+
+https://github.com/mooculus/calculus/blob/master/whatIsALimit/digInWhatIsALimit.tex
+https://ximera.osu.edu/mooculus/calculus1/whatIsALimit/digInWhatIsALimit
+https://tex.stackexchange.com/questions/105570/how-to-plot-functions-like-x-fy-using-tikz
+
+https://tex.stackexchange.com/questions/620497/add-curved-arrow-to-a-nicetabular
+https://tex.stackexchange.com/questions/121794/how-to-plot-the-functions-in-tikz/121799
+
+Consider the function
+\[
+f(x) = \frac{\sin(x)}{x}.
+\]
+While $f(x)$ is undefined at $x=0$, we can still plot $f(x)$ at other
+values near $x = 0$.
+\begin{image}
+  \begin{tikzpicture}
+    \begin{axis}[
+        xmin=-6.75,xmax=6.75,ymin=-1.5,ymax=1.5,
+        axis lines=center,
+        xtick={-6.28, -4.71, -3.14, -1.57, 0, 1.57, 3.142, 4.71, 6.28},
+        xticklabels={$-2\pi$,$-3\pi/2$,$-\pi$, $-\pi/2$, $0$, $\pi/2$, $\pi$, $3\pi/2$, $2\pi$},
+        ytick={-1,1},
+        %ticks=none,
+        width=6in,
+        height=3in,
+        unit vector ratio*=1 1 1,
+        xlabel=$x$, ylabel=$y$,
+        every axis y label/.style={at=(current axis.above origin),anchor=south},
+        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      ]        
+      \addplot [very thick, penColor, samples=100,smooth, domain=(-6.75:6.75)] {sin(deg(x))/x};
+      
+      \addplot[color=penColor,fill=white,only marks,mark=*] coordinates{(0,1)};  %% open hole          
+    \end{axis}
+  \end{tikzpicture}
+\end{image}

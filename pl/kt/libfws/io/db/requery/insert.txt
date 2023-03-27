@@ -1,0 +1,5 @@
+    val p_new = PropEntity()
+    p_new.projectId = PRJ_ID
+    p_new.name = PROP_EXPORT_TARGET_DIR
+    p_new.value = PROP_EXPORT_TARGET_DIR_VAL
+    insert(p_new) // insert

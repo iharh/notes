@@ -1,0 +1,9 @@
+https://crates.io/crates/typed_key
+https://docs.rs/typed_key
+https://github.com/matklad/typed_key
+
+https://github.com/matklad/typed_key/blob/master/examples/serde.rs
+
+2018
+https://matklad.github.io/2018/05/24/typed-key-pattern.html
+    https://www.reddit.com/r/rust/comments/8ls25e/blog_post_typed_key_pattern/

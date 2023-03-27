@@ -1,0 +1,15 @@
+let 
+  dotfiles_dir = import /etc/nixos/dotfiles-dir.nix;
+  dotfiles = import (builtins.toPath "${dotfiles_dir}/nixos/home/default.nix");
+in 
+
+
+2021
+https://www.reddit.com/r/NixOS/comments/n1uu8f/how_to_add_an_executable_to_path/
+    https://gist.github.com/aswan89/9b0b10178ede220e20b372c0a23b9371
+
+        with import <nixpkgs> {};
+
+        writeShellScriptBin "<script_name>" ''
+        <shell commands>
+        ''

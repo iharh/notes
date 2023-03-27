@@ -1,0 +1,7 @@
+https://developers.google.com/protocol-buffers/docs/reference/java/
+
+https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/ByteString
+    ! used in parseFrom(...)
+    static ByteString copyFrom(byte[] bytes)
+    static ByteString copyFrom(ByteBuffer bytes)
+

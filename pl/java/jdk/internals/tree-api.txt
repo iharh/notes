@@ -1,0 +1,18 @@
+https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/ToolProvider.html
+https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/JavaCompiler.html
+
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/util/package-summary.html
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/util/JavacTask.html
+
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/tree/package-summary.html
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/tree/CompilationUnitTree.html
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/tree/TreeVisitor.html
+    visitForLoop
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/tree/Tree.html
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/tree/Tree.Kind.html
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/util/TreeScanner.html
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/tree/CompilationUnitTree.html
+https://docs.oracle.com/en/java/javase/17/docs/api/jdk.compiler/com/sun/source/tree/UnaryTree.html
+
+2021
+https://inside.java/2021/09/20/javac-tree-api/

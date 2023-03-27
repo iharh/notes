@@ -1,0 +1,4 @@
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-integration
+
+By default, if a Micrometer meterRegistry bean is present, Spring Integration metrics will be managed by Micrometer.
+If you wish to use legacy Spring Integration metrics, add a DefaultMetricsFactory bean to the application context.

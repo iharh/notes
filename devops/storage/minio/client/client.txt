@@ -1,0 +1,35 @@
+https://docs.min.io/docs/minio-client-quickstart-guide
+https://docs.min.io/docs/minio-client-complete-guide
+
+https://hub.docker.com/r/bitnami/minio-client
+https://github.com/bitnami/bitnami-docker-minio-client
+
+browser
+    http://127.0.0.1:9000
+    http://172.27.240.251:9000
+    http://192.168.0.103:9000
+    http://172.17.0.1:9000
+
+mc
+    [--debug]
+    mb play/mybucket
+        --region <value>
+    ????
+    config
+        host add myminio http://172.27.240.251:9000 P72MH3ATM9VXFRZT61HZ 4mP6xU31fF1uiMVTEkDPd6r6o42BWZQRMI6S26id
+
+  minio-res-init:
+    container_name: minio-res-init
+    hostname: minio-res-init
+    image: bitnami/minio-client
+    environment:
+      - MINIO_SERVER_HOST=<minio-host>
+      - MINIO_SERVER_ACCESS_KEY=<minio-user>
+      - MINIO_SERVER_SECRET_KEY=<minio-pwd>
+    links:
+      - minio
+    networks:
+      - <netname>
+    command:
+      - mb
+      - folder/bucketname

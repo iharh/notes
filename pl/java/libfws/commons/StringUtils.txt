@@ -1,0 +1,4 @@
+StringUtils.isBlank(valueStr)
+
+isBlank()
+    null, "", "   "

@@ -1,0 +1,10 @@
+https://github.com/sonatype/docker-nexus3
+https://hub.docker.com/r/sonatype/nexus3
+
+https://github.com/sonatype/docker-nexus3#persistent-data
+    # runs as uid 200
+    mkdir /some/dir/nexus-data && chown -R 200 /some/dir/nexus-data
+    docker run -d -p 8081:8081 --name nexus -v /some/dir/nexus-data:/nexus-data sonatype/nexus3
+
+security
+    Default user is admin and the uniquely generated password can be found in the admin.password file inside the volume.

@@ -1,0 +1,10 @@
+https://www.javacodegeeks.com/xpath-tutorials
+
+2020
+https://www.baeldung.com/java-xpath
+    https://github.com/eugenp/tutorials/tree/master/xml
+
+samples
+https://github.com/nwillc/vplugin/blob/master/src/main/kotlin/com/github/nwillc/vplugin/xmlExt.kt
+https://github.com/nwillc/vplugin/blob/master/src/main/kotlin/com/github/nwillc/vplugin/latest.kt
+https://github.com/nwillc/vplugin/blob/master/src/test/kotlin/com/github/nwillc/vplugin/XmlExtKTTest.kt

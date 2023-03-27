@@ -1,0 +1,31 @@
+https://aria2.github.io/
+https://github.com/aria2/aria2
+
+apt/aria2
+
+ui
+apt/persepolis
+
+https://aria2.github.io/manual/en/html/
+https://aria2.github.io/manual/en/html/README.html#bittorrent
+https://aria2.github.io/manual/en/html/aria2c.html#bittorrent-download
+    aria2c --follow-torrent=mem "http://host/file.torrent"
+    aria2c --max-upload-limit=40K file.torrent
+    aria2c "magnet:?xt=urn:btih:248D0A1CD08284299DE78D5C1ED359BB46717D8C&dn=aria2"
+    aria2c --follow-torrent=false "http://host/file.torrent"
+
+https://aria2.github.io/manual/ru/html/
+    https://aria2.github.io/manual/ru/html/aria2c.html#id42
+
+docker
+https://hub.docker.com/r/p3terx/aria2-pro
+
+samples
+https://stackoverflow.com/questions/55166245/aria2c-parallel-download-parameters
+$ aria2c -c -s 16 -x 16 -k 1M -j 1 -i dl.txt
+  -c, --continue [true|false]
+  -s, --split=<N>
+  -x, --max-connection-per-server=<NUM>
+  -k, --min-split-size=<SIZE>
+  -j, --max-concurrent-downloads=<N>
+  -i, --input-file=<FILE>

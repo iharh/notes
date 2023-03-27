@@ -1,0 +1,41 @@
+https://eslint.org/
+
+https://github.com/eslint/eslint
+
+guide
+https://eslint.org/docs/user-guide/getting-started
+https://eslint.org/docs/developer-guide/
+
+https://eslint.org/docs/rules/
+
+articles
+2021
+https://blog.scottlogic.com/2021/09/06/how-to-write-an-es-lint-rule-for-beginners.html
+https://blog.mastykarz.nl/simplify-code-reviews-improve-consistency-custom-eslint-rules/
+    https://habr.com/ru/company/otus/blog/576534/
+2020
+https://medium.com/javascript-in-plain-english/eslint-a-proofreader-for-your-code-cd7e56ae391f
+2018
+https://www.webiny.com/blog/create-custom-eslint-rules-in-2-minutes-e3d41cb6a9a0
+    https://tproger.ru/articles/sozdajom-sobstvennye-pravila-dlja-eslint/
+https://habr.com/post/417841/
+https://frontendmayhem.com/writing-your-own-eslint-plugins/
+https://www.robinwieruch.de/react-eslint-webpack-babel/
+2017
+https://hackernoon.com/how-linting-and-eslint-improve-code-quality-fa83d2469efe
+https://medium.com/the-node-js-collection/why-and-how-to-use-eslint-in-your-project-742d0bc61ed7
+https://habrahabr.ru/post/322550/
+https://anvilabs.co/blog/auto-formatting-javascript-with-prettier-and-eslint/
+2016
+https://blog.scottnonnenberg.com/eslint-part-1-exploration/
+
+presentations
+2018
+ESLint Quickstart
+https://www.youtube.com/watch?v=qhuFviJn-es
+
+https://github.com/Microsoft/vscode-eslint
+
+whatsnew
+https://www.infoq.com/news/2020/06/eslint-7-release/
+https://eslint.org/blog/2020/02/whats-coming-in-eslint-7.0.0

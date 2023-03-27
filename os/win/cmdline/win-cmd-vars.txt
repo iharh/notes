@@ -1,0 +1,6 @@
+http://ss64.com/nt/delayedexpansion.html
+
+from the "help for"
+%~I  - expands %I removing any surrounding quotes (")
+%~fI - expands %I to a fully qualified path name
+

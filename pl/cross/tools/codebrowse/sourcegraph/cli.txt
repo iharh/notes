@@ -1,0 +1,18 @@
+https://docs.sourcegraph.com/cli
+https://docs.sourcegraph.com/cli/quickstart
+
+src
+    api
+    batch
+    config
+    extensions
+    extsvc
+    login
+    lsif
+    orgs
+    repos
+    search
+    serve-git
+    users
+    validate
+    version

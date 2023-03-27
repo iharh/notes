@@ -1,0 +1,27 @@
+Generators are mem-efficient lazy lists
+
+[x * 2 if x % 2 == 0
+    else x + 1
+    for x in xrange(5, 10)]
+
+{ key:value for item in list if conditional }
+
+
+def fib(n):
+    a, b = 0, 1
+    for i in xrange(n):
+        yield a
+        a, b = b, a + b
+
+[i for i in fib(100)]
+
+Note: a lot of yield syntax with distinct semantics
+
+[(i, j) for i in xrange 4  for j in xrange(3) if ....]
+
+presentations
+2018
+CodingTech - A Story of Generator
+    https://www.youtube.com/watch?v=WkWIGEOydkQ
+CodingTech - Python Generators
+    https://www.youtube.com/watch?v=XEn_99daJro

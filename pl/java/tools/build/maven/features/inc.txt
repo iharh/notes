@@ -1,0 +1,8 @@
+https://stackoverflow.com/questions/1114026/maven-modules-building-a-single-specific-module
+
+mvn -pl A,B,F -amd clean install
+    -pl, --projects
+          Build specified reactor projects instead of all projects
+    -am, --also-make
+          If project list is specified, also build projects required by the list
+    -amd, --also-make-dependents

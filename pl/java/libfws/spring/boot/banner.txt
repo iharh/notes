@@ -1,0 +1,22 @@
+https://www.mkyong.com/spring-boot/spring-boot-how-to-disable-the-spring-logo-banner/
+
+java -Dspring.main.banner-mode=off -jar boot-app.jar
+
+package sample;
+
+import org.springframework.boot.Banner;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+
+public class Main implements CommandLineRunner {
+    @Override
+    public void run(String... args) throws Exception {
+        //
+    }
+
+    public static void main(String [] args) {
+        SpringApplication app = new SpringApplication(Main.class);
+        app.setBannerMode(Banner.Mode.OFF); // OFF LOG
+        SpringApplication.run(Main.class, args);
+    }
+}

@@ -1,0 +1,9 @@
+https://www.ibm.com/developerworks/linux/library/l-lpic1-107-3/index.html
+
+timedatectl
+    set-ntp true
+
+env vars
+LANG, LANGUAGE
+https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables.html
+https://superuser.com/questions/392439/lang-and-language-environment-variable-in-debian-based-systems

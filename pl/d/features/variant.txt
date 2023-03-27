@@ -1,0 +1,18 @@
+public import std.variant;
+
+
+
+    ResultSet query(T...)(string sql, T t)
+    {
+        log(sql);
+        Variant[] args;
+        foreach(arg; t) {
+            Variant a;
+            static if(__traits(compiles, a = arg))
+                a = arg;
+            else
+                a = to!string(t);
+            args ~= a;
+        }
+        return queryImpl(sql, args);
+    }

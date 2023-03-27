@@ -1,0 +1,24 @@
+<cmd> <<< some input
+	put "some input" to cmd
+
+... > /dev/tty
+	add output to terminal
+
+Note: pipe is treated as another use of standard output
+	echo script started > logfile | sed 's/started/stopped/'
+
+Null redirections (var NULLCMD=cat by default, var READNULLCMD=more)
+	> memo.txt
+	put some text here. <C-D>
+	< memo.txt
+	put some text here.
+
+
+zsh options
+
+multiops (on by defaule)
+	echo "bla-bla-bla" > file1 > file2
+	cat < file1 < file2
+
+sh_null_cmd (on by default)
+	enables Null redirections

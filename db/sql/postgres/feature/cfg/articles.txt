@@ -1,0 +1,4 @@
+https://www.loggly.com/use-cases/postgresql-logs-logging-setup-and-troubleshooting/
+
+psql -U postgres -c 'SHOW config_file'
+psql -U postgres -c 'SHOW data_directory'

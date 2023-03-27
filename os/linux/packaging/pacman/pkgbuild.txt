@@ -1,0 +1,102 @@
+https://wiki.archlinux.org/index.php/Category:Package_development
+
+??? $srcdir
+
+man
+    pkgbuild
+    makepkg
+    makepkg.conf
+        /etc/makepkg.conf
+        $XDG_CONFIG_HOME/pacman/makepkg.conf
+        ~/.makepkg.conf
+
+https://wiki.archlinux.org/index.php/PKGBUILD
+https://wiki.archlinux.org/index.php/Pkgfile
+
+https://www.archlinux.org/pacman/makepkg.8.html
+https://wiki.manjaro.org/index.php?title=Makepkg
+
+makepkg
+    --noarchive
+        Do not create package archive
+
+makepkg.conf
+https://www.archlinux.org/pacman/makepkg.conf.5.html
+  PKGDEST — directory for storing resulting packages
+  ??? (pacman cache) /var/cache/pacman/pkg/chef-dk-0.18.26-1-x86_64.pkg.tar.xz
+  $ tar xf -//-.tar.xz
+    /opt
+    /usr
+    .PKGINFO
+    .MTREE
+    .BUILDINFO
+      builddir = /tmp/yaourt-tmp-iharh/aur-chef-dk
+  !!! data.tar.gz, extracted from .deb, also contains /opt
+
+pkgfile
+https://www.archlinux.org/packages/extra/x86_64/pkgfile/
+
+https://youtu.be/Gob8FfNdPQM
+
+create_package() {
+  ...
+  local pkg_file="$PKGDEST/${pkgname}-${fullver}-${pkgarch}${PKGEXT}"
+  ...
+  .BUILDINFO
+  .PKGINFO
+  .MTREE
+  ...
+}
+
+
+Package format:
+
+Sample: user creation at deluge:
+
+.INSTALL file at the package:
+
+post_install() {
+  getent group deluge &>/dev/null || groupadd -g 125 deluge
+  if ! getent passwd deluge &>/dev/null; then
+    useradd -c 'Deluge user' -u 125 -g deluge -d /srv/deluge -s /bin/false deluge
+    passwd -l deluge &>/dev/null ### !!! locked account
+  fi
+
+  post_upgrade
+}
+
+post_upgrade() {
+  [[ -x /usr/bin/xdg-icon-resource ]] && xdg-icon-resource forceupdate --theme hicolor
+  [[ -x /usr/bin/update-desktop-database ]] && update-desktop-database -q
+  true
+}
+
+post_remove() {
+  getent passwd deluge &>/dev/null && userdel deluge
+  getent group deluge &>/dev/null && groupdel deluge
+
+  post_upgrade
+}
+
+
+MSYS PKGBUILD:
+https://github.com/Alexpux/MSYS2-packages/issues/16
+They are two different tools.
+makepkg is for building MSYS2-PACKAGES and
+makepkg-mingw is for MINGW-PACKAGES
+...
+I was using mingw-devel instead of msys2-devel, thanks.
+
+
+deb-repackaging:
+http://unix.stackexchange.com/questions/152368/create-pkgbuild-from-deb/152462#152462
+
+ar vx <package-name>.deb
+
+It will work in the same way as other PKGBUILDs with binary sources - extract it and copy files.
+The only thing which should be mentioned is that deb-archive consists of 3 other files:
+- debian-binary
+- control.tar.gz
+- data.tar.gz.
+
+makepkg will extract only first-level archive and then you should manually extract data.tar.gz

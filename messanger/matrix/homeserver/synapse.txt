@@ -1,0 +1,14 @@
+https://matrix-org.github.io/synapse/latest/
+https://github.com/matrix-org/synapse
+
+https://hub.docker.com/r/matrixdotorg/synapse/
+
+pgsql
+https://github.com/matrix-org/synapse/blob/develop/docs/postgres.md#porting-from-sqlite
+
+whatsnew
+https://matrix.org/blog/2021/11/30/synapse-1-48-0-released
+
+2021
+AwesomeOpenSource - Matrix / Synapse: Open Source, Self Hosted, Federated, End to End encrypted communication server. 0:00 of 48:24
+    https://www.youtube.com/watch?v=H-6kfIqPoI4

@@ -1,0 +1,16 @@
+https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/
+https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/
+http://www.tetraph.com/blog/machine-learning/jupyter-notebook-keyboard-shortcut-command-mode-edit-mode/
+https://trongkhoanguyen.com/jupyter/most-common-used-jupyter-keyboard-shortcuts/
+
+H
+    help (Help > Keyboard Shortcuts)
+C-S-P
+C-Enter
+    run selected cells
+S-Enter
+    run selected cell, select next cell
+A-Enter
+    run selected cell, insert next cell
+S-tab-tab
+    hint

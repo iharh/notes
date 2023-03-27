@@ -1,0 +1,7 @@
+https://github.com/gradle/gradle/blob/master/subprojects/testing-jvm/src/main/java/org/gradle/api/internal/tasks/testing/junit/AbstractJUnitTestClassProcessor.java
+    processTestClass
+
+https://github.com/gradle/gradle/blob/master/subprojects/testing-jvm/src/main/java/org/gradle/api/internal/tasks/testing/detection/DefaultTestClassScanner.java
+
+https://github.com/gradle/gradle/blob/master/subprojects/testing-base/src/main/java/org/gradle/api/internal/tasks/testing/processors/PatternMatchTestClassProcessor.java
+    ? ussages

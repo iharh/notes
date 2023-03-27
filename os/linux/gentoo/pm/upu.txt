@@ -1,0 +1,4 @@
+layman -s ALL &&
+emerge --sync -q &&
+eix-update &&
+emerge -uDNa world

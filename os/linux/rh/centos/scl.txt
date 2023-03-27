@@ -1,0 +1,69 @@
+https://www.softwarecollections.org/en/
+
+
+https://access.redhat.com/documentation/en-US/Red_Hat_Software_Collections/1/html-single/1.0_Release_Notes/
+http://wiki.centos.org/AdditionalResources/Repositories/SCL
+http://firstvds.ru/blog/%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-python-2733-%D0%B2-centos-6x
+
+
+http://linuxsysconfig.com/2014/03/software-collections-on-rhel6-centos6/
+
+RUN yum -y install centos-release-SCL scl-utils scl-utils-build
+RUN yum -y install python27
+#RUN yum groupinstall "Development tools" -y
+...
+CMD ["scl", "enable", "python27", "$HOME_PATH/cps_test.sh"]
+
+
+yum repolist [all]
+yum --disablerepo=* --enablerepo=scl list available
+
+
+
+
+# yum install scl-utils -y
+
+# yum install centos-release-SCL -y
+
+#cat /etc/yum.repos.d/CentOS-SCL.repo
+
+# CentOS-SCL.repo
+#
+# The Software Collections  ( SCL ) repository contains rpms for newer
+# software that can be installed alongside default versions
+#
+# Look at http://wiki.centos.org/AdditionalResources/Repositories/SCL
+# for more details about how this repository works
+
+[scl]
+name=CentOS-$releasever - SCL
+baseurl=http://mirror.centos.org/centos/$releasever/SCL/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+#rpm -qa --info python27
+
+#scl -l
+
+#scl enable python27 bash
+
+
+PATH:
+/opt/rh/python27/root/usr/bin
+
+#cat /opt/rh/python27/enable
+
+export PATH=/opt/rh/python27/root/usr/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/opt/rh/python27/root/usr/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export MANPATH=/opt/rh/python27/root/usr/share/man:${MANPATH}
+# For systemtap
+export XDG_DATA_DIRS=/opt/rh/python27/root/usr/share${XDG_DATA_DIRS:+:${XDG_DATA_DIRS}}
+# For pkg-config
+export PKG_CONFIG_PATH=/opt/rh/python27/root/usr/lib64/pkgconfig${PKG_CONFIG_PATH:+:${PKG_CONFIG_PATH}}
+
+pkg_config:
+http://askubuntu.com/questions/210210/pkg-config-path-environment-variable
+
+
+#scl enable python27 "/bin/bash -c /usr/local/cb-cps-test/p.sh"

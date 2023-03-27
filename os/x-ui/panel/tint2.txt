@@ -1,0 +1,26 @@
+yaourt -S tint2-svn
+http://www.linuxandlife.com/2011/08/how-to-create-launcher-on-tint2.html
+https://wiki.archlinux.org/index.php/Tint2
+https://wiki.archlinux.org/index.php/Tint2#Application_Launchers_in_tint2-svn_.28AUR.29
+http://bbs.archbang.org/viewtopic.php?id=2859
+
+tint2 (bottom panel)
+  tint2-svn
+  tint2conf
+  tintwizard
+
+~/.config/tint2/tint2rc:
+# Panel
+panel_items=LTSC
+
+# Launchers
+launcher_padding = 2 2
+launcher_background_id = 1
+launcher_icon_size = 20
+launcher_item_app = /usr/share/applications/urxvt.desktop
+launcher_item_app = /usr/share/applications/google-chrome.desktop
+launcher_item_app = /usr/share/applications/firefox.desktop
+launcher_item_app = /usr/share/applications/skypeforlinux.desktop
+launcher_item_app = /usr/share/applications/slack.desktop
+
+tint2-svn E: Dependency startup-notification detected and not included (libraries ['usr/lib/libstartup-notification-1.so.0'] needed in files ['usr/bin/tint2'])

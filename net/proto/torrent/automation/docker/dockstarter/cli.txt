@@ -1,0 +1,7 @@
+https://dockstarter.com/basics/command-line-usage/
+ds
+    -c up|down|pull
+    -p
+        ~/.docker/.scripts/docker_prune.sh
+        !!! prune is too dangerous, cleans all the docker stuff
+        docker system prune -a --volumes --force

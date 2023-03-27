@@ -1,0 +1,5 @@
+  --accept ARG             : specify automatic conflict resolution source
+                             ('base', 'working', 'mine-conflict',
+                             'theirs-conflict', 'mine-full', 'theirs-full')
+
+svn resolve --accept working -R <path>

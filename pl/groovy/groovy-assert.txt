@@ -1,0 +1,7 @@
+assert, imports, and def
+    section
+
+int x = 3
+int y = 4
+assert 7 == x + y + 1
+// brings nice debug info for free

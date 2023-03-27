@@ -1,0 +1,45 @@
+Taylor:
+A Working Class Introduction to HoTT
+https://www.youtube.com/watch?v=xv6SwPn1dIc
+https://docs.google.com/presentation/d/1D1JJQpR3GxVR6vw25SMhfCrcJ10iBrG8Iuk5_hKpGdY/edit#slide=id.p
+
+Eric Finster - A survey of Univalent Foundations
+https://www.youtube.com/watch?v=z3IBvmrcObg
+
+Bazerman:
+https://www.youtube.com/watch?v=OupcXmLER7I
+Voevodsky:
+https://www.youtube.com/watch?v=b4BlA7NymIE
+
+A Homotopy is a path between a path - that is, an equality of two equivalences
+- Think of a piece of string attached at two end points
+A path between a path is still a path
+- Homotopies can have homotopies!
+- Homotopies over homotopies over homotopies over homotopies over ...
+This infinite tower of homotopies endows types with what is called an omega-groupoid structure,
+  trivially generated with refl
+But remember, refl isn't the only constructor for the identity type!
+
+New intuition:
+    types are spaces,
+    elemenents are points,
+    equalities are paths
+
+Eq-props: refl, trans, symm
+    - Types equipped with relations that satisfy these properties are called groupoids
+    - You can transform any path to itself - p : a =_A a |- refl: p =_(a=a) p
+    - You can concatenate paths
+    - You can reverse paths
+We have a groupoid over a groupoid!
+
+Equivalences and the univalence axiom
+- An equivalence is a pair of transformations between two types
+-- Every element of A can be mapped to an element of B, and visa versa
+-- Functions on A can be transformed to functions on B by composing with equivalence maps
+- Equality is an equivalence ...
+-- Trivial - each transformation map is the identity function
+- But wouldn't it be great if we could say every equivalence is an equality?
+- The univalence axiom: Equivalence is equivalent to equality!
+Pi A.B. Type. (A ~= B) ~= (A = B)
+
+Uphold univalent thought! Let 100 univalent universes bloom...

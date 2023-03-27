@@ -1,0 +1,89 @@
+$ openssl genrsa -aes128 -out fd.key 2048
+Generating RSA private key, 2048 bit long modulus
+....+++
+...................................................................................…
++++
+e is 65537 (0x10001)
+Enter pass phrase for fd.key: ****************
+Verifying - Enter pass phrase for fd.key: ****************
+
+! we can use -aes256 also
+
+
+
+Private keys are stored in the so-called PEM format, which is just text:
+$ cat fd.key
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-128-CBC,01EC21976A463CE36E9DB59FF6AF689A
+vERmFJzsLeAEDqWdXX4rNwogJp+y95uTnw+bOjWRw1+O1qgGqxQXPtH3LWDUz1Ym
+mkpxmIwlSidVSUuUrrUzIL+V21EJ1W9iQ71SJoPOyzX7dYX5GCAwQm9Tsb40FhV/
+[21 lines removed...]
+4phGTprEnEwrffRnYrt7khQwrJhNsw6TTtthMhx/UCJdpQdaLW/TuylaJMWL1JRW
+i321s5me5ej6Pr4fGccNOe7lZK+563d7v5znAx+Wo1C+F7YgF+g8LOQ8emC+6AVV
+-----END RSA PRIVATE KEY-----
+
+
+A private key isn’t just a blob of random data, even though that’s what it looks like at a glance.
+You can see a key’s structure using the following rsa command:
+
+$ openssl rsa -text -in fd.key
+Enter pass phrase for fd.key: ****************
+Private-Key: (2048 bit)
+modulus:
+00:9e:57:1c:c1:0f:45:47:22:58:1c:cf:2c:14:db:
+[...]
+publicExponent: 65537 (0x10001)
+privateExponent:
+1a:12:ee:41:3c:6a:84:14:3b:be:42:bf:57:8f:dc:
+[...]
+prime1:
+00:c9:7e:82:e4:74:69:20:ab:80:15:99:7d:5e:49:
+[...]
+prime2:
+00:c9:2c:30:95:3e:cc:a4:07:88:33:32:a5:b1:d7:
+[...]
+exponent1:
+68:f4:5e:07:d3:df:42:a6:32:84:8d:bb:f0:d6:36:
+[...]
+exponent2:
+5e:b8:00:b3:f4:9a:93:cc:bc:13:27:10:9e:f8:7e:
+[...]
+coefficient:
+34:28:cf:72:e5:3f:52:b2:dd:44:56:84:ac:19:00:
+[...]
+writing RSA key
+-----BEGIN RSA PRIVATE KEY-----
+[...]
+-----END RSA PRIVATE KEY-----
+
+
+If you need to have just the public part of a key separately, you can do that with the following
+rsa command:
+
+$ openssl rsa -in fd.key -pubout -out fd-public.key
+
+Enter pass phrase for fd.key: ****************
+If you look into the newly generated file, you’ll see that the markers clearly indicate that the
+contained information is indeed public:
+
+$ cat fd-public.key
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnlccwQ9FRyJYHM8sFNsY
+Key Generation 11
+PUHJHJzhJdwcS7kBptutf/L6OvoEAzCVHi/m0qAA4QM5BziZgnvv+FNnE3sgE5pz
+iovEHJ3C959mNQmpvnedXwfcOIlbrNqdISJiP0js6mDCzYjSO1NCQoy3UpYwvwj7
+0ryR1F+abARehlts/Xs/PtX3VamrljiJN6JNgFICy3ZvEhLZEKxR7oob7TnyZDrj
+IHxBbqPNzeiqLCFLFPGgJPa0cH8DdovBTesvu7wr/ecsf8CYyUCdEwGkZh9DKtdU
+HFa9H8tWW2mX6uwYeHCnf2HTw0E8vjtOb8oYQxlQxtL7dpFyMgrpPOoOVkZZW/P0
+NQIDAQAB
+-----END PUBLIC KEY-----
+
+
+Note
+If you’re using OpenSSL 1.0.2, you can save yourself time by always generating your keys using the genpkey command,
+which has been improved to support various key types and configuration parameters.
+It now represents a unified interface for key generation.
+
+
+

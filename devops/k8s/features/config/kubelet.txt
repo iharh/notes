@@ -1,0 +1,5 @@
+https://kubernetes.io/docs/tasks/administer-cluster/reconfigure-kubelet/
+https://github.com/kubernetes/features/issues/281
+
+https://godoc.org/k8s.io/kubernetes/pkg/kubelet/apis/config
+https://godoc.org/k8s.io/kubernetes/pkg/kubelet/apis/config#KubeletConfiguration

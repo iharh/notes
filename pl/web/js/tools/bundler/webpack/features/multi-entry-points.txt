@@ -1,0 +1,13 @@
+entry: {
+    home: './Home', 
+    shop: './Shop', 
+    ...
+},
+output: {
+    filename: '[name].js',
+    ...
+}
+
+2019
+WebProgramming - Webpack Multi Entry Points
+    https://www.youtube.com/watch?v=Mfkq-sBgF6s

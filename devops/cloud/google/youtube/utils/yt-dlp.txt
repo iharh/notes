@@ -1,0 +1,6 @@
+https://github.com/yt-dlp/yt-dlp
+
+deb/yt-dlp
+
+yt-dlp
+    -f 'b' -S 'res:480' <id|url>

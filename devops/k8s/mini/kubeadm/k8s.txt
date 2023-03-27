@@ -1,0 +1,7 @@
+aur
+    kubernetes
+        https://aur.archlinux.org/packages/kubernetes/
+        https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=kubernetes
+    kubernetes-bin
+        https://aur.archlinux.org/packages/kubernetes-bin/
+        https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=kubernetes-bin

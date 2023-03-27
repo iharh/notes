@@ -1,0 +1,12 @@
+sched
+	lists sheduled commands
+sched 10:47 echo Time to go
+	schedule a command
+sched -<num>
+	removes command <num>
+
+
+Timeout
+
+TMOUT variable
+	number of to idle before exit

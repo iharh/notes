@@ -1,0 +1,5 @@
+/usr/lib/sysusers.d/docker.conf
+
+# create docker group (FS#38029)
+g docker - -
+

@@ -1,0 +1,6 @@
+org.gradle.internal.os.OperatingSystem
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/platform/OperatingSystem.html
+https://github.com/gradle/gradle/blob/master/subprojects/base-services/src/main/java/org/gradle/internal/os/OperatingSystem.java
+
+OperatingSystem.current()
+    .isWindows()

@@ -1,0 +1,17 @@
+https://help.ubuntu.ru/wiki/google_chrome
+https://www.google.com/linuxrepositories/
+
+2020
+https://zalinux.ru/?p=5066
+https://www.linuxbabe.com/ubuntu/install-google-chrome-ubuntu-18-04-lts
+
+cfg
+sudo -s
+echo deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main > /etc/apt/sources.list.d/google-chrome.list
+exit
+curl -s https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/google.gpg --import
+sudo chmod 644 /etc/apt/trusted.gpg.d/google.gpg
+
+inst
+sudo apt update
+sudo apt install google-chrome-stable

@@ -1,0 +1,62 @@
+http://blog.stwrt.ca/2012/10/31/vim-ctags
+http://dfrank.ru/ctags581
+
+http://dfrank.ru/uploaded_files/ctags/ctags.zip
+  -a   Append the tags to an existing tag file.
+  --append=[yes|no]
+       Should tags should be appended to existing tag file [no]?
+
+  -V   Equivalent to --verbose.
+
+  -R   Equivalent to --recurse.
+  --recurse=[yes|no]
+       Recurse into directories supplied on command line [no].
+
+  -L <file>
+       A list of source file names are read from the specified file.
+       If specified as "-", then standard input is read.
+
+  --exclude=pattern
+      Exclude files and directories matching 'pattern'.
+
+  --options=file
+       Specify file from which command line options should be read.
+
+  --tag-relative=[yes|no]
+       Should paths be relative to location of tag file [no; yes when -e]?
+
+
+:h tags
+    Help on tags
+   tags-option
+    Help on tags options
+   tag-regexp
+    Help on tags regexp
+
+
+http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks/741486#741486
+    set tags=./tags;/
+
+
+C-]
+:tag
+
+g C-]
+    ...
+
+g]
+    Like CTRL-], but use ":tselect" instead of ":tag"
+
+:ts[elect]
+    Open select tag match lis
+:tj[ump]
+    Like ":tselect", but jump to the tag directly when
+
+:tn
+:tp
+    Go to the next/prev tag in a list
+:tf
+:tl
+    Go to the first/last tag in a list
+C-t
+    Go to N position before at tags stack...

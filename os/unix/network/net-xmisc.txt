@@ -1,0 +1,12 @@
+ping
+    ttl = 64 - lin, 128 - win
+    com??? 254
+
+/etc/sysconfig/network
+/etc/network/...
+
+hostname -f
+
+netstant -lptun | grep 22
+
+telnet <ip> 22

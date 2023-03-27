@@ -1,0 +1,6 @@
+.vagrant.d/data/landrush/log/landrush.log
+
+I, [2016-12-26T12:16:52.773165 #6904]  INFO -- : Starting RubyDNS server (v0.8.5)...
+I, [2016-12-26T12:16:52.773165 #6904]  INFO -- : Listening on udp:0.0.0.0:53
+I, [2016-12-26T12:16:52.774143 #6904]  INFO -- : Listening on tcp:0.0.0.0:53
+

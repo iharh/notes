@@ -1,0 +1,18 @@
+https://spring.io/projects/spring-amqp
+
+https://github.com/spring-projects/spring-amqp
+https://github.com/spring-projects/spring-amqp-samples
+
+https://spring.io/guides/gs/messaging-rabbitmq/
+    !!! need to use
+https://docs.spring.io/spring-amqp/reference/pdf/spring-amqp-reference.pdf
+    https://docs.spring.io/spring-amqp/reference/#_introduction
+    ! p5 - direct cfg !
+
+https://search.maven.org/search?q=(g:org.springframework.boot%20AND%20a:spring-boot-starter-amqp)
+
+2022
+https://www.baeldung.com/spring-amqp
+
+qa
+https://stackoverflow.com/questions/tagged/spring-amqp

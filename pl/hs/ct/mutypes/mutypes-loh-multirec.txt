@@ -1,0 +1,26 @@
+Loh - Generic Programming with Fixed Points for Mutually Recursive Datatypes / slides
+Loh - Generic Programming with the Multirec Library slides
+
+http://hackage.haskell.org/package/multirec (https://github.com/kosmikus/multirec)
+http://hackage.haskell.org/package/regular (https://github.com/dreixel/regular)
+
+> newtype Fix f = In (f (Fix f))
+> :k Fix
+Fix  :: (* -> *)                       -> *
+
+> newtype Fix2 f g = In2 (f (Fix2 f g) (Fix2 g f))
+> :k Fix2
+Fix2 :: (* -> * -> *) -> (* -> * -> *) -> *
+
+
+Fix  :: (* -> *)                       -> *
+Fix2 :: (* -> * -> *) -> (* -> * -> *) -> *
+
+
+
+> newtype Fix2 s a = In { out :: s a (Fix2 s a) }
+> :k Fix2
+Fix2 :: (* -> * -> *) -> * -> *
+
+
+!!! Loh - Generic Storage in Haskell slides

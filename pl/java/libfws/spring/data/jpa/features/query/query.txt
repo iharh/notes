@@ -1,0 +1,45 @@
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords
+
+2022
+https://www.baeldung.com/spring-data-derived-queries
+https://www.baeldung.com/spring-jpa-like-queries
+2020
+https://medium.com/@hashanlahiru6/all-about-query-methods-in-spring-data-jpa-52d74e5d2be7
+    DonHash - Query Methods - Spring Data JPA - Learn All About Query Methods in 30 minutes 0:00 of 28:13
+    https://www.youtube.com/watch?v=1EOunDOvJVA
+    https://github.com/lahiruhashan/JPAQueryMethods
+    https://github.com/lahiruhashan/JPAQueryMethods/blob/master/pom.xml
+        spring-boot-starter-jpa
+        spring-boot-devtools
+        spring-boot-starter-test
+    https://github.com/lahiruhashan/JPAQueryMethods/blob/master/src/main/resources/application.properties
+        spring.jpa.hibernate.ddl-auto=update
+        spring.datasource.url=jdbc:mysql://localhost:3306/query-methods
+        spring.datasource.username=root
+        spring.datasource.password=root
+    https://github.com/lahiruhashan/JPAQueryMethods/blob/master/src/main/java/hashtips/querymethods/services/UserService.java
+        @Service
+        public class UserService {
+            @Autowired
+            private UserRepository repository; 
+            ....
+        }
+    https://github.com/lahiruhashan/JPAQueryMethods/blob/master/src/main/java/hashtips/querymethods/repos/UserRepository.java
+        @Repository
+        public interface UserRepository extends CrudRepository<User, Long> {
+            List<User> findByFirstName(String firstName); // get , query, read, stream
+            List<User> findByFirstNameAndLastName(String firstName, String lastName);
+            List<User> findByFirstNameOrLastName(String firstName, String lastName); 
+            ...
+        }
+    https://github.com/lahiruhashan/JPAQueryMethods/blob/master/src/main/java/hashtips/querymethods/domains/User.java
+        ublic class User {
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private Long userId;
+            private String username, email, firstName, lastName;
+            private LocalDate dob;
+            private Integer age;
+            private Boolean active;
+            @Embedded
+            private Address address;

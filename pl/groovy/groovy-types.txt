@@ -1,0 +1,15 @@
+@CompileDynamic // default
+@CompileStatic
+@TypeChecked
+    compile dynamic but check types
+
+Groovy also have 8 primitive types
+
+But everything is an object
+    3.getClass().getName
+        java.langInteger
+    ....big...
+        java.math.BigInteger
+
+2.0d
+    double

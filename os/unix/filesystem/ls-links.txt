@@ -1,0 +1,29 @@
+http://www.unixmen.com/hard-soft-links-user-group-management-rhcsa/
+
+hard-links:
+Note: you can't make a hard-link to a directory
+Note2: hard-links to a same file should be on the same file system
+
+ls -i
+	Show the i-node of (if 2 files have the same one - they are the hard-links)
+ls -l
+	-//- the 2n-d column shows the number of hard links
+
+soft-links:
+Note: you can create a soft-link to a directory
+
+ln -s ...
+	create a soft link
+
+ls -F
+	show type of files:
+	/ - dir
+	* - exec file
+	@ - symlink
+	| - named pipe
+	= - unix domain socket
+	% - character device
+	# - block device
+
+ls -x
+	Order files by rows first, instead of columns

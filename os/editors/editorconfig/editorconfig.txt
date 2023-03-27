@@ -1,0 +1,17 @@
+http://editorconfig.org/
+
+https://editorconfig-specification.readthedocs.io/
+
+https://github.com/editorconfig/editorconfig
+https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+
+plugins
+https://github.com/editorconfig/editorconfig-vim
+
+scoop
+    editorconfig
+
+root = true
+
+[*]
+end_of_line = crlf

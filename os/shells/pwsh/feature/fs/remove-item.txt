@@ -1,0 +1,7 @@
+remove-item (rm, rmdir)
+    -Recurse
+    -Force
+
+function rmrf([string] $folder) {
+    remove-item -recurse -force $folder
+}

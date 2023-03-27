@@ -1,0 +1,11 @@
+2022
+https://www.redhat.com/sysadmin/kubernetes-workloads-podman-systemd
+2021
+https://www.redhat.com/sysadmin/compose-kubernetes-podman
+https://www.redhat.com/sysadmin/podman-inside-kubernetes
+
+ podman
+    push
+        to push into registry
+    generate kube
+    play kube

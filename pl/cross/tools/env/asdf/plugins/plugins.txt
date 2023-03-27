@@ -1,0 +1,12 @@
+https://asdf-vm.com/manage/plugins.html
+
+# add a plugin <name>
+asdf plugin add <name>
+# List available version
+asdf list all <name>
+# Install specific version
+asdf install <name> latest
+# Set a version globally (on your ~/.tool-versions file)
+asdf global <name> latest
+# Now <name> commands are available
+<name> --help

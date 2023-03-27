@@ -1,0 +1,15 @@
+http://www.unixmen.com/linux-basics-use-free-command-linux/
+http://www.cyberciti.biz/faq/linux-check-memory-usage/
+
+free -h
+  amount of free memory
+free -m
+  ... using caches ...
+vmstat...
+
+http://www.commandlinefu.com/commands/view/2888/release-memory-used-by-the-linux-kernel-on-caches
+http://blog.scoutapp.com/articles/2010/01/11/free-memory-on-linux-free-m-vs-proc-meminfo
+http://blog.scoutapp.com/articles/2010/10/06/determining-free-memory-on-linux
+
+alias meminfo='free -m -l -t'
+## pass options to free ## 

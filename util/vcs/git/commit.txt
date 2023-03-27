@@ -1,0 +1,9 @@
+git commit
+    -m <descr>
+        -a stage all the previously staged files/content (not including a new files)
+    --amend
+        open the $EDITOR and fix the latest commit message of the previous commit
+    --amend --no-edit
+        the same but without editing the latest commont message
+    --allow-empty
+        allow commit with empty changes

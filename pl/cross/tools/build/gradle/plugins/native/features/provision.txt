@@ -1,0 +1,45 @@
+https://github.com/gradle/native-samples/blob/master/cpp/provisionable-tool-chains/
+https://github.com/gradle/native-samples/blob/master/cpp/provisionable-tool-chains/build.gradle
+
+// Currently cannot use the plugins { } block to reference plugins with software model elements
+// Use the `apply plugin:` instead
+apply plugin: 'cpp-application'
+apply plugin: 'xcode'
+
+model {
+    toolChains {
+        provisionedClang(Clang) {
+            path rootProject.file('buildSrc/build/toolChains/clang-5.0.1/bin')
+
+            // Required to locate dsymutil on macOS and objcopy on Linux
+            path System.getenv('PATH').split(':')
+        }
+    }
+}
+
+https://github.com/gradle/native-samples/blob/master/cpp/provisionable-tool-chains/buildSrc/build.gradle
+...
+task downloadClangToolChain(type: DownloadToolChainTask) {
+    String osName = System.getProperty('os.name').toLowerCase()
+    if (osName.contains('mac')) {
+        fromUrl = new URL("http://releases.llvm.org/5.0.1/clang+llvm-5.0.1-x86_64-apple-darwin.tar.xz")
+    } else if (osName.contains('linux')) {
+        fromUrl = new URL("http://releases.llvm.org/5.0.1/clang+llvm-5.0.1-x86_64-linux-gnu-ubuntu-14.04.tar.xz")
+    } else {
+        throw new UnsupportedOperationException("Clang tool chain provisioning doesn't support operating system '${System.getProperty('os.name')}'")
+    }
+    outputFile = layout.buildDirectory.file('clang-5.0.1.tar.xz')
+}
+
+task extractClangToolChain(type: ExtractToolChainTask) {
+    toolChainArchive = downloadClangToolChain.outputFile
+    toolChainLocation = layout.buildDirectory.dir('toolChains/clang-5.0.1')
+}
+
+task provisionClangToolChain {
+    dependsOn extractClangToolChain
+    group = 'Tool Chain Provisioning'
+    description = 'Provision Clang 5.0.1 tool chain'
+}
+
+tasks.build.dependsOn provisionClangToolChain

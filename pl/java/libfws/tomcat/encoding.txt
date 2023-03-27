@@ -1,0 +1,8 @@
+Attribute "URIEncoding="UTF-8"" should be inserted in the tag <connector> in the %Tomcat root folder%\conf\server.xml.
+ 
+For example, there is the description of the http connector from my local installation.
+ 
+   <Connector URIEncoding="UTF-8" port="8080" maxHttpHeaderSize="8192"
+               maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+               enableLookups="false" redirectPort="8443" acceptCount="100"
+               connectionTimeout="20000" disableUploadTimeout="true" /> 

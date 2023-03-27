@@ -1,0 +1,5 @@
+cmd1 &> cmd2
+cmd1 ~ > cmd2 2>&1
+  redirect both sdout and stderr
+
+cat/curl <some_script_file> | sh/bash/zsh/...

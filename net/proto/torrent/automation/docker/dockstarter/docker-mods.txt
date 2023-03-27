@@ -1,0 +1,21 @@
+https://mods.linuxserver.io/
+https://github.com/linuxserver/docker-mods
+    At it's core a Docker Mod is a tarball of files stored on Dockerhub and/or GitHub Container Registry
+    that is downloaded and extracted on container boot before any init logic is run
+    ... branches ...
+    https://github.com/linuxserver/docker-mods/tree/firefox-fonts
+
+ex
+docker create \
+  --name=nzbget \
+  -e DOCKER_MODS=taisun/nzbget-mod:latest \
+  ...
+
+Inspecting mods
+    To inspect the file contents of external Mods dive is a great CLI tool:
+        https://github.com/wagoodman/dive
+
+Basic usage:
+    docker run --rm -it \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        wagoodman/dive:latest <Image Name>

@@ -1,0 +1,3 @@
+https://wiki.archlinux.org/index.php/LDAP_authentication
+
+see also - nss - /etc/nsswitch.conf

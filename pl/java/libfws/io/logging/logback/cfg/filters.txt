@@ -1,0 +1,44 @@
+https://logback.qos.ch/manual/filters.html
+
+https://logback.qos.ch/manual/filters.html#levelFilter
+https://logback.qos.ch/manual/filters.html#thresholdFilter
+
+https://logback.qos.ch/manual/filters.html#EventEvaluator
+https://logback.qos.ch/manual/filters.html#GEventEvaluator
+    https://logback.qos.ch/apidocs/ch/qos/logback/classic/spi/ILoggingEvent.html
+
+    implementation("ch.qos.logback:logback-classic")
+    https://stackoverflow.com/questions/7421612/slf4j-failed-to-load-class-org-slf4j-impl-staticloggerbinder
+
+    <filter class="ch.qos.logback.core.filter.EvaluatorFilter">      
+        <evaluator class="ch.qos.logback.classic.boolex.GEventEvaluator"> 
+            <!-- 
+                https://logback.qos.ch/apidocs/ch/qos/logback/classic/spi/ILoggingEvent.html
+                    .loggerName .threadName
+                e.level.toInt() >= WARN.toInt() &amp;&amp;
+                !(e.mdc?.get("req.userAgent") =~ /Googlebot|msnbot|Yahoo/ )
+            -->
+            <expression>
+                !e.message.contains("stop-me")
+            </expression>
+        </evaluator>
+        <OnMismatch>DENY</OnMismatch>
+        <OnMatch>NEUTRAL</OnMatch>
+    </filter>
+
+    <!-- need janito script evaluator -->
+    <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+        <evaluator>
+            <expression>event.getStatusCode() == 404</expression>
+        </evaluator>
+        <onMismatch>DENY</onMismatch>
+    </filter>
+
+
+https://logback.qos.ch/manual/filters.html#JaninoEventEvaluator
+
+https://logback.qos.ch/manual/filters.html#matcher
+
+https://logback.qos.ch/apidocs/ch/qos/logback/core/filter/Filter.html
+    java.lang.NoClassDefFoundError ch.qos.logback.core.filter.Filter
+    https://stackoverflow.com/questions/50487054/cant-run-liquibase-with-command-line

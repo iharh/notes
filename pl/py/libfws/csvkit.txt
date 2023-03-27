@@ -1,0 +1,23 @@
+https://github.com/wireservice/csvkit
+http://csvkit.rtfd.org/
+
+2022
+https://lucytalksdata.com/data-analysis-at-the-command-line/
+
+csvcut
+    -l, --linenumbers
+        line numbers
+    -n, --names
+        list column names
+    -c COLUMNS, --columns COLUMNS
+        cut selected columns (by name or index)
+    -x, --delete-empty-rows
+        delete empty rows
+    -d
+        delimiters
+
+csvsql
+    https://csvkit.readthedocs.io/en/latest/scripts/csvsql.html
+    --query
+        "select 'fixed',col1,col2 from file" file.csv
+        'select "fixed",col1,col2 from file' file.csv

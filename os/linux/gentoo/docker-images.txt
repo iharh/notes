@@ -1,0 +1,14 @@
+https://github.com/gentoo/gentoo-docker-images
+    
+https://gitweb.gentoo.org/proj/docker-images.git
+    Using the portage container as a data volume
+        docker create -v /var/db/repos/gentoo --name myportagesnapshot gentoo/portage:latest /bin/true
+        docker run --interactive --tty --volumes-from myportagesnapshot gentoo/stage3:latest /bin/bash
+
+https://registry.hub.docker.com/u/gentoo
+
+https://hub.docker.com/r/gentoo/stage3
+https://registry.hub.docker.com/r/gentoo/stage3
+
+https://hub.docker.com/r/gentoo/portage
+https://registry.hub.docker.com/r/gentoo/portage

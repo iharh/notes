@@ -1,0 +1,333 @@
+Long operations:
+
+select * from  v$session_longops;
+
+
+-----------------------------------------------
+For Oracle I may can suggest to use Oracle tracing facilities.
+
+Every dove server establishes its own connection to Oracle, so if the defect is reproducible - traces could be switched ON
+before the test, recorded and analyzed afterwards.
+
+Traces could be turned ON from some advanced DBA tool (like TOAD, SQL Navigator, Enterprise Manager etc) or from sqlplus
+using command like below: 
+
+dbms_system.set_ev (si number, - sid
+ se number, --serial,
+ ev number, -- event = 10046
+ le number, -- level 8 or 12,
+ nm  varchar2 -- action name)
+
+(values for "sid" and "se" could be retrieved from v$sessions view).
+
+Trace files may not contain information about locks (only deadlocks if  they have happen) - depending of how these traces
+were configured. 
+Lock details can be retrieved from the database at the moment while they are exists by querying v$locks, v$locked_objects
+and so on.
+ 
+The statement that I proposed in previous responce will force traces files to include "waits" (if le=8) or
+"waits and bind variables values" (if le=12). One more way to get tracing info is described in attached Metalink doc.
+
+-------------------------------------------
+Sessions viewing:
+
+select * from v$session
+select * from v$session where machine='epbygomw0024' and username='KNOVA_7_22_ADMIN_IHARH'
+
+Sessions, locked for transactions:
+SELECT s.current_queue_duration, s.sql_address, t.name, 
+t.start_time, t.status AS t_status, s.status AS s_status, s.sid
+FROM v$transaction t, v$session s
+WHERE t.ses_addr = s.saddr
+
+Sessions killing:
+alter system kill session 'SID, SERIAL' immediate;
+
+
+Locked objects:
+
+select lo.session_id,  lo.object_id, ao.owner,  ao.object_name,
+ lo.oracle_username, lo.os_user_name
+ from V$LOCKED_OBJECT lo, all_objects ao
+where lo.object_id=ao.object_id
+order by 1,4
+
+or:
+
+SELECT
+    s.USERNAME          "User Name",
+    s.SID               "Session",
+    s.SERIAL#,
+    DECODE(
+        l.TYPE,
+            -- Type of lock (User Types)
+            'TM', 'DML enqueue',
+            'TX', 'Transaction enqueue',
+            'UL', 'User supplied',
+            -- Type of lock (System Types)
+            'BL', 'Buffer hash table instance',
+            'CF', 'Control file schema global enqueue',
+            'CI', 'Cross-instance function invocation instance',
+            'CU', 'Cursor bind',
+            'DF', 'Data file instance',
+            'DL', 'Direct loader parallel index create',
+            'DM', 'Mount/startup db primary/secondary instance',
+            'DR', 'Distributed recovery process',
+            'DX', 'Distributed transaction entry',
+            'FS', 'File set',
+            'HW', 'Space management operations on a specific segment',
+            'IN', 'Instance number',
+            'IR', 'Instance recovery serialization global enqueue',
+            'IS', 'Instance state',
+            'IV', 'Library cache invalidation instance',
+            'JQ', 'Job queue',
+            'KK', 'Thread kick',
+            'MM', 'Mount definition global enqueue',
+            'MR', 'Media recovery',
+            'PF', 'Password File',
+            'PI', 'Parallel operation',
+            'PS', 'Parallel operation',
+            'PR', 'Process startup',
+            'RT', 'Redo thread global enqueue',
+            'SC', 'System commit number instance',
+            'SM', 'SMON',
+            'SN', 'Sequence number instance',
+            'SQ', 'Sequence number enqueue',
+            'SS', 'Sort segment',
+            'ST', 'Space transaction enqueue',
+            'SV', 'Sequence number value',
+            'TA', 'Generic enqueue',
+            'TS', DECODE(l.ID2,
+                    0, 'Temporary segment enqueue',
+                    1, 'New block allocation enqueue',
+                    'TS'),
+            'TT', 'Temporary table enqueue',
+            'UN', 'User name',
+            'US', 'Undo segment DDL',
+            'WL', 'Being-written redo log instance',
+            l.TYPE
+    )                   "Lock Type",
+    ' '                 "Object Name",
+    DECODE(
+        l.LMODE,
+            0, 'None',
+            1, 'Null {NULL}',
+            2, 'Row Share {SS}',
+            3, 'Row Exclusive {SX}',
+            4, 'Share {S}',
+            5, 'S/Row Exclusive {SSX}',
+            6, 'Exclusive {X}',
+            'Unknown'
+    )                   "Lock Mode {Session}",
+    DECODE(
+        l.REQUEST,
+            0, 'None',
+            1, 'Null {NULL}',
+            2, 'Row Share {SS}',
+            3, 'Row Exclusive {SX}',
+            4, 'Share {S}',
+            5, 'S/Row Exclusive {SSX}',
+            6, 'Exclusive {X}',
+            'Unknown'
+    )                   "Lock Mode {Process}",
+    TO_CHAR(TRUNC(l.CTIME/3600)) || ':' || 
+    LPAD(TO_CHAR(TRUNC((l.CTIME-TRUNC(l.CTIME/3600)*3600)/60)), 2, '0') || ':' ||
+    LPAD(TO_CHAR(
+            l.CTIME-(TRUNC(l.CTIME/3600)*3600)-
+            (TRUNC((l.CTIME-TRUNC(l.CTIME/3600)*3600)/60)*60)
+            ), 2, '0')
+                        "Lock Time",
+    l.BLOCK             "Is Blocking",
+    OSUSER              "OS User",
+    p.SPID              "Process"    
+FROM
+    V$LOCK l, V$SESSION s, V$PROCESS p 
+WHERE
+    s.SID = l.SID AND s.PADDR = p.ADDR AND
+    l.TYPE <> 'TM' AND (l.TYPE <> 'TX' OR l.TYPE = 'TX' AND l.LMODE <> 6) 
+UNION
+SELECT
+    s.USERNAME          "User Name",
+    s.SID               "Session",
+    s.SERIAL#,
+    DECODE(
+        l.TYPE,
+            -- Type of lock (User Types)
+            'TM', 'DML enqueue',
+            'TX', 'Transaction enqueue',
+            'UL', 'User supplied',
+            -- Type of lock (System Types)
+            'BL', 'Buffer hash table instance',
+            'CF', 'Control file schema global enqueue',
+            'CI', 'Cross-instance function invocation instance',
+            'CU', 'Cursor bind',
+            'DF', 'Data file instance',
+            'DL', 'Direct loader parallel index create',
+            'DM', 'Mount/startup db primary/secondary instance',
+            'DR', 'Distributed recovery process',
+            'DX', 'Distributed transaction entry',
+            'FS', 'File set',
+            'HW', 'Space management operations on a specific segment',
+            'IN', 'Instance number',
+            'IR', 'Instance recovery serialization global enqueue',
+            'IS', 'Instance state',
+            'IV', 'Library cache invalidation instance',
+            'JQ', 'Job queue',
+            'KK', 'Thread kick',
+            'MM', 'Mount definition global enqueue',
+            'MR', 'Media recovery',
+            'PF', 'Password File',
+            'PI', 'Parallel operation',
+            'PS', 'Parallel operation',
+            'PR', 'Process startup',
+            'RT', 'Redo thread global enqueue',
+            'SC', 'System commit number instance',
+            'SM', 'SMON',
+            'SN', 'Sequence number instance',
+            'SQ', 'Sequence number enqueue',
+            'SS', 'Sort segment',
+            'ST', 'Space transaction enqueue',
+            'SV', 'Sequence number value',
+            'TA', 'Generic enqueue',
+            'TS', DECODE(l.ID2,
+                    0, 'Temporary segment enqueue',
+                    1, 'New block allocation enqueue',
+                    'TS'),
+            'TT', 'Temporary table enqueue',
+            'UN', 'User name',
+            'US', 'Undo segment DDL',
+            'WL', 'Being-written redo log instance',
+            l.TYPE
+    )                   "Lock Type",
+    o.object_name       "Object Name",
+    DECODE(
+        l.LMODE,
+            0, 'None',
+            1, 'Null {NULL}',
+            2, 'Row Share {SS}',
+            3, 'Row Exclusive {SX}',
+            4, 'Share {S}',
+            5, 'S/Row Exclusive {SSX}',
+            6, 'Exclusive {X}',
+            'Unknown'
+    )                   "Lock Mode {Session}",
+    DECODE(
+        l.REQUEST,
+            0, 'None',
+            1, 'Null {NULL}',
+            2, 'Row Share {SS}',
+            3, 'Row Exclusive {SX}',
+            4, 'Share {S}',
+            5, 'S/Row Exclusive {SSX}',
+            6, 'Exclusive {X}',
+            'Unknown'
+    )                   "Lock Mode {Process}",
+    TO_CHAR(TRUNC(l.CTIME/3600)) || ':' || 
+    LPAD(TO_CHAR(TRUNC((l.CTIME-TRUNC(l.CTIME/3600)*3600)/60)), 2, '0') || ':' ||
+    LPAD(TO_CHAR(
+            l.CTIME-(TRUNC(l.CTIME/3600)*3600)-
+            (TRUNC((l.CTIME-TRUNC(l.CTIME/3600)*3600)/60)*60)
+            ), 2, '0')
+                        "Lock Time",
+    l.BLOCK             "Is Blocking",
+    OSUSER              "OS User",
+    p.SPID              "Process"    
+FROM
+    V$LOCK l, V$SESSION s, V$PROCESS p, SYS.DBA_OBJECTS o 
+WHERE
+    s.SID = l.SID AND o.OBJECT_ID = l.ID1 AND l.TYPE = 'TM' AND
+    s.PADDR = p.ADDR
+UNION
+SELECT
+    s.USERNAME          "User Name",
+    s.SID               "Session",
+    s.SERIAL#,
+    DECODE(
+        l.TYPE,
+            -- Type of lock (User Types)
+            'TM', 'DML enqueue',
+            'TX', 'Transaction enqueue',
+            'UL', 'User supplied',
+            -- Type of lock (System Types)
+            'BL', 'Buffer hash table instance',
+            'CF', 'Control file schema global enqueue',
+            'CI', 'Cross-instance function invocation instance',
+            'CU', 'Cursor bind',
+            'DF', 'Data file instance',
+            'DL', 'Direct loader parallel index create',
+            'DM', 'Mount/startup db primary/secondary instance',
+            'DR', 'Distributed recovery process',
+            'DX', 'Distributed transaction entry',
+            'FS', 'File set',
+            'HW', 'Space management operations on a specific segment',
+            'IN', 'Instance number',
+            'IR', 'Instance recovery serialization global enqueue',
+            'IS', 'Instance state',
+            'IV', 'Library cache invalidation instance',
+            'JQ', 'Job queue',
+            'KK', 'Thread kick',
+            'MM', 'Mount definition global enqueue',
+            'MR', 'Media recovery',
+            'PF', 'Password File',
+            'PI', 'Parallel operation',
+            'PS', 'Parallel operation',
+            'PR', 'Process startup',
+            'RT', 'Redo thread global enqueue',
+            'SC', 'System commit number instance',
+            'SM', 'SMON',
+            'SN', 'Sequence number instance',
+            'SQ', 'Sequence number enqueue',
+            'SS', 'Sort segment',
+            'ST', 'Space transaction enqueue',
+            'SV', 'Sequence number value',
+            'TA', 'Generic enqueue',
+            'TS', DECODE(l.ID2,
+                    0, 'Temporary segment enqueue',
+                    1, 'New block allocation enqueue',
+                    'TS'),
+            'TT', 'Temporary table enqueue',
+            'UN', 'User name',
+            'US', 'Undo segment DDL',
+            'WL', 'Being-written redo log instance',
+            l.TYPE
+    )                   "Lock Type",
+    '(Rollback=' || RTRIM(r.NAME) || ')' "Object Name",
+    DECODE(
+        l.LMODE,
+            0, 'None',
+            1, 'Null {NULL}',
+            2, 'Row Share {SS}',
+            3, 'Row Exclusive {SX}',
+            4, 'Share {S}',
+            5, 'S/Row Exclusive {SSX}',
+            6, 'Exclusive {X}',
+            'Unknown'
+    )                   "Lock Mode {Session}",
+    DECODE(
+        l.REQUEST,
+            0, 'None',
+            1, 'Null {NULL}',
+            2, 'Row Share {SS}',
+            3, 'Row Exclusive {SX}',
+            4, 'Share {S}',
+            5, 'S/Row Exclusive {SSX}',
+            6, 'Exclusive {X}',
+            'Unknown'
+    )                   "Lock Mode {Process}",
+    TO_CHAR(TRUNC(l.CTIME/3600)) || ':' || 
+    LPAD(TO_CHAR(TRUNC((l.CTIME-TRUNC(l.CTIME/3600)*3600)/60)), 2, '0') || ':' ||
+    LPAD(TO_CHAR(
+            l.CTIME-(TRUNC(l.CTIME/3600)*3600)-
+            (TRUNC((l.CTIME-TRUNC(l.CTIME/3600)*3600)/60)*60)
+            ), 2, '0')
+                        "Lock Time",
+    l.BLOCK             "Is Blocking",
+    OSUSER              "OS User",
+    p.SPID              "Process"
+FROM
+    V$LOCK l, V$SESSION s, V$PROCESS p, V$ROLLNAME r
+WHERE
+    s.SID = l.SID AND l.TYPE = 'TX' AND l.LMODE = 6 AND
+    TRUNC(l.ID1/65536) = r.USN AND
+    s.PADDR = p.ADDR
+ORDER BY 2 ASC, 8 DESC

@@ -1,0 +1,57 @@
+Books:
+Mitra - Mastering Gradle
+Ch 6 - Property Mgmt (p139-141)
+Varanasi - Introducing Gradle
+
+Forums:
+discuss.gradle.org
+
+Presentations:
+http://www.slideshare.net/aestasit/introduction-to-gradle
+http://www.slideshare.net/buzdin/gradle-introduction-9633872
+http://www.slideshare.net/evgenyg/10-cool-facts-about-gradle-9082958
+http://www.slideshare.net/rajmahendra/gradle-build-tool-that-rocks-with-dsl-javaone-india-4th-may-2012
+http://www.slideshare.net/invider/gradle-time-for-a-new-build
+http://www.slideshare.net/Strannik_2013/gradle-2write-once-builde-everywhere
+
+Articles:
+http://igorpopov.io/2014/05/01/understanding-gradle/
+
+API-DSL:
+https://docs.gradle.org/current/dsl/
+https://docs.gradle.org/current/dsl/index.html
+https://docs.gradle.org/current/dsl/org.gradle.api.Project.html
+
+Cmd-line:
+-x
+--gui
+--profile
+--recompile-scripts
+
+Cfg:
+Can create custom cfg-s (not only compile/testCompile)
+
+About Gradle Tasks:
+http://habrahabr.ru/post/167227/
+https://docs.gradle.org/current/userguide/more_about_tasks.html
+
+Dry run:
+http://mrhaki.blogspot.com/2014/11/gradle-goodness-check-task-dependencies.html
+-m or --dry-run
+
+Integration Testing:
+http://www.slideshare.net/SpringCentral/continuous-delivery-with-gradle-and-jenkins
+http://www.slideshare.net/SpringCentral/cd-pipeline-gradlejenkins
+
+Dependency Management:
+http://habrahabr.ru/company/redmadrobot/blog/275515/
+
+PL support:
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+ 
+Profiles
+dev-profile.gradle test-profile.gradle
+apply from: "{profile}-profile.gradle"
+$ gradle -Pprofile=dev build

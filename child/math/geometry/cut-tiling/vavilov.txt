@@ -1,0 +1,61 @@
+2017
+Vavilov - Lection in Sirius
+    https://www.youtube.com/watch?v=jIm7cLSugI4
+2013
+Vavilov - Domino Tiling
+    https://www.youtube.com/playlist?list=PL-_cKNuVAYAXneWrX3yuKyuvw3-teNg65
+    https://www.lektorium.tv/course/22900
+    https://www.youtube.com/watch?v=dFWRegmE6cQ
+    https://www.youtube.com/watch?v=N60aB6nLVP8
+    https://www.youtube.com/watch?v=lgPN45eEvfw
+
+    5,6
+    https://www.youtube.com/watch?v=dwxP7kCL3xE
+    https://www.youtube.com/watch?v=R8x5q1B8KMU
+
+    https://www.youtube.com/watch?v=hFLkxxyRtJk
+
+    1 - https://www.youtube.com/watch?v=hSnSAPDwHG4
+    !!! tiling, packing, covering
+    ! abelian combinatory - coloring principle
+    ! skewed tetramino
+    ! theorem of Igor Pak (prooved that there is no coloring ...)
+    ! any coloring is a function to Abelian group
+    ! perimeters and fundamental groups (not necessary Abelian)
+    ! theorem of John Conway (kniga chisel, atlas of finite groups)
+    ! Conway solves Rubix Cube in 29 sec
+    ! Combinatorial Groups Theory
+    ! Gryobner Basis (ideals of polynoms)
+    ! Constantin Petrovich Kohas
+    ! A2, B2, G2 - on plane
+    ! Theory of Representations of Full Linear Group, formula of McMagon
+        https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BB%D0%BD%D0%B0%D1%8F_%D0%BB%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D0%B0%D1%8F_%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0
+        https://math.wikia.org/ru/wiki/%D0%9F%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%8B
+        http://www.vixri.com/d/Najmark%20M.A.%20Teorija%20predstavlenij%20Grupp.pdf
+        http://ffmgu.ru/images/c/c9/Isaev_Teoria_Grupp_I_Simmetriy.pdf
+    ! chislo upakovki i chislo pokrytiya (princip Dirihle => suschestvuet zamoschenie/tiling)
+    ! theorem of Kastelyayn and Fisher-Temperly
+    ! opredelitely, permanenty, pafiany, gofniany: det, perm, pf, hf
+    ! !!! Aztek diamond (order 3) is ~ to white-cells of chess-board (AD_3)
+    ! ... black cells -> OD_n (odd diamond)
+    ! theorem of Elkis, Kuperberg, Larsen and Propp (number of pokrytiy)
+    ! beautifool proof of domino-shuffling !!!
+    ! !!! obzor Stanley !
+
+    3.
+    https://www.youtube.com/watch?v=ST8zfx5vKvM
+        Opredeliteli i permanenty byvayut tolko u kvadr matrits
+        A pfafiany i hovniany - u simmetricheskih (chetnoy stepeni)
+        permanent
+            https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B5%D0%BD%D1%82
+            http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=mo&paperid=79&option_lang=rus
+            vychislenie permanenta - ne yavlyaetsya prostoy zadachey (kak vychislenie opredelitelya)
+                n! * n (eto - mnogo po sravneniyu s n^3 dlya opredeliteley)
+        pfafiany
+            byvayut u antisimmetricheskih matrits
+            https://ru.wikipedia.org/wiki/%D0%9F%D1%84%D0%B0%D1%84%D1%84%D0%B8%D0%B0%D0%BD
+            https://math.wikia.org/ru/wiki/%D0%9F%D1%84%D0%B0%D1%84%D1%84%D0%B8%D0%B0%D0%BD
+            opredelitel antisimmetricheskoy matritsy nechetkogo poryadka raven 0
+
+        hovniany
+            opredeleny fizikom v fizicheskom zhurnale v 1953 godu

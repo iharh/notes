@@ -1,0 +1,117 @@
+https://doc.rust-lang.org/book/getting-started.html
+https://rust-lang.github.io/rustup/concepts/profiles.html
+
+https://github.com/rust-lang-nursery/rustup.rs
+    curl https://sh.rustup.rs -sSf | sh
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+https://win.rustup.rs/
+    immediately downloads rust
+
+Current installation options:
+
+   default host triple: x86_64-unknown-linux-gnu
+     default toolchain: stable
+  modify PATH variable: no
+...
+Rust is installed now. Great!
+
+To get started you need Cargo's bin directory in your PATH environment variable.
+
+~/.bashrc:
+export RUSTUP_HOME=~/.rustup
+export CARGO_HOME=~/.cargo
+export PATH=$PATH:$CARGO_HOME/bin
+
+
+To configure your current shell run source /data/wrk/.cargo/env
+
+cat /data/wrk/.cargo/env
+export PATH="/data/wrk/.cargo/bin:$PATH"
+
+vars
+RUSTUP_HOME (~/.rustup)
+
+RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update nightly
+RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org rustup update stable 
+
+fs:
+~/.rustup
+
+rustup
+    [cmd] -h, --help
+    show
+    self
+        update
+        uninstall
+        upgrade-data
+    update|install
+        [toolchain:stable|beta|nightly|version]
+        by default - updates ? all toolchains
+    default
+        <toolchain>
+        
+        $RUSTUP_HOME/settings.toml:
+        default_toolchain = "stable-x86_64-unknown-linux-gnu"
+    override
+        set <toolchain>
+            directory overrides at $RUSTUP_HOME/settings.toml
+
+            telemetry = false
+            version = "12"
+
+            [overrides]
+            "/data/wrk/prj/cargo/s1" = "nightly-x86_64-unknown-linux-gnu"
+
+    toolchain
+        list
+        uninstall
+            <toolchain>
+    run
+        <toolchain> cmd
+    component
+        add
+            rust-src
+                -> ~/.rustup/toolchains/<your-toolchain>/lib/rustlib/src/rust/src
+            llvm-tools
+                https://internals.rust-lang.org/t/llvm-tools-a-new-rustup-component-for-binary-inspection-objdump-nm-size-and-profiling-profdata/7830
+                llvm-nm, objcopy, objdump, profdata, size
+            rustfmt-preview
+            rustc
+            rust-std
+            cargo
+            rust-docs
+                (rustup doc)
+        ??
+            curl -s https://static.rust-lang.org/dist/channel-rust-nightly.toml
+    target
+        add
+            x86_64-unknown-linux-musl
+        ??
+
+    doc
+        --path
+        --std
+        --book
+        --reference
+
+    ? which|man|set|completions
+
+shorthands:
+rustc +nightly foo.rs
+rustup run nightly bash
+
+list all available stuff:
+https://github.com/rust-lang-nursery/rustup.rs/issues/215
+https://static.rust-lang.org/dist/index.html
+
+whatsnew
+https://blog.rust-lang.org/2022/07/12/Rustup-1.25.1.html
+https://blog.rust-lang.org/2022/07/11/Rustup-1.25.0.html
+https://blog.rust-lang.org/2021/06/08/Rustup-1.24.3.html
+https://blog.rust-lang.org/2021/05/17/Rustup-1.24.2.html
+https://blog.rust-lang.org/2021/04/29/Rustup-1.24.1.html
+https://blog.rust-lang.org/2021/04/27/Rustup-1.24.0.html
+https://blog.rust-lang.org/2020/11/27/Rustup-1.23.0.html
+https://blog.rust-lang.org/2020/07/06/Rustup-1.22.0.html
+https://github.com/rust-lang/rustup.rs/blob/master/CHANGELOG.md
+https://blog.rust-lang.org/2019/10/15/Rustup-1.20.0.html

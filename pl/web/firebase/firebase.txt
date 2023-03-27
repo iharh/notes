@@ -1,0 +1,34 @@
+https://firebase.google.com
+
+https://github.com/firebase/
+https://github.com/firebase/firebase-tools
+
+https://firebase.google.com/docs/
+https://firebase.google.com/docs/firestore/
+https://firebase.google.com/docs/guides/
+https://firebase.google.com/docs/reference/
+https://firebase.google.com/docs/cli/
+https://firebase.google.com/docs/samples/
+https://firebase.google.com/docs/libraries/
+
+https://console.firebase.google.com
+
+inst
+npm i -P firebase @firebase/app @firebase/firestore
+
+articles
+2020
+https://www.smashingmagazine.com/2020/08/comment-system-firebase/
+    https://github.com/smashingmagazine/blog-comments
+2018
+https://www.infoq.com/news/2018/11/google-firebase-mobile-updates
+https://nrempel.com/guides/react-firebase-ant-design/
+
+channels
+Firebase
+https://www.youtube.com/channel/UCP4bf6IHJJQehibu6ai__cg
+
+presentations
+2018
+firebase at google i/o
+https://www.youtube.com/playlist?list=PLl-K7zZEsYLn1omgx_VUhCDFsQMA7PRDd

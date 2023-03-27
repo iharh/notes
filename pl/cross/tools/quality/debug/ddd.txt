@@ -1,0 +1,9 @@
+https://www.gnu.org/software/ddd/
+
+aur/ddd
+https://aur.archlinux.org/packages/ddd/
+
+==> Verifying source file signatures with gpg...
+    ddd-3.3.12.tar.gz ... FAILED (unknown public key 6656C593E5158D1A)
+==> ERROR: One or more PGP signatures could not be verified!
+==> ERROR: Makepkg was unable to build ddd.

@@ -1,0 +1,8 @@
+http://askubuntu.com/questions/54579/how-to-split-larger-files-into-smaller-parts
+
+split/join
+
+7z a -mx0 -v1g a.7z file.iso
+---
+7z x a.7z.001
+7z e a.7z.001

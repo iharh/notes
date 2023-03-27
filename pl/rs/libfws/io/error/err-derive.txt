@@ -1,0 +1,11 @@
+https://crates.io/crates/err-derive
+https://docs.rs/err-derive
+https://gitlab.com/torkleyy/err-derive
+    ! 31 usages
+
+2018
+https://www.reddit.com/r/rust/comments/a9z3m7/announcing_errderive_yet_another_error_handling/
+https://users.rust-lang.org/t/announcing-err-derive-yet-another-error-handling-library
+
+samples
+https://github.com/mullvad/windows-service-rs/blob/master/src/lib.rs

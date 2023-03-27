@@ -1,0 +1,140 @@
+Direct routing
+
+.. routing=12,665 ..
+
+
+Routing fields
+
+We only need to provide the routing parameter during querying. To do that, we need to add the following section to our type definition:
+
+{
+  "mappings" : {
+    "post" : {
+      "_routing" : { 
+        "required" : true,
+        "path" : "userId"
+      },
+      "properties" : {                
+        ...
+	}
+    }
+}
+
+The routing value needs to be provided (the "required": true property); without it, an index request will fail.
+In addition to that we specified the path attribute, which decides which field value of the document will be used as the routing value (userId in our case).
+
+
+Index alias
+
+It's an additional name for one or more indexes that allow(s) us to query indexes with the use of that name.
+A single alias can have multiple indexes as well as the other way around, a single index can be a part of multiple aliases.
+
+The following request will create a new alias called week12 that will have indexes named day10, day11, and day12:
+
+curl -XPOST 'http://localhost:9200/_aliases' -d '{
+  "actions" : [
+    { "add" : { "index" : "day10", "alias" : "week12" } },
+    { "add" : { "index" : "day11", "alias" : "week12" } },
+    { "add" : { "index" : "day12", "alias" : "week12" } }
+  ]
+}'
+
+Now we can use
+
+curl –XGET 'http://localhost:9200/week12/_search?q=test'
+
+instead of
+
+curl –XGET 'http://localhost:9200/day10,day11,day12/_search?q=test'
+
+
+Modifying aliases:
+
+... -d '{
+ "actions" : [
+    { "remove" : { "index" : "day9", "alias" : "week12" } }
+  ]
+}'
+
+... -d '{
+"actions" : [
+    { "add" : { "index" : "day10", "alias" : "week12" } },
+    { "add" : { "index" : "day11", "alias" : "week12" } },
+    { "add" : { "index" : "day12", "alias" : "week12" } },
+    { "remove" : { "index" : "day9", "alias" : "week12" } }
+  ]
+}'
+
+
+Retrieving aliases:
+
+for specific index:
+
+curl -XGET 'localhost:9200/day10/_aliases'
+
+for all the indices:
+
+curl -XGET 'localhost:9200/_aliases'
+resp:
+"day10" : {
+    "aliases" : {
+      "week12" : { }
+    }
+  },
+  "day11" : {
+    "aliases" : {
+      "week12" : { }
+    }
+  },
+  "day12" : {
+    "aliases" : {
+      "week12" : { }
+    }
+  }
+}
+
+
+Filtering aliases:
+
+curl -XPOST 'http://localhost:9200/_aliases' -d '{
+  "actions" : [
+  {
+    "add" : {
+      "index" : "data",
+      "alias" : "client",
+     "filter" : { "term" : { "clientId" : "12345" } }
+    }
+  } ]
+}'
+
+
+Aliases and routing
+
+Similar to the aliases that use filtering, we can add routing values to the aliases.
+Imagine that we are using routing on the basis of user identifier and we want to use the same routing values with our aliases.
+For the alias named client, we will use the routing value of 12345,12346,12347 for indexing, and only 12345 for querying.
+
+So, we create an alias with the following command:
+
+curl -XPOST 'http://localhost:9200/_aliases' -d '{
+  "actions" : [
+  {
+    "add" : {
+      "index" : "data",
+      "alias" : "client",
+      "index_routing" : "12345,12346,12347"
+      "search_routing" : "12345"
+    }
+  } ]
+}'
+
+This way, when we index our data by using the client alias, the values specified by the index_routing property will be used, and during query time,
+the one specified by the search_routing property will be used.
+
+If you run the following query with the preceding alias:
+
+curl -XGET 'http://localhost:9200/client/_search?q=test&routing=99999,12345'
+
+The value used as a routing value will be 12345.
+This is because ElasticSearch will take the common values of the  search_routing attribute and the query routing parameter, which in our case is 12345.
+

@@ -1,0 +1,28 @@
+http://www.squid-cache.org/
+
+/usr/lib/systemd/system/squid.service
+-//- squid-rotate.service, squid-rotate.timer
+
+squid -sYG
+
+/etc/squid/squid.conf
+???
+sysusers.d/squid.conf
+tmpfiles.d/squid.conf
+
+/var/log/squid/access.log
+
+export http_proxy=http://<host>:3128
+
+course
+????
+Udemy - Squid Proxy Server
+    magnet:?xt=urn:btih:9047808c11a3c7d13e0455874553d6c16392c044
+
+articles
+2021
+https://itsecforu.ru/2021/10/26/%f0%9f%a6%91-%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0-%d0%b8-%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0-squid-%d0%bf%d1%80%d0%be%d0%ba%d1%81%d0%b8-%d0%bd%d0%b0-rocky-linux/
+http://www.unixmen.com/install-configure-squid-proxy-server-rhelcentos/
+
+whatsnew
+http://www.squid-cache.org/Versions/v5/squid-5.2-RELEASENOTES.html

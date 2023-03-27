@@ -1,0 +1,8 @@
+sudo yum install
+    p7zip p7zip-plugins
+
+file:///usr/share/doc/p7zip/DOC/MANUAL/cmdline/switches/method.htm
+
+7z
+    a <arc-name>.7z <files>
+    -p ask for password

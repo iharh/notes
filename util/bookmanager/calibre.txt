@@ -1,0 +1,11 @@
+https://bintray.com/probono/AppImages/Calibre
+https://github.com/NixOS/nixpkgs/tree/master/pkgs/applications/misc/calibre
+
+https://bintray.com/probono/AppImages/Calibre#files
+curl -L "https://dl.bintray.com/probono/AppImages/Calibre-3.18.0.glibc2.14-x86_64.AppImage" -o Calibre-3.18.0.glibc2.14-x86_64.AppImage
+
+--appimage-help
+--appimage-extract
+
+css
+https://www.mobileread.com/forums/showthread.php?t=51500

@@ -1,0 +1,26 @@
+https://doc.rust-lang.org/reference/procedural-macros.html
+    https://doc.rust-lang.org/stable/book/first-edition/procedural-macros.html
+
+https://github.com/rust-lang/rfcs/blob/master/text/1566-proc-macros.md
+
+2022
+https://aaronerhardt.github.io/blog/posts/proc_macro_v2/
+https://blog.jetbrains.com/rust/2022/07/07/procedural-macros-under-the-hood-part-ii/
+https://blog.jetbrains.com/rust/2022/03/18/procedural-macros-under-the-hood-part-i/
+https://ferrous-systems.com/blog/testing-proc-macros/
+2020
+https://peppe.rs/posts/auto-currying_rust_functions/
+2019
+Procedural Macros in Rust
+    https://github.com/dtolnay/proc-macro-workshop
+    https://www.youtube.com/watch?v=KVWHT1TAirU
+https://naftuli.wtf/2019/01/02/rust-derive-macros/
+2018
+https://blog.rust-lang.org/2018/12/21/Procedural-Macros-in-Rust-2018.html
+https://tinkering.xyz/posts/introduction-to-proc-macros/
+
+https://habrahabr.ru/post/321564/
+https://habrahabr.ru/post/321620/
+
+samples
+http://nercury.github.io/rust/opengl/tutorial/2018/07/11/opengl-in-rust-from-scratch-10-procedural-macros.html

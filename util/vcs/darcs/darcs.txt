@@ -1,0 +1,25 @@
+darcs changes
+  --from-match="hash 20130304095221-23c07-c7bc6f8687cc30bd1ce02a095f6cc4ab20eac3de" 
+  -v
+  -s
+  -n 1
+  -n 5-7
+  --xml-output
+
+darcs get
+  --no-working-dir
+
+darcs pull
+
+darcs dist (to create a .tar.gz archive)
+
+
+Cache:
+
+--no-cache                                                  don't use patch caches
+
+C:\Users\Ihar_Hancharenka\AppData\Roaming\darcs/cache/
+
+
+darcs.net
+hash='20130225215843-81bb2-78d55c283b4d745ba3f14f0a325c6679cec176a1'

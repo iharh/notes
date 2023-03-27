@@ -1,0 +1,20 @@
+https://minikube.sigs.k8s.io/docs/handbook/mount/
+
+https://minikube.sigs.k8s.io/docs/handbook/mount/#9p-mounts
+    ! universal, but slow for more than 600 files
+    minikube mount <source directory>:<target directory>
+    minikube mount $HOME:/host
+
+https://minikube.sigs.k8s.io/docs/handbook/mount/#driver-mounts
+
+minikube
+    logs [--file=logs.txt]
+    mount --help
+
+config.json
+    ...
+    "Mount": true,
+    "MountString": "/Users:/Users"
+    "MountMSize": 262144,
+    "MountOptions": [],
+    "MountType": "9p",

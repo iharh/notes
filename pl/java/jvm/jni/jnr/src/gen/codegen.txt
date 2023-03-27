@@ -1,0 +1,53 @@
+CodeGen:
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/AsmStructByReferenceFromNativeConverter.java
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/CodegenUtils.java
+<-
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/StructByReferenceResultConverterFactory.java
+    <-
+    https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/InvokerTypeMapper.java
+        <-
+        https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/ReflectionLibraryLoader.java
+        https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/AsmLibraryLoader.java 
+            NativeLibraryLoader.ASM_ENABLED, ? CachingTypeMapper
+
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/NativeLibraryLoader.java
+
+class NativeLibraryLoader<T>  extends jnr.ffi.LibraryLoader<T> {
+    static final boolean ASM_ENABLED = getBooleanProperty("jnr.ffi.asm.enabled", true);
+
+    NativeLibraryLoader(Class<T> interfaceClass) {
+        super(interfaceClass);
+    }
+    public T loadLibrary(Class<T> interfaceClass, Collection<String> libraryNames, Collection<String> searchPaths, Map<LibraryOption, Object> options) {
+        NativeLibrary nativeLibrary = new NativeLibrary(libraryNames, searchPaths);
+
+        try {
+            return ASM_ENABLED
+                ? new AsmLibraryLoader().loadLibrary(nativeLibrary, interfaceClass, options)
+                : new ReflectionLibraryLoader().loadLibrary(nativeLibrary, interfaceClass, options);
+        } catch (RuntimeException ex) {
+            throw ex;
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+}
+
+<-
+https://github.com/jnr/jnr-ffi/blob/master/src/main/java/jnr/ffi/provider/jffi/Provider.java
+
+public final class Provider extends FFIProvider {
+    private final NativeRuntime runtime;
+    
+    public Provider() {
+        this.runtime = NativeRuntime.getInstance();
+    }
+    public final Runtime getRuntime() {
+        return runtime;
+    }
+    public <T> jnr.ffi.LibraryLoader<T> createLibraryLoader(Class<T> interfaceClass) {
+        return new NativeLibraryLoader<T>(interfaceClass);
+    }
+}

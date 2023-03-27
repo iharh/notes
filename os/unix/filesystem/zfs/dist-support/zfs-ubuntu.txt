@@ -1,0 +1,30 @@
+https://www.phoronix.com/scan.php?page=news_item&px=Trying-Ubuntu-20.04-ZFS-Snaps
+https://openzfs.github.io/openzfs-docs/Getting%20Started/Ubuntu/Ubuntu%2020.04%20Root%20on%20ZFS.html
+
+zsys
+https://didrocks.fr/2020/05/26/zfs-focus-on-ubuntu-20.04-lts-zsys-general-presentation/
+
+2020
+http://vasilisc.com/ubuntu-20-04-zfs-snapshot-apt
+    !
+https://ubuntu.com/blog/zfs-focus-on-ubuntu-20-04-lts-whats-new
+https://linuxconfig.org/install-ubuntu-20-04-with-zfs
+    ! we can choose minimal with ZFS
+https://linuxconfig.org/configuring-zfs-on-ubuntu-20-04
+    ! install on existing ubuntu
+    $ sudo zfs create -o encryption=on -o keylocation=prompt -o keyformat=passphrase mypool/encrypted
+    $ sudo zfs mount -l mypool/encrypted
+https://linuxhint.com/installing_zfs_ubuntu_20-04/
+https://www.unixtutorial.org/getting-started-with-zfs-ubuntu-20-04/
+https://medium.com/@ruvi.d/zfs-on-ubuntu-20-04-lts-53728f3bc9e9
+    ! a lot of tech stuff
+Collins - Running Ubuntu 20.04 on ZFS
+    https://www.youtube.com/watch?v=l-iu-cutkyQ
+    ! need to read comments
+Andrew - ZFS on Ubuntu 20.04
+    https://www.youtube.com/watch?v=II5Fk2NSc8Q
+DJWare - Ununtu 20.04 ZFS on Hardware
+    https://www.youtube.com/watch?v=AxEWUx90uUg
+2018
+https://linuxhint.com/install_zfs_ubuntu_1804/
+    ! cmd-line install of zfs

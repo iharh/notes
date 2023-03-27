@@ -1,0 +1,18 @@
+Design Patterns:
+http://blog.ezyang.com/2010/05/design-patterns-in-haskel/
+Gibbons - Design Patterns in Higher-Order Datatype-Generic Programs
+Olivera - EffectiveAdvice: Disciplined Advice with Explicit Effects (http://tomschrijvers.blogspot.com/2009/09/effectiveadvice-aop-mixin-inheritance.html)
+
+Generic Programming:
+DosReis - What is Generic Programming (+ C++ examples)
+Gibbons - Datatype-Generic Programming slides (!!! why C++ templates are bad)
+Munkby - ScrapPP - Scrap Your Boilerplate in Cpp
+Loh - Exploring Generic Haskell phd
+Peltzer - SYB - A Practical DP for Generic Programming Tutorial
+Tarasov - SYB Uniplate ru
+
+Data.Typeable and Data.Dynamic
+http://www.reddit.com/r/haskell/comments/23luc9/explain_like_im_not_a_phd_datatypeable_and/
+
+Typeable and Data in Haskell
+http://chrisdone.com/posts/data-typeable

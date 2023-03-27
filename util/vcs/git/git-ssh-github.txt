@@ -1,0 +1,60 @@
+ssh -v git@github.com
+git clone git@github.com:ClarabridgeInc/QAAutomation.git
+
+
+OpenSSH_6.9p1, OpenSSL 1.0.2d 9 Jul 2015
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Connecting to github.com [192.30.252.128] port 22.
+debug1: Connection established.
+debug1: identity file /home/Ihar_Hancharenka/.ssh/id_rsa type 1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/Ihar_Hancharenka/.ssh/id_rsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/Ihar_Hancharenka/.ssh/id_dsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/Ihar_Hancharenka/.ssh/id_dsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/Ihar_Hancharenka/.ssh/id_ecdsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/Ihar_Hancharenka/.ssh/id_ecdsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/Ihar_Hancharenka/.ssh/id_ed25519 type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/Ihar_Hancharenka/.ssh/id_ed25519-cert type -1
+debug1: Enabling compatibility mode for protocol 2.0
+debug1: Local version string SSH-2.0-OpenSSH_6.9
+debug1: Remote protocol version 2.0, remote software version libssh-0.7.0
+debug1: no match: libssh-0.7.0
+debug1: Authenticating to github.com:22 as 'git'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: server->client chacha20-poly1305@openssh.com <implicit> none
+debug1: kex: client->server chacha20-poly1305@openssh.com <implicit> none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ssh-rsa SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8
+debug1: Host 'github.com' is known and matches the RSA host key.
+debug1: Found key in /home/Ihar_Hancharenka/.ssh/known_hosts:4
+Warning: Permanently added the RSA host key for IP address '192.30.252.128' to the list of known hosts.
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: Roaming not allowed by server
+debug1: SSH2_MSG_SERVICE_REQUEST sent
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey
+debug1: Next authentication method: publickey
+debug1: Offering RSA public key: /home/Ihar_Hancharenka/.ssh/id_rsa
+debug1: Server accepts key: pkalg ssh-rsa blen 535
+debug1: Authentication succeeded (publickey).
+Authenticated to github.com ([192.30.252.128]:22).
+debug1: channel 0: new [client-session]
+debug1: Entering interactive session.
+PTY allocation request failed on channel 0
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+Hi ClarabridgeInc/QAAutomation! You've successfully authenticated, but GitHub does not provide shell access.
+debug1: channel 0: free: client-session, nchannels 1
+Connection to github.com closed.
+Transferred: sent 4284, received 2068 bytes, in 1.0 seconds
+Bytes per second: sent 4475.6, received 2160.5
+debug1: Exit status 1
+

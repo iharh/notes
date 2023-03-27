@@ -1,0 +1,14 @@
+https://github.com/BurntSushi/cargo-benchcmp
+https://github.com/Canop/glassbench
+
+cargo
+    bench
+    benchcmp
+
+http://sunjay.ca/2017/04/27/rust-benchmark-comparison-travis
+https://beachape.com/blog/2016/11/02/rust-performance-testing-on-travis-ci/
+https://ricky.hosfelt.io/blog/rust_bench.html
+    https://www.reddit.com/r/rust/comments/6zq1jn/rust_benchmarking_forloops_map_and_rayon/
+
+samples
+https://github.com/hoodie/concatenation_benchmarks-rs

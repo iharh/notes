@@ -1,0 +1,17 @@
+csv
+#df = pd.DataFrame({
+#    'name' : list('CCCDDDEEE'),
+#    'value': [2, 7, 4, 1, 2, 6, 8, 4, 7]
+#})
+#df.to_csv('example.csv', index=False)
+
+https://chrisalbon.com/python/pandas_dataframe_importing_csv.html
+    .to_csv(filename
+        , index=False
+        , sep='\t'
+        , encoding='utf-8'
+    )
+    .read_csv(filename)
+
+????
+https://www.python-course.eu/pandas_data_files.php

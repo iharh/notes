@@ -1,0 +1,23 @@
+Syntax:
+
+conctructors:
+this (...) - another deffault ...
+
+infix operator
+any method with a parameter can be used like an infix operator
+  r add s
+  r less s
+  r max s
+
+like in Haskell, method can be formed of spec-chars
+Note: an id can start from alphanums, end with an underscore (_), followed by spec-chars.
+Note: the precedence of an operator is determined by its first character
+
+override-specifier exists in Scala
+
+operators:
+- all operators ending with a colon (:) are associative to the right
+  they are seen as method calls on right-hand operand
+
+http://www.slideshare.net/joeygibson/operator-overloading-in-scala-2923973
+

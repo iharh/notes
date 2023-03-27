@@ -1,0 +1,9 @@
+https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management
+https://wiki.alpinelinux.org/wiki/Comparison_with_other_distros
+https://wiki.alpinelinux.org/wiki/Apk_spec
+
+apk
+    add --no-cache
+        gcc musl-dev
+
+apk-tools

@@ -1,0 +1,3 @@
+2019
+https://stackoverflow.com/questions/37156568/increase-timeout-for-gradle-to-get-a-maven-dependency
+    -Phttp.socketTimeout=200000 -Phttp.connectionTimeout=200000

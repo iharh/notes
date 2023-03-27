@@ -1,0 +1,42 @@
+2019
+https://www.baeldung.com/groovy-closures
+
+
+c.resolveStrategy = CLOSURE.OWNER_FIRST
+// DELEGATE_FIRST, DELEGATE_ONLY, OWNER_ONLY
+
+the groovy for-in loop
+
+for (n in nums) {
+    println n
+}
+
+nums.each { println it }
+nums.each { n -> println n }
+nums.eachWithIndex { n, idx -> println "nums[$idx] == $n" }
+
+
+Map m = [a:1, b:2, c:2]
+
+def result = ''
+def result = ''
+[a:1, b:3].each { key, val -> result += "$key$val" }
+assert result == 'a1b3'
+
+def result = ''
+[a:1, b:3].each { entry -> result += entry }
+assert result == 'a=1b=3'
+
+If you have a method with the last argument is a closure,
+then the typical groovy idiom is to put closure after the parenthesis
+
+Number class:
+void downto(Number to, Closure closure)
+
+10.downto(7, { println it })
+10.downto(7) { println it } // the most idiomatic groovy
+10.downto 7, { println it }
+
+// in java 8 lambda - we can only access final vars inside a lambda
+// in groovy - delegation (if symbol can't be resolved within a closure scope)
+// controlled by Closure.delegate property

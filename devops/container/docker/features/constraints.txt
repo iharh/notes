@@ -1,0 +1,2 @@
+docer run
+    --env="constraint:node==<node-name>"

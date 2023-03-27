@@ -1,0 +1,61 @@
+https://start.spring.io/
+
+debug traffic http
+
+application.properties:
+spring.devtools.remote.secret=mysecret
+
+shell:
+  ssh:
+    enabled: true
+    port: 2222
+  auth: spring
+
+CommandLineRunner:
+http://nixmash.com/java/using-spring-boot-commandlinerunner/
+http://howtodoinjava.com/spring/spring-boot/command-line-runner-interface-example/
+    -Drun.arguments="k1=v1,k2=v2,..."
+
+
+class to remotely-debug:
+org.springframework.boot.devtools.RemoteSpringApplication
+Arguments:
+    url (as in browser)
+
+
+Annotations:
+
+@SpringBootApplication
+public class MyApplication ...
+
+SpringApplicationBuilder
+
+Every ApplicationContext has an Environment
+
+@Value("${name}")
+private String name
+// java -jar yourapp.jar --name=BootDragon --server-port=9000
+// or use application.[properties/yml]
+
+// bean lifecycle
+@PostConstruct
+@PreDestroy
+
+Testing
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = {
+    SimpleClientApplication.class
+})
+public class SomeBlaBlaTests {
+    ...
+}
+
+ErrorHandling:
+https://www.toptal.com/java/spring-boot-rest-api-error-handling
+https://auth0.com/blog/exception-handling-and-i18n-on-spring-boots-apis
+https://habrahabr.ru/post/342214/
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html

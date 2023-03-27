@@ -1,0 +1,2 @@
+dhall
+    rewrite-with-schemas --schemas 'https://raw.githubusercontent.com/dhall-lang/dhall-kubernetes/a4126b7f8f.../schemas.dhall'

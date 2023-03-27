@@ -1,0 +1,47 @@
+import org.gradle.api.file.DuplicatesStrategy
+
+    create<Copy>("copySomeStuff") {
+        from(someCfg)
+        into(someDir)
+        include("*.jar")
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+
+    //for including in the copy task
+    val dataContent = copySpec {
+        from("src/data")
+        include("*.data")
+    }
+
+    val assembleWeb by registering(Copy::class) {
+        group = "build"
+        description = "Assemble the web application"
+        includeEmptyDirs = false
+        from(unpackKotlinJsStdlib)
+        from(sourceSets.main.get().output) {
+            exclude("**/*.kjsm")
+        }
+        into("$buildDir/web")
+
+        // ...
+        from(zipTree(kotlinStdLibJar))
+        into(outputDir)
+        include("**/*.js")
+
+        // ...
+        with(dataContent)
+    }
+
+    ...
+        setFileMode(755)
+    ...
+    create("cpModules") {
+        doLast {
+            copy {
+                from(fileTree("/data/wrk/clb/fx/modules")) {
+                    include("*/*.xml")
+                }
+                into("/home/iharh/Downloads/5/")
+            }
+        }
+    }

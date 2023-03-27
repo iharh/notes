@@ -1,0 +1,110 @@
+kmett-free (http://hackage.haskell.org/package/free, https://github.com/ekmett/free/)
+
+http://blog.omega-prime.co.uk/?p=34
+
+http://www.haskellforall.com/2012/07/purify-code-using-free-monads.html
+    http://hackage.haskell.org/package/free-4.9/docs/Control-Monad-Free-TH.html
+http://www.haskellforall.com/2012/06/you-could-have-invented-free-monads.html
+
+http://debasishg.blogspot.com/2013/01/a-language-and-its-interpretation.html
+
+http://newartisans.com/2012/08/meta-programming-with-the-free-monad/
+
+(?) Bjarnason - Stackless Scala With Free Monads (Scala)
+
+!!! Good examples using Free over the [] functor
+http://javran.github.io/posts/2014-03-03-play-with-free-monad.html
+
+Piponi - Free
+http://www.reddit.com/r/haskell/comments/240j3z/a_neighborhood_of_infinity_the_monad_called_free/
+http://blog.sigfpe.com/2014/04/the-monad-called-free.html
+
+Habr - Free
+http://habrahabr.ru/post/254715/
+
+StackOverflow - Free
+http://programmers.stackexchange.com/questions/242795/what-is-the-free-monad-interpreter-pattern
+http://stackoverflow.com/questions/14641864/what-monads-can-be-expressed-as-free-over-some-functor
+!!!
+http://stackoverflow.com/questions/13352205/what-are-free-monads
+
+I think a simple concrete example will help. Suppose we have a functor with the obvious fmap:
+
+data F a = One a | Two a a | Two' a a | Three Int a a a
+
+Then Free F a is the type of trees whose leaves have type a and whose nodes are tagged with One, Two, Two' and Three.
+One-nodes have one child, Two- and Two'-nodes have two children and Three-nodes have three and are also tagged with an Int.
+
+Free F is a monad.
+    return maps x to the tree that is just a leaf with value x.
+    t >>= f looks at each of the leaves and replaces them with trees.
+            When the leaf has value y it replaces that leaf with the tree f y.
+
+
+Sample:
+http://stackoverflow.com/questions/10364549/monad-friendly-event-based-io
+
+> data Free f r = Pure r | Free (f (Free f r))
+
+http://blog.functorial.com/posts/2012-07-22-What-Makes-The-Free-Monad-Free.html
+
+The free monad for a functor f is given by the fixed point of the bifunctor X -> A -> F (X + A) where the fixed point is taken over X.
+
+> :k Free
+> (* -> *) -> *    -> *
+
+
+A free monad is like a "list of functors", where Pure is analogous to a list's Nil constructor and Free is analogous to a list's Cons constructor
+because it prepends an additional functor onto the "list".
+
+The nice thing about a free monad is that, given a functor f, Free f is automatically a monad:
+
+> instance (Functor f) => Monad (Free f) where
+>   return = Pure
+>   Pure r >>= f = f r
+>   Free x >>= f = Free (fmap (>>= f) x)
+
+
+http://joyoftypes.blogspot.com/2012/04/free-monad-primer.html
+
+> class Functor f => Monad f where
+>    return :: a -> f a
+>    join :: f (f a) -> f a
+
+data Free f a = Pure a | Impure (f (Free f a))
+
+lets define the monad instance
+
+>instance Functor f => Functor (Free f) where
+>   fmap f (Pure a) = Pure $ f a
+>   fmap f (Impure (ffa) = Impure $ fmap (fmap f) ffa
+
+that was easy, now
+	
+> instance Functor f => Monad (Free f) where
+>    return = Pure
+>    m (>>=) f = joinFree $ fmap f m
+
+okay, so the hard part is join. How do we define that?
+
+Recall that
+	
+> cancat  [] = []
+> concat (x:xs) = x:concat xs
+
+so
+	
+> joinFree (Pure a) = a
+> joinFree (Impure f) = Impure $ fmap joinFree f
+
+and now we have free monads!
+
+
+Inlined version of Free monad:
+
+
+
+instance Functor f => Monad (Free f) where
+  return         = Return
+  Free a >>= f   = Free (fmap (>>= f) a)
+  Return a >>= f = f a

@@ -1,0 +1,27 @@
+# ORA
+
+export ORA_DOC_NAME=ee11g
+
+on-ora () {
+    local ORA_DATA_DIR=$CLB_BASE_DIR/oradata
+    docker run --rm\
+    --name $ORA_DOC_NAME\
+    -p 1521:1521\
+    -v $ORA_DATA_DIR/$ORA_DOC_NAME:/u01/app/oracle:rw\
+    -e WEB_CONSOLE=false\
+    -d sath89/oracle-ee-11g
+#   -e DBCA_TOTAL_MEMORY=1024
+}
+
+off-ora () {
+    docker stop $ORA_DOC_NAME
+}
+
+bash-ora () {
+    docker exec -ti $ORA_DOC_NAME bash
+}
+
+sqlplus-cmp() {
+    docker exec -ti $ORA_DOC_NAME sqlplus system/oracle@//localhost:1521/EE.oracle.docker
+    # select database_status from v$instance;
+}

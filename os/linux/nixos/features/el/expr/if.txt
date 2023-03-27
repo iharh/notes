@@ -1,0 +1,11 @@
+If expressions
+
+    These are expressions, not statements.
+
+        nix-repl> a = 3
+        nix-repl> b = 4
+        nix-repl> if a > b then "yes" else "no"
+            "no"
+
+    You can't have only the then branch, you must specify also the else branch, because an expression must have a value in all cases.
+

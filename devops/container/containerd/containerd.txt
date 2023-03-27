@@ -1,0 +1,98 @@
+https://containerd.io/
+https://containerd.io/docs/
+https://containerd.io/docs/getting-started/
+    containerd config default > /etc/containerd/config.toml
+
+https://github.com/containerd/containerd
+https://github.com/containerd/containerd/blob/main/docs/getting-started.md
+https://github.com/containerd/containerd/blob/main/docs/ops.md
+https://github.com/containerd/containerd/tree/main/docs/cri
+https://github.com/containerd/containerd/blob/main/docs/cri/architecture.md
+https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
+https://github.com/containerd/containerd/blob/main/docs/cri/registry.md
+https://github.com/containerd/containerd/blob/main/docs/cri/testing.md
+
+apt # dpkg -L ...
+    containerd.io
+        /etc/containerd/config.toml
+        /lib/systemd/system/containerd.service
+        /usr/bin/containerd-shim-runc-v1
+        /usr/bin/containerd-shim-runc-v2
+        /usr/bin/ctr
+            need a running
+            /run/containerd/containerd.sock
+        /usr/bin/runc
+    containerd
+
+sudo ctr
+    plugins ls
+
+$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2022-04-06 07:08:55 +03; 3h 52min ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 2308 (dockerd)
+      Tasks: 175
+     Memory: 177.6M
+     CGroup: /system.slice/docker.service
+             ├─ 2308 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+2021
+https://iximiuz.com/en/posts/containerd-command-line-clients/
+    !!!
+https://kruyt.org/migrate-docker-containerd-kubernetes/
+    https://habr.com/ru/company/southbridge/blog/550702/
+    ! about migration from docker
+2019
+https://habr.com/ru/company/flant/blog/442036/
+2017
+https://habr.com/ru/company/flant/blog/325358/
+????
+https://russianblogs.com/article/6159553787/
+
+minikube-integration
+https://kubernetes.io/ru/docs/setup/learning-environment/minikube/
+    minikube start \
+      --network-plugin=cni \
+      --enable-default-cni \
+      --container-runtime=containerd \
+      --bootstrapper=kubeadm
+    # or a full-version
+    minikube start \
+      --network-plugin=cni \
+      --enable-default-cni \
+      --extra-config=kubelet.container-runtime=remote \
+      --extra-config=kubelet.container-runtime-endpoint=unix:///run/containerd/containerd.sock \
+      --extra-config=kubelet.image-service-endpoint=unix:///run/containerd/containerd.sock \
+      --bootstrapper=kubeadm
+
+
+/usr/lib/systemd/system/containerd.service
+[Unit]
+Description=containerd container runtime
+Documentation=https://containerd.io
+After=network.target local-fs.target
+
+[Service]
+ExecStartPre=-/usr/bin/modprobe overlay
+ExecStart=/usr/bin/containerd
+
+Delegate=yes
+KillMode=process
+Restart=always
+# Having non-zero Limit*s causes performance problems due to accounting overhead
+# in the kernel. We recommend using cgroups to do container-local accounting.
+LimitNPROC=infinity
+LimitCORE=infinity
+LimitNOFILE=1048576
+# Comment TasksMax if your systemd version does not supports it.
+# Only systemd 226 and above support this version.
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target
+
+????
+/var/run/docker/containerd/containerd.toml

@@ -1,0 +1,115 @@
+complete -f -X '!*.@(jp?(e)g|png)' gimp gimp-remote
+	Note: need extglob option.
+	-f - for file-name completion.
+
+
+_gimp() {
+	_files -g '*.jpg(-.)'
+}
+compdef _gimp gimp
+	(-.) is a glob-qualifier.
+
+
+Special completion variables:
+
+CURRENT          - Indicates the word at which the cursor is positioned
+words            - An array containing the words on the command line
+BUFFER           - The current command line in full
+compadd built-in - An array containing the list of matches; set by the function and read by bash
+
+compgen build-in - Do much the same as complete, but used in widgets.
+
+
+_chown() {
+	if (( CURRENT == 2 )); then
+		# complete users[.groups]
+		if comptest -P '*[.:]'; then # for ignoring prefix
+			_groups
+		else
+			if compset -S '[.:]*'; then # for ignoring suffix
+				_users
+			else
+				_users -S '.'
+			fi
+		fi
+	else
+		# complete filenames
+		_files
+	fi
+}
+
+_groups() {
+	compadd $(cut -d : -f 1 /etc/group)
+}
+
+In order to make it available - either run - compdef _chown chown
+Or make the function autoloadable and put a special tag on its first line:
+#compdef chown
+
+Some predefined zsh functions:
+_options
+_parameters
+_jobs
+_aliases
+...
+It usually access vars from zsh/parameter, zsh/zleparameter modules.
+
+
+Completion widget debugging (_complete_debug widget):
+
+C-x ?
+	Use this instead of Tab for debugging.
+
+
+Specifying completion arguments - use _arguments fun:
+
+_arguments -create -display ...
+	'-line[go to specified line number]:line number'
+	'-background[specify background color]:background color:_x_color'
+	'*:file:_files', where we need to put a number instead of *
+	'-lm[specify language mode]:language mode:(Ada C Fortran NEdit\ Macro)'
+	'*-xrm[specify X resource value]:resource:_x_resource', here we use * to specify the possible repetitions
+	'(-nowrap -autowrap -noautowrap)-wrap[use continuous wrap mode]', for specifying contradictional options
+	'(- *)-version[display version information]', for not-combinable options
+
+cmds=(
+	'add:add entry'
+	'generate:use server to generate entry'
+	'extract:extract entries into file'
+	'nextract:numerically extract entries'
+)
+_describe 'xauth command' cmds
+
+_values -s , 'tcp flag' SYN ACK FIN RST URG PSH NONE ALL
+	Here the first char after "-s" is a separator - space.
+
+_values -s , 'file system option' \
+	'(rw)ro[mount file system read-only]' \
+	'(ro)rw[mount file system read-write]' \
+	'(nolock)lock[use locking]' \
+	"(lock)nolock[don't use locking]" \
+	'rsize[specify read buffer size]:read buffer size' \
+	'proto[specify protocol]:protocol:(udp tcp)'
+
+_arguments \
+	'-c+[specify context to apply to -f arg]:number' \
+	'-conf[print out fresh global configuration]'
+	...
+	"-c+[specify context to apply to -f arg]: :_guard '[0-9]#' number"
+	
+files=( $(_call_program files tar tf $words[3]) )
+	The first argument to _call_program is a tag: this is the last component of the zstyle context
+	when the command style is looked up. Subsequent arguments specify the default command to
+	run when the style isn’t set.
+
+
+Looking up styles:
+
+Exc-2 C-x h
+	_complete_help
+
+
+Let us recall the form of zstyle context:
+completion:function:completer:command:argument:tag
+
+

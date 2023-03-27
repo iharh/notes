@@ -1,0 +1,4 @@
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/System-IO.html#v:<fn-name>
+
+1. hSetBuffering
+hSetBuffering :: Handle -> BufferMode -> IO ()

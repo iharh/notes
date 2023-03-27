@@ -1,0 +1,5 @@
+$XDG_CONFIG_HOME/awesome/rc.lua
+$HOME/.config/awesome/rc.lua
+$XDG_CONFIG_DIRS/awesome/rc.lua
+
+/etc/xdg/awesome/rc.lua

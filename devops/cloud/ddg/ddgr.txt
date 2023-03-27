@@ -1,0 +1,9 @@
+https://github.com/jarun/ddgr
+
+apt/
+    ddgr
+    python3-duckpy
+
+snap/
+    https://snapcraft.io/ddgr
+    dda

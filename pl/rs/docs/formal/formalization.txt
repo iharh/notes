@@ -1,0 +1,38 @@
+https://github.com/rust-lang-nursery/wg-verification
+
+https://www.cs.washington.edu/tr/2015/03/UW-CSE-15-03-02.pdf
+
+https://highassurance.rs/
+
+2020
+Dang - RustBelt Meets Relaxed Memory
+    https://www.youtube.com/watch?v=QqPo6nT8vVw
+2019
+https://www.reddit.com/r/rust/comments/e1xfgf/jobs_phd_postdoc_intern_positions_in_rustbelt_and/
+RustBelt: Logical Foundations for the Future of Safe Systems Programming
+    https://www.youtube.com/watch?v=1GjSfyijaxo
+2018
+Weiss - Rust Distilled: An Expressive Tower of Languages
+    https://www.youtube.com/watch?v=SFPTxWH-PgY
+    http://www.ccs.neu.edu/home/amal/papers/rustdistilled.pdf
+    https://arxiv.org/abs/1806.02693
+KRust - ... executable semantics
+https://arxiv.org/abs/1804.10806
+https://internals.rust-lang.org/t/announcing-the-formal-verification-working-group/7240
+https://dl.acm.org/citation.cfm?doid=3177123.3158154
+https://www.youtube.com/watch?v=Cy9NUVaiYUg
+https://people.mpi-sws.org/~dreyer/papers/rustbelt/paper.pdf
+http://gallium.inria.fr/seminaires/transparents/20171218.Jacques-Henri.Jourdan.pdf
+https://www.youtube.com/watch?v=Y9vemQmVeLI
+
+
+http://plv.mpi-sws.org/rustbelt/
+https://www.ralfj.de/blog/2017/07/08/rustbelt.html
+https://air.mozilla.org/rust-paris-meetup-35-2017-01-19/
+
+https://www.reddit.com/r/rust/comments/5ybrcj/linear_types_for_lowlevel_languages_some_history/
+http://prl.ccs.neu.edu/blog/2017/02/28/linear-types-for-low-level-languages/
+
+http://www.ccs.neu.edu/home/matthias/7480-s17/
+http://www.ccs.neu.edu/home/matthias/7480-s17/lectures.html
+https://github.com/nuprl/hopl-s2017/blob/master/lecture_notes/2017-02-14.md

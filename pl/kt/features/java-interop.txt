@@ -1,0 +1,19 @@
+https://medium.com/@colriot/writing-java-friendly-kotlin-code-c408b24fb4e
+
+2021
+https://medium.com/scalereal/hide-internal-members-of-kotlin-module-from-jvm-c7730507fb17
+2018
+https://www.avantica.net/blog/annotations-for-your-java-friendly-kotlin-code
+    https://habr.com/ru/company/piter/blog/473170/
+Chanddru - Teach Kotlin to play well with Java - Optimization tips for Interoperability
+    https://www.youtube.com/watch?v=1fA7-0hJOjk
+
+class
+https://discuss.kotlinlang.org/t/myclass-class-syntax-in-kotlin/825/13
+some_var::class
+
+static
+@JvmStatic
+
+@JvmDefault
+https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html

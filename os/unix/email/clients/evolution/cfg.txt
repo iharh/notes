@@ -1,0 +1,11 @@
+Mail Accounts
+
+Receiving Email:
+
+Username: My@company.com
+Host URL: https://owamsq.company.com/ews/exchange.asmx
+    Click "Fetch URL"
+
+Receiving Options:
+
+Select address list: "Company Clobal Address List" -> click "Fetch List"

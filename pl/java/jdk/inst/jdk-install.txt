@@ -1,0 +1,49 @@
+ENV JDK_PKG_NAME jdk-8u141-linux-x64
+ENV JDK_PKG_DIR 8u141-b15
+ENV JDK_PKG_HASH 336fa29ff2bb4ef291e347e091f7f4a7
+
+RUN set -ex;\
+    curl -LO "http://download.oracle.com/otn-pub/java/jdk/$JDK_PKG_DIR/$JDK_PKG_HASH/$JDK_PKG_NAME.rpm" -H 'Cookie: oraclelicense=accept-securebackup-cookie';\
+    rpm -i $JDK_PKG_NAME.rpm && rm $JDK_PKG_NAME.rpm
+
+Arch/Manjaro:
+aur/jdk
+http://www.unixmen.com/install-java-8-manjaroarchlinux/
+
+CentOS/RHEL:
+http://www.tecmint.com/install-java-jdk-jre-on-rhel-centos-fedora/
+http://www.unixmen.com/install-oracle-java-jdk-8-centos-76-56-4/
+http://www.unixmen.com/install-apache-ant-maven-tomcat-centos-76-5/
+
+http://lalyos.github.io/blog/2014/03/18/oracle-jdk-7-on-centos/
+http://stackoverflow.com/questions/10268583/how-to-automate-download-and-installation-of-java-jdk-on-linux
+
+ENV JAVA_PKG_NAME jdk-8u60-linux-x64
+ENV JAVA_PKG_DIR 8u60-b27
+
+# Install Java 8
+# We do not pull Java base image as Docker does not discribute Oracle Java
+RUN \
+  wget http://download.oracle.com/otn-pub/java/jdk/$JAVA_PKG_DIR/$JAVA_PKG_NAME.rpm \
+  --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" && \
+  rpm -i $JAVA_PKG_NAME.rpm && \
+  rm -f $JAVA_PKG_NAME.rpm
+
+# rpm -Uvh $JAVA_PKG_NAME.rpm
+
+java docker:
+https://hub.docker.com/r/dfranssen/docker-java-lite/~/dockerfile/
+
+silent:
+http://stackoverflow.com/questions/15292464/how-to-silently-install-java-jdk-into-a-specific-directory-on-windows
+http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html
+http://www.postseek.com/meta/e728de94da96dd1e9dcedf9296cba334
+
+jdk-8u51-windows-x64.exe /s ADDLOCAL="ToolsFeature,SourceFeature" INSTALLDIR="D:\dev\PL\java\jdk64\jdk1.8.0_51" /log jdk8-inst.log
+
+/passive
+/v/qn
+/log /L ...
+
+docs:
+http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html

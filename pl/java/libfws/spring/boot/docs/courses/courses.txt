@@ -1,0 +1,41 @@
+2022
+[Udemy, Nail' Alishev] Polnyiy kurs. Boot, Hibernate, Security, REST (2022)
+    https://nnmclub.to/forum/viewtopic.php?t=1555295
+    magnet:?xt=urn:btih:0e982486ac731c1b6681d5d9fa9967c4b90e50b0
+    !!! 6.56g, 26:30:15, boot core, mvc, jdbc (with templ), jpa, validation, security, rest, hibernate
+Kargopolov - RESTful Web Services, Java, Spring Boot, Spring MVC and JPA
+    https://www.udemy.com/course/restful-web-service-with-spring-boot-jpa-and-mysql/
+    magnet:?xt=urn:btih:dcd76bb89eeb1d463aa1602fbd92e0d8786a049c
+    magnet:?xt=urn:btih:67d14146f4075c8a4fc1996b601e1d89af938789
+    magnet:?xt=urn:btih:a22e004f0dbdef4c70298d2c44f157b7ea100308
+    !!! 11.53g, sts, maven, security(jwt), ..., aws stuff, tons of themes
+        @EnableWebSecurity class WebSecurity extends WebSecurityConfgurerAdapter
+            @Override protected void configure(HttpSecurity http) throws Exception {
+                http.csrf().disable().authorizeRequests()
+                    .addFilter(...)
+                    .sessionManagement()
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // to require auth info for each REST call
+            }
+        UserDetailsService, UserDetails, CredentialsContainer
+        AuthenticationManager
+        SpringApplicationContext impl ApplicationContextAware
+        AuthenticationFilter extends UsernamePasswordAuthenticationFilter
+            ... filter.setFilterProcesUrl("/users/login")
+        AuthorizationFilter extends BasicAuthenticationFilter
+            c-tor(AuthenticationManager)
+            UsernamePasswordAuthenticationToken authToken
+            ??? SecurityContextHolder.getContext().setAuthentication(authToken)
+2021
+Dudar - Spring Boot Site Development ru
+    https://www.youtube.com/playlist?list=PL0lO_mIqDDFUYDRzvocu5EsFGBqPM7CIw
+Learn Java Spring, Spring Boot, Spring Boot JPA, Security
+    https://tutsnode.net/learn-java-spring-spring-boot-spring-boot-jpa-security/
+    magnet:?xt=urn:btih:fec2f468d7c172f683761336b94c7073acd62f78
+    ! 7.17g, so-so, indian, lots of misc stuff
+2020
+Learn Spring 5, Boot 2, JPA, Thymeleaf, AOP, Web MVC, REST
+    https://tutsnode.net/learn-spring-5-boot-2-jpa-thymeleaf-aop-web-mvc-rest/
+    magnet:?xt=urn:btih:c86ae6970a0c9f9aaaa89e74f40335c8dda1e612
+    magnet:?xt=urn:btih:de4cfbe72092cfbd990eb3d09748c5f35448a7fb
+    ! 8.81g, good
+https://github.com/piomin/course-spring-microservices

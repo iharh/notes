@@ -1,0 +1,14 @@
+https://docs.aws.amazon.com/ecr/index.html
+
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/index.html
+
+aws ecr
+    describe-registry
+        https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/describe-registry.html
+    describe-repositories
+        https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/describe-repositories.html
+    describe-images --repository-name <repo-name> [--image-ids <list>]
+        https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/describe-images.html
+    list-images --repository-name <repo-name>
+        https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/list-images.html
+        https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ListImages.html

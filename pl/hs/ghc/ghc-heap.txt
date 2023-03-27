@@ -1,0 +1,46 @@
+Wiki:
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Rts/Storage/HeapObjects
+
+Hood:
+http://www.haskell.org/pipermail/haskell-cafe/2012-January/098867.html
+http://hackage.haskell.org/package/hood
+http://www.ittc.ku.edu/csdl/fpg/software/hood.html
+
+ghc-vis:
+http://hackage.haskell.org/package/ghc-vis ()
+http://felsin9.de/nnis/ghc-vis/
+http://felsin9.de/nnis/ghc-vis/thesis
+
+ghc-vis-0.6-src\src\GHC\Vis\View\Graph\Parser.hs 
+  --{ globalAttributes = [GraphAttrs [BgColor [RGBA 0 0 0 0], FontName fontName, FontSize graphFontSize]]
+  { globalAttributes = [GraphAttrs [BgColor [toWColor Black], FontName fontName, FontSize graphFontSize]]
+
+ghc-heap-view
+http://hackage.haskell.org/package/ghc-heap-view
+https://www.joachim-breitner.de/blog/archives/590-Evaluation-State-Assertions-in-Haskell.html
+https://www.joachim-breitner.de/blog/archives/548-ghc-heap-view-Complete-referential-opacity.html
+
+vacuum
+http://hackage.haskell.org/package/vacuum (http://thoughtpolice.github.com/vacuum/)
+https://github.com/thoughtpolice/vacuum (https://bitbucket.org/thoughtpolice/vacuum)
+!!!
+https://github.com/thoughtpolice/vacuum/blob/master/src/GHC/Vacuum/ClosureType.hs
+https://github.com/thoughtpolice/vacuum/tree/master/src/GHC/Vacuum/ClosureType
+https://github.com/thoughtpolice/vacuum/blob/master/src/GHC/Vacuum/ClosureType/V700.hs
+https://github.com/thoughtpolice/vacuum/blob/master/src/GHC/Vacuum/ClosureType/V702.hs
+https://github.com/thoughtpolice/vacuum/blob/master/src/GHC/Vacuum/ClosureType/V704.hs
+https://github.com/thoughtpolice/vacuum/blob/master/src/GHC/Vacuum/ClosureType/V706.hs
+
+Articles:
+
+Yang - anatomy of thunk leaks...
+http://blog.ezyang.com/2011/05/an-insufficiently-lazy-map/
+http://blog.ezyang.com/2011/06/pinpointing-space-leaks-in-big-programs/
+
+Presentations:
+https://www.bitba.se/i-accidentally-the-entire-heap/ (https://github.com/bitbasenyc/heap)
+
+Mitchell - space leaks:
+http://neilmitchell.blogspot.fr/2015/09/detecting-space-leaks.html
+https://www.reddit.com/r/haskell/comments/3luonb/detecting_space_leaks/
+https://queue.acm.org/detail.cfm?id=2538488

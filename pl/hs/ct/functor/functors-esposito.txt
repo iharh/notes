@@ -1,0 +1,37 @@
+http://yannesposito.com/Scratch/en/blog/Category-Theory-Presentation
+
+42. Haskell Functors Example: Maybe
+
+data Maybe a = Just a | Nothing
+instance Functor Maybe where
+    fmap :: (a -> b) -> (Maybe a -> Maybe b)
+    fmap f (Just a) = Just (f a)
+    fmap f Nothing = Nothing
+
+fmap (+1) (Just 1) == Just 2
+fmap (+1) Nothing  == Nothing
+fmap head (Just [1,2,3]) == Just 1
+
+
+43. Haskell Functors Example: List
+
+instance Functor ([]) where
+	fmap :: (a -> b) -> [a] -> [b]
+	fmap = map
+
+fmap (+1) [1,2,3]           == [2,3,4]
+fmap (+1) []                == []
+fmap head [[1,2,3],[4,5,6]] == [1,4]
+
+
+44. Haskell Functors for the programmer
+
+Functor is a type class used for types that can be mapped over.
+
+    Containers: [], Trees, Map, HashMap...
+    "Feature Type":
+        Maybe a: help to handle absence of a.
+        Ex: safeDiv x 0 ? Nothing
+        Either String a: help to handle errors
+        Ex: reportDiv x 0 ? Left "Division by 0!"
+

@@ -1,0 +1,71 @@
+2.37
+https://github.blog/2022-06-27-highlights-from-git-2-37/
+    https://habr.com/ru/company/skillfactory/blog/674478/
+https://lore.kernel.org/git/xmqqy1xinf00.fsf@gitster.g/
+    https://www.opennet.ru/opennews/art.shtml?num=57416
+2.36
+https://github.blog/2022-04-18-highlights-from-git-2-36/
+    https://www.opennet.ru/opennews/art.shtml?num=57040
+2.35
+https://github.blog/2022-01-24-highlights-from-git-2-35/
+https://lore.kernel.org/git/xmqqee4x3pij.fsf@gitster.g/
+    https://www.opennet.ru/opennews/art.shtml?num=56570
+    https://habr.com/ru/company/skillfactory/blog/647995/
+2.34
+https://github.com/git/git/blob/v2.34.0/Documentation/RelNotes/2.34.0.txt
+    https://github.blog/2021-11-15-highlights-from-git-2-34/
+    https://habr.com/ru/news/t/589529/
+2.33
+https://lkml.org/lkml/2021/8/16/1323
+    https://www.opennet.ru/opennews/art.shtml?num=55651
+    https://lore.kernel.org/git/xmqq1r6touqi.fsf@gitster.g/
+    https://github.com/git/git/blob/v2.33.0/Documentation/RelNotes/2.33.0.txt
+    https://github.blog/2021-08-16-highlights-from-git-2-33/
+    https://linuxiac.com/git-2-33/
+2.32
+https://lkml.org/lkml/2021/6/6/150
+    https://github.com/git/git/blob/v2.33.0/Documentation/RelNotes/2.32.0.txt
+    https://www.opennet.ru/opennews/art.shtml?num=55288
+2.31
+https://lkml.org/lkml/2021/3/15/2413
+    https://www.opennet.ru/opennews/art.shtml?num=54765
+2.30
+https://lkml.org/lkml/2020/12/28/2360
+    https://www.opennet.ru/opennews/art.shtml?num=54330    
+2.29
+https://github.blog/2020-10-19-git-2-29-released/
+    https://lkml.org/lkml/2020/10/19/692
+    https://www.opennet.ru/opennews/art.shtml?num=53923 
+    https://habr.com/ru/company/selectel/blog/524514/
+2.28
+https://github.blog/2020-07-27-highlights-from-git-2-28/
+    https://lkml.org/lkml/2020/7/27/1375
+    https://www.opennet.ru/opennews/art.shtml?num=53441
+2.27
+https://github.com/git/git/blob/master/Documentation/RelNotes/2.27.0.txt
+    https://lkml.org/lkml/2020/6/1/708
+    https://www.opennet.ru/opennews/art.shtml?num=53070
+2.25
+https://github.blog/2020-01-13-highlights-from-git-2-25/
+    https://www.opennet.ru/opennews/art.shtml?num=52180
+2.24
+http://lkml.iu.edu/hypermail/linux/kernel/1911.0/01413.html
+    https://www.opennet.ru/opennews/art.shtml?num=51810
+    config macros
+        git config feature.manyFiles true
+2.23
+http://www.opennet.ru/opennews/art.shtml?num=51300
+    https://www.infoq.com/news/2019/08/git-2-23-switch-restore/
+2.22
+http://www.opennet.ru/opennews/art.shtml?num=50831
+    https://www.infoq.com/news/2019/07/git-2-22-rebase-merges/
+    https://stackoverflow.com/questions/15915430/what-exactly-does-gits-rebase-preserve-merges-do-and-why/15915431#15915431
+2.21
+http://www.opennet.ru/opennews/art.shtml?num=50202
+2.20
+http://www.opennet.ru/opennews/art.shtml?num=49751
+2.19
+https://www.infoq.com/news/2018/09/git-2.19-released
+2.18
+http://www.opennet.ru/opennews/art.shtml?num=48819
+https://lkml.org/lkml/2018/6/21/594

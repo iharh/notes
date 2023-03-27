@@ -1,0 +1,36 @@
+2020
+https://pmeerw.net/blog/programming/unused-return.html
+2018
+https://devblogs.microsoft.com/cppblog/exploring-clang-tooling-part-2-examining-the-clang-ast-with-clang-query/
+
+#!/bin/sh
+# unused-return.sh: Run clang-query to report unused return values.
+
+# When --dump, print the AST of matching syntax.
+if [ "x$1" = "x--dump" ]; then
+  dump="set output dump"
+  shift
+fi
+
+query='m
+  callExpr(
+    isExpansionInMainFile(),
+    hasParent(anyOf(
+      compoundStmt(),
+      ifStmt(hasCondition(expr().bind("cond"))),
+      whileStmt(hasCondition(expr().bind("cond"))),
+      doStmt(hasCondition(expr().bind("cond")))
+    )),
+    unless(hasType(voidType())),
+    unless(isTypeDependent()),
+    unless(cxxOperatorCallExpr()),
+    unless(callee(namedDecl(anyOf(
+      hasName("memset"),
+      hasName("setlength"),
+      hasName("flags"),
+      hasName("width"),
+      hasName("__builtin_memcpy")
+    )))),
+    unless(equalsBoundNode("cond"))).bind("unused-return")'
+
+clang-query-9 -extra-arg="-w" -c="set bind-root false" -c="$dump" -c="$query" "$@" --

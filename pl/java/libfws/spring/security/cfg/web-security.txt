@@ -1,0 +1,74 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+
+import java.util.Arrays;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    public static class MyAuthenticationToken extends AbstractAuthenticationToken {
+        private static final long serialVersionUID = -1949976839306453197L;
+        public MyAuthenticationToken() {
+            super(Arrays.asList());
+            setAuthenticated(true);
+        }
+        @Override
+        public Object getCredentials() {
+            return null;
+        }
+        @Override
+        public Object getPrincipal() {
+            return null;
+        }
+    }
+
+    public static class MyFilter extends OncePerRequestFilter {
+        @Override
+        protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+            final String myHeaderVal = request.getHeader("myheader");
+            if ("12345".equals(myHeaderVal)) {
+                final Authentication authResult = new MyAuthenticationToken();
+                SecurityContextHolder.getContext().setAuthentication(authResult);
+            }
+            chain.doFilter(request, response);
+        }
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            //.anonymous() // and that's it
+            .addFilterBefore(new MyFilter(), BasicAuthenticationFilter.class)
+            .authorizeRequests().anyRequest().authenticated().and()
+            .httpBasic()
+        ;
+
+            //.csrf().disable()
+            //    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            //.and()
+            //    .authorizeRequests()
+            //        .anyRequest().permitAll()
+    }
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .inMemoryAuthentication()
+                .withUser("usr").password("pwd").roles("USER");
+    }
+}

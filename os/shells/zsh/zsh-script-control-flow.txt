@@ -1,0 +1,103 @@
+if condition; then
+	commands
+elif condition; then
+	commands
+else
+	commands
+fi
+
+The newer way of doing conditios is double brackets ([[ ... ]]).
+
+if [[ -o interactive && -t 0 ]]; then
+	mesg y
+fi
+
+Conditional Expression Operators:
+-b file            - Tests if file is a block special file.
+-c file            - Tests if file is a character special file.
+-d file            - Tests if file exists and is a directory.
+-e file            - Tests if file exists.
+-f file            - Tests if file exists and is an ordinary file.
+-g file            - Tests if file exists and has its setgid bit set.
+-k file            - Tests if file exists and has its sticky bit set.
+-n string          - Tests if string is nonempty.
+-o option          - Tests if option is turned on.
+-p file            - Tests if file exists and is a named pipe (fifo).
+-r file            - Tests if file exists and is readable.
+-s file            - Tests if file exists and has a size greater than zero.
+-t file descriptor - Tests if file descriptor is open and associated with a terminal device.
+-u file            - Tests if file exists and has its setuid bit set.
+-w file            - Tests if file exists and is writable.
+-x file            - Tests if file exists and is executable.
+-z string          - Tests if string is empty (length zero).
+-G file            - Tests if file exists and is owned by the current group.
+-L file            - Tests if file exists and is a symbolic link.
+-O file            - Tests if file exists and is owned by the current user.
+-S file            - Tests if file exists and is a socket.
+file1 -ef file2    - Tests if the two filenames refer to the same file.
+file1 -nt file2    - Tests if file1 is newer than file2.
+file1 -ot file2    - Tests if file1 is older than file2.
+string == pattern  - Tests if the string matches the pattern.
+string != pattern  - Tests if the string doesn’t match the pattern.
+string1 > string2  - Compares strings based on their ASCII values.
+string1 < string2  - Compares strings based on their ASCII values.
+string =~ regex    - Tests if the string matches the regular expression (bash 3 only).
+
+[[ $PWD = $HOME/* ]]
+	check if we are under home dir (no expansion is done at [[)
+
+Comparing numbers:
+[[ $val -ge 3 ]]
+(( val >= 3 ))
+
+
+case $TERM in
+	(aixterm|iris-ansi*)
+		bindkey ...
+		;;
+	(xterm|ddterm)
+		bindkey ...
+		;;
+esac
+
+[while|until] condition; do
+	commands
+done
+
+for ((i=1;i<5;i++)); do
+	a[$i]=$i
+done
+
+This is the same as a= ( {1..4} ).
+
+repeat 5; p=${p#*/}
+
+[break/continue] n
+	break n inner loops (default is one).
+
+
+Commenting just out one command using colon (:)
+
+grep -q word file && : grep -q word otherfile && echo files both contain word
+	here we commented out grep -q word otherfile
+
+colon could be used for side-effects:
+: ${VAR:?error: VAR not set}
+: ${VAR:=default value}
+
+
+Commands grouping:
+
+{
+	cmd1
+	cmd2
+} > logfile
+
+{ sleep 3600; make; } &
+
+
+Run commands in a subshell:
+
+tar cvf - . | ( cd /somwhere/else; tart xvf - )
+
+

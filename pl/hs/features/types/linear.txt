@@ -1,0 +1,20 @@
+https://gitlab.haskell.org/ghc/ghc/-/wikis/linear-types
+
+2021
+https://www.tweag.io/blog/2021-02-10-linear-base/
+    https://hackage.haskell.org/package/linear-base
+    https://github.com/tweag/linear-base
+    https://github.com/tweag/linear-base/blob/master/docs/USER_GUIDE.md
+2020
+https://dev.to/kakkun61/ephemeral-purely-functional-data-structure-and-linear-type-489j
+https://tek.brick.do/64693fb8-39b4-40a5-8762-768009eeed91
+https://www.tweag.io/blog/2020-11-11-linear-dps/
+https://www.tweag.io/blog/2020-06-19-linear-types-merged/
+2018
+https://www.tweag.io/blog/2018-06-21-linear-streams/
+https://github.com/ghc-proposals/ghc-proposals/pull/111
+https://www.microsoft.com/en-us/research/publication/linear-haskell-practical-linearity-higher-order-polymorphic-language/
+BernardySPD - LinearHaskel
+    https://arxiv.org/pdf/1710.09756.pdf
+2017
+https://www.tweag.io/blog/2017-08-03-linear-typestates/

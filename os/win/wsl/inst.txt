@@ -1,0 +1,31 @@
+https://learn.microsoft.com/ru-ru/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+
+https://docs.microsoft.com/en-us/windows/wsl/install#step-4---download-the-linux-kernel-update-package
+https://docs.microsoft.com/en-us/windows/wsl/install-win10
+    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+https://docs.microsoft.com/en-us/windows/wsl/install-manual
+
+https://docs.microsoft.com/en-us/windows/wsl/troubleshooting#check-your-build-number
+
+2022
+TechHut - Linux Apps in Windows! - WSL Setup Guide of 10:06
+    https://www.youtube.com/watch?v=loDOloG8doY
+https://te.legra.ph/Ustanovka-Linux-sovmestno-s-Windows-10-cherez-WSL-01-16-2
+2021
+https://www.ceos3c.com/wsl-2/install-wsl2-with-windows-terminal/
+https://devblogs.microsoft.com/commandline/a-preview-of-wsl-in-the-microsoft-store-is-now-available/
+    https://linuxiac.com/wsl-microsoft-store/
+https://nuancesprog.ru/p/11790/
+2020
+https://winitpro.ru/index.php/2020/07/13/zapusk-linux-v-windows-wsl-2/
+https://ubuntu.com/blog/ubuntu-on-wsl-2-backported-to-windows-10-1909-extending-reach
+2019
+https://www.smashingmagazine.com/2019/09/moving-javascript-development-bash-windows/
+2018
+https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+wsl
+    --list
+        --online
+    --install
+        -d [Debian|...]

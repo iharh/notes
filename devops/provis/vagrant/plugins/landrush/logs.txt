@@ -1,0 +1,33 @@
+==> default: Automatic installation for Landrush IP not enabled                                                                                      
+==> default: [landrush] setting up machine's DNS to point to our server                                                                              
+==> default: [landrush] network: :private_network, {:ip=>"192.168.235.62", :protocol=>"tcp", :id=>"1a404bb3-ca3b-494a-8109-7aa51f990720"}            
+==> default: [landrush] network: :forwarded_port, {:guest=>22, :host=>2200, :host_ip=>"127.0.0.1", :id=>"ssh", :auto_correct=>true, :protocol=>"tcp"}
+[landrush] Using enp0s8 (192.168.235.62)                                                                                                             
+==> default: [landrush] adding machine entry: nlp-vector-provider.vagrant.test => 192.168.235.62                                                     
+[landrush] Using enp0s8 (192.168.235.62)                                                                                                             
+[landrush] starting 'Wired AutoConfig' service                                                                                                       
+[landrush] 'Wired AutoConfig' service has started.                                                                                                   
+[landrush] adding Landrush'es DNS server to network 'VirtualBox Host-Only Network' using DNS IP '192.168.235.62'' and search domain 'vagrant.test'   
+
+
+config.landrush.guest_redirect_dns = false
+
+==> default: Automatic installation for Landrush IP not enabled
+[landrush] Using enp0s8 (192.168.235.62)
+==> default: [landrush] adding machine entry: nlp-vector-provider.vagrant.test => 192.168.235.62
+[landrush] Using enp0s8 (192.168.235.62)
+[landrush] adding Landrush'es DNS server to network 'VirtualBox Host-Only Network' using DNS IP '192.168.235.62'' and search domain 'vagrant.test'
+
+
+Ethernet adapter VirtualBox Host-Only Network:
+
+   Connection-specific DNS Suffix  . : vagrant.test
+   Description . . . . . . . . . . . : VirtualBox Host-Only Ethernet Adapter
+   Physical Address. . . . . . . . . : 0A-00-27-00-00-07
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   IPv4 Address. . . . . . . . . . . : 192.168.235.1(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+   DNS Servers . . . . . . . . . . . : 127.0.0.1
+   NetBIOS over Tcpip. . . . . . . . : Enabled

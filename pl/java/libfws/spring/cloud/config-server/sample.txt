@@ -1,0 +1,11 @@
+@EnableConfigServer
+
+2022
+https://www.baeldung.com/spring-cloud-configuration
+    /{application}/{profile}[/{label}]
+    /{application}-{profile}.yml
+    /{label}/{application}-{profile}.yml
+    /{application}-{profile}.properties
+    /{label}/{application}-{profile}.properties
+
+https://github.com/MarioAriasC/config-service/blob/main/src/main/kotlin/com/polarshop/configservice/ConfigServiceApplication.kt

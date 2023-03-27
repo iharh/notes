@@ -1,0 +1,41 @@
+https://lamport.azurewebsites.net/tla/tla.html
+
+http://lamport.azurewebsites.net/tla/tlc.html
+https://github.com/tlaplus/tlaplus
+
+https://www.learntla.com
+    https://learntla.com/tla/sets/
+https://github.com/hwayne/learntla
+
+blogs
+https://www.hillelwayne.com/
+https://pron.github.io/
+
+wiki
+https://en.wikipedia.org/wiki/TLA%2B
+https://ru.wikipedia.org/wiki/TLA%E2%81%BA
+
+pluscal
+https://www.learntla.com/pluscal/
+http://lamport.azurewebsites.net/tla/p-manual.pdf
+
+2021
+HighLoad - Naydyonov - TLA+/TLC - Concurrent Algorithms Formal Verification Method for Engeneers ru 6:00 of 54:50
+    https://www.youtube.com/watch?v=u-orlVhRWIg
+2019
+Wayne - Designing Distributed Systems with TLA+
+    https://www.youtube.com/watch?v=tfnldxWlOhM
+    https://www.infoq.com/presentations/tla-plus
+    https://hillelwayne.com/talks/distributed-systems-tlaplus/
+Pawel Szulc - Formal verification applied (with TLA+)
+    https://www.youtube.com/watch?v=l9XZYI3jta0
+Paweł Szulc at #ScalaUA - Formal specification applied (with TLA+) (remote session)
+    https://www.youtube.com/watch?v=g3J5EGugdKE
+2017
+Wayne - Tackling Concurrency Bugs with TLA+
+    https://www.youtube.com/watch?v=_9B__0S21y8
+    https://hillelwayne.com/talks/tackling-concurrency-tlaplus/
+https://sookocheff.com/post/tlaplus/getting-started-with-tlaplus/
+2014
+Leslie Lamport - Thinking Above the Code
+    https://www.youtube.com/watch?v=-4Yp3j_jk8Q

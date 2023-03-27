@@ -1,0 +1,28 @@
+https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/tools/rover/src/submitting/submit.rs
+    if !launch_git!(&solutions_repo, "add", ".") {
+        bail!("git add failed");
+    }
+    if !launch_git!(&solutions_repo, "commit", "-m", message) {
+        bail!("git commit failed: either no changes since the last commit or git failed")
+    }
+    if !launch_git!(&solutions_repo, "push")
+        && !launch_git!(
+            &solutions_repo,
+            "push",
+            "--set-upstream",
+            "origin",
+            problem.branch_name()
+        )
+    {
+        bail!("git push failed")
+    }
+https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/tools/rover/src/util/util_macro.rs
+    #[macro_export]
+    macro_rules! launch_git {
+        ($workdir: expr, $($arg: expr),+) => {{
+            let mut cmd = process::Command::new("git");
+            cmd.current_dir($workdir);
+            $(cmd.arg($arg);)*
+            cmd.status()?.success()
+        }};
+    }

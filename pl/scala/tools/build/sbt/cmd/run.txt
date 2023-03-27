@@ -1,0 +1,2 @@
+sbt "run-main <package>.<class>"
+    "run --- arg1 arg2"

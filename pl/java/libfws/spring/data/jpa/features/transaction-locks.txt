@@ -1,0 +1,8 @@
+https://docs.oracle.com/javaee/7/api/javax/persistence/LockModeType.html
+https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Lock.html
+
+2022
+https://www.baeldung.com/jpa-optimistic-locking
+https://www.baeldung.com/jpa-pessimistic-locking
+https://www.baeldung.com/java-jpa-transaction-locks
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/hibernate-jpa 

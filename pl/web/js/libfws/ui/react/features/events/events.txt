@@ -1,0 +1,26 @@
+https://reactjs.org/docs/handling-events.html
+https://reactjs.org/docs/events.html
+
+2018
+https://medium.com/the-guild/getting-to-know-react-doms-event-handling-system-inside-out-378c44d2a5d0
+https://medium.com/@Charles_Stover/cache-your-react-event-listeners-to-improve-performance-14f635a62e15
+    https://habr.com/company/ruvds/blog/426053/
+    () => ... handlers are not equal to each other
+https://css-tricks.com/working-with-events-in-react/
+
+react wraps browser native events to:
+SyntheticEvent
+    .stopPropagation()
+    .preventDefault()
+    .nativeEvent property
+
+React does not actually attach event handlers to the DOM nodes themselves.
+It uses general event-listener and dispatches events itself to appropriate event handlers.
+
+prevetDefault
+https://medium.com/@ericclemmons/react-event-preventdefault-78c28c950e46
+
+PointerEvents
+https://reactjs.org/blog/2018/05/23/react-v-16-4.html
+https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events
+https://codesandbox.io/s/q83r7nrwv6

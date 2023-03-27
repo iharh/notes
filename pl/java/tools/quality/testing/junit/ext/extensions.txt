@@ -1,0 +1,10 @@
+https://junit.org/junit5/docs/current/user-guide/#extensions
+
+2020
+https://www.mscharhag.com/java/junit5-custom-extensions
+    https://www.javacodegeeks.com/2020/08/extending-junit-5.html
+2018
+https://habr.com/post/420891/
+    Timing Extension
+https://blog.codefx.org/design/architecture/junit-5-extension-model/
+    https://github.com/CodeFX-org/demo-junit-5/tree/master/src/main/java/org/codefx/demo/junit5

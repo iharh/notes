@@ -1,0 +1,28 @@
+dn: DC=clarabridge,DC=net
+objectClass: domain
+objectClass: top
+dc: clarabridge
+entryUUID: 0bb46f4c-8a53-3e1e-afc4-cdc9802d278d
+
+dn: ou=SaasUsers,DC=clarabridge,DC=net
+objectClass: organizationalUnit
+objectClass: top
+ou: SaasUsers
+entryUUID: a7df8f63-232d-4411-82da-8f3e3c8de19e
+createTimestamp: 20150527090832Z
+creatorsName: cn=Directory Manager,cn=Root DNs,cn=config
+
+dn: cn=ldap.read,ou=SaasUsers,DC=clarabridge,DC=net
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+givenName: ldap
+cn: ldap.read
+sn: read
+userPassword: {SSHA}Q/+TZ/px19L23YsgFctaQSpiBulRD8/feU173Q==
+entryUUID: 94e6b453-bd45-4325-bd33-9defaab60c3d
+createTimestamp: 20150527091324Z
+creatorsName: cn=Directory Manager,cn=Root DNs,cn=config
+pwdChangedTime: 20150527091324.590Z
+

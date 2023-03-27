@@ -1,0 +1,13 @@
+https://www.eclemma.org/jacoco/trunk/doc/maven.html
+https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin
+
+target/jacoco.exec
+
+2022
+CodeJournal - JaCoCo Maven Plugin of 8 parts
+    https://www.youtube.com/playlist?list=PLFZica6HmcrjHd5g6-habsB40Jd9YRrpl
+https://www.baeldung.com/jacoco
+2021
+https://www.lambdatest.com/blog/reporting-code-coverage-using-maven-and-jacoco-plugin/
+2018
+https://mkyong.com/maven/maven-jacoco-code-coverage-example/

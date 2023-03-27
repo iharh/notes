@@ -1,0 +1,39 @@
+https://www.testcontainers.org/usage/dockerfile.html
+
+src:
+https://github.com/testcontainers/testcontainers-java/blob/master/core/src/main/java/org/testcontainers/containers/GenericContainer.java
+
+https://github.com/testcontainers/testcontainers-java/blob/master/core/src/main/java/org/testcontainers/containers/FailureDetectingExternalResource.java
+    public class FailureDetectingExternalResource implements TestRule
+
+@Rule
+public GenericContainer server = new GenericContainer(
+    new ImageFromDockerfile()
+        .withFileFromFile("Dockerfile", new File("./Dockerfile"))
+        .withFileFromFile("service.war", new File("target/my-service.war"))
+        ...
+        .withDockerFileFromBuilder(builder -> {
+            builder
+                .from("tomcat:8.5.15")
+                .copy("service.war", "/usr/local/tomcat/webapps/my-service.war")
+                .build();
+        })
+    )
+    .withExposedPorts(8080);
+
+@Test
+public void simpleTest() {
+    // do something with the server - port is server.getMappedPort(8080);
+}
+
+Automatic deletion
+
+Temporary container images will be automatically removed when the test JVM shuts down. If this is not desired and the image should be retained between tests, pass a stable image name and false flag to the ImageFromDockerfile constructor.
+
+Retaining the image between tests will use Docker's image cache to accelerate subsequent test runs.
+
+By default the no-args constructor will use an image name of the form testcontainers/ + random string:
+
+    public ImageFromDockerfile()
+    public ImageFromDockerfile(String dockerImageName)
+    public ImageFromDockerfile(String dockerImageName, boolean deleteOnExit)

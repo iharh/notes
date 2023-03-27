@@ -1,0 +1,16 @@
+https://plugins.jenkins.io/kubernetes/
+https://www.jenkins.io/doc/pipeline/steps/kubernetes/
+https://github.com/jenkinsci/kubernetes-plugin
+
+api
+https://javadoc.jenkins.io/plugin/kubernetes/index.html
+https://javadoc.jenkins.io/plugin/kubernetes/org/csanchez/jenkins/plugins/kubernetes/PodTemplate.html
+https://javadoc.jenkins.io/plugin/kubernetes/org/csanchez/jenkins/plugins/kubernetes/ContainerTemplate.html
+    https://github.com/jenkinsci/kubernetes-plugin#container-group-support
+
+2018
+https://jenkins.io/blog/2018/08/31/shifting-gears/
+    https://www.youtube.com/watch?v=CgasN3icZp0
+????
+https://www.moogsoft.com/blog/jenkins-kubernetes-plugin-running-agents-in-other-clusters/
+https://www.moogsoft.com/blog/jenkins-kubernetes-plugin-using-the-plugin-in-your-pipelines/

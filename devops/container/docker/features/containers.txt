@@ -1,0 +1,17 @@
+running:
+sudo docker run -ti --rm=true <img> <cmd>
+    -e "varname=value"
+    -e constraint:var!=val
+    -e constraint:var==val
+    -e constraint:var==/regex/
+
+looking:
+alias doc-ps='sudo docker ps -a'
+
+cleaning up:
+#sudo docker rm -v $(sudo docker ps -aqf status=exited && sudo docker ps -aqf status=dead)
+alias doc-rmc='sudo docker rm -v $(sudo docker ps -aqf status=exited && sudo docker ps -aqf status=dead)'
+
+deleting all:
+sudo docker rm -f $(sudo docker ps -aq)
+

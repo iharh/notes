@@ -1,0 +1,1 @@
+https://github.com/awesomeWM/awesome/issues/1395

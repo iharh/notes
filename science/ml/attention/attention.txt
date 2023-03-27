@@ -1,0 +1,73 @@
+2020
+https://towardsdatascience.com/topic-modeling-with-bert-779f7db187e6
+    https://nuancesprog.ru/p/11195/
+https://medium.com/read-a-paper/bert-read-a-paper-811b836141e9
+    https://nuancesprog.ru/p/10597/
+2019
+https://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time/
+    https://habr.com/ru/post/498144/
+Ubaidulaev - Transformers
+    https://www.youtube.com/watch?v=tfGkuYkjDpI
+https://habr.com/ru/company/mipt/blog/462989/
+https://habr.com/ru/post/458992/
+https://medium.com/dair-ai/adapters-a-compact-and-extensible-transfer-learning-method-for-nlp-6d18c2399f62
+Bogdanov - Attention ru
+    https://dev.by/news/dmitry-bogdanov
+    https://www.youtube.com/watch?v=qKL9hWQQQic
+    https://www.dropbox.com/s/1nk66rixz4ets03/Lecture%2012%20-%20Attention%20-%20annotated.pdf?dl=0
+Kurbanov - Attention, attention
+    https://www.youtube.com/watch?v=q9svwVYduSo
+    https://research.jetbrains.org/files/material/5c642f68c724e.pdf
+https://ai.googleblog.com/2019/01/transformer-xl-unleashing-potential-of.html
+https://habr.com/ru/post/436878/
+2018
+Attention Is All You Need
+    https://www.youtube.com/watch?v=iDulhoQ2pro
+    https://arxiv.org/abs/1706.03762
+
+http://nlp.seas.harvard.edu/2018/04/03/attention.html
+https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/#.W-2AUeK-mUk
+https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html
+
+BERT
+https://habr.com/ru/company/neoflex/blog/589563/
+https://habr.com/ru/company/avito/blog/485290/
+https://medium.com/syncedreview/googles-albert-is-a-leaner-bert-achieves-sota-on-3-nlp-benchmarks-f64466dd583
+https://medium.com/huggingface/distilbert-8cf3380435b5
+http://www.nlp.town/blog/distilling-bert/
+https://towardsdatascience.com/deconstructing-bert-distilling-6-patterns-from-100-million-parameters-b49113672f77
+https://jalammar.github.io/illustrated-bert/
+    https://habr.com/ru/post/487358/
+https://medium.com/dissecting-bert/dissecting-bert-appendix-the-decoder-3b86f66b0e5f
+https://medium.com/dissecting-bert/dissecting-bert-part2-335ff2ed9c73
+https://medium.com/dissecting-bert/dissecting-bert-part-1-d3c3d495cdb3
+https://www.infoq.com/news/2018/11/google-bert-nlp
+https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html
+https://www.nytimes.com/2018/11/18/technology/artificial-intelligence-language.html
+https://github.com/google-research/bert/
+BERT - Pre-training of Deep Bidirectional Transformers for Language Understanding
+    https://www.youtube.com/watch?v=-9evrZnBorM
+    https://arxiv.org/abs/1810.04805
+What Does BERT Look At? An Analysis of BERT's Attention
+    https://arxiv.org/abs/1906.04341
+    https://github.com/clarkkev/attention-analysis
+https://blog.einstein.ai/leveraging-language-models-for-commonsense/
+ALBERT
+https://ai.googleblog.com/2019/12/albert-lite-bert-for-self-supervised.html
+
+https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270
+
+https://www.reddit.com/r/MachineLearning/comments/9nfqxz/r_bert_pretraining_of_deep_bidirectional/
+
+seq2seq
+https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+
+LSTMs
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+bert-tf2
+https://github.com/u10000129/bert_tf2
+
+fast-bert
+https://github.com/kaushaltrivedi/fast-bert
+https://medium.com/huggingface/introducing-fastbert-a-simple-deep-learning-library-for-bert-models-89ff763ad384

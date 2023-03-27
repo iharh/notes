@@ -1,0 +1,16 @@
+https://github.com/porunov/acme_client
+https://github.com/porunov/acme_client/releases/
+https://github.com/porunov/acme_client/wiki
+https://github.com/porunov/acme_client/wiki/Usage
+
+https://github.com/porunov/acme_client/wiki/Command-reference
+
+https://github.com/porunov/acme_client/wiki/Get-a-certificate-for-multiple-domains
+https://github.com/porunov/acme_client/wiki/Renew-a-certificate-for-multiple-domains
+
+https://superuser.com/questions/947061/openssl-unable-to-find-distinguished-name-in-config
+
+!!!
+The account_key is used to sign the ACME requests and
+    it must not be the same as the private key for the requested cert;
+this is enforced by the ACME server

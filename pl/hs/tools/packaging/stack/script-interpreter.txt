@@ -1,0 +1,24 @@
+https://docs.haskellstack.org/en/stable/GUIDE/#script-interpreter
+
+https://www.fpcomplete.com/haskell/tutorial/stack-script/
+https://haskell-lang.org/tutorial/stack-script
+https://github.com/commercialhaskell/stack/wiki/Script-interpreter
+
+2016
+FPCompleteCorporation - Scripting in Haskell 0:00 of 8:32
+    https://www.youtube.com/watch?v=UVek-DEc_pQ
+https://www.fpcomplete.com/blog/2016/08/bitrot-free-scripts
+
+assoc .hs=Haskell
+ftype Haskell="C:\path\to\stack.exe" "%1" %*
+
+ #!/usr/bin/env stack
+  {- stack
+    --resolver lts-3.2
+    --install-ghc
+    runghc
+    --package base
+    --package turtle
+    --
+    -hide-all-packages
+  -}

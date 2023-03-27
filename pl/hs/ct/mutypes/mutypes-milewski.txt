@@ -1,0 +1,11 @@
+https://www.fpcomplete.com/user/bartosz/understanding-algebras
+http://bartoszmilewski.com/2013/06/10/understanding-f-algebras
+
+Look again at the type signature of the catamorphism with some additional (redundant) parentheses:
+
+cata :: Functor f => (f a -> a) -> (Fix f -> a)
+
+It takes an arbitrary algebra, which is a non-recursive function f a -> a, and returns an evaluator function, (Fix f -> a).
+This function takes an expression of the type Fix f and evaluates it down to type a.
+A catamorphism lets us evaluate arbitrarily nested expressions! 
+

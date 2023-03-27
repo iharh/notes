@@ -1,0 +1,47 @@
+Tilde expansion:
+
+~
+	The home dir
+~pws
+	The move dir of user pws
+~var
+	The dir path given by the var
+~-
+	The prev dir ($OLDPWD)
+~+
+	The current dir (the same as $PWD, .)
+~2 ~+2
+	The second dir on directory stack
+~-0
+	The final dir on directory stack
+
+Directory stack
+
+pushd dir
+	push dir to stack
+pushd [+-]num
+	bring num-dir from the stack to the top
+popd
+	pops from the stack
+dirs (-v, top is at index 0)
+
+
+Options:
+
+auto_pushd
+	Auto push to the directory stack
+pushd_ignore_dups
+	Ignore duplicates
+
+
+Env Vars:
+
+DIRSTACKSIZE
+
+
+Zsh Var (for scripting)
+
+dirstack
+	array of stack (need to use a module zsh/parameters;)
+	zmodload -i zsh/parameters (-i ignore if already loaded)
+

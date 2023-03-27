@@ -1,0 +1,4 @@
+gradle init --type java-library
+
+tasks
+    init

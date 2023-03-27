@@ -1,0 +1,50 @@
+multigit:
+https://github.com/capr/multigit
+
+* clone existing dfl
+
+mgit clone git@github.com:iharh/dflmeta.git
+mgit clone-all
+
+* create a new dfl
+
+mgit baseurl iharh git@github.com:iharh/
+mgit clone iharh/dflmeta
+# this warn a first time for the empty remote repo
+mgit dflmeta add -f .mgit/iharh.baseurl
+mgit dflmeta commit -m "initial commit"
+mgit dflmeta push -u origin master
+
+mgit clone iharh/dfl
+# this warn a first time for the empty remote repo
+mgit dfl add -f .bash_aliases
+mgit dfl commit -m "add .bash_aliases"
+mgit dfl push -u origin master
+
+mgit dflmeta add -f .mgit/dfl.origin
+mgit dflmeta commit -m "add dfl origin"
+mgit dflmeta push origin master
+#puso
+
+* commands
+
+mgit ls-tracked
+mgit [repo|--all] [st|status|ls-modied]
+mgit ls-unpushed
+
+mgit --all add .
+mgit [repo|--all] puso
+mgit [repo|--all] purb
+
+mgit init <repo>
+mgit clone-all
+
+* files
+
+.mgit/meta/.git
+.mgit/dfl/.git
+
+* samples
+
+https://luapower.com/luapower-git
+https://github.com/luapower/luapower-repos

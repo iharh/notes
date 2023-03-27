@@ -1,0 +1,133 @@
+sample
+
+package ...security;
+
+import com.clarabridge.common.yml.YmlLoader;
+
+import org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder;
+import org.springframework.security.oauth2.config.annotation.builders.InMemoryClientDetailsServiceBuilder;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
+
+import java.io.File;
+import java.util.Map;
+
+public class ClientDetailsServiceFactory {
+
+    public static ClientDetailsService createClientDetailsService(String clientsFile) throws Exception {
+        Map<String, String> clientsMap = (Map<String, String>) YmlLoader.loadFromFile(new File(clientsFile), Map.class);
+        ClientDetailsServiceBuilder<InMemoryClientDetailsServiceBuilder> builder = new InMemoryClientDetailsServiceBuilder();
+        for (Map.Entry<String, String> clientEntry : clientsMap.entrySet()) {
+            builder = builder
+                    .withClient(clientEntry.getKey())
+                    .secret(clientEntry.getValue())
+                    .authorizedGrantTypes("client_credentials")
+                    .and();
+        }
+        return builder.build();
+    }
+}
+
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+
+    @Configuration
+    @EnableResourceServer
+    @ComponentScan("...sprestapi.security")
+    public static class SecurityConfig {
+        @Bean
+        @RefreshScope
+        public ClientDetailsService clientDetailsService(@Value("${clientDetailsFilePath}") String clientsFile) {
+            try {
+                return ClientDetailsServiceFactory.createClientDetailsService(clientsFile);
+            } catch (Exception e) {
+                throw new ApplicationContextException("Error during ClientDetailsServiceFactory.createClientDetailsService()", e);
+            }
+        }
+    }
+
+
+package ...security;
+
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
+import org.springframework.security.oauth2.common.util.OAuth2Utils;
+import org.springframework.security.oauth2.provider.*;
+import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestFactory;
+import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import org.apache.commons.lang.NotImplementedException;
+
+import javax.annotation.PostConstruct;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Component
+public class BearerResourceServerTokenServices implements ResourceServerTokenServices {
+
+    public static final String CLIENT_SECRET = "client_secret";
+
+    @Autowired
+    private ClientDetailsService clientDetailsService;
+
+    private OAuth2RequestFactory requestFactory;
+
+    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+    @PostConstruct
+    public void init() {
+        requestFactory = new DefaultOAuth2RequestFactory(clientDetailsService);
+    }
+
+    @Override
+    public OAuth2Authentication loadAuthentication(String accessToken) throws AuthenticationException, InvalidTokenException {
+        try {
+            Map<String, String> parameters = toParamsMap(decodeToken(accessToken));
+            ClientDetails clientDetails = clientDetailsService.loadClientByClientId(parameters.get(OAuth2Utils.CLIENT_ID));
+            if (passwordEncoder.matches(parameters.get(CLIENT_SECRET), clientDetails.getClientSecret())) {
+                TokenRequest tokenRequest = requestFactory.createTokenRequest(parameters, clientDetails);
+                OAuth2Request oAuth2Request = tokenRequest.createOAuth2Request(clientDetails);
+                return new OAuth2Authentication(oAuth2Request, null);
+            }
+        } catch (NoSuchClientException e) {
+            log.warn("No client with requested id found, token: {}", accessToken);
+        }
+        return null;
+    }
+
+    @Override
+    public OAuth2AccessToken readAccessToken(String accessToken) {
+        throw new NotImplementedException("Method BearerResourceServerTokenServices.readAccessToken is not implemented");
+    }
+
+    private Map<String, String> toParamsMap(String[] tokenParts) {
+        Map<String, String> params = new HashMap<>();
+        params.put(OAuth2Utils.CLIENT_ID, tokenParts[0]);
+        params.put(CLIENT_SECRET, tokenParts[1]);
+        params.put(OAuth2Utils.GRANT_TYPE, "client_credentials");
+        return params;
+    }
+
+    private String[] decodeToken(String accessToken) {
+        String decodedToken = new String(
+                Base64.getDecoder().decode(accessToken.getBytes(StandardCharsets.UTF_8)),
+                StandardCharsets.UTF_8
+        );
+        String[] parts = decodedToken.split(":");
+        if (parts.length == 2) {
+            return parts;
+        } else {
+            throw new InvalidTokenException(accessToken);
+        }
+    }
+}

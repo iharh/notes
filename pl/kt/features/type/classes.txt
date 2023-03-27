@@ -1,0 +1,6 @@
+https://kotlinlang.org/docs/classes.html
+
+https://stackoverflow.com/questions/32655216/kotlin-equivalent-of-getclass-for-kclass
+    obj.javaClass
+    obj.javaClass.name
+    obj.javaClass.kotlin

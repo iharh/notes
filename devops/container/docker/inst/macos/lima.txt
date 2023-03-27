@@ -1,0 +1,11 @@
+https://github.com/lima-vm/lima
+https://github.com/afbjorklund/lima-gui
+
+2021
+https://www.reddit.com/r/docker/comments/r0r86r/yes_you_can_use_docker_without_docker_desktop_on/
+https://blog.carlosnunez.me/post/docker-desktop-alternative-for-mac/
+    curl -sSLo $HOME/lima_machines/docker.yaml \
+        https://raw.githubusercontent.com/carlosonunez/bash-dotfiles/main/lima_machine.yaml
+
+issues
+https://github.com/lima-vm/lima/issues/231

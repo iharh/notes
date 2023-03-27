@@ -1,0 +1,19 @@
+https://jsosic.wordpress.com/2017/01/23/deleting-images-from-docker-registry/
+
+spec
+https://www.infoq.com/news/2018/04/oci-distribution-spec
+
+API
+https://docs.docker.com/registry/spec/api/
+
+curl -k -XGET .../v2/_catalog | jq .
+
+curl -k -XGET ... /v2/<grp>/<name>/tags/list | jq .
+curl -k -XGET ... /v2/<grp>/<name>/manifests/<tag> | jq .
+
+curl -sSfk "https://docker-registry.clarabridge.net:5000/v2/<grp>/<name>/tags/list" | jq '.tags | length'
+
+curl -sSfk "https://docker-registry.clarabridge.net:5000/v2/_catalog" | jq '.repositories[]' | tr -d '"' | while read -r tag; do
+	COUNT=$(curl -sSfk "https://docker-registry.clarabridge.net:5000/v2/$tag/tags/list" | jq '.tags | length')
+	echo "$tag $COUNT"
+done

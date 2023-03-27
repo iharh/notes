@@ -1,0 +1,35 @@
+https://chocolatey.org/install
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+
+Downloading https://packages.chocolatey.org/chocolatey.0.9.10.3.nupkg to D:\Temp\chocolatey\chocInstall\chocolatey.zip
+Download 7Zip commandline tool
+Downloading https://chocolatey.org/7za.exe to D:\Temp\chocolatey\chocInstall\7za.exe
+Extracting D:\Temp\chocolatey\chocInstall\chocolatey.zip to D:\Temp\chocolatey\chocInstall...
+
+
+Installing chocolatey on this machine
+WARNING: Installation folder is not the default. Not changing permissions. Please ensure your installation is secure.
+We are setting up the Chocolatey package repository.
+The packages themselves go to 'D:\dev\utils\choco\lib'
+  (i.e. D:\dev\utils\choco\lib\yourPackageName).
+A shim file for the command line goes to 'D:\dev\utils\choco\bin'
+  and points to an executable in 'D:\dev\utils\choco\lib\yourPackageName'.
+
+Creating Chocolatey folders if they do not already exist.
+
+WARNING: You can safely ignore errors related to missing log files when
+  upgrading from a version of Chocolatey less than 0.9.9.
+  'Batch file could not be found' is also safe to ignore.
+  'The system cannot find the file specified' - also safe.
+chocolatey.nupkg file not installed in lib.
+ Attempting to locate it from bootstrapper.
+PATH environment variable does not have D:\dev\utils\choco\bin in it. Adding...
+Adding Chocolatey to the profile. This will provide tab completion, refreshenv, etc.
+WARNING: Chocolatey profile installed. Reload your profile - type . $profile
+Chocolatey (choco.exe) is now ready.
+You can call choco from anywhere, command line or powershell by typing choco.
+Run choco /? for a list of functions.
+You may need to shut down and restart powershell and/or consoles
+ first prior to using choco.
+Ensuring chocolatey commands are on the path
+Ensuring chocolatey.nupkg is in the lib folder

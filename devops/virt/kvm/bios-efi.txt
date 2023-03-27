@@ -1,0 +1,18 @@
+2020
+https://community.clearlinux.org/t/efi-in-virt-manager/1788/3
+https://ostechnix.com/install-and-configure-kvm-in-ubuntu-20-04-headless-server/
+    sudo apt install ovmf
+    sudo apt install qemu qemu-kvm libvirt-clients libvirt-daemon-system virtinst bridge-utils
+    sudo systemctl enable libvirtd
+    sudo systemctl start libvirtd
+    sudo systemctl status libvirtd
+    ip a
+        5: virbr0
+        4: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 52:54:00:9d:b6:fc brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+       valid_lft forever preferred_lft forever
+https://ostechnix.com/enable-uefi-support-for-kvm-virtual-machines-in-linux/
+
+    Overview - Hypervisor Details -> Firmware ->
+        UEFI x86_64: /usr/share/OVMF/OVMF_CODE.fd

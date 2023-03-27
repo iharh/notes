@@ -1,0 +1,34 @@
+C:\>cluster group
+Listing status for all available resource groups:
+
+Group                Node            Status
+-------------------- --------------- ------
+Cluster Group        WKVQA02YYZ      Online
+Available Storage    WKVQA02YYZ      Offline
+WKVQA001YYZ-VIP      WKVQA02YYZ      Online
+
+C:\>cluster group "WKVQA001YYZ-VIP" /move:wkvqa01yyz
+
+Moving resource group 'WKVQA001YYZ-VIP'...
+
+Group                Node            Status
+-------------------- --------------- ------
+WKVQA001YYZ-VIP      WKVQA01YYZ      Online
+
+
+C:\>cluster group "Cluster Group" /move
+
+Moving resource group 'Cluster Group'...
+
+Group                Node            Status
+-------------------- --------------- ------
+Cluster Group        WKVQA01YYZ      Online
+
+
+C:\>cluster group "Available Storage" /move
+
+Moving resource group 'Available Storage'...
+
+Group                Node            Status
+-------------------- --------------- ------
+Available Storage    WKVQA01YYZ      Offline

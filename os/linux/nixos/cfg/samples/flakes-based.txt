@@ -1,0 +1,43 @@
+https://github.com/the-nix-way/nix-flake-dev-environments
+https://github.com/the-nix-way/nix-flake-dev-environments/blob/main/flake.nix
+    !!! with inner folders, gitpod stuff
+
+https://www.reddit.com/r/NixOS/comments/j4k2zz/does_anyone_use_flakes_to_manage_their_entire/
+    https://github.com/cideM/dotfiles
+https://github.com/bqv/nixrc
+    ! very complicated
+
+https://github.com/LEXUGE/nixos
+https://github.com/LEXUGE/nixos/blob/master/install.sh
+    ! with script-based installer
+
+https://github.com/ksevelyar/idempotent-desktop
+    ! dirty
+
+https://github.com/balsoft/nixos-config
+https://code.balsoft.ru/balsoft/nixos-config
+    ! from Alexander Bantiev
+https://github.com/nekifirus/nixos
+    ! also good
+
+https://github.com/jvanbruegge/nix-config
+    https://github.com/jvanbruegge/nix-config/blob/master/mkConfig.nix
+https://github.com/kanashimia/nixos
+    ! modules-based, with networkd, without home-manager
+    ! utils at
+      https://github.com/kanashimia/nixos-config/blob/mistress/lib.nix
+https://github.com/wiedzmin/nixos-config
+    ! big, by Alex Ermolov
+https://github.com/NomisIV/dotfiles
+    ! good
+https://github.com/ymatsiuk/nixos-config
+    ! good and minimal + hw 
+    https://github.com/ymatsiuk/nixos-config/blob/xps13/9310/sway/home/git.nix
+    https://github.com/ymatsiuk/nixos-config/blob/xps13/9310/sway/home/neovim.nix
+    https://github.com/ymatsiuk/nixos-config/blob/xps13/9310/sway/home/zsh.nix
+https://github.com/nekifirus/nixos
+    | need to look
+https://github.com/ahmedelgabri/dotfiles
+    ! incl macos
+https://github.com/gvolpe/nix-config
+    ! beautiful colors

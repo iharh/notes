@@ -1,0 +1,29 @@
+https://spring.io/projects/spring-cloud-aws
+https://spring.io/projects/spring-cloud-aws#samples
+    https://github.com/spring-cloud-samples/aws-refapp
+        ! 4 years ago
+
+https://github.com/spring-cloud/spring-cloud-aws
+https://github.com/spring-cloud/spring-cloud-aws/tree/master/spring-cloud-aws-autoconfigure/src/main/java/org/springframework/cloud/aws/autoconfigure/context
+https://github.com/spring-cloud/spring-cloud-aws/blob/master/spring-cloud-aws-autoconfigure/src/main/java/org/springframework/cloud/aws/autoconfigure/context/ContextResourceLoaderAutoConfiguration.java
+
+https://github.com/spring-cloud/spring-cloud-aws/blob/master/docs/src/main/asciidoc/spring-cloud-aws.adoc
+https://cloud.spring.io/spring-cloud-aws/reference/html/
+https://cloud.spring.io/spring-cloud-aws/reference/html/#spring-boot-auto-configuration
+
+https://cloud.spring.io/spring-cloud-aws/reference/html/#resource-handling
+https://cloud.spring.io/spring-cloud-aws/reference/html/appendix.html
+
+https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-aws
+    https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-autoconfigure
+    https://github.com/spring-cloud/spring-cloud-aws/tree/master/spring-cloud-aws-autoconfigure
+        https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-context
+            ! access to S3
+        https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-messaging
+        https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-jdbc
+        https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-parameter-store-config
+        https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-actuator
+        https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-aws-core
+            https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+                ! v1
+2.2.1.RELEASE

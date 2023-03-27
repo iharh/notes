@@ -1,0 +1,16 @@
+https://reactjs.org/docs/faq-styling.html
+
+articles
+2018
+https://www.bhnywl.com/blog/styling-react-components/
+2017
+https://codeburst.io/4-four-ways-to-style-react-components-ac6f323da822
+
+inline (tsx)
+    style={{stroke:"black", fill:"white"}}
+
+abc-def
+    abcDef
+
+for component Letter
+    letterStyle = { ... }

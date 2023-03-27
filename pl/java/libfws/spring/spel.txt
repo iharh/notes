@@ -1,0 +1,295 @@
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-language-ref
+https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-ref-variables
+https://nussknacker.io/documentation/docs/scenarios_authoring/Spel/
+
+2022
+https://www.baeldung.com/spring-expression-language
+2021
+https://spring.io/blog/2021/01/13/ymnnalft-express-yourself-with-spel
+2018
+https://dzone.com/articles/learn-spring-expression-language-with-examples
+
+artifacts
+spring-expression-5.1.4.RELEASE.jar
+org.springframework.xd.spring-xd.version=1.3.1.RELEASE
+    spring-expression-4.2.4.RELEASE.jar
+
+packages
+org.springframework.expression 
+org.springframework.expression.spel.support
+
+import
+import org.springframework.expression.spel.standard.SpelExpressionParser;
+
+src
+https://github.com/spring-projects/spring-framework/blob/main/spring-expression/src/main/java/org/springframework/expression/spel/standard/SpelExpressionParser.java
+https://github.com/spring-projects/spring-framework/blob/main/spring-expression/src/main/java/org/springframework/expression/spel/support/StandardEvaluationContext.java
+
+ExpressionParser parser = new SpelExpressionParser();
+
+Expression exp = parser.parseExpression("'Hello World'");
+String message = (String) exp.getValue();
+
+Expression exp = parser.parseExpression("'Hello World'.bytes");
+// invokes 'getBytes()'
+byte[] bytes = (byte[]) exp.getValue();
+
+// invokes 'getBytes().length'
+Expression exp = parser.parseExpression("'Hello World'.bytes.length");
+int length = (Integer) exp.getValue();
+
+// call String c-tor
+Expression exp = parser.parseExpression("new String('hello world').toUpperCase()");
+String message = exp.getValue(String.class);
+
+Note the use of the generic method public <T> T getValue(Class<T> desiredResultType).
+Using this method removes the need to cast the value of the expression to the desired result type.
+An EvaluationException will be thrown if the value cannot be cast to the type T or converted using the registered type converter.
+
+The more common usage of SpEL is to provide an expression string that is evaluated against a specific object instance (called the root object).
+There are two options here and which to choose depends on whether the object against which the expression is being evaluated
+will be changing with each call to evaluate the expression.
+
+In the following example we retrieve the name property from an instance of the Inventor class.
+
+// Create and set a calendar
+GregorianCalendar c = new GregorianCalendar();
+c.set(1856, 7, 9);
+
+// The constructor arguments are name, birthday, and nationality.
+Inventor tesla = new Inventor("Nikola Tesla", c.getTime(), "Serbian");
+
+ExpressionParser parser = new SpelExpressionParser();
+Expression exp = parser.parseExpression("name");
+
+EvaluationContext context = new StandardEvaluationContext(tesla);
+String name = (String) exp.getValue(context);
+
+
+The class StandardEvaluationContext is where you can specify which object the "name" property will be evaluated against.
+This is the mechanism to use if the root object is unlikely to change, it can simply be set once in the evaluation context.
+If the root object is likely to change repeatedly, it can be supplied on each call to getValue, as this next example shows:
+
+// Create and set a calendar
+GregorianCalendar c = new GregorianCalendar();
+c.set(1856, 7, 9);
+
+// The constructor arguments are name, birthday, and nationality.
+Inventor tesla = new Inventor("Nikola Tesla", c.getTime(), "Serbian");
+
+ExpressionParser parser = new SpelExpressionParser();
+Expression exp = parser.parseExpression("name");
+String name = (String) exp.getValue(tesla);
+
+In this case the inventor tesla has been supplied directly to getValue and the expression evaluation infrastructure creates and manages
+a default evaluation context internally - it did not require one to be supplied.
+
+
+Expression exp = parser.parseExpression("name == 'Nikola Tesla'");
+boolean result = exp.getValue(context, Boolean.class); // evaluates to true
+
+
+The EvaluationContext interface
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-evaluation-context
+
+The out-of-the-box implementation, StandardEvaluationContext, uses reflection to manipulate the object,
+caching java.lang.reflect.Method, java.lang.reflect.Field, and java.lang.reflect.Constructor instances for increased performance
+
+The StandardEvaluationContext is where you may specify the root object to evaluate against via the method setRootObject()
+or passing the root object into the constructor.
+You can also specify variables and functions that will be used in the expression using the methods setVariable() and registerFunction(). 
+The use of variables and functions are described in the language reference sections Variables and Functions.
+The StandardEvaluationContext is also where you can register custom ConstructorResolvers, MethodResolvers, and PropertyAccessors
+to extend how SpEL evaluates expressions.
+
+ype conversion
+
+By default SpEL uses the conversion service available in Spring core ( org.springframework.core.convert.ConversionService).
+This conversion service comes with many converters built in for common conversions but is also fully extensible
+so custom conversions between types can be added.
+Additionally it has the key capability that it is generics aware.
+This means that when working with generic types in expressions, SpEL will attempt conversions to maintain type correctness for any objects it encounters.
+
+
+
+What does this mean in practice? Suppose assignment, using setValue(), is being used to set a List property.
+The type of the property is actually List<Boolean>.
+SpEL will recognize that the elements of the list need to be converted to Boolean before being placed in it.
+
+A simple example:
+
+class Simple {
+    public List<Boolean> booleanList = new ArrayList<Boolean>();
+}
+
+Simple simple = new Simple();
+
+simple.booleanList.add(true);
+
+StandardEvaluationContext simpleContext = new StandardEvaluationContext(simple);
+
+// false is passed in here as a string. SpEL and the conversion service will
+// correctly recognize that it needs to be a Boolean and convert it
+parser.parseExpression("booleanList[0]").setValue(simpleContext, "false");
+
+// b will be false
+Boolean b = simple.booleanList.get(0);
+
+Predefined stuff
+* systemProperties
+
+Annotation config
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-beandef-annotation-based
+
+@Value - on fields, methods, method/c-tor params to specify a default value
+
+Reference
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-language-ref
+
+Literal
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-ref-literal
+
+The types of literal expressions supported are strings, numeric values (int, real, hex), boolean and null.
+Strings are delimited by single quotes.
+!!! To put a single quote itself in a string, use two single quote characters. !!!
+
+Variables
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-ref-variables
+
+Variables can be referenced in the expression using the syntax #variableName.
+Variables are set using the method setVariable on EvaluationContext implementations.
+
+Inventor tesla = new Inventor("Nikola Tesla", "Serbian");
+
+EvaluationContext context = SimpleEvaluationContext.forReadWriteDataBinding().build();
+context.setVariable("newName", "Mike Tesla");
+
+parser.parseExpression("Name = #newName").getValue(context, tesla);
+System.out.println(tesla.getName())  // "Mike Tesla"
+
+The #this and #root variables
+
+The variable #this is always defined and refers to the current evaluation object (against which unqualified references are resolved).
+The variable #root is always defined and refers to the root context object.
+Although #this may vary as components of an expression are evaluated, #root always refers to the root.
+
+// create an array of integers
+List<Integer> primes = new ArrayList<Integer>();
+primes.addAll(Arrays.asList(2,3,5,7,11,13,17));
+
+// create parser and set variable 'primes' as the array of integers
+ExpressionParser parser = new SpelExpressionParser();
+EvaluationContext context = SimpleEvaluationContext.forReadOnlyDataAccess();
+context.setVariable("primes", primes);
+
+// all prime numbers > 10 from the list (using selection ?{...})
+// evaluates to [11, 13, 17]
+List<Integer> primesGreaterThanTen = (List<Integer>) parser.parseExpression(
+        "#primes.?[#this>10]").getValue(context);
+
+
+Functions
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-ref-functions
+
+You can extend SpEL by registering user defined functions that can be called within the expression string.
+
+Method method = ...;
+EvaluationContext context = SimpleEvaluationContext.forReadOnlyDataBinding().build();
+context.setVariable("myFunction", method);
+
+
+ExpressionParser parser = new SpelExpressionParser();
+EvaluationContext context = SimpleEvaluationContext.forReadOnlyDataBinding().build();
+context.setVariable("reverseString",
+        StringUtils.class.getDeclaredMethod("reverseString", String.class)); // register StringUtils.reverseString static helper
+String helloWorldReversed = parser.parseExpression(
+        "#reverseString('hello')").getValue(context, String.class);
+
+
+Bean References
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-bean-references
+
+If the evaluation context has been configured with a bean resolver it is possible to look up beans from an expression using the @ symbol.
+
+ExpressionParser parser = new SpelExpressionParser();
+StandardEvaluationContext context = new StandardEvaluationContext();
+context.setBeanResolver(new MyBeanResolver());
+// This will end up calling resolve(context, "foo") on MyBeanResolver during evaluation
+Object bean = parser.parseExpression("@foo").getValue(context);
+
+
+To access a factory bean itself, the bean name should instead be prefixed with an & symbol.
+
+// --//--
+
+// This will end up calling resolve(context,"&foo") on MyBeanResolver during evaluation
+Object bean = parser.parseExpression("&foo").getValue(context);
+
+
+Operators
+Ternary Operator (If-Then-Else)
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-operator-ternary
+The Elvis Operator (?:)
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-operator-elvis
+Safe Navigation Operator (?.)
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-operator-safe-navigation
+
+The Elvis operator can be used to apply default values in expressions, e.g. in an @Value expression:
+
+@Value("#{systemProperties['pop3.port'] ?: 25}")
+
+This will inject a system property pop3.port if it is defined or 25 if not.
+
+
+Collection Selection
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-collection-selection
+
+Selection is a powerful expression language feature that allows you to transform some source collection into another by selecting from its entries.
+
+Selection uses the syntax
+    .?[selectionExpression].
+This will filter the collection and return a new collection containing a subset of the original elements.
+For example, selection would allow us to easily get a list of Serbian inventors:
+
+List<Inventor> list = (List<Inventor>) parser.parseExpression("Members.?[Nationality == 'Serbian']").getValue(societyContext);
+
+Selection is possible upon both lists and maps.
+In the former case the selection criteria is evaluated against each individual list element
+whilst against a map the selection criteria is evaluated against each map entry (objects of the Java type Map.Entry).
+Map entries have their key and value accessible as properties for use in the selection.
+
+This expression will return a new map consisting of those elements of the original map where the entry value is less than 27.
+
+Map newMap = parser.parseExpression("map.?[value<27]").getValue();
+
+In addition to returning all the selected elements, it is possible to retrieve just the first or the last value.
+To obtain the first entry matching the selection the syntax is
+    .^[selectionExpression]
+whilst to obtain the last matching selection the syntax is
+    .$[selectionExpression]
+
+Collection Projection
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-collection-projection
+
+Projection allows a collection to drive the evaluation of a sub-expression and the result is a new collection.
+The syntax for projection is
+    .![projectionExpression].
+Most easily understood by example, suppose we have a list of inventors but want the list of cities where they were born.
+Effectively we want to evaluate 'placeOfBirth.city' for every entry in the inventor list. Using projection:
+
+// returns ['Smiljan', 'Idvor' ]
+List placesOfBirth = (List)parser.parseExpression("Members.![placeOfBirth.city]");
+
+A map can also be used to drive projection and in this case the projection expression is evaluated against each entry in the map
+(represented as a Java Map.Entry).
+The result of a projection across a map is a list consisting of the evaluation of the projection expression against each map entry.
+
+
+Expression templating
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-templating
+
+static
+    @Getter
+    @Value("${num.fxproc:#{T(java.lang.Runtime).getRuntime().availableProcessors()}}")
+    private int numFXProc;

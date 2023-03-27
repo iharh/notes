@@ -1,0 +1,27 @@
+tuple
+    a = (1, 2, 3)
+
+indexed from 0 like a[<idx>]
+a[idx1:]
+a[idx1:idx2]
+    semi-open range
+a[:idx2]
+a[:]
+    the copy of a (but in case of tuple - just a tuple itself since a tuple is immutable/const)
+a[idx1:idx2:step]
+    ... step
+if idx is negative, this is an offset from the end of the sequence
+
+we can assign like
+    v1, v2, v3 = 1, 2, 3
+
+range/xrange (py 3)
+
+list
+    b = [1, 2, 3]
+
+insert
+len
+reverse
+sort
+extend

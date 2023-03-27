@@ -1,0 +1,37 @@
+https://github.com/awesomeWM/awesome/blob/master/docs/10-building-and-testing.md
+    https://wiki.gnome.org/action/show/Projects/LibRsvg
+    https://download-fallback.gnome.org/sources/librsvg/
+    https://download-fallback.gnome.org/sources/librsvg/2.51/
+    https://gitlab.gnome.org/GNOME/librsvg
+
+my
+lua5.2
+lua5.3
+libxcb-xfixes0-dev
+
+login
+/usr/share/xsessions/awesome.desktop
+[Desktop Entry]
+Name=awesome
+Comment=Highly configurable framework window manager
+TryExec=awesome
+Exec=awesome
+Type=Application
+Icon=/usr/share/pixmaps/awesome.xpm
+Keywords=Window manager
+
+/usr/local/share/awesome
+
+issues
+Typelib file for namespace "Rsvg" (any version) not found
+    https://github.com/awesomeWM/awesome/pull/2836
+    https://github.com/awesomeWM/awesome/pull/2779
+    https://github.com/awesomeWM/awesome/issues/2903
+    https://github.com/awesomeWM/awesome/pull/2887
+        sudo apt install gir1.2-rsvg-2.0
+CAN'T LOAD THEME, loading default one
+Error during a protected call: /home/iharh/.config/awesome/rc.lua:138: module 'config.workstation' not found:
+
+        ~/.xsession-errors
+        Xsession: X session started for iharh at Sat Sep 11 11:45:04 AM +03 2021
+        ...

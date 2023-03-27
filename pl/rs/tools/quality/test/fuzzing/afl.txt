@@ -1,0 +1,16 @@
+https://crates.io/crates/afl
+https://crates.io/crates/afl-sys
+https://crates.io/crates/afl-plugin
+
+https://docs.rs/afl
+https://docs.rs/afl-sys
+https://docs.rs/afl-plugin
+
+https://github.com/rust-fuzz/afl.rs
+https://rust-fuzz.github.io/book/afl.html
+
+https://github.com/rust-fuzz/cargo-fuzz/issues/1
+
+what's new:
+https://users.rust-lang.org/t/announcing-afl-rs-0-2-bindings-for-american-fuzzy-lop/13981
+

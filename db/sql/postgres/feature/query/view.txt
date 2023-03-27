@@ -1,0 +1,10 @@
+create view airports
+as
+select ...
+from airports_data ml;
+
+\d+ <viewname>
+
+list all non-system views:
+https://dba.stackexchange.com/questions/23836/how-to-list-all-views-in-sql-in-postgresql
+    select table_name from INFORMATION_SCHEMA.views where table_schema = any (current_schemas(false))

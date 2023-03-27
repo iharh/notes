@@ -1,0 +1,17 @@
+https://spring.io/guides/gs/accessing-data-jpa/
+
+https://www.baeldung.com/tag/spring-data-jpa/
+https://www.baeldung.com/persistence-with-spring-series
+
+2022
+https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-jpa-2
+        no samples in the articles
+    Spring Boot configures Hibernate as the default JPA provider,
+    so it's no longer necessary to define the entityManagerFactory bean unless we want to customize it.
+        spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+        spring.datasource.username=mysqluser
+        spring.datasource.password=mysqlpass
+        spring.datasource.url=jdbc:mysql://localhost:3306/myDb?createDatabaseIfNotExist=true
+https://www.baeldung.com/multitenancy-with-spring-data-jpa/
+    ! super cool

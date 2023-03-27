@@ -1,0 +1,40 @@
+https://github.com/AdoptOpenJDK/jitwatch/wiki
+https://jakubstransky.com/2018/02/03/jvm-code-friendly-to-jit-optimisation/
+
+To generate the hotspot.log file used by JITWatch run your program with the following JVM switches.
+
+    -XX:+TraceClassLoading
+
+    -XX:-TieredCompilation // to turn off the tiered compil-n
+
+    -XX:+PrintInlining
+    -XX:+PrintCompilation
+    -XX:+PrintAssembly
+    -XX:+LogCompilation // combines PrintCompilation and PrintInlining in one horrible xml (LogCompilation - for CLI, JITWatch - for GUI)
+
+-XX:+UnlockDiagnosticVMOptions
+    -XX:+PrintInlining
+    -XX:+PrintAssembly
+
+    -Xbatch // ???
+    2> /dev/null
+
+out:
+ms batch-id flags
+    flags
+    ! - ex-hanling
+    % - never-ending loop
+
+The hotspot.log file is generated in the program execution directory.
+
+https://gist.github.com/chrisvest/2932907
+https://wikis.oracle.com/display/HotSpotInternals/PrintAssembly
+
+Performance Techniques:
+https://wiki.openjdk.java.net/display/HotSpot/PerformanceTechniques
+
+Options:
+http://www.oracle.com/technetwork/articles/java/vmoptions-jsp-140102.html
+
+qa
+https://stackoverflow.com/questions/1503479/how-to-see-jit-compiled-code-in-jvm

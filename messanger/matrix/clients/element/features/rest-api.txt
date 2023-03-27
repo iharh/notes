@@ -1,0 +1,26 @@
+https://spec.matrix.org/latest/
+
+https://spec.matrix.org/latest/client-server-api/
+https://spec.matrix.org/latest/client-server-api/#get_matrixclientversions
+    ! GET /_matrix/client/versions
+    Rate-limited            : No
+    Requires authentication : No
+    https://spec.matrix.org/latest/#specification-versions
+https://spec.matrix.org/latest/client-server-api/#client-authentication
+
+https://spec.matrix.org/v1.2/client-server-api/
+https://spec.matrix.org/v1.1/client-server-api/
+
+https://matrix.org/docs/guides/client-server-api
+https://matrix.org/docs/api/client-server/#!/Room32participation/sendMessage
+
+@goncharenkoii:matrix.org
+identity server: vector.im
+
+/_matrix/client/versions
+https://organicdesign.nz/Matrix
+# CORS Issues
+
+https://gist.github.com/RickCogley/69f430d4418ae5498e8febab44d241c9
+
+https://webapps.stackexchange.com/questions/131056/how-to-get-an-access-token-for-element-riot-matrix

@@ -1,0 +1,83 @@
+nix-shell -p nixUnstable
+nix --version
+
+nix shell
+    github:edolstra/hello -c hello
+
+nix build
+    github:edolstra/dwarffs#checks.aarch64-linux.build
+        extra flake-based syntax after #
+
+    /path/to/my-flake#nixosConfigurations.container.config.system.build.toplevel
+        https://www.tweag.io/blog/2020-07-31-nixos-flakes/
+        here <container> is the name of configuration
+        Note that "system.build.toplevel" is an internal NixOS option that evaluates to the "system" derivation
+        that commands like nixos-rebuild, nixos-install and nixos-container build and activate.
+        The symlink
+            /run/current-system
+        points to the output of this derivation.
+
+
+nix registry
+    add nixpkgs ~/my-nixpkgs
+        add custom flakes registry
+    add nixpkgs github:NixOS/nixpkgs/5272327b81ed355bbed5659b8d303cf2979b6953
+        or pin it to the specific revision
+
+nixos-rebuild
+    switch --flake /path/to/my-flake#my-machine
+    -v --flake .# switch
+
+nixos-container
+    update flake-test --flake /path/to/my-flake?rev=9190c396f4dcfc734e554768c53a81d1c231c6a7
+    --no-allow-dirty
+
+nix flake
+    https://hydra.nixos.org/build/136801108/download/1/manual/command-ref/new-cli/nix3-flake.html
+    init
+        ... later
+        git init && git add --all
+        cat flake.nix
+
+        # then 
+        nix build [--override-inputs ...]
+        # thich is exactly the same as
+        nix build .#defaultPackages.x86_64-[linux|darwin]
+        # then
+        nix shell .#defaultPackages.x86_64-linux
+        # then
+        hello
+        # or
+        nix run [git+ssh://git@example.com/you/hello-flake.git]
+        nix run github:balsoft/hello-flake
+
+    info
+        display "description string"
+
+    list-inputs
+        github:edolstra/dwarffs
+            display flake inputs
+
+    show
+        github:edolstra/dwarffs
+        or
+        github:NixOS/hydra
+            display flake outputs
+
+    show templates
+        list available templates
+            https://github.com/NixOS/templates
+
+    update
+        --recreate-lock-file
+            !!! really updates all the stuff
+            https://www.reddit.com/r/NixOS/comments/k05pxk/nixosrebuild_upgrade_does_not_work_if_flakelock/
+        --update-input home-manager
+            update specific input (home-manager)
+        --commit-lock-file
+            commits the new lock file with a commit message that records the input change.
+        --override-input <input-name> /path/to/my/<input-name>
+
+    check -L
+        --show-trace
+

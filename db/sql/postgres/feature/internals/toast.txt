@@ -1,0 +1,19 @@
+schemas
+    pg_toast, pg_toast_temp_NNN
+
+select relname, relfilenode from pg_class where oid = (
+    select reltoastrelid from pg_class where relname = <tblname>
+);
+relname:      pg_toast_NNN
+relfilenode:  <NNNN>
+
+\d+ <tblname>
+strategy
+    * plain
+    * main
+    * extended
+    * external
+alter table <tblname> alter column <columnname> set storage <storagename>;
+
+2023
+https://habr.com/ru/company/postgrespro/blog/710104/

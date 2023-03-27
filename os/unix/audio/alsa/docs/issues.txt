@@ -1,0 +1,2 @@
+https://github.com/alsa-project/alsa-lib/issues/89
+    Downgrading all alsa related packages to 1.2.3-2 solved this issue for me

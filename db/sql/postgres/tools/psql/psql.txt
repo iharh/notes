@@ -1,0 +1,97 @@
+https://www.postgresql.org/docs/current/app-psql.html
+https://bookflow.ru/shpargalka-po-postgresql/
+https://edu.postgrespro.ru/dba1-13/dba1_02_tools_psql.html
+
+apt/
+    postgresql-client-14
+
+$ file /usr/bin/psql
+/usr/bin/psql: symbolic link to ../share/postgresql-common/pg_wrapper
+
+files
+/usr/lib/postgresql/14/bin/psql
+/var/lib/postgres/.psql_history
+
+export PGPASSWORD='bla-bla'
+
+!!!
+\l
+\dn
+    list schemas
+\d <table>
+    describe table
+\dt *pattern*
+    list table names by pattern
+!!!
+
+\?
+    help
+\q
+    quit
+
+\! <cmd>
+\pwd
+\cd <dir>
+    d:/clb/src/platform/cmp
+
+\r or \reset
+    Resets (clears) the query buffer.
+\l[+] or \list[+] [ pattern ]
+    List the databases in the server and show their names, owners, character set encodings, and access privileges.
+    If pattern is specified, only databases whose names match the pattern are listed.
+    If + is appended to the command name, database sizes, default tablespaces, and descriptions are also displayed.
+    (Size information is only available for databases that the current user can connect to.)
+\dg[S+] [ pattern ]
+\du[S+] [ pattern ]
+    Lists database roles.
+    (Since the concepts of “users” and “groups” have been unified into “roles”, this command is now equivalent to \dg.)
+    By default, only user-created roles are shown; supply the S modifier to include system roles.
+    If pattern is specified, only those roles whose names match the pattern are listed.
+    If the form \du+ is used, additional information is shown about each role; currently this adds the comment for each role.
+\dn[S+] [ pattern ]
+    Lists schemas (namespaces).
+    If pattern is specified, only schemas whose names match the pattern are listed.
+    By default, only user-created objects are shown;
+    supply a pattern or the S modifier to include system objects.
+    If + is appended to the command name, each object is listed with its associated permissions and description, if any.
+\dE[S+] [ pattern ]
+\di[S+] [ pattern ]
+\dm[S+] [ pattern ]
+\ds[S+] [ pattern ]
+\dt[S+] [ pattern ]
+\dv[S+] [ pattern ]
+    In this group of commands, the letters E, i, m, s, t, and v stand for foreign table, index, materialized view, sequence, table, and view, respectively. You can specify any or
+    all of these letters, in any order, to obtain a listing of objects of these types. For example, \dit lists indexes and tables. If + is appended to the command name, each
+    object is listed with its physical size on disk and its associated description, if any. If pattern is specified, only objects whose names match the pattern are listed. By
+    default, only user-created objects are shown; supply a pattern or the S modifier to include system objects.
+
+    http://stackoverflow.com/questions/15644152/list-tables-in-a-postgresql-schema
+    \dt <role>.*
+
+\d[S+] [ pattern ]
+    For each relation (table, view, index, sequence, or foreign table) or composite type matching the pattern,
+    show all columns, their types, the tablespace (if not the default) and any special attributes such as NOT NULL or defaults.
+    Associated indexes, constraints, rules, and triggers are also shown. For foreign tables, the associated foreign server is shown as well.
+    ("Matching the pattern" is defined in Patterns below.)
+    For some types of relation, \d shows additional information for each column: column values for sequences,
+    indexed expression for indexes and foreign data wrapper options for foreign tables.
+
+    The command form \d+ is identical, except that more information is displayed: any comments associated with the columns of the table are shown,
+    as is the presence of OIDs in the table, the view definition if the relation is a view, a non-default replica identity setting.
+
+    By default, only user-created objects are shown; supply a pattern or the S modifier to include system objects.
+
+    Note: If \d is used without a pattern argument, it is equivalent to \dtvsE which will show a list of all visible tables, views, sequences and foreign tables.
+    This is purely a convenience measure.
+
+\i <file.sql>
+    execute script from file
+
+
+
+search_path:
+set search_path to win_ss ;
+set search_path to 'win_ss' ;
+
+client_encoding:
+set client_encoding to 'UTF8';

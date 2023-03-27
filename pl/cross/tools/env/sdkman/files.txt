@@ -1,0 +1,10 @@
+SDKMAN_DIR
+    ~/.sdkman
+
+    etc/config
+    var/
+        candidates
+        version
+
+    src/
+        ...

@@ -1,0 +1,226 @@
+void someFunc() noexcept; // more optimization opportunities
+
+... maybe unwind a stack in case of exception (offers compiler writers more optimization opprotunities)...
+
+
+Ex 1.
+
+If during mem-allocation one of the elt-move-ctor throws the exception, we just have a basic (not strong ex.guarantee).
+
+For strong-guarantee, only non-throwing move acceptable
+std::vector::push_back uses std::move_if_noexcept
+-> cast to RVal only if T's move know to not throw.
+   ... or we don't have a copy c-tor (move c-tor can throw)
+
+noexcept declaration is an INTERFACE promise (not just a current impl)
+
+noexcept stands for
+  notexcept(true)
+
+noexcept(false)
+  not guarantee not to throw
+
+This is usefull for conditional ex-safety guarantee (at templates)
+
+noexcept is also an operator:
+
+tepmpate <typename T>
+void f(T && param) noexcept(noexcept(*param));
+
+
+****************
+* Alexandrescu *
+****************
+
+std::promise<T>
+std::future<T>
+
+template <class T> class Expected {
+    union {
+        T ham;
+        std::exception_ptr spam;
+    };
+    bool gotHam;
+    Expected() {} // used internally
+public:
+    Expected(const T& rhs)
+    :
+        ham(rhs), gotHam(true)
+    {
+    }
+
+    Expected(T&& rhs)
+    :
+        ham(std::move(rhs)), gotHam(true)
+    {
+    }
+
+    Expected(const Expected& rhs) : gotHam(rhs.gotHam) {
+        if (gotHam)
+            new(&ham) T(rhs.ham);
+        else
+            new(&spam) std::exception_ptr(rhs.spam);
+    }
+
+    Expected(Expected&& rhs)
+    :
+        gotHam(rhs.gotHam)
+    {
+        if (gotHam)
+            new(&ham) T(std::move(rhs.ham));
+        else
+            new(&spam)
+        std::exception_ptr(std::move(rhs.spam));
+    }
+
+    ~Expected()
+    {
+        using std::exception_ptr;
+        if (gotHam)
+            ham.~T();
+	else
+            spam.~exception_ptr();
+    }
+
+    void swap(Expected& rhs)
+    {
+        if (gotHam)
+        {
+            if (rhs.gotHam)
+            {
+                using std::swap;
+                swap(ham, rhs.ham); // peek up this-namespace swap if available, otherwise - std::swap
+            }
+            else
+            {
+                auto t = std::move(rhs.spam);
+                new(&rhs.ham) T(std::move(ham));
+                new(&spam) std::exception_ptr(t);
+                std::swap(gotHam, rhs.gotHam);
+            }
+        }
+        else
+        {
+            if (rhs.gotHam)
+            {
+                rhs.swap(*this);
+            }
+            else
+            {
+                spam.swap(rhs.spam);
+                std::swap(gotHam, rhs.gotHam);
+            }
+        }
+    }
+
+    // Note: std::exception is thrown by value, but catch by reference (with d-tor and what() polymorphic stuff).
+    template <class E>
+    static Expected<T> fromException(const E& exception)
+    {
+        if (typeid(exception) != typeid(E))
+        {
+            throw std::invalid_argument("slicing detected");
+        }
+        return fromException(std::make_exception_ptr(exception));
+    }
+
+    static Expected<T> fromException(std::exception_ptr p)
+    {
+        Expected<T> result;
+        result.gotHam = false;
+        new(&result.spam) std::exception_ptr(std::move(p));
+        return result;
+    }
+
+    static Expected<T> fromException()
+    {
+        return fromException(std::current_exception());
+    }
+
+    bool valid() const
+    {
+        return gotHam;
+    }
+
+    T& get()
+    {
+        if (!gotHam)
+            std::rethrow_exception(spam);
+        return ham;
+    }
+
+    const T& get() const
+    {
+        if (!gotHam)
+            std::rethrow_exception(spam);
+        return ham;
+    }
+
+    template <class E>
+    bool hasException() const
+    {
+        try
+        {
+            if (!gotHam)
+                std::rethrow_exception(spam);
+        }
+        catch (const E& object)
+        {
+            return true;
+        }
+        catch (...)
+        {
+        }
+        return false;
+    }
+
+    // auto r = Expected<string>::fromCode([] {
+    //     ...
+    // });
+    template <class F>
+    static Expected fromCode(F fun)
+    {
+        try
+        {
+            return Expected(fun());
+        }
+        catch (...)
+        {
+            return fromException();
+        }
+    }
+};
+
+// Ex1
+Expected<int> parseInt(const std::string& s)
+{
+    int result;
+    ...
+    if (nonDigit)
+    {
+        return Expected<int>::fromException(std::invalid_argument("not a number"));
+    }
+    ...
+    if (tooManyDigits)
+    {
+        return Expected<int>::fromException(std::out_of_range("overflow"));
+    }
+    ...
+    return result;
+}
+
+    // Caller
+    string s = readline();
+    auto x = parseInt(s).get(); // throw on error
+    auto y = parseInt(s); // won’t throw
+    if (!y.valid())
+    {
+        // handle locally
+        if (y.hasException<std::invalid_argument>())
+	{
+            // no digits
+            ...
+        }
+        y.get(); // just "re"throw
+    }
+

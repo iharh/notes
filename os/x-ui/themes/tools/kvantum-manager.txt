@@ -1,0 +1,18 @@
+https://github.com/tsujan/Kvantum/tree/master/Kvantum
+https://github.com/tsujan/Kvantum/blob/master/Kvantum/doc/Theme-Making.pdf
+https://raw.githubusercontent.com/tsujan/Kvantum/master/Kvantum/doc/Theme-Making.pdf
+
+https://arcolinux.com/how-to-change-the-look-of-some-applications-with-kvantum-example-virtualbox/
+https://www.arcolinuxd.com/2-how-to-theme-lxqt/
+
+apt
+    qt5-style-kvantum
+    qt5-style-kvantum-themes
+
+cli
+    kvantummanager
+    kvantumpreview
+
+2020
+Dubois - ArcoLinux : 1474 how to theme LXQt of 19:50
+    https://www.youtube.com/watch?v=O8UbuXRPvL8

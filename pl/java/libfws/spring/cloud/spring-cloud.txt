@@ -1,0 +1,21 @@
+http://projects.spring.io/spring-cloud/
+https://projects.spring.io/spring-cloud/spring-cloud.html
+
+https://github.com/spring-cloud
+
+https://spring.io/blog/2017/05/24/spring-cloud-dalston-sr1
+https://spring.io/blog/2017/04/12/spring-cloud-dalston-released
+http://www.java-allandsundry.com/2015/09/rest-client-calls-with-spring-cloud.html
+
+-task
+
+-zookeeper
+
+starters
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
+    compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+misc
+    compile 'org.springframework.cloud:spring-cloud-commons'
+    compile 'org.springframework.cloud:spring-cloud-context'
+    compile 'org.springframework.cloud:spring-cloud-netflix-core'

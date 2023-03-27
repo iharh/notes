@@ -1,0 +1,33 @@
+Hughes - Why FP Matters:
+
+4 Gluing Programs Together
+The other new kind of glue that functional languages provide enables whole programs to be glued together. Recall that a complete functional program is just a function from its input to its output.
+If f and g are such programs, then
+  (g . f )
+is a program that, when applied to its input, computes
+  g (f input)
+
+The program f computes its output, which is used as the input to program g.
+This might be implemented conventionally by storing the output from f in a temporary file.
+The problem with this is that the temporary file might occupy so much memory that it is impractical to glue the programs together in this way.
+Functional languages provide a solution to this problem. The two programs f and g are run together in strict synchronization.
+Program f is started only when g tries to read some input, and runs only for long enough to deliver the output g is trying to read.
+Then f is suspended and g is run until it tries to read another input.
+As an added bonus, if g terminates without reading all of f ’s output, then f is aborted.
+Program f can even be a nonterminating program, producing an infinite amount of output, since it will be terminated forcibly as soon as g is finished.
+This allows termination conditions to be separated from loop bodies — a powerful modularization.
+
+Since this method of evaluation runs f as little as possible, it is called “lazy evaluation”.
+It makes it practical to modularize a program as a generator that constructs a large number of possible answers, and a selector that chooses the appropriate one.
+While some other systems allow programs to be run together in this manner, only functional languages (and not even all of them) use lazy evaluation uniformly for every function call,
+allowing any part of a program to be modularized in this way. Lazy evaluation is perhaps the most powerful tool for modularization in the functional programmer’s repertoire.
+
+Alexandrescu - On Iteration:
+http://www.informit.com/articles/printerfriendly/1407357
+
+A classic argument in favor of lazy evaluation is that it leads to better modular composition.
+This is because lazy evaluation allows for much more involved compositions, with powerful generators that construct a large data space, out of which a selector chooses the items of interest.
+This advantage has been beautifully argued by Hughes [9] and is famously used by Google in its implementation of the MapReduce algorithm [6].
+D's standard library uses lazy evaluation wherever possible, to great effect.
+
+

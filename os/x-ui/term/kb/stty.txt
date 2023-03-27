@@ -1,0 +1,6 @@
+stty
+    -a
+        all assignments
+
+qa
+https://stackoverflow.com/questions/6764265/which-signal-does-ctrl-x-send-when-used-in-a-terminal

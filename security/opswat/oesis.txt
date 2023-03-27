@@ -1,0 +1,6 @@
+According to the opswat.com official web site, OPSWAT client is based on OESIS SDK
+    https://www.opswat.com/products/oesis-framework
+    and potentionally can do anything, that OESIS SDK can, as example
+        GetCookies, DeleteBrowserHistory, download and executed files,
+        scan for the network connections and bunch of other things, described at
+    https://software.opswat.com/OESIS_V4/html/c_method.html

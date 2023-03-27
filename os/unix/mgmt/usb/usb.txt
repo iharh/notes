@@ -1,0 +1,6 @@
+https://www.reddit.com/r/commandline/comments/4dh6l6/command_to_map_usb_devices_to_dev_entries/
+
+Automount
+
+install packages:
+  polkit-gnome gvfs gamin

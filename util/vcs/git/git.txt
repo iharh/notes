@@ -1,0 +1,39 @@
+Git manages tags/refs, pointing to the commit-objects, organized in a DAG-graph of trees, consisting of the smaller-trees and file-blobs objects (sometimes moved to a packs)
+
+Articles
+http://jaxenter.com/git-is-simple-on-the-inside-49426.html
+http://wildlyinaccurate.com/a-hackers-guide-to-git
+https://habrahabr.ru/post/313890/
+
+Tips
+https://medium.com/@porteneuve/30-git-cli-options-you-should-know-about-15423e8771df
+https://github.com/ninrod/tricks/blob/master/git.md
+
+Presentations
+http://talks.rosalab.com/20140823-05
+https://speakerdeck.com/matthewmccullough/git-graphs-hashes-and-compression-oh-my-1 (http://youtu.be/ig5E8CcdM9g)
+http://www.slideshare.net/chacon/git-101-presentation
+http://www.slideshare.net/chacon/getting-git
+  Slide 78 - Object database format
+
+http://www.infoq.com/presentations/A-Tale-of-Three-Trees
+  working-dir, index/staging, repo/head
+
+Smith - Knowledge is Power
+http://www.slideshare.net/tarkasteve/knowledge-is-power-getting-out-of-trouble-by-understanding-git
+https://www.youtube.com/watch?v=sevc6668cQ0
+
+Ceatsheets:
+http://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/
+
+Visualizations:
+http://onlywei.github.io/explain-git-with-d3/
+https://github.com/onlywei/explain-git-with-d3
+
+Tutorials
+Kong - Git Tutorial
+http://www.cs.cmu.edu/~soonhok/talks/20140519_Git.pdf
+
+man:
+git everyday
+

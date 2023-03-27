@@ -1,0 +1,53 @@
+https://docs.haskellstack.org/en/stable/yaml_configuration/
+https://github.com/commercialhaskell/stack/blob/master/doc/yaml_configuration.md
+
+OOB:
+~/.stack/config.yaml
+
+$ stack path
+Writing global project config file to:
+~/.stack/global-project/stack.yaml
+
+michael@d30748af6d3d:~/wai$ stack path
+global-stack-root: ~/.stack
+stack-root: ~/.stack
+...
+programs: ~/.stack/programs/x86_64-linux
+compiler-exe: ~/.stack/programs/x86_64-linux/ghc-7.10.3/bin/ghc
+compiler-bin: ~/.stack/programs/x86_64-linux/ghc-7.10.3/bin
+global-pkg-db: ~/.stack/programs/x86_64-linux/ghc-7.10.3/lib/ghc-7.10.3/package.conf.d
+...
+ghc-paths: ~/.stack/programs/x86_64-linux
+
+https://github.com/commercialhaskell/stack/issues/1148
+https://github.com/commercialhaskell/stack/pull/1983
+https://github.com/commercialhaskell/stack/commit/c493728adc8dc8e9503a4ddfd10cab399d33fffb
+
+alias stack='stack --stack-root=/data/wrk/.stack'
+
+/data/wrk/.stack/config.yaml
+
+templates:
+  params:
+    author-email: <email>
+    author-name: iharh
+    category: iharh-cat
+    copyright: iharh
+    github-username: iharh/prj/stack
+
+# Reference the commits in the remote GitHub repository in stack.yaml.
+# A typical entry for a Git commit in the packages section looks like this:
+location:
+    git: https://github.com/duplode/zip-conduit
+    commit: 1eefc8bd91d5f38b760bce1fb8dd16d6e05a671d
+    extra-dep: true
+
+------------------------------
+package.yaml:
+executables:
+  e1:
+    main:                Main.hs
+    source-dirs:         e1
+  e2:
+    main:                Main.hs
+    source-dirs:         e2

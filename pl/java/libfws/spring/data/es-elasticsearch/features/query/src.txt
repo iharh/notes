@@ -1,0 +1,13 @@
+https://github.com/spring-projects/spring-data-elasticsearch
+
+https://stackoverflow.com/questions/60849887/log-json-queries-built-through-elasticsearch-high-level-java-client-for-debuggin
+    https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/7.17/java-rest-low-usage-logging.html
+
+https://github.com/spring-projects/spring-data-elasticsearch/blob/main/src/main/java/org/springframework/data/elasticsearch/client/erhlc/NativeSearchQuery.java
+    import org.springframework.data.elasticsearch.core.query.BaseQuery;
+
+    @Deprecated
+    public class NativeSearchQuery extends BaseQuery {
+
+https://github.com/spring-projects/spring-data-elasticsearch/blob/main/src/main/java/org/springframework/data/elasticsearch/core/query/BaseQuery.java
+

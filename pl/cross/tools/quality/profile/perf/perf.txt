@@ -1,0 +1,21 @@
+https://perf.wiki.kernel.org/index.php/Main_Page
+
+http://www.brendangregg.com/perf.html
+http://www.brendangregg.com/linuxperf.html
+http://sandsoftwaresound.net/perf/perf-tutorial-hot-spots/
+http://sandsoftwaresound.net/perf/perf-tut-count-hw-events/
+http://sandsoftwaresound.net/perf/perf-tut-profile-hw-events/
+
+2022
+https://medium.com/lumen-engineering-blog/tutorial-profiling-cpu-and-ram-usage-of-rust-micro-services-running-on-kubernetes-fbc32714da93
+2019
+https://habr.com/ru/company/selectel/blog/437808/
+https://habr.com/ru/company/first/blog/442738/
+    https://jvns.ca/perf-zine.pdf
+????
+http://www.ibm.com/developerworks/linux/library/l-analyzing-performance-perf-annotate-trs/index.html
+
+samples
+    Branch prediction & L1i cache
+        perf record -e branch-misses -g ./some_bench_executable
+        perf stat -e L1-icache-load-misses ./http_benchmark

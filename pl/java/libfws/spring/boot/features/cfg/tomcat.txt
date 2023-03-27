@@ -1,0 +1,33 @@
+articles:
+https://www.juliensobczak.com/inspect/2016/08/28/spring-boot-from-scratch.html
+
+reference:
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-configure-tomcat
+
+catalina.properties
+    common.loader
+https://stackoverflow.com/questions/27268048/spring-boot-where-to-put-properties-files-when-deploying-to-tomcat
+
+traditional deploy:
+http://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html
+
+
+http://docs.spring.io/autorepo/docs/spring-boot/current/api/org/springframework/boot/context/embedded/tomcat/TomcatEmbeddedServletContainerFactory.html
+    addContextCustomizers
+
+In case of embedded Tomcat with Spring-boot:
+The class you can use to manipulate Tomcat settings is:
+    EmbeddedServletContainerCustomizer
+
+Through this you can add a TomcatContextCustomizer (addContextCustomizers)
+http://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/embedded/tomcat/TomcatContextCustomizer.html
+
+https://tomcat.apache.org/tomcat-8.0-doc/api/org/apache/catalina/Context.html
+https://tomcat.apache.org/tomcat-8.0-doc/class-loader-howto.html
+
+
+connectors:
+https://www.mkyong.com/spring-boot/spring-boot-configure-maxswallowsize-in-embedded-tomcat/
+
+loaders-tomcat-src:
+https://stackoverflow.com/questions/6254869/order-of-tomcat-classloaders-common-shared-and-server

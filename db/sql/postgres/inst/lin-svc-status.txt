@@ -1,0 +1,22 @@
+sudo systemctl status postgresql.service
+  postgresql.service - PostgreSQL database server
+   Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled; vendor preset: disabled)
+   Active: active (running) since Sun 2017-02-05 14:36:54 +03; 11s ago
+  Process: 23542 ExecStart=/usr/bin/pg_ctl -s -D ${PGROOT}/data start -w -t 120 (code=exited, status=0/SUCCESS)
+  Process: 23539 ExecStartPre=/usr/bin/postgresql-check-db-dir ${PGROOT}/data (code=exited, status=0/SUCCESS)
+ Main PID: 23546 (postgres)
+    Tasks: 6 (limit: 4915)
+   CGroup: /system.slice/postgresql.service
+           ├─23546 /usr/bin/postgres -D /var/lib/postgres/data
+           ├─23548 postgres: checkpointer process   
+           ├─23549 postgres: writer process   
+           ├─23550 postgres: wal writer process   
+           ├─23551 postgres: autovacuum launcher process   
+           └─23552 postgres: stats collector process   
+
+Feb 05 14:36:53 ihdesk systemd[1]: Starting PostgreSQL database server...
+Feb 05 14:36:53 ihdesk postgres[23542]: LOG:  database system was shut down at 2017-02-05 14:32:50 +03
+Feb 05 14:36:54 ihdesk postgres[23542]: LOG:  MultiXact member wraparound protections are now enabled
+Feb 05 14:36:54 ihdesk postgres[23542]: LOG:  database system is ready to accept connections
+Feb 05 14:36:54 ihdesk postgres[23542]: LOG:  autovacuum launcher started
+Feb 05 14:36:54 ihdesk systemd[1]: Started PostgreSQL database server.

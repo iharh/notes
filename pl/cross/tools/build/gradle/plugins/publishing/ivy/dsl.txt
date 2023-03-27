@@ -1,0 +1,61 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.tasks.PublishToIvyRepository.html
+    ! have ant builder
+https://docs.gradle.org/current/javadoc/org/gradle/api/publish/ivy/IvyPublication.html
+    ! suppressAllIvyMetadataWarnings
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyPublication.html
+    !
+    Invalid publication 'pub-name': multiple artifacts with the identical name, extension, type and classifier ('ivy', xml', 'xml', 'null').
+    !
+    ? https://github.com/IntershopCommunicationsAG/component-build-plugin/blob/master/src/main/kotlin/com/intershop/gradle/component/build/ComponentBuildPlugin.kt
+        IvyPublication
+    ?  https://github.com/jfrog/build-info/blob/master/build-info-extractor-gradle/src/test/resources/integration/gradle-kts-example-publish/build.gradle.kts
+        configure(PublishingExtension)
+
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyArtifactSet.html
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyArtifact.html
+        ! name, type, extension, conf, classifier
+        ! file
+        ! buildDependencies, builtBy(Object ... tasks)
+        ... goes to DefaultIvyArtifactSet
+            visitor.candidate("Maps containing a 'source' entry").example("[source: '/path/to/file', extension: 'zip']");
+
+    https://docs.gradle.org/current/dsl/org.gradle.api.publish.ivy.IvyModuleDescriptorSpec.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/publish/ivy/IvyConfigurationContainer.html
+    https://docs.gradle.org/current/javadoc/org/gradle/api/component/SoftwareComponent.html
+        ! incl CppSharedLibrary
+https://docs.gradle.org/current/dsl/org.gradle.api.publish.PublishingExtension.html
+    !!!
+    plugins {
+        id 'publishing'
+    }
+
+    publishing {
+        publication { ...  }
+        repositories {
+            // Create an ivy publication destination named “releases”
+            ivy {
+                name "releases"
+                url "http://my.org/ivy-repos/releases"
+            }
+        }
+    }
+
+plugins {
+    distribution
+    id("ivy-publish")
+}
+
+publishing {
+    repositories {
+        ivy {
+            url = uri("$buildDir/repo")
+        }
+    }
+    publications {
+        create<IvyPublication>("myDistribution") {
+            artifact(tasks.distZip.get())
+            artifact(tasks["customDistTar"])
+        }
+    }
+}
+

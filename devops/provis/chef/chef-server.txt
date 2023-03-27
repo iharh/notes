@@ -1,0 +1,52 @@
+Books:
+Automation through Chef Opscode
+
+Articles:
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-chef-12-configuration-management-system-on-ubuntu-14-04-servers
+https://learn.chef.io/install-and-manage-your-own-chef-server/linux/install-chef-server/install-chef-server-using-your-hardware/
+
+https://learn.chef.io/install-and-manage-your-own-chef-server/linux/
+
+https://downloads.chef.io/chef-server/redhat/
+https://packages.chef.io/stable/el/7/chef-server-core-12.6.0-1.el7.x86_64.rpm
+
+https://docs.chef.io/release/server_12-6/install_server.html
+
+chef-server-ctl reconfigure
+chef-server-ctl user-create chefadmin Chef Admin chefadmin@chef.io 'chefadmin1' --filename chefadmin.pem
+chef-server-ctl org-create cheforg 'chef org name' --association_user chefadmin --filename cheforg-validator.pem
+
+chef-manage:
+https://docs.chef.io/manage.html
+
+chef-server-ctl install chef-manage
+chef-server-ctl reconfigure
+chef-manage-ctl reconfigure --accept-license
+
+https://<chef-server-ip>
+log-in with chefadmin@chef.io/chefadmin1
+
+
+push-job-server:
+chef-server-ctl install opscode-push-job-server
+https://github.com/chef/chef-manage-issues/issues/118
+
+systemd:
+chef-manage-runsvdir-start.service
+
+cfg:
+/etc/opscode
+
+https://docs.chef.io/config_rb_manage.html
+/etc/chef-manage/manage.rb
+
+nginx:
+
+/opt/opscode/embedded
+    /sbin
+        /nginx
+    /conf/nginx.conf
+    /nginx/html
+        /index.html
+
+nginx -c /var/opt/opscode/nginx/etc/nginx.conf 

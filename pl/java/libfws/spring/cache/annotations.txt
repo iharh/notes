@@ -1,0 +1,17 @@
+https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache
+
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/package-summary.html
+
+@Cacheable
+    https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html
+    Triggers cache population.
+@CacheEvict
+    https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CacheEvict.html
+    Triggers cache eviction.
+@CachePut
+    https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CachePut.html
+    Updates the cache without interfering with the method execution.
+@Caching
+    Regroups multiple cache operations to be applied on a method.
+@CacheConfig
+    Shares some common cache-related settings at class-level.

@@ -1,0 +1,22 @@
+https://i3wm.org/
+https://i3wm.org/downloads/
+
+https://github.com/i3/i3
+
+https://manjaro.org/2017/03/07/manjaro-i3-community-edition-17-0-released/
+    https://sourceforge.net/projects/manjarolinux-community/files/i3/17.1.5/
+    https://www.youtube.com/watch?v=iBxkXQ-Z1l4
+    https://www.youtube.com/watch?v=YSylhvsDoIg
+
+wiki
+https://en.wikipedia.org/wiki/I3_(window_manager)
+https://ru.wikipedia.org/wiki/I3
+https://wiki.archlinux.org/index.php/i3
+https://wiki.archlinux.org/index.php/i3_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+
+
+~/.xinitrc
+## Set a single desktop environment
+exec i3
+# with logs
+exec i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1

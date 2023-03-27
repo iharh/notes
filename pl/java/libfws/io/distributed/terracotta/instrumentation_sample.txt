@@ -1,0 +1,5 @@
+java.lang.IllegalArgumentException: aaa bbb
+	at com.knova.ksuite.frameworks.kdc.impl.terracotta.dso.KDCTableSpaceModel.__tc_wrapped_getDocumentByExtId(KDCTableSpaceModel.java:206)
+	at com.knova.ksuite.frameworks.kdc.impl.terracotta.dso.KDCTableSpaceModel.getDocumentByExtId(KDCTableSpaceModel.java)
+	at com.knova.ksuite.frameworks.kdc.impl.terracotta.KDCReaderServiceTCImpl.readDoc(KDCReaderServiceTCImpl.java:55)
+

@@ -1,0 +1,11 @@
+https://www.jbang.dev/
+
+https://github.com/jbangdev/jbang
+https://github.com/maxandersen/jbang
+
+gradle
+    https://github.com/jbangdev/jbang-gradle-plugin/
+docker
+    docker run -v `pwd`:/ws --workdir=/ws jbangdev/jbang-action helloworld.java
+github-action
+    https://github.com/marketplace/actions/java-scripting-w-jbang

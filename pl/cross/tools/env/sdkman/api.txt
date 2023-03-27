@@ -1,0 +1,7 @@
+SDKMAN_CANDIDATES_API="https://beta.sdkman.io/2
+version_url="${SDKMAN_CANDIDATES_API}/broker/download/sdkman/version/stable"
+
+https://beta.sdkman.io/2/broker/download/sdkman/version/stable
+    5.16.0
+
+https://beta.sdkman.io/2/candidates/list

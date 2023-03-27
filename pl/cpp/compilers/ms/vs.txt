@@ -1,0 +1,76 @@
+VS 2013 Performance optimizations:
+http://blogs.msdn.com/b/vcblog/archive/2013/12/06/performance-with-visual-c-2013.aspx
+
+
+\Microsoft Visual Studio 9.0\Common7\Packages\Debugger\autoexp.dat
+
+http://www.codeguru.com/Cpp/V-S/debug/article.php/c1281 - for 6.0
+
+step over
+http://blogs.msdn.com/andypennell/archive/2004/02/06/69004.aspx
+
+{,,libKSearchEngine.dll}(*(KAVSearchEngine*){*}(((*(KAnswerer*)(&*((m_pAnswerer).m_pType)))).m_pCurrentSearchEngine)).m_indexIf
+
+Use the following in the Watch window to find out what GetLastError() would return:
+
+@err - display last error
+@err,hr - display last error as an HRESULT
+@exception - display current exception
+
+http://msdn.microsoft.com/en-us/library/ms164891.aspx
+
+
+If you use Visual Studio 2003 or earlier, use this watch expression to find out the length of your std::vector v:
+v._Mylast-v._Myfirst
+
+You can also list the e.g. first 5 entries with this expression:
+v._Myfirst,5
+
+
+ptr,su -> display ptr as if it was a string of unicode chars.
+val,hr -> view val as a hresult data
+val,wc -> view val as a window class
+val,wm -> view val as a window message
+
+
+Format specifiers:
+http://msdn.microsoft.com/en-us/library/75w45ekt.aspx
+
+
+    * The memory windows, very useful if you're doing low level stuff.
+    * Control + K , Control + F - Format selection - great for quickly making code neat
+    * Regions, some love them, some hate them, most don't even know they exist
+    * Changing variables in debug windows during execution
+    * Tracepoints
+    * Conditional break points
+    * Hold down Alt and drag for 'rectangular' selection.
+    * Control+B for a breakpoint, to break at function
+    * Control+I for incremental search, F3 to iterate
+
+
+http://nayyeri.net/blog/how-to-write-a-visual-studio-visualizer/
+
+
+http://msdn.microsoft.com/en-us/library/ms164891.aspx
+
+
+Context specifiers:
+
+http://msdn.microsoft.com/en-us/library/wztycb7f.aspx
+
+Restore hidden commands:
+
+http://msdn.microsoft.com/en-us/library/9k643651.aspx
+
+Launch debugger automcatically
+
+http://msdn.microsoft.com/en-us/library/a329t4ed.aspx
+
+
+!!! RoadMap:
+
+http://msdn.microsoft.com/en-us/library/k0k771bt.aspx
+
+Assembly Expressions:
+
+http://msdn.microsoft.com/en-us/library/56638b75.aspx

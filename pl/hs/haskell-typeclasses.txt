@@ -1,0 +1,21 @@
+http://www.haskellforall.com/2012/05/scrap-your-type-classes.html
+http://www.reddit.com/r/haskell/comments/t2yy2/scrap_your_type_classes/
+
+Edward Kmett - Type Classes vs. the World:
+http://www.reddit.com/r/haskell/comments/2w4ctt/boston_haskell_edward_kmett_type_classes_vs_the/
+https://www.youtube.com/watch?v=hIZxTQP1ifo
+
+You can actually recover the do notation syntax.
+The trick, which Ed Kmett showed me, is to have all expressions that return a monadic value, f a, instead return a function, Monad f -> f a.
+So, return :: a -> (Monad f -> f a), (>>=) :: (Monad f -> f a) -> (a -> (Monad f -> f b)) -> (Monad f -> f b).
+You can implement all the monadic combinators like this, and desugar do notation to them.
+The do block evaluates to a function that accepts the monad dictionary, so you can even conveniently write code that's polymorphic in the choice of monad,
+without having to thread the dictionary around manually.
+
+
+FakingIt (+Hinze)
+Kothari - Cpp Templates Traits vs Haskell Type Classes
+DosReis - What is Generic Programming (mostly for cpp)
+Overview
+  http://jeltsch.wordpress.com/2013/02/09/some-interesting-features-of-haskells-type-system/
+

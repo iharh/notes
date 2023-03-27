@@ -1,0 +1,12 @@
+tui
+    https://sourceware.org/gdb/onlinedocs/gdb/TUI.html
+    http://sourceware.org/gdb/onlinedocs/gdb/TUI-Commands.html
+    https://ftp.gnu.org/old-gnu/Manuals/gdb/html_chapter/gdb_19.html
+
+    layout
+        next|prev
+        src
+        split
+            both src and disasm
+
+    ref[resh]

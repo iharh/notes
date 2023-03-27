@@ -1,0 +1,38 @@
+Articles:
+https://pavelfatin.com/scala-collections-tips-and-tricks/
+https://habrahabr.ru/post/333362/
+
+Odersky - Fighting Bit Rot with Types
+
+Scala WAT - collections:
+http://habrahabr.ru/company/tcsbank/blog/184310/
+http://rickyclarkson.blogspot.ru/2008/01/in-defence-of-0l-in-scala.html
+
+ScalaBlitz:
+http://scala-blitz.github.io/
+http://www.reddit.com/r/scala/comments/2951es/lightningfast_standard_collections_with/
+https://github.com/scala-blitz/scala-blitz
+
+Iterable
+- Map
+- Set
+- Seq
+-- InexedSeq
+--- Vector
+--- Array
+--- String
+-- LinearSeq
+--- List
+
+??? implicit wrappers to behave like ...
+
+common methods:
+- map
+- flatMap
+- filter
+- foldLeft
+- foldRight
+
+trait Map[Key, Value] extends (Key => Value) ...
+trait Seq[Elem] extends (Int => Elem)
+    we can write elems(i)

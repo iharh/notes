@@ -1,0 +1,29 @@
+https://docs.gradle.org/current/userguide/kotlin_dsl.html
+https://docs.gradle.org/current/userguide/kotlin_dsl.html#sec:kotlin_cross_project_configuration
+https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin/
+
+https://github.com/gradle/gradle-script-kotlin
+
+misc:
+https://github.com/rohanprabhu/kotlin-dsl-gradle-jooq-plugin
+
+releases
+https://github.com/gradle/kotlin-dsl/releases
+
+defaultTasks("hello")
+
+misc tasks (copy, delete, javaexec):
+provider\src\main\kotlin\org\gradle\kotlin\dsl\KotlinSettingsScript.kt
+
+copySpec
+
+tasks {
+    val assembleWeb by creating(Copy::class) {
+        ...
+    }
+}
+
+???
+plugins {
+    `kotlin-dsl`
+}

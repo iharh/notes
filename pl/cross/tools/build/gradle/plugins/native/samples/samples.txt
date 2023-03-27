@@ -1,0 +1,138 @@
+https://github.com/gradle/gradle/tree/master/subprojects/docs/src/samples/native-binaries
+
+https://docs.gradle.org/current/dsl/org.gradle.language.cpp.tasks.CppCompile.html
+https://docs.gradle.org/current/dsl/org.gradle.nativeplatform.tasks.LinkSharedLibrary.html
+https://docs.gradle.org/current/dsl/org.gradle.nativeplatform.tasks.LinkExecutable.html
+https://docs.gradle.org/current/dsl/org.gradle.nativeplatform.tasks.CreateStaticLibrary.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/file/ConfigurableFileCollection.html
+
+https://github.com/gradle/native-samples
+https://github.com/gradle/native-samples/tree/master/cpp
+
+https://github.com/gradle/native-samples/tree/master/cpp/simple-library
+    > Task :compileDebugCpp
+    > Task :linkDebug
+    > Task :assemble
+    > Task :compileTestCpp
+    > Task :linkTest
+    > Task :installTest
+
+    > Task :runTest
+    [==========] Running 4 tests from 1 test case.
+    [----------] Global test environment set-up.
+    [----------] 4 tests from LinkedListTests
+    [ RUN      ] LinkedListTests.test_constructor
+    [       OK ] LinkedListTests.test_constructor (0 ms)
+    [ RUN      ] LinkedListTests.test_add
+    [       OK ] LinkedListTests.test_add (0 ms)
+    [ RUN      ] LinkedListTests.test_remove
+    [       OK ] LinkedListTests.test_remove (0 ms)
+    [ RUN      ] LinkedListTests.test_remove_missing
+    [       OK ] LinkedListTests.test_remove_missing (0 ms)
+    [----------] 4 tests from LinkedListTests (0 ms total)
+
+    [----------] Global test environment tear-down
+    [==========] 4 tests from 1 test case ran. (0 ms total)
+    [  PASSED  ] 4 tests.
+
+    > Task :test
+    > Task :check
+    > Task :build
+
+https://github.com/gradle/native-samples/blob/master/swift/source-generation/build.gradle
+
+https://github.com/gradle/native-samples/blob/master/cpp/transitive-dependencies/
+
+library {
+    dependencies {
+        api project(':list')
+    }
+}
+
+application {
+    dependencies {
+        implementation project(':utilities')
+    }
+}
+
+https://github.com/gradle/native-samples/blob/master/cpp/prebuilt-binaries/build.gradle
+components.main.binaries.whenElementFinalized { binary ->
+    project.dependencies {
+        if (binary.optimized) {
+            add(binary.includePathConfiguration.name, files(libIncludePath))
+            add(binary.linkLibraries.name, files(libReleaseLinkLib))
+            add(binary.runtimeLibraries.name, files(libReleaseLib))
+        } else {
+            add(binary.includePathConfiguration.name, files(libIncludePath))
+            add(binary.linkLibraries.name, files(libDebugLinkLib))
+            add(binary.runtimeLibraries.name, files(libDebugLib))
+        }
+    }
+}
+
+...
+application {
+    targetMachines = [
+        machines.linux.x86_64,
+        machines.windows.x86, machines.windows.x86_64,
+        machines.macOS.x86_64
+    ]
+}
+
+library {
+    dependencies {
+        implementation project(':utilities')
+    }
+
+    privateHeaders.from(morfeuszDir)
+
+    tasks {
+        val staticProviderPrj = project(":staticprovider")
+        val staticProviderLibDir = "${staticProviderPrj.buildDir}/lib/main/release"
+
+        withType<CppCompile>().configureEach {
+            val staticProviderBuildTasks = staticProviderPrj.getTasksByName("assembleRelease", false)
+            
+            println("Configuring $name in project ${project.name} ...")
+
+            dependsOn(":javaprovider:generateJavacpp")
+            dependsOn(staticProviderBuildTasks)
+
+            includes.from(javaInclude, javaPlatformInclude)
+
+            source.from(
+                fileTree(javacppGenDir).matching { include("*.cpp") }
+            )
+
+            setMacros(mapOf("UNIQUE_PTR_NAMESPACE" to "std"))
+
+            compilerArgs.addAll(listOf(
+                "-Werror",
+                "-std=c++0x",
+                "-D_GLIBCXX_USE_CXX11_ABI=0"
+            ))
+        }
+        withType<LinkSharedLibrary>().configureEach {
+            libs.from(
+                "$staticProviderLibDir/libstaticprovider.a"
+            )
+            // linkerArgs.addAll(['-Wl,--no-allow-shlib-undefined'])
+        }
+    }
+
+    https://docs.gradle.org/current/userguide/building_cpp_projects.html#sec:introducing_build_variants-cpp
+    binaries.configureEach(CppStaticLibrary::class.java) {
+        // Define a preprocessor macro for every binary
+        compileTask.get().macros.put("NDEBUG", null)
+
+        // Define a compiler options
+        compileTask.get().compilerArgs.add("-W3")
+
+        // Define toolchain-specific compiler options
+        when (toolChain) {
+            is Gcc, is Clang -> compileTask.get().compilerArgs.addAll(listOf("-O2", "-fno-access-control"))
+            is VisualCpp -> compileTask.get().compilerArgs.add("/Zi")
+        }
+    }
+}
+

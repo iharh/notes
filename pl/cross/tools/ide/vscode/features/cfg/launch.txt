@@ -1,0 +1,53 @@
+https://code.visualstudio.com/docs/cpp/launch-json-reference
+
+samples:
+https://github.com/saviorisdead/RustyCode/blob/master/.vscode/launch.json
+
+env-vars
+https://github.com/microsoft/vscode-cpptools/issues/191
+
+sample
+launch.json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "${config.python.pythonPath}",
+            "program": "${file}",
+            "cwd": "${workspaceRoot}",
+            "debugOptions": [
+                "WaitOnAbnormalExit",
+                "WaitOnNormalExit",
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "PySpark",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "osx": {
+                "pythonPath": "${env.SPARK_HOME}/bin/spark-submit"
+            },
+            "windows": {
+                "pythonPath": "${env.SPARK_HOME}/bin/spark-submit.cmd"
+            },
+            "linux": {
+                "pythonPath": "${env.SPARK_HOME}/bin/spark-submit"
+            },
+            "program": "${file}",
+            "cwd": "${workspaceRoot}",
+            "debugOptions": [
+                "WaitOnAbnormalExit",
+                "WaitOnNormalExit",
+                "RedirectOutput"
+            ]
+        },
+        ...
+    ]
+    ...
+}

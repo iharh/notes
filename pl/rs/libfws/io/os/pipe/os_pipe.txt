@@ -1,0 +1,130 @@
+https://www.reddit.com/r/rust/comments/5k4mb1/announcing_os_pipe/
+
+os_pipe lets you open anonymous pipes, usually for doing fancy things with child processes.
+The std::process API supports basic pipelines like
+    foo | bar
+, but for fun stuff like
+    (foo && bar) | baz or foo 2>&1
+you need pipes of your own.
+The docs include a full example of joining the stdout and stderr of a child process like that,
+but here's the most important bit:
+
+let mut child = Command::new("foo");
+let Pipe { reader, writer } = pipe()?;
+child.stdout(stdio_from_file(writer.try_clone()?));
+child.stderr(stdio_from_file(writer));
+
+Setting up pipelines like this isn't particularly convenient, and it's prone to deadlocks,
+because you have to be sure all the write ends are closed in the parent and the child before you read.
+There's a higher level library (duct) on its way to handle these details for you.
+
+I'm writing this on the heels of /u/mgattozzi's pipers announcement yesterday,
+another library for setting up child process pipelines. 'Tis the season!
+
+
+https://docs.rs/os_pipe/0.4.0/os_pipe/#example
+    !!! available both for PipeReader and PipeWriter !!!
+    try_clone()
+
+
+
+pub fn pipe() -> io::Result<(PipeReader, PipeWriter)> {
+    ...
+}
+
+parent_stdin|parent_stdout|parent_sderr
+
+child.stdout(Stdio::from_file(writer));
+
+https://github.com/oconnor663/os_pipe.rs/blob/master/src/lib.rs
+
+use std::fs::File;
+use std::io;
+use std::process::Stdio;
+
+/// The reading end of a pipe, returned by [`pipe`](fn.pipe.html).
+pub struct PipeReader(File);
+
+/// The writing end of a pipe, returned by [`pipe`](fn.pipe.html).
+pub struct PipeWriter(File);
+
+impl PipeReader {
+    pub fn try_clone(&self) -> io::Result<PipeReader> {
+        self.0.try_clone().map(PipeReader)
+    }
+}
+
+impl PipeWriter {
+    pub fn try_clone(&self) -> io::Result<PipeWriter> {
+        self.0.try_clone().map(PipeWriter)
+    }
+}
+
+impl io::Read for PipeReader {
+    fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {
+        self.0.read(buf)
+    }
+}
+
+impl<'a> io::Read for &'a PipeReader {
+    fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {
+        let mut file_ref = &self.0;
+        file_ref.read(buf)
+    }
+}
+
+impl io::Write for PipeWriter {
+    fn write(&mut self, buf: &[u8]) -> io::Result<usize> {
+        self.0.write(buf)
+    }
+
+    fn flush(&mut self) -> io::Result<()> {
+        self.0.flush()
+    }
+}
+
+impl<'a> io::Write for &'a PipeWriter {
+    fn write(&mut self, buf: &[u8]) -> io::Result<usize> {
+        let mut file_ref = &self.0;
+        file_ref.write(buf)
+    }
+
+    fn flush(&mut self) -> io::Result<()> {
+        let mut file_ref = &self.0;
+        file_ref.flush()
+    }
+}
+
+/// Open a new pipe and return a [`PipeReader`](struct.PipeReader.html)
+/// and [`PipeWriter`](struct.PipeWriter.html) pair.
+///
+/// This corresponds to the `pipe2` library call on Posix and the
+/// `CreatePipe` library call on Windows (though these implementation
+/// details might change). Pipes are non-inheritable, so new child
+/// processes won't receive a copy of them unless they're explicitly
+/// passed as stdin/stdout/stderr.
+pub fn pipe() -> io::Result<(PipeReader, PipeWriter)> {
+    sys::pipe()
+}
+...
+
+
+    #[test]
+    fn test_pipes_are_not_inheritable() {
+        // Create pipes for a child process.
+        let (input_reader, mut input_writer) = ::pipe().unwrap();
+        let (mut output_reader, output_writer) = ::pipe().unwrap();
+        let child_stdin = ::FromFile::from_file(input_reader);
+        let child_stdout = ::FromFile::from_file(output_writer);
+
+        // Spawn the child. Note that this temporary Command object takes ownership of our copies
+        // of the child's stdin and stdout, and then closes them immediately when it drops. That
+        // stops us from blocking our own read below. We use our own simple implementation of cat
+        // for compatibility with Windows.
+        let mut child = Command::new(path_to_exe("cat"))
+            .stdin(child_stdin)
+            .stdout(child_stdout)
+            .spawn()
+            .unwrap();
+        ...
+    }

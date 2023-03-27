@@ -1,0 +1,37 @@
+https://github.com/xmonad/xmonad-contrib/blob/master/XMonad/Util/Hacks.hs#L200
+    -- | A simple trayer/xmobar-specific event hook that watches for trayer window
+    -- resize changes and updates the _XMONAD_TRAYPAD property with xmobar markup
+    -- that leaves a gap for the trayer.
+    trayerPaddingXmobarEventHook :: Event -> X All -- ^ event hook
+    trayerPaddingXmobarEventHook = trayPaddingXmobarEventHook (className =? "trayer") "_XMONAD_TRAYPAD"
+        !!! upstream src only
+        ! https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/src/XMonad.Util.Hacks.html#trayAbovePanelEventHook
+    trayPaddingXmobarEventHook
+        import XMonad.Hooks.StatusBar (xmonadPropLog')
+
+
+
+https://github.com/jaor/xmobar/issues/583
+    https://github.com/jaor/xmobar/pull/586
+        ! closed
+    https://github.com/jaor/xmobar/pull/587
+        !!! merged <hspace=XXX/> feature
+    https://github.com/ivanbrennan/nixbox/blob/master/services/xserver/xmonad.hs
+        ! super-sample
+        https://github.com/ivanbrennan/nixbox/commit/f880fa2347a9b04e64ebf8b3a6a82290b8e32779
+        https://github.com/ivanbrennan/nixbox/blob/master/services/xserver/xmonad.hs#L424
+        ! handlEventHook', trayerDockEventHook
+        import XMonad.Hooks.DynamicBars ( dynStatusBarEventHook, dynStatusBarStartup, multiPPFormat, )
+            ! deprecated: Use XMonad.Hooks.StatusBar instead
+            https://hackage.haskell.org/package/xmonad-contrib-0.17.0/docs/src/XMonad.Hooks.DynamicBars.html#dynStatusBarEventHook
+        https://github.com/ivanbrennan/nixbox/blob/master/services/xserver/default.nix
+
+dbus
+https://github.com/jaor/xmobar/blob/master/src/Xmobar/System/Signal.hs
+https://github.com/jaor/xmobar/issues/499
+    https://github.com/jaor/xmobar/pull/574
+
+kmonad
+https://github.com/kmonad/kmonad
+    https://www.youtube.com/watch?v=Dhj1eauljwU
+    https://github.com/kmonad/kmonad/blob/master/keymap/tutorial.kbd

@@ -1,0 +1,27 @@
+https://github.com/gradle/kotlin-dsl/tree/master/samples
+using ext-git:
+source-control/external/build.gradle.kts
+using ant:
+ant/build.gradle.kts
+using maven-publish:
+maven-publish/build.gradle.kts
+
+sample-with-class:
+https://github.com/gradle/kotlin-dsl/blob/master/samples/domain-objects/build.gradle.kts
+
+class DocumentationPlugin : Plugin<Project> {
+    override fun apply(project: Project) {
+        val books = project.container(Book::class.java) { name ->
+            Book(name, project.file("src/docs/$name"))
+        }
+        project.extensions.add("books", books)
+    }
+}
+
+data class Book(val name: String, var sourceFile: File)
+
+misc
+https://github.com/ParaskP7/sample-code-movies/blob/master/buildSrc/src/main/kotlin/Deps.kt
+
+imports
+import org.gradle.kotlin.dsl.provider.gradleKotlinDslOf

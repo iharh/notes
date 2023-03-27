@@ -1,0 +1,1 @@
+k exec -i -t -n nlp-ih <pod-name> -c <container-name> -- sh -c "clear; (bash || ash || sh)"

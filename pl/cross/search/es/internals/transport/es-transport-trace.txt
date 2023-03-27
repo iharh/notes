@@ -1,0 +1,42 @@
+https://github.com/elasticsearch/elasticsearch/pull/9286
+https://github.com/elasticsearch/elasticsearch/commit/e9dbfa9ee6d712d0af1bc8d7f2c0a696a5293da2
+
+    Transport: added a simple request tracer, logging incoming and outgoing requests
+    
+    The request tracer logs in TRACE level under the `transport.tracer` log and is dynamically configurable with include and exclude arrays to filter out unneeded info. By default all requests are logged with the exception of fault detection pings (fired every second).
+    
+    add the notion of tracers in the MockTransportService for testing purposes
+    
+    Closes #9286
+
+M	docs/reference/modules/transport.asciidoc
+M	src/main/java/org/elasticsearch/transport/TransportService.java
+M	src/main/java/org/elasticsearch/transport/TransportServiceAdapter.java
+M	src/main/java/org/elasticsearch/transport/local/LocalTransport.java
+M	src/main/java/org/elasticsearch/transport/local/LocalTransportChannel.java
+M	src/main/java/org/elasticsearch/transport/netty/MessageChannelHandler.java
+M	src/main/java/org/elasticsearch/transport/netty/NettyTransport.java
+M	src/main/java/org/elasticsearch/transport/netty/NettyTransportChannel.java
+M	src/test/java/org/elasticsearch/action/IndicesRequestTests.java
+M	src/test/java/org/elasticsearch/benchmark/transport/BenchmarkNettyLargeMessages.java
+M	src/test/java/org/elasticsearch/test/InternalTestCluster.java
+M	src/test/java/org/elasticsearch/test/transport/MockTransportService.java
+M	src/test/java/org/elasticsearch/transport/AbstractSimpleTransportTests.java
+M	src/test/java/org/elasticsearch/transport/netty/NettyTransportTests.java
+
+The request tracer logs in TRACE level under the transport.tracer log and is dynamically configurable with include and exclude arrays to filter out unneeded info. By default all requests are logged with the exception of fault detection pings (fired every second).
+
+Dynamically enabled with:
+
+PUT _cluster/settings
+{
+  "transient": {
+    "logger.transport.tracer": "TRACE"
+  }
+}
+
+Here is an example output:
+
+[2015-01-13 18:16:06,522][TRACE][transport.tracer         ] [Elathan] [33][cluster:monitor/state] sent to [[Torgo of Mekka][V3BiJK4WSdegbkVs-tpk9Q][Boazs-MacBook-Air.local][inet[/127.0.0.1:9300]]] (timeout: [null])
+[2015-01-13 18:16:06,524][TRACE][transport.tracer         ] [Elathan] [33][cluster:monitor/state] received response from [[Torgo of Mekka][V3BiJK4WSdegbkVs-tpk9Q][Boazs-MacBook-Air.local][inet[/127.0.0.1:9300]]]
+

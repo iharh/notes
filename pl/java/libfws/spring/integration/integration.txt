@@ -1,0 +1,14 @@
+https://github.com/spring-projects/spring-integration
+https://docs.spring.io/spring-integration/api/overview-summary.html
+
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#application-properties
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-messaging
+https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-messaging
+
+https://github.com/spring-projects/spring-integration/blob/master/spring-integration-core/src/main/java/org/springframework/integration/handler/AbstractMessageHandler.java
+https://docs.spring.io/spring-integration/api/org/springframework/integration/handler/AbstractMessageHandler.html
+    received message:
+
+2020
+https://midnightcode314468613.wordpress.com/2020/06/17/spring-integration-dsl-pt-1/
+https://midnightcode314468613.wordpress.com/2020/06/04/spring-integration-dsl-and-event-emitters-pt-1/

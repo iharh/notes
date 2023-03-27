@@ -1,0 +1,78 @@
+https://rusteon.ru
+    https://habr.com/ru/post/677978/
+
+anyhow
+
+2022
+MIPT - FPMI - Stanovoy - Rust Intro - 3 course of 8 parts
+    https://www.youtube.com/playlist?list=PL4_hYwCyhAvbeLzi699gqMUA4UaPkcdmJ
+    https://gitlab.com/alex.stanovoy/mipt-rust
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/docs/reading-list.md
+        https://alastairreid.github.io/
+        https://beachape.com/
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/tree/master/problems
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/lectures/lecture-04/slides.tex
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/tree/master/docs
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/docs/syllabus.md
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/docs/setup.md
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/docs/solving.md
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/tree/master/tools/rover
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/tools/rover/src/main.rs
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/tools/rover/src/submitting/submit.rs
+    https://gitlab.com/alex.stanovoy/mipt-rust/-/blob/master/tools/rover/src/util/util_macro.rs
+SHAD - Rust
+    https://gitlab.com/meandrobo/shad-rust
+    https://gitlab.com/meandrobo/shad-rust/-/blob/master/SETUP.md
+    https://gitlab.com/meandrobo/shad-rust/-/blob/master/build/MakefileBase
+    https://gitlab.com/meandrobo/shad-rust/-/tree/master/tools/submit
+    https://gitlab.com/meandrobo/shad-rust/-/blob/master/tools/submit/src/main.rs
+    https://rust.manytask.org/signup
+    https://docs.google.com/spreadsheets/d/1EEbtbZyL5OsjZ4tseMsN4H2REs04iaHWHdVSZISupx4/edit#gid=0
+Udemy - Learn Rust by Building Real Applications
+    magnet:?xt=urn:btih:06d9787a7c3efa8ef6fbd4122d33ca227d893443
+    ! 2.24 Gb
+Udemy - Rust Programming For Beginners
+    magnet:?xt=urn:btih:ed367c5f271dd9c15b00fc45d1f158166905184d
+    ! 3.33 Gb
+Udemy - The Rust Programming Language
+    magnet:?xt=urn:btih:1b36df214b2d0ac603f3eb106e821a36ae4df6e8
+    ! 1.32 Gb, short
+DoCSoc - Rust 101 Lecture Series of 2 parts
+    https://www.youtube.com/playlist?list=PL-zQguBgjr2O4d-B9g_b0WYh1fyXr6MMq
+BeGeek - Rust Language from Ground Up ru of 10 parts
+    https://www.youtube.com/playlist?list=PLQuaNOtBP3Tps9JrGMs76d_YbOGygrLUJ
+    ! short videos
+Bro-IT - Rust Lessons of 26 parts
+    https://www.youtube.com/playlist?list=PLgG7lPwNdp556iIin-9eaJLlu7HL6YFv0
+    ! short videos
+2021
+freeCodeCamp - Rust Programming Course for Beginners - Tutorial of 1:25:36
+    https://www.youtube.com/watch?v=MsocPEZBd-M
+https://docs.microsoft.com/en-us/learn/paths/rust-first-steps/
+2020
+Illinois - CS196
+    https://www.youtube.com/channel/UCRA18QWPzB7FYVyg0WFKC6g/videos
+2019
+CSC - KladovBogdanov - Programming in Rust
+    https://compscicenter.ru/courses/rustprogramming/2019-spring/
+    https://www.youtube.com/playlist?list=PLlb7e2G7aSpTfhiECYNI2EZ1uAluUqE_e
+    https://github.com/matklad
+    !!!
+https://newpavlov.github.io/rust-isp-2019/
+https://github.com/newpavlov/rust-isp-2019/
+TraversyMedia - Rust Crash Course | Rustlang of 1:50:43
+    https://www.youtube.com/watch?v=zF34dRivLOw
+https://www.snoyman.com/blog/2019/12/rust-crash-course-08-down-dirty-future
+    https://github.com/snoyberg/snoyman.com-content/blob/master/posts/rust-crash-course-08-down-dirty-future.md
+2018
+https://www.snoyman.com/blog/2018/10/introducing-rust-crash-course
+https://www.cs.umd.edu/class/spring2018/cmsc330/
+https://github.com/anwarmamat/cmsc330spring18-public/tree/master/p5
+Nesteruk - The Rust Programming Language
+    https://gigacourse.com/the-rust-programming-language/
+    ...
+2016
+http://cis198-2016s.github.io/schedule/
+https://github.com/cis198-2016s
+https://github.com/cis198-2016s/slides
+https://github.com/cis198-2016s/homework

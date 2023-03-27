@@ -1,0 +1,1 @@
+docker inspect -f '{{.State.ExitCode}}' 64d39c3b

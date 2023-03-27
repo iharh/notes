@@ -1,0 +1,34 @@
+https://thomas.vanhoutte.be/miniblog/delete-windows-10-apps/
+https://superuser.com/questions/949569/can-i-completely-disable-cortana-on-windows-10
+
+Disabling Win10 update:
+KB3035583
+http://remontka.pro/windows-10-update-disable/
+http://remontka.pro/disable-win-10-preview-update/
+http://geektimes.ru/post/269070/
+
+
+For Windows 10 users:
+Be aware that Windows 10 installs updates in background mode as soon as it found them and schedule automatic restart next night.
+
+This is written in the Windows 10 EULA:
+http://www.microsoft.com/en-us/Useterms/Retail/Windows/10/UseTerms_Retail_Windows_10_English.htm
+6. Updates.
+By accepting this agreement, you agree to receive these types of automatic updates without any additional notice.
+Check the windows update options and reschedule restart if necessary:
+
+Start
+Settings - Update & Security - Windows Update.
+
+misc
+http://www.outsidethebox.ms/19055/
+
+auto-resart after updates
+https://habr.com/post/413761/
+gpedit.msc -> Computer Configuration -> Administrative Templates -> Windows Components -> Windows Update
+    - No auto-restart with logged on users for scheduled automatic updates installations
+    - Configure Automatic Updates
+
+articles
+2018
+https://habr.com/company/pc-administrator/blog/413395/

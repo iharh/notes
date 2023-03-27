@@ -1,0 +1,38 @@
+/var/lib/boot2docker/
+
+bootlocal.sh
+
+profile
+
+etc/hostname
+d2m
+
+
+/usr/local/etc/ssl/certs/
+  ca.pem
+  * tons of other certs *
+
+/home/docker/.docker/
+  ca.pem
+  cert.pem
+  key.pem
+
+
+d2m, boot2docker:
+
+/var/lib/boot2docker/tls/
+    cakey.pem
+    server.pem
+    ca.pem
+    serverkey.pem
+    key.pem
+    cert.pem
+/var/lib/boot2docker/
+    server.pem
+    ca.pem
+    server-key.pem
+  
+
+/usr/local/bin/docker -d -D -g /var/lib/docker -H unix:// -H tcp://0.0.0.0:2376 --label provider=virtualbox
+    --tlsverify --tlscacert=/var/lib/boot2docker/ca.pem --tlscert=/var/lib/boot2docker/server.pem --tlskey=/var/lib/boot2docker/server-key.pem
+    -s aufs

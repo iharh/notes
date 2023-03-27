@@ -1,0 +1,3 @@
+http://habrahabr.ru/post/218703/
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Antimalware\Signature Updates] "ExpiryNotificationIntervalDays"=dword:ffffffff

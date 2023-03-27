@@ -1,0 +1,4 @@
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-childitem
+
+https://superuser.com/questions/1263485/how-to-copy-all-files-by-specified-extension-to-another-location-recursively
+get-childItem -path ".\*" -include *.pdb -recurse | copy-item -destination D:\download\

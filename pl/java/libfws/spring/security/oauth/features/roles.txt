@@ -1,0 +1,11 @@
+https://tools.ietf.org/html/rfc6749#page-6
+    resource owner
+        an entity that is able to grant access to its protected resources
+    authorization server
+        grants access tokens to Clients after successfully authenticating
+        Resource Owners and obtaining their authorization
+    resource server
+        a component that requires an access token to allow,
+        or at least consider, access to its resources
+    client
+        an entity that is capable of obtaining access tokens from authorization servers

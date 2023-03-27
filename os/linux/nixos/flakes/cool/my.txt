@@ -1,0 +1,40 @@
+https://gitlab.com/jacinthsamuel/nixos.git
+
+nix flake init --experimental-features "flakes nix-command"
+
+error: unable to download 'https://api.github.com/repos/NixOS/templates/commits/HEAD': HTTP error 403
+
+       response body:
+
+       {"message":"API rate limit exceeded for 195.56.119.209. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"}
+(use '--show-trace' to show detailed location information)
+
+https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting
+https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#rate-limit-headers
+$ curl -i https://api.github.com/users/octocat
+> HTTP/2 200
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 56
+> x-ratelimit-used: 4
+> x-ratelimit-reset: 1372700873
+# per-user
+
+----
+sudo nixos-install --flake .#nixos -I /mnt/etc/nixos/configration.nix
+    https://www.youtube.com/watch?v=NnQCpaWfyV8
+        ! 23:13
+
+
+nixos-install --flake github:wiltaylor/dotfiles#titan
+WillT
+    https://www.youtube.com/watch?v=mJbQ--iBc1U
+    https://github.com/wiltaylor/dotfiles
+    https://github.com/wiltaylor/dotfiles/blob/master/flake.nix
+
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+https://github.com/settings/tokens
+export GITHUB_TOKEN=...
+
+git clone https://github.com/wiltaylor/dotfiles
+cd dotfiles
+nixos-install --flake .#titan

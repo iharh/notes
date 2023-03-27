@@ -1,0 +1,15 @@
+https://mingw-w64.org/doku.php
+https://mingw-w64.org/doku.php/download
+
+https://github.com/Alexpux/MSYS2-packages/tree/master/pacman-mirrors
+https://github.com/Alexpux/MSYS2-packages/blob/master/pacman-mirrors/mirrorlist.msys
+https://github.com/Alexpux/MSYS2-packages/blob/master/pacman-mirrors/mirrorlist.mingw64
+https://sourceforge.net/projects/msys2/files/REPOS/MINGW/x86_64
+
+1. Install MSYS2
+2. Install group
+  pacman -S mingw-w64-x86_64
+
+
+VS support:
+https://blogs.msdn.microsoft.com/vcblog/2017/07/19/using-mingw-and-cygwin-with-visual-cpp-and-open-folder/

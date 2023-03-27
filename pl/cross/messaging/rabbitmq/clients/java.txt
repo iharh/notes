@@ -1,0 +1,48 @@
+https://www.rabbitmq.com/api-guide.html
+
+https://www.rabbitmq.com/tutorials/tutorial-six-java.html
+https://www.rabbitmq.com/tutorials/tutorial-five-java.html
+https://www.rabbitmq.com/tutorials/tutorial-four-java.html
+https://www.rabbitmq.com/tutorials/tutorial-three-java.html
+https://www.rabbitmq.com/tutorials/tutorial-two-java.html
+https://www.rabbitmq.com/tutorials/tutorial-one-java.html
+    https://github.com/rabbitmq/rabbitmq-website 
+
+2023
+https://www.baeldung.com/rabbitmq-dynamic-queues
+
+import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.DeliverCallback;
+
+    final ConnectionFactory factory = new ConnectionFactory();
+    factory.setHost(...);
+    factory.setUsername(...);
+    factory.setPassword(...);
+    factory.setVirtualHost(...);
+
+    final AMQP.BasicProperties amqpProperties = new AMQP.BasicProperties.Builder()
+        .contentType("application/x-protobuf")
+        .priority(0)
+        .messageId("#{id}")
+        .build();
+
+    try { (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
+        channel.basicPublish("exchange-name", "route-key", amqpProperties, myDocument.toByteArray());
+        Thread.sleep(1000L);
+        final DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+            document.set(IngestDocument.parseFrom(delivery.getBody()));
+            log.debug("Response received");
+        };
+
+        // Consume the response from the queue
+        channel.basicConsume(rabbitConfig.getRabbitMQConsumeQueue(), true,
+            deliverCallback, consumerTag -> {
+            });
+    } catch (InterruptedException ie) {
+        Thread.currentThread().interrupt();
+    }
+    ...
+}

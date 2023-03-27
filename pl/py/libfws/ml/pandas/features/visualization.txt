@@ -1,0 +1,30 @@
+https://pandas.pydata.org/pandas-docs/stable/visualization.html
+https://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.boxplot
+
+https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.plot.html
+
+box-plots
+https://pandas.pydata.org/pandas-docs/stable/visualization.html#box-plots
+
+dfb = pd.DataFrame(np.random.randn(10,5)) # 10 vectors 5 el-s each
+dfb.boxplot(
+    vert=False,
+    return_type='axes'
+)
+...
+df.boxplot(by='name')
+
+line-plots
+s.plot(kind='line') is equivalent to s.plot.line()
+
+df.plot(
+    subplots=True, layout=(2, 3), figsize=(6, 6), sharex=False
+)
+
+categorical
+plt.plot(dfall['name'], dfall.drop(columns=['name']))
+
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(8, 4), sharey=True)
+axes[0].plot(dfall['name'], dfall.drop(columns=['name']))
+axes[1].plot(dfcpu['name'], dfcpu.drop(columns=['name']))
+fig.suptitle('FX/LP min/median/max')

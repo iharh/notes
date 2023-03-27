@@ -1,0 +1,20 @@
+-- create or replace directory FOLDER as 'C:/ORA_EXPORT';
+
+declare
+  l_amount number := 32767;
+  l_buffer raw(32767);
+  l_output utl_file.file_type;
+  l_dir nvarchar2(32767);
+begin
+  l_dir := 'c:\\ora_export';
+  l_output := utl_file.fopen('l_dir', 'blob.txt', 'wb', l_amount);
+
+--    dbms_lob.read(l_blob, l_amount, l_pos, l_buffer);
+--    utl_file.put_raw(l_output, l_buffer);
+
+  utl_file.fflush(l_output);
+  utl_file.fclose(l_output);
+end;
+
+
+

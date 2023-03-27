@@ -1,0 +1,14 @@
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.repositories
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.entity-persistence
+
+Simply put, every repository in Spring Data extends the generic Repository interface
+    https://docs.spring.io/spring-data/data-commons/docs/current/api/org/springframework/data/repository/Repository.html
+    CrudRepository
+        https://docs.spring.io/spring-data/data-commons/docs/current/api/org/springframework/data/repository/CrudRepository.html
+    PagingAndSortingRepository
+        https://docs.spring.io/spring-data/data-commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html
+    JpaRepository (extendw PagingAndSortingRepository)
+        https://docs.spring.io/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html
+
+2022
+https://www.baeldung.com/spring-data-repositories

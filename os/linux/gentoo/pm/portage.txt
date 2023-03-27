@@ -1,0 +1,11 @@
+https://wiki.gentoo.org/wiki/Portage
+    https://ahelpme.com/linux/gentoo/using-portage-eix-for-the-first-time-cannot-open-database-file/
+
+https://wiki.gentoo.org/wiki/Project:Portage
+https://wiki.gentoo.org/wiki/Project:Portage/FAQ
+https://wiki.gentoo.org/wiki/Project:Portage/Sync
+
+https://wiki.gentoo.org/wiki/Useful_Portage_tools
+
+To update portage, run
+  emerge --oneshot sys-apps/portage

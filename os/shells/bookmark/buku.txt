@@ -1,0 +1,3 @@
+https://github.com/jarun/buku
+    firefox $(buku -p -f 10 | fzf)
+    firefox $(buku -p -f 40 | fzf | cut -f1)

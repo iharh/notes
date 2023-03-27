@@ -1,0 +1,27 @@
+2022
+Serokell - RinatStryungis - Laziness in Haskell of 11:44
+    https://www.youtube.com/watch?v=SnUn1PZDbqQ
+    https://www.reddit.com/r/haskell/comments/vo3s01/laziness_in_haskell/
+    ! ghc :sprint
+Serokell - RinatStryungis - The Basics of Laziness of 5:51
+    https://www.youtube.com/watch?v=DSy7bscJL7k
+    ! 2:20 - Posponing calc-s is only a part of lazyness
+    !        another part is sharing
+2021
+Breitner - Serokell - Thunks, Sharing, Laziness: The Haskell Heap Visualized 0:00 of 52:35
+    https://www.youtube.com/watch?v=I4lnCG18TaY
+2015
+RIF-Voronezh - Shevchenko - Why do We Need Haskell - Lazy Calculations 0:00 of 50:31
+    https://www.youtube.com/watch?v=8UBmcYDpHXw
+    http://denisshevchenko.github.io/rif2015lazy/#/
+http://begriffs.com/posts/2015-06-17-thinking-with-laziness.html
+http://jelv.is/talks/thinking-with-laziness/#slide1
+https://github.com/takenobu-hs/lazy_evaluation
+????
+https://github.com/tibbe/talks
+http://www.slideshare.net/tibbe/highperformance-haskell (Tiebel - High Performance Haskell)
+http://www.slideshare.net/tibbe/reasoning-about-laziness (Tiebel - Reasoning About Haskell)
+Marks - Being Lazy
+  http://www.youtube.com/watch?v=eSrVC4-p7aI
+Meng - Strictness Unboxed Explained
+  https://docs.google.com/presentation/d/18ZdJoDGQr47wBfO-zEwW1hkc6tfiAdP7TYTKhki_IKk/edit#slide=id.p

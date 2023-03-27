@@ -1,0 +1,20 @@
+2018
+https://www.slideshare.net/openstack_kr/openinfra-days-korea-2018-day-2-e4-immutable-kubernetes-architecture
+s61
+
+https://github.com/linuxkit/linuxkit/blob/master/docs/kernels.md
+    https://github.com/linuxkit/kubernetes
+
+https://github.com/linuxkit/kubernetes/blob/master/yml/kube.yml
+
+kernel:
+  image: linuxkit/kernel:4.14.40
+  cmdline: "console=tty0 console=ttyS0"
+init:
+  - linuxkit/init:c79d7587fcd0a195b8a3ecafe428a30e735cf2b4
+  - linuxkit/runc:d659de11767a419319b175700a7c6f64b8704f8c
+  - linuxkit/containerd:018fc633223d8a49f650da365603a5abccc6a423
+  - linuxkit/ca-certificates:f882e9be933fac737bf1f4d303a4bb49a12f302f
+onboot:
+    ...
+https://github.com/leoh0/kubernetes

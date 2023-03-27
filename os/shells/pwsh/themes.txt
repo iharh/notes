@@ -1,0 +1,11 @@
+https://github.com/lukesampson/scoop/wiki/Theming-Powershell
+https://github.com/lukesampson/concfg
+    scoop install config
+    concfg import solarized
+    concfg import default
+https://github.com/lukesampson/pshazz
+    scoop install pshazz
+
+# console theme
+scoop install concfg pshazz
+concfg import solarized small

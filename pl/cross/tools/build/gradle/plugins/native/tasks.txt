@@ -1,0 +1,30 @@
+SharedLibrary and StaticLibrary tasks are lifecycle tasks -
+    such task does not define outputs but is a kind of task that is used to define dependency on it.
+For instance check from java plugin task is a kind of such task. 
+
+dependentComponents
+    --all
+components
+
+    list "build components" (for Native plugins)
+
+Source sets
+    C++ source 'cld2:cpp'
+        srcDir: src\cld2\internal
+        includes: debug.cc, generated_ulscript.cc, ...
+
+Binaries
+    Shared library 'cld2:sharedLibrary'
+        build using task: :cld2SharedLibrary
+        build type: build type 'release'
+        flavor: flavor 'default'
+        target platform: platform 'windows_x86'
+        tool chain: Tool chain 'visualCpp' (Visual Studio)
+        shared library file: build\libs\cld2\shared\cld2.dll
+    Static library 'cld2:staticLibrary'
+        build using task: :cld2StaticLibrary
+        build type: build type 'release'
+        flavor: flavor 'default'
+        target platform: platform 'windows_x86'
+        tool chain: Tool chain 'visualCpp' (Visual Studio)
+        static library file: build\libs\cld2\static\cld2.lib

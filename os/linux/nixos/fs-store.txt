@@ -1,0 +1,3 @@
+/nix/var/nix/profiles/per-user/$(uid)
+    profile -> profile-<num>-link
+    profile-<num>-link -> /nix/store/<hash>-user-environment/

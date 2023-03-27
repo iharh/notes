@@ -1,0 +1,20 @@
+https://luarocks.org/
+
+https://github.com/luarocks/luarocks
+https://github.com/luarocks/luarocks/tree/master/src/luarocks/build
+
+https://github.com/luarocks/luarocks/wiki/Documentation
+https://github.com/luarocks/luarocks/wiki/Installation-instructions-for-Unix
+https://github.com/luarocks/luarocks/wiki/Using-LuaRocks
+https://github.com/luarocks/luarocks/wiki/Rockspec-format
+https://github.com/luarocks/luarocks/wiki/Creating-a-rock
+
+https://luarocks.org/labels/awesome
+https://luarocks.org/labels/build
+    https://luarocks.org/modules/steved/lake
+    https://luarocks.org/modules/jirutka/luapak
+        https://github.com/jirutka/luapak
+
+2015
+http://hisham.hm/talks#fosdem2015
+    http://hisham.hm/papers/talks/hisham_luarocks_fosdem2015.pdf

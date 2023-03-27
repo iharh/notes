@@ -1,0 +1,157 @@
+Grebennikov - Distributed Systems (JPoint 2016)
+http://dfdx.me/talks/distsys
+https://github.com/shuttie/distdb
+
+jepsen-test (aphyr.com/blog)
+
+trait HttpUtils extends LazyLogging {
+    implicit val system = ActorSystem.create("distdb")
+    implicit val executor = system.dispatcher
+    implicit val mat = ActorMaterializer()
+
+    val http = Http(system)
+
+    def httpWrite(node: String, data: String) = // return Future ...
+        http.singleRequest(HttpRequest(
+            uri = s"http://$node:8000/local",
+            method = HttpMethods.POST,
+            entity = data))
+
+    def httpRead(node: String) = // return Future ...
+        http.singleRequest(
+            HttpRequest(
+                uri = s"http://$node:8000/local",
+                method = HttpMethods.GET))
+
+    def parseResponse(response: HttpResponse) = response
+        .entity
+        .dataBytes
+        .runFold(ByteString(""))(_ ++ _)
+        .map(_.utf8String)
+}
+
+import scala.concurrent.{Await, Future}
+
+trait RestfulServer extends HttpUtils {
+    var value: String = "0"  // our value (no keys) DB
+    val hostname = sys.env("HOSTNAME")
+    val nodes = sys.env("NODES")
+        .split(",")
+        .toList
+        .filter(_.nonEmpty)
+    val slaves = nodes.filter(_ != hostname) // all but our node
+
+    def read: Future[HttpResponse]
+    def write(value: String): Future[HttpResponse]
+
+    def start = {
+        val route = path("db") { // for us as a DB
+            get {
+                complete {
+                    read
+                }
+            } ~ post {
+                entity(as[String]) { data =>
+                    complete {
+                        write(data)
+                    }
+                }
+            }
+        } ~ path("local") { // for the distributed system
+            get {
+                complete {
+                    logger.info(s"local read: $value")
+                    HttpResponse(StatusCodes.OK, entity = value)
+                }
+            } ~ post {
+                entity(as[String]) { data =>
+                    complete {
+                        value = data
+                        logger.info(s"local commit: $data")
+                        HttpResponse(StatusCodes.OK, entiny = value)
+                    }
+                }
+            }
+        }
+
+        http.bindAndHandle(route, "0.0.0.0", 8000)
+        logger.info("Service started")
+        Await.result(system.whenTerminated, Duration.Inf)
+    }
+}
+
+
+class MasterSlave extends RestfulServer {
+    def read = {
+        logger.info(s"read, tresult=$value")
+        Future.successful(HttpResponse(StatusCodes.OK, entity = value))
+    }
+
+    def write(data: String) = {
+        logger.info(s"write, before=$value, after=$data")
+        value = data
+        logger.info(s"replicating write to slaves: $slaves")
+        slaves.foreach(node => httpWrite(node, data))
+        Future.successful(HttpResponse(StatusCodes.OK, entity = value))
+    }
+
+}
+
+
+import ...MasterSlave
+
+object Server {
+    def main(args: Array[String]): Unit = {
+        val dsys = new Quorum() // MasterSlaveSync // MasterSlave
+        dsys.start
+    }
+}
+
+// sync-replication
+
+class MasterSlaveSync extends MasterSlave {
+    override def write(data: String) = {
+        logger.info(s"write, before=$value, after=$data")
+        value = data
+
+        lotter.info(s"replicating write to slaves: $slaves")
+        Future.sequence(slaves.map(node => httpWrite(node, data)))
+            .map(responses => responses.find(_status != StatusCodes.OK)
+            .getOrElse(HttpResponse(StatusCodes.OK, entity = value)))
+    }
+}
+
+// quorum
+import akka.http.scaladsl.model.{StatusCodes, HttpResponse}
+
+// !!! need to use paxos/raft !!! D.Ongario The Raft consensus algorithm
+
+class Quorum extends RestfulServer {
+    def quorumSize = Math.ceil(nodes.size / 2.0)
+
+    def read = Future.sequence(nodes.map(node => httpRead(node)))
+        .flatMap(handleQuorum)
+        .map(buildResponse)
+
+    def write(data: String) = {
+        Future.sequence(nodes.map(node => httpWrite(node, data)))
+            .flatMap(handleQuorum)
+            .map(buildResponse)
+    }
+
+    def handleQuorum(responses: List[HttpResponse]) =
+        Future.sequence(responses.map(parseResponse)).map(_
+            .groupBy(x => x)
+            .toList
+            .map(item => item._1 -> item._2.size)
+            .sortBy(_._2)
+            .lastOption)
+
+    def buildResponse(quorumResponse: Option[(String, Int)]) = quorumResponse match {
+        case Some((quorumValue, numberVotes)) if numberVotes >= quorumSize =>
+            logger.info(s"quorum: $quorumValue with $numberVotes votes (of $quorumSize)")
+            HttpResponse(StatusCodes.OK, entity = quorumValue)
+        case other =>
+            HttpResponse(StatusCodes.Conflict, entity = s"quorum response: $other")
+    }
+}

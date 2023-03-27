@@ -1,0 +1,21 @@
+2020
+http://stffrdhrn.github.io/software/toolchain/openrisc/2020/12/13/cxx-exception-unwinding.html
+2019
+Sutter - ACCU - KEYNOTE: De-fragmenting C++: Making exceptions more affordable and usable
+    https://www.youtube.com/watch?v=os7cqJ5qlzo
+    http://eao197.blogspot.com/2019/04/progcflame-c.html
+https://mariusbancila.ro/blog/2019/03/13/little-known-cpp-function-try-block/
+2018
+Cohen - Ensuring Exception Safety Through Testing
+    https://www.youtube.com/watch?v=XPzHNSUnTc4
+McNellis - Unwinding the stack
+    https://github.com/CppCon/CppCon2018/blob/master/Presentations/Unwinding%20the%20Stack%20-%20Exploring%20How%20C%2B%2B%20Exceptions%20Work%20on%20Windows/Unwinding%20the%20Stack%20-%20Exploring%20How%20C%2B%2B%20Exceptions%20Work%20on%20Windows%20-%20James%20McNellis%20-%20CppCon%202018.pdf
+Edwards - Cpp Exception Handling - The gory details of an implementation
+    https://isainmdom.com/~peadar/eximpl/
+    https://www.youtube.com/watch?v=XpRL7exdFL8
+
+2016
+https://monoinfinito.wordpress.com/series/exception-handling-in-c/
+    https://habr.com/post/279149/
+    https://habr.com/post/279151/
+    https://habr.com/post/279111/

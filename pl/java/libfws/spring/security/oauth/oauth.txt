@@ -1,0 +1,12 @@
+https://projects.spring.io/spring-security-oauth/docs/oauth2.html
+    !!! need to re-read
+https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/htmlsingle/
+
+client
+https://github.com/spring-projects/spring-security/tree/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client
+    https://projects.spring.io/spring-security-oauth/docs/oauth2.html
+    ! chapter OAuth 2.0 Client
+    @EnableOAuth2Client
+
+cloud-client
+https://github.com/spring-cloud/spring-cloud-security/tree/master/spring-cloud-security/src/main/java/org/springframework/cloud/security/oauth2/client

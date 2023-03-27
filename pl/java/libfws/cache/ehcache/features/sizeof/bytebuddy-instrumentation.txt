@@ -1,0 +1,120 @@
+import net.bytebuddy.agent.ByteBuddyAgent;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class ByteBuddyAttachmentProviderForEhcache implements ByteBuddyAgent.AttachmentProvider {
+    private Class<?> vmClass = null;
+
+    public ByteBuddyAttachmentProviderForEhcache() {
+        try {
+            final Class<?> ehcAgentLoader = Class.forName("org.ehcache.sizeof.impl.AgentLoader");
+            // ehcache found - get vm class from ehcache to work around
+            // java.lang.UnsatisfiedLinkError: Native Library ... libattach.so already loaded in another classloader
+            final Field vm_attach = ehcAgentLoader.getDeclaredField("VIRTUAL_MACHINE_ATTACH");
+            vm_attach.setAccessible(true);
+            vmClass = ((Method) vm_attach.get(null)).getDeclaringClass();
+        } catch (Exception e) {
+            log.error("ehcache is unavailable", e);
+        }
+    }
+
+    @Override
+    public Accessor attempt() {
+        return new Accessor() {
+
+            @Override
+            public boolean isAvailable() {
+                return vmClass != null;
+            }
+
+            @Override
+            public Class<?> getVirtualMachineType() {
+                return vmClass;
+            }
+
+            @Override
+            public boolean isExternalAttachmentRequired() {
+                return false;
+            }
+
+            @Override
+            public ExternalAttachment getExternalAttachment() {
+                return Unavailable.INSTANCE.getExternalAttachment();
+            }
+        };
+    }
+}
+
+import net.bytebuddy.asm.Advice;
+
+import org.ehcache.core.spi.store.Store;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+
+public class SizeOfAdvice {
+
+    @Advice.OnMethodEnter
+    static long enter(@Advice.Argument(1) Store.ValueHolder<?> valueHolder) throws Exception {
+        long result = 0;
+        final Method methodGet = valueHolder.getClass().getDeclaredMethod("get");
+        final Class<?> returnClass = methodGet.getReturnType();
+        if (returnClass.isAssignableFrom(ResourceValue.class)) {
+            ResourceValue value = (ResourceValue) methodGet.invoke(valueHolder);
+            result = value.getNativeSize();
+        }
+        return result;
+    }
+
+    @Advice.OnMethodExit
+    static void exit(@Advice.Enter long nativeSize,
+            @Advice.Return(readOnly = false) Long result) throws Exception {
+        System.out.println("result: " + result + ", nativeSize: " + nativeSize);
+        result += nativeSize;
+    }
+}
+
+// in the main app
+
+import com.clarabridge.fxservice.cache.advice.SizeOfAdvice;
+import com.clarabridge.fxservice.cache.agent.ByteBuddyAttachmentProviderForEhcache;
+
+import org.ehcache.impl.internal.sizeof.DefaultSizeOfEngine;
+
+import net.bytebuddy.ByteBuddy;
+import net.bytebuddy.agent.ByteBuddyAgent;
+import net.bytebuddy.asm.Advice;
+import net.bytebuddy.dynamic.loading.ClassReloadingStrategy;
+
+import static net.bytebuddy.matcher.ElementMatchers.*;
+
+public BlaBlaApp {
+    ...
+    private static void installAgents() throws Exception {
+        log.info("installAgents start");
+
+        // need to have -Djdk.attach.allowAttachSelf=true at vm options for this to work
+        ByteBuddyAgent.install(
+            new ByteBuddyAgent.AttachmentProvider.Compound(
+                new ByteBuddyAttachmentProviderForEhcache(),
+                ByteBuddyAgent.AttachmentProvider.DEFAULT
+            )
+        );
+
+        new ByteBuddy()
+            .redefine(DefaultSizeOfEngine.class)
+            .visit(Advice.to(SizeOfAdvice.class).on(named("sizeof")))
+            .make()
+            .load(
+                DefaultSizeOfEngine.class.getClassLoader(),
+                ClassReloadingStrategy.fromInstalledAgent()
+            );
+
+        log.info("installAgents finish");
+    }
+    ...
+}

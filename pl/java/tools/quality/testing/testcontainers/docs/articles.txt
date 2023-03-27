@@ -1,0 +1,41 @@
+2023
+https://habr.com/ru/post/715496/
+2022
+https://habr.com/ru/post/681232/
+https://dzone.com/articles/testcontainers-with-kotlin-and-spring-data-r2dbc
+    https://habr.com/ru/post/710924/
+    https://github.com/theFaustus/course-catalog/tree/master/reviews-service
+https://www.atomicjar.com/2022/11/testcontainers-testing-with-real-dependencies/
+    https://habr.com/ru/post/700286/
+https://vladmihalcea.com/testcontainers-database-integration-testing/
+https://habr.com/ru/post/681232/
+https://jasondl.ee/posts/2022/quarkus-dev-services-jooq-flyway-testcontainers-full-example.html
+https://rieckpil.de/reuse-containers-with-testcontainers-for-fast-integration-tests/
+https://datmt.com/backend/java/javaee/setup-cucumber-testcontainers-junit5-in-spring-boot-project/
+https://www.reddit.com/r/java/comments/tqcpx7/spring_boot_junit_5_testcontainers/
+2021
+https://rieckpil.de/reuse-containers-with-testcontainers-for-fast-integration-tests/
+    https://github.com/rieckpil/blog-tutorials/tree/master/testcontainers-reuse-existing-containers
+2020
+https://sivalabs.in/2020/02/spring-boot-integration-testing-using-testcontainers-starter/
+    https://habr.com/ru/company/otus/blog/514270/
+https://rieckpil.de/reuse-containers-with-testcontainers-for-fast-integration-tests/
+https://bsideup.github.io/posts/local_development_with_testcontainers/
+https://reflectoring.io/spring-boot-flyway-testcontainers/
+https://itnext.io/test-your-java-code-with-the-help-of-testcontainers-898d31b64883
+https://pawelpluta.com/optimise-testcontainers-for-better-tests-performance/
+    https://github.com/pawelpluta/testcontainers-reusable
+https://pawelpluta.com/introduce-any-testcontainer-into-your-spring-application/
+    https://github.com/pawelpluta/testcontainers-wrapper
+2019
+https://solidstudio.io/blog/api-testing.html
+2017
+https://habrahabr.ru/company/jugru/blog/343298/
+https://zeroturnaround.com/rebellabs/java-integration-testing-with-testcontainers/
+    https://github.com/bsideup/javaagent-boilerplate
+https://medium.com/@bsideup/testing-your-docker-containers-with-testcontainers-and-groovy-3b9ef97ad1c2
+https://github.com/bsideup/testing-docker-images-with-testcontainers
+2016
+https://rnorth.org/better-junit-selenium-testing-with-docker-and-testcontainers
+https://rnorth.org/fun-with-disque-java-and-spinach
+https://rnorth.org/junit-integration-testing-with-docker-and-testcontainers

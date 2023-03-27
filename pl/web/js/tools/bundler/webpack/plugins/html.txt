@@ -1,0 +1,25 @@
+npm i --save-dev webpack html-webpack-plugin
+
+https://webpack.js.org/plugins/html-webpack-plugin/
+https://www.npmjs.com/package/html-webpack-plugin
+
+https://github.com/jantimon/html-webpack-plugin
+https://github.com/jantimon/html-webpack-plugin#options
+https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md
+
+pug
+https://github.com/jantimon/html-webpack-plugin/issues/641
+
+issues
+https://github.com/jantimon/html-webpack-plugin/issues/100
+
+2020
+DevTuts - Webpack 5: Setup Html Webpack Plugin
+    https://www.youtube.com/watch?v=WVEvhwv3cBs
+    https://rapidevelop.org/tag/webpack-5
+    https://github.com/rapidevelop/ex_webpack5/tree/v03
+2019
+WebProgramming - HTML Webpack Plugin ru
+    https://www.youtube.com/watch?v=bknEJOdRvxo
+    !!! good for beginners
+    ! how to open webpack src from vscode

@@ -1,0 +1,22 @@
+https://flexget.com/InstallWizard/Docker
+
+https://hub.docker.com/r/wiserain/flexget
+    https://github.com/wiserain/docker-flexget
+
+https://hub.docker.com/r/ksurl/flexget
+    https://github.com/ksurl/docker-flexget
+        https://github.com/ksurl/docker-flexget/blob/main/docker-compose.yml
+        https://github.com/ksurl/docker-flexget/blob/main/root/etc/cont-init.d/15-wait-for-internet
+        https://github.com/wiserain/docker-flexget/blob/master/root/defaults/plugins/write_magnet.py
+        https://github.com/wiserain/docker-flexget/blob/master/root/defaults/config.example.yml
+        !!! ghcr
+        https://github.com/ksurl/docker-flexget/pkgs/container/flexget
+        https://github.com/ksurl/docker-flexget/pkgs/container/flexget
+
+https://hub.docker.com/r/cpoppema/docker-flexget/
+https://hub.docker.com/r/cptactionhank/flexget
+    https://github.com/cptactionhank/docker-flexget
+        ? transmission-rpc
+
+https://hub.docker.com/r/wiserain/flexget
+    https://github.com/wiserain/docker-flexget

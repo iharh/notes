@@ -1,0 +1,6 @@
+cut
+  remove sections from each line of file
+
+  cut -b <N>-
+  cut --bytes=<N>-
+

@@ -1,0 +1,48 @@
+http://docs.continuum.io/anaconda/install
+Anaconda-<ver>-Windows-x86_64.exe /S /D=C:\Anaconda
+
+curl -O https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+
+https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+https://repo.continuum.io/miniconda/Miniconda2-4.0.5-Linux-x86_64.sh
+
+http://www.continuum.io/blog/conda
+
+http://conda.pydata.org/docs/using/envs.html
+
+conda
+    info -e
+        info about envs
+
+    create -n py35 python=3.5 anaconda
+        create a new env <py35>, use python <3.5> for it and install <anaconda> set of packages into it
+
+    search <package>
+
+    install <package>
+
+    depends <package>
+        search for the other packages our <package> depends on
+
+    list
+        -n <env-name>
+
+    update
+        --all --yes
+
+environments
+https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533
+
+win:
+activate py35
+
+lin:
+source activate/deactivate <env>
+
+ansible install:
+    conda create -n <env-name> python
+    . activate <env-name>
+    pip install ansible # 2.0.0.2
+
+Mirrors:
+https://docs.continuum.io/anaconda-repository/mirrors-anaconda-repository

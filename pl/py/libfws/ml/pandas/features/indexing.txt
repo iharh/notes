@@ -1,0 +1,22 @@
+https://pandas.pydata.org/pandas-docs/stable/indexing.html
+https://pandas.pydata.org/pandas-docs/stable/advanced.html
+https://www.datacamp.com/community/tutorials/pandas-multi-index
+https://pandas.pydata.org/pandas-docs/stable/cookbook.html#cookbook-multi-index
+
+https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Index.html
+    https://pandas.pydata.org/pandas-docs/stable/visualization.html#subplots
+
+df.sort_index(
+    by='column_name',
+    inplace=True,
+)
+
+df
+    .index
+    .unstack().index
+
+
+dfr = pd.DataFrame(df.unstack())
+
+droplevel
+dfr.columns = dfr.columns.droplevel(0)

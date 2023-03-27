@@ -1,0 +1,31 @@
+https://github.com/dotnet/core
+
+extra
+    mono
+
+books
+2019
+https://www.infoq.com/minibooks/net-core-3/
+https://www.infoq.com/minibooks/emag-net-core
+2018
+Metzgar - DotNET Core in Action
+Verma - NET Core 2 by Example
+
+dist
+https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-preview2-download.md
+
+docker:
+https://hub.docker.com/r/microsoft/dotnet/
+https://github.com/dotnet/dotnet-docker
+
+whatsnew
+https://www.infoq.com/news/2019/06/dotnet-core-past-present-future/
+https://devblogs.microsoft.com/dotnet/introducing-net-5/
+    http://www.opennet.ru/opennews/art.shtml?num=50641
+https://devblogs.microsoft.com/dotnet/announcing-net-core-3-0-preview-5/
+https://blogs.msdn.microsoft.com/dotnet/2018/12/04/announcing-net-core-2-2/
+    https://habr.com/company/jugru/blog/433144/
+https://github.com/dotnet/core/tree/master/release-notes
+https://www.infoq.com/news/2017/06/dotnetcore2-preview2
+https://blogs.msdn.microsoft.com/dotnet/2017/06/28/announcing-net-core-2-0-preview-2/
+https://github.com/dotnet/core/blob/master/roadmap.md

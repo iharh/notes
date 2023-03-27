@@ -1,0 +1,13 @@
+https://github.com/llvm-mirror/llvm/tree/master/include/llvm/Support
+https://github.com/llvm-mirror/llvm/tree/master/include/llvm/ADT
+https://github.com/llvm-mirror/llvm/tree/master/lib/Support
+    SmallVector.h
+
+https://llvm.org/docs/ProgrammersManual.html
+    DenseMap.h
+        https://llvm.org/doxygen/classllvm_1_1DenseMap.html
+    MapVector.h
+        guaranteed traversal order
+
+2014
+https://llvm.org/devmtg/2014-04/PDFs/LightningTalks/data_structure_llvm.pdf

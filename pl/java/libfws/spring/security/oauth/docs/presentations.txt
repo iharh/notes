@@ -1,0 +1,15 @@
+2020
+https://www.infoq.com/presentations/spring-security-oauth-2/
+2018
+Grandja - Next Generation OAuth Support with Spring Security 5
+    https://www.youtube.com/watch?v=llNQDoOzrtY
+    https://github.com/jgrandja/oauth2-client-demo/
+SpringDeveloper - Securing OAuth 2.0 Resources in Spring Security 5.0
+    https://www.youtube.com/watch?v=1N-xwmoN83w
+2017
+TechPrimers - Spring Security using OAuth2 in Spring Boot
+    https://www.youtube.com/watch?v=Dbxzw0cpxBU
+    https://github.com/TechPrimers/spring-security-oauth-example
+    https://github.com/TechPrimers/spring-security-oauth-example/blob/master/spring-security-client/src/main/java/com/techprimers/security/springsecurityclient/config/OauthConfig.java
+RocketMan - Secure REST API with authentication using Spring Boot , Security , OAuth2 and JPA.
+    https://www.youtube.com/watch?v=0pD7YeTAUkk

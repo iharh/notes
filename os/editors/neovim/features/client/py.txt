@@ -1,0 +1,2 @@
+https://pynvim.readthedocs.io/en/latest/
+    pip3 install --user neovim

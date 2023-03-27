@@ -1,0 +1,39 @@
+list images:
+sudo docker images -a --no-trunc
+
+images location:
+http://blog.thoward37.me/articles/where-are-docker-images-stored/
+
+Actually, Docker images are stored in two files as shown by following command
+$ docker info
+Data file: /var/lib/docker/devicemapper/devicemapper/data
+Metadata file: /var/lib/docker/devicemapper/devicemapper/metadata
+
+http://comments.gmane.org/gmane.comp.sysutils.docker.user/4451
+http://blog.thoward37.me/articles/where-are-docker-images-stored/
+http://www.projectatomic.io/docs/docker-storage-recommendation/
+http://www.centurylinklabs.com/optimizing-docker-images/?hvid=4wO7Yt
+http://stackoverflow.com/questions/19234831/where-are-docker-images-stored-on-the-host-machine
+http://stackoverflow.com/questions/26166550/set-docker-opts-in-centos
+
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Resource_Management_and_Linux_Containers_Guide/part-Linux_Containers.html
+
+Old-RH-CentOS:
+/etc/default/docker:
+DOCKER_OPTS="-g /path/to/docker/data"
+
+cp /usr/lib/systemd/system/docker.service /etc/systemd/system/
+/etc/systemd/system/docker.service
+ExecStart=/usr/bin/docker -g /data/wrk/docker-data -d -H fd://
+
+--graph
+default is /var/lib/docker
+
+images building:
+sudo docker build [options] .
+# -t="<tag>"
+# --force-rm
+# --force-rm=true --rm=true
+
+files:
+.dockerignore

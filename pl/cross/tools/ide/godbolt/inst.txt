@@ -1,0 +1,7 @@
+cloned-compiler-explorer
+    etc/config
+        cp c++.defaults.properties c++.local.properties
+
+2017
+C++ Weekly - Ep 83 - Installing Compiler Explorer 4:05 of 6:02
+    https://www.youtube.com/watch?v=I2cKVRzJhS0

@@ -1,0 +1,6 @@
+http://www.mitchellbosecke.com/pebble/home
+
+implementation("io.pebbletemplates:pebble-spring-boot-starter:3.1.5")
+
+2021
+https://habr.com/ru/company/rostelecom/blog/580884/

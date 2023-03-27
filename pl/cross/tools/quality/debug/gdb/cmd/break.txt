@@ -1,0 +1,16 @@
+breakpoints
+    b
+        set breakpoint at the current line
+    b <N>
+        set breakpoint at the line <N>
+    b <fn>
+        set a breakpoint
+        sample: b main
+    d[elete] <N>
+        delete a breakpoint
+
+save
+    breakpoints <file>
+        same breakpoints to a file
+source <file>
+    load breakpoints from a <file>

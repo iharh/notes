@@ -1,0 +1,18 @@
+https://github.com/spring-cloud/spring-cloud-commons/blob/main/spring-cloud-commons/src/main/java/org/springframework/cloud/commons/util/InetUtils.java
+
+o.s.cloud.commons.util.InetUtils : Cannot determine local hostname
+    https://github.com/spring-cloud/spring-cloud-commons/blob/main/spring-cloud-commons/src/main/java/org/springframework/cloud/commons/util/InetUtils.java#L170
+    https://github.com/spring-cloud/spring-cloud-commons/issues/203
+
+https://github.com/spring-cloud/spring-cloud-commons/blob/main/docs/src/main/asciidoc/spring-cloud-commons.adoc#ignore-network-interfaces
+
+spring:
+  cloud:
+    inetutils:
+      useOnlySiteLocalInterfaces: true
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+      preferredNetworks:
+        - 192.168
+        - 10.0

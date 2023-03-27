@@ -1,0 +1,13 @@
+2022
+https://habr.com/ru/company/domclick/blog/691240/
+    ! memory limits
+2020
+https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.3-Release-Notes#liveness-and-readiness-probes
+    HTTP Probes are only configured for applications running on Kubernetes.
+    You can give it a try locally by manually enabling the probes with the
+    management.health.probes.enabled=true 
+https://www.baeldung.com/spring-boot-kubernetes-self-healing-apps
+2019
+https://cloud.ibm.com/docs/java?topic=java-spring-healthcheck
+https://dimitr.im/spring-boot-kubernetes

@@ -1,0 +1,9 @@
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/cluster-reroute.html
+
+src/test/java
+org.elasticsearch.search.basic.SearchWhileRelocatingTests:
+
+client().admin().cluster().prepareReroute().get();
+// this might time out on some machines if they are really busy and you hit lots of throttling
+ClusterHealthResponse resp = client().admin().cluster().prepareHealth().setWaitForRelocatingShards(0).setTimeout("5m").get();
+

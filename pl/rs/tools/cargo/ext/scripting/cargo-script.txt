@@ -1,0 +1,13 @@
+https://crates.io/crates/cargo-script
+https://docs.rs/crate/cargo-script/latest
+https://github.com/DanielKeep/cargo-script
+    ! 5yo
+
+https://crates.io/crates/cargo-scripter
+https://github.com/artemshein/cargo-script
+
+
+sample
+    cargo install --force cargo-script
+     #!/usr/bin/env run-cargo-script
+

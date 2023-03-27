@@ -1,0 +1,24 @@
+2020
+https://www.tweag.io/blog/2020-04-23-deriving-isomorphically/
+    https://www.reddit.com/r/haskell/comments/sq1zdg/deriving_isomorphically/
+
+http://www.reddit.com/r/haskell/comments/2pej3j/24_days_of_ghc_extensions_deriving_guest_post_by/
+https://ocharles.org.uk/blog/guest-posts/2014-12-15-deriving.html
+
+http://www.haskell.org/ghc/docs/latest/html/users_guide/deriving.html
+http://www.haskell.org/ghc/docs/latest/html/users_guide/generic-programming.html
+http://www.haskell.org/haskellwiki/GHC.Generics
+
+DeriveGeneric:
+http://www.reddit.com/r/haskell/comments/2pirdg/24_days_of_ghc_extensions_derivegeneric/
+https://ocharles.org.uk/blog/posts/2014-12-16-derive-generic.html
+
+derive instances of the class Generic, defined in GHC.Generics.
+define generic functions, as described in Section 7.20, ?Generic programming?.
+
+StandaloneDeriving   - derive type classes without modifying sources
+                       deriving instance Show <MyData>
+DeriveFunctor        - derive instances of the class Functor, defined in GHC.Base. 
+DeriveFoldable       - derive instances of the class Foldable, defined in Data.Foldable. 
+DeriveTraversable    - derive instances of the class Traversable, defined in Data.Traversable.
+

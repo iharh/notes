@@ -1,0 +1,16 @@
+https://cloud.google.com/apis/docs/cloud-client-libraries
+
+java
+https://cloud.google.com/java/docs/reference
+
+auth
+https://cloud.google.com/docs/authentication/#api-keys
+https://github.com/googleapis/google-cloud-java
+https://github.com/googleapis/google-cloud-java#authentication
+
+
+https://cloud.google.com/java/docs/reference/google-auth-library/latest/overview
+https://github.com/googleapis/google-auth-library-java
+https://googleapis.dev/java/google-auth-library/latest/
+
+https://github.com/googleapis/java-logging

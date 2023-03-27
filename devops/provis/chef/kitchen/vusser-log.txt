@@ -1,0 +1,44 @@
+-----> Starting Kitchen (v1.13.2)
+-----> Setting up <linux-centos-72>...
+       Finished setting up <linux-centos-72> (0m0.00s).
+-----> Verifying <linux-centos-72>...
+       Preparing files for transfer
+-----> Installing Busser (busser)
+Fetching: thor-0.19.0.gem (100%)
+       Successfully installed thor-0.19.0
+Fetching: busser-0.7.1.gem (100%)
+       Successfully installed busser-0.7.1
+       2 gems installed
+       Installing Busser plugins: busser-serverspec
+       Plugin serverspec installed (version 0.5.10)
+-----> Running postinstall for serverspec plugin
+       Suite path directory /tmp/verifier/suites does not exist, skipping.
+       Transferring files to <linux-centos-72>
+-----> Running serverspec test suite
+-----> Installing Serverspec..
+Fetching: sfl-2.3.gem (100%)
+Fetching: net-telnet-0.1.1.gem (100%)
+Fetching: net-ssh-3.2.0.gem (100%)
+Fetching: net-scp-1.2.1.gem (100%)
+Fetching: specinfra-2.66.3.gem (100%)
+Fetching: multi_json-1.12.1.gem (100%)
+Fetching: diff-lcs-1.2.5.gem (100%)
+Fetching: rspec-expectations-3.5.0.gem (100%)
+Fetching: rspec-its-1.2.0.gem (100%)
+Fetching: rspec-mocks-3.5.0.gem (100%)
+Fetching: rspec-3.5.0.gem (100%)
+Fetching: serverspec-2.37.2.gem (100%)
+-----> serverspec installed (version 2.37.2)
+       /opt/chef/embedded/bin/ruby -I/tmp/verifier/suites/serverspec -I/tmp/verifier/gems/gems/rspec-support-3.5.0/lib:/tmp/verifier/gems/gems/rspec-core-3.5.4/lib /opt/chef/embedded/bin/rspec --pattern /tmp/verifier/suites/serverspec/\*\*/\*_spec.rb --color --format documentation --default-path /tmp/verifier/suites/serverspec
+       
+       Service "template-service"
+         should be enabled
+         should be running
+       
+       Port "8443"
+         should be listening
+       
+       Finished in 0.12192 seconds (files took 0.26542 seconds to load)
+       3 examples, 0 failures
+       
+       Finished verifying <linux-centos-72> (0m12.20s).

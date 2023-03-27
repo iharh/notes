@@ -1,0 +1,8 @@
+iabbrev
+	for Insert-mode
+cabbrev
+	for Command-mode
+abbrev
+	for both.
+
+

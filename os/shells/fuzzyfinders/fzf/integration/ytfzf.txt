@@ -1,0 +1,41 @@
+https://github.com/pystardust/ytfzf
+
+inst
+    git clone https://github.com/pystardust/ytfzf
+    cd ytfzf
+    sudo make install doc
+
+chmod 755 ytfzf
+mkdir -p /usr/local/bin
+cp ytfzf /usr/local/bin/ytfzf
+mkdir -p /usr/local/share/man/man1
+mkdir -p /usr/local/share/man/man5
+mkdir -p /usr/local/share/doc/ytfzf
+mkdir -p /usr/local/share/licenses/ytfzf
+chmod 644 docs/man/ytfzf.1 docs/man/ytfzf.5 docs/conf.sh LICENSE
+cp docs/man/ytfzf.1 /usr/local/share/man/man1
+cp docs/man/ytfzf.5 /usr/local/share/man/man5
+cp docs/conf.sh /usr/local/share/doc/ytfzf
+cp LICENSE /usr/local/share/licenses/ytfzf
+
+
+cli
+    --ii=instance,--invidious-instance=instance
+           Use a different invidious instance.
+
+    --rii,--refresh-inv-instance
+           If this flag is provided, refresh instance cache with healthy instances using Invidious API
+
+    --available-inv-instances
+           Prints the invidious instances that may be used and exits.
+
+
+
+    --list-addons
+           Lists all addons and exits.
+
+Invidious - An open source alternative front-end to YouTube
+https://invidious.io
+https://api.invidious.io
+https://docs.invidious.io
+https://docs.rs/invidious/latest/invidious/

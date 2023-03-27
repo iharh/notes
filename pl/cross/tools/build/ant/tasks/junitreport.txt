@@ -1,0 +1,9 @@
+https://ant.apache.org/manual/Tasks/junitreport.html
+
+src
+https://github.com/apache/ant/blob/master/src/main/org/apache/tools/ant/taskdefs/defaults.properties#L165
+https://github.com/apache/ant/blob/master/src/main/org/apache/tools/ant/taskdefs/optional/junit/XMLResultAggregator.java
+https://github.com/apache/ant/blob/master/src/main/org/apache/tools/ant/taskdefs/optional/junit/AggregateTransformer.java
+
+https://github.com/apache/ant/blob/master/src/etc/junit-noframes.xsl
+https://github.com/apache/ant/blob/master/src/etc/junit-frames.xsl

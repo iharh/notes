@@ -1,0 +1,69 @@
+2022
+https://kubernetes.io/blog/2022/03/31/ready-for-dockershim-removal/
+
+small-img-build
+https://cloudplatform.googleblog.com/2018/04/Kubernetes-best-practices-how-and-why-to-build-small-container-images.html
+
+docker ps --format 'table {{.Image}}t{{.Status}}'
+    IMAGE           STATUS
+    gcr.io/...      Up 13 hours
+    ...
+
+interesting containers:
+kubectl get pods --namespace=kube-system
+
+minicube pods:
+kube-addon-manager-minikube   1/1       Running   1          3d
+kube-dns-910330662-4tt1g      3/3       Running   3          3d
+kubernetes-dashboard-9tlvz    1/1       Running   2          3d
+
+other pods:
+
+fluentd-gcp
+    cluster logs -> Google Cloud Logging service
+node-problem-detector
+    detect hw and kernell-layer issues
+rescheduler
+    make sure critical components are always running
+    (throw out less critical pods if needed)
+glbc
+    GoogleCloud Layer 7 LB using new Ingress capabilities
+kube-addon-manager
+    various addons manager. Periodically apply any changes to
+    /etc/kubernetes/addons folder
+etcd-empty-dir-cleanup
+    Util to cleanup empty keys in etcd
+kube-controller-manager
+    misc cluster functions like replication, monitoring, management, new
+    nodes discovery
+kube-apiserver
+    REST API server
+kube-scheduler
+    scheduler
+etcd
+    distributed KV store of CoreOS
+pause
+    pod infrastructure container, used to set up and hold networking
+    namespace and resource limits for each pod
+kube-dns
+kubedns
+    DNS and service discovery plumbing
+kube-dnsmasq
+    another container for DNS caching
+dnsmasq-metrics
+    metric reporting for DNS services in cluster
+l7-defaultbackend
+    default backend for handling the GCE L7 LB and Ingress
+kubernetes-dashboard-xxxx
+kube-proxy
+heapster
+heapster-v1.2.0-xxxx
+heapster_grafana
+heapster_influxdb
+monitoring-influx-grafana
+kube-proxy-kubernetes-minion-group-xxxx
+
+cluster-proportional-autoscaler
+addon-resizer
+exechealthz
+    Health checks on the pods

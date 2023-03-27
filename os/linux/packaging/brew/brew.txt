@@ -1,0 +1,21 @@
+https://brew.sh/
+https://github.com/Homebrew/brew
+
+https://docs.brew.sh/
+https://docs.brew.sh/Manpage
+https://docs.brew.sh/FAQ
+https://docs.brew.sh/Tips-N'-Tricks
+
+https://brew.sh/blog/
+https://formulae.brew.sh/
+
+https://docs.brew.sh/Analytics
+
+https://docs.brew.sh/Homebrew-on-Linux
+    sudo apt-get install build-essential procps curl file git
+    - Run these two commands in your terminal to add Homebrew to your PATH:
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/iharh/.bash_profile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+need
+https://formulae.brew.sh/formula/kind#default

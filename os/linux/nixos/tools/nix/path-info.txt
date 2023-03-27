@@ -1,0 +1,3 @@
+nix path-info
+    -Sh /run/current-system
+        [...] 17.0G

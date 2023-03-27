@@ -1,0 +1,8 @@
+mvn clean package -DskipTests
+
+qa/vagrant/build.gradle
+
+buildSrc/src/main/groovy/org/elasticsearch/gradle/
+    BuildPlugin.groovy
+
+buildSrc/src/main/groovy/org/elasticsearch/gradle/vagrant/

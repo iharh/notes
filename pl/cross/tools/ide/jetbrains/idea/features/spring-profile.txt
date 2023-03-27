@@ -1,0 +1,34 @@
+https://stackoverflow.com/questions/39738901/how-do-i-activate-a-spring-boot-profile-when-running-from-intellij
+Artem: use run args
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html
+
+You could also specify it on the command line by using the following switch:
+    --spring.profiles.active=dev,hsqldb
+
+---
+spring:
+    profiles: production & eu-central
+server:
+    address: 192.168.1.120
+
+---
+spring:
+  profiles: "!test"
+  security:
+    user:
+      password: "secret"
+
+https://stackoverflow.com/questions/35429168/how-to-conditionally-declare-bean-when-multiple-profiles-are-not-active/52860023
+https://stackoverflow.com/questions/50181799/spring-profile-how-to-include-and-condition-for-adding-2-profiles
+@Component
+@Profile("!a & !b")
+public class MyComponent {}
+
+list profiles
+ConfigurableEnvironment
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/ConfigurableEnvironment.html
+    spring.profiles.default
+
+2020
+https://www.baeldung.com/spring-profiles

@@ -1,0 +1,50 @@
+Windows:
+
+C-x 0
+	Delete the selected window (delete-window). The last character in this key sequence is a zero.
+C-x 1
+	(delete-other-windows) is more powerful in a different way; it deletes all the windows except
+	the selected one (and the minibuffer); the selected window expands to use the whole frame except for the echo area. 
+C-x o
+	Select another window (other-window). That is o, not zero.
+S-"->"
+	Focus in direction
+
+C-x 2
+	Split vertically (split-window-vertically)
+C-x 3
+	Split horizontally (split-window-horizontally)
+C-x 4 <cmd>
+	Execute command in another window
+	C-x 4 f - open file in another window (C-x C-f)
+	C-x 4 b - open buffer in another window
+
+C-x M-f
+	Open file in another window
+
+C-M-v
+	To scroll the other window. This is useful to reference one window while editing in the other.
+
+C-x 4 0
+	Delete the selected window and kill the buffer that was showing in it (kill-buffer-and-window).
+
+
+
+If you add a buffer name to the list same-window-buffer-names, the effect is that such commands display that
+particular buffer by switching to it in the selected window. For example, if you add the element "*grep*" to the list,
+the grep command will display its output buffer in the selected window. 
+
+*Completions*
+
+
+Frames:
+C-z
+	Minimize (or “iconify) the selected Emacs frame (suspend-frame).
+	On a text terminal, suspend Emacs; on a graphical display, “minimize” the selected frame (suspend-emacs). 
+C-x 5 0
+	Delete the selected frame (delete-frame). This is not allowed if there is only one frame. 
+C-x 5 o
+	Select another frame, raise it, and warp the mouse to it. If you repeat this command, it cycles through
+	all the frames on your terminal.
+C-x 5 1
+	Delete all frames except the selected one. 

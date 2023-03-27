@@ -1,0 +1,14 @@
+- Install platform silently
+@HaskellPlatform-2013.2.0.0-setup.exe /S /D=D:\dev\PL\Haskell\Platform\2013.2.0.0
+
+- cabal update
+- ghc-pkg recache
+- cabal install cabal-install
+- cabal --version
+- cabal install hscolour
+
+http://trac.haskell.org/haskell-platform/wiki/Windows
+https://github.com/haskell/haskell-platform
+https://github.com/23Skidoo/haskell-platform-windows
+https://gist.github.com/Jonke/cccd567ed78d7a612810#file-byo-hp-win64-md
+

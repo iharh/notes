@@ -1,0 +1,76 @@
+transport.
+
+/**
+ * A transport channel allows to send a response to a request on the channel.
+ */
+public interface TransportChannel {
+
+    String action();
+
+    void sendResponse(TransportResponse response) throws IOException;
+
+    void sendResponse(TransportResponse response, TransportResponseOptions options) throws IOException;
+
+    void sendResponse(Throwable error) throws IOException;
+}
+
+public class TransportResponseOptions {
+
+    public static final TransportResponseOptions EMPTY = options();
+
+    public static TransportResponseOptions options() {
+        return new TransportResponseOptions();
+    }
+
+    private boolean compress;
+
+    public TransportResponseOptions withCompress(boolean compress) {
+        this.compress = compress;
+        return this;
+    }
+
+    public boolean compress() {
+        return this.compress;
+    }
+}
+
+public abstract class TransportResponse extends TransportMessage<TransportResponse> {
+
+    public static class Empty extends TransportResponse {
+
+        public static final Empty INSTANCE = new Empty();
+
+        public Empty() {
+            super();
+        }
+
+        public Empty(TransportResponse request) {
+            super(request);
+        }
+    }
+
+    protected TransportResponse() {
+    }
+
+    protected TransportResponse(TransportResponse response) {
+        super(response);
+    }
+
+}
+
+! A lot of classes extend TransportResponse
+
+- ActionResponse
+- ...
+
+
+
+TODO:
+
+transport.local.
+
+LocalTransportChannel
+
+transport.netty.
+
+NettyTransportChannel

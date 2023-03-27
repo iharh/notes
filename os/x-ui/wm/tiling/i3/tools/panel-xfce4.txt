@@ -1,0 +1,12 @@
+https://wiki.archlinux.org/index.php/i3#i3bar_alternatives
+http://feeblenerd.blogspot.com/2015/11/pretty-i3-with-xfce.html
+    https://github.com/denesb/xfce4-i3-workspaces-plugin
+
+exec --no-startup-id xfce4-panel --disable-wm-check
+
+extra/xfce4-panel-gtk3 4.13.3-4 (xfce4-gtk3)
+    Panel for the Xfce desktop environment
+community/xfce4-dockbarx-plugin 0.5-1
+    Embed DockbarX in the xfce4-panel
+community/xfce4-panel-compiz 4.12.2-1 (xfce4)
+    Panel for the Xfce desktop environment with fixes for Compiz

@@ -1,0 +1,20 @@
+vagrant box
+    --help
+    update --box <box>
+
+atlas: 
+bento/centos-7.2
+bento/centos-6.7
+hfm4/centos7
+
+boxcutter
+box-cutter/centos72
+
+arch:
+https://atlas.hashicorp.com/terrywang/boxes/archlinux
+  https://github.com/terrywang/vagrantboxes/blob/master/archlinux-x86_64.md
+https://atlas.hashicorp.com/ogarcia/boxes/archlinux-x64
+https://atlas.hashicorp.com/bugyt/boxes/archlinux
+
+manjaro
+https://atlas.hashicorp.com/mloskot/boxes/manjaro-i3-16.06-minimal

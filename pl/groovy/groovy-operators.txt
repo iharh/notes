@@ -1,0 +1,29 @@
+http://groovy-lang.org/operators.html
+
+overloading:
+http://groovy-lang.org/operators.html#Operator-Overloading
+http://groovy.jmiguel.eu/groovy.codehaus.org/Operator+Overloading.html
+http://www.ibm.com/developerworks/ru/library/j-pg10255/
+
+smooth operator : safe navigation
+a?.size() // will not throw NPE, but returns null
+
+spread:
+def a = [ 'a', 'bb', 'c' ]
+assert a*.size() == [ 1, 2, 1 ]
+
+spaceship : uses the compareTo
+assert 2 <=> 4 == -1
+assert 4 <=> 4 == 0
+assert 6 <=> 4 == 1
+
+Groovy Truth:
+* Boolean true
+* Non-zero numbers
+* Non-null references
+* Non empty strings
+* Non empty collections
+* Regular expressions with a match
+
+elvis:
+println a ?: 'foo'  // the result is a, if a is "true" and 'foo' otherwise

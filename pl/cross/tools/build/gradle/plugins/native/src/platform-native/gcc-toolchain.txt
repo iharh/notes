@@ -1,0 +1,37 @@
+https://github.com/gradle/gradle/tree/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/gcc
+https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/gcc/GccPlatformToolProvider.java
+https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/gcc/AbstractGccCompatibleToolChain.java
+    private void addDefaultTools(DefaultGccPlatformToolChain toolChain) {
+        toolChain.add(instantiator.newInstance(DefaultGccCommandLineToolConfiguration.class, ToolType.C_COMPILER, "gcc"));
+        toolChain.add(instantiator.newInstance(DefaultGccCommandLineToolConfiguration.class, ToolType.CPP_COMPILER, "g++"));
+        toolChain.add(instantiator.newInstance(DefaultGccCommandLineToolConfiguration.class, ToolType.LINKER, "g++"))
+        ...
+    }
+https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/gcc/GccToolChain.java
+
+application/library {
+    toolChains {
+        withType<Gcc> {
+            eachPlatform {
+                // this: GccPlatformToolChain
+                cppCompiler.setExecutable("compat-g++")
+                println("cppCompiler.executable: ${cppCompiler.executable}")
+            }
+        }
+    }
+
+    toolChains {
+        withType<Gcc> {
+            eachPlatform {
+                cppCompiler.withArguments {
+                    add("-std=c++11")
+                }
+                linker.withArguments {
+                    add("-ljvm")
+                }
+            }
+        }
+    }
+}
+
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/GccPlatformToolChain.html

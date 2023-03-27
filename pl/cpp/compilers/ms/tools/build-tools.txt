@@ -1,0 +1,17 @@
+2018
+https://channel9.msdn.com/Shows/C9-GoingNative/GoingNative-63-CPP-Build-Tools
+
+build tools 2017
+https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2017
+https://chocolatey.org/packages/visualstudio2017buildtools
+
+build tools 2015
+https://www.microsoft.com/en-US/download/details.aspx?id=48159
+https://docs.microsoft.com/en-us/visualstudio/productinfo/vs2015-compatibility-vs
+
+vcvarsall
+https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=vs-2017
+    x64 Native Tools Command Prompt
+https://docs.microsoft.com/en-us/cpp/build/walkthrough-compiling-a-native-cpp-program-on-the-command-line?view=vs-2017
+https://docs.microsoft.com/en-us/cpp/build/setting-the-path-and-environment-variables-for-command-line-builds?view=vs-2017
+    https://docs.microsoft.com/en-us/cpp/build/reference/cl-environment-variables?view=vs-2017

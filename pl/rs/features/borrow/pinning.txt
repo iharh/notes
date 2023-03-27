@@ -1,0 +1,15 @@
+https://doc.rust-lang.org/std/pin/index.html
+https://doc.rust-lang.org/std/pin/struct.Pin.html
+https://doc.rust-lang.org/std/marker/trait.Unpin.html
+
+2019
+The Why, What, and How of Pinning in Rust
+    https://www.youtube.com/watch?v=DkMwYxfSYNQ
+2018
+https://www.ralfj.de/blog/2018/04/10/safe-intrusive-collections-with-pinning.html
+    https://internals.rust-lang.org/t/safe-intrusive-collections-with-pinning/7281
+https://www.ralfj.de/blog/2018/04/05/a-formal-look-at-pinning.html
+    https://internals.rust-lang.org/t/a-formal-look-at-pinning/7236
+https://www.ralfj.de/blog/2018/01/31/sharing-for-a-lifetime.html
+https://boats.gitlab.io/blog/post/2018-03-20-async-vi/
+https://github.com/rust-lang/rust/pull/49058

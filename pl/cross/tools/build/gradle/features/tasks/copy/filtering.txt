@@ -1,0 +1,32 @@
+    https://docs.gradle.org/current/userguide/working_with_files.html#sec:filtering_files
+        https://github.com/search?l=Kotlin&q=org.apache.tools.ant.filters&type=Code
+    AbstractCopyTask filter(Class<? extends FilterReader> filterType)
+        https://docs.oracle.com/javase/8/docs/api/java/io/FilterReader.html
+        https://docs.gradle.org/current/javadoc/org/gradle/api/file/ContentFilterable.html
+        filter { line: String ->
+            if (line.startsWith('-')) null else line
+        }
+
+    org.apache.tools.ant.filters.
+            https://ant.apache.org/manual/api/org/apache/tools/ant/filters/package-summary.html
+            https://github.com/PapenfussLab/PathOS/blob/master/Curate/src/groovy/org/petermac/pathos/loader/LoadPathOS.groovy
+        ReplaceTokens
+            https://ant.apache.org/manual/api/org/apache/tools/ant/filters/ReplaceTokens.html
+        StripJavaComments
+            filter { line -> if (line.startsWith("//")) "" else line }
+            filter { content -> content.replace(Regex("@@verLog4j@@"), "2.13.3") }
+        LineContains
+            filter(LineContains, negate: true, contains: ['some word'])
+        StripLineComments
+            https://ant.apache.org/manual/api/org/apache/tools/ant/filters/StripLineComments.html
+            https://ant.apache.org/manual/api/org/apache/tools/ant/filters/StripLineComments.Comment.html
+            https://github.com/rheimus/serversync-forge-loader/blob/master/build.gradle
+        LineContainsRegExp
+            https://stackoverflow.com/questions/14952955/how-to-skip-empty-lines-when-copying-files-with-gradle
+            https://ant.apache.org/manual/api/org/apache/tools/ant/filters/LineContainsRegExp.html
+            import org.apache.tools.ant.types.RegularExpression
+            import org.apache.tools.ant.filters.StripJavaComments
+            import org.apache.tools.ant.filters.LineContainsRegExp
+            ...
+            filter<StripJavaComments>()
+            filter<LineContainsRegExp>("regexps" to arrayOf(regexp))

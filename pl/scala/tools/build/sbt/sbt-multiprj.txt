@@ -1,0 +1,87 @@
+Multi-Project Build
+http://www.scala-sbt.org/release/tutorial/Multi-Project.html
+
+multi-prj build samples:
+https://github.com/henrikerola/scaladin/blob/3.2/build.sbt
+https://github.com/ScaleChain/scalechain/blob/master/project/ScaleChainBuild.scala
+http://blog.scalac.io/2016/05/12/improving-your-project-with-sbt.html
+
+Multi-Project Build Plugin
+http://engineering.sharethrough.com/blog/2015/09/23/capturing-common-config-with-an-sbt-parent-plugin/
+
+>projects
+  to inspect projects
+
+lazy val ... = [Root]Project()...dependsOn(...)
+
+...dependsOn(projectName % "config1->config2")
+
+.dependOn(square) is the same as .dependsOn(square % "compile->compile")
+.dependOn(square % test) is the same as .dependsOn(square % "test->compile")
+.dependOn(square % "compile->test;test->test") is the same as .dependsOn(square % "compile;test->test")
+.dependOn(square,cube) - multiple dep-sies
+
+...aggregate(square,cube) - groups projects togeather
+
+
+ProjectRef(file(...), "...")
+
+
+Samples:
+https://github.com/underscoreio/shapeless-guide-code/blob/solutions/build.sbt
+
+scalaOrganization in ThisBuild := "org.typelevel"
+scalaVersion      in ThisBuild := "2.11.8"
+
+scalacOptions in Global ++= Seq(
+  "-deprecation",
+  "-encoding", "UTF-8",
+  "-unchecked",
+  "-feature",
+  "-Xlint",
+  "-Xfatal-warnings",
+  "-Ywarn-dead-code",
+  "-Yliteral-types"
+)
+
+libraryDependencies in Global ++= Seq(
+  "com.chuusai"   %% "shapeless" % "2.3.2",
+  "org.typelevel" %% "cats"      % "0.7.0",
+  "org.scalactic" %% "scalactic" % "2.2.6" % Test,
+  "org.scalatest" %% "scalatest" % "2.2.6" % Test
+)
+
+lazy val common =
+  project.in(file("common"))
+
+lazy val representations =
+  project.in(file("representations")).dependsOn(common)
+
+lazy val csv =
+  project.in(file("csv")).dependsOn(common)
+
+lazy val literaltypes =
+  project.in(file("literaltypes")).dependsOn(common)
+
+lazy val json =
+  project.in(file("json")).dependsOn(common)
+
+lazy val numfields =
+  project.in(file("numfields")).dependsOn(common)
+
+lazy val random =
+  project.in(file("random")).dependsOn(common)
+
+lazy val migrations =
+  project.in(file("migrations")).dependsOn(common)
+
+lazy val root = project.in(file("."))
+  .aggregate(
+    representations,
+    csv,
+    literaltypes,
+    json,
+    numfields,
+    random,
+    migrations
+  )

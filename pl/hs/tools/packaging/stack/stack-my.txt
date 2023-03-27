@@ -1,0 +1,59 @@
+My exp:
+
+stack new helloworld simple
+    create a new helloworld project from simple template
+stack setup
+    download ghc and stuff
+
+stack path
+
+global-stack-root: D:\dev\PL\Haskell\stack\.stack
+...
+ghc-paths: C:\Users\<user>\AppData\Local\Programs\stack\x86_64-windows
+    configLocalPrograms
+local-bin-path: C:\Users\<user>\AppData\Roaming\local\bin
+    configLocalBin
+    configMonoidLocalBinPath
+
+
+src/Stack/Config.hs
+
+     configLocalPrograms <-
+        case configPlatform of
+            Platform _ Windows -> do
+                progsDir <- getWindowsProgsDir configStackRoot origEnv
+                return $ progsDir </> $(mkRelDir stackProgName) </> platform
+            _ -> return $ configStackRoot </> $(mkRelDir "programs") </> platform
+
+
+stack exec env
+
+
+windows vars
+
+STACK_ROOT
+C:\Users\<user>\AppData\Roaming\stack
+
+LOCALAPPDATA=C:\Users\<user>\AppData\Local
+C:\Users\<user>\AppData\Local\Programs\stack\
+
+
+stack-root:
+stack --stack-root=/home/iharh/.stack2 path
+
+https://github.com/commercialhaskell/stack/blob/master/src/Stack/Options.hs
+
+-- | Command-line arguments parser for configuration.
+configOptsParser :: GlobalOptsContext -> Parser ConfigMonoid
+configOptsParser hide0 =
+    (\stackRoot workDir buildOpts dockerOpts nixOpts systemGHC installGHC arch ghcVariant jobs includes libs overrideGccPath skipGHCCheck skipMsys localBin modifyCodePage allowDifferentUser -> mempty
+        { configMonoidStackRoot = stackRoot
+, configMonoidWorkDir = workDir
+...
+    <$> optionalFirst (absDirOption
+            ( long stackRootOptionName
+            <> metavar (map toUpper stackRootOptionName)
+            <> help ("Absolute path to the global stack root directory " ++
+                     "(Overrides any STACK_ROOT environment variable)")
+            <> hide
+))

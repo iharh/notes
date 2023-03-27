@@ -1,0 +1,213 @@
+LUCENE:
+org.apache.lucene.index
+
+IndexWriter
+
+- private volatile long changeCount; // increments every time a change is completed
+- private volatile long lastCommitChangeCount; // last changeCount that was committed
+
+- Directory getDirectory()
+- DocumentsWriter getDocsWriter()
+
+  /** Expert:  Return the number of documents currently
+   *  buffered in RAM. */
+- public final synchronized int numRamDocs() {
+    ensureOpen();
+    return docWriter.getNumDocs();
+  }
+
+
+- setCommitData
+  /** Returns total number of docs in this index, including
+   *  docs not yet flushed (still in the RAM buffer),
+   *  not counting deletions.
+   *  @see #numDocs */
+
+- hasPendingMerges()
+- waitForMerges()
+- maybeMerge()
+- forceMerge(..)
+-- ElasticSearchMergePolicy
+
+- public synchronized int maxDoc() {
+    ensureOpen();
+    return docWriter.getNumDocs() + segmentInfos.totalDocCount();
+  }
+
+  /** Returns total number of docs in this index, including docs not yet flushed (still in the RAM buffer), and including deletions.
+   *  <b>NOTE:</b> buffered deletions are not counted.  If you really need these to be counted you should call {@link #commit()} first.
+   *  @see #numDocs */
+  public synchronized int numDocs() {
+    ensureOpen();
+    int count = docWriter.getNumDocs();
+    for (final SegmentCommitInfo info : segmentInfos) {
+      count += info.info.getDocCount() - numDeletedDocs(info);
+    }
+    return count;
+  }
+
+? deleter.checkpoint(segmentInfos, false);
+
+
+
+IndexReader
+- IndexReaderContext (hierarchical relationships between readers)
+- AtomicReader
+- CompositeReader
+- MultiReader
+- DirectoryReader (abstract)
+  slide 39 of 66
+http://www.slideshare.net/lucenerevolution/is-your-index-reader-really-atomic-or-maybe-slow
+  slide 59 - docBase as a DocId ???
+
+IndexSearcher
+
+
+IndexCommit:
+public abstract class IndexCommit implements Comparable<IndexCommit> {
+    ...
+  /** Returns the generation (the _N in segments_N) for this
+   *  IndexCommit */
+  public abstract long getGeneration();
+    ...
+}
+
+IndexCommitDelegate ??
+
+public final class SegmentInfos implements Cloneable, Iterable<SegmentCommitInfo> {
+    ...
+  /** Counts how often the index has been changed.  */
+  public long version;
+
+  private long generation;     // generation of the "segments_N" for the next commit
+  private long lastGeneration; // generation of the "segments_N" file we last successfully read
+                               // or wrote; this is normally the same as generation except if
+                               // there was an IOException that had interrupted a commit
+    ...
+  /**
+   * version number when this SegmentInfos was generated.
+   */
+  public long getVersion() {
+    return version;
+  }
+
+  /** Returns current generation. */
+  public long getGeneration() {
+    return generation;
+  }
+
+  /** Returns last succesfully read or written generation. */
+  public long getLastGeneration() {
+    return lastGeneration;
+  }
+    ...
+
+}
+
+? IndexFileDeleter (.checkpoint())
+
+Directory (RAMDirectory, MMapDirectory)
+
+DirectoryReader {
+    listCommits() {
+        ...
+    }
+}
+
+... TrackingIndexWriter ...
+
+
+Snapshoting:
+
+IndexCommit
+IndexDeletionPolicy
+SnapshotDeletionPolicy
+  Take a snapshot, backup/copy all the files in the commit, relase the snapshot 
+  You should use SnapshotDeletionPolicy to take a snapshot of the index, then copy all the files referenced by the snapshot.
+  As long as you hold that snapshot, all files it references will not be deleted, just be sure to release it once you're done backing up.
+- release(IndexCommit commit)
+- releaseGen(long gen)
+PersistentSnapshotDeletionPolicy
+  If you need the snapshot to persist even when you close the IndexWriter/JVM and later open a new IndexWriter, use PersistentSnapshotDeletionPolicy.
+
+
+LINA2ed: p375
+and more up-to-date:
+http://stackoverflow.com/questions/17753226/lucene-4-3-1-backup-process
+http://grokbase.com/t/lucene/java-user/137rwkhydy/question-on-lucene-hot-backup-functionality
+http://www.gossamer-threads.com/lists/lucene/java-user/192561
+
+As of Lucene 2.3, there’s now a simple answer: you can easily make a “hot backup” of the index,
+so that you create a consistent backup image, with just the files referenced by the most recent commit point, without closing your writer.
+No matter how long the copying takes, you can still make updates to the index.
+The approach is to use the SnapshotDeletionPolicy, which keeps a commit point alive for as long it takes to complete the backup.
+
+The backup must be initiated by the JVM that has your writer, and you must create your writer using the SnapshotDeletionPolicy, like this:
+
+    IndexDeletionPolicy policy = new KeepOnlyLastCommitDeletionPolicy();
+    SnapshotDeletionPolicy snapshotter = new SnapshotDeletionPolicy(policy);
+    IndexWriter writer = new IndexWriter(dir, analyzer, snapshotter, IndexWriter.MaxFieldLength.UNLIMITED);
+
+Note that you can pass any existing deletion policy into SnapshotDeletionPolicy (it doesn’t have to be KeepOnlyLastCommitDeletionPolicy).
+
+When you want to do a backup, just do this:
+
+    try {
+        IndexCommit commit = snapshotter.snapshot();
+        Collection<String> fileNames = commit.getFileNames();
+        /*<iterate over & copy files from fileNames>*/
+    } finally {
+        snapshotter.release();
+    }
+
+Inside the try block, all files referenced by the commit point won’t be deleted by the writer, even if the writer is still making changes, optimizing,
+and so forth as long as the writer isn’t closed.
+It’s fine if this copy takes a long time because it’s still copying a single point-in-time snapshot of the index.
+While this snapshot is kept alive, the files that belong to it will hold space on disk.
+So while a backup is running, your index will use more disk space than it normally would
+(assuming the writer is continuing to commit changes to the index).
+Once you’re done, call release to allow the writer to delete these files the next time it flushes or is closed.
+
+Note that Lucene’s index files are write-once. This means you can do an incremental backup by simply comparing filenames.
+You don’t have to look at the contents of each file, nor its last modified timestamp, because once a file is written and referenced from a snapshot, it won’t be changed.
+
+The only exception is the file segments.gen, which is overwritten on every commit, and so you should always copy this file.
+
+You shouldn’t copy the write lock file (write.lock).
+
+If you’re overwriting a previous backup, you should remove any files in that backup that aren’t listed in the current snapshot, because they are no longer referenced by the current index.
+
+
+From LINA excerpt:
+***
+Lucene index is composed of separate, independent segments, each holding a full index for a subset of the documents.
+A commit point (each segments_N file) references a list of segments that make up the index as it exists at that commit.
+
+Finally, and this is the key point, a separate file named segments_N, where N is an integer, holds references to those segments that make up a given commit point (IndexCommitPoint).
+Every time the writer commits to the index, N is increased by 1. These files are called commit points because a new one is created whenever the writer commits a change to the index.
+Lucene first writes all new files for a segment, and only when that is successful, writes a new segments_N file referencing that segment and de-referencing any segments that were just merged.
+
+As of release 2.1, the IndexDeletionPolicy was factored out from IndexWriter, enabling you to customize when an old commit point gets deleted.
+This is useful for certain filesystems, notably NFS, that do not protect open files from being deleted.
+Whenever the IndexWriter creates a new commit point, it consults the deletion policy to decide which older commit points should then be deleted.
+The default policy is KeepOnlyLastCommitDeletionPolicy, which removes the previous commit point whenever a new commit is done.
+***
+
+SnapshotDeletionPolicy
+PersistentSnapshotDeletionPolicy
+
+?Revision
+?IndexRevision
+
+?Replicator
+?ReplicationClient
+?ReplicationHandler
+
+http://shaierera.blogspot.com/2013/05/the-replicator.html
+http://blog.mikemccandless.com/2012/03/transactional-lucene.html
+
+SearcherManager
+http://blog.mikemccandless.com/2011/09/lucenes-searchermanager-simplifies.html
+
+
+

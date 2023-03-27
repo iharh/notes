@@ -1,0 +1,19 @@
+(deprecated in favour of [experimental] "failure" crate)
+
+RUST_BACKTRACE=1 cargo run
+
+https://crates.io/crates/error-chain
+https://docs.rs/error-chain
+https://github.com/brson/error-chain
+
+https://crates.io/crates/derive-error-chain
+https://docs.rs/derive-error-chain/
+https://github.com/Arnavion/derive-error-chain
+
+https://docs.rs/error-chain/0.9.0/error_chain/macro.quick_main.html
+
+https://www.reddit.com/r/rust/comments/5u0vkk/nice_error_handling_in_rust/
+
+2016
+http://siciarz.net/24-days-rust-error_chain/
+http://brson.github.io/2016/11/30/starting-with-error-chain

@@ -1,0 +1,22 @@
+@StdVector
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/StdVector.java
+
+sample  cpp
+    std::unique_ptr<std::vector<SomeData>>
+    getSomeDataVector()
+    {
+        std::unique_ptr<std::vector<SomeData>> result(new std::vector<SomeData>());
+        result->push_back(SomeData());
+        return result;
+    }
+
+sample java
+    @Name("std::vector<sfst::Analysis>") public static class SomeDataVector extends Pointer {
+        public native long size();
+        @Index(function = "at") public native @Const @ByRef SomeData get(@Cast("std::size_t") long i);
+    }
+
+    public static class SomeProc extends Pointer {
+        // ...
+        public native @UniquePtr SomeDataVector getSomeDataVector();
+    }

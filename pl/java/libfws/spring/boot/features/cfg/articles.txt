@@ -1,0 +1,13 @@
+2022
+https://piotrminkowski.com/2022/08/02/a-deep-dive-into-spring-boot-configuration/
+    !!! incl k8s
+2020
+https://spring.io/blog/2020/08/14/config-file-processing-in-spring-boot-2-4
+    https://stackoverflow.com/questions/64907675/including-profiles-in-spring-boot-2-4-0-version
+    ! on-activate
+https://spring.io/blog/2020/04/23/spring-tips-configuration
+    https://www.youtube.com/watch?v=PsNNGuLi0ns
+2019
+https://reflectoring.io/spring-boot-configuration-properties/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/configuration
+http://dolszewski.com/spring/spring-boot-application-properties-file/

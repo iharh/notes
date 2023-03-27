@@ -1,0 +1,10 @@
+https://docs.docker.com/engine/userguide/networking/default_network/configure-dns/
+https://docs.docker.com/engine/userguide/networking/configure-dns/
+
+https://docs.docker.com/engine/userguide/networking/dockernetworks/#docker-embedded-dns-server
+
+http://blog.phymata.com/2016/04/15/dns-round-robin-in-docker-1-11/
+https://github.com/everett-toews/docker-dns-round-robin
+
+2021
+https://itsecforu.ru/2021/07/12/🐳-как-определить-dns-в-контейнерах-docker/

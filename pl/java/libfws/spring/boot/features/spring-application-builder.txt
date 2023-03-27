@@ -1,0 +1,25 @@
+https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/builder/SpringApplicationBuilder.html
+
+2020
+http://zetcode.com/springboot/springapplicationbuilder/
+
+samples
+import org.springframework.boot.Banner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+
+@SpringBootApplication
+public class Application {
+
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(Application.class)
+            .bannerMode(Banner.Mode.OFF)
+            // .logStartupInfo(false) // default - true
+            // .properties("key=val")
+            // .environment(...)
+            // .profiles("myprofile")
+            .build()
+            .run(args);
+    }
+}
+

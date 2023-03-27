@@ -1,0 +1,19 @@
+https://visualvm.github.io/
+https://github.com/oracle/visualvm
+https://visualvm.dev.java.net/
+
+http://visualvm.github.io/graal.html
+
+https://netbeans.org/kb/docs/java/profiler-intro.html
+
+http://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr010.html
+
+http://stackoverflow.com/questions/9570921/how-do-i-provide-jvm-arguments-to-visualvm
+
+java\lib\visualvm\etc\visualvm.conf:
+default_options="-J-client -J-Xms24m -J-Xmx1024m -J-Dsun.jvmstat.perdata.syncWaitMs=10000 -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.d3d=false"
+
+
+CPU sampling default excludes
+java.*, javax.*,
+sun.*, sunw.*, com.sun.*

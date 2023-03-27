@@ -1,0 +1,11 @@
+https://nixos.wiki/wiki/OpenVPN
+
+https://github.com/pltanton/nix-overlays/blob/master/overrides/openvpn.nix
+    self: super: 
+    {
+      openvpn = super.lib.overrideDerivation super.openvpn (drv: {
+        configureFlags = drv.configureFlags ++ ["--enable-pkcs11"];
+        patches = [ ./openvpn-bug538-workaround.patch ];
+        buildInputs = drv.buildInputs ++ [ self.pkcs11helper ];
+      });
+    }

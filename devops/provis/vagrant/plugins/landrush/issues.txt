@@ -1,0 +1,25 @@
+https://github.com/vagrant-landrush/landrush/issues/295
+    There's no more bundler dependency!
+        https://github.com/mitchellh/vagrant/commit/1fb4553d14b235957d89d29f26f1c0decc971831
+    Gems are now installed in ~/.vagrant.d/gems/2.2.5/gems instead of ~/.vagrant.d/gems/gems. This breaks start_server.rb.
+
+https://github.com/vagrant-landrush/landrush/pull/296
+
+https://github.com/vagrant-landrush/landrush/issues/292
+    For now Landrush is not compatible with Vagrant 1.9.0. Vagrant 1.9.0 made quite some substantial internal changes, which we need to look into. Most importantly it does not rely on Bundler anymore.
+
+    I am about to release Landrush 1.2.0 which will make Landrush compatible with Vagrant up to 1.8.6, after that we will be looking into getting a Landrush release which aligns with Vagrant 1.9
+
+
+vagrant 1.9.0
+https://github.com/vagrant-landrush/landrush/pull/296
+arch
+https://github.com/vagrant-landrush/landrush/pull/294
+dnsmasq
+https://github.com/vagrant-landrush/landrush/pull/275
+interruptions
+https://github.com/vagrant-landrush/landrush/issues/11
+https://github.com/vagrant-landrush/landrush/issues/59
+https://github.com/vagrant-landrush/landrush/issues/33
+https://github.com/ioquatix/rubydns/issues/26
+https://github.com/vagrant-landrush/landrush/pull/73

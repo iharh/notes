@@ -1,0 +1,21 @@
+https://docs.microsoft.com/en-us/windows/dev-environment/rust/
+
+articles:
+http://www.jonathanturner.org/2017/03/rust-in-windows.html
+https://habrahabr.ru/post/280790/
+http://stevenmurawski.com/powershell/2016/08/rustify/
+https://mobiarch.wordpress.com/2015/06/16/rust-using-visual-studio-code/
+https://medium.com/@royalstream/rust-development-using-vs-code-on-os-x-debugging-included-bc10c9863777#.ntfl43rmd
+
+RustyCode:
+https://github.com/saviorisdead/RustyCode
+https://github.com/saviorisdead/RustyCode/blob/master/src/services/commandService.ts
+    "rust.cargoPath": "D:/dev/pl/rust/.cargo/bin/cargo.exe",
+    "rust.cargoHomePath": null
+    "rust.cargoEnv": ???
+
+Build:
+https://github.com/fuchsia-mirror/third_party-rust
+
+whatsnew
+https://blogs.windows.com/windowsdeveloper/2021/05/06/announcing-rust-for-windows-v0-9/

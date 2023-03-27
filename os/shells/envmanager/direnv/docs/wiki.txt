@@ -1,0 +1,12 @@
+https://github.com/direnv/direnv/wiki
+https://github.com/direnv/direnv/wiki/Vim
+    https://github.com/direnv/direnv.vim
+https://github.com/direnv/direnv/wiki/VSCode
+    https://marketplace.visualstudio.com/items?itemName=Rubymaniac.vscode-direnv
+    https://github.com/rubymaniac/vscode-direnv
+    ! unmaintained
+https://github.com/direnv/direnv/wiki/Git
+    https://www.toptal.com/developers/gitignore/api/direnv
+https://github.com/direnv/direnv/wiki/Nix
+0install
+http://gfxmonk.net/2014/01/18/direnv-convenient-project-specific-environments.html

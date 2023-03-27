@@ -1,0 +1,13 @@
+postgresql.conf
+    show config_file
+    select setting from pg_settings where name='config-file';
+    pg_ctl reload
+    select pg_reload_conf();
+
+http://pgconfigurator.cybertec.at/
+https://edu.postgrespro.ru/dba1-13/dba1_03_tools_configuration.html
+    select ... from pg_file_settings ...
+    ... from pg_settings ...
+
+postgresql.auto.conf
+    alter system set/reset <par> to <val>;

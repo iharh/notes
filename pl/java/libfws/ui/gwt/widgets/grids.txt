@@ -1,0 +1,60 @@
+Grids:
+com.google.gwt.user.client.ui.Grid
+https://www.tutorialspoint.com/gwt/gwt_grid_widget.htm
+
+com.google.gwt.user.cellview.client.DataGrid
+    extends AbstractCellTable (which also has a CellTable child)
+http://www.gwtproject.org/javadoc/latest/com/google/gwt/user/cellview/client/DataGrid.html
+
+? GUIUtils.fixDataGrid(dataGrid); // chrome-only
+
+    interface SomeResources extends DataGrid.Resources {
+        @Override @Source(".../resource/DataGrid.css")
+        DataGrid.Style dataGridStyle();
+    }
+
+.setRowData(listOfData)
+.setRowStyles (... zebra ...)
+  http://java2s.com/Code/Java/GWT/GridCellFormatter.htm
+.setSelectionModel(selectionModel)
+  selectionModel.getSelectedSet();
+  selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
+    public void onSelectionChange(SelectionChangeEvent event) {
+      MySelectedItem selected = selectionModel.getSelectedObject();
+      if (selected != null) { Window.alert("You selected: " + selected.name); }
+    }
+  });
+
+show() { ... dataGrid.onResize(); ...  } // ?
+
+import com.google.gwt.view.client.ListDataProvider;
+http://www.gwtproject.org/javadoc/latest/com/google/gwt/view/client/ListDataProvider.html
+
+profider.addDataDisplay(dataGrid)
+
+SimplePager
+
+    // Fix for GWT 2.4 DataGrid bug: last column content partially hidden by vertical scrollbar.    
+    if (columnInfo.equals(columns.get(columns.size() - 1))) {
+        column.setCellStyleNames(dataGridResources.dataGridStyle().lastColumnScrollFix());
+    }
+
+
+.web.admin.client.hierarchy.widgets.table.ResizableDataGrid ?
+...IconGrid
+
+
+Columns:
+com.google.gwt.user.cellview.client.TextColumn<T>
+http://www.gwtproject.org/javadoc/latest/com/google/gwt/user/cellview/client/TextColumn.html
+
+
+SO:
+http://stackoverflow.com/questions/7713218/gwt-2-4-datagrid-auto-set-column-width
+
+
+.web.admin.client.hierarchy.widgets.table.ResizableDataGrid/...Header
+
+
+com.google.gwt.gen2.table.client.FixedWidthGrid
+https://github.com/nikhilbchilwant/google-web-toolkit-incubator/blob/master/src/com/google/gwt/gen2/table/client/FixedWidthGrid.java

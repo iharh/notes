@@ -1,0 +1,488 @@
+digraph G
+{
+	compound=true;
+	node [style="rounded,filled"];
+
+/*
+	subgraph cluster0
+	{
+		a -> b;
+		a -> c;
+		b -> d;
+		c -> d;
+	}
+
+	subgraph cluster1
+	{
+		e -> g;
+		e -> f;
+	}
+
+	b -> f [lhead=cluster1];
+	d -> e;
+	c -> g [ltail=cluster0, lhead=cluster1];
+	c -> e [ltail=cluster0];
+	d -> h;
+
+	subgraph cluster0
+	{
+		libDove;
+		libDoveServices
+		libOsal;
+	}
+
+*/
+	/********
+	 * EDGES
+	 ********/
+
+	libAdminImpl -> libCacheInterface;
+	libAdminImpl -> libDocument;
+//	libAdminImpl -> libGenUtil;
+//	libAdminImpl -> libOsal;
+
+	libCacheInterface -> libChangeLog;
+//	libCacheInterface -> libDove;
+//	libCacheInterface -> libGenUtil;
+	libCacheInterface -> libKtxParser;
+//	libCacheInterface -> libOsal;
+//	libCacheInterface -> libOsalSockets;
+	libCacheInterface -> libStem;
+	libCacheInterface -> libTopicSpotter;
+
+//	libChangeLog -> libDoveServices;
+//	libChangeLog -> libGenUtil;
+//	libChangeLog -> libOsal;
+
+	libConstraintsEngine -> libCacheInterface;
+//	libConstraintsEngine -> libDove;
+//	libConstraintsEngine -> libGenUtil;
+//	libConstraintsEngine -> libOsal;
+
+//	libDbImpl -> libDove;
+//	libDbImpl -> libGenUtil;
+//	libDbImpl -> libOsal;
+
+
+	libDbRetriever -> libDbImpl;
+//	libDbRetriever -> libDove;
+//	libDbRetriever -> libDoveServices;
+//	libDbRetriever -> libGenUtil;
+//	libDbRetriever -> libOsal;
+
+//	libDcn -> libGenUtil;
+//	libDcn -> libOsal;
+
+	libDecisionMatrix -> libCacheInterface;
+//	libDecisionMatrix -> libGenUtil;
+//	libDecisionMatrix -> libOsal;
+	libDecisionMatrix -> libTopicSpotter;
+
+	libDetaggerJavaInterface -> detagger; /* 3rdParty */
+
+	libDialogProcessor -> libCacheInterface;
+	libDialogProcessor -> libConstraintsEngine;
+	libDialogProcessor -> libDocument;
+//	libDialogProcessor -> libDove;
+//	libDialogProcessor -> libDoveServices;
+//	libDialogProcessor -> libGenUtil;
+	libDialogProcessor -> libKAnswerer;
+	libDialogProcessor -> libKtxLoader;
+	libDialogProcessor -> libMLClient;
+//	libDialogProcessor -> libOsal;
+	libDialogProcessor -> libRetrieverUtils;
+	libDialogProcessor -> libRAR;
+	libDialogProcessor -> libSpellCheck;
+	libDialogProcessor -> libStem;
+	libDialogProcessor -> libSubscripEngine;
+	libDialogProcessor -> libTSAdmin;
+	libDialogProcessor -> PDFL; /* 3rdParty */
+	
+	libDocument -> libDbImpl;
+	libDocument -> libDbRetriever;
+//	libDocument -> libDove;
+//	libDocument -> libDoveServices;
+//	libDocument -> libGenUtil;
+//	libDocument -> libOsalSockets;
+	libDocument -> libStem;
+
+//	libDove -> libGenUtil;
+//	libDove -> libOsal;
+//	libDove -> libOsalSockets;
+
+//	libDoveServices -> libGenUtil;
+//	libDoveServices -> libDove;
+//	libDoveServices -> libOsal;
+
+//	libEscalationDLL -> libGenUtil;
+//	libEscalationDLL -> libOsal;
+
+	/* libExpat -> nothing; */
+
+//	libGenUtil -> libOsal;
+//	libGenUtil -> libOsalSockets;
+
+	/* libJudy -> nothing; */
+
+	libKAnswerer -> libCacheInterface;
+	libKAnswerer -> libDocument;
+//	libKAnswerer -> libDove;
+//	libKAnswerer -> libGenUtil;
+	libKAnswerer -> libKExtSearchEngine;
+	libKAnswerer -> libMLClient;
+//	libKAnswerer -> libOsal;
+	libKAnswerer -> libRAR;
+	libKAnswerer -> libRetrieverUtils;
+	libKAnswerer -> libSpellCheck;
+	libKAnswerer -> libStem;
+	libKAnswerer -> libTopicSpotter;
+
+//	libKExtSearchEngine -> libGenUtil;
+//	libKExtSearchEngine -> libOsal;
+
+	libKMI -> libCacheInterface;
+	libKMI -> libDocument;
+//	libKMI -> libDove;
+//	libKMI -> libDoveServices;
+//	libKMI -> libGenUtil;
+	libKMI -> libQueryRetriever;
+	libKMI -> libKtxLoader;
+//	libKMI -> libOsal;
+	libKMI -> libRDict;
+	libKMI -> libStem;
+	libKMI -> libTopicSpotter;
+
+	libKSearchEngine -> libCacheInterface;
+	libKSearchEngine -> libDocument;
+//	libKSearchEngine -> libDove;
+//	libKSearchEngine -> libDoveServices;
+//	libKSearchEngine -> libGenUtil;
+	libKSearchEngine -> libMultiAVInterface;
+//	libKSearchEngine -> libOsal;
+	libKSearchEngine -> libRetrieverUtils;
+	libKSearchEngine -> libSpellCheck;
+	libKSearchEngine -> libTopicSpotter;
+
+	libKtxLoader -> libCacheInterface;
+	libKtxLoader -> libDocument;
+//	libKtxLoader -> libDove;
+//	libKtxLoader -> libDoveServices;
+//	libKtxLoader -> libGenUtil;
+	libKtxLoader -> libKtxParser;
+//	libKtxLoader -> libOsal;
+
+//	libKtxParser -> libGenUtil;
+//	libKtxParser -> libOsal;
+
+//	libML -> libOsal;
+
+	libMLClient -> libML;
+	libMLClient -> libCacheInterface;
+	libMLClient -> libDocument;
+//	libMLClient -> libGenUtil;
+//	libMLClient -> libOsal;
+	libMLClient -> libRetrieverUtils;
+
+	libMultiAVInterface -> libDocument;
+//	libMultiAVInterface -> libDove;
+//	libMultiAVInterface -> libDoveServices;
+//	libMultiAVInterface -> libGenUtil;
+//	libMultiAVInterface -> libOsal;
+
+	/* libOsal -> nothing; */
+
+//	libOsalSockets -> libOsal;
+
+	libQueryClassCache -> libDbImpl;
+	libQueryClassCache -> libDbRetriever;
+//	libQueryClassCache -> libDove;
+//	libQueryClassCache -> libGenUtil;
+//	libQueryClassCache -> libOsal;
+	libQueryClassCache -> BerkleyDB; /* 3rdParty */
+
+//	libQueryRetriever -> libGenUtil;
+//	libQueryRetriever -> libOsal;
+	libQueryRetriever -> libStem;
+
+	libRAR -> libCacheInterface;
+	libRAR -> libDbImpl;
+	libRAR -> libDbRetriever;
+	libRAR -> libDocument;
+//	libRAR -> libDove;
+//	libRAR -> libDoveServices;
+//	libRAR -> libGenUtil;
+	libRAR -> libKtxLoader;
+//	libRAR -> libOsal;
+	libRAR -> libTable;
+
+	libRDict -> libChangeLog;
+//	libRDict -> libDove;
+//	libRDict -> libDoveServices;
+//	libRDict -> libGenUtil;
+//	libRDict -> libOsal;
+	libRDict -> libStem;
+
+	libRetrieverUtils -> libCacheInterface;
+	libRetrieverUtils -> libDocument;
+//	libRetrieverUtils -> libGenUtil;
+//	libRetrieverUtils -> libOsal;
+	libRetrieverUtils -> libRAR;
+
+//	libSpellCheck -> libOsal;
+	libSpellCheck -> ASPELL; /* 3rdParty */
+
+//	libStem -> libOsal;
+	libStem -> LINGUIST_X; /* 3rdParty */
+
+//	libStructuredDoc -> libDove;
+//	libStructuredDoc -> libGenUtil;
+//	libStructuredDoc -> libOsal;
+
+	libSubscripEngine -> libCacheInterface;
+//	libSubscripEngine -> libDove;
+//	libSubscripEngine -> libOsal;
+
+//	libTable -> libGenUtil;
+//	libTable -> libOsal;
+
+//	libTopicSpotter -> libDove;
+//	libTopicSpotter -> libGenUtil;
+//	libTopicSpotter -> libOsal;
+	libTopicSpotter -> libStem;
+
+	libTSAdmin -> libCacheInterface;
+//	libTSAdmin -> libGenUtil;
+	libTSAdmin -> libKtxParser;
+//	libTSAdmin -> libOsal
+	libTSAdmin -> libStem;
+	libTSAdmin -> libTopicSpotter;
+
+//	libTSJavaInterface -> libGenUtil;
+	libTSJavaInterface -> libTopicSpotter;
+//	libTSJavaInterface -> libOsal;
+	libTSJavaInterface -> libStem;
+
+	/* EXE edges */
+
+	KanisaCompile -> libCacheInterface;
+//	KanisaCompile -> libDove;
+//	KanisaCompile -> libGenUtil;
+//	KanisaCompile -> libOsal;
+	KanisaCompile -> libKtxLoader;
+	KanisaCompile -> libTopicSpotter;
+	KanisaCompile -> libTSAdmin;
+
+	KDeployMgr -> libChangeLog;
+//	KDeployMgr -> libDove;
+//	KDeployMgr -> libDoveServices;
+//	KDeployMgr -> libGenUtil;
+	KDeployMgr -> libKMI;
+//	KDeployMgr -> libOsal;
+//	KDeployMgr -> libOsalSockets;
+	KDeployMgr -> libRDict;
+
+//	KDMHelper -> libDove;
+//	KDMHelper -> libDoveServices;
+//	KDMHelper -> libGenUtil;
+//	KDMHelper -> libOsal;
+//	KDMHelper -> libOsalSockets;
+
+	KRetriever -> libAdminImpl;
+	KRetriever -> libCacheInterface;
+	KRetriever -> libDecisionMatrix;
+	KRetriever -> libDocument;
+//	KRetriever -> libDove;
+//	KRetriever -> libDoveServices;
+	KRetriever -> libDialogProcessor;
+//	KRetriever -> libGenUtil;
+	KRetriever -> libKAnswerer;
+	KRetriever -> libKSearchEngine;
+	KRetriever -> libKtxLoader;
+	KRetriever -> libKtxParser;
+	KRetriever -> libMLClient;
+//	KRetriever -> libOsal;
+	KRetriever -> libRAR;
+	KRetriever -> libRetrieverUtils;
+	KRetriever -> libStructuredDoc;
+	KRetriever -> libTopicSpotter;
+	KRetriever -> libSpellCheck;
+	KRetriever -> PDFL; /* 3rdParty */
+
+	KDocProcessor -> libCacheInterface;
+//	KDocProcessor -> libDove;
+//	KDocProcessor -> libDoveServices;
+//	KDocProcessor -> libGenUtil;
+	KDocProcessor -> libDbImpl;
+	KDocProcessor -> libDbRetriever;
+	KDocProcessor -> libDocument;
+	KDocProcessor -> libRetrieverUtils;
+	KDocProcessor -> libKAnswerer;
+	KDocProcessor -> libKSearchEngine;
+	KDocProcessor -> libKtxLoader;
+	KDocProcessor -> libStem;
+	KDocProcessor -> libSubscripEngine;
+	KDocProcessor -> libTopicSpotter;
+
+	KRARServer -> libDocument;
+//	KRARServer -> libDove;
+//	KRARServer -> libDoveServices;
+//	KRARServer -> libGenUtil;
+//	KRARServer -> libOsal;
+	KRARServer -> libRAR;
+
+//	KsmProcessor -> libDove;
+//	KsmProcessor -> libDoveServices;
+	KsmProcessor -> libExpat;
+//	KsmProcessor -> libGenUtil;
+//	KsmProcessor -> libOsal;
+//	KsmProcessor -> libOsalSockets;
+	KsmProcessor -> detagger; /* 3rdParty */
+	KsmProcessor -> libPCRE;  /* 3rdParty */
+	KsmProcessor -> PDFL;     /* 3rdParty */
+	KsmProcessor -> XML_C;    /* 3rdParty */
+
+	Kettle -> libCacheInterface;
+	Kettle -> libDbImpl;
+	Kettle -> libDbRetriever;
+	Kettle -> libDecisionMatrix;
+	Kettle -> libDocument;
+//	Kettle -> libDove;
+//	Kettle -> libDoveServices;
+//	Kettle -> libGenUtil;
+	Kettle -> libKAnswerer;
+	Kettle -> libKSearchEngine;
+	Kettle -> libKtxLoader;
+//	Kettle -> libOsal;
+//	Kettle -> libOsalSockets;
+	Kettle -> libQueryClassCache;
+	Kettle -> libRetrieverUtils;
+
+//	KRouter -> libDove;
+//	KRouter -> libDoveServices;
+//	KRouter -> libGenUtil;
+//	KRouter -> libOsal;
+//	KRouter -> libOsalSockets;
+
+//	KNameservice -> libDove;
+//	KNameservice -> libDoveServices;
+//	KNameservice -> libGenUtil;
+//	KNameservice -> libOsal;
+//	KNameservice -> libOsalSockets;
+
+//	KState -> libDove;
+//	KState -> libDoveServices;
+//	KState -> libGenUtil;
+//	KState -> libOsal;
+//	KState -> libOsalSockets;
+
+//	KSWLogger -> libDove;
+//	KSWLogger -> libDoveServices;
+//	KSWLogger -> libGenUtil;
+//	KSWLogger -> libOsal;
+//	KSWLogger -> libOsalSockets;
+
+//	KettleHelper -> libDove;
+//	KettleHelper -> libDoveServices;
+//	KettleHelper -> libGenUtil;
+//	KettleHelper -> libOsal;
+	
+	/********
+	 * NODES
+	 ********/
+
+	libAdminImpl             [label="libAdminImpl.dll"];
+
+	libCacheInterface        [label="libCacheInterface.dll"];
+	libChangeLog             [label="libChangeLog.dll"];
+	libConstraintsEngine     [label="libConstraintsEngine.dll"];
+
+	libDbImpl                [label="libDbImpl.dll (ODBC/OCI)"];
+	libDbRetriever           [label="libDbRetriever.dll"];
+	libDcn                   [label="libDcn.dll"];
+	libDecisionMatrix        [label="libDecisionMatrix.dll"];
+	libDetaggerJavaInterface [label="libDetaggerJavaInterface.dll"];
+	libDialogProcessor       [label="libDialogProcessor.dll"];
+	libDocument              [label="libDocument.dll"];
+//	libDove                  [label="libDove.dll"];
+//	libDoveServices          [label="libDoveServices.dll"];
+
+	libEscalationDLL         [label="libEscalationDLL.dll"];
+	libExpat                 [label="libExpat.dll"];
+
+//	libGenUtil               [label="libGenUtil.dll"];
+
+	libJudy                  [label="libJudy.dll"];
+
+	libKAnswerer             [label="libKAnswerer.dll"];
+	libKExtSearchEngine      [label="libKExtSearchEngine.dll"];
+	libKMI                   [label="libKMI.dll"];
+	libKSearchEngine         [label="libKSearchEngine.dll"];
+	libKtxLoader             [label="libKtxLoader.dll"];
+	libKtxParser             [label="libKtxParser.dll"];
+
+	libML                    [label="libML.dll"];
+	libMLClient              [label="libMLClient.dll"];
+	libMultiAVInterface      [label="libMultiAVInterface.dll"];
+
+//	libOsal                  [label="libOsal.dll"];
+//	libOsalSockets           [label="libOsalSockets.dll"];
+
+	libQueryClassCache       [label="libQueryClassCache.dll"];
+	libQueryRetriever        [label="libQueryRetriever.dll"];
+
+	libRAR                   [label="libRAR.dll"];
+	libRDict                 [label="libRDict.dll"];
+	libRetrieverUtils        [label="libRetrieverUtils.dll"];
+
+	libSpellCheck            [label="libSpellCheck.dll"];
+	libStem                  [label="libStem.dll"];
+	libStructuredDoc         [label="libStructuredDoc.dll"];
+	libSubscripEngine        [label="libSubscripEngine.dll"];
+
+	libTable                 [label="libTable.dll"];
+	libTopicSpotter          [label="libTopicSpotter.dll"];
+	libTSAdmin               [label="libTSAdmin.dll"];
+	libTSJavaInterface       [label="libTSJavaInterface.dll"];
+
+	/* 3rd-Party */
+
+	detagger                 [label="detagger.dll"      shape=diamond, fillcolor=purple];
+	PDFL                     [label="PDFL.dll"          shape=diamond, fillcolor=purple];
+	BerkleyDB                [label="BerkleyDB.dll"     shape=diamond, fillcolor=purple];
+	ASPELL                   [label="aspell-15.dll"     shape=diamond, fillcolor=purple];
+	LINGUIST_X               [label="platform37.dll (LinguistX)" shape=diamond, fillcolor=purple];
+	XML_C                    [label="Xerces-C.dll, Xalan-C.dll"  shape=diamond, fillcolor=purple];
+	libPCRE                  [label="libPCRE.dll (RegExp)"       shape=diamond, fillcolor=purple];
+
+	/* EXE nodes */
+
+	KanisaCompile            [label="KanisaCompile.exe" shape=box, fillcolor=yellow];
+	KDeployMgr               [label="KDeployMgr.exe"    shape=box, fillcolor=yellow];
+//	KDMHelper                [label="KDMHelper.exe"     shape=box, fillcolor=yellow];
+	KRetriever               [label="KRetriever.exe"    shape=box, fillcolor=yellow];
+	KDocProcessor            [label="KDocProcessor.exe" shape=box, fillcolor=yellow];
+	KRARServer               [label="KRARServer.exe"    shape=box, fillcolor=yellow];
+//	KRouter                  [label="KRouter.exe"       shape=box, fillcolor=yellow];
+//	KNameservice             [label="KNameservice.exe"  shape=box, fillcolor=yellow];
+//	KState                   [label="KState.exe"        shape=box, fillcolor=yellow];
+//	KSWLogger                [label="KSWLogger.exe"     shape=box, fillcolor=yellow];
+//	KettleHelper             [label="KettleHelper.exe"  shape=box, fillcolor=yellow];
+	KsmProcessor             [label="KsmProcessor.exe"  shape=box, fillcolor=yellow];
+	Kettle                   [label="Kettle.exe"        shape=box, fillcolor=yellow];
+
+/* EXE utils
+	KetlLoader               [label="KetlLoader.exe"    shape=box];
+	DocProcClient.exe
+	KAdminClient.exe
+	KanisaDeploy             [label="KanisaDeploy.exe"  shape=box];
+	ifmgr.exe
+	startpkg.exe
+	RetrieverClient.exe
+	RatingTransfer.exe
+	KQueryTool.exe
+	KCStats.exe
+	KSWLoggerClient.exe
+	KanisaKSM                [label="KanisaKSM.exe"     shape=box];
+*/
+
+}

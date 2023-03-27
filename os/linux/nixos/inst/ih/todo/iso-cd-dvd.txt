@@ -1,0 +1,25 @@
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/iso-image.nix
+
+https://github.com/NixOS/nixpkgs/tree/master/nixos/modules/installer/
+├── cd-dvd
+│   ├── channel.nix
+│   ├── installation-cd-base.nix
+│   ├── installation-cd-graphical-base.nix
+│   ├── installation-cd-graphical-calamares-gnome.nix
+│   ├── installation-cd-graphical-calamares.nix
+│   ├── installation-cd-graphical-calamares-plasma5.nix
+│   ├── installation-cd-graphical-gnome.nix
+│   ├── installation-cd-graphical-plasma5-new-kernel.nix
+│   ├── installation-cd-graphical-plasma5.nix
+│   ├── installation-cd-minimal-new-kernel.nix
+│   ├── installation-cd-minimal-new-kernel-no-zfs.nix
+│   ├── installation-cd-minimal.nix
+│   ├── iso-image.nix // !!!
+│   ├── sd-image-aarch64-new-kernel.nix
+│   ├── sd-image-aarch64.nix
+│   ├── sd-image-armv7l-multiplatform.nix
+│   ├── sd-image.nix
+│   └── sd-image-raspberrypi.nix
+
+samples
+https://github.com/balsoft/nixos-config/blob/master/machines/iso-image/default.nix

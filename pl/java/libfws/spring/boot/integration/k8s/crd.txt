@@ -1,0 +1,10 @@
+2022
+RefactorFirst - How To Create Kubernetes Controller Using Spring Boot of 10:51
+    https://www.youtube.com/watch?v=EYZcRbQTqaI
+    https://github.com/amrutprabhu/kubernetes-custom-resource/tree/main/kubernetes-controller
+    https://refactorfirst.com/java-spring-boot-kubernetes-controller
+RefactorFirst - How to Create a Kubernetes Custom Resource Definition (CRD) - Part 1 of 9:21
+    https://www.youtube.com/watch?v=jQ458wlGgPo
+    ? k8s can "edit" crd
+    https://refactorfirst.com/create-kubernetes-custom-resource-definition-crd
+    https://github.com/amrutprabhu/kubernetes-custom-resource/tree/main/crd

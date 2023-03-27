@@ -1,0 +1,141 @@
+Help mode (indicator Help) commands:
+
+key             binding
+---             -------
+
+C-c		Prefix Command
+
+TAB		forward-button
+M-TAB		backward-button
+
+RET		help-follow
+  (that binding is currently shadowed by another mode)
+ESC		Prefix Command
+<backtab>	backward-button
+<mouse-2>	help-follow-mouse
+
+C-c C-b		help-go-back
+C-c C-f		help-go-forward
+C-c C-c		help-follow-symbol
+
+
+
+View minor mode (indicator View) commands:
+
+key     binding
+---     -------
+
+H, h, ? This message.
+Digits	provide prefix arguments.
+-	negative prefix argument.
+<	move to the beginning of buffer.
+>	move to the end of buffer.
+o	scroll so that buffer end is at last line of window.
+SPC	scroll forward "page size" lines.
+	  With prefix scroll forward prefix lines.
+DEL	scroll backward "page size" lines.
+	  With prefix scroll backward prefix lines.
+z	like  SPC  but with prefix sets "page size" to prefix.
+	w	like  DEL  but with prefix sets "page size" to prefix.
+d	scroll forward "half page size" lines.  With prefix, sets
+	  "half page size" to prefix lines and scrolls forward that much.
+u	scroll backward "half page size" lines.  With prefix, sets
+	  "half page size" to prefix lines and scrolls backward that much.
+RET, LFD  scroll forward one line.  With prefix scroll forward prefix line(s).
+y	scroll backward one line.  With prefix scroll backward prefix line(s).
+F	revert-buffer if necessary and scroll forward.
+	  Use this to view a changing file.
+=	prints the current line number.
+%	goes prefix argument (default 100) percent into buffer.
+g	goes to line given by prefix argument (default first line).
+.	set the mark.
+x	exchanges point and mark.
+@	return to mark and pops mark ring.
+	  Mark ring is pushed at start of every successful search and when
+	  jump to line occurs.  The mark is set on jump to buffer start or end.
+m	save current position in character register.
+'	go to position saved in character register.
+s	do forward incremental search.
+r	do reverse incremental search.
+/	searches forward for regular expression, starting after current page.
+	  ! and @ have a special meaning at the beginning of the regexp.
+	  ! means search for a line with no match for regexp.  @ means start
+	  search at beginning (end for backward search) of buffer.
+\	searches backward for regular expression, starting before current page.
+n	searches forward for last regular expression.
+p	searches backward for last regular expression.
+q	quit View mode, restoring this window and buffer to previous state.
+	  q is the normal way to leave view mode.
+e	exit View mode but stay in current buffer.  Use this if you started
+	  viewing a buffer (file) and find out you want to edit it.
+	  This command restores the previous read-only status of the buffer.
+E	exit View mode, and make the current buffer editable
+	  even if it was not editable before entry to View mode.
+Q	quit View mode, restoring all windows to previous state.
+c	quit View mode and maybe switch buffers, but don't kill this buffer.
+C	quit View mode, kill current buffer and go back to other buffer.
+
+
+Info
+q
+	Quit
+h
+	Help on info usage
+d
+	Return to the info directory
+l
+	Go to the last node you visited (like a browser back button)
+n
+	Move to the next topic at this level.
+p
+	Move to the previous topic at this level (not like a browser back button).
+	If there is no previous topic, move up a level.
+u
+	Up
+t
+	Go to top node
+Space
+	Scroll forward
+PgUp
+Del
+	Scroll backward
+s
+	Search for a reg-exp
+
+
+
+Buffer List (Buffer Menu)
+(4.5.5 Working with the Buffer List)
+
+g -- update the list of buffers.
+
+n, C-n (,spc) - move down
+p, C-p (,del) - move up
+
+f, ret - select current line's buffer in place of the buffer menu (open buffer in this window)
+o - select buffer in another window (buffer menu remains opened)
+C-o - select buffer in another window, but does not put cursor there
+q - quit buffer list
+
+m - mark current line buffer to be displayed (each in new window)
+v - select current line's buffer and (also buffers marked with m) in new windows
+
+M-s a C-s -- Do incremental search in the marked buffers.
+M-s a C-M-s -- Isearch for regexp in the marked buffers.
+
+t -- visit-tags-table this buffer.
+s -- mark that buffer to be saved, and move down.
+
+k,d, C-k -- mark that buffer to be deleted, and move down.
+C-d -- mark that buffer to be deleted, and move up.
+b - bury the buffer ???
+
+x -- delete or save marked buffers (and exit).
+u -- remove all kinds of marks from current line (unmark buffer).
+  With prefix argument, also move up one line.
+
+~ -- clear modified-flag on that buffer (lie to emacs that the buffer is not modified).
+% - toggle read-only status
+
+1 - display buffer in full-screen window
+2 - Display this buffer and the next one in horizontal windows.

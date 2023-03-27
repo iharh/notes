@@ -1,0 +1,26 @@
+https://github.com/ftilde/ugdb
+
+aur/ugdb
+    https://aur.archlinux.org/packages/ugdb/
+
+https://crates.io/crates/unsegen
+https://docs.rs/unsegen
+https://github.com/ftilde/unsegen
+
+https://crates.io/crates/unsegen_pager
+https://docs.rs/unsegen_pager
+https://github.com/ftilde/unsegen_pager
+
+https://crates.io/crates/unsegen_jsonviewer
+https://docs.rs/unsegen_jsonviewer
+https://github.com/ftilde/unsegen_jsonviewer
+
+https://crates.io/crates/unsegen_signals
+https://docs.rs/unsegen_signals
+https://github.com/ftilde/unsegen_signals
+
+https://crates.io/crates/unsegen_terminal
+https://docs.rs/unsegen_terminal
+https://github.com/ftilde/unsegen_terminal
+
+https://github.com/ftilde/vim-ugdb

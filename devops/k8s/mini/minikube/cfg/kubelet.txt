@@ -1,0 +1,22 @@
+# non-exist
+# --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf
+
+# ? insufficient
+# --fail-swap-on=false 
+# --client-ca-file=/var/lib/minikube/certs/ca.crt
+
+# unknown
+--cadvisor-port=0
+
+# deprecated
+# --allow-privileged=true
+# --cgroup-driver=cgroupfs
+# --pod-manifest-path=/etc/kubernetes/manifests
+# --cluster-domain=cluster.local
+# --authorization-mode=Webhook
+
+/usr/bin/kubelet  --kubeconfig=/etc/kubernetes/kubelet.conf
+
+# --hostname-override=minikube
+# --cluster-dns=10.96.0.10
+

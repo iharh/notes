@@ -1,0 +1,52 @@
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing/the-golden-rule-of-rebasing
+https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa
+
+git rebase -p <origin/feature>
+    preserve ... ???
+
+git config --global rerere.enabled = true
+    rerere - reuse recorded resolution
+
+git log ..master
+
+git rebase [-i] <from-branch>
+    <from-branch> is typically just master
+    resolve the conflicts, if any, ...
+
+
+another usage of rebase is history manipulation
+
+git rebase -i <commit-final>
+              HEAD~4
+    start interactive rebase (and specify commit to squish into).
+
+    stage 1 - edit a stuff in editor:
+
+    pick <id1> log1
+    pick <id2> log2
+    squash <idN>
+    pick <id3> log3
+
+    pick
+        leave as is
+    s[quash]
+        keep the commit message, merge the commit output
+    edit
+        edit the files in the commit (we go into a detached HEAD state for doing this)
+        then - git rebase --continue
+    reword
+        change the commit message only
+    squash
+        keep the commit message
+    fixup
+        like squash, but throw-away the commit message
+    <delete the line>
+        drop the commit from the history (graph), but we can 
+    <reorder lines>
+        reorder commits
+
+    # Rebase <id-start>..<id-end> onto <commit-final>
+
+
+    stage 2 - edit the cummulative note
+        Note: everything started from # will be ignored

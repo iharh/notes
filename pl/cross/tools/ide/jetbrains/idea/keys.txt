@@ -1,0 +1,68 @@
+https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
+
+2019
+https://habr.com/ru/company/otus/blog/467903/
+
+Editing
+C-I
+    Implement method
+C-O
+    Override method
+C-S-Space
+    SmartType completion
+A-Ins
+    Generate getters/setters
+C-/
+    Comment out code block with //
+C-S-/
+    Comment out code block with /*...*/
+C-P
+    list of valid params
+
+Navigate
+C-A-Left
+    Navigate back
+C-S-Bakcspace
+    Navigate to the last editing place
+A-Up/Down
+    Navigate to prev/next method
+C-A-Up/Down
+    Navigate to prev/next compiler error
+S-F2
+    ? -//-
+C-S-A
+    ???
+    Find any arbitrary function by name
+C-B
+    Go to Declaration
+C-A-S-N
+    Navigate|Symbol
+A-F7
+    Edit|Find|Find Usages
+C-F12
+    Navigate|File Structure
+C-S-F7
+    Highlight usages of some var in the current file
+F3, S-F3
+    Navigate through the highlighted usages
+C-G
+    Go to line by <number>
+
+Debugging
+
+F8
+    Step Over
+C-F8
+    Toggle Breakpoint
+C-S-F8
+    View Breakpoints
+
+Compile and Run
+
+F9
+    Debug/Resume
+
+Help
+
+S-F1
+    External Help

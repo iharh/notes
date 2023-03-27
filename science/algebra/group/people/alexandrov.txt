@@ -1,0 +1,132 @@
+Alexandrov - Groups Theory Intro.djvu
+
+Page 33.
+  (ab)^-1 = b^-1*a^-1
+
+  ab(b^-1a^-1) = a(bb^-1)a^-1 = aa^-1 = 1
+
+
+
+Page 85.
+  Group element b^-1ab is called a "transformation of a using b".
+
+  When does the following holds???
+    a = b^-1ab
+    
+  Iff (if and only if) the elements commute:
+    ab = ba
+
+  Multiplying left by b^-1 having:
+    b^-1ab = a
+
+
+Lema 1 (Conjugation elements symmetry)
+  If elt-b is a transformation of elt-a using elt-c
+    b = c^-1ac
+  Then elt-a is a transformation of elt-b uscing elt-(c^-1):
+    cbc^-1 = a
+    a = (c^-1)^-1bc
+
+Def (Conjugate elements)
+  If one group element is a transformation of the other - they are called conjugant.
+
+
+Lema 2 (Conjugate elements transitivity).
+  If elt-a is adjoint with elt-b, which is adjoint with elt-d,
+  then elt-a is ajdoint with elt-d.
+
+  b = c^-1ac
+  b = e^-1de
+
+  So,
+
+  c^-1ac = e^-1de
+
+  a = (ce^-1)d(ec^-1) = { p. 33.} = (ec^-1)^-1d(ec^-1)
+
+  In other words, a is a transformation of d usint elt-(ec^-1).
+
+Lema 3 (Adjoint elements reflexivity)
+  Every elt-a is adjoint to itself:
+
+  a = 1^-1a1
+
+Theorem 1 (Conjugacy classes)
+  Conjugant relation splits group G to the set of equivalence-classes.
+  Note: Class of neutral el-t 1 consists only of 1-itself:
+    a^-1*1*a = 1  for all a
+
+
+Def (subgroup transformation)
+  Conside H - subgroup of G.
+  Let's fix some el-t b of G.
+
+  We call group transformation b^-1Hb a set of
+
+  b^-1Hb = { b^1xb | x of H }
+
+  We can prove (p. 91) that b^-1Hb is indeed a group.
+
+
+It is obvious that H is isomorphic to b^-1Hb.
+
+Theorem 2.
+  Transformation of subgroup H (of group G) using el-t b of G
+  is a subgroup of G, isomorphic to H.
+
+Note 1: If H is a subgroup of commutative/abelian group G.
+  then subgroup transformation of H using any b of G is H itself
+
+  b^-1xb = {commutativity} b^-1bx = x
+
+Note 2: For every group G and subgroup H, if b belongs to H, then
+
+  b^-1Hb = H
+
+  since b^-1xb belongs to H
+
+Note 3: If subgroup H_2 is a transformation of H_1 using b,
+  then H_1 is a transformation of H_2 using b^-1
+
+Def (Conjugative subgroups)
+  Two subgroups of group G are called conjugative if one of them is a transformation of another.
+
+
+Conjugation relation splits subgroups to the equivalence-classes.
+
+
+Invariant/Normal subgroup
+
+Def 1. If subgroup H of G has no conjugative subgroup (except itself), then it is called
+  normal or invariant subgroup.
+
+  In other words - transformation of any element of H, using any element of G, belongs to H.
+
+
+Example: any subgroup of commutative-abelian group is normal/invariant.
+
+
+Homomorphisms and Kernel
+
+Page 97...
+
+Page 99.
+
+Kernel of homeomorhic group morphism:
+  f : A -> B
+  f(ab) = f(a) f(b)
+
+if the set
+  a of A, such that
+  f(a) = 1_B
+
+In other words, Kernel(f) = f^-1(1_B).
+
+Page 111 - Factor groups...
+
+Page 113.
+
+If U is some normal/invarian gubgroup of G, the set of equivalence-classes V
+is a group itself (U is a neutral element).
+Group V is called a factor-group of G.
+

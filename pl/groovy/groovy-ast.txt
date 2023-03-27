@@ -1,0 +1,100 @@
+package devoxx.demo
+
+import org.codehaus.groovy.transform.GroovyASTTransformationClass
+
+import java.lang.annotation.ElementType
+import java.lang.annotation.Retention
+import java.lang.annotation.RetentionPolicy
+import java.lang.annotation.Target
+
+@Retention(RetentionPolicy.SOURCE)
+@Target(ElementType.TYPE)
+@GroovyASTTransformationClass("devoxx.demo.MagicNumberTransformation")
+@interface MagicNumber {
+}
+
+
+@MagicNumber
+class Foo {
+}
+
+class MagicNumberTransformationSpec extends Specification {
+    void 'test MagicNumber annotation'() {
+        given:
+            def foo = new Foo()
+        expect:
+            42 == foo.magicNumber
+    }
+}
+
+package devoxx.demo
+
+import org.codehaus.groovy.ast.ASTNode
+import org.codehaus.groovy.ast.ClassNode
+import org.codehaus.groovy.ast.MethodNode
+import org.codehaus.groovy.ast.Parameter
+import org.codehaus.groovy.ast.expr.ConstantExpression
+import org.codehaus.groovy.ast.stmt.ReturnStatement
+import org.codehaus.groovy.control.SourceUnit
+import org.codehaus.groovy.transform.ASTTransformation
+import org.codehaus.groovy.transform.GroovyASTTransformation
+
+@GroovyASTTransformation
+class MagicNumberTransformation implements ASTTransformation {
+    @Override
+    void visit(ASTNode[] nodes, SourceUnit source) {
+        ClassNode classNode = nodes[1] // 0 - annotation node, 1 - Foo-class-node
+
+        def code = new ReturnStatement(
+            new ConstantExpression(42)
+        )
+
+        def mn = new MethodNode("getMagicNumber", Modifier.PUBLIC
+            , ClassHelper.make(Integer) // return-type
+            , new Parameter[0]          // no-params
+            , null                      // don't throw any ex
+            code
+        )
+
+        classNode.addMethod(mn)
+    }
+}
+
+OOB AST transformations:
+@Delegate
+@Immutable
+@PackageScope
+@Singleton
+
+class SomeThing {
+    @Delegate
+    Map props = [:]
+    // The @Delegate will add all the Map-methods to SomeThing and delegate them to props
+    // But, of cause, we can override a generated behaviour
+}
+
+************************
+
+@GroovyASTTransformation
+class MagicNumberTransformation implements ASTTransformation {
+    @Override
+    void visit(ASTNode[] nodes, SourceUnit source) {
+        ClassNode classNode = nodes[1] // 0 - annotation node, 1 - Foo-class-node
+
+        def astNodes = new AstBuilder().buildFromSpec(
+            method('getMagicNumber', Modifier.PUBLIC, Integer) {
+                parameters {}
+                exceptions {}
+                block {
+                    returnStatement {
+                        return 42
+                    }
+                }
+            }
+        )
+
+        def method = astNodes[0]
+        classNode.addMethod(method)
+    }
+}
+

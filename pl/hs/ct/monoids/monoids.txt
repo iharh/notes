@@ -1,0 +1,18 @@
+Yorgey - Monoids - Theme and Variations slides
+Kmett - Introduction to Monoids
+Data Analysis with monoids (http://twdkz.wordpress.com/2013/05/31/data-analysis-with-monoids/)
+Blazevic - Adding Structure to Monoid
+
+1. Endo
+
+http://twdkz.wordpress.com/2013/05/31/data-analysis-with-monoids/
+
+-- | The monoid of endomorphisms under composition.
+newtype Endo a = Endo { appEndo :: a -> a }
+
+instance Monoid (Endo a) where
+        mempty = Endo id
+        Endo f `mappend` Endo g = Endo (f . g)
+
+2020
+http://www.haskellforall.com/2020/04/blazing-fast-fibonacci-numbers-using.html

@@ -1,0 +1,26 @@
+https://crates.io/crates/thiserror
+https://docs.rs/thiserror
+https://github.com/dtolnay/thiserror
+
+2021
+https://dev.to/seanchen1991/a-beginner-s-guide-to-handling-errors-in-rust-40k2
+https://edgarluque.com/blog/wrapping-errors-in-rust
+2020
+https://www.reddit.com/r/rust/comments/fw4jsx/from_failure_to_fehler/
+2019
+https://www.reddit.com/r/rust/comments/dfkwfo/announcing_thiserror_a_convenient_modern/
+
+samples
+https://github.com/chmln/handlr/blob/master/src/error.rs
+    !!!
+    #[derive(Debug, thiserror::Error)]
+    pub enum Error {
+        #[error(transparent)]
+        Parse(#[from] pest::error::Error<crate::common::Rule>),
+        #[error(transparent)]
+        Io(#[from] std::io::Error),
+        #[error("no handler defined for this mime/extension")]
+        NotFound,
+        #[error("badly-formatted desktop entry")]
+        ...
+    }

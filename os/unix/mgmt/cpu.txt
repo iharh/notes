@@ -1,0 +1,6 @@
+http://www.cyberciti.biz/faq/linux-get-number-of-cpus-core-command/
+
+CPU:
+nproc
+alias cpuinfo='lscpu'
+cat /proc/cpuinfo

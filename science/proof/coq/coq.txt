@@ -1,0 +1,90 @@
+scoop
+    coq
+
+Vocab
+
+ltac - for defining custom tactics.
+
+
+Known tactics:
+
+simpl                 - proof by simplification (by evaluation or beta-reduction)
+  simpl in <H>        - simplify in hypothersis <H>
+reflexivity           - (a == a)
+intros <n>            - fixes a quantified forall-variable
+rewrite -> [n] <H>    - if we are assuming [a = b], then we can replace [a] with [b] in the goal statement and obtain
+                        an equality with the same expression on both sides (with the hypothesis H : a = b
+                        or prev-proofed theorem)
+                        optional parameter [n] - is the number of rewrites
+                        -> - for rewriting from left to right, <- -//- right to left
+destruct n as [a|b]   - consider the cases separately (a, b - intros pattern)
+         (expr)          n can be any expression...
+
+induction n as [a|b]  - induction
+
+assert (H: 0 + n = n) - inline theorem
+    Case "Proof of assertion". simpl. reflexivity.
+
+assert (0 + n = n) as H
+
+apply                 - rewrite + reflexivity, backward reasoning.
+  apply L in <H>      - forward reasoning for cond. statement [L] (of the form [L1 -> L2]).
+--------------------------------------------
+Implication - вывод.
+Premise     - предпосылка.
+
+(** The [apply] tactic also works with _conditional_ hypotheses
+    and lemmas: if the statement being applied is an implication, then
+    the premises of this implication will be added to the list of
+    subgoals needing to be proved. *)
+
+Theorem silly2 : forall (n m o p : nat),
+     n = m  ->
+     (forall (q r : nat), q = r -> [q,o] = [r,p]) ->
+     [n,o] = [m,p].
+Proof.
+  intros n m o p eq1 eq2. 
+  apply eq2.
+  apply eq1.
+Qed.
+--------------------------------------------
+
+symmetry              - switches the left and right sides of an equality in the goal.
+
+unfold <f1, ...>      - unfold function[s] definition[s].
+fold                  - used to "unexpand" a definition
+
+inversion <pred>
+                      - invert the equality of <pred> using injectivity and disjointness of c-tors
+                        [forall (n m : nat), S n = S m -> n = m]
+
+
+
+
+Types:
+
+Type              - Type variable (Inductive bla_bla(X : Type) : Type := ...)
+
+Theorem <name>    - works on Prop (propositions), we need to proof the proposition (theorem) to be true.
+Definition <name> - works on Prop (propositions), we don't need to prove this
+
+
+
+
+Queries
+
+Check      - print a type of a term
+
+Print      - prints a value of identifier (definition)
+
+Search     - print all facts using the identifier
+  SearchPattern      - search by template
+  SearchAbout <func> - search all the theorems about <func>
+
+
+Eval       - evaluates [compute | cbv | lazy | hnf | simpl | fold | unfold]
+  Eval simpl in (forall n:nat, 0 + n = n).
+
+Extraction - extraction of code
+  Extraction Language [Haskell|Ocaml]
+  Extraction <func_name>.

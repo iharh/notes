@@ -1,0 +1,50 @@
+https://reactjs.org/docs/render-props.html
+https://github.com/the-road-to-learn-react/react-slot-pattern-example
+
+2018
+https://nuancesprog.ru/p/2623/
+https://css-tricks.com/an-overview-of-render-props-in-react/
+https://tylermcginnis.com/react-render-props
+https://blog.bitsrc.io/understanding-react-render-props-and-hoc-b37a9576e196
+https://tylermcginnis.com/react-render-props
+https://www.robinwieruch.de/react-render-props-pattern/
+    https://www.robinwieruch.de/react-state-without-constructor/
+    https://github.com/the-road-to-learn-react/react-children-as-a-function-example
+https://engineering.dollarshaveclub.com/learn-render-props-by-example-da3e2524dd2e
+    https://habr.com/post/418863/
+https://blog.kentcdodds.com/when-to-not-use-render-props-5397bbeff746
+https://www.richardkotze.com/coding/hoc-vs-render-props-react
+2017
+https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce
+
+
+class PayPalLauncher extends React.Component {
+    launchPayPal = () => { ... }
+
+    render = () => this.props.children(this.launchPayPal)
+}
+
+class Page extends React.Component {
+    registerUser = () => { ... }
+    validateForm = () => { ... }
+
+    render = () => (
+        <PayPalLauncher>
+            {launchPayPal => <PayPalButton onClick={
+                pipe(
+                    this.registerUser,
+                    this.validateForm,
+                    launchPayPal
+                )}
+            />}
+        </PayPalLauncher>
+    )
+}
+
+instead of elements, we pass a function as a child to PayPalLauncher
+
+samples
+https://blog.kentcdodds.com/introducing-downshift-for-react-b1de3fca0817
+https://github.com/paypal/downshift
+https://ianstormtaylor.github.io/react-values
+https://github.com/ianstormtaylor/react-values

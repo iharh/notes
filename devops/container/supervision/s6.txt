@@ -1,0 +1,13 @@
+https://skarnet.org/software/s6/
+https://skarnet.org/software/s6/overview.html
+https://skarnet.org/software/s6/s6-envdir.html
+
+https://github.com/just-containers/s6-overlay
+
+2014
+https://blog.tutum.co/2014/12/02/docker-and-s6-my-new-favorite-process-supervisor/
+
+samples
+/usr/bin/withcontenv
+    https://github.com/just-containers/s6-overlay#container-environment
+    https://stackoverflow.com/questions/57342546/what-is-the-source-of-a-with-contenv-shebang

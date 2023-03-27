@@ -1,0 +1,25 @@
+Type System:
+Galichet - Demystifying Scala Type System - http://www.slideshare.net/dgalichet/demystifying-scala-type-system
+http://www.slideshare.net/dhinojosa/scala-demystifyingfunkystuff
+http://ktoso.github.io/scala-types-of-types/
+
+Tuples:
+(T_1, ..., T_n) is an abbrev for scala.Tuple_n[T_1, ..., T_n)
+
+CBN, CBV:
+def someFunc(cbv: Int, cbn: => Int) = ?
+
+
+Preserve Specific Types:
+
+def foo(s: Seq[A]): Seq[A] = ?
+vs.
+def foo[T <: Seq[A]](s: T): T = ?
+
+
+Case classes
+
+Scala automatically adds a companion objects for case-classes (with apply methods which encapsulate new ...).
+
+Recursive types:
+http://blog.originate.com/blog/2014/02/27/types-inside-types-in-scala/

@@ -1,0 +1,19 @@
+https://aws.amazon.com/iam/
+https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
+https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html
+
+
+https://docs.aws.amazon.com/IAM/latest/APIReference/welcome.html
+https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html
+
+problems
+https://aws.amazon.com/premiumsupport/knowledge-center/troubleshoot-iam-policy-issues/
+
+aws
+    iam
+        list-access-keys
+        create-access-key
+        get-user

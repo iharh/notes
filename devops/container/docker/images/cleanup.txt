@@ -1,0 +1,10 @@
+https://stackoverflow.com/questions/38118791/can-t-delete-image-with-children
+
+docker rmi $(docker images -q -f "dangling=true")
+
+delete all images
+
+sudo docker rmi -f $(sudo docker images -q)
+
+2020
+https://nuancesprog.ru/p/9730/

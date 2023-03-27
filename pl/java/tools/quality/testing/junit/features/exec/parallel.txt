@@ -1,0 +1,40 @@
+https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/parallel/Execution.html
+
+http://antkorwin.com/junit5/junit5_parallel_execution.html
+    https://github.com/antkorwin/junit5-prallel-execution
+
+https://www.swtestacademy.com/junit5-parallel-test-execution/
+
+src/test/resources/junit-platform.properties
+
+junit.jupiter.extensions.autodetection.enabled = true
+junit.jupiter.execution.parallel.enabled=true
+junit.jupiter.execution.parallel.mode.default=threaded
+#concurrent
+junit.jupiter.execution.parallel.config.strategy=fixed
+#dynamic
+junit.jupiter.execution.parallel.config.fixed.parallelism=4
+junit.jupiter.execution.parallel.mode.classes.default=threaded
+#concurrent
+
+https://junit.org/junit5/docs/current/api/org/junit/platform/engine/support/hierarchical/ParallelExecutionConfigurationStrategy.html
+
+at test file
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+ 
+@Execution(ExecutionMode.CONCURRENT)
+public class LoginTest extends BaseTest {
+    @Tag("stress")
+    ...
+    @RepeatedTest(value = 10, name = "{displayName} {currentRepetition}/{totalRepetitions}")
+    void testTagged() throws Exception {
+        System.out.println("one more! " + Thread.currentThread().getName());
+        assertThat(true).isTrue();
+        Thread.sleep(1000);
+    }
+
+}
+
+cat ...\build\test-results\test\TEST-<package>.<class>.xml

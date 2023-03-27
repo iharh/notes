@@ -1,0 +1,6 @@
+http://blog.johantibell.com/2012/08/a-new-fast-and-easy-to-use-csv-library.html
+http://blog.johantibell.com/2012/11/streaming-and-incremental-csv-parsing.html
+
+Are there any chances on Unicode/Utf8 support?
+Already supported.
+Use the ToField/FromField instances for Text.

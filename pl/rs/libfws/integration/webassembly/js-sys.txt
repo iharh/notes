@@ -1,0 +1,10 @@
+https://crates.io/crates/js-sys
+https://crates.io/crates/wasm-bindgen-test
+https://docs.rs/js-sys
+https://rustwasm.github.io/wasm-bindgen/web-sys.html
+https://github.com/rustwasm/wasm-bindgen/tree/master/crates/js-sys
+
+https://github.com/rustwasm/wasm-bindgen/issues/275
+
+2018
+https://rustwasm.github.io/2018/07/26/announcing-the-js-sys-crate.html

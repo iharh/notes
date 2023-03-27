@@ -1,0 +1,10 @@
+https://shredzone.org/maven/acme4j/
+https://github.com/shred/acme4j
+    CHALLENGE_TYPE - HTTP (Challenge)
+
+https://shredzone.org/maven/acme4j/acme4j-client/index.html
+https://github.com/shred/acme4j/tree/master/acme4j-client
+
+org.shredzone.acme4j.ClientTest
+
+https://github.com/shred/acme4j/blob/master/acme4j-example/src/main/java/org/shredzone/acme4j/ClientTest.java

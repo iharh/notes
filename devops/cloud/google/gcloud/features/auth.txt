@@ -1,0 +1,20 @@
+https://cloud.google.com/docs/authentication/
+https://cloud.google.com/container-registry/docs/advanced-authentication
+
+ADC - application default credentials
+https://developers.google.com/identity/protocols/application-default-credentials
+https://developers.google.com/accounts/docs/application-default-credentials
+
+https://cloud.google.com/sdk/auth_success
+
+credentials
+https://support.google.com/googleapi/answer/6158857
+oauth2:
+https://support.google.com/googleapi/answer/6158849
+
+gcloud
+
+auth
+    application-default print-access-token 
+    configure-docker
+        $HOME/.docker/config.json

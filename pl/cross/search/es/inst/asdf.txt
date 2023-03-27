@@ -1,0 +1,10 @@
+https://github.com/asdf-community/asdf-elasticsearch.git
+https://github.com/asdf-community/asdf-elasticsearch/tree/master/bin
+
+asdf install elasticsearch 7.16.3
+
+files
+~/.asdf/
+    shims
+    installs/elasticsearch/7.16.3/bin/elasticsearch
+    installs/elasticsearch/7.16.3/config

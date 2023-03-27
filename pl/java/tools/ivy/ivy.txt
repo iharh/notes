@@ -1,0 +1,88 @@
+terminology:
+http://ant.apache.org/ivy/history/latest-milestone/terminology.html
+
+tutorials:
+http://ant.apache.org/ivy/history/latest-milestone/tutorial.html
+
+reference:
+http://ant.apache.org/ivy/history/latest-milestone/reference.html
+
+ant-tasks:
+http://ant.apache.org/ivy/history/latest-milestone/ant.html
+http://ant.apache.org/ivy/history/latest-milestone/use/retrieve.html
+
+
+module can have multiple artifacts
+
+    <configurations>
+        ...
+        <conf name="exe"/>
+    </configurations>
+
+    <dependencies>
+        ...
+        <dependency org="Clarabridge" name="build_morph" e:platform="${target.platform}" rev="latest.integration" conf="exe->lib" ext="${executable.suffix}" transitive="false" />
+        ...
+    </dependencies>
+
+        <dependency org="Clarabridge" name="FactTuner" e:platform="${target.platform}" rev="latest.integration" conf="dependency-exe->publish" transitive="true">
+            <include type="exe" />
+        </dependency>
+
+    ...
+        <ivy:retrieve pattern="${target.dir}/${target.platform}/lib/[artifact].[ext]" conf="lib" type="lib" sync="true"/>
+        <ivy:retrieve pattern="${target.dir}/${target.platform}/lib/[artifact].[ext]" conf="exe" type="exe" sync="false"/>
+
+
+
+
+
+Articles:
+http://olmex.blogspot.in/2012/04/ivy-beginners-guide.html
+http://www.codetab.org/apache-ivy-tutorial/
+
+Configurations:
+http://ant.apache.org/ivy/history/latest-milestone/ivyfile/configurations.html
+
+ModuleConfig:
+http://ant.apache.org/ivy/history/latest-milestone/tutorial/conf.html
+
+
+<dependency .../>
+  transitive="false" - to avoid transitive resolution
+
+Ivycache
+by default is at $HOME/.ivy2
+
+<ivy:resolve> is automatically called by <ivy:cachepath ...>, <ivy:retrieve ...> if not directly specified.
+
+<ivy:retrieve .../>
+  sync="true" - to delete any extra files at lib dir
+  type="jar"  - to copy jar-artifacts only
+       "jar,bundle"
+  pattern="myfolder/[artifact]-[revision].[ext]" - change location where to put retrieved files
+    [organization]
+    [module]
+    [revision]
+    [artifact]
+    [type]
+    [ext]
+    [conf]
+
+
+ivysettings.xml
+  to override default settings
+(ivy-...jar!/org/apache/ivy/core/settings/ivysettings.xml)
+...
+<ivysettings>
+	<settings defaultResolver="default"/>
+	<include url="${ivy.default.settings.dir}/ivysettings-public.xml"/>
+	<include url="${ivy.default.settings.dir}/ivysettings-shared.xml"/>
+	<include url="${ivy.default.settings.dir}/ivysettings-local.xml"/>
+	<include url="${ivy.default.settings.dir}/ivysettings-main-chain.xml"/>
+	<include url="${ivy.default.settings.dir}/ivysettings-default-chain.xml"/>
+</ivysettings>
+
+
+${ivy.default.ivy.user.dir} points to .ivy dir at user home.
+

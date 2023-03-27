@@ -1,0 +1,35 @@
+jlong JNICALL JNIModule::getMemoryUsage(JNIEnv* pEnv, jclass jCls)
+{
+    try
+    {
+#if defined(_WIN32) || defined(__WIN32__) || defined(WIN32) || defined(_WINDOWS)
+        jlong size = 0;
+        _HEAPINFO hInfo;
+        int status;
+        hInfo._pentry = NULL;
+        while ((status = _heapwalk(&hInfo)) == _HEAPOK)
+        {
+            if (_USEDENTRY == hInfo._useflag)
+                size += hInfo._size;
+        }
+        switch (status)
+        {
+        case _HEAPEMPTY:
+        case _HEAPEND:
+            return size;
+        default:
+            JNIUtils::ThrowJavaException(pEnv, "java/lang/RuntimeException", "Heap corrupted");
+        }
+#elif defined __unix__
+        struct mallinfo mem_info = ::mallinfo();
+        return (jlong)mem_info.arena;
+#else
+    #error "Unsupported platform"
+#endif
+    }
+    catch (...)
+    {
+        JNIUtils::ThrowJavaException(pEnv, "java/lang/RuntimeException", "Unknown reason");
+    }
+    return -1;
+}

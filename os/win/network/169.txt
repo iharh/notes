@@ -1,0 +1,9 @@
+Here's what I got back about the 169 IP's:
+
+"I spoke to Steven Stewart about this and he will follow up, though from what I can see there is nothing to be concerned about.
+As I was trying to convey below, IP addresses in this range “169.254.x.x” are generally auto-assigned when a NIC is set to use DHCP, but no DHCP service is available on the network it is connected.
+In this scenario, the OS auto-assigns itself an address in this range, after testing for possible IP conflicts.
+
+The odd thing in this case is that none of the physically present NICS in these boxes is setup this way, but a “phantom” NIC shows up from IPCONFIG and is indeed configured with an auto-assigned IP address."
+
+

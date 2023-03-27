@@ -1,0 +1,19 @@
+stack build
+HttpExceptionRequest Request {
+  host                 = "raw.githubusercontent.com"
+  port                 = 443
+  secure               = True
+  requestHeaders       = [("User-Agent","The Haskell Stack")]
+  path                 = "/fpco/stackage-content/master/stack/stack-setup-2.yaml"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothing
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+}
+ (ConnectionFailure Network.Socket.getAddrInfo (called with preferred socket type/protocol: AddrInfo {addrFlags = [AI_ADDRCONFIG], addrFamily = AF_UNSPEC, addrSocketType = Stream, addrProtocol = 0, addrAddress = <assumed to be undefined>, addrCanonName = <assumed to be undefined>}, host name: Just "raw.githubusercontent.com", service name: Just "443"): does not exist (Try again))
+
+https://github.com/commercialhaskell/stackage-content/blob/master/stack/stack-setup-2.yaml
+

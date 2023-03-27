@@ -1,0 +1,71 @@
+https://github.com/dlang/dub
+https://github.com/dlang/dub-registry
+
+http://code.dlang.org/download
+http://code.dlang.org/files/dub-1.8.0-setup.exe
+http://code.dlang.org/files/dub-1.8.0-windows-x86.zip
+https://chocolatey.org/packages/dub
+    pretty old 1.2.x
+
+https://code.dlang.org/packages/dubbio
+https://github.com/o3o/dubbio
+
+community
+    dub
+
+usage
+https://code.dlang.org/docs/commandline
+https://code.dlang.org/advanced_usage
+
+wiki
+https://github.com/dlang/dub/wiki
+https://github.com/dlang/dub/wiki/Version-management
+https://github.com/dlang/dub/wiki/Cookbook
+https://github.com/dlang/dub/wiki/DEP1
+
+2019
+https://dconf.org/2019/talks/lunesu.pdf
+
+
+sdl
+https://code.dlang.org/package-format?lang=sdl
+
+src
+https://github.com/dlang/dub/blob/master/source/dub/commandline.d
+
+files
+/var/lib/dub/packages/
+    local-packages.json
+~/.dub/packages/
+    local-packages.json
+
+samples
+dependency "entity" version="~>1.2.1"
+
+issues
+rdmd usage
+https://github.com/dlang/dub/issues/529
+
+dub
+    init <prj-name> -t vibe.d|...
+    upgrade
+        upgrade dependent libs
+    run <dub args> -- <app args>
+    list 
+        list all known local dependencies
+        [--bare]
+            just in a current dir
+    describe [package]
+        JSON build description for the root package an all of their dependencies
+    build
+        -c <cfg-name>
+            build a cfg-name
+
+cfg samples
+
+configuration "prjcreate" {
+    targetType "executable"
+    targetName "prjcreate"
+    targetPath "target"
+    sourcePaths "src-prjcreate"
+}

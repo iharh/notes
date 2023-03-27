@@ -1,0 +1,11 @@
+NAME                                    READY   STATUS    RESTARTS   AGE
+coredns-c4cffd6dc-kdzmx                 1/1     Running   1          1h
+etcd-minikube                           1/1     Running   0          11m
+kube-addon-manager-minikube             1/1     Running   1          1h
+kube-apiserver-minikube                 1/1     Running   0          12m
+kube-controller-manager-minikube        1/1     Running   1          11m
+kube-dns-86f4d74b45-s7bw7               3/3     Running   3          1h
+kube-proxy-2nm6n                        1/1     Running   1          1h
+kube-scheduler-minikube                 1/1     Running   1          1h
+kubernetes-dashboard-6f4cfc5d87-dvs4f   1/1     Running   2          1h
+storage-provisioner                     1/1     Running   1          1h

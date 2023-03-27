@@ -1,0 +1,2 @@
+git rm --cached <file>
+    stop tracing a tracked file

@@ -1,0 +1,32 @@
+$ lxappearance
+
+~/.gtkrc-2.0
+
+~/.config/gtk-3.0/settings.ini
+...
+gtk-theme-name="Menda"
+...
+
+--- Themes and keys
+
+gtk-theme-menda
+
+https://github.com/manjaro/release-plan/issues/43
+sudo pacman -Sy vertex-maia-themes vertex-maia-icon-theme xcursor-maia
+vertex-maia-themes:
+For seamless integration of Firefox and Palemoon browsers please copy the 'chrome' folder of the desired theme to your browser profile or create a symlink.
+For example:
+    ln -s /usr/share/themes/Firefox/Vertex-Maia/chrome ~/.mozilla/firefox/9shb6xj3.default/chrome
+    ln -s /usr/share/themes/Palemoon/Vertex-Maia-Dark/chrome/ ~/.moonchild\ productions/pale\ moon/<xyz123>.default/chrome
+
+
+icon theme:
+
+ls -la /usr/share/themes
+
+~/.config/openbox/rc.xml
+
+<theme>
+    <name>Bear-tangerine</name>
+    ...
+</theme>

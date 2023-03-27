@@ -1,0 +1,95 @@
+Escape characters in echo:
+
+echo -e "\e[43mHello\e[0m"]
+	put "Hello" text with yellow background.
+Note: \e[0m - just clears out all the effects
+
+
+Escape characters in zsh (prompts):
+
+surrounded by %{ and }%
+
+PS1=$'%{\e[31m\e[43m%}%1~%{\e[0m%}%# '
+
+Note: find a sample of title-bar modification
+
++-----------------+
+| Color | Fg | Bg |
++-------+----+----+
+| Black | 30 | 40 |
++-----------------+
+| Red   | 31 | 41 |
++-----------------+
+...
+
+
+Termcap abilities:
+
+print -n hello; echotc RI 32; print goodbye
+	print "hello" (-n - without a newline), then move right 32 chars, then - print goodbye
+
+Move to absolute position:
+cl
+	clear window and moves to the top
+ll
+	move the cursor to lower left of window
+ho
+	-//- top left
+cm
+	-//- row arg1, column arg2 from top left
+cr
+	-//- start of line
+
+Delete and Insert Text:
+cd
+	Clears from cursor to end of screen
+ce
+	Clears from cursor to end of line
+dc
+	Deletes one character, moving the remainder of the line left
+DC
+	Deletes arg characters, moving the remainder of the line left
+ec
+	Turns arg characters to spaces starting from cursor
+ic
+	Inserts one character, moving the remainder of the line right
+IC
+	Inserts arg characters, moving the remainder of the line right
+
+Move Cursor to Relative Position:
+up
+	Moves cursor up one line
+UP
+	Moves cursor up arg lines
+do
+	Moves cursor down one line
+DO
+	Moves cursor down arg lines
+le
+	Moves cursor left one character
+LE
+	Moves cursor left arg characters
+nd
+	Moves cursor right one character
+RI
+	Moves cursor right arg characters
+
+Enable and Disable Special Text Effects:
+md
+	Starts bold mode for text
+mr
+	Starts reverse mode for text
+so
+	Starts standout mode for text
+se
+	Ends standout mode for text
+us
+	Starts underlining text
+ue
+	Ends underlining text
+me
+	Ends all special text modes, return to normal text
+
+
+
+

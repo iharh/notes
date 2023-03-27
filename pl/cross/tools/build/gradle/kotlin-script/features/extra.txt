@@ -1,0 +1,29 @@
+modern:
+...
+extra["springCloudVersion"] = "2021.0.3"
+...
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+	}
+}
+
+
+https://docs.gradle.org/current/userguide/kotlin_dsl.html#extra_properties
+
+// gradle.properties
+myNewProperty=some-value
+
+val myNewProperty: String by extra  
+val myNewProperty: String by extra("new val")
+
+// println("Property: ${project.extra["myNewProperty"]}") 
+
+
+pluginManagement {
+  val helloPluginVersion: String by settings
+  plugins {
+    // define helloPluginVersion in gradle.properties
+    id("org.gradle.sample.hello") version "${helloPluginVersion}"  
+  }
+}

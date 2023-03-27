@@ -1,0 +1,23 @@
+Usage: scws [options] [input] [output]
+  -i <file|string> input string or filepath 
+                   (default: try to read from <stdin> everyline)
+  -o <file>        output filepath (default to <stdout>)
+  -c <charset>     set the charset (default: gbk)
+                   charset must been same with dictionary & ruleset
+  -r <file>        set the ruleset file (default: none)
+  -d <file>        set the dictionary file[s] (default: none)
+                   if there are multi files, split filepath use ':'
+                   if the file suffix is .txt, it will be treated as plain text dict.
+  -M <1~15>        use multi child words mode(ÖйúÈË->Öйú+ÈË+ÖйúÈË)
+                   1|2|4|8: short|duality|zmain|zall
+  -I               ignore the all mark symbol such as ,:
+  -A               show the word attribute
+  -E               import the xdb dict into xtree(memory)
+  -N               don't show time usage and warnings
+  -D               debug segment, see the segment detail
+  -U               use duality algorithm for single chinese
+  -t <NUM>         fetch the top words instead of segment
+  -a [~]<attr1,attr2,...>   prefix by ~ means exclude them.
+                   For topwords, exclude or include some word attrs
+  -v        Show the version.
+  -h        Show this page for help.

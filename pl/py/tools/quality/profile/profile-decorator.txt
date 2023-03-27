@@ -1,0 +1,12 @@
+def timeit(method):
+    def timed(*args, **kw):
+        ts = time.time()
+        logger.debug('%r (%r) enter' % (method.__name__, args)) # kw
+        result = method(*args, **kw)
+        te = time.time()
+        logger.debug('%r (%r) exit: %2.2f sec' % (method.__name__, args, te-ts)) # kw
+        return result
+
+    return timed
+
+    #@timeit

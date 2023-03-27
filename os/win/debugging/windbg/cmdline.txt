@@ -1,0 +1,28 @@
+--------------------------------------------------------------------------------------------------------------------
+LOGS
+--------------------------------------------------------------------------------------------------------------------
+
+  -loga <logfile> appends to a log file
+  -logau <logfile> appends to an Unicode log file
+  -logo <logfile> opens a new log file
+  -logou <logfile> opens a new Unicode log file
+
+
+--------------------------------------------------------------------------------------------------------------------
+SYMBOLS
+--------------------------------------------------------------------------------------------------------------------
+  -y <SymbolsPath> specifies the symbol search path (see _NT_SYMBOL_PATH)
+
+Specifies the symbol search path. Separate multiple paths with a semicolon (;).
+If the path contains spaces, it should be enclosed in quotation marks.
+
+--------------------------------------------------------------------------------------------------------------------
+COMMANDS
+--------------------------------------------------------------------------------------------------------------------
+
+  -c "<command>" executes the given debugger command at the first debugger
+                 prompt
+  -cf <file> specifies a script file to be processed at the first debugger
+             prompt
+  -cfr <file> specifies a script file to be processed at the beginning of a
+              session (including after .restart)

@@ -1,0 +1,11 @@
+https://morestina.net/blog/742/exploring-lock-free-rust-1-locks
+https://morestina.net/blog/749/exploring-lock-free-rust-2-atomics
+https://morestina.net/blog/784/exploring-lock-free-rust-3-crossbeam
+    https://crates.io/crates/crossbeam
+    https://docs.rs/crossbeam
+    https://github.com/crossbeam-rs/crossbeam
+    https://aturon.github.io/blog/2015/08/27/epoch/
+
+    https://crates.io/crates/coco
+    https://docs.rs/coco
+    https://github.com/stjepang/coco

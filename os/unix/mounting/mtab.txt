@@ -1,0 +1,19 @@
+https://qastack.ru/unix/514078/what-is-etc-mtab-in-linux
+https://unix.stackexchange.com/questions/514078/what-is-etc-mtab-in-linux
+    /etc/mtab thus has popularly become a symbolic link to /proc/mounts,
+    allowing programs that had hardwired that name to keep reading a mount table from that file,
+    which the programs that mounted and unmounted filesystems no longer have to explicitly do anything themselves to keep up to date. 
+    ...
+    Each process can nowadays have its own individual view of what is mounted,
+    and there are as a consequence now individual mounts files for each process in the procfs,
+    each process's own table being accessible to it via the self symbolic link as self/mounts,
+    and /proc/mounts is also now a compatibility mechanism.
+
+yay -Qo /etc/mtab
+    -> filesystem
+
+l /etc/mtab
+lrwxrwxrwx 1 root root     /etc/mtab -> ../proc/self/mounts
+
+sudo rm /etc/mtab
+sudo ln -s /proc/self/mounts /etc/mtab

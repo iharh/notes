@@ -1,0 +1,8 @@
+https://github.com/svanderburg/nix-patchtools
+    autopatchelf
+
+elf-patch
+2018
+https://sandervanderburg.blogspot.com/2018/10/auto-patching-prebuilt-binary-software.html
+2015
+https://sandervanderburg.blogspot.com/2015/10/deploying-prebuilt-binary-software-with.html

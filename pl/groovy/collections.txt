@@ -1,0 +1,102 @@
+https://docs.groovy-lang.org/next/html/documentation/working-with-collections.html
+https://docs.groovy-lang.org/latest/html/groovy-jdk/java/util/Collection.html
+
+def nums = [3, 1, 4, 1, 5, 9]
+assert nums.class.name == java.util.ArrayList
+// !!! not an ArrayList<Integer>
+// we can use nums = [3, 1, 4, ..., 'abc']
+
+def nums = [3, 1, 4, 1, 5, 9] as LinkedList
+  ... as Set/SortedSet, using collection c-tor with arg-t of another col-n type
+
+for (int i = 0; i < nums.size(); ++i)
+    ...
+for (Integer n : nums)
+    ...
+for (n in nums)
+    ...
+nums.each { println it }
+nums.each { n -> println n }
+nums.eachWithIndex { n, idx -> println "nums[$idx] == $n" }
+
+def doubles = []
+nums.each { doubles << it * 2 } // << - append
+num.collect { it * 2 }     // map
+   .findAll { it % 3 == 0} // filter
+   .sum()                  // reduce
+
+List string = 'this is a list of strings'.split()
+assert strings.collect { it[0] } == ['t', 'i', 'a', 'l', 'o', 's'] 
+assert strings*.size() == [4, 2, 1, 4, 2, 7] 
+
+.. collect(closure).sum
+    is the same as
+.sum(closure)
+    also
+nums*.multiply(2).sum
+
+nums.inject(0) { acc, val -> acc + 2 * val }  // inject/fold/reduce
+
+nums * 2  // double the collection
+
+
+groovy Collections (with s):
+sort(List<T> list)
+    destructive sort
+sort(strings, new Comparator<String() { int compare(String s1, String s2) { s1.size() <=> s2.size() }})
+assert strings*.size() == [1, 2, 2, 4, 4, 7]
+
+groovy Iterable.sort
+    non-destructive sort
+
+// 2-args-closure
+strings.sort(false) { s1, s2 -> s2.size() <=> s1.size() }
+
+// otherwise, the Closure is assumed to take a single param and return a Comparable (typically an Integer)
+// which is then used for further comparison.
+assert ['hi', 'hey', 'hello'] == ['hello', 'hi', 'hey'].sort { it.size() }
+
+// if size is equal - use alphabetical-sort
+strings.sort(false) { s1, s2 -> s1.size() <=> s2.size() ?: s2 <=> s1 } 
+
+
+maps:
+
+def map = [a:1, b:2, c:3]
+map['e'] = 2
+map.put('f', 3)
+map.each { e -> println "map[${e.key}] == ${e.value}" }
+map.each { k, v -> println "map[$k] == $v" }
+
+map.each { k, v -> k * v } // -> [a, bb, cc]
+
+map.d = 1 // put d:1 by using an overloaded . operator
+
+assert map.getClass().name == java.util.LinkedHashMap
+
+assert map.collect { k, v -> "$k=$v" } == ['a=v1', 'b=2', 'c=3']
+
+// map.class.name -> throws NullPointerException
+// since . is overloaded -> map.class return null
+
+Maps are easy to pass inline to functions
+project.apply { plugin : 'java' }
+project.with { apply plugin : 'java' }
+
+// extra list methods
+drop
+dropRight
+dropWhile
+
+each
+eachWithIndex
+
+flatten
+
+// operators: minus(Object), multiply, plus - produce a new list, leftShift (<<) - append and modify
+nums - 5 // rmove element equal to 5
+nums * 2 // duplicate 2 times
+nums << [...]
+
+Passing lists inside a methods:
+args 'clone', 'http://bla-bla'

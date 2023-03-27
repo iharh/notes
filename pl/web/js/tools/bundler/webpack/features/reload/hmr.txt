@@ -1,0 +1,46 @@
+https://webpack.js.org/concepts/hot-module-replacement/
+https://webpack.js.org/guides/hot-module-replacement/
+
+Note: !!! only in dev, not in prod
+
+Hot Module Replacement (HMR) exchanges, adds, or removes modules while an application is running, without a full reload.
+This can significantly speed up development in a few ways:
+    Retain application state which is lost during a full reload.
+    Save valuable development time by only updating what’s changed.
+    Tweak styling faster — almost comparable to changing styles in the browser’s debugger.
+
+package.json
+    "scripts": {
+        "build": "webpack --mode=production",
+        "start": "NODE_ENV=development webpack-dev-server --mode=development --hot"
+    },
+
+
+webpack.config.js
+module.exports = {
+    entry: { main: './src/index.js' },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].[hash].js'
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
+        hot: true
+    },
+    ...
+}
+
+articles
+2021
+https://blog.bitsrc.io/webpacks-hot-module-replacement-feature-explained-43c13b169986
+    https://nuancesprog.ru/p/12182/
+2018
+https://medium.freecodecamp.org/how-to-develop-react-js-apps-fast-using-webpack-4-3d772db957e4
+2017
+https://hackernoon.com/hot-reload-all-the-things-ec0fed8ab0
+2015
+https://www.javascriptstuff.com/webpack-hmr-tutorial/
+https://www.javascriptstuff.com/understanding-hmr/
+https://www.youtube.com/watch?v=o0NJQYWR7BI
+https://www.youtube.com/watch?v=EQhXtTOxpVk

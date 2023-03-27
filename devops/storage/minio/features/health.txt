@@ -1,0 +1,4 @@
+https://docs.min.io/minio/baremetal/monitoring/healthcheck-probe.html
+https://github.com/minio/minio/blob/master/docs/metrics/healthcheck/README.md
+
+curl -v 'http://localhost:9000/minio/health/live'

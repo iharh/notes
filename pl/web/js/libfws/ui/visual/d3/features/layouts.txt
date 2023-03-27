@@ -1,0 +1,35 @@
+https://github.com/daviddao/ebi-d3-layouts
+https://stackoverflow.com/questions/28495664/custom-layout-in-d3-js
+https://stackoverflow.com/questions/13292573/creating-a-custom-d3-layout
+
+books
+2016
+Rininsland - D3.js: Cutting-edge Data Visualization
+p562 - Creating a Layout Algorithm
+
+presentations
+http://animateddata.co.uk/slides/d3-layouts/slides/#/
+
+http://d3indepth.com/layouts/
+https://bl.ocks.org/d3indepth/9f6c5dc874d6f21462f308f9e11ebf3c
+packed circles
+network graps
+
+d3
+    .hierarchy
+    https://github.com/d3/d3-hierarchy
+        .treemap
+        .pack
+        .partition
+    ???
+        .cluster
+        .tree
+        .chord
+        https://github.com/d3/d3-chord
+
+https://habrahabr.ru/post/302968/
+
+https://bl.ocks.org/GerHobbelt/3071239
+
+force layout with canvas
+https://bl.ocks.org/mbostock/3180395

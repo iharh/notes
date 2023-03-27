@@ -1,0 +1,13 @@
+minikube start --v=7
+VBoxManage showvminfo minikube --machinereadable
+
+Setting up kubeconfig...
+Starting cluster components...
+Kubectl is now configured to use the cluster.
+Loading cached images from config file.
+
+config
+    view
+    get
+    set
+    unset

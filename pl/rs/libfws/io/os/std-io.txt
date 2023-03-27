@@ -1,0 +1,33 @@
+https://doc.rust-lang.org/std/process/struct.Stdio.html
+
+let mut stdout = child.stdout.as_mut().expect("unable to open stdout of child");
+
+
+samples:
+https://stackoverflow.com/questions/29458970/how-do-i-prefix-command-stdout-with-stdout-and-sterr
+
+use std::io::{BufRead,BufReader};
+use std::process::{Command,Stdio};
+
+fn main() {
+    let mut child =
+        Command::new("/tmp/output")
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn().unwrap();
+
+    if let Some(ref mut stdout) = child.stdout {
+        for line in BufReader::new(stdout).lines() {
+            let line = line.unwrap();
+            println!("[stdout] {}", line);
+        }
+    }
+    if let Some(ref mut stderr) = child.stderr {
+        for line in BufReader::new(stderr).lines() {
+            let line = line.unwrap();
+            println!("[stderr] {}", line);
+        }
+    }
+    let status = child.wait().unwrap();
+    println!("Finished with status {:?}", status);
+}

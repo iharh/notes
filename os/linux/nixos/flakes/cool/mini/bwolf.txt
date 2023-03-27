@@ -1,0 +1,46 @@
+https://git.sr.ht/~bwolf/dotfiles/tree
+
+https://git.sr.ht/~bwolf/flake-templates
+https://git.sr.ht/~bwolf/flake-templates/tree
+https://git.sr.ht/~bwolf/flake-templates/tree/master/item/flake.nix
+
+https://git.sr.ht/~bwolf/learna.nix
+https://git.sr.ht/~bwolf/learna.nix/tree
+https://git.sr.ht/~bwolf/learna.nix/tree/master/item/README.md
+https://git.sr.ht/~bwolf/learna.nix/tree/master/item/flake.nix
+https://git.sr.ht/~bwolf/learna.nix/tree/master/item/default.nix
+
+https://git.sr.ht/~bwolf/learnb.nix
+https://git.sr.ht/~bwolf/learnb.nix/tree
+https://git.sr.ht/~bwolf/learnb.nix/tree/master/item/README.md
+https://git.sr.ht/~bwolf/learnb.nix/tree/master/item/flake.nix
+  {
+    description = ''A learning flake which consumes a flake consisting
+      of a package and NixOS module, wrapping the NixOS module from that
+      input flake.
+    '';
+
+    inputs = {
+      nixpkgs.url = github:nixos/nixpkgs;
+      learna.url = github:bwolf/learna.nix;
+    };
+
+    outputs = { self, nixpkgs, learna, ... }: {
+      nixosModules.learnb = { config, pkgs, lib, ... }:
+        with lib;
+        {
+          imports = [
+            learna.nixosModules.learna
+          ];
+
+          options.services.learnb = {
+            enable = mkEnableOption "Learn B";
+          };
+
+          config = mkIf config.services.learnb.enable {
+            services.learna.enable = true;
+          };
+        };
+    };
+  }
+

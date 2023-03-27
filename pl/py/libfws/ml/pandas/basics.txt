@@ -1,0 +1,26 @@
+http://pandas.pydata.org/pandas-docs/stable/basics.html
+
+df.columns
+df.index
+df.values
+df.dtypes
+df.describe(include=['object'])
+df2 = df.rename(columns={'int_col' : 'some_other_name'})
+df.rename(columns={'int_col' : 'some_other_name'}, inplace=True)
+df.drop(1, axis=0, inplace=True)
+del df['x'] # del column x inplace
+
+...isin
+iat
+ix
+
+df.reindex(index=['d', 'b', 'x'], comumns=['y', 'z'])
+
+for col in df:  # non-necessary to write df.columns
+    print col
+
+for index, row in df.iterrows():
+    print index, col
+
+for t in df.itertuples():
+    print t

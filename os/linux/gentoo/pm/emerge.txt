@@ -1,0 +1,2 @@
+https://wiki.gentoo.org/wiki/Emerge
+    emerge --search <name>

@@ -1,0 +1,6 @@
+https://nixos.wiki/wiki/Fonts
+
+samples
+https://github.com/MattPColeman/dotfiles/blob/master/nixos/modules/fonts.nix
+https://github.com/siers/dotfiles/blob/master/nixos/etc/nixos/lib/fonts.nix
+    fontconfig.enable = true;

@@ -1,0 +1,15 @@
+https://hub.docker.com/r/mcandre/rust/
+https://github.com/mcandre/docker-linux-rust
+
+https://github.com/mcandre/docker-linux-rust/blob/master/glibc.Dockerfile
+
+FROM library/debian:stretch
+ENV PATH /root/.cargo/bin:$PATH
+RUN apt-get update && \
+    apt-get install -y curl gcc && \
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+https://github.com/mcandre/docker-linux-rust/blob/master/musl.Dockerfile
+
+FROM library/alpine:3.6
+RUN apk add -U rust

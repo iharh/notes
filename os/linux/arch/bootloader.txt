@@ -1,0 +1,20 @@
+arch-chroot /mnt packman -S grub-bios
+  or grub-efi
+
+arch-chroot /mnt packman -S os-prober
+  to set up the package os-prober for detecting other OS-es
+
+genfstab -U -p /mnt >> /mnt/etc/fstab
+  -p - print, /mnt - for this folder
+  additional options
+    -U - UID (not changes while cloning fs-ses to other destinations)
+    -L - for labels
+
+arch-chroot /mnt
+  use the current kernell of installer, but change the root 
+  !!! opens a new interpreter (sub-shell)
+      run the bash for better comfort from there
+
+
+
+

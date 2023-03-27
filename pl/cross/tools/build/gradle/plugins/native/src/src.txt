@@ -1,0 +1,20 @@
+???
+    src/main/java/org/gradle/nativeplatform/toolchain/internal/msvcpp/CCompiler.java
+
+subprojects/
+    native/
+    platform-native/
+        https://github.com/gradle/gradle/tree/master/subprojects/platform-native
+            https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/resources/META-INF/gradle-plugins/org.gradle.gcc-compiler.properties
+            implementation-class=org.gradle.nativeplatform.toolchain.plugins.GccCompilerPlugin
+        https://github.com/gradle/gradle/blob/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/gcc/AbstractGccCompatibleToolChain.java
+            ...
+            ToolSearchResult cppCompiler = toolProvider.locateTool(ToolType.CPP_COMPILER);
+            ...
+        https://github.com/gradle/gradle/tree/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal
+    language-native/
+        https://github.com/gradle/gradle/tree/master/subprojects/language-native
+        https://github.com/gradle/gradle/tree/master/subprojects/language-native/src/main/resources/META-INF/gradle-plugins
+        https://github.com/gradle/gradle/blob/master/subprojects/language-native/src/main/resources/META-INF/gradle-plugins/org.gradle.cpp-library.properties
+            implementation-class=org.gradle.language.cpp.plugins.CppLibraryPlugin
+    testing-native/

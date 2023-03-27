@@ -1,0 +1,4 @@
+https://github.com/jbangdev/k8s-cli-java
+https://github.com/filippobuletto/kubectl-java-test/blob/master/kubectl-java_test.java
+https://asciinema.org/a/AVwA19yijKRNKEO0bJENN2ME3
+    jbang --init=cli helloworld.java

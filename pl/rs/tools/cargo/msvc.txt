@@ -1,0 +1,2 @@
+https://github.com/rust-lang/cargo/pull/3363
+-Ctarget-feature=+crt-static

@@ -1,0 +1,113 @@
+https://clang-analyzer.llvm.org/
+https://clang-analyzer.llvm.org/scan-build.html
+
+2018
+Dergachev - Faster, Stronger C++ Analysis with the Clang Static Analyzer
+    https://www.youtube.com/watch?v=4n3l-ZcDJNY
+
+    scan-build [clang|gcc] -c a.c
+
+https://clang-analyzer.llvm.org/installation.html
+
+checkers:
+https://clang-analyzer.llvm.org/available_checks.html
+https://clang-analyzer.llvm.org/release_notes.html
+
+https://clang-analyzer.llvm.org/annotations.html
+https://clang-analyzer.llvm.org/faq.html
+
+s-an.sh:
+
+#! /bin/sh
+shopt -s nullglob
+# -analyze-headers
+# -v -v
+OPT='-x c++ -c -fPIC -std=c++0x -O0 -g -fno-omit-frame-pointer -I /data/wrk/clbkenlm/src/main/cpp -m64'
+for f in src/main/*/*.cc
+do
+    scan-build clang++ $OPT $f
+done
+
+
+src:
+/usr/bin/scan-build
+
+??? CCC_ANALYZER_VERBOSE
+-v -v # double verbosity
+
+...
+use Data::Dumper;
+...
+sub RunBuildCommand {
+  ...
+  print "!env!";
+  print Dumper($EnvVars);
+  SetEnv($EnvVars);
+    # ...
+    # 'CCC_ANALYZER_ANALYSIS' => '-analyzer-opt-analyze-headers'
+    # ...
+  ...
+  print "!Args! @$Args\n";
+  return (system(@$Args) >> 8);
+}
+
+/usr/lib/clang/ccc-analyzer
+
+'/usr/bin/clang++' '-cc1' '-triple' 'x86_64-unknown-linux-gnu'
+    '-analyze'
+    '-disable-free' '-disable-llvm-verifier' '-discard-value-names'
+    '-main-file-name' 'model.cc'
+    '-analyzer-store=region'
+    '-analyzer-opt-analyze-nested-blocks' '-analyzer-eagerly-assume'
+    '-analyzer-checker=core' '-analyzer-checker=apiModeling' '-analyzer-checker=unix' '-analyzer-checker=deadcode' '-analyzer-checker=cplusplus'
+    '-analyzer-checker=security.insecureAPI.UncheckedReturn' '-analyzer-checker=security.insecureAPI.getpw' '-analyzer-checker=security.insecureAPI.gets'
+    '-analyzer-checker=security.insecureAPI.mktemp' '-analyzer-checker=security.insecureAPI.mkstemp' '-analyzer-checker=security.insecureAPI.vfork'
+    '-analyzer-checker=nullability.NullPassedToNonnull' '-analyzer-checker=nullability.NullReturnedFromNonnull'
+    '-analyzer-output' 'plist'
+    '-w'
+    '-mrelocation-model' 'static'
+    '-mthread-model' 'posix'
+    '-mdisable-fp-elim'
+    '-fmath-errno'
+    '-masm-verbose'
+    '-mconstructor-aliases'
+    '-munwind-tables'
+    '-fuse-init-array'
+    '-target-cpu' 'x86-64'
+    '-dwarf-column-info'
+    '-debugger-tuning=gdb'
+    '-resource-dir' '/usr/bin/../lib/clang/4.0.0'
+    '-I' 'src/main/cpp'
+    '-D' 'KENLM_MAX_ORDER=6'
+    '-internal-isystem' '/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/7.1.1/../../../../include/c++/7.1.1'
+    '-internal-isystem' '/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/7.1.1/../../../../include/c++/7.1.1/x86_64-pc-linux-gnu'
+    '-internal-isystem' '/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/7.1.1/../../../../include/c++/7.1.1/backward'
+    '-internal-isystem' '/usr/local/include'
+    '-internal-isystem' '/usr/bin/../lib/clang/4.0.0/include'
+    '-internal-externc-isystem' '/include'
+    '-internal-externc-isystem' '/usr/include'
+    '-fdeprecated-macro'
+    '-fdebug-compilation-dir' '/data/wrk/clbkenlm'
+    '-ferror-limit' '19'
+    '-fmessage-length' '0'
+    '-fobjc-runtime=gcc'
+    '-fcxx-exceptions'
+    '-fexceptions'
+    '-fdiagnostics-show-option'
+    '-analyzer-display-progress'
+    '-analyzer-output=html'
+    '-o' '/tmp/scan-build-2017-06-30-144501-1548-1'
+    '-x' 'c++'
+    'src/main/cpp/lm/model.cc'
+
+samples
+https://github.com/nlohmann/json/blob/develop/Makefile
+
+-enable-checker
+    alpha.core.DynamicTypeChecker,alpha.core.PointerArithm,
+    alpha.core.PointerSub,alpha.cplusplus.DeleteWithNonVirtualDtor,
+    alpha.cplusplus.IteratorRange,alpha.cplusplus.MisusedMovedObject,
+    alpha.security.ArrayBoundV2,alpha.core.Conversion
+--use-c++=/Users/niels/Documents/projects/llvm-clang/local/bin/clang++
+--view -analyze-headers
+-o clang_analyze_build/report.html <build-cmd like: make -j10 -C clang_analyze_build>

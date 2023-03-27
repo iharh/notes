@@ -1,0 +1,1 @@
+https://github.com/okonet/lint-staged

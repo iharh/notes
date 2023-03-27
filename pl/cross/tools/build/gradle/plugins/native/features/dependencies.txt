@@ -1,0 +1,24 @@
+https://docs.gradle.org/current/userguide/dependency_management_attribute_based_matching.html
+
+import org.gradle.language.cpp.internal.DefaultCppBinary
+
+// components.main.
+//binaries.whenElementFinalized(CppSharedLibrary::class) {
+binaries.whenElementFinalized({
+    // configuration ':someprj:nativeLinkDebug'
+    // configuration ':someprj:nativeLinkRelease'
+    val binary = this as DefaultCppBinary
+    project.dependencies {
+        // if (binary.optimized) ...
+        add(binary.includePathConfiguration.name, files("$someStuff/include"))
+        add(binary.linkConfiguration.name       , files("$someStuff/lib/libsomestuff.a"))
+    }
+})
+
+//
+        afterEvaluate {
+            tasks.getByName("assemble").apply {
+                dependsOn += tasks.getByName("assembleRelease")
+            }
+        }
+

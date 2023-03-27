@@ -1,0 +1,24 @@
+:h :help
+	Help on help.
+
+:h {subject}
+	z?  - help on all topics starting from z.
+	^V  - help on CTRL-V
+	i^V - help on CTRL-V in Insert-mode.
+
+:helpg {pattern}
+	Search all help text files and make a list of lines in which {pattern} matches.
+	Jumps to the first match.
+	Note: navigate via quickfix commands - :cnext, :cwindow
+
+:helptags
+	???
+
+C-]
+	Follow the link (jump to the quickref topic).
+C-T
+	Go back to the previous topic.
+C-O
+	Jump to older locations.
+C-I
+	Jump to newer locations.

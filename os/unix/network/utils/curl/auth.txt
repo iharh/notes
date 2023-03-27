@@ -1,0 +1,6 @@
+Authentication:
+http://en.wikipedia.org/wiki/Basic_access_authentication
+BASE64:
+https://www.base64encode.org
+    -u<usr>:<pwd>
+    --user <usr>:<pwd>

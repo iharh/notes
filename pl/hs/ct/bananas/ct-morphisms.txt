@@ -1,0 +1,29 @@
+http://traditio-ru.org/wiki/%D0%9A%D0%B0%D1%82%D0%B0%D0%BC%D0%BE%D1%80%D1%84%D0%B8%D0%B7%D0%BC
+http://traditio-ru.org/wiki/%D0%A5%D0%B8%D0%BB%D0%BE%D0%BC%D0%BE%D1%80%D1%84%D0%B8%D0%B7%D0%BC
+
+http://www.folone.info/blog/RecursionSchemes/
+
+Ahrens - Categories in Programming
+
+Examples:
+Augusteijn - Sorting Morphisms
+Cunha - Deriving Animations from Recursive Definitions
+
+Preparation:
+MarkPJones - FP with Overloading and HO Polymorphism
+Hutton - A Tutorial on the Universality and Expressiveness of Fold
+Meijer - Merging Monads and Folds for FP
+Bird - Algebra of Programming
+Eliott - Folds and Unfolds all Around Us slides (http://conal.net/talks/folds-and-unfolds.lhs, http://www.reddit.com/r/haskell/comments/1asxuf/conal_elliot_folds_and_unfolds/)
+
+
+http://hamletdarcy.blogspot.com/2008/07/morphisms-for-masses.html
+http://debasishg.blogspot.com/2013/01/strict-recursion-non-strict-co-recursion.html
+
+http://www.rsdn.ru/forum/decl/2659402.hot
+
+Hylomorphisms:
+Bird - Pearls of Functional Algorithm Design - 21 - Hylomorphism and nexuses
+
+Bird Hinze - Trouble Shared is Trouble Halved
+

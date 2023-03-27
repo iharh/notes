@@ -1,0 +1,9 @@
+extra/
+    evolution-ews
+
+apt
+    evolution
+    evolution-rss
+
+    evolution-dev
+    evolution-plugins

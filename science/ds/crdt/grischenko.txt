@@ -1,0 +1,37 @@
+RON
+http://doc.replicated.cc/%5EWiki/ron.sm
+
+2022
+CodeFestRu - Grischenko - New Approaches to Consensus of 42:44
+    https://www.youtube.com/watch?v=Yv6KPA06vOw
+    https://disk.yandex.ru/d/SC-FupaS4sH42Q
+
+2021
+Grischenko - libron 6:00 of 54:36
+    https://www.youtube.com/watch?v=4FwRtyY5Um8
+    https://www.highload.ru/spring/2021/abstracts/7691
+    ! Myers's algorithm for diff
+    ! RDT: chronofold (Klepman)
+
+2019
+Grischenko - Interview and about Science
+    https://www.youtube.com/watch?v=T3nMLmX2_e0
+    ! need to listen
+Grischenko - Decentralized Web of 59:42
+    https://www.youtube.com/watch?v=lROd9NUBP5Q
+    ! need to look
+Grischenko - Decentralized Web of 41:21
+    https://www.youtube.com/watch?v=CrH-bhk2G68
+    ! need to look
+
+Grischenko - SWARM DB
+http://www.slideshare.net/it-people/swarmjs-60809789
+https://www.youtube.com/watch?v=tNdgolY7Jb8
+    CRDTs:
+        State-Based
+            Riak
+        Op-Based
+            partially ordered log of immutable operations
+            op-s can be reordered without breaking root-cause links
+            we can reorder only concurrent ops, not a sequential ops
+                version-versions - is a brute-force approach

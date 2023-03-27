@@ -1,0 +1,28 @@
+https://crates.io/crates/elastic_reqwest
+https://docs.rs/elastic_reqwest
+https://github.com/elastic-rs/elastic
+https://github.com/faebser/beautiful-wallpaper-every-day/blob/master/src/main.rs
+https://crates.io/crates/machinebox
+https://docs.rs/machinebox
+    https://github.com/encabulators/machinebox
+    https://github.com/encabulators/machinebox/blob/master/src/lib.rs
+    https://github.com/encabulators/machinebox/blob/master/src/textbox.rs
+    https://medium.com/@KevinHoffman/democratizing-machine-learning-with-machinebox-and-rust-dc08fcfb6791
+
+let resp = client.get("http://localhost:8080/analyze")
+    .query(&[("text", text)])
+    .send()?;
+
+file download
+https://rust-lang-nursery.github.io/rust-cookbook/web/clients/download.html
+
+extern crate reqwest;
+
+use std::io;
+use std::fs::File;
+
+fn main() {
+    let mut resp = reqwest::get("https://sh.rustup.rs").expect("request failed");
+    let mut out = File::create("rustup-init.sh").expect("failed to create file");
+    io::copy(&mut resp, &mut out).expect("failed to copy content");
+}

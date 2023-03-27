@@ -1,0 +1,91 @@
+https://www.vmware.com/products/workstation-player.html
+https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/16_0
+
+inst
+...bundle --console --custom
+
+vmware-installer
+  -l, --list-product
+  -u, --uninstall-product PRODUCT
+      -u vmware-player
+
+module sources
+/usr/lib/vmware/modules/source/
+    vmmon.tar
+        vmmon-only/*
+        at ...
+        tar cvf vmmon.tar vmmon-only
+    vmnet.tar
+
+2022
+https://www.linux.org/threads/vmware-workstation-player.42144/
+    sudo apt install gcc wget linux-headers-generic build-essential linux-headers-$(uname -r) -y
+https://www.unixtutorial.org/how-to-uninstall-vmware-player-ubuntu-linux-mint/
+2021
+https://itsfoss.com/install-vmware-tools-linux/
+https://itsfoss.com/install-vmware-player-ubuntu-1310/
+    sudo apt install build-essential
+    chmod +x ~/Downloads/VMware-Player*
+    sudo ~/Downloads/VMware-Player*
+
+export | grep be_BY
+LC_ADDRESS=be_BY.UTF-8
+LC_IDENTIFICATION=be_BY.UTF-8
+LC_MEASUREMENT=be_BY.UTF-8
+LC_MONETARY=be_BY.UTF-8
+LC_NAME=be_BY.UTF-8
+LC_NUMERIC=be_BY.UTF-8
+LC_PAPER=be_BY.UTF-8
+LC_TELEPHONE=be_BY.UTF-8
+LC_TIME=be_BY.UTF-8
+
+...
+https://wiki.ubuntu.com/Kernel/SourceCode
+at /usr/src/....-generic
+    sudo make menuconfig
+        / - search
+
+kernel src
+    https://wiki.ubuntu.com/Kernel/SourceCode
+    https://askubuntu.com/questions/159833/how-do-i-get-the-kernel-source-code
+apt/
+    linux-source
+    linux-source-5.15.0
+
+ls /lib/modules
+... 5.15.0-37-generic
+
+16.2.3
+https://github.com/mkubecek/vmware-host-modules/tree/player-16.2.3
+    !!! use sudo
+    sudo make
+    sudo make install
+        install -D -t /lib/modules/5.15.0-39-generic/misc vmmon-only/vmmon.ko vmnet-only/vmnet.ko
+        strip --strip-debug /lib/modules/5.15.0-39-generic/misc/vmmon.ko /lib/modules/5.15.0-39-generic/misc/vmnet.ko
+        if test -z ""; then /sbin/depmod -a 5.15.0-39-generic; fi
+
+make issues
+https://askubuntu.com/questions/1348250/skipping-btf-generation-xxx-due-to-unavailability-of-vmlinux-on-ubuntu-21-04
+https://www.reddit.com/r/openSUSE/comments/pwxs3i/btf_file_not_generated_because_vmlinux_could_not/
+    sudo vmware-modconfig --console --install-all
+
+root user pwd
+    https://www.cyberciti.biz/faq/change-root-password-ubuntu-linux/
+    set
+        sudo passwd root
+    rollback
+        sudo passwd -dl root
+
+???
+sudo lsmod
+sudo modprobe vmmon
+  [-r] to remove ...
+Could not open /dev/vmmon: No such file or directory.
+
+https://communities.vmware.com/t5/VMware-Workstation-Pro/quot-modprobe-ERROR-could-not-insert-vmmon-Exec-format-error/td-p/2230908
+
+TODO:
+sudo vmware-modconfig --console --install-all
+    https://communities.vmware.com/t5/VMware-Workstation-Pro/quot-modprobe-ERROR-could-not-insert-vmmon-Exec-format-error/td-p/2230908
+    https://communities.vmware.com/t5/VMware-Workstation-Pro/VM-Workstation-16-1-gt-16-2-1-on-Ubuntu-21-10-broke-everything/td-p/2878200
+https://superuser.com/questions/1255099/vmware-workstation-not-enough-physical-memory-since-last-update/1255963

@@ -1,0 +1,6 @@
+https://nixos.org/manual/nix/stable/#ssec-values
+    simple values
+
+Integers
+    builtins.div or space after /
+        6/ 3

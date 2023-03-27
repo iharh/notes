@@ -1,0 +1,9 @@
+https://pip.pypa.io/en/stable/
+https://pypi.python.org/pypi/pip
+
+http://docs.python-guide.org/en/latest/dev/pip-virtualenv/
+
+import pip
+
+def install(package):
+    pip.main(['install', package])

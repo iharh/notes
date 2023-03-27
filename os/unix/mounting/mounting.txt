@@ -1,0 +1,30 @@
+https://wiki.archlinux.org/index.php/Fstab
+
+lsblk
+blkid
+fdisk -l
+ls /dev/disk/by-uuid -alh
+sudo mount -a # re-read /etc/fstab
+
+iso stuff:
+
+cp /dev/sr0 image.iso
+mount -o loop ./image.iso /mnt
+
+
+http://geekinlinux.blogspot.com/2011/11/mount-wrong-fs-type-bad-option-bad.html
+ls -lla /sbin/mount*
+
+packages:
+    nfs-utils
+
+List NFS shares:
+
+sudo showmount -e <host>
+
+Mount NFS share
+
+sudo mount -t nfs -o nolock <host>:/<share_path> </mnt_point>
+
+
+automounter(autofs)

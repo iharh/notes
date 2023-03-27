@@ -1,0 +1,654 @@
+http://www.reddit.com/r/haskell/comments/3825hc/examining_hackage_pipes/
+http://jozefg.bitbucket.org/posts/2015-06-01-pipes.html
+
+
+http://hackage.haskell.org/package/pipes/docs/Pipes-Tutorial.html
+  Introduction
+http://hackage.haskell.org/package/pipes/docs/Pipes-Core.html
+
+http://hackage.haskell.org/package/pipes/docs/src/Pipes-Core.html
+http://hackage.haskell.org/package/pipes/docs/src/Pipes-Internal.html
+
+http://www.haskellforall.com/2014/03/how-to-model-handles-with-pipes.html
+http://www.haskellforall.com/2013/09/pipes-40-simpler-types-and-api.html
+http://www.haskellforall.com/2013/04/pipes-and-io-streams.html
+
+!!! (Producer sample is awesome - look at the pipes.md)
+http://www.scs.stanford.edu/14sp-cs240h/slides/pipes.html
+
+http://www.haskellforall.com/2014/04/how-continuation-monad-works.html
+http://web.jaguarpaw.co.uk/%7Etom/blog/posts/2013-03-29-how-to-read-pipes.html
+http://hackage.haskell.org/package/pipes-3.2.0/docs/src/Control-Proxy-Core-Correct.html
+
+The data definitions are
+
+data ProxyCorrect a' a b' b m r =
+     Proxy { unProxy :: m (ProxyF a' a b' b r (ProxyCorrect a' a b' b m r)) }
+
+-- | The base functor for the 'ProxyCorrect' type
+data ProxyF a' a b' b r x
+    = Request a' (a  -> x)
+    | Respond b  (b' -> x)
+    | Pure    r
+
+Then
+
+    a and a' are channels for communication with upstream
+    b and b' are channels for communication with downstream
+    the primed type variables a' and b' are requests (i.e. the data travels upstream)
+        a' our request to upstream
+        b' is downstream’s request to us
+    the unprimed type variables a and b are responses (i.e. the data travels downstream)
+        a is upstream’s response to us
+        b is our response to downstream
+
+thus
+
+    a' and b are what we emit (upstream and downstream respectively)
+    a and b' are what we receive (from upstream and downstream respectively)
+
+m is the monad that a' and b are generated in. r is the type of the final return value of the proxy when it terminates.
+
+A crucial point is that
+
+ProxyCorrect a' a b' b m r
+
+is just about to emit a request or response though we don’t know which.
+
+If you want a proxy that is ready to receive a request you must use
+
+\b' -> ProxyCorrect a' a b' b m r
+
+and if you want a proxy that is ready to receive a response you must use
+
+\a -> ProxyCorrect a' a b' b m r
+
+
+
+http://www.haskellforall.com/2012/07/free-monad-transformers.html
+
+The Pipe type from pipes is:
+
+data PipeF a b next
+  = Await (a -> next)
+  | Yield (b, next)
+
+type Pipe a b m r = FreeT (PipeF a b) m r
+
+
+http://www.reddit.com/r/haskell/comments/2376s0/bargain_priced_coroutines_code_co/
+
+As I mentioned in the comments, I wrote that FreeT code, and I directly stole that code from the same article of the monad reader,
+so it's not a coincidence at all that they are the same.
+
+pipes is also a special case of a free monad transformer:
+
+data ProxyF a' a b' b x =
+    Request a' (a  -> x) |
+    Respond b  (b' -> x)
+
+type Proxy a' a b' b = FreeT (ProxyF a' a b' b)
+
+That's really all there is to it. There are some minor differences (for efficiency reasons), but the above code is the semantic model for pipes.
+
+I also wrote a similar post on the original incarnation of this code, before it was merged into the free package.
+
+
+
+
+
+To enforce loose coupling, components can only communicate using two commands:
+
+    yield: Send output data
+    await: Receive input data 
+
+pipes has four types of components built around these two commands:
+
+    Producers can only yield values and they model streaming sources
+    Consumers can only await values and they model streaming sinks
+    Pipes can both yield and await values and they model stream transformations
+    Effects can neither yield nor await and they model non-streaming components 
+
+You can connect these components together in four separate ways which parallel the four above types:
+
+    for   handles yields
+    (>~)  handles awaits
+    (>->) handles both yields and awaits
+    (>>=) handles return values 
+
+As you connect components their types will change to reflect inputs and outputs that you've fused away.
+You know that you're done connecting things when you get an Effect, meaning that you have handled all inputs and outputs.
+You run this final Effect to begin streaming.
+
+
+(>->) is the unidirectional pull-based composition, instead of bidirectional composition
+now we use (uni) await, yield
+
+
+
+
+Internal.hs
+
+{-| A 'Proxy' is a monad transformer that receives and sends information on both
+    an upstream and downstream interface.
+
+    The type variables signify:
+
+    * @a'@ and @a@ - The upstream interface, where @(a')@s go out and @(a)@s
+      come in
+
+    * @b'@ and @b@ - The downstream interface, where @(b)@s go out and @(b')@s
+      come in
+
+    * @m @ - The base monad
+
+    * @r @ - The return value
+-}
+data Proxy a' a b' b m r
+    = Request a' (a  -> Proxy a' a b' b m r )     -- Request a' fa
+    | Respond b  (b' -> Proxy a' a b' b m r )     -- Respond b  fb'
+    | M          (m    (Proxy a' a b' b m r))
+    | Pure    r
+
+--- Core.hs ---
+
+{-|
+Proxy Monad Transformer
+
+Diagrammatically, you can think of a Proxy as having the following shape:
+
+ Upstream | Downstream
+     +---------+
+     |         |
+ a' <==       <== b'
+     |         |
+ a  ==>       ==> b
+     |    |    |
+     +----|----+
+          v
+          r
+
+You can connect proxies together in five different ways:
+
+    (>+>): connect pull-based streams
+    (>~>): connect push-based streams
+    (\>\): chain folds
+    (/>/): chain unfolds
+    (>=>): sequence proxies 
+-}
+
+{-| An effect in the base monad
+
+    'Effect's neither 'Pipes.await' nor 'Pipes.yield'
+-}
+type Effect = Proxy X () () X
+
+{-| The empty type, used to close output ends
+
+    When @Data.Void@ is merged into @base@, this will change to:
+
+> type X = Void
+-}
+newtype X = X X
+
+-- | Use 'closed' to \"handle\" impossible outputs
+closed :: X -> a
+closed (X x) = closed x
+{-# INLINABLE closed #-}
+
+-- | Run a self-contained 'Effect', converting it back to the base monad
+runEffect :: Monad m => Effect m r -> m r
+runEffect = go
+  where
+    go p = case p of
+        Request v _ -> closed v
+        Respond v _ -> closed v
+        M       m   -> m >>= go
+        Pure    r   -> return r
+{-# INLINABLE runEffect #-}    
+
+{-|
+Categories
+
+A Category is a set of components that you can connect with a composition operator, (.), that has an identity, id. The (.) and id must satisfy the following three Category laws:
+
+-- Left identity
+id . f = f
+
+-- Right identity
+f . id = f
+
+-- Associativity
+(f . g) . h = f . (g . h)
+
+The Proxy type sits at the intersection of five separate categories, four of which are named after their identity:
+
+                     Identity   | Composition |  Point-ful
+                  +-------------+-------------+-------------+
+ respond category |   respond   |     />/     |     //>     |
+ request category |   request   |     \>\     |     >\\     |
+    push category |   push      |     >~>     |     >>~     |
+    pull category |   pull      |     >+>     |     +>>     |
+ Kleisli category |   return    |     >=>     |     >>=     |
+                  +-------------+-------------+-------------+
+
+Each composition operator has a "point-ful" version, analogous to how (>>=) is the point-ful version of (>=>).
+For example, (//>) is the point-ful version of (/>/).
+The convention is that the odd character out faces the argument that is a function.
+
+
+++++
++ My note: >-> and +>> are for the pull category, but let's start from
+++++
+
+Push
+
+The push category closely corresponds to push-based Unix pipes.
+
+The push category obeys the category laws, where push is the identity and (>~>) is composition:
+
+-- Left identity
+push >~> f = f
+
+-- Right identity
+f >~> push = f
+
+-- Associativity
+(f >~> g) >~> h = f >~> (g >~> h)
+
+The following diagram shows the flow of information:
+
+push  :: Monad m
+      =>  a -> Proxy a' a a' a m r
+
+          a
+          |
+     +----|----+
+     |    v    |
+ a' <============ a'
+     |         |
+ a  ============> a
+     |    |    |
+     +----|----+
+          v
+          r
+
+(>~>) :: Monad m
+      => (a -> Proxy a' a b' b m r)
+      -> (b -> Proxy b' b c' c m r)
+      -> (a -> Proxy a' a c' c m r)
+
+          a                b                      a
+          |                |                      |
+     +----|----+      +----|----+            +----|----+
+     |    v    |      |    v    |            |    v    |
+ a' <==       <== b' <==       <== c'    a' <==       <== c'
+     |    f    |      |    g    |     =      | f >~> g |
+ a  ==>       ==> b  ==>       ==> c     a  ==>       ==> c
+     |    |    |      |    |    |            |    |    |
+     +----|----+      +----|----+            +----|----+
+          v                v                      v
+          r                r                      r
+
+...
+
+{-|
+Forward responses followed by requests
+
+push = respond >=> request >=> push
+
+push is the identity of the push category.
+-}
+push :: Monad m => a -> Proxy a' a a' a m r
+push = go
+  where
+    go a = Respond a (\a' -> Request a' go)
+{-# INLINABLE push #-}
+
+
+Pull
+
+The pull category closely corresponds to pull-based Unix pipes.
+
+The pull category obeys the category laws, where pull is the identity and (>+>) is composition:
+
+-- Left identity
+pull >+> f = f
+
+-- Right identity
+f >+> pull = f
+
+-- Associativity
+(f >+> g) >+> h = f >+> (g >+> h)
+
+The following diagrams show the flow of information:
+
+pull  :: Monad m
+      =>  a' -> Proxy a' a a' a m r
+
+          a'
+          |
+     +----|----+
+     |    v    |
+ a' <============ a'
+     |         |
+ a  ============> a
+     |    |    |
+     +----|----+
+          v
+          r
+
+(>+>) :: Monad m
+      -> (b' -> Proxy a' a b' b m r)
+      -> (c' -> Proxy b' b c' c m r)
+      -> (c' -> Proxy a' a c' c m r)
+
+          b'               c'                     c'
+          |                |                      |
+     +----|----+      +----|----+            +----|----+
+     |    v    |      |    v    |            |    v    |
+ a' <==       <== b' <==       <== c'    a' <==       <== c'
+     |    f    |      |    g    |     =      | f >+> g |
+ a  ==>       ==> b  ==>       ==> c     a  ==>       ==> c
+     |    |    |      |    |    |            |    |    |
+     +----|----+      +----|----+            +----|----+
+          v                v                      v
+          r                r                      r
+
+{-| @(f +>> p)@ pairs each 'request' in @p@ with a 'respond' in @f@.
+
+    Point-ful version of ('>+>')
+-}
+(+>>)
+    :: Monad m
+    => (b' -> Proxy a' a b' b m r)
+    -- ^
+    ->        Proxy b' b c' c m r
+    -- ^
+    ->        Proxy a' a c' c m r
+    -- ^
+fb' +>> p = case p of
+    Request b' fb  -> fb' b' >>~ fb
+    Respond c  fc' -> Respond c (\c' -> fb' +>> fc' c')
+    M          m   -> M (m >>= \p' -> return (fb' +>> p'))
+    Pure       r   -> Pure r
+{-# INLINABLE (+>>) #-}
+
+...
+
+{-| @(p >>~ f)@ pairs each 'respond' in @p@ with an 'request' in @f@.
+
+    Point-ful version of ('>~>')
+-}
+(>>~)
+    :: Monad m
+    =>       Proxy a' a b' b m r
+    -- ^
+    -> (b -> Proxy b' b c' c m r)
+    -- ^
+    ->       Proxy a' a c' c m r
+    -- ^
+p >>~ fb = case p of
+    Request a' fa  -> Request a' (\a -> fa a >>~ fb)
+    Respond b  fb' -> fb' +>> fb b
+    M          m   -> M (m >>= \p' -> return (p' >>~ fb))
+    Pure       r   -> Pure r
+{-# INLINABLE (>>~) #-}
+
+--- ---
+
+instance Monad m => Functor (Proxy a' a b' b m) where
+    fmap f p0 = go p0 where
+        go p = case p of
+            Request a' fa  -> Request a' (\a  -> go (fa  a ))
+            Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+            M          m   -> M (m >>= \p' -> return (go p'))
+            Pure    r      -> Pure (f r)
+
+instance Monad m => Applicative (Proxy a' a b' b m) where
+    pure      = Pure
+    pf <*> px = go pf where
+        go p = case p of
+            Request a' fa  -> Request a' (\a  -> go (fa  a ))
+            Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+            M          m   -> M (m >>= \p' -> return (go p'))
+            Pure    f      -> fmap f px
+
+instance Monad m => Monad (Proxy a' a b' b m) where
+    return = Pure
+    (>>=)  = _bind
+
+_bind
+    :: Monad m
+    => Proxy a' a b' b m r
+    -> (r -> Proxy a' a b' b m r')
+    -> Proxy a' a b' b m r'
+p0 `_bind` f = go p0 where
+    go p = case p of
+        Request a' fa  -> Request a' (\a  -> go (fa  a ))
+        Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+        M          m   -> M (m >>= \p' -> return (go p'))
+        Pure    r      -> f r
+
+{-# RULES
+    "_bind (Request a' k) f" forall a' k f .
+        _bind (Request a' k) f = Request a' (\a  -> _bind (k a)  f);
+    "_bind (Respond b  k) f" forall b  k f .
+        _bind (Respond b  k) f = Respond b  (\b' -> _bind (k b') f);
+    "_bind (M          m) f" forall m    f .
+        _bind (M          m) f = M (m >>= \p -> return (_bind p f));
+    "_bind (Pure    r   ) f" forall r    f .
+        _bind (Pure    r   ) f = f r;
+  #-}
+
+instance MonadTrans (Proxy a' a b' b) where
+    lift m = M (m >>= \r -> return (Pure r))
+
+{-| 'unsafeHoist' is like 'hoist', but faster.
+
+    This is labeled as unsafe because you will break the monad transformer laws
+    if you do not pass a monad morphism as the first argument.  This function is
+    safe if you pass a monad morphism as the first argument.
+-}
+unsafeHoist
+    :: Monad m
+    => (forall x . m x -> n x) -> Proxy a' a b' b m r -> Proxy a' a b' b n r
+unsafeHoist nat = go
+  where
+    go p = case p of
+        Request a' fa  -> Request a' (\a  -> go (fa  a ))
+        Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+        M          m   -> M (nat (m >>= \p' -> return (go p')))
+        Pure    r      -> Pure r
+{-# INLINABLE unsafeHoist #-}
+
+instance MFunctor (Proxy a' a b' b) where
+    hoist nat p0 = go (observe p0) where
+        go p = case p of
+            Request a' fa  -> Request a' (\a  -> go (fa  a ))
+            Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+            M          m   -> M (nat (m >>= \p' -> return (go p')))
+            Pure    r      -> Pure r
+
+instance MonadIO m => MonadIO (Proxy a' a b' b m) where
+    liftIO m = M (liftIO (m >>= \r -> return (Pure r)))
+
+instance MonadReader r m => MonadReader r (Proxy a' a b' b m) where
+    ask = lift ask
+    local f = go
+        where
+          go p = case p of
+              Request a' fa  -> Request a' (\a  -> go (fa  a ))
+              Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+              Pure    r      -> Pure r
+              M       m      -> M (local f m >>= \r -> return (go r))
+    reader = lift . reader
+
+instance MonadState s m => MonadState s (Proxy a' a b' b m) where
+    get = lift get
+    put = lift . put
+    state = lift . state
+
+instance MonadWriter w m => MonadWriter w (Proxy a' a b' b m) where
+    writer = lift . writer
+    tell = lift . tell
+    listen p0 = go p0 mempty
+      where
+        go p w = case p of
+            Request a' fa  -> Request a' (\a  -> go (fa  a ) w)
+            Respond b  fb' -> Respond b  (\b' -> go (fb' b') w)
+            M       m      -> M (do
+                (p', w') <- listen m
+                return (go p' $! mappend w w') )
+            Pure    r      -> Pure (r, w)
+
+    pass p0 = go p0 mempty
+      where
+        go p w = case p of
+            Request a' fa  -> Request a' (\a  -> go (fa  a ) w)
+            Respond b  fb' -> Respond b  (\b' -> go (fb' b') w)
+            M       m      -> M (do
+                (p', w') <- listen m
+                return (go p' $! mappend w w') )
+            Pure   (r, f)  -> M (pass (return (Pure r, \_ -> f w)))
+
+instance MonadError e m => MonadError e (Proxy a' a b' b m) where
+    throwError = lift . throwError
+    catchError p0 f = go p0
+      where
+        go p = case p of
+            Request a' fa  -> Request a' (\a  -> go (fa  a ))
+            Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+            Pure    r      -> Pure r
+            M          m   -> M ((do
+                p' <- m
+                return (go p') ) `catchError` (\e -> return (f e)) )
+
+instance MonadPlus m => Alternative (Proxy a' a b' b m) where
+    empty = mzero
+    (<|>) = mplus
+
+instance MonadPlus m => MonadPlus (Proxy a' a b' b m) where
+    mzero = lift mzero
+    mplus p0 p1 = go p0
+      where
+        go p = case p of
+            Request a' fa  -> Request a' (\a  -> go (fa  a ))
+            Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+            Pure    r      -> Pure r
+            M          m   -> M ((do
+                p' <- m
+                return (go p') ) `mplus` return p1 )
+
+{-| The monad transformer laws are correct when viewed through the 'observe'
+    function:
+
+@
+'observe' ('lift' ('return' r)) = 'observe' ('return' r)
+
+'observe' ('lift' (m '>>=' f)) = 'observe' ('lift' m '>>=' 'lift' '.' f)
+@
+
+    This correctness comes at a small cost to performance, so use this function
+    sparingly.
+
+    This function is a convenience for low-level @pipes@ implementers.  You do
+    not need to use 'observe' if you stick to the safe API.
+-}
+observe :: Monad m => Proxy a' a b' b m r -> Proxy a' a b' b m r
+observe p0 = M (go p0) where
+    go p = case p of
+        Request a' fa  -> return (Request a' (\a  -> observe (fa  a )))
+        Respond b  fb' -> return (Respond b  (\b' -> observe (fb' b')))
+        M          m'  -> m' >>= go
+        Pure    r      -> return (Pure r)
+{-# INLINABLE observe #-}
+
+{-| The empty type, used to close output ends
+
+    When @Data.Void@ is merged into @base@, this will change to:
+
+> type X = Void
+-}
+newtype X = X X
+
+-- | Use 'closed' to \"handle\" impossible outputs
+closed :: X -> a
+closed (X x) = closed x
+{-# INLINABLE closed #-}
+
+
+
+
+
+Composition operators:
+
+Pipes.hs
+
+{-| 'Pipe' composition, analogous to the Unix pipe operator
+
+@
+('>->') :: 'Monad' m => 'Producer' b m r -> 'Consumer' b   m r -> 'Effect'       m r
+('>->') :: 'Monad' m => 'Producer' b m r -> 'Pipe'     b c m r -> 'Producer'   c m r
+('>->') :: 'Monad' m => 'Pipe'   a b m r -> 'Consumer' b   m r -> 'Consumer' a   m r
+('>->') :: 'Monad' m => 'Pipe'   a b m r -> 'Pipe'     b c m r -> 'Pipe'     a c m r
+@
+-}
+(>->)
+    :: Monad m
+    => Proxy a' a () b m r
+    -- ^
+    -> Proxy () b c' c m r
+    -- ^
+    -> Proxy a' a c' c m r
+p1 >-> p2 = (\() -> p1) +>> p2
+{-# INLINABLE (>->) #-}
+
+
+yield :: Monad m => a -> Producer' a m ()
+yield = respond
+{-# INLINABLE yield #-}
+
+await :: Monad m => Consumer' a m a
+await = request ()
+{-# INLINABLE await #-}
+
+
+{-| Send a value of type @a@ downstream and block waiting for a reply of type
+    @a'@
+
+    'respond' is the identity of the respond category.
+-}
+respond :: Monad m => a -> Proxy x' x a' a m a'
+respond a = Respond a Pure
+{-# INLINABLE respond #-}
+
+
+{-| Send a value of type @a'@ upstream and block waiting for a reply of type @a@
+
+    'request' is the identity of the request category.
+-}
+request :: Monad m => a' -> Proxy a' a y' y m a
+request a' = Request a' Pure
+{-# INLINABLE request #-}
+
+
+
+*** TYPE ALIASES ***
+
+{-| An effect in the base monad
+
+    'Effect's neither 'Pipes.await' nor 'Pipes.yield'
+-}
+type Effect = Proxy X () () X
+
+-- | 'Producer's can only 'Pipes.yield'
+type Producer b = Proxy X () () b
+
+-- | 'Pipe's can both 'Pipes.await' and 'Pipes.yield'
+type Pipe a b = Proxy () a () b
+
+-- | 'Consumer's can only 'Pipes.await'
+type Consumer a = Proxy () a () X
+
+

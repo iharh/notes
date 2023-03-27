@@ -1,0 +1,9 @@
+\x
+\a
+\t
+\gx -> \x for only one cmd
+    can use at the end of command...
+    select ... \gx
+
+\pset filesep '|'
+\o[ut] file_log

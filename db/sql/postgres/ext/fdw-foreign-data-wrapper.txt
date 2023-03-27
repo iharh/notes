@@ -1,0 +1,27 @@
+https://www.postgresql.org/docs/current/postgres-fdw.html
+https://www.postgresql.org/docs/current/ddl-foreign-data.html
+https://wiki.postgresql.org/wiki/Foreign_data_wrappers
+
+2021
+https://www.crunchydata.com/blog/understanding-postgres_fdw
+2020
+https://towardsdatascience.com/how-to-set-up-a-foreign-data-wrapper-in-postgresql-ebec152827f3
+
+sample
+
+EXTENSION postgres_fdw;
+
+CREATE SERVER foreign_server_prod
+        FOREIGN DATA WRAPPER postgres_fdw
+        OPTIONS (host 'prod-db-ro.staffing.epam.com', port '5432', dbname 'epm_staf');
+
+CREATE USER MAPPING FOR postgres
+        SERVER foreign_server_prod
+        OPTIONS (user 'epm_staf_readonly', password 'secert');
+
+CREATE FOREIGN TABLE foreign_table (
+        id integer NOT NULL,
+        data text
+)
+        SERVER foreign_server_prod
+        OPTIONS (schema_name 'public', table_name 'some_table');

@@ -1,0 +1,10 @@
+https://clang.llvm.org/docs/MSVCCompatibility.html
+
+scoop
+    llvm
+
+issues
+https://stackoverflow.com/questions/42256526/clang-on-windows-installed-via-scoop-is-unable-to-find-headers
+
+2018
+http://blog.llvm.org/2018/03/clang-is-now-used-to-build-chrome-for.html

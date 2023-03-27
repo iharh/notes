@@ -1,0 +1,229 @@
+Equalizer  for all j of CatJ
+
+An initial cocone is one that maps uniquely to any other cocone from D.
+
+We write such a colimit in the forms
+
+Def (5.2) Subobject
+  A subobject of an object X in a category C is a mono
+  
+  m : M >--> X
+
+  Given subobjects m, m' of X, a morphism f : m -> m' is an arrow in C/X
+
+  M -- (f) -- M' -- (m') --> X
+  M ---------(m) ----------> X
+
+  Thus, we have a category of subobjects of X in C:
+  
+  Sub_C(X)
+
+  This is a preorder-cat.
+
+
+Ex (5.3) An equalizer E -----> A -- (f, g) --> B
+  is a subobject of A 
+
++++++++++
+Pullbacks
++++++++++
+
+Def (5.5) In any cat-C, a pullback of arrows f, g with cod(f) = cod(g):
+
+  A -- (f) --> C <-- (g) -- B
+
+consists of arrows:
+
+  A <--(p1) -- C --(p2) --> B
+
+such that
+
+  f . p1 = g . p2
+
+and universal with this property:
+
+I.e. given any z1 : Z -> A and z2 : Z -> B with f . z1 = g . z2,
+there exists a unique u : Z -> P with
+  z1 = p1 . u and z2 = p2 . u.
+
+Remark (5.6) One sometimes uses product-style notation for pullbacks:
+  u = <z1, z2>
+  C = A x_C B = {<z1, z2> of A x B | f . z1 = g . z2}
+
+
+Prop (5.7) ... TBD
+
+Corolary (5.8) If a cat-C has binary products and equalizers, then it has pullbacks
+
+Ex. In Sets a pullback
+  A <--(g') -- E -- (f')--> B
+  A -- (f) --> C <-- (g) -- B
+
+We saw that
+
+  E = {<a, b> | f(a) = g(b)}
+
+can be constructed as an equalizer:
+
+  E -- <f', g'> --> A x B -- (f.pi1, g.pi2) --> C
+
+
+
+
+
+Lema (5.10) (Two-pullbacks)
+1. If the two adjackent squares are pullbacks, so is the outer rectangle:
+
+  A x_B (B x_C D) =~= A x_C D
+
+2. If the right square and the outer rectangle are pullbacks, so is the left square.
+
+++++++
+Limits
+++++++
+
+Prop (5.16) A category has finite products and equalizers
+            iff it has pullbacks and a terminal object
+
+Product, terminal object, pullback, and equalizer, are all special cases of the general notion of a limit.
+
+
+Def (5.17) Let CatJ and CatC be categories. A "diagram of shape CatJ" (CatJ called index-category here) in CatC is a FUNCTOR:
+
+  D : CatJ -> CatC
+
+  We use letters i, j, k for objects of index-cat J.
+  Appropriate objects in CatC are D_i, D_j, D_k.
+
+Example:
+  In J:
+
+  1 -- (13) --> 3 <-- (23) -- 2
+    --------- (12) ---------->
+
+  In C:
+
+  D_1 -- (d_13) --> D_3 <-- (d_23) -- D_2
+      ----------- (d_12) ----------->
+
+
+  A cone to a diagram D consists of an object C in CatC and a family of arrows in C:
+
+  c_j : C -> D_j
+
+  one for each object j of CatJ, such that for each arrow alpha : i -> j  in CatJ,
+  the following triangle commutes (c_j = D_alpha . c_i)
+
+  D_i <-- (c_i) -- C -- (c_j) --> D_j
+      -------- (D_alpha) ------->
+
+
+  For a given diagram D we can collect all the cones on D into a category Cone(D),
+  whose objects are cones on D.
+
+  A morphism of cones
+  
+  nu : (C, c_j) -> (C', c'_j)
+
+  is an arrow nu in CatC, making each (for all j of CatJ) triangle commute:
+
+  for all j of CatJ, c_j = c'_j . nu
+
+  C -- (nu) --> C' -- (c'_j) --> D_j
+    --------- (c_j) ----------->
+
+
+Def (5.18) A limit for a diagram D : CatJ -> CatC
+  is a terminal object in Cat-Cone(D).
+  A finite-limit is a limit for a diagram on a finite index Cat-J.
+
+  We often denote a limit in the form,
+
+  p_i : lim_(j of CatJ) -> D_i
+
+  The limit for a giagram D has the following UMP:
+  given any cone (C, c_j) to D, there is a unique arrow u : C -> lim_(j of D_j)
+  such that
+  
+  for all j of CatJ
+  
+  c_j = p_j . u
+
+
+Ex (5.19) Take CatJ = { 1, 2 } - the discrete-cat with id-arrows only.
+  A diagram D : CatJ -> CatC is a pair of objects D_1, D_2 of CatC
+  A cone on D is an object of CatC equipped with arrows
+
+  D_1 <-- (c1) -- C -- (c2) --> D_2
+
+  And a limit of D is a terminal cone, i.e. a product in CatC of D_1 and D_2
+
+  lim_(j of CatJ) D_j =~= D_1 x D_2
+
+
+Equalizer, Pullback, even Terminal Objects are also special cases of Limit.
+
+Prop (5.23) The following statements a equivalenf for a category
+
+1. Category has all finite limits
+2. Category has finite products and equalizers
+3. Category has pullbacks and terminal object 
+
+Theorem (5.25) A category C has finite colimits iff it has finite coproducts and coequalizers
+  (resp. iff it has pushouts and an initial object).
+  CatC has all colimits of size k iff it has coequalizers and coproducts of size k.
+
+
+Preservation of limits.
+
+A functor F : CatC -> CatD  preserves products (A, B, AxB, \pi0, \pi1) iff
+  appropriate images in CatD (FA, FB, FAxFB, ...) are also products
+  And there is an isomorphism f : F(AxB) -> FAxFB
+
+Def (5.26) A functor F : CatC -> CatD is said to preserve limits of type CatJ,
+  when it maps limit-cones in CatC to limit-cones at CatD.
+
+  A functor, that preserves all limits is said to be continuous.
+
+Prop (5.27) Representable functors preserve all limits.
+
+Def (5.28) A functor of the form F : CatC^op -> CatD is called a contravariant functor on CatC.
+  Explicitly, such a functor takes
+    f    :   A  ->   B  to
+    F(f) : F(B) -> F(A)
+  and
+    F (g . f) = F(f) . F(g)
+
+A typical example of such a functor is a representable functor of the form:
+  Hom_CatC(-, C) : CatC^op -> CatSets  where CatC is locally small
+
+Corollary (5.29) Contravariant representable functors map all colimits to limits.
+
+
+Colimits
+
+In general, a colimit for the diagram D: CatJ -> CatC is of course an initial object in the category of cocones.
+
+Explicitly, a cocone from the base D consists of an object C (the vertex) and arrows
+
+  c_j : D_j -> C  for each j of CatJ
+  
+  such that for all alpha : i -> j in CatJ
+
+  c_j . D(alpha) = c_i
+
+  A morphism of cocones f : (C, (c_j)) -> (C', (c'_j)) is an arrow f : C -> C' in CatC, such that
+
+  f . c_j = c'_j  for all j of CatJ
+
+  An initial cocone is one that maps uniquely to any other cocone from D.
+
+  We write such a colimit in the form
+
+  lim_(->j of J)D_j
+
+Note: an original limit is written as:
+
+  lim_(<-j of J)D_j
+
+

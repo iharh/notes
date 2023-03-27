@@ -1,0 +1,17 @@
+https://clang.llvm.org/extra/clang-tidy/
+https://clang.llvm.org/extra/clang-tidy/index.html
+https://clang.llvm.org/extra/clang-tidy/checks/list.html
+
+samples
+CXX=clang++ CXXFLAGS="-Xclang -add-plugin -Xclang clang-tidy -Xclang -plugin-arg-clang-tidy -Xclang -checks='-*, clang-analyzer-core.*'" juci [project-path]
+
+2020
+https://habr.com/ru/company/auriga/blog/526486/
+Tingaud - How to Refactor Millions of Line of Code Without Alienating your Colleagues
+    https://www.youtube.com/watch?v=Fxe7JoGSyy8
+2019
+Tingaud - How to Refactor Millions of Line of Code Without Alienating your Colleagues
+    https://www.youtube.com/watch?v=JPnN2c2odNY
+Demeule - Adding a New clang-tidy Check by the Practice
+    https://www.youtube.com/watch?v=K-WhaEUEZWc
+    https://github.com/cppp-france/CPPP-19/tree/master/adding_a_new_clang-tidy_check-Jeremy_Demeule

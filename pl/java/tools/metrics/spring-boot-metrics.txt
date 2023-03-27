@@ -1,0 +1,5 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-metrics.html
+
+https://github.com/spring-projects/spring-boot/tree/master/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/metrics
+
+The old MetricRepository and its InMemoryMetricRepository implementation are not used by default if you are on Java 8 or if you are using Dropwizard metrics.

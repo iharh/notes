@@ -1,0 +1,7 @@
+https://freemasen.github.io/parsers_presentation/09.perf/perf.html
+
+#[cfg(feature = "hand")]
+#[bench]
+fn hand_rolled_1000(b: &mut Bencher) {
+    thousand(b, &hand_rolled_duration_parser::parse);
+}

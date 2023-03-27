@@ -1,0 +1,10 @@
+https://github.com/gradle/gradle-profiler
+
+sdk
+    gradleprofiler
+
+https://developer.android.com/studio/build/profile-your-build
+
+2020
+https://goobar.io/benchmarking-gradle-builds-using-gradle-profiler/
+https://dev.to/autonomousapps/benchmarking-builds-with-gradle-profiler-oa8

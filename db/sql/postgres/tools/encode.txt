@@ -1,0 +1,5 @@
+encode(<field>, '<format>')
+
+format
+    escape
+    hex

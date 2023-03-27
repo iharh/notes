@@ -1,0 +1,8 @@
+https://docs.chef.io/attributes.html
+https://docs.chef.io/nodes.html#attributes
+
+Default overriding, deep merge:
+https://tickets.opscode.com/browse/CHEF-1847
+https://github.com/chef/chef/issues/1911
+
+https://docs.chef.io/attributes.html#about-deep-merge

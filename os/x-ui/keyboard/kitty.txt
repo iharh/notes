@@ -1,0 +1,98 @@
+https://github.com/kovidgoyal/kitty/issues/1629
+
+ctrl+shift is the default terminal
+
+https://sw.kovidgoyal.net/kitty/conf/
+https://sw.kovidgoyal.net/kitty/actions/
+
+kitty
+    --debug-config
+    + list-fonts --psnames 
+
+https://github.com/kovidgoyal/kitty/issues/3838
+    kitty --config NONE -o 'map kitty_mod+n new_os_window' --debug-keyboard
+
+https://www.linuxfordevices.com/tutorials/ubuntu/install-kitty
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+    ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
+    cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications
+    sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty.desktop
+
+https://github.com/kovidgoyal/kitty/issues/4020
+$ kitty --config NONE -o 'map kitty_mod+n new_os_window' --debug-keyboard
+Loading new XKB keymaps
+Modifier indices alt: 0x3 super: 0x6 hyper: 0xffffffff meta: 0xffffffff numlock: 0x4 shift: 0x0 capslock: 0x1
+Press xkb_keycode: 0x25 clean_sym: Control_L composed_sym: Control_L mods: none glfw_key: 57442 (LEFT_CONTROL) xkb_key: 65507 (Control_L)
+on_key_input: glfw key: 0xe062 native_code: 0xffe3 action: PRESS mods: none text: '' state: 0 ignoring as keyboard mode does not support encoding this event
+Press xkb_keycode: 0x32 clean_sym: Shift_L composed_sym: ISO_Next_Group  is a keyboard layout shift key, ignoring.
+Press xkb_keycode: 0x39 clean_sym: n composed_sym: n mods: ctrl glfw_key: 110 (n) xkb_key: 110 (n)
+on_key_input: glfw key: 0x6e native_code: 0x6e action: PRESS mods: ctrl text: '' state: 0 sent key to child
+Release xkb_keycode: 0x39 clean_sym: n mods: ctrl glfw_key: 110 (n) xkb_key: 110 (n)
+on_key_input: glfw key: 0x6e native_code: 0x6e action: RELEASE mods: ctrl text: '' state: 0 ignoring as keyboard mode does not support encoding this event
+Release xkb_keycode: 0x32 clean_sym: Shift_L mods: ctrl glfw_key: 57441 (LEFT_SHIFT) xkb_key: 65505 (Shift_L)
+Release xkb_keycode: 0x25 clean_sym: Control_L mods: ctrl glfw_key: 57442 (LEFT_CONTROL) xkb_key: 65507 (Control_L)
+on_key_input: glfw key: 0xe062 native_code: 0xffe3 action: RELEASE mods: ctrl text: '' state: 0 ignoring as keyboard mode does not support encoding this event
+
+Removed shortcuts:
+	shift+insert KeyAction(func='paste_from_selection', args=())
+	shift+control+comma KeyAction(func='move_tab_backward', args=())
+	shift+control+minus KeyAction(func='change_font_size', args=(True, '-', 2.0))
+	shift+control+period KeyAction(func='move_tab_forward', args=())
+	shift+control+0 KeyAction(func='tenth_window', args=())
+	shift+control+1 KeyAction(func='first_window', args=())
+	shift+control+2 KeyAction(func='second_window', args=())
+	shift+control+3 KeyAction(func='third_window', args=())
+	shift+control+4 KeyAction(func='fourth_window', args=())
+	shift+control+5 KeyAction(func='fifth_window', args=())
+	shift+control+6 KeyAction(func='sixth_window', args=())
+	shift+control+7 KeyAction(func='seventh_window', args=())
+	shift+control+8 KeyAction(func='eighth_window', args=())
+	shift+control+9 KeyAction(func='ninth_window', args=())
+	shift+control+equal KeyAction(func='change_font_size', args=(True, '+', 2.0))
+	shift+control+a > 1 KeyAction(func='set_background_opacity', args=['1'])
+	shift+control+a > d KeyAction(func='set_background_opacity', args=['default'])
+	shift+control+a > l KeyAction(func='set_background_opacity', args=['-0.1'])
+	shift+control+a > m KeyAction(func='set_background_opacity', args=['+0.1'])
+	shift+control+b KeyAction(func='move_window_backward', args=())
+	shift+control+c KeyAction(func='copy_to_clipboard', args=())
+	shift+control+e KeyAction(func='kitten', args=['hints'])
+	shift+control+f KeyAction(func='move_window_forward', args=())
+	shift+control+h KeyAction(func='show_scrollback', args=())
+	shift+control+j KeyAction(func='scroll_line_down', args=())
+	shift+control+k KeyAction(func='scroll_line_up', args=())
+	shift+control+l KeyAction(func='next_layout', args=())
+	shift+control+n KeyAction(func='new_os_window', args=())
+	shift+control+o KeyAction(func='pass_selection_to_program', args=())
+	shift+control+p > f KeyAction(func='kitten', args=['hints', '--type path --program -'])
+	shift+control+p > h KeyAction(func='kitten', args=['hints', '--type hash --program -'])
+	shift+control+p > l KeyAction(func='kitten', args=['hints', '--type line --program -'])
+	shift+control+p > n KeyAction(func='kitten', args=['hints', '--type linenum'])
+	shift+control+p > w KeyAction(func='kitten', args=['hints', '--type word --program -'])
+	shift+control+p > y KeyAction(func='kitten', args=['hints', '--type hyperlink'])
+	shift+control+p > shift+f KeyAction(func='kitten', args=['hints', '--type path'])
+	shift+control+q KeyAction(func='close_tab', args=())
+	shift+control+r KeyAction(func='start_resizing_window', args=())
+	shift+control+s KeyAction(func='paste_from_selection', args=())
+	shift+control+t KeyAction(func='new_tab', args=())
+	shift+control+u KeyAction(func='kitten', args=['unicode_input'])
+	shift+control+v KeyAction(func='paste_from_clipboard', args=())
+	shift+control+w KeyAction(func='close_window', args=())
+	shift+control+left_bracket KeyAction(func='previous_window', args=())
+	shift+control+right_bracket KeyAction(func='next_window', args=())
+	shift+control+grave_accent KeyAction(func='move_window_to_top', args=())
+	shift+control+escape KeyAction(func='kitty_shell', args=['window'])
+	shift+control+enter KeyAction(func='new_window', args=())
+	shift+control+backspace KeyAction(func='change_font_size', args=(True, None, 0.0))
+	shift+control+delete KeyAction(func='clear_terminal', args=['reset', True])
+	shift+control+right KeyAction(func='next_tab', args=())
+	shift+control+left KeyAction(func='previous_tab', args=())
+	shift+control+down KeyAction(func='scroll_line_down', args=())
+	shift+control+up KeyAction(func='scroll_line_up', args=())
+	shift+control+page_up KeyAction(func='scroll_page_up', args=())
+	shift+control+page_down KeyAction(func='scroll_page_down', args=())
+	shift+control+home KeyAction(func='scroll_home', args=())
+	shift+control+end KeyAction(func='scroll_end', args=())
+	shift+control+f2 KeyAction(func='edit_config_file', args=())
+	shift+control+f10 KeyAction(func='toggle_maximized', args=())
+	shift+control+f11 KeyAction(func='toggle_fullscreen', args=())
+	shift+control+alt+t KeyAction(func='set_tab_title', args=())

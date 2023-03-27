@@ -1,0 +1,8 @@
+Need to install FreeRDP.
+
+After upgrades sometimes need to clean the hosts cache:
+
+Remove all the content at the
+
+~/.freerdp/known_hosts
+

@@ -1,0 +1,61 @@
+http://www.hurryupandwait.io/blog/accessing-chef-node-attributes-from-kitchen-tests
+https://github.com/mwrock/export-node
+https://github.com/test-kitchen/busser-serverspec/issues/8
+https://github.com/test-kitchen/test-kitchen/issues/858
+
+suites:
+  - name: my-suite
+    run_list:
+      - recipe[cookbook-under-test]
+      - recipe[export-node]
+
+ruby_block "Save node attributes" do
+  block do
+    if Dir::exist?('/tmp/kitchen')
+      IO.write("/tmp/kitchen/chef_node.json", node.to_json)
+    end
+  end
+end
+
+
+require 'json'
+require 'serverspec'
+
+set :backend, :exec
+
+describe file('/etc/haproxy/haproxy.cfg') do
+  let(:node) { JSON.parse(IO.read('/tmp/kitchen/chef_node.json')) }
+  let(:subnet) {
+    ip = node["automatic"]["ipaddress"]
+    ip[0,ip.rindex(".")]
+  }
+  let(:env) { node["chef_environment"].upcase}
+
+  it { should be_a_file }
+  its(:content) {
+    should match <<-EOS
+      backend elasticsearch_backend
+        mode http
+        balance roundrobin
+        server #{env}SRCH01 #{subnet}.121:92 weight 1 check port 92
+        server #{env}SRCH02 #{subnet}.122:92 weight 1 check port 92
+        server #{env}SRCH03 #{subnet}.123:92 weight 1 check port 92
+
+      backend web_backend
+        mode http
+        balance roundrobin
+        timeout server 5m
+        server #{env}WEB01 #{subnet}.131:80 weight 1 check port 80
+        server #{env}WEB02 #{subnet}.132:80 weight 1 check port 80
+
+      backend rabbit_backend
+        mode http
+        balance roundrobin
+        server #{env}RABBIT01 #{subnet}.141:1567 weight 1 check port 1567
+        server #{env}RABBIT02 #{subnet}.142:1567 weight 1 check port 1567
+        server #{env}RABBIT03 #{subnet}.143:1567 weight 1 check port 1567
+    EOS
+  }
+end
+
+https://github.com/mwrock/export-node

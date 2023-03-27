@@ -1,0 +1,26 @@
+debugmode
+viewlogs
+    ~/.var/app/org.telegram.desktop/data/TelegramDesktop/
+
+https://github.com/telegramdesktop/tdesktop/blob/a25f55ba68e98044eff76f3c2b5fcbd4417f0b6f/Telegram/SourceFiles/settingswidget.cpp#L810-L866
+
+https://github.com/telegramdesktop/tdesktop/blob/master/Telegram/SourceFiles/settings/settings_codes.cpp#L76
+https://github.com/telegramdesktop/tdesktop/blob/master/Telegram/SourceFiles/settings/settings_codes.cpp#L78
+https://github.com/telegramdesktop/tdesktop/blob/master/Telegram/SourceFiles/core/launcher.cpp#LL100C16-L100C16
+    QString DebugModeSettingPath() {
+      return cWorkingDir() + qsl("tdata/withdebug");
+    }
+    void ComputeDebugMode() {
+      Logs::SetDebugEnabled(cAlphaVersion() != 0);
+      const auto debugModeSettingPath = DebugModeSettingPath();
+      auto file = QFile(debugModeSettingPath);
+      if (file.exists() && file.open(QIODevice::ReadOnly)) {
+        Logs::SetDebugEnabled(file.read(1) != "0");
+      }
+      if (cDebugMode()) {
+        Logs::SetDebugEnabled(true);
+      }
+      if (Logs::DebugEnabled()) {
+        QLoggingCategory::setFilterRules("qt.qpa.gl.debug=true");
+      }
+    }

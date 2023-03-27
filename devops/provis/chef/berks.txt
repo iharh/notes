@@ -1,0 +1,72 @@
+http://berkshelf.com/
+https://habrahabr.ru/company/epam_systems/blog/221791/
+http://zanshin.net/2014/03/04/how-i-setup-my-chef-workstation/
+
+berks
+    help [command]
+        help [on command]
+    init [path]
+        initialize berkshelf [in a given path]
+        !!! deprecated !!!
+    install
+        install theh cookbooks, specified in the Berksfile (creates a Berksfile.lock)
+    list
+        list cookbooks, installed by Berksfile
+    verivy
+        quickly validate the contents
+    viz
+        visualize the dependency graph (graphviz need to be installed)
+    show <cookbook>
+        display the path to a cookbook on disk
+    info <cookbook>
+        display info (name, description, version, author, copyright, dependency attributes) for a cookbook
+    contingent <cookbook>
+        display, which cookbooks depend on a given-one
+
+    upload <cookbooks>
+        upload cookbooks to a chef-server
+
+    verndor [path]
+        vendor a cookbooks [to a path, which is pwd/berks-cookbooks by default]
+    package <path>
+        vendor and package ...
+        
+cfg files:
+~/.berkshelf/config.json
+{
+  "chef":{
+    "chef_server_url":"https://path.to.your/chef-server",
+    "validation_client_name":"chef-validator",
+    "validation_key_path":"/Users/you/.chef/chef-validator.pem",
+    "client_key":"/Users/you/.chef/you.pem",
+    "node_name":"you"
+  },
+  "cookbook":{
+    "copyright":"Your Name",
+    "email":"you@example.com",
+    "license":"reserved"
+  },
+  "allowed_licenses":[],
+  "raise_license_exception":false,
+  "vagrant":{
+    "vm":{
+      "box":"Berkshelf-CentOS-6.3-x86_64-minimal",
+      "box_url":"https://dl.dropbox.com/u/31081437/Berkshelf-CentOS-6.3-x86_64-minimal.box",
+      "forward_port":{},
+      "network":{
+        "bridged":false,
+        "hostonly":"33.33.33.10"
+      },
+      "provision":"chef_solo"
+    }
+  },
+  "ssl":{
+    "verify":true
+  }
+}
+
+installed dependencies path:
+~/.berkshelf/cookbooks
+
+plugins:
+vagrant plugin install vagrant-berkshelf

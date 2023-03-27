@@ -1,0 +1,19 @@
+https://github.com/pugjs/pug-loader
+
+npm i -D pug-loader
+
+https://www.npmjs.com/package/html-webpack-pug-plugin
+https://www.npmjs.com/package/html-webpack-template-pug
+
+presentations
+2018
+Quick Start #1 - Webpack 4
+https://www.youtube.com/watch?v=h3TJ7ZEdzHg
+2017
+Webpack 2 - How to use pug (jade) templates with Webpack
+https://www.youtube.com/watch?v=nLR5yUCjTis
+https://www.youtube.com/watch?v=Boqpfw_s77w
+
+articles
+2017
+https://extri.co/2017/05/23/using-htmlwebpackplugin-and-pug/

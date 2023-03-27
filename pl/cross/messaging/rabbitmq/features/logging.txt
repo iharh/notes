@@ -1,0 +1,8 @@
+https://www.rabbitmq.com/logging.html
+
+2022
+https://sematext.com/blog/rabbitmq-logs/
+
+issues
+https://github.com/bitnami/bitnami-docker-rabbitmq/commit/1433a2ec9ef2191dc5a9d0e7f30d1fcc5b05e740
+    RABBITMQ_LOGS

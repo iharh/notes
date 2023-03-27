@@ -1,0 +1,27 @@
+        https://github.com/kubernetes/kubernetes/blob/master/cmd/kubeadm
+        https://github.com/kubernetes/kubernetes/blob/master/cmd/kubeadm/app/cmd/init.go
+
+            glog.V(1).Infof("[init] waiting for the API server to be healthy")
+            waiter := getWaiter(i, client)
+
+            fmt.Printf("[init] waiting for the kubelet to boot up the control plane as Static Pods from directory %q \n", kubeadmconstants.GetStaticPodDirectory())
+            fmt.Println("[init] this might take a minute or longer if the control plane images have to be pulled")
+
+
+            app/util/kubeconfig.go
+                func ClientSetFromFile
+                func ToClientSet
+                    client, err := clientset.NewForConfig(clientConfig)
+
+staging/src/k8s.io/kube-aggregator/pkg/client/clientset_generated/internalclientset/clientset.go
+53:// NewForConfig creates a new Clientset for the given config.
+54:func NewForConfig(c *rest.Config) (*Clientset, error) {
+61:	cs.apiregistration, err = apiregistrationinternalversion.NewForConfig(&configShallowCopy)
+
+
+            kubeadm config images pull
+
+
+        sudo systemctl enable docker.service
+        sudo systemctl enable kubelet.service
+        -> /etc/kubernetes/*

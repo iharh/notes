@@ -1,0 +1,11 @@
+select count(*) into v_count from
+    sys.user_tables         where lower(table_name) = ''
+    sys.user_indexes        where lower(table_name) = '' and lower(index_name) = '';
+    sys.user_constraints
+    sys.user_sequences      where lower(sequence_name) = ''
+
+    sys.user_tab_columns    where lower(table_name) = '' and lower(column_name) = ''
+    sys.user_ind_columns    where lower(table_name) = '' and lower(index_name) = '' and lower(column_name) = ''
+
+if v_count = 0 then
+end;

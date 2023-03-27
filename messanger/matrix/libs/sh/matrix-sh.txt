@@ -1,0 +1,24 @@
+https://github.com/fabianonline/matrix.sh
+https://github.com/search?q=_matrix%2Fclient%2Fversions&type=code
+
+Element version: 1.10.15
+Olm version: <not-enabled>
+
+Homeserver is
+    https://matrix-client.matrix.org
+Identity server is
+    https://vector.im
+Access Token
+    $MATRIX_ELEMENT_MY_SECRET_ACCESS_TOKEN
+
+without login
+./matrix.sh --homeserver=https://matrix.org --token=$MATRIX_ELEMENT_MY_SECRET_ACCESS_TOKEN --room=\!KqkRjyTEzAGRiZFBYT:nixos.org
+    No matrix token set. Use './matrix.sh --login' to login.
+
+@goncharenkoii:matrix.org
+
+NixOS
+Internal room ID
+    !KqkRjyTEzAGRiZFBYT:nixos.org
+Room Version
+    6

@@ -1,0 +1,5 @@
+https://doc.rust-lang.org/beta/std/io/struct.BufReader.html
+
+let reader = BufReader::new(stdin);
+let buffer = Vec::new();
+let fut = io::read_until(reader, b'\n', buffer);

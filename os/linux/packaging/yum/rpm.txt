@@ -1,0 +1,22 @@
+Query:
+
+rpm
+  -qa <package>
+    list <package/all> the installed packages
+  -q <package>
+    check if the package is installed
+  -qc <package>
+    what configuration files are in this package name
+  -qi <package>
+    what dependencies are in this package name
+  -qf <file>
+    who owns the file
+  -ql <package>
+    list files of the <package>
+  -qp <package>
+    what is not installed in this <package> yet
+  -qpR <package>
+    what dependencies are in this package name ???
+
+whatsnew
+https://www.opennet.ru/opennews/art.shtml?num=51582

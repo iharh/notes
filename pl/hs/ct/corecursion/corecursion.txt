@@ -1,0 +1,29 @@
+Gibbons Hutton - Proof Methods for Corecursive Programs
+  http://eprints.nottingham.ac.uk/227/1/corecursion.pdf
+Gibbons - Unfolding Abstract Datatypes
+  http://www.comlab.ox.ac.uk/jeremy.gibbons/publications/adt.pdf
+Eijck - Corecursion
+Eijck - Induction Recursion Coinduction Corecursion
+
+Kurz - Coinduction - An Introductory Example slides
+
+Wadler - Recursive Types for Free
+  http://homepages.inf.ed.ac.uk/wadler/papers/free-rectypes/free-rectypes.txt
+
+Gordon - A Tutorial on Co-induction and Functional Programming
+
+Doets - The Haskell Road to Logic Math and Programming - Ch 10 (10.2 - 376 - 365)
+Ex - iterate
+
+Fibonacci example:
+http://en.literateprograms.org/Fibonacci_numbers_(Haskell)
+http://blog.interlinked.org/tutorials/haskell_laziness.html
+http://stackoverflow.com/questions/6186664/corecursion-and-codata
+
+Goinduction
+! Sangiorgi - Introduction to Bisimulation and Coinduction slides
+http://boards.straightdope.com/sdmb/showthread.php?t=618840
+
+Debashish Ghosh:
+http://debasishg.blogspot.com/2013/01/strict-recursion-non-strict-co-recursion.html
+

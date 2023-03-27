@@ -1,0 +1,2 @@
+community/chrpath
+    Change or delete the rpath or runpath in ELF files

@@ -1,0 +1,41 @@
+https://hub.docker.com/r/bitnami/mongodb
+
+https://github.com/bitnami/bitnami-docker-mongodb
+https://github.com/bitnami/bitnami-docker-mongodb/releases
+https://github.com/bitnami/bitnami-docker-mongodb-sharded
+
+https://docs.bitnami.com/containers/how-to/understand-rolling-tags-containers/
+
+env
+    -e ALLOW_EMPTY_PASSWORD=yes \
+    -e MONGODB_USERNAME=admin \
+    -e MONGODB_PASSWORD=admin \
+    -e MONGODB_DATABASE=CB_Studio \
+
+issues
+persistence folder permissions
+    https://github.com/bitnami/bitnami-docker-mongodb/issues/103
+    https://github.com/bitnami/bitnami-docker-mariadb/issues/136
+    http://qaru.site/questions/16195744/cant-add-persistent-folder-to-bitnamimongodb-on-windows
+    https://stackoverflow.com/questions/40441477/travisci-docker-permissions/45244373#45244373
+    https://github.com/bitnami/bitnami-docker-mongodb/issues/170
+    https://github.com/bitnami/bitnami-docker-mongodb/issues/177
+    https://github.com/bitnami/bitnami-docker-mongodb/issues/178
+        sudo chown :root $MONGODB_SRC_DIR && chmod g+rwX $MONGODB_SRC_DIR
+
+compose sample
+services:
+  mongo:
+    hostname: localhost
+    container_name: 'mongo'
+    image: 'mongo:latest'
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=admin
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js

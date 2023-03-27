@@ -1,0 +1,10 @@
+Config (aliases) at
+  ~/.ssh/config
+
+options (-o):
+
+StrictHostKeyChecking=no
+    to skip asking for finterprint acceptance yes/no
+
+HostKeyAlgorithms=+ssh-dss
+    for new OpenSSH and old servers

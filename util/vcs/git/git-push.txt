@@ -1,0 +1,11 @@
+git push --set-upstream <remote-name> <branch-at-remote-to-push-to>
+
+git push <remote-name> <local-branch>
+
+git push :<branch-name>
+    delete a remote branch
+
+samples
+to overwrite remote branch (develop) with a local one
+git push origin +feature/LANG-2160:develop
+    + - to force

@@ -1,0 +1,243 @@
+Note:
+	We can use : as a separator intead of / (slash)
+Substitute (replace):
+
+:h cmdline-ranges
+	Help on command-line ranges
+
+:[range]s/pattern/replacer/[flags][count]
+	range (work with lines, not chars) :
+		default - search only the current line
+		% - [all lines in a] current buffer
+		.,'a - complex range - from the cursor (.) to mark a 
+		. - current line
+		+5 - 5 lines up
+		-3 - 3 lines down
+		1  - line number 1 of the buffer
+		$  - last line of the buffer
+		%  - all lines of the buffer
+		't - position of mark t
+		/pattern/ - next line where patter matches (also try ?pattern?)
+		       
+	/ delimite a text and replacement
+
+	flags:
+		<empty> - the first occurence only
+		g - search for all occurences (global)
+		c - ask for confirmation on each match (confirm)
+		i - ignore case
+		I - case sensitive
+		n - show number of matches (non-destructive i.e - without making any changes)
+		p - print matching lines
+
+	count
+		N - N lines
+
+if you skip a pattern - the last one will be used
+if you skip a replacer - the delete will occur
+
+Samples
+	:%s/^/>  /
+		Insert > and 2 spaces to the beginning of each line
+	:.,+5s/$/./
+		Add a period to the end of net six lines
+
+
+Global (search & execute):
+
+Global searches
+:g/pattern
+	Finds (moves to) the last occurence of pattern in the file
+:g/pattern/p
+	Finds and displays all the lines containign pattern
+:g/pattern/nu
+	-//- also displays line numbers
+:g! or :v
+	-//- not containing pattern
+
+
+
+
+:[range]g[lobal]/{pattern}/[cmd]
+
+	[cmd] could be:
+	# - show matches with line numbers
+	d - delete matching lines
+	y - yank matching lines
+	p - print
+	nu - also display line numbers
+	normal {command} - execute a normal-mode {command}
+		ex - (/normal OBACON is here) - insert a new line "BACON is here"
+
+normal {command} - Execute an extended sequence
+	
+Default range is (unlike search) the whole buffer
+
+Note: unix grep stands for g/re/p
+
+Samples:
+	:g/params[:foo]/#
+		show line numbers where params[:foo] occurs
+	:g/^$/d
+		delete blank lines
+	:g/pattern/+y
+		Yank line after the ones that match
+	:g/<keycap>/s/Esc/ESC/g
+		To change instances of Esc to ESC only when Esc is on a line that contains <keycap>
+	:g /search-start-pattern/.,/search-end-pattern/+5 move /place-pattern/-1
+		To do a sophisticated move of selected range
+
+Note: use v instead of g to operate on non-matching content
+
+	Ranges:
+	:.,+10g/foo/d - delete matches from cursor through next 10 lines
+	:.,'f+2g/foo/# - show line numbers through 2 lines after mark f
+	:.,/bar/g/foo/d - delete lines through next line matching 'bar'
+
+
+
+RexExp syntax styles:
+
+	\v - Very Magic - Similar to Perl, Ruby, Python (egrep)
+	\m - Magic - The default but awkward (grep)
+	\M - No Magic - Rarely used
+	\V - Very No Magic - Rarely used
+
+Example:
+	/\v(.y){3} - for very-magic syntax
+
+
+Note: after hitting a start-search you can paste from a prev-search register by hitting C-r
+
+
+Metacharacters used in regular expressions:
+
+.
+	any char (p.p matches pep, pip, pcp)
+*
+	zero or more (bugs* matches bug, bugs, bugss, ...)
+	.* matches any number of any chars
+^
+	When used at the start of regexp, requires the following expr be found at the beginning of the line.
+	When not - just stands for itself
+$
+	When used at the end of regexp, requires the preceding expr be found at the end of the line.
+	When not - just stands for itself
+\
+	Treates the following spec-char as itself.
+[]
+	Matches only chars enclosed between brackets. Ranges can also be used ([:;A-Za-z()]).
+	Within brackets you still need to ESCAPE \, - and ]
+	[^ (^ is the first char after [) reverses the range ([^0-9] - any char not a digit).
+\( \)
+	Saves the pattern enclosed between \( and \) into special holding buffer. Up to nine patterns can be
+        saved this way on a single line. The pattern can be replayed via \1 to \9:
+		:%s/\(That\) or \(this\)/\2 or \1/
+\< or \>
+	Matches chars at the beginning or at the end of a word (\<ac - action, ac\> - amiac)
+~
+	Matches the last given substitute(may not behave well...)
++++++++++++++
++ VIM stuff +
++++++++++++++
+\|
+	Indicates alternation (house\|home).
+\+
+	Matches one or more of the preceding reg-exp
+\=
+	Matches zero or more of the preceding reg-exp
+\{n,m}
+	Matches n to m of the preceding reg-exp
+\{n}
+	Matches n of the preceding reg-exp
+\{n,}
+	Matches at least n of the preceding reg-exp, as much as possible
+\{,m}
+	Matches 0 to m of the preceding reg-exp, as much as possible
+\{}
+	Matches 0 or more of the preceding reg-exp, as much as possible
+\{-n,m}
+	Matches n to m of the preceding reg-exp, as few as possible
+\{-n}
+	Matches n of the preceding reg-exp, as few as possible
+\{-n,}
+	Matches at least n of the preceding reg-exp, as few as possible
+\{-,m}
+	Matches 0 to m of the preceding reg-exp, as few as possible
+\i
+	Matches any identifier character, as defined by the isident option (\I - excluding digits)
+\k
+	Matches any keyword character, as defined by the iskeyword option (\K - excluding digits)
+\f
+	Matches any filename character, as defined by the isfname option (\F - excluding digits)
+\p
+	Matches any printable character, as defined by the isprint option (\P - excluding digits)
+\s
+	Matches any whitespace character (exactly - space of tab)
+\S
+	Matches anything except space and tab
+\b
+	Backspace
+\e
+	Escape
+\r
+	Carriage return
+\t
+	Tab
+\n
+	Reserved for future use
+
+
+
+POSIX Character classes:
+
+[:alnum:]
+	Alphanumeric characters
+[:alpha:]
+	Alphabetic characters
+[:blank:]
+	Space and tab characters
+[:cntrl:]
+	Control characters
+[:digit:]
+	Numeric characters
+[:graph:]
+	Printable and visible (nonspace) characters
+[:lower:]
+	Lowercase characters
+[:print:]
+	Printable characters (including whitespaces)
+[:punct:]
+	Punctuation characters
+[:space:]
+	Whitespace characters
+[:upper:]
+	Uppercase characters
+[:xdigit:]
+	Hexadecimal characters
+
+
+Metacharacters for REPLACEMENT string:
+
+\n
+	Where n is 1..9, means previously saved pattern via \( and \).
+\
+	Treates the following spec-char as itself.
+&
+	Is replaced with the entire text matched by the search pattern when used in a replacement string.
+	Ex. - to surround each line from 1 to 10 with paranthesis:
+		:1,10s/.*/(&)/
+~
+	Is replaced with with the replacement text specified in the last substitute command.
+\u or \l
+	Causes the next char to be changed to upper/lower - case. Usefull mainly with variable strings.
+\U or \L, \e or \E
+	The same as above but causes all the following character (up to \e or \E) to be converted.
+
+
+More substitution tricks:
+
+:s
+	Is the same as :s//~/. In other words - repeat the last substitution.
+
+

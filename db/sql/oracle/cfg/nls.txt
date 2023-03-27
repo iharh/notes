@@ -1,0 +1,8 @@
+NLS_LENGTH_SEMANTICS
+https://docs.oracle.com/cd/E24693_01/server.11203/e24448/initparams149.htm
+
+alter system set NLS_LENGTH_SEMANTICS=CHAR;
+-- restart DB after that
+
+select value from nls_session_parameters where parameter = 'NLS_LENGTH_SEMANTICS';
+select value from nls_database_parameters where parameter = 'NLS_LENGTH_SEMANTICS';

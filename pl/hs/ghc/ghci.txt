@@ -1,0 +1,181 @@
+Hoogle integration:
+http://www.haskell.org/haskellwiki/Hoogle#GHCi_Integration
+
+DLL/shared libs usage:
+https://www.fpcomplete.com/user/icelandj/dynamically-link-against-library-in-ghci
+
+Config Location (of ghci.conf):
+
+C:\Users\Ihar_Hancharenka\Application Data\ghc\
+C:\Users\Ihar_Hancharenka\AppData\Roaming\
+
+ghci commands:
+
+:k - kind - describes the type c-tor (*, * -> *, * -> * -> *, ...)
+
+:script $HOME/.../ghci
+  include some script
+
+
+:set +t
+  print type after evaluation
+
+:set +s
+  print statistics (time, bytes) after evaluation
+
+:set +m
+  allow multi-line definitions
+  ":{ ... :}"
+
+:set -XNoMonomorphismRestriction
+  disable monomorphism restriction
+
+:seti ...
+  set some stuff just for the repl session itself,
+  not for the files we loading
+
+********
+* load *
+********
+
+:load Dir.Module
+  load compiled if exists
+  (:! ghc -c Module.hs)
+
+:load *Dir.Module
+  load interpreted if available
+  (note: delete *.o ...)
+
+:reload
+  reload target set
+
+! bindings go away after :load/:reload
+
+**********
+* module *
+**********
+
+:module - Dir.Module
+  remove module from scope
+:module + Dir1.Module1 *Dir2.Module2
+  open exports from Module1
+  open full scope from Module2
+
+!standard import syntax applies as well
+
+**********
+* bro[wse] *
+**********
+
+:bro[wse] Module
+  shows a module's exports
+:bro[wse] *Module
+  Shows full Module scope
+
+
+********
+* show *
+********
+
+:show modules
+  list loaded modules
+:show imports
+  shows what's in scope
+:show bindings
+  List bound variables with types
+
+********
+* type *
+********
+
+:t - type
+:type <expr>
+  type info for an expr
+
+********
+* info *
+********
+
+:i - info and instance declarations (including priority and l/r associativity)
+:info <name>
+  extended information (what file/line ...)
+
+*********
+* print *
+*********
+
+:print <id>
+  print without forced evaluation
+  (inspect data structure at runtime)
+
+:sprint
+  like :print, but does not bind new variables
+  (unevaluated subterms aren't bound to new variables, they are simply denoted by '_')
+  .. print the value without causing it to be evaluated ..
+
+:force <id>
+  frint with forced evaluation
+
+********
+* bugs *
+********
+
+ghci Windows issue:
+http://gloss.ouroborus.net/ (Start ghci with -fno-ghci-sandbox)
+
+
+************
+* debugger *
+************
+
+http://hackage.haskell.org/trac/ghc/wiki/GhciDebugger
+
+http://www.haskell.org/ghc/docs/latest/html/users_guide/ghci-debugger.html#ghci-debugger-exceptions
+
+>:back/forward
+  to examine a step back/forward in a history
+
+*Main> :set -fbreak-on-exception
+*Main> :trace qsort ("abc" ++ undefined)
+“Stopped at <exception thrown>
+_exception :: e
+[<exception thrown>] *Main> :hist
+-1  : qsort.hs:3:24-38
+-2  : qsort.hs:3:23-55
+-3  : qsort.hs:(1,0)-(3,55)
+-4  : qsort.hs:2:15-24
+-5  : qsort.hs:2:15-46
+-6  : qsort.hs:(1,0)-(3,55)
+<end of history>
+[<exception thrown>] *Main> :back
+Logged breakpoint at qsort.hs:3:24-38
+_result :: [a]
+as :: [a]
+a :: a
+[-1: qsort.hs:3:24-38] *Main> :force as
+*** Exception: Prelude.undefined
+[-1: qsort.hs:3:24-38] *Main> :print as
+as = 'b' : 'c' : (_t1::[Char])
+
+**********
+* hoogle *
+**********
+
+ghci.conf:
+:def hoogle \x -> return $ ":!hoogle \"" ++ x ++ "\""
+
+--color
+--info
+
+********
+* core *
+********
+
+ghci -dsuppress-all -ddump-simpl
+
+*****************
+* type families *
+*****************
+
+:kind! Rep (Tree ())
+    show type family instance

@@ -1,0 +1,7 @@
+cmdargs
+import System.Environment (getArgs, withArgs)
+ex: https://github.com/jwiegley/sizes
+
+optparse-applicative
+http://ocharles.org.uk/blog/posts/2012-12-17-24-days-of-hackage-optparse-applicative.html
+

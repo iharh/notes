@@ -1,0 +1,6 @@
+http://chef.github.io/bento/
+https://github.com/chef/bento
+
+https://atlas.hashicorp.com/bento/boxes/centos-7.2
+https://atlas.hashicorp.com/bento/boxes/centos-7.2/versions/2.2.7
+https://atlas.hashicorp.com/bento/boxes/centos-7.2/versions/2.2.7/providers/virtualbox.box

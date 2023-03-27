@@ -1,0 +1,553 @@
+MessageChannel
+
+public interface MessageChannel {
+	public TCSocketAddress getLocalAddress();
+	public TCSocketAddress getRemoteAddress();
+
+	public void addListener(ChannelEventListener listener);
+
+	public ChannelID getChannelID();
+	public boolean isOpen();
+	public boolean isClosed();
+
+	public TCMessage createMessage(TCMessageType type);
+  
+	public Object getAttachment(String key);
+
+	public void addAttachment(String key, Object value, boolean replace);
+	public Object removeAttachment(String key);
+
+	// ////////////////////////////////
+	// Methods duplicated from NetworkLayer
+	// ////////////////////////////////
+
+	public boolean isConnected();
+	public void send(TCNetworkMessage message);
+
+	public NetworkStackID open() throws MaxConnectionsExceededException, TCTimeoutException, UnknownHostException, IOException, CommStackMismatchException;
+
+	public void close();
+  
+	public NodeID getLocalNodeID();
+	public void setLocalNodeID(NodeID source);
+	public NodeID getRemoteNodeID();
+}
+
+
+MessageTransportListener
+
+public interface MessageTransportListener {
+	public void notifyTransportConnected(MessageTransport transport);
+	public void notifyTransportDisconnected(MessageTransport transport, boolean forcedDisconnect);
+	public void notifyTransportConnectAttempt(MessageTransport transport);
+	public void notifyTransportClosed(MessageTransport transport);
+}
+
+
+NetworkLayer
+
+public interface NetworkLayer {
+	/**
+	 * These are the types of layers that are there and we will be building a flagset which would have the information
+	 * about all the layers present depending on the config ADD ALL THE LAYERS TYPE HERE
+	 */
+	public static final short  TYPE_TRANSPORT_LAYER              = 1;                                                                         // 0000000000000001
+	public static final short  TYPE_OOO_LAYER                    = 2;                                                                         // 0000000000000010
+	public static final short  TYPE_CHANNEL_LAYER                = 4;                                                                         // 0000000000000100
+	public static final short  TYPE_TEST_MESSAGE                 = -1;                                                                        // This
+                                                                                                                                             // is
+	/**
+	 * These are the name of the layers that are there in the communication stack IF ANY LAYER TYPE IS ADDED ABOVE THEN
+	 * ADD ITS CORRESPONDING NAME BELOW
+	 */
+	public static final String NAME_TRANSPORT_LAYER              = "Transport Layer";
+	public static final String NAME_OOO_LAYER                    = "Once and Only Once Protocol Layer";
+	public static final String NAME_CHANNEL_LAYER                = "Channel Layer";
+
+	/**
+	 * These are just errors corresponding to the exact mismatch of OOO layer in server and client stacks
+	 */
+	public static final String ERROR_OOO_IN_SERVER_NOT_IN_CLIENT = "Once and Only Once Protocol Layer is present in server but not in client";
+	public static final String ERROR_OOO_IN_CLIENT_NOT_IN_SERVER = "Once and Only Once Protocol Layer is present in client but not in server";
+
+	public short getStackLayerFlag();
+	public String getStackLayerName();
+
+	public void setSendLayer(NetworkLayer layer);
+	public void setReceiveLayer(NetworkLayer layer);
+	public NetworkLayer getReceiveLayer();
+
+	public void send(TCNetworkMessage message);
+	public void receive(TCByteBuffer[] msgData);
+
+	public boolean isConnected();
+
+	public NetworkStackID open() throws MaxConnectionsExceededException, TCTimeoutException, UnknownHostException, IOException, CommStackMismatchException;
+	public void close();
+
+	public TCSocketAddress getRemoteAddress();
+	public TCSocketAddress getLocalAddress();
+}
+
+
+MessageChannelInternal
+
+public interface MessageChannelInternal extends NetworkLayer, MessageChannel, MessageTransportListener{
+};
+
+
+
+
+
+ClientMessageChannel
+
+public interface ClientMessageChannel extends MessageChannel {
+	public void addClassMapping(TCMessageType type, Class msgClass);
+	public void addClassMapping(TCMessageType type, GeneratedMessageFactory messageFactory);
+	public void routeMessageType(TCMessageType messageType, Sink destSink, Sink hydrateSink);
+	public void routeMessageType(TCMessageType type, TCMessageSink sink);
+	public void unrouteMessageType(TCMessageType type);
+	public int getConnectCount();
+	public int getConnectAttemptCount();
+	public ChannelIDProvider getChannelIDProvider();
+}
+
+
+
+AbstractMessageChannel
+
+abstract class AbstractMessageChannel implements MessageChannel, MessageChannelInternal {
+	private final Map               attachments    = new ConcurrentReaderHashMap();
+	private final Object            attachmentLock = new Object();
+	private final Set               listeners      = new CopyOnWriteArraySet();
+	private final ChannelStatus     status         = new ChannelStatus();
+	// !!!
+	private final TCMessageFactory  msgFactory;
+	private final TCMessageRouter   router;
+	private final TCMessageParser   parser;
+	private final TCLogger          logger;
+	private final NodeID            remoteNodeID;
+	private volatile NodeID         localNodeID;
+
+	protected volatile NetworkLayer sendLayer;
+
+	AbstractMessageChannel(TCMessageRouter router, TCLogger logger, TCMessageFactory msgFactory, NodeID remoteNodeID) {
+		this.router = router;
+		this.logger = logger;
+		this.msgFactory = msgFactory;
+		this.parser = new TCMessageParser(this.msgFactory);
+		this.remoteNodeID = remoteNodeID;
+		// This is set after hand shake for the clients
+		this.localNodeID = ClientID.NULL_ID;
+	}
+
+	public void addAttachment(String key, Object value, boolean replace) {
+		synchronized (attachmentLock) {
+			boolean exists = attachments.containsKey(key);
+			if (replace || !exists) {
+				attachments.put(key, value);
+			}
+		}
+	}
+	public Object removeAttachment(String key) {
+		return this.attachments.remove(key);
+	}
+	public Object getAttachment(String key) {
+		return this.attachments.get(key);
+	}
+
+	public boolean isOpen() {
+		return this.status.isOpen();
+	}
+	public boolean isClosed() {
+		return this.status.isClosed();
+	}
+
+	public void addListener(ChannelEventListener listener) {
+		if (listener == null) { return; }
+		listeners.add(listener);
+	}
+
+	public NodeID getLocalNodeID() {
+		return localNodeID;
+	}
+	public void setLocalNodeID(NodeID localNodeID) {
+		this.localNodeID = localNodeID;
+	}
+
+	public NodeID getRemoteNodeID() {
+		return remoteNodeID;
+	}
+
+	public TCMessage createMessage(TCMessageType type) {
+		TCMessage rv = this.msgFactory.createMessage(this, type);
+		// TODO: set default channel specific information in the TC message header
+		return rv;
+	}
+
+	public void routeMessageType(TCMessageType messageType, TCMessageSink dest) {
+		router.routeMessageType(messageType, dest);
+	}
+	public void unrouteMessageType(TCMessageType messageType) {
+		router.unrouteMessageType(messageType);
+	}
+
+	public abstract NetworkStackID open() throws MaxConnectionsExceededException, TCTimeoutException, UnknownHostException, IOException, CommStackMismatchException;
+
+	/**
+	 * Routes a TCMessage to a sink. The hydrate sink will do the hydrate() work
+	 */
+	public void routeMessageType(TCMessageType messageType, Sink destSink, Sink hydrateSink) {
+		routeMessageType(messageType, new TCMessageSinkToSedaSink(destSink, hydrateSink));
+	}
+
+	private void fireChannelOpenedEvent() {
+		fireEvent(new ChannelEventImpl(ChannelEventType.CHANNEL_OPENED_EVENT, AbstractMessageChannel.this));
+	}
+	private void fireChannelClosedEvent() {
+		fireEvent(new ChannelEventImpl(ChannelEventType.CHANNEL_CLOSED_EVENT, AbstractMessageChannel.this));
+	}
+
+	void channelOpened() {
+		status.open();
+		fireChannelOpenedEvent();
+	}
+
+	public void close() {
+		if (!status.getAndSetIsClosed()) {
+			Assert.assertNotNull(this.sendLayer);
+			this.sendLayer.close();
+			fireChannelClosedEvent();
+		}
+	}
+
+	public boolean isConnected() {
+		return this.sendLayer != null && this.sendLayer.isConnected();
+	}
+
+	public final void setSendLayer(NetworkLayer layer) {
+		this.sendLayer = layer;
+	}
+
+	public final void setReceiveLayer(NetworkLayer layer) {
+		throw new UnsupportedOperationException();
+	}
+
+	public NetworkLayer getReceiveLayer() {
+		// this is the topmost layer, it has no parent
+		return null;
+	}
+
+	public void send(final TCNetworkMessage message) {
+		if (logger.isDebugEnabled()) {
+			final Runnable logMsg = new Runnable() {
+					public void run() {
+						logger.debug("Message Sent: " + message.toString());
+					}
+			};
+
+			final Runnable existingCallback = message.getSentCallback();
+			final Runnable newCallback;
+
+			if (existingCallback != null) {
+				newCallback = new Runnable() {
+					public void run() {
+						try {
+							existingCallback.run();
+						}
+						catch (Exception e) {
+							logger.error(e);
+						}
+						finally {
+							logMsg.run();
+						}
+					}
+				};
+			}
+			else {
+				newCallback = logMsg;
+			}
+
+			message.setSentCallback(newCallback);
+		}
+
+		this.sendLayer.send(message);
+	}
+
+	public final void receive(TCByteBuffer[] msgData) {
+		this.router.putMessage(parser.parseMessage(this, msgData));
+	}
+
+	protected final ChannelStatus getStatus() {
+		return status;
+	}
+
+	public void notifyTransportDisconnected(MessageTransport transport, final boolean forcedDisconnect) {
+		fireTransportDisconnectedEvent();
+	}
+
+	protected void fireTransportDisconnectedEvent() {
+		fireEvent(new ChannelEventImpl(ChannelEventType.TRANSPORT_DISCONNECTED_EVENT, AbstractMessageChannel.this));
+	}
+
+	public void notifyTransportConnected(MessageTransport transport) {
+		fireEvent(new ChannelEventImpl(ChannelEventType.TRANSPORT_CONNECTED_EVENT, AbstractMessageChannel.this));
+	}
+
+	public void notifyTransportConnectAttempt(MessageTransport transport) {
+		return;
+	}
+
+	public void notifyTransportClosed(MessageTransport transport) {
+		// yeah, we know. We closed it.
+		return;
+	}
+
+	public TCSocketAddress getLocalAddress() {
+		NetworkLayer sendLyr = this.sendLayer;
+		if (sendLyr != null) {
+			return sendLyr.getLocalAddress();
+		} else {
+			return null;
+		}
+	}
+
+	public TCSocketAddress getRemoteAddress() {
+		NetworkLayer sendLyr = this.sendLayer;
+		if (sendLyr != null) {
+			return sendLyr.getRemoteAddress();
+		} else {
+			return null;
+		}
+	}
+
+	private void fireEvent(ChannelEventImpl event) {
+		for (Iterator i = listeners.iterator(); i.hasNext();) {
+			((ChannelEventListener) i.next()).notifyChannelEvent(event);
+		}
+	}
+
+	/**
+	 * this function gets the stack Lyaer Flag added to build the communctaion stack information
+	 */
+	public short getStackLayerFlag() {
+		// this is the channel layer
+		return TYPE_CHANNEL_LAYER;
+	}
+
+	/**
+	 * this function gets the stack Layer Name added to build the communctaion stack information
+	 */
+	public String getStackLayerName() {
+		// this is the channel layer
+		return NAME_CHANNEL_LAYER;
+	}
+
+	@Override
+	public String toString() {
+		return ((isOpen() ? getChannelID() : "ChannelID[NULL_ID, " + getStatus() + "]") + ":" + getLocalAddress()
+			+ " <--> " + getRemoteAddress());
+	}
+
+	class ChannelStatus {
+		private ChannelState state;
+
+		public ChannelStatus() {
+			this.state = ChannelState.INIT;
+		}
+
+		synchronized void open() {
+			Assert.assertTrue("Switch only from init state to open state", ChannelState.INIT.equals(state));
+			state = ChannelState.OPEN;
+		}
+
+		synchronized boolean getAndSetIsClosed() {
+			if (ChannelState.INIT.equals(state)) {
+				logger.warn("Ignoring state switch to " + ChannelState.CLOSED + "; Current State : " + state + "; "
+					+ AbstractMessageChannel.this);
+				return false;
+			}
+
+			if (ChannelState.CLOSED.equals(state)) {
+				return true;
+			} else {
+				state = ChannelState.CLOSED;
+				return false;
+			}
+		}
+
+		synchronized boolean isOpen() {
+			return ChannelState.OPEN.equals(state);
+		}
+
+		synchronized boolean isClosed() {
+			return ChannelState.CLOSED.equals(state);
+		}
+
+		@Override
+		public String toString() {
+			return "Status:" + this.state.toString();
+		}
+	}
+
+	private static class ChannelState {
+		private static final int  STATE_INIT   = 0;
+		private static final int  STATE_OPEN   = 1;
+		private static final int  STATE_CLOSED = 2;
+
+		static final ChannelState INIT         = new ChannelState(STATE_INIT);
+		static final ChannelState OPEN         = new ChannelState(STATE_OPEN);
+		static final ChannelState CLOSED       = new ChannelState(STATE_CLOSED);
+
+		private final int         state;
+
+		private ChannelState(int state) {
+			this.state = state;
+		}
+
+		@Override
+		public String toString() {
+			switch (state) {
+				case STATE_INIT:
+					return "INIT";
+				case STATE_OPEN:
+					return "OPEN";
+				case STATE_CLOSED:
+					return "CLOSED";
+				default:
+					return "UNKNOWN";
+			}
+		}
+	}
+
+	// for testing purpose
+	protected NetworkLayer getSendLayer() {
+		return sendLayer;
+	}
+}
+
+
+ClientMessageChannelImpl
+
+public class ClientMessageChannelImpl extends AbstractMessageChannel implements ClientMessageChannel {
+	private static final TCLogger       logger           = TCLogging.getLogger(ClientMessageChannel.class);
+	private final TCMessageFactory      msgFactory;
+	private int                         connectAttemptCount;
+	private int                         connectCount;
+	private ChannelID                   channelID;
+	private final ChannelIDProviderImpl cidProvider;
+	private final SessionProvider       sessionProvider;
+	private volatile SessionID          channelSessionID = SessionID.NULL_ID;
+
+	protected ClientMessageChannelImpl(final TCMessageFactory msgFactory, final TCMessageRouter router,
+                                     final SessionProvider sessionProvider, final NodeID remoteNodeID) {
+		super(router, logger, msgFactory, remoteNodeID);
+		this.msgFactory = msgFactory;
+		this.cidProvider = new ChannelIDProviderImpl();
+		this.sessionProvider = sessionProvider;
+		this.sessionProvider.initProvider(remoteNodeID);
+	}
+
+	@Override
+	public NetworkStackID open() throws TCTimeoutException, UnknownHostException, IOException, MaxConnectionsExceededException, CommStackMismatchException {
+		final ChannelStatus status = getStatus();
+
+		synchronized (status) {
+			if (status.isOpen()) { throw new IllegalStateException("Channel already open"); }
+			((MessageTransport) this.sendLayer).initConnectionID(new ConnectionID((((ClientID) getLocalNodeID()).toLong())));
+			final NetworkStackID id = this.sendLayer.open();
+			channelOpened();
+			this.channelID = new ChannelID(id.toLong());
+			setLocalNodeID(new ClientID(id.toLong()));
+			this.cidProvider.setChannelID(this.channelID);
+			this.channelSessionID = this.sessionProvider.getSessionID(getRemoteNodeID());
+			return id;
+		}
+	}
+
+	public void addClassMapping(final TCMessageType type, final Class msgClass) {
+		this.msgFactory.addClassMapping(type, msgClass);
+	}
+
+	public void addClassMapping(final TCMessageType type, final GeneratedMessageFactory messageFactory) {
+		this.msgFactory.addClassMapping(type, messageFactory);
+	}
+
+	public ChannelID getChannelID() {
+		final ChannelStatus status = getStatus();
+		synchronized (status) {
+			if (!status.isOpen()) {
+				throw new IllegalStateException("Attempt to get the channel ID of an unopened channel.");
+			} else {
+				return this.channelID;
+			}
+		}
+	}
+
+	public int getConnectCount() {
+		return this.connectCount;
+	}
+
+	public int getConnectAttemptCount() {
+		return this.connectAttemptCount;
+	}
+
+	/*
+	 * Session message filter. To drop old session msgs when session changed.
+	 */
+	@Override
+	public void send(final TCNetworkMessage message) {
+		if (this.channelSessionID == ((DSOMessageBase) message).getLocalSessionID()) {
+			super.send(message);
+		} else {
+			logger.info("Drop old message: " + ((DSOMessageBase) message).getMessageType() + " Expected "
+				+ this.channelSessionID + " but got " + ((DSOMessageBase) message).getLocalSessionID());
+		}
+	}
+
+	@Override
+	public void notifyTransportConnected(final MessageTransport transport) {
+		super.notifyTransportConnected(transport);
+		this.connectCount++;
+	}
+
+	@Override
+	public void notifyTransportDisconnected(final MessageTransport transport, final boolean forcedDisconnect) {
+		// Move channel to new session
+		this.channelSessionID = this.sessionProvider.nextSessionID(getRemoteNodeID());
+		logger.info("ClientMessageChannel moves to " + this.channelSessionID);
+		fireTransportDisconnectedEvent();
+	}
+
+	@Override
+	public void notifyTransportConnectAttempt(final MessageTransport transport) {
+		super.notifyTransportConnectAttempt(transport);
+		this.connectAttemptCount++;
+	}
+
+	@Override
+	public void notifyTransportClosed(final MessageTransport transport) {
+		//
+	}
+
+	public ChannelIDProvider getChannelIDProvider() {
+		return this.cidProvider;
+	}
+
+	private static class ChannelIDProviderImpl implements ChannelIDProvider {
+		private ChannelID channelID = ChannelID.NULL_ID;
+
+		private synchronized void setChannelID(final ChannelID channelID) {
+			this.channelID = channelID;
+		}
+
+		public synchronized ChannelID getChannelID() {
+			return this.channelID;
+		}
+	}
+
+	// for testing purpose
+	protected SessionID getSessionID() {
+		return this.channelSessionID;
+	}
+};

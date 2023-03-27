@@ -1,0 +1,5 @@
+not null
+check (condition)
+unique
+primary key (list-of-attributes)
+foreign key (list-of-attributes) references table-name(list-of-attributes)

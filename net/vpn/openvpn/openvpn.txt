@@ -1,0 +1,24 @@
+https://openvpn.net/
+
+https://community.openvpn.net/openvpn
+https://openvpn.net/index.php/access-server/docs/admin-guides/182-how-to-connect-to-access-server-with-linux-clients.html
+
+https://wiki.archlinux.org/index.php/OpenVPN
+https://wiki.archlinux.org/index.php/OpenVPN#The_client_configuration_file
+
+https://github.com/OpenVPN
+https://github.com/OpenVPN/openvpn
+https://github.com/OpenVPN/openvpn3
+https://github.com/OpenVPN/openvpn3-linux
+https://github.com/OpenVPN/openvpn-gui
+https://github.com/OpenVPN/openvpn-build
+https://github.com/OpenVPN/easy-rsa
+
+DNS
+https://wiki.archlinux.org/index.php/OpenVPN#Update_resolv-conf_script
+https://github.com/masterkorp/openvpn-update-resolv-conf
+
+https://wiki.archlinux.org/index.php/OpenVPN#Update_systemd-resolved_script
+
+misc
+max-routes 1000 # --max-routes 500

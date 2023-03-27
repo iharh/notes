@@ -1,0 +1,145 @@
+Configuration/Options
+
+:h-
+	softtabstop
+		Help on the config parameter
+	window-resize
+		Help on window resizing
+HINT:
+:verbose set wildmode?
+	See where the option has been last set
+
+:set
+	Display vim options you've specifically set or chosen.
+:set all
+	Display all the vim options with defaults and chosen by you.	
+:options
+	Show Vim options screen ("option-window" - :q to close it)
+
+
+
+[boolean vals:]
+:set list
+	Turn a value on (list - display spec-chars)
+:set nolist
+	Turn a value off
+:set list?
+	Show current value
+:set list&
+	Reset to default value
+
+[other vals:]
+:set softtabstop=2
+	Set a value
+:set softtabstop
+:set softtabstop?
+	Show current value
+:set softtabstop&
+	Reset to default value
+
+
+
+:set hidden
+	Echo commands
+:syntax enable
+	?
+:set syntax=apache
+	?
+
+
+! Editing Options !
+
+:set binary
+	Edit in binary mode
+:set backspace ('bs')
+	Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode.
+	This is a list of items, separated by commas.  Each item allows	a way to backspace over something:
+	value	effect	~
+	indent	allow backspacing over autoindent
+	eol	allow backspacing over line breaks (join lines)
+	start	allow backspacing over the start of insert; CTRL-W and CTRL-U
+		stop once at the start of insert.
+
+
+! Search Option !
+
+" Search as I type
+set incsearch
+set showmatch
+set hlsearch
+set ignorecase
+
+:set ic (ignorecase)
+	Ignore the case of search
+:set is (incsearch)
+	Show partial matches for a search phrase (to highlight a swerch while typing)
+:set hls (hlsearch) - to disable - (nohls)
+	To highlight a search result
+        (:nohl[s] - to switch-off current highlighted search results)
+:set nowrapscan
+	To disable search wrapping
+
+
+! Display Options !
+
+:set laststatus=2
+	Always show the statusbar
+:set ruller
+	To display the cursor position in the status bar all the time (C-g - "where you are" persistent)
+:set nu[number]
+	To show line numbers	
+:set vm[wrapmargin]=<num>
+	Set a wrap-margin (autowrap text while typing).
+:set wrap
+	Wrap the long line. (:set nowrap - to remove wrapping).
+:set listchars
+	How to display chars for long lines (when list option is set):
+	set listchars=extends:>,precedes:<
+:set ss[sidescroll]
+	The number of chars to scroll horizontally (when wrap is off).
+:set laststatus
+	The value of this option influences when the last window will have a
+	status line:
+		0: never
+		1: only if there are at least two windows (This is the default).
+		2: always
+:set winheight/winwidth
+	Define the reasonable limit for the current window.
+:set mose=
+	a - to activate the mouse for all uses (cmd-line, input, navigation).
+	
+
+! TAB-Autocomplete options !
+
+:set wildmode=list:longest
+	Activate TAB auto-completion for file paths
+
+
+! Tab-Formatting options !
+
+:set tabstop=2
+	Global tab width
+:set shiftwidth
+	How much to shift (for shift operations >>, <<)
+:set expandtab
+	Use spaces instead of tabs
+
+
+! Indentation !
+
+:set autoindent
+	Set automatical indentation
+
+
+! Match-Parenthesis !
+
+:set sm[showmatch]
+	Temporarily highlight matching parenthesis while typing in insert mode.
+
+
+! File-operations options !
+
+:set autochdir
+	Automatically use the current file's directory as the working one
+
+

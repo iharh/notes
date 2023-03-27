@@ -1,0 +1,24 @@
+https://wiki.archlinux.org/title/LightDM
+
+dm-tool
+    --help
+
+cfg sample:
+/etc/lightdm/lightdm.conf
+/etc/lightdm/lightdm-gtk-greeter.conf
+
+/etc/lightdm/lightdm.conf
+[Seat:*]
+...
+# default greeter
+greeter-session=lightdm-yourgreeter-greeter
+...
+
+$ ls -1 /usr/share/xgreeters/
+lightdm-gtk-greeter.desktop
+lightdm-webkit2-greeter.desktop
+
+[greeter]
+#background=
+user-background=false
+#indicators = ~hosts;~spacer;~clock;~spacer;~layout;~language;~session;~ally;~power

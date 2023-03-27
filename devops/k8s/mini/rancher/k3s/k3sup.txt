@@ -1,0 +1,16 @@
+https://github.com/alexellis/k3sup
+    k3sup was developed to automate what can be a very manual and confusing process for many developers,
+    who are already short on time.
+    Once you've provisioned a VM with your favourite tooling, k3sup means you are only 60 seconds away
+    from running kubectl get pods on your own computer.
+    If you are a local computer, you can bypass SSH with k3sup install --local
+
+https://github.com/cgroschupp/asdf-k3sup
+    ! 2yo
+
+k3sup install --local
+
+2021
+https://vmguru.com/2021/04/how-to-install-rancher-on-k3s/
+2020
+https://asciinema.org/a/262630

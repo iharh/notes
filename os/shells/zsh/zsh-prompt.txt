@@ -1,0 +1,74 @@
+Prompt env-vars:
+
+PS1
+	regular prompt
+PS2
+	when shell is waiting for more input
+PS3
+	used only by the shell select-command
+PS4
+	not a prompt, appears when you have xtrace option set
+
+Note: use single quotes in order to avoid immediate processing (even double quotes are not good enough)
+
+
+Prompt escapes:
+
+%#
+	# - if superuser, else - $
+%n
+	username
+%m
+	host (machine) name
+%.
+	last part of current dir
+%~
+	full name of current dir
+%!
+	line number in shell history
+%j
+	the number of background jobs
+
+%T
+	time in 24-hour format
+%t (%@)
+	time in 12-hour format
+%* (%D{%l:%M:%S})
+	time in 12-hour format with seconds
+%D{%a %b %d}
+	date as Mon Jul 19
+%w
+	Date as 07/19/2004
+
+%B, %b
+	turn on/off bold (bright white)
+%S, %s
+	turn on/off standout (white background, black color)
+%U, %u
+	turn on/off underline (blue)
+
+
+
+Print preview
+
+print -rP '%j%#'
+
+vared PS1
+	edit PS1 using zle
+
+
+Ternary operations:
+
+print -rP 'The last status is %(?.zero.non-zero) '
+ -//- ' %(1?/one/not one) '
+
+
+Prompt themes:
+
+autoload -U promptinit
+promptinit
+
+prompt -l
+	list prompt themes
+prompt <theme>
+	load the <theme>

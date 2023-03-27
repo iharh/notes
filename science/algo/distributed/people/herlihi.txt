@@ -1,0 +1,12 @@
+https://en.wikipedia.org/wiki/Maurice_Herlihy
+
+2009
+https://habr.com/ru/company/jugru/blog/458936/
+Transactional Memory: Architectural Support for Lock-Free Data Structures
+    http://courses.cs.vt.edu/cs5204/fall09-kafura/Papers/TransactionalMemory/Architecture-Support.pdf
+2017
+Herlihi - Transactional Memory and Beyond
+    https://www.youtube.com/watch?v=S3Fx-7avfs4
+1991
+Wait-Free Synchronization
+https://cs.brown.edu/~mph/Herlihy91/p124-herlihy.pdf

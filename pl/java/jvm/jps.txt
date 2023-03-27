@@ -1,0 +1,31 @@
+From a Java program, I needed to test if another Java program was running. My first thought was that the jps tool already
+provides me with this information. But I was being curious how he does that. So I had a look at its bytecode, and created
+a very simplified version of the jps tool.
+
+package jps;
+
+import java.net.URISyntaxException;
+import java.util.Set;
+
+import sun.jvmstat.monitor.*;
+
+public class MyJps
+{
+
+   public static void main(String[] args) throws MonitorException, URISyntaxException
+   {
+      MonitoredHost monitoredHost = MonitoredHost.getMonitoredHost("localhost");
+      Set<Integer> activeVms = monitoredHost.activeVms();
+      for (int psId : activeVms)
+      {
+         MonitoredVm monitoredVm = monitoredHost.getMonitoredVm(new VmIdentifier(String.valueOf(psId)));
+         String mainClass = MonitoredVmUtil.mainClass(monitoredVm, false);
+         System.out.println(mainClass + " [" + psId + "]");
+      }
+   }
+
+}
+
+It uses classes from the tools.jar, so do not forget to include it in your classpath if you run this class. From there, it is
+not difficult to write a small method that test if a given Java process is running. Also, it is not difficult to change this
+code to make it work on a distant server.

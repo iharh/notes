@@ -1,0 +1,2 @@
+Hyphens break Python's import system (interpreted as operators).
+This can be remediated through the standard trick `tmp = __import__('foo-bar')`

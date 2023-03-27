@@ -1,0 +1,63 @@
+https://github.com/aws/aws-sdk-java
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3
+https://github.com/aws/aws-sdk-java/tree/master/aws-java-sdk-s3/src/main/java/com/amazonaws/services/s3
+
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-core
+https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html
+https://github.com/awsdocs/aws-java-developer-guide/tree/master/doc_source
+
+api
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html
+    https://github.com/aws/aws-sdk-java/blob/master/aws-java-sdk-core/src/main/java/com/amazonaws/regions/Regions.java
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/package-frame.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3.html
+    ! doesObjectExists
+
+    ! getObject(GetObjectRequest)
+    ! getObject[Acl|Metadata|Retention|Tagging]
+
+    ! listObjects
+        (bucketName)
+        (bucketName, prefix)
+    ! listNextBatchOfObjects
+    !
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/S3ObjectId.html
+    https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/S3ObjectIdBuilder.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/GetObjectRequest.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/PutObjectRequest.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/PutObjectResult.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/ObjectMetadata.html
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/ObjectListing.html
+    ? delimiter, marker, prefix
+    ! commonPrefixes are only present if a delimiter was specified in the original request
+https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/S3ObjectSummary.html
+
+delimiters and prefixes
+    https://docs.aws.amazon.com/AmazonS3/latest/dev/ListingKeysHierarchy.html
+
+credentials
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html
+
+regions
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html
+
+exceptions
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-exceptions.html
+
+logging
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-logging.html
+
+security
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/security.html
+access-control-policies
+https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-access-control.html
+
+content length
+https://stackoverflow.com/questions/36201759/how-to-set-inputstream-content-length
+
+samples
+https://github.com/aws-samples/aws-java-sample/blob/master/src/main/java/com/amazonaws/samples/S3Sample.java

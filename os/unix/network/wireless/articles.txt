@@ -1,0 +1,11 @@
+2022
+https://www.cyberciti.biz/tips/linux-find-out-wireless-network-speed-signal-strength.html
+    lspci
+    lspci | grep -i broadcom
+    lspci | grep -i wireless
+    lspci | egrep -i --color 'wifi|wlan|wireless'
+    lspci -vv -s 0c:00.0
+    lspci -k | more
+    sudo lshw -C network
+    iwconfig wlan0
+    watch -n 1 cat /proc/net/wireless

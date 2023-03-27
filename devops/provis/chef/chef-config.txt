@@ -1,0 +1,10 @@
+https://docs.chef.io/config_rb.html
+
+ssl_verify_mode
+
+.d dirs:
+
+~/.chef/config.rb
+~/.chef/config.d/company_settings.rb
+~/.chef/config.d/ec2_configuration.rb
+~/.chef/config.d/old_settings.rb.bak

@@ -1,0 +1,21 @@
+git clone:
+http://git-scm.com/docs/git-clone
+
+git clone
+    -n <remote-repo>
+    -n is --no-checkout
+
+    -l --no-hardlinks <local-repo-path>
+    -l is --local
+
+    --branch <branch-name>
+
+
+MIRRORING:
+
+git clone --mirror ...
+
+:: HEAD - currently checked out branch
+git remote -v update --prune
+:: git fetch --prune -v --multiple --all
+:: git fetch --append --prune -v origin

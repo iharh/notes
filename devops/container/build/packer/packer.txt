@@ -1,0 +1,32 @@
+https://www.packer.io
+https://www.packer.io/intro/
+https://cloud.hashicorp.com/products/packer
+
+https://github.com/chef/bento/blob/master/Rakefile
+bento build --only=virtualbox-iso
+packer build -only=virtualbox-iso
+
+
+https://www.packer.io/docs
+https://www.packer.io/docs/basics/terminology.html
+
+https://www.packer.io/docs/command-line/build.html
+    -only=virtualbox
+https://www.packer.io/docs/command-line/fix.html
+https://www.packer.io/docs/command-line/inspect.html
+https://www.packer.io/docs/command-line/validate.html
+
+https://www.packer.io/docs/templates/introduction.html
+https://www.packer.io/docs/templates/builders.html
+https://www.packer.io/docs/templates/provisioners.html
+https://www.packer.io/docs/templates/post-processors.html
+    push
+https://www.packer.io/docs/templates/communicator.html
+https://www.packer.io/docs/templates/configuration-templates.html
+https://www.packer.io/docs/templates/user-variables.html
+    {{user v}} {{env v}
+
+
+kickstart, http_directory
+https://www.packer.io/docs/builders/virtualbox-iso.html#http_directory
+http://digitalsandwich.com/packer-built-centos-vagrant-base-box-automated-build/

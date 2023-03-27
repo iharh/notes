@@ -1,0 +1,66 @@
+Def (7.1) A functor F : CatC -> CatD is said to be:
+  - injective on objects if F_0 : C_0 -> D_0 is injective, the same for surjective
+
+  - .. on arrows ..
+
+  - faithful, if for all A, B of C_0, the map
+
+    F_A,B : Hom_CatC(A, B) -> Hom_CatD(FA, FB)
+
+    defined by f |-> F(f) is injective
+
+  - full, if F_A,B is always surjective
+
+
+Def (7.6) For categories CatC, CatD and functors
+
+  F, G : CatC -> CatD
+
+  a natural transformation (\nu : F -> G) is a family of arrows in CatD
+
+  (\nu_C : FC -> GC)_(C of CatC_0)
+
+  such that, for any f : C -> C' in CatC, one has
+
+  \nu_C' . F(f) = G(f) . \nu_C
+
+  i.e. the following diagram commutes:
+
+  FC -- (\nu_C) --> GC
+   |                |
+ Ff.                .Gf
+   |                |
+  FC'-- (\nu_C')--> GC'
+
+  Given such a natural transformation \nu : F -> G, the \bold D-arrow
+
+  \nu_C : FC -> GC
+
+  is called the "component of \nu at C".
+
+
+Note: If you think of a functor F : CatC -> CatD as "picture" of CatC in CatD,
+  then you can think of a natural transformation \nu_C : FC -> GC
+  as a "cylinder" with such a picture at each end
+
+
+Def (7.9) The functor-category Fun(CatC, CatD) has:
+
+  objects: functors   F  : CatC -> CatD
+
+  arrows : nat-trans \nu : F -> G
+
+
+Prop (7.13) CatCat (category of categories) is cartesian closed, with the exponentials:
+
+  CatD^CatC = Fun(CatC, CatD)
+
+
+Prop (7.20) The inclusion functor
+
+  CatPos -> CatCat
+
+  preserves CCC structure.
+
+
+

@@ -1,0 +1,19 @@
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Tar.html
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.AbstractArchiveTask.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/bundling/Compression.html
+    NONE, GZIP, BZIP2
+
+task someTar(type: Tar) {
+     compression = Compression.GZIP
+} 
+
+// duplicates symlinks and resulting archive is super-huge
+
+from(...)
+destinationDirectory.set()
+archiveBaseName.set()
+archiveAppendix.set()
+archiveVersion.set()
+compression = Compression.BZIP2 // GZIP BZIP2
+
+doLast { println("Packing distribution archive into: ${relativePath(archiveFile)}") }

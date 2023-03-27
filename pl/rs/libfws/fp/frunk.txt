@@ -1,0 +1,12 @@
+https://crates.io/crates/frunk
+https://beachape.com/frunk/frunk/index.html
+
+https://github.com/lloydmeta/frunk
+https://github.com/lloydmeta/frunk/tree/master/derives/src
+
+articles
+https://paulkernfeld.com/2019/01/13/frunk-column.html
+https://beachape.com/blog/2017/03/04/labelledgeneric-in-rust-what-why-how/
+https://beachape.com/blog/2017/02/04/rust-generic-not-generics/
+https://beachape.com/blog/2016/10/24/accumulating-results-in-rust-with-validated/
+https://beachape.com/blog/2016/10/23/rust-hlists-heterogenously-typed-list/

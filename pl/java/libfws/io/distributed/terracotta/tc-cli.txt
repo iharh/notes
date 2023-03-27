@@ -1,0 +1,17 @@
+Terracotta Notes
+
+Terracotta CLI:
+
+ServerDBBackupRunner (backup-tool)
+ArchiveUtil (archive-tool.bat)
+RootsTool (dump roots)
+DumpServer
+
+GCRunner
+
+TheradDumpUtil
+TheradDumpJava
+
+HSQLDBServer
+
+CommandLineMain

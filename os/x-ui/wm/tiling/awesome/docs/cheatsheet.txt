@@ -1,0 +1,25 @@
+https://awesomewm.org/doc/api/documentation/07-my-first-awesome.md.html
+https://awesomewm.org/doc/manpages/awesome.1.html
+
+Mod+S
+    help
+Mod+P
+    menubar
+Mod+T
+    toogle keep on top
+
+Mod+<1..9>
+    go to tag 1..9
+Mod+Left
+    go to prev tag
+Mod+Right
+    go to next tag
+Mod+Esc
+    go .. back
+
+Mod+RightMouse
+    resize window
+
+client
+Mod+F
+    toggle fullscreen/normal

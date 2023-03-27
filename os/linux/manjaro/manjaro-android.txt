@@ -1,0 +1,12 @@
+https://wiki.archlinux.org/index.php/MTP
+
+gvfs-mtp
+? android-file-transfer
+
+/etc/fuse.conf
+user_allow_other
+
+2018
+https://linuxhint.com/connect-android-arch-linux/
+????
+https://www.linuxfordevices.com/tutorials/linux/connect-android-to-arch-via-usb

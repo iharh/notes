@@ -1,0 +1,28 @@
+2022
+hacker 276
+    https://xakep.ru/2022/03/30/heap-allocation/
+    https://telegra.ph/Haker---Kruche-kuchi-Razbiraem-v-podrobnostyah-problemy-heap-allocation-04-10
+    https://www.youtube.com/c/PathCybersecSlavaMoskvin
+    https://github.com/scwuaptx/Pwngdb
+        sudo apt install gdb build-essential libc6-dbg
+        git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb
+        cp ~/Pwngdb/.gdbinit ~/
+        git clone https://github.com/longld/peda.git ~/peda
+
+    r[un] — запус­тить файл;
+    b[reak] *0x1234 — пос­тавить точ­ку оста­нова на адре­се 0x1234;
+    b[reak] 123 — пос­тавить точ­ку оста­нова на стро­ке 123 текуще­го исходно­го фай­ла;
+    b[reak] basic.c:123 — пос­тавить точ­ку оста­нова на стро­ке 123 исходно­го фай­ла basic.c;
+    c[ontinue] — про­дол­жить выпол­нение;
+    s[tep]  - run single asm instruction
+    n[ext]  - run one source file line
+    x/10xg 0x1234 — рас­печатать десять 8-бай­тных слов по адре­су 0x1234;
+    p[rint] a — рас­печатать зна­чение перемен­ной a;
+    p[rint] *((mchunkptr)0x555555756680) — взять содер­жимое памяти по адре­су 0x555555756680 как тип mchunkptr, задере­ферен­сить его и рас­печатать;
+    where — показать, на какой строч­ке исходно­го кода находит­ся выпол­нение прог­раммы.
+
+    peda and pwngdb commands:
+        vmmap    - out memory map
+        hexdump  - show memory content by address as a hexdump
+        heapinfo - show heap info
+

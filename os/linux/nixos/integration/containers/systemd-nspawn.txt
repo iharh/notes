@@ -1,0 +1,5 @@
+https://github.com/NixOS/nixpkgs/blob/nixos-20.09/nixos/modules/system/boot/systemd-nspawn.nix
+
+2020
+https://www.reddit.com/r/NixOS/comments/j7xxph/cant_understand_why_my_nspawn_container_wouldnt/
+    systemd.services."systemd-nspawn@archlinux".enable = true;

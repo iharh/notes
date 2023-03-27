@@ -1,0 +1,28 @@
+https://www.elastic.co/guide/en/elasticsearch/reference/7.17/search-your-data.html
+
+https://www.found.no/foundation/elasticsearch-fields/
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-queries.html
+
+field data fields:
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-request-fielddata-fields.html
+
+
+aggregations:
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations.html
+https://raygun.io/blog/2014/11/intro-elasticsearchs-awesome-aggregations/
+http://chrissimpson.co.uk/elasticsearch-aggregations-overview.html
+
+http://www.elasticsearch.org/blog/intro-to-aggregations/
+http://www.elasticsearch.org/blog/intro-to-aggregations-pt-2-sub-aggregations/
+http://www.elasticsearch.org/blog/numeric-aggregations-an-exploration-of-uk-housing-data/
+
+
+query optimization:
+https://speakerdeck.com/polyfractal/elasticsearch-query-optimization
+https://www.elastic.co/blog/all-about-elasticsearch-filter-bitsets/
+https://www.found.no/foundation/optimizing-elasticsearch-searches/
+
+filters caching:
+http://www.elastic.co/guide/en/elasticsearch/guide/current/filter-caching.html
+    "_cache": false 

@@ -1,0 +1,58 @@
+https://github.com/bytedeco/javacpp/wiki/Gradle
+https://gist.github.com/bongole/05021bdd1f21578e1f6f
+
+Usage: java -jar javacpp.jar [options] [class or package (suffixed with .* or .**)]
+where options include:
+    -classpath <path>      Load user classes from path
+    -encoding <name>       Character encoding used for input and output files
+    -d <directory>         Output all generated files to directory
+    -o <name>              Output everything in a file named after given name
+    -nocompile             Do not compile or delete the generated source files
+    -nodelete              Do not delete generated C++ JNI files after compilation
+    -header                Generate header file with declarations of callbacks functions
+    -copylibs              Copy to output directory dependent libraries (link and preload)
+    -copyresources         Copy to output directory resources listed in properties
+    -jarprefix <prefix>    Also create a JAR file named "<prefix>-<platform>.jar" !!! otherwise - do not create a jar
+    -properties <resource> Load all properties from resource
+    -propertyfile <file>   Load all properties from file
+    -D<property>=<value>   Set property to value
+    -Xcompiler <option>    Pass option directly to compiler
+
+at manifest
+Main-Class: org.bytedeco.javacpp.tools.Builder
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/tools/Builder.html
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/tools/Builder.java
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/tools/Generator.java
+
+javaexec {
+    main = 'org.bytedeco.javacpp.tools.Builder'
+    classpath = files(configurations.javacpp.asPath)
+    args = [
+        '-cp', "$classesDir",
+        '-properties', 'android-x86',
+        '-Dplatform.root=/usr/local/opt/android-ndk',
+        '-Dplatform.compiler=/usr/local/opt/android-ndk/toolchains/x86-4.6/prebuilt/darwin-x86_64/bin/i686-linux-android-g++',
+        "-Dplatform.includepath=sources/cxx-stl/gnu-libstdc++/4.6/include/:sources/cxx-stl/gnu-libstdc++/4.6/libs/x86/include/:$projectDir/jni/include",
+        "-d", "$jniDir/x86/"
+    ]
+}
+
+Builder {
+...
+    int compile(
+        String[] sourceFilenames,
+        String outputFilename,
+        ClassProperties properties,
+        File workingDirectory) throws IOException, InterruptedException {
+        ...
+        logger.info(text);
+
+        ProcessBuilder pb = new ProcessBuilder(command);
+        // Use the library output path as the working directory so that all
+        // build files, including intermediate ones from MSVC, are dumped there
+        pb.directory(workingDirectory);
+        if (environmentVariables != null) {
+            pb.environment().putAll(environmentVariables);
+        }
+        return pb.inheritIO().start().waitFor();
+    }

@@ -1,0 +1,8 @@
+smartctl - Total_LBAs_Written
+cat /sys/fs/ext4/*/lifetime_write_kbytes
+
+2019
+https://interface31.ru/tech_it/2019/12/kak-uznat-ostavshiysya-resurs-ssd-v-linux.html
+https://linuxhandbook.com/check-ssd-health/
+    https://habr.com/ru/company/otus/blog/461929/
+https://superuser.com/questions/1477784/howto-determine-amount-of-data-written-to-a-disk-especially-ssd

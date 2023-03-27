@@ -1,0 +1,8 @@
+https://github.com/d3/d3-selection
+
+https://github.com/d3/d3-transition
+d3.select("body")
+    .transition()
+    .style("background-color", "red");
+
+https://github.com/d3/d3-selection-multi

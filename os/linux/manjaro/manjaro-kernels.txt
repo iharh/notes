@@ -1,0 +1,46 @@
+https://wiki.manjaro.org/index.php/Manjaro_Kernels
+
+sudo mhwd-kernel -h
+sudo mhwd-kernel -li
+sudo mhwd-kernel -i <your-kernel>
+    [rmc: for removing current]
+
+Volatile files bug:
+https://forum.manjaro.org/index.php?topic=20285.0
+https://forum.manjaro.org/index.php?topic=19869.0
+
+
+https://wiki.archlinux.org/index.php/Kernel_modules
+
+mkinitcpio:
+https://wiki.archlinux.org/index.php?title=Mkinitcpio
+man mkinitcpio
+mkinitcpio -p linux318
+
+>>> Generating initial ramdisk, using mkinitcpio.  Please wait...
+==> Building image from preset: /etc/mkinitcpio.d/linux318.preset: 'default'
+  -> -k /boot/vmlinuz-3.18-x86_64 -c /etc/mkinitcpio.conf -g /boot/initramfs-3.18-x86_64.img
+
+
+Blacklisting:
+
+piix4_smbus 0000:00:07.0: SMBus base address uninitialized - upgrade BIOS or use force_addr=0xaddr
+http://www.puppychau.com/archives/62
+
+See if the i2c_piix4 module is indeed loaded with the command
+sudo lsmod | grep i2c_piix4
+
+Blacklist the loading of the i2c_piix4 module by adding it in
+/etc/modprobe.d/blacklist.conf
+blacklist i2c_piix4
+
+don’t need to update the boot image
+
+
+
+kernels for virtualbox:
+
+You may want to load vboxguest, vboxsf and vboxvideo
+/etc/modules-load.d/linux312-virtualbox-guest-modules.conf
+/etc/modules-load.d/mhwd-virtualbox.conf
+

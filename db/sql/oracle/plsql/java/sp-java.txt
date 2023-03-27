@@ -1,0 +1,45 @@
+http://www.sql.ru/forum/776669/ne-gruzitsya-java-ora-29516-bulk-load-of-method-failed-insufficient-shm-object-space
+https://stackoverflow.com/questions/15877663/loading-java-file-through-oracle-sql-developer-tool
+https://community.oracle.com/thread/1106718
+https://arnithedba.wordpress.com/2016/12/10/exp-00008-oracle-error-29516-encountered-ora-29516-aurora-assertion-failure-assertion-failure-at-joez-c3350-exp-00000-export-terminated-unsuccessfully/
+
+select component, current_size, min_size, max_size from v$memory_dynamic_components where current_size != 0;
+
+
+create or replace and compile java source named "ClbHashUtil" as 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Blob;
+ 
+public class ClbHashUtil {
+  public static String getMD5HashFromBlob(Blob inhalt) throws Exception {
+    String sChecksum = null;
+    if (inhalt != null) {
+      try {
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
+        md5.update(inhalt.getBytes(1L, (int)inhalt.length()));
+        byte result[] = md5.digest();
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < result.length; i++) {
+            String s = Integer.toHexString(result[i]);
+            int length = s.length();
+            if (length >= 2) {
+                sb.append(s.substring(length - 2, length));
+            } else {
+                sb.append("0");
+                sb.append(s);
+            }
+        }
+        sChecksum = sb.toString();
+      } catch (NoSuchAlgorithmException e) {
+        // do nothing
+      }
+    }
+    return sChecksum;
+  }
+}
+/
+create or replace function get_md5_blob(inhalt blob) return varchar2 deterministic
+as language java
+name 'ClbHashUtil.getMD5HashFromBlob(java.sql.Blob) return java.lang.String';
+/

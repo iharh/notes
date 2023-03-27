@@ -1,0 +1,11 @@
+xfd:
+
+aur:
+xorg-xfd
+
+xfd -fa <font>
+
+charmap:
+
+aur:
+gucharmap

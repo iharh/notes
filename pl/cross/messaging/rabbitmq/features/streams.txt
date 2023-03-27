@@ -1,0 +1,23 @@
+https://rabbitmq.com/stream.html
+
+https://github.com/rabbitmq/rabbitmq-server/blob/v3.9.x/deps/rabbitmq_stream/docs/PROTOCOL.adoc
+
+clients
+https://github.com/rabbitmq/rabbitmq-stream-java-client
+https://github.com/rabbitmq/rabbitmq-stream-go-client
+https://github.com/rabbitmq/rabbitmq-stream-dotnet-client
+
+samples
+https://github.com/acogoluegnes/rabbitmq-streams-blog-posts
+
+2022
+https://blog.rabbitmq.com/posts/2022/07/rabbitmq-3-11-feature-preview-super-streams/
+2021
+https://blog.rabbitmq.com/posts/2021/10/rabbitmq-streams-interoperability/
+https://blog.rabbitmq.com/posts/2021/09/rabbitmq-streams-offset-tracking/
+https://blog.rabbitmq.com/posts/2021/07/rabbitmq-streams-message-deduplication/
+https://blog.rabbitmq.com/posts/2021/07/connecting-to-streams/
+https://blog.rabbitmq.com/posts/2021/07/rabbitmq-streams-first-application/
+https://blog.rabbitmq.com/posts/2021/07/rabbitmq-streams-overview/
+    Getting Started with RabbitMQ 3.9 Stream clients: Java & Go
+        https://www.youtube.com/watch?v=m47E3XUzdAM

@@ -1,0 +1,22 @@
+https://vibed.org/
+https://github.com/vibe-d/vibe.d
+https://github.com/vibe-d/vibe-core
+
+https://vibed.org/docs
+
+https://github.com/vibe-d/vibe.d/wiki
+
+books
+2016
+Nacke - D Web Development
+
+presentations
+2018
+https://dconf.org/2018/talks/schveighoffer.pdf
+
+usage
+dependency "vibe-d:http" version="~>0.8.3"
+
+http.client
+http://vibed.org/api/vibe.http.client/
+http://vibed.org/api/vibe.http.client/requestHTTP

@@ -1,0 +1,18 @@
+2016
+https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
+
+.../data/postgresql.conf
+...
+listen_addresses = '*'
+...
+
+.../data/pg_hba.conf
+host    all             all             all           md5
+...
+!!!
+host    all             all             all           trust
+
+check by:
+psql -h localhost -U postgres
+
+PGPASSWORD=pgpass psql -h localhost -U postgres

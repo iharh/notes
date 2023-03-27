@@ -1,0 +1,7 @@
+auto file = File(fileName, "wt");
+auto dst = file.lockingTextWriter;
+
+auto file = File(fileName, "rt");
+
+appenders:
+file.byChunk(5)

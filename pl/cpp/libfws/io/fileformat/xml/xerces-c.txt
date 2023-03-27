@@ -1,0 +1,49 @@
+https://xerces.apache.org/xerces-c/
+
+https://xerces.apache.org/xerces-c/source-repository.html
+    https://gitbox.apache.org/repos/asf?p=xerces-c.git
+    https://gitbox.apache.org/repos/asf/xerces-c.git
+    https://github.com/apache/xerces-c/ 
+
+http://xerces.apache.org/xerces-c/download.cgi
+    http://ftp.byfly.by/pub/apache.org//xerces/c/
+    https://downloads.apache.org/xerces/c/
+    https://downloads.apache.org/xerces/c/3/sources/
+    https://downloads.apache.org/xerces/c/3/sources/xerces-c-3.2.2.zip
+    https://downloads.apache.org/xerces/c/3/sources/xerces-c-3.2.2.zip.sha256
+    https://downloads.apache.org/xerces/c/3/sources/xerces-c-3.2.2.tar.bz2
+    https://downloads.apache.org/xerces/c/3/sources/xerces-c-3.2.2.tar.bz2.sha256
+    http://archive.apache.org/dist/xerces/c/3/sources/
+
+https://xerces.apache.org/xerces-c/build-3.html
+    mkdir build
+    cd build
+    cmake -DCMAKE_INSTALL_PREFIX=inst ..
+        -DCMAKE_BUILD_TYPE=Debug
+    cmake --build . --config Debug -t install
+        libxerces-c-3.2.a
+        Release - 18960792 
+        Debug   - 36981808 
+
+    https://cmake.org/cmake/help/latest/policy/CMP0074.html
+
+    xerces-c-3.2.2/
+        src/CMakeLists.txt
+
+        # Transcoders, conditionally built based on selection
+        #
+        if(XERCES_USE_TRANSCODER_ICU)
+          list(APPEND libxerces_c_SOURCES ${icu_sources})
+          list(APPEND libxerces_c_HEADERS ${icu_headers})
+          list(APPEND libxerces_c_DEPS ICU::uc ICU::data)
+        endif()
+
+        cmake/FindICU.cmake
+    
+
+https://xerces.apache.org/xerces-c/program-3.html
+
+https://xerces.apache.org/xerces-c/api-3.html
+https://xerces.apache.org/xerces-c/apiDocs-3/index.html
+
+https://xerces.apache.org/xerces-c/samples-3.html

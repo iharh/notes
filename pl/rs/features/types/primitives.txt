@@ -1,0 +1,9 @@
+b';'
+b'\\'
+
+// from 1.26
+let x: i128 = 0;
+let y: u128 = 0;
+
+2022
+https://blog.logrocket.com/understanding-primitive-data-types-rust/

@@ -1,0 +1,27 @@
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import ...Role;
+import ...model.User;
+import ...AclService;
+
+@Slf4j
+public class UserDetailsServiceImpl implements UserDetailsService {
+    @Setter
+    private AclService aclService;
+
+    public UserDetails loadUserByUsername(String username) {
+        log.debug("Find user: {}", username);
+        User user = aclService.findUserByLogin(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found");
+        }
+        List<Role> roles = aclService.getUserRoles(user);
+        if (roles.size() == 0) {
+            // if user has no roles - he is 'Anonym'. No other actions needed 
+            roles.toArray(new Role[] {new Role("Anonym")});
+        }
+        return new UserDetailsImpl(user, roles.toArray(new Role[] {}));
+    }
+}

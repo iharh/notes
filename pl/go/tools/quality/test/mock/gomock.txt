@@ -1,0 +1,7 @@
+https://pkg.go.dev/github.com/golang/mock/gomock
+https://github.com/golang/mock
+
+2022
+https://www.gogoapps.io/blog/mocking-with-gomock-in-table-driven-tests/
+    https://habr.com/ru/company/avito/blog/658907/
+    https://github.com/areknoster/table-tests-with-gomock-example

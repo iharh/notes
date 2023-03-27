@@ -1,0 +1,22 @@
+sudo add-apt-repository ppa:purplei2p/i2pd
+sudo apt update
+apt/
+    i2pd
+
+interesting files:
+/etc/apparmor.d/usr.sbin.i2pd
+/etc/default/i2pd
+/etc/i2pd/i2pd.conf
+/etc/i2pd/subscriptions.txt
+/etc/i2pd/tunnels.conf.d/README
+/etc/init.d/i2pd
+/etc/logrotate.d/i2pd
+/lib/systemd/system/i2pd.service
+/usr/lib/tmpfiles.d/i2pd.conf
+/usr/share/lintian/overrides/i2pd
+/usr/share/man/man1/i2pd.1.gz
+/var/lib/i2pd/certificates
+/var/lib/i2pd/i2pd.conf
+/var/lib/i2pd/subscriptions.txt
+/var/lib/i2pd/tunnels.conf
+/var/lib/i2pd/tunnels.d

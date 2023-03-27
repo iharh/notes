@@ -1,0 +1,44 @@
+! using router should auto-tune dhcp stuff
+
+ping -c 4 google.com
+
+to stop dhcp
+
+systemctl [stop|start|enable|disable]
+  (part of systemd) to control the system
+
+systemctl stop dhcpcd.service
+  inet should be off now
+
+ip addr
+  1: lo: ...
+  2: enp0s3: (for vbox, in a real hw - eth0)
+   ...
+   !!! there should be no inet .... record here !!!
+
+ip link
+  ... i-faces that are in the system .. (ip addr may not show all the stuff)
+
+
+ls /etc/network.d/examples/
+  cp /etc/network.d/examples/ethernet-static /etc/network.d/
+
+  edit
+
+  INTERFACE='enp0s3'
+  ...
+  ADDR='192.168.24.8'
+
+  GATEWAY='...'
+  DNS='...'
+
+netcfg ethernet-static
+
+ip addr
+  ...
+  enp0s3:
+  ...
+    inet 192.168.24.8/24 brd ...
+
+ping -c 4 google.com
+  should work now

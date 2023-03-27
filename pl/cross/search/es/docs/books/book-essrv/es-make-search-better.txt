@@ -1,0 +1,1368 @@
+Make Your Search Better
+
+In the previous chapter, we learned how to extend our index with additional information and how to handle highlighting and indexing data that is not flat. We also implemented an autocomplete
+mechanism using ElasticSearch, indexed files, and geographical information. However, by the end of this chapter, you will have learned the following:
+
+Why your document was matched
+How to influence document score
+How to use synonyms
+How to handle multilingual data
+How to use term position aware queries (span queries)
+
+
+Why this document was found
+
+Compared to databases, using systems capable of performing full-text search can often be anything other than obvious. We can search in many fields simultaneously and the data in the index
+can vary from those provided for indexing because of the analysis process, synonyms, language analysis, abbreviations, and others.
+It's even worse; by default, search engines sort data by scoring—a number that indicates how many current documents fit into the current searching criteria. For this, "how much" is the key;
+search takes into consideration many factors such as how many searched words were found in the document, how frequent is this word in the whole index, and how long is the field.
+This seems complicated and finding out why a document was found and why another document is "better" is not easy.
+Fortunately, ElasticSearch has some tools that can answer these questions. Let's take a look at them
+
+
+Understanding how a field is analyzed
+
+One of the common questions asked is why a given document was not found. In many cases, the problem lies in the definition of the mappings and the configuration of the analysis process.
+For debugging an analysis, ElasticSearch provides a dedicated REST API endpoint. Let's see a few examples on how to use this API.The first query asks ElasticSearch for information about
+the analysis process, using the default analyzer:
+
+curl -XGET 'localhost:9200/_analyze?pretty' -d 'Crime and Punishment'
+
+In response, we get the following data:
+
+{
+  "tokens" : [ {
+    "token" : "crime",
+    "start_offset" : 0,
+    "end_offset" : 5,
+    "type" : "<ALPHANUM>",
+    "position" : 1
+  }, {
+    "token" : "punishment",
+    "start_offset" : 10,
+    "end_offset" : 20,
+    "type" : "<ALPHANUM>",
+    "position" : 3
+  } ]
+}
+
+As we can see, ElasticSearch divided the input phrase into two tokens. During processing, the "and" common word was omitted (because it belongs to the stop words list) and the other words
+were changed to lowercase versions. Now let's take a look at something more complicated. In "Extending Your Structure and Search", when we talked about the autocomplete feature,
+we used the edge engram filter. Let's recall this index and see how our analyzer works in that case:
+
+curl -XGET 'localhost:9200/addressbook/_analyze?analyzer=autocomplete&pretty' -d 'John Smith'
+
+In the preceding call, we used an additional parameter named "analyzer", which you should already be familiar with—it tells ElasticSearch which analyzer should be used instead of the
+default one. Look at the returned result:
+
+{
+  "tokens" : [ {
+    "token" : "joh",
+    "start_offset" : 0,
+    "end_offset" : 3,
+    "type" : "word",
+    "position" : 1
+  }, {
+    "token" : "john",
+    "start_offset" : 0,
+    "end_offset" : 4,
+    "type" : "word",
+    "position" : 2
+  }, {
+    "token" : "smi",
+    "start_offset" : 5,
+    "end_offset" : 8,
+    "type" : "word",
+    "position" : 3
+  }, {
+    "token" : "smit",
+    "start_offset" : 5,
+    "end_offset" : 9,
+    "type" : "word",
+    "position" : 4
+  }, {
+    "token" : "smith",
+    "start_offset" : 5,
+    "end_offset" : 10,
+    "type" : "word",
+    "position" : 5
+  } ]
+}
+
+This time, in addition to lowercasing and splitting words, we used the edge engram filter. Our phrase was divided into tokens and lowercased. Please note that the minimum length
+of the generated prefixes was three letters.
+
+It is worth noting that there is another form of analysis API available—one that allows us to provide tokenizers and filters. It is very handy when we want to experiment with a configuration
+before creating the target mappings. An example of such a call is as follows:
+
+curl -XGET 'localhost:9200/addressbook/_analyze?tokenizer=whitespace&filters=lowercase,engram&pretty' -d 'John Smith'
+
+In the preceding example, we used an analyzer that was built from the "whitespace" tokenizer and the two filters "lowercase" and "engram".
+
+As we can see, an analysis API can be very useful for tracking down bugs in the mapping configuration, but when we want to solve problems with queries and search relevance, explanation
+from the API is invaluable. It can show us how our analyzers work, what terms they produce, and what are the attributes of those terms. With such information, analyzing query problems
+will be easier to track down.
+
+
+Explaining the query
+
+Let's look at the following example:
+
+curl -XGET 'localhost:9200/library/book/1/_explain?pretty&q=quiet'
+
+In the preceding call, we provided a specific document and a query to run. Using the _explain endpoint, we ask ElasticSearch for an explanation about how the document was matched
+(or not matched) by ElasticSearch. For example, should the preceding document be found by the provided query? If it is found, ElasticSearch will provide the information why the document
+was matched with the details about how its score was calculated:
+
+{
+  "ok" : true,
+  "matches" : true,
+  "explanation" : {
+    "value" : 0.057534903,
+    "description" : "fieldWeight(_all:quiet in 0), product of:",
+    "details" : [ {
+      "value" : 1.0,
+      "description" : "tf(termFreq(_all:quiet)=1)"
+    }, {
+      "value" : 0.30685282,
+      "description" : "idf(docFreq=1, maxDocs=1)"
+    }, {
+      "value" : 0.1875,
+      "description" : "fieldNorm(field=_all, doc=0)"
+    } ]
+  }
+}
+
+Looks complicated, doesn't it? Well, it is complicated and is even worse if we realize that this is only a simple query! ElasticSearch, and more specifically the Lucene library, shows
+the internal information of the scoring process. We will only scratch the surface and will explain the most important things.
+
+The most important part is the total score calculated for a document. If it is equal to 0, the document won't match the given query. Another important element is the description that tells
+us about different scoring components. Depending on the query type, components may affect the final score in a different way. In our case, the total score is a product of the scores
+calculated by all the components.
+
+The detailed information about components and knowing where we should seek for an explanation and why our document matches the query is also important. In this example, we were looking
+for the "quiet" word. It was found in the _all field. It is obvious because we searched in the default field, which is _all (you should remember from Chapter Extending Your Structure
+and Search, that this is the field where all indexed data is copied by default to make a default search field available).
+
+In the preceding response, you can also read information about the term frequency in the given field (which was 1 in our case). This means that the field contained only a single occurrence
+of the searched term. And finally, the last piece of information; maxDocs equals to 1, which means that only one document was found with the specified term. This usually means that
+we are dealing with a small index or we've searched with the use of very rare word.
+
+
+Influencing scores with query boosts
+
+In the previous chapter, we learned how to check why the search returns a given document and what factors had influence on its position in the result list. When an application grows,
+the need for improving the quality of search also increases—so-called search experience. We need to gain knowledge about what is more important to the user and to see how users use
+the search functionality. This leads to various conclusions; for example, we see that some parts of the documents are more important than the others or that particular queries emphasize
+one field at the cost of others. This is where boosting can be used. In the previous chapters, we've seen some information about boosting. In this chapter, we'll summarize this knowledge
+and we will show how to use it in practice.
+
+
+What is boost?
+
+"Boost" is an additional value used in the process of scoring. We can apply this value to the following:
+Query:
+    This is a way to inform the search engine that the given query that is a part of a complex query is more significant than the others.
+Field:
+    Several document fields are important for the user. For example, searching e-mails by Bill should probably list those from Bill first, next those with Bill in subject,
+    and then e-mails mentioning Bill in contents.
+Document:
+    Sometimes some documents are more important. In our example, with e-mail searching, e-mails from our friend are usually more important than e-mails from an unknown man.
+    
+Values assigned by us to a query, field, or document are only one factor used when we calculate the resulting score. We will now look at a few examples of query boosting
+
+
+Adding boost to queries
+
+Let's imagine that our index has two documents:
+
+{
+  "id" : 1,
+  "to" : "John Smith",
+  "from" : "David Jones",
+  "subject" : "Top secret!"
+}
+
+And:
+
+{
+  "id" : 2,
+  "to" : "David Jones",
+  "from" : "John Smith",
+  "subject" : "John, read this document"
+}
+
+This data is trivial, but it should describe our problem very well. Now let's assume we have the following query:
+
+{
+  "query" : {
+    "query_string" : {
+       "query" : "john",
+       "use_dis_max" : false
+    }
+  }
+}
+
+In this case, ElasticSearch will create a query to the _all field and will find documents that contain desired words. We also said that we don't want a disjunction query to be used by
+specifying the use_dis_max parameter to false (if you don't remember what a disjunction query is, please refer to the Explaining the query string section dedicated to querying a string query
+in Chapter "Searching Your Data"). As we can easily guess, both our records will be returned and the record with ID equals to 2 will be first because of two occurrences of John in the from
+and subject fields. Let's check this out in the following result:
+
+"hits" : {
+    "total" : 2,
+    "max_score" : 0.16273327,
+    "hits" : [ {
+      "_index" : "messages",
+      "_type" : "email",
+      "_id" : "2",
+      "_score" : 0.16273327, "_source" : 
+      { "to" : "David Jones", "from" : 
+      "John Smith", "subject" : "John, read this document"}
+    }, {
+      "_index" : "messages",
+      "_type" : "email",
+      "_id" : "1",
+      "_score" : 0.11506981, "_source" : 
+      { "to" : "John Smith", "from" : 
+      "David Jones", "subject" : "Top secret!" }
+    } ]
+}
+
+Is everything all right? Technically, yes. But I think that the second document should be positioned as the first one in the result list, because when searching for something, the most
+important factor (in many cases) is matching people, rather than the subject of the message. You can disagree, but this is exactly why full-text searching relevance is a difficult
+topic—sometimes it is hard to tell which ordering is better for a particular case. What can we do? First, let's rewrite our query to implicitly inform ElasticSearch what fields should be
+used for searching:
+
+{
+  "query" : {
+    "query_string" : {
+      "fields" : ["from", "to", "subject"],
+      "query" : "john",
+      "use_dis_max" : false
+    }
+  }
+}
+
+This is not exactly the same query as the previous one. If we run it, we will get the same results (in our case), but if you look carefully, you will notice differences in scoring.
+In the previous example, ElasticSearch only used one field, _all. Now we are searching in three fields. This means that several factors, such as field lengths, are changed.
+Anyway, this is not so important in our case. ElasticSearch, under the hood, generates a complex query made of three queries—one to each field so that fields are treated equally.
+Of course, the score contributed by each query depends on the number of terms found in this field and the length of this field. Let's introduce some differences between fields.
+Compare the following query to the previous one:
+
+{
+  "query" : {
+    "query_string" : {
+      "fields" : ["from^5", "to^10", "subject"],
+      "query" : "john",
+      "use_dis_max" : false
+    }
+  }
+}
+
+Look at the highlighted parts (^5 and ^10). In this way, we can tell ElasticSearch how important a given field is. We see that the most important field is "to" and the "from" field is
+less important. The subject field has the default value for boost, which is 1.0. Always remember that this value is only one of various factors. You may be wondering why we choose 5,
+not 1000 or 1.23. Well, this value depends on the effect we want to achieve, what query we have, and most importantly, what data we have in our index. This is the important part because
+this means that when data changes in the meaningful parts, we should probably check and tune our relevance once again.
+Finally, let's look at a similar example, but using the bool query:
+
+{
+ "query" : {
+  "bool" : {
+   "should" : [
+    { "term" : { "from": { "value" : "john", "boost" : 5 }}},
+    { "term" : { "to": { "value" : "john", "boost" : 10  }}},
+    { "term" : { "subject": { "value" : "john" }}}
+   ]
+  }
+ }
+}
+
+
+Modifying the score
+
+The preceding example shows how to affect the result list by boosting particular query components. Another technique is to run a query and affect the score of the documents returned by
+this query. In the following sections, we will summarize the possibilities offered by ElasticSearch. In the examples, we will use our library data from the second chapter.
+
+
+Constant score query
+
+A constant score query allows us to take any filter or query and explicitly set the value that should be used as the score that will be given for each matching document.
+At first, this query doesn't seem to be practical. But when we think about building complex queries, this query allows us to set how many documents matching this query can affect
+the total score. Look at the following example:
+
+{
+  "query" : {
+    "constant_score" : {
+      "query": {
+        "query_string" : {
+          "query" : "available:false author:heller"
+        }
+      },
+      "boost": 5.0
+    }
+  }
+}
+
+In our library data that we have used, we have two documents with the "available" field set to false. One of these documents has an additional value in the "author" field.
+But thanks to the constant score query, ElasticSearch will ignore that information. Both documents will be given a score equal to… 1.0. Strange? Not if we think about normalization
+that happens during indexing. In this stage, ElasticSearch saved additional information and changed the resulting score in order for this score to be comparable with the other parts
+of this query. It doesn't matter if our query contains only a single part. Note that in our example, we've used a query, but we can also use a filter.
+This is also better for performance reasons. For clarity, let's look at the following example with a filter:
+
+{
+  "query" : {
+    "constant_score" : {
+      "filter": {
+        "term" : {
+          "available" : false
+        }
+      },
+      "boost": 5.0
+    }
+  }
+}
+
+
+Custom boost factor query
+
+This query is similar to the previous one. Let's start with an example:
+
+{
+  "query" : {
+    "custom_boost_factor" : {
+      "query": {
+        "query_string" : {
+          "query" : "available:false author:heller"
+        }
+      },
+      "boost_factor": 5.0
+    }
+  }
+}
+
+In this case, the resulting score is multiplied by boost_factor. Unlike the previous query, this version doesn't support filters instead of queries.
+
+
+Boosting query
+
+The next type of query connected with boosting is the boosting query. The idea is to allow us to define an additional part of a query, where the score of every matched document decreases.
+The following example lists all the available books, but books written by E. M. Remarque will have a score of 10 times lower:
+
+{
+  "query" : {
+    "boosting" : {
+      "positive" : {
+        "term" : {
+          "available" : true
+        }
+      },
+      "negative" : {
+        "term" : {
+          "author" : "remarque"
+        }
+      },
+      "negative_boost" : 0.1
+    }
+  }
+}
+
+
+Custom score query
+
+The custom score query gives us the simple possibility to set a score for all matched documents. It allows us to attach additional logic defined by a script to every matching document.
+Of course, this way of influencing a score is much slower, but sometimes it is the most convenient and the simplest way, so we should be aware of its existence and its possible usage.
+For example:
+
+{
+  "query" : {
+    "custom_score" : {
+      "query" : {
+        "matchAll" : {}
+      },
+      "script" : "doc['copies'].value * 0.5"
+    }
+  },
+  "fields" : ["title", "copies"]
+}
+
+This query matches all documents in the index. We've wrapped this query with the custom_score element and thanks to it, we can use an additional script for score calculation. In our example,
+we've used a very simple script. We just return the score as a half of the copies field value. For clarity, we use the fields element to get only the values for the title and copies fields.
+And now, what we obtain in return is as follows:
+
+"hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "2",
+      "_score" : 3.0,
+      "fields" : {
+        "title" : "Catch-22",
+        "copies" : 6
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "1",
+      "_score" : 0.5,
+      "fields" : {
+        "title" : "All Quiet on the Western Front",
+        "copies" : 1
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 0.0,
+      "fields" : {
+        "title" : "Crime and Punishment",
+        "copies" : 0
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "3",
+      "_score" : 0.0,
+      "fields" : {
+        "title" : "The Complete Sherlock Holmes",
+        "copies" : 0
+      }
+} ]
+    
+ElasticSearch did what we wanted, but look what happens when the "copies" field is set to 0. The score is also 0! Normally this means that document doesn't match the query.
+We should remember that score manipulation doesn't allow us to reject any documents from the result.
+
+
+Custom filters score query
+
+The last query that we will discuss in this chapter is the custom filters score query. This query contains the base query and an array of filters.
+Each of these filters has a boost value defined. For example:
+
+{
+  "query" : {
+    "custom_filters_score" : {
+      "query" : {
+        "matchAll" : {}
+      },
+      "filters" : [
+        {
+          "filter" : { "term" : { "available" : true }},
+          "boost" : 10
+        },
+        {
+          "filter" : { "term" : { "copies" : 0 }},
+          "boost" : 100
+        }
+
+      ]
+    }
+  },
+  "fields" : ["title", "copies", "available"]
+}
+
+We have a base query that simply selects all documents. In addition to that, we've defined two filters. The first filter selects all available books and the second one selects
+all the books without copies. Let's look at the result:
+
+"hits" : {
+    "total" : 4,
+    "max_score" : 100.0,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "3",
+      "_score" : 100.0,
+      "fields" : {
+        "title" : "The Complete Sherlock Holmes",
+        "copies" : 0,
+        "available" : false
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 10.0,
+      "fields" : {
+        "title" : "Crime and Punishment",
+        "copies" : 0,
+        "available" : true
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "1",
+      "_score" : 10.0,
+      "fields" : {
+        "title" : "All Quiet on the Western Front",
+        "copies" : 1,
+        "available" : true
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "2",
+      "_score" : 1.0,
+      "fields" : {
+        "title" : "Catch-22",
+        "copies" : 6,
+        "available" : false
+      }
+    } ]
+  }
+  
+As you can see, ElasticSearch checks each document against the defined filters. When the filter matches, ElasticSearch takes the defined boost value and applies it to the resulting score.
+When a filter doesn't match, it takes the next filter. If none of them match, ElasticSearch returns the score from the base query. The more filters matched, the better the document is
+for a given query. Let's look at another example:
+
+{
+ "query" : {
+  "custom_filters_score" : {
+   "query" : {
+    "matchAll" : {}
+   },
+   "filters" : [
+    {
+     "filter" : { "term" : { "available" : true }},
+     "boost" : 10
+    },
+    {
+     "filter" : { "term" : { "copies" : 0 }},
+     "boost" : 100
+    }
+
+   ],
+    "score_mode" : "total"
+  }
+ },
+ "fields" : ["title", "copies", "available"]
+}
+
+There is only a single change, namely, the "score_mode" attribute. In the previous example, we used the default value, first. Now, the score_mode value of total tells ElasticSearch that
+all matching filters should be used for the boosting query. We've discussed different score modes in the Compound queries section in Chapter 2, Searching Your Data. However,
+let's check the results to illustrate this example:
+
+"hits" : {
+  "total" : 4,
+  "max_score" : 110.0,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "4",
+      "_score" : 110.0,
+      "fields" : {
+        "title" : "Crime and Punishment",
+        "copies" : 0,
+        "available" : true
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "3",
+      "_score" : 100.0,
+      "fields" : {
+        "title" : "The Complete Sherlock Holmes",
+        "copies" : 0,
+        "available" : false
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "1",
+      "_score" : 10.0,
+      "fields" : {
+        "title" : "All Quiet on the Western Front",
+        "copies" : 1,
+        "available" : true
+      }
+    }, {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "2",
+      "_score" : 1.0,
+      "fields" : {
+        "title" : "Catch-22",
+        "copies" : 6,
+        "available" : false
+      }
+    } ]
+  }
+  
+The Crime and Punishment book is available and has no copies. The resulting score reflects this fact.
+
+The "score_mode" parameter gives us even more possibilities. In addition to the mentioned values, it can also take the value min, max, avg, or multiply.
+
+
+When does index-time boosting make sense
+
+In the previous section, we talked about boosting queries. This type of boosting is very handy and powerful and fulfills its role in most situations. However, there is one case where
+the more convenient way is to use the index-time boosting. This situation is where important documents are a part of input data. We gain a boost independent from a query at the cost of
+re-indexing, when the boost value is changed. In addition to that, the performance is slightly better because some parts needed in the boosting process are already calculated at index time.
+ElasticSearch stores information about the boost as a part of normalization information. This is important because if we set "omit_norms" to true, we can't use index-time boosting.
+Defining field boosting in input dataLet's look at the typical document definition:
+
+{
+  "title" : "The Complete Sherlock Holmes",
+  "author" : "Arthur Conan Doyle",
+  "year" : 1936
+}
+
+If we want to boost the author field for this particular document, the structure should be slightly changed and should look like the following:
+
+{
+  "title" : "The Complete Sherlock Holmes",
+  "author" : {
+    "_value" : "Arthur Conan Doyle",
+    "_boost" : 10.0
+  },
+  "year": 1936
+}
+
+
+Defining document boosting in input data
+
+Let's look at the typical document definition:
+
+{
+  "title" : "The Complete Sherlock Holmes",
+  "author" : "Arthur Conan Doyle",
+  "year" : 1936
+}
+
+If we want to boost the "author" field for this particular document, the structure should be slightly changed and should look like the following:
+
+{
+  "title" : "The Complete Sherlock Holmes",
+  "author" : {
+    "_value" : "Arthur Conan Doyle",
+    "_boost" : 10.0
+  },
+  "year": 1936
+}
+
+
+Defining document boosting in input data
+
+As you've seen, field boosting during indexing is simple. In my opinion, the more useful way is to boost a whole document. For example, we want to promote some items in our shop application.
+Another example is when we desire to improve search relevance. Sometimes, we note that statistically people are more likely to seek popular products, so there is a lot of sense to boost
+popular products a bit by placing them at a higher level in the result list. How to do it? Let's look at following example:
+
+{
+  "title" : "The Complete Sherlock Holmes",
+  "author" : "Arthur Conan Doyle",
+  "year" : 1936,
+  "_boost" : 10.0
+}
+
+As you can see, this is as simple as it can be. We've just added a new field named _boost. ElasticSearch will automatically apply its value as a document boost.
+
+
+Defining boosting in mapping
+
+It is worth mentioning that it is possible to directly define a field's boost in our mappings. The following example shows that:
+
+{
+  "mappings" : {
+    "book" : {
+    "properties" : {
+        "title" : { "type" : "string" },
+        "author" : { "type" : "string", "boost" : 10.0 }
+      }
+    }
+  }
+}
+
+Thanks to the preceding boost, all queries will favor values found in the field named "author". This also applies to queries using the _all field.
+
+
+The words having the same meaning
+
+You may have heard about synonyms—words that have the same or similar meaning. Sometimes you would want to have some words to be matched when one of those words is entered into the search box.
+Let's recall our sample data from Chapter 2, Searching Your Data; there was a book called "Crime and Punishment". What if we want that book to be matched not only when the words crime or
+punishment are used, but also when using words like criminality and abuse. However silly it may sound, let's use that example to see how synonyms can be used in ElasticSearch.
+
+
+Synonym filter
+
+In order to use the synonym filter, we need to define our own analyzer (please refer to Chapter 1, Getting Started with ElasticSearch Cluster, in order to see how to do that). Our analyzer
+will be called synonym and will use the whitespace tokenizer and a single filter called synonym. Our filter's type property needs to be set to synonym, which tells ElasticSearch that
+this filter is a synonym filter. In addition to that, we want to ignore the case so that upper- and lowercased synonyms will be treated equally (set the ignore_case property to true).
+So, in order to define our custom synonym analyzer that uses a synonym filter, we need to have the following mappings done:
+
+{
+  "index" : {
+    "analysis" : {
+      "analyzer" : {
+        "synonym" : {
+          "tokenizer" : "whitespace",
+          "filter" : [
+            "synonym"
+          ]
+        }
+      },
+      "filter" : {
+        "synonym" : {
+          "type" : "synonym",
+          "ignore_case" : true,
+          "synonyms" : [
+            "crime => criminality"
+          ]
+        }
+      }
+    }
+  }
+}
+
+
+Synonyms in mappings
+
+In the preceding definition, we've specified the synonym rule in the mappings we send to ElasticSearch. In order to do that, we need to add the "synonyms" property, which is an array of
+synonym rules, for example, the following:
+
+"synonyms" : [
+  "crime => criminality"
+]
+
+We will discuss defining the synonym rules in just a second.
+
+
+Synonyms in file
+
+ElasticSearch allows us to use file-based synonyms. In order to use a file, we need to specify the "synonyms_path" property instead of the "synonyms" one. The "synonyms_path" property
+should be set to the name of the file that holds the synonym's definition and the specified file path is relative to the ElasticSearch config directory. So, if we store our synonyms
+in the synonyms.txt file and we save that file in the config directory, in order to use it, we should set synonyms_path to the value of synonyms.txt.
+For example, this is how the synonym filter (the one from the preceding mappings) will be, if we want to use the synonyms stored in a file:
+
+"filter" : {
+  "synonym" : {
+    "type" : "synonym",
+    "synonyms_path" : "synonyms.txt"
+  }
+}
+
+
+Defining synonym rules
+
+Till now, we have discussed what we have to do in order to use synonym expansions in ElasticSearch. Now, let's see what formats of synonyms can be used.
+
+
+Using Apache Solr synonyms
+
+The most common synonym structure in the Apache Lucene world is probably the one used by Apache Solr—the search engine build on top of Lucene, just like ElasticSearch.
+This is the default way of handling synonyms in ElasticSearch and the possible ways of defining a new synonym are discussed in the following sections.
+
+
+Explicit synonyms
+
+A simple mapping allows us to map a list of words into other words. So, in our case, if we want the criminality word to be mapped to crime and the abuse word to be mapped to punishment,
+we need to define the following entries:
+
+criminality => crime
+abuse => punishment
+
+Of course, a single word can be mapped into multiple ones and multiple ones can be mapped into a single one, for example:
+
+star wars, wars => starwars
+
+The preceding example means that star wars and wars will be changed to starwars by the synonym filter.
+
+
+Equivalent synonyms
+
+In addition to the explicit mapping, ElasticSearch allows us to use equivalent synonyms. For example, the following definition will make all the words exchangeable so that you can use
+any of them to match a document that has one of them in its contents:
+
+star, wars, star wars, starwars
+
+
+Expanding synonyms
+
+A synonym filter allows us to use one additional property when it comes to Apache Solr format synonyms—the "expand" property. When this is set to true (by default, it is set to false),
+all synonyms will be expanded by ElasticSearch to all equivalent forms. For example, let's say we have the following filter configuration:
+
+"filter" : {
+  "synonym" : {
+    "type" : "synonym",
+    "expand": false,
+    "synonyms" : [
+      "one, two, three"
+    ] 
+  }
+}
+
+ElasticSearch will map the preceding synonym definition to the following:
+
+one, two, thee => one
+
+This means that the words one, two, and three will be changed to one. However, if we set the expand property to true, the same synonym definition will be interpreted in the following way:
+
+one, two, three => one, two, three
+
+Which means that each of the words from the left side of the definition will be expanded to all the words.
+
+
+Using WordNet synonyms
+
+If we want to use WordNet-structured synonyms (to learn more about WordNet, please visit http://wordnet.princeton.edu/), we need to provide an additional property for our synonym filter.
+The property name is "format", and we should set its value to "wordnet" in order for ElasticSearch to understand that format.
+
+
+Query- or index-time synonym expansion
+
+As with all the analyzers, one can wonder when we should use our synonym filter—during indexing, during querying, or maybe during both indexing and querying. Of course, it depends
+on your needs. However, please remember that using index-time synonyms requires data re-indexing after each synonym change, because they need to be reapplied to all the documents.
+If we use only query-time synonyms, we can update the lists of synonyms and have them applied (for example, after updating the mappings, which we will talk about later in this book).
+
+
+Searching content in different languages
+
+Till now, we've talked mostly in theory about language analysis, for example, handling multiple languages our data can consist, and things like that. This will now change as we will now
+discuss how we can handle multiple languages in our data.
+
+
+Why we need to handle languages differently
+
+As you already know that ElasticSearch allows us to choose different analyzers for our data, we can have our data divided into words on the basis of
+whitespaces, have them lowercased, and so on. This can usually be done with the data regardless of the language—you should have the same tokenization
+on the basis of whitespaces for English, German, and Polish (that doesn't apply to Chinese though). However, what if you want to find documents that contain
+words like cat and cats by only sending the cat word to ElasticSearch? This is where language analysis comes into play with stemming algorithms for
+different languages, which allow reducing the analyzed words into their root forms.
+
+And now the worst part—we can't use one general stemming algorithm for all the languages in the world; we have to choose the one appropriate for each language.
+The following chapter will help you with some parts of the language analysis process.
+
+
+How to handle multiple languages
+
+There are a few ways of handling multiple languages in ElasticSearch and all of them have some pros and cons. We won't be discussing everything, but just
+for the purpose of giving you an idea, some of those ways are as follows:
+
+  Storing documents in different languages as different types
+  Storing documents in different languages in separate indices
+  Storing different versions of fields in a single document so that they contain different languages
+  
+However, we will focus on a single method that allows us to store documents in different languages in a single index (with some slight modifications).
+We will focus on a problem where we have a single type of documents, but they may come from all over the world and thus be written in multiple languages.
+Also we would like to enable our users to use all the analysis capabilities, like stemming and stop words for different languages, not only for English.
+
+
+Detecting a document's language
+
+If you don't know the language of your documents and queries (and this is mostly the case), you can use software for language detection that can detect
+(with some probability) the language of your documents and queries. If you use Java, you can use one of the few available language detection libraries.
+Some of them are as follows:
+  Apache Tika (http://tika.apache.org/)
+  Language Detection (http://code.google.com/p/language-detection/)
+  
+Language Detection claims to have over 99 percent precision for 53 languages, so that's a lot if you ask me.
+
+You should remember, though, that for longer text, data language detection will be more precise. Because of that, you'll probably have your document's language
+identified correctly. However, because the text of queries is usually short, you'll probably have some degree of errors during query language identification.
+
+
+Sample document
+
+Let's start with introducing a sample document, which would be as follows:
+
+{
+  "title" : "First test document",
+  "content" : "This is a test document",
+  "lang" : "english"
+}
+
+As you can see, the document is pretty simple; it contains three fields:
+  title: Holds the title of the document
+  content: Holds the actual content of the document
+  lang: The language identified
+  
+The first two fields are created from our user's documents and the third one is the language our hypothetical user has chosen when he/she uploaded the document.
+In order to inform ElasticSearch which analyzer is to be used, we map the lang field to one of the analyzers that exist in ElasticSearch (full list of these
+analyzers can be found at http://www.elasticsearch.org/guide/reference/index-modules/analysis/lang-analyzer.html) and if the user enters a language that is
+not supported, we don't specify the lang field at all, so that ElasticSearch uses the default analyzer.
+
+
+Mappings
+
+So now, let's look at the mappings created for holding the preceding documents (we stored them in mappings.json):
+{
+  "mappings" : {
+    "doc" : {
+      "_analyzer" : {
+        "path" : "lang"
+      },
+      "properties" : {
+        "title" : {
+          "type" : "multi_field",
+          "fields" : {
+            "title" : {
+              "type" : "string",
+              "index" : "analyzed",
+              "store" : "no"
+            },
+            "default" : {
+              "type" : "string",
+              "index" : "analyzed",
+              "store" : "no",
+              "analyzer" : "simple"
+            }
+          }
+        },
+        "content" : {
+          "type" : "multi_field",
+          "fields" : {
+            "content" : {
+              "type" : "string",
+              "index" : "analyzed",
+              "store" : "no"
+            },
+            "default" : {
+              "type" : "string",
+              "index" : "analyzed",
+              "store" : "no",
+              "analyzer" : "simple"
+            }
+          }
+        },
+        "lang" : {
+          "type" : "string",
+          "index" : "not_analyzed",
+          "store" : "yes"
+        }
+      }
+    }
+  }
+}
+
+In the preceding mappings, the things we are most interested in are the analyzer definition and the title and description fields (if you are not familiar
+with any parts of mappings, please refer to Chapter 1, Getting Started with ElasticSearch and Chapter 3, Extending Your Structure and Search).
+We want the analyzer to be based on the lang field. Because of that, we need to add a value in the lang field that is equal to one of the names of the
+analyzers known to ElasticSearch (the default one or another one defined by us).
+
+Now come the definitions of two fields that hold the actual data. As you can see, we've used the multi field definition in order to index the title and
+description fields. The first one of the multi fields is indexed with the analyzer specified by the lang field (because we didn't specify the exact analyzer
+name, so the one defined globally will be used). We will use that field when we know in which language the query is specified.
+The second of the multi-fields uses a simple analyzer and will be used for searching when a query language is unknown. However, the simple analyzer is only
+an example and you can also use a standard analyzer or any other of your choice.
+
+In order to create the docs index with the preceding mappings, we used the following command:
+
+curl -XPUT 'localhost:9200/docs' -d @mappings.json
+
+
+Querying
+
+Now let's see how we can query our data. We can divide the querying situation into two different cases.
+
+
+Queries with a known language
+
+Let's assume we identified that our user has sent a query written in English and we know that English matches the english analyzer. In such a case,
+our query could be as follows:
+
+curl -XGET 'localhost:9200/docs/_search?pretty=true ' -d '{
+  "query" : {
+    "match" : {
+      "content" : {
+        "query" : "documents",
+        "analyzer" : "english"
+      }
+    }
+  }
+}'
+
+Notice the analyzer parameter, which indicates which analyzer we need to use. We set that parameter to the name of the analyzer corresponding with the
+identified language. Notice that the term we are searching for is "documents", while the term in the document is document, but the english analyzer should
+take care of it and find that document:
+
+{
+  "took" : 2,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.19178301,
+    "hits" : [ {
+      "_index" : "docs",
+      "_type" : "doc",
+      "_id" : "1",
+      "_score" : 0.19178301
+    } ]
+  }
+}
+
+As you can see, that document was found.
+
+
+Queries with an unknown language
+
+Now let's assume that we don't know the language with which the user is sending the query. In this case, we can't use the field analyzed with the analyzer
+specified by our lang field, because we don't want to analyze the query with an analyzer that is language-specific. In that case, we will use our standard
+simple analyzer and we will send the query to the "contents.default" field instead of content.
+
+The query could be as follows:
+
+curl -XGET 'localhost:9200/docs/_search?pretty=true ' -d '{
+  "query" : {
+    "match" : {
+      "content.default" : {
+        "query" : "documents",
+        "analyzer" : "simple"
+      }
+    }
+  }
+}'
+
+However, we didn't get any results this time, because the simple analyzer can't deal in searching with a singular form of a word when we are searching
+with a plural form.
+
+
+Combining queries
+
+To additionally boost the documents that perfectly match our default analyzer, we can combine the two preceding queries with the bool query, so that
+they look like the following:
+
+curl -XGET 'localhost:9200/docs/_search?pretty=true ' -d '{
+  "query" : {
+    "bool" : {
+      "minimum_number_should_match" : 1,
+      "should" : [
+        {
+          "match" : {
+            "content" : {
+              "query" : "documents",
+              "analyzer" : "english"
+            }
+          }
+        },
+        {
+          "match" : {
+            "content.default" : {
+              "query" : "documents",
+              "analyzer" : "simple"
+            }
+          }
+        }
+      ]
+    }
+  }
+}'
+
+At least one of those queries must match, and if both match, the document will have a higher value for the results.
+
+There is one additional advantage to the preceding combined query—if our language analyzer won't find a document (for example, when the analysis
+is different from the one used during indexing), the second query has a chance to find the terms that are tokenized only by whitespace characters
+and lowercased.
+
+
+Using span queries
+
+ElasticSearch leverages the Lucene span queries, which basically allow us to create queries that match when some tokens or phrases are placed near other
+tokens or phrases. When using the standard non-span queries, we are not able to make queries that are position aware—to some extent phrase queries allow
+that, but only to some extent.
+
+There are five span queries exposed in ElasticSearch:
+
+  Span term query
+  Span first query
+  Span near query
+  Span or query
+  Span not query
+  
+Before we continue with the description, let us index a new document that we will be using in order to show how span queries work. To do that, we send
+the following command to ElasticSearch:
+
+curl -XPOST 'localhost:9200/library/book/5' -d '{
+  "title" : "Test book",
+  "author" : "Test author",
+  "description" : "The world breaks everyone, and afterward, 
+  some are strong at the broken places"
+}'
+
+As you can see, we used ElasticSearch's ability to update our index structure automatically and we've added the description field. We did that to have
+a field that has more content than a book's title usually has.
+
+
+What is a span?
+
+A span, in our context, is a starting and ending token position in a field. For example, in our case, "world breaks everyone" can be a single span,
+"world" can be a single span too. As you may know, during analysis, Lucene, in addition to token, includes some additional parameters—such as distance
+from the previous token. Position information combined with terms allows us to construct spans, using the ElasticSearch span queries
+(which are mapped to Lucene span queries). In the next few sections, we will learn how to construct spans by using different span queries and how
+to control which documents are matched.
+
+
+Span term query
+
+A span term query is a query similar to the already-discussed term query. On its own, it works just like the mentioned term query—it matches a term.
+Its definition is simple and looks as follows (I omitted some parts of the query on purpose, because we will discuss it in a few lines of text):
+
+{
+  "query" : {
+    ...
+    {
+      "span_term" : {
+        "description" : {
+          "value" : "world",
+          "boost" : 5.0
+        }
+      }
+    }
+  }
+}
+
+As you can see, this query is very similar to a term query. The preceding query is run against the description field and we want to have the documents
+that have the world term returned. We also specified a boost, which is also allowed. Of course, similar to a term query, we can use a simplified version
+if we don't want to use boosts:
+
+{
+  "query" : {
+    ...
+    {
+      "span_term" : {
+        "description" : "world"
+      }
+    }
+  }
+}
+
+
+Span first query
+
+The span first query allows matching only documents that have matched in the first positions of the field. In order to define a span first query, we need
+to nest any other span queries inside it, for example, a span term query that we already know. So, let's find documents that have the term world in the first
+two positions in the description field. We do that by sending the following query:
+
+{
+  "query" : {
+    "span_first" : {
+      "match" : {
+        "span_term" : { "description" : "world" }
+      },
+      "end" : 2
+    }
+  }
+}
+
+In the results, we will get our document that we indexed at the beginning of this chapter. In the match section of the span first query, we should include
+at least a single span query that should be matched at the maximum position specified by the end parameter.
+
+So, if we understand everything well and if we set the end parameter to 1, we will not get our document with the preceding query. So let's check it
+by sending the following query:
+
+{
+  "query" : {
+    "span_first" : {
+      "match" : {
+        "span_term" : { "description" : "world" }
+      },
+      "end" : 1
+    }
+  }    
+}
+
+The response to the preceding query will be as follows:
+
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 0,
+    "max_score" : null,
+    "hits" : [ ]
+  }
+}
+
+So it's working as expected, hurrah!
+
+
+Span near query
+
+The span near query allows us to match documents that have other spans near each other and this is also a compound query that wraps other span queries.
+For example, if we want to find documents that have the term "world" near the term "everyone", we can run the following query:
+
+{
+  "query" : {
+    "span_near" : {
+      "clauses" : [
+        { "span_term" : { "description" : "world" } },
+        { "span_term" : { "description" : "everyone" } }
+      ],
+      "slop" : 0,
+      "in_order" : true
+    }
+  }
+}
+
+As you can see, we specified our queries in the "clauses" section of the span near query. It is an array of other span queries. The "slop" parameter
+specified in the preceding query is similar to the one used in the phrase queries—it allows us to control the number of allowed terms between spans.
+The "in_order" parameter can be used to limit the matches only to those documents that match our queries in the same order they were defined, so in our case,
+we will get documents that have "world everyone", but not "everyone world" in the description field.
+
+So let's get back to our query—that will return 0 results. If you look at our example document, you will notice that between the terms "world" and "everyone",
+an additional term is present. We have set the "slop" parameter to 0 (slop was discussed during description of the phrase query in Chapter 2,
+Searching Your Data). If we increase it to 1, we will get our result. To test it, let's send the following query:
+
+{
+  "query" : {
+    "span_near" : {
+      "clauses" : [
+        { "span_term" : { "description" : "world" } },
+        { "span_term" : { "description" : "everyone" } }
+      ],
+      "slop" : 1,
+      "in_order" : true
+    }
+  }
+}
+
+And the results returned by ElasticSearch are as follows:
+{
+  "took" : 4,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0,
+
+},
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.095891505,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "5",
+      "_score" : 0.095891505, "_source" : {"title" : "Test book", 
+      "author" : "Test author","description" : 
+      "The world breaks everyone, and afterward, 
+      some are strong at the broken places" }
+    } ]
+  }
+}
+
+As you can see, it works!
+
+
+Span or query
+
+The span or query allows us to wrap other span queries and aggregate matches of all those that we've wrapped—it makes a union of span queries. This also uses
+the "clauses" array to specify other span queries for which matches should be aggregated.
+
+For example, if we want to get the documents that have the "world" term in the first two positions of the description field or the ones that have the term
+"world" not further than a single position from the term everyone, we will send the following query:
+
+{
+  "query" : {
+    "span_or" : {
+      "clauses" : [
+        {
+          "span_first" : {
+            "match" : {
+              "span_term" : { "description" : "world" }
+            },
+            "end" : 2
+          }
+        },
+        {
+          "span_near" : {
+            "clauses" : [
+               { "span_term" : { "description" : "world" } },
+               { "span_term" : { "description" : "everyone" } }
+            ],
+            "slop" : 1,
+            "in_order" : true
+          }
+        }
+      ]
+    }
+  }
+}
+
+The result of the preceding query should be our example document that we indexed at the beginning:
+
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 0.16608895,
+    "hits" : [ {
+      "_index" : "library",
+      "_type" : "book",
+      "_id" : "5",
+      "_score" : 0.16608895, "_source" : {"title" : "Test book", 
+      "author" : "Test author","description" : 
+      "The world breaks everyone, and afterward, 
+      some are strong at the broken places" }
+    } ]
+  }
+}
+
+
+Span not query
+
+The last type of span queries, the span not query, allows us to specify two sections of queries.
+The first is the "include" section, which specifies which span queries should be matched and the second section, "exclude", specifies span queries that shouldn't overlap with the first ones.
+
+To keep it simple, if a query from the exclude section matches the same span (or a part of it) as a query from the include section, such a document won't be returned as a match for that
+span not query. Each of those sections can contain multiple span queries.
+
+So to illustrate that query, let's create a query that will return all the documents that have the span constructed from a single term "breaks" in the "description" field. And let's exclude
+the documents that have a span that matches the "world" and "everyone" terms that are at a maximum of a single position from each other, when such a span overlaps the one defined
+in the first span query.
+
+{
+  "query" : {
+    "span_not" : {
+      "include" : {
+        "span_term" : { "description" : "breaks" }
+      },
+      "exclude" : {
+        "span_near" : {
+            "clauses" : [
+              { "span_term" : { "description" : "world" } },
+              { "span_term" : { "description" : "everyone" } }
+            ],
+            "slop" : 1
+        }
+      }
+    }
+  }
+}
+
+And the result is as follows:
+
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 0,
+    "max_score" : null,
+    "hits" : [ ]
+  }
+}
+
+As you may have noticed, the result of the query is as we had expected—our document wasn't found because the span query from the "exclude" section was overlapping the span
+from the "include" section.
+
+
+Performance considerations
+
+A few words at the end of the discussion about span queries—remember that they are more costly when it comes to processing power, because not only do terms have to be matched,
+but also positions have to be calculated and checked.
+

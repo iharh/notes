@@ -1,0 +1,6 @@
+https://github.com/marketplace/actions/docker-login
+https://github.com/docker/login-action
+
+2020
+https://www.docker.com/blog/docker-support-for-the-new-github-container-registry/
+https://docs.github.com/en/free-pro-team@latest/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images

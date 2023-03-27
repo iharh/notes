@@ -1,0 +1,46 @@
+/etc/NetworkManager/system-connections/EpamVPN
+
+[connection]
+id=EpamVPN
+uuid=<...>
+type=vpn
+permissions=user:iharh:;
+autoconnect=false
+timestamp=<...>
+
+[vpn]
+service-type=org.freedesktop.NetworkManager.pptp
+gateway=vpnmsq.epam.com
+user=<company email>
+refuse-eap=yes
+refuse-chap=yes
+password-flags=1
+refuse-pap=yes
+
+[ipv4]
+method=auto
+dns=10.6.0.6;10.6.0.16;
+dns-search=minsk.epam.com;gomel.epam.com;
+
+before activaiting:
+resolv.conf -> ../run/systemd/resolve/resolv.conf
+resolv.conf.bak
+
+ip route
+default via 192.168.0.1 dev enp2s0  proto static  metric 100 
+...
+192.168.0.0/24 dev enp2s0  proto kernel  scope link  src 192.168.0.103  metric 100 
+
+after activating:
+ip route
+default dev ppp0  proto static  scope link  metric 50 
+default via 192.168.0.1 dev enp2s0  proto static  metric 100 
+10.6.60.0 dev ppp0  proto kernel  scope link  src 10.6.60.182 
+10.6.60.182 dev ppp0  proto kernel  scope link  src 10.6.60.182  metric 50 
+...
+192.168.0.0/24 dev enp2s0  proto kernel  scope link  src 192.168.0.103  metric 100 
+217.21.63.8 via 192.168.0.1 dev enp2s0  src 192.168.0.103 
+
+platform-dev
+192.168.31.228
+

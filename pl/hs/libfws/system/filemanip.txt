@@ -1,0 +1,16 @@
+Recursively traversing:
+http://rosettacode.org/wiki/Walk_a_directory/Recursively#Haskell
+http://book.realworldhaskell.org/read/io-case-study-a-library-for-searching-the-filesystem.html
+
+
+!http://stackoverflow.com/questions/14259229/streaming-recursive-descent-of-a-directory-in-haskell
+http://stackoverflow.com/questions/12610810/breadth-first-traversal-of-directory-tree-is-not-lazy
+http://www.haskellforall.com/2012/07/breaking-from-loop.html
+
+https://github.com/jberryman/directory-tree
+http://hackage.haskell.org/package/directory-tree
+
+FileManips:
+https://github.com/bos/filemanip
+http://hackage.haskell.org/package/filemanip
+

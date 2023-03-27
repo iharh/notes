@@ -1,0 +1,26 @@
+LXterminal
+~/.config/lxterminal/lxterminal.conf:
+fontname=Liberation Mono 12
+
+# default
+bgcolor=#111111111111
+fgcolor=#a7a7a7a7a7a7
+
+#solarized classic
+bgcolor=#00002b2b3636
+fgcolor=#65657b7b8383
+
+#solarized mixed
+bgcolor=#00002b2b3636
+fgcolor=#a7a7a7a7a7a7
+
+# 233 from GUI
+bgalpha=63222
+
+# no transparency
+bgalpha=65535
+
+bgalpha=60000
+
+#0DAF38
+Opacity - 233

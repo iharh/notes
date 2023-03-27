@@ -1,0 +1,7 @@
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables
+
+$env:windir
+
+Set-Item -Path Env:Path -Value ($Env:Path + ";C:\Temp")
+
+Add-Content -Path $Profile.CurrentUserAllHosts -Value '$Env:Path = `$Env:Path + ";C:\Temp"'

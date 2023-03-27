@@ -1,0 +1,65 @@
+2022
+MartinBuildsFromSource - Xmonad Configuration of 4 parts
+    https://www.youtube.com/playlist?list=PL6wbtsHDHiiRXg2q73jBRFYHyYKjr5jJu
+BlackTriangle - XMonad - tuning GNU Linux from Ground Up 0:00 of 10:57
+    https://www.youtube.com/watch?v=6k_KwF384eg
+2021
+TuxTube - Linux Mint 20.1 : Switching From Cinnamon DE to Xmonad WM of 19:44
+    https://www.youtube.com/watch?v=cCVxeJhOnlw
+SavvyNik - Arch Linux with XMonad - Minimal & Beautiful Desktop Setup - My Linux Daily Driver Update in 2021! of 14:26
+    https://www.youtube.com/watch?v=rMoUCnqhYfs
+    https://github.com/Axarva/dotfiles-2.0
+    https://github.com/Axarva/dotfiles-2.0/blob/main/xmonad/xmonad.hs
+SavvyNik - XMonad on Arch Linux - Custom Install a STUNNING & Minimal WM/Desktop - Linux Rice in 2021! 0:00 of 20:32
+    https://www.youtube.com/watch?v=LBNEW4ZKvEc
+TheLinuxCast - Going OneDark with Xmonad - Time Lapse of 11:07
+    https://www.youtube.com/watch?v=bhda3S7fG90
+DistroTube - Create Custom Libraries For Xmonad Such As Color Libraries of 10:58
+    https://www.youtube.com/watch?v=_2hezl0R5EI
+DistroTube - The Xmonad Window Manager
+    https://www.youtube.com/watch?v=WkXyXIs-ZMI
+    https://www.youtube.com/playlist?list=PL5--8gKSku144jIsizdhdxq_fKTmBBGBA
+    Xmonad:
+        https://gitlab.com/dwt1/dotfiles/-/tree/master/.xmonad
+    Xmobar/trayer:
+        https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/xmobar
+    Scripts I use in xmobar:
+        https://gitlab.com/dwt1/dotfiles/-/tree/master/.local/bin
+    Wallpapers:
+        https://gitlab.com/dwt1/wallpapers
+    Shell Color Scripts:
+        https://gitlab.com/dwt1/shell-color-scripts
+NapoleonWillsOn - Xmonad
+    https://www.youtube.com/playlist?list=PL7hhhG5qUoXmd5_elMnmOQazLaNOnAV9s
+    https://www.youtube.com/watch?v=XvKAiR403O0
+    !!! from src
+Zaney - Let's Try XMonad & More Bash Scripting 0:00 of 3:32:37
+    https://www.youtube.com/watch?v=po-YBOqzXWA
+TheLinuxCast - Switching to Xmonad - Day One - Bar Problems 0:00 of 12:03
+    https://www.youtube.com/watch?v=fRRMCO391Eo
+2020
+TheLinuxCast - Getting Started wtih Xmonad - Part 2 0:00 of 30:35
+    https://www.youtube.com/watch?v=_Zg2RGii73Q
+TheLinuxCast - Getting Started wtih Xmonad - Part 1 0:00 of 36:18
+    https://www.youtube.com/watch?v=ocJKvOZDHuA
+    https://github.com/mtwb47/
+EF - Linux Made Simple - Xmonad & Xmobar customization of 22:59
+    https://www.youtube.com/watch?v=swriLf4Pm5A
+    https://gitlab.com/eflinux/xmonad
+EF - Linux Made Simple - Xmonad: Basic Install of 13:52
+    https://www.youtube.com/watch?v=JmPLbZQRgas
+    poco -Syy xorg-server lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar dmenu picom nitrogen chromium terminator
+    sudo systemctl enable lightdm
+    /etc/lightdm/lightdm.conf
+        display-setup-script=xrandr --output Virtual-1 --mode 1920x1080
+    ~/.xprofile
+        setxkbmap ru &
+        nitrogen --restore &
+        picom -f &
+    /etc/xdg/picom.conf
+        # vsync = ...
+    ~/.xmonad/xmonad.hs
+        ...
+2017
+XMonad Demo
+    https://www.youtube.com/watch?v=70IxjLEmomg

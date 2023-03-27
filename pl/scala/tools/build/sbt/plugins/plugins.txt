@@ -1,0 +1,57 @@
+http://www.scala-sbt.org/release/docs/Community-Plugins.html
+
+https://github.com/rtimush/sbt-updates
+    check lib updates
+project/sbt-updates.sbt:
+    addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.9")
+call:
+    sbt dependencyUpdates
+
+
+https://github.com/kouphax/sbt-tasks
+https://github.com/sbt/sbt-aspectj
+https://github.com/ktoso/scala-rainbow
+https://github.com/softprops/np
+  new projects
+
+https://github.com/sbt/sbt/tree/0.13/sbt/src/sbt-test
+http://eed3si9n.com/testing-sbt-plugins
+
+https://github.com/lihaoyi/Ammonite/blob/master/build.sbt
+https://github.com/jsuereth/sbt-in-action-examples/blob/master/chapter10/release.sbt
+https://github.com/jsuereth/sbt-in-action-examples/blob/master/chapter11/scalastyle-plugin/src/main/scala/ScalastylePlugin.scala
+
+https://github.com/jrudolph/sbt-dependency-graph
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.8.2")
+
+boilerplate (tuple/functions):
+https://github.com/sbt/sbt-boilerplate
+
+assembly:
+https://github.com/sbt/sbt-assembly
+
+docker:
+https://github.com/marcuslonnberg/sbt-docker
+
+http://michele.sciabarra.com/2016/09/19/devops/using-sbt-docker/
+  sbt-mosaico
+http://michele.sciabarra.com/2016/10/11/devops/alpine-docker-jdk-with-sbt-ammonite/
+https://github.com/sciabarra/Devops4Scala/tree/master/download-script
+
+http://www.slideshare.net/JontheBeach/scala-docker-and-testing-oh-my-mario-camou
+https://www.youtube.com/watch?v=Q1XqOLPhr-k
+https://velvia.github.io/Docker-Scala-Sbt/
+
+https://hackernoon.com/yet-another-sbt-docker-introduction-2d9fb99fe367
+
+datatype:
+http://www.scala-sbt.org/release/docs/Datatype.html
+https://github.com/sbt/sbt-datatype
+
+https://github.com/sbt/sbinary
+
+bench:
+https://github.com/ktoso/sbt-jmh
+addSbtPlugin("pl.project13.scala" % "sbt-jmh" % "0.2.16")
+http://stackoverflow.com/questions/36293445/pass-jvm-arguments-to-jmh
+http://chariotsolutions.com/blog/post/microbenchmarking-scala-with-jmh/

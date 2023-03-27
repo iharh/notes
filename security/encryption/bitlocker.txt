@@ -1,0 +1,10 @@
+2019
+https://www.addictivetips.com/ubuntu-linux-tips/access-windows-bitlocker-partitions-in-linux/
+    ! dislocker
+
+from admin:
+manage-bde
+    -off d:
+    -off c:
+
+    –status C:

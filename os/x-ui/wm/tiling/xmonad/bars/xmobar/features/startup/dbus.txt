@@ -1,0 +1,12 @@
+https://github.com/jaor/xmobar/issues/537
+https://github.com/jaor/xmobar/issues/537#issuecomment-832220632
+    /etc/lightdm/Xsession
+    exec dbus-launch $@
+        https://tldp.org/LDP/abs/html/internal.html
+        Normally, when the shell encounters a command,
+        it forks off a child process to actually execute the command.
+        Using the exec builtin, the shell does not fork,
+        and the command exec'ed replaces the shell.
+        When used in a script, therefore,
+        it forces an exit from the script when the exec'ed command terminates.
+    !!! does not have this

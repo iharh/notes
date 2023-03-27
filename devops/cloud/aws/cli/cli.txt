@@ -1,0 +1,10 @@
+https://docs.aws.amazon.com/cli/latest/index.html
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html
+
+aws
+    --debug
+    --no-paginate
+    --no-cli-pager
+    --output [json|text|table|yaml|yaml-stream]

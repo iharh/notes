@@ -1,0 +1,11 @@
+~/
+    .tool-versions
+    .asdf/
+    bin/
+        asdf
+    lib/
+        commands/
+    installs/
+        java/
+            corretto-<ver>
+

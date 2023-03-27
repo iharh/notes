@@ -1,0 +1,148 @@
+books
+Marlow-ParallelAndConcurrentProgrammingInHaskell - ch 8
+
+cheatsheets
+https://fpcomplete.com/safe-exception-handling/
+
+2022
+https://www.parsonsmatt.org/2022/08/16/dynamic_exception_reporting_in_haskell.html
+    https://www.reddit.com/r/haskell/comments/wq0nd8/dynamic_exception_reporting_in_haskell/
+https://mmhaskell.com/blog/2022/6/13/exception-type-details
+https://mmhaskell.com/blog/2022/6/6/catching-what-weve-thrown
+https://mmhaskell.com/blog/2022/6/2/throwing-exceptions-the-basics
+2021
+https://taylor.fausak.me/2021/04/03/default-exception-handler-in-haskell/
+2020
+https://serokell.io/blog/uncaught-exception-handling
+https://www.tweag.io/posts/2020-04-16-exceptions-in-haskell.html
+2019
+https://www.fpcomplete.com/blog/defining-exceptions-in-haskell
+
+asynch exceptions
+2018
+https://www.fpcomplete.com/blog/2018/04/async-exception-handling-haskell
+https://www.snoyman.com/reveal/async-exception-handling#/
+https://www.youtube.com/watch?v=T5y8sFmCFnA
+http://simonmar.github.io/posts/2017-01-24-asynchronous-exceptions.html
+https://www.reddit.com/r/haskell/comments/5pv7rz/asynchronous_exceptions_in_practice_simon_marlow/
+
+
+Well-Typed - Lightweight Checked Exceptions in Haskell
+http://www.well-typed.com/blog/2015/07/checked-exceptions/
+http://www.reddit.com/r/haskell/comments/3f9ycj/lightweight_checked_exceptions_in_haskell/
+
+FP Complete
+https://www.fpcomplete.com/blog/2017/02/monadmask-vs-monadbracket
+https://www.reddit.com/r/haskell/comments/5bkqf1/exceptions_best_practices_in_haskell/
+https://www.fpcomplete.com/blog/2016/11/exceptions-best-practices-haskell
+http://www.reddit.com/r/haskell/comments/35sk6w/best_practices_for_using_exceptions_an_fp/
+https://www.fpcomplete.com/user/commercial/content/exceptions-best-practices
+
+articles
+Wadler - How to replace failure by a list of success
+Stewart - Scripting with Types (http://donsbot.files.wordpress.com/2009/01/semicolon.pdf)
+https://www.fpcomplete.com/school/starting-with-haskell/basics-of-haskell/10_Error_Handling
+
+tutorials
+https://www.reddit.com/r/haskell/comments/4uzok7/exception_safety_in_haskell/
+https://haskell-lang.org/tutorial/exception-safety
+
+blogs
+http://eax.me/haskell-exceptions/
+!!! Control.Exception is the current module, all the other are obsolete
+
+Edsko de Vries - The darker corners of throwTo
+http://www.edsko.net/2013/06/11/throwto/
+
+WellTyped - Exceptions
+http://www.reddit.com/r/haskell/comments/2ety9f/new_blog_post_dealing_with_asynchronous/
+http://www.well-typed.com/blog/97/
+
+StackOverflow
+Marlow-ParallelAndConcurrentProgrammingInHaskell
+http://stackoverflow.com/questions/18052619/how-do-i-correctly-use-control-exception-catch-in-haskell
+
+HaskellBase
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/Control-Exception.html
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/Control-Exception-Base.html
+http://hackage.haskell.org/packages/archive/base/latest/doc/html/GHC-Conc-Sync.html
+
+lifted-base
+http://hackage.haskell.org/package/lifted-base
+
+Yuras
+http://www.reddit.com/r/haskell/comments/2mwrrd/handling_async_exceptions_in_haskell_pushing/
+https://github.com/Yuras/io-region/wiki/Handling-%28async%29-exceptions-in-haskell:-pushing-bracket-to-the-limits
+
+Lato
+http://johnlato.blogspot.com/2014/11/exception-handling-and-cleanup.html
+
+1. catch
+
+catch :: Exception e
+  => IO a         -- ^ The computation to run
+  -> (e -> IO a)  -- ^ Handler to invoke if an exception is raised
+  -> IO a
+
+
+2. handle
+-- A version of 'catch' with the arguments swapped around; useful in
+-- situations where the code for the handler is shorter.  For example:
+--
+-- >   do handle (\NonTermination -> exitWith (ExitFailure 1)) $
+-- >      ...
+handle     :: Exception e => (e -> IO a) -> IO a -> IO a
+handle     =  flip catch
+
+Exceptions in Async
+https://www.fpcomplete.com/user/snoyberg/general-haskell/exceptions/catching-all-exceptions
+  withAsync/waitCatch of https://github.com/simonmar/async/blob/master/Control/Concurrent/Async.hs
+http://www.reddit.com/r/haskell/comments/1i5coe/catching_all_exceptions_school_of_haskell/
+http://www.yesodweb.com/blog/2013/07/catching-all-exceptions
+
+kmett-either:
+http://hackage.haskell.org/package/either
+https://github.com/ekmett/either/
+
+gonzalez-error:
+http://hackage.haskell.org/package/errors
+https://github.com/Gabriel439/Haskell-Errors-Library
+http://watchchrislearn.com/blog/2013/11/28/playing-with-the-either-monad/
+http://watchchrislearn.com/blog/2013/11/30/using-the-either-monad-inside-another-monad/
+http://watchchrislearn.com/blog/2013/11/30/eithert-inside-of-io/
+http://watchchrislearn.com/blog/2013/12/01/working-entirely-in-eithert/
+
+gonzalez-resource
+http://www.haskellforall.com/2013/06/the-resource-applicative.html
+http://www.reddit.com/r/haskell/comments/1haums/the_resource_applicative/
+
+snoyman-enclosed-exceptions
+https://www.fpcomplete.com/user/snoyberg/general-haskell/exceptions/catching-all-exceptions
+http://hackage.haskell.org/package/enclosed-exceptions
+https://github.com/jcristovao/enclosed-exceptions
+
+control-monad-exception:
+http://hackage.haskell.org/package/control-monad-exception
+http://pepeiborra.github.com/control-monad-exception/
+https://github.com/pepeiborra/control-monad-exception
+
+monadloc - Right Exception Throwing:
+https://github.com/pepeiborra/monadloc
+http://hackage.haskell.org/package/monadloc-pp
+http://hackage.haskell.org/package/monadloc
+http://hackage.haskell.org/packages/archive/monadloc/0.7/doc/html/src/Control-Monad-Loc-TH.html (TH example)
+
+http://hackage.haskell.org/cgi-bin/hackage-scripts/package/control-monad-exception(http://pepeiborra.github.com/control-monad-exception/)
+http://pepeiborra.posterous.com/monadic-stack-traces-that-make-a-lot-of-sense
+
+Exceptions in MFlow:
+http://haskell-web.blogspot.com.es/2013/07/automatic-error-trace-generation-in.html
+http://hackage.haskell.org/package/supervisor
+https://github.com/agocorona/control-monad-supervisor
+
+
+How do I correctly use Control.Exception.catch in Haskell? (http://stackoverflow.com/questions/18052619/how-do-i-correctly-use-control-exception-catch-in-haskell)
+
+strictCatch :: (NFData a, Exception e) => IO a -> (e -> IO a) -> IO a
+strictCatch = catch . (toNF =<<)
+

@@ -1,0 +1,17 @@
+https://hsivonen.fi/rust2018/
+
+https://www.reddit.com/r/rust/comments/7poc4k/rust_2018_simd_and_other_neglected_unstable/
+https://github.com/rust-lang-nursery/stdsimd/issues/159
+
+https://github.com/rust-lang-nursery/simd
+
+2020
+https://www.nickwilcox.com/blog/autovec2/
+https://www.nickwilcox.com/blog/autovec/
+https://state.smerity.com/smerity/state/01E8RNH7HRRJT2A63NSX3N6SP1
+2018
+https://raphlinus.github.io/rust/simd/2018/10/19/fearless-simd.html
+https://medium.com/@Razican/learning-simd-with-rust-by-finding-planets-b85ccfb724c3
+https://www.infoq.com/news/2018/06/rust-1.27-simd-support
+Mott - SIMD Intrinsics
+    https://www.youtube.com/watch?v=4Gs_CA_vm3o

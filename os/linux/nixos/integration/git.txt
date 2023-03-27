@@ -1,0 +1,24 @@
+https://github.com/cachix/pre-commit-hooks.nix
+https://blog.hercules-ci.com/nix/2019/08/22/pre-commit-git-hooks-for-nix/
+
+private repos
+https://www.mpscholten.de/nixos/2016/07/07/private-github-repositories-and-nixos.html
+
+https://huijzer.xyz/posts/nixos/
+    Storing Git credentials took me way too long to figure out. So, here it is. To use the Git credential helper libsecret (gnome-keyring) write
+
+    # /etc/nixos/home-manager/git.nix
+
+    environment.systemPackages = [
+      pkgs.gitAndTools.gitFull # gitFull contains libsecret.
+    ]
+
+    home-manager.users.rik.programs.git = {
+      enable = true;
+
+      # Some omitted settings.
+
+      extraConfig = {
+        credential.helper = "libsecret";
+      };
+    };

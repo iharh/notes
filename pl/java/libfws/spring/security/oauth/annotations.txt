@@ -1,0 +1,8 @@
+@EnableOAuth2Client
+    https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/config/annotation/web/configuration/EnableOAuth2Client.html
+
+ @PreAuthorize("#oauth2.hasScope('read')")
+    https://habr.com/ru/post/307558/
+    https://piotrminkowski.wordpress.com/tag/spring-security/
+    Preauthorization is disabled by default.
+    To enable it for API methods we should use @EnableGlobalMethodSecurity annotation

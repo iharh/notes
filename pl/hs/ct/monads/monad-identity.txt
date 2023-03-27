@@ -1,0 +1,7 @@
+Identity monad:
+
+newtype Identity a = Identity { runIdentity :: a } 
+ 
+instance Monad Identity where
+    return a           = Identity a   -- i.e. return = id 
+    (Identity x) >>= f = f x          -- i.e. x >>= f = f x 

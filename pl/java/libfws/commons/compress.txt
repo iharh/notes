@@ -1,0 +1,15 @@
+https://commons.apache.org/proper/commons-compress/
+https://commons.apache.org/proper/commons-compress/zip.html
+
+api:
+https://commons.apache.org/proper/commons-compress/apidocs/org/apache/commons/compress/archivers/ArchiveInputStream.html
+https://commons.apache.org/proper/commons-compress/apidocs/org/apache/commons/compress/utils/IOUtils.html
+zip:
+https://commons.apache.org/proper/commons-compress/apidocs/org/apache/commons/compress/archivers/zip/ZipArchiveEntry.html
+
+samples:
+https://commons.apache.org/proper/commons-compress/examples.html
+https://github.com/dartmanx/mapmaker/blob/master/src/main/java/org/jason/mapmaker/server/util/ZipUtil.java
+https://memorynotfound.com/compress-decompress-java-jar-file-apache-compress/
+
+https://www.reddit.com/r/Kotlin/comments/6rmjul/zipinputstream_iteration_idioms_and_java_methods/

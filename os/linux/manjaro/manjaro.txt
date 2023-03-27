@@ -1,0 +1,29 @@
+http://manjaro.org/feed/
+http://www.reddit.com/r/ManjaroLinux
+https://forum.manjaro.org/index.php?board=39.0
+https://forum.manjaro.org/
+
+http://mylinuxexplore.blogspot.com/2013/09/manjaro-087-ascella-xfce-review-superb.html
+http://mylinuxexplore.blogspot.com/2014/03/manjaro-linux-089-review-right-on-money.html
+
+https://manjaro.org/index.php?title=Install_Desktop_Environments
+
+sudo pacman -S oblogout-py3-git obconf obmenu openbox-themes
+
+
+yaourt -Syua
+--no-confirm
+
+files:
+
+???
+/etc/locale.gen
+/etc/locale.conf
+/etc/environment
+/etc/keyboard.conf
+
+
+VirtualBox guest additions version:
+
+sudo pacman -Qi virtualbox-guest-utils
+

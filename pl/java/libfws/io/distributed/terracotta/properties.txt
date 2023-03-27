@@ -1,0 +1,13 @@
+###########################################################################################
+# Section :  TCMessage debug monitoring
+#   tcm.monitor.enabled - if enabled the count and size of TC messages will be collected and logged
+#   tcm.monitor.delay - the delay (in seconds) between reporting to the log
+###########################################################################################
+tcm.monitor.enabled = false
+tcm.monitor.delay = 5
+
+
+
+	<tc-properties>
+		<property name="tcm.monitor.enabled" value="true"/> 
+	</tc-properties>

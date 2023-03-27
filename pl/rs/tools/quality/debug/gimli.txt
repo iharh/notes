@@ -1,0 +1,10 @@
+https://crates.io/crates/gimli
+https://docs.rs/gimli
+
+https://github.com/gimli-rs/gimli
+https://github.com/gimli-rs/unwind-rs
+
+2018
+https://www.reddit.com/r/rust/comments/8nuvud/announcing_gimli_0160/
+https://robert.ocallahan.org/2018/03/speeding-up-dwarfdump-with-rust.html
+https://www.reddit.com/r/rust/comments/7gwysn/announcing_gimli_0150/

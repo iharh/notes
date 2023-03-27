@@ -1,0 +1,458 @@
+https://github.com/segg3r/epam_presentation
+
+Why:
+    ServiceLocator
+    PropertiesLocator
+    Injection
+
+
+Application model:
+
+public class FirstService
+    @Autowired
+    public Singleton singleton;
+    @Autowired
+    public Prototype prototype;
+}
+
+public class SecondService
+    @Autowired
+    public Singleton singleton;
+    @Autowired
+    public Prototype prototype;
+}
+
+public class Singleton {
+}
+
+public class Prototype {
+}
+
+public class FactoryBean  {
+}
+
+public class Factory {
+    public static FactoryBean factoryMethod() {
+        return new FactoryBean();
+    }
+}
+
+xml-config
+    <context:annotation-config/>
+    <bean id="firstService" class="..."/> // constructor-arg
+    <bean id="secondService" class="..."/>
+    <bean id="singleton" class="..."/>
+    <bean id="prototype" class="..."
+        scope="prototype"/>
+    <bean id="factoryBean" class="..."
+        factory-method="factoryMethod"/>
+
+AppCtx-s:
+ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config-10.xml");
+
+FirstService firstService = ctx.getBean(FirstService.class);
+
+
+annotation-config:
+
+@Component("mixedBean")
+public class MixedConfigurationBean {
+    public int value;
+
+    public MixedConfigurationBean() {
+    }
+
+    public MixedConfigurationBean(int value) {
+        this.value = value;
+    }
+}
+
+<context:component-scan
+    base-package="...beans.mixed"/>
+    
+<bean id="mixedBean"
+    class="...beans.mixed.MixedConfigurationBean">
+    <constructor-arg type="int" value="1"/>
+</bean>
+
+In this case - XML-config wins. Flawless victory
+INFO: Overriding bean definition for bean 'mixedBean' with a different definition:
+1
+
+java-config:
+
+@Configuration
+public class ScopesConfig11 {
+    @Bean
+    public FirstService firstService() {
+        return new FirstService();
+    }
+    @Bean
+    public SecondService secondService() {
+        return new SecondService();
+    }
+    @Bean
+    public Singleton singleton() {
+        return new Singleton();
+    }
+    @Bean
+    @Scope(BeanDefinition.SCOPE_PROTOTYPE)
+    public Prototype prototype() {
+        return new Prototype();
+    }
+}
+
+ApplicationContext ctx = new AnnotationConfigApplicationContext(ScopesConfig11.class);
+...
+
+
+Lookup 1 (dirty)
+
+@Autowired
+private ApplicationContext ctx;
+
+private UserAction getUserAction(String email) {
+    UserAction result = ctx.getBean(UserAction.class);
+    result.email = email;
+    return result;
+}
+
+Lookup 2
+
+private UserAction getUserAction(String email) {
+    UserAction result = buildUserAction();
+    result.email = email;
+    return result;
+}
+
+public UserAction buildUserAction() { return null; }
+
+<bean id="userService" class="...beans.userservice.UserService">
+    <lookup-method name="buildUserAction" bean="userAction/>
+<bean>
+
+<bean id="userAction" class="...beans.userservice.UserAction" scope="prototype" />
+
+Lookup (java-config)
+
+... getUserAction ...
+@Lookup
+public UserAction buildUserAction() { return null }
+
+@Config
+// !!! lookup methods cannot get replaced on beans, returned from factory methods where we cannot dynamically provide a sublass for them
+@ComponentScan("...beans.userservice")
+public class ScopesConfig21 {
+    @Bean
+    public UserService userService() {
+        return new UserService();
+    }
+    @Bean
+    @Scope(BeanDefinition.SCOPE_PROTOTYPE)
+    public UserAction userAction() {
+        return new UserAction();
+    }
+}
+
+...
+@Component
+public class UserService {
+    ...
+}
+
+
+init-n:
+* Reading bean def-s and populating them into BeanFactory
+* Calling BeanFactoryPostProcessors
+
+* Instantiating bean object
+* Calling BeanPostProcessor::postProcessBeforeInitialization
+* Initializating object (init-method, @PostConstruct)
+* Calling BeanPostProcessor::postProcessAfterInitialization
+
+public class HelloWorldBPP implements BeanPostProcessor {
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeanException {
+        System.out.println("hello pre : " + beanName + " is " + bean.getClass());
+        return bean;
+    }
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeanException {
+        System.out.println("hello post : " + beanName + " is " + bean.getClass());
+        return bean;
+    }
+}
+
+// Procies instances of given class and intercepting its methods
+public class ProxyBPP implements BeanPostProcessor {
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeanException {
+        System.out.println("Post : " + beanName + " is " + bean.getClass());
+
+        if (Service.class.isAssignableFrom(bean.getClass())) {
+            return (Service) Proxy.newProxyInstance(
+                Service.class.getClassLoader(),
+                new Class [] { Service.class },
+                new InvocationHandler() {
+                    @Override
+                    public Object invode(Object proxy, Method method, Object [] args) throws Throwable {
+                        System.out.println("Calling method " + method.getName());
+                        return method.invoke(bean, args);
+                    }
+                });
+        }
+        return bean;
+    }
+}
+
+public class ServiceImpl implements Service {
+    @Override
+    public void printSomething() {
+        System.out.println("Something");
+    }
+}
+
+@Configuration
+public class BPPConfig2 {
+    @Bean
+    public BeanPostProcessor proxyBPP() {
+        return new ProxyBPP();
+    }
+    @Bean
+    public BeanPostProcessor helloWorldBPP() {
+        return new HelloWorldBPP();
+    }
+    @Bean
+    public Service printService() {
+        return new PrintServiceImpl();
+    }
+}
+
+pre: pringService is class ...beans.ServiceImpl
+hello pre: pringService is class ...beans.ServiceImpl
+Post: pringService is class ...beans.ServiceImpl
+hello post: pringService is class ...beans.ServiceImpl
+Calling method printSomething
+Something
+
+// Multiple annotation postprocessors
+
+public class DashboardService {
+    @LogThisMethod
+    @SendEmail
+    public void saveDashboard() {
+    }
+}
+
+@Aspect
+public class SendEmailAspect {
+    @Before("@annotation(SendEmail)")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Sending email");
+    }
+}
+
+public class LogThisBPP implements BeanPostProcessor {
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeanException {
+        for (Method method : bean.getClass().getDeclaredMethods()) {
+            if (method.isAnnotationPresent(LogThisMethod.class)) {
+                ProxyFactory factory = new ProxyFactory();
+                factory.setSuperClass(bean.getClass());
+                factory.setFilter(new MethodFilter() {
+                    @Override
+                    public boolean isHandled(Method m) {
+                        return m.isAnnotationPresent(LogThisMethod.class);
+                    }
+                });
+                Class<?> clazz = factory.createClass();
+                MethodHandler handler = new MethodHandler() {
+                    @Override
+                    public Object invoke(Object self, Method overridden, Method forwarder, Object [] args) throws Throwable {
+                        System.out.println("Logging method");
+                        Method beanMethod = bean.getClass().getMethod(
+                            overridden.getName(),
+                            overridden.getParameterTypes());
+                        return beanMethod.invode(bean, args);
+                    }
+                };
+                Object intance = clazz.newInstance();
+                ((ProxyObject) instance).setHandler(handler);
+                return instance;
+            }
+        }
+        return bean;
+    }
+}
+
+// Multiple annotation postprocessors
+
+@Configuration
+@EnableAspectJAutoProxy
+public class BPPConfig4 {
+    @Bean
+    public SendEmailAspect sendEmailAspect() {
+        return new SendEmailAspect();
+    }
+    @Bena
+    public LogThisBPP logThisBPP() {
+        return new LogThisBPP();
+    }
+    @Bena
+    public DashboardService dashboardService() {
+        return new DashboadService();
+    }
+}
+
+// output
+Sending email
+// problem
+Email sent, but there is no logging
+
+// Runner
+
+ApplicationContext ctx = new AnnotationConfigApplicationContext(BPPConfig4.class);
+DashboardService service = ctx.getBean(DashboardService.class);
+service.saveDashboard();
+
+// for (Method method : bean.getClass().getDeclaredMethods()) {
+bean.getClass() -> ...beans.annotationprocessing.DashboardService$$EnhancerBySpringCGLIB$$....
+// This method does not have annotation in proce class
+bean.getClass().getMethod("saveDashboard", new Class<?>[]{}).getAnnotations()
+[]
+
+Hot to fix???
+
+// Bean caching
+
+private Map<String, Object> beansForLogging = Maps.newHashMap();
+@Override
+public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+    for (Method method : bean.getClass().getDeclaredMethods()) {
+        if (method.isAnnotationPresent(LogThisMethod.class)) {
+            beansForLogging.put(beanName, bean);
+        }
+    }
+    return bean;
+}
+
+// The fix is:
+
+Object originalBean = beansForLogging.get(beanName); // Get cached bean
+if (originalBean == null)
+    return bean;
+ProxyFactory factory = new ProxyFactory();
+factory.setSuperclass(originalBean.getClass()); // Get original bean class
+factory.setFilter(new MethodFilter() {
+    @Override
+    public boolean isHandled(Method m) {
+        return m.isAnnotationPresent(LogThisMethod.class);
+    }
+});
+
+Class<?> clazz = factory.createClass();
+MethodHandler handler = new MethodHandler() {
+    @Override
+    public Object invoke(Object self, Method originalBeanMethod, Method proxyMethod, Object [] args) throws Throwable {
+        System.out.println("Logging method");
+        Method beanMethod = bean.getClass().getMethod(originalBeanMethod.getName(), originalBeanMethod.getParameterTypes()); // Call the method of proxied bean
+        return beanMethod.invoke(bean, args);
+    }
+};
+Object instance = clazz.newInstance();
+((ProxyObject) instance).setHandler(handler);
+return instance;
+
+// Conclusion (for BeanPostProcessors)
+1. BPPs are needed for postprocessing beans themselves (self-injection, proxying)
+2. Only create proxies in "postProcessAfterInitialization"
+3. Save original bean in "postProcessBeforeInitialization", if needed
+4. Always use Class::isAssibnableFrom instead of Class::equals
+5. Do not use "bean.getClass()" to parse annotations in "postProcessAfterInitialization", cache beans instead
+
+
+// HelloWorldBeanFactoryPostProcessor
+
+public class HelloWorldBFPP implements BeanFactoryPostProcessor {
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        for (String beanDefinitionName : beanFactory.getBeanDefinitionNames()) {
+            BeanDefinition beanDefinition = beanFactoryh.getBeanDefinition(beanDefinitionName);
+            System.out.println("BFPP : " + beanDefinitionName + "; " + beanDefinition.getClass());
+        }
+    }
+}
+
+// BeanFactoryPostProcessor should be static in appropriate config !
+// BFPP should be created very early in lifecycle of ApplicationContext
+
+@Configuration
+public class BFPPConfig1 {
+    @Bean
+    public static BeanFactoryPostProcessor helloWorldBFPP() {
+        return new HelloWorldBFPP();
+    }
+    @Bean
+    public BeanPostProcessor helloWorldBPP() {
+        return new HelloWorldBPP();
+    }
+    @Bean
+    public Service printService() {
+        return new ServiceImpl();
+    }
+}
+
+// ExtensionBeanFactoryPostProcessor
+
+public class ExtensionDeployer {
+    @Autowired
+    private List<Extension> extensions;
+
+    public void deployExtensions() {
+        extensions.forEach((extension) -> {
+            System.out.println("Deploying " + extension.getClass());
+        });
+    }
+}
+// We want our users to provide their own implementations of Extension class
+
+
+public class ExtensionBFPP implements BeanFactoryPostProcessor {
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansExtension {
+        List<Class<? extends Extension>> extensionClasses = parseClasspath();
+        for (Class<? extends Extension> extensionClass : extensionClasses) {
+            try {
+                beanFactory.registerSingleton(extensionClass.getName(), extensionClass.newInstance());
+            } catch (Exception e) {
+                System.out.println("Failed to register extension " + extensionClass.getName());
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @SuppressWarning("unchecked")
+    private List<Class<? extends Extension>> parseClasspath() {
+        return Lists.newArrayList(SimpleExtension.class);
+    }
+
+    public static class SimpleExtension extends Extension {
+    }
+}
+
+// Runner
+ApplicationContext ctx = new AnnotationConfigApplicationContext(BFPPConfig2.class)
+ExtensionDeployer extensionDeployer = ctx.getBean(ExtensionDeployer.class);
+extensionDeployer.deployExtensions()
+
+//Output
+Deploying class ...spring.postprocessor.ExtensionBFPP$SimpleExtension
+
+// Conclusion
+1. BFPPs are needed for BeanDefinition metadata postprocessing
+    * addmin method overrides
+    * change bean definition properties
+    * etc
+2. BFPPs are needed for customizing list of beans before their creation
+
+!!! check scopes.txt here !!!

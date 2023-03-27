@@ -1,0 +1,4 @@
+2020
+https://www.reddit.com/r/NixOS/comments/k0utpw/our_new_nix_deployment_tool_deployrs/
+    If you really want to do pull-based updates, though, you can set it up with system.autoUpgrade.flake on a recent enough nixpkgs version
+    (make sure to have nix.package = nixUnstable, though!)

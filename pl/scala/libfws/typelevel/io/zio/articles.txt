@@ -1,0 +1,21 @@
+2020
+https://medium.com/wix-engineering/5-lessons-learned-from-my-continuing-awesome-journey-with-zio-66319d12ed7c
+    https://habr.com/ru/company/otus/blog/525618/
+https://aleksandarskrbic.github.io/functional-effects-with-zio/
+    https://aleksandarskrbic.github.io/a-taste-of-functional-java/
+https://ziverge.com/blog/zio-1.0/
+https://blog.softwaremill.com/managing-dependencies-using-zio-8acc1539e276
+https://medium.com/wix-engineering/building-a-super-easy-rate-limiter-with-zio-88f1ccb49776
+https://medium.com/wix-engineering/5-pitfalls-to-avoid-when-starting-to-work-with-zio-adefdc7d2d5c
+https://juliano-alves.com/2020/04/20/zio-http4s-a-simple-api-client/
+https://adrianfilip.com/2020/04/07/moving-from-kotlin-spring-reactor-arrow-to-scala-zio/
+https://scala.monster/welcome-zio/
+Effective Testing with ZIO Test
+    https://scala.monster/zio-test/
+2019
+https://medium.com/@pascal.mengelt/how-to-use-the-same-test-for-different-implementations-with-zio-ded024e55b12
+https://medium.com/@pascal.mengelt/how-to-dynamically-inject-the-implementation-for-zio-with-macwire-bb51d4827966
+https://medium.com/@pascal.mengelt/decouple-the-program-from-its-implementation-with-zio-modules-d9b8713d502e
+https://blog.softwaremill.com/thread-shifting-in-cats-effect-and-zio-9c184708067b
+http://degoes.net/articles/zio-solo
+http://degoes.net/articles/zio-environment

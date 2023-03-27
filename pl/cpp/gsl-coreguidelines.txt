@@ -1,0 +1,62 @@
+https://github.com/isocpp/CppCoreGuidelines
+http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+
+https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md
+
+https://github.com/martinmoene/gsl-lite
+
+lifetime
+https://github.com/isocpp/CppCoreGuidelines/blob/master/docs/Lifetime.pdf
+https://pspdfkit.com/blog/2020/the-cpp-lifetime-profile/
+https://herbsutter.com/2019/05/03/eurollvm-lifetime-talk-by-gabor-horvath-and-matthias-gehre/
+    https://www.youtube.com/watch?v=VynWyOIb6Bk
+https://blogs.msdn.microsoft.com/vcblog/2019/01/24/lifetime-profile-update-in-visual-studio-2019-preview-2/
+https://quuxplusone.github.io/blog/2018/11/12/parameter-lifetime-and-trivial-abi/
+Gehre - Implementing the C++ Core Guidelines’ Lifetime Safety Profile in Clang
+    https://www.youtube.com/watch?v=sjnp3P9x5jA
+    https://github.com/CppCon/CppCon2018/blob/master/Presentations/implementing_the_cpp_core_guidelines_lifetime_safety_profile_in_clang/implementing_the_cpp_core_guidelines_lifetime_safety_profile_in_clang__matthias_gehre_gabor_horvath__cppcon_2018.pdf
+Sutter - Thoughts on a more powerful and simpler C++ (5 of N)
+https://www.youtube.com/watch?v=80BZxujhY38
+    https://habr.com/post/425873/
+https://www.infoworld.com/article/3307522/c-plus-plus/revised-proposal-could-solve-longstanding-c-bugs.html
+https://herbsutter.com/2018/09/20/lifetime-profile-v1-0-posted/
+    !!! godbolt samples (what is cppx compiler)?
+        https://godbolt.org/z/szJjnH
+    https://www.reddit.com/r/cpp/comments/9hmoqb/herb_sutter_blog_lifetime_profile_v10_posted/
+clang support for lifetime
+https://github.com/CppCon/CppCon2018/blob/master/Presentations/implementing_the_cpp_core_guidelines_lifetime_safety_profile_in_clang/implementing_the_cpp_core_guidelines_lifetime_safety_profile_in_clang__matthias_gehre_gabor_horvath__cppcon_2018.pdf
+http://cpptruths.blogspot.com/2018/10/chained-functions-break-reference.html
+
+2022
+https://devblogs.microsoft.com/cppblog/gsl-4-0-0-is-available-now/
+2021
+Safer Usage of Cpp
+    https://docs.google.com/document/d/e/2PACX-1vRZr-HJcYmf2Y76DhewaiJOhRNpjGHCxliAQTBhFxzv1QTae9o8mhBmDl32CRIuaWZLt5kVeH9e9jXv/pub
+    https://habr.com/ru/company/pvs-studio/blog/580762/
+2020
+https://devblogs.microsoft.com/cppblog/gsl-3-0-0-release/
+2019
+https://www.reddit.com/r/cpp/comments/acspkq/guideline_support_library_what_a_mess/
+2018
+Otus - GSL
+    https://www.youtube.com/watch?v=GafUgFxbZL4
+https://www.reddit.com/r/cpp/comments/8sge59/what_happened_to_msvc_cppcoreguideline_checker/
+
+2017
+Gregory - 10 Core Guidelines You Need to Start Using Now
+https://github.com/CppCon/CppCon2017/blob/master/Presentations/10%20Core%20Guidelines%20You%20Need%20to%20Start%20Using%20Now/10%20Core%20Guidelines%20You%20Need%20to%20Start%20Using%20Now%20-%20Kate%20Gregory%20-%20CppCon%202017.pptx
+https://www.youtube.com/watch?v=XkDEzfpdcSg
+
+ms
+https://docs.microsoft.com/en-us/visualstudio/code-quality/code-analysis-for-cpp-corecheck
+https://docs.microsoft.com/en-au/visualstudio/code-quality/using-the-cpp-core-guidelines-checkers
+
+lifetime
+https://www.reddit.com/r/cpp/comments/8zle4k/current_state_of_the_lifetime_checker/
+https://github.com/duneroadrunner/misc/blob/master/lifetime%20checker%20observations%20-%20Jun%202018.md
+https://github.com/duneroadrunner/misc/blob/master/201/8/Jul/implications%20of%20the%20lifetime%20checker%20restrictions.md
+https://reviews.llvm.org/D15032
+
+samples
+[[gsl::lifetime(a, b)]]
+...

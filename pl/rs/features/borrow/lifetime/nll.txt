@@ -1,0 +1,38 @@
+NLL (Non-lexical lifetimes)
+2022
+https://blog.rust-lang.org/2022/08/05/nll-by-default.html
+2019
+Matsakis - Polonius: Either Borrower or Lender Be, but Responsibly
+    https://www.youtube.com/watch?v=_agDeiWek8w
+http://blog.pnkfx.org/blog/2019/06/26/breaking-news-non-lexical-lifetimes-arrives-for-everyone/
+2018
+http://smallcultfollowing.com/babysteps/blog/2018/11/10/after-nll-moving-from-borrowed-data-and-the-sentinel-pattern/
+http://smallcultfollowing.com/babysteps/blog/2018/11/01/after-nll-interprocedural-conflicts/
+http://smallcultfollowing.com/babysteps/blog/2018/10/31/mir-based-borrowck-is-almost-here/
+http://smallcultfollowing.com/babysteps/blog/2018/04/27/an-alias-based-formulation-of-the-borrow-checker/
+http://smallcultfollowing.com/babysteps/blog/2018/04/24/rust-pattern-precise-closure-capture-clauses/
+https://santiagopastorino.com/how-to-use-rust-non-lexical-lifetimes-on-nightly/
+    -Znll-dump-cause
+https://rust-lang.github.io/rfcs/2094-nll.html
+https://github.com/rust-lang/rfcs/blob/master/text/2094-nll.md
+
+https://github.com/rust-lang/rfcs/pull/2094
+https://github.com/rust-lang/rust/pull/45538
+
+https://github.com/rust-lang/rust/issues/44928
+    https://www.reddit.com/r/rust/comments/739n4u/nonlexical_lifetimes_rfc_was_just_merged/
+    https://www.reddit.com/r/rust/comments/73cehd/how_to_reason_about_nlls/
+https://github.com/nikomatsakis/nll-rfc/
+https://github.com/rust-lang/rust-roadmap/issues/16
+
+http://smallcultfollowing.com/babysteps/blog/2016/04/27/non-lexical-lifetimes-introduction/
+http://smallcultfollowing.com/babysteps/blog/2016/05/09/non-lexical-lifetimes-adding-the-outlives-relation/
+http://smallcultfollowing.com/babysteps/blog/2017/02/21/non-lexical-lifetimes-using-liveness-and-location/
+http://smallcultfollowing.com/babysteps/blog/2017/03/01/nested-method-calls-via-two-phase-borrowing/
+http://smallcultfollowing.com/babysteps/blog/2017/07/11/non-lexical-lifetimes-draft-rfc-and-prototype-available/
+http://smallcultfollowing.com/babysteps/blog/2018/06/15/mir-based-borrow-check-nll-status-update/
+https://github.com/nikomatsakis/borrowck
+https://internals.rust-lang.org/t/non-lexical-lifetimes-based-on-liveness/3428
+
+https://www.reddit.com/r/rust/comments/6r730x/the_nonlexical_lifetimes_rfc_was_just_opened_up/
+https://www.reddit.com/r/rust/comments/7lq5t3/featurenll_available_in_nightly/

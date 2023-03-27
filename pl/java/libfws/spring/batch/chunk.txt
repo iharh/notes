@@ -1,0 +1,37 @@
+SimpleChunkProvider.
+FaultTolerantChunkProvider
+ChunkOrientedTasklet
+
+
+Remote Chunking:
+
+reading (Item Reader) in a main master-thred
+processing/writing (Item Processor/Writer) at slave threads
+
+
+
+
+spring-batch\trunk\spring-batch-core\src\main\java\org\springframework\batch\core\step\item\FaultTolerantChunkProvider.java 
+
+ChunkOrientedTasklet
+- ChunkProvider
+- ChunkProcessor
+- Chunk<I>
+- ChunkContext
+
+FaultTolerantChunkProvider
+FaultTolerantChunkProcessor
+
+FaultTolerantStepFactoryBean (see UTs)
+
+
+Read Ch 9 - Retry
+
+StepParserStepFactoryBean<I, O>
+
+	private boolean isFaultTolerant() {
+		return backOffPolicy != null || skipPolicy != null || isPositive(skipLimit) || isPositive(retryLimit)
+				|| isPositive(cacheCapacity) || isTrue(readerTransactionalQueue);
+	}
+
+

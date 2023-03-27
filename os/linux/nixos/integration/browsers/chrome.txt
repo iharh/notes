@@ -1,0 +1,5 @@
+2022
+TechSolutionsZ - How to Install Chrome Browser on NixOS 22.05 | Installing Chrome Browser on Linux NixOS 22.05 0:00 of 1:30
+    https://www.youtube.com/watch?v=Dzqrde88fSY
+    ! export NIXPKGS_ALLOW_UNFREE=1
+    ! nix-env -i google-chrome

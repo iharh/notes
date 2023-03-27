@@ -1,0 +1,29 @@
+https://docs.tilt.dev/choosing_clusters.html
+    ! use minicube for high-fidelity cluster
+    https://github.com/tilt-dev/ctlptl#minikube-with-a-built-in-registry
+    brew install tilt-dev/tap/ctlptl
+
+2021
+https://www.reddit.com/r/kubernetes/comments/n2bsrz/k3s_vs_microk8s_vs_k0s_and_thoughts_about_their/
+    ! k3s and k0s are mostly identical now
+    !  I'm using k3sup to deploy k3s with just a single line per node
+    ! (Also: I tested the speed of k3s vs minikube -- k3s was about 3x faster at starting up. Never used k0s.)
+    ! Then you'll be happy about k3s 1.21, which has bumped Traefik up to v2.
+    ! MicroK8s isn't something that's meant to be used in a production stack (or at least wasn't last I looked). I would avoid that.
+https://kubevious.io/blog/post/what-is-mirantis-k0s-and-how-it-compares-with-rancher-k3s
+    ! k3s is prod-ready in edge,iot,...
+    ! k0s also uses upstream k8s version
+    ! k0s distribution by default relies on Kine as data store with etcd - the distributed key-value database,
+    whereas k3s has replaced etcd with SQLite.
+    ! !!! at the moment k3s support etcd as external DB
+https://itnext.io/kubernetes-installation-methods-the-complete-guide-1036c860a2b3
+    !!! tons of other stuff
+https://blog.flant.com/small-local-kubernetes-comparison/
+https://faun.pub/environment-for-comparing-several-on-premise-kubernetes-distributions-k3s-kind-kubeadm-a53675a80a00
+    !!! good .kubeconfig organisation
+https://searchitoperations.techtarget.com/answer/Evaluate-3-ways-to-run-Kubernetes-locally
+    ! microk8s may use multipass-vms
+2019
+https://brennerm.github.io/posts/minikube-vs-kind-vs-k3s.html
+    !!! super comments
+https://habr.com/ru/company/flant/blog/572188/

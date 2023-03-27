@@ -1,0 +1,14 @@
+https://code.visualstudio.com/docs/languages/html
+
+preview
+https://github.com/SimonSiefke/vscode-html-preview
+https://github.com/auchenberg/vscode-browser-preview
+    https://marketplace.visualstudio.com/items?itemName=auchenberg.vscode-browser-preview
+beta
+https://ritwickdey.github.io/vscode-live-server/
+    https://github.com/ritwickdey/vscode-live-server
+    ! a lot of installs
+    https://github.com/ritwickdey/vscode-live-server/blob/master/docs/settings.md
+pretty old
+https://marketplace.visualstudio.com/items?itemName=hdg.live-html-previewer
+https://github.com/tht13/html-preview-vscode

@@ -1,0 +1,6 @@
+http://askubuntu.com/questions/304201/what-are-all-the-autostart-locations-in-ubuntu
+https://help.ubuntu.com/community/ShowHiddenStartupApplications
+http://www.jamescoyle.net/cheat-sheets/791-update-rc-d-cheat-sheet
+
+upstart/init:
+  sudo service --status-all

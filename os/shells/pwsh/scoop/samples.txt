@@ -1,0 +1,15 @@
+https://github.com/lukesampson/scoop-extras/blob/master/calibre.json
+java
+    https://github.com/lukesampson/scoop/wiki/Java
+        https://adoptopenjdk.net/
+    https://github.com/se35710/scoop-java/blob/master/oraclejdk8.json
+    https://github.com/lukesampson/scoop/issues/193
+    https://github.com/lukesampson/scoop-extras/blob/master/find-java.json
+        https://gist.githubusercontent.com/se35710/43693e679701387d722206eff1e85f5f/raw/b6a69d34b16092f710fc134a4a6ee19c0e7d3c36/find-java.ps1
+pwsh
+    https://github.com/lukesampson/scoop/blob/master/bucket/pwsh.json
+    https://github.com/lukesampson/scoop/issues/2036
+msys coreutils
+    https://github.com/lukesampson/scoop/blob/master/bucket/coreutils.json
+postgresql
+    https://github.com/lukesampson/scoop/blob/master/bucket/postgresql.json

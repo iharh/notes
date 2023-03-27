@@ -1,0 +1,9 @@
+https://jdbc.postgresql.org/
+https://jdbc.postgresql.org/documentation/
+https://jdbc.postgresql.org/development/
+    https://github.com/pgjdbc/pgjdbc
+
+connection url
+https://github.com/pgjdbc/pgjdbc#building-the-connection-url
+    ...
+    jdbc:postgresql://host:port/database

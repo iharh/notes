@@ -1,0 +1,6 @@
+https://github.com/square/javapoet
+
+Caused by: java.lang.IllegalArgumentException: couldn't make a guess for myrequery.posts
+	at io.requery.com.squareup.javapoet.Util.checkArgument(Util.java:64)
+	at io.requery.com.squareup.javapoet.ClassName.bestGuess(ClassName.java:171)
+	at io.requery.processor.EntityNameResolver.typeNameOf(EntityNameResolver.java:35)

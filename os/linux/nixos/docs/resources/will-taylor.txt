@@ -1,0 +1,202 @@
+WillTaylor - NixOS of 8 parts
+    https://www.youtube.com/playlist?list=PL-saUBvIJzOkjAw_vOac75v-x6EzNzZq-
+    p7 - Moving Nixos System Configuration Into A Flake 17:40 of 33:12
+        https://www.youtube.com/watch?v=mJbQ--iBc1U
+        ! 2:30 nix.package = pkgs.nixFlakes
+               nix.extraOptions = ''
+                  experimental-features = nix-command flakes
+               '';
+        ! 4:30 nix flake init
+               vim flake.nix
+                {
+                   inputs = {
+                      nixpkgs.url = "nixpkgs/nixos-unstable";
+                      home-manager.url = "github:nix-community/home-manager/release-20.09";
+                      home-manager.inputs.nixpkgs.follows = "nixpkgs";
+                   };
+                   outputs = { self, nixpkgs, home-manager, ... }:
+                   let
+                      system = "x86_64-linux";
+                      pkgs = import nixpkgs {
+                        inherit system;
+                        config = { allowUnfree = true; };
+                      };
+                      lib = nixpkgs.lib;
+                   in {
+                      homeManagerConfigurations = {
+                        wil = home-manager.lib.homeManagerConfiguration {
+                          inherit system pkgs;
+                          username = "wil";
+                          homeDirectory = "/home/wil";
+                          configuration = {
+                            import = [
+                              ./users/wil/home.nix
+                            ];
+                          };
+                        };
+                      };
+                      nixosConfigurations = {
+                        testbox = lib.nixosSystem {
+                          inherit system;
+                          modules = [
+                            ...
+                          ];
+                        };
+                      };
+                   };
+                }
+        ! 17:00 nixos-rebuild build --flake .#<f-name>
+        !       cat result/activate - massive script
+        ! 20:00 nix flake update --recreate-lock-file
+        ! 25:00 nix build .#homeManagerConfigurations.wil.activationPackage
+        ! 26:30 # home-manager switch -f ./users/wil/home.nix
+        ! 27:00 nix build .#homeManagerConfigurations.wil.activationPackage
+                ./result/activate
+    p6 - Intro to Flakes of 19:31
+        https://www.youtube.com/watch?v=K54KKAx2wNc
+        ! nix = {
+            extraOptions = "experimental-features = nix-command flakes";
+            package = pkgs.nixFlakes; // nix-shell -iA !!!
+        ! }
+        ! 4:00 put this into shell.nix
+            { pkgs ? import <nixpkgs> {} }:
+            pkgs.mkShell {
+              name = "MyAwesomeShell";
+              buildInputs = with pkgs; [
+                nixFlakes
+              ];
+
+              shellHook = ''
+                echo "Welcome to my awesome shell";
+              '';
+            }
+        ! 4:40 nix flake
+        !         init
+        !         --help
+        !         info
+        !         list-inputs
+        !         update [--recreate-lock-file]
+        !         show
+        !      nix registry
+                  list
+    p5 - Nix Shell of 10:36
+        https://www.youtube.com/watch?v=SGekN4pDExY
+        ! 3:00 nix-shell -p <package-name>
+        !      nix-shell -p hello --run hello
+        ! 4:30 put this into shell.nix
+            { pkgs ? import <nixpkgs> {} }:
+            let
+               myScript = pkgs.writeScriptBin "foobar" ''
+                  echo "Foobar";
+               '';
+            in pkgs.mkShell {
+              name = "MyAwesomeShell";
+              buildInputs = with pkgs; [
+                figlet
+                myScript
+              ];
+
+              shellHook = ''
+                echo "Welcome to my awesome shell";
+              '';
+            }
+        ! and then just type "nix-shell"
+    p4 - Nix Language Overview of 30:50
+        https://www.youtube.com/watch?v=eCapIx9heBw
+        ! 9:00 strAttr = ''
+        !         multi line string
+        !      '';
+        ! sets, lists, functions
+        ! 11:00 functions cat get sets as params
+        ! 13:00 derivation {
+        !     system = "x86_64-linux";
+        !     name = "foo";
+        !     builder = ./builder.sh;
+        !     outputs = [ "out" ];
+        ! };
+        ! Better ways - mkDerivation, runCommand, writeScriptBin
+        ! 14:30 with
+        !   environment.systemPackages = with pkgs; [
+        !     git   # pkgs.git
+        !   ]
+        ! 15:30 import
+        !   x = import ./myfile.nix;
+        !   y = import ./folder;  # loads ./folder/default.nix
+        ! 17:30 inherit
+        !   inherit x;
+        !   x = x;
+        ! 18:00 if
+        !   new_val = if x == 7 then "yes" else "no";
+        ! 19:30 let
+        !   let
+        !     x = 7;
+        !   in {
+        !     y = x;
+        !   }
+        ! 21:00 nix repl (c+d to exit)
+        ! 28:00 man - Trivial Builders
+    p3 - NixOS Filesystem Overview of 20:00
+        https://www.youtube.com/watch?v=jf0nIn2oS8A
+        ! /etc is RO
+        ! /run/current-system/sw/bin
+        ! ~/.nix-profile/bin
+        ! PATH=/run/wrappers/bin:~/.nix-profile/bin:/etc/profiles/per-user/<user>/bin:
+        ! /nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:~/.zsh/plugins/spaceship/prompt
+        ! our compiled cfg goes to
+        !   /run/current-system/sw/
+        ! RO fs mount for
+        !   /nix/store
+        ! man nix-store
+        !   gc
+        !   --optimize
+        ! let's check ~/.nix-profile
+        !   stuff by home-manager
+        ! /var/nix/profile/
+        !     system -> system-<NNN>-link
+        ! /nix/profiles/per-user/<username>
+        !     home-manager
+        !     profile -> profile-<NNN>-link
+        !     system -> system-<NNN>-link
+        !     activate script
+        ! /etc/nix/
+        !     nix.conf
+        ! /etc/nixos/
+        !     ???
+        ! $ nix log /nix/store/<path-to-folder>
+    p2 - Putting Config into Git of 31:29
+        https://www.youtube.com/watch?v=Dy3KHMuDNS8
+            ~/.config/nixpkgs/home.nix,
+                this is the file that home-manager uses by default as it's entry point.
+            with home-manager
+                https://hugoreeves.com/posts/2019/nix-home/
+            cd ~/.config/nixpkgs; git pull; home-manager switch
+                https://github.com/HugoReeves/nix-home/
+        ! 6:30 sudo nixos-rebuild switch -I nixos-config=./system/configuration.nix
+        ! 8:30 home-manager switch -f ./users/will/home.nix
+        ! 14:00 home-manager news
+        ! 17:00 home.nix: enable program.gpg, services.gpg-agent
+        !       home.packages - git-crypt, gnupg, pinentry_qt
+        ! 18:20 gpg --generate-key
+        ! 19:50 gpg --list-key
+        !       gpg --output ../public.gpg --armor --export <my-email>
+        !       gpg --output ../private.gpg --armor --export-secret-key <my-email>
+        !       gpg --edit-key <my-email>
+        !           trust ... quit
+        ! 23:30 git config --global user.email|name ...
+        !       git crypt init
+        !       git crypt add-gpg-user <my-email>
+        !   # ~/.git-crypt/
+        !         keys/
+        !       git crypt export-key ../gitgpg.key
+        !       mkdir ~/.secrets # and put some files inside
+        ! 27:58       
+        !       ~/.gitattributes:
+        !           .secrets/** filter=git-crypt diff=git-crypt
+        ! 29:30 git crypt lock
+
+    p2 - Install of 55:33
+        https://www.youtube.com/watch?v=axOxLJ4BWmY
+        ! 18:00 - users.user.will = ...
+        ! 23:00 - at hardware-configuration.nix swapDevices = [ device = "/.swapfile"; ]
+    p1 of 10:47
+        https://www.youtube.com/watch?v=QKoQ1gKJY5A

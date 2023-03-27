@@ -1,0 +1,15 @@
+https://gcc.gnu.org/wiki/DavidMalcolm/StaticAnalyzer
+
+2021
+https://developers.redhat.com/blog/2021/05/05/detecting-memory-management-bugs-with-gcc-11-part-2-deallocation-functions/
+https://developers.redhat.com/blog/2021/04/30/detecting-memory-management-bugs-with-gcc-11-part-1-understanding-dynamic-allocation/
+https://developers.redhat.com/blog/2021/01/28/static-analysis-updates-in-gcc-11/
+2020
+https://developers.redhat.com/blog/2020/03/26/static-analysis-in-gcc-10/
+2019
+https://gcc.gnu.org/ml/gcc/2019-12/msg00152.html
+    On https://godbolt.org/ within the C and C++ languages, select
+        "x86-64 gcc (static analysis)"
+    as the compiler (though strictly speaking only C is in-scope right now).
+    It's configured to automatically inject -fanalyzer
+    (just on this site; it isn't the default in the branch).

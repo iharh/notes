@@ -1,0 +1,23 @@
+create a new config -> "Remote"
+
+https://www.jetbrains.com/help/idea/2017.1/debugging.html
+https://www.jetbrains.com/help/idea/2017.1/debugger-basics.html
+
+https://plugins.jetbrains.com/plugin/9696-java-stream-debugger
+
+2023
+https://snyk.io/blog/advanced-intellij-debugger-features/
+    Almong - Practical Debugging at Scale
+        https://www.amazon.com/dp/1484290410/
+        https://course.debugagent.com/
+        https://www.youtube.com/playlist?list=PL8GhfcywW9YM3OsfxnaxAci6dJgkuOQWn
+2021
+IntelliJIDEAbyJetBrains - Debugger of 6 parts
+    https://www.youtube.com/playlist?list=PLPZy-hmwOdEUWF85MuwrKV8YVWLmZW4ZA
+IntelliJIDEAbyJetBrains - Ushakov - IntelliJ IDEA. Debugger Essentials 0:00 of 45:36
+    https://www.youtube.com/watch?v=59RC8gVPlvk
+https://foojay.io/today/eight-debugging-tips-for-intellijidea-users-you-never-knew-existed/
+    https://habr.com/ru/post/582070/
+
+docker attach
+https://stackoverflow.com/questions/62943487/intellij-debug-docker-container-keeps-giving-me-io-exception-handshake-failed

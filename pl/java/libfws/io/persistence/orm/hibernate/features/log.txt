@@ -1,0 +1,2 @@
+  Category:
+    - { name: org.hibernate.loader.custom.sql, Priority: [{value: trace}], AppenderRef: [{ ref: FILE }] }

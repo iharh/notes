@@ -1,0 +1,155 @@
+https://github.com/commercialhaskell/stack/blob/master/src/Stack/Types/Config.hs
+
+-- | The top-level Stackage configuration.
+data Config =
+  Config {configStackRoot           :: !(Path Abs Dir)
+         -- ^ ~/.stack more often than not
+         ,configWorkDir             :: !(Path Rel Dir)
+         -- ^ this allows to override .stack-work directory
+         ,configUserConfigPath      :: !(Path Abs File)
+         -- ^ Path to user configuration file (usually ~/.stack/config.yaml)
+         ,configBuild               :: !BuildOpts
+         -- ^ Build configuration
+         ,configDocker              :: !DockerOpts
+         -- ^ Docker configuration
+         ,configNix                 :: !NixOpts
+         -- ^ Execution environment (e.g nix-shell) configuration
+         ,configEnvOverride         :: !(EnvSettings -> IO EnvOverride)
+         -- ^ Environment variables to be passed to external tools
+         ,configLocalProgramsBase   :: !(Path Abs Dir)
+         -- ^ Non-platform-specific path containing local installations
+         ,configLocalPrograms       :: !(Path Abs Dir)
+         -- ^ Path containing local installations (mainly GHC)
+         ,configConnectionCount     :: !Int
+         -- ^ How many concurrent connections are allowed when downloading
+         ,configHideTHLoading       :: !Bool
+         -- ^ Hide the Template Haskell "Loading package ..." messages from the
+         -- console
+         ,configPlatform            :: !Platform
+         -- ^ The platform we're building for, used in many directory names
+         ,configPlatformVariant     :: !PlatformVariant
+         -- ^ Variant of the platform, also used in directory names
+         ,configGHCVariant0         :: !(Maybe GHCVariant)
+         -- ^ The variant of GHC requested by the user.
+         -- In most cases, use 'BuildConfig' or 'MiniConfig's version instead,
+         -- which will have an auto-detected default.
+         ,configUrls                :: !Urls
+         -- ^ URLs for other files used by stack.
+         -- TODO: Better document
+         -- e.g. The latest snapshot file.
+         -- A build plan name (e.g. lts5.9.yaml) is appended when downloading
+         -- the build plan actually.
+         ,configPackageIndices      :: ![PackageIndex]
+         -- ^ Information on package indices. This is left biased, meaning that
+         -- packages in an earlier index will shadow those in a later index.
+         --
+         -- Warning: if you override packages in an index vs what's available
+         -- upstream, you may correct your compiled snapshots, as different
+         -- projects may have different definitions of what pkg-ver means! This
+         -- feature is primarily intended for adding local packages, not
+         -- overriding. Overriding is better accomplished by adding to your
+         -- list of packages.
+         --
+         -- Note that indices specified in a later config file will override
+         -- previous indices, /not/ extend them.
+         --
+         -- Using an assoc list instead of a Map to keep track of priority
+         ,configSystemGHC           :: !Bool
+         -- ^ Should we use the system-installed GHC (on the PATH) if
+         -- available? Can be overridden by command line options.
+         ,configInstallGHC          :: !Bool
+         -- ^ Should we automatically install GHC if missing or the wrong
+         -- version is available? Can be overridden by command line options.
+         ,configSkipGHCCheck        :: !Bool
+         -- ^ Don't bother checking the GHC version or architecture.
+         ,configSkipMsys            :: !Bool
+         -- ^ On Windows: don't use a sandboxed MSYS
+         ,configCompilerCheck       :: !VersionCheck
+         -- ^ Specifies which versions of the compiler are acceptable.
+         ,configLocalBin            :: !(Path Abs Dir)
+         -- ^ Directory we should install executables into
+         ,configRequireStackVersion :: !VersionRange
+         -- ^ Require a version of stack within this range.
+         ,configJobs                :: !Int
+         -- ^ How many concurrent jobs to run, defaults to number of capabilities
+         ,configOverrideGccPath     :: !(Maybe (Path Abs File))
+         -- ^ Optional gcc override path
+         ,configExtraIncludeDirs    :: !(Set (Path Abs Dir))
+         -- ^ --extra-include-dirs arguments
+         ,configExtraLibDirs        :: !(Set (Path Abs Dir))
+         -- ^ --extra-lib-dirs arguments
+         ,configConcurrentTests     :: !Bool
+         -- ^ Run test suites concurrently
+         ,configImage               :: !ImageOpts
+         ,configTemplateParams      :: !(Map Text Text)
+         -- ^ Parameters for templates.
+         ,configScmInit             :: !(Maybe SCM)
+         -- ^ Initialize SCM (e.g. git) when creating new projects.
+         ,configGhcOptions          :: !GhcOptions
+         -- ^ Additional GHC options to apply to either all packages (Nothing)
+         -- or a specific package (Just).
+         ,configSetupInfoLocations  :: ![SetupInfoLocation]
+         -- ^ Additional SetupInfo (inline or remote) to use to find tools.
+         ,configPvpBounds           :: !PvpBounds
+         -- ^ How PVP upper bounds should be added to packages
+         ,configModifyCodePage      :: !Bool
+         -- ^ Force the code page to UTF-8 on Windows
+         ,configExplicitSetupDeps   :: !(Map (Maybe PackageName) Bool)
+         -- ^ See 'explicitSetupDeps'. 'Nothing' provides the default value.
+         ,configRebuildGhcOptions   :: !Bool
+         -- ^ Rebuild on GHC options changes
+         ,configApplyGhcOptions     :: !ApplyGhcOptions
+         -- ^ Which packages to ghc-options on the command line apply to?
+         ,configAllowNewer          :: !Bool
+         -- ^ Ignore version ranges in .cabal files. Funny naming chosen to
+         -- match cabal.
+         ,configDefaultTemplate     :: !(Maybe TemplateName)
+         -- ^ The default template to use when none is specified.
+         -- (If Nothing, the default default is used.)
+         ,configAllowDifferentUser  :: !Bool
+         -- ^ Allow users other than the stack root owner to use the stack
+         -- installation.
+         ,configPackageCaches       :: !(IORef (Maybe (Map PackageIdentifier (PackageIndex, PackageCache))))
+         -- ^ In memory cache of hackage index.
+         ,configMaybeProject        :: !(Maybe (Project, Path Abs File))
+         }
+
+
+-- An uninterpreted representation of configuration options.
+-- Configurations may be "cascaded" using mappend (left-biased).
+data ConfigMonoid =
+  ConfigMonoid
+    { configMonoidStackRoot          :: !(First (Path Abs Dir))
+    -- ^ See: 'configStackRoot'
+    , configMonoidWorkDir            :: !(First (Path Rel Dir))
+    -- ^ See: 'configWorkDir'.
+    , configMonoidBuildOpts          :: !BuildOptsMonoid
+    -- ^ build options.
+    , configMonoidDockerOpts         :: !DockerOptsMonoid
+    -- ^ Docker options.
+    , configMonoidNixOpts            :: !NixOptsMonoid
+    -- ^ Options for the execution environment (nix-shell or container)
+    , configMonoidConnectionCount    :: !(First Int)
+    -- ^ See: 'configConnectionCount'
+
+
+instance Monoid ConfigMonoid where
+    mempty = memptydefault
+    mappend = mappenddefault
+
+instance FromJSON (WithJSONWarnings ConfigMonoid) where
+  parseJSON = withObjectWarnings "ConfigMonoid" parseConfigMonoidJSON
+
+-- | Parse a partial configuration.  Used both to parse both a standalone config
+-- file and a project file, so that a sub-parser is not required, which would interfere with
+-- warnings for missing fields.
+parseConfigMonoidJSON :: Object -> WarningParser ConfigMonoid
+parseConfigMonoidJSON obj = do
+    -- Parsing 'stackRoot' from 'stackRoot'/config.yaml would be nonsensical
+    let configMonoidStackRoot = First Nothing
+    configMonoidWorkDir <- First <$> obj ..:? configMonoidWorkDirName
+    configMonoidBuildOpts <- jsonSubWarnings (obj ..:? configMonoidBuildOptsName ..!= mempty)
+    configMonoidDockerOpts <- jsonSubWarnings (obj ..:? configMonoidDockerOptsName ..!= mempty)
+    configMonoidNixOpts <- jsonSubWarnings (obj ..:? configMonoidNixOptsName ..!= mempty)
+    configMonoidConnectionCount <- First <$> obj ..:? configMonoidConnectionCountName
+    ...

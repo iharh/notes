@@ -1,0 +1,138 @@
+2010-10-18 11:58:15,547 INFO - Terracotta 3.3.0, as of 20100716-150712 (Revision 15922 by cruise@su10mo5 from 3.3)
+2010-10-18 11:58:15,594 INFO - Attempting to load configuration from the Java resource at '/com/tc/config/schema/setup/default-config.xml', relative to class com.tc.config.schema.setup.StandardXMLFileConfigurationCreator...
+2010-10-18 11:58:15,938 INFO - Successfully loaded base configuration from Java resource at '/com/tc/config/schema/setup/default-config.xml', relative to class com.tc.config.schema.setup.StandardXMLFileConfigurationCreator.
+2010-10-18 11:58:15,938 INFO - The configuration specified by 'base configuration from Java resource at '/com/tc/config/schema/setup/default-config.xml', relative to class com.tc.config.schema.setup.StandardXMLFileConfigurationCreator':
+
+<!--All content copyright (c) 2003-2008 Terracotta, Inc.,
+  except as may otherwise be noted in a separate copyright notice.
+  All rights reserved-->
+<!--This config file is used by the server and bootjar tool when none is specified.-->
+<tc:tc-config xmlns:tc="http://www.terracotta.org/config">
+  <servers>
+    <server host="10.9.11.68" name="10.9.11.68:9510" bind="0.0.0.0">
+      <data>%(user.home)/terracotta/server-data</data>
+      <logs>%(user.home)/terracotta/server-logs</logs>
+      <statistics>%(user.home)/terracotta/server-statistics</statistics>
+    </server>
+  </servers>
+  <clients>
+    <logs>%(user.home)/terracotta/client-logs</logs>
+  </clients>
+</tc:tc-config>
+2010-10-18 11:58:16,453 INFO - Creating boot JAR file at 'D:\dev\Java\jtools\terracotta-3.3.0\lib\dso-boot\dso-boot-hotspot_win32_160_22.jar'...
+2010-10-18 11:58:17,047 INFO - Adapting: java.math.MathContext
+2010-10-18 11:58:17,047 INFO - Adapting: javax.swing.tree.DefaultTreeModel
+2010-10-18 11:58:17,063 INFO - Adapting: java.util.Collections$SingletonMap
+2010-10-18 11:58:17,063 INFO - Adapting: java.sql.Timestamp
+2010-10-18 11:58:17,063 INFO - Adapting: java.util.Collections$UnmodifiableRandomAccessList
+2010-10-18 11:58:17,063 INFO - Adapting: java.util.AbstractMap
+2010-10-18 11:58:17,063 INFO - Adapting: java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet$1
+2010-10-18 11:58:17,078 INFO - Adapting: java.awt.geom.Ellipse2D$Double
+2010-10-18 11:58:17,078 INFO - Adapting: java.util.concurrent.Executors$RunnableAdapter
+2010-10-18 11:58:17,078 INFO - Adapting: java.util.Collections$UnmodifiableCollection
+2010-10-18 11:58:17,078 INFO - Adapting: java.awt.geom.Line2D
+2010-10-18 11:58:17,078 INFO - Adapting: java.awt.geom.RoundRectangle2D$Double
+2010-10-18 11:58:17,078 INFO - Adapting: java.util.BitSet
+2010-10-18 11:58:17,094 INFO - Adapting: java.awt.geom.RoundRectangle2D$Float
+2010-10-18 11:58:17,094 INFO - Adapting: java.util.Collections$UnmodifiableList$1
+2010-10-18 11:58:17,094 INFO - Adapting: java.util.concurrent.locks.ReentrantLock$FairSync
+2010-10-18 11:58:17,094 INFO - Adapting: java.awt.geom.Ellipse2D$Float
+2010-10-18 11:58:17,094 INFO - Adapting: java.awt.AWTException
+2010-10-18 11:58:17,094 INFO - Adapting: java.awt.Rectangle
+2010-10-18 11:58:17,110 INFO - Adapting: java.util.Collections$UnmodifiableMap
+2010-10-18 11:58:17,110 INFO - Adapting: java.util.Collections$EmptyMap
+2010-10-18 11:58:17,110 INFO - Adapting: java.util.Collections$UnmodifiableCollection$1
+2010-10-18 11:58:17,110 INFO - Adapting: java.util.AbstractSet
+2010-10-18 11:58:17,110 INFO - Adapting: java.util.AbstractCollection
+2010-10-18 11:58:17,110 INFO - Adapting: java.awt.geom.Path2D$Float
+2010-10-18 11:58:17,125 INFO - Adapting: java.util.concurrent.atomic.AtomicBoolean
+2010-10-18 11:58:17,125 INFO - Adapting: java.util.Arrays$ArrayList
+2010-10-18 11:58:17,125 INFO - Adapting: sun.misc.Unsafe
+2010-10-18 11:58:17,141 INFO - Adapting: java.awt.event.MouseAdapter
+2010-10-18 11:58:17,141 INFO - Adapting: java.util.Collections$UnmodifiableMap$UnmodifiableEntrySet
+2010-10-18 11:58:17,141 INFO - Adapting: java.util.Collections$SynchronizedSet
+2010-10-18 11:58:17,141 INFO - Adapting: java.util.Properties
+2010-10-18 11:58:17,141 INFO - Adapting: java.awt.Color
+2010-10-18 11:58:17,157 INFO - Adapting: java.awt.geom.Dimension2D
+2010-10-18 11:58:17,157 INFO - Adapting: java.util.concurrent.locks.ReentrantReadWriteLock$Sync
+2010-10-18 11:58:17,157 INFO - Adapting: java.io.IOException
+2010-10-18 11:58:17,157 INFO - Adapting: java.util.Collections$UnmodifiableSortedSet
+2010-10-18 11:58:17,157 INFO - Adapting: java.util.concurrent.locks.AbstractQueuedSynchronizer
+2010-10-18 11:58:17,172 INFO - Adapting: java.util.concurrent.locks.ReentrantReadWriteLock$FairSync
+2010-10-18 11:58:17,172 INFO - Adapting: java.awt.geom.Point2D$Float
+2010-10-18 11:58:17,172 INFO - Adapting: java.util.RegularEnumSet$EnumSetIterator
+2010-10-18 11:58:17,172 INFO - Adapting: java.util.ConcurrentModificationException
+2010-10-18 11:58:17,172 INFO - Adapting: javax.swing.tree.DefaultMutableTreeNode
+2010-10-18 11:58:17,188 INFO - Adapting: java.util.Collections$SingletonList
+2010-10-18 11:58:17,188 INFO - Adapting: java.util.Collections$SynchronizedList
+2010-10-18 11:58:17,188 INFO - Adapting: java.awt.geom.Path2D
+2010-10-18 11:58:17,188 INFO - Adapting: java.util.Collections$1
+2010-10-18 11:58:17,188 INFO - Adapting: javax.swing.AbstractListModel
+2010-10-18 11:58:17,188 INFO - Adapting: java.lang.InterruptedException
+2010-10-18 11:58:17,203 INFO - Adapting: java.util.Dictionary
+2010-10-18 11:58:17,203 INFO - Adapting: java.util.Collections$SynchronizedSortedSet
+2010-10-18 11:58:17,203 INFO - Adapting: java.awt.geom.RoundRectangle2D
+2010-10-18 11:58:17,203 INFO - Adapting: java.util.concurrent.TimeUnit
+2010-10-18 11:58:17,203 INFO - Adapting: java.awt.geom.Rectangle2D$Double
+2010-10-18 11:58:17,203 INFO - Adapting: java.util.AbstractSequentialList
+2010-10-18 11:58:17,203 INFO - Adapting: java.awt.geom.Path2D$Double
+2010-10-18 11:58:17,203 INFO - Adapting: java.awt.Point
+2010-10-18 11:58:17,219 INFO - Adapting: java.util.Collections$UnmodifiableSet
+2010-10-18 11:58:17,219 INFO - Adapting: java.util.Collections$SynchronizedMap
+2010-10-18 11:58:17,219 INFO - Adapting: com.tcclient.util.SortedViewSetWrapper
+2010-10-18 11:58:17,219 INFO - Adapting: java.util.concurrent.CyclicBarrier$Generation
+2010-10-18 11:58:17,219 INFO - Adapting: java.util.EnumSet
+2010-10-18 11:58:17,219 INFO - Adapting: java.awt.geom.Line2D$Float
+2010-10-18 11:58:17,219 INFO - Adapting: java.util.concurrent.atomic.AtomicInteger
+2010-10-18 11:58:17,235 INFO - Adapting: java.sql.Time
+2010-10-18 11:58:17,235 INFO - Adapting: com.tcclient.util.MapEntrySetWrapper$EntryWrapper
+2010-10-18 11:58:17,235 INFO - Adapting: java.awt.Dimension
+2010-10-18 11:58:17,235 INFO - Adapting: com.tcclient.object.DistributedMethodCall
+2010-10-18 11:58:17,235 INFO - Adapting: java.util.EventObject
+2010-10-18 11:58:17,235 INFO - Adapting: java.util.concurrent.locks.AbstractOwnableSynchronizer
+2010-10-18 11:58:17,235 INFO - Adapting: java.util.Collections$EmptyList
+2010-10-18 11:58:17,235 INFO - Adapting: javax.swing.table.DefaultTableModel
+2010-10-18 11:58:17,250 INFO - Adapting: java.util.concurrent.locks.ReentrantLock$Sync
+2010-10-18 11:58:17,250 INFO - Adapting: java.sql.Date
+2010-10-18 11:58:17,250 INFO - Adapting: java.util.concurrent.atomic.AtomicLong
+2010-10-18 11:58:17,250 INFO - Adapting: java.lang.Error
+2010-10-18 11:58:17,250 INFO - Adapting: java.util.RegularEnumSet
+2010-10-18 11:58:17,250 INFO - Adapting: java.awt.geom.Rectangle2D
+2010-10-18 11:58:17,250 INFO - Adapting: java.io.File
+2010-10-18 11:58:17,266 INFO - Adapting: java.util.Arrays
+2010-10-18 11:58:17,282 INFO - Adapting: javax.swing.table.AbstractTableModel
+2010-10-18 11:58:17,282 INFO - Adapting: java.util.NoSuchElementException
+2010-10-18 11:58:17,282 INFO - Adapting: java.util.AbstractList
+2010-10-18 11:58:17,282 INFO - Adapting: java.io.FileNotFoundException
+2010-10-18 11:58:17,282 INFO - Adapting: java.awt.geom.Rectangle2D$Float
+2010-10-18 11:58:17,282 INFO - Adapting: java.util.Collections$SynchronizedRandomAccessList
+2010-10-18 11:58:17,282 INFO - Adapting: java.util.Calendar
+2010-10-18 11:58:17,297 INFO - Adapting: java.awt.BasicStroke
+2010-10-18 11:58:17,313 INFO - Adapting: java.util.Collections
+2010-10-18 11:58:17,313 INFO - Adapting: java.awt.event.MouseMotionAdapter
+2010-10-18 11:58:17,313 INFO - Adapting: java.util.Collections$SynchronizedSortedMap
+2010-10-18 11:58:17,313 INFO - Adapting: javax.swing.tree.TreePath
+2010-10-18 11:58:17,313 INFO - Adapting: java.awt.geom.Point2D
+2010-10-18 11:58:17,313 INFO - Adapting: java.util.Collections$SynchronizedCollection
+2010-10-18 11:58:17,313 INFO - Adapting: java.util.Collections$EmptySet
+2010-10-18 11:58:17,328 INFO - Adapting: java.util.GregorianCalendar
+2010-10-18 11:58:17,328 INFO - Adapting: java.util.EnumMap
+2010-10-18 11:58:17,344 INFO - Adapting: java.util.concurrent.atomic.AtomicReference
+2010-10-18 11:58:17,344 INFO - Adapting: java.awt.geom.Point2D$Double
+2010-10-18 11:58:17,344 INFO - Adapting: java.awt.geom.Ellipse2D
+2010-10-18 11:58:17,344 INFO - Adapting: java.util.Collections$SingletonSet
+2010-10-18 11:58:17,344 INFO - Adapting: java.util.Collections$UnmodifiableSortedMap
+2010-10-18 11:58:17,344 INFO - Adapting: java.util.Collections$UnmodifiableList
+2010-10-18 11:58:17,344 INFO - Adapting: java.util.Date
+2010-10-18 11:58:17,344 INFO - Adapting: java.awt.geom.Line2D$Double
+2010-10-18 11:58:17,360 INFO - Adapting: java.util.AbstractQueue
+2010-10-18 11:58:17,360 INFO - Adapting: java.util.IdentityHashMap
+2010-10-18 11:58:17,360 INFO - Adapting: java.awt.geom.RectangularShape
+2010-10-18 11:58:17,360 INFO - Adapting: javax.swing.DefaultListModel
+2010-10-18 11:58:17,360 INFO - Adapting: java.lang.Exception
+2010-10-18 11:58:17,375 INFO - Adapting: java.lang.RuntimeException
+2010-10-18 11:58:17,375 INFO - Adapting: javax.swing.event.TableModelEvent
+2010-10-18 11:58:17,375 INFO - Adapting: com.tcclient.util.DSOUnsafe
+2010-10-18 11:58:17,375 INFO - Adapting: java.awt.geom.GeneralPath
+2010-10-18 11:58:17,703 INFO - Creating boot JAR file at 'D:\dev\Java\jtools\terracotta-3.3.0\lib\dso-boot\dso-boot-hotspot_win32_160_22.jar'...
+2010-10-18 11:58:18,063 INFO - Successfully created boot JAR file at 'D:\dev\Java\jtools\terracotta-3.3.0\lib\dso-boot\dso-boot-hotspot_win32_160_22.jar'.

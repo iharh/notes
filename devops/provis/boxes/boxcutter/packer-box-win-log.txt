@@ -1,0 +1,250 @@
+/data/wrk/down/boxcutter/windows $ make virtualbox/eval-win2012r2-standard PACKER=packer-io
+rm -rf output-virtualbox-iso
+mkdir -p box/virtualbox
+packer-io build -only=virtualbox-iso -var 'cm=nocm' -var 'version=1.0.4' -var 'update=false' -var 'headless=false' -var "shutdown_command=shutdown /s /t 10 /f /d p:4:1 /c Packer_Shutdown" -var "iso_url=http://download.microsoft.com/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96/9600.16384.WINBLUE_RTM.130821-1623_X64FRE_SERVER_EVAL_EN-US-IRM_SSS_X64FREE_EN-US_DV5.ISO" -var "iso_checksum=7e3f89dbff163e259ca9b0d1f078daafd2fed513" eval-win2012r2-standard.json
+virtualbox-iso output will be in this color.
+
+==> virtualbox-iso: Downloading or copying Guest additions
+    virtualbox-iso: Downloading or copying: file:///usr/lib/virtualbox/additions/VBoxGuestAdditions.iso
+==> virtualbox-iso: Downloading or copying ISO
+    virtualbox-iso: Downloading or copying: http://download.microsoft.com/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96/9600.16384.WINBLUE_RTM.130821-1623_X64FRE_SERVER_EVAL_EN-US-IRM_SSS_X64FREE_EN-US_DV5.ISO
+==> virtualbox-iso: Creating floppy disk...
+    virtualbox-iso: Copying: floppy/00-run-all-scripts.cmd
+    virtualbox-iso: Copying: floppy/01-install-wget.cmd
+    virtualbox-iso: Copying: floppy/_download.cmd
+    virtualbox-iso: Copying: floppy/_packer_config.cmd
+    virtualbox-iso: Copying: floppy/disablewinupdate.bat
+    virtualbox-iso: Copying: floppy/eval-win2012r2-standard/Autounattend.xml
+    virtualbox-iso: Copying: floppy/fixnetwork.ps1
+    virtualbox-iso: Copying: floppy/install-winrm.cmd
+    virtualbox-iso: Copying: floppy/oracle-cert.cer
+    virtualbox-iso: Copying: floppy/passwordchange.bat
+    virtualbox-iso: Copying: floppy/powerconfig.bat
+    virtualbox-iso: Copying: floppy/zz-start-sshd.cmd
+==> virtualbox-iso: Creating virtual machine...
+==> virtualbox-iso: Creating hard drive...
+==> virtualbox-iso: Attaching floppy disk...
+==> virtualbox-iso: Creating forwarded port mapping for communicator (SSH, WinRM, etc) (host port 3576)
+==> virtualbox-iso: Executing custom VBoxManage commands...
+    virtualbox-iso: Executing: modifyvm eval-win2012r2-standard --memory 1536
+    virtualbox-iso: Executing: modifyvm eval-win2012r2-standard --cpus 1
+    virtualbox-iso: Executing: setextradata eval-win2012r2-standard VBoxInternal/CPUM/CMPXCHG16B 1
+==> virtualbox-iso: Starting the virtual machine...
+==> virtualbox-iso: Waiting 10s for boot...
+==> virtualbox-iso: Typing the boot command...
+==> virtualbox-iso: Waiting for WinRM to become available...
+==> virtualbox-iso: Connected to WinRM!
+==> virtualbox-iso: Uploading VirtualBox version info (5.1.6)
+==> virtualbox-iso: Uploading VirtualBox guest additions ISO...
+==> virtualbox-iso: Provisioning with windows-shell...
+==> virtualbox-iso: Provisioning with shell script: script/vagrant.bat
+    virtualbox-iso: ==> Creating "C:\Users\vagrant\AppData\Local\Temp\vagrant"
+    virtualbox-iso: ==> Downloading "https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub" to "C:\Users\vagrant\AppData\Local\Temp\vagrant\vagrant.pub"
+    virtualbox-iso: ==> Creating "C:\Users\vagrant\.ssh"
+    virtualbox-iso: ==> Adding "C:\Users\vagrant\AppData\Local\Temp\vagrant\vagrant.pub" to "C:\Users\vagrant\.ssh\authorized_keys"
+    virtualbox-iso: WARNING: cannot verify raw.githubusercontent.com's certificate, issued by 'CN=DigiCert SHA2 High Assurance Server CA,OU=www.digicert.com,O=DigiCert Inc,C=US':
+    virtualbox-iso: ==> Disabling account password expiration for user "vagrant"
+    virtualbox-iso: Updating property(s) of '\\WIN-IJUVV6USK65\ROOT\CIMV2:Win32_UserAccount.Domain="WIN-IJUVV6USK65",Name="vagrant"'
+    virtualbox-iso: Unable to locally verify the issuer's authority.
+    virtualbox-iso: 2016-09-24 14:03:09 URL:https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub [409/409] -> "C:/Users/vagrant/AppData/Local/Temp/vagrant/vagrant.pub" [1]
+    virtualbox-iso: Property(s) update successful.
+    virtualbox-iso:
+    virtualbox-iso: Pinging 127.0.0.1 with 32 bytes of data:
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso:
+    virtualbox-iso: Ping statistics for 127.0.0.1:
+    virtualbox-iso: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    virtualbox-iso: Approximate round trip times in milli-seconds:
+    virtualbox-iso: Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    virtualbox-iso: ==> Script exiting with errorlevel 0
+==> virtualbox-iso: Provisioning with shell script: script/cmtool.bat
+    virtualbox-iso: ==> Building box without a configuration management tool
+    virtualbox-iso:
+    virtualbox-iso: Pinging 127.0.0.1 with 32 bytes of data:
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso:
+    virtualbox-iso: Ping statistics for 127.0.0.1:
+    virtualbox-iso: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    virtualbox-iso: Approximate round trip times in milli-seconds:
+    virtualbox-iso: Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    virtualbox-iso: ==> Script exiting with errorlevel 0
+==> virtualbox-iso: Provisioning with shell script: script/vmtool.bat
+    virtualbox-iso: ==> Creating "C:\Users\vagrant\AppData\Local\Temp\sevenzip"
+    virtualbox-iso: ==> Downloading "http://www.7-zip.org/a/7z1600-x64.msi" to "C:\Users\vagrant\AppData\Local\Temp\sevenzip\7z1600-x64.msi"
+    virtualbox-iso: ==> Installing "C:\Users\vagrant\AppData\Local\Temp\sevenzip\7z1600-x64.msi"
+    virtualbox-iso: 2016-09-24 14:03:20 URL:http://d.7-zip.org/a/7z1600-x64.msi [1664000/1664000] -> "C:/Users/vagrant/AppData/Local/Temp/sevenzip/7z1600-x64.msi" [1]
+    virtualbox-iso: ==> Copying "C:\Program Files\7-Zip\7z.exe" to "C:\Windows"
+    virtualbox-iso: 1 file(s) copied.
+    virtualbox-iso: 1 file(s) copied.
+    virtualbox-iso: ==> Extracting the VirtualBox Guest Additions installer
+    virtualbox-iso:
+    virtualbox-iso: 7-Zip [64] 16.00 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-10
+    virtualbox-iso:
+    virtualbox-iso: Scanning the drive for archives:
+    virtualbox-iso: 1 file, 59258880 bytes (57 MiB)
+    virtualbox-iso:
+    virtualbox-iso: Extracting archive: C:\Users\vagrant\VBoxGuestAdditions.iso
+    virtualbox-iso: --
+    virtualbox-iso: Path = C:\Users\vagrant\VBoxGuestAdditions.iso
+    virtualbox-iso: Type = Iso
+    virtualbox-iso: Physical Size = 59258880
+    virtualbox-iso: Created = 2016-09-12 09:18:16
+    virtualbox-iso: Modified = 2016-09-12 09:18:16
+    virtualbox-iso:
+    virtualbox-iso: Everything is Ok
+    virtualbox-iso:
+    virtualbox-iso: Size:       16352000
+    virtualbox-iso: Compressed: 59258880
+    virtualbox-iso: ==> Installing Oracle certificate to keep install silent
+    virtualbox-iso: TrustedPublisher "Trusted Publishers"
+    virtualbox-iso: Certificate "Oracle Corporation" added to store.
+    virtualbox-iso: CertUtil: -addstore command completed successfully.
+    virtualbox-iso: ==> Installing VirtualBox Guest Additions
+    virtualbox-iso: ==> Script exiting with errorlevel 0
+    virtualbox-iso:
+    virtualbox-iso: Pinging 127.0.0.1 with 32 bytes of data:
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso:
+    virtualbox-iso: Ping statistics for 127.0.0.1:
+    virtualbox-iso: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    virtualbox-iso: Approximate round trip times in milli-seconds:
+    virtualbox-iso: Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    virtualbox-iso: Could Not Find C:\Users\vagrant\AppData\Local\Temp\script.bat-3297.tmp
+==> virtualbox-iso: Provisioning with shell script: script/clean.bat
+    virtualbox-iso: del /f /q /s "C:\Windows\TEMP\DMICA90.tmp"
+    virtualbox-iso: ==> Cleaning "C:\Users\vagrant\AppData\Local\Temp" directories
+    virtualbox-iso: del /f /q /s "C:\Windows\TEMP\DMICFA1.tmp"
+    virtualbox-iso: ==> Cleaning "C:\Users\vagrant\AppData\Local\Temp" files
+    virtualbox-iso: del /f /q /s "C:\Windows\TEMP\winstore.log"
+    virtualbox-iso: ==> Removing potentially corrupt recycle bin
+    virtualbox-iso: ==> Cleaning "C:\Users\vagrant"
+    virtualbox-iso:
+    virtualbox-iso: ==> Cleaning "C:\Windows\TEMP" directories
+    virtualbox-iso: Pinging 127.0.0.1 with 32 bytes of data:
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: ==> Cleaning "C:\Windows\TEMP" files
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso:
+    virtualbox-iso: Ping statistics for 127.0.0.1:
+    virtualbox-iso: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    virtualbox-iso: Approximate round trip times in milli-seconds:
+    virtualbox-iso: Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    virtualbox-iso: ==> Script exiting with errorlevel 0
+==> virtualbox-iso: Provisioning with shell script: script/ultradefrag.bat
+    virtualbox-iso: ==> Creating "C:\Users\vagrant\AppData\Local\Temp\ultradefrag"
+    virtualbox-iso: ==> Downloading "http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-7.0.1.bin.amd64.zip" to "C:\Users\vagrant\AppData\Local\Temp\ultradefrag\ultradefrag-portable-7.0.1.bin.amd64.zip"
+    virtualbox-iso: ==> Unzipping "C:\Users\vagrant\AppData\Local\Temp\ultradefrag\ultradefrag-portable-7.0.1.bin.amd64.zip" to "C:\Users\vagrant\AppData\Local\Temp\ultradefrag"
+    virtualbox-iso:
+    virtualbox-iso: 7-Zip [64] 16.00 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-10
+    virtualbox-iso:
+    virtualbox-iso: Scanning the drive for archives:
+    virtualbox-iso: 1 file, 3596965 bytes (3513 KiB)
+    virtualbox-iso: 2016-09-24 14:03:56 URL:http://kent.dl.sourceforge.net/project/ultradefrag/stable-release/7.0.1/ultradefrag-portable-7.0.1.bin.amd64.zip [3596965/3596965] -> "C:/Users/vagrant/AppData/Local/Temp/ultradefrag/ultradefrag-portable-7.0.1.bin.amd64.zip" [1]
+    virtualbox-iso:
+    virtualbox-iso: Extracting archive: C:\Users\vagrant\AppData\Local\Temp\ultradefrag\ultradefrag-portable-7.0.1.bin.amd64.zip
+    virtualbox-iso: --
+    virtualbox-iso: Path = C:\Users\vagrant\AppData\Local\Temp\ultradefrag\ultradefrag-portable-7.0.1.bin.amd64.zip
+    virtualbox-iso: Type = zip
+    virtualbox-iso: Physical Size = 3596965
+    virtualbox-iso:
+    virtualbox-iso: Everything is Ok
+    virtualbox-iso:
+    virtualbox-iso: Files: 4
+    virtualbox-iso: Size:       2753024
+    virtualbox-iso: Compressed: 3596965
+    virtualbox-iso: ==> Running UltraDefrag on C:
+    virtualbox-iso: UltraDefrag 7.0.1, Copyright (c) UltraDefrag Development Team, 2007-2016.
+    virtualbox-iso: UltraDefrag comes with ABSOLUTELY NO WARRANTY. This is free software,
+    virtualbox-iso: and you are welcome to redistribute it under certain conditions.
+    virtualbox-iso:
+    virtualbox-iso: C: defrag:   100.00% complete, 7 passes needed, fragmented/total = 2/75363
+    virtualbox-iso: ==> Removing "C:\Users\vagrant\AppData\Local\Temp\ultradefrag"
+    virtualbox-iso:
+    virtualbox-iso: Pinging 127.0.0.1 with 32 bytes of data:
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso:
+    virtualbox-iso: Ping statistics for 127.0.0.1:
+    virtualbox-iso: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    virtualbox-iso: Approximate round trip times in milli-seconds:
+    virtualbox-iso: Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    virtualbox-iso: ==> Script exiting with errorlevel 0
+==> virtualbox-iso: Provisioning with shell script: script/uninstall-7zip.bat
+    virtualbox-iso: ==> Uninstalling 7zip
+    virtualbox-iso: ==> WARNING: Directory not found: "C:\Users\vagrant\AppData\Local\Temp\sevenzip"
+    virtualbox-iso: ==> Removing "C:\Program Files\7-Zip"
+    virtualbox-iso:
+    virtualbox-iso: Pinging 127.0.0.1 with 32 bytes of data:
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso:
+    virtualbox-iso: Ping statistics for 127.0.0.1:
+    virtualbox-iso: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    virtualbox-iso: Approximate round trip times in milli-seconds:
+    virtualbox-iso: Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    virtualbox-iso: ==> Script exiting with errorlevel 0
+==> virtualbox-iso: Provisioning with shell script: script/sdelete.bat
+    virtualbox-iso: ==> Creating "C:\Users\vagrant\AppData\Local\Temp\sdelete"
+    virtualbox-iso: ==> Downloading "http://live.sysinternals.com/sdelete.exe" to "C:\Users\vagrant\AppData\Local\Temp\sdelete\sdelete.exe"
+    virtualbox-iso: WARNING: cannot verify live.sysinternals.com's certificate, issued by 'CN=Microsoft IT SSL SHA2,OU=Microsoft IT,O=Microsoft Corporation,L=Redmond,ST=Washington,C=US':
+    virtualbox-iso: Unable to locally verify the issuer's authority.
+    virtualbox-iso: The operation completed successfully.
+    virtualbox-iso: 2016-09-24 14:25:32 URL:https://live.sysinternals.com/sdelete.exe [151200/151200] -> "C:/Users/vagrant/AppData/Local/Temp/sdelete/sdelete.exe" [1]
+    virtualbox-iso: ==> Running SDelete on C:
+    virtualbox-iso:
+    virtualbox-iso: SDelete v2.0 - Secure file delete
+    virtualbox-iso: Copyright (C) 1999-2016 Mark Russinovich
+    virtualbox-iso: Sysinternals - www.sysinternals.com
+    virtualbox-iso:
+    virtualbox-iso: SDelete is set for 1 pass.
+    virtualbox-iso: Free space cleaned on C:\
+    virtualbox-iso: 1 drive cleaned.
+    virtualbox-iso: ==> Removing "C:\Users\vagrant\AppData\Local\Temp\sdelete"
+    virtualbox-iso:
+    virtualbox-iso: Pinging 127.0.0.1 with 32 bytes of data:
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso: Reply from 127.0.0.1: bytes=32 time<1ms TTL=128
+    virtualbox-iso:
+    virtualbox-iso: Ping statistics for 127.0.0.1:
+    virtualbox-iso: Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    virtualbox-iso: Approximate round trip times in milli-seconds:
+    virtualbox-iso: Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    virtualbox-iso: ==> Script exiting with errorlevel 0
+==> virtualbox-iso: Gracefully halting virtual machine...
+    virtualbox-iso: Removing floppy drive...
+==> virtualbox-iso: Preparing to export machine...
+    virtualbox-iso: Deleting forwarded port mapping for the communicator (SSH, WinRM, etc) (host port 3576)
+==> virtualbox-iso: Exporting virtual machine...
+    virtualbox-iso: Executing: export eval-win2012r2-standard --output output-virtualbox-iso/eval-win2012r2-standard.ovf
+==> virtualbox-iso: Unregistering and deleting virtual machine...
+==> virtualbox-iso: Running post-processor: vagrant
+==> virtualbox-iso (vagrant): Creating Vagrant box for 'virtualbox' provider
+    virtualbox-iso (vagrant): Copying from artifact: output-virtualbox-iso/eval-win2012r2-standard-disk1.vmdk
+    virtualbox-iso (vagrant): Copying from artifact: output-virtualbox-iso/eval-win2012r2-standard.ovf
+    virtualbox-iso (vagrant): Renaming the OVF to box.ovf...
+    virtualbox-iso (vagrant): Using custom Vagrantfile: tpl/vagrantfile-eval-win2012r2-standard.tpl
+    virtualbox-iso (vagrant): Compressing: Vagrantfile
+    virtualbox-iso (vagrant): Compressing: box.ovf
+    virtualbox-iso (vagrant): Compressing: eval-win2012r2-standard-disk1.vmdk
+    virtualbox-iso (vagrant): Compressing: metadata.json
+Build 'virtualbox-iso' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> virtualbox-iso: 'virtualbox' provider box: box/virtualbox/eval-win2012r2-standard-nocm-1.0.4.box

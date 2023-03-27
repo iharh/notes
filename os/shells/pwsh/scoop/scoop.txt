@@ -1,0 +1,33 @@
+http://scoop.sh/
+https://github.com/lukesampson/scoop
+https://github.com/lukesampson/scoop/wiki
+    https://github.com/lukesampson/scoop/wiki/So-What%3F
+    https://github.com/lukesampson/scoop/wiki/Dependencies
+    https://github.com/lukesampson/scoop/wiki/FAQ
+
+stuff
+https://github.com/ScoopInstaller/Main/blob/master/bucket/
+    https://github.com/ScoopInstaller/Main/blob/master/bucket/gradle.json
+https://github.com/lukesampson/scoop-extras
+
+app manifests
+https://github.com/lukesampson/scoop/wiki/App-Manifests
+
+cfg
+https://github.com/lukesampson/scoop/wiki/The-'Current'-Version-Alias
+
+???
+curl, cacert
+coreutils
+    https://github.com/lukesampson/scoop/wiki/Example-Setup-Scripts
+busybox
+    https://github.com/lukesampson/scoop/blob/master/bucket/busybox.json 
+ant
+gradle
+openjdk
+extras/oraclejdk
+    https://github.com/lukesampson/scoop/wiki/Java
+git
+    https://github.com/lukesampson/scoop/wiki/GitHub-with-SSH-Key
+openssh
+[environment]::setenvironmentvariable('GIT_SSH', (resolve-path (scoop which ssh)), 'USER')

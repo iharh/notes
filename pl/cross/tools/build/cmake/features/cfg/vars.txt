@@ -1,0 +1,28 @@
+https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Useful-Variables
+
+https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
+
+https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html
+    -DCMAKE_BUILD_TYPE=Release // at cfg phase
+    // "--config", "Release" // at build phase
+    // !!! RelWithDebInfo
+
+-DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g++
+https://cmake.org/cmake/help/latest/prop_tgt/CXX_STANDARD.html
+https://cmake.org/cmake/help/latest/variable/CMAKE_POSITION_INDEPENDENT_CODE.html
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+???
+https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS.html
+    https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS_CONFIG.html
+    https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS_CONFIG_INIT.html
+    CMAKE_C_FLAGS
+    CMAKE_CXX_FLAGS
+    CMAKE_CUDA_FLAGS
+https://cmake.org/cmake/help/latest/variable/CMAKE_EXE_LINKER_FLAGS.html
+https://cmake.org/cmake/help/latest/variable/CMAKE_EXE_LINKER_FLAGS_INIT.html
+https://cmake.org/cmake/help/latest/variable/CMAKE_SHARED_LINKER_FLAGS.html
+https://cmake.org/cmake/help/latest/variable/CMAKE_STATIC_LINKER_FLAGS_INIT.html
+https://cmake.org/cmake/help/latest/variable/CMAKE_MODULE_LINKER_FLAGS.html
+https://cmake.org/cmake/help/latest/variable/CMAKE_MODULE_LINKER_FLAGS_INIT.html
+
+-DBUILD_SHARED_LIBS:BOOL=OFF

@@ -1,0 +1,13 @@
+https://github.com/rust-fuzz/cargo-fuzz
+
+books
+https://fuzz.rs/book/
+
+articles
+2019
+https://fuzzit.dev/2019/10/08/how-to-fuzz-rust-code-with-cargo-fuzz-continuously/
+2018
+https://medium.com/@seasoned_sw/fuzz-testing-in-rust-with-cargo-fuzz-13b89feecc30
+2017
+https://www.nibor.org/blog/fuzzing-is-magic---or-how-i-found-a-panic-in-rusts-regex-library/
+    https://www.reddit.com/r/rust/comments/62a9yo/fuzzing_is_magic_or_how_i_found_a_panic_in_rusts/

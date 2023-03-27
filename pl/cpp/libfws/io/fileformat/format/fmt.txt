@@ -1,0 +1,17 @@
+http://fmtlib.net/latest/index.html
+https://github.com/fmtlib/fmt
+
+fmt/core.h
+
+2020
+https://www.zverovich.net/2020/08/04/optimal-file-buffer-size.html
+    ! file write
+https://www.zverovich.net/2020/05/21/reducing-library-size.html
+2019
+https://wgml.pl/blog/formatting-user-defined-types-fmt.html
+http://www.zverovich.net/2019/02/11/formatting-floating-point-numbers.html
+2018
+Engert - Socializing with {fmt}
+    https://www.youtube.com/watch?v=Az-hi8tKLGY
+    https://danielae.github.io/fmt-MeetingCPP/MeetingC++2018/pdf/socializing-with-fmt.pdf
+https://www.fluentcpp.com/2018/12/04/an-extraterrestrial-guide-to-c-formatting/

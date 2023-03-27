@@ -1,0 +1,11 @@
+https://github.com/apple/swift/blob/master/docs/ARCOptimization.rst
+
+https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html
+https://github.com/apple/swift/tree/master/lib/SILOptimizer/ARC
+http://www.aidanf.net/learn-swift/memory_management
+http://katalisha.com/2016/01/22/ARC-Swift-closures-and-weak-self.html
+http://clang.llvm.org/docs/AutomaticReferenceCounting.html
+http://www.tutorialspoint.com/swift/swift_automatic_reference_counting.htm
+http://swiftbook.ru/doc/automatic-reference-counting/arc-in-action
+https://realm.io/news/hector-matos-memory-management/
+https://digitalleaves.com/blog/2014/07/memory-management-in-swift-a-lost-opportunity/

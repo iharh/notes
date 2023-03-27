@@ -1,0 +1,49 @@
+Kleppmann
+https://www.confluent.io/blog/apache-kafka-samza-and-the-unix-philosophy-of-distributed-data/
+
+Making Sence of Stream Processing
+http://feederio.com/book/45/making-sense-of-stream-processing
+http://feederio.com/files/book/14853356701531_77737a5f174e5a213e749ddbdfbb82a5.pdf
+
+https://speakerdeck.com/ept/making-sense-of-stream-processing
+https://martin.kleppmann.com/2015/01/24/stream-processing-at-dev-winter.html
+
+2022
+Conrad - The Fundamentals Of Event-Driven Architecture Using Apache Kafka
+    !!! TBD, TG
+https://habr.com/ru/company/southbridge/blog/648159/
+ScottGamovKlein - Kafka in Action
+    39F3B9630BE2320963068F9CACE55C24
+    F6F136E4C2EC26C534ACF11A7088B7F4
+    92EE2370E5CAB2E99BDD1A46B9F1009B
+    magnet:?xt=urn:btih:f289f617bf823c7787abd7f47c8633ce7fd02db1
+ShapiraPalinoSivaramPetty - Kafka the Definitive Guide ru 2nd ed
+    https://www.oreilly.com/library/view/kafka-the-definitive/9781492043072/
+    251FE3C7414DBE4B3DCFA70531607F7F
+    D88EC136ADD0F52138CE3B0EB438BB2C
+    ! ...380..450...486p
+2021
+NarkhedeSivaramPalinoShapira - Kafka the Definitive Guide ru 2nd ed ER
+    A56C0F3051C25F0ACDD1DCB3E4A2CDF0
+    ! epub and way too short
+Seymour - Mastering Kafka Streams and ksqlDB
+    0341C0C0680349DF72CF3F32918F0AAD
+Koutanov - Effective Kafka
+    889D973FCF7123EB7500AA46E8D202D0
+    A4D2C17B478048C90E0B48BE89CDE5C1
+2020
+Scott - Kafka in Action ER v12
+2019
+NarkhedeShapiraPalino - Kafka the Definitive Guide ru
+    C74819D318FB4C3F2746556DAE9999E9
+2018
+BejeckJr - Kafka Streams in Action
+    6CA4847C75CA2C1CB575AF7AA33925DE
+Stopford - Designing Event-Driven Systems
+2017
+NarkhedeShapiraPalino - Kafka the Definitive Guide
+    C3C39B1040E074DCA83A61D833ACF667
+https://www.oreilly.com/library/view/understanding-message-brokers/9781492049296/
+    https://habr.com/ru/post/471268/
+    https://habr.com/ru/post/466585/
+    https://habr.com/ru/post/466385/

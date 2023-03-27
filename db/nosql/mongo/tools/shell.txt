@@ -1,0 +1,42 @@
+https://www.mongodb.com/try/download/shell
+https://github.com/mongodb-js/mongosh
+
+docker
+https://hub.docker.com/r/rtsp/mongosh
+    rtsp/mongosh
+
+aur/mongodb-shell-bin
+
+https://docs.mongodb.com/manual/mongo/#the-mongo-shell
+
+cli
+    mongo 'mongodb://admin:admin@127.0.0.1:27017/CB_Studio'
+
+help
+    admin
+    connect
+show
+    dbs
+    collections
+    users
+    profile
+    logs
+    log [name]
+
+db.
+    help()
+
+db.foo.find( { a : 1 } ) 
+    # find objects on collection foo
+    db.oauth.clientDetails.find()
+db.foo.remove()
+    db.oauth.clientDetails.remove({})
+
+2021
+https://www.digitalocean.com/community/tutorials/how-to-use-the-mongodb-shell
+2020
+https://www.bmc.com/blogs/mongo-shell-basic-commands/
+????
+https://www.mongodbtutorial.org/getting-started/mongodb-shell/
+https://tray.io/documentation/connectors/service/mongodb-shell/
+https://www.tutorialsteacher.com/mongodb/mongodb-shell-commands

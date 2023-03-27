@@ -1,0 +1,9 @@
+Terminal stuff:
+
+Ctrl+X+E - open default editor for editing the command
+export EDITOR="vi"
+
+Shift+PgUp  : Scroll at the terminal
+Shift+PgDown:
+
+Ctrl+L : Clear the terminal

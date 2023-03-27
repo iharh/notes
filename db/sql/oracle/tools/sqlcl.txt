@@ -1,0 +1,149 @@
+... part of the SQL Developer suite
+http://www.oracle.com/technetwork/developer-tools/sqlcl/overview/index.html
+http://www.oracle.com/technetwork/developer-tools/sqlcl/downloads/sqlcl-relnotes-174-4126387.html
+http://www.oracle.com/technetwork/developer-tools/sqlcl/downloads/sqlcl-faq-3014678.html
+http://download.oracle.com/otn/java/sqldeveloper/sqlcl-17.4.0.354.2224-no-jre.zip
+https://community.oracle.com/community/database/developer-tools/sql_developer/sqlcl
+https://docs.oracle.com/en/cloud/paas/exadata-express-cloud/csdbp/developing-oracle-sqlcl.html
+
+part of the SQL Developer suite
+https://docs.oracle.com/database/sql-developer-4.2/SQCQR/toc.htm
+
+resources
+http://krisrice.blogspot.com.by/
+
+2017
+Smith - Oracle SQLcl Demonstration 
+https://www.youtube.com/watch?v=ecgijS76jvw
+
+2016
+Elkayam - Is SQLcl the Next Generation of SQL*Plus?
+https://www.slideshare.net/zohare/is-sqlcl-the-next-generation-of-sqlplus
+Smith - Oracle SQLcl Introduction and Getting Started
+https://www.youtube.com/watch?v=b-iHX2EA77w
+McGillin - Oracle SQLcl
+https://www.slideshare.net/barrymcgillin/oracle-sqlcl
+
+aur
+    sqlcl
+https://aur.archlinux.org/packages/sqlcl/
+https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=sqlcl
+...
+==> sqlcl dependencies:
+ - java-runtime>=8 (building from AUR)
+
+sqlplus
+    <username>/<pwd>@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host>)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=<orcl>)))
+    system/oracle@//localhost:1521/EE.oracle.docker
+
+connect
+    host:port/service   # support TNS, Thick and LDAP connection
+editint
+https://github.com/oracle/oracle-db-tools/blob/master/sqlcl/EDIT.md
+ed
+    <script-name>[.ext]
+        edit a script-name (default ext is sql)
+    ececute sql from buffer
+@
+    <script-name>[.ext]|<url> [arg...]
+        run a script
+@@
+    {url|file_name[.ext]} [arg ...]
+        ??? + nested script ???
+/, r[un]
+    execute the most recent command
+script
+    <script-name>
+        if no .ext specified, use .js
+script
+2  ctx.write("Hello world!\n");
+3  /
+
+desc[ribe]
+    <schema>.<table>    # schema is reuqired
+info[rmation]
+    [schema.]<table|view|seq|code-obj>
+    info+ - statistics
+sho[w]
+    all[+]
+    err[ors]
+    user
+    sqlpath|cd
+    java|jdbc
+    release|version
+    connection|user|tns
+    encoding|encodings
+    sqlformat|long|longchunksize|linesize|pagesize|newpage|headsep|heading|concat|colsep|wrap
+    serveroutput
+    history
+    autocommit|exitcommit
+    autoprint|autotrace
+    parameter
+        java_pool_size|shared_pool_size
+        java_jit
+            alter system set java_jit_enabled=false;
+    defines
+        en
+
+set
+    sqlformat <default|ansiconsole|loader|fixed|insert|csv|html|json>
+    sqlp[rompt]
+    nohistory
+        blacklist: show,history,connect,set
+    clear bottom
+    <term|feedback|serveroutput> on|off
+    -- to remove a header
+    head off
+    und off
+    -- ???
+    pages 0; 
+    feedback off;
+
+col[umn]
+    <name> format
+        A10
+        $9,999,999
+
+his[tory]
+    <number>|usage|time|script|full|clear [session?]
+
+repeat
+    like cron-job
+
+alter table <schema>.<table>
+    drop column <column>;
+
+oerr
+    ora-0
+
+alias
+    list
+    locks|sessions|tables|tables2
+
+keys
+    C-W, C-S
+        jump to start/end of buffer
+    C-A, C-E
+        jump to start/end of line
+    C-R
+        run buffer immediately
+    C-L
+        clear screen
+
+script
+    https://github.com/oracle/oracle-db-tools/blob/master/sqlcl/examples/
+
+login
+    https://community.oracle.com/thread/3925910
+    login.sql
+
+files
+    .sqlcl/
+
+samples
+https://github.com/oracle/oracle-db-tools/tree/master/sqlcl
+
+uses
+    jline 2.12.1
+    com.jcraft:jsch:0.1.51
+

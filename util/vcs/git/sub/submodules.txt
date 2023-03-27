@@ -1,0 +1,18 @@
+git submodule
+  sync   - update .git/config based on .gitmodules
+  init
+  update
+    --remote
+  add <url> [folder]
+
+git clone --recursive <url>
+
+!after switching main repo to a new feature-branch, don't forget to do:
+    git submodule update
+
+2013
+http://blogs.atlassian.com/2013/03/git-submodules-workflows-tips/
+https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407
+
+auto-access
+https://stackoverflow.com/questions/40841882/automatically-access-git-submodules-via-ssh-or-https

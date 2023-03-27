@@ -1,0 +1,75 @@
+https://github.com/TheMaverickProgrammer/C-Python-like-Decorators
+
+2019
+https://www.reddit.com/r/cpp/comments/cm2g4l/python_function_decorators_in_modern_c_without/
+
+#include <iostream>
+#include <memory>
+#include <cassert>
+using namespace std;
+
+/////////////////////////
+// decorators          //
+/////////////////////////
+
+template<typename F>
+constexpr auto stars(F func) {
+    return [func](auto... args) {
+        std::cout << "*******" << std::endl;
+        func(args...);
+        std::cout << std::flush << "\n*******" << std::endl;
+    };
+}
+
+template<typename F>
+constexpr auto smart_divide(F func) {
+    return [func](float a, float b) {
+        std::cout << "I am going to divide a=" << a << " and b=" << b << std::endl;
+
+        if(b == 0) {
+            std::cout << "Whoops! cannot divide" << std::endl;
+            return 0.0f;
+        }
+
+        return func(a, b);
+    };
+}
+
+template<typename F>
+constexpr auto output(F func) {
+    return [func](auto... args) {
+        std::cout << func(args...);
+    };
+}
+
+////////////////////////////////////////
+//    function implementations        //
+////////////////////////////////////////
+
+void hello_impl() {
+	cout << "hello, world!";
+}
+
+
+float divide_impl(float a, float b) {
+    return a/b;
+}
+
+/////////////////////////////////////////
+// final decorated functions           //
+/////////////////////////////////////////
+
+constexpr auto hello = stars(hello_impl);
+constexpr auto divide = stars(output(smart_divide(divide_impl)));
+constexpr auto print = stars(printf);
+
+int main() {
+    
+    hello();
+
+    divide(12.0f, 3.0f);
+
+    print("C++ is %s!", "epic!");
+
+    return 0;
+}

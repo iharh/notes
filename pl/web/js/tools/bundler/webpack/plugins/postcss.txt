@@ -1,0 +1,53 @@
+https://www.npmjs.com/package/postcss-loader
+
+config
+https://github.com/michael-ciniawsky/postcss-load-config
+
+webpack.config.js
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'postcss-loader' ]
+      }
+    ]
+  }
+}
+
+webpack.config.js (recommended)
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader'
+        ]
+      }
+    ]
+  }
+}
+
+postcss.config.js
+module.exports = {
+  parser: 'sugarss',
+  plugins: {
+    'postcss-import': {},
+    'postcss-cssnext': {},
+    'cssnano': {}
+  }
+}
+
+articles
+2018
+https://itnext.io/fast-and-modern-front-end-setup-with-webpack-react-redux-router-saga-and-postcss-1360e9715d17
+https://itnext.io/fast-and-modern-front-end-setup-with-webpack-react-redux-router-saga-and-postcss-part-2-9ae7ad4e7cb2
+https://itnext.io/fast-and-modern-front-end-setup-with-webpack-react-redux-router-saga-and-postcss-part-3-27ac4bc3f969
+https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1
+2016
+https://blog.envylabs.com/webpack-2-postcss-cssnext-fdcd2fd7d0bd

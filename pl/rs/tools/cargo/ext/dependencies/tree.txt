@@ -1,0 +1,9 @@
+https://github.com/sfackler/cargo-tree
+
+cargo install cargo-tree
+
+cargo tree
+    --help
+    --features serde_json
+    -p, --package libc
+    -i  to ivert a dependency graph

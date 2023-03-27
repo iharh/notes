@@ -1,0 +1,20 @@
+`cmd`, $(cmd)
+	command substitution... ($-form is preferable since supports inclusions).
+
+Process Substitution:
+
+paste <(cut -d: -f1 /etc/passwd) <(cut -d: -f5 /etc/passwd)
+	We use <(...) to combine output of multiple commands.
+
+make 2> >(grep Error >logfile.txt)
+	Just like a pipe but without waiting a command to finish.
+
+emacs =(indent -st < file)
+	=(...) is used the same way as <(...), but regular file is created
+	to hold the output of commands.
+
+
+echo =ls
+/bin/ls
+	The same as echo $(which ls).
+	Note: do not confuse =cmd with =(cmd), they have distinct meaning.

@@ -1,0 +1,4 @@
+2019
+https://discuss.kotlinlang.org/t/unavoidable-memory-leak-when-using-coroutines/11603
+    https://www.reddit.com/r/Kotlin/comments/ar29yj/coroutines_cause_memory_leaks/
+    https://medium.com/@elizarov/the-reason-to-avoid-globalscope-835337445abc

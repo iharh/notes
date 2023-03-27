@@ -1,0 +1,37 @@
+Snapshots/Restore:
+
+https://www.found.no/foundation/elasticsearch-snapshot-and-restore/
+
+https://github.com/jprante/elasticsearch-knapsack
+http://stackoverflow.com/questions/25144034/how-to-copy-some-elasticsearch-data-to-a-new-index
+
+http://www.elasticsearch.org/blog/introducing-snapshot-restore/
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-snapshots.html
+http://stackoverflow.com/questions/12835937/elasticsearch-hot-backup-strategies/
+
+https://github.com/jprante/elasticsearch-knapsack
+https://github.com/lukas-vlcek/bigdesk
+https://github.com/taskrabbit/elasticsearch-dump
+
+??? compress=true
+
+
+
+The index snapshot process is incremental. In the process of making the index snapshot Elasticsearch analyses the list of the index files that are already
+stored in the repository and copies only files that were created or changed since the last snapshot.
+That allows multiple snapshots to be preserved in the repository in a compact form. Snapshotting process is executed in non-blocking fashion.
+All indexing and searching operation can continue to be executed against the index that is being snapshotted.
+However, a snapshot represents the point-in-time view of the index at the moment when snapshot was created, so no records that were added to the index
+after snapshot process had started will be present in the snapshot.
+The snapshot process starts immediately for the primary shards that has been started and are not relocating at the moment.
+
+Elasticsearch waits for relocation or initialization of shards to complete before snapshotting them.
+
+...
+
+Only one snapshot process can be executed in the cluster at any time. While snapshot of a particular shard is being created this shard cannot be moved to another node,
+which can interfere with rebalancing process and allocation filtering.
+Once snapshot of the shard is finished Elasticsearch will be able to move shard to another node according to the current allocation filtering settings and rebalancing algorithm.
+
+http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-upgrade.html
+

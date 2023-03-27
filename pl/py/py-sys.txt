@@ -1,0 +1,10 @@
+import sys
+
+sys.getrefcount(a)
+
+id(a)
+    internal id
+a is b
+    compare ids of refs
+del(a)
+    delete a ref

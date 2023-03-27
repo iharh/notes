@@ -1,0 +1,34 @@
+https://github.com/scalaz/scalaz-stream
+
+http://pchiusano.github.io/talks/scalaz-stream-nescala-2014/scalaz-stream-nescala-2014.html
+
+http://mandubian.com/2013/08/21/playztream/
+http://pchiusano.blogspot.com/2013/07/runtime-specialization-unboxing-and.html
+
+http://etorreborre.blogspot.com.au/2013/12/runstate-for-scalaz-stream-process.html
+http://etorreborre.blogspot.com.br/2013/12/runstate-0-combinators-1.html
+
+http://www.slideshare.net/FrankThomas5/main-26333362
+http://www.infoq.com/presentations/io-code-data
+
+http://stackoverflow.com/questions/18112224/scalaz-streams-and-iteratees/
+http://stackoverflow.com/questions/20127912/processing-multiple-files-in-parallel-with-scalaz-streams/
+http://stackoverflow.com/questions/18853079/performance-of-line-counting-with-scalaz-stream/
+
+Spievak - Introduction to scalaz-stream
+https://gist.github.com/djspiewak/d93a9c4983f63721c41c
+
+Presentations:
+
+Chiusano - Advanced Stream Processing in Scala 
+https://youtu.be/8fC2V9HX_m8
+
+Spiewak - Lawful Asynchronous Programming
+https://youtu.be/B0L91sW3XHw
+
+Bjarnasson - scala.io - Purely functional io in scala:
+http://blog.higher-order.com/assets/scalaio.pdf
+http://blog.higher-order.com/blog/2013/11/01/free-and-yoneda/
+
+Kanterov - scalaz-stream
+http://slides.com/glebkanterov/scalaz-stream#/

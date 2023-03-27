@@ -1,0 +1,127 @@
+npm i -S redux, react-redux
+
+// https://redux.js.org/docs/basics/Reducers.html
+function funReducer(state, action) {
+    if (state === undefined) {
+        state = [];
+    }
+
+    if (action.type === "ADD") {
+        return state.concat(action.color);
+    } else if (action.type === "REMOVE") {
+        return state.filter(function(item) {
+            return item !== action.color;
+        });
+    } else {
+        return state;
+    }
+}
+
+var store = Redux.createStore(funReducer, []); // 2nd param - initial state
+
+const unsubscribe = store.subscribe(() = {
+    console.log(store.getState());
+});
+...
+unsubscribe();
+
+...
+function addColor(value) {
+    return {
+        type: "ADD",
+        color: value
+    };
+}
+
+function removeColor(value) {
+    return {
+        type: "ADD",
+        color: value
+    };
+}
+
+store.dispatch(addColor("blue"));
+...
+store.dispatch(removeColor("blue"));
+
+
+Store -> Provider, responsible for saving a ref to Store and ensures that other components can access to it
+Connect Component (-> Dispatch Actions) -> a HOC-component (parameterized later by Counter-component in our case)
+
+
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import counter from "./reducer";
+import App from "./App";
+import "./index.css";
+
+var destination = document.querySelector("#container");
+
+// Store
+var store = createStore(counter); // counter is a reducer-func
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    destination
+);
+
+
+App.js
+
+import { connect } from "react-redux";
+import Counter from "./Counter";
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+    return {
+        countValue: state.count;
+    };
+}
+
+//Action
+var increaseAction = { type: "increase" };
+var decreaseAction = { type: "decrease" };
+
+// Map Redux actions to component props
+function mapDispatchToProps(dispatch) {
+    return {
+        increaseCount: function() {
+            return dispatch(increaseAction);
+        },
+        decreaseCount: function() {
+            return dispatch(decreaseAction);
+        }
+    };
+}
+
+// The HOC
+var connectedComponent = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Counter);
+
+export default connectedComponent;
+
+
+Counter.js
+
+import React, { Component } from "react";
+
+class Counter extends Component {
+    render() {
+        return (
+            <div className="container">
+                <button className="buttons" onClick={this.props.decreaseCount}>-</button>
+                <span>{this.props.countValue}</span>
+                <button className="buttons" onClick={this.props.increaseCount}>+</button>
+            </div>
+        );
+    }
+}
+
+export default Counter;
+

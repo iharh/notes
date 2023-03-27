@@ -1,0 +1,33 @@
+https://square.github.io/retrofit/
+https://github.com/square/retrofit
+
+uses OkHttp
+
+https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
+
+2018
+DefogTech - Using Retrofit to make HTTP calls 0:00 of 10:03
+    https://www.youtube.com/watch?v=wfk_0ZQwixs
+
+import retrofit2.
+import retrofit2.http.
+
+src
+https://github.com/square/retrofit/tree/master/retrofit/src/main/java/retrofit2
+https://github.com/square/retrofit/tree/master/retrofit/src/main/java/retrofit2/http
+
+qa
+https://ru.stackoverflow.com/questions/765163/%D0%A0%D0%B0%D0%B7%D0%BD%D0%B8%D1%86%D0%B0-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-okhttp-%D0%B8-retrofit
+
+api
+https://square.github.io/retrofit/2.x/retrofit/
+https://square.github.io/retrofit/2.x/retrofit/retrofit2/Call.html
+https://square.github.io/retrofit/2.x/retrofit/retrofit2/Response.html
+
+https://square.github.io/okhttp/3.x/okhttp/okhttp3/Response.html
+
+response print
+https://stackoverflow.com/questions/36523972/how-to-get-string-response-from-retrofit2
+
+mock
+https://github.com/square/retrofit/tree/master/retrofit-mock

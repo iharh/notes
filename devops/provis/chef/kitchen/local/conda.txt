@@ -1,0 +1,2 @@
+/usr/local/clarabridge/vector-provider/miniconda/2.3.0/bin/conda create --yes -q -n prediction python=2 pip
+/usr/local/clarabridge/vector-provider/miniconda/2.3.0/bin/conda env remove -n prediction

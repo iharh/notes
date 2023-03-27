@@ -1,0 +1,34 @@
+Presentations:
+http://www.slideshare.net/maximnovak/rocksolid-shell-scripting-with-ammonite
+
+http://www.lihaoyi.com/Ammonite/#Extensions
+
+http://www.lihaoyi.com/Ammonite/#Ammonite-REPL
+  http://www.lihaoyi.com/Ammonite/#Features
+    http://www.lihaoyi.com/Ammonite/#Pretty-printedoutput
+      http://www.lihaoyi.com/upickle-pprint/pprint/
+    http://www.lihaoyi.com/Ammonite/#MagicImports
+    http://www.lihaoyi.com/Ammonite/#Builtins
+  http://www.lihaoyi.com/Ammonite/#ReplAPI
+  http://www.lihaoyi.com/Ammonite/#Utilities
+    http://www.lihaoyi.com/Ammonite/#desugar
+  http://www.lihaoyi.com/Ammonite/#Configuration
+
+http://www.lihaoyi.com/Ammonite/#ScalaScripts
+  http://www.lihaoyi.com/Ammonite/#ScriptFiles 
+    http://www.lihaoyi.com/Ammonite/#ScriptImports
+      http://www.lihaoyi.com/Ammonite/#OtherScripts
+    http://www.lihaoyi.com/Ammonite/#Multi-stageScripts
+    http://www.lihaoyi.com/Ammonite/#ScriptArguments
+    http://www.lihaoyi.com/Ammonite/#MultipleMainMethods
+
+
+http://www.lihaoyi.com/Ammonite/#Ammonite-Shell
+http://www.lihaoyi.com/Ammonite/#ShellBasics
+http://www.lihaoyi.com/Ammonite/#FilesystemOperations
+http://www.lihaoyi.com/Ammonite/#FilesystemOperations
+
+//#Multi-stageScripts
+import $cp becomes interp.load.cp
+import $file becomes interp.load.module
+import $ivy becomes interp.load.ivy 

@@ -1,0 +1,10 @@
+Headers include path:
+
+http://stackoverflow.com/questions/344317/where-does-gcc-look-for-c-and-c-header-files
+
+`gcc -print-prog-name=cc1plus` -v
+
+/usr/include/c++/4.4.7/bits
+
+TLB
+    translation lookahead buffer

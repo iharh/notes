@@ -1,0 +1,121 @@
+*** Node group ***
+
+- TransportNodeOperationAction/NodeOperationRequest
+    These are used for actions that must be executed by every node (that is, all the node statistic actions)
+
+
+*** Broadcast group ***
+
+These classes must extend one of the supported kinds of action available:
+- TransportBroadcastOperationAction/BroadcastOperationRequest/Response
+    These are used for actions that must be spread across all the clusters
+
+    /**
+     * Determines the shards this operation will be executed on. The operation is executed once per shard iterator, typically
+     * on the first shard in it. If the operation fails, it will be retried on the next shard in the iterator.
+     */
+    protected abstract GroupShardsIterator shards(ClusterState clusterState, Request request, String[] concreteIndices);
+
+used by:
+    - TransportClearIndicesCacheAction
+    - Transport[Flush/Optimize/Recovery/Refresh]Action
+    - TransportIndices[Stats/Status/Segments]Action
+    - TransportValidateQueryAction
+    - TransportCountAction
+    - TransportExistsAction
+    - TransportPercolateAction
+    - TransportSuggestAction
+
+
+*** Replication group ***
+!!! Too heavy !!!
+
+- TransportIndicesReplicationOperationAction
+
+used only by:
+    - TransportDeleteByQueryAction
+
+- TransportIndexReplicationOperationAction/IndexReplicationOperationRequest
+    Internal transport action that executes on multiple shards, doesn't register any transport handler as it is always executed locally.
+
+    It relies on a shard sub-action that gets sent over the transport and executed on each of the shard.
+        -> TransportShardReplicationOperationAction
+
+    The index provided with the request is expected to be a concrete index, properly resolved by the callers (parent actions).
+
+    Since the corresponding action is internal that gets always executed locally, this request never gets sent over the transport.
+    The specified index is expected to be a concrete index. Relies on input validation done by the caller actions.
+
+    protected abstract GroupShardsIterator shards(Request request) throws ElasticsearchException;
+
+used by:
+    - TransportIndexDeleteAction
+    - TransportIndexDeleteByQueryAction
+
+- TransportShardReplicationOperationAction
+! uses TransportIndexReplicationOperationAction
+
+    These are used for actions that must be executed at index level (that is, delete by query)
+
+
+*** Single group ***
+
+- TransportSingleCustomOperationAction/SingleCustomOperationRequest
+    Transport action used to send a read request to one of the shards that belong to an index.
+    Supports retrying another shard in case of failure.
+
+    These are used for actions that must be executed only by a node (that is, percolate or analyze actions)
+
+used by:
+    - TransportAnalyzeAction
+    - TransportGetFieldMappingsIndexAction
+
+- TransportInstanceSingleOperationAction/InstanceShardOperationRequest
+
+    !! has a retry() support
+
+    /**
+     * Should return an iterator with a single shard!
+     */
+    protected abstract ShardIterator shards(ClusterState clusterState, InternalRequest request) throws ElasticsearchException;
+
+the only usage is:
+    - TransportUpdateAction
+
+
+- TransportShardSingleOperationAction/SingleShardOperationRequest
+    A base class for single shard read operations.
+    These are used for actions that must be executed only in a shard (that is, the GET action)
+
+used by:
+    - TransportExplainAction
+    - TransportGetAction
+    - TransportShardMultiGetAction
+    - TransportShardMultiPercolateAction
+    - TransportSingleShardTermVectorAction
+    - TransportSingleShardMultiTermsVectorAction
+
+
+*** Misc group ***
+
+- TransportSearchTypeAction
+    Search specific action (with phases etc.).
+
+- HandledTransportAction
+    A TransportAction that self registers a handler into the transport service
+used by:
+    - TransportBulkAction (uses TransportShardBulkAction)
+    - TransportMultiGetAction (uses TransportShardMultiGetAction)
+    - TransportGetFieldMappingsAction (uses TransportGetFieldMappingsIndexAction)
+    - TransportMultiPercolateAction (uses TransportShardMultiPercolateAction)
+    - TransportMultiTermVectorAction (uses TransportSingleShardMultiTermVectorAction)
+    - Transport[Get/Put/Delete]IndexScriptAction
+    - TransportMoreLikeThisAction
+    - TransportSearchAction (uses a lot of specific actions)
+    - TransportSearchScrollAction (uses a pair of specific actions)
+    - TransportClearScrollAction (uses SearchServiceTransportAction)
+    - TransportMultiSearchAction (uses TransportSearchAction)
+
+- TransportMasterNodeOperationAction/MasterNodeOperationRequest
+    These are used for actions that must host only the master node (such as index and mapping configuration)
+

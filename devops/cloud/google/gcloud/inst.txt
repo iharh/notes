@@ -1,0 +1,25 @@
+https://cloud.google.com/sdk/docs/downloads-snap
+
+https://cloud.google.com/sdk/docs/install-sdk#linux
+    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-388.0.0-linux-x86_64.tar.gz
+    tar -xf google-cloud-cli-388.0.0-linux-x86.tar.gz
+    ./google-cloud-sdk/install.sh
+    ./google-cloud-sdk/install.sh --help
+    ./google-cloud-sdk/bin/gcloud init
+
+snap/google-cloud-sdk
+aur
+    google-cloud-sdk
+        https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=google-cloud-sdk
+
+        pkgname="google-cloud-sdk"
+        pkgver=188.0.1
+        pkgrel=1
+
+        # 64bit
+        source_x86_64=("https://dl.google.com/dl/cloudsdk/release/downloads/$pkgname-$pkgver-linux-x86_64.tar.gz"
+                       "profile.sh")
+
+issues
+    build 273 related (btw, need to clean yay-cache)
+    https://issuetracker.google.com/issues/146012762

@@ -1,0 +1,37 @@
+Diff/patches
+git diff
+    apply
+    format-patch -o patches origin
+                 origin/master --stdout > story.patch
+    send-patch --to list@email.com patches
+    am < story.patch
+
+    -U0
+        0 context
+
+git diff --cached
+    look what will be included into commit  
+
+
+git diff master..origin/master
+    show the diff between a local and remote branch
+
+git diff <some-file>
+    diff between a working-dir and staged area
+
+git diff --staged/--cached <some-file>
+    diff between the staged and committed ...
+
+git diff HEAD <some-file>
+    diff between the committed (HEAD) and working-dir
+
+git diff "<sha>^!"
+    diff for the specific <sha> commit hash
+
+git diff HEAD~1..HEAD
+    diff for the latest commit
+
+git diff
+    -w
+        ignore whitespaces
+

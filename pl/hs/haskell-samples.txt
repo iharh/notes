@@ -1,0 +1,27 @@
+filter function refactoring:
+http://blog.tmorris.net/posts/refactoring-filter/
+
+RLE coding:
+http://www.gwern.net/haskell/Run%20Length%20Encoding
+http://www.reddit.com/r/haskell/comments/16nlx7/golfing_runlength_compression_in_monadius/
+
+FRP(netwire):
+http://danbst.wordpress.com/2013/01/23/novice-netwire-user/
+http://www.reddit.com/r/haskell/comments/173cxi/success_story_novice_haskeller_moves_console/
+
+LogFileAnalysis:
+http://vimeo.com/12354750
+timeplot - http://www.haskell.org/haskellwiki/Timeplot
+
+DataAnalysis:
+http://twdkz.wordpress.com/2013/05/31/data-analysis-with-monoids/
+
+Simple HSpec:
+http://hackage.haskell.org/package/karver
+
+MapReduce:
+Fokkinga - MapReduce - a two-page explanation for laymen
+
+api-tools:
+http://hackage.haskell.org/package/api-tools
+https://github.com/iconnect/api-tools

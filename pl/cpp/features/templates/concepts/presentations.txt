@@ -1,0 +1,23 @@
+2022
+ACCUConference - Fertig - C++20 Concepts of 1:02:05
+    https://www.youtube.com/watch?v=XOMv4VilN50
+    file:///home/iharh/Downloads/afertig-2022-accu-cpp20-concepts---we-have-to-rethink-what-we-did-in-the-past.pdf
+    ! 13:00 C++20: functions with auto-params are always templates
+    ! 21:30 - good samples of concepts (concept req-s are even stricter than virt-funcs)
+    ! 24:00 - sample of static polymorphism with concepts
+    ! 26:00 - static_assert outside of class for checking class to satisfy several concepts
+2020
+Ganyuhin - Cpp before and after Concepts
+    https://cppconf-piter.ru/2020/spb/talks/3bc59jl84uk1cgpqnjzjlh/
+Niemeyer - Intro to C++20's Concepts
+    https://www.youtube.com/watch?v=vJEKjv0ST_k
+    https://github.com/hniemeyer/IntroToConcepts
+    https://raw.githubusercontent.com/hniemeyer/IntroToConcepts/master/IntroToConcepts.pdf
+2019
+CppUG - Davydov - Concepts - Simplify std utility Classes Implementation ru 0:00 of 56:11
+    https://www.youtube.com/watch?v=vYzjV0xSqJE
+    https://habr.com/ru/company/jugru/blog/467299/
+2017
+Jusiak - Concepts Driven Design
+    https://github.com/kris-jusiak/talks/blob/master/concepts-driven-design/concepts-driven-design.pdf
+    https://www.youtube.com/watch?v=TorW5ekkL_w

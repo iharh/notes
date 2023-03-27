@@ -1,0 +1,9 @@
+https://tip.golang.org/doc/go1.11#wasm
+https://tip.golang.org/pkg/syscall/js/
+
+https://github.com/nlepage/golang-wasm
+https://github.com/nlepage/golang-wasm/blob/master/golang/Dockerfile
+
+2018
+https://medium.zenika.com/go-1-11-webassembly-for-the-gophers-ae4bb8b1ee03
+    https://habr.com/post/417563/

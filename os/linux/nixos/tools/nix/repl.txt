@@ -1,0 +1,9 @@
+https://nixos.org/guides/nix-pills/basics-of-language.html
+
+nix repl
+    :?
+        help
+    :q
+        quit
+    :b
+        build a derivation

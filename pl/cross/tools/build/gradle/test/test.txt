@@ -1,0 +1,23 @@
+https://docs.gradle.org/current/userguide/java_testing.html
+
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html
+
+test {
+    systemProperty 'java.library.path', testJavaCP
+    environment = [ 'LD_LIBRARY_PATH' : testJavaCP ]
+
+    testLogging {
+        showStandardStreams true
+    }
+
+    environment.remove("ENV_VAR_NAME")
+}
+
+dsl
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html
+
+api
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/logging/TestLoggingContainer.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/logging/TestLogging.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/logging/TestExceptionFormat.html
+    !!!

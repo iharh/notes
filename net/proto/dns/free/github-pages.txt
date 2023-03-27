@@ -1,0 +1,19 @@
+https://htmlacademy.ru/blog/99-github-as-hosting
+https://htmlacademy.ru/blog/48-how-to-register-domain
+
+https://help.github.com/articles/using-a-custom-domain-with-github-pages/
+    https://help.github.com/articles/troubleshooting-custom-domains/
+    apex:
+    https://help.github.com/articles/setting-up-an-apex-domain/
+    subdomains:
+    https://help.github.com/articles/setting-up-a-custom-subdomain/
+
+https://help.github.com/articles/user-organization-and-project-pages/
+
+https://www.youtube.com/watch?v=-pJq3XZQbt0
+http://github.com/iharh/contact
+    gh-pages branch
+    CNAME
+        contact.iharh.ml
+
+    http://iharh.github.io/contact

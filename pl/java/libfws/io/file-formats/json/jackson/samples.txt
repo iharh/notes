@@ -1,0 +1,8 @@
+Map<String, Object> map = objectMapper.readValue(jsonString, new TypeReference<Map<String,Object>>(){});
+
+JsonNode jsonNodeRoot = objectMapper.readTree(jsonString);
+JsonNode jsonNodeYear = jsonNodeRoot.get("year");
+String year = jsonNodeYear.asText();
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+@JsonInclude(JsonInclude.Include.NON_NULL)

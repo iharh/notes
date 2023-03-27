@@ -1,0 +1,2 @@
+nbtstat -a <ip>
+	detect a host by ip

@@ -1,0 +1,11 @@
+LambdaMetafactory
+https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/invoke/LambdaMetafactory.html
+https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/invoke/SerializedLambda.html
+
+2023
+https://www.reddit.com/r/java/comments/10r1762/how_are_lambdas_serialized/
+2020
+https://lankydan.dev/serializable-java-lambdas
+https://blogs.oracle.com/javamagazine/post/behind-the-scenes-how-do-lambda-expressions-really-work-in-java
+????
+https://www.jobrunr.io/en/documentation/background-methods/

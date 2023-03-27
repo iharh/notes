@@ -1,0 +1,9 @@
+https://github.com/commercialhaskell/stack/wiki/Build-command
+
+stack build
+    --no-system-ghc
+    --flag <flag-name>
+    --haddock
+    --copy-bins
+    --fast
+        turn off optimizations (-O0)

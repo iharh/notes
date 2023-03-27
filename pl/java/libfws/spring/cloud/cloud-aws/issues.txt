@@ -1,0 +1,52 @@
+configurable endpoints:
+https://github.com/spring-cloud/spring-cloud-aws/issues/333
+    https://stackoverflow.com/questions/51235554/spring-cloud-aws-set-endpoint
+vpc:
+https://github.com/spring-cloud/spring-cloud-aws/issues/152
+
+https://cloud.spring.io/spring-cloud-aws/reference/html/#parameter-store-and-secrets-manager-configuration-credentials-and-region-configuration
+    The Parameter Store and Secrets Manager Configuration support uses a bootstrap context to configure a default
+    AWSSimpleSystemsManagement client, which uses a com.amazonaws.auth.DefaultAWSCredentialsProviderChain
+    and com.amazonaws.regions.DefaultAwsRegionProviderChain.
+    If you want to override this, then you need to define your own Spring Cloud bootstrap configuration class with a bean
+    of type AWSSimpleSystemsManagement that’s configured to use your chosen credentials and/or region provider.
+    Because this context is created when your Spring Cloud Bootstrap context is created,
+    you can’t simply override the bean in a regular @Configuration class.
+
+
+https://aws.amazon.com/premiumsupport/knowledge-center/access-key-does-not-exist/
+    https://github.com/minio/minio/blob/master/cmd/iam.go
+    https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html
+
+@Retention(RetentionPolicy.RUNTIME)
+@Import(ContextCredentialsConfigurationRegistrar.class)
+@Target(ElementType.TYPE)
+public @interface EnableContextCredentials {
+
+By default we use
+ContextCredentialsAutoConfiguration {
+    ...
+    @Override
+    public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
+        // Do not register a credentials provider if a bean with the same name is already registered.
+        if (registry.containsBeanDefinition(CredentialsProviderFactoryBean.CREDENTIALS_PROVIDER_BEAN_NAME)) {
+                return;
+        }
+        ...
+    }
+    ...
+}
+
+public class CredentialsProviderFactoryBean extends AbstractFactoryBean<AWSCredentialsProvider> {
+    /**
+     * Name of the credentials provider bean.
+     */
+    public static final String CREDENTIALS_PROVIDER_BEAN_NAME = "credentialsProvider";
+    ...
+}
+
+https://cloud.spring.io/spring-cloud-aws/reference/html/#parameter-store-and-secrets-manager-configuration-credentials-and-region-configuration
+    !!!
+
+https://cloud.spring.io/spring-cloud-aws/reference/html/#using-cloudformation-3
+    ??? ... Application developers can use the org.springframework.cloud.aws.core.env.ResourceIdResolver interface to resolve the physical names that are generated based on the logical names.

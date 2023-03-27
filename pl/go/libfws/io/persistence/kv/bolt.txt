@@ -1,0 +1,10 @@
+https://pkg.go.dev/go.etcd.io/bbolt
+https://github.com/etcd-io/bbolt
+
+2014
+https://npf.io/2014/07/intro-to-boltdb-painless-performant-persistence/
+????
+https://www.progville.com/go/bolt-embedded-db-golang/
+
+samples
+https://github.com/kakengloh/tsk

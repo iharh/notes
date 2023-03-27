@@ -1,0 +1,22 @@
+https://www.iso.org/standard/68564.html
+http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4700.pdf
+
+structured bindings
+https://en.cppreference.com/w/cpp/language/structured_binding
+
+articles
+2022
+https://oracle-patches.com/coding/%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D1%81-17-%D0%B8-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8-stl
+2019
+https://habr.com/ru/company/playrix/blog/465181/
+https://www.bfilipek.com/2019/08/17smallercpp17features.html
+2018
+https://mariusbancila.ro/blog/2018/07/05/c17-removed-and-deprecated-features/
+https://habrahabr.ru/post/343622/
+https://www.viva64.com/en/b/0533/
+https://habrahabr.ru/company/pvs-studio/blog/340014/
+
+presentations
+2018
+https://github.com/boostcon/cppnow_presentations_2018/blob/master/05-07-2018_monday/beyond_cpp17__mateusz_pusz__cppnow_05072018.pdf
+https://www.youtube.com/watch?v=y7PBciQp0B8

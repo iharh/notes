@@ -1,0 +1,20 @@
+samples
+    private static List<String> getResourceLines(final String resName) {
+        final InputStream is = SfstTests.class.getResourceAsStream(RES_PREFIX + resName);
+        try {
+            InputStreamReader inSR = new InputStreamReader(is, UTF_8);
+            BufferedReader bufR = new BufferedReader(inSR);
+            return bufR.lines()
+                .collect(Collectors.toList());
+        } finally {
+            IOUtils.closeQuietly(is);
+        }
+    }
+
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+        byte[] encoded = Files.readAllBytes(Paths.get("src/test/resources/test.txt"));
+        String testString = new String(encoded, Charset.forName("UTF-8"));
+

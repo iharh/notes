@@ -1,0 +1,36 @@
+https://dba.stackexchange.com/questions/155121/xml-parse-in-postgressql
+
+https://www.postgresql.org/docs/9.1/static/datatype-xml.html
+
+
+$PGDATA/my.xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data-set>
+    <department>
+        <id>1</id>
+        <name>IT</name>
+        <id_customer>1</id_customer>
+        <id_customer>2</id_customer>
+        <id_customer>3</id_customer>
+        <id_customer>4</id_customer>
+        <id_customer>5</id_customer>
+        <adress>hataevicha</adress>
+        <desc>some descr</desc>
+    </department>
+</data-set>
+
+
+do $$
+   declare xml_string xml;
+begin
+xml_string := XMLPARSE(DOCUMENT convert_from(pg_read_binary_file('my.xml'), 'UTF8'));
+drop table if exists my;
+create table my as 
+select
+    unnest(xpath('//data-set/department/id/text()',xml_string)) as ID,
+    unnest(xpath('//data-set/department/id_customer/text()',xml_string)) as ID_CUSTOMER
+;
+end$$;
+
+select * from my
+

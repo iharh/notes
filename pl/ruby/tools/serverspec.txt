@@ -1,0 +1,15 @@
+http://serverspec.org/
+http://serverspec.org/resource_types.html
+https://github.com/mizzy/serverspec
+http://serverspec.org/advanced_tips.html
+chefdk/embedded/lib/ruby/gems/2.3.0/gems/serverspec-2.37.2
+
+
+http://arlimus.github.io/articles/custom.resource.types.in.serverspec/
+http://www.rubydoc.info/github/serverspec/serverspec/Serverspec
+
+https://github.com/mizzy/specinfra
+
+https://github.com/jantman/serverspec-extended-types
+https://github.com/jantman/serverspec-extended-types/blob/master/lib/serverspec_extended_types/http_get.rb
+http://www.rubydoc.info/gems/serverspec-extended-types/#http_get

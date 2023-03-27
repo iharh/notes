@@ -1,0 +1,183 @@
+spock mvn repo:
+http://mvnrepository.com/artifact/org.spockframework/spock-core
+
+articles
+2018
+http://grailsblog.objectcomputing.com/posts/2018/06/22/mock-vs-stub-vs-spy.html
+    https://habr.com/company/haulmont/blog/435488/
+2016
+http://jakubdziworski.github.io/java/groovy/spock/2016/05/14/spock-cheatsheet.html
+
+Presentations/Talks:
+http://codepipes.com/presentations/spock-vs-junit.pdf
+    http://blog.codepipes.com/testing/spock-vs-junit.html
+https://github.com/spockframework/spock-talks/blob/master/talks/next-level/src/slides/01-intro.md
+https://github.com/spockframework/spock-talks/blob/master/talks/next-level/src/slides/04-gems.md
+https://github.com/spockframework/spock-talks/blob/master/talks/next-level/src/slides/05-future.md
+
+Ship - Spock - A Highly Logical Way to Test:
+http://www.infoq.com/presentations/spock
+
+https://leanpub.com/spockframeworknotebook/read
+
+spock docs:
+http://spockframework.github.io/spock/javadoc/1.0/index.html
+
+
+http://spockframework.github.io/spock/docs/1.0/index.html
+
+http://spockframework.github.io/spock/docs/1.0/spock_primer.html
+http://spockframework.github.io/spock/docs/1.0/release_notes.html
+
+http://spockframework.github.io/spock/docs/1.0/migration_guide.html
+
+
+To avoid such problems, use HamcrestSupport.that:
+...
+
+gradle int-n:
+
+repositories {
+    mavenCentral()
+    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+}
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.11'
+
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
+    testRuntime 'cglib:cblib-nodep:3.1'
+    testRuntime 'org.objenesis:objenesis:2.1'
+}
+
+Modules:
+http://spockframework.github.io/spock/docs/1.0/modules.html
+
+Extensions:
+http://spockframework.github.io/spock/docs/1.0/extensions.html
+
+@Requires
+@IgnoreIf
+@IgnoreRest
+
+@Stepwise
+    Run feature methods sequentially in their declared order
+    http://spockframework.github.io/spock/javadoc/1.0/spock/lang/Stepwise.html
+@AutoCleanup
+@AutoCleanup("dispose")
+@AutoCleanup(quiet = true)
+@Title("This is blah-blah spec") / @Narrative
+@Issue("https://jira-issue")
+@Issue(["https://jira-iss1", "https://jira-iss2"])
+@Rule
+@Subject
+    Indicates which objects/classes are the subjects of a specification.
+    If applied to a field, indicates that the field holds the subject of the specification.
+    If applied to a class, indicates that the classes listed as
+    annotation arguments are the subjects of the specification.
+    Currently, this annotation has only informational purposes.
+    http://spockframework.github.io/spock/javadoc/1.0/spock/lang/Subject.html
+    http://mrhaki.blogspot.com.by/2014/10/spocklight-indicate-class-under-test.html
+    http://mechanitis.blogspot.com.by/2013/07/spock-is-awesome-seriously-simplified.html
+???
+    custom ext
+
+
+spock-spring ext:
+@Autowired
+@Resource
+
+Interaction/Mocking
+http://spockframework.github.io/spock/docs/1.0/interaction_based_testing.html
+
+
+feature method blocks:
+setup/given
+expect
+    no side-effects, just inputs and results, contains only conditions and variable definitions
+when
+then
+    tests code with side effects
+cleanup
+    always invoked even if previous exceptions
+where
+    must be the last block, contains table-like data
+    can use | or || as separator
+
+@Unroll
+def "crew member name: '#name' length: #length"() {
+    expect:
+        name.length() == length
+    where:
+        name     | length
+        "Spock"  | 5
+        "Kirk"   | 4
+        "Scotty" | 6
+}
+...
+    where:
+        name << ["Spock", "Kirk", "Scotty"]
+        length << [5, 4, 6]
+...
+        name << sql.execute("select name, age, sex from customer")
+        length = name.length() // derived value
+...
+        [name,length] << [["Spock",5],["Kirk",4],["Scotty",6]]
+...
+
+Fields:
+simple fields are new for each feature method.
+@Shared
+    shared
+
+
+Fixture methods:
+def setup() {...}
+def cleanup() {...}
+
+def setupSpec() {...}
+def cleanupSpec() {...}
+- may only access @Shared and static fields
+
+
+Configuration:
+
+~/.spock/SpockConfig.groovy or on CP or with -Dspock.configuration
+
+runner {
+    filterStackTrace false
+    include Fast
+    exclude Slow
+    optimizeRunOrder true
+}
+
+@Fast
+class MyFastSpec extends Specification {
+    def "I'm really fast!"() { expect: true }
+    @Slow
+    def "sorry but I'm slow"() { expect: false }
+}
+
+
+Interesting:
+Spock (at settings.gradle) change the "build.gradle" names to "spring.name" i.e.
+
+Conditions:
+PollingConditions
+AsyncConditions
+
+
+Deep Collections Comparison:
+
+    def collectMaps(e) {
+        e.with{
+            if (it instanceof Map) {
+                [it] + it.values().collect{ collectMaps(it) }
+            } else if (it instanceof Collection) {
+                it.collect{ collectMaps(it) }
+            } else {
+                []
+            }
+        }.flatten()
+    }
+

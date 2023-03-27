@@ -1,0 +1,54 @@
+Docs:
+man zsh-lovers
+https://wiki.archlinux.org/index.php/zsh
+http://zsh.sourceforge.net/Doc/Release/index-frame.html
+
+articles:
+https://habrahabr.ru/post/326580/
+
+1. zsh cmd-line options
+
+-l, --login
+	login shell
+-i
+	interactive
+-f
+	skip loading startup files
+-v
+	verbose (show what is the she is going to execute)
+
+
+1.1 Autoconfig
+
+The function will not be run in future, but you can run
+it yourself as follows:
+  autoload -Uz zsh-newuser-install
+  zsh-newuser-install -f
+
+The code added to ~/.zshrc is marked by the lines
+# Lines configured by zsh-newuser-install
+# End of lines configured by zsh-newuser-install
+You should not edit anything between these lines if you intend to
+run zsh-newuser-install again.  You may, however, edit any other part
+of the file.
+
+
+Startup files:
+
+~/.profile
+/etc/zshenv
+	common for all shells
+~/.zshenv
+	executed almost always (rcs option is turned on by default).
+/etc/zshprofile
+	-//- (rcs, globalrcs, login options are set)
+~/.zshrc
+	-//- (interactive, rcs)
+/etc/zlogin
+	-//- (login, rcs, globalrcs are set)
+~/.zlogin
+	-//- (login, rcs are turned on)
+
+
+2. !!! find a way to always list (ls) hidden (.*) files
+

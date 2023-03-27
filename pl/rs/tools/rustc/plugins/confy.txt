@@ -1,0 +1,23 @@
+https://crates.io/crates/confy
+https://github.com/Luthaf/confy
+https://users.rust-lang.org/t/confy-read-configuration-files-at-compile-time/4902
+
+[dependencies]
+confy = "0.1.0"
+
+
+#![feature(plugin)]
+#![plugin(confy(file="Config.toml"))]
+
+fn main() {
+    assert_eq!(config!("string"), "value");
+    assert_eq!(config!("int"), 42);
+    assert_eq!(config!("bool"), false);
+    assert_eq!(config!("float"), 78.8);
+    assert_eq!(config!("array"), vec![3, 4, 5]);
+
+    // You can specify a default, just in case
+    assert_eq!(config!("key not found", "foo"), "foo");
+}
+
+You can retrieve all TOML types except for table: string, integers, floats, and boolean values.

@@ -1,0 +1,10 @@
+val publishDist by registering(Exec::class) {
+    workingDir(buildDir)
+    executable("curl")
+    args = listOf(
+        "--silent",
+        "--user", "$nexusUsername:$nexusPassword",
+        "--upload-file", someDistArchiveFileName,
+        "$nexusRepoPublish/grp/.../$version-SNAPSHOT/"
+    )
+}

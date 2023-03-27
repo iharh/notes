@@ -1,0 +1,14 @@
+https://dvc.org/
+https://github.com/iterative/dvc
+
+some-file.dvc:
+deps:
+    ...
+outs:
+    ...
+
+cache
+https://dvc.org/doc/commands-reference/cache
+
+update
+https://dvc.org/doc/user-guide/updating-tracked-files

@@ -1,0 +1,80 @@
+Tibel
+https://github.com/tibbe/talks
+http://johantibell.com/files/HE2015.pdf
+https://skillsmatter.com/skillscasts/6547-high-performance-programming-in-haskell
+https://www.youtube.com/watch?v=_pDUq0nNjhI
+http://johantibell.com/files/haskell-performance-patterns.html
+https://github.com/meiersi/HaskellerZ/tree/master/meetups/20150531-ZuriHac2015_Johan_Tibell-Performance
+
+Options:
+-funbox-strict-fields
+  http://www.haskell.org/ghc/docs/latest/html/users_guide/pragmas.html#unpack-pragma
+
+{-# OPTIONS_GHC -funbox-strict-fields #}
+
+1. seq
+http://hackage.haskell.org/trac/ghc/wiki/Commentary/Compiler/SeqMagic
+
+
+2. kmett - Once
+https://www.fpcomplete.com/user/edwardk/snippets/once
+http://www.reddit.com/r/haskell/comments/1lo15w/deepseq_once/
+
+data Once a = Once () a
+
+runOnce :: Once a -> a
+runOnce (Once _ a) = a
+
+once :: NFData a => a -> Once a
+once a = Once (rnf a) a
+
+instance NFData (Once a) where
+  rnf (Once () _) = ()
+
+
+3. $!
+f $! x - behaves as normal application of f, but the top-level evaluation of
+         the argument expression x is forced before the function f is applied
+f x y  - could be one of:
+         (f $! x) y
+         (f x) $! y
+         (f $! x) $! y
+Ex:
+foldl'              :: (a -> b -> a) -> a -> [b] -> a
+foldl' f v []       = v
+foldl' f v (x : xs) = ((foldl' f) $! (f v x)) xs
+
+Tibel: Guideline 3: use [return $! x + y] to avoid lazyness
+
+4. MagicHash, UnboxedTuples
+
+type STRep s a = State# s -> (# State# s, a #)
+
+
+5. Tibel: In practice: beware of the lazy base case
+
+fun !p1 p2 ... = ...
+
+6. Tibel: Guideline 5: add wrapper to recursive functions
+
+map :: (a -> b) -> [a] -> [b]
+map _ []     = []
+map f (x:xs) = f x : map f xs
+
+map f = go
+  where
+    go []     = []
+    go (x:xs) = f x : go xs
+
+
+7. Tibel: Guideline 6: Use INLINABLE to remove overhead from type-classes [HOFs ???] by call-site specialization of type class parameters
+
+module M1 where
+    f :: Num a => a -> a -> a
+    f x y = ...
+    {-# INLINABLE f #-}
+
+module M2 where
+    main = print $ f (1 :: Int) 2
+
+GHC will create a copy of f at call-site, specialized to Int

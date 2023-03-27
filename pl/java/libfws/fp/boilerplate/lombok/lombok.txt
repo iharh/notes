@@ -1,0 +1,42 @@
+https://projectlombok.org/
+https://projectlombok.org/changelog.html
+
+https://projectlombok.org/setup/ant
+
+config:
+https://projectlombok.org/features/configuration
+
+features:
+https://projectlombok.org/features/all
+
+logging:
+https://projectlombok.org/features/Log.html
+
+import lombok.extern.slf4j.Slf4j;
+@Log|@Slf4j
+log.bla-bla(...)
+
+@Synchronized
+https://projectlombok.org/features/Synchronized.html
+
+@SneakyThrows
+https://projectlombok.org/features/SneakyThrows.html
+
+@Cleanup (for AutoCloseable)
+https://projectlombok.org/features/Cleanup
+
+@Delegate
+https://projectlombok.org/features/Delegate.html
+https://habr.com/post/424029/
+
+val
+https://projectlombok.org/features/val.html
+
+@Builder and fluent
+https://dzone.com/articles/making-java-fluent-api-more-flexible
+
+@Nullable/@NonNull
+https://habr.com/ru/post/464939/
+
+@ExtensionMethod
+https://habr.com/ru/post/527688/

@@ -1,0 +1,16 @@
+chef-client:
+    works with cookbooks
+    is an agent, running at every node in order to bring it to the desired state
+    https://docs.chef.io/chef_client.html
+
+    --local-mode
+        to avoid contacting chef-server
+    -r "recipe[cookbook-name::recipe-name],..."
+    -r "recipe[cookbook-name(::default)],..."
+        run-list
+
+    -z -o my_cookbook
+        ??? chef-zero
+
+    -i 1800
+        daemon-mode to check updates every 30 min

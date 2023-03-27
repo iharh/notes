@@ -1,0 +1,12 @@
+// nested import groups - on one line
+use std::{fs::File, io::Read, path::{Path, PathBuf}};
+
+// with some more breathing room
+use std::{
+    fs::File,
+    io::Read,
+    path::{
+        Path,
+        PathBuf
+    }
+};

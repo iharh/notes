@@ -1,0 +1,2 @@
+ls-remote
+    https://<token>@github.com/<usr>/<repo>.git --heads 'refs/heads/*' | cut -f 2 | cut -c12- | xargs

@@ -1,0 +1,17 @@
+https://crates.io/crates/proptest
+https://docs.rs/proptest
+https://github.com/altsysrq/proptest
+
+https://crates.io/crates/proptest-derive
+https://github.com/Centril/proptest-derive
+
+https://crates.io/crates/proptest-arbitrary
+https://docs.rs/proptest-arbitrary
+https://github.com/Centril/proptest-arbitrary
+
+2020
+https://blog.logrocket.com/property-based-testing-in-rust-with-proptest/
+    https://github.com/zmitchell/sentence-parser
+2018
+Hello Rust! #7 - Parsing dates using proptest and TDD 
+https://www.youtube.com/watch?v=zb7SD0Jco6g

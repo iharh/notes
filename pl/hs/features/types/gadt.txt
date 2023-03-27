@@ -1,0 +1,215 @@
+2021
+https://www.reddit.com/r/haskell/comments/l0eq9m/gadts_in_haskell/
+2020
+https://impurepics.com/posts/2020-12-27-gadts.html
+https://chrispenner.ca/posts/gadt-design
+
+2015
+Eisenberg - LambdaConf 2015 - A Practical Introduction to Haskel GADTs
+https://github.com/goldfirere/glambda
+
+{- *** 1 *** -}
+
+{-# LANGUAGE GADTs #-}
+
+{- data Maybe a = Nothing | Just a -}
+
+{- in plain ADTs the 2 c-tors just return a "Maybe a" -}
+
+data STy ty where
+  SInt  :: STy Int
+  SBool :: STy Bool
+
+{- In GADTs we return either "STy Int" or "STy Bool" -}
+
+zero :: STy ty -> ty
+zero SInt = 0
+zero SBool = False
+
+{- STy is actually a singleton-type.
+   If we have "STy Int", the only possible value we can give is SInt
+
+   STy is an indexed-type (it uses a parameter)
+-}
+
+
+{- *** 2 *** -}
+
+data STy ty where
+  SInt   :: STy Int
+  SBool  :: STy Bool
+  SMaybe :: STy ty' -> STy (Maybe ty')
+
+
+zero :: STy ty -> ty
+zero SInt       = 0
+zero SBool      = False
+zero (SMaybe _) = Nothing
+
+{- when we pattern-match, we learn about the types -}
+
+
+{- *** 3 *** -}
+
+data STy ty
+  = (ty ~ Int)  => SInt
+  | (ty ~ Bool) => SBool
+  | forall ty'. (ty ~ Maybe ty') => SMaybe (STy ty')
+
+zero :: STy ty -> ty
+zero SInt       = 0
+zero SBool      = False
+zero (SMaybe _) = Nothing
+
+{-
+    a little-more traditional syntax
+    (~) - is a type equality
+
+    SMaybe is called an existential data c-tor, package up a ty'
+-}
+
+{- !!! pattern-matching a term reveals type information
+   (gives type-level information)
+-}
+
+----
+{-# LANGUAGE GADTs, StandaloneDeriving #-}
+deriving instance Show (STy ty)
+!!! if you encounter untouchabe bla-bla error, just add direct type signature
+----
+
+
+{- *** ScopedTypeVariables *** -}
+
+foo :: a -> ...
+foo x = ...
+  where fhelper :: a
+        fhelper = ...
+
+bar :: forall a. a -> ...
+bar x = ...
+  where bhelper :: a
+        bhelper = ...
+
+{-
+  Strange, but: in the body of foo, fhelper and x have different types
+                in the body of bar, bhelper and x have the same  types
+  !!! add ScopedTypeVariables ext !!!
+-}
+{-
+    GHC bug #3927: Pattern warnings + GADTs = Inadequate
+-}
+
+
+{- *** 4 *** -}
+
+data STy ty where
+  SInt   :: STy Int
+  SBool  :: STy Bool
+  SMaybe :: STy ty' -> STy (Maybe ty')
+
+zero :: STy ty -> ty
+zero SInt       = 0
+zero SBool      = False
+zero (SMaybe _) = Nothing
+
+eqSTy :: STy ty -> STy ty -> Bool
+eqSTy SInt SInt = true
+eqSTy SBool SBool = true
+{- pattern-matching non-ex... if we en-up right here -}
+eqSTy (SMaybe a) (SMaybe b) = a `eqSTy` b
+{- bogus warning about missing clauses, have appropriate GHC bug #3927 -}
+
+{- *** HList *** -}
+{- *** 4 *** -}
+
+{-# LANGUAGE GADTs, TypeOperators, DataKinds, PolyKinds #-}
+
+module HList where
+
+data HList tys where
+  Nil  :: HList '[]
+  (:>) :: h -> HList t -> HList (h ': t)
+infixr 5 :>
+
+{- tys - the whole list of types
+  HList '[]
+    -- this Nil - is a data c-tor, which creates an HList with a list of types of the elements is empty
+  HList (h ': t)
+    -- ...
+
+  :t (True :> () :> [Just 'x'] :> "hi" :> Nil)
+  :: HList '[Bool, (), [Maybe Char], [Char]]
+-}
+
+data Elem list elt where
+  EZ :: Elem (x ': xs) x
+  ES :: Elem xs x -> Elem (
+
+{-
+  EZ - Z stands for zero here
+  ES - S stands for successor here
+
+  :t EZ :: Elem '[Bool, Int] Bool
+  EZ :: Elem '[Bool, Int] Bool :: Elem '[Bool, Int] Bool
+
+  :t ES EZ :: Elem '[Bool, Int] Int
+  ES EZ :: Elem '[Bool, Int] Int :: Elem '[Bool, Int] Int
+-}
+
+get :: Elem tys ty -> HList tys -> ty
+get EZ (x :> _) = x
+get (ES e) (_ :> xs) = get e xs
+{- warn about incomplete pattern-matching because of the same GHC bug -}
+
+
+{- *** HList *** -}
+{- *** 5 *** -}
+
+{-# LANGUAGE GADTs, DataKinds, PolyKinds, TypeOperators, TypeFamilies, ScopedTypeVariables #-}
+
+module Language.Glambda.Exp (
+  Exp(..), Elem(..), Val(..), val, prettyVal, eqExp
+) where
+
+import Language.Glambda.Pretty
+import Language.Glambda.Token
+import Language.Glambda.Util
+import Language.Glambda.Type
+
+import Text.PrettyPrint.ANSI.Leijen
+
+-- | @Elem xs x@ is evidence that @x@ is in the list @xs@
+-- @EZ :: Elem xs x@ is evidence that @x@ is in the firts element of @xs@
+-- @ES ev :: Elem xs x@ is evidence that @x@ is one position later in
+-- @xs@ than is indicated in @ev@
+data Elem :: [a] -> a -> * where
+  EZ :: Elem (x ': xs) x
+  ES :: Elem xs x -> Elem (y ': xs) x
+
+-- | Convert an 'Elem' to a proper de Bruijn index
+elemToInt :: Elem ctx ty -> Int
+elemToInt EZ     = 0
+elemToInt (ES e) = 1 + elemToInt e
+
+-- | @Exp ctx ty@ is a well-typed expression of type @ty@ in context
+-- @ctx@. Note that a context is a list of types, where a type's index
+-- in the list indicates the de Bruijn index of the associated term-level
+-- variable.
+data Exp :: [*] -> * -> * where  -- [*] -> * -> *  --- kind-signatures
+  Var   :: Elem ctx ty -> Exp ctx ty
+  Lam   :: Exp (arg ': ctx) res -> Exp ctx (arg -> res)
+  App   :: Exp ctx (arg -> res) -> Exp ctx arg -> Exp ctx res
+  Arith :: Exp ctx Int -> ArithOp ty -> Exp ctx Int -> Exp ctx ty
+  Cond  :: Exp ctx Bool -> Exp ctx ty -> Exp ctx ty -> Exp ctx ty
+  Fix   :: Exp ctx (ty -> ty) -> Exp ctx ty
+  IntE  :: Int -> Exp ctx Int
+  BoolE :: Bool -> Exp ctx Bool
+
+-- | @Val ty@ is a well-typed, closed (no variables) value of type @ty@
+data Val :: * -> * where
+  IntVal  :: Int -> Val Int
+  BoolVal :: Bool -> Val Bool
+  LamVal  :: Exp '[arg] res -> Val (arg -> res)
+   -- NB: This is more efficient (but more complicated) when phrased
+   -- as an associated data family with newtype instances. See branch 'master'

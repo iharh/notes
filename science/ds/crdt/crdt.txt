@@ -1,0 +1,16 @@
+Shapiro - CRDTs
+http://hal.archives-ouvertes.fr/inria-00555588/
+http://youtu.be/ebWVLVhiaiY
+    Strong, Evential [EC], Strong+Eventual [SEC] (solves the CAP)
+    EC - with rollbas, SEC - no roll-backs, durable
+
+Kuper - Lvars, lvish
+http://www.reddit.com/r/haskell/comments/1skf3x/amazing_lvars_talk_by_linsey_kuper/
+https://www.cs.indiana.edu/~lkuper/talks/monotonic-determinism/ricon-2013.pdf
+http://www.youtube.com/watch?v=8dFO5Ir0xqY
+http://composition.al/blog/2013/10/31/whats-the-deal-with-lvars-and-crdts/
+
+http://basho.com/tag/crdt/
+
+http://www.allthingsdistributed.com/2008/12/eventually_consistent.html
+http://book.mixu.net/distsys/single-page.html

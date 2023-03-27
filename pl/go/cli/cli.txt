@@ -1,0 +1,10 @@
+go
+    env
+        print env stuff
+    build
+        -x
+        https://opensource.com/article/22/4/go-build-options
+    install
+        ...
+        https://stackoverflow.com/questions/24069664/what-does-go-install-do
+        https://github.com/NanXiao/golang-101-hacks/blob/master/posts/go-build-vs-go-install.md

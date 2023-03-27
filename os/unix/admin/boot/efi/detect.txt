@@ -1,0 +1,2 @@
+$ ls /sys/firmware/efi
+    exists means system uses UEFI

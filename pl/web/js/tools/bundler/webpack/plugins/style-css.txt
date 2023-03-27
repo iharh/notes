@@ -1,0 +1,27 @@
+npm i --save-dev style-loader css-loader
+
+
+const webpack = require('webpack')
+
+module: {
+    rules: {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+    }
+},
+plugins: {
+    new HtmlPlugin({
+        ...
+    }),
+    new webpack.HotModuleReplacementPlugin()
+},
+devServer: {
+    hot: true
+}
+
+
+# run with
+#   webpack-dev-server
+#   ...
+# at DevTools console:
+#   [WDS] Hot Module Replacement enabled.

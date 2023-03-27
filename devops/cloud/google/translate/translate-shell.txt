@@ -1,0 +1,19 @@
+https://www.soimort.org/translate-shell/#code-list
+https://github.com/soimort/translate-shell
+
+apt/translate-shell
+
+https://github.com/soimort/translate-shell/wiki/Configuration
+https://github.com/soimort/translate-shell/wiki/REPL
+https://github.com/soimort/translate-shell/wiki/FAQ
+https://github.com/soimort/translate-shell/wiki/Writing-Systems-and-Fonts
+
+integration
+https://github.com/neko-neko/dotfiles/blob/master/zshrc
+    zplug 'soimort/translate-shell', \
+        at:stable, as:command, use:"build/*", \
+        hook-build:"make build &> /dev/null"
+https://github.com/echuraev/translate-shell.vim
+
+2019
+https://ostechnix.com/use-google-translate-commandline-linux/

@@ -1,0 +1,22 @@
+https://github.com/spotbugs/spotbugs-gradle-plugin
+http://spotbugs.readthedocs.io/en/latest/gradle.html
+https://plugins.gradle.org/plugin/com.github.spotbugs
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/plugins/quality/FindBugsExtension.html
+https://docs.gradle.org/current/userguide/findbugs_plugin.html
+https://docs.gradle.org/current/dsl/org.gradle.api.plugins.quality.FindBugs.html
+
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+    // configure automatically generated tasks
+    // it.class - java.io.File
+    // classpath.each { println("it: ${it}"); }
+    classpath = classpath.filter {
+        // !it.name.endsWith('so') && !it.name.endsWith('dll') && !it.name.endsWith('dylib') && !it.name.endsWith('pdb')
+        // sqllite native libraries are placed on the class path. This is a gradle/findbugs plugin bug
+        // fixed in the future version. As a work around, exclude these files from the classpath.
+        it.name.endsWith('jar') || !it.path.contains('fx/fx/.build/target')
+    }
+}
+
+kotlin dsl
+https://github.com/spotbugs/spotbugs-gradle-plugin/issues/197

@@ -1,0 +1,27 @@
+https://github.com/travisjeffery/awesome-wm/blob/master/freedesktop/desktop.lua
+
+/usr/share/icons/<theme>/...
+
+https://awesomewm.org/doc/api/classes/awful.widget.clienticon.html
+https://awesomewm.org/doc/api/classes/menubar.icon_theme.html
+    https://www.reddit.com/r/awesomewm/comments/3y3542/change_menubar_icon_theme/
+
+    find_icon_path
+
+/usr/share/awesome/lib
+
+https://awesomewm.org/doc/api/documentation/06-appearance.md.html
+beautiful/init.lua
+    beautiful.icon_theme
+
+awful/
+    menu.lua
+    util.lua
+    titlebar.lua
+        awful.widget.iconwidget
+naughty/
+    core.lua
+menubar/menugen.lua
+
+?
+icon_path

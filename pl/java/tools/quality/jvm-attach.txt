@@ -1,0 +1,9 @@
+https://kenai.com/projects/btrace/forums/forum/topics/532730-Btrace-a-Java-Program-running-as-Windows-Service-Insufficient-memory-or-insufficient-privileges-to-attach
+
+http://stackoverflow.com/questions/20149635/java-jstack-tool-insufficient-memory-or-insufficient-privilege-to-attach
+http://stackoverflow.com/questions/12061226/how-does-jstack-f-affect-a-running-java-process
+
+https://github.com/hawtio/hawtio/blob/master/hawtio-local-jvm-mbean/src/main/java/io/hawt/jvm/local/JVMList.java
+
+http://marxsoftware.blogspot.com/2011/01/jmx-and-attach-api.html
+

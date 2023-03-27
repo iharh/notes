@@ -1,0 +1,2 @@
+https://doc.rust-lang.org/std/io/type.Result.html
+type Result<T> = result::Result<T, Error>;

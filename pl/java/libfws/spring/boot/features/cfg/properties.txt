@@ -1,0 +1,53 @@
+2022
+https://www.baeldung.com/spring-value-annotation
+    @Value
+https://www.baeldung.com/spring-reloading-properties
+2021
+https://www.baeldung.com/spring-yaml
+2020
+https://www.baeldung.com/properties-with-spring
+https://www.baeldung.com/configuration-properties-in-spring-boot
+    @ConfigurationProperties
+    https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-properties
+
+system-properties
+https://stackoverflow.com/questions/36895711/can-i-define-system-properties-within-spring-boot-configuration-files
+
+property-bindings
+https://spring.io/blog/2018/03/28/property-binding-in-spring-boot-2-0
+
+i-face
+PropertyResolver
+    PropertySource impl
+
+ConfigurationPropertySource i-face
+https://spring.io/blog/2018/03/28/property-binding-in-spring-boot-2-0#configuration-property-sources
+
+    ConfigurationProperty getConfigurationProperty(ConfigurationPropertyName name);
+
+IterableConfigurationPropertySource i-face
+    Iterable<ConfigurationPropertyName>
+
+
+Iterable<ConfigurationPropertySource> sources =	ConfigurationPropertySources.get(environment);
+
+MapConfigurationPropertySource impl
+
+Configuration Property Names
+https://spring.io/blog/2018/03/28/property-binding-in-spring-boot-2-0#configuration-property-names
+
+ConfigurationPropertyName
+    enforces canonical naming rules
+
+Origin support
+https://spring.io/blog/2018/03/28/property-binding-in-spring-boot-2-0#origin-support
+
+Origin i-face
+    TextResourceOrigin impl
+
+
+Binder API
+https://spring.io/blog/2018/03/28/property-binding-in-spring-boot-2-0#binder-api
+    The ConfigurationPropertyName class enforces these canonical naming rules, which basically boil down to “use lowercase kebab-case names”.
+    https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/context/properties/source/ConfigurationPropertyName.html
+    https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/context/properties/source/ConfigurationPropertyName.java

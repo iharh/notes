@@ -1,0 +1,30 @@
+docs:
+https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN002
+
+so:
+http://stackoverflow.com/questions/9534136/how-to-create-a-new-database-after-initally-installing-oracle-database-11g-expre
+
+with dbca:
+https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN12479
+http://www.fehily.com/books/createdb/createdb_oracle_11g_2.html
+dbca
+    -help
+    -silent -createDatabase -templateName General_Purpose.dbc -characterSet AL32UTF8 -responseFile NO_VALUE -emConfiguration LOCAL -gdbName ihorcl -sid ihorcl
+
+# ask for SYS, SYSTEM, SYSMAN pwds
+
+# -gdbName          global database name
+# -memoryPercentage 30 
+
+Look at the log file "D:\dev\utils\oracle\cfgtoollogs\dbca\ihorcl\ihorcl.log" for further details.
+
+ 1) Set the environment variable ORACLE_UNQNAME to Database unique name 
+ 2) D:\dev\utils\oracle\product\11.2.0\dbhome_1\bin\emctl.bat start dbconsole
+
+Global Database Name:ihorcl
+System Identifier(SID):ihorcl
+The Database Control URL is
+    https://<host>:1158/em
+
+with create database:
+https://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN11073

@@ -1,0 +1,29 @@
+https://redux.js.org/
+
+https://github.com/reactjs/redux
+
+docs
+https://redux.js.org/introduction
+https://rajdee.gitbooks.io/redux-in-russian/content/
+    https://github.com/rajdee/redux-in-russian
+
+important:
+React - Flux + Redux by Denys Kuzin
+
+Properties aren't intended to be changed - redrow everething
+State - intended to be changed
+
+Lifecycle (Initial Render, Props Change, State Change, Component Unmount)
+
+!!! a lot of obsolete stuff !!!
+Mixins are deprecated (according to the ES6)
+
+Smart and dump components
+
+data flows down
+events flows up
+
+top-level component is [not-visual] acts likes a controller
+
+Flux is a save 3-weel MVC
+one-way events is a normal, non-revolutional

@@ -1,0 +1,32 @@
+https://en.wikipedia.org/wiki/C%2B%2B20
+https://simontoth.eu/guides/cpp20_guides/
+
+2022
+https://devblogs.microsoft.com/cppblog/how-we-used-cpp20-to-eliminate-an-entire-class-of-runtime-bugs/
+    https://habr.com/ru/company/piter/blog/665966/
+    ! consteval
+https://www.cppstories.com/2022/20-smaller-cpp20-features/
+
+2021
+https://habr.com/ru/company/yandex_praktikum/blog/557890/
+    ! ranges, but the whole serie is about cpp-20
+
+2020
+https://habr.com/ru/company/yandex/blog/488588/
+
+2019
+http://www.modernescpp.com/index.php/thebigfour
+https://hackaday.com/2019/07/30/c20-is-feature-complete-heres-what-changes-are-coming/
+https://iscinumpy.gitlab.io/post/cpp-20/
+https://www.bfilipek.com/2019/02/lambdas-story-part1.html
+https://www.reddit.com/r/cpp/comments/au0c4x/201902_kona_iso_c_committee_trip_report_c20/
+
+2018
+https://proglib.io/p/modern-cpp-features/
+https://habr.com/company/yandex/blog/413719/
+https://habr.com/company/yandex/blog/336264/
+https://habr.com/company/yandex/blog/301514/
+
+trip reports
+https://botondballo.wordpress.com/2018/06/20/trip-report-c-standards-meeting-in-rapperswil-june-2018/
+https://botondballo.wordpress.com/2018/03/28/trip-report-c-standards-meeting-in-jacksonville-march-2018/

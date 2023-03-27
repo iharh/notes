@@ -1,0 +1,29 @@
+Papers:
+https://www.reddit.com/r/haskell/comments/5go3sb/dhall_a_nonturingcomplete_configuration_language/dau7jxx/
+
+The two most important papers that helped were:
+
+* A tutorial implementation of a dependently typed lambda calculus (https://www.andres-loeh.de/LambdaPi/LambdaPi.pdf)
+    - This one was basically my Rosetta Stone for understanding how to translate typing judgements to Haskell code
+* Henk: A typed intermediate language (https://www.microsoft.com/en-us/research/publication/henk-a-typed-intermediate-language/)
+    - morte is almost exactly the Henk language described in this paper.
+      The paper is also a fantastic introduction to pure type systems which really helped clarify a lot of introductory type theory for me
+
+After that, a lot of what I learned was from having fun playing with morte and seeing what I could (and could not) implement within the language. Finally having a real System F engine to experiment with helped a lot. One paper that really helped here was:
+
+    Automatic synthesis of typed lambda-programs on term algebras (http://www.sciencedirect.com/science/article/pii/0304397585901355)
+
+This basically explained how to mechanically translate most Haskell data types to System F
+
+Then most of what I learned from that was people asking me really difficult questions whether or not something was possible to implement in morte on the issue tracker and me doing my best to try to answer their questions to the best of my ability
+
+
+Boehm-Berarducci:
+https://github.com/Gabriel439/Haskell-Annah-Library/blob/master/src/Annah/Core.hs#L400-L503
+
+Vector
+https://gitter.im/groupoid/om/archives/2016/01/10 - 11
+
+List:
+http://sigil.place/talk/1/List/tail.annah
+

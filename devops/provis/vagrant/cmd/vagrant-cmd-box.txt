@@ -1,0 +1,3 @@
+vagrant box
+    list
+    update --box bento/centos-7.2

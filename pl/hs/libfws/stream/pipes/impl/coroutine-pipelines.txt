@@ -1,0 +1,197 @@
+Prerequisites:
+Trampolines:
+  http://en.wikipedia.org/wiki/Trampoline_%28computing%29
+  http://stackoverflow.com/questions/189725/what-is-a-trampoline-function
+
+  http://blog.richdougherty.com/2009/04/tail-calls-tailrec-and-trampolines.html
+  Bjarnason - Stackless Scala With Free Monads
+  http://apocalisp.wordpress.com/2011/10/26/tail-call-elimination-in-scala-monads/
+
+Haskell coroutine libraries (like pipes/conduit/machines) have what appear to be impenetrable implementations ...
+until you read Mario Blazevic's article on coroutines in issue 19 of The Monad Reader (Titled: Coroutine Pipelines").
+
+http://themonadreader.files.wordpress.com/2011/10/issue19.pdf
+http://www.haskellers.com/user/blamario
+
+In that article he introduces the Coroutine type (which is now more commonly known as the free monad transformer)
+which unifies every coroutine implementation into a single pattern.
+
+Once you understand his article, you will understand the internals of coroutine libraries and
+you will be able to easily write a streaming library of your own
+
+SCC, monad-coroutine packages
+
+http://hackage.haskell.org/package/monad-coroutine
+http://hackage.haskell.org/package/scc
+http://trac.haskell.org/SCC/wiki/monad-coroutine
+
+http://www.haskell.org/pipermail/haskell-cafe/2010-June/079336.html
+
+
+I won't dwell on the basics of trampoline-style execution, because it has been well covered elsewhere [3, 4].
+Let's jump in with a simple monad transformer that allows the base monad to pause its computation at any time, shown in Listing 6.
+
+Once lifted on a Trampoline, in a manner of speaking, a computation from the base monad becomes a series of alternating bounces and pauses.
+The bounces are the uninterruptible steps in the base monad, and the during the pauses the trampoline turns control over to us.
+Function run can be used to eliminate all the pauses and restore the original, un-lifted computation.
+
+Here's a little example session in GHCi:
+
+*Main> let hello = do { lift (putStr "Hello, "); pause; lift (putStrLn "World!") }
+*Main> run hello
+Hello, World!
+
+Alternatively, we can just bounce the computation once, use the pause to perform some other work, and then continue the trampoline:
+
+*Main> do { Left continuation <- bounce hello; putStr "Wonderful "; run continuation }
+Hello, Wonderful World!
+
+--- NOTES:
+data Either a b = Left a | Right b
+
+either :: (a -> c) -> (b -> c) -> Either a b -> c
+either f _ (Left  x) = f x
+either _ g (Ritht y) = g y
+
+--- Listing 6:
+
+https://gist.github.com/ehamberg/1472628
+
+
+{-# LANGUAGE FlexibleContexts, Rank2Types, ScopedTypeVariables #-}
+import Control.Monad (liftM)
+import Control.Monad.Trans (MonadTrans (..))
+
+newtype Trampoline m r = Trampoline {
+    bounce :: m (Either (Trampoline m r ) r )
+}
+
+---
+>:t Trampoline
+Trampoline :: m (Either (Trampoline m r) r)  ->  Trampoline m r
+
+>:t bounce
+bounce :: Trampoline m r  ->  m (Either (Trampoline m r) r)
+---
+
+
+instance Monad m => Monad (Trampoline m) where
+  return  = Trampoline . return . Right
+  t >>= f = Trampoline (bounce t
+                        >>= either
+                          (return . Left . (>>= f))  -- If (bounce t) brought  m (Left  (...))
+                          (bounce . f))              -- If (bounce t) brought  m (Right (...))
+
+--- at the RHC of return we use return of the base (Monad m)
+--- at the RHC of >>=    we use 
+        1-st >>= of the base (Monad m) 
+        the 2-nd >>= of the our Trampoline monad
+
+
+
+-- Promote/Lift a function to a monad.
+
+http://crabmusket.nfshost.com/2013/11/28/liftm-by-accident.html
+http://www.reddit.com/r/haskell/comments/1pd1ep/microtutorial_liftm_by_accident/
+    fmap = liftM = (<$>)
+http://members.chello.nl/hjgtuyl/tourdemonad.html#liftM
+
+liftM   :: (Monad m) => (a1 -> r) -> m a1 -> m r
+liftM f m1  = do { x1 <- m1; return (f x1) }
+
+> liftM sin (Just 0)
+Just 0.0
+> liftM (replicate 10) ['a']
+["aaaaaaaaaa"]
+
+desugared liftM:
+
+liftM pureFn monadV = monadV >>= return . pureFn
+
+
+-- | The class of monad transformers.  Instances should satisfy the
+-- following laws, which state that 'lift' is a monad transformation:
+--
+-- * @'lift' . 'return' = 'return'@
+--
+-- * @'lift' (m >>= f) = 'lift' m >>= ('lift' . f)@
+
+class MonadTrans t where
+    -- | Lift a computation from the argument monad to the constructed monad.
+    lift :: (Monad m) => m a -> t m a
+
+---
+
+instance MonadTrans Trampoline where
+  lift :: (Monad m) => m a -> t m a
+  lift = Trampoline . liftM Right
+
+so, this (lifted value) is just a Right-case of Either, lifted into the m-monad [IO] and then wrapped as a Trampoline.
+
+
+
+
+pause :: Monad m => Trampoline m ()
+pause = Trampoline (return $ Left $ return ())
+
+??? what are the both return ???
+    the first one is the m-monad [IO] return.
+    the second one is the Trampoline return:
+
+        instance Monad m => Monad (Trampoline m) where
+            return  = Trampoline . return . Right
+
+
+
+run :: Monad m => Trampoline m r -> m r
+run t = bounce t >>= either run return
+
+??? Here both the >>= and return seems to be from the monad-m [IO].
+
+---
+
+
+
+Though all examples in this article will be using the IO monad for brevity, keep
+in mind that this is a monad transformer which can be applied to any monad whatsoever.
+
+The most interesting thing the trampoline transformer gives us is the ability to run multiple interleaved computations.
+The function mzipWith defined below.
+
+I find it more practical than plain mzip [5] - interleaves two trampolines, and then we use it to interleave an arbitrary number of them.
+
+mzipWith :: Monad m => (a -> b -> c) -> Trampoline m a -> Trampoline m b -> Trampoline m c
+mzipWith f t1 t2 = Trampoline (liftM2 bind (bounce t1) (bounce t2))
+  where
+    bind (Left a)  (Left b)  = Left  (mzipWith f a b)
+    bind (Left a)  (Right b) = Left  (mzipWith f a (return b))
+    bind (Right a) (Left b)  = Left  (mzipWith f (return a) b)
+    bind (Right a) (Right b) = Right (f a b)
+
+    interleave :: Monad m => [Trampoline m r] -> Trampoline m [r]
+    interleave = foldr (mzipWith (:)) (return [])
+
+When we apply interleave to a list of trampolines, it combines them all into a single trampoline that bounces all the computations together.
+I wish I had an appropriate video to insert here, but the best I can offer is this GHCi output:
+
+*Main> run $ interleave [hello, hello, hello]
+Hello, Hello, Hello, World!
+World!
+World!
+[(),(),()]
+
+If the base monad happens to support parallel execution, we have the option of bouncing all the trampolines in parallel instead of interleaving them.
+All we need to do is import the liftM2 function from the monad-parallel package [6] instead of using the default one from base.
+
+The amount of parallelism we can gain this way depends on how close the different trampolines' bounces are to each other in duration.
+The function interleave will wait for all trampolines to complete their first bounces before it initiates their second bounces.
+This is cooperative, rather than preemptive multi-tasking.
+
+Because of their ability of interleaved execution, trampoline computations are
+an effective way to implement coroutines, and that is what we'll call them from now on.
+
+Note, however, that the hello coroutines we have run are completely independent.
+
+This is comparable to an operating system running many sandboxed processes completely unaware of each other.
+Though the processes are concurrent, they cannot cooperate.
+Before we remedy this failing, let's take a closer look at what a coroutine can accomplish during the pause.

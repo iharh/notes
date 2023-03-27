@@ -1,0 +1,8 @@
+I prefer the next update scenario:
+
+update-core
+pacman --needed -Sy bash pacman pacman-mirrors msys2-runtime
+
+restart
+
+pacman -Su

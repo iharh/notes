@@ -1,0 +1,24 @@
+http://stackoverflow.com/questions/1261975/addressing-localhost-from-a-virtualbox-virtual-machine
+
+10.0.2.2
+    ?? host
+
+10.0.2.3
+http://serverfault.com/questions/453185/vagrant-virtualbox-dns-10-0-2-3-not-working
+
+DNS
+    natdnshostresolver1
+
+Host-Only
+
+IpV6 Address:
+fe80:0000:0000:0000:0800:27ff:fe00:0000
+
+IpV6 Network Mask Length
+64
+
+
+systemctl restart networkmanager
+systemctl restart network
+ifdown <devicename, e.g. enp0s8>
+ifup <devicename, e.g. enp0s8>

@@ -1,0 +1,43 @@
+https://codepen.io/felipekm/pen/odpln
+
+html(pug)
+div(class='container')
+  h1 Drag it around
+  svg(class='svg')
+
+css(stylus)
+$general-color = #1165AE
+
+.container
+  height 1000px
+  h1
+    font-family 'Roboto'
+    color $general-color
+    border-bottom $general-color 1px solid
+  .svg
+    width 100%
+    height 100%
+    &:active
+      cursor url(https://ssl.gstatic.com/ui/v1/icons/mail/images/2/openhand.cur), default !important
+
+js
+var s = Snap(".svg");
+var myCircle = s.circle(150, 150, 100);
+
+myCircle.attr({
+  fill : '#1165AE',
+  stroke : 'blue',
+  strokeWidth : '2'
+});
+
+var aLoop = function(r) {
+  var newR = r === 50 ? 100 : 50;
+  myCircle.animate({r : r}, 1500, function () {
+    //Callback
+    aLoop(newR);
+  });
+}
+
+myCircle.drag();
+aLoop(50);
+

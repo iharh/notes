@@ -1,0 +1,49 @@
+2023
+https://linuxhandbook.com/ufw-logs/
+2022
+https://linuxhandbook.com/close-open-ports/
+2021
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04
+
+
+pacman -Ss gufw
+
+sudo ufw
+    status [numbered|verbose]
+    disable
+    reload
+    reset
+
+    allow <RULE>
+        <port>[/<proto>]
+    deny <RULE>
+
+    app
+        list
+        default <arg>
+        info <profile>
+        update <profile>
+
+    logging
+        on
+        <logging_level>
+            off|low|medium|high|full
+        less /var/log/ufw.log
+
+cfg-file:
+    /etc/default/ufw
+
+misc
+TCP port check:
+nc -w 10 -vz a.b.c.d 443
+
+HTTPS check:
+timeout 10 curl -I https://a.b.c.d
+
+
+80                         ALLOW       Anywhere                  
+8443                       ALLOW       Anywhere                  
+9000                       ALLOW       Anywhere                  
+80 (v6)                    ALLOW       Anywhere (v6)             
+8443 (v6)                  ALLOW       Anywhere (v6)             
+9000 (v6)                  ALLOW       Anywhere (v6)

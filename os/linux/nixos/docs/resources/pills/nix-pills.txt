@@ -1,0 +1,1 @@
+https://nixos.org/guides/nix-pills/

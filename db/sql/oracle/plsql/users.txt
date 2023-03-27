@@ -1,0 +1,59 @@
+select username from all_users;
+select username from dba_users;
+
+function sp_grant_privileges
+
+grant_system_privilages_template
+
+check
+-- the v$pwfile_users view contains a list of all users who have been granted the SYSDBA or SYSOPER privilege.
+select * from v$pwfile_users;
+-- dba-users
+select * from dba_role_privs where granted_role='DBA'; 
+
+grant
+https://chartio.com/resources/tutorials/how-to-create-a-user-and-grant-permissions-in-oracle/
+https://docs.oracle.com/cd/B28359_01/server.111/b28286/statements_9013.htm#SQLRF01603
+
+?
+
+grant execute on sys.dbms_crypto to SYSTEM with grant option;
+grant execute on sys.dbms_crypto to lin_ss;
+
+check all grants
+https://stackoverflow.com/questions/1298473/how-can-i-list-all-grants-a-user-received
+
+select privilege, admin_option from sys.dba_sys_privs where grantee = 'CB_SETUP'; --upcase is important
+PRIVILEGE                                ADM
+---------------------------------------- ---
+CREATE JOB                               YES
+QUERY REWRITE                            YES
+DROP USER                                YES
+CREATE TRIGGER                           YES
+ANALYZE ANY                              YES
+CREATE TABLESPACE                        NO 
+CREATE MATERIALIZED VIEW                 YES
+ALTER SESSION                            YES
+CREATE ANY TRIGGER                       NO 
+CREATE VIEW                              YES
+CREATE ANY TABLE                         NO 
+UNLIMITED TABLESPACE                     YES
+ALTER SYSTEM                             YES
+CREATE SEQUENCE                          YES
+CREATE SESSION                           YES
+SELECT ANY DICTIONARY                    YES
+CREATE TABLE                             YES
+CREATE USER                              YES
+
+select privilege, granted_role, rp.admin_option, default_role from dba_role_privs rp join role_sys_privs rsp on (rp.granted_role = rsp.role) where rp.grantee = 'CB_SETUP' order by 1;
+PRIVILEGE                                GRANTED_ROLE                   ADM DEF
+---------------------------------------- ------------------------------ --- ---
+CREATE CLUSTER                           RESOURCE                       YES YES
+CREATE INDEXTYPE                         RESOURCE                       YES YES
+CREATE OPERATOR                          RESOURCE                       YES YES
+CREATE PROCEDURE                         RESOURCE                       YES YES
+CREATE SEQUENCE                          RESOURCE                       YES YES
+CREATE SESSION                           CONNECT                        YES YES
+CREATE TABLE                             RESOURCE                       YES YES
+CREATE TRIGGER                           RESOURCE                       YES YES
+CREATE TYPE                              RESOURCE                       YES YES

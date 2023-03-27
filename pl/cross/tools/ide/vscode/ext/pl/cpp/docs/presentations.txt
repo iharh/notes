@@ -1,0 +1,62 @@
+2021
+VSCode - Getting started with C++ in VS Code of 33:02
+    https://www.youtube.com/watch?v=dSGW-DLMnUc
+    ! need to look
+Reid - Collaborative C++ Development with VS Code of 1:00:15
+    https://www.youtube.com/watch?v=V0-FvJkCB-g
+CodeVault - Compile and run C code using Visual Studio Code (2021) 01:00 of 15:50
+    https://www.youtube.com/watch?v=N5GhV8K8DI
+    ! using mingw at win
+    ! cppvsdbg
+CodeVault - Visual Studio Code for C/C++ on Linux of 13:03
+    https://www.youtube.com/watch?v=9pjBseGfEPU
+    ! use "Open Folder" instead of "Create Workspace"
+    ! C-S-B - to build command call (.vscode/tasks.json)
+    ! .vscode/launch.json - "program"
+        "prelauchTask" : "<label"
+    followup - How do I run and compile my C code? of 07:00 of 14:19
+        https://www.youtube.com/watch?v=n_gcsuGKD58
+        ! access another linux box remotely (via browser)
+        ! https://github.com/cdr/code-server
+        !!! install with vsix
+LearningLad - How to set up Visual Studio Code for Executing and Debugging C++ Programs 00:00 of 30:10
+    https://www.youtube.com/watch?v=rgCJbsCSARM
+2020
+ITAndFreelance - VSCode Set Up and Plugins ru 0:00 of 1:05:15
+    https://www.youtube.com/watch?v=nxCLXMBl4e4
+Reid - C++ Development with Visual Studio Code of 35:59
+    https://www.youtube.com/watch?v=WqXrYfSKJXk
+    https://www.youtube.com/watch?v=bK882S9ESpo
+    ! samples of: find, rename
+    ! CMake Tools ext (at appropriate tab)
+    ! vcpkg stuff
+GottaBeGeek - C/C++ in Visual Studio Code for Beginners 03:00 of 22:17
+    https://www.youtube.com/watch?v=522VxAk4GoI
+    !!! https://code.visualstudio.com/docs/cpp/config-mingw
+    ! mingw at win
+Fraser - Install and Run C++ in Visual Studio Code (Linux) of 13:42
+    https://www.youtube.com/watch?v=BEJUdkPemYY
+    ! inst code via snap for Ubuntu
+    ! gdb-config for debugging (.vscode/launch.json)
+SavvyNik - C++ Tutorial for Beginners - Complete Guide to Programming in C++ using Visual Studio Code on Linux 02:00 of 3:31:28
+    https://www.youtube.com/watch?v=FcYs8wtzjVE
+    SavvyNik - C++ Tutorial for Beginners #1: Visual Studio Code Programming Setup & Use 07:00 of 17:11
+        https://www.youtube.com/watch?v=pu1XNDwQPl0
+        ! CodeRunner ext
+CyberHaus - VSCode Cpp Tuning ru of 12:36
+    https://www.youtube.com/watch?v=-vdQqoVrjkw
+    ! mingw at win
+LearningLad - How to Set up Visual Studio Code for C and C++ Programming
+    https://www.youtube.com/watch?v=77v-Poud_io
+    ! mingw at win
+    ! settings -> run in terminal
+2019
+Raj - What's New in Visual Studio Code
+    https://www.youtube.com/watch?v=TC10i_U4qCo
+2018
+Lu - C++ Development with Visual Studio Code (8:00 of)
+    https://www.youtube.com/watch?v=UHS-aenkPPg
+https://habr.com/company/microsoft/blog/333680/
+Bartolesi - Work with C++ on Mac, Linux and Windows with Visual Studio Code
+    https://www.youtube.com/watch?v=Kma6g3EsiE4
+    https://github.com/italiancpp/itcppcon18/blob/master/Work%20with%20C%2B%2B%20on%20Mac%20Linux%20and%20Windows%20with%20Visual%20Studio%20Code%20-%20Emanuele%20Bartolesi.pdf

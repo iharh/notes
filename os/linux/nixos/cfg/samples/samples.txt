@@ -1,0 +1,51 @@
+2020
+https://www.reddit.com/r/NixOS/comments/jju2xg/unable_to_find_vimplugins_after_switchiing_to/
+https://medium.com/the-script-group/introduction-to-nixos-a9dac91399a7
+    https://del.dog/gotenksnixos.nix
+https://gitlab.com/10leej/nixos
+    https://www.youtube.com/watch?v=t50WxobLzAY
+    https://gitlab.com/10leej/nixos/-/blob/main/configuration.nix
+2019
+https://hugoreeves.com/posts/2019/nix-home/
+2014
+https://github.com/chaoflow/nixos-configurations
+    https://www.linux.org.ru/news/linux-general/10443946
+????
+https://github.com/zarMarco/nixos/blob/master/nixos-config/configuration.nix
+http://nequissimus.com/DevSetup/
+http://nequissimus.com/DevSetup/config-basic/
+https://github.com/NeQuissimus/DevSetup
+https://github.com/NeQuissimus/DevSetup/blob/master/p320.nix
+https://catgirl.ai/log/nixos-experience/
+    https://git.catgirl.ai/ext0l/nixos-config
+    https://git.catgirl.ai/ext0l/nixos-config/src/branch/master/awesome
+    https://git.catgirl.ai/ext0l/nixos-config/src/branch/master/configuration.nix
+        ! luks
+
+
+https://git.project-insanity.org/onny/nixos-lappy
+    20.09
+
+https://github.com/evanjs/nixos_cfg
+    ! from nixos release manager
+    
+https://github.com/srghma/dotfiles
+https://gitlab.com/samueldr/nixos-configuration
+https://gitlab.com/atemu/nixos-config
+https://github.com/bbigras/nix-config
+    https://github.com/lovesegfault/nix-config
+https://github.com/foo-dogsquared/nixos-config
+
+good modularity
+    https://github.com/MattPColeman/dotfiles/tree/master/nixos
+    https://github.com/LEXUGE/nixos
+
+https://github.com/fzakaria/nix-home
+https://github.com/mjlbach/nix-dotfiles
+https://github.com/terlar/nix-config
+https://github.com/Maxwell-lt/machine-configuration
+https://github.com/sherubthakur/dotfiles-NixOS
+
+multi-repo
+https://github.com/pinpox/nixos
+https://github.com/pinpox/nixos-home

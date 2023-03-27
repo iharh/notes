@@ -1,0 +1,57 @@
+ - Intake: Taking the pain out of data access 
+ 
+Martin Durant, an Anaconda OS Developer came to present a new package  called intake that is supposed to optimize data management et data interaction depending the users priority. In a company, the data provider, the data scientist, the IT responsible for data security and different teams may have very different concerns about the way the data is supposed to be managed. Intake enable the management of data across multiple teams depending on their priority by the mean of a cataloging system using YAML syntax.
+ 
+Please take the time to read this web page  (specially the bottom  parts: Data Engineer & Developer ) where it explains how it can address different concerns:
+ 
+https://www.anaconda.com/blog/developer-blog/intake-taking-the-pain-out-of-data-access/
+ 
+-uArray: Efficient and Generic Array Computation (a subject to keep an eye on)
+ 
+This talk was presented by Travis E. Elephant (founder of Numpy)  and Saul Shanabrook (did a technical demonstration).
+ 
+Travis started to explaining how Numpy impacted the Python community during the last decade. However, this library has been coded more than 10 years ago when the needs and the hardware were very different. Today, with the advent of IOT, Machine Learning, AI and new data analysis process many new libraries have implement their own array computation optimization. Therefore, we are starting to witness a divided community which makes everybody’s work harder.
+ 
+The goal of uArray is to enable a high level implementation of array computation for today’s need. It’s work will be closely linked with XND which is the low level implementation that could be integrated in different packages and different languages. 
+ 
+Please read the XND page first: https://xnd.io/ (short read)
+ 
+The uArray Git: https://github.com/Quansight-Labs/uarray 
+ 
+uArray is at a foundation stage. They hope to have good progress within 18 months and hope to reach their goal in 3 years.
+They are looking for contributors.
+ 
+ 
+-Words in Space: A Visual Exploration of Distance, Documents, and Distributions for Text Analysis
+ 
+This talk was presented by Rebecca Bilbro, the head of data science at ICX Media. YellowBrick is based on scikit-learn and matplotlib. It is a tool designed to facilitate visualization about our models. For examples, it can be useful to have some visualization in order to access which model performs better and why. A lot of work has been done for NLP since Rebecca does a lot of NLP related work and she is a strong contributor to YellowBrick. 
+ 
+http://www.scikit-yb.org/en/latest/index.html
+ 
+-Accelerating data science with RAPIDS (END TO END PIPELINE ACCELERATION)
+ 
+Keith Kraus who works for NVIDIA came to present RAPIDS.
+He started his talk by explaining how Spark improved Hadoop implementing the in-memory processing. However, nowadays, Spark is reaching its limitation. It’s getting bottle-necked on the CPU level. 
+NVIDIA realized that they could optimize everything by optimizing the entire data science pipeline. Therefore, they invented an open source collection of libraries that is supposed to be faster not only for the model training but also for data processing and data loading. It can improve the end to end performance of a pipeline by a factor 50 sometimes. It is new and more updates are to come very soon. 
+ 
+https://developer.nvidia.com/rapids
+https://rapids.ai/
+https://nvidianews.nvidia.com/news/nvidia-introduces-rapids-open-source-gpu-acceleration-platform-for-large-scale-data-analytics-and-machine-learning
+ 
+-Pachyderm
+ 
+Pachyderm was introduced to us by one of its employee Nick Harvey.
+Pachyderm offers a version controlling of the data (like git) and enables the scaling of data pipelines. 
+It works with kubernetes and dockers. Someone can develop a data pipeline in a container and pachyderm will take care of running it in a distributed way. The developer can write a single threaded code and Pachyderm will distribute the processing and run it on the right hardware. 
+ 
+http://www.pachyderm.io/open_source.html
+https://github.com/pachyderm/pachyderm
+ 
+ 
+Overall, I have the feeling that there will be a lot of development in the domains of optimization of array computation (according to Travis, Google is working on something too).I also think that having the same standards for data management than for code management is getting more importance.  Visualization is getting new tools ( YellowBrick and Matplotlib 3.0).
+ 
+https://matplotlib.org/users/whats_new.html
+ 
+All the conferences were recorded and will be available on youtube in two weeks.
+ 
+There was a talk about transfer learning in NLP but it stayed at a very high level. At the end of the presentation, I went to talk to the lady and asked her opinion about BERT but she was clueless. She didn’t know that it existed. During her presentation, she was implementing ELMO.

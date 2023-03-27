@@ -1,0 +1,51 @@
+https://matplotlib.org
+
+https://github.com/matplotlib/matplotlib
+
+https://matplotlib.org/gallery.html
+
+tutorials
+https://matplotlib.org/tutorials/index.html
+https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python
+
+cheatsheet
+https://www.datacamp.com/community/blog/python-matplotlib-cheat-sheet
+https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Matplotlib_Cheat_Sheet.pdf
+https://github.com/donnemartin/data-science-ipython-notebooks/blob/master/matplotlib/matplotlib.ipynb
+
+axes
+https://matplotlib.org/api/axes_api.html
+https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.plot.html
+https://www.labri.fr/perso/nrougier/teaching/matplotlib/
+
+xtick
+https://matplotlib.org/examples/ticks_and_spines/ticklabels_demo_rotation.html
+https://stackoverflow.com/questions/26358200/xticks-by-pandas-plot-rename-with-the-string
+https://jakevdp.github.io/PythonDataScienceHandbook/04.10-customizing-ticks.html
+
+ticker
+https://matplotlib.org/api/ticker_api.html
+
+formatter
+https://matplotlib.org/gallery/api/date_index_formatter.html
+https://matplotlib.org/gallery/ticks_and_spines/date_index_formatter.html
+
+plotting categorical
+https://matplotlib.org/gallery/lines_bars_and_markers/categorical_variables.html
+
+import matplotlib.pyplot as plt
+
+data = {'apples': 10, 'lemons': 5, 'limes': 20, 'oranges': 15}
+names = list(data.keys())
+values = list(data.values())
+
+%mathplotlib inline
+plt.plot(names, values)
+
+subplots
+https://pandas.pydata.org/pandas-docs/stable/visualization.html#subplots
+
+defaults
+import matplotlib.pyplot as plt
+print(plt.rcParams) # to examine all values
+print(plt.rcParams.get('figure.figsize')

@@ -1,0 +1,40 @@
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import ...Role;
+import ...User;
+
+public class UserDetailsImpl implements UserDetails {
+    private final User user;
+    private final Role[] roles;
+    private final List<GrantedAuthority> arrayAuths;
+
+    public UserDetailsImpl(User user, Role[] roles) {
+        this.user = user;
+        this.roles = roles.clone();
+        this.arrayAuths = new ArrayList();
+        for (Role role : roles) {
+            arrayAuths.add(new SimpleGrantedAuthority(role.getName()));
+        }
+    }
+    public User getUser() {
+            return user;
+    }
+    public Role[] getRoles() {
+            return roles.clone();
+    }
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+            return new ArrayList<>(arrayAuths);
+    }
+    public String getPassword() {
+            return user.getPassword();
+    }
+    public String getUsername() {
+            return user.getLogin();
+    }
+    ...
+    public boolean isEnabled() {
+            return user.isEnabled();
+    }
+}

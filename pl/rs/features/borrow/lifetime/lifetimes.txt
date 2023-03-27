@@ -1,0 +1,71 @@
+books
+https://doc.rust-lang.org/stable/book/second-edition/ch19-02-advanced-lifetimes.html
+https://doc.rust-lang.org/book/second-edition/ch10-03-lifetime-syntax.html
+
+articles
+2018
+https://phaazon.net/blog/rust-traits-privacy
+    https://www.reddit.com/r/rust/comments/a0qu4f/rust_traits_and_their_lack_of_privacy/
+https://lukaskalbertodt.github.io/2018/08/03/solving-the-generalized-streaming-iterator-problem-without-gats.html
+https://mark-simulacrum.github.io/2018/07/19/inband-lifetimes.html
+    https://www.reddit.com/r/rust/comments/92bof7/exploring_inband_lifetimes_by_converting_librustc/
+http://www.squidarth.com/rc/rust/2018/06/04/rust-concurrency.html
+https://www.reddit.com/r/rust/comments/8jd43f/ownership_and_data_structures_that_arent_trees/
+https://matklad.github.io/2018/05/04/encapsulating-lifetime-of-the-field.html
+    https://www.reddit.com/r/rust/comments/8h2kt5/blog_post_encapsulating_lifetime_of_the_field/
+    https://users.rust-lang.org/t/dealing-with-references-to-references/14065/4
+http://asquera.de/blog/2018-01-29/rust-lifetimes-for-the-uninitialised/
+https://jvns.ca/blog/2017/11/27/rust-ref/
+https://dev.to/buntine/aha-understanding-lifetimes-in-rust
+https://chrismorgan.info/blog/rust-ownership-the-hard-way.html
+https://boats.gitlab.io/blog/post/2018-01-25-async-i-self-referential-structs/
+https://boats.gitlab.io/blog/post/2018-01-30-async-ii-narrowing-the-scope/
+https://boats.gitlab.io/blog/post/2018-01-30-async-iii-moving-forward/
+
+https://users.rust-lang.org/t/lifetime-specifier-question/6295/8
+
+reddit:
+https://www.reddit.com/r/rust/comments/8t5cas/rust_2018_an_early_preview/
+https://www.reddit.com/r/rust/comments/8pve6h/paint_me_a_lifetime_please/
+https://www.reddit.com/r/rust/comments/3tfsz1/im_reading_the_book_the_lifetimes_part_is_very/
+https://www.reddit.com/r/rust/comments/64zhjo/why_do_we_need_explicit_lifetimes/
+https://www.reddit.com/r/rust/comments/6w0r0m/lifetimes_of_structs/
+
+samples:
+http://rust.fastmail.com.user.fm/2017/02/rusty-buffers/
+
+pub struct Buffer { vec: Vec<u8> }
+
+impl Buffer {
+    pub fn new() -> Buffer { Buffer { vec: Vec::new(), } }
+
+    pub fn buf<'a: 'b, 'b>(&'a mut self, more: &'b [u8]) -> Buf<'b> {
+        if self.vec.is_empty() {
+            Buf::Empty(&mut self.vec, more)
+        } else {
+            self.vec.extend_from_slice(more);
+            Buf::Some(&mut self.vec)
+        }
+    }
+}
+
+The lifetimes (<'a: 'b, 'b>) are a bit gnarly because the compiler must be told that
+the returned Buf has the same lifetime as the input buffer
+which may be shorter than the lifetime of the Buffer.
+
+explanation
+https://gist.github.com/eddyb/1ebf928307a44ea64f6e
+'a is a lifetime parameter.
+Generic functions and types in Rust can have both type parameters and lifetime paramters  
+Lifetime parameters are used to track how long data behind references is valid for  
+You need them when storing references in structures or enums that you define  
+For example, holding a vector of string slices requires you to do the following:
+    struct BagOfStrings<'a> { strings: Vec<&'a str> }
+without the 'a parameter, Rust would not be able to distinguish between
+    BagOfStrings<'static>
+        which may contain only `&'static str` (e.g. string literals) and
+    BagOfStrings<'some_stack_scope>
+        which may have `&str`'s pointing into a `String` on the stack  
+
+ArgumentLifetimes:
+https://github.com/rust-lang/rfcs/blob/master/text/2115-argument-lifetimes.md

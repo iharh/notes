@@ -1,0 +1,54 @@
+?
+from/defer
+assembleOn
+
+articles:
+http://musigma.org/java/2016/11/21/reactor.html
+
+Suppose we wish to convert a collection into a Flux.
+Perhaps obtaining the collection is expensive, so we defer looking it up until necessary.
+In this case, we’ll also specify a Scheduler so that we don’t block our main thread.
+This scenario is a fast subscriber but slow publisher:
+
+Flux<Person> asyncPersonLookup(PersonRepository repository) {
+    return Flux.defer(() -> Flux.fromIterable(repository.findAll()))
+        .subscribeOn(Schedulers.elastic());
+}
+
+In the reverse scenario, suppose we have a fast publisher and a slow subscriber such as storing a record in a database.
+Using a Flux for the publisher, we can publish on a separate Scheduler.
+Since we’ll be saving data, we’ll just return a Mono<Void> to indicate when the stream has finished processing:
+
+Mono<Void> asyncSavePersons(Flux<Person> flux, PersonRepository repository) {
+    return flux.publishOn(Schedulers.parallel())
+        .doOnNext(repository::save)
+        .then();
+}
+
+??? why do we use defer instead of from ? block/non-block
+
+
+so:
+http://stackoverflow.com/questions/41939335/using-both-publishon-and-subscribeon-on-a-flux-results-in-nothing-happening
+http://stackoverflow.com/questions/36126999/concurrent-processing-of-project-reactors-flux
+    SchedulerGroup -> Schedulers
+
+api:
+https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html
+https://github.com/reactor/reactor-core/blob/master/src/main/java/reactor/core/scheduler/Schedulers.java
+
+https://github.com/reactor/lite-rx-api-hands-on/blob/master/src/test/java/io/pivotal/literx/Part11BlockingToReactive.java
+
+/**
+ * Learn how to call blocking code from Reactive one with adapted concurrency strategy for
+ * blocking code that produces or receives data.
+ *
+ * For those who know RxJava:
+ *  - RxJava subscribeOn = Reactor subscribeOn
+ *  - RxJava observeOn = Reactor publishOn
+ *
+ * @author Sebastien Deleuze
+ * @see Flux#subscribeOn(Scheduler)
+ * @see Flux#publishOn(Scheduler) // !!! need to start from this
+ * @see Schedulers
+ */

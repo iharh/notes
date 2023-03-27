@@ -1,0 +1,179 @@
+0. Back-bind
+
+-- Same as '>>=', but with the arguments interchanged.
+(=<<)   :: Monad m => (a -> m b) -> m a -> m b
+f =<< x  = x >>= f
+
+
+1. liftM, ap
+
+liftM :: (Monad m) => (a -> b) -> m a -> m b
+liftM f m = do { x <- m; return (f x) }
+liftM f m = m >>= (\x -> return (f x))
+
+[ fmap :: (Functor f) => (a -> b) -> f a -> f b ]
+
+liftM2 :: Monad m => (a1 -> a2 -> r) -> m a1 -> m a2 -> m r
+liftM2 f m1 m2 = do { x1 <- m1; x2 <- m2; return (f x1 x2) }
+
+[ liftA2 :: (Applicative f) => (a -> b -> c) -> f a -> f b -> f c ]
+[ liftA2 f x y = f <$> x <*> y ]
+
+Samples:
+limtM2 (,) mv1 mv2 = do { v1 <- mv1; v2 <- mv2; return (v1, 2) }
+
+
+ap :: (Monad m) => m (a -> b) -> m a -> m b
+ap = liftM2 id
+-- ap mf m = do { f <- mf; x <- m; return (f x) }
+
+>       return f `ap` x1 `ap` ... `ap` xn
+is equivalent to 
+>       liftMn f x1 x2 ... xn
+
+ap is a monadic equivalent of $ (<*> of Applicative).
+
+
+2. when, unless (conditional)
+
+when :: (Monad m) => Bool -> m () -> m ()
+when p s =  if p then s else return ()
+
+> when debug (putStr "Debugging\n")
+
+
+unless :: (Monad m) => Bool -> m () -> m ()
+unless p s =  if p then return () else s
+
+
+[ <*>) :: (Applicative f) => f (a -> b) -> f a -> f b ]
+
+We can derive Applicative from Monad (pure is return, <*> is ap)
+
+
+3. join
+
+join :: (Monad m) => m (m a) -> m a
+join mm = do { m <- mm; m }
+join mm = mm >>= id
+
+
+> join [[1, 2, 3], [4, 5, 6]]
+[1, 2, 3, 4, 5, 6]
+
+For [] monad, join is just a concat
+
+-------------------------
+m >>= f = join (fmap f m)
+join mm = mm >>= id
+-------------------------
+
+
+4. filterM
+
+[ filter :: (a -> Bool) -> [a] -> [a] ]
+
+filterM :: (Monad m) => (a -> m Bool) -> [a] -> m [a]
+filterM _ []     = return []
+filterM p (x:xs) = do { flg <- p x; ys  <- filterM p xs; return (if flg then x:ys  else ys) }
+
+powerset :: [a] -> [[a]]
+powerset xs = filterM (\x -> [True, False]) xs
+
+> powerset [1, 2, 3]
+[[1, 2, 3], [1, 2], [1, 3], [1], [2, 3], [2], [3]]
+
+
+5. foldM
+
+[ foldl :: (a -> b -> a) -> a -> [b] -> a ]
+[ foldl _ z []     =  z                  ]
+[ foldl f z (x:xs) =  foldl f (f z x) xs ]
+
+[ foldr :: (a -> b -> b) -> b -> [a] -> b ]
+[ foldr _ z []     =  z                  ]
+[ foldr f z (x:xs) =  f x (foldr f z xs) ]
+
+-------------------------------------------
+> let f = foldr (.) id [(+1), (*100), (+1)]
+> f 1
+201
+-------------------------------------------
+
+
+foldM :: Monad m => (a -> b -> m a) -> a -> [b] -> m a
+foldM _ a []     = return a
+foldM f a (x:xs) = f a x >>= \fax -> foldM f fax xs
+
+
+6. Kleisly composition of monads (<=< and >=>)
+
+-- | Left-to-right Kleisli composition of monads (monadic functions).
+(>=>) :: Monad m => (a -> m b) -> (b -> m c) -> (a -> m c)
+f >=> g = \x -> f x >>= g
+
+-- | Right-to-left Kleisli composition of monads. @('>=>')@, with the arguments flipped
+(<=<) :: Monad m => (b -> m c) -> (a -> m b) -> (a -> m c)
+(<=<)  = flip (>=>)
+
+-----------------------------------------
+inMany :: Int -> KnightPos -> [KnightPos]
+inMany x start = return start >>= foldr (<=<) return (replicate x moveKnight)
+-----------------------------------------
+
+
+7. sequence
+
+sequence :: Monad m => [m a] -> m [a]
+sequence ms = foldr mcons (return []) ms
+              where mcons p q = p >>= \x -> q >>= \xs -> return (x:xs)
+                             -- do { x <- p; xs <- q; return (x:xs) }
+
+> do { a <- getLine; b <- getLine; c <- getLine; print [a, b, c] }
+is the same as
+> do { rs <- sequence [getLine, getLine, getLine]; print rs }
+
+
+sequence_ :: Monad m => [m a] -> m () 
+sequence_ ms = foldr (>>) (return ()) ms
+
+
+8. mapM
+
+mapM :: Monad m => (a -> m b) -> [a] -> m [b]
+mapM f as = sequence (map f as)
+
+
+mapM_ :: Monad m => (a -> m b) -> [a] -> m ()
+mapM f as = sequence_ (map f as)
+
+putString :: [Char] -> IO ()
+putString = mapM_ putChar s
+
+
+9. zipWithM, mapAndUnzipM
+
+zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith f (a:as) (b:bs) = f a b : zipWith f as bs
+zipWith _ _      _      = []
+
+
+zipWithM :: (Monad m) => (a -> b -> m c) -> [a] -> [b] -> m [c]
+zipWithM f xs ys = sequence (zipWith f xs ys)
+
+zipWithM_ :: (Monad m) => (a -> b -> m c) -> [a] -> [b] -> m ()
+zipWithM_ f xs ys = sequence_ (zipWith f xs ys)
+
+
+unzip :: [(a, b)] -> ([a], [b])
+unzip =  foldr (\(a,b) ~(as,bs) -> (a:as,b:bs)) ([],[])
+
+mapAndUnzipM :: Monad m => (a -> m (b, c)) -> [a] -> m ([b], [c])
+mapAndUnzipM f xs = sequence (map f xs) >>= return . unzip
+
+
+10. forever
+
+forever :: (Monad m) => m a -> m b
+forever a = a >> forever a
+

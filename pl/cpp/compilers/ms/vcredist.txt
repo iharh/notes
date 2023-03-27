@@ -1,0 +1,43 @@
+2005
+8.0.61000
+x64
+
+2008
+9.0.30729 - x64
+9.0.30729.4974 - x86
+9.0.30729.6161 - x64/x86
+
+2010
+10.0.40219 - x64/x86
+https://www.microsoft.com/en-us/download/details.aspx?id=14632
+https://www.microsoft.com/en-us/download/details.aspx?id=8328
+
+2013
+12.0.21005 x64/x86
+https://www.microsoft.com/en-gb/download/details.aspx?id=40784
+? msvcp120.dll
+
+2015
+14.0.24210 - x64/x86
+?
+14.0.24123 - x64/x86
+https://www.microsoft.com/en-us/download/details.aspx?id=52685
+?
+https://www.microsoft.com/en-us/download/details.aspx?id=48145
+
+2017
+https://aka.ms/vs/15/release/vc_redist.x64.exe
+
+all-in-one
+https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/
+https://chocolatey.org/packages/vcredist-all
+
+chef cookbooks
+https://supermarket.chef.io/cookbooks/vcruntime/
+
+registry
+https://social.msdn.microsoft.com/Forums/office/en-US/64ab36ba-641a-4426-9e05-053f6c8ef737/how-to-determine-whether-msvc-2015-redistributable-32-or-64bit-is-already-installed?forum=vcgeneral
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\11.0\VC\Runtimes\x86 or x64
+
+issues
+https://www.khronos.org/bugzilla/show_bug.cgi?id=1216

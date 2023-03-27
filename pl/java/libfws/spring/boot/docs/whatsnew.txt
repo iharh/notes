@@ -1,0 +1,50 @@
+runtime("org.springframework.boot:spring-boot-properties-migrator")
+
+3.x
+https://medium.com/@nonowak/whats-new-in-spring-boot-3-0-bed0b3ed080f
+https://www.baeldung.com/spring-boot-3-migration
+SpringDeveloper - Long - Spring Tips: the road to Spring Boot 3: Spring Framework 6 0:00 of 28:36
+    https://www.youtube.com/watch?v=aUm5WZjh8RA
+Devoxx - Ahead Of Time and Native in Spring Boot 3 0 by Stéphane Nicoll & Brian Clozel 0:00 of 50:43
+    https://www.youtube.com/watch?v=TS4DpYSmfXk
+https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0
+https://www.baeldung.com/spring-boot-3-spring-6-new
+    https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-3
+https://www.springcloud.io/post/2022-05/springboot-3-0/
+2.7
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.7-Release-Notes
+2.4
+https://spring.io/blog/2020/11/12/spring-boot-2-4-0-available-now
+    https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-Config-Data-Migration-Guide
+2.3
+https://spring.io/blog/2020/06/18/what-s-new-in-spring-boot-2-3
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.3-Release-Notes
+https://spring.io/blog/2020/05/15/spring-boot-2-3-0-available-now
+https://rieckpil.de/whats-new-in-spring-boot-2-3/
+2.2
+https://github.com/spring-projects/spring-boot/releases/tag/v2.2.6.RELEASE
+https://spring.io/blog/2020/02/27/spring-boot-2-2-5-released
+https://spring.io/blog/2020/01/16/spring-boot-2-2-3-released
+    https://github.com/spring-projects/spring-boot/releases/tag/v2.2.3.RELEASE
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes#upgrading-from-spring-boot-21
+https://medium.com/@TimvanBaarsen/whats-new-in-spring-boot-2-2-dab550f664bb
+    https://habr.com/ru/company/otus/blog/475384/
+https://www.infoq.com/news/2019/03/spring-boot-22-milestone
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes
+    https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2.0-M1-Configuration-Changelog
+https://spring.io/blog/2019/03/08/spring-boot-2-2-m1
+https://www.infoq.com/news/2019/03/spring-boot-22-milestone
+2.1
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.1.0-RC1-Release-Notes
+https://spring.io/blog/2018/10/17/spring-boot-2-1-0-rc1-available-now
+2.0
+https://github.com/spring-projects/spring-boot/milestone/109?closed=1
+https://spring.io/blog/2018/05/09/spring-project-vulnerability-reports-published
+https://spring.io/blog/2018/03/01/spring-boot-2-0-goes-ga
+https://spring.io/blog/2018/01/31/spring-boot-2-0-0-rc1-available-now
+http://www.baeldung.com/new-spring-boot-2
+https://www.infoq.com/presentations/spring-boot-2
+https://www.slideshare.net/Pivotal/whats-new-in-spring-boot-20
+    https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide
+    https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-properties-migrator
+    https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0.0-RC1-Release-Notes

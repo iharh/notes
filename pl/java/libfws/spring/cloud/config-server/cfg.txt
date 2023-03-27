@@ -1,0 +1,15 @@
+spring.cloud.config.uri
+
+spring.cloud.config:
+    enabled: true
+    uri: http://localhost:8888
+    username:
+    password:
+    ...
+
+samples
+https://github.com/MarioAriasC/config-service/blob/main/src/main/resources/application.yml
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true

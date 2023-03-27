@@ -1,0 +1,3 @@
+setting.json
+    To disable imports shuffling - you can set the property
+    "java.saveActions.organizeImports": to false

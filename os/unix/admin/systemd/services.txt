@@ -1,0 +1,16 @@
+/usr/lib/systemd/system/graphical.target:
+
+[Unit]
+Description=Graphical Interface
+Documentation=man:systemd.special(7)
+Requires=multi-user.target
+Wants=display-manager.service
+Conflicts=rescue.service rescue.target
+After=multi-user.target rescue.service rescue.target display-manager.service
+AllowIsolate=yes
+
+display-manager.service
+
+/etc/systemd/system/display-manager.service
+->
+/usr/lib/systemd/system/lxdm.service

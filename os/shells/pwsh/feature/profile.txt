@@ -1,0 +1,57 @@
+https://technet.microsoft.com/en-us/library/bb613488(v=vs.85).aspx
+https://blogs.technet.microsoft.com/heyscriptingguy/2012/05/21/understanding-the-six-powershell-profiles/
+https://blogs.technet.microsoft.com/heyscriptingguy/2013/01/04/understanding-and-using-powershell-profiles/
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7
+
+# To display the path to the Windows PowerShell profile, type:
+$profile
+C:\Users\Ihar_Hancharenka\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+
+# To determine whether a Windows PowerShell profile has been created on the system, type:
+# If the profile exists, the response is True; otherwise, it is False.
+test-path $profile
+
+# To create a Windows PowerShell profile file, type:
+new-item -path $profile -itemtype file -force
+
+???
+-Noninteractive -ExecutionPolicy Bypass Noprofile -file %~dp0SomePSScript.ps1
+
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
+
+
+$PROFILE | format-list -force
+
+linux profile
+    ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+
+win 6.x
+~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+# echo "Loading custom PowerShell 6.x env"
+$binhome = "d:/dev/bin" # is it possible to calculate this?
+
+# https://github.com/kelleyma49/PSFzf/blob/master/PSFzf.Functions.ps1
+function j([string] $alias) {
+    $aliasfile = "${binhome}/cmd/util/shell/.wcd/alias.wcd"
+    cat $aliasfile | fzf -i +s -n1 -e -q $alias -0 -1 | foreach-object { $result = $_ }
+    if ($result -ne $null) {
+        $dst = ($result -split " ")[1]
+        set-location $dst
+    }
+}
+
+get-childitem -path $binhome -recurse | where psiscontainer | where {$_.FullName -notlike "*\.*"} |
+foreach-object {
+    $dirname = $_.FullName; $env:PATH="${env:PATH};${dirname}"
+}
+
+function rmrf([string] $folder) {
+    remove-item -recurse -force $folder
+}
+
+# aliases
+new-alias -name l -value get-childitem

@@ -1,0 +1,18 @@
+http://userguide.icu-project.org/packaging
+https://htmlpreview.github.io/?https://github.com/unicode-org/icu/blob/master/icu4c/readme.html
+    mkdir icu4c-build
+    cd icu4c-build
+    ../icu/icu4c/source/runConfigureICU Linux
+    make check
+
+http://userguide.icu-project.org/howtouseicu
+
+
+=== Important Notes: ===
+Data Packaging: static
+ This means: ICU data will be stored in a static library.
+ To locate data: ICU will use the linked data library. If linked with the stub library located in stubdata/, the application can use udata_setCommonData() or set a data path to override.
+Building ICU: Use a GNU make such as make to build ICU.
+checking the version of "make"... 4.3 (we wanted at least 3.80)
+ok
+C++ apps may want to build with CXXFLAGS =  -std=c++11

@@ -1,0 +1,16 @@
+Installation:
+sudo yum install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum -y install docker-ce
+ 
+To prevent unwanted docker upgrades:
+sudo yum-config-manager \
+    --disable \
+    https://download.docker.com/linux/centos/docker-ce.repo
+ 
+Do not start docker-server (or enable it) for now.
+ 
+Then:
+https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/#configure-direct-lvm-mode-for-production

@@ -1,0 +1,25 @@
+https://www.keycloak.org/
+https://www.baeldung.com/tag/keycloak/
+
+mvn
+https://search.maven.org/search?q=a:keycloak-adapter-bom
+https://search.maven.org/artifact/org.keycloak.bom/keycloak-adapter-bom/18.0.2/pom
+    implementation("org.keycloak.bom:keycloak-adapter-bom:18.0.2")
+
+docker
+https://www.keycloak.org/server/containers
+docker run -p 8081:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:17.0.1 start-dev
+
+2023
+https://habr.com/ru/post/724738/
+https://habr.com/ru/post/720070/
+https://habr.com/ru/post/716232/
+2022
+https://www.baeldung.com/spring-boot-keycloak-integration-testing
+2021
+https://www.baeldung.com/spring-boot-keycloak
+https://www.baeldung.com/java-keycloak-custom-user-providers
+https://www.baeldung.com/keycloak-embedded-in-spring-boot-app
+    https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-rest/oauth-authorization-server
+2020
+https://www.baeldung.com/postman-keycloak-endpoints

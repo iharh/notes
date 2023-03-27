@@ -1,0 +1,4 @@
+brew install openssl
+...
+~/.tool-versions
+pg_ctl -D ~/.asdf/installs/postgres/11.17/data -l logfile start

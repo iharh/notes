@@ -1,0 +1,10 @@
+https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
+https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html
+
+web-mvc-test:
+https://springframework.guru/unit-testing-spring-mvc-spring-boot-1-4-part-1/
+
+hang-init:
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/BackgroundPreinitializer.java
+
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/client/MockRestServiceServer.html

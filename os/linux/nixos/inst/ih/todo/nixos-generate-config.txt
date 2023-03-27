@@ -1,0 +1,67 @@
+nixos-generate-config --no-filesystems --show-hardware-config
+
+nixos/modules/installer/tools/tools.nix
+
+# This module generates nixos-install, nixos-rebuild,
+# nixos-generate-config, etc.
+
+{ config, lib, pkgs, ... }:
+
+with lib;
+
+let
+  makeProg = args: pkgs.substituteAll (args // {
+    dir = "bin";
+    isExecutable = true;
+  });
+
+  nixos-build-vms = makeProg {
+    name = "nixos-build-vms";
+    src = ./nixos-build-vms/nixos-build-vms.sh;
+    inherit (pkgs) runtimeShell;
+  };
+
+  nixos-install = makeProg {
+    name = "nixos-install";
+    src = ./nixos-install.sh;
+    inherit (pkgs) runtimeShell;
+    nix = config.nix.package.out;
+    path = makeBinPath [
+      pkgs.jq
+      nixos-enter
+    ];
+  };
+
+  nixos-rebuild = pkgs.nixos-rebuild.override { nix = config.nix.package.out; };
+
+  nixos-generate-config = makeProg {
+    name = "nixos-generate-config";
+    src = ./nixos-generate-config.pl;
+    perl = "${pkgs.perl.withPackages (p: [ p.FileSlurp ])}/bin/perl";
+    nixInstantiate = "${pkgs.nix}/bin/nix-instantiate";
+    detectvirt = "${config.systemd.package}/bin/systemd-detect-virt"; # !!!
+    btrfs = "${pkgs.btrfs-progs}/bin/btrfs";
+    inherit (config.system.nixos-generate-config) configuration desktopConfiguration;
+    xserverEnabled = config.services.xserver.enable;
+  };
+
+
+
+installer/tools/nixos-generate-config.pl
+
+    --root ...
+    !!!
+        --no-filesystems
+    !!!
+        --show-hardware-config
+
+...
+my @attrs = ();
+my @kernelModules = ();
+my @initrdKernelModules = ();
+my @initrdAvailableKernelModules = ();
+my @modulePackages = ();
+my @imports;
+...
+my $virt = `/nix/store/xhdxx70inipwzif62dq7m3p3acpq9hcg-systemd-252.5/bin/systemd-detect-virt`;
+    # in my case -> kvm

@@ -1,0 +1,2 @@
+https://www.jetbrains.com/help/idea/maven-support.html
+    just use package instead of install goal in order to skip int-tests

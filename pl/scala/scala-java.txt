@@ -1,0 +1,14 @@
+http://docs.scala-lang.org/overviews/collections/conversions-between-java-and-scala-collections.html
+http://www.scala-lang.org/api/current/scala/collection/JavaConverters$.html
+
+import scala.collection.JavaConverters._
+
+??? obsolete ???
+//import scala.collection.JavaConversions._
+
+
+https://github.com/scala/scala-java8-compat
+https://github.com/scalaj/scalaj-collection
+
+//config.entrySet().asScala.foreach { log.info("e: {}", _) }
+

@@ -1,0 +1,192 @@
+Motivation:
+http://antilamer.livejournal.com/288854.html
+http://13-49-ru.blogspot.com/2011/06/2.html
+http://habrahabr.ru/blogs/java/122665/
+http://habrahabr.ru/blogs/Haskell/124270/
+
+General:
+http://igstan.ro
+http://kchri.narod.ru/lecs.pdf
+
+Scala:
+http://www.slideshare.net/jboner/pragmatic-real-world-scala-45-min-presentation
+
+Haskell:
+http://haskell.org/haskellwiki/Introduction
+http://www.slideshare.net/TiagoBabo/haskell-being-lazy-with-class
+
+http://docs.google.com/fileview?id=0B8QbnXA7SzxSNzY1YTJmZTQtMWE2Mi00YTFlLWJlM2ItYmU1ZjA5ZmFkYjBh&hl=ru
+
+http://ru.wikibooks.org/wiki/%D0%A1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D1%8B_%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0_Haskell
+
+http://ru.wikibooks.org/wiki/%D0%AF%D0%B7%D1%8B%D0%BA_Haskell:_%D0%9E_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%B5_%D0%B8_%D0%B2%D1%80%D0%B5%D0%B4%D0%B5_%D0%BB%D0%B5%D0%BD%D0%B8
+
+Fokker - Tree Oriented Programming slides
+http://www.cs.uu.nl/wiki/bin/viewfile/Swierstra/ResearchTalks?rev=1.1;filename=tree-oriented-programming-slides.pdf
+
+http://eax.me/eaxcast-s01e02/
+
+Haskell Books:
+
+Hutton - Programming in Haskell (link is available at http://pv.bstu.ru/?topic=flp)
+Lipovaca - Learn You a Haskell (http://learnyouahaskell.com)
+OSullivan - Real World Haskell (http://book.realworldhaskell.org)
+Kholomiov - Haskell Book ru (http://anton-k.github.io/ru-haskell-book/book/home.html)
+Marlow - Parallel and Concurrent Programming in Haskell (All except Ch 3-6)
+
+Folds, Monoids, Homomorphisms:
+
+http://software.intel.com/ru-ru/articles/reduce-intel-cilk-plus/
+http://habrahabr.ru/blogs/programming/126275/
+http://habrahabr.ru/blogs/algorithm/112394/
+
+
+Monads:
+
+http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html
+
+YetAnotherMonadTutorial
+http://mvanier.livejournal.com/3917.html
+http://mvanier.livejournal.com/4305.html
+http://mvanier.livejournal.com/4586.html (monadic functions composition using >=> operator)
+http://mvanier.livejournal.com/4647.html
+http://mvanier.livejournal.com/5103.html
+http://mvanier.livejournal.com/5343.html
+http://mvanier.livejournal.com/5406.html
+http://mvanier.livejournal.com/5846.html
+
+Milewski:
+http://bartoszmilewski.com/2011/01/09/monads-for-the-curious-programmer-part-1/
+http://bartoszmilewski.com/2011/03/14/monads-for-the-curious-programmer-part-2/
+http://bartoszmilewski.com/2011/03/17/monads-for-the-curious-programmer-part-3/
+http://bartoszmilewski.com/2009/10/21/what-does-haskell-have-to-do-with-c/
+
+YAMT russian
+http://habrahabr.ru/blogs/Haskell/127556/
+http://habrahabr.ru/blogs/Haskell/128070/
+http://habrahabr.ru/blogs/Haskell/128538/
+http://habrahabr.ru/blogs/Haskell/129909/
+
+CowboyHaskellMonadTutorial
+http://www.muitovar.com/monad/moncow.html
+
+Klinger-TheHaskellProgrammersGuideToIOMonad 
+
+http://stefan-klinger.de/files/monadGuide.pdf (We just need this 34 pages of Category Theory in order to understand monads)
+
+Yorgey - Typeclassopedia (TMR-13).
+
+
+IH-FPByExamples:
+http://dl.dropbox.com/u/41939712/FPByExamples.zip
+
+Videos:
+http://channel9.msdn.com/Tags/brian+beckman (Dot't fear the Monads, State Monad, Monads, Monoids and Mort).
+
++++++++++++++++
++ Advanced FP +
++++++++++++++++
+
+Data Structures:
+Okasaki - Pure Functional Data Structures (Need OCaml)
+Mark P Jones - FP with Overloading and HO Polymorphism (a lot of trees)
+
+Type Systems:
+Pierce - TAPL
+
+CPS monad
+Milewski - http://fpcomplete.com/asynchronous-api-in-c-and-the-continuation-monad
+Kirpichev - FP in Java (2008)
+http://habrahabr.ru/post/127040/
+PFP-7
+
+CT:
+Awodey - Category Theory
+Hutton - Introduction to Category Theory (lections)
+
+Mark P Jones - FP with Overloading and HO Polymorphism
+Swierstra - Data Types a la Carte
+
+Need to read once again later (not all is clear from the first time):
+Gibbons - Calculating Functional Programs
+Gibbons - Datatype-Generic Programming
+
+Semantics:
+Mulcahey - What is the meaning of a Haskell program (https://vimeo.com/67174266)
+
+Real Samples:
+Hutton - Compact Fusion
+Hutton - A Tutorial on the Universality and Expressiveness of Fold
+
+Optimizations:
+
+Wadler - The Concatenate Wanishes
+Hughes - A Novel Representation of Lists
+
+Codensity transformation:
+  https://gist.github.com/thoughtpolice/3704890
+
+Stream Fusion:
+
+Coutts - Stream Fusion: From Lists to Streams to Nothing at All
+  (incl ByteString, List Comprehensions semantics - 4)
+  http://hackage.haskell.org/package/stream-fusion
+
+Fusion in general (with Church and co-Church encodings):
+Harper - A Library Writers Guide to Shortcut Fusion
+Coutts - Stream Fusion - Practical Shortcut Fusion for Coinductive Sequence Types phd
+
+Harper - Stream Fusion on Haskell Unicode Strings
+
+SpecConstr:
+Jones - Call-pattern Specialization for Haskell Programs
+
+++++++++++++++++
++ FP In Haskell +
++++++++++++++++++
+
+Church encoding:
+http://web.archiveorange.com/archive/v/nDNOvgzSRV6TNq8KhCgZ
+http://stackoverflow.com/questions/9806729/practical-reasons-for-hurch-encoding
+http://stackoverflow.com/questions/10161009/input-checks-in-haskell-data-constructors
+
+Haskell Internals:
+
+JonesMarlow - The Glasgow Haskell Compiler.pdf (http://www.aosabook.org/en/ghc.html)
+Ilya Sergey - GHC Static Analysis and Code Optimization (video + slides)
+
+http://notepad.mmakowski.com/Advanced%20Haskell
+http://felsin9.de/nnis/ghc-vis/thesis/
+
+Jones - Playing By The Rules - Rewriting as a Optimization Technique in GHC
+Jones - Implementing Lazy Functional Languages on Stock Hardware - the STG machine
+MarlowJones - Making a Fast Curry - Push/Enter vs Eval/Apply for Higher-order Languages
+GilHutton - Worker-Wrapper Transformation
+
+++++++++++++++++
++ Haskell libs +
+++++++++++++++++
+
+Pipes:
+Dan Burton - Pipes to Conduits:
+
+++++++++++++++++++++
++ FP In JavaScript +
+++++++++++++++++++++
+
+- Fogus - Functional JavaScript (underscore)
+
++++++++++++++++
++ FP in OCaml +
++++++++++++++++
+
+Jason Hickey - Introduction to the OCaml (a lot of OCaml-specific stuff, maybe just Standard-ML fundamentals are enough).
+
+- Tail-recursive version of map using rev (p 55)
+
+++++++++++++
++ FP in F# +
+++++++++++++
+
+http://www.slideshare.net/lgayowski/taking-functional-programming-into-the-mainstream-eclipse-summit-europe-2009
+

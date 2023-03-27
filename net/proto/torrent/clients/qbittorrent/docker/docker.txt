@@ -1,0 +1,6 @@
+https://hub.docker.com/r/markusmcnugen/qbittorrentvpn/
+https://github.com/MarkusMcNugen/docker-qBittorrentvpn
+    ! we can enable VPN
+
+https://wiki.servarr.com/radarr/faq#vpns-jackett-and-the-arrs
+    ! only qBT need to be behind VPN

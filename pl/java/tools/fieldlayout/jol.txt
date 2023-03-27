@@ -1,0 +1,10 @@
+2020
+https://www.baeldung.com/jvm-measuring-object-sizes
+    https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-jvm-2
+
+????
+https://shipilev.net/jvm/objects-inside-out/
+
+Java object layout:
+http://openjdk.java.net/projects/code-tools/jol/
+http://hg.openjdk.java.net/code-tools/jol/file/tip/jol-samples/src/main/java/org/openjdk/jol/samples/

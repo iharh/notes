@@ -1,0 +1,37 @@
+http://pandas.pydata.org/pandas-docs/stable/groupby.html
+https://www.shanelynn.ie/summarising-aggregation-and-grouping-data-in-python-pandas/
+https://www.datacamp.com/community/tutorials/pandas-split-apply-combine-groupby
+https://www.datacamp.com/community/tutorials/pandas-multi-index
+
+groupby(...
+    as_index=False,
+    sort=True,
+    level=0,
+    level='second',
+    level=['first', 'second'],
+).reset_index()
+
+for name, group in dfallgrouped:
+    print(name)
+    print(group.iloc[2:-2])
+
+dfallgrouped.apply(lambda grp: grp.iloc[2:-2])
+
+.groups
+.get_group(...)
+.first()
+.mean()
+.aggregate(np.sum)
+    .sum()
+.sum().reset_index()
+.agg([np.sum, np.mean, np.std])
+# agg by one column
+groupby(...)['C'].agg({'sum':np.sum, 'mean':np.mean})
+# ... by distinct columns
+groupby(...).agg({'sum':np.sum, 'mean':np.mean})
+
+mean = lambda x: (x-np.mean(x))
+.transform(mean)
+
+df.loc[df.groupby('A')['B'].idxmin()]
+df.sort('B').groupby('A'), as_index=False).first()

@@ -1,0 +1,7 @@
+2018
+https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking
+
+subnet masks
+    192.168.0.0/24 - (24 significant bits [3*8]) - 255.255.255.0
+    192.168.0.0/23 - (23 significant bits )      - 255.255.254.0
+    ...

@@ -1,0 +1,1 @@
+https://www.jetbrains.com/help/idea/discover-intellij-idea.html

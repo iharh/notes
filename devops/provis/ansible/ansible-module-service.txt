@@ -1,0 +1,4 @@
+service: name=collectd state=restarted enabled=yes
+service: name=collectd state=stopped enabled=yes
+service: name=collectd state=started enabled=yes
+service: name=collectd state=stopped enabled=no

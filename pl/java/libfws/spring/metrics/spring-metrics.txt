@@ -1,0 +1,41 @@
+micrometer
+https://micrometer.io/
+https://github.com/micrometer-metrics/micrometer
+
+https://micrometer.io/docs
+https://micrometer.io/docs/concepts
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints-exposing-endpoints
+https://micrometer.io/docs/ref/jvm
+https://micrometer.io/docs/ref/cache
+
+api
+https://static.javadoc.io/io.micrometer/micrometer-core/1.1.4/io/micrometer/core/instrument/Timer.html
+
+exposing endpoint
+management:
+  server:
+    port: 9090
+    security:
+      enabled: false
+  endpoints:
+    web:
+      base-path: /application
+      exposure:
+        include: info,health,prometheus
+
+2021
+https://spring.io/blog/2021/02/09/metrics-and-tracing-better-together
+2019
+https://dzone.com/articles/spring-boot-where-do-the-default-metrics-come-from
+https://www.infoq.com/presentations/metrics-apache-geode-micrometer
+https://www.baeldung.com/micrometer
+2018
+https://dzone.com/articles/using-micrometer-with-spring-boot-2
+https://spring.io/blog/2018/03/16/micrometer-spring-boot-2-s-new-application-metrics-collector
+
+http://www.ryantenney.com/metrics-spring/
+    https://github.com/ryantenney/metrics-spring
+
+annotations
+https://github.com/micrometer-metrics/micrometer/blob/master/micrometer-core/src/main/java/io/micrometer/core/annotation/Timed.java

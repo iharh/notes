@@ -1,0 +1,28 @@
+Find files:
+
+:fin[d] find files in pa[th]
+:pa[th] ...
+
+
+:gr[ep][!] expr *.txt
+	Returns a list of files with rex-expr (findstr /n expr *.txt).
+:cw
+:copen
+	List all the files [Quickfix list]
+^W^W
+	Switch between windows
+
+
+Edit Files:
+
+:e FILENAME
+	Edit(Open) a FILENAME
+        % - current filename
+        # - alternate filename (:e #  is equivalent to C-^)
+:e!
+	Re-Open a disc version of the current file
+:e .
+	View a directory listing
+	<Enter>
+		To edit a file at the cursor.
+

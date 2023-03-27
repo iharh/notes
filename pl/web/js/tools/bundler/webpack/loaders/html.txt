@@ -1,0 +1,14 @@
+https://github.com/webpack-contrib/html-loader
+
+config.module.loaders.push({
+      test: /\.html$/,
+      loader: 'html-loader'
+});
+
+config.htmlLoader = {
+  minimize: true,
+  removeAttributeQuotes: false,
+  caseSensitive: true,
+  customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
+  customAttrAssign: [ /\)?\]?=/ ] 
+};

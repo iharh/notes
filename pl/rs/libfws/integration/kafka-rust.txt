@@ -1,0 +1,22 @@
+https://crates.io/crates/kafka
+https://spicavigo.github.io/kafka-rust/kafka/index.html
+https://github.com/spicavigo/kafka-rust
+
+https://crates.io/crates/rdkafka
+https://github.com/fede1024/rust-rdkafka
+
+https://github.com/edenhill/librdkafka
+
+samples
+https://github.com/rabbitstack/cubostratusc
+
+2023
+https://dev.to/ciscoemerge/how-to-build-a-simple-kafka-producerconsumer-application-in-rust-3pl4
+    https://github.com/schultyy/kafka-rust-demo
+2021
+https://abhishek1987.medium.com/getting-started-with-kafka-and-rust-part-1-e0074961ec6b
+2020
+https://medium.com/digitalfrontiers/microservices-in-rust-with-kafka-2b671295b24e
+    https://github.com/dxfrontiers/rust-microservice-kafka
+2019
+https://www.confluent.io/blog/getting-started-with-rust-and-kafka

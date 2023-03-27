@@ -1,0 +1,4 @@
+http://www.unixmen.com/enable-username-indicator-panel-ubuntu-14-04/
+
+user name indicator:
+gsettings set com.canonical.indicator.session show-real-name-on-panel true

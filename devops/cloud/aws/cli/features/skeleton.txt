@@ -1,0 +1,4 @@
+https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-skeleton.html
+    --cli-input-json
+    --cli-input-yaml
+    --generate-cli-skeleton

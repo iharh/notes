@@ -1,0 +1,38 @@
+http://aakashns.github.io/type-class.html
+http://aakashns.github.io/better-type-class.html
+http://aakashns.github.io/better-type-class-2.html
+
+http://www.cakesolutions.net/teamblogs/2013/12/16/typeclases-in-scala-haskell/
+https://www.bionicspirit.com/blog/2012/11/02/scala-functional-programming-type-classes.html
+https://github.com/tpolecat/tut/blob/master/out/Typeclass.md
+
+Miller - Scalas Type System Dependent Types and What It Means To You
+http://youtu.be/ptCvn4-lyXM
+
+In Scala Type Classes are a popular type-based pattern based on implicits
+
+A typeclass is a generic trait:
+
+trait Ordering[T] {
+  def compare(x: T, y: T): Int  // abstract
+  ...
+}
+
+A "typeclass instance" is an implicit providing a type-specific implementation:
+
+implicit object intOrdering extends Ordering[Int] {
+  def compare(x: Int, y: Int): Int = x - y
+  ...
+}
+
+Implicit typeclass instances allow expressing constraints and providing suitable implementations:
+
+def sort[T](s: Seq[T])(implicit ev: Ordering[T]): Seq[T] = ...
+
+The "evidence parameter" ev provides a concrete implementation of the typeclass for type T
+
+This common pattern can be abbreviated using context bounds:
+
+def sort[T: Ordering](s: Seq[T]): Seq[T]
+
+Note: context bounds are type constructors, not types

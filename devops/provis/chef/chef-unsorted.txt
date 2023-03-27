@@ -1,0 +1,18 @@
+include_recipe "ohai_plugins_test::vhosts"
+include_recipe 'magento'
+
+node.override['abc']['def'] = 'val'
+
+remote_file ::File.join(Chef::Config[:file_cache_path] ,"magento.tar.gz") do
+...
+end
+
+
+case node['platform_family']
+when 'rhel', 'fedora'
+...
+
+execute 'add_service' do
+  command 'ccs -h localhost -p rack --addservice script-svc'
+  ignore_failure true
+end

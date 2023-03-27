@@ -1,0 +1,39 @@
+https://github.com/oracle/docker-images/blob/master/OracleDatabase/dockerfiles/12.1.0.2/runOracle.sh
+
+# Set SIGINT handler
+trap _int SIGINT
+
+# Set SIGTERM handler
+trap _term SIGTERM
+
+# Set SIGKILL handler
+trap _kill SIGKILL
+
+########### SIGINT handler ############
+function _int() {
+   echo "Stopping container."
+   echo "SIGINT received, shutting down database!"
+   sqlplus / as sysdba <<EOF
+   shutdown immediate;
+EOF
+   lsnrctl stop
+}
+
+########### SIGTERM handler ############
+function _term() {
+   echo "Stopping container."
+   echo "SIGTERM received, shutting down database!"
+   sqlplus / as sysdba <<EOF
+   shutdown immediate;
+EOF
+   lsnrctl stop
+}
+
+########### SIGKILL handler ############
+function _kill() {
+   echo "SIGKILL received, shutting down database!"
+   sqlplus / as sysdba <<EOF
+   shutdown abort;
+EOF
+   lsnrctl stop
+}

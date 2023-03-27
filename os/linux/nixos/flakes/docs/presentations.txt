@@ -1,0 +1,50 @@
+2022
+NixCon - Nix Flakes in Production: What, Why and How 0:00 of 36:40
+    https://www.youtube.com/watch?v=o1Y7rWrPEO8
+Cadey - NixOS Post Writing Part 4: Flakes on WSL 0:00 of 1:59:25
+    https://www.youtube.com/watch?v=VzQ_NwFJObc
+Cadey - Nix Flakes Part 3 Writing 0:00 of 2:47:11
+    https://www.youtube.com/watch?v=wCZ9SwmgSck
+Cadey - 2022-02-27 Nix Flakes Fun With Packages 0:00 of 3:33:35
+    https://www.youtube.com/watch?v=eUFBD-6yAWQ
+    https://christine.website/blog/nix-flakes-2-2022-02-27
+2021
+JonRinger - Nix - Flakes for out-of-tree code 0:00 of 22:58
+    https://www.youtube.com/watch?v=90P-Ml1318U
+2020
+Thalheim - Nix flakes 101 (rC3 2020)
+    https://www.youtube.com/watch?v=QXUlhnhuRX4
+    https://web.archive.org/web/
+        https://streaming.lassul.us/records/nix-flakes-101-slides/
+    https://web.archive.org/web/20210603071306/https://streaming.lassul.us/records/nix-flakes-101-slides/#https://streaming.lassul.us/
+        nix flake new .
+        nix flake info
+        nix build .#
+        nix build
+        nix build github:<user>/<repo>#<flake>
+        nix build github:<user>/<repo>
+        nix run nixpkgs#jq # expects $out/bin/jq
+        nix flake update --recreate-lock-file
+Serokel - NixCon 2020 - BalSoft
+    !!!
+    https://github.com/serokell/nixcon2020-talk
+    https://github.com/serokell/nixcon2020-talk/blob/master/talk.md
+Tropin - Flakes in nix 3.0
+    https://www.youtube.com/watch?v=98EwejpIJzE
+    ! need to look
+    https://github.com/abcdw/rde
+Tropin - Almost Perfect Dotfiles Management w/ nix, home-manager and flakes (Jul 28)
+    https://www.youtube.com/watch?v=CDzgNxoAlnA
+    ! need to look
+    https://github.com/abcdw/rde/blob/master/flake.nix
+Alexander Bantyev - Nix Flakes in Production
+    https://www.youtube.com/watch?v=7sQa04olUA0&t=9113s
+    https://github.com/serokell/nixcon2020-talk
+        nix build github:serokell/nixcon2020-talk
+    nix-shell -p nixUnstable
+    nix --version
+        
+2019
+Dolstra - NixCon - Nix flakes
+    https://www.youtube.com/watch?v=UeBX7Ide5a0
+    ! need to look

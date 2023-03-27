@@ -1,0 +1,13 @@
+http://www.scs.stanford.edu/14sp-cs240h/slides/pipes-slides.html
+http://www.scs.stanford.edu/14sp-cs240h/slides/pipes.md
+
+http://www.scs.stanford.edu/14sp-cs240h/slides/pipes-slides.html#%2849%29
+
+API inspired by category theory
+
+Composition  Identity
+(>=>)        return
+(~>)         yield
+(>~)         await
+(>->)        cat
+

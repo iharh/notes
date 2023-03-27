@@ -1,0 +1,58 @@
+(1 until n) flatMap (i =>
+    (1 until i) filter (j => isPrime(i + j)) map
+        (j => (i, j)))
+
+is written as:
+
+for {
+    i <- 1 until n
+    j <- 1 until i
+    if isPrime(i + j)
+} yield (i, j)
+
+
+translation rules:
+
+1. a single for expression
+
+    for (x <- e1) yield e2
+
+is translated to
+
+    e1.map(x => e2)
+
+2. a for-expression
+
+    for (x <- e1 if f; s) yield e2
+
+is translated to
+
+    for (x <- e1.withFilter(x => f); s) yield e2
+
+    // here withFilter is a kind of lazy-variant of filter without producing an intermediate list
+
+3. a for-expression
+
+    for (x <- e1; y <- e2; s) yield e3
+
+is translated to
+
+    e1.flatMap(x => for (y <- e2; s) yield e3)
+
+
+NOTE: the left-hand side of the generator can also be a pattern, not only a variable.
+  Patterns in generators act as implicit filters
+
+
+4.
+    pat <- expr
+
+is translated to
+
+    x <- expr withFilter {
+        case pat => true
+        case _   => false
+    } map {
+        case pat => x
+    }
+

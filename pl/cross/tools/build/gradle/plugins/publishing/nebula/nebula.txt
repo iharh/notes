@@ -1,0 +1,4 @@
+https://plugins.gradle.org/plugin/nebula.ivy-publish
+https://plugins.gradle.org/plugin/nebula.ivy-nebula-publish
+https://github.com/nebula-plugins/nebula-publishing-plugin
+https://github.com/nebula-plugins/nebula-publishing-plugin/tree/master/src/main/groovy/nebula/plugin/publishing/ivy

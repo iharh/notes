@@ -1,0 +1,3 @@
+https://github.com/ehcache/sizeof/blob/master/src/main/java/org/ehcache/sizeof/ObjectGraphWalker.java
+    -Dorg.ehcache.sizeof.verboseDebugLogging=true
+    -Dlogging.level.org.ehcache.sizeof=debug

@@ -1,0 +1,4 @@
+http://tomcat.apache.org/tomcat-6.0-doc/config/systemprops.html
+
+set CATALINA_OPTS=%CATALINA_OPTS% -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
+

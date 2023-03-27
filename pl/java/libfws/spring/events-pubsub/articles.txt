@@ -1,0 +1,7 @@
+2021
+https://www.baeldung.com/spring-events
+    https://github.com/eugenp/tutorials/tree/master/spring-core-2
+    ApplicationEventPublisher.publishEvent
+    ApplicationListener
+2020
+https://98elements.com/blog/inter-bean-notifications-using-spring-events/

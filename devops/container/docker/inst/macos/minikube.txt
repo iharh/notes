@@ -1,0 +1,58 @@
+https://minikube.sigs.k8s.io/docs/
+
+https://minikube.sigs.k8s.io/docs/drivers/
+https://minikube.sigs.k8s.io/docs/drivers/hyperkit/
+    https://github.com/moby/hyperkit
+    minikube start --driver=hyperkit
+    minikube config
+        --help
+        set driver hyperkit
+
+https://github.com/machyve/xhyve
+    ! 6mo, not very active
+
+brew install google-cloud-sdk
+gcloud auth login
+gcloud auth configure-docker
+
+brew install hyperkit
+brew install minikube
+brew install docker
+brew install docker-compose
+minikube start
+
+# Tell Docker CLI to talk to minikube's VM
+eval $(minikube docker-env)
+# to point shell to minikube's docker-daemon
+eval $(minikube -p minikube docker-env)
+
+echo "`minikube ip` docker.local" | sudo tee -a /etc/hosts > /dev/null
+docker run hello-world
+
+Both in the minikube and virtualbox guides above, we make the IP address of the VM available under
+  docker.local hostname
+so to access any services we must use that hostname instead of using localhost.
+
+# to stop eating resources
+minikube pause
+
+2021
+https://dhwaneetbhatt.com/blog/run-docker-without-docker-desktop-on-macos
+
+mount
+https://github.com/kubernetes/minikube/issues/12729
+    ! big sur
+    https://github.com/kubernetes/minikube/issues/12675    
+    !!!
+
+https://github.com/kubernetes/minikube/issues/2481
+    It's a poor workaround to be sure, but this command left running in a terminal (!!! after docker start ...)
+        minikube mount /Users:/Users
+    Seems to make the above testcase work as expected
+        docker run --rm -it -v $(pwd):/testmount alpine
+
+https://github.com/kubernetes/minikube/issues/4440
+    minikube start --mount-string /Users:/Users --mount
+
+ro mount permissions
+https://stackoverflow.com/questions/60479594/minikube-volume-write-permissions

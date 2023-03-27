@@ -1,0 +1,20 @@
+2022
+Monitoring and Troubleshooting Tools in the JDK 0:00 of 42:24
+    https://www.youtube.com/watch?v=mcfubUmbZhQ
+2021
+Smirnov - K8S JVM Profiling ru of 1:11:08
+    https://www.youtube.com/watch?v=JzOlHADAnpA
+    https://habr.com/ru/post/583162/
+    https://polarnik.github.io/JVM-profiling-in-Kubernetes/
+    https://polarnik.github.io/jvm.profiling.automation/#
+    https://github.com/aragozin/jvm-tools
+2018
+Ragozin - Pragratic Java Applications Profiling
+    https://www.youtube.com/watch?v=ZUSmtUxguZI
+    https://speakerdeck.com/jugmsk/alieksiei-raghozin-novyie-i-staryie-vozmozhnosti-java-flight-recorder-v-openjdk-11
+Melnikov - microsecond profiling
+    https://assets.ctfassets.net/oxjq45e8ilak/2MrO72tD3GIOKmKoCcKIi2/f0e9e274b16ec07c9152e65fc37fc7b7/Melnikov_PreciseProfilingWith_IntelPT.v4.pdf
+    https://www.youtube.com/watch?v=hw2uxGUDgpo
+    https://www.youtube.com/watch?v=R0AlpLqhwPQ
+Hirt - Production-Time Profiling and Diagnostics on the JVM
+    https://www.youtube.com/watch?v=Pqf367x-OuA

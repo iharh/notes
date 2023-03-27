@@ -1,0 +1,5 @@
+???
+org.elasticsearch.index.gateway.CommitPoint
+org.elasticsearch.index.gateway.CommitPoints
+
+used by CommitPointsTests only

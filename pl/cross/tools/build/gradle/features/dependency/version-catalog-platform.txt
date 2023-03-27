@@ -1,0 +1,17 @@
+https://docs.gradle.org/current/userguide/platforms.html
+https://docs.gradle.org/current/userguide/java_platform_plugin.html
+
+samples
+https://github.com/lovekty/ktpractice/blob/master/gradle/libs.versions.toml
+...
+    ! check ones at structuring/large.txt
+
+integrations
+https://github.com/spring-projects/spring-boot/issues/29588
+    https://github.com/gradle/gradle/issues/19142
+
+2022
+https://proandroiddev.com/gradle-version-catalogs-for-an-awesome-dependency-management-f2ba700ff894
+    ! no kt-script, just a groovy-based
+2021
+https://melix.github.io/blog/2021/03/version-catalogs.html

@@ -1,0 +1,12 @@
+vagrant
+    list-commands
+
+    ssh/rdp
+
+    up --debug
+
+VBoxManage list bridgedifs
+VBoxManage list hostonlyifs
+sc query vboxnetlwf
+sc query vboxnetadp
+ipconfig /all

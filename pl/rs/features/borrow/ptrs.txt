@@ -1,0 +1,78 @@
+https://rust-lang.github.io/book/second-edition/ch15-00-smart-pointers.html
+
+2022
+https://medium.com/@gftea/smart-pointers-in-rust-81723bdc2f34
+    ! diagrams
+2021
+https://medium.com/the-polyglot-programmer/undestanding-rust-smart-pointers-660d59715ab9
+    https://nuancesprog.ru/p/13600/
+2020
+https://dev.to/imaculate3/that-s-so-rusty-smart-pointers-245l
+
+Deref-trait:
+https://doc.rust-lang.org/std/ops/trait.Deref.html
+https://doc.rust-lang.org/std/ops/trait.DerefMut.html
+Similar to how we use the Deref trait to override * on &Ts, there is also a DerefMut trait for overriding * on &mut T
+
+Rust does deref coercion when it finds types and trait implementations in three cases:
+
+From &T to &U
+    when T: Deref<Target=U>.
+From &mut T to &mut U
+    when T: DerefMut<Target=U>.
+From &mut T to &U
+    when T: Deref<Target=U>.
+
+The reason that the Deref trait is important to the smart pointer pattern is that smart pointers can then be treated like regular references and used in places that expect regular references. We don't have to redefine methods and functions to take smart pointers explicitly, for example
+
+Drop-trait:
+https://doc.rust-lang.org/std/ops/trait.Drop.html
+
+    std::mem::drop - to drop some object earlier
+pub mod std {
+    pub mod mem {
+        pub fn drop<T>(x: T) { } // just takes an ownership
+    }
+}
+
+
+Box<T>
+    for allocating vals on the heap
+    https://doc.rust-lang.org/std/boxed/
+Rc<T>
+    refcounted type, so data can have multiple owners
+    ! single-thread-only ! we can only read immutable refs of T
+RefCell<T>
+    https://rust-lang.github.io/book/second-edition/ch15-05-interior-mutability.html
+    isn't a smart-ptr itself, but manages access to the smart pointers Ref
+    like a Box<T>, but follows "interior mutability" pattern
+        fn borrow<'a>(&'a self) -> Ref<'a, T>
+            &r.borrow()
+        fn borrow_mut<'a>(&'a self) -> RefMut<'a, T>
+            &mut r.borrow_mut()
+            // these 2 types impl Deref-trait, Drop trait,
+            // track the borrow dynamically
+    If we don't check borrow rules at runtime, we will end up with:
+        panicked at 'already borrowed: BorrowMutError
+Cell<T>
+    is similar to RefCell<T>, but insetead of giving references to the inner value, the value is copied in and out of the Cell<T>.
+    Note: Mutex<T> offers interior mutability that is safe to use across threads
+Weak<T>
+    For situation which have cycles, but only one direction expresses ownership.
+    upgrade/downgrade
+MutexGuard<T>
+    for mutexes
+Arc<T>
+    Atomic reference counting (just like Rc)
+A type is
+    Send, if it is safe to move to another thread
+    Sync, if it is safe to share between multiple threads
+        That is, if T is Sync, &T is Send
+    (safe here means it is impossible to cause data races)
+
+2 major classes of interior mutability:
+    Cells, only work in a single-threaded context)
+    Locks, work in a multi-threaded context
+
+Rc<T> just uses a cell (not thread-safe)
+Arc<T> uses an atomic (thread-safe)

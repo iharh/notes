@@ -1,0 +1,63 @@
+https://en.wikipedia.org/wiki/List_of_file_systems#File_systems_optimized_for_flash_memory.2C_solid_state_media
+https://wiki.debian.org/SSDOptimization
+https://wiki.archlinux.org/index.php/Solid_state_drive
+    ! instruction how to upgrade firmware
+https://wiki.archlinux.org/index.php/Solid_state_drive
+https://wiki.archlinux.org/index.php/Solid_state_drive_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+https://help.ubuntu.ru/wiki/ssd
+    !!! already has trim enabled (??? how)
+    !!! no more discard at /etc/fstab needed !
+    , is auto-on by cron enable/start fstream.timer
+    !!! deadline io scheduler for desktops
+
+!!!!!!!
+stop/disable heavy jobs like updatedb
+noatime
+    ! use realtime instead (https://www.youtube.com/watch?v=ovjl9Ki-EFg)
+    https://habr.com/ru/company/vdsina/blog/505784/
+    at /etc/fstab
+    ...
+    UUID=XXXXXX / ext4 noatime,commit=30,barrier=0,errors=remount-ro,,nodelalloc,i_version,inode_readahead_blks=64 0 1
+scheduler
+    /etc/default/grub
+    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"   (none)
+    sudo update-grub
+    https://coderoad.ru/27664334/%D0%92%D1%8B%D0%B1%D0%BE%D1%80-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D1%89%D0%B8%D0%BA%D0%B0-%D0%B2%D0%B2%D0%BE%D0%B4%D0%B0-%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D0%B0-Linux-%D0%B4%D0%BB%D1%8F-%D1%85%D0%BE%D1%81%D1%82%D0%B0-%D0%BE%D1%81%D0%BD%D0%B0%D1%89%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-NVMe
+swappiness
+    /etc/sysctl.conf
+    vm.swappiness=1
+replace swap partition by swapfile
+    https://www.youtube.com/watch?v=s6CeuxF2a9M
+disable
+    updatedb
+????
+    firefox, chrome ssd optimizations
+
+qa
+https://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd
+    ! good internal details
+https://forum.ubuntu.ru/index.php?topic=307325.0
+    ! just use OOB
+https://forum.ubuntu.ru/index.php?topic=190119.0
+    ! 46 pages
+https://unixforum.org/viewtopic.php?t=146764
+    /etc/systemd/journald.conf
+    [Journal]
+    Storage=volatile
+    /etc/fstab
+    tmpfs   /var/log    tmpfs   defaults    0 0
+
+2013
+https://habr.com/ru/sandbox/70578/
+2011
+https://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd/
+https://habr.com/ru/post/129551/
+     GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" - add "elevator=noop" parameter
+????
+https://easylinuxtipsproject.blogspot.com/p/ssd.html
+    !!! don't select btrfs
+    ! have more than 20% free space at each partition
+    ! !!! don't use discard mount option
+    ! use trim daily (? note weakly)
+https://losst.ru/ustanovka-linux-na-ssd
+http://vasilisc.com/ssd_ubuntu

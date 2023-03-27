@@ -1,0 +1,23 @@
+12c
+https://asciinema.org/a/45878
+
+How to install and run an Oracle Database instance in a Docker container? Yes, I Know IT! Ep 18
+https://www.youtube.com/watch?v=LdXsK3vtAcs
+
+https://hub.docker.com/r/sath89/oracle-12c-base/
+https://hub.docker.com/r/sath89/oracle-12c/
+https://github.com/MaksymBilenko/docker-oracle-12c
+
+https://github.com/MaksymBilenko/docker-oracle-ee-12c
+
+
+11g
+forked from wnameless/docker-oracle-xe-11g
+    https://github.com/wnameless/docker-oracle-xe-11g
+https://hub.docker.com/r/sath89/oracle-xe-11g/
+https://github.com/MaksymBilenko/docker-oracle-xe-11g
+https://habrahabr.ru/post/260305/
+
+https://github.com/MaksymBilenko/docker-oracle-ee-11g
+
+docker pull sath89/oracle-ee-11g

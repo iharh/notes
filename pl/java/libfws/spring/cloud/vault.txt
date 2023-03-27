@@ -1,0 +1,46 @@
+http://projects.spring.io/spring-vault/
+https://github.com/spring-projects/spring-vault
+https://docs.spring.io/spring-vault/docs/current/reference/html/index.html
+    ! no "enabled" property
+
+https://developer.hashicorp.com/vault/api-docs/libraries
+
+https://spring.io/guides/gs/vault-config/
+    https://github.com/spring-guides/gs-vault-config
+        https://github.com/spring-guides/gs-vault-config/blob/main/complete/src/main/resources/application.properties
+
+https://www.testcontainers.org/modules/vault/
+https://github.com/testcontainers/testcontainers-java/tree/main/modules/vault
+https://github.com/testcontainers/testcontainers-java/blob/main/modules/vault/src/main/java/org/testcontainers/vault/VaultContainer.java
+    /v1/sys/health -> 200
+
+2022
+https://www.baeldung.com/spring-vault
+2021
+https://piotrminkowski.com/2021/12/30/vault-on-kubernetes-with-spring-cloud/
+    !!! spring.cloud.vault.config.lifecycle.enabled
+2020
+CodeForgeYT - Java Spring Boot - Vault Integration Configuration - Reading Secrets from Secret Storage of 12:43
+    https://www.youtube.com/watch?v=MaTDiKp_IrA
+https://www.baeldung.com/vault
+    $ vault server -config ./vault-test.hcl
+    storage "file" {
+        path = "./vault-data"
+    }
+    listener "tcp" {
+        address = "127.0.0.1:8200"
+        tls_cert_file = "./src/test/vault-config/localhost.cert"
+        tls_key_file = "./src/test/vault-config/localhost.key"
+    }
+2017
+https://spring.io/blog/2017/04/12/spring-vault-1-0-goes-ga
+
+cfg
+spring.cloud.vault
+    token - root token
+
+samples
+https://www.spektor.dev/vault-agent-docker-compose-setup/
+https://github.com/mp911de/spring-cloud-vault-config-samples
+https://www.misterpki.com/vault-docker/
+    ! custom sh-starter with kv put

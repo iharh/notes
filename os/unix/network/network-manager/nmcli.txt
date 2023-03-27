@@ -1,0 +1,6 @@
+http://www.unixmen.com/basics-networkmanager-command-line-tool-nmcli/
+
+nmcli
+    c[onnection]
+        s[how]
+        up <con-name>

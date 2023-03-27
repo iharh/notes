@@ -1,0 +1,7 @@
+aws iam
+        list-access-keys
+        create-access-key
+        get-user
+        list-roles
+        get-role --role-name <role-name>
+            MaxSessionDuration

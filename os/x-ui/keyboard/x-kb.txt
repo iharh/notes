@@ -1,0 +1,139 @@
+https://www.x.org/releases/current/doc/xorg-docs/input/XKB-Config.html
+    https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/x11/xserver.nix
+
+https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
+
+https://www.linux.org.ru/tag/setxkbmap?section=2
+https://itectec.com/ubuntu/ubuntu-permanently-set-keyboard-layout-options-with-setxkbmap-in-gnome-unity/
+https://unix.stackexchange.com/questions/12072/how-do-i-get-current-keyboard-layout
+
+https://wiki.debian.org/Keyboard
+    /etc/default/keyboard
+
+localectl --no-convert set-x11-keymap us,ru pc105 ctrl_shift_toggle
+localectl status
+   System Locale: LANG=en_US.UTF-8
+       VC Keymap: en
+      X11 Layout: ru,us
+       X11 Model: pc105
+     X11 Options: terminate:ctrl_alt_bksp,grp:shifts_toggle,grp_led:scroll
+
+setxkbmap
+    -layout "us,ru(winkeys)" -variant -option grp:ctrl_shift_toggle,terminate:ctrl_alt_bksp
+    -help
+    -print -verbose 10
+    -query
+    [en|ru|...]
+Error loading new keyboard description
+
+# this file should not be manually edited, because localectl will overwrite the changes on next start.
+The usage is as follows: 
+/etc/X11/xorg.conf.d/00-keyboard.conf
+Section "InputClass"
+    Identifier "Keyboard Options by default"
+    MatchIsKeyboard "on"
+
+    Option "XkbLayout" "us , ru"
+    Option "XkbOptions" "grp:menu_toggle"
+EndSection
+
+
+2020
+https://habr.com/ru/post/486872/
+
+wiki
+https://wiki.manjaro.org/index.php?title=Openbox:_Switch_languages_using_the_keyboard_and_xxkb
+sudo vim /etc/locale.gen
+  en_US.UTF-8... done
+  ru_RU.UTF-8... done
+sudo locale-gen
+sudo vim /etc/vconsole.conf
+  KEYMAP=us
+
+http://xtuxhuevos.blogspot.com/2012/10/manjaro-linux-en-espanol.html
+packages:
+    firefox-i18n-ru
+    libreoffice-ru
+
+https://wiki.archlinux.org/index.php/Locale
+/etc/locale.conf
+~/.config/locale.conf
+    LANG=ru_RU.UTF-8
+    LANGUAGE=ru_RU.UTF-8
+    LC_COLLATE=C
+
+
+other:
+~/.xprofile
+    export LANG="ja_JP.UTF-8"
+
+https://wiki.archlinux.org/index.php/Keyboard_configuration_in_console
+https://wiki.gentoo.org/wiki/Localization/HOWTO
+
+    localectl list-locales
+    localectl set-locale LANG=ru_RU.UTF-8
+        modifies global /etc/locale.conf
+
+
+
+KB map:
+http://www.x.org/releases/current/doc/xorg-docs/input/XKB-Config.html
+https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg
+
+convenient util - localectl:
+    localectl list-keymaps
+    localectl set-keymap ru
+    localectl set-keymap ru_win
+    localectl set-keymap ru-cp1281
+        modifies global /etc/vconsole.conf
+
+    localectl list-x11-keymap-models
+    localectl list-x11-keymap-layouts
+    localectl list-x11-keymap-variants <layout>
+    localectl list-x11-keymap-options
+
+    localectl set-x11-keymap ru
+
+files
+/usr/share/X11/xkb/
+    symbols/us
+    compiled
+
+setxkbmap -query
+
+rules:   evdev
+model:   pc105
+layout:  us,ru
+variant: ,legacy
+options: grp:ctrl_shift_toggle,terminate:ctrl_alt_backspace
+
+
+https://forum.manjaro.org/index.php?topic=6861.0
+http://archlinux.org.ru/forum/topic/1356/
+https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg
+
+xmodmap:
+https://wiki.archlinux.org/index.php/Xmodmap
+
+Keyboard:
+
+http://tldp.org/HOWTO/Keyboard-and-Console-HOWTO.html
+https://wiki.manjaro.org/index.php?title=Keyboard_Layout
+https://wiki.archlinux.org/index.php/Extra_Keyboard_Keys
+http://wiki.linuxquestions.org/wiki/Configuring_keyboards
+
+xev:
+http://crunchbanglinux.org/wiki/xev-determine_custom_keybindings
+http://openbox.org/wiki/Help:Bindings#Keys
+
+xxkb:
+http://www.x.org/wiki/XKB/
+An Unreliable Guide to XKB Configuration
+
+http://michal.kosmulski.org/computing/articles/custom-keyboard-layouts-xkb.html
+http://madduck.net/docs/extending-xkb/
+
+    ~/.xxkbrc
+
+    ~/.config/openbox/autostart:
+    (sleep 1s && setxkbmap -layout "us,ru(winkeys)" -variant -option grp:ctrl_shift_toggle,terminate:ctrl_alt_bksp) &

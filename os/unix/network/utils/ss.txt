@@ -1,0 +1,11 @@
+ss - another util to investigate sockets
+
+ss -nlp | grep 8080
+    -l  listening ports
+    -t  ??? tcp
+    -u  ??? udp
+    -n  more fine-tuned results
+    -p  ???
+
+2018
+https://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html

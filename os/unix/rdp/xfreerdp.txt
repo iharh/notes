@@ -1,0 +1,12 @@
+xfreerdp +clipboard /u:<user> /v:<host>
+
+com.freerdp.legacy - Unable to get current timezone rule
+https://github.com/FreeRDP/FreeRDP/wiki/Time-Zone-Redirection
+
+https://github.com/FreeRDP/Remmina/issues/868
+[08:52:59:175] [12957:12958] [ERROR][com.winpr.timezone] - Unable to get current timezone rule
+[08:52:59:198] [12957:12958] [INFO][com.freerdp.core] - ERRINFO_SERVER_INSUFFICIENT_PRIVILEGES (0x00000009):The user cannot connect to the server due to insufficient access privileges.
+[08:52:59:198] [12957:12958] [ERROR][com.freerdp.core.transport] - transport_check_fds: transport->ReceiveCallback() - -1
+[08:52:59:198] [12957:12958] [ERROR][com.freerdp.client.x11] - Freerdp connect error exit status 1
+[08:52:59:199] [12957:12957] [ERROR][com.winpr.sync.mutex] - pthread_mutex_destroy failed with Device or resource busy [16]
+

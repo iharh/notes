@@ -1,0 +1,41 @@
+create or replace and compile java source named "LongUtil" as
+import oracle.jdbc.OracleDriver;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class LongUtil {
+
+  public static void blob2LongRaw(Blob blob)
+    throws SQLException, IOException {
+
+    Connection con = null;
+    PreparedStatement pst = null;
+    try {
+      con = new OracleDriver().defaultConnection();
+
+      pst = con.prepareStatement(
+        "insert into TEST_LONG (test_long_id, lrdata) values (SQ_TEST_LONG.nextval, ?)"
+      );
+
+      InputStream in = null;
+      try {
+        in = new BufferedInputStream(blob.getBinaryStream());
+        pst.setBinaryStream(1, in, (int) blob.length());
+        pst.execute();
+      } finally {
+        if (in != null) {in.close();}
+      }
+    } finally {
+      if (pst != null) {pst.close();}
+      if (con != null) {con.close();}
+    }
+  }
+}
+/
+

@@ -1,0 +1,7 @@
+vlc
+Audio
+Output module: ALSA audio output
+Device: HDA Intel PCH, ALC892 Analog Default Audio Device
+
+~/.config/vlc/vlcrc
+???

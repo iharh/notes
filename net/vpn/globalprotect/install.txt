@@ -1,0 +1,9 @@
+tar -xvf ~/Downloads/PanGPLinux.tgz
+sudo -E dpkg -i <gp-app-pkg>
+    GlobalProtect_UI_deb-6.1.0.0-44.deb
+ar -x <...deb>
+# does not work
+sudo apt-get install <gp-app-pkg>
+
+# package name - globalprotect
+dpkg -r $(dpkg -f your-file-here.deb Package)

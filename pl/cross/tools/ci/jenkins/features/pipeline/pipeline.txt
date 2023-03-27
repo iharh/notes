@@ -1,0 +1,28 @@
+https://www.jenkins.io/solutions/pipeline/
+
+http://<jenkins-host>/pipeline-syntax/
+
+https://jenkins.io/doc/book/pipeline/
+https://jenkins.io/doc/book/pipeline/jenkinsfile/
+https://jenkins.io/doc/book/pipeline/syntax/
+
+https://jenkins.io/doc/pipeline/steps/
+https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/
+https://jenkins.io/doc/pipeline/steps/workflow-scm-step/
+
+API:
+https://jenkins.io/doc/pipeline/steps/
+
+@NonCPS
+    avoid serialization problem errors
+
+yaml
+https://jenkins.io/blog/2018/04/25/configuring-jenkins-pipeline-with-yaml-file/
+
+utils
+https://www.jenkins.io/doc/pipeline/steps/pipeline-utility-steps
+https://www.jenkins.io/doc/pipeline/steps/pipeline-utility-steps/#readproperties-read-properties-from-files-in-the-workspace-or-text
+
+2022
+https://kubesimplify.com/introduction-of-jenkins-pipeline
+    ! scripted/declarative

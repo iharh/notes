@@ -1,0 +1,35 @@
+cheplyaka-validation
+https://ro-che.info/articles/2015-05-02-smarter-validation
+http://ruhaskell.org/posts/theory/2015/05/04/smarter-validation.html
+
+aeson
+
+optparse-appliative:
+http://paolocapriotti.com/blog/2012/04/27/applicative-option-parser/
+http://hackage.haskell.org/package/optparse-applicative
+https://github.com/pcapriotti/optparse-applicative
+
+!!! http://stackoverflow.com/questions/14576543/why-can-applicative-functors-have-side-effects-but-functors-cant
+
+I like to use Functors with IO to apply a pure function like this:
+  fmap (unlines.reverse.lines) $ readFile "chronological_log.txt".
+I tend to use the infix operator for fmap, <$> imported from Data.Functor (or Control.Applicative!) so I'd normally write
+  unlines.reverse.lines <$> readFile "chronological_log.txt"
+
+2. ((==) <*>) :: Eq a => (a -> a) -> a -> Bool
+http://stackoverflow.com/questions/18813431/how-can-i-understand-t-in-haskell
+
+class (Functor f) => Applicative f where
+    pure  :: a -> f a
+    (<*>) :: f (a -> b) -> f a -> f b
+
+instance Applicative ((->) r) where
+    pure  :: a -> ((->) r) a
+    (<*>) :: (->) r (a -> b) -> (->) r a -> (->) r b
+
+...
+This is equivalent to:
+
+((==) <*>) = \g r -> r == g r
+
+((==) <*>) takes a function and an input, and tests whether the function maps that particular input to itself.

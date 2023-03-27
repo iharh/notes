@@ -1,0 +1,49 @@
+https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+    http://typescript-lang.ru/docs/tutorials/React%20&%20Webpack.html
+https://www.typescriptlang.org/docs/handbook/jsx.html
+
+https://stackoverflow.com/questions/38804312/harmony-between-react-templates-typescript-and-webpack
+    https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react
+
+npm i -P react react-dom
+
+npm i -D typescript awesome-typescript-loader source-map-loader
+npm i -D @types/react @types/react-dom
+@types/react-redux
+
+https://www.npmjs.com/package/awesome-typescript-loader
+    https://github.com/s-panferov/awesome-typescript-loader
+https://www.npmjs.com/package/source-map-loader
+    https://github.com/webpack-contrib/source-map-loader
+
+do not render on body
+https://medium.com/@dan_abramov/two-weird-tricks-that-fix-react-7cf9bbdef375
+http://jamesknelson.com/rendering-react-components-to-the-document-body/
+https://github.com/facebook/create-react-app/issues/1568
+https://www.npmjs.com/package/react-body-subtree
+    React.render(<SomeComponent />, document.body);
+https://www.codecademy.com/articles/react-setup-iv
+
+babel stuff
+https://medium.com/@bartwijnants/incrementally-migrate-your-webpack-project-to-typescript-2a342db6f51f
+
+saas scss
+https://medium.com/@tommyblue/react-sass-typescript-with-phoenix-framework-using-webpack-af0c8f7282d9
+https://github.com/vikpe/react-webpack-typescript-starter
+https://github.com/jonathanhotono/typescript-react-sass
+
+css modules
+https://github.com/longlho/ts-transform-css-modules
+https://medium.com/@sapegin/css-modules-with-typescript-and-webpack-6b221ebe5f10
+https://www.npmjs.com/package/typings-for-css-modules-loader
+    https://github.com/Jimdo/typings-for-css-modules-loader
+https://www.npmjs.com/package/typed-css-modules
+    https://github.com/Quramy/typed-css-modules
+https://stackoverflow.com/questions/41336858/how-to-import-css-modules-with-typescript-react-and-webpack
+http://quramy.github.io/typescript-css-modules-demo/
+!!!
+https://sitharus.com/2017/09/webpack-typescript-typed-css-modules-and-.net-core.html
+http://phdesign.com.au/programming/using-css-modules-with-angular-typescript-and-bootstrap/
+https://github.com/ovrmrw/react-webpack-css-modules-typescript-example
+
+npm i -D css-loader typings-for-css-modules-loader

@@ -1,0 +1,15 @@
+{
+    deploy.nodes.example = {
+        hostname = "localhost";
+        profiles = {
+            system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.example;
+            };
+            hello = {
+                user = "hello";
+                path = deploy-rs.lib.x86_64-linux.activate.custom self.defaultPackage.x86_64-linux "./bin/activate";
+            };
+        };
+    };
+}

@@ -1,0 +1,27 @@
+Windows Time Service Tools and Settings:
+http://technet.microsoft.com/en-us/library/cc773263.aspx
+
+> W32tm /query /configuration
+
+How the Windows Time Service Works:
+http://technet.microsoft.com/en-us/library/71e76587-28f4-4272-a3d7-7f44ca50c018
+
+
+You can run the command:
+> reg query HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters
+and read the value of NtpServer in the command output.
+
+
+    ServiceDll    REG_EXPAND_SZ    %systemroot%\system32\w32time.dll
+    ServiceMain    REG_SZ    SvchostEntry_W32Time
+    ServiceDllUnloadOnStop    REG_DWORD    0x1
+    Type    REG_SZ    AllSync
+    NtpServer    REG_SZ    time.consona.net,0x9
+
+    ServiceDll    REG_EXPAND_SZ    %systemroot%\system32\w32time.dll
+    ServiceMain    REG_SZ    SvchostEntry_W32Time
+    ServiceDllUnloadOnStop    REG_DWORD    0x1
+    Type    REG_SZ    NT5DS
+    NtpServer    REG_SZ    time.windows.com,0x9
+
+

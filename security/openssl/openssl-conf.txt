@@ -1,0 +1,40 @@
+Let's create fd.cnf:
+
+[req]
+prompt = no
+distinguished_name = dn
+req_extensions = ext
+input_password = <PASSPHRASE>
+
+[dn]
+CN = www.feistyduck.com
+emailAddress = webmaster@feistyduck.com
+O = Feisty Duck Ltd
+L = London
+C = GB
+
+[ext]
+subjectAltName = DNS:www.feistyduck.com, DNS:feistyduck.com
+
+
+Now you can create the CSR directly from the command line:
+
+$ openssl req -new -config fd.cnf -key fd.key -out fd.csr
+
+
+To use multi-host-name cert, we can combine:
+
+1. SAN (Subject Alternative Name) X.509 extension
+2. Wildcards (*)
+
+fd.ext:
+
+subjectAltName = DNS:*.feistyduck.com, DNS:feistyduck.com
+
+$ openssl x509 -req -days 365 -in fd.csr -out fd.crt -extfile fd.ext
+
+Later, while examining the cert, you should be able to find there:
+
+X509v3 extensions:
+    X509v3 Subject Alternative Name:
+        DNS:*.feistyduck.com, DNS:feistyduck.com

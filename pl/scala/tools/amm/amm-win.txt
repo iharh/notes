@@ -1,0 +1,5 @@
+.ammonite/predef.sc
+
+repl.frontEnd() = ammonite.repl.FrontEnd.JLineWindows
+//repl.colors() = ammonite.util.Colors.BlackWhite
+implicit val pprintConfig = pprint.Config.Defaults.PPrintConfig

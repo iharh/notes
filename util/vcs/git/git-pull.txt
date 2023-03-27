@@ -1,0 +1,12 @@
+pull = fetch + merge
+    also shows the latest branches available
+
+git fetch
+git log ... --all
+    to include all items even not part of our current branch
+
+git merge <other-branch-name>
+    merthe the other branch to the current one
+
+git pull --rebase=merge
+    better than a plain --rebase ???

@@ -1,0 +1,7 @@
+https://www.reddit.com/r/rust/comments/5qmn6g/lazy_initialization_in_rust/
+http://blog.kylehuey.com/post/156464146312/lazy-initialization-in-rust
+
+https://github.com/reem/rust-lazy
+
+https://crates.io/crates/lazy-static
+https://github.com/reem/rust-once-mutex

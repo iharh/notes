@@ -1,0 +1,63 @@
+http://jooby.org
+
+by default is based on:
+    maven
+    guice
+
+articles:
+https://medium.com/tag/jooby
+https://medium.com/@espina.edgar/java-micro-frameworks-why-jooby-59f0b346e819
+https://medium.com/@espina.edgar/what-is-new-in-jooby-1-1-a647cd463acc
+https://hackernoon.com/building-large-scale-applications-with-jooby-bde699f3e9e0
+https://medium.com/@espina.edgar/kotlin-idioms-in-jooby-cf3c8655d4ee
+
+data:
+http://jooby.org/doc/datastore/
+    http://jooby.org/doc/jdbc/
+    http://jooby.org/doc/requery/
+    http://jooby.org/doc/querydsl/
+    http://jooby.org/doc/jooq/
+    http://jooby.org/doc/flyway/
+
+cache:
+http://jooby.org/doc/caches/
+
+assets:
+http://jooby.org/doc/assets/
+
+servers:
+http://jooby.org/doc/servers/
+    netty (default), jetty, undertow, servlets
+
+thread model:
+http://jooby.org/doc/async/
+
+modules:
+http://jooby.org/doc/reactor/
+http://jooby.org/doc/rxjava/
+    http://jooby.org/doc/rxjava-jdbc/
+http://jooby.org/doc/quartz/
+
+deployment:
+http://jooby.org/doc/deployment/
+    http://jooby.org/doc/deployment/#stork
+        https://github.com/fizzed/stork
+    http://jooby.org/doc/deployment/#capsule
+    http://jooby.org/doc/deployment/#docker
+    http://jooby.org/doc/deployment/#crash
+
+tools:
+http://jooby.org/doc/devtools/
+    http://jooby.org/doc/gradle/
+    http://jooby.org/doc/gradle-plugin/
+    http://jooby.org/doc/devtools/#gradle
+
+misc:
+http://jooby.org/doc/more/
+    http://jooby.org/doc/metrics/
+    http://jooby.org/doc/scanner/
+        scan the application class-path and automatically discover
+        and register MVC routes/controllers,
+        Jooby.Module and Jooby.Module applications.
+    http://jooby.org/doc/filewatcher/
+    http://jooby.org/doc/elasticsearch/

@@ -1,0 +1,10 @@
+2023
+https://itsfoss.com/things-to-do-after-installing-nixos/
+    ! #4
+    ! service.flatpak.enable=true;
+https://itsfoss.com/nixos-package-management/
+    ! #3
+https://itsfoss.com/install-nixos-vm/
+    ! #2
+https://itsfoss.com/why-use-nixos/
+    ! #1

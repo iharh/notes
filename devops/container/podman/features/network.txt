@@ -1,0 +1,9 @@
+https://github.com/containers/netavark
+https://github.com/containers/aardvark-dns
+
+2022
+https://linuxhandbook.com/rootless-podman/
+    !!! sudo apt install slirp4netns
+    ! sudo usermod --add-subuids START-RANGE --add-subgids START-RANGE USERNAME
+https://www.redhat.com/sysadmin/podman-transfer-container-images-without-registry
+https://www.redhat.com/sysadmin/podman-new-network-stack

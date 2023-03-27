@@ -1,0 +1,32 @@
+http://www.binarytides.com/inxi-system-information-linux/
+https://code.google.com/p/inxi/wiki/Installation
+
+inxi -Mdxxxzy80
+    Machine:
+      Type: Desktop Mobo: ASRock model: B365M Pro4 serial: <filter> 
+      UEFI: American Megatrends v: P4.30 date: 05/13/2020 
+    Drives:
+      Local Storage: total: 1.82 TiB used: 88.85 GiB (4.8%) 
+      ID-1: /dev/sda vendor: Samsung model: SSD 860 EVO 2TB size: 1.82 TiB 
+      speed: 6.0 Gb/s rotation: SSD serial: <filter> rev: 4B6Q scheme: GPT 
+      Message: No Optical or Floppy data was found.
+
+inxi
+    -v <0-8>
+        verbosity level
+    -Fxz
+        ???
+
+2022
+https://www.tecmint.com/inxi-command-to-find-linux-system-information/
+2021
+https://www.binarytides.com/linux-cpu-information/
+    https://habr.com/ru/company/otus/blog/581796/
+????
+https://www.2daygeek.com/inxi-command-check-linux-system-hardware-information/
+
+https://linuxconfig.org/how-to-benchmark-disk-performance-on-linux
+https://linuxhint.com/benchmark_hard_disks_linux/
+
+snap
+    ssd-benchmark

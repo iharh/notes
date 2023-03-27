@@ -1,0 +1,12 @@
+insert into
+    values/(select...)
+update
+    table-name set col=val where predicate
+    ...
+delete
+    (at ddl can do "on delete cascade")
+copy (pg-specific)
+
+
+insert/update/delete
+    returning list-of-scalar-values

@@ -1,0 +1,74 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"          
+      xmlns:beans="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+                 http://www.springframework.org/schema/security 
+                 http://www.springframework.org/schema/security/spring-security-3.0.xsd"> 
+
+    <http access-denied-page="/error403.jsp"> 
+       <intercept-url pattern="/index*" access="ROLE_USER,ROLE_ANONYMOUS"/> 
+       <intercept-url pattern="/add*" access="ROLE_USER"/> 
+       <intercept-url pattern="/delete/*" access="ROLE_ADMIN"/> 
+       <form-login login-page="/login.jsp" default-target-url="/index" authentication-failure-url="/login.jsp?error=true"/> 
+       <logout logout-url="/logout" logout-success-url="/index"/> 
+       <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/> 
+       <remember-me/> 
+    </http> 
+  
+    <authentication-manager> 
+       <authentication-provider> 
+          <user-service> 
+             <user name="admin" password="pass" authorities="ROLE_ADMIN,ROLE_USER"/> 
+             <user name="user1" password="1111" authorities="ROLE_USER"/> 
+             <user name="user2" password="2222" disabled="true" authorities="ROLE_USER"/>    
+          </user-service> 
+       </authentication-provider> 
+    </authentication-manager> 
+
+</beans:beans> 
+
+also, single method can be secured by adding
+    <global-method-security secured-annotations="enabled" />
+
+    and in source code:
+    public interface AdminService { 
+        @Secured("ROLE_ADMIN")
+        public Account editAccount(Account account);
+    }
+
+for more complex cases:
+
+    <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/<yourDataBaseName>" />
+        <property name="username" value="root" />
+        <property name="password" value="password" />
+    </bean>
+
+    <authentication-provider>
+ 	<jdbc-user-service data-source-ref="dataSource" 
+     	    users-by-username-query="select username, password, enabled 
+      	                                            from users where username = ?"
+      	    authorities-by-username-query="select u.username, au.authority 
+      	                                            from users u, authorities au  
+       	                                            where u.id = au.user_id and u.username = ?" />
+    </authentication-provider> 
+
+to check hashed passwords:
+
+    <authentication-manager>  
+        <authentication-provider>  
+            <password-encoder hash="sha"/>  
+            <user-service>  
+                <user name="jimi" password="d7e6351eaa13189a5a3641bab846c8e8c69ba39f" authorities="ROLE_USER, ROLE_ADMIN" />  
+                <user name="bob" password="4e7421b1b8765d8f9406d87e7cc6aa784c4ab97f" authorities="ROLE_USER" /> 
+            </user-service>  
+        </authentication-provider>  
+    </authentication-manager> 
+      
+    <password-encoder hash="sha">  
+        <salt-source user-property="username"/>  
+    </password-encoder> 

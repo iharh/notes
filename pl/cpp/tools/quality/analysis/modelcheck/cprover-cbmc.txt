@@ -1,0 +1,33 @@
+http://www.cprover.org
+https://github.com/diffblue/cbmc
+https://github.com/diffblue/cbmc-builder
+
+http://www.cprover.org/cbmc/doc/manual.pdf
+
+http://www.cprover.org/wiki/
+http://www.cprover.org/wiki/doku.php?id=cprover_tutorial
+http://www.cprover.org/wiki/doku.php?id=how_to_use_incremental_unwinding
+
+http://www.cprover.org/cprover-manual/cbmc.shtml
+
+2ls:
+http://www.cprover.org/wiki/doku.php?id=2ls_for_program_analysis
+https://github.com/diffblue/2ls
+
+people:
+http://www.kroening.com/full-papers.html
+
+books:
+http://www.decision-procedures.org/
+http://www.decision-procedures.org/slides/
+
+slides:
+https://www.cs.cmu.edu/~emc/15414-f12/lecture/cbmc.pptx
+http://www.cs.toronto.edu/~chechik/courses07/csc2108/Lectures/cbmc.pdf
+https://nebelwelt.net/teaching/15-510-SE/slides/10-cbmc.pdf
+https://www.cs.purdue.edu/homes/xyzhang/spring08/14-cbmc-1.pdf
+
+options:
+ --bounds-check
+ --div-by-zero-check
+ --pointer-check

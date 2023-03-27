@@ -1,0 +1,5 @@
+https://github.com/spencergilbert/asdf-k3d
+
+docker-desktop (for mac)
+    change at ~/.kube/config
+        host.docker.internal by localhost

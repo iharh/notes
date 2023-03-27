@@ -1,0 +1,41 @@
+https://www.stackage.org/
+
+!!!
+https://github.com/commercialhaskell/stackage/blob/master/build-constraints.yaml
+
+https://www.stackage.org/install
+
+https://www.stackage.org/package/stackage-setup
+http://hackage.haskell.org/package/stackage-setup
+https://github.com/fpco/stackage-setup
+
+https://www.stackage.org/package/stackage-update
+
+https://www.stackage.org/lts
+https://www.stackage.org/lts-19.5
+https://www.stackage.org/lts-18.28
+resolver:
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/18/18.yaml
+https://www.stackage.org/nightly
+https://www.stackage.org/snapshots
+
+https://github.com/fpco/stackage-install
+https://www.fpcomplete.com/blog/2015/04/announcing-stackage-install
+http://www.reddit.com/r/haskell/comments/349dxw/announcing_stackageinstall/
+
+https://www.stackage.org/package/stackage-build-plan
+http://hackage.haskell.org/package/stackage-build-plan
+https://github.com/fpco/stackage-build-plan
+
+http://hackage.haskell.org/package/stackage-sandbox
+https://www.stackage.org/package/stackage-sandbox
+https://github.com/fpco/stackage-sandbox
+
+
+hackage mirror:
+https://www.fpcomplete.com/blog/2015/03/hackage-mirror
+~/.cabal/config:
+remote-repo: hackage.fpcomplete.com:http://hackage.fpcomplete.com/
+Then run cabal update, and you're all set.
+
+http://hackage.haskell.org/package/hackage-mirror

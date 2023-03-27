@@ -1,0 +1,23 @@
+firewalld:
+http://www.unixmen.com/iptables-vs-firewalld/
+http://guoqiao.me/post/2015/0610-vagrant-network-not-working-for-centos-7
+
+sudo systemctl stop firewalld.service 
+sudo systemctl disable firewalld.service
+
+
+firewall-cmd --zone=public --permanent --add-service=http
+firewall-cmd --zone=public --permanent --add-service=https
+firewall-cmd –reload
+
+samples:
+check network group
+show firewall group internet_allowed_zone
+
+if not there add to group
+set firewall group network-group internet_allowed_zone network 'host ip/32'
+
+2022
+https://itsecforu.ru/2022/06/29/%f0%9f%96%a7-%d1%88%d0%bf%d0%b0%d1%80%d0%b3%d0%b0%d0%bb%d0%ba%d0%b0-%d0%bf%d0%be-firewalld/
+2018
+https://opensource.com/article/18/9/linux-iptables-firewalld

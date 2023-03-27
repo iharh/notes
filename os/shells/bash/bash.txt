@@ -1,0 +1,39 @@
+http://www.gnu.org/software/bash/manual/html_node/index.html
+Coper - Advanced Bash-Scripting Guide
+  http://tldp.org/LDP/abs/html/
+  http://rus-linux.net/MyLDP/BOOKS/abs-guide/flat/abs-book.html
+
+History:
+
+!! - repeat previous command
+
+Modifiers:
+
+!!:gs/foo/bar - Runs previous command replacing foo by bar every time that foo appears 
+
+http://www.gnu.org/software/bash/manual/html_node/Modifiers.html
+
+
+!!! http://www.catonmat.net/blog/bash-one-liners-explained-part-five/
+
+$ stty stop 'undef'
+
+
+
+
+
+# Set the PS1 prompt (with colors).
+# Based on http://www-128.ibm.com/developerworks/linux/library/l-tip-prompt/
+# And http://networking.ringofsaturn.com/Unix/Bash-prompts.php .
+PS1="\[\e[36;1m\]\h:\[\e[32;1m\]\w$ \[\e[0m\]"
+ 
+# Avoid succesive duplicates in the bash command history.
+export HISTCONTROL=ignoredups
+ 
+# Append commands to the bash command history file (~/.bash_history)
+# instead of overwriting it.
+shopt -s histappend
+ 
+# Append commands to the history every time a prompt is shown,
+# instead of after closing the session.
+PROMPT_COMMAND='history -a'

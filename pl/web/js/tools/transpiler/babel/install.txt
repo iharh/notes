@@ -1,0 +1,33 @@
+https://babeljs.io/docs/setup/#installation
+
+npm i --save-dev
+    babel-loader babel-core
+
+    babel-preset-env # for es6 and es7
+    https://babeljs.io/docs/plugins/preset-env
+    babel-polyfill
+    babel-preset-es2017
+    babel-preset-stage
+    https://babeljs.io/docs/usage/polyfill
+    bable-plugin-transform-object-rest-spread
+
+webpack.config.js
+
+    module: {
+        rules: [
+            {
+                loader: "babel-loader",
+                test: /\.js/
+            }
+        ]
+    }
+
+.babelrc
+{
+    "presets": [
+        "env"
+    ],
+    "plugins": [
+        "transform-object-rest-spread"
+    ]
+}

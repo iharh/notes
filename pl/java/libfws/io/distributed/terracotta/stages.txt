@@ -1,0 +1,122 @@
+stageManager
+
+"WorkerThread(client_coordination_stage, 0)" Id=63 TIMED_WAITING on java.lang.Object@33d3bd
+	at java.lang.Object.wait(Native Method)
+	at EDU.oswego.cs.dl.util.concurrent.BoundedLinkedQueue.poll(Unknown Source)
+	at com.tc.util.concurrent.TCBoundedLinkedQueue.poll(TCBoundedLinkedQueue.java:29)
+	at com.tc.async.impl.StageQueueImpl$SourceQueueImpl.poll(StageQueueImpl.java:266)
+	at com.tc.async.impl.StageImpl$WorkerThread.run(StageImpl.java:122)
+
+
+
+terracotta\dso\trunk\code\base\dso-l1\src\com\tc\object\ClientConfigurationContext.java
+terracotta\dso\trunk\code\base\dso-l1\src\com\tc\object\DistributedObjectClient.java 
+
+LOCK_RESPONSE_STAGE                       = "lock_response_stage";
+LOCK_RECALL_STAGE                         = "lock_recall_stage";
+RECEIVE_ROOT_ID_STAGE                     = "receive_root_id_stage";
+RECEIVE_OBJECT_STAGE                      = "receive_object_stage";
+RECEIVE_TRANSACTION_STAGE                 = "receive_transaction_stage";
+OBJECT_ID_REQUEST_RESPONSE_STAGE          = "object_id_request_response_stage";
+RECEIVE_TRANSACTION_COMPLETE_STAGE        = "receive_transaction_complete_stage";
+HYDRATE_MESSAGE_STAGE                     = "hydrate_message_stage";
+BATCH_TXN_ACK_STAGE                       = "batch_txn_ack_stage";
+CONFIG_MESSAGE_STAGE                      = "config_message_stage";
+CLIENT_COORDINATION_STAGE                 = "client_coordination_stage";
+JMXREMOTE_TUNNEL_STAGE                    = "jmxremote_tunnel_stage";
+DMI_STAGE                                 = "dmi_stage";
+LOCK_STATISTICS_RESPONSE_STAGE            = "lock_statistics_response_stage";
+LOCK_STATISTICS_ENABLE_DISABLE_STAGE      = "lock_statistics_enable_disable_stage";
+OOO_NET_SEND_STAGE                        = "ooo_net_send_stage";
+OOO_NET_RECEIVE_STAGE                     = "ooo_net_receive_stage";
+CLUSTER_METADATA_STAGE                    = "cluster_metadata_stage";
+RECEIVED_SYNC_WRITE_TRANSACTION_ACK_STAGE = "received_sync_write_transaction_ack_stage";
+CLUSTER_MEMBERSHIP_EVENT_STAGE            = "cluster_membership_event_stage";
+RECEIVE_SERVER_MAP_RESPONSE_STAGE         = "receive_server_map_response_stage";
+CAPACITY_EVICTION_STAGE                   = "capacity_eviction_stage";
+TTI_TTL_EVICTION_STAGE                    = "tti_ttl_eviction_stage";
+RECEIVE_SERVER_MAP_EVICTION_BROADCAST_STAGE = "receive_server_map_eviction_broadcast_stage";
+
+
+terracotta\dso\trunk\code\base\dso-l2\src\com\tc\objectserver\core\api\ServerConfigurationContext.java
+terracotta\dso\trunk\code\base\dso-l2\src\com\tc\objectserver\impl\DistributedObjectServer.java 
+
+APPLY_CHANGES_STAGE                                = "apply_changes_stage";
+APPLY_COMPLETE_STAGE                               = "apply_complete_stage";
+BROADCAST_CHANGES_STAGE                            = "broadcast_changes_stage";
+MANAGED_ROOT_REQUEST_STAGE                         = "send_managed_object_stage";
+RESPOND_TO_OBJECT_REQUEST_STAGE                    = "respond_to_request_stage";
+MANAGED_OBJECT_REQUEST_STAGE                       = "managed_object_request_stage";
+PROCESS_TRANSACTION_STAGE                          = "process_transaction_stage";
+SYNC_WRITE_TXN_RECVD_STAGE                         = "sync_write_transaction_recvd_stage";
+TRANSACTION_LOOKUP_STAGE                           = "transaction_lookup_stage";
+RESPOND_TO_LOCK_REQUEST_STAGE                      = "respond_to_lock_request_stage";
+REQUEST_LOCK_STAGE                                 = "request_lock_stage";
+CHANNEL_LIFE_CYCLE_STAGE                           = "channel_life_cycle_stage";
+OBJECT_ID_BATCH_REQUEST_STAGE                      = "object_id_batch_request_stage";
+TRANSACTION_ACKNOWLEDGEMENT_STAGE                  = "transaction_acknowledgement_stage";
+CLIENT_HANDSHAKE_STAGE                             = "client_handshake_stage";
+CONFIG_MESSAGE_STAGE                               = "config_message_stage";
+HYDRATE_MESSAGE_SINK                               = "hydrate_message_stage";
+REQUEST_BATCH_GLOBAL_TRANSACTION_ID_SEQUENCE_STAGE = "request_batch_global_transaction_id_sequence_stage";
+COMMIT_CHANGES_STAGE                               = "commit_changes_stage";
+JMX_EVENTS_STAGE                                   = "jmx_events_stage";
+MANAGED_OBJECT_FAULT_STAGE                         = "managed_object_fault_stage";
+MANAGED_OBJECT_FLUSH_STAGE                         = "managed_object_flush_stage";
+JMXREMOTE_TUNNEL_STAGE                             = "jmxremote_tunnel_stage";
+JMXREMOTE_CONNECT_STAGE                            = "jmxremote_connect_stage";
+JMXREMOTE_DISCONNECT_STAGE                         = "jmxremote_disconnect_stage";
+RECALL_OBJECTS_STAGE                               = "recall_objects_stage";
+L2_STATE_CHANGE_STAGE                              = "l2_state_change_stage";
+OBJECTS_SYNC_REQUEST_STAGE                         = "object_sync_request_stage";
+OBJECTS_SYNC_DEHYDRATE_STAGE                       = "objects_sync_dehydrate_stage";
+OBJECTS_SYNC_SEND_STAGE                            = "object_sync_send_stage";
+OBJECTS_SYNC_STAGE                                 = "objects_sync_stage";
+TRANSACTION_RELAY_STAGE                            = "transaction_relay_stage";
+SERVER_TRANSACTION_ACK_PROCESSING_STAGE            = "server_transaction_ack_processing_stage";
+GROUP_EVENTS_DISPATCH_STAGE                        = "group_events_dispatch_stage";
+L2_STATE_MESSAGE_HANDLER_STAGE                     = "l2_state_message_handler_stage";
+GC_RESULT_PROCESSING_STAGE                         = "gc_result_processing_stage";
+CLIENT_LOCK_STATISTICS_RESPOND_STAGE               = "client_lock_statistics_respond_stage";
+CLIENT_LOCK_STATISTICS_ENABLE_DISABLE_STAGE        = "client_lock_statistics_enable_disable_stage";
+TRANSACTION_LOWWATERMARK_STAGE                     = "transaction_lowwatermark_stage";
+RECEIVE_GROUP_MESSAGE_STAGE                        = "receive_group_message_stage";
+GROUP_HANDSHAKE_MESSAGE_STAGE                      = "group_handshake_message_stage";
+GROUP_DISCOVERY_STAGE                              = "group_discovery_stage";
+GROUP_HYDRATE_MESSAGE_STAGE                        = "group_hydrate_message_stage";
+GC_DELETE_FROM_DISK_STAGE                          = "gc_delete_from_disk_stage";
+OOO_NET_SEND_STAGE                                 = "ooo_net_send_stage";
+OOO_NET_RECEIVE_STAGE                              = "ooo_net_receive_stage";
+L2_OOO_NET_SEND_STAGE                              = "l2_ooo_net_send_stage";
+L2_OOO_NET_RECEIVE_STAGE                           = "l2_ooo_net_receive_stage";
+CLUSTER_METADATA_STAGE                             = "cluster_metadata_stage";
+SERVER_MAP_REQUEST_STAGE                           = "server_map_request_stage";
+SERVER_MAP_RESPOND_STAGE                           = "server_map_response_stage";
+SERVER_MAP_CAPACITY_EVICTION_STAGE                 = "server_map_capacity_eviction_stage";
+SERVER_MAP_EVICTION_PROCESSOR_STAGE                = "server_map_eviction_processor_stage";
+SERVER_MAP_EVICTION_BROADCAST_STAGE                = "server_map_eviction_broadcast_stage";
+
+// TODO::Move to enterprise
+AA_TRANSACTION_WATERMARK_BROADCAST_STAGE           = "aa_transaction_watermark_broadcast_stage";
+AA_TRANSACTION_WATERMARK_RECEIVE_STAGE             = "aa_transaction_watermark_receive_stage";
+AA_OBJECT_REQUEST_LOOKUP_STAGE                     = "aa_object_request_lookup_stage";
+AA_CLOSE_CHANNEL_STAGE                             = "aa_close_channel_stage";
+
+CONFIG_MESSAGE_STAGE (+Server)
+LOCK_STATISTICS_ENABLE_DISABLE_STAGE (+Server)
+
+JMXREMOTE_TUNNEL_STAGE (+Server)
+CLUSTER_METADATA_STAGE (+Server)
+terracotta\dso\trunk\code\base\dso-l2\src\com\tc\objectserver\impl\DistributedObjectServer.java 
+
+HYDRATE_MESSAGE_STAGE (+Server)
+terracotta\dso\trunk\code\base\dso-l2\src\com\tc\net\groups\TCGroupManagerImpl.java
+
+OOO_NET_SEND_STAGE (+Server)
+OOO_NET_RECEIVE_STAGE (+Server)
+terracotta\dso\trunk\code\base\dso-l2\src\com\tc\net\groups\TCGroupManagerImpl.java
+terracotta\dso\trunk\code\base\dso-l2\src\com\tc\objectserver\impl\DistributedObjectServer.java 
+
+CAPACITY_EVICTION_STAGE (+Server)
+terracotta\dso\trunk\code\base\dso-l2\src\com\tc\objectserver\handler\ApplyTransactionChangeHandler.java
+terracotta\dso\trunk\code\base\dso-l2\src\com\tc\objectserver\impl\DistributedObjectServer.java 

@@ -1,0 +1,80 @@
+Chakravarty-2016-ATypeIsWorthAThousandTests
+https://www.youtube.com/watch?v=q1Yi-WM7XqQ
+
+Value types (ADTs):
+
+struct
+enum
+
+enum Result<ResultType> {
+    case result(value: ResultType)
+    case error(err: NSError)
+}
+
+
+Reference types
+
+class RefPnt { var x, y: Double ... }
+
+v = RefPnt(x: 0, y: 0)
+w = v
+w.x = 10 // v.x will also be 10
+
+
+Aliases
+
+typealias GoadProgress = (goal: Goal, count: Int)
+
+
+Pattern Matching
+
+enum GoalsEditState {
+    case display
+    case editing(activeGoals: [Bool])
+}
+
+let activities = goalProgress.map( $0.goal.activity }
+edit state = .editing(activeGoals: activities)
+...
+switch editState {
+    case display: ...
+    case editing(let activeGoals): ...
+}
+
+
+Protocols (type classes)
+
+protocol Observable: class {
+    associatedtype OvservedValue
+
+    func observe<Contect: AnyObject>(
+        withContext context: Context,
+        observer: (Context, ObservedValue) -> ()
+    ) -> ()
+}
+
+// Ephemeral stream of changes
+
+class Changing<Value>: Observable {
+    typealias ObservedValue = Value
+
+    // Add another change value into the stream
+    func announce(changed: Value) { ... }
+    fund observe ... { ... }
+}
+
+class Accumulating<Value, Accumulator>: Observable {
+    typealias ObservedValue = Accumulator
+    init <Observed: Observable where ...> {
+        observing observed: Observed,
+        startingFrom initial: Accumulator,
+        accumulate: (Value, Accumulator) -> Accumulator) // Accumulatingn change
+    func observe ... { ... } 
+}
+
+extension Observable {
+    map
+    merge
+    accumulate
+    ...
+}

@@ -1,0 +1,29 @@
+https://reactjs.org/docs/lists-and-keys.html
+
+for key we should avoid using index-es
+https://habr.com/post/279249/#comment_8807873
+
+using nanoid !!! not recommended
+https://stackoverflow.com/questions/29808636/when-giving-unique-keys-to-components-is-it-okay-to-use-math-random-for-gener
+
+import nanoid from 'nanoid'
+import React from 'react'
+
+const keySize = 8
+
+const ListDrinks = props => {
+    const drinks = ['rum', 'bear', 'vodka']
+    return(
+        <ul>
+            {drinks.map((values) => {
+                return(
+                    <li key={nanoid(keySize)}>{values}</li>
+                )
+            })}
+        </ul>
+    )
+}
+export default ListDrinks
+
+2018
+https://habr.com/company/hh/blog/352150/

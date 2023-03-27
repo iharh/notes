@@ -1,0 +1,6 @@
+https://github.com/NixOS/nixpkgs/tree/master/nixos/modules/services/x11/window-managers
+
+combinations (displayManager/desktopManager)
+    sddm/plasma5
+    gdm/gnome
+    lightdm/xfce

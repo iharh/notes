@@ -1,0 +1,46 @@
+https://github.com/JetBrains/kotlin-native/
+https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md
+
+http://learnkotlinnative.com/
+
+whatsnew
+https://blog.jetbrains.com/kotlin/2018/09/kotlinnative-v0-9-is-here/
+https://blog.jetbrains.com/kotlin/2018/07/kotlinnative-v0-8-released/
+https://blog.jetbrains.com/kotlin/2018/04/kotlinnative-v0-7-released-smoother-interop-frozen-objects-optimisations-and-more/
+https://blog.jetbrains.com/kotlin/2018/02/kotlinnative-v0-6-is-here/
+https://blog.jetbrains.com/kotlin/2017/06/kotlinnative-v0-3-is-out/
+https://blog.jetbrains.com/kotlin/2017/05/kotlinnative-v0-2-is-out/
+https://blog.jetbrains.com/kotlin/2017/04/kotlinnative-tech-preview-kotlin-without-a-vm/
+
+gradle-integration
+buildscript {
+    repositories {
+        jcenter()
+        maven("https://dl.bintray.com/jetbrains/kotlin-native-dependencies")
+    }
+
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-native-gradle-plugin:0.6")
+    }
+}
+
+https://github.com/JetBrains/kotlin-native/blob/master/CONCURRENCY.md
+
+articles
+2020
+https://www.bignerdranch.com/blog/exploring-kotlin-native-part-1/
+2018
+https://medium.com/@kpgalligan/kotlin-native-stranger-threads-c0cf0e0fb847
+
+presentations
+2018
+Igotti - Kotlin/Native Concurrency Model
+    https://www.youtube.com/watch?v=nw6YTfEyfO0
+Igotti - Developing Kotlin/Native infrastructure with LLVM
+    https://www.youtube.com/watch?v=DqsYo_4QWSg
+
+samples
+https://github.com/JetBrains/kotlin-native/tree/master/samples/tensorflow
+https://github.com/JetBrains/kotlin-native/blob/master/samples/tensorflow/build.gradle
+https://github.com/madhead/seaowl
+

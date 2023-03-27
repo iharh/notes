@@ -1,0 +1,20 @@
+70|LXF201 - DHCP
+
+DHCP:
+
+ifconfig eth0 0.0.0.0
+    remove the IP address
+ifconfig eth0:0
+    ???
+
+service isc-dhcp-server start
+  start a DHCP server (dhcpd)
+  (/etc/init.d/...)
+
+dhclient -v eth0
+  send DHCPDISCOVER req
+  get  DHCPOFFER from all the DHCP servers
+  then - DHCPREQUEST
+  and    DHCPACK
+
+ip addres send for some period of time (but remembers at the cache)

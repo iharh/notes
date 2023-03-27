@@ -1,0 +1,20 @@
+https://12factor.net/
+    https://github.com/heroku/12factor/tree/master/content
+    https://github.com/heroku/12factor/tree/master/content/en
+https://12factor.net/ru/
+    https://github.com/heroku/12factor/tree/master/content/ru
+
+The 12 factors developers should think about when building native cloud apps are:
+
+Code base:              use one codebase, even when building cross-platform apps.
+Dependencies:           declare and isolate all dependencies.
+Configuration:          design the app to read its config from the environment.
+Backing Services:       treat back-end services as attached resources to be accessed with a URL or other locator stored in config.
+Build, Release, Run:    strictly separate build and run stages.
+Processes:              execute the app as one or more stateless processes, and store persistent data in a stateful backing service.
+Port binding:           use port binding to export services.
+Concurrency:            scale apps out horizontally, not vertically.
+Disposability:          use fast startups and shutdowns to maximize resilience.
+Parity:                 make sure that development, staging, and production environments are as similar as possible.
+Logs:                   treat logs as event streams.
+Admin processes:        keep admin tasks in source control and packaged with the application.

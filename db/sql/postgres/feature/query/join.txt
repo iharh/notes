@@ -1,0 +1,6 @@
+[cross] join
+    on field1 <> field2
+
+... join 
+    (values (v11, v12),
+            (v21, v22), ...) as ...

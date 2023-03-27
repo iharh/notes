@@ -1,0 +1,21 @@
+webpack
+    [--mode] 
+    init
+        https://github.com/webpack/webpack-cli/blob/master/INIT.md
+        --auto
+        webpack-scaffold-[name]
+    i
+        https://docs.npmjs.com/cli/install
+        -S
+            --save
+        -D
+            --save-dev
+
+
+webpack-command
+https://github.com/webpack-contrib/webpack-command
+2018
+https://medium.com/webpack/webpacks-new-cli-hotness-d6a2063168a8
+
+wpk
+https://github.com/wpk-cli/wpk

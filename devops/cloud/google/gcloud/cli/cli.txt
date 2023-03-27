@@ -1,0 +1,81 @@
+https://cloud.google.com/sdk/gcloud/
+
+2018
+https://cloudplatform.googleblog.com/2018/03/introducing-GCPs-new-interactive-CLI.html
+
+gcloud
+    --help
+        print help
+    init
+    info
+        --format="get(config.paths.active_config_path)"
+            to list current config
+
+    auth                    # https://cloud.google.com/sdk/auth_success
+        application-default # ADC - application default credentials
+            --help
+            login           # to temporarily use your own user credentials,
+            print-access-token
+        login
+            [--no-browser]
+        configure-docker
+            !!! need to be done once
+        print-access-token
+            ! print access token
+            ROJECT_ID=cb-platform-dev
+            ACCESS_TOKEN=$(gcloud auth print-access-token)
+            API_KEY=$(curl -X "POST https://apikeys.googleapis.com/v1/projects/$PROJECT_ID/apiKeys?access_token=$ACCESS_TOKEN" | jq -r ".currentKey")
+                perm-denied
+                https://localcoder.org/google-cloud-platform-rest-api-acquiring-access-token-and-api-key
+                ! alt-way - via UI
+    config
+        list
+        set
+            accound ACCOUNT_ID
+            project PROJECT_ID
+        configurations
+            create my-config
+            activate my-config
+            
+        --configuration my-config, or env var CLOUDSDK_ACTIVE_CONFIG_NAME=my-config.
+            activate for single cli call
+
+
+    services
+        list
+        operations describe --help
+    project
+        list
+
+    components
+        list|update|install|reinstall|remove|restore
+    organisations
+    products
+    [beta] ml
+        language
+            --help
+            analyze-entities
+            analyze-entity-sentiment
+            analyze-sentiment
+            analyze-syntax
+
+    compute
+        config-ssh
+            https://cloud.google.com/compute/docs/instances/connecting-to-instance#gcloud
+            https://cloud.google.com/sdk/gcloud/reference/compute/config-ssh
+            [--dry-run]
+
+
+gcloud wide flags
+    --help
+    --log-http
+    --trace-token
+    --quiet,
+    --verbosity
+    --user-output-enabled
+    --configuration
+    --flags-file
+    --account
+    --project
+    --flatten
+    --format

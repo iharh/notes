@@ -1,0 +1,16 @@
+Terminal emulator: foot
+Window manager: Hyprland
+nvim theme
+    https://github.com/jabuti-theme/jabuti-nvim
+
+https://github.com/notusknot/dotfiles-nix
+https://github.com/notusknot/dotfiles-nix/tree/main
+https://github.com/notusknot/dotfiles-nix/blob/main/flake.nix
+https://github.com/notusknot/dotfiles-nix/blob/main/lib/mkSystem.nix
+https://github.com/notusknot/dotfiles-nix/tree/main/modules/hyprland
+https://github.com/notusknot/dotfiles-nix/blob/main/modules/hyprland/default.nix
+    wofi swaybg wlsunset wl-clipboard hyprland
+https://github.com/notusknot/dotfiles-nix/blob/main/modules/hyprland/hyprland.conf
+
+inspirations
+https://github.com/sioodmy/dotfiles/blob/main/flake.nix

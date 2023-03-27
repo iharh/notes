@@ -1,0 +1,11 @@
+https://docs.docker.com/docker-for-windows/#daemon
+https://docs.docker.com/docker-for-windows/#kubernetes
+https://docs.docker.com/docker-for-windows/kubernetes/
+
+Kubernetes is only available in Docker for Windows 18.02 CE Edge.
+Kubernetes support is not included in Docker for Windows 18.02 CE Stable. 
+
+2018
+https://blog.docker.com/2018/07/kubernetes-is-now-available-in-docker-desktop-stable-channel/
+    https://embed.vidyard.com/share/txhmiXXLzoQqDKKnZeo5nj
+https://www.infoq.com/news/2018/08/docker-desktop-kubernetes

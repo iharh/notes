@@ -1,0 +1,51 @@
+https://plot.ly/
+https://plot.ly/python/
+
+https://pypi.python.org/pypi/plotly/
+
+https://github.com/plotly/plotly.py
+
+https://plot.ly/pandas/
+
+docs
+https://plot.ly/python/offline/
+https://plot.ly/python/getting-started/
+https://habrahabr.ru/post/308162/
+
+https://plot.ly/pandas/getting-started/
+https://plot.ly/matplotlib/getting-started/
+https://plot.ly/python/plotly-fundamentals/
+
+cheatseet
+https://images.plot.ly/plotly-documentation/images/python_cheat_sheet.pdf
+
+tutorial
+https://plot.ly/python/ipython-notebook-tutorial/
+https://elitedatascience.com/python-seaborn-tutorial
+https://tryolabs.com/blog/2017/03/16/pandas-seaborn-a-guide-to-handle-visualize-data-elegantly/
+
+reference
+https://plot.ly/python/reference/
+
+shapes
+https://plot.ly/python/shapes/
+https://plot.ly/python/box-plots/
+https://plot.ly/python/line-charts/
+https://plot.ly/python/candlestick-charts/
+
+https://plot.ly/pandas/time-series/
+
+samples
+from plotly.graph_objs import Scatter, Figure, Layout
+from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
+import numpy as np
+
+#init_notebook_mode(connected=True)
+
+iplot(
+    {
+        "data": [Scatter(x=[1, 2, 3, 4], y=[4, 3, 2, 1])],
+        "layout": Layout(title="hello world")
+    },
+    show_link=False,
+)

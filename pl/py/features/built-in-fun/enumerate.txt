@@ -1,0 +1,8 @@
+https://younglinux.info/python/feature/enumerate
+
+2020
+https://realpython.com/python-enumerate/
+    https://proglib.io/p/python-enumerate-uproshchaem-cikly-s-pomoshchyu-schetchikov-2020-12-08
+
+for rownum, row in enumerate(reader, start=1):
+    ...

@@ -1,0 +1,10 @@
+man systemd-tmpfiles
+systemd-tmpfiles-setup.service
+systemd-tmpfiles-setup-dev.service
+systemd-tmpfiles-clean.service
+systemd-tmpfiles-clean.timer
+
+man tmpfiles.d
+/etc/tmpfiles.d/*.conf
+/run/tmpfiles.d/*.conf
+/usr/lib/tmpfiles.d/*.conf

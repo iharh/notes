@@ -1,0 +1,19 @@
+tiering
+https://www.ehcache.org/documentation/3.3/tiering.html
+    ! ResourcePoolsBuilder.newResourcePoolsBuilder()
+        .heap(10, EntryUnit.ENTRIES)
+        .offheap(1, MemoryUnit.MB)
+        .disk(20, MemoryUnit.MB, true)
+        ... with
+        ... withReplacing
+    ...
+    https://www.ehcache.org/apidocs/3.8.0/org/ehcache/config/builders/ResourcePoolsBuilder.html
+    https://www.ehcache.org/apidocs/3.8.0/org/ehcache/config/ResourcePool.html
+    ...
+    ResourcePoolsBuilder.newResourcePoolsBuilder().heap(10, EntryUnit.ENTRIES); 
+    ResourcePoolsBuilder.newResourcePoolsBuilder().heap(10); 
+    ResourcePoolsBuilder.newResourcePoolsBuilder().heap(10, MemoryUnit.MB);
+    ! Byte sizing has a runtime performance impact that depends on the size and graph complexity of the data cached. 
+    ! Do not forget to define in the java options the -XX:MaxDirectMemorySize option, according to the off-heap size you intend to use.
+    ...
+    ! updateResourcePools() only allows you to change the heap tier sizing, not the pool type. Thus you can’t change the sizing of off-heap or disk tiers. 

@@ -1,0 +1,72 @@
+https://github.com/gradle/gradle/tree/master/subprojects/platform-native/src/main/java/org/gradle/nativeplatform/toolchain/internal/msvcpp
+https://github.com/gradle/native-samples/blob/master/cpp/operating-system-specific-dependencies/
+library {
+    targetMachines = [
+        machines.windows,
+        machines.linux,
+        machines.macOS
+    ]
+    binaries.configureEach {
+        dependencies {
+            if (targetMachine.operatingSystemFamily.windows) {
+                implementation project(':winConsole')
+            } else {
+                implementation project(':ansiConsole')
+            }
+        }
+    }
+}
+https://github.com/gradle/native-samples/blob/master/cpp/precompiled-headers/build.gradle
+    ! misc toolchains configuration
+    compilerArgs.addAll toolChain.map {
+        if (it instanceof Clang) {
+            return ['-include', generatePrefixHeaderFileTask.get().prefixHeaderFile.absolutePath,
+                    '-include-pch', findPchFile(pchTask.get().objectFileDir.get()).absolutePath]
+
+https://github.com/gradle/native-samples/blob/master/cpp/provisionable-tool-chains/build.gradle
+https://github.com/gradle/native-samples/blob/master/cpp/provisionable-tool-chains/buildSrc/build.gradle
+    provisionedClang ...
+
+https://github.com/gradle/native-samples/blob/master/cpp/source-generation/build.gradle
+
+https://github.com/gradle/native-samples/blob/master/cpp/windows-resources/build.gradle
+    !!!!!!
+
+
+
+
+
+https://github.com/gradle/gradle/tree/master/subprojects/language-native/src/main/java/org/gradle/language/cpp
+https://github.com/gradle/gradle/tree/master/subprojects/language-native/src/main/java/org/gradle/language/cpp/plugins
+
+import org.gradle.language.nativeplatform.internal.toolchains.ToolChainSelector
+
+https://github.com/gradle/gradle/blob/master/subprojects/language-native/src/main/java/org/gradle/language/cpp/plugins/CppBasePlugin.java
+    @Override
+    public void apply(final Project project) {
+        project.getPluginManager().apply(NativeBasePlugin.class);
+        project.getPluginManager().apply(StandardToolChainsPlugin.class);
+        ...
+    }
+https://github.com/gradle/gradle/blob/master/subprojects/language-native/src/main/java/org/gradle/language/cpp/plugins/CppLibraryPlugin.java
+    @Override
+    public void apply(final Project project) {
+        project.getPluginManager().apply(CppBasePlugin.class);
+        ...
+        toolChainSelector.Result<CppPlatform> result = toolChainSelector.select(
+            CppPlatform.class, new DefaultCppPlatform(variantIdentity.getTargetMachine())
+        );
+        if (variantIdentity.getLinkage().equals(Linkage.SHARED)) {
+            library.addSharedLibrary(variantIdentity, result.getTargetPlatform(), result.getToolChain(), result.getPlatformToolProvider());
+        } else {
+            library.addStaticLibrary(variantIdentity, result.getTargetPlatform(), result.getToolChain(), result.getPlatformToolProvider());
+        }
+        ...
+    }
+
+https://github.com/gradle/gradle/blob/master/subprojects/language-native/src/main/java/org/gradle/language/cpp/CppLibrary.java
+https://github.com/gradle/gradle/blob/master/subprojects/language-native/src/main/java/org/gradle/language/cpp/CppSharedLibrary.java
+https://github.com/gradle/gradle/blob/master/subprojects/language-native/src/main/java/org/gradle/language/cpp/CppComponent.java
+    simple dto-like i-faces
+
+

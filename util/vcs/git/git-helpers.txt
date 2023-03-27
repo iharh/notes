@@ -1,0 +1,14 @@
+HELPERS
+
+cred:
+https://gitcredentialstore.codeplex.com/
+https://gitcredentialstore.codeplex.com/documentation
+https://gitcredentialstore.codeplex.com/releases/view/106064
+
+git-credential-winstore -i C:\Path\To\Git.exe
+
+copy itself and adds to
+C:\Users\<username>\.gitconfig
+
+[credential]
+	helper = !'C:\\Users\\<username>\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'

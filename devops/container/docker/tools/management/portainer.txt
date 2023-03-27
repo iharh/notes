@@ -1,0 +1,25 @@
+https://portainer.io/
+
+https://github.com/portainer/portainer
+
+https://portainer.io/install.html
+
+https://hub.docker.com/r/portainer/portainer/
+
+docker volume create portainer_data
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+https://portainer.io/overview.html
+
+ui
+go to home in order to select environment
+
+docs:
+https://portainer.readthedocs.io/en/stable/
+https://media.readthedocs.org/pdf/portainer/latest/portainer.pdf
+http://portainer.readthedocs.io/en/stable/deployment.html
+
+2021
+https://dbtechreviews.com/2021/08/how-to-update-portainer-to-the-newest-version/
+TechnoTim - Rancher vs. Portainer - Which one should I choose? of 2:57
+    https://www.youtube.com/watch?v=FFh-k-oI4UQ

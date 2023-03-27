@@ -1,0 +1,11 @@
+https://ninja-build.org/
+https://github.com/ninja-build/ninja
+
+scoop
+    ninja
+
+https://github.com/ninja-build/ninja/releases
+
+https://ninja-build.org/manual.html
+
+https://github.com/ninja-build/ninja/wiki/List-of-generators-producing-ninja-build-files

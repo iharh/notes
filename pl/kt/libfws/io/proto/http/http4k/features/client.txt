@@ -1,0 +1,12 @@
+https://www.http4k.org/guide/reference/clients/
+
+https://github.com/http4k/http4k/blob/master/http4k-core/src/test/kotlin/org/http4k/client/HttpClientContract.kt#L45
+    import org.http4k.core.HttpHandler
+    import org.http4k.core.Method.POST
+    import org.http4k.core.Request
+    ...
+    val client: HttpHandler,
+    ...
+    val response = client(Request(GET, "http://localhost:$port/stream"))
+    val echoResponse = client(Request(POST, "http://localhost:$port/echo").body(response.body))
+    assertThat(echoResponse.bodyString(), equalTo("stream"))

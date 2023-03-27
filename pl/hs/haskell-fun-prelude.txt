@@ -1,0 +1,243 @@
+1. const
+
+const     :: a -> b -> a
+const x _ =  x
+
+
+2. flip
+
+flip       :: (a -> b -> c) -> b -> a -> c
+flip f x y =  f y x
+
+
+Parameters flipping
+
+flip' :: (a -> b -> c) -> (b -> a -> c)
+flip' f = g
+  where g x y = f y x
+
+or
+
+flip' f y x = f x y
+
+
+
+
+3. enumFromTo
+
+class  Enum a   where
+  enumFromTo     :: a -> a -> [a]
+  enumFromTo x y =  map toEnum [fromEnum x .. fromEnum y]
+  ...
+  toEnum   :: Int -> a
+  fromEnum :: a -> Int
+
+-- Used in Haskell's translation of [n..m].
+
+
+4. until
+
+until                   :: (a -> Bool) -> (a -> a) -> a -> a
+until p f x | p x       =  x
+            | otherwise =  until p f (f x)
+
+5. uncurry
+
+uncurry     :: (a -> b -> c) -> ((a, b) -> c)
+uncurry f p =  f (fst p) (snd p)
+
+
+6. elem
+
+elem          :: (Eq a) => a -> [a] -> Bool
+elem _ []     = False
+elem x (y:ys) = x==y || elem x ys
+
+or
+
+elem x        =  any (== x)
+
+
+7. any, all
+
+any          :: (a -> Bool) -> [a] -> Bool
+any _ []     = False
+any p (x:xs) = p x || any p xs
+
+any p        = or . map p
+
+all         :: (a -> Bool) -> [a] -> Bool
+all _ []     =  True
+all p (x:xs) =  p x && all p xs
+
+all p        =  and . map p
+
+
+8. and, or
+
+and       :: [Bool] -> Bool
+and []     =  True
+and (x:xs) =  x && and xs
+
+and        =  foldr (&&) True
+
+
+or       :: [Bool] -> Bool
+or []     =  False
+or (x:xs) =  x || or xs
+
+or        =  foldr (||) False
+
+
+9. span, break
+
+-- | 'span', applied to a predicate @p@ and a list @xs@, returns a tuple where
+-- first element is longest prefix (possibly empty) of @xs@ of elements that
+-- satisfy @p@ and second element is the remainder of the list:
+-- 
+-- > span (< 3) [1,2,3,4,1,2,3,4] == ([1,2],[3,4,1,2,3,4])
+-- > span (< 9) [1,2,3] == ([1,2,3],[])
+-- > span (< 0) [1,2,3] == ([],[1,2,3])
+-- 
+-- 'span' @p xs@ is equivalent to @('takeWhile' p xs, 'dropWhile' p xs)@
+
+span                    :: (a -> Bool) -> [a] -> ([a],[a])
+span _ xs@[]            =  (xs, xs)
+span p xs@(x:xs')
+         | p x          =  let (ys,zs) = span p xs' in (x:ys,zs)
+         | otherwise    =  ([],xs)
+
+
+10. group, groupBy
+
+-- | The 'group' function takes a list and returns a list of lists such
+-- that the concatenation of the result is equal to the argument.  Moreover,
+-- each sublist in the result contains only equal elements.  For example,
+--
+-- > group "Mississippi" = ["M","i","ss","i","ss","i","pp","i"]
+--
+-- It is a special case of 'groupBy', which allows the programmer to supply
+-- their own equality test.
+group :: Eq a => [a] -> [[a]]
+group  = groupBy (==)
+
+-- | The 'groupBy' function is the non-overloaded version of 'group'.
+groupBy          :: (a -> a -> Bool) -> [a] -> [[a]]
+groupBy _  []     = []
+groupBy eq (x:xs) = (x:ys) : groupBy eq zs
+                    where (ys,zs) = span (eq x) xs
+
+
+11. composition (.)
+
+-- | Function composition.
+-- Make sure it has TWO args only on the left, so that it inlines
+-- when applied to two functions, even if there is no final argument
+(.)    :: (b -> c) -> (a -> b) -> a -> c
+(.) f g = \x -> f (g x) 
+
+
+12. application ($)
+
+-- | Application operator.  This operator is redundant, since ordinary
+-- application @(f x)@ means the same as @(f '$' x)@. However, '$' has
+-- low, right-associative binding precedence, so it sometimes allows
+-- parentheses to be omitted; for example:
+--
+-- >     f $ g $ h x  =  f (g (h x))
+--
+-- It is also useful in higher-order situations, such as @'map' ('$' 0) xs@,
+-- or @'Data.List.zipWith' ('$') fs xs@.
+{-# INLINE ($) #-}
+($)                     :: (a -> b) -> a -> b
+f $ x 
+
+Note: f(g(z x)) is equal to f $ g $ z x
+      sum(filter (> 10)(map (*2) [2..10)) is equal to sum $ filter (> 10) $ map (*2) [2..10]
+We can even map function application itself
+> map ($ 3) [(4+), (10*), (^2), sqrt]
+[7.0, 30.0, 9.0, 1.732050875688772]
+
+> :i ($)
+...
+infixr 0 $
+
+
+13. on
+
+on :: (b -> b -> c) -> (a -> b) -> a -> a -> c
+f 'on' g = \x y -> f (g x) (g y)
+
+
+(.*.) `on` f = \x y -> f x .*. f y.
+
+Typical usage: Data.List.sortBy (compare `on` fst). 
+
+
+(==) 'on' (> 0)   --- (\x y -> (x > 0) == (y > 0))
+compare 'on' length --- (\x y -> length x 'compare' length y)
+
+
+14. repeat, iterate, replicate, cycle
+
+-- | 'repeat' @x@ is an infinite list, with @x@ the value of every element.
+repeat :: a -> [a]
+{-# INLINE [0] repeat #-}
+-- The pragma just gives the rules more chance to fire
+repeat x = xs where xs = x : xs
+
+
+-- | 'iterate' @f x@ returns an infinite list of repeated applications
+-- of @f@ to @x@:
+--
+-- > iterate f x == [x, f x, f (f x), ...]
+
+iterate :: (a -> a) -> a -> [a]
+iterate f x =  x : iterate f (f x)
+
+
+-- | 'replicate' @n x@ is a list of length @n@ with @x@ the value of
+-- every element.
+-- It is an instance of the more general 'Data.List.genericReplicate',
+-- in which @n@ may be of any integral type.
+{-# INLINE replicate #-}
+replicate               :: Int -> a -> [a]
+replicate n x           =  take n (repeat x)
+
+
+-- | 'cycle' ties a finite list into a circular one, or equivalently,
+-- the infinite repetition of the original list.  It is the identity
+-- on infinite lists.
+
+cycle                   :: [a] -> [a]
+cycle []                = error "Prelude.cycle: empty list"
+cycle xs                = xs' where xs' = xs ++ xs'
+
+
+15. zipWith, zip, unzip
+
+-- | 'zipWith' generalises 'zip' by zipping with the function given
+-- as the first argument, instead of a tupling function.
+-- For example, @'zipWith' (+)@ is applied to two lists to produce the
+-- list of corresponding sums.
+zipWith :: (a->b->c) -> [a]->[b]->[c]
+zipWith f (a:as) (b:bs) = f a b : zipWith f as bs
+zipWith _ _      _      = []
+
+
+-- | 'zip' takes two lists and returns a list of corresponding pairs.
+-- If one input list is short, excess elements of the longer list are
+-- discarded.
+zip :: [a] -> [b] -> [(a,b)]
+zip (a:as) (b:bs) = (a,b) : zip as bs
+zip _      _      = []
+
+
+-- | 'unzip' transforms a list of pairs into a list of first components
+-- and a list of second components.
+unzip    :: [(a,b)] -> ([a],[b])
+{-# INLINE unzip #-}
+unzip    =  foldr (\(a,b) ~(as,bs) -> (a:as,b:bs)) ([],[])
+
+
+

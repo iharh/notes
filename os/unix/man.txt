@@ -1,0 +1,14 @@
+http://www.unixmen.com/learn-man-vim-editor-file-globbing-rhcsa/
+
+man -k <cmd>
+    search comman names and short-descriptions for <cmd>
+    
+Section 1 user commands
+section 2 system calls
+section 3 library functions
+section 4 special files
+section 5 file formats
+section 6 games
+section 7 protocols and file systems
+section 8 administrative commands
+section 9 internal kernel API

@@ -1,0 +1,23 @@
+https://kind.sigs.k8s.io/
+
+https://github.com/kubernetes-sigs/kind
+
+https://kind.sigs.k8s.io/docs/design/base-image/
+https://github.com/kubernetes-sigs/kind/tree/main/images/base
+
+https://kind.sigs.k8s.io/docs/user/quick-start
+https://kind.sigs.k8s.io/docs/design/initial
+https://kind.sigs.k8s.io/docs/contributing/1.0-roadmap
+
+https://knative.dev/docs/client/install-kn/
+
+https://ubuntu.com/blog/getting-started-with-knative-1
+
+Ubuntu - k8s
+https://www.youtube.com/playlist?list=PLwFSk464RMxk0H7jnetE18pNYB5xwnZGi
+
+2019
+https://www.tweag.io/posts/2019-03-07-configuring-and-testing-kubernetes-clusters.html
+
+samples
+https://gist.github.com/diafour/13cef191b7cf39543393d310dd6353a0

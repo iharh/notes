@@ -1,0 +1,37 @@
+https://docs.docker.com/reference/run/#logging-drivers-log-driver
+docker logs --help:
+  --log-driver=                   Logging driver for container
+  --log-opt=[]                    Log driver options
+
+https://github.com/docker/compose/issues/1083
+Just for the record, with Docker 1.8 and docker-compose 1.4 there is already exists a method to limit log size using
+https://docs.docker.com/compose/yml/#log-driver
+and log-opt max-size:
+
+  log_driver: "json-file"
+  log_opt:
+    max-size: "100k"
+    max-file: "20"
+
+https://github.com/docker/docker/blob/master/docs/reference/logging/overview.md
+  
+
+https://github.com/docker/docker/issues/7195
+https://github.com/docker/docker/issues/7333
+https://gist.github.com/chernjie/39a02fb4329129a56316
+
+http://stackoverflow.com/questions/28895029/is-it-safe-to-delete-docker-logs-generated-at-var-lib-docker-containers-hash
+https://github.com/docker/docker/issues/6630
+https://github.com/docker/docker/pull/9753
+
+https://github.com/docker/docker/issues/8911
+https://github.com/CiscoCloud/microservices-infrastructure/issues/500
+https://github.com/docker/docker/pull/11485
+
+2022
+https://itsecforu.ru/2022/09/01/%f0%9f%90%b3-%d0%ba%d0%b0%d0%ba-%d0%be%d1%87%d0%b8%d1%81%d1%82%d0%b8%d1%82%d1%8c-%d0%bb%d0%be%d0%b3%d0%b8-%d0%b7%d0%b0%d0%bf%d1%83%d1%89%d0%b5%d0%bd%d0%bd%d1%8b%d1%85-%d0%ba%d0%be%d0%bd%d1%82%d0%b5/
+https://www.baeldung.com/ops/docker-logs
+2021
+https://linuxiac.com/docker-logs/
+2018
+https://dev.to/ykyuen/how-to-setup-log-rotation-for-docker-container-4alp

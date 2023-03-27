@@ -1,0 +1,7 @@
+https://tex.stackexchange.com/questions/353747/where-can-i-find-the-article-cls-class-file-of-texlive-2016-on-my-pc
+
+https://texblog.net/hypertext-help/latex-tools/kpsewhich/
+    https://tex.stackexchange.com/questions/1830/what-is-the-quickest-way-to-check-whether-i-already-have-a-given-package
+$ kpsewhich article.cls
+/usr/local/texlive/2022/texmf-dist/tex/latex/base/
+    article.cls

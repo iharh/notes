@@ -1,0 +1,5 @@
+2019
+https://blog.kotlin-academy.com/kotlin-coroutines-cheat-sheet-8cf1e284dc35
+    newSingleThreadContext and newFixedThreadPoolContext are now deprecated FYI.
+    The docs suggest using Executors.newSingleThreadExecutor().asCoroutineDispatcher()
+    or Executors.newFixedThreadPool().asCoroutineDispatcher() instead.

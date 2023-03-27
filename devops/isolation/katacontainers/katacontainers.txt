@@ -1,0 +1,38 @@
+https://katacontainers.io/
+
+https://github.com/kata-containers/documentation
+https://github.com/kata-containers/documentation/blob/master/install/README.md
+https://github.com/kata-containers/documentation/blob/master/Developer-Guide.md
+https://github.com/kata-containers/documentation/blob/master/architecture.md
+
+https://katacontainers.io/faq/
+https://katacontainers.io/blog/
+
+https://github.com/kata-containers/runtime
+
+https://github.com/kata-containers/osbuilder
+
+articles
+2018
+https://katacontainers.io/posts/why-kata-containers-doesnt-replace-kubernetes/
+
+presentations
+2018
+https://www.youtube.com/watch?v=bUOIJBUPPck
+https://katacontainers.io/media/uploads/katacontainers/uploads/katacontainers/kata-containers-1pager.pdf
+https://katacontainers.io/media/uploads/katacontainers/uploads/katacontainers/kata-containers-on-boarding-deck-for-website01022018.pdf
+https://katacontainers.io/posts/kata-containers-kubecon-eu/
+    https://kccnceu18.sched.com/event/Dqtw
+    https://schd.ws/hosted_files/kccnceu18/08/What%E2%80%99s%20Up%20With%20All%20the%20Container%20Runtimes.pdf
+    https://kccnceu18.sched.com/event/DquU
+    https://schd.ws/hosted_files/kccnceu18/9f/2018-03%20KubeCon%20EU%20-%20Improving%20your%20Kubernetes%20Workload%20Security%20with%20Hardware%20Virtualization.pdf
+    https://kccnceu18.sched.com/event/DquT
+    https://schd.ws/hosted_files/kccnceu18/b0/Kata%20Community%20Kube%20Con.pdf
+    https://kccnceu18.sched.com/event/DquH
+    https://schd.ws/hosted_files/kccnceu18/60/cri-second-boom-of-container-runtimes-KC_CNC_EU_2018.pdf
+    https://kccnceu18.sched.com/event/Dqvf
+    https://schd.ws/hosted_files/kccnceu18/96/Secure%20Pods%20-%20KubeCon%20EU%202018.pdf
+
+whatsnew
+https://katacontainers.io/posts/kata-containers-first-release/
+    http://www.opennet.ru/opennews/art.shtml?num=48642

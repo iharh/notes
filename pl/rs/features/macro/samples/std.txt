@@ -1,0 +1,7 @@
+assert!
+assert_eq!
+    https://doc.rust-lang.org/std/macro.assert.html
+format!
+println!
+try!
+vec!

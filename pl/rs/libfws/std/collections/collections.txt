@@ -1,0 +1,1 @@
+https://doc.rust-lang.org/std/collections/index.html

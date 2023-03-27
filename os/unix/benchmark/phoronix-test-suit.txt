@@ -1,0 +1,27 @@
+https://phoronix-test-suite.com/
+https://github.com/phoronix-test-suite/phoronix-test-suite/
+
+https://www.phoronix-test-suite.com/?k=downloads
+https://phoronix-test-suite.com/?k=features
+https://phoronix-test-suite.com/?k=faq
+
+https://www.phoronix-test-suite.com/documentation/
+https://www.phoronix-test-suite.com/documentation/phoronix-test-suite.pdf
+
+https://manpages.ubuntu.com/manpages/xenial/man1/phoronix-test-suite.1.html
+
+https://wiki.ubuntu.com/PhoronixTestSuite
+
+https://www.phoronix.com/forums/
+
+inst
+https://linuxconfig.org/how-to-install-the-latest-phoronix-test-suite-on-ubuntu-18-04-bionic-beaver
+    sudo apt-get install php5-cli php5-gd php5-common
+
+cli
+phoronix-test-suite
+    benchmark tiobench
+
+2019
+ChasLinux - Benchmarking Linux with Phoronix Test Suite of 12:13
+    https://www.youtube.com/watch?v=OvH6AUan8ZA

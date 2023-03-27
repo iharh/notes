@@ -1,0 +1,93 @@
+https://www.rodsbooks.com/gdisk/sgdisk.html
+https://www.rodsbooks.com/gdisk/sgdisk-walkthrough.html
+https://manpages.ubuntu.com/manpages/focal/en/man8/sgdisk.8.html
+
+2021
+https://linuxconfig.org/how-to-manipulate-gpt-partition-tables-with-gdisk-and-sgdisk-on-linux
+    ! need to read
+https://bbs.archlinux.org/viewtopic.php?id=264524
+    sgdisk -n 1:2048:206847 -t 1:ef00 -n 2:206848:976773134 -t 2:8300 /dev/nvme0n1
+2019
+https://fedoramagazine.org/managing-partitions-with-sgdisk/
+    !
+2015
+https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line/
+    !!!
+    https://github.com/go-easygen/easygen
+2013
+http://bahut.alma.ch/2013/01/scripting-disk-partitionning-in-linux.html
+
+http://stackoverflow.com/questions/31057948/partitioning-issue-with-sgdisk
+
+GPT drops CHS (cylinder/head/sector) addressing and uses 64-bit LBA mode exclusively
+
+sudo sgdisk
+    -L, -list-types
+        list of partition types
+    -zap-all /dev/sda
+    /dev/sda -R /dev/sdb
+        replicat table of sda to sdb
+    -n, --new=partnum:start:end
+        Create a new partition. You enter a partition number, starting sector, and an ending sector.
+        Both start and end sectors can be specified in absolute terms as sector numbers
+        or as positions measured in kibibytes (K), mebibytes (M), gibibytes (G), tebibytes (T), or pebibytes (P);
+            for instance, 40M specifies a position 40MiB from the start of the disk.
+        You can specify locations relative to the start or end of the specified default range
+        by preceding the number by a '+' or '-' symbol,
+            as in +2G to specify a point 2GiB after the default start sector,
+            or -200M to specify a point 200MiB before the last available sector.
+        A start or end value of 0 specifies the default value, which is the start of the largest available block
+        for the start sector and the end of the same block for the end sector.
+        A partnum value of 0 causes the program to use the first available partition number.
+        Subsequent uses of the -A (--attributes), -c (--change-name), -t (--typecode), and  -u (--partition-guid) options
+        may also use 0 to refer to the same partition.
+
+sudo sgdisk -p /dev/sda
+
+Disk /dev/sda: 409600000 sectors, 195.3 GiB
+Logical sector size: 512 bytes
+Disk identifier (GUID): ADD06E16-DCE1-46B7-B7E7-51C86F1FD2F2
+Partition table holds up to 128 entries
+First usable sector is 34, last usable sector is 409599966
+Partitions will be aligned on 2-sector boundaries
+Total free space is 2014 sectors (1007.0 KiB)
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+1            2048            5953   1.9 MiB     EF02  
+2            5954          255953   122.1 MiB   EF00  
+3          255954       195568453   93.1 GiB    0700  
+4       195568454       409599966   102.1 GiB   0700
+
+sudo sgdisk -i 1..4 /dev/sda
+
+sudo sgdisk /dev/sda --attributes=1..4:show
+
+sudo cat /proc/partitions
+
+major minor  #blocks  name
+
+ 8        0  204800000 sda
+ 8        1       1953 sda1
+ 8        2     125000 sda2
+ 8        3   97656250 sda3
+ 8        4  107015756 sda4
+11        0    1048575 sr0
+
+
+sudo sgdisk -og /dev/sda
+
+-g (--mbrtogpt)
+  -s - sort (to eliminate the gaps during MBR to GPT conversion)
+
+-z, --zap
+  Destroy the GPT data structures
+
+-o, --clear
+  Clear out all partition data
+
+*********
+???
+pacman-key --init
+pacman-key --populate archlinux manjaro
+
+wipefs - by util-linux

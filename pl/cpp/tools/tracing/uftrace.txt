@@ -1,0 +1,26 @@
+https://github.com/namhyung/uftrace
+
+aur
+    uftrace
+
+https://github.com/namhyung/uftrace/wiki
+https://github.com/namhyung/uftrace/wiki/Tutorial
+
+https://github.com/namhyung/uftrace/tree/master/doc
+https://github.com/namhyung/uftrace/blob/master/doc/uftrace-dump.md
+
+https://gitter.im/uftrace/uftrace
+
+https://uftrace.github.io/slide/#1
+2017
+https://www.youtube.com/watch?v=s0B8hV2O8ps
+https://github.com/CppCon/CppCon2017/blob/master/Tutorials/Understanding%20the%20Runtime%20Behaviors%20of%20C%2B%2B%20Programs%20Using%20uftrace%20Tool/Understanding%20the%20Runtime%20Behaviors%20of%20C%2B%2B%20Programs%20Using%20uftrace%20Tool%20-%20Honggyu%20Kim%20-%20CppCon%202017.pdf
+
+uftrace
+    record
+        a.out
+    dump
+        --chrome > uftrace-dump-chrome.json
+            https://github.com/catapult-project/catapult/blob/master/tracing/bin/trace2html
+            trace2html uftrace-dump-chrome.json
+        --flame-graph | flamegraph.pl > out.svg

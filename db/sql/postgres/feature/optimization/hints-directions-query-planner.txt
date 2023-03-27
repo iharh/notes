@@ -1,0 +1,5 @@
+https://www.postgresql.org/docs/current/runtime-config-query.html
+
+set enable_nestedloop=true;
+set enable_hashjoin=false;
+set enable_mergejoin=false

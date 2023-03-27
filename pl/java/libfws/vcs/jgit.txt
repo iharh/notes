@@ -1,0 +1,14 @@
+<repositories>
+    <repository>
+        <id>jgit-repository</id>
+        <url>https://repo.eclipse.org/content/groups/releases/</url>
+    </repository>
+</repositories>
+
+"org.eclipse.jgit" % "org.eclipse.jgit" % "4.4.1.201607150455-r"
+
+samples:
+https://github.com/ThoughtWorksInc/sbt-best-practice/blob/master/git/src/main/scala/com/thoughtworks/sbtBestPractice/git/Git.scala
+https://github.com/ThoughtWorksInc/sbt-best-practice/blob/master/remote-sbt-file/src/main/scala/com/thoughtworks/sbtBestPractice/remoteSbtFile/RemoteSbtFile.scala
+https://github.com/ThoughtWorksInc/sbt-best-practice/blob/master/travis/src/main/scala/com/thoughtworks/sbtBestPractice/travis/TravisRelease.scala
+https://github.com/ThoughtWorksInc/sbt-best-practice/blob/master/disable-deploy/src/main/scala/com/thoughtworks/sbtBestPractice/disableDeploy/DisableDeploy.scala

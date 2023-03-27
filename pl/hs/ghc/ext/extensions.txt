@@ -1,0 +1,177 @@
+2020
+https://nauths.fr/en/2020/12/27/haskell-type-level-shenanigans.html
+
+https://www.fpcomplete.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions
+https://www.fpcomplete.com/user/PthariensFlame/guide-to-ghc-extensions
+
+http://unbui.lt/#!/post/haskell-language-extensions/
+http://www.reddit.com/r/haskell/comments/3cndn7/some_awesome_language_extensions_explained/
+
+QualifiedDo
+https://github.com/ghc-proposals/ghc-proposals/blob/master/proposals/0216-qualified-do.rst
+    https://www.tweag.io/blog/2020-07-13-qualified-do-announcement/
+    https://www.reddit.com/r/haskell/comments/hqf9f1/qualified_do_rebind_your_donotation_the_right_way/
+
+StrictPragma:
+https://ghc.haskell.org/trac/ghc/wiki/StrictPragma
+https://ghc.haskell.org/trac/ghc/blog/weekly20150729
+http://blog.johantibell.com/2015/11/the-design-of-strict-haskell-pragma.html
+https://www.reddit.com/r/haskell/comments/3t0b0l/the_design_of_the_strict_haskell_pragma/
+
+ViewPatterns:
+http://www.reddit.com/r/haskell/comments/2o341e/24_days_of_ghc_extensions_view_patterns/
+https://ocharles.org.uk/blog/posts/2014-12-02-view-patterns.html
+
+PatternSynonyms:
+http://www.reddit.com/r/haskell/comments/2o6bq5/24_days_of_ghc_extensions_pattern_synonyms/
+https://ocharles.org.uk/blog/posts/2014-12-03-pattern-synonyms.html
+
+StandaloneDeriving   - derive type classes without modifying sources
+                       deriving instance Show <MyData>
+DeriveFunctor        - derive instances of the class Functor, defined in GHC.Base. 
+DeriveFoldable       - derive instances of the class Foldable, defined in Data.Foldable. 
+DeriveTraversable    - derive instances of the class Traversable, defined in Data.Traversable.
+
+
+
+TypeSynonymInstances - removes the restriction to write an instance of a typeclass for a specialized version of a
+                       polymorphic type
+OverlappingInstances - When there are multiple overlapping instances to choose from, this extension causes the compiler to 
+                       pick the most specific one
+
+AugustssonCommentaryOn24:
+http://www.reddit.com/r/haskell/comments/2pdu4a/a_commentary_on_24_days_of_ghc_extensions/
+http://augustss.blogspot.com/2014/12/a-commentary-on-24-days-of-ghc.html
+http://www.reddit.com/r/haskell/comments/2pt180/a_commentary_on_24_days_of_ghc_extensions_part_2/
+http://augustss.blogspot.de/2014/12/a-commentary-on-24-days-of-ghc_19.html
+http://www.reddit.com/r/haskell/comments/2pvps7/a_commentary_on_24_days_of_ghc_extensions_part_3/
+http://augustss.blogspot.com/2014/12/its-time-for-some-more-haskell-opinions.html
+
+OverloadedStrings:
+http://www.reddit.com/r/haskell/comments/2pmon2/24_days_of_ghc_extensions_overloaded_strings/
+https://ocharles.org.uk/blog/posts/2014-12-17-overloaded-strings.html
+
+RecordWildcards:
+Record wildcard syntax permits a ".." in a record pattern, where each elided field f is replaced by the pattern f = f.
+http://www.haskell.org/ghc/docs/latest/html/users_guide/syntax-extns.html#record-wildcards
+
+http://www.reddit.com/r/haskell/comments/2oaj7e/24_days_of_ghc_extensions_record_wildcards/
+https://ocharles.org.uk/blog/posts/2014-12-04-record-wildcards.html
+
+BangPatterns:
+http://www.reddit.com/r/haskell/comments/2oe1kk/24_days_of_ghc_extensions_bang_patterns/
+https://ocharles.org.uk/blog/posts/2014-12-05-bang-patterns.html
+
+RebindableSyntax:
+http://www.reddit.com/r/haskell/comments/2ohm6p/24_days_of_ghc_extensions_rebindable_syntax_guest/
+https://ocharles.org.uk/blog/guest-posts/2014-12-06-rebindable-syntax.html
+
+ListComprehensions:
+https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/list-and-comprehension-extensions
+http://www.reddit.com/r/haskell/comments/2okwpo/24_days_of_ghc_extensions_list_comprehensions/
+https://ocharles.org.uk/blog/guest-posts/2014-12-07-list-comprehensions.html
+
+TypeOperators:
+http://www.reddit.com/r/haskell/comments/2oo1z7/24_days_of_ghc_extensions_type_operators/
+https://ocharles.org.uk/blog/posts/2014-12-08-type-operators.html
+
+RecursiveDo:
+http://www.reddit.com/r/haskell/comments/2osh3v/24_days_of_ghc_extensions_recursive_do/
+https://ocharles.org.uk/blog/posts/2014-12-09-recursive-do.html
+
+NullaryTypeclasses:
+http://www.reddit.com/r/haskell/comments/2ovvnk/24_days_of_ghc_extensions_nullary_type_classes/
+https://ocharles.org.uk/blog/posts/2014-12-10-nullary-type-classes.html
+
+MultiParameterTypeClasses:
+http://www.reddit.com/r/haskell/comments/2p792t/24_days_of_ghc_extensions_multiparameter_type/
+https://ocharles.org.uk/blog/posts/2014-12-13-multi-param-type-classes.html
+
+ImplicitParameters:
+http://www.reddit.com/r/haskell/comments/2p0b3j/24_days_of_ghc_extensions_implicit_parameters/
+https://ocharles.org.uk/blog/posts/2014-12-11-implicit-params.html
+
+FunctioinalDependencies:
+http://www.reddit.com/r/haskell/comments/2pal4v/24_days_of_ghc_extensions_functional_dependencies/
+https://ocharles.org.uk/blog/posts/2014-12-14-functional-dependencies.html
+
+TypeFamilies:
+http://www.reddit.com/r/haskell/comments/2p3mrm/24_days_of_ghc_extensions_type_families/
+https://ocharles.org.uk/blog/posts/2014-12-12-type-families.html
+
+ClosedTypeFamilies:
+https://kseo.github.io/posts/2017-01-16-type-level-functions-using-closed-type-families.html
+
+RankNTypes:
+https://blog.poisson.chat/posts/2019-03-25-higher-rank-types.html
+http://www.reddit.com/r/haskell/comments/2pqtxk/24_days_of_ghc_extensions_rank_n_types/
+https://ocharles.org.uk/blog/guest-posts/2014-12-18-rank-n-types.html
+
+ExistentialQuantification:
+http://www.reddit.com/r/haskell/comments/2pu0e8/24_days_of_ghc_extensions_existential/
+https://ocharles.org.uk/blog/guest-posts/2014-12-19-existential-quantification.html
+
+DoAndIfThenElse      - https://ghc.haskell.org/trac/haskell-prime/wiki/DoAndIfThenElse
+                       ??? check if it is on by default ???
+
+
+ScopedTypeVariables:
+http://www.reddit.com/r/haskell/comments/2pwecw/24_days_of_ghc_extensions_scoped_type_variables/
+https://ocharles.org.uk/blog/guest-posts/2014-12-20-scoped-type-variables.html
+
+ConstraintKinds:
+ConstraintFamilies:
+https://dorchard.wordpress.com/2011/09/22/constraint-kinds-in-haskell-finally-bringing-us-constraint-families/
+http://www.reddit.com/r/haskell/comments/2jg4y5/hiding_liftio/
+
+That's the reason why recently started to write code like this:
+
+foo :: (Applicative m, Functor m, MonadState Foo m, MonadReader Bar m, MonadIO m, etc.) => m ()
+
+With ConstraintKinds I can even use a convenient type alias for this:
+
+type App m = (Applicative m, Functor m, MonadState Foo m, MonadReader Bar m, MonadIO m, etc.)
+foo :: App m => m ()
+
+However, I'm wondering if this is idiomatic. Or if there are any downsides.
+
+ImpredicativeTypes:
+http://jozefg.bitbucket.org/posts/2014-12-23-impredicative.html
+
+TypelevelLiterals:
+https://habrahabr.ru/post/253157/
+
+Arrows:
+http://www.reddit.com/r/haskell/comments/2q0rwv/24_days_of_ghc_extensions_arrows_guest_post_by/
+https://ocharles.org.uk/blog/guest-posts/2014-12-21-arrows.html
+
+TemplateHaskell:
+http://www.reddit.com/r/haskell/comments/2q454r/24_days_of_ghc_extensions_template_haskell_guest/
+https://ocharles.org.uk/blog/guest-posts/2014-12-22-template-haskell.html
+
+StaticPointers:
+http://www.reddit.com/r/haskell/comments/2q85zp/24_days_of_hackage_static_pointers_guest_post_by/
+https://ocharles.org.uk/blog/guest-posts/2014-12-23-static-pointers.html
+http://jozefg.bitbucket.org/posts/2015-01-27-modal-logic-in-haskell.html
+
+8.x:
+
+https://www.reddit.com/r/haskell/comments/48hrb5/edward_kmett_undecidable_superclasses/
+https://www.youtube.com/watch?v=ZL9ehIJhk98
+https://gist.github.com/ekmett/b26363fc0f38777a637d
+
+UndecidableSuperClasses
+    classes depends on each other (Category depends on Functor, Functor - on Category)
+TypeInType
+
+import GHC.Types (Constraint, Type)
+
+type Cat i = i -> i -> Type  -- Type is a synonym for *
+
+class Vacuous (p :: Cat i) (a :: i)
+instance Vacuous p a
+
+TypeApplication:
+https://ghc.haskell.org/trac/ghc/wiki/TypeApplication
+https://kseo.github.io//posts/2017-01-08-visible-type-application-ghc8.html
+https://www.reddit.com/r/haskell/comments/5msuno/kwangs_haskell_blog_visible_type_application_in/

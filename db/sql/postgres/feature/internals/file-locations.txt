@@ -1,0 +1,5 @@
+pg_relation_filepath('<tblname>')
+    base/<oid1>/<oid2>
+
+    oid1 <- select oid from pg_database where datname = '<dbname>';
+    oid2 <- select relfilenode from pg_class where relname = '<tablename>';

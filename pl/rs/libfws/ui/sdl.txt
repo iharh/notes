@@ -1,0 +1,16 @@
+http://www.libsdl.org/
+http://www.libsdl.org/download-2.0.php
+http://hg.libsdl.org/SDL
+
+https://crates.io/crates/sdl2
+https://rust-sdl2.github.io/rust-sdl2/sdl2/
+https://github.com/Rust-SDL2/rust-sdl2
+
+aur
+    sdl2
+
+books
+2018
+Gomez - Rust Programming by Example
+
+

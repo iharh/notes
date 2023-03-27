@@ -1,0 +1,93 @@
+https://minikube.sigs.k8s.io/docs/handbook/config/
+
+minikube
+    config
+        set memory 16384
+
+~/.kube/config
+
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /home/iharh/.minikube/ca.crt
+    server: https://192.168.99.100:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user:
+    client-certificate: /home/iharh/.minikube/client.crt
+    client-key: /home/iharh/.minikube/client.key
+
+~/.minikube/
+    profiles/minikube/config.json
+    machines/minikube/config.json
+        ... longer version of ....
+
+{
+    "MachineConfig": {
+        "MinikubeISO": "https://storage.googleapis.com/minikube/iso/minikube-v0.30.0.iso",
+        "Memory": 4096,
+        "CPUs": 2,
+        "DiskSize": 40000,
+        "VMDriver": "virtualbox",
+        "HyperkitVpnKitSock": "",
+        "HyperkitVSockPorts": [],
+        "XhyveDiskDriver": "ahci-hd",
+        "DockerEnv": null,
+        "InsecureRegistry": null,
+        "RegistryMirror": null,
+        "HostOnlyCIDR": "192.168.99.1/24",
+        "HypervVirtualSwitch": "",
+        "KvmNetwork": "default",
+        "DockerOpt": null,
+        "DisableDriverMounts": false,
+        "NFSShare": [],
+        "NFSSharesRoot": "/nfsshares",
+        "UUID": "",
+        "GPU": false
+    },
+    "KubernetesConfig": {
+        "KubernetesVersion": "v1.12.0",
+        "NodeIP": "192.168.99.100",
+        "NodeName": "minikube",
+        "APIServerName": "minikubeCA",
+        "APIServerNames": null,
+        "APIServerIPs": null,
+        "DNSDomain": "cluster.local",
+        "ContainerRuntime": "",
+        "NetworkPlugin": "",
+        "FeatureGates": "",
+        "ServiceCIDR": "10.96.0.0/12",
+        "ExtraOptions": null,
+        "ShouldLoadCachedImages": false
+    }
+}
+
+/etc/crictl.yaml
+runtime-endpoint: unix:///run/containerd/containerd.sock
+image-endpoint: unix:///run/containerd/containerd.sock
+timeout: 10
+debug: false
+
+
+WARNING: IT IS RECOMMENDED NOT TO RUN THE NONE DRIVER ON PERSONAL WORKSTATIONS
+        The 'none' driver will run an insecure kubernetes apiserver as root that may leave the host vulnerable to CSRF attacks
+
+When using the none driver, the kubectl config and credentials generated will be root owned and will appear in the root home directory.
+You will need to move the files to the appropriate location and then set the correct permissions.  An example of this is below:
+
+        sudo mv /root/.kube $HOME/.kube # this will write over any previous configuration
+        sudo chown -R $USER $HOME/.kube
+        sudo chgrp -R $USER $HOME/.kube
+
+        sudo mv /root/.minikube $HOME/.minikube # this will write over any previous configuration
+        sudo chown -R $USER $HOME/.minikube
+        sudo chgrp -R $USER $HOME/.minikube

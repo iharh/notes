@@ -1,0 +1,31 @@
+http://beanvalidation.org/
+http://beanvalidation.org/2.0/
+
+https://github.com/beanvalidation
+https://github.com/beanvalidation/beanvalidation-api
+https://github.com/beanvalidation/beanvalidation-spec
+
+JSR-380
+https://www.jcp.org/en/jsr/detail?id=380
+
+https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/
+
+books
+2018
+Goncalves - Understanding Bean Validation 2
+
+2020
+https://www.morling.dev/blog/enforcing-java-record-invariants-with-bean-validation/
+2019
+https://reflectoring.io/bean-validation-anti-patterns/
+2017
+Morling - Keeping Your Data Sane with Bean Validation 2.0
+https://speakerdeck.com/gunnarmorling/keeping-your-data-sane-with-bean-validation-2-dot-3
+https://speakerdeck.com/gunnarmorling/keeping-your-data-sane-with-bean-validation-2-dot-0
+https://speakerdeck.com/gunnarmorling/keeping-your-data-sane-with-bean-validation-2-dot-0-javazone-2017
+https://speakerdeck.com/gunnarmorling/keeping-your-data-sane-with-bean-validation-2-dot-0-jdk-dot-io
+https://speakerdeck.com/gunnarmorling/jsr-380-bean-validation-2-dot-0
+
+bench
+http://in.relation.to/2018/03/20/bean-validation-benchmark-rerevisited/
+https://github.com/hibernate/beanvalidation-benchmark

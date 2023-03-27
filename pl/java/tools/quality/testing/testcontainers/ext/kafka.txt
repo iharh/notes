@@ -1,0 +1,12 @@
+https://github.com/testcontainers-all-things-kafka
+
+https://www.testcontainers.org/usage/kafka_containers.html
+
+https://github.com/testcontainers/testcontainers-java/pull/546
+
+https://github.com/testcontainers/testcontainers-java/tree/master/modules/kafka
+
+KafkaContainer
+https://github.com/testcontainers/testcontainers-java/blob/master/modules/kafka/src/main/java/org/testcontainers/containers/KafkaContainer.java
+https://github.com/testcontainers/testcontainers-java/blob/master/modules/kafka/src/main/resources/tc-zookeeper.properties
+https://github.com/testcontainers/testcontainers-java/blob/master/modules/kafka/src/test/java/org/testcontainers/containers/KafkaContainerTest.java

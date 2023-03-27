@@ -1,0 +1,68 @@
+https://console.developers.google.com/project
+
+https://developers.google.com/drive/web/about-auth
+https://developers.google.com/accounts/docs/OAuth2
+https://developers.google.com/+/features/sign-in
+
++curl sample:
+https://developers.google.com/accounts/docs/OAuth2WebServer
+
+OAuth libs:
+https://github.com/scribejava/scribejava/wiki/getting-started
+https://habrahabr.ru/company/hh/blog/278957/
+
+ratpack-oauth:
+https://github.com/uris77/ratpack-oauth-example
+
+request:
+...?
+    client_id=...
+    &redirect_uri=...
+    &response_type=code
+
+response:
+    302 Location: "<redirect_uri>?code=...."
+    Now the client app should quickly (~10s) exchange the auth-code to access-token
+
+access-token request:
+POST <...>/get_token
+    Authorization: "Basic" + base64encode(<client_id> + ":" + <client_secret>)
+    Content-Type: application/x-www-form-urlencoded
+    Body:
+        redirect_uri=....
+        &grant_type=authorization_code
+        &code=...
+
+response:
+{
+    "access_token": "Jz.....cuaos-",
+    "token_type": "bearer,
+    "expires_in": 3600,
+    "refresh_token": "AOi...RFlA-",
+    "xoauth_yahoo_guid": "JT...OCE"
+}
+
+now we can use the obtained access_token:
+
+GET https://social.yahooapis.com/v1/me/guid
+    ?format=json
+    &access_token=Jz...cuaos-
+
+response:
+{
+    "guid" : {
+        "value": "P2AY...JW7P",
+        "uri": "https://social.yahooapis.com/v1/me/guid"
+    }
+}
+
+And, finally, we can use the obtained value with the access_token for further actions:
+
+GET https://social.yahooapis.com/v1/user/P2AY...JW7p/profile
+    ?format=json
+    &access_token=Jz...cuaos-
+    
+response:
+{
+    // user profile info goes here
+}

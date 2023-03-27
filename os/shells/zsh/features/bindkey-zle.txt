@@ -1,0 +1,45 @@
+http://zshwiki.org/home/zle/bindkeys
+
+1. bindkey
+
+-L
+    generates a complete command that can be pasted to .zshrc
+'<key>'
+    Show the binding for the specified key ('\C-e', '^E').
+
+-M <viins/vicmd/emacs>
+    to map a key to the specified keymap.
+-a
+    shortcut to -M vicmd.
+-N new-keymap
+    create a new-keymap from scratch.
+-N new-keymap existing-keymap
+    copy an existing keymap to new-keymap.
+-D new-keymap
+    delete a new-keymap
+^R history-search
+    https://unix.stackexchange.com/questions/30168/how-to-enable-reverse-search-in-zsh/30169
+    https://stackoverflow.com/questions/3127392/backward-search-in-vi-mode
+        bindkey '^R' history-incremental-search-backward
+
+-v
+    vim mode
+-e
+    emacs mode
+-mv
+    copy bindings for Esc-x to those for Meta-x
+
+
+2. zle
+
+-la
+    simple list of commands that can be bound.
+-l
+    -//- just a user-defined commands.
+
+2. KEYTIMEOUT
+
+timeout (percents of a second) to resolve cmd/prefix conflict.
+
+Note: in vi-mode the shell will wait for KEYTIMEOUT when we go to normal mode (by pressing ESC).
+

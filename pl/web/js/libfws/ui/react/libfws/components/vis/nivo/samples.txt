@@ -1,0 +1,19 @@
+https://github.com/arthureffting/nivo-plot-react-example
+https://github.com/shihlinlu/nivo-components-demo
+    https://github.com/shihlinlu/nivo-components-demo/blob/master/src/charts/BarChart/BarChart.tsx
+    ! split to <types>.ts and <code>.ts files
+https://github.com/Prince7195/jsx-nivo-charts
+    ! with router, !!! simple bar chart
+https://github.com/justinal64/nivo
+    https://github.com/justinal64/nivo/blob/master/src/components/Barchart.tsx
+https://github.com/lukemorales/bancointer
+    https://github.com/lukemorales/bancointer/blob/master/src/pages/Dashboard/MainContent/AccountSummary/index.tsx
+
+https://github.com/threadheap/github-stats-bot/blob/master/app/shared/api/chart/bar/component.tsx
+
+https://github.com/zachzhu2016/lumap/blob/master/src/graphs/LinePlot.tsx
+https://github.com/DarkEye123/datasapiens-homework/blob/master/src/components/Graphs/Bar.js
+https://github.com/katrilh/react-for-messenger/blob/master/react-app/src/home/charts/BarChart.tsx
+
+https://plouc.github.io/nivo-graph-editor/
+https://github.com/plouc/nivo-graph-editor

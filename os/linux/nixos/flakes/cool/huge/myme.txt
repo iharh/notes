@@ -1,0 +1,27 @@
+Martin Myrseth
+https://myme.no/
+https://github.com/myme/dotfiles
+
+inspiration
+https://digga.divnix.com/
+    https://github.com/divnix/digga
+
+2022
+https://myme.no/posts/2022-06-14-nixos-confederation.html
+    ! mega-cool, fundamentals
+https://myme.no/posts/2022-04-11-a-dotfile-history.html
+https://myme.no/posts/2022-01-16-nixos-the-ultimate-dev-environment.html
+    ! mega-cool
+2021
+https://myme.no/posts/2021-09-16-containers-a-la-nix.html
+    ! need to read
+2019
+https://myme.no/posts/2019-07-01-nixos-into-the-deep-end.html
+    dd if=nixos.iso of=/dev/usb-device bs=4MB
+    parted /dev/sda -- mklabel gpt
+    parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB
+    parted /dev/sda -- set 1 boot on
+    parted /dev/sda -- mkpart primary 512MiB 100%
+    cryptsetup luksFormat /dev/sda2
+    cryptsetup luksOpen /dev/sda2 enc-pv
+

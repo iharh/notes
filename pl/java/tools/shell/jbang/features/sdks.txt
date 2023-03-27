@@ -1,0 +1,8 @@
+iss
+https://github.com/jbangdev/jbang/issues/1554
+    0.102.0
+    https://github.com/jbangdev/jbang/pull/1558
+        The JAVA_HOME wasn't being set up correctly. This was a regression.
+        src/main/java/dev/jbang/source/sources/GroovySource.java
+            - JdkManager.getOrInstallJdk(project.getJavaVersion()).toString());
+            + JdkManager.getOrInstallJdk(project.getJavaVersion()).getHome().toString());

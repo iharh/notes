@@ -1,0 +1,109 @@
+http://stackoverflow.com/questions/21168467/bootstrapping-a-windows-client-in-chef
+
+options:
+    -VV
+        extra verbose
+
+knife
+    help
+        list
+            list help topics
+
+    chef-client -z
+        indeed creates a pem-file
+
+    configure --initial
+        ??? !!! need to go to Admin-tab at chef-manage and download knife.rb
+
+    ssl
+        fetch
+            Starting with chef-client 12.0, use the knife ssl_fetch
+            command to pull down the SSL certificates from the
+            on-premises Chef server and add them to the
+            /trusted_certs_dir on the workstation.
+            This certificates is used during a knife bootstrap operation.
+
+        check
+            Connecting to host <host>:443
+            Successfully verified certificates from `<host>'
+
+    status
+        show status
+
+    [node|cookbook|role|environment|data bag|...]
+        show
+           https://docs.chef.io/knife_show.html 
+
+    [user|node|client|role|supermarket|...]
+        list [-E env-name]
+            to verify some info [using env]
+    spork
+        info
+
+    bootstrap
+        https://learn.chef.io/manage-a-node/rhel/bootstrap-your-node/
+
+        ssh_user@FQDN(192.168.235.102)
+            -r 'recipe[chef-client]'
+                for run-list
+        knife bootstrap -N t2 192.168.235.50 --ssh-user vagrant --ssh-password 'vagrant' --sudo --use-sudo-password
+        # that creates both node and client
+
+    node
+        show <node-name>
+        delete <node-name> [-y]
+        run_list add [-z] <node-name> 'recipe[recipe_name]'
+            -z - for local mode of chef-zero
+
+    client
+        list
+        info <client-name>
+        key
+            list <client-name>
+            show 
+        delete <client-name> [-y]
+
+    cookbook
+        create <name>
+        test <name>
+        upload -a|<name>
+        list
+        download
+        metadata
+
+        site
+            install chef-sugar
+                Berksfile:
+                    cookbook 'shef-sugar'
+                include_recipe 'chef-sugar::default'
+
+                chef-client
+                    ???
+            list
+            share
+            unshare
+            search
+            download
+
+
+    ssh
+        To run chef-client on your node remotely from your workstation,
+        you'll run the knife ssh command.
+        knife ssh takes the command to run on the node as an argument. Here, we'll run sudo chef-client.
+        $ knife ssh ADDRESS 'sudo chef-client' --manual-list --ssh-user USER --ssh-password 'PASSWORD'
+
+    upload data_bags/vhosts
+    diff cookbooks/apache
+    node
+        run list add/remove node1 "recipe[apache:vhosts]"
+        run list add/remove node1 "role[webserver]"
+            update the run list
+        show nodename -r
+    role from file webserver.json
+    search node "role:webserver"
+        webservers = search(:node, "role:webserver")
+        # or
+        search(:node, "role:webserver").each do |web|
+            # stuff
+        end
+    search vhosts "port:81"

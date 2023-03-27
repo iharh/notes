@@ -1,0 +1,9 @@
+IllegalStateException ... cannot invoke ...
+https://stackoverflow.com/questions/55513567/invoke-method-on-a-argument-with-a-cast-using-byte-buddy
+
+org.ehcache.sizeof.impl.AgentLoader
+    : Failed to attach to VM and load the agent: class java.lang.UnsatisfiedLinkError:
+    Native Library /home/iharh/.sdkman/candidates/java/8.0.222-amzn/jre/lib/amd64/libattach.so already loaded in another classloader
+
+Failed to attach to VM and load the agent: libattach.so already loaded in another classloader
+    https://github.com/raphw/byte-buddy/issues/110

@@ -1,0 +1,12 @@
+join - lub (least upper bound).
+meet - glb (greatest lower bound).
+
+R^+  - smallest transitive clojure of relation R
+R^*  - smallest reflexive transitive clojure of relation R
+
+Ex Ru - 525 - 592
+285(315) 21.2    - Finite and Infinite Types (tree notation)
+294      21.5.10 - Pred, Reachable
+392      26.2    - Kernel F-sub
+395              - Full F-sub
+

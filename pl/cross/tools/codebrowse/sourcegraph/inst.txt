@@ -1,0 +1,28 @@
+https://sourcegraph.com/search
+    docker run --rm \
+        --publish 7080:7080 \
+        --publish 127.0.0.1:3370:3370 \
+        --volume ~/.sourcegraph/config:/etc/sourcegraph \
+        --volume ~/.sourcegraph/data:/var/opt/sourcegraph \
+        sourcegraph/server:3.43.2
+
+!!!
+https://docs.sourcegraph.com/admin/deploy
+https://docs.sourcegraph.com/admin/deploy/docker-compose
+    https://github.com/sourcegraph/deploy-sourcegraph-docker/
+    https://github.com/sourcegraph/deploy-sourcegraph-docker/tree/master/docker-compose
+    https://github.com/sourcegraph/deploy-sourcegraph-docker/blob/master/docker-compose/docker-compose.yaml
+    https://github.com/sourcegraph/deploy-sourcegraph-docker/tree/master/docker-compose/dev
+
+https://docs.sourcegraph.com/dev/setup/quickstart
+    curl --proto '=https' --tlsv1.2 -sSLf https://install.sg.dev | sh
+    sg setup
+    sg run redis-postgres
+    sg start oss
+
+    https://docs.sourcegraph.com/dev/background-information/sg
+    https://docs.sourcegraph.com/dev/background-information/sg/reference
+    https://docs.sourcegraph.com/dev/setup/troubleshooting
+
+https://docs.sourcegraph.com/getting-started
+https://docs.sourcegraph.com/getting-started/tour

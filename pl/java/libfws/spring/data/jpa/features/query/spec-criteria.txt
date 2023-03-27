@@ -1,0 +1,47 @@
+https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/domain/Specification.html
+
+EntityManager entityManagr = getEntityManager();
+CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+CriteriaQuery<Product> productQuery = builder.createQuery(Product.class);
+Root<Person> personRoot = productQuery.from(Product.class);
+
+
+https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/domain/Specification.html
+https://javaee.github.io/javaee-spec/javadocs/javax/persistence/criteria/CriteriaBuilder.html
+    and, or, neg, not
+    all, any
+    le, gt
+    like, literal
+    tuple, trim, treat
+    locate
+    count, exists
+    conjunction, disjunction
+    isEmpty, isFalse, isMember, isNull
+
+    Selection, TupleElement
+    https://javaee.github.io/javaee-spec/javadocs/javax/persistence/criteria/Expression.html
+    MapJoin, Subquery
+
+    https://javaee.github.io/javaee-spec/javadocs/javax/persistence/criteria/Subquery.html
+        groupBy
+
+    https://javaee.github.io/javaee-spec/javadocs/javax/persistence/criteria/Predicate.html
+        List<Expression<Boolean>> getExpresions()
+
+    https://javaee.github.io/javaee-spec/javadocs/javax/persistence/criteria/Selection.html
+        ! a lot of subifaces
+
+jpql->spec
+    https://stackoverflow.com/questions/60382298/convert-specific-query-into-jpql-or-criteria-builder-query
+
+2022
+https://engineering.linecorp.com/en/blog/kotlinjdsl-jpa-criteria-api-with-kotlin/
+    selectMulti(col(Book::category), avg(Review::rate))
+https://www.baeldung.com/hibernate-criteria-queries
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/hibernate-queries
+2020
+https://reflectoring.io/spring-data-specifications/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/specification
+????
+https://docs.oracle.com/javaee/7/tutorial/persistence-criteria003.htm
+https://docs.oracle.com/cd/E19798-01/821-1841/gjitv/index.html

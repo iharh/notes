@@ -1,0 +1,29 @@
+https://github.com/stencila/images/tree/master/.shrink
+
+aur
+    strace, strace-analyzer
+
+2023
+faterthanlime - strace feels like magic — let’s fix that (with Rust) of 16:20
+    https://www.youtube.com/watch?v=engduNoI6DE
+    https://github.com/fasterthanlime/rue
+    https://lib.rs/crates/lurk-cli
+    ! syscall, sys_enter, sys_exit
+    ! strace cat a.txt
+    ! ... openat(...)
+    !     newstatat...
+    !     fadvis64
+    !     read
+    !     write
+2020
+https://jvns.ca/blog/2020/04/29/why-strace-doesnt-work-in-docker/
+    https://habr.com/ru/company/itsumma/blog/508990/
+https://habr.com/ru/company/badoo/blog/493856/
+2019
+https://opensource.com/article/19/10/strace
+    https://habr.com/ru/company/otus/blog/525012/
+2018
+https://wizardzines.com/zines/strace/
+    https://habr.com/ru/company/first/blog/467093/
+????
+https://habrahabr.ru/post/215577/

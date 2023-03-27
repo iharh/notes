@@ -1,0 +1,17 @@
+!!! can publish only one component and multiple artifacts (from DefaulIvyPublication.java)
+
+https://docs.gradle.org/current/userguide/publishing_ivy.html
+    ! dynamic task names - https://docs.gradle.org/current/userguide/publishing_ivy.html#publishing_ivy:tasks
+    ! url = uri(layout.buildDirectory.dir("repo"))
+    https://docs.gradle.org/current/userguide/publishing_setup.html
+    !!! For example, the Java Plugin defines the components.java SoftwareComponent
+        (https://docs.gradle.org/current/javadoc/org/gradle/api/component/SoftwareComponent.html)
+    ! how to suppress validation warnings
+
+!!!
+https://docs.gradle.org/current/userguide/publishing_customization.html
+    // val javaComponent = components["java"] as AdhocComponentWithVariants
+
+???
+distribution plugin
+    https://github.com/jcohy/jcohy-docs/blob/master/gradle-docs/src/snippets/ivy-publish/distribution/kotlin/build.gradle.kts

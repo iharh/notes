@@ -1,0 +1,16 @@
+https://wiki.archlinux.org/index.php/ZFS#Creating_datasets
+    To create a dataset including native encryption with a passphrase, use:
+    # zfs create -o encryption=on -o keyformat=passphrase <nameofzpool>/<nameofdataset>
+
+https://www.thegeekdiary.com/zfs-tutorials-creating-zfs-pools-and-file-systems/
+    ! creatingn zfs filesystem
+    # zfs create geekpool/fs1
+    # zfs list
+    # zfs set quota=500m geekpool/fs1
+    # zfs set reservation=200m geekpool/fs1
+    # zfs list
+    # zfs set mountpoint=/test geekpool/fs
+    # df -h |grep /test
+    # zfs create -o mountpoint=/test geekpool/fs1
+
+

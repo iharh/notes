@@ -1,0 +1,6 @@
+@SpringBootTest(properties = {
+    "eureka.client.enabled=false",
+    "ribbon.eureka.enable=false",
+    "passenger-management.ribbon.listOfServers=passenger-management",
+    "driver-management.ribbon.listOfServers=driver-management"
+})

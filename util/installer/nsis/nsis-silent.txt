@@ -1,0 +1,23 @@
+\autotesting\CMPTestingFramework\
+
+silent mode:
+/S /D=path
+
+http://silentinstall.org/nsis.html
+
+ The Silent Install options for the NSIS installer wery simple.
+/S 	Runs the installer in silent mode
+/SD 	Complitely silent mode. Supress messageboxes.
+/D 	Specifies the installation directory.
+
+Examples
+
+Silently install the program:
+setup.exe /SD
+
+Silently install the program in to directory C:\Program Files\Setup:
+setup.exe /SD /D=C:\Program Files\Setup
+
+
+http://nsis.sourceforge.net/Docs/Chapter4.html#silent
+http://nsis.sourceforge.net/Docs/Chapter4.html#4.12

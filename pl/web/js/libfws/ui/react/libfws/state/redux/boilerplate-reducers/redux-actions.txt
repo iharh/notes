@@ -1,0 +1,17 @@
+https://redux-actions.js.org/
+https://github.com/redux-utilities/redux-actions
+
+https://redux-actions.js.org/introduction/tutorial
+
+export function increment(counter) {
+  return {
+    type: INCREMENT,
+    payload: {
+      counter
+    }
+  }
+}
+
+-->
+
+const increment = createAction(INCREMENT);

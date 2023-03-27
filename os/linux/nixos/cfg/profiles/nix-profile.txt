@@ -1,0 +1,9 @@
+/nix/var/nix/profiles/
+/nix/var/nix/profiles/per-user/
+    
+~/.nix-profile/
+    is a symbolic link to the current user environment (an automatically generated package consisting of symlinks to installed packages)
+
+    bin
+    lib
+    include

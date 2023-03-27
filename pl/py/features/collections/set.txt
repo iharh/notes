@@ -1,0 +1,8 @@
+a = set("qwer")
+    set(['q', 'w', 'e', 'r'])
+for i in a: print i
+pop/remove/and/or/&/|/-/symmetric_difference/...
+
+b = frozenset(...)
+
+{ ord(c) for c in "sfdsdfsdf" } // construct set using generator

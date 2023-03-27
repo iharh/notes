@@ -1,0 +1,52 @@
+2022
+https://blog.kubeworld.org/getting-started-with-kubernetes-1
+2021
+https://proglib.io/p/pervoe-znakomstvo-s-kubernetes-sozdaem-pervoe-prilozhenie-dlya-razvertyvaniya-v-klastere-2021-08-04
+https://proglib.io/p/pervoe-znakomstvo-s-kubernetes-bazovye-konstrukcii-klastera-2021-07-29
+Service.yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      labels:
+        app: app
+      name: app
+    spec:
+      ports:
+      - port: 8080
+        protocol: TCP
+        targetPort: 5000
+      selector:
+        app: app
+      type: ClusterIP
+
+deployment.yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: app
+      labels:
+        app: app
+    spec:
+      replicas: 2
+      selector:
+        matchLabels:
+          app: app
+      template:
+        metadata:
+          labels:
+            app: app
+        spec:
+          containers:
+          - name: app
+            image: geksogen/learn_images:app
+            ports:
+            - containerPort: 5000
+              protocol: TCP
+              name: http
+            resources:
+              limits:
+                cpu: 50m
+                memory: 20Mi
+              requests:
+                cpu: 50m
+                memory: 20Mi

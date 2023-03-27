@@ -1,0 +1,16 @@
+https://serviceworke.rs/
+https://github.com/mozilla/serviceworker-cookbook
+
+2020
+https://habr.com/ru/post/532516/
+2019
+https://blog.bitsrc.io/understanding-service-workers-and-caching-strategies-a6c1e1cbde03
+    https://nuancesprog.ru/p/3304
+https://blog.bitsrc.io/prefetching-links-using-service-workers-d9f6babfd0b
+2018
+TraversyMedia - Intro To Service Workers and Caching
+https://www.youtube.com/watch?v=ksXwaWHCW6k
+https://www.keycdn.com/blog/service-workers/
+
+samples
+https://github.com/lblima/react-recompose-01/blob/master/src/registerServiceWorker.js

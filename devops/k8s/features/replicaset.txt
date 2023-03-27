@@ -1,0 +1,50 @@
+set of replics of the application
+
+inside its yaml description
+* template as a set of pods
+* each pod will have appropriate labels
+
+the replica set itself has
+* ? labels
+* number of replics
+
+replicaset.yaml
+pod.yaml
+
+replicaset.yaml
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-replicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - image: quay.io/testing-farm:nginx:1.12
+        name: nginx
+        ports:
+        - containerPort: 80
+...
+pod.yaml
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: my
+spec:
+  containers:
+  - image: quay.io/testing-farm:nginx:1.12
+    name: nginx
+    ports:
+    - containerPort: 80
+...

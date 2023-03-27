@@ -1,0 +1,15 @@
+https://github.com/powerline/fonts
+
+https://github.com/stefano-meschiari/dotemacs/blob/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
+
+https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config
+
+samples:
+https://github.com/tony/.dot-config/blob/master/.Xresources
+
+patched:
+https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched
+
+icons:
+https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
+https://github.com/bhilburn/powerlevel9k/blob/master/functions/icons.zsh

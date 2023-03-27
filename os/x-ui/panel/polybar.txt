@@ -1,0 +1,35 @@
+https://polybar.github.io/
+https://wiki.archlinux.org/title/Polybar
+https://wiki.archlinux.org/index.php/Polybar
+
+https://github.com/jaagr/polybar
+https://github.com/jaagr/polybar/wiki
+https://github.com/jaagr/polybar/wiki/Configuration
+https://github.com/jaagr/polybar/wiki/Module:-i3
+
+issues
+https://github.com/jaagr/polybar/issues/871
+
+!!! need dependency
+extra/libmpdclient
+
+community/
+    polybar
+    ttf-polybar-icons
+        /usr/share/fonts/TTF/polybar-icons.ttf
+aur/
+    polybar
+    polybar-git
+
+/usr/share/doc/polybar/config
+
+2018
+https://arcolinux.com/how-to-install-polybar-and-use-it-on-i3-and-openbox/
+????
+https://www.youtube.com/watch?v=E6y-kE1cSvw
+https://www.youtube.com/watch?v=S1jQfGcKjtA
+
+cfg samples
+https://github.com/tbetcke/dotfiles/
+    https://github.com/tbetcke/dotfiles/blob/master/polybar_config
+    https://github.com/tbetcke/dotfiles/blob/master/polybar_launch.sh

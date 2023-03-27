@@ -1,0 +1,5 @@
+&*foo to "reborrow" it, without consuming the mutable reference.
+
+2018
+http://www.squidarth.com/rc/rust/2018/05/31/rust-borrowing-and-ownership.html
+    https://www.reddit.com/r/rust/comments/8ns24l/fear_not_the_rust_borrow_checker/

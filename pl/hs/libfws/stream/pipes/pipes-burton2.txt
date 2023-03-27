@@ -1,0 +1,32 @@
+http://unknownparallel.wordpress.com/2012/07/25/pipes-to-conduits-part-1-yield-and-await/
+Pipe.lhs
+
+****************************************************************************************************
+http://hackage.haskell.org/package/free
+https://github.com/ekmett/free/blob/master/src/Control/Monad/Trans/Free.hs
+https://github.com/ekmett/free/blob/master/src/Control/Monad/Free.hs
+
+-- | The base functor for a free monad.
+data FreeF f r next = Return r | Free (f next)
+  deriving (Eq,Ord,Show,Read)
+
+data FreeF f r next = Return r | Free (f next)
+
+data Free f r
+  = Return r
+  | Free (f (Free f r))
+  | Plus [Free f r]
+
+
+-- | A version of 'lift' that can be used with just a 'Functor' for @f@.
+liftF :: Functor f => f a -> Free f a
+liftF = Free . fmap Return
+
+http://hackage.haskell.org/packages/archive/transformers-free/latest/doc/html/Control-Monad-Trans-Free.html
+
+newtype FreeT f m a = FreeT { runFreeT :: m (FreeF f a (FreeT f m a)) }
+...
+
+****************************************************************************************************
+
+

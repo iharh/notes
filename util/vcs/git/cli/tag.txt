@@ -1,0 +1,37 @@
+https://git-scm.com/docs/git-tag
+https://stackoverflow.com/questions/35979642/what-is-git-tag-how-to-create-tags-how-to-checkout-git-remote-tags
+
+git tag
+    list tags
+
+git tag <tag-name> <rev-hash>
+    add a tag
+
+git tag -a -m "commit-msg" <tag-name> <rev-hash>
+    add an annotated tag
+git tag -a <tag-name> <rev-hash>
+    add an annotated tag (editor will be opened for commit-message)
+
+git tag -d <tag-name>
+    delete a tag
+
+git show <tag-name>
+    view a tag commit log
+
+git checkout <tag-name>
+    check out a tag
+    ... you are in 'detached HEAD' state...
+
+    later:
+    (make changes and)
+    git checkout -b <new-branch-to-save-work>
+
+git push --tags <remote-branch>
+    push tags to a remote branch
+
+git push <remote-branch> :<tag-name>
+    push nothing to tag-name at remote-branch
+    Note: use refs/tags/<tag-name> if tag has the same name as on of the branch
+
+git fetch --tags
+    fetch tags from remote

@@ -1,0 +1,16 @@
+https://crates.io/crates/jni
+https://docs.rs/jni
+https://github.com/prevoty/jni-rs
+
+https://crates.io/crates/jni-sys
+https://docs.rs/jni-sys
+https://github.com/sfackler/rust-jni-sys
+
+https://crates.io/crates/rucaja
+https://docs.rs/crate/rucaja
+https://github.com/kud1ing/rucaja
+
+2019
+https://medium.com/@diego_pacheco/rust-and-java-interoperability-614e4494d00f
+http://diego-pacheco.blogspot.com/2019/09/rust-and-java-interoperability.html
+    https://github.com/diegopacheco/rust-playground/tree/master/jni-fun

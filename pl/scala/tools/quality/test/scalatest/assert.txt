@@ -1,0 +1,15 @@
+Assertions:
+
+Assert("abcd" == "abc") // org.scalates.exceptions.TestFailedException
+Assert("abcd" === "abc") // "ab[cd]" did not equal "ab[c]"
+if (!some-condition)
+    cancel("Can't run the test because bla-bla")
+
+assume(cond, "The cond is false bla-bla")
+assume(...someInt == 9)
+
+fail()
+fail("msg")
+
+cancel()
+calcel("msg")

@@ -1,0 +1,79 @@
+2020
+https://jonathanh.co.uk/blog/current-word-completion.html
+
+To enable compinit, put the following to your .zshrc
+
+autoload -U compinit
+compinit
+
+Note: .zcompdump is created the first time
+Note: compinstall func can guide you through the completion install process
+
+zmodload zsh/complist - need for using pager for displaying long list of completions
+
+
+zstyle
+
+The actual make-up for contexts:
+
+:completion:function:completer:command:argument:tag
+
+The least-specific context pattern is (usefull for default values):
+:completion:*
+
+tag is the last component of zstyle.
+
+zstyle ':completion:*:messages' format %d
+	restrict the format to the messages, tagged by 'messages' tag.
+zstyle ':completion:*:warnings' format 'No matches'
+	If there are no possible matches, warning-tag is used.	
+zstyle ':completion:*:descriptios' format %B%d%b
+	Prints completion-description above the list in bold.
+	Note: more than one type of things can be completed [e.x - no<tab>].
+zstyle ':completion:*' group-name ''
+	This will fix the situation for the above case (more than one group).
+zstyle ':completion:*:manuals' separate-sections true
+	Causes completion matches to be further sub-divided
+zstyle ':completion:*' verbose yes
+	Print descriptions against each match.
+zstyle ':completion:*' list-separator '#'
+	Sets list-separator (to separated descriptor from option) for the above case
+zstyle ':completion:*' auto-description 'specify: %d'
+	Sets auto-description
+zstyle ':completion:*:default' list-prompt '%S%M matches %s'
+	Specify the format of list-prompt, displayed at the bottom of the screen:
+		%M - spec-var
+	Note: listscrol key-map is used for controlling the pager keys:
+		bindkey -M listscrol q send-break
+zstyle ':completion:*:default' menu 'select=0'
+	Enable menu selection (0 - how many matches should be before menu selection is started).
+	Note: menuselect key-map is used for controlling the selection keys.
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+	Apply case-insensitive matching.
+zstyle ':completion:*' insert-tab true
+	Do not complete empty commands (result of pasting text containging tabs).
+zstyle ':completion:*:*files' ignore-patterns '*?.o' '*?~'
+	Ignore the menioned patterns when completing.
+zstyle ':completion:*:*:cd:*' ignore-patterns '(*/|)(CVS|SCCS)'
+	Exclude CVS and SCCS dirs but only for the cd command.
+zstyle ':completion::*:(cvs-add|less|rm|vi):*' ignore-line true
+	Ignore the completions that already present in the current line - usefull for rm, vi, ...
+
+
+
+
+zsh options
+
+auto_list (on by default)
+	list all the completions if many.
+list_beep
+	beep while displaying a completion list.
+menu_complete
+	Set menu completion (There is also menu-complete editor function for binding).
+auto_menu (on by default)
+	Causes menu completion to be used after a second consecutive request for completion (pressing Tab twice).
+complete_in_word
+	Prefix completion - matching by expecting the chars after the cursor to be at the end of any matches.
+auto_remove_slash (on by default)
+	Auto-remove slash for some cases (like rm ...).
+	

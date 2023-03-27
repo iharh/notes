@@ -1,0 +1,41 @@
+https://computingforgeeks.com/virsh-commands-cheatsheet/
+
+vim /mnt/etc/nixos/configuration.nix
+    # boot.loader.grub.device = "/dev/sda";
+    # at hardware-configuration.nix
+        swapDevices = [ device = "/.swapfile"; ]
+
+nixos-install
+reboot
+sudo poweroff
+shutdown -h now
+
+packages
+    nix-env -q --installed
+    nix-env -qaP \*
+
+    nix-env -iA nixos.gitMinimal nixos.gh
+    nix-env -iA nixos.git nixos.gh
+
+    nix-env -iA nixos.gitMinimal
+
+    nix-env -iA nixos.pkgs.gitAndTools.gitFull
+    nix-env -iA nixos.gitAndTools.gh
+
+gh
+https://cli.github.com/manual/gh_auth_login
+https://cli.github.com/manual/gh_repo_clone
+    export GH_TOKEN=...
+    gh auth login
+    gh repo clone iharh/nixcfg
+
+cache
+https://nixos.wiki/wiki/Maintainers:Fastly
+https://www.channable.com/tech/setting-up-a-private-nix-cache-for-fun-and-profit
+https://mcwhirter.com.au/craige/blog/2019/NixOS%5FAppears%5Fto%5Fbe%5FAlways%5FBuilding%5FFrom%5FSource/
+
+users.user.iharh = {
+    initialPassword = "pwd";
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+};

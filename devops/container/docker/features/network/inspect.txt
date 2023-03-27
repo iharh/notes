@@ -1,0 +1,5 @@
+https://docs.docker.com/engine/reference/commandline/network_inspect/
+
+https://stackoverflow.com/questions/43904562/docker-how-to-find-the-network-my-container-is-in
+    docker inspect <container-name> -f "{{json .NetworkSettings.Networks }}"
+    docker network inspect <net-name> -f "{{json .Containers }}"

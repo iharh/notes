@@ -1,0 +1,8 @@
+http://www.gregreda.com/2013/10/26/working-with-pandas-dataframes/
+
+df.merge(left, right, on='key')
+append
+align
+
+http://pandas.pydata.org/pandas-docs/stable/generated/pandas.concat.html
+concat

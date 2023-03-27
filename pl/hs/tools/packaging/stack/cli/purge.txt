@@ -1,0 +1,8 @@
+just a shortcut for
+stack clean --full
+
+stack purge
+    deletes the local stack working directories, including extra-deps,
+    git dependencies and the compiler output (including logs).
+    It does not delete any snapshot packages,
+    compilers or programs installed using stack install.

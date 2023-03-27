@@ -1,0 +1,65 @@
+https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
+https://docs.gradle.org/current/userguide/custom_tasks.html
+https://docs.gradle.org/current/userguide/more_about_tasks.html
+    ! task rules
+
+tasks {
+    named<Jar>("jar") {
+        enabled = false
+    }
+    register("bootDev") {
+        group = "application"
+        description = "Runs this project as a Spring Boot application with the dev profile"
+        doFirst {
+            bootRun.configure {
+                systemProperty("spring.profiles.active", "dev")
+            }
+        }
+        finalizedBy("bootRun")
+    }
+}
+
+task("nameOfTheTask") {
+    ...
+}
+
+https://github.com/gradle/kotlin-dsl-samples/blob/master/samples/multi-project-with-buildSrc/
+build.gradle.kts
+...
+    declareHelloTask()
+...
+buildSrc/src/main/kottlin/Hello.kt
+import org.gradle.api.*
+import org.gradle.api.tasks.*
+import org.gradle.kotlin.dsl.*
+
+open class HelloTask : DefaultTask() {
+
+    init {
+        group = "My"
+        description = "Prints a description of ${project.name}."
+    }
+
+    @TaskAction
+    fun run() {
+        println("I'm ${project.name}")
+    }
+}
+
+fun Project.declareHelloTask() =
+    tasks.register<HelloTask>("hello")
+
+// !!! only need for creating appropriate dsl-closure
+//val Project.hello: TaskProvider<HelloTask>
+//    get() = tasks.named<HelloTask>("hello")
+
+
+???
+tasks {
+    "bootJar"(BootJar::class) {
+        archiveName = "app.jar"
+        mainClassName = "awesomeweb.AppKt"
+    }
+tasks.getByName<BootJar>("bootJar") {
+    mainClassName = "com.eascapeco.scinemapr.bo.BoApplication"
+}

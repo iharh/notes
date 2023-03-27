@@ -1,0 +1,27 @@
+2.2.0.RELEASE
++--- org.springframework.cloud:spring-cloud-starter-security -> 2.2.0.RELEASE
+|    +--- org.springframework.cloud:spring-cloud-starter:2.2.0.RELEASE (*)
+|    \--- org.springframework.cloud:spring-cloud-security:2.2.0.RELEASE
+
+
+https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html
+https://javadoc.io/doc/org.springframework.cloud/spring-cloud-security/latest/index.html
+
+https://github.com/spring-cloud/spring-cloud-security/blob/master/spring-cloud-security
+
+OAuth2FeignRequestInterceptor 
+https://github.com/spring-cloud/spring-cloud-security/blob/master/spring-cloud-security/src/main/java/org/springframework/cloud/security/oauth2/client/feign/OAuth2FeignRequestInterceptor.java
+    https://javadoc.io/doc/org.springframework.cloud/spring-cloud-security/latest/org/springframework/cloud/security/oauth2/client/feign/OAuth2FeignRequestInterceptor.html
+
+cfg
+https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/client/resource/OAuth2ProtectedResourceDetails.html
+
+2017
+https://stackoverflow.com/questions/45859676/spring-cloud-feign-oauth2-request-interceptor-is-not-working
+
+issues
+https://github.com/spring-cloud/spring-cloud-security/issues/173
+    https://github.com/loesak/spring-cloud-security-173
+    https://github.com/oktadeveloper/java-microservices-examples/blob/master/spring-boot+cloud/api-gateway/src/main/java/com/example/apigateway/UserFeignClientInterceptor.java
+artem
+    https://github.com/spring-cloud/spring-cloud-security/issues/220

@@ -1,0 +1,24 @@
+https://docs.gradle.org/current/userguide/kotlin_dsl.html
+https://docs.gradle.org/current/userguide/composite_builds.html
+https://github.com/gradle/kotlin-dsl-samples/tree/master/samples
+https://github.com/gradle/kotlin-dsl-samples/tree/master/samples/multi-project-with-buildSrc
+https://github.com/gradle/kotlin-dsl-samples/blob/master/samples/multi-kotlin-project-config-injection
+
+qa
+https://stackoverflow.com/questions/55335866/include-scripts-with-gradle-kotlin-dsl
+    !!!
+    https://github.com/gradle/kotlin-dsl-samples/issues/1359
+    https://github.com/gradle/kotlin-dsl-samples/issues/1287
+    https://github.com/gradle/kotlin-dsl-samples/issues/1287#issuecomment-486182546
+    https://github.com/gradle/kotlin-dsl-samples/issues/1358
+    https://github.com/gradle/kotlin-dsl-samples/issues/1320
+    https://github.com/gradle/kotlin-dsl-samples/issues/1320#issuecomment-486309410
+
+// somewhere in the buildSrc
+object DependencyVersions {
+    const val JETTY_VERSION = "9.4.12.v20180830"
+}
+
+dependencies{
+    implementation("org.eclipse.jetty:jettyserver:${DependencyVersions.JETTY_VERSION}")
+}

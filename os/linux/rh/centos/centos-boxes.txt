@@ -1,0 +1,13 @@
+http://www.practicalweb.co.uk/blog/12/10/16/how-build-centos-6-base-box-vagrant
+
+Docker:
+https://hub.docker.com/_/centos/
+https://github.com/docker-library/official-images/blob/master/library/centos
+
+#7.2.1511
+centos7.2.1511: git://github.com/CentOS/sig-cloud-instance-images@a3c59bd4e98a7f9c063d993955c8ec19c5b1ceff docker
+7.2.1511: git://github.com/CentOS/sig-cloud-instance-images@a3c59bd4e98a7f9c063d993955c8ec19c5b1ceff docker
+
+# 6.7
+centos6.7: git://github.com/CentOS/sig-cloud-instance-images@d0b72df83f49da844f88aabebe3826372f675370 docker
+6.7: git://github.com/CentOS/sig-cloud-instance-images@d0b72df83f49da844f88aabebe3826372f675370 docker

@@ -1,0 +1,217 @@
+(** We can make numerical expressions a little easier to read and
+    write by introducing "notations" for addition, multiplication, and
+    subtraction. *)
+
+Notation "x + y" := (plus x y)  (at level 50, left associativity) : nat_scope.
+Notation "x - y" := (minus x y)  (at level 50, left associativity) : nat_scope.
+Notation "x * y" := (mult x y)  (at level 40, left associativity) : nat_scope.
+
+Check ((0 + 1) + 1).
+
+(** Note that these do not change the definitions we've already
+    made: they are simply instructions to the Coq parser to accept [x
+    + y] in place of [plus x y] and, conversely, to the Coq
+    pretty-printer to display [plus x y] as [x + y].
+
+    Each notation-symbol in Coq is active in a _notation scope_.  Coq
+    tries to guess what scope you mean, so when you write [S(O*O)] it
+    guesses [nat_scope], but when you write the cartesian
+    product (tuple) type [bool*bool] it guesses [type_scope].
+    Occasionally you have to help it out with percent-notation by
+    writing [(x*y)%nat], and sometimes in Coq's feedback to you it
+    will use [%nat] to indicate what scope a notation is in.
+
+    Notation scopes also apply to numeral notation (3,4,5, etc.), so you
+    may sometimes see [0%nat] which means [O], or [0%Z] which means the
+    Integer zero. *)
+
+
+Notation "( x , y )" := (pair x y).
+
+
+
+(** As with pairs, it is more convenient to write lists in
+    familiar programming notation.  The following two declarations
+    allow us to use [::] as an infix [cons] operator and square
+    brackets as an "outfix" notation for constructing lists. *)
+
+Notation "x :: l" := (cons x l) (at level 60, right associativity).
+Notation "[ ]" := nil.
+Notation "[ x , .. , y ]" := (cons x .. (cons y nil) ..).
+
+(** It is not necessary to fully understand these declarations,
+    but in case you are interested, here is roughly what's going on.
+
+    The [right associativity] annotation tells Coq how to parenthesize
+    expressions involving several uses of [::] so that, for example,
+    the next three declarations mean exactly the same thing: *)
+
+Definition l_123'   := 1 :: (2 :: (3 :: nil)).
+Definition l_123''  := 1 :: 2 :: 3 :: nil.
+Definition l_123''' := [1,2,3].
+
+(** The [at level 60] part tells Coq how to parenthesize
+    expressions that involve both [::] and some other infix operator.
+    For example, since we defined [+] as infix notation for the [plus]
+    function at level 50,
+[[
+Notation "x + y" := (plus x y)  
+                    (at level 50, left associativity).
+]]
+   The [+] operator will bind tighter than [::], so [1 + 2 :: [3]]
+   will be parsed, as we'd expect, as [(1 + 2) :: [3]] rather than [1
+   + (2 :: [3])].
+
+   (By the way, it's worth noting in passing that expressions like "[1
+   + 2 :: [3]]" can be a little confusing when you read them in a .v
+   file.  The inner brackets, around 3, indicate a list, but the outer
+   brackets are there to instruct the "coqdoc" tool that the bracketed
+   part should be displayed as Coq code rather than running text.
+   These brackets don't appear in the generated HTML.)
+
+   The second and third [Notation] declarations above introduce the
+   standard square-bracket notation for lists; the right-hand side of
+   the third one illustrates Coq's syntax for declaring n-ary
+   notations and translating them to nested sequences of binary
+   constructors. *)
+
+
+
+
+(** Actually, [app] will be used a lot in some parts of what
+    follows, so it is convenient to have an infix operator for it. *)
+
+Notation "x ++ y" := (app x y) 
+                     (right associativity, at level 60).
+
+
+(* ###################################################### *)
+(** *** Implicit Arguments *)
+
+(** If fact, we can go further.  To avoid having to sprinkle [_]'s
+    throughout our programs, we can tell Coq _always_ to infer the
+    type argument(s) of a given function. *)
+
+Implicit Arguments nil [[X]].
+Implicit Arguments cons [[X]].
+Implicit Arguments length [[X]].
+Implicit Arguments app [[X]].
+Implicit Arguments rev [[X]].
+Implicit Arguments snoc [[X]].
+
+(** We can also declare an argument to be implicit while
+    defining the function itself, by surrounding the argument in curly
+    braces.  For example: *)
+
+Fixpoint length'' {X:Type} (l:list X) : nat := 
+  match l with
+  | nil      => 0
+  | cons h t => S (length'' t)
+  end.
+
+(** One small problem with declaring arguments [Implicit] is
+    that, occasionally, Coq does not have enough local information to
+    determine a type argument; in such cases, we need to tell Coq that
+    we want to give the argument explicitly this time, even though
+    we've globally declared it to be [Implicit].  For example, if we
+    write: *)
+
+(* Definition mynil := nil. *)
+
+(** If we uncomment this definition, Coq will give us an error,
+    because it doesn't know what type argument to supply to [nil].  We
+    can help it by providing an explicit type declaration (so that Coq
+    has more information available when it gets to the "application"
+    of [nil]): *)
+
+Definition mynil : list nat := nil.
+
+(** Alternatively, we can force the implicit arguments to be explicit by
+   prefixing the function name with [@]. *)
+
+Check @nil.
+
+Definition mynil' := @nil nat. 
+
+(** Using argument synthesis and implicit arguments, we can
+    define convenient notation for lists, as before.  Since we have
+    made the constructor type arguments implicit, Coq will know to
+    automatically infer these when we use the notations. *)
+
+Notation "x :: y" := (cons x y) 
+                     (at level 60, right associativity).
+Notation "[ ]" := nil.
+Notation "[ x , .. , y ]" := (cons x .. (cons y []) ..).
+Notation "x ++ y" := (app x y) 
+                     (at level 60, right associativity).
+
+(** Now lists can be written just the way we'd hope: *)
+
+Definition list123''' := [1, 2, 3].
+
+(* ###################################################### *)
+(** ** Polymorphic Pairs *)
+
+(** Following the same pattern, the type definition we gave in
+    the last chapter for pairs of numbers can be generalized to
+    _polymorphic pairs_ (or _products_): *)
+
+Inductive prod (X Y : Type) : Type :=
+  pair : X -> Y -> prod X Y.
+
+Implicit Arguments pair [[X] [Y]].
+
+(** As with lists, we make the type arguments implicit and define the
+    familiar concrete notation. *)
+
+Notation "( x , y )" := (pair x y).
+
+(** We can also use the [Notation] mechanism to define the standard
+    notation for pair _types_: *)
+
+Notation "X * Y" := (prod X Y) : type_scope.
+
+(** (The annotation [: type_scope] tells Coq that this abbreviation
+    should be used when parsing types.  This avoids a clash with the
+    multiplication symbol.) *)
+
+(** A note of caution: it is easy at first to get [(x,y)] and
+    [X*Y] confused.  Remember that [(x,y)] is a _value_ consisting of a
+    pair of values; [X*Y] is a _type_ consisting of a pair of types.  If
+    [x] has type [X] and [y] has type [Y], then [(x,y)] has type [X*Y]. *)
+
+(** The first and second projection functions now look pretty
+    much as they would in any functional programming language. *)
+
+Definition fst {X Y : Type} (p : X * Y) : X := 
+  match p with (x,y) => x end.
+
+Definition snd {X Y : Type} (p : X * Y) : Y := 
+  match p with (x,y) => y end.
+
+(** The following function takes two lists and combines them
+    into a list of pairs.  In many functional programming languages,
+    it is called [zip].  We call it [combine] for consistency with
+    Coq's standard library. *)
+(** Note that the pair notation can be used both in expressions and in
+    patterns... *)
+
+Fixpoint combine {X Y : Type} (lx : list X) (ly : list Y) 
+           : list (X*Y) :=
+  match (lx,ly) with
+  | ([],_) => []
+  | (_,[]) => []
+  | (x::tx, y::ty) => (x,y) :: (combine tx ty)
+  end.
+
+(** Indeed, when no ambiguity results, we can even drop the enclosing
+    parens: *)
+
+Fixpoint combine' {X Y : Type} (lx : list X) (ly : list Y) 
+           : list (X*Y) :=
+  match lx,ly with
+  | [],_ => []
+  | _,[] => []
+  | x::tx, y::ty => (x,y) :: (combine' tx ty)
+  end.
+

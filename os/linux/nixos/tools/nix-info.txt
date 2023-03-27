@@ -1,0 +1,5 @@
+nix-info
+    -m
+        markdown
+    -d
+        debug

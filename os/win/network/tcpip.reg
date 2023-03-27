@@ -1,0 +1,14 @@
+Win-Old:
+
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters]
+"TcpTimedWaitDelay"=dword:0000001e
+"MaxUserPort"=dword:0000fffe
+
+
+Win 7, 2008:
+
+netsh int ipv4 set dynamicportrange protocol=tcp startport=1025 numberofports=64508 store=persistent
+netsh int ipv4 show dynamicportrange protocol=tcp
+

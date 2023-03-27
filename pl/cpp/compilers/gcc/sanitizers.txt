@@ -1,0 +1,24 @@
+https://gcc.gnu.org/onlinedocs/gcc-4.8.3/gcc/Debugging-Options.html#Debugging-Options
+
+-fsanitize=[address|thread]
+    "-ggdb", "-O0", "-fno-omit-frame-pointer", "-fsanitize=address", // "-fsanitize=leak",
+
+    
+https://code.google.com/archive/p/data-race-test/wikis/ThreadSanitizer.wiki
+https://github.com/google/sanitizers
+
+https://github.com/google/sanitizers/wiki/AddressSanitizerFlags#run-time-flags
+
+2019
+https://engineering.backtrace.io/posts/sanitizers/
+2018
+https://kristerw.blogspot.com/2018/06/useful-gcc-address-sanitizer-checks-not.html
+http://gavinchou.github.io/experience/summary/syntax/gcc-address-sanitizer/
+    ! static-case
+2017
+https://habr.com/ru/post/323380/
+2014
+https://developers.redhat.com/blog/2014/12/02/address-and-thread-sanitizers-gcc/
+https://tsdgeos.blogspot.com/2014/03/asan-and-gcc-how-to-get-line-numbers-in.html
+    export ASAN_SYMBOLIZER_PATH=/usr/bin/llvm-symbolizer-3.4
+    export ASAN_OPTIONS=symbolize=1

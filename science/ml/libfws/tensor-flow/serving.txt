@@ -1,0 +1,21 @@
+https://www.tensorflow.org/serving/
+https://www.tensorflow.org/serving/serving_inception
+
+https://github.com/tensorflow/serving
+
+docker support
+https://www.tensorflow.org/serving/docker
+https://github.com/tensorflow/serving/tree/master/tensorflow_serving/tools/docker
+
+api
+https://github.com/tensorflow/serving/blob/master/tensorflow_serving/g3doc/api_rest.md
+
+whatsnew
+https://developers.googleblog.com/2017/07/tensorflow-serving-10.html
+
+2018
+https://medium.com/tensorflow/serving-ml-quickly-with-tensorflow-serving-and-docker-7df7094aa008?linkId=59087318
+2017
+Fiedel - From Research to Production with TensorFlow Serving
+    https://www.youtube.com/watch?v=sqYdlSF0BI8
+https://towardsdatascience.com/how-to-deploy-machine-learning-models-with-tensorflow-part-1-make-your-model-ready-for-serving-776a14ec3198

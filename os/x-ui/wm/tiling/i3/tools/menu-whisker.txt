@@ -1,0 +1,5 @@
+https://gottcode.org/xfce4-whiskermenu-plugin/
+https://github.com/gottcode/xfce4-whiskermenu-plugin
+
+https://github.com/midfingr/youtube_notes/blob/master/i3_examples
+bindsym ctrl+space exec xfce4-popup-whiskermenu

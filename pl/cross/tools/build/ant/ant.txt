@@ -1,0 +1,40 @@
+path printing:
+
+<pathconvert targetos="windows" property="toprint.classpath" refid="classpath" pathsep="&#13;&#10;"/>
+<echo message="${toprint.classpath}"/>
+
+
+<target name="backup-copy-fs" depends="backup-props">
+	<property name="arch.prefix" value="${env.USERNAME}"/>
+
+	<sequential>
+		<copy todir="${dest.dir}" file="${arch.file}" overwrite="true"/>
+
+		<local name="arch.count"/>
+		<local name="extra.count"/>
+
+		<resourcecount property="arch.count">
+			<fileset dir="${dest.dir}">
+				<include name="${arch.prefix}-*.7z"/>
+			</fileset>
+		</resourcecount>
+		<echo message="Archive copies found: ${arch.count}"/>
+
+		<c:when test="${arch.count} > ${arch.max}">
+			<property name="extra.count" value="#{${arch.count} - ${arch.max}}"/>
+			<echo message="Deleting obsolete archive copies: ${extra.count}"/>
+			<!-- pathconvert property="path.output"> ... </pathconvert -->
+			<delete>
+				<first count="${extra.count}">
+					<sort>
+						<fileset dir="${dest.dir}">
+							<include name="*.*"/>
+						</fileset>
+						<date/>
+					</sort>
+				</first>
+			</delete>
+		</c:when>
+	</sequential>
+</target>
+

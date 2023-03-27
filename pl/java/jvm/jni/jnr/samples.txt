@@ -1,0 +1,41 @@
+https://github.com/jnr/jnr-ffi-examples
+https://github.com/hassie/natto4j
+
+https://github.com/maketechnology/cefswt/blob/master/com.make.cefswt/CEF.java
+https://github.com/maketechnology/cefswt/blob/master/com.make.cefswt/CEF2.java
+!!!NativeName
+    public interface CEFInterface {
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @interface NativeName {
+            String value();
+        }
+        
+        class NativeNameAnnotationFunctionMapper implements FunctionMapper {
+            @Override
+            public String mapFunctionName(String functionName, Context context) {
+                for (Annotation ann : context.getAnnotations()) {
+                    if (ann.annotationType() == NativeName.class)
+                        return ((NativeName) ann).value();
+                }
+                return functionName;
+            }
+        }
+
+        static class InstanceCreator {
+            private static CEFInterface createInstance() {
+                CEFInterface lib = LibraryLoader.create(CEFInterface.class)
+                  .option(LibraryOption.FunctionMapper, new NativeNameAnnotationFunctionMapper())
+                  .load("cef");
+                RUNTIME = jnr.ffi.Runtime.getRuntime(lib);
+                return lib;
+            }
+        }
+
+        @NativeName("cef_string_wide_set")
+        int stringWideSet(jnr.ffi.Pointer src, long srcLen, StringWide output, int copy);
+        ...
+    }
+
+https://github.com/puniverse/javafs/blob/master/src/main/java/jnr/ffi/provider/jffi/ClosureHelper.java
+https://github.com/SerCeMan/jnr-fuse

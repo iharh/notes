@@ -1,0 +1,5 @@
+man
+    nix-*
+    home-manager
+    configuration.nix
+    home-configuration.nix

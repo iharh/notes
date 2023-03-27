@@ -1,0 +1,26 @@
+:helpg[rep] ...
+	Grep by help. Results go to the quickfix list
+:lh[elpgrep]
+	The same as above, but use location list for the results
+
+
+:gr[ep]!...
+:vim[grep]!...
+	Grep using vim internals
+:cw[indow]
+	Open a quick-fix (result-list) window
+:cn
+:cp
+	Go to the next/prev match (usually we map these action to hotkeys)
+:lw[indow]
+	Open a location-list window.
+	
+
+Samples:
+
+:[max_num]vim/<your_pattern>/gj **/*.<your_file_ext>
+	g - every match is added (without - every line is added)
+	j - do not jump the firs match
+	! - abandon any changes in the current buffer
+
+http://stackoverflow.com/questions/3108588/vim-greps-wildcard-doesnt-work-in-windows

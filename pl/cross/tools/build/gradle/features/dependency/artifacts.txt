@@ -1,0 +1,48 @@
+https://docs.gradle.org/current/userguide/cross_project_publications.html
+https://coderoad.ru/55239858/%D0%9A%D0%B0%D0%BA-%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C-%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF-%D0%BA-%D1%82%D0%B5%D1%81%D1%82%D0%B0%D0%BC-jar-%D0%B2-gradle-%D0%B2-%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5
+https://github.com/gradle/gradle/issues/16368
+
+gradle/buildSrc/build.gradle.kts
+    // ...
+    configurations {
+        apiElements {
+            outgoing.variants["classes"].artifact(
+                mapOf(
+                    "file" to compileGroovy.get().destinationDir,
+                    "type" to ArtifactTypeDefinition.JVM_CLASS_DIRECTORY,
+                    "builtBy" to compileGroovy
+                ))
+        }
+    }
+
+buildSrc/subprojects/packaging/src/main/kotlin/org/gradle/gradlebuild/packaging/ShadedJarPlugin.kt
+    // ...
+    private
+    fun Project.addShadedJarVariant(shadedJarTask: TaskProvider<ShadedJar>) {
+        val shadedJarArtifact = mapOf(
+            "file" to shadedJarTask.get().jarFile.get().asFile,
+            "name" to base.archivesBaseName,
+            "type" to "jar",
+            "builtBy" to shadedJarTask
+        )
+
+        val implementation by configurations
+        val shadedImplementation by configurations.creating {
+            isCanBeResolved = false
+            isCanBeConsumed = false
+        }
+        implementation.extendsFrom(shadedImplementation)
+
+        val shadedRuntimeElements by configurations.creating {
+            isCanBeResolved = false
+            isCanBeConsumed = true
+            attributes {
+                attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+                attribute(Category.CATEGORY_ATTRIBUTE, objects.named(Category.LIBRARY))
+                attribute(LibraryElements.LIBRARY_ELEMENTS_ATTRIBUTE, objects.named(LibraryElements.JAR))
+                attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.SHADOWED))
+                attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 8)
+            }
+            extendsFrom(shadedImplementation)
+            outgoing.artifact(shadedJarArtifact)
+        }

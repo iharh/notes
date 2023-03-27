@@ -1,0 +1,17 @@
+module
+    list
+    info
+        --name source:<module-name>
+        --name processor:<module-name>
+        --name job:<job-name>
+    stream
+        list
+        create <stream-name> --definition "<definition>" --deploy
+        destroy <stream-name>
+    job
+        create <job-name> --definition "<definition>" --deploy
+        destroy <job-name>
+
+admin config
+    server http://localhost:9393
+    info

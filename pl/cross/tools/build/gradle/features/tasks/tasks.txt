@@ -1,0 +1,119 @@
+https://guides.gradle.org/writing-gradle-tasks/
+https://docs.gradle.org/5.0/userguide/tutorial_using_tasks.html
+
+https://docs.gradle.org/current/userguide/more_about_tasks.html
+https://docs.gradle.org/current/dsl/org.gradle.api.tasks.TaskContainer.html
+    getByName(...)
+
+getTasksByName
+https://docs.gradle.org/current/javadoc/org/gradle/api/Project.html#getTasksByName-java.lang.String-boolean-
+
+input-output
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskInputs.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskOutputs.html
+    inputs.files(fileTree(...))
+    outputs.file(...)
+    outputs.dir(...)
+
+dependencies
+https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:adding_dependencies_to_tasks
+    enabled = true/false
+    onlyIf
+
+up-to-date check
+https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks
+https://stackoverflow.com/questions/27993814/only-run-task-if-another-isnt-up-to-date-in-gradle
+    upToDateWhen(...)
+
+gradle
+    projects
+    tasks
+        --all
+    properties
+        print gradle properties
+    model
+
+Tasks:
+-x <task-name>
+    exclude task name
+-q help --task clean
+    task usage info
+tasks
+    list all the tasks
+dependencies
+    list all the dependencies for all the configs
+compileJava - instance
+of JavaCompile class
+    https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.JavaCompile.html
+        javaCompile.destinationDir
+compileGroovy
+
+:common:compileJ
+    call compileJava for :common module (can be shortened to :compJ)
+
+processResources
+
+classes
+jar
+assemble
+
+compileTestJava
+compileTestGroovy
+processTestResources
+
+testClasses
+test
+
+check
+build
+
+
+distTar
+distZip
+
+
+Task props:
+
+enabled
+    disableMe.enabled = false
+onlyIf
+    for conditional execution
+    ... { !project.hasProperty('skipHello') }
+    gradle <task> -PskipHello
+ext ???
+    ext.srcFile = file('mountains.xml')
+    ext.destDir = new File(buildDir, 'generated')
+    // declare inputs (of TypeInputs) and outputs (of TypeOutputs)
+    // , skip the current task if in/out are not modified
+    inputs.file srcDir
+    outputs.dir destDir
+    doLast {
+        ...
+    }
+
+doLast/doFirst
+finalyzedBy
+
+Interesting stuff:
+gradle.taskGraph.whenReady
+tasks.addRule
+tasks.withType
+buildTypes
+productFlavors
+ant.importBuild 'build.xml'
+defaultTask 'afterTask'
+
+
+Inputs/Outputs
+
+task.create('releaseNotes') {
+    inputs.file anotherTask
+    outputs.dir destDir
+}
+
+publish
+publishToMavenLocal puTML
+
+type of task
+gradle help --task test
+    org.gradle.api.Task - for adhoc one (class - org.gradle.api.DefaultTask)

@@ -1,0 +1,25 @@
+2018
+https://docs.microsoft.com/en-us/windows/wsl/build-custom-distro
+2017-last-commit
+https://github.com/RoliSoft/WSL-Distribution-Switcher
+2016
+https://lab.rolisoft.net/blog/switching-the-distribution-behind-the-windows-subsystem-for-linux.html
+
+https://github.com/Microsoft/WSL-DistroLauncher
+
+manjaro
+2018
+https://forum.manjaro.org/t/what-about-manjaro-and-wsl-support/47579
+
+arch
+https://github.com/Microsoft/WSL/issues/2253
+    https://github.com/Microsoft/WSL/issues/1878
+    https://github.com/Microsoft/WSL/issues/555
+https://github.com/bilguun0203/WSL-ArchLinux
+https://github.com/yuk7/ArchWSL
+https://github.com/yuk7/ArchWSL/wiki
+    https://hannuhartikainen.fi/blog/arch-wsl/
+    http://www.akitaonrails.com/2018/04/29/running-arch-linux-over-windows-10
+https://github.com/DDoSolitary/LxRunOffline
+https://github.com/DDoSolitary/LxRunOffline/wiki
+https://coin-coin.science/post/wsl-archlinux/

@@ -1,0 +1,53 @@
+scoop
+    https://github.com/lukesampson/scoop/wiki/Commands
+    status
+    update [*|apps]
+        update apps or scoop itself
+    list
+        list installed apps
+    bucket
+        https://github.com/lukesampson/scoop/wiki/Buckets
+        add extras
+        list
+    search
+        <package-name>
+        https://github.com/shilangyu/scoop-search
+            ! drop-in replacement
+    which
+        locate a shim/executable (similar to 'which' on Linux)
+    home <app>
+        opens the app homepage
+    prefix
+        returns the path to the specified app
+    depends
+        list dependencies for an app
+    install
+        https://github.com/lukesampson/scoop/blob/master/libexec/scoop-install.ps1
+        gradle@4.7
+    uninstall
+        uninstall an app
+    update -v *
+        -f
+            to force update (help to update reseted versions forward)
+    reset
+        java@<version>
+        reset an app to resolve conflicts
+        oraclejdk
+    cleanup
+        cleanup old versions
+    alias
+        https://github.com/lukesampson/scoop/blob/master/libexec/scoop-alias.ps1
+        ...\scoop\shims\scoop-upu.ps1
+
+            scoop alias add rm 'scoop uninstall $args[0]' 'Uninstalls an app'
+            scoop alias add upgrade 'scoop update *' 'Updates all apps, just like brew or apt'
+    info
+        show the info about an <app>
+        https://github.com/lukesampson/scoop/blob/master/libexec/scoop-info.ps1
+    home
+        opens the <app> homepage
+        https://github.com/lukesampson/scoop/blob/master/libexec/scoop-home.ps1
+
+misc
+    versions
+        https://github.com/lukesampson/scoop/blob/master/lib/versions.ps1

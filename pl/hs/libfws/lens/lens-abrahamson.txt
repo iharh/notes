@@ -1,0 +1,34 @@
+Abrahamson:
+http://www.reddit.com/r/haskell/comments/1obpxb/a_little_lens_starter_tutorial_school_of_haskell/
+  https://www.fpcomplete.com/user/tel/a-little-lens-starter-tutorial
+http://www.reddit.com/r/haskell/comments/1anf0n/school_of_haskellbasic_lensing/
+  https://www.fpcomplete.com/user/tel/basic-lensing 
+http://r6research.livejournal.com/23705.html
+
+https://www.fpcomplete.com/user/tel/lenses-from-scratch
+
+
+lensToId :: Lens a b -> (a -> a)
+lensToId f = \a -> let (piece, hole) = f a in hole piece
+
+https://www.fpcomplete.com/user/tel/pretext-by-experiments-and-guesses
+
+
+data Store b a = Store b (b -> a)
+type Lens a b = a -> Store b a
+
+Lens a b
+  (defined via Store b a)
+
+are ISO to Pretexts:
+  type Lens a b = Functor f => a -> (b -> f b) -> f a
+
+
+which, while much more confusing, can be written for any type using only fmap.
+
+_1 :: Lens (a, b) a
+_1 (a, b) inj = (,b) <$> inj a
+
+
+!!! van Laarhoven:
+http://twanvl.nl/blog/haskell/cps-functional-references

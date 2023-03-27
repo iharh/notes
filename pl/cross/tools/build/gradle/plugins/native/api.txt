@@ -1,0 +1,27 @@
+https://docs.gradle.org/current/javadoc/index.html
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/package-tree.html
+
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/NativeToolChain.html
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/toolchain/VisualCpp.html
+https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/util/PatternFilterable.html
+
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/Linkage.html
+
+
+https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/package-summary.html
+    https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/CppSourceSet.html
+    https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/Linkage.html
+    https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/CppBinary.html
+    https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/CppComponent.html
+    https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/CppLibrary.html
+    https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/CppSharedLibrary.html
+    https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/CppStaticLibrary.html
+    https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/CppExecutable.html
+    https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/test/cpp/CppTestExecutable.html
+
+https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/plugins/package-summary.html
+
+https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/tasks/CppCompile.html
+https://docs.gradle.org/current/javadoc/org/gradle/language/cpp/tasks/CppPreCompiledHeaderCompile.html
+
+https://docs.gradle.org/current/javadoc/org/gradle/nativeplatform/BuildType.html

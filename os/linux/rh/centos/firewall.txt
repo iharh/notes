@@ -1,0 +1,14 @@
+http://www.cyberciti.biz/faq/fedora-redhat-centos-5-6-disable-firewall/
+
+sudo service iptables status
+sudo service ip6tables status
+sudo iptables -L -v -n
+sudo ip6tables -L -v -n
+
+sudo service iptables save
+sudo service iptables stop
+sudo chkconfig iptables off
+
+sudo service ip6tables save
+sudo service ip6tables stop
+sudo chkconfig ip6tables off

@@ -1,0 +1,11 @@
+2019
+https://www.baeldung.com/spring-boot-ehcache
+    https://github.com/eugenp/tutorials/tree/master/spring-ehcache
+https://springframework.guru/using-ehcache-3-in-spring-boot/
+2018
+https://www.baeldung.com/ehcache
+https://github.com/eugenp/tutorials/blob/master/spring-ehcache/src/main/java/com/baeldung/cachetest/config/CacheEventLogger.java
+2017
+https://memorynotfound.com/spring-caching-example-java-xml-configuration/
+2015
+https://www.mkyong.com/spring/spring-caching-and-ehcache-example/

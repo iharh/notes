@@ -1,0 +1,12 @@
+2022
+ExitZero - What is EFI Shell and How to Use it 10:00 of 16:02
+    https://www.youtube.com/watch?v=t_7gBLUa600
+    ! 2:30 startup.nsh is ~ of aotoexec.bat
+    ! 3:00 fs<N> - are volumes, blk<N> - are devices
+    ! 4:00 page-up/down - to scroll screen
+    ! 5:00 fs<N>: to ch-dir to the <N> volume
+    ! 6:00 bfcfg boot dump -b
+    ! 7:00 bfcfg boot mv 04 00
+    ! 7:30 every boot loader has efi file
+    ! cd EFI/BOOT/
+    ! just exec file inside ...

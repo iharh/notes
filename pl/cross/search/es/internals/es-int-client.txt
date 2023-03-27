@@ -1,0 +1,19 @@
+client.Client extends ElasticsearchClient
+
+it has execute method for actions.
+
+
+public class BlaBlaRequestBuilder extends ActionRequestBuilder<BlaBlaRequest, BlaBlaResponse, BlaBlaRequestBuilder, Client> {
+
+    public BlaBlaRequestBuilder(Client client) {
+        super(client, new BlaBlaRequest());
+    }
+
+    @Override
+    protected void doExecute(ActionListener<BlaBlaResponse> listener) {
+        client.execute(BlaBlaAction.INSTANCE, request, listener);
+    }
+
+    ...
+}
+

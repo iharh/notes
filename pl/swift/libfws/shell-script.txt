@@ -1,0 +1,83 @@
+http://stackoverflow.com/questions/26971240/how-do-i-run-an-terminal-command-in-a-swift-script-e-g-xcodebuild/39364135#39364135
+
+func shell(launchPath: String, arguments: [String] = []) -> (String? , Int32) {
+    let task = Process()
+    task.launchPath = launchPath
+    task.arguments = arguments
+
+    let pipe = Pipe()
+    task.standardOutput = pipe
+    task.standardError = pipe
+    task.launch()
+    let data = pipe.fileHandleForReading.readDataToEndOfFile()
+    let output = String(data: data, encoding: String.Encoding.utf8)
+    task.waitUntilExit()
+    return (output, task.terminationStatus)
+}
+
+https://github.com/kareman/SwiftShell/tree/Swift3.0
+blob/Swift3.0/
+
+Misc/swiftshell
+Sources/SwiftShell
+
+extension MainShellContext: ShellRunnable {
+	public var shellcontext: ShellContextType { return self }
+}
+
+ShellContext.swift
+...
+
+public final class MainShellContext: ShellContextType {
+
+	/** 
+	The default character encoding for SwiftShell.
+
+	TODO: get encoding from environmental variable LC_CTYPE.
+	*/
+	public var encoding = String.Encoding.utf8
+	public lazy var env = ProcessInfo.processInfo.environment as [String: String]
+
+	public lazy var stdin: ReadableStream = { ReadableStream(FileHandle.standardInput, encoding: self.encoding) }()
+	public lazy var stdout: WriteableStream = { WriteableStream(FileHandle.standardOutput, encoding: self.encoding) }()
+	public lazy var stderror: WriteableStream = { WriteableStream(FileHandle.standardError, encoding: self.encoding) }()
+
+	/**
+	The current working directory.
+
+	Must be used instead of `run("cd", "...")` because all the `run` commands are executed in
+	separate processes and changing the directory there will not affect the rest of the Swift script.
+
+	This directory is also used as the base for relative URLs.
+	*/
+	public var currentdirectory: String {
+		get {	return Files.currentDirectoryPath + "/" }
+		set {
+			if !Files.changeCurrentDirectoryPath(newValue) {
+				exit(errormessage: "Could not change the working directory to \(newValue)")
+			}
+		}
+	}
+
+	/**
+	The tempdirectory is unique each time a script is run and is created the first time it is used.
+	It lies in the user's temporary directory and will be automatically deleted at some point.
+	*/
+	public lazy var tempdirectory: String = createTempdirectory()
+
+	/** The arguments this executable was launched with. Use main.path to get the path. */
+	public lazy var arguments: [String] = Array(CommandLine.safeArguments.dropFirst())
+
+	/** The path to the currently running executable. Will be empty in playgrounds. */
+	public lazy var path: String = CommandLine.safeArguments.first ?? ""
+
+	fileprivate init() {
+	}
+}
+
+extension MainShellContext: ShellRunnable {
+	public var shellcontext: ShellContextType { return self }
+}
+
+public let main = MainShellContext()
+

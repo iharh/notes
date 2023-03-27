@@ -1,0 +1,35 @@
+Config
+git config --global
+    core.editor vim -w
+                subl -w
+                mate -w
+
+    color.ui true
+
+
+git-lfs:
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+
+???
+
+[color]
+	diff = auto
+[core]
+	editor = vim
+	autocrlf = input
+	excludesfile = ~/.gitignore-global
+	excludesfile = ~/.gitignore_global
+[push]
+	default = tracking
+[branch]
+	autosetuprebase = always
+
+
+username, email:
+http://alvinalexander.com/git/git-show-change-username-email-address
+
+ignoring:
+https://help.github.com/articles/ignoring-files/

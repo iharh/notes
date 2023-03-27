@@ -1,0 +1,15 @@
+class My Class {
+    def doSomething(a : type { def run(i : Int) }) = {
+        ...
+        a.run(1)
+        ...
+    }
+}
+
+class DuckClass {
+    def run(i : Int) {
+        ...
+    }
+}
+
+new MyClass().doSomething(new DuckClass())

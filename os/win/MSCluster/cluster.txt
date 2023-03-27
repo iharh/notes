@@ -1,0 +1,6 @@
+wmic /node:sv901rd0832c1 /namespace:\\root\mscluster path mscluster_resource where(name="Tomcat6") call bringonline
+takeoffline
+get state
+2 3 130
+
+/trace:on - enable debug tracing

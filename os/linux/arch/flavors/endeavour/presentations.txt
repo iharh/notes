@@ -1,0 +1,7 @@
+2021
+TechHut - Arch made EASY - Manjaro Linux vs EndeavourOS of 10:53
+    https://www.youtube.com/watch?v=jv9VSh5zIGw
+EF - Linux Made Simple - Let's have a chat with the EndeavourOS Team! of 1:09:35
+    https://www.youtube.com/watch?v=uq9HbGvHGU4
+        sudo xed /usr/share/calamares/modules/partition.conf
+            defaultFileSystemType:  "btrfs"

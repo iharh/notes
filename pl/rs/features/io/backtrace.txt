@@ -1,0 +1,12 @@
+https://www.reddit.com/r/rust/comments/7te8si/personal_experience_can_cause_hard_to_notice/
+
+https://docs.rs/failure/0.1.1/failure/struct.Backtrace.html
+
+2022
+https://tokio.rs/blog/2022-10-announcing-async-backtrace
+    https://crates.io/crates/async-backtrace
+2021
+https://blog.rust-lang.org/inside-rust/2021/01/26/ffi-unwind-longjmp.html
+2020
+https://blog.rust-lang.org/2020/10/08/Rust-1.47.html
+    RUST_BACKTRACE=full

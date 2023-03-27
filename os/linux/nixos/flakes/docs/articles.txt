@@ -1,0 +1,39 @@
+2022
+https://xeiaso.net/blog/series/nix-flakes
+    https://xeiaso.net/blog/nix-flakes-4-wsl-2022-05-01
+    https://xeiaso.net/blog/nix-flakes-3-2022-04-07
+    https://xeiaso.net/blog/nix-flakes-2-2022-02-27
+    https://xeiaso.net/blog/nix-flakes-1-2022-02-21
+    ! mega cool
+https://ghedam.at/a-tour-of-nix-flakes
+https://blog.kubukoz.com/flakes-first-steps/
+2021
+https://jdisaacs.com/series/nixos-desktop/
+    https://jdisaacs.com/blog/nixos-config/
+        !!! need to read
+        https://github.com/jordanisaacs/dotfiles
+https://ianthehenry.com/posts/how-to-learn-nix/nix-develop/
+https://ianthehenry.com/posts/how-to-learn-nix/chipping-away-at-flakes/
+https://ianthehenry.com/posts/how-to-learn-nix/new-profiles/
+https://ianthehenry.com/posts/how-to-learn-nix/more-flakes/
+https://ianthehenry.com/posts/how-to-learn-nix/flakes/
+    ! need to read
+https://yuanwang.ca/posts/getting-started-with-flakes.html
+https://serokell.io/blog/practical-nix-flakes
+    !!!
+https://blog.ysndr.de/posts/internals/2021-01-01-flake-ification/
+    ! need to read
+https://www.breakds.org/post/flake-part-1-packaging/
+    https://www.breakds.org/post/nix-based-c++-workflow/
+    https://github.com/nixvital/nix-based-cpp-starterkit
+2020
+https://www.tweag.io/blog/2020-07-31-nixos-flakes/
+https://www.tweag.io/blog/2020-06-25-eval-cache/
+    Flakes solve this problem by ensuring fully hermetic evaluation.
+    When you evaluate an output attribute of a particular flake (e.g. the attribute defaultPackage.x86_64-linux of the dwarffs flake),
+    Nix disallows access to any files outside that flake or its dependencies.
+    It also disallows impure or platform-dependent features such as access to environment variables or the current system type
+https://www.tweag.io/blog/2020-05-25-flakes/
+    https://www.tweag.io/posts/2020-05-25-flakes.html
+https://www.reddit.com/r/NixOS/comments/jktqpg/choosing_imported_configurations_based_on_a/
+https://www.reddit.com/r/NixOS/comments/jrnhof/homemanager_homesessionpath_does_not_exist/

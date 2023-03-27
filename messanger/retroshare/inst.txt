@@ -1,0 +1,16 @@
+https://retroshare.cc/downloads.html
+https://www.flathub.org/apps/details/cc.retroshare.retroshare-gui
+    ! 0.6.6
+https://download.opensuse.org/repositories/network:/retroshare/AppImage/
+
+https://build.opensuse.org/project/show/network:retroshare
+    https://build.opensuse.org/project/repository_state/network:retroshare/xUbuntu_21.10
+
+    1 source /etc/os-release
+    #2 wget -qO - https://download.opensuse.org/repositories/network:/retroshare/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
+    #3 sudo sh -c "echo 'deb https://download.opensuse.org/repositories/network:/retroshare/xUbuntu_${VERSION_ID}/ /' > /etc/apt/sources.list.d/retroshare_OBS.list"
+
+Then install RetroShare with:
+
+    #1 sudo apt-get update
+    #2 sudo apt-get install retroshare-gui

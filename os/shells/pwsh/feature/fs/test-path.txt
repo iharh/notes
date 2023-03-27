@@ -1,0 +1,3 @@
+# To determine whether a Windows PowerShell profile has been created on the system, type:
+# If the profile exists, the response is True; otherwise, it is False.
+test-path $profile

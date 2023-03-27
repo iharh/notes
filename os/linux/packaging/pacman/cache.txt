@@ -1,0 +1,13 @@
+Package cache:
+https://wiki.manjaro.org/index.php?title=Maintaining_/var/cache/pacman/pkg_for_System_Safety
+
+/var/cache/pacman/pkg
+
+yaourt -S pkgcacheclean
+sudo pkgcacheclean <N>
+
+pacman
+    -Sc
+        clear cache (keep current packages)
+    -Scc
+        clear all cache

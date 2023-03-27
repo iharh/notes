@@ -1,0 +1,179 @@
+http://hightman.cn/index.php/scws-attr-description/
+
+
+Detailed POS tagging dictionary
+
+Because dictionary entries as many as 260,000 of the giant, the finishing time has obviously put a lot of wrong label or term clean-up,
+ut certainly there are still many wrong entries.
+
+Mainly in the word is not listed in words, as well as POS tagging errors. This dictionary is used in labeling the North
+Version of the tag set (see Appendix), found in the use of the wrong please assist tracking report. This is a long-term
+Daunting task, there is a spirit of hope that a correct principle. If the report, please follow the format:
+
+Original correct word attr attr
+--------------------------
+XXX - - (an error or unwanted words should be deleted) unnecessary word means the automatic detection of the.
+XXX nc (originally labeled n actually be c)
+
+---- ---- Version attached to Peking University speech tagging
+Ag 
+Shaped morpheme 
+Adjective morpheme. Adjective code a, g morpheme front set to the code A.
+
+a 
+adjective 
+Take the first letter of the English adjective adjective. 
+
+ad 
+Deputy shaped word 
+Direct adverbial adjectives. Adjectives and adverbs codes codes a and d together.
+
+an 
+Noun Words 
+Having the function of a noun adjective. Adjective and a noun codes and codes n together.
+
+b 
+Distinct words 
+Take the Chinese character "Do" initials. 
+
+c 
+conjunction 
+Take the English Conjunction conjunction of the first letter. 
+
+Dg 
+Deputy morpheme 
+Adverb morpheme. Adverb code d, g morpheme front set of code to D.
+
+d 
+adverb 
+Adverb taking the first two letters, the first letter of its adjectives have been used. 
+
+e 
+interjection 
+Take English interjection exclamation of the first letter. 
+
+f 
+Position of the word 
+Take the Chinese character "party" 
+
+g 
+Morpheme 
+The vast majority can be used as synthetic morpheme word "root", the Chinese character "root" initials. 
+
+h 
+Before the next ingredient 
+English head to take the first letter. 
+
+i 
+idiom 
+English idiom idiom to take the first letter. 
+
+j 
+Short abbreviation 
+Take the Chinese character "Jane" initials. 
+
+k 
+After receiving component 
+  
+l 
+Idioms 
+Idioms idiom has not yet become a little "temporary", and "temporary" initials. 
+
+m 
+numeral 
+English numeral take the first three letters, n, u have been with him. 
+
+Ng 
+Name morpheme 
+Noun morpheme. Noun code n, g front morpheme codes set to N.
+
+n 
+noun 
+English noun noun take the first letter. 
+
+nr 
+Names 
+Code n noun and "people (ren)" and the initials together. 
+
+ns 
+Place name 
+Noun codes n and s premises and the code word together. 
+
+nt 
+Organizations and groups 
+"Group" for the consonant t, n and t and codes nouns together. 
+
+nz 
+Other Names 
+1 letter "E" is consonant z, z and n and codes nouns together. 
+
+o 
+Onomatopoeia 
+Take the first letter of the English Onomatopoeia onomatopoeia. 
+
+ba prepositions to the   
+bei preposition is   
+p 
+preposition 
+English prepositions take the first letter of prepositional. 
+
+q 
+quantifier 
+Take the first letter of a quantity of English. 
+
+r 
+pronoun 
+English pronouns pronoun take the first two letters, because p has been used prepositions. 
+
+s 
+Locative 
+English space to take the first letter. 
+
+Tg 
+When morpheme 
+Time Speech Language. Time code word t, g code in front of morpheme set to T.
+
+t 
+Time Words 
+English take the first time a letter. 
+
+dec Particles, the   
+deg particle was   
+di particle ground   
+etc Auxiliary and so on, and so on   
+as a particle, guo   
+The particle msp   
+u 
+Other particle 
+Take English Auxiliary auxiliary 
+
+Vg 
+Fixed morpheme 
+Verbal morpheme. Verb code v. Morpheme in front of the code is set to g V.
+
+v 
+verb 
+Take the first letter of the English verb to verb. 
+
+vd 
+Deputy verb 
+Direct adverbial verb. Verbs and adverbs and code together.
+
+vn 
+Verb name 
+Verbs have a noun function. Verbs and nouns and code together.
+
+w 
+Other punctuation 
+  
+x 
+Non-morpheme word 
+Non-morpheme word is just a symbol, the letter x is usually used to represent the unknown symbols. 
+
+y 
+Modal 
+Take the Chinese character "language" initials. 
+
+z 
+Status word 
+Before taking a letter characters "like" the initials.

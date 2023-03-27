@@ -1,0 +1,4 @@
+https://github.com/Neilpang/acme.sh
+
+wildcard
+acme.sh --issue --dns -d *.example.com

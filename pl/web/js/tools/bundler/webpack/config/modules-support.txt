@@ -1,0 +1,8 @@
+https://webpack.js.org/api/module-methods/
+
+qa
+https://stackoverflow.com/questions/31903692/how-can-i-use-es6-in-webpack-config-js
+
+https://github.com/webpack/webpack/issues/1403
+    package.json
+    "babel": { "plugins": ["transform-es2015-modules-commonjs"] }, // this is just for webpack.config.babel.js

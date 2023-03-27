@@ -1,0 +1,15 @@
+https://edu.postgrespro.ru/dba1-13/dba1_12_admin_monitoring.html
+    https://postgrespro.ru/docs/postgresql/13/progress-reporting
+
+... pg_stat_activity
+
+ANALYZE
+    pg_stat_progress_analyze
+CREATE INDEX, REINDEX
+    pg_stat_progress_create_index
+VACUUM
+    pg_stat_progress_vacuum
+CLUSTER, VACUUM FULL
+    pg_stat_progress_cluster
+quick backup copy creation
+    pg_stat_progress_basebackup

@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/8461365/how-do-i-update-one-file-in-a-jar-without-repackaging-the-whole-jar
+jar uf0 myfile.jar images/hi.png
+
+zip -d myfile.jar images/hi.png
+# 'META-INF/*.SF' 'META-INF/*.RSA'

@@ -1,0 +1,39 @@
+https://junit.org/junit5/docs/current/user-guide/#running-tests-build-gradle
+https://stackoverflow.com/questions/40891867/junit5-tag-specific-gradle-task
+
+https://docs.gradle.org/current/userguide/java_testing.html
+
+dependencies {
+    testCompile('org.junit.jupiter:junit-jupiter-api:5.3.1')
+    testCompile('org.junit.jupiter:junit-jupiter-params:5.3.1')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.3.1')
+}
+
+test {
+    useJUnitPlatform {
+        // includeTags 'aaa', 'bbb'
+        excludeTags 'stress' // , 'ci'
+    }
+    testLogging {
+        showStandardStreams true
+        events 'PASSED', 'FAILED', 'SKIPPED'
+    }
+}
+
+kt-ver
+tasks {
+    withType<Test> {
+        useJUnitPlatform()
+        testLogging {
+            showExceptions = true
+            showStandardStreams = true
+            events(
+                    org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED,
+                    org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED,
+                    org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
+            )
+        }
+    }
+}
+
+// System.out.println("Working Directory = " + System.getProperty("user.dir"));

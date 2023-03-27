@@ -1,0 +1,37 @@
+bjam -a -obuild.bat
+
+-j <num_proc>
+
+
+boost.test
+
+If you want to debug boost unit test, I offer to add “__asm int 3;” at appropriate place in source code (aka breakpoint)
+and pass command line parameter --catch_system_error=no for boost.
+If you don’t pass this param, boost will handle all system exceptions and you won’t be able to attach some debugger.
+
+
+
+# make class path
+
+local 3rdParty = $(ksuite_root)/dist/java/3rdPartyLib ;
+
+local cp = [ string.join 
+            $(frameworks_root)/KSuiteCommon/target/classes
+            $(frameworks_root)/QCCacheStorageBridge/target/classes
+            $(frameworks_root)/../dist/conf/Spring
+            [ GLOB $(3rdParty) : orientdb-core-*.jar ]
+            [ GLOB $(3rdParty) : orient-commons-*.jar ]
+            [ GLOB $(3rdParty) : spring-core-*.jar ]
+            [ GLOB $(3rdParty) : spring-context-*.jar ]
+            [ GLOB $(3rdParty) : spring-beans-*.jar ]
+            [ GLOB $(3rdParty) : spring-expression-*.jar ]
+            [ GLOB $(3rdParty) : spring-asm-*.jar ]
+            [ GLOB $(3rdParty) : slf4j-*.jar ]
+            [ GLOB $(3rdParty) : log4j-*.jar ]
+            [ GLOB $(3rdParty) : commons-logging-*.jar ]
+            : ";"
+] ;
+
+echo $(cp) ;
+
+

@@ -1,0 +1,13 @@
+jdk 9
+jhsdb
+
+http://openjdk.java.net/groups/hotspot/docs/Serviceability.html
+http://cr.openjdk.java.net/~minqi/6830717/raw_files/new/agent/doc/clhsdb.html
+
+2017
+https://dzone.com/articles/jhsdb-a-new-tool-for-jdk-9
+https://www.javacodegeeks.com/2017/06/jhsdb-new-tool-jdk-9.html
+2016
+Hunt - Java Performance Companion
+2014
+https://blog.takipi.com/using-reflection-to-look-inside-the-jvm-at-run-time/

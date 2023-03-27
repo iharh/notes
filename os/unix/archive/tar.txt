@@ -1,0 +1,13 @@
+tar
+    cvjf <arch-name>.tar.bz2 files...
+
+
+samples:
+
+tar -cf - . | pv -s $(du -sb . | awk '{print $1}') | gzip > out.tgz
+tar -cf - . | pv -s $(du -sb . | awk '{print $1}') | bzip2 > out.tar.bz2
+
+pv file.tgz | tar xzf - -C <target-dir>
+pv file.tar.bz2 | tar xjf - -C .
+
+pv file.gz | gunzip > file

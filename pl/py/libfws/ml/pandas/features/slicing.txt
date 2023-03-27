@@ -1,0 +1,7 @@
+https://pandas.pydata.org/pandas-docs/stable/cookbook.html#slicing
+https://stackoverflow.com/questions/19319432/pandas-selecting-a-lower-level-in-a-dataframe-to-do-a-ffill
+
+.xs('col_name',
+    level=0,
+    axis=0,
+)

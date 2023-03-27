@@ -1,0 +1,86 @@
+https://docs.chef.io/ohai.html
+https://docs.chef.io/ohai_custom.html
+https://docs.chef.io/ctl_ohai.html
+https://docs.chef.io/resource_ohai.html
+
+Plugins:
+
+https://supermarket.chef.io/cookbooks/ohai
+https://github.com/chef-cookbooks/ohai
+
+https://github.com/rackerlabs/ohai-plugins/tree/master/plugins
+https://github.com/rackerlabs/ohai-plugins/blob/master/plugins/enabled_services.rb
+
+
+https://github.com/rackerlabs/ohai-plugins/blob/master/cookbooks/ohai_plugins_test/attributes/default.rb
+
+// ??? overkill
+default[:ohai_plugins_test][:ohai][:repo] = "https://github.com/opscode/ohai.git"
+default[:ohai_plugins_test][:ohai][:ref] = "master"
+default[:ohai_plugins_test][:ohai][:version] = default[:ohai][:ref]
+default[:ohai_plugins_test][:repo] = "https://github.com/rackerlabs/ohai-plugins.git"
+default[:ohai_plugins_test][:ref] = "master"
+
+
+
+
+require 'spec_helper'
+conns = OHAI['connections']
+
+https://github.com/rackerlabs/ohai-plugins/blob/master/test/integration/ohaiplugins/serverspec/spec_helper.rb
+
+require 'serverspec'
+require 'pathname'
+require 'busser'
+
+# Use Chef's gems to speed things up
+chef_gem_path = Dir.glob("/opt/chef/embedded/lib/ruby/gems/*")
+chef_gem_path.each do |path|
+  gemdirs = Dir.glob("#{path}/gems/*")
+  gemdirs = gemdirs.map {|x| x + '/lib'}
+  $LOAD_PATH.push(*gemdirs)
+end
+
+require 'ohai'
+
+# Setup proper path for sudo environment
+path = ENV['PATH'].split(":")
+["/sbin", "/usr/sbin", "/usr/local/sbin"].each do |dir|
+  if !path.include?(dir)
+    path.insert(0, dir)
+  end
+end
+ENV['PATH'] = path.join(":")
+
+PLUGIN_PATH = "/opt/ohai-plugins/plugins"
+Ohai::Config[:plugin_path] << PLUGIN_PATH
+o = Ohai::System.new
+o.all_plugins
+
+OHAI = o.data
+
+
+https://github.com/rackerlabs/ohai-plugins/blob/master/.kitchen.yml
+https://github.com/rackerlabs/ohai-plugins/blob/master/plugins/remote_services.rb
+
+Ohai.plugin(:RemoteServices) do
+  provides 'remote_services'
+
+  collect_data(:linux) do
+    output = shell_out('netstat -tlpen')
+    lines = output.stdout.split(/\n/).reject(&:empty?)[2..-1] if output
+
+    remote_services Array.new
+    if lines
+      lines.each do |line|
+        line_data = line.split
+        remote_services.push(protocol: line_data[0],
+                             ip: line_data[3].split(':')[0..-2].join(':'),
+                             port: line_data[3].split(':')[-1],
+                             pid: line_data[-1].split('/')[0],
+                             process: line_data[-1].split('/')[1],
+                             path: line_data[-1])
+      end
+    end
+  end
+end

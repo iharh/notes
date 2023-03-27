@@ -1,0 +1,17 @@
+https://www.fpcomplete.com/user/snoyberg/library-documentation
+
+https://www.fpcomplete.com/user/snoyberg/library-documentation/conduit-overview
+https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/conduit-overview
+
+https://github.com/snoyberg/conduit/blob/master/PROCESS.md
+
+https://www.fpcomplete.com/user/jwiegley/conduit-tour
+
+http://www.cs.uu.nl/foswiki/pub/USCS/CourseSchedule2013/C13-Streaming-final.pdf
+
+Samples:
+http://www.yesodweb.com/blog/2014/03/network-conduit-async
+
+conduit-combinators:
+Directory Traversal (deprecating filesystem-conduit):
+http://www.yesodweb.com/blog/2014/03/efficient-directory-traversals

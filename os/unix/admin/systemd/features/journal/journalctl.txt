@@ -1,0 +1,38 @@
+journalctl
+    --list-boots
+    -b, --boot=[1...n]
+        current session, -1 - previous, -2 - ...
+    --since
+        today|09:30
+    --until
+        11:00
+    _COMM=<process-name>
+    _PID=<PID>
+        </usr/bin/Xorg>
+    _UID=<UID>
+    -o verbose
+        shoe extra message metadata
+        could later be using for filtering like _SYTEMD_UNIT=collectd.service
+    -n 10
+        only the last 10 lines
+    -e
+        starting from tail
+    -u  <unit>
+        for unit (like nginx.service)
+    -eu sshd
+        starting from tail, logs of sshd only
+    -fan500
+        monitor last 500 lines
+    -p, --priority=err
+        The log levels are documented in syslog(3), i.e.
+        "emerg" (0), "alert" (1), "crit" (2), "err" (3),
+        "warning" (4), "notice" (5), "info" (6), "debug" (7)
+    -k
+        kernel messages
+    -f
+        like tail -f
+    -o [json|json-pretty]
+    --disk-usage
+        show occupied space
+    --vacuum-size=1G
+    --vacuum-time=1years

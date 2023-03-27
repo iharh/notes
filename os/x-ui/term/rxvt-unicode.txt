@@ -1,0 +1,85 @@
+inst
+yaourt -S rxvt-unicode-patched gtk2-perl urxvt-tabbedex urxvt-perls
+
+aur
+https://aur.archlinux.org/packages/rxvt-unicode-patched/
+
+dist
+rxvt-unicode-9.22.tar.bz2
+https://ftp.osuosl.org/pub/blfs/conglomeration/rxvt-unicode/rxvt-unicode-9.22.tar.bz2
+https://ftp.osuosl.org/pub/blfs/conglomeration/rxvt-unicode/$_pkgname-$pkgver.tar.bz2
+
+http://www.askapache.com/linux/rxvt-xresources.html
+http://zenux.ru/articles/48/
+
+wiki:
+https://wiki.archlinux.org/index.php/rxvt-unicode
+https://wiki.gentoo.org/wiki/Rxvt-unicode
+
+config:
+http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
+http://www.askapache.com/linux/rxvt-xresources.html
+
+
+.Xresources
+https://wiki.archlinux.org/index.php/X_resources
+.Xresources samples:
+https://github.com/xintron/configs/blob/master/.Xresources
+https://github.com/cschooley/dotfiles/blob/master/.Xresources
+
+~/.xinitrc:
+[[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
+
+xrdb -load ~/.Xresources
+xrdb -merge ~/.Xresources
+xrdb -query
+
+
+powerline issues:
+http://lists.schmorp.de/pipermail/rxvt-unicode/2016q1/002204.html
+
+URxvt.letterSpace: -1
+
+
+solarized:
+https://github.com/solarized/xresources/blob/master/Xresources.dark
+https://tranjeeshan.wordpress.com/2016/01/22/slightly-modified-solarized-color-scheme-for-urxvt/
+
+
+hot keys:
+C-A + C  copy to buffer
+C-A + V  paste from buffer
+C   + D  close the current tab
+
+~/.inputrc:
+note: this is ignored by zsh, who uses zle
+http://www.linuxquestions.org/questions/slackware-14/getting-keyboard-to-function-properly-in-rxvt-urxvt-730759/
+https://forums.gentoo.org/viewtopic.php?t=50257
+bindkey "\e[3~" delete-char        # Delete 
+
+extensions:
+man rxvt-extensions
+
+
+tabbed:
+http://linuxoid.in/Urxvt
+
+urxvt -pe tabbed
+  much better than urxvt-tabbed
+
+~/.Xresources:
+xvt.perl-ext-common: tabbed
+
+tabbedex:
+yaourt -S urxvt-tabbedex
+xvt.perl-ext-common: default,tabbedex
+
+urxvt-perls: keyboard-select, clipboard:
+http://funloop.org/post/2015-06-25-urxvt-plugins.html
+
+clipboard (std - selection-to-clipboard)
+copy selection to the clipboard each time it's made
+
+Mirrors:
+http://pkgs.fedoraproject.org/repo/pkgs/rxvt-unicode/
+http://pkgs.fedoraproject.org/repo/pkgs/rxvt-unicode/rxvt-unicode-9.22.tar.bz2/93782dec27494eb079467dacf6e48185/rxvt-unicode-9.22.tar.bz2

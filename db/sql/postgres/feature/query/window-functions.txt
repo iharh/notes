@@ -1,0 +1,33 @@
+https://www.postgresql.org/docs/current/tutorial-window.html
+
+partition
+    https://edu.postgrespro.ru/sqlprimer/sqlprimer-2019-msu-04.pdf
+    ! p68
+    select
+        ...
+        count(*) over (
+            partition by date_trunc('month', b.book_date)
+            order by b.book_date
+        ) as count
+    from
+        ...
+        join bookings b on ...
+    ;
+    over - necessary keyword (count function became a window-one)
+
+sample
+    select depname, empno, salary, avg(salary) over (partition by depname) from empsalary;
+
+      depname  | empno | salary |          avg
+    -----------+-------+--------+-----------------------
+     develop   |    11 |   5200 | 5020.0000000000000000
+     develop   |     7 |   4200 | 5020.0000000000000000
+     develop   |     9 |   4500 | 5020.0000000000000000
+     develop   |     8 |   6000 | 5020.0000000000000000
+     develop   |    10 |   5200 | 5020.0000000000000000
+     personnel |     5 |   3500 | 3700.0000000000000000
+     personnel |     2 |   3900 | 3700.0000000000000000
+     sales     |     3 |   4800 | 4866.6666666666666667
+     sales     |     1 |   5000 | 4866.6666666666666667
+     sales     |     4 |   4800 | 4866.6666666666666667
+    (10 rows)

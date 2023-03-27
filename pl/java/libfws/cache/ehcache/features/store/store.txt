@@ -1,0 +1,110 @@
+EhcacheManager.getStore
+    ... create store via provider
+
+    protected <K, V> Store<K, V> getStore(String alias, CacheConfiguration<K, V> config,
+                                       Class<K> keyType, Class<V> valueType,
+                                       Collection<ServiceConfiguration<?, ?>> serviceConfigs,
+                                       List<LifeCycled> lifeCycledList, CacheLoaderWriter<? super K, V> loaderWriter) {
+
+        final Set<ResourceType<?>> resourceTypes = config.getResourcePools().getResourceTypeSet(); // -> "heap"
+        ...
+        Store.Provider storeProvider = StoreSupport.selectWrapperStoreProvider(serviceLocator, serviceConfigs);
+        if (storeProvider == null) {
+            storeProvider = StoreSupport.selectStoreProvider(serviceLocator, resourceTypes, serviceConfigs); // OnHeapStore.Provider
+        }
+
+        // call OnHeapStore.Provider.createStore
+        Store<K, V> store = storeProvider.createStore(storeConfiguration, serviceConfigArray);
+        ...
+    }
+
+StoreSupport
+  /**
+   * Chooses a {@link org.ehcache.core.spi.store.Store.Provider Store.Provider} from those
+   * available through the {@link ServiceLocator} that best supports the resource types and
+   * service configurations provided.  This method relies on the
+   * {@link Store.Provider#rank(Set, Collection) Store.Provider.rank} method in making the
+   * selection.
+   *
+   * @param serviceProvider the {@code ServiceProvider} instance to use
+   * @param resourceTypes the set of {@code ResourceType}s that must be supported by the provider
+   * @param serviceConfigs the collection of {@code ServiceConfiguration}s used to influence the
+   *                       selection
+   *
+   * @return the non-{@code null} {@code Store.Provider} implementation chosen
+   *
+   * @throws IllegalStateException if no suitable {@code Store.Provider} is available or if
+   *        multiple {@code Store.Provider} implementations return the same top ranking
+   */
+  public static Store.Provider selectStoreProvider(
+      ServiceProvider<Service> serviceProvider, Set<ResourceType<?>> resourceTypes, Collection<ServiceConfiguration<?, ?>> serviceConfigs) {
+
+    Collection<Store.Provider> storeProviders = serviceProvider.getServicesOfType(Store.Provider.class);
+    List<Store.Provider> filteredStoreProviders = storeProviders.stream().filter(provider -> !(provider instanceof WrapperStore.Provider)).collect(Collectors.toList());
+    int highRank = 0;
+    List<Store.Provider> rankingProviders = new ArrayList<>();
+    for (Store.Provider provider : filteredStoreProviders) {
+      int rank = provider.rank(resourceTypes, serviceConfigs);
+      if (rank > highRank) {
+        highRank = rank;
+        rankingProviders.clear();
+        rankingProviders.add(provider);
+      } else if (rank != 0 && rank == highRank) {
+        rankingProviders.add(provider);
+      }
+    }
+
+    if (rankingProviders.isEmpty()) {
+      StringBuilder sb = new StringBuilder("No Store.Provider found to handle configured resource types ");
+      sb.append(resourceTypes);
+      sb.append(" from ");
+      formatStoreProviders(filteredStoreProviders, sb);
+      throw new IllegalStateException(sb.toString());
+    } else if (rankingProviders.size() > 1) {
+      StringBuilder sb = new StringBuilder("Multiple Store.Providers found to handle configured resource types ");
+      sb.append(resourceTypes);
+      sb.append(": ");
+      formatStoreProviders(rankingProviders, sb);
+      throw new IllegalStateException(sb.toString());
+    }
+
+    return rankingProviders.get(0);
+  }
+
+
+OnHeapStore
+    private OnHeapValueHolder<V> makeValue(K key, V value, long creationTime, long expirationTime, Copier<V> valueCopier, boolean size) throws LimitExceededException {
+        boolean evictionAdvice = checkEvictionAdvice(key, value);
+        OnHeapValueHolder<V> valueHolder;
+        if (valueCopier instanceof SerializingCopier) {
+            valueHolder = new SerializedOnHeapValueHolder<>(value, creationTime, expirationTime, evictionAdvice, ((SerializingCopier<V>) valueCopier)
+            .getSerializer());
+        } else {
+            valueHolder = new CopiedOnHeapValueHolder<>(value, creationTime, expirationTime, evictionAdvice, valueCopier);
+        }
+        if (size) {
+            valueHolder.setSize(getSizeOfKeyValuePairs(key, valueHolder)); // we actually go here
+        }
+        return valueHolder;
+    }
+
+...
+OnHeaapStore.Provider
+
+    public <K, V> OnHeapStore<K, V> createStoreInternal(Configuration<K, V> storeConfig, StoreEventDispatcher<K, V> eventDispatcher,
+                                                        ServiceConfiguration<?, ?>... serviceConfigs) {
+      TimeSource timeSource = getServiceProvider().getService(TimeSourceService.class).getTimeSource();
+      CopyProvider copyProvider = getServiceProvider().getService(CopyProvider.class);
+      Copier<K> keyCopier  = copyProvider.createKeyCopier(storeConfig.getKeyType(), storeConfig.getKeySerializer(), serviceConfigs);
+      Copier<V> valueCopier = copyProvider.createValueCopier(storeConfig.getValueType(), storeConfig.getValueSerializer(), serviceConfigs);
+
+      List<Copier<?>> copiers = Arrays.asList(keyCopier, valueCopier);
+
+      SizeOfEngineProvider sizeOfEngineProvider = getServiceProvider().getService(SizeOfEngineProvider.class);
+      SizeOfEngine sizeOfEngine = sizeOfEngineProvider.createSizeOfEngine(
+          storeConfig.getResourcePools().getPoolForResource(ResourceType.Core.HEAP).getUnit(), serviceConfigs); // !!! unit should be of mem-type !!!
+      OnHeapStore<K, V> onHeapStore = new OnHeapStore<>(storeConfig, timeSource, keyCopier, valueCopier, sizeOfEngine, eventDispatcher, ConcurrentHashMap::new, getServiceProvider().getService(StatisticsService.class));
+      createdStores.put(onHeapStore, copiers); // !!!
+      return onHeapStore;
+    }
+

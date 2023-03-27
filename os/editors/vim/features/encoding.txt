@@ -1,0 +1,4 @@
+https://qna.habr.com/q/2061
+
+:e ++enc=cp125
+set fileencodings=utf-8,cp1251,koi8-r,cp866

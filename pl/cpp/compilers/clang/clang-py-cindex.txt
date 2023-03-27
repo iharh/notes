@@ -1,0 +1,5 @@
+https://eli.thegreenplace.net/2011/07/03/parsing-c-in-python-with-clang
+
+https://github.com/llvm-mirror/clang/tree/master/bindings/python
+
+https://github.com/llvm-mirror/clang/blob/master/bindings/python/clang/cindex.py

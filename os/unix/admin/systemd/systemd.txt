@@ -1,0 +1,118 @@
+http://www.freedesktop.org/wiki/Software/systemd/TipsAndTricks/
+http://www.freedesktop.org/wiki/Software/systemd/FrequentlyAskedQuestions/
+
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/chap-Managing_Services_with_systemd.html
+
+Systemd CentOS 7 service cheatsheat
+http://habrahabr.ru/company/infobox/blog/241237/
+
+Writing custom .service and .target
+https://habrahabr.ru/post/275645/
+
+man
+http://www.freedesktop.org/software/systemd/man/systemd.unit.html
+
+systemd
+systemd.directives
+  systemd.unit
+    Specifiers (%h, $H, ...)
+  systemd.service
+    http://serverfault.com/questions/413397/how-to-set-environment-variable-in-systemd-service  
+  systemd.exec
+    exec config
+  systemd.socket
+systemd-system.conf
+
+???
+systemd.special
+
+.service
+.device
+  sys-subsystem-net-devices-enp2s0.device
+.mount
+.timer
+.swap
+
+
+Units:
+https://wiki.archlinux.org/index.php/Systemd#Using_units
+
+man systemd.unit
+systemctl list-units [--all]
+    status|enable|disable|start|stop|restart|... <unit>
+
+    enable  - add a service to appropriate target via symlink
+    isolate - ???
+    status
+        -l -n 50
+
+    list-unit-files
+        -t service --state=enabled --no-legend --no-pager "prefix*" |awk '{ print $1 }'
+
+Dependencies:
+Removed symlink /etc/systemd/system/multi-user.target.wants/qbittorrent.service
+
+sudo systemctl [rescue|default|emergency]
+
+Configuration:
+systemd-system.conf
+/etc/systemd/sytem.conf
+
+
+??? /etc/systemd/system/display-manager.service
+
+
+inotify:
+http://www.cyberciti.biz/faq/making-changes-to-proc-filesystem-permanently/
+
+/etc/sysctl.conf
+/etc/sysctl.d/99-sysctl.conf:
+# Increase inotify max watchs per user
+fs.inotify.max_user_watches = 100000
+
+cat /proc/sys/fs/inotify/max_user_watches
+
+
+User-based services:
+
+https://wiki.archlinux.org/index.php/Systemd/User
+http://superuser.com/questions/476379/how-do-i-setup-a-systemd-service-to-be-started-by-a-non-root-user-as-a-user-daem
+
+sudo ls -la /usr/lib/systemd/user
+sudo vim /usr/lib/systemd/system/qbittorrent.service
+
+systemctl enable btsync@svetah.service
+or just
+systemctl enable btsync@svetah
+
+User DBus:
+https://bbs.archlinux.org/viewtopic.php?pid=1348186#p1348186
+
+config path:
+
+--system mode
+/usr/lib/systemd/system/
+  units provided by installed packages
+/etc/systemd/system/
+  units installed by the system administrator
+
+--user mode
+
+
+timedate:
+timedatectl [status|list-timezones]
+
+systemd-timedated.service
+systemd-timesyncd.service
+
+other:
+systemd-firstboot.service
+
+machinectl
+systemd-machine-id
+systemd-machined.service
+
+
+cgroups:
+systemd-cgls
+systemd-cgtop

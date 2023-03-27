@@ -1,0 +1,20 @@
+https://etcd.io/
+https://github.com/etcd-io/etcd
+
+https://etcd.io/docs/
+https://etcd.io/blog/
+
+presentations
+2021
+JustMeAndOpensource - [ Kube 104 ] Set up a secure Highly Available ETCD Cluster of 15:50
+    https://www.youtube.com/watch?v=k78PyvIRVGI
+    https://github.com/justmeandopensource/kubernetes
+
+articles
+2021
+https://learnk8s.io/etcd-kubernetes
+
+whatsnew
+https://etcd.io/blog/2021/announcing-etcd-3.5/
+https://coreos.com/blog/etcd-3.2-announcement
+    http://www.opennet.ru/opennews/art.shtml?num=46682

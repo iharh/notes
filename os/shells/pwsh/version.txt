@@ -1,0 +1,4 @@
+$PSVersionTable
+$PSVersionTable.PSVersion
+
+$Host.Version

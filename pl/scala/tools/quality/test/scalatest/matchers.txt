@@ -1,0 +1,141 @@
+http://www.scalatest.org/user_guide/using_matchers
+
+// equality
+result should equal (3) // can customize equality
+result should === (3)   // can customize equality and enforce type constraints
+result should be (3)    // cannot customize equality, so fastest to compile
+result shouldEqual 3    // can customize equality, no parenthesis required
+result shouldBe 3       // cannot customize equality, so fastest to compile, no parenthesis required
+// length/size for collections
+result should have lenth 3
+result should have size 10
+// strings
+string should startWith ("Hello")
+string should endWith   ("world")
+string should include   ("seven")
+// regex
+string should startWith regex "Hell*o"
+string should endWith   regex "wo.ld"
+string should include   regex "wo.ld"
+string should fullyMatch regex """(-)?(\d+)(\.\d*)?"""
+"abbccxxx"    should startWith  regex("a(b*)(c*)" withGroups ("bb", "cc"))
+"abbccxxx"    should endWith    regex("a(b*)(c*)" withGroups ("bb", "cc"))
+"xxxabbccxxx" should include    regex("a(b*)(c*)" withGroups ("bb", "cc"))
+"abbcc"       should fullyMatch regex("a(b*)(c*)" withGroups ("bb", "cc"))
+// integers
+one should be <  7
+one should be >  0
+one should be <= 7
+one should be >= 0
+// boolean with be (reflection)
+temp     should be a  'file      // calls     temp.isFile()     :Boolean
+keyEvent should be aa 'actionKey // calls keyEvent.isActionKey():Boolean
+class FileBePropertyMatcher extends BePropertyMatcher[java.io.File] {
+    def apply(left: java.io.File) = BePropertyMatchResult(left.isFile, "file")
+}
+val file = new FileBePropertyMatcher
+temp     should be a  file
+xs       shouldBe     traversableAgain
+keyEvent should be an actionKey
+// references
+ref1 should be theSameInstanceAs ref2
+// types
+result1 shouldBe a       [Tiger]
+result1 should not be an [Orangutan]
+// ranges
+sevenDotOh should equal (6.9 +- 0.2)
+sevenDotOh should ===   (6.9 +- 0.2)
+sevenDotOh should be    (6.9 +- 0.2)
+sevenDotOh shouldEqual   6.9 +- 0.2
+sevenDotOh shouldBe      6.9 +- 0.2
+// empty
+traversable shouldBe      empty
+javaMap     should not be empty
+// contain
+traversable should contain ("five")
+// loverCased
+(List("Hi", "Di", "Ho") should contain ("ho")) (after being lowerCased)
+// oneOf
+List(1, 2, 3, 4, 5) should contain oneOf (5, 7, 9)
+Some(7)             should contain oneOf (5, 7, 9)
+"howdy"             should contain oneOf ('a', 'b', 'c', 'd')
+// noneOf
+List(1, 2, 3, 4, 5) should contain noneOf (7, 8, 9)
+// atLeastOneOf
+List(1, 2, 3)  should contain atLeastOneOf (2, 3, 4)
+Array(1, 2, 3) should contain atLeastOneOf (2, 3, 4)
+"abc"          should contain atLeastOneOf ('c', 'a', 't')
+(Vector(" A", "B ")) should contain atLeastOneOf ("a ", "b", "c")) (after being lowerCased and trimmed)
+// atMostOneOf
+List(1, 2, 3, 4, 5) should contain atMostOneOf (5, 6, 7)
+// allOf
+List(1, 2, 3, 4, 5) should contain allOf (2, 3, 5)
+// only
+List(1, 2, 3, 2, 1) should contain allOf (1, 2, 3)
+// theSameElementsAs
+List(1, 2, 2, 3, 3, 3) should contain theSameElementsAs Vector(3, 2, 3, 1, 2, 3)
+// inOrderOnly
+List(1, 2, 2, 3, 3, 3) should contain inOrderOnly (1, 2, 3)
+// inOrder
+List(0, 1, 2, 99, 3, 3, 3, 5) should contain inOrder (1, 2, 3)
+// Multiple tests:
+val xs = List(1, 2, 3)
+forAll (xs) { x => x should be < 10 }
+all (xs) should be < 10
+// and
+map should (contain key ("two") and not contain value(7))
+// and or
+number should (be > (0) and be <= (10))
+option should (equal (Some(List(1, 2, 3))) or be (None))
+string should {
+    equal ("fee") or
+    equal ("fie") or
+    equal ("foe") or
+    equal ("fun")
+)
+
+
+Mixing conditions:
+
+traversable should ((contain (7) or contain (8)) and have size (9))
+traversable should (contain (7) or (contain (8) and have size (9)))
+// Testing contents of classes
+case class Book(title: String, author: List[String], pubYear: Int)
+    // includes get, is, public
+book should have (
+    title ("Programming in Scala"),
+    author (List("Odersky", "Spoon", "Venners")),
+    pubYear(2008)
+)
+
+
+Custom Matchers:
+
+// Standard
+file.getName should endWith(".txt")
+// Custom
+file should endWithExtension ("txt")
+file should not endWithExtension "txt"
+file should (exists and endWithExtension ("txt"))
+
+
+trait CustomMatchers {
+    class FileEndsWithExtensionMatcher(expectedExtension: String) extends Matcher[java.io.File] {
+        def apply(left: java.io.File) = {
+            val name = left.getName
+            MatchResult(
+                name.endsWith(expectedExtension),
+                s"""File $name did not end with extension "$expectedExtension"""",
+                s"""File $name ended with extension "$expectedExtension""""
+            )
+        }
+    }
+    def endWithExtension(expectedExtension: String) = new FileEndsWithExtensionMatcher(expectedExtension)
+}
+
+Should and logging:
+
+withClue("NumberOfElements: ") {
+    NumberOfElements() should be (5)
+}
+// NumberOfElements: 10 was not equal to 5

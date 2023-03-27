@@ -1,0 +1,22 @@
+2020
+https://www.fpcomplete.com/blog/rust-kubernetes-windows/
+2019
+https://www.reddit.com/r/rust/comments/b8nwid/help_building_rust_in_windows_docker_container/
+
+
+# escape=`
+FROM microsoft/dotnet-framework:4.7.1
+
+SHELL ["cmd", "/S", "/C"]
+ADD https://aka.ms/vs/15/release/vs_buildtools.exe C:/TEMP/vs_buildtools.exe
+# Install Build Tools excluding workloads and components with known issues.
+RUN C:/TEMP/vs_buildtools.exe --quiet --wait --norestart --nocache --installPath C:/BuildTools --all `
+|| IF "%ERRORLEVEL%"=="3010" EXIT 0
+# install rust
+ADD https://win.rustup.rs C:/TEMP/rustup-init.exe
+RUN C:/TEMP/rustup-init.exe --default-toolchain stable -y
+# Start developer command prompt with any other commands specified.
+ENTRYPOINT C:/BuildTools/Common7/Tools/VsDevCmd.bat &&
+WORKDIR C:/app
+# Default to PowerShell if no other command specified.
+CMD ["powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]

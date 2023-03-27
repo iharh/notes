@@ -1,0 +1,35 @@
+2021
+https://www.reddit.com/r/commandline/comments/ra4dg7/extremely_useful_alias_i_just_came_up_with/
+    alias linedo="xargs -d '\n' -I {}" 
+
+xargs -t kill
+	print the command line on stderr before executing
+
+-a, --arg-file
+    read args from the file
+
+-0, --null
+    items are separated by a null, not whitespace;
+    disables quote and backslash processing and logical EOF processing
+
+-I R
+    same as --replace=R
+-i, --replace[=R]
+    replace R in INITIAL-ARGS with names read from standard input;
+    if R is unspecified, assume {}
+-P, --max-procs 40
+    use 40 threads
+-t, --verbose
+
+
+the same:
+xargs -0 -a 1.txt echo
+xargs -0 -I{} -a 1.txt echo {} 
+xargs -0 -i -a 1.txt echo {}
+
+samples
+cat lines.txt | xargs -0 -n 1 echo
+    ???
+cat lines.txt | xargs -n 1 echo
+find *.txt | xargs -i sh -c "cat {}; echo ''" > finalfile.txt
+xargs -0 -i -P 4 -a ~/Downloads/1.txt echo {}

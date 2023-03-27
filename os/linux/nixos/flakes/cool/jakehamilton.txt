@@ -1,0 +1,43 @@
+2023
+JakeHamilton - Nix From Nothing | Let's Learn #Nix & #NixOS! 0:00 of 2:12:29
+    https://www.youtube.com/watch?v=POUeOSjeJ1w
+JakeHamilton - NixOS Flake Tour 5:00 of 23:35
+    https://www.youtube.com/watch?v=ARjAsEJ9WVY
+    !!!
+        nix repl
+        > :lf
+        > outputs.
+        > outputs.nixosConfigurations.
+
+    https://github.com/jakehamilton/config
+        https://github.com/jakehamilton/config/blob/main/flake.nix
+              outputs = inputs:
+                let
+                  lib = inputs.snowfall-lib.mkLib {
+                    inherit inputs;
+                    src = ./.;
+                  };
+                in
+                lib.mkFlake {
+                  ... deploy-rs ...
+                  deploy = lib.mkDeploy { ... }
+                }
+        https://github.com/jakehamilton/config/tree/main/systems/x86_64-linux
+            <host> (bismuth)
+                hardware.nix
+
+        modules
+            suits
+        https://github.com/jakehamilton/config/blob/main/modules/home/default.nix
+
+        https://github.com/jakehamilton/config/tree/main/modules/desktop
+        https://github.com/jakehamilton/config/tree/main/modules/desktop/sway
+        https://github.com/jakehamilton/config/blob/main/modules/desktop/sway/config
+        https://github.com/jakehamilton/config/blob/main/modules/desktop/sway/default.nix
+        https://github.com/jakehamilton/config/blob/main/modules/desktop/sway/default.nix#L38
+    https://github.com/snowfallorg/flake
+        ! a lot of samples of flake command
+    https://github.com/snowfallorg/lib
+        https://github.com/snowfallorg/templates
+        https://github.com/gytis-ivaskevicius/flake-utils-plus
+            https://github.com/numtide/flake-utils

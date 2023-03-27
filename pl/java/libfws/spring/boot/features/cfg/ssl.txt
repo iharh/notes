@@ -1,0 +1,10 @@
+server:
+  port: 8443
+  ssl:
+    key-store: ./certs/server-cert.pkcs12
+    key-store-type: pkcs12
+    key-store-password: <pwd>
+    keyAlias: 1
+
+2021
+https://habr.com/ru/post/593507/

@@ -1,0 +1,19 @@
+http://ttroy50.github.io/cmake-examples/
+    https://github.com/ttroy50/cmake-examples
+
+https://github.com/pr0g/cmake-examples
+
+https://github.com/reyreaud-l/simple-cpp-setup
+
+https://gitlab.com/l2288/asan_examples
+https://gitlab.com/l2288/stackless_examples
+https://gitlab.com/l2288/stackless_examples/-/blob/master/third_party/CMakeLists.txt
+
+2020
+https://habr.com/ru/post/535602/
+2019
+https://raymii.org/s/tutorials/Cpp_project_setup_with_cmake_and_unit_tests.html
+http://dominikberner.ch/cmake-interface-lib/
+2018
+https://joshpeterson.github.io/a-cpp-template-project
+https://github.com/joshpeterson/cpp-template

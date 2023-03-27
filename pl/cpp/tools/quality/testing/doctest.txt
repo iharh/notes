@@ -1,0 +1,22 @@
+https://github.com/onqtam/doctest
+
+https://github.com/onqtam/doctest/blob/master/doc/markdown/tutorial.md
+https://github.com/onqtam/doctest/blob/master/doc/markdown/configuration.md
+
+https://github.com/onqtam/doctest/tree/master/examples
+
+2019
+https://blog.jetbrains.com/rscpp/better-ways-testing-with-doctest/
+2018
+http://eao197.blogspot.com.by/2018/03/progc-doctest-vs-catch2.html
+https://www.reddit.com/r/cpp/comments/99nkhw/doctest_2_released_moved_to_c11_added/
+2017
+Kirilov - Mix Tests and Production Code with Doctest
+    https://www.youtube.com/watch?v=eH1CxEC29l8
+    http://slides.com/onqtam/2017_cppcon_doctest#
+
+// doctest_proxy.h
+
+#define test_case   DOCTEST_TEST_CASE
+...
+// other short-lowercased macros

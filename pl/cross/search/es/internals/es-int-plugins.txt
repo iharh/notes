@@ -1,0 +1,96 @@
+http://grokbase.com/t/gg/elasticsearch/149f4mjysv/write-a-plugin-to-query-and-aggregate-results-from-multiple-shards
+
+http://spinscale.github.io/elasticsearch-intro-plugins/#/22
+https://github.com/spinscale/elasticsearch-suggest-plugin
+
+https://speakerdeck.com/spinscale/elasticsearch-introduction-and-plugin-development
+https://speakerdeck.com/spinscale/extending-elasticsearch
+
+https://www.found.no/foundation/writing-a-plugin/
+https://www.found.no/foundation/elasticsearch-plugin-types/
+https://www.found.no/foundation/elasticsearch-internals/
+
+
+plugins.
+
+/**
+ * An extension point allowing to plug in custom functionality.
+ * <p/>
+ * A plugin can be dynamically injected with {@link Module} by implementing <tt>onModule(AnyModule)</tt> method
+ * removing the need to override {@link #processModule(org.elasticsearch.common.inject.Module)} and check using
+ * instanceof.
+ */
+public interface Plugin {
+    // The name of the plugin.
+    String name();
+
+    // The description of the plugin.
+    String description();
+
+    // Node level modules (classes, will automatically be created).
+    Collection<Class<? extends Module>> modules();
+
+    /**
+     * Node level modules (instances)
+     *
+     * @param settings The node level settings.
+     */
+    Collection<? extends Module> modules(Settings settings);
+
+    // Node level services that will be automatically started/stopped/closed.
+    Collection<Class<? extends LifecycleComponent>> services();
+
+    // Per index modules.
+    Collection<Class<? extends Module>> indexModules();
+
+    // Per index modules.
+    Collection<? extends Module> indexModules(Settings settings);
+
+    // Per index services that will be automatically closed.
+    Collection<Class<? extends CloseableIndexComponent>> indexServices();
+
+    // Per index shard module.
+    Collection<Class<? extends Module>> shardModules();
+
+    // Per index shard module.
+    Collection<? extends Module> shardModules(Settings settings);
+
+    // Per index shard service that will be automatically closed.
+    Collection<Class<? extends CloseableIndexComponent>> shardServices();
+
+    // Process a specific module. Note, its simpler to implement a custom <tt>onModule(AnyModule module)</tt> method, which will be automatically be called by the relevant type.
+    void processModule(Module module);
+
+    // Additional node settings loaded by the plugin
+    Settings additionalSettings();
+}
+
+
+PluginsModule
+plugins.PluginsService - IndexService
+
+org.elasticsearch.index.shard.service.InternalIndexShard
+org.elasticsearch.index.indexing.ShardIndexingService
+
+
+NNNAction extends
+    org.elasticsearch.action.Action
+        org.elasticsearch.action.admin.indices.IndicesAction;
+
+TransportNNNAction extends
+    org.elasticsearch.action.support.TransportAction;
+
+
+http://spinscale.github.io/elasticsearch-intro-plugins/#/31
+
+indicesService.indicesLifecycle().addListener(
+new IndicesLifecycle.Listener() {
+  public void beforeIndexShardClosed(ShardId shardId, @Nullable IndexShard indexShard, boolean delete) {
+    IndexService indexService = indicesService.indexService(shardId.index().name());
+    if (indexService != null) {
+      ShardSuggestService suggestShardService = indexService.shardInjectorSafe(shardId.id()).getInstance(ShardSuggestService.class);
+      suggestShardService.shutDown();
+    }
+  }
+});
+

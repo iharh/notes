@@ -1,0 +1,49 @@
+Romanchuk - Backend Reactive Systems
+https://www.youtube.com/watch?v=Ev6diAO2FAI
+
+- Source
+- Flow
+- Sink
+
+http://www.slideshare.net/dmantula/introduction-to-akkastreams
+https://www.youtube.com/watch?v=-nmxc7DnonA
+
+import akka.actor.ActorSystem
+import akka.stream.ActorMaterializer
+import akka.stream.scaladsl.Source
+
+object App1 extends App {
+    implicit val actorSystem = ActorSystem("demo1")
+    implicit val mat = ActorMaterializer()
+    val list = List("Hello", "world")
+    Source(list).runForeach(println)
+//
+    val source = Source(1 to 10)                        // source: Source[Int, NotUsed]
+    val flow = Flow[Int].map{i => s"$i *2 = ${i * 2}" } // flow  : Flow[Int, String, NotUsed]
+    val sink = Sink.foreach[String](println)            // sink  : Sink[String, Future[Done]]
+    val rg = source.via(flow).to(sink)                  // rg    : RunnableGraph[NotUsed]
+    rg.run()
+    // NotUsed      - Unit wrapper
+    // Future[Done] - ?
+}
+
+//
+val materializationResult = runnableGraph.run()(materializer) // materializer - got from the implicit
+
+FanInShape1
+FanInShape2
+FanInShapeN
+
+FanOutShape1
+
+BiDiFlow
+
+
+2 types of DSL:
+- plain
+- broadcast-merge graph
+import akka.stream._
+import akka.stream.scalads._
+import akka.stream.scalads.GraphDSL.Implicits._
+    Sink/Broadcast[Int]/Merge[String]
+    ??? ClosedShape

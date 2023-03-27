@@ -1,0 +1,7 @@
+2022
+https://sematext.com/blog/postgresql-logs/
+    logging_collector on
+    log_min_duration_statement = 1000
+        ALTER DATABASE db SET log_min_duration_statement = ‘1000ms';
+    log_statement all
+        ALTER DATABASE db SET log_statement = ‘all';

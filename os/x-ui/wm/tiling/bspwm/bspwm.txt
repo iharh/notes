@@ -1,0 +1,7 @@
+https://github.com/baskerville/bspwm
+
+sxhkd -> bspc <-> bspwm
+
+~/.confix/sxhkd/sxhkdrc
+~/.confix/bspwm/bspwmrc
+    # just a simple [shell] script

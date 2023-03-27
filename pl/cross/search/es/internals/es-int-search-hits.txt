@@ -1,0 +1,48 @@
+InternalSearchHit implements SearchHit
+
+<- readSearchHit
+<- FetchPhase.execute
+    ...
+            } else if (fieldNames != null) {
+                boolean loadSource = extractFieldNames != null || context.sourceRequested();
+                fieldsVisitor = new CustomFieldsVisitor(fieldNames, loadSource);
+            }
+    ...
+            loadStoredFields(context, fieldsVisitor, docId);
+            fieldsVisitor.postProcess(context.mapperService());
+    ...
+            if (extractFieldNames != null) {
+                for (String extractFieldName : extractFieldNames) {
+                    List<Object> values = context.lookup().source().extractRawValues(extractFieldName); // ???
+                    if (!values.isEmpty()) {
+                        if (searchHit.fieldsOrNull() == null) {
+                            searchHit.fields(new HashMap<String, SearchHitField>(2));
+                        }
+
+                        SearchHitField hitField = searchHit.fields().get(extractFieldName);
+                        if (hitField == null) {
+                            hitField = new InternalSearchHitField(extractFieldName, new ArrayList<>(2));
+                            searchHit.fields().put(extractFieldName, hitField);
+                        }
+                        for (Object value : values) {
+                            hitField.values().add(value);
+                        }
+                    }
+                }
+            }
+    ...
+
+    private void loadStoredFields(SearchContext context, FieldsVisitor fieldVisitor, int docId) {
+        fieldVisitor.reset();
+        try {
+            context.searcher().doc(docId, fieldVisitor);
+        } catch (IOException e) {
+            throw new FetchPhaseExecutionException(context, "Failed to fetch doc id [" + docId + "]", e);
+        }
+    }
+
+FieldsVisitor
+    <- FetchPhase.execute
+    <- index.get.ShardGetService
+    <- search.lookup.FieldsLookup/SourceLookup
+        <- SearchLookup

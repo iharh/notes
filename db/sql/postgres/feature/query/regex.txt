@@ -1,0 +1,4 @@
+https://www.postgresql.org/docs/current/functions-matching.html
+https://stackoverflow.com/questions/4945477/using-regex-in-where-in-postgres
+
+~ '^(A|Boe)'

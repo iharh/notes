@@ -1,0 +1,30 @@
+https://oguzhaneroglu.com/projects/gdb-frontend/
+https://github.com/rohanrhu/gdb-frontend
+
+https://github.com/rohanrhu/gdb-frontend/wiki
+
+
+I started to develop the debugger when I saw a requirement of a useful debugger.
+You may look to this demonstration:
+    https://www.youtube.com/watch?v=z44KJDYZOoE
+
+If you want to perform remote debugging, you will have two choices:
+
+    Running GDBFrontend on your server and use it from remote.
+
+    Running GDBFrontend on local machine and connect to gdbserver.
+
+GDBFrontend provides you a full-featured GDB debugging chance from remote. It is good when you think about gdbserver's limitations.
+
+Also you may want to look these options:
+
+--listen=IP, -l IP: Specifies listen address for HTTP and WS servers.
+--credentials=USER:PASS, -c USER:PASS: Specifies username and password for accessing to debugger (Browser asks it for two times).)
+
+
+
+2020
+C Linked-List Visualization (GDBFrontend v0.3.0-beta)
+    https://www.youtube.com/watch?v=z44KJDYZOoE
+C Pointer Visualization
+    https://www.youtube.com/watch?v=6LNR8u19x6Y

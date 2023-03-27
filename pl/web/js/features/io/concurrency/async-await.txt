@@ -1,0 +1,59 @@
+cheatsheet
+https://frontarm.com/toolbox/promises-async-await-cheatsheet/
+https://github.com/frontarm/async-javascript-cheatsheet
+
+books
+2019
+Simpson - You Dont Know JS - Async and Performance ru
+    CE1392FFD1839CF0B4B5950089119337
+
+articles
+2021
+https://betterprogramming.pub/learn-how-to-use-async-await-like-a-pro-481a5b829bf0
+    https://nuancesprog.ru/p/13788/
+2020
+https://www.smashingmagazine.com/2020/11/comparison-async-await-versus-then-catch/
+https://blog.bitsrc.io/why-should-you-use-top-level-await-in-javascript-a3ba8139ef23
+    https://habr.com/ru/post/524068/
+https://habr.com/ru/post/517078/
+    ! just samples - fractals
+https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke
+    https://habr.com/ru/post/501702/
+https://developer.mozilla.org/ru/docs/Learn/JavaScript/Asynchronous/Async_await
+    https://habr.com/ru/post/491012/
+2019
+https://medium.com/javascript-in-plain-english/async-await-javascript-5038668ec6eb
+    https://habr.com/ru/post/480418/
+https://habr.com/ru/post/475260/
+https://habr.com/ru/post/474726/
+http://thecodebarbarian.com/async-generator-functions-in-javascript.html
+https://itnext.io/javascript-promises-and-async-await-as-fast-as-possible-d7c8c8ff0abc
+https://css-tricks.com/finally-a-post-on-finally-in-promises/
+http://thecodebarbarian.com/async-await-error-handling-in-javascript.html
+https://blog.bitsrc.io/understanding-javascript-async-and-await-with-examples-a010b03926ea
+    https://proglib.io/p/js-async-await/
+    https://habr.com/ru/company/skillbox/blog/458950/
+https://blog.bitsrc.io/understanding-asynchronous-javascript-the-event-loop-74cd408419ff
+    https://nuancesprog.ru/p/2583/
+    https://habr.com/ru/post/439620/
+https://medium.com/webbdev/%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%B0%D1%8F-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-%D0%B0%D1%81%D0%B8%D0%BD%D1%85%D1%80%D0%BE%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9-javascript-d5487d1f5e36
+https://medium.freecodecamp.org/how-to-master-async-await-with-this-real-world-example-19107e7558ad
+    https://habr.com/ru/company/plarium/blog/438318/
+    https://habr.com/ru/company/ruvds/blog/436884/
+https://medium.freecodecamp.org/improve-your-asynchronous-javascript-code-with-async-and-await-c02fc3813eda
+2018
+https://hackernoon.com/async-await-essentials-for-production-loops-control-flows-limits-23eb40f171bd
+    https://medium.com/@stasonmars/%D0%B2%D1%81%D0%B5%CC%88-%D1%87%D1%82%D0%BE-%D0%BD%D1%83%D0%B6%D0%BD%D0%BE-%D0%B7%D0%BD%D0%B0%D1%82%D1%8C-%D0%BE%D0%B1-async-await-%D1%86%D0%B8%D0%BA%D0%BB%D1%8B-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C-%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%B2-%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B5%D0%BD%D0%B8%D1%8F-76dde2cb6949
+https://blog.logrocket.com/promise-chaining-is-dead-long-live-async-await-445897870abc
+https://tylermcginnis.com/async-javascript-from-callbacks-to-promises-to-async-await/
+http://telegra.ph/Konstrukciya-asyncawait-v-JavaScript-08-02
+https://hackernoon.com/javascript-async-await-the-good-part-pitfalls-and-how-to-use-9b759ca21cda
+    https://habr.com/company/ruvds/blog/414373/
+    https://medium.com/nuances-of-programming/javascript-async-await-%D1%87%D1%82%D0%BE-%D1%85%D0%BE%D1%80%D0%BE%D1%88%D0%B5%D0%B3%D0%BE-%D0%B2-%D1%87%D1%91%D0%BC-%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C-%D0%B8-%D0%BA%D0%B0%D0%BA-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D1%8F%D1%82%D1%8C-e1066adf4cd6
+https://dev.to/sadarshannaiynar/capture-error-and-data-in-async-await-without-try-catch-1no2
+    https://habr.com/post/358896/
+https://medium.com/@vkozulya/%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83-%D0%BD%D0%B5-%D0%BD%D0%B0%D0%B4%D0%BE-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-async-await-7e999c981049
+2017
+https://lavrton.com/javascript-loops-how-to-handle-async-await-6252dd3c795/
+    https://habr.com/post/435084/
+    https://medium.com/webbdev/js-8dfa059cae97

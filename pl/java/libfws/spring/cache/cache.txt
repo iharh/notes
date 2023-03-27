@@ -1,0 +1,14 @@
+2017
+http://www.baeldung.com/spring-cache-tutorial
+http://www.baeldung.com/jcache
+
+http://www.ehcache.org/documentation/3.4/getting-started.html
+
+https://github.com/ehcache/ehcache3/issues/1994
+https://github.com/ehcache/ehcache3-samples/blob/master/fullstack/src/main/java/org/terracotta/demo/config/CacheConfiguration.java
+
+byte-sized heap
+http://www.ehcache.org/documentation/3.4/tiering.html#byte-sized-heap
+
+https://www.youtube.com/watch?v=Vej9QixcoZE
+https://github.com/kishanjavatrainer/SpringBootGuavaCache

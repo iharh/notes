@@ -1,0 +1,35 @@
+model {
+    buildTypes {
+        release
+        debug
+    }
+    
+    binaries {
+        withType(SharedLibraryBinarySpec) {
+            // println toolChain
+        }
+        withType(NativeExecutableBinarySpec) {
+            // ...
+        }
+        all {
+            if (toolChain in Gcc) {
+                if (buildType == buildTypes.release) {
+                    cppCompiler.args '-O2'
+                }
+                if (buildType == buildTypes.debug) {
+                    cppCompiler.args '-O0', '-ggdb'
+                }
+            }
+            if (toolChain in VisualCpp) {
+                linker.args 'psapi.lib'
+
+                if (buildType == buildTypes.debug) {
+                    cppCompiler.define 'DEBUG'
+                    cppCompiler.args '/Zi'
+                    linker.args '/DEBUG'
+                }
+            }
+        }
+    }
+}
+

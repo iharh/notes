@@ -1,0 +1,11 @@
+http://fontawesome.io/
+https://github.com/FortAwesome/Font-Awesome/wiki/Merge-FontAwesome-with-any-other-font
+
+https://github.com/gabrielelana/awesome-terminal-fonts
+
+aur:
+ttf-font-awesome
+ttf-font-icons
+
+patches:
+https://github.com/gabrielelana/awesome-terminal-fonts/tree/patching-strategy/patched

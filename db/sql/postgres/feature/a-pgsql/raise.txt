@@ -1,0 +1,3 @@
+raise <level> 'Non Business Concepts attribute with "%" name is already present in the system', dispName;
+<leve>
+    exception|warning

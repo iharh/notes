@@ -1,0 +1,47 @@
+	<target name="bjam-build" depends="properties">
+		<exec executable="cmd.exe" dir="${boost.name}/tools/build/v2" failonerror="true">
+			<arg value="/c"/>
+			<arg value="bootstrap.bat"/>
+		</exec>
+		<exec executable="cmd.exe" dir="${boost.name}/tools/build/v2" failonerror="true">
+			<arg value="/c"/>
+			<arg value="b2"/>
+			<arg value="--prefix=${dist.dir}"/>
+			<arg value="install"/>
+		</exec>
+	</target>
+
+	<target name="boost-build" depends="properties">
+		<!-- arg value="- -without-python"/ -->
+		<exec executable="${dist.dir}/bin/b2" dir="${boost.name}" failonerror="true">
+			<arg value="--toolset=msvc-10.0"/>
+			<arg value="--build-type=minimal"/>
+
+			<arg value="--with-system"/>
+			<arg value="--with-date_time"/>
+			<arg value="--with-regex"/>
+			<arg value="--with-test"/>
+			<arg value="--with-thread"/>
+			<arg value="--with-program_options"/>
+			<arg value="--with-iostreams"/>
+			<arg value="--with-chrono"/>
+
+			<arg value="cxxflags=-D_SCL_SECURE_NO_DEPRECATE"/>
+			<arg value="cxxflags=-D_SECURE_SCL=0"/>
+			<arg value="cxxflags=-D_HAS_ITERATOR_DEBUGGING=0"/>
+
+			<arg value="threading=multi"/>
+			<arg value="link=static"/>
+			<arg value="variant=release"/>
+			<arg value="runtime-link=shared,static"/>
+		</exec>
+	</target>
+
+--prefix=${CROSS_ROOT}
+runtime-link=shared,static
+toolset=gcc
+target-os=linux
+echo "using gcc : linux : ${CROSS_TRIPLE}-c++ ;" > ${HOME}/user-config.jam && \
+
+libs:
+--with-date_time

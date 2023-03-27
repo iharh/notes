@@ -1,0 +1,30 @@
+withStartupTimeout(..)
+waitingFor(...)
+    Wait.forHttp("/all")
+    .forStatusCode(301)
+    .usingTls()
+
+WaitingConsumer consumer = new WaitingConsumer();
+container.followOutput(consumer, STDOUT)
+consumer.waitUntil(frame -> 
+    frame.getUtf8String().contains("STARTED"), 30, TimeUnit.SECONDS);
+
+waitUntillReady
+
+https://github.com/testcontainers/testcontainers-java/tree/master/core/src/main/java/org/testcontainers/containers/wait
+Wait
+WaitStrategy
+GenericContainer.AbstractWaitStrategy
+LogMessageWaitStrategy
+HostPortWaitStrategy
+Http...
+Wait.defaultWaitStrategy()
+
+startupcheck
+StartupCheckStrategy
+
+output
+https://github.com/testcontainers/testcontainers-java/tree/master/core/src/main/java/org/testcontainers/containers/output
+Slf4jLogConsumer
+ToStringConsumer
+WaitingConsumer

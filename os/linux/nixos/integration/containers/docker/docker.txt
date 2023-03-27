@@ -1,0 +1,2 @@
+https://nix.dev/tutorials/building-and-running-docker-images.html
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/virtualisation/docker.nix

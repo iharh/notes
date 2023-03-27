@@ -1,0 +1,94 @@
+http://infrataster.net/
+https://github.com/ryotarai/infrataster
+http://www.rubydoc.info/gems/infrataster/
+
+https://speakerdeck.com/ryotarai/introducing-infrataster
+http://www.davidmataro.com/testing-web-app-with-infrataster-and-kitchenci
+
+https://github.com/parallels-cookbooks/confluence/blob/master/test/integration/helpers/serverspec/
+
+Gemfile:
+
+source 'https://rubygems.org'
+
+# This is required for successful 'nokogiri' install
+# https://github.com/chef/chef-dk/issues/278#issuecomment-185307218
+#ENV['PKG_CONFIG_PATH'] = '/opt/chef/embedded/lib/pkgconfig'
+
+gem 'infrataster', '>= 0.3.2'
+# 'rack' > 2.0 requires Ruby 2.2.2, but Chef 12.12.15 bundles Ruby 2.1.8
+gem 'rack', '~> 1.6'
+
+
+spec_helper.rb:
+require 'serverspec'
+require 'infrataster/rspec'
+
+set :backend, :exec
+
+Infrataster::Server.define(:confluence_web, '127.0.0.1')
+
+shared_examples_for 'confluence behind the apache proxy' do
+  describe 'Tomcat' do
+    describe port(8090) do
+      it { should be_listening }
+    end
+  end
+
+  describe 'Apache2' do
+    describe port(80) do
+      it { should be_listening }
+    end
+
+    describe port(443) do
+      it { should be_listening }
+    end
+  end
+
+  describe server(:confluence_web) do
+    describe http('http://127.0.0.1/setup/setupstart.action') do
+      it 'redirects 80 port to 443' do
+        expect(response.status).to eq(302)
+        expect(response.headers['location']).to eq('https://127.0.0.1/setup/setupstart.action')
+      end
+    end
+
+    describe http('https://127.0.0.1/setup/setupstart.action', ssl: { verify: false }) do
+      it 'returns setup wizard' do
+        expect(response.status).to eq(200)
+        expect(response.body).to include('Set up Confluence')
+      end
+    end
+
+    describe http('http://127.0.0.1:8090/setup/setupstart.action') do
+      it 'returns setup wizard' do
+        expect(response.status).to eq(200)
+        expect(response.body).to include('Set up Confluence')
+      end
+    end
+  end
+end
+
+
+cfg:
+ describe http('/users',
+                method: :post,
+                headers: { "Content-Type" => 'application/json' },
+                body: {"nickname" => "awesome", "device_id" => "1"}.to_json
+               ) do
+
+ssl:
+http resource support ssl option which is passed to Faraday.new
+:ssl => {:verify => false}
+
+middleware:
+
+# Custom Faraday middleware
+  describe http('http://app.example.com', faraday_middleware: [
+    YourMiddleware,
+    [YourMiddleware, options]
+  ]) do
+    it "uses the middlewares" do
+      expect(response.status).to eq(200)
+    end
+  end

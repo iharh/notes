@@ -1,0 +1,43 @@
+https://wiki.archlinux.org/index.php/PostgreSQL
+http://eax.me/postgresql-install/
+
+inst-lin:
+http://www.unixmen.com/install-postgresql-9-3-centos-6-56-4/
+http://www.unixmen.com/install-postgresql-9-3-phppgadmin-centos-6-5/
+http://www.unixmen.com/install-postgresql-9-3-phppgadmin-centos-76-56-4/
+http://www.unixmen.com/postgresql-9-4-released-install-centos-7/
+
+http://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist/
+
+manjaro-extra:
+    postgresql
+    postgresql-libs (psql, createdb and other stuff)
+    postgresql-docs
+aur:
+    postgresql-lts
+    postgresql-9.4
+    postgresql-beta[-docs]
+    postgresql-git
+
+sudo -u postgres initdb /var/lib/postgres/data
+### su -l postgres -c 'initdb --locale en_US.UTF-8 -E UTF8 -D /var/lib/postgres/data'
+...
+WARNING: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgres/data/ -l logfile start
+
+sudo -u postgres createuser --superuser $USER
+createuser -s -U $USER
+
+cfg:
+/usr/lib/systemd/system/postgresql.service
+...
+Environment=PGROOT=/var/lib/postgres
+
+postgres-owned:
+/var/lib/posgres/data/postgresql.conf
+/var/lib/posgres/data/pg_hba.conf

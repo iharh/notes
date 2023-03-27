@@ -1,0 +1,13 @@
+http://tinyclouds.org/iocp-links.html
+https://msdn.microsoft.com/en-us/library/aa365198(VS.85).aspx
+http://en.wikipedia.org/wiki/Input/output_completion_port
+http://www.slideshare.net/sm9kr/iocp-vs-epoll-perfor
+http://habrahabr.ru/post/128772/
+https://web.archive.org/web/20101101112358/http://doc.sch130.nsc.ru/www.sysinternals.com/ntw2k/info/comport.shtml
+http://xcybercloud.blogspot.com/2009/01/asychronous-io-model-on-windows.html
+https://msdn.microsoft.com/en-us/library/aa365683%28VS.85%29.aspx
+http://blogs.msdn.com/b/csliu/archive/2009/08/05/scalable-i-o-models-in-sync-async-way.aspx
+
+http://www.drdobbs.com/cpp/multithreaded-asynchronous-io-io-comple/201202921
+http://www.drdobbs.com/parallel/task-based-programming-in-windows/240146450
+

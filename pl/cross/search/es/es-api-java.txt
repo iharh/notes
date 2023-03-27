@@ -1,0 +1,54 @@
+https://www.found.no/foundation/java-clients-for-elasticsearch/
+http://en.kodcu.com/2013/09/elasticsearch-java-api-2/
+
+JAVA API:
+http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/index.html
+http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/client.html
+https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html
+    !!! Java Transport Client Deprecated
+
+
+tests:
+
+https://github.com/tlrx/elasticsearch-test
+
+
+
+aliases:
+
+https://github.com/tlrx/elasticsearch-test/blob/master/src/test/java/com/github/tlrx/elasticsearch/samples/indices/AliasesTest.java
+
+
+action.admin.indices.alias.IndicesAliasesRequest
+  extends AcknowledgedRequest<IndicesAliasesRequest> implements IndicesRequest
+
+
+You're not waiting until the bulk request finishes. If you call execute() without actionGet(), you end up running asynchronously.
+Which means you will start changing aliases and deleting indexes before the new index is completely built.
+
+client.admin().indices().aliases(new IndicesAliasesRequest().removeAlias(currentIndexName, "my_index").addAlias("my_index", newIndexName)).get();
+
+This should be ended with execute().actionGet() and not get(). that is probably why your alias is not getting set
+
+I can only do .actionGet() , .execute() is no method in IndicesAdminClient.java .
+Nevertheless, I would somehow like to do that re-aliasing asynchronously but only after the re-indexing is done completely without errors.
+But I haven't found a way to do that yet.
+
+action.admin.indices.alias.get.GetAliasRequest
+
+
+index:
+
+action.support.IndicesOption
+  allowAliasesToMultipleIndices ?
+
+action.IndicesRequest
+  .Replaceable
+
+action.admin.indices.delete.DeleteIndexRequest
+  extends MasterNodeOperationRequest<DeleteIndexRequest> implements IndicesRequest.Replaceable
+
+bulk indexing:
+
+http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/master/bulk.html
+

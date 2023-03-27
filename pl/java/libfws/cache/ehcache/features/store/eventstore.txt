@@ -1,0 +1,2 @@
+org.ehcache.core.spi.store.Store
+    StoreEventSource<K, V> getEventSource();

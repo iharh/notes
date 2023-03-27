@@ -1,0 +1,26 @@
+https://neutrino.js.org/
+https://github.com/mozilla-neutrino/neutrino-dev
+
+https://neutrino.js.org/installation/create-new-project.html
+https://neutrino.js.org/project-layout.html
+https://neutrino.js.org/webpack-chain.html
+https://neutrino.js.org/customization/
+https://neutrino.js.org/presets/
+https://neutrino.js.org/presets/community-presets.html
+https://github.com/mozilla-neutrino/neutrino-dev/blob/master/docs/creating-presets.md
+https://neutrino.js.org/middleware/
+https://neutrino.js.org/packages/react/
+
+inst
+https://www.npmjs.com/package/neutrino
+https://www.npmjs.com/package/@neutrinojs/react
+    https://github.com/mozilla-neutrino/neutrino-dev/tree/master/packages/react
+npm i -D neutrino @neutrinojs/react
+
+articles
+2017
+https://davidwalsh.name/neutrino
+https://survivejs.com/blog/neutrino-interview/
+https://sigma.software/about/media/configuring-webpack-without-webpack
+https://hacks.mozilla.org/2017/02/using-neutrino-for-modern-javascript-development/
+    https://habr.com/company/badoo/blog/323572/

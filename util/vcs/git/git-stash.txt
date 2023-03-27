@@ -1,0 +1,20 @@
+git stash list
+    list stashes
+git stash
+    creates a new stash (and prints stash id), reverting all the changes after that
+        ... save <msg>
+            add stash with <msg>
+
+git stash apply <stash-id>
+    apply a stash, leaving it in a stash list
+        <stash-id> is typically a   stash@{num}
+
+git stash pop ...
+    pop a stash off the stash list
+
+git stash drop <stash-id>
+    drop a stash
+
+stash ids:
+    stash@{0}
+        using stash number

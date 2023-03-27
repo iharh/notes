@@ -1,0 +1,24 @@
+http://jedwatson.github.io/classnames/
+https://www.npmjs.com/package/classnames
+https://github.com/JedWatson/classnames
+
+https://stackoverflow.com/questions/34521797/how-to-add-multiple-classes-to-a-reactjs-component
+
+articles
+2016
+https://jobs.zalando.com/tech/blog/a-closer-look-at-the-classnames-npm-package
+
+samples
+{ 
+    ...
+    [someVar]: true
+    ...
+}
+
+import cn from 'classnames'
+
+cn('menu','active') //'menu active'
+let isActive = true
+cn('menu',{'active':isActive}) //'menu active'
+isActive = false
+cn('menu',{'active':isActive}) //'menu'

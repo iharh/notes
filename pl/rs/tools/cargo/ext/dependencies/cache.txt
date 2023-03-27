@@ -1,0 +1,9 @@
+https://github.com/matthiaskrgr/cargo-cache/
+
+cargo install --git https://github.com/matthiaskrgr/cargo-cache
+
+cargo cache
+    -h, --help
+    -i, --info
+        print info on found cache dirs
+    -d, --dry-run

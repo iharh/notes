@@ -1,0 +1,57 @@
+aur
+    openbox
+
+https://github.com/Mikachu/openbox
+https://github.com/danakj/openbox
+
+https://aur.archlinux.org/packages/openbox-patched/
+https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=openbox-patched
+source=("http://openbox.org/dist/openbox/${_pkgname}-${pkgver}.tar.gz"
+        "openbox-3.5.0-title-matching.patch"
+        "openbox-3.5.0-which-2.20.patch"
+        "openbox-3.6.2-rounded-corners.patch"
+        "openbox-3.6.2-fix-out-of-bounds.patch")
+
+PCManFM
+
+http://crunchbang.org/forums/viewtopic.php?id=19901
+https://manjaro.org/index.php?title=Getting_File_Managers_to_work_properly_in_Window_Managers
+
+
+fixing Conky displaying:
+http://crunchbang.org/forums/viewtopic.php?id=1163
+at ~/.conkyrc change
+own_window_type desktop
+by
+own_window_type normal
+
+Actions:
+http://openbox.org/wiki/Help:Actions
+http://openbox.org/wiki/Help:Bindings
+
+/etc/xdg/openbox/* (default configs)
+~/.config/openbox/*
+  environment/
+  menu.xml
+  rc.xml
+  autostart (!!! Linux & OpenBox 1 - 31:00)
+
+
+WM/Desctop selection:
+
+~/.xinitrc
+  exec openbox-session
+
+
+Oblogout:
+https://wiki.archlinux.org/index.php/Oblogout
+http://www.linuxandlife.com/2012/05/how-to-change-log-out-icons-in-archbang.html
+
+/etc/oblogout.conf:
+
+[looks]
+...
+buttontheme = oxygen
+
+Keys:
+http://melp.nl/2011/01/10-must-have-key-and-mouse-binding-configs-in-openbox/

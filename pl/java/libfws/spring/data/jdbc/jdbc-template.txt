@@ -1,0 +1,5 @@
+org.springframework.jdbc.core.JdbcTemplate
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html
+
+2021
+https://spring.io/blog/2021/02/01/ymnnalft-a-lightweight-sql-data-mapper-with-the-jdbctemplate

@@ -1,0 +1,48 @@
+slow login:
+https://cygwin.com/ml/cygwin/2014-02/msg00306.html
+https://github.com/Alexpux/MSYS2-packages/issues/138
+
+https://gist.github.com/k-takata/9b8d143f0f3fef5abdab
+http://unix.stackexchange.com/questions/70885/how-to-debug-and-fix-slow-autocomplete-in-bash
+
+/etc/nsswitch.conf
+passwd: files db
+group: files # db
+# !!! need to do mkpasswd/mkgroup in this case !!!
+
+https://github.com/Alexpux/MSYS2-packages/issues/117
+
+groups, passwords:
+http://blog.jorisvisscher.com/2013/12/12/cygwin-your-group-is-currently-mkpasswd/
+https://www.cygwin.com/ml/cygwin/2012-11/msg00037.html
+http://jamesfishwick.com/cygwin-your-group-is-currently/
+
+mkpasswd -l -c > /etc/passwd
+mkgroup -l -c > /etc/group
+
+cur user only:
+mkpasswd -c > /etc/passwd
+mkgroup -c > /etc/group
+
+
+slow bash-completion
+/usr/share/bash-completion/bash_completion
+/etc/profile.d/bash_completion.sh
+
+~* is used inside /usr/share/bash-completion/bash_completion. Disabling it can solve the problem.
+
+--- /usr/share/bash-completion/bash_completion.org
++++ /usr/share/bash-completion/bash_completion
+@@ -542,9 +542,9 @@
+     elif [[ $1 == \'* ]]; then
+         # Leave out first character
+         printf -v $2 %s "${1:1}"
+-    elif [[ $1 == ~* ]]; then
+-        # avoid escaping first ~
+-        printf -v $2 ~%q "${1:1}"
++    #elif [[ $1 == ~* ]]; then
++    #    # avoid escaping first ~
++    #    printf -v $2 ~%q "${1:1}"
+     else
+         printf -v $2 %q "$1"
+     fi

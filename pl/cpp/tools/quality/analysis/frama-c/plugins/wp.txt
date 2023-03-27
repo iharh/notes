@@ -1,0 +1,5 @@
+weakest precondition calculus
+http://frama-c.com/wp.html
+
+wiki:
+WP – similar to Jessie, verifies properties in a deductive manner. Unlike Jessie, it focuses on parameterization with regards to the memory model. WP is designed to cooperate with other Frama-C plugins such as the value analysis plug-in, unlike Jessie that compiles the C program directly into the Why language. WP can optionally use the Why3 platform to invoke many other automated and interactive provers.

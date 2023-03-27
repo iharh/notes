@@ -1,0 +1,52 @@
+1. General
+- Solntsev Presentation - http://www.slideshare.net/asolntsev/functional-programming-in-java, http://vimeo.com/7863984
+- JF Smart Presentation - http://www.slideshare.net/wakaleo/functional-programming-in-java-14580186
+
+2. Yevgeny Kirpichev (in the past - Lead Scientist of IntelliJ Idea):
+http://antilamer.livejournal.com/288854.html
+http://antilamer.livejournal.com/245962.html
+Kirpichev - FP in Java (2008)
+
+3. Google Guava (http://code.google.com/p/guava-libraries/wiki/GuavaExplained )
+Presentation - http://www.slideshare.net/alexkorotkikh/google-guava-12991826
+
+4. Op4j (http://www.op4j.org)
+http://www.op4j.org/basics.html
+
+5. Netflix RxJava
+https://github.com/Netflix/RxJava
+
+6. Java8-based
+http://www.ratpack.io/
+https://github.com/CodeStory/fluent-http
+
+Netflix-Histrix (http://techblog.netflix.com/2012/02/fault-tolerance-in-high-volume.html)
+
+6. Other libs:
+jodd, jtx (http://jodd.org/doc/index.html)
+totallylazy (http://code.google.com/p/totallylazy/)
+https://github.com/hraberg/enumerable
+Guava-totallylazy(http://tonylawrence.com/blog/2012/05/31/fluent-guava/)
+http://jdeferred.org/
+
+7. Functors in Java
+http://blog.tmorris.net/just-what-the-funk-is-a-functor-anyway/
+
+8. Monads in Java
+http://logicaltypes.blogspot.com/2011/09/monads-in-java.html
+http://logicaltypes.blogspot.com/2009/06/realized-constants-are-comonadic.html
+
+9. Thrower is a Monad
+http://apocalisp.wordpress.com/2008/06/04/throwing-away-throws/
+http://apocalisp.wordpress.com/2008/05/22/thrower-is-a-monad/
+http://apocalisp.wordpress.com/2008/05/16/thrower-functor/
+
+10. Structural Pattern Matching via Church Encoding in Java:
+http://apocalisp.wordpress.com/2009/08/21/structural-pattern-matching-in-java/
+
+11. Async/Try in Java:
+http://blog.maxant.co.uk/pebble/2013/10/13/1381695720000.html
+https://github.com/maxant/share/tree/master/blog20131013_asyncJava8TrySuccessFailure/src/ch/maxant/async
+
+12. Trampolines in Java 8:
+http://www.slideshare.net/mariofusco/lazine

@@ -1,0 +1,40 @@
+https://wiki.archlinux.org/index.php/Network_configuration
+https://coreos.com/blog/intro-to-systemd-networkd/
+
+Net via systemd-networkd:
+https://wiki.archlinux.org/index.php/Systemd-networkd
+
+man systemd-network
+
+Example 1. /etc/systemd/network/50-static.network
+[Match]
+Name=enp2s0
+
+[Network]
+Address=192.168.0.103/24
+Gateway=192.168.0.1
+DNS=192.168.0.1
+#end
+
+sudo systemclt enable systemd-networkd.service
+sudo systemctl enable systemd-resolved.service
+
+After restart
+ip route list
+default via 192.168.0.1 dev enp2s0  proto static 
+...
+192.168.0.0/24 dev enp2s0  proto kernel  scope link  src 192.168.0.103 
+
+
+NetworkManager defaults:
+ip route:
+default via 192.168.0.1 dev enp2s0  proto static  metric 100 
+192.168.0.0/24 dev enp2s0  proto kernel  scope link  src 192.168.0.103  metric 100 
+
+ip address:
+2: enp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 94:de:80:7d:b2:15 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.103/24 brd 192.168.0.255 scope global dynamic enp2s0
+       valid_lft 4332sec preferred_lft 4332sec
+    inet6 fe80::96de:80ff:fe7d:b215/64 scope link 
+       valid_lft forever preferred_lft forever

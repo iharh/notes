@@ -1,0 +1,18 @@
+Kholomiom - part 16
+
+-- | 'repeat' @x@ is an infinite list, with @x@ the value of every element.
+repeat :: a -> [a]
+{-# INLINE [0] repeat #-}
+-- The pragma just gives the rules more chance to fire
+repeat x = xs where xs = x : xs
+
+> repeat f = f : f : f : ...
+
+
+fix :: (a -> a) -> a
+fix = foldr ($) undefined . repeat
+
+(replace (:) c-tor of repeat by application - ($)).
+
+...
+

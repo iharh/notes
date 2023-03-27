@@ -1,0 +1,36 @@
+git add
+    .
+        add all the stuff
+    -i
+        interactive add
+            status
+
+            update
+                <num>/-<num>
+
+            revert
+                the opposite of update
+
+            add untracked
+                add untracked files
+
+            patch
+                select file, then
+                Stage this hunk [y,n,q,a,d,/,s,e,?]?
+                                ,j,J,g,
+                                ,K,g,
+
+            diff
+                show diff between stating area and repo
+
+            quit
+
+            help
+
+    -p
+        interactive add with patch mode selected
+
+    --update
+        stage all changes in all tracked files
+
+

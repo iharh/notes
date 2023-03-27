@@ -1,0 +1,34 @@
+Commands
+M-x
+	re-builder
+		pops up a separate window in which you can test out your regexp, and any matches
+		in your original buffer will get highlighted as you edit your regexp.
+	occur
+		prompts you for a regular expression, then displays in a separate buffer a list of all
+		lines in the current buffer which match that regexp (as well as their line numbers).
+		Clicking on any occurrence takes you to that line in the buffer.
+
+
+C-c
+	C-q
+		reb-quit
+	C-i
+		reb-change-syntax
+	C-c
+		reb-toggle-case
+	C-b
+		reb-change-target-buffer
+
+    (define-key map "\C-c\C-w" 'reb-copy)
+    (define-key map "\C-c\C-s" 'reb-next-match)
+    (define-key map "\C-c\C-r" 'reb-prev-match)
+    (define-key map "\C-c\C-e" 'reb-enter-subexp-mode)
+    (define-key map "\C-c\C-u" 'reb-force-update)
+
+
+sregex
+
+  (sregexq (opt "resent-")
+           (group (or "to" "cc" "bcc"))
+           ": "
+           (backref 1))  =>  "\\(resent-\\)?\\(to\\|cc\\|bcc\\): \\2"

@@ -1,0 +1,32 @@
+https://habrahabr.ru/post/280037/
+
+hostnamectl
+    hostname
+    set-hostname <new-name>
+/etc/hostname
+    old-way to set persistent
+
+sudo systemctl restart systemd-hostnamed
+  it is terminated when unused
+
+hostname
+hostname -f
+uname -n
+
+hostname <new-host-name>
+    temp set a new host name
+
+/etc/machine-info
+PRETTY_HOSTNAME="bla-bla'bla-bla"
+
+DNS:
+getent hosts
+    get hosts info
+
+/etc/nsswitch.conf
+hosts: files dns
+
+/etc/resolv.conf
+search example.com
+
+dig [+short]

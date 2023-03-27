@@ -1,0 +1,96 @@
+org.elasticsearch.index.fielddata.plain.ParentChildIndexFieldData.loadDirect(ParentChildIndexFieldData.java:99)
+org.elasticsearch.index.fielddata.plain.ParentChildIndexFieldData.loadDirect(ParentChildIndexFieldData.java:59)
+
+org.elasticsearch.index.fielddata.IndexFieldDataCache$FieldBased$1.call(IndexFieldDataCache.java:131)
+org.elasticsearch.index.fielddata.IndexFieldDataCache$FieldBased$1.call(IndexFieldDataCache.java:118)
+
+org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4739)
+org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3524)
+org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2317)
+org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2280)
+org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2195)
+org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3934)
+org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4736)
+
+org.elasticsearch.index.fielddata.IndexFieldDataCache$FieldBased.load(IndexFieldDataCache.java:118)
+org.elasticsearch.index.fielddata.AbstractIndexFieldData.load(AbstractIndexFieldData.java:73)
+
+org.elasticsearch.index.fielddata.plain.ParentChildIndexFieldData$ParentTypesGlobalOrdinalsLoading$PerType.loadDirect(ParentChildIndexFieldData.java:365)
+org.elasticsearch.index.fielddata.plain.ParentChildIndexFieldData$ParentTypesGlobalOrdinalsLoading$PerType.load(ParentChildIndexFieldData.java:360)
+
+org.elasticsearch.index.fielddata.ordinals.InternalGlobalOrdinalsBuilder$TermIterator.<init>(InternalGlobalOrdinalsBuilder.java:342)
+org.elasticsearch.index.fielddata.ordinals.InternalGlobalOrdinalsBuilder$TermIterator.<init>(InternalGlobalOrdinalsBuilder.java:333)
+org.elasticsearch.index.fielddata.ordinals.InternalGlobalOrdinalsBuilder.build(InternalGlobalOrdinalsBuilder.java:78)
+
+
+org.elasticsearch.index.fielddata.plain.ParentChildIndexFieldData$ParentTypesGlobalOrdinalsLoading.localGlobalDirect(ParentChildIndexFieldData.java:310)
+
+org.elasticsearch.index.fielddata.IndexFieldDataCache$FieldBased$2.call(IndexFieldDataCache.java:162)
+org.elasticsearch.index.fielddata.IndexFieldDataCache$FieldBased$2.call(IndexFieldDataCache.java:149)
+
+
+org.elasticsearch.common.cache.LocalCache$LocalManualCache$1.load(LocalCache.java:4739)
+org.elasticsearch.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3524)
+org.elasticsearch.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2317)
+org.elasticsearch.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2280)
+org.elasticsearch.common.cache.LocalCache$Segment.get(LocalCache.java:2195)
+org.elasticsearch.common.cache.LocalCache.get(LocalCache.java:3934)
+org.elasticsearch.common.cache.LocalCache$LocalManualCache.get(LocalCache.java:4736)
+
+org.elasticsearch.index.fielddata.IndexFieldDataCache$FieldBased.load(IndexFieldDataCache.java:149)
+
+org.elasticsearch.index.fielddata.plain.ParentChildIndexFieldData$ParentTypesGlobalOrdinalsLoading.loadGlobal(ParentChildIndexFieldData.java:294)
+org.elasticsearch.index.fielddata.plain.ParentChildIndexFieldData.getGlobalParentChild(ParentChildIndexFieldData.java:165)
+
+org.elasticsearch.index.search.child.ChildrenConstantScoreQuery.createWeight(ChildrenConstantScoreQuery.java:97)
+
+org.apache.lucene.search.ConstantScoreQuery$ConstantWeight.<init>(ConstantScoreQuery.java:112)
+org.apache.lucene.search.ConstantScoreQuery.createWeight(ConstantScoreQuery.java:298)
+org.apache.lucene.search.FilteredQuery.createWeight(FilteredQuery.java:82)
+org.elasticsearch.common.lucene.search.XFilteredQuery.createWeight(XFilteredQuery.java:86)
+org.apache.lucene.search.IndexSearcher.createNormalizedWeight(IndexSearcher.java:684)
+org.elasticsearch.search.internal.ContextIndexSearcher.createNormalizedWeight(ContextIndexSearcher.java:132)
+
+org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:125)
+org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:257)
+
+org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:206)
+org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:203)
+org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:517)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+java.lang.Thread.run(Thread.java:722)
+
+
+
+IndexFieldDataService
+    .clear()
+IndicesFieldDataService
+    .clear()
+    .clear(fieldName)
+    .clear(indexReader)
+    .clearField(fieldName)
+    .onMappingUpdate()
+    .onClose();
+
+
+PercolateContext.doClose() {
+    ...
+    fieldDataService.clear(indexReader);
+    indexService.cache().clear(indexReader);
+}
+
+
+// just local usage of field data cache
+fields.lookup.FieldsLookup
+.. DocLookup
+.. ResidentQueryParserCache
+    clearCache()
+
+
+InternalIndicesService.removeIndex
+
+TransportClearIndicesCacheAction....
+
+!!! cont with ParentChildIndexFieldData

@@ -1,0 +1,35 @@
+2017
+Essential Math Competencies in Machine Learning
+https://www.youtube.com/watch?v=1c25FFm87_c
+    Pr(Y|X)*Pr(X) = Pr(Y,X) = Pr(X|Y)*Pr(Y)
+
+              Pr(Y|X)*Pr(X)
+    Pr(X|Y) = ------------
+                 Pr(Y)
+
+
+Raygorodsky - 2017
+https://www.youtube.com/playlist?list=PL567xYdMCWxYzFfcM1Hafz5tgf1SJWBi-
+
+Intuitively, elementary events are independent if
+
+    P(A|B) = P(A)  // knowledge of B gives no new info about the probability of A
+        also
+    P(B|A) = P(B)
+
+
+Multiplication theorem
+
+    P(A|B)*P(B) = P(A /\ B)  // /\ is an intersection
+
+From it
+
+    P(A|B)*P(B)
+    ----------  = P(A)*P(B)
+     P(A /\ B)
+
+It is better (because includes cases when P(A) or P(B) can be = 0)
+
+So, we can come to definition
+
+    P(A /\ B) = P(A)*P(B)

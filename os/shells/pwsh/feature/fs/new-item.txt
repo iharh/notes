@@ -1,0 +1,3 @@
+# To create a Windows PowerShell profile file, type:
+new-item -path $profile -itemtype file -force
+

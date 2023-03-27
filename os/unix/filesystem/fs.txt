@@ -1,0 +1,6 @@
+https://wiki.archlinux.org/index.php/File_systems
+http://www.unixmen.com/review-ext4-vs-btrfs-vs-xfs/
+https://help.ubuntu.com/community/LinuxFilesystemsExplained
+
+df -T
+    list file systems and their types

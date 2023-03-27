@@ -1,0 +1,42 @@
+apt
+    systemd-coredump
+
+cli
+sudo coredumpctl
+    --help
+    list
+    info -1
+    dump EXE pnmixer -o a.dmp
+
+http://terry.im/wiki/terry/systemd.html
+http://unix.stackexchange.com/questions/68603/why-is-systemd-coredump-storing-the-dump-in-memory-itself
+https://wiki.archlinux.org/index.php/Systemd#Disabling_application_crash_dumps_journaling
+
+http://www.linuxhowtos.org/Tips%20and%20Tricks/coredump.htm
+
+With the launch of systemd, there's another scenario aswell. By default systemd will store core dumps in its journal,
+being accessible with the coredumpctl command. Defined in the core_pattern-file:
+
+$ cat /proc/sys/kernel/core_pattern 
+|/usr/lib/systemd/systemd-coredump %p %u %g %s %t %e
+
+This behaviour can be disabled with a simple "hack":
+
+$ ln -s /dev/null /etc/sysctl.d/50-coredump.conf
+$ sysctl -w kernel.core_pattern=core      # or just reboot
+
+As always, the size of core dumps has to be equal or higher than the size of the core that is being dumped, as done by for example ulimit -c unlimited.
+
+man systemd-coredump
+/usr/lib/sysctl.d/50-coredump.conf
+kernel.core_pattern
+
+man coredump.conf
+/etc/systemd/coredump.conf
+/etc/systemd/coredump.conf.d/*.conf
+/run/systemd/coredump.conf.d/*.conf
+/usr/lib/systemd/coredump.conf.d/*.conf
+
+2021
+https://blogs.gnome.org/mcatanzaro/2021/09/18/creating-quality-backtraces-for-crash-reports/
+    !!! need to read

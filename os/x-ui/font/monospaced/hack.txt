@@ -1,0 +1,23 @@
+https://sourcefoundry.org/hack/
+https://source-foundry.github.io/Hack/font-specimen.html
+
+https://github.com/source-foundry/Hack/
+https://github.com/chrissimpkins/Hack
+
+default
+$ fc-match "Hack"
+    DejaVuSans.ttf: "DejaVu Sans" "Book"
+
+aur/ttf-hack
+apt/fonts-hack[-otf|-ttf|-web]
+    ! not-patched
+
+https://github.com/chrissimpkins/Hack#desktop-installation
+
+hack-nerd
+https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/readme.md
+    !!!
+
+hack-powerline
+aur: ttf-hack-powerline-git
+    https://github.com/chrissimpkins/Hack/issues/1

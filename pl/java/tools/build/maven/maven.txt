@@ -1,0 +1,89 @@
+// TODO: use dependecyManagement (a way for you to consolidate dependency version numbers)
+// and pluginManagement in parent POMs (and, probably, in child also)
+// Maven expand SHAPSHOT with timestamps upon install/release
+
+mvn help:effective-pom
+mvn help:active-profiles -Denvvar=value // a list of active profiles
+mvn help:all-profiles
+mvn help:effective-settings, 
+mvn help:system - show environmental variables and system properties
+
+
+mvn help:describe -Dplugin=compiler -Dmojo=compile -Dfull
+mvn help:describe -Dplugin=exec -Dfull
+mvn help:describe -Dcmd=compiler:compile -Ddetail
+
+
+enforcer:display-info // OS, arch info
+
+dependency:analyze // analyze missing dependencies (which should be declared explicitly)
+dependency:resolve
+dependency:resolve-plugins
+dependency:tree, list // marks compile/test dep
+dependency:tree -Dincludes=velocity:velocity //  filter the output - http://maven.apache.org/plugins/maven-dependency-plugin/examples/filtering-the-dependency-tree.html
+-Dverbose // for describing conflicts
+dependency:go-offline - check the up-to-date versions (before going off-line)
+dependency:copy-dependencies [-Dclassifer=sources] // copy all the necessary jars
+dependency:purge-local-repository
+
+
+mvn eclipse:eclipse -DdownloadSources=true -DdownloadJavadocs=true
+
+mvn hibernate3:hbm2ddl
+
+source:aggregate aggregrates sources for all modules in an aggregator project.
+source:jar is used to bundle the main sources of the project into a jar archive.
+source:test-jar -//- tests
+
+mvn assembly:assembly -DdescriptorId=project
+
+for UT skipp -Dmaven.test.skip=true
+
+mvn --help // Command-line:
+-U (--update-snapshots)
+-X (--debug)
+-e (--errors) - show error stack traces
+
+-cpu (--check-plugin-updates)
+
+POM variables:
+
+${env.VAR} // environment variable VAR
+${project.var}
+${settings.var}
+${name} // Java System Properites (-Dname=value)
+
+${pom.version} - general project version
+
+
+// Execute class
+mvn exec:java -Dexec.mainClass=org.springframework.batch.core.launch.support.CommandLineJobRunner -Dexec.args="simpleJob.xml simpleJob message=Hello_World!"
+
+
+Missing:
+----------
+1) com.oracle:ojdbc14:jar:10.2.0.3.0
+
+  Try downloading the file manually from:
+      http://www.oracle.com/technology/software/tech/java/sqlj_jdbc/index.html
+
+  Then, install it using the command:
+      mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.3.0 -Dpackaging=jar -Dfile=/path/to/file
+
+  Alternatively, if you host your own repository you can deploy the file there:
+      mvn deploy:deploy-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.3.0 -Dpackaging=jar -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]
+
+
+Advanced Reactor
+----------
+Starting with the Maven 2.1 release, there are new Maven command line options which allow you to manipulate the way that
+Maven will build multimodule projects. These new options are:
+
+-rf, –resume-from
+        Resume reactor from specified project
+-pl, –projects
+        Build specified reactor projects instead of all projects
+-am, –also-make
+        If project list is specified, also build projects required by the list
+-amd, –also-make-dependents
+        If project list is specified, also build projects that depend on projects on the list 

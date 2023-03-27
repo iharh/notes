@@ -1,0 +1,31 @@
+alter session set current_schema=WIN_SS;
+set serveroutput on;
+-- format wrapped;
+declare
+  l_blob blob;
+  l_blob_len number;
+  l_amount number := 2000;
+  l_pos number;
+begin
+  select content into l_blob from cb_file_repository where name = 'config' and language_id='en';
+  l_blob_len := dbms_lob.getlength(l_blob);
+  l_pos := 1;
+  while l_pos < l_blob_len loop
+    dbms_output.put(utl_raw.cast_to_varchar2(dbms_lob.substr(l_blob, l_amount, l_pos)));
+    l_pos := l_pos + l_amount;
+  end loop;
+  dbms_output.put_line('config blob len: ' || l_blob_len);
+end;
+
+
+alter session set current_schema=WIN_SS;
+select
+    cbfr1.name            as "lexicon_name",
+    cbfr1.language_id     as "language_id"
+from
+    cb_file_repository cbfr1,
+    cb_file_repository cbfr2
+where
+    cbfr1.type ='lexicon' and cbfr1.kind != 1 and
+    cbfr2.type ='config' and instr(DBMS_LOB.SUBSTR(cbfr2.content, 2001), cbfr1.name) > 1
+;

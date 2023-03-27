@@ -1,0 +1,242 @@
+man
+  pppd
+  pppstats
+
+http://pptpclient.sourceforge.net/
+http://pptpclient.sourceforge.net/documentation.phtml
+https://wiki.archlinux.org/index.php/Pppd
+
+pptpclient:
+https://wiki.archlinux.org/index.php/PPTP_VPN_client_setup_with_pptpclient
+http://nix.zeya.org/wiki/%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_vpn_pptp_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2_archlinux
+https://www.opennet.ru/base/modem/vpn_client.txt.html
+
+troubleshooting:
+https://wiki.openwrt.org/doc/howto/vpn.client.pptp
+  pppd call peername debug dump nodetach
+https://wiki.debian.org/ru/pptp-linux
+http://pptpclient.sourceforge.net/howto-diagnosis.phtml
+
+routing:
+http://homenet.beeline.ru/?showtopic=10506
+http://pptpclient.sourceforge.net/routing.phtml
+https://docs.altlinux.org/archive/2.2/master/admin-html/ch08s04.html
+   !!!
+win - netstat -nr
+http://pcrouter.ru/ipb/index.php?showtopic=893
+
+env-vars:
+http://abills.net.ua/forum/viewtopic.php?t=4375&start=60
+http://breys.ru/1907.html
+  env > /tmp/env.vpn
+http://archlinux.org.ru/forum/topic/8943/
+
+ppp (pon, poff, plog)
+
+/etc/ppp/peers/epam:
+pty "pptp vpnmsq.epam.com --nolaunchpppd"
+user "<company-email>"
+#password "<pwd>" -> put to the /etc/ppp/chap-secrets
+refuse-eap
+refuse-pap
+refuse-chap
+require-mschap
+require-mschap-v2
+noauth
+# do not need to create /etc/ppp/resolv.conf manually
+#http://archlinux.org.ru/forum/topic/4333/?page=2
+usepeerdns
+#nobsdcomp
+#nodeflate
+#nomppe
+mtu 1400
+mru 1400
+lcp-echo-failure 10
+defaultroute
+#? iproute
+#http://sysadmin.tomsk.com/index.php?topic=4726.0
+#??? replacedefaultroute - for Debian/Ubuntu only
+#http://forum.ubuntu.ru/index.php?topic=84520.0
+#netmask 255.255.255.255
+# ip of vpnmsq.epam.com
+pparam 217.21.63.8
+# end of /etc/ppp/peers/epam
+
+
+Routing:
+
+/etc/ppp/ip-up.d/01-route.sh
+#!/bin/sh
+logger ip-up 01-route "$@" IFNAME: ${IFNAME} ipparam: $6
+ip route del default
+# TODO add params for 192.168.0.1 and enp2s0
+ip route add default via 192.168.0.1 dev enp2s0 proto static metric 100
+ip route add default dev ${IFNAME} proto static scope link metric 50
+
+/etc/ppp/ip-down.d/01.route.sh
+#!/bin/sh
+# Parameters: interface-name tty-device speed local-IP-address remote-IP-address ipparam
+logger ip-up 01-route "$@" IFNAME: ${IFNAME} ipparam: $6
+ip route del default
+# TODO add params for 192.168.0.1 and enp2s0
+ip route add default via 192.168.0.1 dev enp2s0 proto static metric 100
+ip route add default dev ${IFNAME} proto static scope link metric 50
+
+??
+# local-IP-address: 10.6.60.199 remote-IP-address: 10.6.60.0
+ip route del $6
+
+
+DNS
+
+cat /etc/ppp/ip-up.d/00-dns.sh
+#!/bin/sh
+
+if [ "$USEPEERDNS" = "1" -a -f /etc/ppp/resolv.conf ]; then
+  if [ -x /usr/bin/resolvconf ]; then
+	/usr/bin/resolvconf -a ${IFNAME} </etc/ppp/resolv.conf
+  else
+	[ -e /etc/resolv.conf ] && mv /etc/resolv.conf /etc/resolv.conf.backup.${IFNAME}
+	mv /etc/ppp/resolv.conf /etc/resolv.conf
+	chmod 644 /etc/resolv.conf
+  fi
+fi
+
+after vpn-ing "ip addr show" should show:
+ppp0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1400
+    	inet 10.6.60.245  netmask 255.255.255.255  destination 10.6.60.0
+    	ppp  txqueuelen 3  (Point-to-Point Protocol)
+    	RX packets 15  bytes 606 (606.0 B)
+    	RX errors 0  dropped 0  overruns 0  frame 0
+    	TX packets 15  bytes 638 (638.0 B)
+    	TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+destination here is an IP of dest-end
+
+… pppd[6155]:
+... CHAP authentication succeeded
+… NetworkManager[2131]: CHAP authentication succeeded
+… NetworkManager[2131]: ** Message: nm-pptp-ppp-plugin: (nm_phasechange): status 8 / phase 'network'
+… Cannot determine ethernet address for proxy ARP
+… local  IP address 10.6.60.58
+… remote IP address 10.6.60.0
+… primary   DNS address 10.6.0.16
+… secondary DNS address 10.6.0.6
+...
+… NetworkManager[2131]: …
+… remote IP address 10.6.60.0
+… primary   DNS address 10.6.0.16
+… secondary DNS address 10.6.0.6
+...
+…. <info>  (ppp0): Activation: starting connection 'ppp0' (4f93eb34-158d-4c2c-af14-a2b166232844)
+… <info>  VPN connection 'EpamVPN' (IP4 Config Get) reply received from old-style plugin.
+… <info>  VPN Gateway: 217.21.63.8
+… <info>  Tunnel Device: ppp0
+… <info>  IPv4 configuration:
+… <info>	Internal Address: 10.6.60.58
+… <info>	Internal Prefix: 32
+… <info>	Internal Point-to-Point Address: 10.6.60.0
+… <info>	Maximum Segment Size (MSS): 0
+… <info>	Forbid Default Route: no
+… <info>	Internal DNS: 10.6.0.16
+… <info>	Internal DNS: 10.6.0.6
+… <info>	DNS Domain: '(none)'
+… <info>  No IPv6 configuration
+
+err1:
+
+May 31 09:45:25 ihdesk sudo[4476]:    iharh : TTY=pts/1 ; PWD=/home/iharh ; USER=root ; COMMAND=/usr/bin/pon epam
+May 31 09:45:25 ihdesk sudo[4476]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 31 09:45:25 ihdesk pppd[4478]: pppd 2.4.7 started by root, uid 0
+May 31 09:45:25 ihdesk sudo[4476]: pam_unix(sudo:session): session closed for user root
+May 31 09:45:25 ihdesk pppd[4478]: Using interface ppp0
+May 31 09:45:25 ihdesk pppd[4478]: Connect: ppp0 <--> /dev/pts/5
+May 31 09:45:25 ihdesk pptp[4479]: anon log[main:pptp.c:333]: The synchronous pptp option is NOT activated
+May 31 09:45:25 ihdesk pptp[4506]: anon log[ctrlp_rep:pptp_ctrl.c:258]: Sent control packet type is 1 'Start-Control-Connection-Request'
+May 31 09:45:25 ihdesk pptp[4506]: anon log[ctrlp_disp:pptp_ctrl.c:758]: Received Start Control Connection Reply
+May 31 09:45:25 ihdesk pptp[4506]: anon log[ctrlp_disp:pptp_ctrl.c:792]: Client connection established.
+May 31 09:45:26 ihdesk pptp[4506]: anon log[ctrlp_rep:pptp_ctrl.c:258]: Sent control packet type is 7 'Outgoing-Call-Request'
+May 31 09:45:26 ihdesk pptp[4506]: anon log[ctrlp_disp:pptp_ctrl.c:877]: Received Outgoing Call Reply.
+May 31 09:45:26 ihdesk pptp[4506]: anon log[ctrlp_disp:pptp_ctrl.c:916]: Outgoing call established (call ID 0, peer's call ID 65498).
+May 31 09:45:26 ihdesk pptp[4506]: anon log[ctrlp_disp:pptp_ctrl.c:980]: PPTP_SET_LINK_INFO received from peer_callid 51628
+May 31 09:45:26 ihdesk pptp[4506]: anon log[ctrlp_disp:pptp_ctrl.c:983]:   send_accm is 00000000, recv_accm is FFFFFFFF
+May 31 09:45:26 ihdesk pptp[4506]: anon warn[ctrlp_disp:pptp_ctrl.c:986]: Non-zero Async Control Character Maps are not supported!
+May 31 09:45:26 ihdesk pppd[4478]: CHAP authentication succeeded
+May 31 09:45:26 ihdesk pppd[4478]: not replacing existing default route via 192.168.0.1
+May 31 09:45:26 ihdesk pppd[4478]: Cannot determine ethernet address for proxy ARP
+May 31 09:45:26 ihdesk pppd[4478]: local  IP address 10.6.60.149
+May 31 09:45:26 ihdesk pppd[4478]: remote IP address 10.6.60.0
+May 31 09:45:26 ihdesk systemd-networkd[813]: ppp0: Gained carrier
+May 31 09:45:26 ihdesk pppd[4478]: primary   DNS address 10.6.0.6
+May 31 09:45:26 ihdesk pppd[4478]: secondary DNS address 10.6.0.16
+May 31 09:45:26 ihdesk root[4559]: ip-up 00-dns
+May 31 09:45:26 ihdesk root[4561]: ip-up 01-route ppp0  38400 10.6.60.149 10.6.60.0 217.21.63.8 IFNAME: ppp0 ipparam: 217.21.63.8
+
+$ ip r
+default dev ppp0 proto static scope link metric 50 
+default via 192.168.0.1 dev enp2s0 proto static metric 100 
+10.6.60.0 dev ppp0 proto kernel scope link src 10.6.60.149 
+192.168.0.0/24 dev enp2s0 proto kernel scope link src 192.168.0.103
+
+$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 94:de:80:7d:b2:15 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.103/24 brd 192.168.0.255 scope global enp2s0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::96de:80ff:fe7d:b215/64 scope link 
+       valid_lft forever preferred_lft forever
+7: ppp0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1400 qdisc fq_codel state UNKNOWN group default qlen 3
+    link/ppp 
+    inet 10.6.60.149 peer 10.6.60.0/32 scope global ppp0
+       valid_lft forever preferred_lft forever
+
+
+good:
+$ ip r
+default dev ppp0 proto static scope link metric 50 
+default via 192.168.0.1 dev enp2s0 proto static metric 100 
+10.6.60.0 dev ppp0 proto kernel scope link src 10.6.60.98 
+192.168.0.0/24 dev enp2s0 proto kernel scope link src 192.168.0.103 
+217.21.63.8 via 192.168.0.1 dev enp2s0 src 192.168.0.103  # !!!
+
+May 31 09:53:11 ihdesk sudo[1063]:    iharh : TTY=pts/0 ; PWD=/home/iharh ; USER=root ; COMMAND=/usr/bin/pon epam
+May 31 09:53:12 ihdesk kernel: PPP generic driver version 2.4.2
+May 31 09:53:11 ihdesk sudo[1063]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 31 09:53:11 ihdesk pppd[1070]: pppd 2.4.7 started by root, uid 0
+May 31 09:53:11 ihdesk sudo[1063]: pam_unix(sudo:session): session closed for user root
+May 31 09:53:11 ihdesk pppd[1070]: Using interface ppp0
+May 31 09:53:11 ihdesk pppd[1070]: Connect: ppp0 <--> /dev/pts/1
+May 31 09:53:11 ihdesk pptp[1071]: anon log[main:pptp.c:333]: The synchronous pptp option is NOT activated
+May 31 09:53:11 ihdesk pptp[1111]: anon log[ctrlp_rep:pptp_ctrl.c:258]: Sent control packet type is 1 'Start-Control-Connection-Request'
+May 31 09:53:11 ihdesk pptp[1111]: anon log[ctrlp_disp:pptp_ctrl.c:758]: Received Start Control Connection Reply
+May 31 09:53:11 ihdesk pptp[1111]: anon log[ctrlp_disp:pptp_ctrl.c:792]: Client connection established.
+May 31 09:53:12 ihdesk pptp[1111]: anon log[ctrlp_rep:pptp_ctrl.c:258]: Sent control packet type is 7 'Outgoing-Call-Request'
+May 31 09:53:12 ihdesk pptp[1111]: anon log[ctrlp_disp:pptp_ctrl.c:877]: Received Outgoing Call Reply.
+May 31 09:53:12 ihdesk pptp[1111]: anon log[ctrlp_disp:pptp_ctrl.c:916]: Outgoing call established (call ID 0, peer's call ID 42701).
+May 31 09:53:13 ihdesk pptp[1111]: anon log[ctrlp_disp:pptp_ctrl.c:980]: PPTP_SET_LINK_INFO received from peer_callid 53114
+May 31 09:53:13 ihdesk pptp[1111]: anon log[ctrlp_disp:pptp_ctrl.c:983]:   send_accm is 00000000, recv_accm is FFFFFFFF
+May 31 09:53:13 ihdesk pptp[1111]: anon warn[ctrlp_disp:pptp_ctrl.c:986]: Non-zero Async Control Character Maps are not supported!
+May 31 09:53:13 ihdesk pppd[1070]: CHAP authentication succeeded
+May 31 09:53:13 ihdesk kernel: PPP BSD Compression module registered
+May 31 09:53:13 ihdesk kernel: PPP Deflate Compression module registered
+May 31 09:53:13 ihdesk pppd[1070]: not replacing existing default route via 192.168.0.1
+May 31 09:53:13 ihdesk pppd[1070]: Cannot determine ethernet address for proxy ARP
+May 31 09:53:13 ihdesk systemd-networkd[795]: ppp0: Gained carrier
+May 31 09:53:13 ihdesk pppd[1070]: local  IP address 10.6.60.98
+May 31 09:53:13 ihdesk pppd[1070]: remote IP address 10.6.60.0
+May 31 09:53:13 ihdesk pppd[1070]: primary   DNS address 10.6.0.6
+May 31 09:53:13 ihdesk pppd[1070]: secondary DNS address 10.6.0.16
+May 31 09:53:13 ihdesk root[1256]: ip-up 00-dns
+May 31 09:53:13 ihdesk root[1258]: ip-up 01-route ppp0  38400 10.6.60.98 10.6.60.0 217.21.63.8 IFNAME: ppp0 ipparam: 217.21.63.8
+
+
+May 31 09:53:13 ihdesk kernel: PPP BSD Compression module registered
+May 31 09:53:13 ihdesk kernel: PPP Deflate Compression module registered
+
+http://cateee.net/lkddb/web-lkddb/PPP_BSDCOMP.html

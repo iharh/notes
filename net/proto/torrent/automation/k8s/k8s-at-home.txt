@@ -1,0 +1,58 @@
+https://docs.k8s-at-home.com/
+https://github.com/k8s-at-home
+
+https://artifacthub.io/packages/search?org=k8s-at-home
+https://artifacthub.io/packages/helm/k8s-at-home/jackett
+https://artifacthub.io/packages/helm/k8s-at-home/readarr
+
+https://artifacthub.io/packages/helm/k8s-at-home/sabnzbd
+    https://sabnzbd.org/wiki/extensions-for-sabnzbd
+    https://github.com/theotherp/nzbhydra2
+        https://imgur.com/a/ePxwj
+    https://github.com/theotherp/nzbhydra2/wiki/
+    https://sabnzbd.org/wiki/advanced/api
+
+https://flexget.com/
+    https://flexget.com/Cookbook
+        https://flexget.com/Cookbook/Ebooks
+            https://flexget.com/Cookbook/SimpleEbooks
+            https://flexget.com/Cookbook/Users/foulou
+            https://flexget.com/Searches/alpharatio
+
+https://artifacthub.io/packages/helm/k8s-at-home/changedetection-io
+    https://github.com/dgtlmoon/changedetection.io
+
+https://artifacthub.io/packages/helm/k8s-at-home/prowlarr
+    https://github.com/Prowlarr/Prowlarr
+
+https://artifacthub.io/packages/helm/k8s-at-home/readarr
+
+https://artifacthub.io/packages/helm/k8s-at-home/aria2
+    https://hub.docker.com/r/p3terx/aria2-pro
+    https://github.com/P3TERX/Aria2-Pro-Docker
+    http://ariang.mayswind.net/
+    https://github.com/mayswind/AriaNg
+
+https://artifacthub.io/packages/helm/k8s-at-home/overleaf
+    https://github.com/overleaf/overleaf
+
+rss
+https://artifacthub.io/packages/helm/k8s-at-home/miniflux
+    https://miniflux.app/
+    https://github.com/miniflux/v2
+https://artifacthub.io/packages/helm/k8s-at-home/tt-rss
+    https://git.tt-rss.org/fox/tt-rss
+
+irc
+https://artifacthub.io/packages/helm/k8s-at-home/thelounge
+    https://thelounge.chat/
+    https://github.com/thelounge/thelounge
+
+sync
+https://artifacthub.io/packages/helm/k8s-at-home/seafile
+    https://github.com/haiwen/seafile-docker
+    https://www.seafile.com/en/features/
+    https://github.com/haiwen/seafile
+
+
+https://docs.k8s-at-home.com/our-helm-charts/introduction/

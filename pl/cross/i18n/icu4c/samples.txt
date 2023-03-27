@@ -1,0 +1,41 @@
+std::string resFileName("");
+icu::UnicodeString m_ResFileName;
+m_ResFileName.toUTF8String(resFileName);
+
+static std::string
+naiveToNative(const UnicodeString &str)
+{
+    char *pBuf = reinterpret_cast<char *>(::alloca(str.length() + 1));
+    pBuf[str.extract(0, str.length(), pBuf)] = 0;
+    return std::string(pBuf);
+}
+
+inline std::string
+fromUnicodeString(const UnicodeString &ustr)
+{
+    UErrorCode errorCode = U_ZERO_ERROR;
+    int32_t length = ustr.extract(0, 0, errorCode);
+    assert(U_SUCCESS(errorCode) || errorCode == U_BUFFER_OVERFLOW_ERROR);
+    if (length <= 0)
+        return std::string();
+    std::string result(length, 0);
+
+    int32_t reslen = ustr.extract(0, length, &*result.begin());
+    assert(reslen == length);
+
+    return result;
+}
+
+inline icu::UnicodeString
+toUnicodeString(const std::string &src)
+{
+    assert(src.length() < boost::integer_traits<int>::const_max);
+    UErrorCode ccode = U_ZERO_ERROR;
+#ifdef _DEBUG
+    icu::UnicodeString result(src.c_str(), (int)src.length(), (UConverter*)0, ccode);
+    assert(U_SUCCESS(ccode));
+    return result;
+#else
+    return icu::UnicodeString(src.c_str(), (::int32_t)src.length(), (UConverter*)0, ccode);
+#endif
+}

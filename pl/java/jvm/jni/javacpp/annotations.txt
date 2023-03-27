@@ -1,0 +1,52 @@
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/annotation/package-summary.html
+
+org.bytedeco.javacpp.annotation.Platform
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/Platform.java
+
+@Platform(
+    cinclude // a list of C headers to include at the top of generated code
+
+    include="SomeFile.h"
+        {"openblas_config.h", "cblas.h"}
+    includepath includeresource
+
+    link linkpath linkresource
+    preloadpath preloadresource preload
+
+    value = "linux-x86_64",
+    preloadpath = {"/lib64/", "/lib/", "/usr/lib64/", "/usr/lib/", "/opt/intel/lib/intel64/", "/opt/intel/mkl/lib/intel64/"},
+
+    framework frameworkpath
+
+)
+
+    @Platform(include="subfolder/simpleproviderimpl.h"),
+    @Platform(value = "windows-x86_64", preload = { "icudt49", "icuuc49", "icuin49", "icuio49" }),
+    @Platform(value = "linux-x86_64", preload = { "icudata", "icuuc", "icui18n", "icuio" })
+
+@Adapter
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/annotation/Adapter.html
+
+@StdString
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/StdString.java
+@StdWString
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/StdWString.java
+@StdVector
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/StdVector.java
+
+@Const
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/Const.java
+@ByVal
+@ByRef
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/ByRef.java
+
+@NoException
+http://bytedeco.org/javacpp/apidocs/org/bytedeco/javacpp/annotation/NoException.html
+
+@NoOffset
+@Virtual
+
+@FunctionalPointer
+    calling java back from c++ is very slow
+@UniquePtr
+https://github.com/bytedeco/javacpp/blob/master/src/main/java/org/bytedeco/javacpp/annotation/UniquePtr.java

@@ -1,0 +1,14 @@
+gradle.taskGraph.whenReady(closureOf<TaskExecutionGraph> {
+    println("Found task graph: $this")
+    println("Found " + allTasks.size + " tasks.")
+    allTasks.forEach { task ->
+        println(task)
+        task.dependsOn.forEach { dep ->
+            println("  - $dep")
+        }
+        println("inputs: ")
+        task.inputs.getFiles().getFiles().forEach { f -> println(" - " + f)}
+        println("outputs: ")
+        task.outputs.getFiles().getFiles().forEach { f -> println(" + " + f)}
+    }
+})

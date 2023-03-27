@@ -1,0 +1,17 @@
+by default in groovy:
+attributes - are private
+methods    - are public
+classes    - are public
+
+class Person {
+    String first
+    String last
+}
+
+Person qb = new Person()
+qb.setFirst('Tom')
+qb.last = 'Brady' // use auto-generated setLast-method, unless the prop is private
+println "${qb.getFirst()} ${qb.last}"
+
+...
+new Person(first: 'Tom', last: 'Brady')

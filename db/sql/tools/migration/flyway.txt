@@ -1,0 +1,36 @@
+http://flywaydb.org/
+https://github.com/flyway/flyway
+
+https://flywaydb.org/documentation/usage/gradle/
+    import org.flywaydb.gradle.task.FlywayMigrateTask
+    tasks {
+        create<FlywayMigrateTask>("migrateLocal") {
+            configFiles = arrayOf("doc/flyway/flyway_LOCAL.conf")
+        }
+    }
+
+https://flywaydb.org/documentation/usage/gradle/info
+    flywayInfo
+https://flywaydb.org/documentation/usage/gradle/clean
+https://flywaydb.org/documentation/usage/gradle/migrate
+    flywayMigrate
+https://flywaydb.org/documentation/usage/gradle/validate
+https://flywaydb.org/documentation/usage/gradle/undo
+https://flywaydb.org/documentation/usage/gradle/baseline
+https://flywaydb.org/documentation/usage/gradle/repair
+https://flywaydb.org/documentation/getstarted/firststeps/gradle
+
+https://flywaydb.org/documentation/configuration/configfile
+https://flywaydb.org/documentation/configuration/parameters/
+https://flywaydb.org/documentation/configuration/envvars
+
+2023
+https://www.baeldung.com/flyway-migrations
+    ! out-of-order
+2022
+https://www.baeldung.com/database-migrations-with-flyway
+    https://habr.com/ru/company/otus/blog/506788/
+https://airbyte.com/blog/database-migrations-with-flyway-jooq-and-testcontainers
+
+Java-migrations
+SQL-migrations

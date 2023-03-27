@@ -1,0 +1,73 @@
+https://lldb.llvm.org
+https://lldb.llvm.org/features.html
+https://lldb.llvm.org/projects.html
+
+arch
+https://lldb.llvm.org/architecture/index.html
+https://lldb.llvm.org/varformats.html
+https://lldb.llvm.org/architecture/varformats.html
+
+blog
+http://blog.llvm.org/search/label/LLDB
+
+tutorial
+https://lldb.llvm.org/tutorial.html
+
+cheatsheet
+https://www.nesono.com/sites/default/files/lldb%20cheat%20sheet.pdf
+
+src
+https://lldb.llvm.org/source.html
+http://llvm.org/svn/llvm-project/lldb/trunk/
+http://llvm.org/viewvc/llvm-project/lldb/trunk/
+
+api
+https://lldb.llvm.org/cpp_reference/html/index.html
+https://lldb.llvm.org/python-reference.html
+
+misc
+https://lldb.llvm.org/lldb-gdb.html
+https://lldb.llvm.org/symbolication.html
+https://lldb.llvm.org/formats.html
+
+extra/lldb
+/usr/bin/
+    lldb
+    lldb-argdumper
+    lldb-mi
+    lldb-server
+    lldb-test
+
+config files ordered
+~/.lldbinit-debugger
+    (~/.lldbinit-lldb for cmd-line lldb, ~/.lldbinit-Xcode for xcode, ...)
+~/.lldbinit
+.lldbinit
+
+lldb
+    -- prog arg1 arg2 ...
+    -f prog --arg1 arg2 ...
+
+
+commands
+    h[elp] ...
+    br[eakpoint] list|...
+        some other breakpoint stuff
+        write -f <file.br>
+        read -f <file.br>
+        s[et]
+            -n, --name <name>
+            -M, --method <foo>
+            -f, --file <file> -l, --line <line>
+            --func-regex print.*
+        command alias b breakpoint
+    r[un] ...
+    n[ext] ...
+    s[tep] ...
+        -c 10
+    si[step-inst] ...
+    fi[nish] ...
+        until exit from the current function
+    c[ont] ...
+    wa[tch][point] set|l[ist]|write|read
+
