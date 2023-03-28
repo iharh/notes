@@ -7,3 +7,6 @@ select oprname, oprcode from pg_operator where oprname in ('?', '?|', '?&') and 
  ?|      | jsonb_exists_any
  ?&      | jsonb_exists_all
 (3 rows)
+
+jsonb_array_elements
+jsonb_exists
