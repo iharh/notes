@@ -2,3 +2,5 @@ https://www.postgresql.org/docs/current/functions-datetime.html
 https://www.postgresql.org/docs/current/functions-formatting.html
 
 ... field_date >= now() - '30 days'::interval ...
+
+field_date: timestamp without time zone

@@ -1,0 +1,4 @@
+https://www.cybertec-postgresql.com/en/streaming-replication-conflicts-in-postgresql/
+https://stackoverflow.com/questions/14592436/postgresql-error-canceling-statement-due-to-conflict-with-recovery
+ERROR:  canceling statement due to conflict with recovery
+DETAIL:  User query might have needed to see row versions that must be removed.
