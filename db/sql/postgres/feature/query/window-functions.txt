@@ -1,4 +1,15 @@
+https://postgrespro.ru/docs/postgrespro/15/tutorial-window
+https://postgrespro.ru/docs/postgrespro/15/functions-window
+
 https://www.postgresql.org/docs/current/tutorial-window.html
+https://www.postgresql.org/docs/current/functions-window.html
+
+https://postgrespro.ru/docs/postgrespro/15/sql-expressions#SYNTAX-WINDOW-FUNCTIONS
+    !!!
+https://postgrespro.ru/docs/postgrespro/15/queries-table-expressions#QUERIES-WINDOW
+
+2015
+https://habr.com/ru/post/268983/
 
 partition
     https://edu.postgrespro.ru/sqlprimer/sqlprimer-2019-msu-04.pdf
@@ -14,6 +25,16 @@ partition
         join bookings b on ...
     ;
     over - necessary keyword (count function became a window-one)
+    ! p76
+        first_value
+        ??? WINDOW - to name over-conditions (https://habr.com/ru/post/268983/)
+
+row_number
+rank
+lag
+lead
+first_value, last_value, nth_value
+- aggregates like sum, count
 
 sample
     select depname, empno, salary, avg(salary) over (partition by depname) from empsalary;
