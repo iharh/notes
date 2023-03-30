@@ -1,5 +1,8 @@
 https://www.postgresql.org/docs/current/queries-with.html
 
+with some_name as(...)
+select ... from some_name;
+
 with recursive some_name(
     ... from some_name ...
 )
