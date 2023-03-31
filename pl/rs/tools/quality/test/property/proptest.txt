@@ -9,6 +9,8 @@ https://crates.io/crates/proptest-arbitrary
 https://docs.rs/proptest-arbitrary
 https://github.com/Centril/proptest-arbitrary
 
+2023
+https://tzemanovic.gitlab.io/posts/state-machine-testing-with-proptest/
 2020
 https://blog.logrocket.com/property-based-testing-in-rust-with-proptest/
     https://github.com/zmitchell/sentence-parser

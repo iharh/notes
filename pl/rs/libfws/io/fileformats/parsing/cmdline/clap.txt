@@ -6,6 +6,7 @@ https://github.com/clap-rs/clap
 cargo add clap --features derive
 
 2023
+https://epage.github.io/blog/2023/03/clap-v4-2/
 https://blog.railway.app/p/rust-cli-rewrite
 2022
 https://www.joshfinnie.com/blog/a-command-line-application-in-rust/
