@@ -43,6 +43,7 @@ http://www.baeldung.com/spring-kafka
 
 articles
 2023
+https://www.baeldung.com/spring-kafka-multiple-listeners-same-topic
 https://www.baeldung.com/spring-retry-kafka-consumer
     https://github.com/eugenp/tutorials/tree/master/spring-kafka-2
 2022

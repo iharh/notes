@@ -1,5 +1,7 @@
 https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html
 
+2023
+https://habr.com/ru/post/725064/
 2022
 JPointJokerAndJUGRu - Letov - Use Transactional Like a Pro 0:00 of 1:16:30
     https://www.youtube.com/watch?v=QZ9rXZT0DlQ
@@ -12,8 +14,12 @@ https://vladmihalcea.com/spring-transaction-best-practices/
     https://www.reddit.com/r/java/comments/vioj6v/spring_transaction_best_practices/
 https://vladmihalcea.com/spring-transactional-annotation/
     https://habr.com/ru/company/otus/blog/649093/
+2021
+https://levelup.gitconnected.com/spring-data-transactional-caveats-f6edd41d6785
+    https://habr.com/ru/post/567368/
 2020
 https://vladmihalcea.com/read-write-read-only-transaction-routing-spring/
+https://habr.com/ru/post/532000/
 2019
 https://spring.io/blog/2019/05/16/reactive-transactions-with-spring
 https://paluch.biz/blog/179-reactive-relational-database-transactions.html
