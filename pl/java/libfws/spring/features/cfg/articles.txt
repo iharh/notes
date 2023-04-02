@@ -1,3 +1,11 @@
+2022
+https://www.baeldung.com/spring-boot-application-configuration
+    ConfigurableServletWebServerFactory, port number
 2020
 https://springframework.guru/spring-external-configuration-data/
     https://habr.com/ru/company/otus/blog/576910/
+https://spring.io/blog/2020/04/23/spring-tips-configuration
+    SpringApplicationBuilder, !!!
+????
+https://spring.io/guides/gs/spring-boot/
+    ApplicationContext
