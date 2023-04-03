@@ -1,4 +1,6 @@
 dpkg
+    -i <package-file>
+        better use apt install <package-file>
     -L <package>
         list files, installed by package
     -S|--search <pattern>
