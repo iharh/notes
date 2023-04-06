@@ -1,0 +1,5 @@
+https://www.postgresql.org/docs/current/sql-insert.html#SQL-ON-CONFLICT
+https://www.prisma.io/dataguide/postgresql/inserting-and-modifying-data/insert-on-conflict
+https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-upsert/
+
+ON CONFLICT (field_id) DO UPDATE SET field_name = EXCLUDED.field_name;
