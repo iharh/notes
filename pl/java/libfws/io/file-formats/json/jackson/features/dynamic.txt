@@ -1,0 +1,6 @@
+https://fasterxml.github.io/jackson-databind/javadoc/2.7/com/fasterxml/jackson/databind/JsonNode.html
+    readTree
+    MAPPER.convertValue(jsonNode, targetClass)
+
+https://www.baeldung.com/jackson-mapping-dynamic-object
+    https://www.baeldung.com/jackson-deserialization
