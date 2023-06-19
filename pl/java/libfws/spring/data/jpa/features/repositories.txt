@@ -1,0 +1,19 @@
+2023
+https://www.baeldung.com/spring-data-composable-repositories
+    https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-jpa-repo/src/main/java/com/baeldung/Application.java
+        @EnableJpaRepositories(repositoryBaseClass = ExtendedRepositoryImpl.class)
+
+    https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-jpa-repo/src/main/java/com/baeldung/boot/daos/impl/ExtendedRepositoryImpl.java
+        public class ExtendedRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRepository<T, ID> implements ExtendedRepository<T, ID> {
+
+    https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-jpa-repo/src/main/java/com/baeldung/boot/daos/ExtendedRepository.java
+          @NoRepositoryBean
+          public interface ExtendedRepository<T, ID extends Serializable> extends JpaRepository<T, ID> {
+              List<T> findByAttributeContainsText(String attributeName, String text);
+          }
+
+    https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-jpa-repo/src/main/java/com/baeldung/boot/daos/impl/CustomItemRepositoryImpl.java
+        @Repository
+        public class CustomItemRepositoryImpl implements CustomItemRepository
+2022
+https://vladmihalcea.com/custom-spring-data-repository/

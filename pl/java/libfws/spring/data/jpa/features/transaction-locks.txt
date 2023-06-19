@@ -1,5 +1,34 @@
 https://docs.oracle.com/javaee/7/api/javax/persistence/LockModeType.html
+    READ,  OPTIMISTIC, (obtains an optimistic read lock for all entities containing a version attribute)
+                        persistence provider will prevent our data from dirty reads as well as non-repeatable reads.
+    WRITE, OPTIMISTIC_FORCE_INCREMENT, (the same as OPTIMISTIC and additionally increments the version attribute value)
+    PESSIMISTIC_READ  (select for share),
+    PESSIMISTIC_WRITE (select for update),
+    PESSIMISTIC_FORCE_INCREMENT (if our entity is not directly modified within transaction, but we want Hibernate do it at flush-time),
+    NONE;
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html
+    readOnly
+    rollBackFor/noRollbackFor, timeout
+    https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Propagation.html
+        MANDATORY
+        NESTED
+        NEVER
+        NOT_SUPPORTED
+        REQUIRED (it is impossible to override [timeout,isolation,readOnly] attrs, which just inherits)
+        REQUIRES_NEW
+        SUPPORTS
+    https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Isolation.html
+        DEFAULT
+        READ_COMMITTED
+        READ_UNCOMMITTED
+        REPEATABLE_READ
+        SERIALIZABLE
+
+PG
+    select ... for [no key] update|share [skip locked] ... of [table-alias]
+
 https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Lock.html
+    apply locking to all records, returned by a given query in JPA repo
 
 2023
 https://www.linkedin.com/pulse/implementing-optimistic-pessimistic-locking-spring-boot-sanchez
@@ -7,17 +36,78 @@ https://www.linkedin.com/pulse/implementing-optimistic-pessimistic-locking-sprin
     https://github.com/csdavidg/db-locking-poc
 2022
 https://vladmihalcea.com/spring-transaction-best-practices/
+    https://vladmihalcea.com/read-write-read-only-transaction-routing-spring/
 https://vladmihalcea.com/spring-data-jpa-locking/
+    lockById method, and his custom impl
+    https://vladmihalcea.com/hibernate-locking-patterns-how-do-pessimistic_read-and-pessimistic_write-work/
+        really huge
 https://vladmihalcea.com/read-write-read-only-transaction-routing-spring/
 https://vladmihalcea.com/a-beginners-guide-to-transaction-isolation-levels-in-enterprise-java/
 
+https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-jpa-2 
+    org.springframework.transaction logging -> TRACE
 https://www.baeldung.com/jpa-optimistic-locking
+    OptimisticLockException
 https://www.baeldung.com/jpa-pessimistic-locking
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/hibernate-jpa
+    @Lock annotation at JPA repo-method
+    entityManager.find(...)
+    entityManager.createQuery("...").setLockMode(...)
+    entityManager.lock(resultEntity, LockModeType.PESSIMISTIC_WRITE);
+    entityManager.refresh(resultEntity, LockModeType.PESSIMISTIC_FORCE_INCREMENT);
+    @NamedQuery(..., lockMode = PESSIMISTIC_READ)
+    Scope
+        The PessimisticLockScope.NORMAL is the default scope.
+        With this locking scope, we lock the entity itself.
+        When used with @Inheritance(strategy=InheritanceType.JOINED) inheritance, it also locks the ancestors.
+
+        The EXTENDED scope covers the same functionality as NORMAL.
+        In addition, it's able to block related entities in a join table.
+        Simply put, it works with entities annotated with @ElementCollection or @OneToOne, @OneToMany, etc. with @JoinTable.
+
 https://www.baeldung.com/java-jpa-transaction-locks
     https://github.com/eugenp/tutorials/tree/master/persistence-modules/hibernate-jpa 
 
+https://softice.dev/posts/introduction_to_declarative_tx_management/
+    AbstractEntity, Logging Transactions via debug for JpaTransactionManager
+    (logging.level.org.springframework.orm.jpa=debug) at application.properties
+    PlatformTransactionManager, TransactionTemplate
+        In some helper
+        @Transactional(propagation = Propagation.REQUIRES_NEW)
+        public <T, R> R executeWithNewTrans(Function<T, R> f, T val) {
+            return f.apply(val);
+        }
+    Note: It is surprising that the transaction is committed in case of checked exceptions.
+          The rationale is that checked exceptions are considered business exceptions
+          and we should check the business rules to see if we do need a rollback or not.
+    Note: Good overview of propagations !!!
+    Note: for JpaTransactionManager in case of readOnly="true", the calls of persist will just be silently ignored (no exceptions) !!!
+          for DataSourceTransactionManager - ex is thrown
+              @Transactional(transactionManager="tmCreationMethodName")
+
 https://softice.dev/posts/optimistic_and_pessimistic_locking_with_spring_data_jpa/
+    https://github.com/anrosca/optimistic_and_pessimistic_concurrency_control
+    notes: using spring RetryTemplate, @Retriable(ObjectOptimisticLockingFailureException) !!!
+
 https://hackernoon.com/optimistic-and-pessimistic-locking-in-jpa
+    notes: 1. Keep in mind that the version number does not change when changing the @OneToMany and @ManyToMany
+           collections with the mappedBy attribute. 
+           2. If it is impossible to add a new column to the table, but there is a need to use optimistic locking,
+              you can apply Hibernate annotations OptimisticLocking and DynamicUpdate.
+              The type value in the OptimisticLocking annotation can take the following values:
+                  ALL     - perform locking based on all fields
+                  DIRTY   - perform locking based on only changed fields fields
+                  VERSION - perform locking using a dedicated version column
+                  NONE    - don’t perform locking
+           3. Conclusion
+              Optimistic locks are suitable for situations where an exception that has been thrown can be easily handled
+              and either notify the user or try again.
+              At the same time, rows at the database level are not blocked, which does not slow down the operation of the application.
+
+              However, using pessimistic locking, you need to carefully write and check the code because
+              there is a possibility of deadlocks
 
 2021
 https://habr.com/ru/company/otus/blog/574470/
+    spring transactional errors

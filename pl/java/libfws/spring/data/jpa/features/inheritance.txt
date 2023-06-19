@@ -1,0 +1,28 @@
+2023
+https://www.baeldung.com/hibernate-inheritance
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/hibernate-mapping
+
+    @MappedSuperclass (no @Entity)
+        This (base) class no longer has an @Entity annotation, as it won't be persisted in the database by itself.
+        Childrens will just duplicate columns for inherited fields
+
+
+    for @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+        @DiscriminatorColumn (at base class), @DiscriminatorValue
+        DiscriminatorFormula
+
+    for @Inheritance(strategy = InheritanceType.JOINED)
+        The disadvantage of this inheritance mapping method is that retrieving entities requires joins between tables,
+
+    for @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+        The resulting schema is similar to the one using @MappedSuperclass.
+        But Table per Class will indeed define entities for parent classes,
+        allowing associations and !!!"polymorphic"!!! queries as a result.
+
+        This is not that different from merely mapping each entity without inheritance.
+
+        The distinction is clear when querying the base class, which will return all the subclass records
+        as well by using a UNION statement in the background.
+
+        The use of UNION can also lead to inferior performance when choosing this strategy.
+        Another issue is that we can no longer use identity key generation.
