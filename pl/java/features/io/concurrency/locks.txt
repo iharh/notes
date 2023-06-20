@@ -1,1 +1,6 @@
 https://stackoverflow.com/questions/6965731/are-locks-autocloseable
+
+https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html
+    ... like synchronized methods and statements, but with extended capabilities. 
+    if (!tryLock())
+        throw ...

@@ -1,8 +1,20 @@
-2022
+2023
 https://xalgord.in/multi-threaded-programming-in-java/
+    ExecutorService executor = Executors.newFixedThreadPool(10);
+    CompletionService<String> completionService = new ExecutorCompletionService<>(executor);
 2021
 https://dzone.com/refcardz/core-java-concurrency
+    volatile solves the problem of visibility, and makes changes the value to be atomic,
+    because there is a happens-before relationship:
+    write to a volatile variable happens before any subsequent read from the volatile variable. 
 2019
 https://habr.com/ru/company/yandex/blog/477074/
 2018
 https://dzone.com/articles/java-patterns-for-concurrency
+2015
+https://javarevisited.blogspot.com/2015/05/top-10-java-multithreading-and.html
+2012
+https://www.java67.com/2012/08/difference-between-countdownlatch-and-cyclicbarrier-java.html
+2007
+http://jeremymanson.blogspot.com/2007/08/atomicity-visibility-and-ordering.html
+    Conceptually, all actions on volatiles happen in a single order, where each read sees the last write in that order.
