@@ -7,3 +7,135 @@ https://www.linkedin.com/learning/learning-amazon-web-services-aws-for-developer
 https://www.linkedin.com/learning/instructors/jeremy-villeneuve
 https://www.linkedin.com/learning/aws-essential-training-for-developers
     ! 3h17m pretty short lessons
+
+completed
+2022
+https://www.linkedin.com/learning/aws-essential-training-for-developers-17237791
+    arn - amazon resource names
+    IAM identity center - for AD integration, Identity and Access Mgmt
+        entities -> users, roles
+        identities -> entities, groups
+        iam resources can attach policies to identies
+        principles
+    AWS Budgets - control costs for your entire AWS account or for individual projects
+    AWS organizations - to manage multiple root accounts
+    EC2 - Elastic Compute Cloud, auto-scaling
+    S3  - Simple Storage Service
+        have storage classes at mgmt as well
+        permissions
+        ACLs add ACLs to each obj
+    CloudFront - to replicate S3 buckets
+    GlobalAccelerator - to accelerate networking for S3
+    S3Glacier -> online file storage with backup
+    S3Snowball -> for moving tons of data to AWS
+
+    IAAS - pay only for what you use, you are responsible for os update, app security, ...
+    AMIs - Amazon Machine Images
+        can create image from existing EC2 - snapshots, and start instances from AMIs
+    Instance Types (T, M, X - memory optimized, C - compute optimized, G - with GPU)
+    .pem - file with RSA pub-key
+    AWS Pricing Calculator
+    Purchase Savings Plans -> EC2 ... savings Plans, Compute Savings Plans
+    AWS Marketplace - to get instances from 3rdParty vendors
+    EC2->Security Groups - can edit protocol allow/deny
+    VPC - virtual private cloud
+        Subnets, ..., NAT Gateways (add Elastic IP)
+    BastionHost
+    SessionManager(managed service)
+    AWSClientVPN, SideToSideVPN
+    AWSTransitGateway
+    AWSDirectConnect
+    ApplicationLoadBalancers, NetworkLoadBalancer, GatewayLoadBlancer
+    ALB -> (for HTTP traffic) `select VPC, security groups (create new alb-sg), add inbound rule, outbound ..., health-check port,
+        create a new target group (for 2 target servers)
+        copy DNS name finally
+    NLB - for low-latency streaming traffic
+    Route53 for register domain
+    VPC can have public and private subnets
+        192.168.0.0/16 means from 192.168.0.0 to 192.168.255.255
+        192.168.1.0/24            192.168.1.0 .. 192.168.1.255
+    EFS - elastic file system
+    FSx - for windows
+    IAM roles -> create a role to give access to all S3 buckets to all EC2
+    SecretsManager
+
+    DBaaS
+    DbMS - migration service
+    RDS  - relational database service (can't scale down)
+           when restoring DBs, RDS creates new cluster, copy/del
+    Aurora - works in serverless mode (not only for PG)
+
+    DynamoDB
+    ElastiCache - in-mem cache (redis and other engines)
+    ? Redshift
+
+    DataLakes,
+    DataWarehouses (RedShift -> structured storage for big and SQL-based analysis ...),
+    EMR - Elastic Map Reduce distibuted data processing (like spark/hadoop)
+
+    Queues
+    Kinesis
+    SQS - simpler, but expensive in case of huge num of events
+    SNS - simple notification service
+
+    Hosting
+    ElasticBeanstalk
+    Lightsail - for static
+
+    ECS - elastic container service
+    ECR - elastic container registry
+    Fargate - can run your containers external in hybrid-cloud env
+              for task-based containers
+    EKS -> K8s
+
+    Serverless
+    FaaS - functions as a service, Lambda
+
+    Scheduling
+    AWSJobs (can utilize spot instances)
+    Step Functions
+
+    Cognito - for user auth
+    SES - simple email service
+
+    APIGateway
+    AppSync
+
+    ML
+    SageMaker
+    Comprehend - for text analysis
+    Lex - for chatbots
+    Personalize - to promote recommended products to specific users, based on shopping habbits
+    Polly - convert dynamic text to voices
+    Rekognition - extract faces/text from images
+    Textract - automate all this
+    Translate - translate languages and even detect lang
+    Transcribe - transcibe voice to text
+
+    xray
+    Trace User Requests
+
+    CI - code pipeline
+    CodePipeline
+      CodeBuild
+      CodeDeploy
+    AWSOpsTools - for puppet, chef, ansible
+    CloudFormation
+    Terraform - let's use not only AWS stuff
+
+    messaging
+    Twillio
+
+    AWSHealth - health dashboard
+    CloudWatch - logs/metrics
+    CodeGuru - auto code-review
+
+    SecurityHub
+    SystemManager (SessionManager, AppCenter, check for security patches and tracing incidents)
+    WAF - web-app firewall, to block some traffic according to rules, deploys on top of ALB
+    Shield - help mitigate DoS attacks
+    GuardDuty - active on-going scan for security issues
+    Inspector - a full scan for vuln-ties (periodically)
+    Macie - scan cloud resources for publically-sharing info
+    CloudTrail - trace back in type access to our stuff
+    Detective - for api access, logs investigations of incidents

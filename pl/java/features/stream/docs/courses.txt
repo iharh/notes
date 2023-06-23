@@ -2,3 +2,7 @@
 Parallel Functional Programming with Java LiveLessons
     https://tutsnode.net/parallel-functional-programming-with-java/
     ! 3.7g good, including parallell streams
+
+https://www.linkedin.com/learning/java-lambdas-and-streams
+    @FunctionalInterface
+    stream can only be used once

@@ -1,0 +1,42 @@
+2023
+https://danielme.com/2023/01/10/spring-framework-event-handling-eventlistener-async/
+    https://docs.spring.io/spring-framework/docs/5.3.28/javadoc-api/org/springframework/context/event/SimpleApplicationEventMulticaster.html
+    https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#context-functionality-events
+
+courses
+https://www.linkedin.com/learning/advanced-spring-application-events
+    ApplicationEvent (not required to exend this from Spring 4.2)
+    Publisher
+      @Autowired ApplicationEventPublisher publisher;
+      publisher.publishEvent(new CustomEvent)
+    Listeners
+      of ...implements ApplicationListener<ApplicationEvent>
+      @Override
+      public void onApplicationEvent(ApplicationEvent e) {} // limitation - only for objects, extending ApplicationEvent type
+
+      annotate our class with @Component and
+      @EventListener public void onEvent(Foo o) {} 
+      @EventListner({Foo.class, Bar.class}) public void onMultiple() {...}
+      @EventListner public void onAll() {...}
+
+      if method return type is non-void, then sends new event, if the type is array/collection -> sends each individual
+
+      @Order(1)
+
+    By default -> sync, but async is supported as well
+    Can also have @Transaction-bound events (BEFORE|AFTER_COMMIT, AFTER_ROLLBACK|COMPLETION)
+    Listeners can filter events by SpEL
+        @EventListener(condition="") eval-ted if "true"|"on"|"yes","1"
+           default - ""
+    We have predefined events (ApplicationStarting|StartedEvent, CotextStarted|Refreshed|Stopped|ClosedEvent)
+        need to manually 
+
+    Async
+    Add @EnableAsync on top of our spring config
+    and add @Async to our @EventListener
+    limitations
+        async listeners can't publish events by returning a value
+        exceptins aren't propagated to a caller untill AsyncUncaughtExceptionHandler i-face is imple-ted
+
+    @EventListener
+    @TransalEventListener(phase=TransactionPhase.BEFORE|AFTER_COMMIT, AFTER_ROLLBACK|COMPLETION)

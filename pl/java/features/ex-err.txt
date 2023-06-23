@@ -1,9 +1,22 @@
 2022
-Devoxx - Subramaniam - Exception Handling in Functional and Reactive Programmin of 2:29:17
+Devoxx - Subramaniam - Exception Handling in Functional and Reactive Programming of 2:29:17
     https://www.youtube.com/watch?v=S5tLVsvbHBg
 2021
 https://bookflow.ru/sobesedovanie-po-java-isklyucheniya-exceptions-voprosy-i-otvety/
 http://victorrentea.ro/blog/exception-handling-guide-in-java/
+https://www.linkedin.com/learning/java-exception-handling/what-are-errors
+    Errors - are a subset of Throwables, indicating serious problem with an app
+    IOError
+        unrecoverable input/output error
+        serious issue with underlying FS
+    VirtualMachineError - running out of resources on JVM
+        - InternalError, UnknownError, OutOfMemoryError, StackOverflowError
+
+    Exceptions
+        Checked (at compile time)
+            IOException->FileNotFoundException
+        Unchecked (run-time)
+            NullPointerException
 2020
 https://javax0.wordpress.com/2020/05/13/all-you-wanted-to-know-about-throwable/
     !!!
