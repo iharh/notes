@@ -6,5 +6,7 @@ server:
     key-store-password: <pwd>
     keyAlias: 1
 
+2023
+https://spring.io/blog/2023/06/07/securing-spring-boot-applications-with-ssl
 2021
 https://habr.com/ru/post/593507/

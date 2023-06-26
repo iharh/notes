@@ -1,0 +1,8 @@
+https://testcontainers.com/guides/testcontainers-container-lifecycle/
+    Singleton Containers
+
+2023
+https://julianduru.com/springboot-integration-testing-using-testcontainers-and-docker-compose/
+    expose as a @Bean from @TestConfiguration, using container.start()
+    @PreDestroy
+    expose another Datasource @Bean with ref to prev

@@ -1,0 +1,15 @@
+https://github.com/artembilan/microservices-patterns-spring-integration
+https://github.com/artembilan/microservices-patterns-spring-integration/tree/main/circuit-breaker
+https://docs.spring.io/spring-integration/docs/current/reference/html/messaging-endpoints.html#circuit-breaker-advice
+    threshold - num of failures before breaker goes to open
+    halfOpenAfter - 1000 ms
+
+https://github.com/artembilan/microservices-patterns-spring-integration/tree/main/normalizer
+https://github.com/artembilan/microservices-patterns-spring-integration/tree/main/distributed-tracing
+https://github.com/artembilan/microservices-patterns-spring-integration/tree/main/framer
+https://github.com/artembilan/microservices-patterns-spring-integration/tree/main/mrpc
+    rpc - gateway in spring integration
+https://github.com/artembilan/microservices-patterns-spring-integration/tree/main/outbox
+
+https://docs.spring.io/spring-integration/api/org/springframework/integration/handler/advice/RequestHandlerRetryAdvice.html
+https://docs.spring.io/spring-integration/api/org/springframework/integration/handler/advice/RequestHandlerCircuitBreakerAdvice.html

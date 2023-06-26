@@ -1,0 +1,7 @@
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/DynamicPropertySource.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/DynamicPropertyRegistry.html
+
+2021
+https://www.baeldung.com/spring-dynamicpropertysource
+    https://github.com/spring-projects/spring-framework/issues/24540
+    https://www.baeldung.com/spring-dirtiescontext

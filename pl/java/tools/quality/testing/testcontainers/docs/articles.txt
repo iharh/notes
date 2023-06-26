@@ -1,4 +1,8 @@
 2023
+https://spring.io/blog/2023/06/23/improved-testcontainers-support-in-spring-boot-3-1
+    https://spring.io/blog/2023/06/19/spring-boot-31-connectiondetails-abstraction
+    https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.testcontainers.service-connections
+    spring-boot-testcontainers module
 https://habr.com/ru/post/715496/
 2022
 https://habr.com/ru/post/681232/
@@ -27,7 +31,10 @@ https://pawelpluta.com/optimise-testcontainers-for-better-tests-performance/
     https://github.com/pawelpluta/testcontainers-reusable
 https://pawelpluta.com/introduce-any-testcontainer-into-your-spring-application/
     https://github.com/pawelpluta/testcontainers-wrapper
+https://spring.io/blog/2020/03/27/dynamicpropertysource-in-spring-framework-5-2-5-and-spring-boot-2-2-6
 2019
+https://www.baeldung.com/spring-boot-testcontainers-integration-test
+    https://habr.com/ru/company/haulmont/blog/454970/
 https://solidstudio.io/blog/api-testing.html
 2017
 https://habrahabr.ru/company/jugru/blog/343298/
