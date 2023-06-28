@@ -1,3 +1,85 @@
 https://www.linkedin.com/learning/instructors/frank-p-moley-iii
 https://www.linkedin.com/learning/spring-framework-in-depth-2/building-blocks-of-spring
     ! 1h57m, 2020
+
+https://www.linkedin.com/learning/learning-spring-with-spring-boot-13886371
+    logging.level.org.springframework.jdbc.datasource.init.ScriptUtils.debug
+    spring.jpa.hibernate.ddl-auto=none # don't create schema by hibernate itself
+
+
+https://www.linkedin.com/learning/spring-design-patterns
+    BeanFactory
+        ApplicationContext extends BeanFactory
+    FactoryBean
+        AbstractFactoryBean - factory of factories
+    Prototype pattern
+        usually we do a shallow Clone (of Cloneable) (if base class implements Cloneable) ???
+        for prototype - we do a deepClone
+        @Scope("prototype")
+        ...
+        2 instances of prototype-scope aren't identical
+    Creational
+        Adopter
+            I1 { doAction... }; C1 implements I1 { doAction... };
+            I2 { doAction... }; C2 implements I2 { doAction... };
+            class Adapter extends Class1 implements I1 {
+                private final Class2 instance;
+                doAction() { instance2.doAction... }
+            }
+        Decorator
+            provides open-close to an object, using comp-n over inher-ce
+            BaseClass
+            AbstractDecorator extends Base
+            Decorator extends AbstractDecorator
+                private BaseClass (c-tor inj-n)
+                
+            public abstract class Pizza {
+                private String description
+                public String getDescription() { return description; }
+                public abstract BigDecimal getCost();
+            }
+            public class ThickCrustPizza extends Pizza { ... }
+
+            public abstract class PizzaIngredient extends Pizza {
+                public abstract String getDescription();
+            }
+
+            public class Pepperoni extends PizzaIngredient {
+                private Pizza pizza;
+                // c-tor(Pizza pizza)
+                @Override
+                public String getDescription() { return this.pizza.getDescription() + " pepperoni"; }
+                @Override
+                public BigDecimal getCost() { return 1.50 + this.pizza.getCost(); }
+            }
+        Proxy
+            each bean from Spring 4 is proxied, in Spring we typically use AOP
+    Operational
+        Repository (by Eric Evans)
+            Prevent data access logic from leaking into business logic
+            In Spring - use SpringData i-face or create your own i-face
+        Template
+            common beh-r across concrete impl-s of remote calls (JDBC, JMS, REST, more)
+            hidden in abstract base class
+                abstract methods for variations, extending this base class
+        MVC
+           Model delivers data to the view
+           view - delivers experience to the consumer
+           controller - populates the model, selects the view and merges them togeather
+
+    Others
+        Observer - observes behaviour
+            ApplicationListener observes ApplicationContext for change
+            a subject-called object maintains a list of observers
+            Notification is sent to observer when state change occurs in subject
+            1. Observer i-face (as in Java)
+            2. Subject (Observable in Java)
+                  register(observer)
+                  unregister(observer)
+                  notify
+        Command
+        Mediator
+            Provides encapsulation of object's behav-r
+            Commun-n channels flow through mediator who then allows its mediated classes to do work
+            Mediated classes don't communicate with each other, only with mediator
+            Mediated classes can register/unregister, if needed
