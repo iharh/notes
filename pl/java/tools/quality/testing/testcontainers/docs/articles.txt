@@ -4,6 +4,9 @@ https://spring.io/blog/2023/06/23/improved-testcontainers-support-in-spring-boot
     https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing.testcontainers.service-connections
     spring-boot-testcontainers module
 https://habr.com/ru/post/715496/
+https://danielme.com/2023/04/13/testing-spring-boot-docker-with-testcontainers-and-junit-5-mysql-and-other-images/
+    jdbc:tc:...///testcontainer?TC_DAEMON=true
+    good samples of init staff https://github.com/danielme-com/testcontainers 
 2022
 https://habr.com/ru/post/681232/
 https://dzone.com/articles/testcontainers-with-kotlin-and-spring-data-r2dbc

@@ -1,8 +1,16 @@
+https://java.testcontainers.org/test_framework_integration/manual_lifecycle_control/#singleton-containers
 https://testcontainers.com/guides/testcontainers-container-lifecycle/
     Singleton Containers
+
+daemon-mode and tc:
 
 2023
 https://julianduru.com/springboot-integration-testing-using-testcontainers-and-docker-compose/
     expose as a @Bean from @TestConfiguration, using container.start()
     @PreDestroy
     expose another Datasource @Bean with ref to prev
+
+service-connection (starting from boot 3.1)
+https://howtodoinjava.com/spring-boot/testcontainers-with-junit-and-spring-boot/
+https://howtodoinjava.com/spring-boot/spring-boot-service-connection-example/
+    !!! 3.2. Using @ServiceConnection on Test Configuration

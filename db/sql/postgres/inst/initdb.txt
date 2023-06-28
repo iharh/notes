@@ -1,0 +1,9 @@
+env UID=${UID} GID=${GID} \
+    docker compose $SOME_COMPOSE_FILES run --rm postgres12 bash -c 'initdb -E UTF8 -D "$PGDATA/data" -U "postgres" --auth=trust --auth-host=trust --auth-local=trust'
+
+# TODO: need to manually add this to pg_hba.conf:
+## host all all all md5
+# host all all all trust
+
+# TODO: check at postgresql.conf
+# listen_addresses = '*'

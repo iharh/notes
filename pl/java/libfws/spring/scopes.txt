@@ -1,5 +1,8 @@
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-factory-scopes
 
+2023
+https://www.baeldung.com/spring-bean-scopes
+
 Scope iface
 Creating custom scope
 Threading scopes
