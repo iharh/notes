@@ -1,0 +1,380 @@
+2019
+https://www.linkedin.com/learning/spring-spring-mvc-2
+    Incoming HTTP Request is Processed by
+        DispatcherServlet->HandlerMapping->Controller (Front Controller DP)
+        ->Controller->...processing...->back-to-DispatcherServlet
+        ->ViewResolver
+        
+    Instead of String method at Controller we can use
+        ModelAndView
+            .setViewName
+            .setStatus
+            .addObject(name, value)
+    SearchController {
+        @GetMapping("/search")
+        public String search(@RequestParam("search") String search, Model model) {
+            ...
+            List<Product> products = searchRepository.searchByName(search);
+            model.addAttribute("products", products);
+            ...
+        }
+    }
+    RegistrationController {
+        @PostMapping("/registeruser")
+        public String registerUser(@ModelAttribute("newuser") User user) { // <form method="post" modelAttribute="newuser" ...>
+            
+        }
+    }
+    HomeController {
+        ...
+        @ModelAttribute("newuser")
+        public User getDefaultUser() { return new User(); }
+        @ModelAttribute("genderItems")
+        public List<String> getGenderItems() { return List.of("Male", "Female", "Other"); }
+    }
+
+    javax.validation -> hibernate validator
+    annotate with @Valid our beans at controller and add BindingResult param right after the annotated one
+    and add <form:errors path="someAttr".../> to our form elements
+    in order to localize error messages, add resources/ValidationMessages.properties, add msg.key=msg.value
+    and use ... message="{msg.key}"
+
+    binders extend ModelAttribute-s
+    User {
+         
+        private Date dateOfBirth; // <form:input path="dateOfBirth" type="date" .../>
+    }
+    RegistrationController {
+        @InitBinder
+        public void initBinder(WebDataBinder binder) {
+            binder.registerCustomEditor(Date.class, "dateOfBirth", new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd")));
+        }
+    }
+
+    converters extend binders concept, transform request data to desired types
+    built in converters present, but we can provide custom ones
+
+    public enum Gender { MALE, FEMALE, OTHER }
+    User { 
+        @Enumerated(EnumType.STRING)
+        private Gender gender;
+    }
+
+    public class StringToEnumConverter implements .core.convert.Converter<String, Gender> {
+        @Override
+        public Gender convert(String s) {
+            ... regurn Gender.GGG ...;
+        }
+    }
+
+    ApplicationConfig {
+        ...
+        @Override
+        protected void addFormatters(FormatterRegistry registry) {
+            registry.addConverter(new StringToEnumConverter());
+        }
+    }
+
+    HandlerMapping - maps request to handler
+    HandlerAdapter - invokes the handler
+    ViewResolver - helps resolve views
+    LocaleResolver - helps with l10n and i18n support
+    ThemeResolver
+    HandlerExceptionResolver - helps with exception handling
+        ExceptionHandlerExceptionResolver - define ex-handling methods in controllers (annotated by @ExceptionHandler)
+        SimpleMappingExceptionResolver - maps each ex-n class with an error page
+        DefaultHandlerExceptionResolver - default, maps exceptions to error codes 
+        ResponseStatusExceptionResolver - resolves custom exceptions using status code defined in @ResponseStatus (for ex-ns)
+        to disable standard error resolver, we need to add property
+        spring.autoconfigure.exclude=ord.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+
+    public class Login {
+        private String login;
+        private String password;
+    }
+    HomeController {
+        ... @ModelAttribute("login") public Login getDefaultLogin() { return new Login(); }
+    }
+
+    public class ApplicationException extends RuntimeException { ... }
+
+    LoginController {
+        @PostMapping("/login")
+        public String login(@ModelAttribute("login") Login login) {
+            User user = userRepository.searchByName(login.getUsername());
+            if (user == null) {
+                throw new ApplicationException("User not found");
+            }
+        }
+        @ExceptionHandler(ApplicationException.class)
+        public String handleException(ApplicationException ex, WebRequest request) {
+            return "error";
+        }
+    }
+    for global handler
+    @ControllerAdvice
+    public class ApplicationExceptionHandler {
+        
+        @ExceptionHandler(ApplicationException.class)
+        public String handleException(ApplicationException ex, WebRequest request) {
+            return "error";
+        }
+    }
+    ...
+    @ControllerAdvice
+    public class DefaultModelAttributeController {
+        @ModelAttribute("newuser")
+        public User getDefaultUser() { return new User(); }
+        @ModelAttribute("genderItems")
+        public List<String> getGenderItems() { return List.of("Male", "Female", "Other"); }
+        ...
+    }
+
+    @EnableAsync
+    https://stackoverflow.com/questions/36768234/spring-enableasync-breaks-bean-initialization-order
+    https://www.baeldung.com/spring-async
+    ...ApplicationAsync {
+        @Override
+        protected void configureAsyncSupport(AsyncSupportConfigurer configurer)
+            configurer.setTaskExecutor(mvcTaskExecutor());
+            configurer.setDefaultTimeout(5000);
+        }
+        @Bean public AsyncTaskExecutor mvcTaskExecutor() { ThreadPoolTaskExecutor... }
+    }
+    ... SearchController {
+        public Callable<String> search(..., HttpServletRequest request) {
+            log.info(request.isAsyncSupported(), Thread.currentThread().getName());
+            return () -> {
+                log.info(Thread.currentThread().getName());
+                all the business logic
+            }
+
+            we can also use DeferredResult
+            @Autowired
+            private AsyncTaskExecutor executor;
+
+
+            public DeferredResult<String> search(..., HttpServletRequest request) {
+                DeferredResult<String> defferedResult = new DeferredResult<>();
+                ...
+                executor.execute(() -> {
+                    ...
+                    defferedResult.setResult(search);
+                });
+                return defferedResult;
+        }
+    }
+
+    View
+    ViewResolver - resp by resolving views by names
+        InternalResourceViewResolver
+        ResourceBundleViewResolver
+        XmlViewResolver
+        VelocityViewResolver, FreeMakerViewResolver, ...
+        ChainedViewResolver
+
+    DispatcherServlet
+        HandlerMapping, HandlerAdapter (calls interceptors)
+            Pre-process Interceptors 1..n
+            and then (iff all are OK) - calls a Controller
+            after all business-logic -
+            Post-process
+
+    Impl-s of HandlerInterceptorAdapter base class
+        preHandle
+        postHandle
+        afterCompletion - after response is completed to the client
+    ThemeChangeInterceptor
+    LocaleChangeInterceptor
+
+    public class LoggingInterceptor extends HandlerInterceptorAdapter {
+        @Override
+        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+            ...
+        }
+        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+            ...
+        }
+    }
+    at ApplicationConfig {
+        @Override
+        protected void addInterceptors(InterceptorRegistry registry) {
+            registry.addInterceptor(new LoggingInterceptor()).addPathPatterns("/*")
+        }
+    }
+
+    ... @SessionAttributes, @SessionAttribute
+        @RequestAttribute
+
+    @Controller
+    @SessionAttributes("login") // @ModelAttribute should exist
+    public class LoginController {
+        
+        // already exposed by ControllerAdvice
+        // @ModelAttribute("login") public Login getDefaultLogin() { return new Login(); }
+    }
+
+    @Controller
+    public class UserProfileController {
+        @PostMapping("/userprofile")
+        public String getUserProfile(@SessionAttribute("login") Login login, Model model) {
+            // and similar for @RequestAttribute
+            model.setAttribute("username"); // or use ${sessionScope.username} at jsp
+            return "profile"; // use login in jsp
+        }
+    }
+
+    LoginController {
+        ...
+        @PostMapping("/login")
+        {
+            session.setMaxInactiveTimeout(...)
+            ...
+            ... return "forward:/userprofile"
+        }
+    }
+
+    @Controller
+    public class LogoutController {
+        @GetMapping("/logout")
+        public String logout(HttpSession session) {
+            session.invalidate();
+            return "login";
+        }
+    }
+
+    @Controller
+    public class RedirectionController {
+        @GetMapping("/redirectToLinkedIn")
+        public String redirectToLinkedIn() {
+            return "redirect:http://www.linkedin.com"; // absolute URL is needed
+        }
+    }
+
+    ThemeResolver facilitates theme resolution
+        ThemeSource and default impl - ResourceBundleThemeSource
+        CookieThemeResolver
+        SessionThemeResolver
+        FixedThemeResolver
+
+    resources/client-theme1.properties
+        styleSheet=/css/style1.css
+    resources/client-theme2.properties
+        styleSheet=/css/style2.css
+
+    ... ApplicationConfig {
+        @Bean
+        public ThemeResolver themeResolver() {
+            CookieThemeResolver cookieThemeResolver = new CookieThemeResolver();
+            cookieThemeResolver.setCookieName("theme");
+            cookieThemeResolver.setDefaultThemeName("client-theme1");
+            return cookieThemeResolver;
+        }
+        ... // also it's important to add an interceptor
+        @Override
+        protected void addInterceptors(InterceptorRegistry registry) {
+            registry.addInterceptor(new LoggingInterceptor()).addPathPatterns("/*")
+            registry.addInterceptor(new ThemeChangeInterceptor());
+        }
+    }
+    // next thing - define at our jsp
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    ...
+    <head>
+        <link rel="stylesheet" href="<spring:theme code='styleSheet'/>" type="text/css"/>
+        ...
+    </head>
+    // we can check with ...?theme=client-theme2... ... resolver will store this in cookie
+
+    l10n - is to use props for msgs
+    i10n - is more than l10n, including locale treatment
+
+    LocaleResolver
+        AcceptHeaderLocaleResolver - default one
+        CookieLocaleResolver
+        SessionLocaleResolver
+
+    resources/messages.properties
+        label.home=home
+        label.search=search
+        label.login=login
+        label.linkedin=linkedin
+    resources/messages_sv.properties // make sure to have UTF-8
+        label.home=hem
+        label.search=sok
+        label.login=logga in
+        label.linkedin=...
+
+    // at jsp - use <spring:message code="label.home"/>
+    // default resolver takes locale from client settings of browser
+
+    ... ApplicationConfig {
+        @Bean
+        public LocaleResolver localeResolver() {
+            CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+            cookieLocaleResolver.setCookieName("locale");
+            cookieLocaleResolver.setDefaultLocale(Locale.US);
+            return cookieLocaleResolver;
+        }
+        ... // also it's important to add an interceptor
+        @Override
+        protected void addInterceptors(InterceptorRegistry registry) {
+            registry.addInterceptor(new LoggingInterceptor()).addPathPatterns("/*")
+            registry.addInterceptor(new ThemeChangeInterceptor());
+            registry.addInterceptor(new LocaleChangeInterceptor()); // can customize with setParamName if need non-default
+        }
+    }
+
+    REST: spring uses HttpMessageConvertors for JSON (with Jackson), no view name needed
+
+
+    @Controller
+    public class ProductsRestController {
+        ...
+        @GetMapping("/rest/products") 
+        @ResponseBody
+        public List<Product> getProducts() {
+            return productRepository.findAll();
+        }
+    }
+    @RestController // implies @ResponseBody for every method
+    public class ProductsRestController {
+        ...
+        @GetMapping("/rest/products") 
+        public ResponseEntity<List<Product>> getProductsByParam(@RequestParam("name") String name) {
+            List<Product> products = productRepository.searchByName(name)
+            return new ResponseEntity<>(products, HttpStatus.OK);
+        }
+        @GetMapping("/rest/products/{id}") 
+        public ResponseEntity<List<Product>> getProductsByPathVar(@PathVariable("name") String name) {
+            List<Product> products = productRepository.searchByName(name)
+            return new ResponseEntity<>(products, HttpStatus.OK);
+        }
+    }
+
+    public class LoginFailureException extends Exception {
+        ...
+    }
+
+    @RestController
+    public class LoginRestController {
+        ...
+
+        @PostMapping("/rest/loginuser") 
+        public ResponseEntity<?> loginUser(@RequestBody Login login) {
+            User user = userRepository.searchByName(login.getUsername());
+            if (user == null) {
+                return new ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+            if (user.getUsername().equals(login.getUsername)) && ... pwd) {
+                return new ResponseEntity<>("Welcome " + user.getUsername(), HttpStatus.OK);
+            } else {
+                throw new LoginFailureException("username or password is incorrect")
+            }
+        }
+
+        @ExceptionHandler(LoginFailureException.class)
+        public ResponseEntity<?> handle Login(LoginFailureException ex) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ex.getMessage());
+        }
+    }

@@ -6,3 +6,53 @@ Udemy - Learn integration testing with Spring Boot
 Advanced Spring - Effective Integration Testing with Spring Boot
     magnet:?xt=urn:btih:afd24823c218c0cc876504cb86723cfc44b9ab29
     ! 201.5m, non-complete
+
+https://www.linkedin.com/learning/spring-boot-test-driven-development
+    AopTestUtils
+    ReflectionTestUtils
+    MvcTestUtils, Mvc test client, MockMvc
+
+    Unit Test
+    @ExtendsWith(MockitoExtension.class)
+    Integration
+    @SpringBootTest(classes=MyConfig.class)
+    @AutoConfigureTestDatabase(replace=Replace.ANY)
+    @AutoConfigureMockMvc
+        @Autowired
+        MockMvc mockMvc;
+        someTestMethod() {
+            mockMvc.perform(get("/someEndpoint"))
+              .andExpect(status().isOk())
+              .andExpect(content().string(containsString("some-uuid")))
+        }
+
+https://www.linkedin.com/learning/advanced-spring-effective-integration-testing-with-spring-boot
+    @SpringBootTest
+    @DataJpaTest (without web layer), @DataJdbcTest, ... @DataRedisTest
+    @WebMvcTest (loads web-layer only to the context without persistence layer), @RestClientTest, @WebServiceClientTest, @WebFluxTest
+    @MockBean ? for UT
+    BDDMockito lib
+        instead of when(methodCall).then(doSomething)
+        given(methodCall).will(doSomething)
+
+    TestEntityManager mgr
+    mgr.persistFlushFind(obj) -> to bypass hbm L1 cache
+
+    @ExtendsWith(MockitoExtension.class)
+    @InjectMock - uses constructor or setter injection
+    @Mock - replaces whole class entirely
+    @Spy - takes existing object and replaces only some methods
+    @MockBean and @SpyBean
+
+    @ExceptionHandler+@ResponseStatus()
+    or @ResponseStatus(HttpStatus.NOT_FOUND)
+    public void someMethod(SomeEx-n)
+    mockito given().willThrow(...)
+
+    @RestClientTest (MockRestServiceServer, only for RestTemplate)
+    WireMock is better
+
+    SpringCloudContract (generate tests by contract def-n), 
+        StubRunner fetches generated jar and spins stub-server at config-d port
+        @SpringBootTest
+        @AutoConfigureStubRunner(ids="group:artifact:+:8080", stubsMode=StubRunnerProperties.StubsMode.LOCAL)
