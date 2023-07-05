@@ -1,5 +1,20 @@
+eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0NjkxNTE4Zi04OTA2LTRmNmMtOGExNi04YjMyNzMxOGIyMTgifQ.eyJleHAiOjE3MjAwODQ0OTEsImlhdCI6MTY4ODU0ODQ5MSwianRpIjoiNDA5YTZhZGItZTM2MC00MzI3LTkxMWEtMGRhY2U4NGM5OTU0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL3JlYWxtcy9yZWFsbTEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODEvcmVhbG1zL3JlYWxtMSIsInR5cCI6IkluaXRpYWxBY2Nlc3NUb2tlbiJ9.Dz85JZXKwNHkCELObgFH85xDn4xUnM2SkDwY36LQeEA
+
 https://www.keycloak.org/
 https://www.baeldung.com/tag/keycloak/
+
+https://www.keycloak.org/documentation.html
+https://www.keycloak.org/docs-api/21.1.2/javadocs/index.html
+https://www.keycloak.org/docs/latest/authorization_services/index.html
+    https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-rest-springboot
+
+client -> app
+client scope -> allow to manage common set of perm-s (default)
+
+guides
+https://github.com/keycloak/keycloak-quickstarts/blob/latest/docs/getting-started.md
+
+https://github.com/keycloak/keycloak
 
 mvn
 https://search.maven.org/search?q=a:keycloak-adapter-bom
@@ -8,19 +23,74 @@ https://search.maven.org/artifact/org.keycloak.bom/keycloak-adapter-bom/18.0.2/p
 
 docker
 https://www.keycloak.org/server/containers
+https://www.keycloak.org/getting-started/getting-started-docker
 docker run -p 8081:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:17.0.1 start-dev
+https://hub.docker.com/r/bitnami/keycloak/
+
+cfg
+https://www.keycloak.org/server/all-config
+    https://github.com/keycloak/keycloak/tree/main/quarkus/config-api/src/main/java/org/keycloak/config
+    https://github.com/keycloak/keycloak/blob/main/quarkus/config-api/src/main/java/org/keycloak/config/database/Database.java
+    dev-file
+      return addH2NonKeywords("jdbc:h2:file:${kc.home.dir:${kc.db-url-path:" + escapeReplacements(System.getProperty("user.home")) + "}}"
+          + escapeReplacements(File.separator) + "${kc.data.dir:data}"
+          + escapeReplacements(File.separator) + "h2" + escapeReplacements(File.separator)
+          + "keycloakdb${kc.db-url-properties:;;AUTO_SERVER=TRUE}");
+
+https://www.keycloak.org/server/db
+https://www.keycloak.org/server/logging
+
+spring-boot
+https://www.keycloak.org/docs/latest/securing_apps/index.html#_spring_boot_adapter
 
 2023
+https://www.youtube.com/watch?v=vmEWywGzWbA
+    https://github.com/ali-bouali/keycloak-integration-with-spring-boot-3
+    boot 3, secur 6
+    23:00
+    25:30
+    32:30 - jwt.io debugger
+    We can assign client roles to realm roles (composite:true)
+    realmroles->for-specific-role->menu-action->Add associated roles
+        now it is composite role
+            # jwt.io: .resource_access.myclient11.roles=client11_admin,client11_user
+            # https://github.com/ali-bouali/keycloak-integration-with-spring-boot-3/blob/main/src/main/java/com/alibou/keycloak/JwtAuthConverter.java
+            # JwtGrantedAuthoritiesConverter -> SCOPE_, split(by space) "scope" attr of jwt
+
+        user can also be a composite
+    /realms/<relm-name>/well-known/openid-configuration
+        token_endpoint
+        grant_type: password
+        client_id: ...
+        username: ...
+        password: ...
+        -> refresh_token is also provided
+        token can be pasted to jwt.io
+        @PreAuthorize("hasRole('client_role')")
+            defaultRolePrefix="ROLE_" // !!!
+
+https://www.baeldung.com/spring-boot-keycloak
+    https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-keycloak
+https://www.baeldung.com/spring-boot-keycloak-integration-testing
+    with testcontainers
+https://habr.com/ru/articles/716232/
+    ! +ABAC
+    https://github.com/mgalaktionov/keycloak-demo-2
+
 https://habr.com/ru/post/724738/
+    refresh-token, bad ideology
 https://habr.com/ru/post/720070/
+    application.yaml, KeycloakWebSecurityConfigurerAdapter is depr-ted
+    spring-security-oauth2-resource-server
 https://habr.com/ru/post/716232/
 2022
-https://www.baeldung.com/spring-boot-keycloak-integration-testing
 https://www.youtube.com/watch?v=rbKzR6QWKLI&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=5
+https://habr.com/ru/articles/661541/
+    https://www.keycloak.org/2022/02/adapter-deprecation
 2021
-https://www.baeldung.com/spring-boot-keycloak
 https://www.baeldung.com/java-keycloak-custom-user-providers
 https://www.baeldung.com/keycloak-embedded-in-spring-boot-app
     https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-rest/oauth-authorization-server
+https://habr.com/ru/companies/reksoft/articles/552346/
 2020
 https://www.baeldung.com/postman-keycloak-endpoints
