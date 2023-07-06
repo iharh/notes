@@ -1,3 +1,6 @@
+# alias abc='flatpak run com.github.abc'
+# sudo ln -s /var/lib/flatpak/exports/bin/com.github.abc /usr/bin/abc
+
 /app/share/vscode/flatpak-warning.txt
 ...
 to access SDKs on your host system!

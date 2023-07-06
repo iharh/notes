@@ -1,8 +1,4 @@
-https://www.linkedin.com/learning/search?entityType=COURSE&keywords=spring%20security
-    ! 216
-
 2022
-https://www.linkedin.com/learning/instructors/frank-p-moley-iii
 https://www.linkedin.com/learning/spring-spring-security-15832928/
     ! 1h31m, 2022
     https://www.linkedin.com/learning/spring-spring-security-15832928/in-memory-authentication
@@ -46,4 +42,96 @@ https://www.linkedin.com/learning/spring-spring-security-15832928/
                     return new InMemoryUserDatailsManager(user);
                 }
             }
-    https://www.linkedin.com/learning/spring-spring-security-15832928/jdbc-authentication
+
+    @Configuration
+    public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+        @Override
+        protected void configure(HttpSecurity http) {
+            http
+                .authorizeRequests()
+                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/customers/**").hasRole("USER") // "ROLE_USER"
+                .antMatchers("/orders").hasRole("ADMIN")
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic() // does not have /logout
+                // for the form-based auth
+                // .httpBasic
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .permitAll();
+                .and()
+                .logout()
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+        }
+
+        @Bean
+        public UserDetailsService users(DataSource dataSource) {
+            return JdbcUserDetailManager();
+        }
+
+        // spring cli
+        spring encodepassword password
+        bcrypt pwd-encoder is default one
+
+        @Bean
+        public GrantedAuthoritiesMapper authorityMapper() {
+            SimpleAuthoritiyMapper authorityMapper = new SimpleAuthoritiyMapper();
+            authorityMapper.setConvertToUpperCase(true);
+            return authorityMapper;
+        }
+    }
+    
+    OAuth2 token types
+    access_token (short-lived), id-s a user
+    refresh_token - longer-lived
+    scopes - provides for rights, associated with the access token
+
+    Grants
+    authorization code
+    implicit
+    client credentials
+
+    CommonOAuth2Provider
+        provides native support for Okta, Google, ...
+
+    Auth Server
+        @EnableAuthorizationServer
+        AuthorizationServerConfigurerAdapter
+
+    ResourceServer
+        @EnableResourceServer
+
+    OAuth2Client
+    @EnableOAuth2Client
+    Oauth2RestTemplate - provieds much scaffolding
+
+    LDAP
+    need to configure AuthenticationManagerBuilder
+
+    @EnableWebFluxSecurity
+    SecurityWebFilterChain provides more fine-grained control
+    MapReactiveUserDetailsService provides handle to UserDetailsService
+
+    @EnableWebFluxSecurity
+    ... {
+        @Bean
+        public MapReactiveUserDetailsService userDetailsService() {
+            List<UserDetails> = new ArrayList<>();
+            userDetails.add(User.withDefaultPasswordEncoder().username(...).password(...).roles("USER").build());
+            // ... .roles("USER", "ADMIN")
+            return new MapReactiveUserDetailsService(userDetails);
+        }
+        @Bean
+        // ServerHttpSecurity is for WebFlux
+        public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) { 
+            http.authorizeExchange()
+                .pathMatchers("/hello").permitAll()
+                .anyExchange().hasRole("ADMIN")
+                .and().httpBasic();
+            return http.build()
+        }
+    }
