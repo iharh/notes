@@ -1,6 +1,5 @@
 https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.logging
 https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
-
 log groups
 https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.logging.log-groups
     web
@@ -27,12 +26,6 @@ custom log config
                 https://buildmedia.readthedocs.org/media/pdf/p6spy/latest/p6spy.pdf
                 https://www.javadoc.io/doc/p6spy/p6spy/latest/index.html
 
-logback
-https://springframework.guru/using-yaml-in-spring-boot-to-configure-logback/
-https://springframework.guru/using-logback-spring-boot/
-https://springframework.guru/logback-configuration-using-groovy/
-
-
 https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-logging
 
 https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
@@ -40,6 +33,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.htm
 https://howtodoinjava.com/spring-boot2/logging/spring-boot-logging-configurations/
 
 logback
+https://www.baeldung.com/spring-boot-testing-log-level
 https://springframework.guru/using-yaml-in-spring-boot-to-configure-logback/
     https://dzone.com/articles/using-yaml-in-spring-boot-to-configure-logback
 https://springframework.guru/using-logback-spring-boot/

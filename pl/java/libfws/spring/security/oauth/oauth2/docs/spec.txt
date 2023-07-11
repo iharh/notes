@@ -1,0 +1,18 @@
+https://github.com/spring-projects-experimental/spring-authorization-server/wiki/OAuth-2.0-Specifications
+
+https://www.oauth.com/oauth2-servers/token-introspection-endpoint/
+
+oauth2
+The OAuth 2.0 Authorization Framework
+    https://datatracker.ietf.org/doc/html/rfc6749
+    https://tools.ietf.org/html/rfc6749
+bearer token usage
+    https://tools.ietf.org/html/rfc6750
+token introspection
+    https://tools.ietf.org/html/rfc7662
+token revokation
+    https://tools.ietf.org/html/rfc7009
+token exchange
+    https://tools.ietf.org/html/rfc8693
+authorization server metadata
+    https://tools.ietf.org/html/rfc8414

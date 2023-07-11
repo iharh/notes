@@ -2,6 +2,11 @@ https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-resource-ser
 
 2021
 https://www.baeldung.com/spring-security-oauth-resource-server
+2018
+http://www.zakariaamine.com/2018-03-01/using-oauth2-in-spring-scopes
+http://www.zakariaamine.com/2018-01-27/using-oauth2-in-spring
+    https://github.com/zak905/oauth2-example
+
 
 https://github.com/spring-projects/spring-security/blob/master/docs/manual/src/docs/asciidoc/_includes/servlet/oauth2/oauth2-resourceserver.adoc
 https://github.com/spring-projects/spring-security/tree/master/samples/boot/oauth2resourceserver-opaque

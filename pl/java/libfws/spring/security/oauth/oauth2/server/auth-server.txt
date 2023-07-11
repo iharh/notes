@@ -1,6 +1,15 @@
 https://docs.spring.io/spring-authorization-server/docs/current/reference/html/index.html
 https://docs.spring.io/spring-authorization-server/docs/current/reference/html/overview.html
 https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html
+https://docs.spring.io/spring-authorization-server/docs/current/reference/html/configuration-model.html
+https://docs.spring.io/spring-authorization-server/docs/current/reference/html/core-model-components.html
+https://docs.spring.io/spring-authorization-server/docs/current/reference/html/protocol-endpoints.html
+
+The OAuth 2.0 Authorization Framework
+https://datatracker.ietf.org/doc/html/rfc6749
+
+https://github.com/spring-projects/spring-security-samples
+https://github.com/spring-projects/spring-authorization-server/tree/main/samples
 
 implementation 'org.springframework.security:spring-security-oauth2-authorization-server:1.0.0'
 
@@ -18,6 +27,10 @@ https://github.com/spring-projects-experimental/spring-authorization-server/wiki
 samples
 https://github.com/spring-projects/spring-authorization-server/tree/main/samples
 
+2023
+https://habr.com/ru/articles/746698/
+    https://github.com/dlabs71/spring-authorization-server-example
+https://habr.com/ru/articles/737548/
 2022
 https://spring.io/blog/2022/11/22/spring-authorization-server-1-0-is-now-ga
 https://spring.io/blog/2022/07/28/spring-authorization-server-is-going-1-0
