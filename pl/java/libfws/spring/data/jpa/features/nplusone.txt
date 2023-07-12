@@ -1,2 +1,20 @@
 2023
 https://habr.com/ru/companies/rosbank/articles/743536/
+2022
+https://hackernoon.com/3-ways-to-deal-with-hibernate-n1-problem
+    left join fetch
+2020
+https://habr.com/ru/companies/otus/articles/529692/
+    https://vladmihalcea.com/n-plus-1-query-problem/
+        hibernate slow query log
+        https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate/
+        https://vladmihalcea.com/eager-fetching-is-a-code-smell/
+EntityGraph
+https://habr.com/ru/articles/714704/
+    https://medium.com/geekculture/jpa-entitygraphs-a-solution-to-n-1-query-problem-e29c28abe5fb
+    https://www.baeldung.com/jpa-entity-graph
+
+https://stackoverflow.com/questions/32453989/what-is-the-solution-for-the-n1-issue-in-jpa-and-hibernate
+
+FetchMode
+    https://www.baeldung.com/hibernate-fetchmode
