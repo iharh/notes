@@ -1,4 +1,12 @@
 https://docs.jboss.org/envers/docs/#configuration
+https://spring.io/projects/spring-data-envers
+https://github.com/hibernate/hibernate-orm/blob/main/hibernate-envers/src/main/java/org/hibernate/envers/configuration/EnversSettings.java
+
+spring.jpa.properties
+  org.hibernate.envers:
+    audit_strategy: class-name
+    audit_strategy_validity_store_revend_timestamp: bool
+    store_data_at_delete: bool
 
 2023
 https://habr.com/ru/post/715918/

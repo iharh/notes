@@ -1,0 +1,22 @@
+https://www.baeldung.com/jpa-joincolumn-vs-mappedby
+    In a One-to-Many/Many-to-One relationship,
+    the owning side is usually defined on the many side of the relationship (joincolumn -> FK)
+
+    The value of mappedBy (at non-owning reference side)
+        is the name of the association-mapping attribute (java) on the owning side
+
+    cascade attr - on the owning side
+
+https://www.baeldung.com/jpa-join-column
+    The @JoinColumn annotation combined with a @OneToOne mapping indicates
+    that a given column in the owner entity refers to a primary key in the reference entity:
+
+@JoinFormula
+
+@ManyToOne
+    EAGER by default
+@OneToMany
+    LAZY by default
+
+2021
+https://habr.com/ru/articles/542328/

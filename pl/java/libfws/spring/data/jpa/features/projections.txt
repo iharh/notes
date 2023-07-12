@@ -3,3 +3,5 @@ https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#projections
 2020
 https://thorben-janssen.com/spring-data-jpa-query-projections/
     https://habr.com/ru/company/otus/blog/722060/
+
+Can have multiple @Entity for the same table
