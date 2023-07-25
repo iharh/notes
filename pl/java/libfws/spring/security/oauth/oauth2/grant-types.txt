@@ -1,0 +1,33 @@
+authorization code
+    client redirects user to login page
+    ! the user is directly interacts with auth-server
+    response_type=code 
+    client_id=<app-id>
+    redirect_uri=...
+    scope=<granted-authorities>
+    state=CSRF-token
+
+    the client redirects the user to auth-server
+    after successful auth, auth-server provides a code to client and state value
+    and the client can use this code later in order to obtain a token (access_token)
+
+implicit grant type (not recommended)
+    to obtain a token without using a code
+password
+    grant_type=password
+    scope
+    used only when client and auth-server are maintained by the same org
+client credentials
+    grant_type=client_credentials
+    client_id
+    client_code
+    scope
+
+    simplest grant type,
+    we can use it when no user is involved
+    no refresh token
+refresh token
+    grant_type=refresh_token
+proof key code for code exchange (PKCE)
+    https://datatracker.ietf.org/doc/html/rfc7636
+

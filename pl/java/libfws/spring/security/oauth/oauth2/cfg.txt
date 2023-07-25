@@ -1,0 +1,43 @@
+HttpSecurity http
+    http.oauth2Login()
+        adds OAuth2LoginAuthentionFilter
+
+ClientRegistration (represents the client in OAuth2 arch) is also needed
+    - client_id
+    - client_secret
+    - grant_type
+    - scopes
+
+    ClientRegistration cr = ClientRegistration.withRegistrationId("github")
+        .clientId("...")
+        .clientSecret("...")
+        .scope(new String [] {"read:user"})
+        .authorizationUri("https://github.com/login/auth/authorize")
+        .tokenUri("https://github.com/login/auth/access_token")
+        .userInfoUri("https://api.github.com/user")  // to get more details about user
+        .userNameAttributeId("id")
+        .clientName("GitHub")
+        .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+        .redirectUriTemplate("{baseUrl}/{action}/oauth2/code/{registrationId}")
+        .build();
+
+    https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
+
+    CommonOAuth2Provider - partially defines ClientRegistration
+
+    ClientRegistration cr = CommonOAuth2Provider.GITHUB
+        .getBuilder("github")
+        .clientId("...")
+        .clientSecret("...")
+        .build();
+
+    ClientRegistrationRepository bean (InMemory...) is used by OAuth2LoginAuthentionFilter ...
+
+    http.oauth2Login(c -> {
+        c.clientRegistrationRepository(...);
+    });
+
+    spring boot can fill OAuth2AuthenticationToken object to controller method params
+
+    props:
+        spring.security.oauth2.client.provider.myprovider.<prop-name>=<prop-val>
