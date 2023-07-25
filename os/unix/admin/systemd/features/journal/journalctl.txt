@@ -36,3 +36,6 @@ journalctl
         show occupied space
     --vacuum-size=1G
     --vacuum-time=1years
+
+2023
+https://habr.com/ru/articles/749714/
