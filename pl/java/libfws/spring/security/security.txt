@@ -8,6 +8,16 @@ https://github.com/spring-projects/spring-security/blob/main/config/src/main/jav
 https://github.com/spring-projects/spring-security/tree/main/config/src/main/java/org/springframework/security/config/annotation/web/configurers
 https://github.com/spring-projects/spring-security/tree/main/config/src/main/java/org/springframework/security/config/annotation/web/configurers/oauth2/client
 https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/annotation/web/configurers/oauth2/client/OAuth2LoginConfigurer.java
+
+    https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configurers/oauth2/client/OAuth2LoginConfigurer.html
+
+    config/src/main/java/org/springframework/security/config/annotation/web/configurers/AbstractAuthenticationFilterConfigurer.java
+    https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configurers/AbstractAuthenticationFilterConfigurer.html
+
+    public final class OAuth2LoginConfigurer<B extends HttpSecurityBuilder<B>>
+		    extends AbstractAuthenticationFilterConfigurer<B, OAuth2LoginConfigurer<B>, OAuth2LoginAuthenticationFilter> {
+        ...
+    }
 https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/annotation/web/configurers/oauth2/server/resource/OAuth2ResourceServerConfigurer.java
 
 https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/oauth2/client/CommonOAuth2Provider.java
@@ -29,3 +39,5 @@ https://github.com/spring-projects/spring-security/blob/main/core/src/main/java/
 deprecated
 TokenStore
 https://github.com/search?q=repo%3Aspring-attic%2Fspring-security-oauth+TokenStore&type=code
+
+

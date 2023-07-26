@@ -1,1 +1,12 @@
 https://docs.spring.io/spring-security/site/docs/current/reference/
+
+https://docs.spring.io/spring-security/reference/servlet/oauth2/index.html
+
+https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/jwt.html
+https://github.com/spring-projects/spring-security/tree/main/docs/modules/ROOT/pages/servlet/oauth2
+https://github.com/spring-projects/spring-security/blob/main/docs/modules/ROOT/pages/servlet/oauth2/resource-server/jwt.adoc
+
+https://github.com/spring-projects/spring-security/blob/main/docs/modules/ROOT/pages/servlet/oauth2/login/advanced.adoc
+    protocol endpoints
+        https://datatracker.ietf.org/doc/html/rfc6749#section-3
+        https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
