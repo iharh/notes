@@ -90,5 +90,22 @@ https://www.baeldung.com/java-keycloak-custom-user-providers
 https://www.baeldung.com/keycloak-embedded-in-spring-boot-app
     https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-rest/oauth-authorization-server
 https://habr.com/ru/companies/reksoft/articles/552346/
+Spilca - Software Architecture Fundamentals - Episode 16 - OAuth 2 and OpenID Connect 0:00 of 55:00
+    https://www.youtube.com/watch?v=j1yOkj2JzwM&list=PLEocw3gLFc8VYPSFuQfTbqsK-0q2wDCoR&index=17
+        /auth/realms/master/.well-known/openid-configuration
+        /auth/realms/master/protocol/openid-connect/certs
+        /auth/realms/master/protocol/openid-connect/token
+        curl -XPOST "http://localhost:8080/auth/realms/master/protocol/openid-connect/token" \
+          -H "Content-Type: application/x-www-form-urlencoded" \
+          --data-urlencode "grant_type=password" \
+          --data-urlencode "username=<usr> \
+          --data-urlencode "password=<pwd> \
+          --data-urlencode "scope=<scope>" \
+          --data-urlencode "client_id=<client-id>"
+        application.properties
+            jwkSetUri=.../certs
+                new JwkTokenStore(jwkSetUri) // obsolete
+                ...JwtDecoder
+                Provider
 2020
 https://www.baeldung.com/postman-keycloak-endpoints

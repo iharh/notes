@@ -1,5 +1,11 @@
 https://github.com/spring-projects/spring-security-oauth/tree/master/tests
 
+@WithMockUser
+    username, roles, authorities
+@WithSecurityContext
+org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener;
+@TestExecutionListeners({WithSecurityContextTestExecutionListener.class, ...})
+
 2023
 https://www.baeldung.com/spring-oauth-testing-access-control
     https://github.com/eugenp/tutorials/tree/master/spring-security-modules/spring-security-oauth2-testing

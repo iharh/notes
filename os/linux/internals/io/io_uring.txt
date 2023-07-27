@@ -1,0 +1,13 @@
+https://github.com/axboe/liburing
+https://kernel.dk/io_uring.pdf
+https://lore.kernel.org/io-uring/
+
+https://lwn.net/Articles/776703/
+https://lwn.net/Articles/858023/
+
+2022
+TheLinuxFoundation - io_uring: So Fast. It's Scary. - Paul Moore, Microsoft
+    https://www.youtube.com/watch?v=AaaH6skUEI8
+    https://www.youtube.com/watch?v=F82Qdi5kyjw
+        https://www.paul-moore.com/presentations
+        https://www.paul-moore.com/docs/2022-lss_eu-iouring_lsm-pcmoore-r3.pdf

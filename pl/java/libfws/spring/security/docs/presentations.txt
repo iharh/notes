@@ -6,6 +6,7 @@ https://www.youtube.com/playlist?list=PLZV0a2jwt22s5NCKOwSmHVagoDW8nflaC
 2023
 Fisunov - Spring Security: Spring Security + REST + JWT 0:00 of 1:52:12
     https://www.youtube.com/watch?v=NIv9TFTSIlg
+    https://github.com/FlameXander/security-jwt
 BoualiAli - Spring boot 3.0 - Secure your API with JWT Token 0:00 of 2:01:45
     https://www.youtube.com/watch?v=BVdQ3iuovg0
     https://github.com/ali-bouali/spring-boot-3-jwt-security
@@ -15,18 +16,20 @@ Amigoscode - Spring Boot 3 + Spring Security 6 - JWT Authentication and Authoris
     https://www.youtube.com/watch?v=KxqlJblhzfI
 Amigoscode - Spring Security Tutorial 0:00 of 1:31:04
     https://www.youtube.com/watch?v=b9O9NI-RJ3o
-Amigoscode - Arch
+Amigoscode - Spring Security Architecture Explained 0:00 of 14:40
     https://www.youtube.com/watch?v=h-9vhFeM3MY
-CodeElevate
+CodeElevate - Spring Boot 3 + Spring Security 6 | JWT Authorization | Part 2 | Authenticated API with JWT Token - 0:00 of 20:00
     https://www.youtube.com/watch?v=gF3QnawtPp0
+CodeElevate - Spring Boot 3 + Spring Security 6 | JWT Authentication | Create JWT Token | Signup + Login Rest API - 0:00 of 40:54
     https://www.youtube.com/watch?v=YERACEd-VSw
 Dawn - JWT Tokens for Authentication and Authorization in Spring Boot with Spring Security 0:00 of 3:08:12
     https://www.youtube.com/watch?v=VcIagbi4djA
+    https://github.com/YouTubeProjectsCode/Spring_Secuirty-Angular_Authentication-CodeElevate/tree/main/Spring-Secuirty-Jwt-In-Spring-Boot-3
+    ! expose jwt token
 Spilca
     https://www.youtube.com/watch?v=1Mel8wn1HZs
     https://www.youtube.com/watch?v=ZIS4273AAGI
     https://www.youtube.com/playlist?list=PLEocw3gLFc8X_a8hGWGaBnSkPFJmbb8QP
-    https://www.youtube.com/watch?v=j1yOkj2JzwM&list=PLEocw3gLFc8VYPSFuQfTbqsK-0q2wDCoR&index=17
 DailyCodeBuffer
     of 9:29:46
     https://www.youtube.com/watch?v=zvR-Oif_nxg
@@ -39,6 +42,11 @@ DanVega - Spring Security without the WebSecurityConfigurerAdapter 0:00 of 17:07
 2021
 Building and Securing a Web Application with Spring Boot
     https://www.youtube.com/watch?v=9r7UxenMxuc
+Spilca - Software Architecture Fundamentals - Episode 16 - OAuth 2 and OpenID Connect 0:00 of 55:00
+    https://www.youtube.com/watch?v=j1yOkj2JzwM&list=PLEocw3gLFc8VYPSFuQfTbqsK-0q2wDCoR&index=17
+        /auth/realms/master/.well-known/openid-configuration
+        /auth/realms/master/protocol/openid-connect/certs
+        /auth/realms/master/protocol/openid-connect/token
 2019
 DefogTech - Spring Boot Security Basics 0:00 of 14:33
     https://www.youtube.com/watch?v=krLrHwRvTHc
