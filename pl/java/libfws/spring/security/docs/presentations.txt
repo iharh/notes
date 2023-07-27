@@ -22,25 +22,53 @@ CodeElevate - Spring Boot 3 + Spring Security 6 | JWT Authorization | Part 2 | A
     https://www.youtube.com/watch?v=gF3QnawtPp0
 CodeElevate - Spring Boot 3 + Spring Security 6 | JWT Authentication | Create JWT Token | Signup + Login Rest API - 0:00 of 40:54
     https://www.youtube.com/watch?v=YERACEd-VSw
-Dawn - JWT Tokens for Authentication and Authorization in Spring Boot with Spring Security 0:00 of 3:08:12
-    https://www.youtube.com/watch?v=VcIagbi4djA
+    https://github.com/YouTubeProjectsCode/Spring_Secuirty-Angular_Authentication-CodeElevate
     https://github.com/YouTubeProjectsCode/Spring_Secuirty-Angular_Authentication-CodeElevate/tree/main/Spring-Secuirty-Jwt-In-Spring-Boot-3
     ! expose jwt token
+!!!
+ThearaDawn - JWT Tokens for Authentication and Authorization in Spring Boot with Spring Security 0:00 of 3:08:12
+    https://www.youtube.com/watch?v=VcIagbi4djA
+    https://github.com/ThearaDawn/rean-spring-framework/tree/main/4.%20Security%20with%20Spring%20Boot/%232%20spring-security-jwt-authorization
+    !!! boot 3
+    https://github.com/ThearaDawn/rean-spring-framework/blob/main/4.%20Security%20with%20Spring%20Boot/%232%20spring-security-jwt-authorization/src/main/java/com/rean/jwt/impl/JwtServiceImpl.java
+    https://github.com/ThearaDawn/rean-spring-framework/tree/main/4.%20Security%20with%20Spring%20Boot/%232%20spring-security-jwt-authorization/src/main/java/com/rean/filter
+
 Spilca
     https://www.youtube.com/watch?v=1Mel8wn1HZs
     https://www.youtube.com/watch?v=ZIS4273AAGI
     https://www.youtube.com/playlist?list=PLEocw3gLFc8X_a8hGWGaBnSkPFJmbb8QP
-DailyCodeBuffer
-    of 9:29:46
-    https://www.youtube.com/watch?v=zvR-Oif_nxg
-    of 2:38:18
+DailyCodeBuffer - Spring Security Tutorial | In depth Course 0:00 of 2:38:18
     https://www.youtube.com/watch?v=tWcqSIQr6Ks
+        https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth
+    https://github.com/shabbirdwd53/spring-security-tutorial
+    https://github.com/shabbirdwd53/spring-security-tutorial/tree/main/Oauth-authorization-server
+    https://github.com/shabbirdwd53/spring-security-tutorial/blob/main/Oauth-authorization-server/src/main/java/com/dailycodebuffer/oauthserver/config/AuthorizationServerConfig.java
+    https://github.com/shabbirdwd53/spring-security-tutorial/blob/main/Oauth-authorization-server/src/main/java/com/dailycodebuffer/oauthserver/config/DefaultSecurityConfig.java
+    https://github.com/shabbirdwd53/spring-security-tutorial/tree/main/Oauth-resource-server
+    https://github.com/shabbirdwd53/spring-security-tutorial/blob/main/Oauth-resource-server/src/main/java/com/dailycodebuffer/Oauthresourceserver/config/ResourceServerConfig.java
+        ! not lot of stuff
+
+    https://github.com/shabbirdwd53/spring-security-tutorial/tree/main/spring-security-client
+    https://github.com/shabbirdwd53/spring-security-tutorial/blob/main/spring-security-client/src/main/resources/application.yml
+        !!!
+    https://github.com/shabbirdwd53/spring-security-tutorial/blob/main/spring-security-client/src/main/java/com/dailycodebuffer/client/service/UserServiceImpl.java
+        !!!
+    https://github.com/shabbirdwd53/spring-security-tutorial/blob/main/spring-security-client/src/main/java/com/dailycodebuffer/client/controller/HelloController.java
+        @RegisteredOAuth2AuthorizedClient("api-client-authorization-code")
+        OAuth2AuthorizedClient client
+    https://github.com/shabbirdwd53/spring-security-tutorial/blob/main/spring-security-client/src/main/java/com/dailycodebuffer/client/config/WebSecurityConfig.java
+    https://github.com/shabbirdwd53/spring-security-tutorial/blob/main/spring-security-client/src/main/java/com/dailycodebuffer/client/config/WebClientConfiguration.java
+        OAuth2AuthorizedClientManager
+        OAuth2AuthorizedClientProvider
 
 2022
+ OAuth 2.0 Implementation with Spring Security and Spring Boot | Full Example 0:00 of 1:11:14
+    https://www.youtube.com/watch?v=MOCeQYbQPPU
+    https://github.com/shabbirdwd53/spring-security-tutorial
 DanVega - Spring Security without the WebSecurityConfigurerAdapter 0:00 of 17:07
     https://www.youtube.com/watch?v=s4X4SJv2RrU
 2021
-Building and Securing a Web Application with Spring Boot
+Building and Securing a Web Application with Spring Boot 0:00 of 38:41
     https://www.youtube.com/watch?v=9r7UxenMxuc
 Spilca - Software Architecture Fundamentals - Episode 16 - OAuth 2 and OpenID Connect 0:00 of 55:00
     https://www.youtube.com/watch?v=j1yOkj2JzwM&list=PLEocw3gLFc8VYPSFuQfTbqsK-0q2wDCoR&index=17
