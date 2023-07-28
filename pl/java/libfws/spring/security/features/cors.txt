@@ -1,1 +1,8 @@
 https://github.com/YouTubeProjectsCode/Spring_Secuirty-Angular_Authentication-CodeElevate/blob/main/Spring-Secuirty-Jwt-In-Spring-Boot-3/src/main/java/com/springjwt/configuration/SimpleCorsFilter.java
+
+Headers
+    Access-Control-Allow-Origin: foreign domains (origins), that can access resources on our domain
+    Access-Control-Allow-Methods: ...
+    Access-Control-Allow-Headers: ... limitation, to which headers
+
+@CrossOrigin

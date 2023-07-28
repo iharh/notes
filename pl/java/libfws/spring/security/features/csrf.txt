@@ -1,0 +1,14 @@
+-H 'Cookie: JSESSIONID=...'
+-H 'X-CSRF-TOKEN: <UUID>'
+
+// CsrfCustomizer
+http.csrf(c -> {
+    c.ingnoringAntMatchers("/<some-endpoint>")
+})
+
+CsrfToken
+    getHeaderName()
+    getParameterName()
+    getToken()
+
+curl -H "X-IDENTIFIER: 12345" some-get-endpoint
