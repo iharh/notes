@@ -20,6 +20,7 @@ localectl status
 
 setxkbmap
     -layout "us,ru(winkeys)" -variant -option grp:ctrl_shift_toggle,terminate:ctrl_alt_bksp
+    win_space_toggle
     -help
     -print -verbose 10
     -query

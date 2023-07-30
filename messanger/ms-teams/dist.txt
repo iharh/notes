@@ -1,5 +1,16 @@
 https://github.com/IsmaelMartinez/teams-for-linux
     https://flathub.org/apps/com.github.IsmaelMartinez.teams_for_linux
+    multi-accounts
+    https://github.com/IsmaelMartinez/teams-for-linux/issues/689
+        customUserDir
+          --customUserDir   Custom User Directory so that you can have multiple profiles
+    https://github.com/IsmaelMartinez/teams-for-linux/pull/690
+    https://github.com/IsmaelMartinez/teams-for-linux/issues/72
+    https://github.com/IsmaelMartinez/teams-for-linux/issues/438
+        open
+    https://github.com/IsmaelMartinez/teams-for-linux/discussions/764
+        teams --customUserDir=/home/iharh/teams-custom/epam --appTitle=teams-epam
+        teams --customUserDir=/home/iharh/teams-custom/inspire --appTitle=teams-inspire
 
 https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-progressive-web-app-now-available-on-linux/ba-p/3669846
 
