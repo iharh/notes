@@ -1,0 +1,10 @@
+https://github.com/davatorium/rofi-scripts
+
+https://github.com/davatorium/rofi-scripts/tree/master/mode-scripts
+    rofi -combi-modi "tms:...teams.sh",run -show combi
+
+configuration {
+    combi-modi: "window,drun,ssh,Project:~/.config/rofi/project.sh";
+    modi: "combi";
+}
+rofi -show combi
