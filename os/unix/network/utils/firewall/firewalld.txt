@@ -2,6 +2,7 @@ firewalld:
 http://www.unixmen.com/iptables-vs-firewalld/
 http://guoqiao.me/post/2015/0610-vagrant-network-not-working-for-centos-7
 
+sudo systemctl status firewalld.service 
 sudo systemctl stop firewalld.service 
 sudo systemctl disable firewalld.service
 
