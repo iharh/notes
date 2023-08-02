@@ -1,4 +1,5 @@
 journalctl
+options
     --list-boots
     -b, --boot=[1...n]
         current session, -1 - previous, -2 - ...
@@ -34,6 +35,7 @@ journalctl
     -o [json|json-pretty]
     -x --catalog
         Add message explanations where available
+commands
     --disk-usage
         show occupied space
     --vacuum-size=1G
