@@ -32,10 +32,15 @@ journalctl
     -f
         like tail -f
     -o [json|json-pretty]
+    -x --catalog
+        Add message explanations where available
     --disk-usage
         show occupied space
     --vacuum-size=1G
     --vacuum-time=1years
+
+samples
+    journalctl -xeu <unit>.service
 
 2023
 https://habr.com/ru/articles/749714/
