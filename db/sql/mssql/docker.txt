@@ -1,0 +1,27 @@
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-overview
+
+https://hub.docker.com/_/microsoft-mssql-server
+    Note: MSSQL passwords must be at least 8 characters long, contain upper case, lower case and digits.
+    need to look video
+
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-deployment
+https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker
+    https://github.com/Microsoft/mssql-docker
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-configure
+    docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
+     -v <host directory>:/var/opt/mssql
+    --shm-size 1g 
+    -e 'TZ=America/Los_Angeles'\
+    docker cp d6b75213ef80:/var/opt/mssql/log/errorlog /tmp/errorlog
+
+
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools
+    sql-cmd
+
+https://github.com/microsoft/mssql-docker/tree/master/linux/preview/examples/mssql-customize
+
+vscode
+https://learn.microsoft.com/en-us/sql/tools/visual-studio-code/sql-server-develop-use-vscode
+azure data studio
+https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio
+https://learn.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-server
