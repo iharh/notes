@@ -1,17 +1,25 @@
+https://github.com/Microsoft/mssql-docker
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-overview
+????
+https://github.com/mcmoe/mssqldocker
+https://github.com/mcmoe/mssqldocker/blob/master/entrypoint.sh
 
 https://hub.docker.com/_/microsoft-mssql-server
     Note: MSSQL passwords must be at least 8 characters long, contain upper case, lower case and digits.
     need to look video
 
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-release-notes-2022
+    Known issues
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-faq
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-deployment
 https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker
-    https://github.com/Microsoft/mssql-docker
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-configure
     docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
      -v <host directory>:/var/opt/mssql
     --shm-size 1g 
     -e 'TZ=America/Los_Angeles'\
+          https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-configure-time-zone
+          /usr/share/zoneinfo/...
     docker cp d6b75213ef80:/var/opt/mssql/log/errorlog /tmp/errorlog
 
 
@@ -19,6 +27,18 @@ https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools
     sql-cmd
 
 https://github.com/microsoft/mssql-docker/tree/master/linux/preview/examples/mssql-customize
+
+issues
+    The system directory [/.system] could not be created
+    https://github.com/microsoft/mssql-docker/issues/735
+    podSecurityContext:
+      fsGroup: 10001
+    https://github.com/microsoft/mssql-docker/issues/615
+        https://www.dbi-services.com/blog/using-non-root-sql-server-containers-on-docker-and-k8s/
+        https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-security?view=sql-server-ver16#storagepermissions
+        https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-security?view=sql-server-ver16#set-the-non-root-user-as-the-owner-of-the-files
+db at startup
+    https://github.com/microsoft/mssql-docker/issues/2
 
 vscode
 https://learn.microsoft.com/en-us/sql/tools/visual-studio-code/sql-server-develop-use-vscode
