@@ -1,0 +1,13 @@
+https://wiki.mozilla.org/CA    
+https://wiki.mozilla.org/CA/AddRootToFirefox
+https://help.zscaler.com/zia/adding-custom-certificate-application-specific-trust-store#deploy-custom-certificate-mozilla-firefox-browser
+
+https://wiki.mozilla.org/CA/Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate
+to import
+a. Open the Mozilla Firefox browser and go to Options by clicking the gear icon.
+b. Go to Privacy & Security, then scroll down to the Certificates section and click View Certificates....
+c. From the Authorities tab, click Import to browse and select the Zscaler root certificate from your local directory.
+d. After selecting the certificate, click OK.
+   The imported certificate is automatically stored in the Application Data folder, which is hidden by default.
+
+/usr/local/share/ca-certificates/
