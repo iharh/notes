@@ -3,3 +3,11 @@ create database [TutorialDB]
 go
 alter database [TutorialDB] set query_store=on
 go
+
+
+USE MASTER
+GO
+ALTER DATABASE TutorialDB
+SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+DROP DATABASE TutorialDB
+GO

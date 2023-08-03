@@ -1,7 +1,11 @@
+https://github.com/microsoft/azuredatastudio
+https://github.com/Microsoft/sqltoolsservice
+https://learn.microsoft.com/en-us/sql/azure-data-studio
 https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio
     sudo apt install libxss1 libgconf-2-4 libunwind8
     sudo dpkg -i azuredatastudio-linux-<version string>.deb
 
 keys
+https://learn.microsoft.com/en-us/sql/azure-data-studio/keyboard-shortcuts
 F5
     run query
