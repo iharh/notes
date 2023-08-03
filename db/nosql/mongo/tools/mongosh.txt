@@ -1,0 +1,7 @@
+https://www.mongodb.com/docs/mongodb-shell/install/
+https://github.com/mongodb-js/mongosh
+    
+    sudo apt-get update
+    sudo apt-get install mongodb-mongosh
+    
+    mongodb://<usr>:<pwd>@localhost:27017/test 

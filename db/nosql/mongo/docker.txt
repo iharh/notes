@@ -22,6 +22,8 @@ persistence folder permissions
     https://github.com/bitnami/bitnami-docker-mongodb/issues/177
     https://github.com/bitnami/bitnami-docker-mongodb/issues/178
         sudo chown :root $MONGODB_SRC_DIR && chmod g+rwX $MONGODB_SRC_DIR
+    https://github.com/docker-library/mongo/issues/315
+        docker exec -it mongo bash
 
 compose sample
 services:
