@@ -1,0 +1,5 @@
+if not exists (select name from sys.databases where name = N'TutorialDB')
+create database [TutorialDB]
+go
+alter database [TutorialDB] set query_store=on
+go

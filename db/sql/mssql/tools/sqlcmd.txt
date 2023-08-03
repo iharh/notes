@@ -1,0 +1,52 @@
+https://learn.microsoft.com/en-us/sql/tools/sqlcmd/sqlcmd-use-utility
+    cmds to terminate blocking queries
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools
+https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/connecting-with-sqlcmd
+https://packages.microsoft.com/config/ubuntu/
+https://packages.microsoft.com/config/ubuntu/22.04/
+    curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/packages.microsoft.gpg
+    sudo su
+    curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+    exit
+    sqlcmd -S localhost -U SA -Q 'select @@VERSION'
+    sudo apt update
+    sudo apt install unixodbc-dev
+    sudo ACCEPT_EULA=Y apt install mssql-tools18
+
+sqlcmd
+    -?
+        help
+    -A
+        admin-prompt (win-only?)
+    -Q -q
+        query
+    -i <file>
+        run sql from file
+    -o <file>
+        redirect output to file
+    -S
+        server or Dsn (if -D is provided)
+    -G
+        use Azure Active Directory for authentication
+        When you want to use an Azure AD user name and password, you can provide the -G
+        The -G parameter generates the following connection string in the backend: ...
+        Known issue: Always start with the -G option followed by the -U option.
+    -d
+        use database name
+    -E
+        trusted connection (the default and does not need to be specified)
+    -C
+        enable protocol encryption
+    -No
+        ...
+
+commands
+    :help
+    :!!<shell-cmd>
+    :connect myserver\instance1
+    :go
+        execute commands from buffer
+    :r <file>
+        loads commands from file into buffer
+    :reset
+        clear buffer

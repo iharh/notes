@@ -1,0 +1,7 @@
+https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio
+    sudo apt install libxss1 libgconf-2-4 libunwind8
+    sudo dpkg -i azuredatastudio-linux-<version string>.deb
+
+keys
+F5
+    run query

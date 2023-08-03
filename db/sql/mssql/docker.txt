@@ -10,6 +10,9 @@ https://hub.docker.com/_/microsoft-mssql-server
 
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-release-notes-2022
     Known issues
+    SQL Server Configuration Manager can't connect to SQL Server on Linux.
+    When restoring a database that was backed up on SQL Server on Windows,
+        you must use the WITH MOVE clause in the Transact-SQL statement.
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-faq
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-deployment
 https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker
@@ -23,8 +26,6 @@ https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-co
     docker cp d6b75213ef80:/var/opt/mssql/log/errorlog /tmp/errorlog
 
 
-https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools
-    sql-cmd
 
 https://github.com/microsoft/mssql-docker/tree/master/linux/preview/examples/mssql-customize
 
@@ -40,6 +41,19 @@ issues
 db at startup
     https://github.com/microsoft/mssql-docker/issues/2
 
+tools
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools
+https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/connecting-with-sqlcmd
+https://packages.microsoft.com/config/ubuntu/
+https://packages.microsoft.com/config/ubuntu/22.04/
+    curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/packages.microsoft.gpg
+    sudo su
+    curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+    exit
+    sqlcmd -S localhost -U SA -Q 'select @@VERSION'
+    sudo apt update
+    sudo apt install unixodbc-dev
+    sudo ACCEPT_EULA=Y apt install mssql-tools18
 vscode
 https://learn.microsoft.com/en-us/sql/tools/visual-studio-code/sql-server-develop-use-vscode
 azure data studio
