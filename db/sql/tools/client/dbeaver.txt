@@ -7,3 +7,8 @@ https://dbeaver.jkiss.org/docs/features/
 https://en.wikipedia.org/wiki/DBeaver
 https://github.com/dbeaver/dbeaver/wiki
 https://github.com/dbeaver/dbeaver/wiki/Command-Line
+
+
+keys
+⌥X
+    run the current SQL script
