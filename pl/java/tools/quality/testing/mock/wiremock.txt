@@ -5,3 +5,35 @@ https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project
 
 2022
 https://vc.ru/u/628653-codeinside/535563-mock-servisy-dlya-testirovaniya-how-to-use-quick-start
+
+samples
+{
+  "request": {
+    "method": "POST",
+    "urlPattern": "/v1/.+/suff",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?($.ActivityType == 'SOMEACT')]"
+      }
+    ]
+  }
+  "response": {
+    "fixedDelayMilliseconds": 90,
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json;charset=UTF-8"
+    },
+    "jsonBody": {
+      "SomeInput": {
+        "SomeNumber": "{{jsonPath request.body '$.ActivityInput.CertificateNumber'}}"
+      },
+      "SomeId": "{{request.path.[1]}}",
+    }
+  }
+}
+
+https://docs.wiremock.io/response-templating/random-values/
+{{randomValue type='UUID'}}
+{{randomValue length=27 type='ALPHABETIC' uppercase=true}}
+
+https://docs.wiremock.io/response-templating/json/#iterating-over-json-elements
