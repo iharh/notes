@@ -8,7 +8,11 @@ https://en.wikipedia.org/wiki/DBeaver
 https://github.com/dbeaver/dbeaver/wiki
 https://github.com/dbeaver/dbeaver/wiki/Command-Line
 
+files ($XDG_DATA_DIRS)
+~/.local/share/DBeaverData
 
 keys
 ⌥X
     run the current SQL script
+
+https://dbeaver.com/2022/03/10/how-to-create-network-profiles/
