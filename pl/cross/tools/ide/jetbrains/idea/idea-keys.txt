@@ -11,7 +11,7 @@ C-O
 C-S-Space
     SmartType completion
 A-Ins
-    Generate getters/setters
+    New File
 C-/
     Comment out code block with //
 C-S-/
