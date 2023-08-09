@@ -58,6 +58,8 @@ http://www.unixmen.com/change-hostname-ubuntu-13-10/
 /etc/hosts
   127.0.0.1 localhost
   127.0.1.1 your_new_hostname
+  # causes jdk bug for macaddr: https://github.com/Azure/azure-sdk-for-java/pull/18069/files
+
 /etc/resolv.conf
   don't edit
 
