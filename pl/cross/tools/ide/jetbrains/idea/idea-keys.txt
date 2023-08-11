@@ -19,6 +19,10 @@ C-S-/
 C-P
     list of valid params
 
+Code
+C-A-S-L
+    Reformat Code
+
 Navigate
 C-A-Left
     Navigate back
