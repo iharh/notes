@@ -1,2 +1,25 @@
+https://www.mongodb.com/docs/manual/tutorial/update-documents-with-aggregation-pipeline/
+https://www.mongodb.com/docs/manual/reference/command/nav-crud/
+
+coll
+  .insertOne({...})
+  .insertMany([...])
+  .update,
+  .updateOne({"field": "...", ...}, [agg-pipeline])
+      https://www.mongodb.com/docs/manual/tutorial/update-documents-with-aggregation-pipeline/
+      $set: {"otherField": "otherVal"}
+  .updateMany
+  .replaceOne
+  .queryAndWrite(...)
+  .deleteOne
+  .deleteMany
+  .remove({filer})
+
+from-java-driver
+  https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/updates/
+
 2022
 https://www.fosslinux.com/49919/update-existing-documents-mongodb.htm
+
+bulk
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/write-operations/bulk/

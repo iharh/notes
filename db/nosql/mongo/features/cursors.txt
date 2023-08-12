@@ -1,0 +1,5 @@
+mongosh
+https://www.mongodb.com/docs/manual/tutorial/iterate-a-cursor/
+
+from-java-driver
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/read-operations/cursor/

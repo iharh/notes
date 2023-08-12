@@ -1,0 +1,37 @@
+https://www.mongodb.com/docs/manual/core/aggregation-pipeline/
+    https://www.mongodb.com/docs/manual/core/aggregation-pipeline-optimization/
+
+https://www.mongodb.com/docs/manual/reference/aggregation/
+
+https://www.mongodb.com/docs/manual/meta/aggregation-quick-reference/
+https://www.mongodb.com/docs/manual/reference/operator/aggregation/interface/
+    commands: aggregate, count, distinct, mapReduce
+
+https://www.mongodb.com/docs/manual/reference/operator/aggregation-pipeline/
+    stages
+    https://www.mongodb.com/docs/manual/core/map-reduce/
+    ! deprecated from 5.0
+https://www.mongodb.com/docs/manual/reference/operator/aggregation/
+https://www.mongodb.com/docs/manual/reference/aggregation-variables/
+    $$<var-name>
+https://www.mongodb.com/docs/manual/reference/sql-aggregation-comparison/
+
+https://www.mongodb.com/docs/manual/tutorial/update-documents-with-aggregation-pipeline/
+
+misc
+    https://www.mongodb.com/docs/manual/reference/operator/aggregation/accumulator/
+
+from-java-driver
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/aggregation/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/aggregates/
+
+2015
+https://www.mongodb.com/blog/post/joins-and-other-aggregation-enhancements-coming-in-mongodb-3-2-part-2-of-3-worked-examples
+https://www.mongodb.com/blog/post/joins-and-other-aggregation-enhancements-coming-in-mongodb-3-2-part-1-of-3-introduction
+    $lookup (left-outer equi-join)
+    $match, $project, $lookup, $group, ..., geoNear, unwind, sample, sort, skip(limit number of docs), redact, out
+
+books
+https://www.practical-mongodb-aggregations.com/front-cover.html
+mongosh
+https://www.mongodb.com/docs/manual/reference/method/db.collection.aggregate

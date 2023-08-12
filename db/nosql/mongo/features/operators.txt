@@ -1,0 +1,10 @@
+https://www.mongodb.com/docs/manual/core/document/
+https://www.mongodb.com/docs/manual/reference/operator/query/
+https://www.mongodb.com/docs/manual/reference/operator/update/
+https://www.mongodb.com/docs/manual/reference/operator/aggregation-pipeline/
+https://www.mongodb.com/docs/manual/reference/operator/aggregation/
+
+$lt
+..
+$add
+$multiply

@@ -1,0 +1,4 @@
+https://www.mongodb.com/docs/manual/core/read-preference/
+https://www.mongodb.com/docs/manual/reference/read-concern/
+    http://mongodb.github.io/mongo-java-driver/4.10/apidocs/mongodb-driver-core/com/mongodb/ReadConcern.html
+https://www.mongodb.com/docs/manual/reference/write-concern/

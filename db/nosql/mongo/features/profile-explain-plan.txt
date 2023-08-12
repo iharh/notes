@@ -1,0 +1,65 @@
+https://www.mongodb.com/docs/manual/core/query-plans/
+https://www.mongodb.com/docs/manual/reference/explain-results/
+https://www.mongodb.com/docs/manual/tutorial/analyze-query-plan/
+
+https://www.mongodb.com/docs/manual/administration/analyzing-mongodb-performance/#locking-performance
+
+https://www.mongodb.com/docs/manual/tutorial/manage-the-database-profiler/
+https://www.mongodb.com/docs/manual/reference/database-profiler/
+    !!! results descr !!!
+        https://www.mongodb.com/docs/manual/core/capped-collections/
+            fixed-size for high-thouput
+    The database profiler writes data in the system.profile capped collection
+        "planCacheKey"
+        "planSummary" : "IXSCAN { a: 1, _id: -1 }",
+        ...
+        "locks"
+        ...
+        "ts" : ISODate("2019-01-14T23:33:01.806Z"),
+        "client" : "127.0.0.1",
+        "appName" : "MongoDB Shell",
+        "allUsers" : [{"user" : "someuser", "db" : "admin"}],
+        "user" : "someuser@admin"
+    https://www.mongodb.com/docs/manual/reference/system-collections/#mongodb-data--database-.system.profile
+
+query-shape
+    https://www.mongodb.com/docs/manual/reference/glossary/#std-term-query-shape
+    A combination of query predicate, sort, projection, and collation.
+    query-hash
+    https://www.mongodb.com/docs/manual/release-notes/4.2/#std-label-4.2-query-hash
+planCache
+    https://www.mongodb.com/docs/manual/reference/operator/aggregation/planCacheStats/
+
+options
+https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs
+    slow-op-log
+    https://www.mongodb.com/docs/manual/reference/configuration-options/#operationprofiling-options
+
+https://www.mongodb.com/docs/manual/reference/method/db.getProfilingStatus
+    db.getProfilingStatus()
+https://www.mongodb.com/docs/manual/reference/method/db.setProfilingLevel/
+    (0) - disable
+
+sample
+  COLSCAN-bad, IXSCAN-good
+https://www.mongodb.com/docs/manual/reference/method/db.collection.explain
+    db.runCommand({explain: { 'find' : 'collection', 'filter' : { 'brandId' : { '$eq' : 'BRND' } }, 'skip' : 0, 'limit' : 0, 'maxTimeMS' : 60000 }})
+    db.collection.find({"brandId":{"$eq": "BRND"}}).explain()
+    db.collection.explain().find().help()
+    .find(...).explain("executionStats")
+        https://www.mongodb.com/docs/manual/tutorial/analyze-query-plan/
+
+!!!
+You can use $comment to add data to the query predicate to make it easier to analyze data from the profiler.
+https://www.mongodb.com/docs/manual/reference/operator/query/comment/#mongodb-query-op.-comment
+    db.setProfilingLevel(2, 0)
+    db.collection.find( { <query>, $comment: <comment> } )
+    then -> "comment": "val"
+
+! query plan cache commands
+https://www.mongodb.com/docs/manual/reference/command/nav-plan-cache/
+!!! cursor.hint
+https://www.mongodb.com/docs/manual/reference/method/cursor.hint/#mongodb-method-cursor.hint
+
+from-java-driver
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/read-operations/cursor/

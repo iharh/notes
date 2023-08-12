@@ -1,0 +1,67 @@
+https://www.mongodb.com/docs/drivers/java/sync/current/
+    https://www.mongodb.com/docs/drivers/reactive-streams/
+
+https://mongodb.github.io/mongo-java-driver/
+    https://mongodb.github.io/mongo-java-driver/4.10/
+    https://mongodb.github.io/mongo-java-driver/4.10/apidocs/
+
+
+https://central.sonatype.com/artifact/org.mongodb/mongodb-driver-sync
+https://github.com/mongodb/mongo-java-driver
+
+https://www.mongodb.com/docs/drivers/java/sync/current/quick-start/
+https://www.mongodb.com/docs/drivers/java/sync/current/quick-reference/
+    bulks, cursors
+https://www.mongodb.com/docs/drivers/java/sync/current/usage-examples/
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/connection/
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/databases-collections/
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/data-formats/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/data-formats/document-data-format-extended-json/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/data-formats/documents/
+
+https://www.mongodb.com/docs/manual/reference/connection-string/
+
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/connection/
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/stable-api/
+    db.runCommand( { serverStatus: 1 } ).metrics.apiVersions
+    client = new MongoClient(uri, { serverApi: { version: '1', strict: true } });
+
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/read-operations/
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/read-operations/retrieve/
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/read-operations/cursor/
+...
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/query-document/
+
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/aggregation/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/aggregates/
+
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/filters/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/projections/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/sort/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/updates/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/aggregates/
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/indexes/
+
+plan-explain
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/crud/read-operations/cursor/
+    https://www.mongodb.com/docs/manual/core/query-plans/
+    https://www.mongodb.com/docs/manual/reference/explain-results/
+
+pojo-cust-n
+https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/data-formats/pojo-customization/
+
+samples
+https://www.digitalocean.com/community/tutorials/mongodb-bulk-insert-insertmany
+https://www.digitalocean.com/community/tutorials/mongodb-tutorial
+
+api
+http://mongodb.github.io/mongo-java-driver/4.10/apidocs/mongodb-driver-core/com/mongodb/ReadConcern.html
+
+2015
+https://www.studytonight.com/mongodb/java-integration
+https://www.studytonight.com/mongodb/data-insertion-mongodb
+https://www.studytonight.com/mongodb/data-updation-mongodb
+https://www.studytonight.com/mongodb/retrieve-delete-mongodb

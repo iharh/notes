@@ -1,0 +1,11 @@
+https://www.mongodb.com/docs/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/
+https://www.mongodb.com/docs/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/
+https://www.mongodb.com/docs/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/
+tree structures
+  https://www.mongodb.com/docs/manual/tutorial/model-tree-structures-with-parent-references/
+      https://www.mongodb.com/docs/manual/reference/operator/aggregation/graphLookup/#mongodb-pipeline-pipe.-graphLookup
+  ...
+  https://www.mongodb.com/docs/manual/tutorial/model-tree-structures-with-nested-sets/
+
+https://www.mongodb.com/docs/manual/reference/database-references/
+    DBRef

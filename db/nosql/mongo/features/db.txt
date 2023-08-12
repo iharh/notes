@@ -1,4 +1,19 @@
+https://www.mongodb.com/docs/manual/reference/method/js-database/
+
 db
+    <mydb>.help()
+    <mydb>.drop()
+    adminCommand({})
     getName()
     getCollectionNames()
-    getCollection(collectionName).find()
+    getCollection(collectionName)
+    .createCollection
+        https://www.studytonight.com/mongodb/collection-create-and-drop-mongodb
+            validation...
+    .dropDatabase() drop existing db
+    .runCommand({...})
+        ({ serverStatus: 1 }).metrics.apiVersions
+
+  
+show dbs
+use <mydb>

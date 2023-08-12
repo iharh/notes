@@ -1,0 +1,8 @@
+col
+  .createIndex({field: val, ...})
+      https://www.studytonight.com/mongodb/indexing-in-mongodb
+
+{<field>: 1}
+
+from-java-driver
+    https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/indexes/
