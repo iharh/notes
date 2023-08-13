@@ -1,0 +1,4 @@
+2023
+https://www.baeldung.com/hibernate-common-performance-problems-in-logs
+    DEBUG
+    org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter

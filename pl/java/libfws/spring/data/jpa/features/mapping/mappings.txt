@@ -1,3 +1,5 @@
+https://www.baeldung.com/hibernate-initialize-proxy-exception
+    !!!
 https://www.baeldung.com/jpa-joincolumn-vs-mappedby
     In a One-to-Many/Many-to-One relationship,
     the owning side is usually defined on the many side of the relationship (joincolumn -> FK)

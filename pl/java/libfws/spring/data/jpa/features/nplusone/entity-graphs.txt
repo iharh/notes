@@ -2,3 +2,30 @@ https://github.com/Cosium/spring-data-jpa-entity-graph
 
 2023
 https://jpa-buddy.com/blog/dynamic-entity-graphs-in-spring-data-jpa/
+https://www.baeldung.com/hibernate-common-performance-problems-in-logs
+    https://thorben-janssen.com/jpa-21-entity-graph-part-2-define/
+https://www.baeldung.com/spring-data-jpa-named-entity-graphs
+2021
+https://vladmihalcea.com/jpa-entity-graph/
+    https://vladmihalcea.com/jpa-default-fetch-plan/
+        !
+    https://vladmihalcea.com/eager-fetching-is-a-code-smell/
+        ! hbm fetching strategies
+        ! At query time, we may override the global fetch plan, but only for LAZY associations
+    https://vladmihalcea.com/hibernate-facts-the-importance-of-fetch-strategy/
+????
+https://habr.com/ru/companies/rosbank/articles/743536/
+    ! internal bugs
+https://turkogluc.com/understanding-the-effective-data-fetching-with-jpa-entity-graphs-part-2/
+https://turkogluc.com/understanding-jpa-entity-graphs/
+
+EntityGraph
+https://habr.com/ru/articles/714704/
+    https://medium.com/geekculture/jpa-entitygraphs-a-solution-to-n-1-query-problem-e29c28abe5fb
+    https://www.baeldung.com/jpa-entity-graph
+
+https://stackoverflow.com/questions/71175593/how-does-jpa-entitygraph-allow-chosing-the-entity-graph-at-runtime
+    EntityGraphJpaRepository
+
+2019
+https://www.youtube.com/watch?v=b2a4rVR5hiQ

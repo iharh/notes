@@ -31,6 +31,7 @@ https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data
     apply locking to all records, returned by a given query in JPA repo
 
 2023
+https://www.baeldung.com/spring-transactional-propagation-isolation
 https://www.linkedin.com/pulse/implementing-optimistic-pessimistic-locking-spring-boot-sanchez
     adv, disadv
     https://github.com/csdavidg/db-locking-poc
