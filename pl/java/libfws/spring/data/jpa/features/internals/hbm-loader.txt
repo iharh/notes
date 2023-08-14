@@ -1,0 +1,113 @@
+org.hibernate.loader
+    public abstract class Loader {
+        list() {
+            listIgnoreQueryCache(...)
+        }
+        private List listIgnoreQueryCache(SharedSessionContractImplementor session, QueryParameters queryParameters) {
+		        return getResultList( doList( session, queryParameters ), queryParameters.getResultTransformer() );
+	      }
+        private List doQuery(...) {
+            final SqlStatementWrapper wrapper = executeQueryStatement( queryParameters, false, afterLoadActions, session );
+            final ResultSet rs = wrapper.getResultSet();
+            final Statement st = wrapper.getStatement();
+            ...
+            try {
+              return processResultSet(
+                  rs,
+                  queryParameters,
+                  session,
+                  returnProxies,
+                  forcedResultTransformer,
+                  maxRows,
+                  afterLoadActions
+              );
+            }
+            ...
+        }
+        protected List processResultSet(...) {
+            final List results = getRowsFromResultSet(
+            initializeEntitiesAndCollections(
+                hydratedObjects,
+                rs,
+                session,
+                queryParameters.isReadOnly( session ),
+                afterLoadActions
+            );
+            if ( createSubselects ) {
+              createSubselects( subselectResultKeys, queryParameters, session );
+            }
+            return results;
+        }
+        protected List<Object> getRowsFromResultSet(
+            ResultSet rs,
+            QueryParameters queryParameters,
+            SharedSessionContractImplementor session,
+            boolean returnProxies,
+            ResultTransformer forcedResultTransformer,
+            int maxRows,
+            List<Object> hydratedObjects,
+            List<EntityKey[]> subselectResultKeys) throws SQLException {
+            ...
+            LOG.trace( "Processing result set" );
+            int count;
+
+            final boolean debugEnabled = LOG.isDebugEnabled();
+            for ( count = 0; count < maxRows && rs.next(); count++ ) {
+              if ( debugEnabled ) {
+                LOG.debugf( "Result set row: %s", count );
+              }
+              Object result = getRowFromResultSet(
+                  rs,
+                  session,
+                  queryParameters,
+                  lockModesArray,
+                  optionalObjectKey,
+                  hydratedObjects,
+                  keys,
+                  returnProxies,
+                  forcedResultTransformer
+              );
+              results.add( result );
+              if ( createSubselects ) {
+                subselectResultKeys.add( keys );
+                keys = new EntityKey[entitySpan]; //can't reuse in this case
+              }
+            }
+
+            LOG.tracev( "Done processing result set ({0} rows)", count );
+
+            return results;
+        }
+        private Object getRowFromResultSet(..) {
+          ...
+          // this call is side-effecty
+          Object[] row = getRow(
+              resultSet,
+              persisters,
+              keys,
+              queryParameters.getOptionalObject(),
+              optionalObjectKey,
+              lockModesArray,
+              hydratedObjects,
+              session
+          );
+          ...
+        }
+        getRaw(...) {
+        }
+        /**
+         * Hydrate the state an object from the SQL <tt>ResultSet</tt>, into
+         * an array or "hydrated" values (do not resolve associations yet),
+         * and pass the hydrates state to the session.
+         */
+        private void loadFromResultSet(...) {
+        }
+    }
+
+// * A delegate that implements the Loader part of QueryTranslator.
+public class QueryLoader extends BasicLoader {
+
+	// The query translator that is delegating to this object.
+	private QueryTranslatorImpl queryTranslator;
+  ...
+}

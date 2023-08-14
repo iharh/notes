@@ -6,6 +6,9 @@ https://www.baeldung.com/hibernate-common-performance-problems-in-logs
     https://thorben-janssen.com/jpa-21-entity-graph-part-2-define/
 https://www.baeldung.com/spring-data-jpa-named-entity-graphs
 2021
+https://foojay.io/today/a-walk-to-lazy-fetching-with-hibernate-and-spring-data-jpa/
+    https://github.com/mainul35/social-community
+    ! pure hbm
 https://vladmihalcea.com/jpa-entity-graph/
     https://vladmihalcea.com/jpa-default-fetch-plan/
         !
@@ -29,3 +32,6 @@ https://stackoverflow.com/questions/71175593/how-does-jpa-entitygraph-allow-chos
 
 2019
 https://www.youtube.com/watch?v=b2a4rVR5hiQ
+
+
+pvt/idp/loyalty/loyalty-mock-service

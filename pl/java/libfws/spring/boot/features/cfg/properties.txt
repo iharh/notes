@@ -5,9 +5,14 @@ https://www.baeldung.com/spring-reloading-properties
 2021
 https://www.baeldung.com/spring-yaml
 2020
+https://www.baeldung.com/spring-enable-config-properties
+    @EnableConfigurationProperties
+        Enable support for @ConfigurationProperties annotated beans
 https://www.baeldung.com/properties-with-spring
 https://www.baeldung.com/configuration-properties-in-spring-boot
-    @ConfigurationProperties
+    classes, annotated with just
+        @ConfigurationProperties(prefix=)
+    are still simple POJOs
     https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-properties
 
 system-properties

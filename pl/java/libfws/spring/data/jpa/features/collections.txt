@@ -1,0 +1,13 @@
+MarkdownUserModel {
+    ...
+    @Column(unique=true)
+    private String username;
+    ...
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<String> roles;
+}
+
+...
+at repo
+@EntityGraph(attributePaths="roles")
+Optional<MarkdownUserModel> findByUsername(String username);

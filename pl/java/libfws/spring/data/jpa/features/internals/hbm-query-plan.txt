@@ -1,0 +1,276 @@
+https://hibernate.atlassian.net/jira/software/c/projects/HHH/issues/HHH-11208
+
+cfg
+https://github.com/hibernate/hibernate-orm/blob/5.6/hibernate-core/src/main/java/org/hibernate/cfg/Environment.java
+https://github.com/hibernate/hibernate-orm/blob/5.6/hibernate-core/src/main/java/org/hibernate/cfg/AvailableSettings.java
+	/**
+	 * Raises an exception when in-memory pagination over collection fetch is about to be performed.
+	 * Disabled by default. Set to true to enable.
+	 */
+	String FAIL_ON_PAGINATION_OVER_COLLECTION_FETCH = "hibernate.query.fail_on_pagination_over_collection_fetch";
+
+
+SqlGenerator
+QueryPlanCache
+unwrap( org.hibernate.internal.QueryImpl.class ).setQueryPlan
+
+https://github.com/hibernate/hibernate-orm/tree/5.6/hibernate-core/src/main/java/org/hibernate/engine/query/spi
+https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/engine/query/spi/package-frame.html
+
+
+HQLQueryPlan
+  SessionFactoryBuilderImpl
+      @Override
+      public SessionFactory build() {
+        ...
+        // QueryPlanCreator=HQLQueryPlan::new
+        return new SessionFactoryImpl( metadata, buildSessionFactoryOptions(), HQLQueryPlan::new); // this is just a c-tor
+      }
+https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/engine/query/spi/HQLQueryPlan.html
+https://github.com/hibernate/hibernate-orm/blob/5.4/hibernate-core/src/main/java/org/hibernate/engine/query/spi/HQLQueryPlan.java
+    // Defines a query execution plan for an HQL query (or filter).
+    public class HQLQueryPlan implements Serializable {
+        protected HQLQueryPlan(
+              String hql,
+              String collectionRole,
+              boolean shallow,
+              Map<String,Filter> enabledFilters,
+              SessionFactoryImplementor factory,
+              EntityGraphQueryHint entityGraphQueryHint) {
+            this.sourceQuery = hql;
+            this.shallow = shallow;
+
+            if ( enabledFilters.isEmpty() ) {
+              this.enabledFilterNames = Collections.emptySet();
+            }
+            else {
+              this.enabledFilterNames = Collections.unmodifiableSet( new HashSet<>( enabledFilters.keySet() ) );
+            }
+
+            final String[] concreteQueryStrings = QuerySplitter.concreteQueries( hql, factory );
+            final int length = concreteQueryStrings.length;
+            this.translators = new QueryTranslator[length];
+
+            final Set<Serializable> combinedQuerySpaces = new HashSet<>();
+
+            final Map querySubstitutions = factory.getSessionFactoryOptions().getQuerySubstitutions();
+            final QueryTranslatorFactory queryTranslatorFactory = factory.getServiceRegistry().getService( QueryTranslatorFactory.class );
+
+
+            for ( int i=0; i<length; i++ ) {
+              if ( collectionRole == null ) {
+                translators[i] = queryTranslatorFactory
+                    .createQueryTranslator( hql, concreteQueryStrings[i], enabledFilters, factory, entityGraphQueryHint );
+                translators[i].compile( querySubstitutions, shallow );
+              }
+              else {
+                translators[i] = queryTranslatorFactory
+                    .createFilterTranslator( hql, concreteQueryStrings[i], enabledFilters, factory );
+                ( (FilterTranslator) translators[i] ).compile( collectionRole, querySubstitutions, shallow );
+              }
+              combinedQuerySpaces.addAll( translators[i].getQuerySpaces() );
+            }
+
+            this.querySpaces = combinedQuerySpaces;
+
+            if ( length == 0 ) {
+              parameterMetadata = new ParameterMetadataImpl( null, null );
+              returnMetadata = null;
+            }
+            else {
+              this.parameterMetadata = buildParameterMetadata( translators[0].getParameterTranslations(), hql );
+              if ( translators[0].isManipulationStatement() ) {
+                returnMetadata = null;
+              }
+              else {
+                final Type[] types = ( length > 1 ) ? new Type[translators[0].getReturnTypes().length] : translators[0].getReturnTypes();
+                returnMetadata = new ReturnMetadata( translators[0].getReturnAliases(), types );
+              }
+            }
+          }
+
+          public List performList(...) {
+            ...
+            for ( QueryTranslator translator : translators ) {
+              final List tmp = translator.list( session, queryParametersToUse );
+            }
+            ...
+          }
+    }
+
+https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/engine/query/spi/FilterQueryPlan.html
+https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/engine/query/spi/NativeSQLQueryPlan.html
+    https://github.com/hibernate/hibernate-orm/blob/5.5/hibernate-core/src/main/java/org/hibernate/engine/query/spi/NativeQueryInterpreter.java
+        NativeSQLQueryPlan createQueryPlan(...)
+
+https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/engine/query/spi/QueryPlanCache.html
+https://github.com/hibernate/hibernate-orm/blob/5.4/hibernate-core/src/main/java/org/hibernate/engine/query/spi/QueryPlanCache.java
+    @FunctionalInterface
+    public interface QueryPlanCreator {
+      HQLQueryPlan createQueryPlan(String queryString, boolean shallow, Map<String, Filter> enabledFilters, SessionFactoryImplementor factory);
+    }
+
+    public QueryPlanCache(final SessionFactoryImplementor factory, QueryPlanCreator queryPlanCreator) {
+        ...
+        // Environment.QUERY_PLAN_CACHE_PARAMETER_METADATA_MAX_SIZE,
+    }
+
+    public HQLQueryPlan getHQLQueryPlan(String queryString, boolean shallow, Map<String, Filter> enabledFilters) throws QueryException, MappingException {
+        final HQLQueryPlanKey key = new HQLQueryPlanKey(queryString, shallow, enabledFilters);
+        HQLQueryPlan value = (HQLQueryPlan) queryPlanCache.get( key );
+        final StatisticsImplementor statistics = factory.getStatistics();
+        boolean stats = statistics.isStatisticsEnabled();
+        if (value == null) {
+          final long startTime = ( stats ) ? System.nanoTime() : 0L;
+
+          LOG.tracev( "Unable to locate HQL query plan in cache; generating ({0})", queryString );
+          value = queryPlanCreator.createQueryPlan( queryString, shallow, enabledFilters, factory );
+          ...
+    }
+
+    public NativeSQLQueryPlan getNativeSQLQueryPlan(final NativeSQLQuerySpecification spec) {
+        ..veQueryInterpreter.createQueryPlan( spec, factory );
+    }
+
+
+org.hibernate.hql.internal.ast.
+    ASTQueryTranslatorFactory {
+      ...
+      @Override
+      public QueryTranslator createQueryTranslator(
+          String queryIdentifier,
+          String queryString,
+          Map filters,
+          SessionFactoryImplementor factory,
+          EntityGraphQueryHint entityGraphQueryHint) {
+        return new QueryTranslatorImpl( queryIdentifier, queryString, filters, factory, entityGraphQueryHint );
+      }
+    }
+    public class QueryTranslatorImpl implements FilterTranslator {
+        ...
+        c-tor(... EntityGraphQueryHint entityGraphQueryHint)
+
+        private HqlSqlWalker analyze(HqlParser parser, String collectionRole) throws QueryException, RecognitionException {
+            ...
+            LOG.debug( TokenPrinters.SQL_TOKEN_PRINTER.showAsString( w.getAST(), "--- SQL AST ---" ) );
+            ...
+        }
+        void showHqlAst(AST hqlAst) {
+          if ( LOG.isDebugEnabled() ) {
+            LOG.debug( TokenPrinters.HQL_TOKEN_PRINTER.showAsString( hqlAst, "--- HQL AST ---" ) );
+          }
+        }
+        @Override
+        public List list(SharedSessionContractImplementor session, QueryParameters queryParameters) throws HibernateException {
+          // Delegate to the QueryLoader...
+          ...
+          List results = queryLoader.list( session, queryParametersToUse );
+          ...
+        }
+        @Override
+        public Iterator iterate(QueryParameters queryParameters, EventSource session) throws HibernateException {
+          // Delegate to the QueryLoader...
+          ...
+          return queryLoader.iterate( queryParameters, session );
+        }
+        @Override
+        public ScrollableResultsImplementor scroll(QueryParameters queryParameters, SharedSessionContractImplementor session) throws HibernateException {
+          // Delegate to the QueryLoader...
+          ...
+          return queryLoader.scroll( queryParameters, session );
+        }
+        // update stuff
+
+        public EntityGraphQueryHint getEntityGraphQueryHint() {
+          return entityGraphQueryHint;
+        }
+
+        public void setEntityGraphQueryHint(EntityGraphQueryHint entityGraphQueryHint) {
+          this.entityGraphQueryHint = entityGraphQueryHint;
+        }
+    }
+
+    public final class HqlParser extends HqlBaseParser {
+        ...
+    }
+    
+    public class SqlGenerator extends SqlGeneratorBase implements ErrorReporter {
+        ...
+    }
+    HqlSqlWalker
+
+org.hibernate.loader.hql
+    QueryLoader
+      list() -> call Loader
+
+org.hibernate.loader
+    public abstract class Loader {
+        ... // separate file
+    }
+
+
+?
+org.hibernate.hql.internal.classic.QueryTranslatorImpl
+    /**
+     * Compile the query (generate the SQL).
+     */
+    private void compile() throws QueryException, MappingException {
+      try {
+        ParserHelper.parse(
+            new PreprocessingParser( tokenReplacements ),
+            queryString,
+            ParserHelper.HQL_SEPARATORS,
+            this
+        );
+        renderSQL();
+      }
+      postInstantiate();
+      compiled = true;
+    }
+    private void renderSQL() throws QueryException, MappingException {
+    }
+    protected void postInstantiate() {
+        ...
+        fill descriptors (DefaultEntityAliases), collectionDescriptors (ColllectionAliases, GeneratedCollectionAliases)
+        // ? ColumnCollectionAliases org.hibernate.loader.custom
+    }
+
+
+at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:189)
+at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+at org.hibernate.engine.query.spi.HQLQueryPlan.(HQLQueryPlan.java:113)
+at org.hibernate.engine.query.spi.HQLQueryPlan.(HQLQueryPlan.java:73)
+at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:155)
+at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:604)
+
+? EntityPersister,
+org.hibernate.persister.entity.AbstractClassEntityPersister
+org.hibernate.hql.internal.classic
+    PreprocessingParser
+        uses QueryTranslatorImpl (?classic)
+    -> ClauseParser !!!
+    HavingParser
+    GroupByParser
+    ...
+
+
+??? 
+org.hibernate.graph
+    GraphParser // for tests only
+ * Parser for string representations of JPA {@link javax.persistence.EntityGraph}
+ * ({@link RootGraph}) and {@link javax.persistence.Subgraph} ({@link SubGraph}),
+ * using a simple syntax defined by the `graph.g` Antlr grammar.
+
+org.hibernate.jpa
+    QueryHints {
+        ...
+        CACHEMODE, FLUSHMODE
+        ... 
+        public static final String COMMENT = "org.hibernate.comment";
+        ...
+        public static final String FOLLOW_ON_LOCKING = "hibernate.query.followOnLocking";
+        public static final String HINT_FOLLOW_ON_LOCKING = FOLLOW_ON_LOCKING;
+        tons of JPA hints
+        public static final String HINT_FETCHGRAPH = GraphSemantic.FETCH.getJpaHintName();
+        public static final String HINT_LOADGRAPH = GraphSemantic.LOAD.getJpaHintName();
+    }

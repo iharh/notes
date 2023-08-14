@@ -1,0 +1,6 @@
+https://docs.jboss.org/hibernate/orm/4.3/devguide/en-US/html/ch11.html
+    11.3.3. Explicit joins
+      An important use case for explicit joins is to define FETCH JOINS which override the laziness of the joined association
+      left join fetch
+
+https://github.com/hibernate/hibernate-orm/blob/5.4/hibernate-core/src/main/antlr/hql.g
