@@ -1,0 +1,54 @@
+https://gh.pgpainless.org/
+https://github.com/pgpainless/pgpainless
+https://mvnrepository.com/artifact/org.pgpainless/pgpainless-core
+
+https://pgpainless.readthedocs.io/en/latest/quickstart.html
+
+import org.bouncycastle.openpgp.PGPPublicKeyRing;
+import org.bouncycastle.util.io.Streams;
+import org.pgpainless.PGPainless;
+import org.pgpainless.algorithm.SymmetricKeyAlgorithm;
+import org.pgpainless.encryption_signing.EncryptionOptions;
+import org.pgpainless.encryption_signing.EncryptionStream;
+import org.pgpainless.encryption_signing.ProducerOptions;
+import org.pgpainless.util.Passphrase;
+
+import java.io.File;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class EncryptFileUtil {
+    public static void main(String[] args) throws Exception {
+        String publicKeyFilePath = "";
+        // Replace with actual public key pathString plainTextFilePath = "";
+        // Replace with actual plain text file pathString encryptedDataFilePath = "";
+        // Replace with path of where encrypted data to storeString fileEncryptionPassword = "";
+        // Replace the actual Encryption Password.
+        File publicKey = new File(publicKeyFilePath);
+        File plainTextFile = new File(plainTextFilePath);
+        File encryptedDataFile = new File(encryptedDataFilePath);
+        Files.createFile(Path.of(encryptedDataFilePath));
+        encrypt(publicKey, plainTextFile, encryptedDataFile, fileEncryptionPassword);
+    }
+
+    static void encrypt(File publicKey, File plainTextFile, File encryptDataFile, String fileEncryptionPassword) throws Exception {
+        final PGPPublicKeyRing publicKeyRing = PGPainless.readKeyRing().publicKeyRing(Files.readAllBytes(publicKey.toPath()));
+        try (InputStream plainTextInputStream = Files.newInputStream(plainTextFile.toPath())) {
+            try (OutputStream outputStream = Files.newOutputStream(encryptDataFile.toPath())) {
+                try (EncryptionStream encryptionStream = PGPainless
+                        .encryptAndOrSign()
+                        .onOutputStream(outputStream)
+                        .withOptions(ProducerOptions.encrypt(
+                                EncryptionOptions
+                                        .encryptDataAtRest()
+                                        .overrideEncryptionAlgorithm(SymmetricKeyAlgorithm.AES_256)
+                                        .addPassphrase(Passphrase.fromPassword(fileEncryptionPassword))
+                                        .addRecipient(publicKeyRing)).setAsciiArmor(false))) {
+                    Streams.pipeAll(plainTextInputStream, encryptionStream);
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,27 @@
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html
+https://docs.spring.io/spring-framework/reference/core/validation/beanvalidation.html
+
+https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#validation
+
 https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-validation
+
+Spring Validation
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation
+JSR-303/JSR-349
+https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation-overview
+http://beanvalidation.org/
+http://beanvalidation.org/2.0/
 
 spring-boot-starter-validation
 
+https://spring.io/guides/gs/validating-form-input/
+
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/MessageCodesResolver.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/DefaultMessageCodesResolver.html
+
+2022
+https://habr.com/ru/company/reksoft/blog/675902/
+    https://github.com/University-and-Education/Validation
 2021
 https://blog.tejanshrana.com/server-side-input-validation-in-java
 https://habr.com/ru/post/536612/
@@ -13,13 +33,6 @@ https://habr.com/ru/post/424819/
 Generic Params Validation in REST controllers
 https://habr.com/post/425001/
     https://github.com/Okapist/IntegerValidationExample
-
-https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation
-
-https://spring.io/guides/gs/validating-form-input/
-
-https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/MessageCodesResolver.html
-https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/DefaultMessageCodesResolver.html
 
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-beans
 BeanWrapper i-face
@@ -43,13 +56,6 @@ Float salary = (Float) company.getPropertyValue("managingDirector.salary");
 PropertyEditors (java.beans.PropertyEditor)
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#beans-beans-conversion
 
-
-Spring Validation
-https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation
-JSR-303/JSR-349
-https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation-overview
-http://beanvalidation.org/
-http://beanvalidation.org/2.0/
 https://speakerdeck.com/gunnarmorling/keeping-your-data-sane-with-bean-validation-2-dot-3
 
 @NotNull
@@ -62,10 +68,6 @@ Use the LocalValidatorFactoryBean to configure a default Validator as a Spring b
 LocalValidatorFactoryBean implements both javax.validation.ValidatorFactory and javax.validation.Validator,
 as well as Spring’s org.springframework.validation.Validator
 
-
-You may inject a reference to either of these interfaces into beans that need to invoke validation logic.
-Inject a reference to javax.validation.Validator if you prefer to work with the Bean Validation API directly:
-
 import javax.validation.Validator;
 
 @Service
@@ -73,16 +75,6 @@ public class MyService {
     @Autowired
     private Validator validator;
     ...
-}
-
-Inject a reference to org.springframework.validation.Validator if your bean requires the Spring Validation API:
-
-import org.springframework.validation.Validator;
-
-@Service
-public class MyService {
-    @Autowired
-    private Validator validator;
 }
 
 Custom Constraints
@@ -126,8 +118,6 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#m
 It is possible to configure the SpEL expression parser using a parser configuration object
     (org.springframework.expression.spel.SpelParserConfiguration)
 
-
-
 class Demo {
     public List<String> list;
 }
@@ -154,68 +144,13 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#
 Compiler configuration
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-compiler-configuration
 
-The compiler is not turned on by default, but there are two ways to turn it on.
-It can be turned on using the parser configuration process discussed earlier
-or via a system property when SpEL usage is embedded inside another component.
-
-
-
-There are a few modes the compiler can operate in, captured in an enum (org.springframework.expression.spel.SpelCompilerMode):
-    OFF - The compiler is switched off; this is the default.
-
-    IMMEDIATE - In immediate mode the expressions are compiled as soon as possible. This is typically after the first interpreted evaluation. If the compiled expression fails (typically due to a type changing, as described above) then the caller of the expression evaluation will receive an exception.
-
-    MIXED - In mixed mode the expressions silently switch between interpreted and compiled mode over time.
-    After some number of interpreted runs they will switch to compiled form and if something goes wrong with the compiled form
-    (like a type changing, as described above)
-    then the expression will automatically switch back to interpreted form again.
-    Sometime later it may generate another compiled form and switch to it.
-    Basically the exception that the user gets in IMMEDIATE mode is instead handled internally.
-
-IMMEDIATE mode exists because MIXED mode could cause issues for expressions that have side effects.
-If a compiled expression blows up after partially succeeding it may have already done something that has affected the state of the system.
-If this has happened the caller may not want it to silently re-run in interpreted mode since part of the expression may be running twice.
-
-After selecting a mode, use the SpelParserConfiguration to configure the parser:
-
-SpelParserConfiguration config = new SpelParserConfiguration(SpelCompilerMode.IMMEDIATE, this.getClass().getClassLoader());
-SpelExpressionParser parser = new SpelExpressionParser(config);
-Expression expr = parser.parseExpression("payload");
-MyMessage message = new MyMessage();
-Object payload = expr.getValue(message);
-
-The second way to configure the compiler is for use when SpEL is embedded inside some other component and it may not be possible
-to configure via a configuration object.
-In these cases it is possible to use a system property.
-The property spring.expression.compiler.mode can be set to one of the SpelCompilerMode enum values (off, immediate, or mixed).
-
-Compiler limitations
-
-Since Spring Framework 4.1 the basic compilation framework is in place.
-However, the framework does not yet support compiling every kind of expression.
-The initial focus has been on the common expressions that are likely to be used in performance critical contexts.
-The following kinds of expression cannot be compiled at the moment:
-
-    expressions involving assignment
-    expressions relying on the conversion service
-    expressions using custom resolvers or accessors
-    expressions using selection or projection
-
 Expressions in bean definitions
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-beandef
-
-SpEL expressions can be used with XML or annotation-based configuration metadata for defining BeanDefinitions.
-In both cases the syntax to define the expression is of the form
-    #{ <expression string> }
-
-    The variable systemProperties is predefined.
-    You can also refer to other bean properties by name, for example.
 
 Annotation config
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-beandef-annotation-based
 
 The @Value annotation can be placed on fields, methods and method/constructor parameters to specify a default value.
-
 
 Language Reference
 https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions-language-ref

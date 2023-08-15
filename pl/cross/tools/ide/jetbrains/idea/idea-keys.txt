@@ -28,6 +28,10 @@ C-A-Left
     Navigate back
 C-S-Bakcspace
     Navigate to the last editing place
+C-B
+    Go to Declaration
+C-A-S-N
+    Navigate|Symbol
 A-Up/Down
     Navigate to prev/next method
 C-A-Up/Down
@@ -37,20 +41,16 @@ S-F2
 C-S-A
     ???
     Find any arbitrary function by name
-C-B
-    Go to Declaration
-C-A-S-N
-    Navigate|Symbol
 A-F7
     Edit|Find|Find Usages
-C-F12
-    Navigate|File Structure
 C-S-F7
     Highlight usages of some var in the current file
 F3, S-F3
     Navigate through the highlighted usages
 C-G
     Go to line by <number>
+C-F12
+    Navigate|File Structure
 
 Debugging
 
