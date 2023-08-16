@@ -22,6 +22,8 @@ C-P
 Code
 C-A-S-L
     Reformat Code
+C-A-T
+    Code Surround With (for, while)
 
 Navigate
 C-A-Left
