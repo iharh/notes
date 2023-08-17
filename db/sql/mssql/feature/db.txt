@@ -4,7 +4,6 @@ go
 alter database [TutorialDB] set query_store=on
 go
 
-
 USE MASTER
 GO
 ALTER DATABASE TutorialDB
