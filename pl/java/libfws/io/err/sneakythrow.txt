@@ -1,3 +1,20 @@
+Well, there’s one exception to the rule (pun intended). You can take advantage of a change in Java’s type inference
+regarding Generics and Exceptions in Java 8.
+In simple terms, if there are no upper or lower bounds on a generic method signature with throws E,
+the compiler assumes the type E to be a
+    RuntimeException.
+
+This allows you to create the following sneakyThrow:
+
+<E extends Throwable> void sneakyThrow(Throwable e) throws E {
+    throw (E) e;
+}
+
+Regardless of the actual type for the argument e, the compiler assumes throws E to be a RuntimeException
+and thereby exempts the method from the catch-or-specify requirement.
+The compiler might not complain, but this approach is highly problematic.
+
+
 https://stackoverflow.com/questions/27644361/how-can-i-throw-checked-exceptions-from-inside-java-8-streams
 
 https://projectlombok.org/features/SneakyThrows
