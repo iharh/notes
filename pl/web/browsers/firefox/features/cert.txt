@@ -6,8 +6,12 @@ https://wiki.mozilla.org/CA/Changing_Trust_Settings#Trusting_an_Additional_Root_
 to import
 a. Open the Mozilla Firefox browser and go to Options by clicking the gear icon.
 b. Go to Privacy & Security, then scroll down to the Certificates section and click View Certificates....
-c. From the Authorities tab, click Import to browse and select the Zscaler root certificate from your local directory.
+c. From the """Authorities"""!!! tab, click Import to browse and select the Zscaler root certificate from your local directory.
 d. After selecting the certificate, click OK.
    The imported certificate is automatically stored in the Application Data folder, which is hidden by default.
 
 /usr/local/share/ca-certificates/
+
+The personal certificate can't be installed because you don not own the corresponding private key which was created when the certificate was requested
+> The certificate is supposed to authenticate the server,
+  it's not supposed to authenticate you. You need to import it in server, not your certificates

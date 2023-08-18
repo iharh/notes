@@ -3,7 +3,12 @@ https://github.com/tomakehurst/wiremock
 
 http://wiremock.org/docs/
 http://wiremock.org/docs/getting-started/
+    https://github.com/basdijkstra/wiremock-workshop
+    https://github.com/basdijkstra/wiremock-workshop/blob/main/src/test/java/exercises/WireMockExercises1Test.java
+    @WireMockTest, @RegisterExtension, given/when/then
 https://wiremock.org/docs/junit-jupiter/
+    @WireMockTest
+https://wiremock.org/docs/stubbing/
 https://wiremock.org/docs/request-matching/
 https://wiremock.org/docs/extending-wiremock/
 
@@ -64,7 +69,17 @@ https://docs.wiremock.io/response-templating/random-values/
 
 https://docs.wiremock.io/response-templating/json/#iterating-over-json-elements
 
+record/playback
+https://wiremock.org/docs/record-playback/
 
+admin
+https://wiremock.org/docs/standalone/admin-api-reference
+
+api templates
+https://wiremock.org/docs/mock-api-templates/
+    https://github.com/wiremock/api-template-library
+https://wiremock.org/docs/mock-api-templates/usage/
+    https://library.wiremock.org/
 
 custom request matchers
 https://wiremock.org/docs/extending-wiremock/#custom-request-matchers

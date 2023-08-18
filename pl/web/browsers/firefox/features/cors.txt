@@ -1,0 +1,5 @@
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDisabled
+
+about:config
+content.cors.disable=true
