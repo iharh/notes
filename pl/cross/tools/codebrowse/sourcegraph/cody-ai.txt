@@ -1,0 +1,30 @@
+https://sourcegraph.com/get-cody
+
+https://docs.sourcegraph.com/cody/overview/app
+https://docs.sourcegraph.com/cody/overview/app/app_configuration
+
+https://docs.sourcegraph.com/cody/overview
+https://docs.sourcegraph.com/cody/quickstart
+https://docs.sourcegraph.com/cody/overview/app/integrations
+https://docs.sourcegraph.com/cody/explanations
+https://docs.sourcegraph.com/cody/capabilities
+
+exts
+https://plugins.jetbrains.com/plugin/9682-cody-ai-by-sourcegraph
+    ? not a linux
+vscode:extension/sourcegraph.cody-ai
+
+https://docs.sourcegraph.com/api/graphql
+
+token
+https://docs.sourcegraph.com/cli/how-tos/creating_an_access_token
+    https://sourcegraph.com/users/iharh/settings/tokens
+
+curl \
+  -H 'Authorization: token sgp_<bla-bla>' \
+  -d '{"query":"query { currentUser { username } }"}' \
+  https://sourcegraph.com/.api/graphql
+
+env vars
+  https://docs.sourcegraph.com/cli/explanations/env
+  You can then set the SRC_ACCESS_TOKEN environment variable to the token to use it with src.

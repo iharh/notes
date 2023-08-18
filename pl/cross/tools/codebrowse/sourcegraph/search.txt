@@ -1,3 +1,6 @@
 https://sourcegraph.com/search
 
 https://sourcegraph.com/search?q=context:global+dhall+env&patternType=literal
+
+https://docs.sourcegraph.com/code_search
+https://docs.sourcegraph.com/code_search/reference/queries

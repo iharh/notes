@@ -1,6 +1,16 @@
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 
+F5
+    Debug
+F9
+    Set Breakpoint
+F10
+    Step Over
+F11
+    Step Into
+
+
 C+S+P
     Command Palette
 
