@@ -2,9 +2,22 @@ Manning MEAP
 https://www.manning.com/books/kubernetes-in-action-second-edition
 
 2023
+Ibryam - Kubernetes Patterns 2nd ed
+    EAC4D57224AA7FD9A7CC08AFD8698B78
 VyasLove - Core Kubernetes ru
     92D035B21B945411F7269B57CB307711
+Demiss - Kubernetes for Developers MEAP
+    CDE5D4DC25F78C22097F75C7852B9FFE
+Luksa - Kubernetes in Action 2nd ed MEAP
+    9DB9C79B1334F43EBD5B15BA748015BC 
+    ! good, but too verbose
+    POD, ReplicaSet, Deployment, StatefulSet, DaemonSets, Service, CronJob
+Sayfan - Mastering Kubernetes 4th ed
+    AD08AED0263E6ED1944014D26BEABEAD
+    tons of stuff
 2022
+VyasLove - Core Kubernetes
+    AD5D720371C1F962A2923B1BD5C71D8E
 MartinHausenblas - Hacking Kubernetes ER
     ff7a16824d3c6a6397af5f3d1e34e2e0
 DomingusArundel - Cloud Native Devops with Kubernetes 2nd ed ER

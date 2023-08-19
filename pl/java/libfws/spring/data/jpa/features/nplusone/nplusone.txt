@@ -1,4 +1,18 @@
 2023
+https://habr.com/ru/companies/rosbank/articles/743536/
+    !!!nplusone, cartesian
+    WARN: HHH000104: firstResult/maxResults specified with collection fetch; applying in memory!
+    WARN: HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+    https://hibernate.atlassian.net/browse/HHH-15964 (closed?)
+        Incorrect results for pageable entity graph (multiple col-s)
+    https://hibernate.atlassian.net/browse/HHH-12556
+    https://discourse.hibernate.org/t/hibernate-batch-fetch-style-recommendations/631/29
+    https://hibernate.atlassian.net/browse/HHH-16043
+    proposed (fixed at 6.2.2)
+    https://hibernate.atlassian.net/browse/HHH-16427
+    https://hibernate.atlassian.net/browse/HHH-16466
+        Support using ARRAY parameter for handling keys in
+            Session#byMultipleIds and Session#byMultipleNaturalId
 
 https://www.baeldung.com/hibernate-common-performance-problems-in-logs
     !!!

@@ -1,3 +1,5 @@
 2023
+https://habr.com/ru/companies/haulmont/articles/564682/
 https://jpa-buddy.com/blog/hopefully-the-final-article-about-equals-and-hashcode-for-jpa-entities-with-db-generated-ids/
     https://jpa-buddy.com/blog/lombok-and-jpa-what-may-go-wrong/
+    @ToString.Exclude for lazy col-s

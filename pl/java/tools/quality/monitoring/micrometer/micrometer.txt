@@ -5,3 +5,7 @@ https://micrometer.io/docs/registry/prometheus
 
 https://github.com/micrometer-metrics/micrometer
 https://github.com/micrometer-metrics/micrometer-docs
+
+!!!
+https://micrometer.io/docs/observation
+https://www.baeldung.com/spring-boot-3-observability
