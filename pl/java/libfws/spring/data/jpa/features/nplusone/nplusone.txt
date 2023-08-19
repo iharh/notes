@@ -1,4 +1,5 @@
 2023
+
 https://www.baeldung.com/hibernate-common-performance-problems-in-logs
     !!!
 https://habr.com/ru/companies/rosbank/articles/743536/
@@ -11,6 +12,13 @@ https://habr.com/ru/companies/otus/articles/529692/
         hibernate slow query log
         https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate/
         https://vladmihalcea.com/eager-fetching-is-a-code-smell/
+https://www.sipios.com/blog-tech/eliminate-hibernate-n-plus-1-queries
+    https://github.com/yannbriancon/spring-hibernate-query-utils
+        org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer
+        hibernate.session_factory.interceptor
+2019
+https://allaroundjava.com/hibernate-n1-selects-problem/
+    https://allaroundjava.com/hibernate-cartesian-product-problem/
 ????
 https://thorben-janssen.com/5-ways-to-initialize-lazy-relations-and-when-to-use-them/
 

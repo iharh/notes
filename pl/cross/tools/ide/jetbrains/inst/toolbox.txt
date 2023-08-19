@@ -17,8 +17,6 @@ https://formulae.brew.sh/cask/jetbrains-toolbox
 /opt/jetbrains-toolbox/jetbrains-toolbox
 /usr/bin/jetbrains-toolbox
 
-https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox
-    ~/.local/share/JetBrains/Toolbox/scripts
 
 /usr/share/applications/jetbrains-toolbox.desktop
 [Desktop Entry]
@@ -32,8 +30,15 @@ Categories=Development;Tools;
 Terminal=false
 StartupWMClass=jetbrains-toolbox
 
-2022
-https://blog.jetbrains.com/blog/2022/07/07/toolbox-app-1-25-is-here/
 
 cfg
 .local/share/JetBrains/Toolbox/
+    scripts/
+        https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox
+    apps/
+        tools (IDEs) install dir
+
+2023
+https://blog.jetbrains.com/toolbox-app/2023/08/toolbox-app-2-0-overhauls-installations-and-updates/
+2022
+https://blog.jetbrains.com/blog/2022/07/07/toolbox-app-1-25-is-here/

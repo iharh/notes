@@ -1,0 +1,12 @@
+2023
+https://jpa-buddy.com/blog/hibernate6-whats-new-and-why-its-important/
+    SQM, SemanticQueryWalker,
+    SqlAstTranslator
+        FunctionRenderingSupport
+        AbstractSqmSelfRenderingFunctionDescriptor
+2022
+https://jpa-buddy.com/blog/spring-data-jpa-interview-questions-and-answers/
+    ! interview qa
+2019
+https://habr.com/ru/companies/tinkoff/articles/454066/
+    !!! super-cool, DS proxy, real plan parsing, QueryUtils in comments
