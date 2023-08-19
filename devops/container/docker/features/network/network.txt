@@ -1,3 +1,5 @@
+libnetwork
+
 /etc/sysconfig/docker-network
 #DOCKER_NETWORK_OPTIONS=-H fd:// -H tcp://0.0.0.0:2375
 DOCKER_NETWORK_OPTIONS='-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock'
@@ -7,6 +9,11 @@ docker network
     rm <network-name>
     create -d --driver=... [--label=...] net-name
         for overlay-driver we need external KV-storage (like a consul) --kv-store=consul:host:port
+        --subnet
+        --ip-range
+        --gateway
+        -o parent=eth0.100
+
 
     connect <net-name> <container-name>
     plug <net-name> <container-name>

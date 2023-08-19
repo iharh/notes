@@ -44,6 +44,8 @@ https://github.com/docker-library/postgres/blob/master/11/bullseye/Dockerfile
 2022
 https://www.redhat.com/sysadmin/migrate-database-container
 2021
+https://habr.com/ru/articles/578744/
+    !!! a lot of server params
 https://linuxiac.com/postgresql-docker/
 2017
 https://habrahabr.ru/post/328226/

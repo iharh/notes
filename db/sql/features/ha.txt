@@ -1,0 +1,8 @@
+https://www.postgresql.org/docs/current/high-availability.html
+
+2023
+https://habr.com/ru/articles/754168/
+    https://github.com/mfvanek/pg-index-health/blob/c5d3aea8eee7d681bd5d3b8d3277995e822ebc45/pg-index-health-testing/src/main/java/io/github/mfvanek/pg/testing/PostgresBitnamiRepmgrContainer.java
+    https://github.com/mfvanek/pg-index-health/blob/c5d3aea8eee7d681bd5d3b8d3277995e822ebc45/pg-index-health-testing/src/main/java/io/github/mfvanek/pg/testing/PostgreSqlClusterWrapper.java
+
+https://www.repmgr.org/

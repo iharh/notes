@@ -2,6 +2,9 @@
 https://xalgord.in/multi-threaded-programming-in-java/
     ExecutorService executor = Executors.newFixedThreadPool(10);
     CompletionService<String> completionService = new ExecutorCompletionService<>(executor);
+2022
+https://blogs.oracle.com/javamagazine/post/java-thread-synchronization-raceconditions-locks-conditions
+    https://habr.com/ru/companies/otus/articles/755316/
 2021
 https://dzone.com/refcardz/core-java-concurrency
     volatile solves the problem of visibility, and makes changes the value to be atomic,
