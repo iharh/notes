@@ -2,7 +2,12 @@ http://www.querydsl.com/
 http://www.querydsl.com/static/querydsl/latest/reference/html_single/
 https://github.com/querydsl/querydsl
 
-Articles:
+2023
+https://www.baeldung.com/querydsl-with-jpa-tutorial
+https://www.baeldung.com/intro-to-querydsl
+2018
+https://habr.com/ru/articles/344450/
+2011
 http://blog.mysema.com/2011/01/querying-in-sql-with-querydsl.html
 https://www.credera.com/blog/technology-insights/java/can-querydsl-part-1-enhance-simplify-existing-spring-data-jpa-repositories/
 

@@ -1,0 +1,21 @@
+https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/
+
+q
+https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#appendix.query.method.subject
+
+https://www.mongodb.com/compatibility/spring-boot
+
+https://www.mongodb.com/docs/manual/indexes/
+https://www.mongodb.com/docs/manual/applications/indexes/
+    https://www.mongodb.com/docs/manual/tutorial/equality-sort-range-rule/
+    https://www.mongodb.com/docs/manual/core/index-compound/
+    https://www.mongodb.com/docs/manual/core/index-unique/
+https://www.mongodb.com/docs/manual/reference/explain-results/
+https://www.mongodb.com/docs/manual/reference/command/explain/
+
+transactions
+https://www.baeldung.com/spring-data-mongodb-transactions
+    Note that MongoDB currently supports transactions over a replica set.
+
+cascade-save-by-events
+https://www.baeldung.com/cascading-with-dbref-and-lifecycle-events-in-spring-data-mongodb

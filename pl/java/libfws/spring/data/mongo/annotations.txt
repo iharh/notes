@@ -1,0 +1,15 @@
+2023
+https://www.baeldung.com/spring-data-mongodb-index-annotations-converter
+    @Indexed, @Transient, @PersistenceConstructor
+
+@EnableMongoRepositories(basePackage=...) // config-file package auto-added to basePackage
+
+@DBRef
+    https://www.baeldung.com/spring-mongodb-dbref-annotation
+    https://www.baeldung.com/cascading-with-dbref-and-lifecycle-events-in-spring-data-mongodb#dbref
+
+@Document
+    https://www.baeldung.com/spring-data-mongodb-collection-name
+
+@Index, @CompoundIndex
+    https://www.baeldung.com/spring-data-mongodb-unique

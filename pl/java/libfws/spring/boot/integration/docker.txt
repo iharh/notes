@@ -1,3 +1,7 @@
+docker-compose
+https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#features.docker-compose
+    https://www.baeldung.com/ops/docker-compose-support-spring-boot
+
 https://buildpacks.io/
 https://github.com/buildpacks/pack
 https://github.com/pivotal/kpack

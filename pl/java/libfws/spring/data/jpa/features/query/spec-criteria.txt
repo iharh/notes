@@ -34,6 +34,8 @@ https://javaee.github.io/javaee-spec/javadocs/javax/persistence/criteria/Criteri
 jpql->spec
     https://stackoverflow.com/questions/60382298/convert-specific-query-into-jpql-or-criteria-builder-query
 
+2023
+https://www.baeldung.com/spring-jpa-joining-tables
 2022
 https://engineering.linecorp.com/en/blog/kotlinjdsl-jpa-criteria-api-with-kotlin/
     selectMulti(col(Book::category), avg(Review::rate))

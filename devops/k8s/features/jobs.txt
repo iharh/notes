@@ -1,5 +1,7 @@
 https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/
 
+2022
+https://www.baeldung.com/ops/kubernetes-run-cron-jobs
 2020
 Bondarev - Advanced Kubernetes Abstractions - Jobs, Cronjobs, RBAC
     https://www.youtube.com/watch?v=fUBpMbHsfL4

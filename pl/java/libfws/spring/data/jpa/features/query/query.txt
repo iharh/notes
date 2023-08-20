@@ -1,5 +1,8 @@
 https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords
 
+2023
+https://www.baeldung.com/spring-data-jpa-modifying-annotation
+    @Modifying
 2022
 https://www.baeldung.com/spring-data-derived-queries
 https://www.baeldung.com/spring-jpa-like-queries

@@ -2,6 +2,7 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 
 2022
+https://www.baeldung.com/hibernate-logging-levels
 https://www.baeldung.com/sql-logging-spring-boot2022
 
     logging.level.org.hibernate.SQL=DEBUG

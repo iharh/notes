@@ -32,6 +32,7 @@ https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data
 
 2023
 https://www.baeldung.com/spring-transactional-propagation-isolation
+    !!!
 https://www.linkedin.com/pulse/implementing-optimistic-pessimistic-locking-spring-boot-sanchez
     adv, disadv
     https://github.com/csdavidg/db-locking-poc
@@ -112,3 +113,5 @@ https://hackernoon.com/optimistic-and-pessimistic-locking-in-jpa
 2021
 https://habr.com/ru/company/otus/blog/574470/
     spring transactional errors
+2017
+https://habr.com/ru/articles/325470/

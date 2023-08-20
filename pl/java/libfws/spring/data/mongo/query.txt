@@ -1,0 +1,14 @@
+2023
+https://www.baeldung.com/queries-in-spring-data-mongodb
+2022
+https://www.baeldung.com/mongodb-return-specific-fields
+https://www.baeldung.com/mongodb-query-documents-id
+https://www.baeldung.com/mongodb-find
+https://www.baeldung.com/spring-data-mongodb-count
+    count
+https://www.baeldung.com/mongodb-check-field-exists
+
+sample
+https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-mongodb/src/main/java/com/baeldung/repository/UserRepository.java
+    regexp, like
+    QuerydslPredicateExecutor

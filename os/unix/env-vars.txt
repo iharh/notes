@@ -1,4 +1,6 @@
+/etc/profile.d/*.sh
+    sys-level en-vars
+
 Setting 2 variables solved the problem:
 ENV LANG en_US.UTF-8 
 ENV LC_ALL en_US.UTF-8
-

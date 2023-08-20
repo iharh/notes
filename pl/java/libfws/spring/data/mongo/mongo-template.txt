@@ -1,0 +1,5 @@
+MongoTemplate
+https://www.baeldung.com/spring-data-mongodb-tutorial
+
+https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/MongoTemplate.html
+https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/MongoOperations.html

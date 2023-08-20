@@ -1,2 +1,5 @@
+2023
+https://thorben-janssen.com/hibernate-logging-guide/
+
   Category:
     - { name: org.hibernate.loader.custom.sql, Priority: [{value: trace}], AppenderRef: [{ ref: FILE }] }

@@ -1,0 +1,20 @@
+list
+https://www.baeldung.com/spring-data-mongodb-guide
+2023
+https://www.baeldung.com/java-mongodb
+https://www.baeldung.com/spring-data-mongodb-tutorial
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-data-mongodb
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-data-mongodb/src/live-test/resources
+    https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-mongodb/src/live-test/resources/Dockerfile
+    https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-mongodb/src/live-test/resources/init-session.js
+2022
+https://medium.com/geekculture/types-of-update-operations-in-mongodb-using-spring-boot-11d5d4ce88cf
+    https://nuancesprog.ru/p/16479/
+    https://github.com/dhavalsimaria/mongo-operations
+2021
+https://spring.io/blog/2021/11/29/spring-data-mongodb-relation-modelling
+    https://www.mongodb.com/docs/manual/core/data-modeling-introduction/
+2018
+https://www.javacodegeeks.com/2018/03/spring-data-mongodb-tutorial.html
+    https://habr.com/ru/companies/otus/articles/430520/
+    ! so-so
