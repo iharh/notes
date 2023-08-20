@@ -10,6 +10,10 @@ F10
 F11
     Step Into
 
+C-P
+    Open file
+C-T
+    Open class
 
 C+S+P
     Command Palette

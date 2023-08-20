@@ -1,5 +1,6 @@
 https://fonts.google.com/?selection.family=Source+Code+Pro
 // Place your settings in this file to overwrite the default settings
+
 {
     "editor.fontSize": 18
     "editor.fontFamily": "SourceCodePro-Medium",
@@ -10,6 +11,9 @@ https://fonts.google.com/?selection.family=Source+Code+Pro
     "editor.fontFamily": "'Fira Code'",
     "editor.fontLigatures": true,
 }
+
+Explorer font size
+    "window.zoomLevel": 1.5
 
 Change Background Color
 

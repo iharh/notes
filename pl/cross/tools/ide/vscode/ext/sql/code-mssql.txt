@@ -1,0 +1,10 @@
+https://github.com/microsoft/vscode-mssql
+https://learn.microsoft.com/en-us/sql/tools/visual-studio-code/sql-server-develop-use-vscode
+
+Installing SQL tools service to
+    ~/.vscode/extensions/ms-mssql.mssql-1.20.1/sqltoolsservice/4.8.1.2/Ubuntu16
+downloading
+    https://github.com/Microsoft/sqltoolsservice/releases/download/4.8.1.2/microsoft.sqltools.servicelayer-rhel-x64-net7.0.tar.gz
+
+snippets
+    sqlCreateDatabase

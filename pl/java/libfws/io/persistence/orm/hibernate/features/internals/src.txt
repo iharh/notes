@@ -1,0 +1,279 @@
+LOG.tracev
+    AbstractEntityPersister
+    DefaultFlushEntityEventListener
+
+
+https://thorben-janssen.com/flushmode-in-jpa-and-hibernate/
+    DefaultFlushEventListener
+    DefaultFlushEntityEventListener - too often callled
+    EntityUpdateAction -> good place for BP setting
+
+https://github.com/stsypanov/dirty-checking-examples/blob/master/benchmarks/src/main/java/com/luxoft/logeek/benchmark/dirtychecking/hibernate/SimpleDirtyCheckingBenchmark.java
+    entity.$$_hibernate_getDirtyAttributes();
+
+
+SessionEventListener
+
+org.hibernate
+    cfg
+        AvailableSettings
+            tons of settings const-s
+    event
+        spi
+            ...
+            DefaultFlushEntityEventListener {
+                	protected void dirtyCheck(final FlushEntityEvent event) throws HibernateException {
+                      ...
+                      if ( dirtyCheckPossible ) {
+                        // dirty check against the usual snapshot of the entity
+                        dirtyProperties = persister.findDirty( values, loadedState, entity, session );
+                      }
+                      ...
+                      logDirtyProperties
+                  }
+                  ...
+                  private void logDirtyProperties(Serializable id, int[] dirtyProperties, EntityPersister persister) {
+                      ...
+                      LOG.tracev(
+                          "Found dirty properties [{0}] : {1}",
+                          MessageHelper.infoString( persister.getEntityName(), id ),
+                          Arrays.toString( dirtyPropertyNames )
+                          <logger name="org.hibernate.persister.entity.AbstractEntityPersister" level="trace" />
+                          <logger name="org.hibernate.event.internal.DefaultFlushEntityEventListener" level="trace" />
+                      );
+                  }
+            }
+
+            RefreshEventListener
+            ReplicateEventListener
+            ResolveNaturalIdEventListener
+            SaveOrUpdateEventListener
+
+            public final class EventType<T> {
+                public static final EventType<LoadEventListener> LOAD = create( "load", LoadEventListener.class );
+                public static final EventType<ResolveNaturalIdEventListener> RESOLVE_NATURAL_ID = create( "resolve-natural-id", ResolveNaturalIdEventListener.class );
+
+                public static final EventType<InitializeCollectionEventListener> INIT_COLLECTION = create( "load-collection", InitializeCollectionEventListener.class );
+
+                public static final EventType<SaveOrUpdateEventListener> SAVE_UPDATE = create( "save-update", SaveOrUpdateEventListener.class );
+                public static final EventType<SaveOrUpdateEventListener> UPDATE = create( "update", SaveOrUpdateEventListener.class );
+                public static final EventType<SaveOrUpdateEventListener> SAVE = create( "save", SaveOrUpdateEventListener.class );
+                ...
+            }
+
+        internal
+            AbstractSaveEventListener
+                saveWithRequestedId()
+                saveWithGeneratedId()
+                    performSave
+
+            public class DefaultSaveOrUpdateEventListener extends AbstractSaveEventListener ... {
+                	onSaveOrUpdate
+                  performSaveOrUpdate
+                  entityIsTransied
+                  saveWithGeneratedId
+                      calls AbstractSaveEventListener.performSave
+            }
+
+          public class DefaultDirtyCheckEventListener extends AbstractFlushingEventListener implements DirtyCheckEventListener {
+          }
+                
+
+org.hibernate.internal
+    public abstract class AbstractSharedSessionContract implements SharedSessionContractImplementor {
+	      private static final EntityManagerMessageLogger log = HEMLogging.messageLogger( SessionImpl.class );
+        ...
+    }
+
+    FastSessionServices {
+      	public final EventListenerGroup<AutoFlushEventListener> eventListenerGroup_AUTO_FLUSH;
+        public final EventListenerGroup<ClearEventListener> eventListenerGroup_CLEAR;
+        public final EventListenerGroup<DeleteEventListener> eventListenerGroup_DELETE;
+        public final EventListenerGroup<DirtyCheckEventListener> eventListenerGroup_DIRTY_CHECK;
+        public final EventListenerGroup<EvictEventListener> eventListenerGroup_EVICT;
+        ...
+        FastSessionServices(SessionFactoryImpl sf) {
+            Objects.requireNonNull( sf );
+            final ServiceRegistryImplementor sr = sf.getServiceRegistry();
+            ...
+            // Pre-compute all iterators on Event listeners:
+            final EventListenerRegistry eventListenerRegistry = sr.getService( EventListenerRegistry.class );
+            ...
+        }
+        ...
+    }
+    
+    SessionImpl extends AbstractSharedSessionContract {
+        ...
+        fastSessionServices.eventListenerGroup_NAME.fireLazyEvent...(...)
+
+        @Override
+        public EntityPersister getEntityPersister(final String entityName, final Object object) {
+          checkOpenOrWaitingForAutoClose();
+          if ( entityName == null ) {
+            return getFactory().getMetamodel().entityPersister( guessEntityName( object ) );
+          }
+          else {
+              ...
+              return getFactory().getMetamodel().entityPersister( entityName )
+                  .getSubclassEntityPersister( object, getFactory() );
+          }
+        }
+
+        	// saveOrUpdate() operations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          @Override
+          public void saveOrUpdate(Object object) throws HibernateException {
+            saveOrUpdate( null, object );
+          }
+          ...
+        	// save() operations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          ...
+          @Override
+          public boolean isDirty() throws HibernateException {
+            checkOpen();
+            pulseTransactionCoordinator();
+            log.debug( "Checking session dirtiness" );
+            if ( actionQueue.areInsertionsOrDeletionsQueued() ) {
+              log.debug( "Session dirty (scheduled updates and insertions)" );
+              return true;
+            }
+            DirtyCheckEvent event = new DirtyCheckEvent( this );
+            fastSessionServices.eventListenerGroup_DIRTY_CHECK.fireEventOnEachListener( event, DirtyCheckEventListener::onDirtyCheck );
+            delayedAfterCompletion();
+            return event.isDirty();
+          }
+    }
+
+org.hibernate
+    boot.internal
+        public class MetadataImpl implements MetadataImplementor, Serializable {
+            
+
+collection.internal
+    AbstractPersistentCollection {
+        isDirty()
+
+        @Override
+        boolean equalsSnapshot() {
+            ...
+				    if ( oldValue == null || elementType.isDirty( oldValue, test, getSession() ) ) {
+            }
+        }
+    }
+
+type
+    https://docs.jboss.org/hibernate/orm/5.6/javadocs/org/hibernate/type/package-summary.html
+
+    public interface Type extends Serializable {
+
+        	boolean isDirty(Object old, Object current, SharedSessionContractImplementor session) throws HibernateException {
+              
+          }
+    }
+    OneToOneType
+    ManyToOneType
+        getIdentifierType.isSame(...)
+    CollectionType
+    ComponentType
+        @Override
+        public boolean isDirty(final Object x, final Object y, final SharedSessionContractImplementor session) throws HibernateException {
+          if ( x == y ) {
+            return false;
+          }
+          // null value and empty component are considered equivalent
+          for ( int i = 0; i < propertySpan; i++ ) {
+            if ( propertyTypes[i].isDirty( getPropertyValue( x, i ), getPropertyValue( y, i ), session ) ) {
+              return true;
+            }
+          }
+          return false;
+        }
+
+
+    AbstractType
+    AbstractStandardBasicType
+        dirty () {
+            !isSame
+        }
+
+    public abstract class EntityType extends AbstractType implements AssociationType {
+    }
+
+persister.entity
+    interface EntityPersister {
+    }
+
+    AbstractEntityPersister {
+        protected final BasicEntityPropertyMapping propertyMapping;
+        ...
+
+        @Override
+        public int[] resolveDirtyAttributeIndexes(
+            final Object[] currentState,
+            final Object[] previousState,
+            final String[] attributeNames,
+            final SessionImplementor session) {
+          ...
+        }
+
+        public int[] findDirty(Object[] currentState, Object[] previousState, Object entity, SharedSessionContractImplementor session) throws HibernateException {
+            TypeHelper...
+        }
+    }
+  
+    TypeHelper {
+        @Override
+        public static int[] findDirty(
+            final NonIdentifierAttribute[] properties,
+            final Object[] currentState,
+            final Object[] previousState,
+            final boolean[][] includeColumns,
+            final SharedSessionContractImplementor session) {
+        }
+    }
+
+    SingleTableEntityPersister, JoinedSubclassEntityPersister, ... for test
+
+persister.internal
+
+    public class StandardPersisterClassResolver implements PersisterClassResolver {
+        
+        @Override
+        public Class<? extends EntityPersister> getEntityPersisterClass(PersistentClass metadata) {
+          // todo : make sure this is based on an attribute kept on the metamodel in the new code, not the concrete PersistentClass impl found!
+          if ( RootClass.class.isInstance( metadata ) ) {
+            if ( metadata.hasSubclasses() ) {
+              //If the class has children, we need to find of which kind
+              metadata = (PersistentClass) metadata.getDirectSubclasses().next();
+            }
+            else {
+              return singleTableEntityPersister();
+            }
+          }
+          if ( JoinedSubclass.class.isInstance( metadata ) ) {
+            return joinedSubclassEntityPersister();
+          }
+          else if ( UnionSubclass.class.isInstance( metadata ) ) {
+            return unionSubclassEntityPersister();
+          }
+          else if ( SingleTableSubclass.class.isInstance( metadata ) ) {
+            return singleTableEntityPersister();
+          }
+        }
+    }
+
+    public final class PersisterFactoryImpl implements PersisterFactory, ServiceRegistryAwareService {
+        	@Override
+          public EntityPersister createEntityPersister(
+              PersistentClass entityBinding,
+              EntityDataAccess entityCacheAccessStrategy,
+              NaturalIdDataAccess naturalIdCacheAccessStrategy,
+              PersisterCreationContext creationContext) throws HibernateException {
+              ...
+              // called by MetamodelImpl
+                public class MetamodelImpl implements MetamodelImplementor, Serializable {
+                  	public void initialize(MetadataImplementor mappingMetadata, JpaMetaModelPopulationSetting jpaMetaModelPopulationSetting) {
+                    }
+                }
+          }
+    }

@@ -1,6 +1,7 @@
 https://code.visualstudio.com/docs/getstarted/settings
 
 cfg:
+~/.config/Code/User/settings.json
 https://code.visualstudio.com/docs/customization/userandworkspace
 C:/Users/<>/AppData/Roaming/Code/
     User/
