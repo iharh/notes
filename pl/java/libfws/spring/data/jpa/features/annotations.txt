@@ -1,0 +1,1 @@
+@EnableJpaRepositories(repositoryBaseClass = BaseCustomJpaRepositoryImpl.class)

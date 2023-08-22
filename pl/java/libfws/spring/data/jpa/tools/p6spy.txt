@@ -1,13 +1,23 @@
-https://github.com/p6spy/p6spy
 https://p6spy.readthedocs.io/en/latest/configandusage.html
-
+https://github.com/p6spy/p6spy
+    ? 1yo
 https://mvnrepository.com/artifact/p6spy/p6spy
-https://mvnrepository.com/artifact/com.github.gavlyukovskiy/p6spy-spring-boot-starter
-https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-3-observation
+    ? 2yo 3.9.1
 
-https://stackoverflow.com/questions/6709680/how-does-p6spy-work
+https://mvnrepository.com/artifact/com.github.gavlyukovskiy/p6spy-spring-boot-starter
+https://mvnrepository.com/artifact/com.github.gavlyukovskiy/datasource-decorator-spring-boot-autoconfigure
+    https://github.com/gavlyukovskiy/spring-boot-data-source-decorator
+    ! quite recent - 1.9.0
+
+
+https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-3-observation
+https://github.com/eugenp/tutorials/blob/master/spring-boot-modules/spring-boot-3-observation/src/main/resources/spy.properties
+
+https://github.com/stsypanov/spring-data-examples/
 
 2023
 https://www.baeldung.com/java-p6spy-intercept-sql-logging
 2019
 https://habr.com/ru/articles/457776/
+qa
+https://stackoverflow.com/questions/6709680/how-does-p6spy-work

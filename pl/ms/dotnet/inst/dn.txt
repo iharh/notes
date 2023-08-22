@@ -1,0 +1,91 @@
+dotnet-install: Note that the intended use of this script is for Continuous Integration (CI) scenarios, where:
+dotnet-install: - The SDK needs to be installed without user interaction and without admin rights.
+dotnet-install: - The SDK installation doesn't need to persist across multiple CI runs.
+dotnet-install: To set up a development environment or to run apps, use installers rather than this script. Visit https://dotnet.microsoft.com/download to get the installer.
+
+dotnet-install: Calling: machine_has curl
+dotnet-install: Calling: calculate_vars 
+dotnet-install: Calling: get_normalized_architecture_from_architecture <auto>
+dotnet-install: Calling: get_machine_architecture 
+dotnet-install: Normalized architecture: 'x64'.
+dotnet-install: Calling: get_normalized_os 
+dotnet-install: Calling: get_current_os_name 
+dotnet-install: Calling: get_linux_platform_name 
+dotnet-install: Normalized OS: 'linux'.
+dotnet-install: Calling: get_normalized_quality 
+dotnet-install: Normalized quality: ''.
+dotnet-install: Calling: get_normalized_channel LTS
+dotnet-install: Normalized channel: 'LTS'.
+dotnet-install: Calling: get_normalized_product 
+dotnet-install: Normalized product: 'dotnet-sdk'.
+dotnet-install: Calling: resolve_installation_path <auto>
+dotnet-install: Calling: get_user_install_path 
+dotnet-install: resolve_installation_path: user_install_path=/home/iharh/.dotnet
+dotnet-install: InstallRoot: '/home/iharh/.dotnet'.
+dotnet-install: Calling: get_normalized_architecture_for_specific_sdk_version Latest LTS x64
+dotnet-install: Calling: get_current_os_name 
+dotnet-install: Calling: get_linux_platform_name 
+dotnet-install: Calling: get_download_link_from_aka_ms 
+dotnet-install: Retrieving primary payload URL from aka.ms for channel: 'LTS', quality: '', product: 'dotnet-sdk', os: 'linux', architecture: 'x64'.
+dotnet-install: Constructed aka.ms link: 'https://aka.ms/dotnet/LTS/dotnet-sdk-linux-x64.tar.gz'.
+dotnet-install: Calling: get_http_header https://aka.ms/dotnet/LTS/dotnet-sdk-linux-x64.tar.gz true
+dotnet-install: Calling: machine_has curl
+dotnet-install: Calling: get_http_header_curl https://aka.ms/dotnet/LTS/dotnet-sdk-linux-x64.tar.gz true
+dotnet-install: Received response: HTTP/1.1 301 Moved Permanently
+Server: Kestrel
+Location: https://aka.ms/dotnet/6.0/dotnet-sdk-linux-x64.tar.gz
+Request-Context: appId=cid-v1:9b037ab9-fa5a-4c09-81bd-41ffa859f01e
+X-Response-Cache-Status: True
+Content-Length: 0
+Expires: Tue, 22 Aug 2023 09:20:23 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Tue, 22 Aug 2023 09:20:23 GMT
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+
+HTTP/1.1 301 Moved Permanently
+Server: Kestrel
+Location: https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz
+Request-Context: appId=cid-v1:7d63747b-487e-492a-872d-762362f77974
+X-Response-Cache-Status: True
+Content-Length: 0
+Expires: Tue, 22 Aug 2023 09:20:23 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Tue, 22 Aug 2023 09:20:23 GMT
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+
+HTTP/2 200 
+accept-ranges: bytes
+age: 309512
+content-md5: ruX3tBGa6WkDdkW4SZq11A==
+content-type: application/octet-stream
+date: Tue, 22 Aug 2023 09:20:23 GMT
+etag: 0x8DB98087F313363
+last-modified: Tue, 08 Aug 2023 12:10:46 GMT
+server: ECAcc (wmi/FEEE)
+x-cache: HIT
+x-ms-blob-type: BlockBlob
+x-ms-lease-status: unlocked
+x-ms-request-id: 809f38d2-801e-00db-7309-d29cbf000000
+x-ms-version: 2009-09-19
+content-length: 186150739
+
+dotnet-install: The redirect location retrieved: 'https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz'.
+dotnet-install: Retrieved primary payload URL from aka.ms link: 'https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz'.
+dotnet-install: Downloading using legacy url will not be attempted.
+dotnet-install: Version: '6.0.413'.
+dotnet-install: Calling: get_specific_product_version  6.0.413 https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz
+dotnet-install: Calling: get_specific_product_version_url  6.0.413 true https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz
+dotnet-install: Constructed productVersion link: https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/sdk-productVersion.txt
+dotnet-install: Calling: get_specific_product_version_url  6.0.413 false https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz
+dotnet-install: Constructed productVersion link: https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/productVersion.txt
+dotnet-install: Checking for the existence of https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/sdk-productVersion.txt
+dotnet-install: Calling: machine_has curl
+dotnet-install: Generated 1 links.
+dotnet-install: Link 0: aka.ms, 6.0.413, https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz
+dotnet-install: Payload URLs:
+dotnet-install: URL #0 - aka.ms: https://dotnetcli.azureedge.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz
+dotnet-install: Repeatable invocation: ./dotnet-install.sh --version "6.0.413" --install-dir "/home/iharh/.dotnet" --architecture "x64" --os "linux" --verbose

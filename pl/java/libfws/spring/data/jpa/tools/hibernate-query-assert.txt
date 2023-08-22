@@ -1,0 +1,25 @@
+https://github.com/Lemick/hibernate-query-asserts
+    https://github.com/Lemick/demo-hibernate-query-utils
+
+https://github.com/JSQLParser/JSqlParser/
+https://github.com/JSQLParser/JSqlParser/wiki
+https://github.com/JSQLParser/JSqlParser/wiki/Examples-of-SQL-parsing
+https://github.com/JSQLParser/JSqlParser/wiki/Examples-of-SQL-building
+https://github.com/JSQLParser/JSqlParser/wiki/Examples-of-SQL-building--part-2
+https://github.com/JSQLParser/JSqlParser/wiki/Examples-of-SQL-analyzing
+
+spring:
+    jpa:
+        properties:
+            hibernate.session_factory.statement_inspector: com.mickaelb.integration.hibernate.HibernateStatementInspector
+
+src/main/java/com/mickaelb/integration/hibernate/HibernateStatementInspector.java
+
+    @SpringBootTest
+    @TestExecutionListeners(
+		listeners = HibernateAssertTestListener.class, 
+		mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS
+    )
+    class MySpringIntegrationTest {
+       ...
+    }

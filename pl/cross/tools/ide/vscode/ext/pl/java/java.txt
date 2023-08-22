@@ -1,14 +1,33 @@
 https://code.visualstudio.com/docs/languages/java
+https://code.visualstudio.com/docs/java/java-tutorial
 https://code.visualstudio.com/docs/java/java-editing
     !!! a lot of usefull props
 
+https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack
+    https://code.visualstudio.com/docs/java/extensions
+    ms-based
+
 https://marketplace.visualstudio.com/items?itemName=redhat.java
+    https://github.com/redhat-developer/vscode-java
     lombok support
 https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack
 https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot
     https://github.com/spring-projects/sts4/tree/main/vscode-extensions/vscode-spring-boot#usage
     https://github.com/spring-projects/sts4
     https://code.visualstudio.com/docs/java/java-spring-boot
+
+https://marketplace.visualstudio.com/items?itemName=pverest.java-ide-pack
+https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug
+https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack
+
+https://github.com/microsoft/vscode-java-debug
+https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace
+https://github.com/microsoft/vscode-java-test
+https://github.com/microsoft/vscode-maven
+https://github.com/adashen/vscode-tomcat
+
+https://github.com/jdneo/vscode-checkstyle
+    https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle
 
 https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle
 
@@ -17,28 +36,3 @@ settings.json
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable",
     "java.compile.nullAnalysis.mode": "disabled"
 }
-
-???
-https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack
-    ? ms-based
-https://github.com/redhat-developer/vscode-java
-
-https://marketplace.visualstudio.com/items?itemName=pverest.java-ide-pack
-https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug
-https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack
-
-https://code.visualstudio.com/docs/languages/java
-https://code.visualstudio.com/docs/java/java-tutorial
-
-
-https://github.com/microsoft/vscode-java-debug
-https://github.com/microsoft/vscode-java-debug/wiki/Hot-Code-Replace
-
-https://github.com/microsoft/vscode-java-test
-https://github.com/microsoft/vscode-maven
-https://github.com/adashen/vscode-tomcat
-
-https://github.com/jdneo/vscode-checkstyle
-    https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle
-
-https://github.com/redhat-developer/vscode-java
