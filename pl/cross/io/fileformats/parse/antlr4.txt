@@ -1,0 +1,39 @@
+https://www.antlr.org/
+
+https://github.com/antlr/antlr4
+https://github.com/antlr/grammars-v4
+
+https://github.com/antlr/antlr4/tree/4.6/doc
+https://github.com/antlr/antlr4/blob/master/doc/index.md
+https://github.com/antlr/antlr4/blob/master/doc/getting-started.md
+https://github.com/antlr/antlr4/blob/master/doc/faq/index.md
+https://github.com/antlr/antlr4/blob/master/doc/tool-options.md
+https://github.com/antlr/antlr4/blob/4.6/doc/listeners.md
+
+https://github.com/antlr/antlr4/blob/4.6/doc/resources.md
+https://github.com/antlr/antlr4/blob/4.6/doc/antlr-project-testing.md
+
+articles
+2021
+https://habr.com/ru/company/sberdevices/blog/597553/
+    https://github.com/timurnav/gradle-antlr4
+2020
+https://habr.com/ru/articles/486824/
+2013
+https://dzone.com/articles/creating-external-dsls-using
+???
+https://docs.google.com/document/d/1gQ2lsidvN2cDUUsHEkT05L-wGbX5mROB7d70Aaj3R64/edit?pli=1
+http://www.theendian.com/blog/antlr-4-lexer-parser-and-listener-with-example-grammar/
+
+books
+https://pragprog.com/search/?q=the-definitive-antlr-4-reference
+2013
+Parr - The Definitive ANTLR 4 Reference
+
+gradle plugin
+https://docs.gradle.org/current/userguide/antlr_plugin.html
+https://github.com/melix/antlr4-gradle-plugin
+
+idea plugin
+https://plugins.jetbrains.com/plugin/7358-antlr-v4
+

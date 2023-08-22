@@ -1,0 +1,15 @@
+https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/toolbar/index.html
+
+https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_list/
+https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_list/#filtering-by-properties
+    C+F
+    domain:bla.bla
+    status-code:
+    mime-type
+    cause:img
+
+    regexp:\d{5}
+    regexp:mdn|mozilla
+        https://en.wikipedia.org/wiki/Regular_expression
+        https://regexone.com/
+        https://regexper.com

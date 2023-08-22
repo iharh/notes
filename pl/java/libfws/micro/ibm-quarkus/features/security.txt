@@ -1,0 +1,23 @@
+https://quarkus.io/guides/security-overview
+https://quarkus.io/guides/security-authentication-mechanisms
+https://quarkus.io/guides/security-basic-authentication-tutorial
+
+oids
+https://quarkus.io/guides/security-jwt-build
+    https://smallrye.io/docs/smallrye-jwt/index.html
+    https://github.com/smallrye/smallrye-jwt
+
+https://quarkus.io/guides/security-keycloak-authorization
+https://quarkus.io/guides/security-keycloak-admin-client
+    https://www.keycloak.org/docs/latest/authorization_services/index.html
+    
+https://quarkus.io/guides/security-openid-connect-client
+https://quarkus.io/guides/security-openid-connect-dev-services
+https://quarkus.io/guides/security-openid-connect-client-reference
+https://quarkus.io/guides/security-openid-connect-providers
+
+https://quarkus.io/guides/security-oidc-bearer-token-authentication
+https://quarkus.io/guides/security-oidc-code-flow-authentication
+https://quarkus.io/guides/security-oidc-bearer-token-authentication
+https://quarkus.io/guides/security-oidc-bearer-token-authentication-tutorial
+https://quarkus.io/guides/security-oidc-configuration-properties-reference
