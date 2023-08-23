@@ -1,38 +1,20 @@
-https://wiki.archlinux.org/index.php/SSH_keys
-
-http://www.ibm.com/developerworks/library/l-keyc/
-http://www.ibm.com/developerworks/library/l-keyc2/
-http://www.ibm.com/developerworks/library/l-keyc3/
-
-http://serverfault.com/questions/241588/how-to-automate-ssh-login-with-password
-
-http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/
-
-ssh-copy-id -i ~/.ssh/id_rsa.pub user@host
-
-
-ssh-keygen ...
-ssh-copy-id <user>@<host>
--> ~/.ssh/authorized_keys
-
 github ssh:
 https://help.github.com/articles/generating-ssh-keys/
 https://help.github.com/articles/working-with-ssh-key-passphrases/
 http://superuser.com/questions/441854/git-ssh-agent-not-working
 
-
+https://wiki.archlinux.org/index.php/SSH_keys
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f <some-file>
     will generate <some-file> with a pvt-key and <some-file>.pub with a pub-key
-
+ssh-copy-id <user>@<host>
+-> ~/.ssh/authorized_keys
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@host
 
 PVT KEYS:
 sudo chmod 0500 ~/.shh/id_rsa
 
 Multiple keys:
 http://stackoverflow.com/questions/10455974/setting-up-ssh-keys-for-gibhub
-
-Legacy:
-http://www.openssh.com/legacy.html
 
 Password-protect key:
 https://help.github.com/articles/working-with-ssh-key-passphrases/

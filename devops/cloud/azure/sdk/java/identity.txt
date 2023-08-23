@@ -29,6 +29,71 @@ private ArrayList<TokenCredential> getCredentialsChain() {
     return output;
 }
 
+private static final class AuthenticatedImpl implements Authenticated {
+  private final HttpPipeline httpPipeline;
+  private final ResourceManager.Authenticated resourceManagerAuthenticated;
+  private AuthorizationManager authorizationManager;
+  private String tenantId;
+  private String subscriptionId;
+  private final AzureEnvironment environment;
+
+  private AuthenticatedImpl(HttpPipeline httpPipeline, AzureProfile profile) {
+      // !!!
+      this.resourceManagerAuthenticated = ResourceManager.authenticate(httpPipeline, profile);
+      ...
+  }
+  ...
+}
+!!!  
+IdentityClient.authenticateWith...
+??? ManagedIdentityCredential::getToken, ...
+
+
+az account get-access-token --output json --resource https://management.core.windows.net/
+
+IdentityClientBase
+    AccessToken getTokenFromAzureCLIAuthentication(StringBuilder azCommand) {
+        ...
+        Map<String, String> objectMap = SERIALIZER_ADAPTER.deserialize(processOutput, Map.class,
+            SerializerEncoding.JSON);
+        String accessToken = objectMap.get("accessToken");
+        String time = objectMap.get("expiresOn");
+        String timeToSecond = time.substring(0, time.indexOf("."));
+        String timeJoinedWithT = String.join("T", timeToSecond.split(" "));
+        OffsetDateTime expiresOn = LocalDateTime.parse(timeJoinedWithT, DateTimeFormatter.ISO_LOCAL_DATE_TIME)
+            .atZone(ZoneId.systemDefault())
+            .toOffsetDateTime().withOffsetSameInstant(ZoneOffset.UTC);
+        token = new AccessToken(accessToken, expiresOn);
+        ...
+    }
+
+sdk/core/azure-core/src/main/java/com/azure/core/credential/SimpleTokenCache.java
+64:                    } else if (cache == null || cache.isExpired()) {
+112:                } else if (cache != null && !cache.isExpired()) {
+
+sdk/core/azure-core/src/main/java/com/azure/core/implementation/AccessTokenCache.java
+!!!   this.tokenSupplierSync = () -> tokenCredential.getTokenSync(this.tokenRequestContext);
+
+sdk/identity/azure-identity/src/main/java/com/azure/identity/AzureCliCredential.java
+  getTokenSync
+sdk/identity/azure-identity/src/main/java/com/azure/identity/EnvironmentCredential.java
+  https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
+  ClientSecretCredential
+  ClientCertificateCredential
+  UsernamePasswordCredential
+sdk/identity/azure-identity/src/main/java/com/azure/identity/ManagedIdentityCredential.java
+  !!! need clientId of user-assigned managed identity
+  * @param clientId the client id of user assigned identity   or app registration (when working with AKS pod-identity).
+
+
+
+ExpringTask
+    tokenCache.fetchFreshToken
+    getTokenRefresher
+    Supplier<String> tokenRefresher = tokenRefreshOptions.getTokenRefresherSync();
+
+CommunicationTokenRefreshOptions ?? never created
+
 managed ids
 https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity
 https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/
