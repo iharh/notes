@@ -1,0 +1,25 @@
+https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/
+https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview
+https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/services-id-authentication-support
+https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/managed-identities-status
+
+2022
+Savill - Microsoft Azure Managed Identity Deep Dive of 48:39
+    https://www.youtube.com/watch?v=rC1TV0_sIrM
+2020
+CloudMonk - Azure Managed Identities - explained in plain English in 5 mins with a step by step demo of 7:32
+    https://www.youtube.com/watch?v=1EoiGnQq14Y
+    created at AD
+        system-assigned
+            (tightly coupled to az-resource like VM)
+            auto-lifecycle-management,
+                once created, can use it (identity) to grant access to, example, DB
+            identity is a special type of service-principal (you don't want to worry about it)
+            with better lifecycle mgmt (if delete obj, id is also deleted)
+            at portal - we can go to VM and enable system identity, then - go to DB and assign this id
+            cannot be shared with multiple resources
+        user-assigned
+            created independently on resource, switch tab -> user assigned
+            + at IAM -> need to add access to user-assigned identity
+            manual-lifecycle-management
+            can be shared with multiple resources

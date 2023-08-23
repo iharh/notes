@@ -1,0 +1,18 @@
+https://www.npmjs.com/package/@azure/identity
+https://www.npmjs.com/package/@azure/identity#environment-variables
+
+https://learn.microsoft.com/en-us/azure/developer/javascript/sdk/authentication/overview
+https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/README.md#using-an-azure-active-directory-credential
+    https://stackoverflow.com/questions/67598663/trying-to-use-managed-identity-with-azure-service-bus?rq=2
+    DefaultAzureCredential // used by cust
+        Tries EnvironmentCredential, ManagedIdentityCredential, AzureCliCredential, AzurePowerShellCredential,
+        and other credentials sequentially until one of them succeeds.
+    AzureCliCredential
+    ManagedIdentityCredential
+        https://learn.microsoft.com/en-us/javascript/api/@azure/identity/managedidentitycredential
+        ? with vault
+
+
+samples
+https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/samples/AzureIdentityExamples.md
+    ! complex auth-s

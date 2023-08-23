@@ -54,6 +54,10 @@ C-G
 C-F12
     Navigate|File Structure
 
+Build
+C-F2
+    Stop Build
+
 Debugging
 
 F8

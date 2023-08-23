@@ -1,0 +1,42 @@
+https://learn.microsoft.com/en-us/java/api/overview/azure/identity-readme
+https://learn.microsoft.com/en-us/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
+
+https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples
+    CredentialBuilderBase
+    AadCredentialBuilderBase
+    InteractiveBrowserCredentialBuilder
+    ManagedIdentityCredentialBuilder
+      https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples#authenticating-in-azure-with-managed-identity
+    OnBehalfOf
+        https://learn.microsoft.com/en-us/java/api/com.azure.identity.onbehalfofcredential
+    UsernamePassword
+    ActiveDirectoryMisc
+        https://learn.microsoft.com/en-us/sql/connect/jdbc/connecting-using-azure-active-directory-authentication
+
+DefaultAzureCredentialBuilder
+private ArrayList<TokenCredential> getCredentialsChain() {
+    ArrayList<TokenCredential> output = new ArrayList<TokenCredential>(8);
+
+    output.add(new EnvironmentCredential(identityClientOptions.clone()));
+    output.add(getWorkloadIdentityCredential());
+    output.add(new ManagedIdentityCredential(managedIdentityClientId, managedIdentityResourceId, identityClientOptions.clone()));
+    output.add(new SharedTokenCacheCredential(null, IdentityConstants.DEVELOPER_SINGLE_SIGN_ON_ID,
+        tenantId, identityClientOptions.clone()));
+    output.add(new IntelliJCredential(tenantId, identityClientOptions.clone()));
+    output.add(new AzureCliCredential(tenantId, identityClientOptions.clone()));
+    output.add(new AzurePowerShellCredential(tenantId, identityClientOptions.clone()));
+    output.add(new AzureDeveloperCliCredential(tenantId, identityClientOptions.clone()));
+    return output;
+}
+
+managed ids
+https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity
+https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/
+https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview
+https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql
+
+reference
+https://learn.microsoft.com/en-us/java/api/com.azure.identity
+
+sample
+https://learn.microsoft.com/en-us/azure/app-service/tutorial-connect-msi-azure-database
