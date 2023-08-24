@@ -66,6 +66,8 @@ C-F8
     Toggle Breakpoint
 C-S-F8
     View Breakpoints
+A-F8
+    Evaluate Expression
 
 Compile and Run
 

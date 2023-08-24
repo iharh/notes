@@ -40,6 +40,9 @@ issues
         https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-security?view=sql-server-ver16#set-the-non-root-user-as-the-owner-of-the-files
 db at startup
     https://github.com/microsoft/mssql-docker/issues/2
+!!! rootless !!!
+https://github.com/microsoft/mssql-docker/blob/master/linux/preview/examples/mssql-rhel8-sql2017/Dockerfile
+https://github.com/microsoft/mssql-docker/blob/master/linux/preview/examples/mssql-polybase-fts-tools/Dockerfile
 
 tools
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools
@@ -59,3 +62,5 @@ https://learn.microsoft.com/en-us/sql/tools/visual-studio-code/sql-server-develo
 azure data studio
 https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio
 https://learn.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-server
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-configure
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-troubleshooting

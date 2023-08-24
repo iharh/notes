@@ -1,0 +1,56 @@
+https://learn.microsoft.com/en-us/sql/azure-data-studio
+https://github.com/microsoft/azuredatastudio
+
+https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio
+    sudo apt install libxss1 libgconf-2-4 libunwind8
+    sudo dpkg -i azuredatastudio-linux-<version string>.deb
+    dpkg -L azuredatastudio
+    ...
+    sudo apt remove azuredatastudio
+
+https://learn.microsoft.com/en-us/sql/azure-data-studio/tutorial-sql-editor
+https://learn.microsoft.com/en-us/sql/azure-data-studio/tutorial-qds-sql-server
+
+https://github.com/microsoft/sqltoolsservice
+
+manage->backup
+https://learn.microsoft.com/en-us/sql/azure-data-studio/tutorial-backup-restore-sql-server
+
+cli
+https://learn.microsoft.com/en-us/sql/azure-data-studio/command-line
+
+query plan viewer
+https://learn.microsoft.com/en-us/sql/azure-data-studio/query-plan-viewer
+
+troubleshooting, logs
+https://learn.microsoft.com/en-us/sql/azure-data-studio/troubleshooting
+https://learn.microsoft.com/en-us/sql/azure-data-studio/azure-connectivity
+
+notebooks
+https://learn.microsoft.com/en-us/sql/azure-data-studio/notebooks/notebooks-guidance
+
+keys
+https://learn.microsoft.com/en-us/sql/azure-data-studio/keyboard-shortcuts
+
+F1 or C-S-P
+    Extensions
+    category:themes
+    sql server import
+    https://learn.microsoft.com/en-us/sql/azure-data-studio/extensions/add-extensions
+C-,
+    Settings
+C-S-,
+    Integrated Terminal
+C-G
+    Servers Toolbar
+C-N
+    New Query
+C-T
+    Task History
+F5
+    run query
+
+issues
+pty
+https://github.com/microsoft/azuredatastudio/issues/24082
+https://code.visualstudio.com/docs/supporting/troubleshoot-terminal-launch
