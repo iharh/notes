@@ -1,0 +1,10 @@
+https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools
+
+dotnet tool
+    search
+    install
+        -g <tool>
+    update
+        -g <tool>
+    uninstall
+        -g <tool>

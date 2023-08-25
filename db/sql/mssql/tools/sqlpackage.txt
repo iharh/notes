@@ -1,0 +1,20 @@
+https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage
+https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download
+    https://dotnet.microsoft.com/en-us/download/dotnet/6.0
+        https://dotnet.microsoft.com/en-us/download/dotnet/scripts
+        https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
+    dotnet tool install -g microsoft.sqlpackage
+    dotnet tool update -g microsoft.sqlpackage
+    dotnet tool uninstall -g microsoft.sqlpackage
+
+https://learn.microsoft.com/en-us/sql/tools/sqlpackage/troubleshooting-issues-and-performance-with-sqlpackage
+https://learn.microsoft.com/en-us/sql/tools/sqlpackage/troubleshooting-issues-and-performance-with-sqlpackage#azure-sql-database
+    /at:$AccessToken
+https://learn.microsoft.com/en-us/sql/tools/sqlpackage/troubleshooting-issues-and-performance-with-sqlpackage?view=sql-server-ver16#connection
+
+export
+    https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-export
+    https://learn.microsoft.com/en-us/rest/api/sql/2021-08-01-preview/databases/export?tabs=HTTP
+        ! need admin creds
+    bacpac
+        https://www.youtube.com/watch?v=N0BC68j0Ex0

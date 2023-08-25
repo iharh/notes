@@ -1,8 +1,29 @@
+https://dotnet.microsoft.com/en-us/download
+
 https://learn.microsoft.com/en-us/dotnet/core/install/
-https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual
 https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu
+https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual
+    https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
+        !! intended mainly for CI
+
+        export DOTNET_ROOT=$HOME/.dotnet
+        export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
+
+    https://dotnet.microsoft.com/en-us/download/dotnet/scripts
+
 
 aur
     dotnet-sdk
     dotnet-host
     dotnet-runtime
+
+./dotnet-install.sh
+    -h|-?|--help
+    --dry-run,-DryRun
+        prints repeatable invocation with all params at the end
+    --verbose,-Verbose
+    ... other stuff (os, arch, runtime, ...)
+    -c LTS
+    -i,--install-dir
+
+./dotnet-install.sh -c LTS --verbose --dry-run

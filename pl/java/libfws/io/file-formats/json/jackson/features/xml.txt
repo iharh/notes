@@ -1,0 +1,616 @@
+2022
+https://www.baeldung.com/jackson-xml-serialization-and-deserialization
+
+XMLOutputFactory
+  static final String DEFAULIMPL = "com.sun.xml.internal.stream.XMLOutputFactoryImpl";
+
+XMLOutputFactoryImpl {
+    XMLStreamWriter createXMLStreamWriter(StreamResult sr, String encoding) ... {
+        ...
+        return fStreamWriter = new XMLStreamWriterImpl(sr, encoding,
+            new PropertyManager(fPropertyManager));
+    }
+}
+
+....
+/**
+ * We need a {@link ValueSerializerModifier} to replace default <code>BeanSerializer</code>
+ * with XML-specific one; mostly to ensure that attribute properties are output
+ * before element properties.
+ */
+public class XmlBeanSerializerModifier extends ValueSerializerModifier
+    implements java.io.Serializable {
+    ...
+
+    /*
+    /**********************************************************
+    /* Overridden methods
+    /**********************************************************
+     */
+
+    /**
+     * First thing to do is to find annotations regarding XML serialization,
+     * and wrap collection serializers.
+     */
+    @Override
+    public List<BeanPropertyWriter> changeProperties(SerializationConfig config, // !!! called at databind
+            BeanDescription beanDesc, List<BeanPropertyWriter> beanProperties)
+    {
+        final AnnotationIntrospector intr = config.getAnnotationIntrospector();
+        for (int i = 0, len = beanProperties.size(); i < len; ++i) {
+            BeanPropertyWriter bpw = beanProperties.get(i);
+            final AnnotatedMember member = bpw.getMember();
+            String ns = AnnotationUtil.findNamespaceAnnotation(config, intr, member);
+            Boolean isAttribute = AnnotationUtil.findIsAttributeAnnotation(config, intr, member); // !!!
+            Boolean isText = AnnotationUtil.findIsTextAnnotation(config, intr, member);
+            Boolean isCData = AnnotationUtil.findIsCDataAnnotation(config, intr, member);
+            bpw.setInternalSetting(XmlBeanSerializerBase.KEY_XML_INFO,
+            		new XmlInfo(isAttribute, ns, isText, isCData));       // !!!
+
+            // Actually: if we have a Collection type, easiest place to add wrapping would be here...
+            //  or: let's also allow wrapping of "untyped" (Object): assuming it is a dynamically
+            //   typed Collection...
+            if (!TypeUtil.isIndexedType(bpw.getType())) {
+                continue;
+            }
+            PropertyName wrappedName = PropertyName.construct(bpw.getName(), ns);
+            PropertyName wrapperName = bpw.getWrapperName();
+
+            // first things first: no wrapping?
+            if (wrapperName == null || wrapperName == PropertyName.NO_NAME) {
+                continue;
+            }
+            // no local name? Just double the wrapped name for wrapper
+            String localName = wrapperName.getSimpleName();
+            if (localName == null || localName.length() == 0) {
+                wrapperName = wrappedName;
+            }
+            beanProperties.set(i, new XmlBeanPropertyWriter(bpw, wrapperName, wrappedName)); // !!!
+        }
+        return beanProperties;
+    }
+    ...
+    @Override // !!! actually we go here
+              // need to get    List<BeanPropertyWriter> beanProperties in some way
+    public JsonSerializer<?> modifySerializer(SerializationConfig config,
+            BeanDescription beanDesc, JsonSerializer<?> serializer)
+    {
+        /* First things first: we can only handle real BeanSerializers; question
+         * is, what to do if it's not one: throw exception or bail out?
+         * For now let's do latter.
+         */
+        if (!(serializer instanceof BeanSerializerBase)) {
+            return serializer;
+        }
+        return new XmlBeanSerializer((BeanSerializerBase) serializer);
+    }
+}
+
+
+JacksonXmlModule {
+    ... 
+    @SuppressWarnings("deprecation")
+    @Override
+    public void setupModule(SetupContext context)
+    {
+        // Need to modify BeanDeserializer, BeanSerializer that are used
+        context.addBeanSerializerModifier(new XmlBeanSerializerModifier()); // !!!
+        context.addBeanDeserializerModifier(new XmlBeanDeserializerModifier(_cfgNameForTextElement));
+
+        // as well as AnnotationIntrospector
+        context.insertAnnotationIntrospector(_constructIntrospector()); // !!!
+
+        // and finally inform XmlFactory about overrides, if need be:
+        if (_cfgNameForTextElement != FromXmlParser.DEFAULT_UNNAMED_TEXT_PROPERTY) {
+            XmlMapper m = (XmlMapper) context.getOwner();
+            m.setXMLTextElementName(_cfgNameForTextElement);
+        }
+
+        // Usually this would be the first call; but here anything added will
+        // be stuff user may has added, so do it afterwards instead.
+        super.setupModule(context);
+    }    
+    ...
+    protected AnnotationIntrospector _constructIntrospector() {
+        return new JacksonXmlAnnotationIntrospector(_cfgDefaultUseWrapper);
+    }
+}
+???
+https://github.com/FasterXML/jackson-dataformat-xml/blob/2.16/src/test/java/com/fasterxml/jackson/dataformat/xml/deser/builder/BuilderSimpleTest.java
+    setupModule...
+
+public class XmlMapper extends ObjectMapper {
+    ...
+    protected final static JacksonXmlModule DEFAULT_XML_MODULE = new JacksonXmlModule();
+    ...
+    protected final static DefaultXmlPrettyPrinter DEFAULT_XML_PRETTY_PRINTER = new DefaultXmlPrettyPrinter();
+
+    // need to hold on to module instance just in case copy() is used
+    protected final JacksonXmlModule _xmlModule;
+
+    /*
+    /**********************************************************
+    /* Life-cycle: construction, configuration
+    /**********************************************************
+     */
+
+    public XmlMapper(XmlFactory xmlFactory, JacksonXmlModule module) {
+      ...
+            super(xmlFactory, new XmlSerializerProvider(new XmlRootNameLookup()), // !!!! need to add more params here
+                new XmlDeserializationContext(BeanDeserializerFactory.instance));
+
+            // by default - BeanSerializerFactory
+      ...
+    }
+    ...
+}
+
+!!! MapperBuilder
+    !!! addModule
+
+
+JsonFactory.Feature
+ToXmlGenerator.Feature
+    WRITE_XML_DECLARATION
+
+src/main/java/com/fasterxml/jackson/dataformat/xml/ser/XmlBeanPropertyWriter.java
+    ...
+
+... XmlBeanSerializer {
+    /**
+     * Main serialization method that will delegate actual output to configured
+     * {@link BeanPropertyWriter} instances.
+     */
+    @Override
+    public void serialize(Object bean, JsonGenerator g, SerializerProvider provider) throws IOException
+    {
+        if (_objectIdWriter != null) {
+            _serializeWithObjectId(bean, g, provider, true);
+            return;
+        }
+        g.writeStartObject();
+        if (_propertyFilterId != null) {
+            serializeFieldsFiltered(bean, g, provider);
+        } else {
+            serializeFields(bean, g, provider);
+        }
+        g.writeEndObject();
+    }
+    ...
+}
+
+public abstract class XmlBeanSerializerBase extends BeanSerializerBase
+    ...
+    public XmlBeanSerializerBase(BeanSerializerBase src)
+    {
+        super(src);
+
+        // Then make sure attributes are sorted before elements, keep track
+        // of how many there are altogether
+        int attrCount = 0;
+        for (BeanPropertyWriter bpw : _props) {
+            if (_isAttribute(bpw)) { // Yup: let's build re-ordered list then // !!!
+                attrCount = _orderAttributesFirst(_props, _filteredProps);
+                break;
+            }
+        }
+        _attributeCount = attrCount;
+        ...
+    }
+    ...
+    protected static boolean _isAttribute(BeanPropertyWriter bpw)
+    {
+        XmlInfo info = (XmlInfo) bpw.getInternalSetting(KEY_XML_INFO);
+        return (info != null) && info.isAttribute();
+    }
+    ...
+        /**
+     * Main serialization method needs to be overridden to allow XML-specific
+     * extra handling, such as indication of whether to write attributes or
+     * elements.
+     */
+    @Override
+    protected void serializeFields(Object bean, JsonGenerator gen0, SerializerProvider provider)
+        throws IOException
+    {
+        ... use this stuff !!!
+    }
+    ...
+}
+
+
+...Base
+    serializeAsField // ???
+
+
+databind
+
+BeanSerializerBase {
+    ...
+    /**
+     * Writers used for outputting actual property values
+     */
+    final protected BeanPropertyWriter[] _props;
+
+    /**
+     * Optional filters used to suppress output of properties that
+     * are only to be included in certain views
+     */
+    final protected BeanPropertyWriter[] _filteredProps;
+    ...
+}
+
+ObjectMapper {
+    ...
+    protected DefaultSerializerProvider _serializerProvider;
+    protected SerializerFactory _serializerFactory;
+    ...
+    public ObjectMapper(JsonFactory jf,
+            DefaultSerializerProvider sp, DefaultDeserializationContext dc)
+    {
+        // Default serializer factory is stateless, can just assign
+        _serializerFactory = BeanSerializerFactory.instance; // !!!
+    }
+    ...
+    /**
+     * Method for setting specific {@link SerializerFactory} to use
+     * for constructing (bean) serializers.
+     */
+    public ObjectMapper setSerializerFactory(SerializerFactory f) {
+        _serializerFactory = f;
+        return this;
+    }
+
+    public SerializerFactory getSerializerFactory() {
+        return _serializerFactory;
+    }
+
+    protected DefaultSerializerProvider _serializerProvider(SerializationConfig config) {
+        return _serializerProvider.createInstance(config, _serializerFactory);
+    }
+    ...
+}
+
+
+java/com/fasterxml/jackson/databind/ser/BeanSerializerFactory.java
+    // used only Here and at ObjectMapper
+    public final static BeanSerializerFactory instance = new BeanSerializerFactory(null);
+
+    ...
+    @SuppressWarnings("unchecked")
+    protected JsonSerializer<Object> constructBeanOrAddOnSerializer(SerializerProvider prov,
+            JavaType type, BeanDescription beanDesc, boolean staticTyping)
+        throws JsonMappingException
+    {
+        !!!!! probably need to extend BeanSerializerFactory !!!!!
+        ? BeanSerializerBuilder
+        ...
+        List<BeanPropertyWriter> props = findBeanProperties(prov, beanDesc, builder);
+        if (props == null) {
+            props = new ArrayList<BeanPropertyWriter>();
+        } else {
+            props = removeOverlappingTypeIds(prov, beanDesc, builder, props);
+        }
+
+        // [databind#638]: Allow injection of "virtual" properties:
+        prov.getAnnotationIntrospector().findAndAddVirtualProperties(config, beanDesc.getClassInfo(), props);
+
+        // [JACKSON-440] Need to allow modification bean properties to serialize:
+        if (_factoryConfig.hasSerializerModifiers()) {
+            for (BeanSerializerModifier mod : _factoryConfig.serializerModifiers()) {
+                props = mod.changeProperties(config, beanDesc, props); // !!!
+            }
+        }
+        ...
+    }
+    ...
+
+    /**
+     * Method that will try to construct a {@link BeanSerializer} for
+     * given class if at least one property is found, OR, if not,
+     * one of add-on types.
+     *<p>
+     * NOTE: behavior changed a bit
+     */
+    public JsonSerializer<Object> findBeanOrAddOnSerializer(SerializerProvider prov, JavaType type, // ??? usages
+            BeanDescription beanDesc, boolean staticTyping)
+        throws JsonMappingException
+    {
+        // First things first: we know some types are not beans...
+        if (!isPotentialBeanType(type.getRawClass())) {
+            // 03-Aug-2012, tatu: Except we do need to allow serializers for Enums,
+            //   as per [databind#24], [databind#2576]
+            if (!ClassUtil.isEnumType(type.getRawClass())) {
+                return null;
+            }
+        }
+        return constructBeanOrAddOnSerializer(prov, type, beanDesc, staticTyping); // !!!
+    }
+
+    protected JsonSerializer<?> _createSerializer2(SerializerProvider prov,
+            JavaType type, BeanDescription beanDesc, boolean staticTyping)
+        throws JsonMappingException
+    {
+        JsonSerializer<?> ser = null;
+        final SerializationConfig config = prov.getConfig();
+        ...
+        if (ser == null) {
+            // Otherwise, we will check "primary types"; both marker types that
+            // indicate specific handling (JsonSerializable), or main types that have
+            // precedence over container types
+            ser = findSerializerByLookup(type, config, beanDesc, staticTyping);
+            if (ser == null) {
+                ser = findSerializerByPrimaryType(prov, type, beanDesc, staticTyping);
+                if (ser == null) {
+                    // And this is where this class comes in: if type is not a
+                    // known "primary JDK type", perhaps it's a bean? We can still
+                    // get a null, if we can't find a single suitable bean property.
+                    ser = findBeanOrAddOnSerializer(prov, type, beanDesc, staticTyping); // !!!
+                    ...
+                }
+                ...
+            }
+            ...
+        }
+        if (ser != null) {
+            // [databind#120]: Allow post-processing
+            if (_factoryConfig.hasSerializerModifiers()) {
+                for (BeanSerializerModifier mod : _factoryConfig.serializerModifiers()) {
+                    ser = mod.modifySerializer(config, beanDesc, ser); // !!! just call here instead of changeProperties
+                      
+                }
+            }
+        }
+        return ser;
+    }
+
+    /**
+     * Main serializer constructor method. We will have to be careful
+     * with respect to ordering of various method calls: essentially
+     * we want to reliably figure out which classes are standard types,
+     * and which are beans. The problem is that some bean Classes may
+     * implement standard interfaces (say, {@link java.lang.Iterable}.
+     *<p>
+     * Note: sub-classes may choose to complete replace implementation,
+     * if they want to alter priority of serializer lookups.
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public JsonSerializer<Object> createSerializer(SerializerProvider prov,
+            JavaType origType)
+        throws JsonMappingException
+    {
+        // Very first thing, let's check if there is explicit serializer annotation:
+        final SerializationConfig config = prov.getConfig();
+        BeanDescription beanDesc = config.introspect(origType);
+        JsonSerializer<?> ser = findSerializerFromAnnotation(prov, beanDesc.getClassInfo());
+        if (ser != null) {
+            return (JsonSerializer<Object>) ser;
+        }
+        boolean staticTyping;
+        // Next: we may have annotations that further indicate actual type to use (a super type)
+        final AnnotationIntrospector intr = config.getAnnotationIntrospector();
+        JavaType type;
+
+        if (intr == null) {
+            type = origType;
+        } else {
+            try {
+                type = intr.refineSerializationType(config, beanDesc.getClassInfo(), origType);
+            } catch (JsonMappingException e) {
+                return prov.reportBadTypeDefinition(beanDesc, e.getMessage());
+            }
+        }
+        if (type == origType) { // no changes, won't force static typing
+            staticTyping = false;
+        } else { // changes; assume static typing; plus, need to re-introspect if class differs
+            staticTyping = true;
+            if (!type.hasRawClass(origType.getRawClass())) {
+                beanDesc = config.introspect(type);
+            }
+        }
+        // Slight detour: do we have a Converter to consider?
+        Converter<Object,Object> conv = beanDesc.findSerializationConverter();
+        if (conv == null) { // no, simple
+            return (JsonSerializer<Object>) _createSerializer2(prov, type, beanDesc, staticTyping); // !!! here 
+        }
+        JavaType delegateType = conv.getOutputType(prov.getTypeFactory());
+
+        // One more twist, as per [databind#288]; probably need to get new BeanDesc
+        if (!delegateType.hasRawClass(type.getRawClass())) {
+            beanDesc = config.introspect(delegateType);
+            // [#359]: explicitly check (again) for @JsonSerializer...
+            ser = findSerializerFromAnnotation(prov, beanDesc.getClassInfo());
+        }
+        // [databind#731]: Should skip if nominally java.lang.Object
+        if (ser == null && !delegateType.isJavaLangObject()) {
+            ser = _createSerializer2(prov, delegateType, beanDesc, true); // !!! and here
+        }
+        return new StdDelegatingSerializer(conv, delegateType, ser);
+    }
+    ...
+}
+
+java/com/fasterxml/jackson/databind/SerializerProvider.java
+
+public abstract class SerializerProvider extends DatabindContext {
+    ...
+    protected JsonSerializer<Object> _createUntypedSerializer(JavaType type)
+        throws JsonMappingException
+    {
+        ...
+        return (JsonSerializer<Object>)_serializerFactory.createSerializer(this, type); // !!!
+    }
+
+        /**
+     * Method called to locate regular serializer, matching type serializer,
+     * and if both found, wrap them in a serializer that calls both in correct
+     * sequence. This method is currently only used for root-level serializer
+     * handling to allow for simpler caching. A call can always be replaced
+     * by equivalent calls to access serializer and type serializer separately.
+     *
+     * @param valueType Type for purpose of locating a serializer; usually dynamic
+     *   runtime type, but can also be static declared type, depending on configuration
+     * @param cache Whether resulting value serializer should be cached or not; this is just
+     *    a hint
+     * @param property When creating secondary serializers, property for which
+     *   serializer is needed: annotations of the property (or bean that contains it)
+     *   may be checked to create contextual serializers.
+     */
+    public JsonSerializer<Object> findTypedValueSerializer(Class<?> valueType, boolean cache, BeanProperty property) // !!!!! really call this
+        throws JsonMappingException          // cache = true, property = null
+    {
+        // Two-phase lookups; local non-shared cache, then shared:
+        JsonSerializer<Object> ser = _knownSerializers.typedValueSerializer(valueType);
+        if (ser != null) {
+            return ser;
+        }
+        // If not, maybe shared map already has it?
+        ser = _serializerCache.typedValueSerializer(valueType);
+        if (ser != null) {
+            return ser;
+        }
+
+        // Well, let's just compose from pieces:
+        ser = findValueSerializer(valueType, property);
+        TypeSerializer typeSer = _serializerFactory.createTypeSerializer(_config,
+                _config.constructType(valueType));
+        if (typeSer != null) {
+            typeSer = typeSer.forProperty(property);
+            ser = new TypeWrappedSerializer(typeSer, ser);
+        }
+        if (cache) {
+            _serializerCache.addTypedSerializer(valueType, ser);
+        }
+        return ser;
+    }
+
+
+    _createAndCacheUntypedSerializer
+        _createUntypedSerializer
+
+    -> findValueSerializer
+    -> findContentValueSerializer
+       findPrimaryPropertySerializer
+      _findExplicitUntypedSerializer
+    ...
+}
+
+java/com/fasterxml/jackson/databind/ser/DefaultSerializerProvider.java
+DefaultSerializerProvier
+    hasSerializerFor {
+    }
+        
+
+MapSerializer
+    createContextual
+ObjectArraySerializer
+    createContextual
+
+public class JsonValueSerializer
+    extends StdSerializer<Object>
+    implements ContextualSerializer, JsonFormatVisitable
+{
+     @Override
+    public void serialize(Object bean, JsonGenerator gen, SerializerProvider ctxt) throws IOException // !!!!!
+    {
+        Object value;
+        try {
+            value = _accessor.getValue(bean);
+        } catch (Exception e) {
+            value = null;
+            wrapAndThrow(ctxt, e, bean, _accessor.getName() + "()");
+        }
+
+        if (value == null) {
+            ctxt.defaultSerializeNull(gen);
+        } else {
+            JsonSerializer<Object> ser = _valueSerializer;
+            if (ser == null) {
+                ser = _findDynamicSerializer(ctxt, value.getClass()); // !!!
+            }
+            if (_valueTypeSerializer != null) {
+                ser.serializeWithType(value, gen, ctxt, _valueTypeSerializer);
+            } else {
+                ser.serialize(value, gen, ctxt);
+            }
+        }
+    }
+   ...
+}
+
+
+???
+BeanSerializerBase
+    resolve
+    ...
+    ????
+    public Object getInternalSetting(Object key) {
+        return (_internalSettings == null) ? null : _internalSettings.get(key);
+    }
+
+
+java/com/fasterxml/jackson/databind/ser/SerializerFactory.java
+37:    public abstract SerializerFactory withSerializerModifier(BeanSerializerModifier modifier);
+
+java/com/fasterxml/jackson/databind/SerializerProvider.java
+    
+java/com/fasterxml/jackson/databind/SerializerProvider.java
+
+public abstract class SerializerProvider extends DatabindContext {
+
+    protected JsonSerializer<Object> _createUntypedSerializer(JavaType type) throws JsonMappingException {
+1503:            return (JsonSerializer<Object>)_serializerFactory.createSerializer(this, type);
+    }
+    ...
+}
+
+
+
+// actual code flow
+
+ObjectMapper {
+    ...
+    protected DefaultSerializerProvider _serializerProvider(SerializationConfig config) {
+        return _serializerProvider.createInstance(config, _serializerFactory); // !!!
+        // !!! XmlSerializerProvider, BeanSerializerFactory
+    }
+    ...
+}
+
+public class XmlSerializerProvider extends DefaultSerializerProvider {
+    ...
+    public XmlSerializerProvider(XmlSerializerProvider src, SerializationConfig config, SerializerFactory f) { // ???
+        super(src, config, f);
+        _rootNameLookup  = src._rootNameLookup;
+    }
+    ...
+    @SuppressWarnings("resource")
+    @Override
+    // gen -> ToXmlGenerator
+    // ??? SerializerProvider
+    public void serializeValue(JsonGenerator gen, Object value) throws IOException {
+        ...
+
+        //!!! cls - .databind.ObjectNode -> SerializableSerializer
+        // ObjectNode is pretty dumb !!!
+
+        // From super-class implementation
+        final JsonSerializer<Object> ser = findTypedValueSerializer(cls, true, null);
+        try {
+            ser.serialize(value, gen, this); // ObjectNode
+        } catch (Exception e) { // but wrap RuntimeExceptions, to get path information
+            throw _wrapAsIOE(gen, e);
+        }
+    }
+    ????? .serialize(...)
+}
+
+public abstract class DefaultSerializerProvider
+    extends SerializerProvider
+    implements java.io.Serializable // since 2.1; only because ObjectWriter needs it
+{
+    ...
+}
+
+@!!! XmlMapper:164

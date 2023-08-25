@@ -1,0 +1,4 @@
+az
+    account
+        get-access-token
+            --query accessToken --output tsv
