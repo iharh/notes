@@ -1,10 +1,32 @@
-https://kernel.ubuntu.com/~kernel-ppa/mainline/
-     However, even if they’re official, they are not signed, which means that you can’t install them
-        on UEFI/Secure Boot systems if Secure Boot is enabled.
-      As such, you will have to first disable Secure Boot to install Linux kernel 6.0.
+https://wiki.ubuntu.com/Kernel
+    https://wiki.ubuntu.com/Kernel/FAQ
+        cat /proc/version
+        cat /proc/version_signature
+            Ubuntu 5.15.0-37.39-generic 5.15.35
+    https://wiki.ubuntu.com/Kernel/Debugging
+    https://wiki.ubuntu.com/Kernel/KernelBisection
+    https://wiki.ubuntu.com/Kernel/Dev
+    https://wiki.ubuntu.com/Kernel/Handbook
+    https://wiki.ubuntu.com/Kernel/Reference
 
-2023
-https://www.linux.org/threads/ubuntu-mainline-kernel-installer.42421/
+https://wiki.ubuntu.com/Kernel/KernelBootParameters
+    press e-key at grub
+    go to the end
+    after "quiet splash"
+    or edit
+        /etc/default/grub
+
+to install latest
+    sudo apt install --install-recommends linux-generic-hwe-22.04
+    https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack
+    https://ubuntu.com/kernel/lifecycle
+        hwe-support-status --verbose
+        https://ubuntu.com/about/release-cycle#ubuntu-kernel-release-cycle
+to roll-back to base kernell
+    sudo apt install --install-recommends linux-generic
+    https://wiki.ubuntu.com/Kernel/LTSEnablementStack
+
+
 2022
 https://9to5linux.com/how-to-install-linux-kernel-6-0-on-ubuntu-22-10
 2021
@@ -12,12 +34,36 @@ https://9to5linux.com/how-to-install-linux-kernel-5-15-on-ubuntu-and-linux-mint
 2018
 https://www.linux.org/threads/kernel-updates.18152/#post-54550
 
+current
+    uname -r
+    hostnamectl
+    lsb_release -a
+    cat /etc/*-release
+    cat /proc/version
+    cat /proc/version_signature
+        Ubuntu 5.15.0-37.39-generic 5.15.35
 list
-     dpkg --list | grep linux-image
+    dpkg --list | grep linux-image
+    apt list --installed | grep linux-image
+    ls /boot/
+        initrd.img -> initrd.img-6.2.0-26-generic
+        initrd.img.old -> initrd.img-5.15.0-35-generic
+        vmlinuz -> vmlinuz-6.2.0-26-generic
+        vmlinuz.old -> vmlinuz-5.15.0-35-generic
 remove old
-https://help.ubuntu.com/community/RemoveOldKernels
+    https://help.ubuntu.com/community/RemoveOldKernels
+    sudo apt-get purge linux-image-<ver>-generic
 
-linux-image-5.15.0-37-generic
+
+Mainline GUI tool
+https://www.linux.org/threads/ubuntu-mainline-kernel-installer.42421/
+    sudo add-apt-repository ppa:cappelikan/ppa
+    sudo apt update
+    sudo apt install -y mainline
+https://kernel.ubuntu.com/~kernel-ppa/mainline/
+     However, even if they’re official, they are not signed, which means that you can’t install them
+        on UEFI/Secure Boot systems if Secure Boot is enabled.
+      As such, you will have to first disable Secure Boot to install Linux kernel 6.0.
 
 1. sudo apt update && sudo apt full-upgrade
 2. download
@@ -28,8 +74,3 @@ linux-image-5.15.0-37-generic
     https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0/amd64/linux-headers-6.0.0-060000-generic_6.0.0-060000.202210022231_amd64.deb
     https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0/amd64/linux-headers-6.0.0-060000_6.0.0-060000.202210022231_all.deb
 3. sudo dpkg -i *.deb
-
-Or use the mainline GUI tool
-    sudo add-apt-repository ppa:cappelikan/ppa
-    sudo apt update
-    sudo apt install -y mainline

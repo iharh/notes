@@ -1,4 +1,25 @@
 https://netplan.io/
+https://netplan.io/design
 https://netplan.io/faq
 https://netplan.io/examples
 https://netplan.io/reference
+https://netplan.io/troubleshooting
+    https://help.ubuntu.com/community/NetworkManager
+    https://wiki.ubuntu.com/DebuggingNetworkManager
+    https://manpages.ubuntu.com/manpages/lunar/en/man5/systemd.network.5.html
+
+https://github.com/canonical/netplan
+
+http://manpages.ubuntu.com/manpages/bionic/man5/systemd.network.5.html
+
+https://netplan.readthedocs.io/en/stable/
+https://netplan.readthedocs.io/en/stable/netplan-tutorial/
+https://netplan.readthedocs.io/en/stable/examples/
+https://netplan.readthedocs.io/en/stable/explanation/
+    https://netplan.readthedocs.io/en/stable/structure-id/
+    https://netplan.readthedocs.io/en/stable/nm-all/
+https://netplan.readthedocs.io/en/stable/reference/
+https://netplan.readthedocs.io/en/stable/cli/
+
+2019
+https://habr.com/ru/post/448400/

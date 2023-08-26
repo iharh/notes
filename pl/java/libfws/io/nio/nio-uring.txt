@@ -1,2 +1,28 @@
+https://kernel.dk/io_uring.pdf
+https://kernel.dk/io_uring-whatsnew.pdf
+
+https://github.com/netty/netty-incubator-transport-io_uring
+
+2023
+https://korennoy.com/2023/06/09/adding-io_uring-to-java/
+https://developers.redhat.com/articles/2023/04/12/why-you-should-use-iouring-network-io
+https://www.opennet.ru/opennews/art.shtml?num=59297
+2022
+https://blog.cloudflare.com/missing-manuals-io_uring-worker-pool/
+https://www.alibabacloud.com/blog/io-uring-vs--epoll-which-is-better-in-network-programming_599544
+2021
+https://windows-internals.com/ioring-vs-io_uring-a-comparison-of-windows-and-linux-implementations/
+2020
+https://lwn.net/Articles/810414/
+https://martin-grigorov.medium.com/jvm-network-servers-backed-by-io-uring-244fea58bb19
+https://dzone.com/articles/the-backend-revolution-or-why-io-uring-is-so-impor
+2019
+https://lwn.net/Articles/776703/
+
+pl support
+https://github.com/dotnet/runtime/issues/12650
+https://github.com/golang/go/issues/31908
+
 https://github.com/bbeaupain/nio_uring
+    ! 1 y.o
     https://www.reddit.com/r/java/comments/sy1whh/nio_uring_java_io_library_using_io_uring_under/
