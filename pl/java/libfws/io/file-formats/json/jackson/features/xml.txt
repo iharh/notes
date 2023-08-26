@@ -1,5 +1,15 @@
+https://github.com/FasterXML/jackson-dataformat-xml
+https://github.com/FasterXML/jackson-dataformat-xml/wiki
+
 2022
 https://www.baeldung.com/jackson-xml-serialization-and-deserialization
+2017
+https://stackify.com/java-xml-jackson/
+    XMLStreamWriter
+    https://en.wikipedia.org/wiki/StAX
+    org.springframework.util.xml.StaxUtils
+    https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/xml/StaxUtils.html
+    https://docs.spring.io/spring-framework/reference/data-access/oxm.html
 
 XMLOutputFactory
   static final String DEFAULIMPL = "com.sun.xml.internal.stream.XMLOutputFactoryImpl";
