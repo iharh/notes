@@ -1,0 +1,38 @@
+https://questdb.io/
+https://github.com/questdb/questdb
+https://github.com/questdb/ui
+
+https://demo.questdb.io/
+
+https://questdb.io/docs/develop/web-console/
+https://questdb.io/docs/reference/api/rest/
+https://questdb.io/docs/reference/api/postgres/
+https://questdb.io/docs/reference/api/java-embedded/
+
+https://questdb.io/docs/#concepts
+https://questdb.io/docs/concept/write-ahead-log
+https://questdb.io/docs/concept/storage-model/
+https://questdb.io/docs/concept/designated-timestamp/
+https://questdb.io/docs/concept/deduplication/
+https://questdb.io/docs/concept/sql-extensions/
+https://questdb.io/docs/concept/jit-compiler/
+https://questdb.io/docs/concept/partitions/
+https://questdb.io/docs/concept/symbol/
+https://questdb.io/docs/concept/indexes/
+https://questdb.io/docs/concept/geohashes/
+https://questdb.io/docs/concept/root-directory-structure/
+
+https://questdb.io/blog/
+https://questdb.io/blog/explain-sql-query-plan/
+https://questdb.io/blog/exploring-query-plan-scan-nodes-sql-explain/
+https://questdb.io/blog/navigating-access-control-design-clarity-simplicity/
+https://questdb.io/blog/2022/01/12/jit-sql-compiler/
+    https://github.com/questdb/questdb/tree/master/core/src/main/java/io/questdb/griffin/engine/functions
+    https://asmjit.com/
+    https://asmjit.com/asmgrid/
+    https://github.com/asmjit/asmjit
+    https://github.com/asmjit/asmdb
+
+https://github.com/questdb/questdb/blob/master/core/src/test/java/io/questdb/test/griffin/wal/DedupInsertFuzzTest.java
+
+https://github.com/sqlancer/sqlancer
