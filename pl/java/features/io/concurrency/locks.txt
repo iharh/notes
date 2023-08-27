@@ -1,3 +1,6 @@
+2023
+https://questdb.io/blog/concurrent-lockfree-datastructure-design-walkthrough/
+
 https://stackoverflow.com/questions/6965731/are-locks-autocloseable
 
 https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/locks/ReentrantLock.html
