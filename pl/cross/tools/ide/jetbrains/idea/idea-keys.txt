@@ -5,11 +5,17 @@ https://www.baeldung.com/intellij-idea-shortcuts
 2019
 https://habr.com/ru/company/otus/blog/467903/
 
+Fix
+A-Enter
+A-S-Enter
+
 Editing
 C-I
     Implement method
 C-O
     Override method
+C-Space
+    ???
 C-S-Space
     SmartType completion
 A-Ins
