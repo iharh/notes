@@ -1,7 +1,5 @@
-https://stackoverflow.com/questions/39738901/how-do-i-activate-a-spring-boot-profile-when-running-from-intellij
-Artem: use run args
-
-https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html
+https://www.jetbrains.com/help/idea/spring-boot.html
+https://www.jetbrains.com/help/idea/adding-support-for-frameworks-and-technologies.html
 
 You could also specify it on the command line by using the following switch:
     --spring.profiles.active=dev,hsqldb
@@ -10,7 +8,7 @@ You could also specify it on the command line by using the following switch:
 spring:
     profiles: production & eu-central
 server:
-    address: 192.168.1.120
+    address: ...
 
 ---
 spring:
