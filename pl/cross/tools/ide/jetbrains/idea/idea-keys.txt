@@ -1,6 +1,8 @@
 https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA_ReferenceCard.pdf
 
 2021
+JPoint - Rentea — IntelliJ productivity tips 0:00 of 1:12:14
+    https://www.youtube.com/watch?v=ZiOMQRujfMM
 https://www.baeldung.com/intellij-idea-shortcuts
 2019
 https://habr.com/ru/company/otus/blog/467903/
@@ -67,20 +69,33 @@ C-F2
     Stop Build
 
 Debugging
-
+    https://www.jetbrains.com/help/idea/stepping-through-the-program.html
+    https://blog.jetbrains.com/idea/2023/02/debugger-upskill-stepping/
+F7
+    Step Into
+S-F7
+    Smart Step Into
+        Choice in case of multi-fn-invocation at the same lin
+A-S-F7
+    Force Step Into
 F8
     Step Over
+S-F8
+    Step Out (of the current function)
+A-S-F8
+    Force Step Over
 C-F8
     Toggle Breakpoint
 C-S-F8
     View Breakpoints
 A-F8
     Evaluate Expression
-
-Compile and Run
-
 F9
     Debug/Resume
+C-A-F9
+    Force run to cursor
+NoButton
+    Reset Frame
 
 Help
 
