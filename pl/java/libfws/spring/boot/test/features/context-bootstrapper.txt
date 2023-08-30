@@ -1,0 +1,4 @@
+inside @SpringBootText
+
+SpringBootTextContextBootstrapper
+    chooses which context to use
