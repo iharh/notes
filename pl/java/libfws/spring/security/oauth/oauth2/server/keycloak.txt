@@ -47,6 +47,11 @@ Thorgersen - Keycloak
     2FCEDB79A750149203A1E5CEA5118AA2
 
 2023
+https://habr.com/ru/companies/otus/articles/733404/
+https://habr.com/ru/articles/546428/
+https://habr.com/ru/companies/kaspersky/articles/756812/
+https://habr.com/ru/companies/nixys/articles/752994/
+https://habr.com/ru/articles/735076/
 https://www.youtube.com/watch?v=vmEWywGzWbA
     https://github.com/ali-bouali/keycloak-integration-with-spring-boot-3
     boot 3, secur 6
@@ -85,16 +90,17 @@ https://habr.com/ru/post/724738/
 https://habr.com/ru/post/720070/
     application.yaml, KeycloakWebSecurityConfigurerAdapter is depr-ted
     spring-security-oauth2-resource-server
-https://habr.com/ru/post/716232/
 2022
 https://www.youtube.com/watch?v=rbKzR6QWKLI&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=5
 https://habr.com/ru/articles/661541/
     https://www.keycloak.org/2022/02/adapter-deprecation
+https://habr.com/ru/companies/alfastrah/articles/651861/
 2021
+https://habr.com/ru/companies/reksoft/articles/552346/
+https://habr.com/ru/articles/550704/
 https://www.baeldung.com/java-keycloak-custom-user-providers
 https://www.baeldung.com/keycloak-embedded-in-spring-boot-app
     https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-rest/oauth-authorization-server
-https://habr.com/ru/companies/reksoft/articles/552346/
 Spilca - Software Architecture Fundamentals - Episode 16 - OAuth 2 and OpenID Connect 0:00 of 55:00
     https://www.youtube.com/watch?v=j1yOkj2JzwM&list=PLEocw3gLFc8VYPSFuQfTbqsK-0q2wDCoR&index=17
         /auth/realms/master/.well-known/openid-configuration
@@ -114,3 +120,5 @@ Spilca - Software Architecture Fundamentals - Episode 16 - OAuth 2 and OpenID Co
                 Provider
 2020
 https://www.baeldung.com/postman-keycloak-endpoints
+https://habr.com/ru/companies/southbridge/articles/511380/
+    HA

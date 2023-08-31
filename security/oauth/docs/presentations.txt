@@ -6,6 +6,7 @@ Parecki - Apidays LIVE interface 2021 - The State of OAuth of 24:35
 Okta - An Illustrated Guide to OAuth and OpenID Connect of 16:35
     https://www.youtube.com/watch?v=t18YB3xDfXI
     https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc
+        https://habr.com/ru/companies/flant/articles/475942/
     !!! + terminology
     ! OpenID OIDC (not only a key, but extra user data)
     ! ID Token - is JWT-formatted token

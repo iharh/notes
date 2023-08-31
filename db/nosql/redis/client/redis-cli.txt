@@ -1,3 +1,5 @@
+https://redis.io/docs/ui/cli/
+
 https://lightrun.com/using-the-redis-command-line/
 https://cloud.google.com/memorystore/docs/redis/connect-redis-instance
     sudo apt-get install redis-tools
