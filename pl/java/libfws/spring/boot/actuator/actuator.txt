@@ -2,5 +2,14 @@ https://spring.io/guides/gs/actuator-service/
 
 https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready
+https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.security
 
 https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator
+
+2023
+https://www.baeldung.com/spring-boot-actuators
+2022
+https://www.digitalocean.com/community/tutorials/spring-boot-actuator-endpoints
+2018
+https://www.javacodegeeks.com/2018/11/spring-boot-actuator-tutorial.html
+    https://habr.com/ru/companies/otus/articles/452624/
