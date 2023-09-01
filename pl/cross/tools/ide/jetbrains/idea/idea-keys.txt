@@ -11,6 +11,17 @@ Fix
 A-Enter
 A-S-Enter
 
+View
+C-E
+    Recent Files/Windows List
+S-C-E
+    Recent Locations List
+C-S-F12
+    Zoome Editor to Foolscreen
+S-Esc
+    Hide project
+    
+
 Editing
 C-I
     Implement method
@@ -42,27 +53,37 @@ C-S-Bakcspace
     Navigate to the last editing place
 C-B
     Go to Declaration
-C-A-S-N
-    Navigate|Symbol
 A-Up/Down
     Navigate to prev/next method
 C-A-Up/Down
     Navigate to prev/next compiler error
 S-F2
     ? -//-
-C-S-A
-    ???
-    Find any arbitrary function by name
 A-F7
-    Edit|Find|Find Usages
-C-S-F7
-    Highlight usages of some var in the current file
+    Find Usages
 F3, S-F3
     Navigate through the highlighted usages
 C-G
-    Go to line by <number>
+    Navigate to line by <number>
 C-F12
     Navigate|File Structure
+C-S-F7
+    Highlight usages of some var in the current file
+C-S-A
+    Find any arbitrary function by name
+C-N
+Mac-O
+    Navigate to Class
+    ! can specify line number after :
+S-C-N
+    Navigate to File
+    ! can specify line number after :
+S-C-A-N
+    Navigate|Symbol
+S-C-T
+    Navigate to SUT from Test Class
+S-Shift
+    Navigate Everywhere (Recent Class, Class, Files, Symbols, Actions, Settings)
 
 Build
 C-F2
