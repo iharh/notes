@@ -1,4 +1,9 @@
 https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode
+https://github.com/MicrosoftDocs/intellicode
+    +api usage examples
+    +completions
+    +insiders
+        no java
 
 2018
 https://blogs.msdn.microsoft.com/typescript/2018/12/05/intellicode-for-typescript-javascript/

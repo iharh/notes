@@ -1,0 +1,5 @@
+https://auth0.github.io/auth0-cli/
+    go install github.com/auth0/auth0-cli/cmd/auth0@latest
+
+2021
+https://tbaxterjones2152.medium.com/auth0-deploy-cli-59d6e90edcec

@@ -1,0 +1,46 @@
+https://github.com/auth0/rules
+
+https://auth0.github.io/auth0-cli/auth0_rules.html
+
+https://auth0.com/docs/customize/rules
+    https://auth0.com/docs/customize/rules/create-rules
+    https://auth0.com/docs/customize/rules/configure-global-variables-for-rules
+    https://auth0.com/docs/customize/rules/configuration
+    https://auth0.com/docs/customize/rules/cache-resources
+    https://auth0.com/docs/customize/rules/debug-rules
+        wt-cli for debugging
+        ~  npm install -g wt-cli
+        ~  wt init --container "youraccount" --url "https://sandbox.it.auth0.com" \
+            --token "eyJhbGci...WMPGI" -p "youraccount-default-logs"
+        ~  wt logs -p "youraccount-default-logs"
+        [18:45:38.179Z]  INFO wt: connected to streaming logs (container=youraccount)
+        [18:47:37.954Z]  INFO wt: webtask container assigned
+        [18:47:38.167Z]  INFO wt: ---- checking email_verified for some-user@mail.com! ----
+    https://auth0.com/docs/customize/rules/use-management-api
+    https://auth0.com/docs/customize/rules/redirect-users
+    https://auth0.com/docs/customize/rules/user-object-in-rules
+        ! user.app_metadata
+    https://auth0.com/docs/customize/rules/context-object
+    https://auth0.com/docs/customize/rules/raise-errors-from-rules
+    
+https://auth0.com/docs/rules-best-practices
+    https://auth0.com/docs/rules-best-practices/rules-anatomy-best-practices
+    https://auth0.com/docs/rules-best-practices/rules-environment-best-practices
+    https://auth0.com/docs/rules-best-practices/rules-execution-best-practices
+    https://auth0.com/docs/rules-best-practices/rules-security-best-practices
+    https://auth0.com/docs/rules-best-practices/rules-testing-best-practices
+
+https://auth0.com/docs/manage-users/access-control/sample-use-cases-rules-with-authorization
+https://auth0.com/docs/customize/extensions/authorization-extension/use-rules-with-the-authorization-extension
+
+2023
+OktaDev - How do I call My API From a Rule? of 3:08
+    https://www.youtube.com/watch?v=Hmwh_3CiSNw
+        ${configuration.CLIENT_ID} // from global config object at Rules->Settings
+2021
+https://tbaxterjones2152.medium.com/auth0-and-custom-rules-74fd1aa465b0
+    https://github.com/tjones-commits
+2020
+    https://www.jvt.me/posts/2020/10/01/unit-test-auth0-rule/
+????
+    https://auth0.com/resources/videos/learn-how-to-use-auth0-rules
