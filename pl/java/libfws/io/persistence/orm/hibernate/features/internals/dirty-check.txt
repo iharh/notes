@@ -5,6 +5,10 @@
         https://docs.jboss.org/hibernate/core/4.3/javadocs/org/hibernate/Interceptor.html#findDirty%28java.lang.Object,%20java.io.Serializable,%20java.lang.Object[],%20java.lang.Object[],%20java.lang.String[],%20org.hibernate.type.Type[]%29
         https://docs.jboss.org/hibernate/orm/4.3/javadocs/org/hibernate/CustomEntityDirtinessStrategy.html
         !!!
+2019
+https://www.baeldung.com/hibernate-entity-lifecycle
+    HibernateLifecycleUtil.getManagedEntities(session)
+    DirtyDataInspector.getDirtyEntities()
 2016
     https://medium.com/@paul.klingelhuber/hibernate-dirty-checking-with-converted-attributes-1b6d1cd27f68
     ! DefaultFlushEntityEventListener

@@ -7,3 +7,6 @@ macos
 !! brew install azure-cli
 https://github.com/urllib3/urllib3/issues/3020
 https://github.com/Azure/azure-cli/issues/27047
+
+linux-asdf
+apt install python-3.10-venv
