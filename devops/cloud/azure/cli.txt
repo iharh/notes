@@ -2,3 +2,8 @@ az
     account
         get-access-token
             --query accessToken --output tsv
+
+macos
+!! brew install azure-cli
+https://github.com/urllib3/urllib3/issues/3020
+https://github.com/Azure/azure-cli/issues/27047
