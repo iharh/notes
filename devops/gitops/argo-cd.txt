@@ -11,6 +11,8 @@ SyncWaves and Hooks:
 
 misc!
 argocd-notifications
+https://argocd-image-updater.readthedocs.io/en/stable/
+    https://github.com/argoproj-labs/argocd-image-updater
 https://tindevops.medium.com/argocd-folder-structure-fda9003271b2
 https://medium.com/@raosharadhi11/argocd-with-vault-using-argocd-vault-plugin-dccbc302f0c2
 https://blog.argoproj.io/getting-started-with-applicationsets-9c961611bcf0

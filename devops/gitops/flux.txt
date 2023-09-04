@@ -3,6 +3,18 @@ https://github.com/fluxcd/flux2
 
 https://fluxcd.io/docs/
 
+https://www.weave.works/technologies/what-is-flux-cd/
+
+2023
+https://learn.microsoft.com/ru-ru/azure/azure-arc/kubernetes/conceptual-gitops-flux2
+    !!!
+https://itnext.io/simplify-kubernetes-resource-management-with-sveltos-carvel-ytt-and-flux-da960298c321
+2022
+https://earthly.dev/blog/k8s-gitops-with-fluxcd/
 2021
 Pathak - Flux CD v2 - Kubernetes GitOps (CNCFMinutes 20) of 8:36
     https://www.youtube.com/watch?v=1X3JgCnRNsw
+https://habr.com/ru/articles/574432/
+2020
+https://medium.com/swlh/deploying-applications-in-kubernetes-using-flux-a9d171b11917
+https://particule.io/en/blog/flux-kustomize/
