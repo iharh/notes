@@ -1,5 +1,21 @@
 https://argoproj.github.io
 https://github.com/argoproj
+https://blog.argoproj.io
+
+https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/index.html
+
+argocd login localhost:8080
+SyncWaves and Hooks:
+    https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/
+    https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html
+
+misc!
+argocd-notifications
+https://tindevops.medium.com/argocd-folder-structure-fda9003271b2
+https://medium.com/@raosharadhi11/argocd-with-vault-using-argocd-vault-plugin-dccbc302f0c2
+https://blog.argoproj.io/getting-started-with-applicationsets-9c961611bcf0
+https://blog.argoproj.io/introducing-the-applicationset-controller-for-argo-cd-982e28b62dc5
+https://blog.argoproj.io/introducing-argo-rollouts-v1-0-803e87f76ef7
 
 https://github.com/argoproj/argo-workflows
     https://github.com/sudermanjr/asdf-argo
@@ -10,6 +26,12 @@ https://argo-cd.readthedocs.io/en/stable/
 https://argo-cd.readthedocs.io/en/stable/getting_started/#2-download-argo-cd-cli
 https://argo-cd.readthedocs.io/en/stable/developer-guide/toolchain-guide/#using-k3d
 
+!!! need
+argocd-autopilot
+
+https://argoproj.github.io/argo-events/
+https://github.com/argoproj/argo-events
+
 https://argoproj.github.io/argo-rollouts
 https://argoproj.github.io/argo-rollouts/getting-started/
 https://argo-rollouts.readthedocs.io/en/stable/
@@ -19,9 +41,14 @@ https://argo-rollouts.readthedocs.io/en/stable/features/kubectl-plugin/
 
 https://www.youtube.com/@argoproj7170
 
+swagger
+    /swagger-ui
+
 2023
 https://www.redhat.com/architect/blue-green-canary-argo-rollouts
 2022
+CosteaEconomakis - ArgoCD in Practice
+    636BAA58EA68DCEA0070367E4A6C0B18
 SaiyamPathak - ArgoCD - Walkthrough of 17:28
     https://www.youtube.com/watch?v=2B3qcyCcBXs
 2021
