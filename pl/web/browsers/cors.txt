@@ -1,0 +1,17 @@
+https://www.w3.org/wiki/CORS_Enabled
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#preflighted_requests
+    https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors
+    https://stackoverflow.com/questions/46904400/why-does-the-browser-send-an-options-request-even-though-my-frontend-code-is-jus
+
+https://enable-cors.org/
+
+books
+CORS in action
+
+2022
+https://dev.to/jpomykala/what-is-cors-11kf
+    https://habr.com/ru/companies/otus/articles/706908/
+https://forums.appgyver.com/t/cors-error-using-previewer-web-app/10200/25
+    ! a lot of sniffing from WebDev
+2021
+https://developer.okta.com/blog/2021/08/02/fix-common-problems-cors
