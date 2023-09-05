@@ -12,6 +12,8 @@ A-Enter
 A-S-Enter
 
 View
+C-S-I
+    View Definition [List] ???
 C-E
     Recent Files/Windows List
 S-C-E
@@ -19,7 +21,7 @@ S-C-E
 C-S-F12
     Zoome Editor to Foolscreen
 S-Esc
-    Hide project
+    Hide Tool Window (project/definition/...)
     
 
 Editing
