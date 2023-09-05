@@ -1,7 +1,23 @@
-https://nestjs.com/
+https://nextjs.org/
+https://github.com/zeit/next.js
+https://github.com/vercel/next.js/tree/canary/examples
 
 https://docs.nestjs.com/
 https://docs.nestjs.com/cli/usages
+
+https://zeit.co/blog/next5
+https://zeit.co/blog/next4
+https://zeit.co/blog/next3
+https://zeit.co/blog/next2
+https://zeit.co/blog/next
+
+npm
+    @zeit/next-typescript
+    @tyeps/next
+    next@6
+    next-redux-wrapper
+        withRedux
+    next-apollo
 
 2022
 https://habr.com/ru/company/timeweb/blog/666470/
