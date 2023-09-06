@@ -11,3 +11,9 @@ aur/capitaine-cursors-hidpi 1-1 (0) (0.00)
     An x-cursor theme inspired by macOS and based on KDE Breeze (HiDPI)
 aur/la-capitaine-icon-theme-git r35.5a3c661-1 (Out of Date) (15) (4.08)
     An icon pack designed to integrate with most desktop environments
+
+apt
+    <...>-gtk-theme
+
+xfce
+    Applications > Settings > Appearance -> Style tab
