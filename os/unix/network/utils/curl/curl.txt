@@ -1,29 +1,3 @@
-data
-    -d @en1c.json
-
-    --data-raw '{
-    }'
-
-
-headers
-    -H "name: value"
-
-Resume:
-http://www.cyberciti.biz/faq/curl-command-resume-broken-download/
--L -O -C - <url>
-
-Samples:
-curl -XPUT -k -u <usr>:<pwd> -T <filename> <url>/<filename>
-
-    -XPOST -d "param1=value1&param2=value2"
-
-encode
-https://unix.stackexchange.com/questions/86729/any-way-to-encode-the-url-in-curl-command
-
-2021
-https://susam.in/maze/timing-with-curl.html
-https://linoxide.com/how-to-use-curl-command/
-
 curl
     -v
         verbose
@@ -49,3 +23,15 @@ curl
         in seconds
     -T, --upload-file <file>
         Transfer local FILE to destination
+
+data
+    -d @en1c.json
+    --data-raw '{
+    }'
+
+headers
+    -H "name: value"
+
+samples:
+curl -XPUT -k -u <usr>:<pwd> -T <filename> <url>/<filename>
+    -XPOST -d "param1=value1&param2=value2"
