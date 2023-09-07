@@ -13,3 +13,8 @@ https://github.com/SonarSource/docker-sonarqube/blob/master/example-compose-file
 https://hub.docker.com/layers/library/sonarqube/community/images/sha256-3e8da5aa27a658dace660dfed27dac5f7ea0f66f64ead50c961e47d788f26087?context=explore
 https://hub.docker.com/layers/library/sonarqube/9.7-community/images/sha256-3e8da5aa27a658dace660dfed27dac5f7ea0f66f64ead50c961e47d788f26087?context=explore
 https://hub.docker.com/layers/library/sonarqube/9.2.3-community/images/sha256-5d1f0b1540f3e8b7ee4ab3bf77507b7a9d87cd4382c806f2df8d4a6fae235ca4
+
+!!!
+-e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true-p
+-p 9000:9000
+sonarqube:8.8.0-community
