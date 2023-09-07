@@ -1,0 +1,11 @@
+https://en.wikipedia.org/wiki/Bookmarklet
+
+https://chrome.google.com/webstore/detail/bookmarklet-url/lnldegfbcpbaloalllolfjbekjkjieom
+http://www.michurin.net/tools/bookmarklet.html
+https://javascript.ru/unsorted/bookmarklet
+
+2021
+https://www.freecodecamp.org/news/what-are-bookmarklets/
+
+samples
+javascript:fetch("https://${host}/api/downloads",{body:JSON.stringify({url:window.location.href,format:"bestvideo"}),method:"POST",headers:{'Content-Type':'application/json'}});

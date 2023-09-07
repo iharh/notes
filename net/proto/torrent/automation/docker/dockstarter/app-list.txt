@@ -1,0 +1,148 @@
+app-menu-select
+
+Adguard Network-wide ads & trackers blocking DNS server off
+adminer A full-featured database management tool off
+AirsonicAdvanced Web-based media streamer providing ubiquitous access to your music off
+AMD Lidarr companion script to automatically download music for Lidarr off
+apcupsd Dockerized Python script that will send data from apcupsd to influxdb. off
+Apprise Apprise API - Push Notifications that work with just about every platform off
+audiobookshelf Self-hosted audiobook and podcast server off
+autobrr autobrr is the modern download automation tool for torrents and usenet. off
+AzuraCast Web radio management suite with Liquidsoap and Icecast. off
+Bazarr Companion to Sonarr to manage and download subtitles off
+Beets Music library manager and MusicBrainz tagger off
+Bitwarden Free and open source password management solution off
+Booksonicair Web-based streamer for your audiobooks. off
+BookStack Platform for storing and organising information and documentation off
+Calibre Easy to use e-book manager off
+CalibreWeb Web app for browsing, reading and downloading eBooks off
+CloudCMD A web file manager with console and editor off
+CloudFlareDDNS Free service which will point a DNS to an IP of your choice off
+codeserver VS Code running on a remote server, accessible through the browser off
+Dasshio Use Amazon Dash buttons to communicate with Home Assistant. off
+DDClient Update dynamic DNS entries off
+Deemix Download music from Deezer via Deemix off
+Deluge Lightweight, Full-featured BitTorrent client off
+DelugeVPN Deluge, OpenVPN and Privoxy off
+Dozzle Dozzle is a simple, lightweight application that provides you with a web based interface to monitor your Docker container logs live. off
+DuckDNS Free service which will point a DNS to an IP of your choice off
+Duplicacy Duplicacy is built on top of a new idea called Lock-Free Deduplication off
+Duplicati Backup software to store backups online with strong encryption off
+Emby Organize, play, and stream audio and video off
+Fail2ban Daemon to ban hosts that cause multiple authentication errors off
+FileBot Tool for organizing your media off
+Filebrowser Filebrowser provides a file managing interface within a specified directory off
+Flame A self-hosted startpage for your server. Easily manage your apps and bookmarks with built-in editors. off
+Flaresolverr FlareSolverr is a proxy server to bypass Cloudflare protection off
+FreshRSS Free, self-hostable aggregator for rss feeds off
+Gitea A painless self-hosted Git service off
+Glances Cross-platform system monitoring tool off
+Gluetun VPN client in a thin Docker container for multiple VPN providers. off
+GoAccess Real-time web log analyzer off
+Grafana Metrics dashboard and graph editor off
+grocy Groceries & household management off
+Guacamole Web application to remote desktop off
+h5ai Modern file indexer off
+HandBrake Tool for converting video off
+Headphones Music PVR Client off
+Heimdall Application dashboard and launcher off
+HomeAssistant Track and control all devices at home and automate control off
+Homebridge Homebridge is a lightweight NodeJS server you can run on your home network that emulates the iOS HomeKit API off
+Homer A dead simple static HOMepage for your servER off
+HTPCManager Front end for many htpc related applications off
+httpserver http-server is a simple binary to provide a static http server from a given folder. off
+Huginn Huginn is a system for building agents that perform automated tasks for you online. off
+InfluxDB Time series database for recording metrics, events, and analytics off
+Jackett API Support for your favorite private trackers on
+Jellyfin Free Software Media Browser off
+jfago User management app for Jellyfin off
+Kanboard Kanboard is a free and open source Kanban project management software. off
+Kiwixserve Kiwix HTTP daemon off
+Komga A media server for your comics, mangas, BDs and magazines off
+LazyLibrarian Book PVR Client off
+ldapauth Ldap-auth software is for authenticating users who request protected resources from servers proxied by nginx. off
+LibreSpeed Lightweight Speedtest implementation off
+Lidarr Music download manager for Usenet and BitTorrent users off
+Limnoria User/programmer-friendly IRC bot off
+Logarr Self-hosted, single-page, log consolidation tool off
+LogitechMediaServer LogitechMediaServer(SqueezeBox) off
+MakeMKV Convert video that you own into free and patents-unencumbered format off
+MariaDB One of the most popular database servers off
+Medusa Automatic Video Library Manager for TV Shows off
+Minecraft_Bedrock_Server Minecraft Bedrock Server off
+Minecraft_server Minecraft Java Edition Server off
+Monitorr Webfront to live display the status of any webapp or service off
+Mosquitto Open source implementation of a server for version 5.0, 3.1.1, and 3.1 of the MQTT protocol off
+Moviematch Have you ever spent longer deciding on a movie than it'd take to just watch a random movie? This is an app that helps you and your friends pick a movie to watch from a Plex server. off
+Murmur Murmur is the server for Mumble, a voice over IP application off
+Mylar3 Comic book PVR client off
+Netdata Distributed real-time performance and health monitoring off
+Nextcloud Gives you access to all your files wherever you are off
+Nodered Low-code programming for event-driven applications off
+NZBHydra2 Meta search for NZB indexers off
+OmadaController Docker image based off of Ubuntu:18.04 for TP-Link Omada Controller to control TP-Link Omada EAP Series Wireless Access Points off
+Ombi Allow your users to Request Movies, TV Shows and Albums off
+OpenLDAP OpenLDAP with TLS, multi master replication and easy bootstrap. off
+OpenSpeedTest This is a self-hosted speedtest service off
+OpenVPNAS Secure network tunneling VPN off
+Organizr HTPC/Homelab Services Organizer off
+Ouroboros Automatically update running Docker containers off
+PhotoStructure PhotoStructure is your new home for all your photos & videos. off
+phpMyAdmin A web interface for MySQL and MariaDB off
+Picard Tool for organizing your music off
+PiHole A black hole for internet advertisements off
+Piwigo Photo gallery software for the web off
+Plex Organizes all of your video, music and photo collections off
+Plexanisync Sync anime watched status from Plex to AniList off
+Portainer Simple management UI for Docker off
+PortainerAgent An agent used to manage all the resources in a Swarm cluster off
+Prometheus Prometheus is a systems and service monitoring system. off
+Prowlarr Indexer manager/proxy to integrate with your various PVR apps. on
+pyLoad Python Download Manager off
+qBittorrent Cross-platform free and open-source BitTorrent client on
+qBittorrentVPN qBittorrent, OpenVPN and Privoxy off
+QuasselCore Modern, cross-platform, distributed IRC client off
+QuasselWeb Web client for Quassel. A Quassel-Core instance is required off
+Radarr Automatically download movies via Usenet and BitTorrent off
+Readarr eBook and audiobook collection manager for Usenet and BitTorrent users. off
+Recyclarr Application to synchronize settings from the TRaSH guides to your Sonarr/Radarr instances off
+ResilioSync A fast, reliable, and simple P2P file sync and share solution off
+Rsnapshot Make periodic snapshots of local machines, and remote machines over ssh off
+rTorrentVPN rTorrent, Flood or ruTorrent WebUI, OpenVPN and Privoxy off
+RustDesk RustDesk server software including hbbs (rendezvous server) and hbbr (relay server) program, an open-source self-hosted TeamViewer alternative off
+ruTorrent rTorrent client and ruTorrent WebUI off
+SABnzbd NZB Newsgrabber / Downloader off
+SABnzbdVPN SABnzbd, OpenVPN and Privoxy off
+Samba File and print services off
+SickChill Automatic Video Library Manager for TV Shows off
+SmokePing Latency logging, graphing, and alerting system off
+Sonarr Smart TV show PVR via Usenet and BitTorrent off
+speedtest This program runs a speedtest check every hour and graphs the results. off
+SWAG Secure Web-server And Gateway off
+SyncLounge Watch Plex in sync with your friends/family, wherever you are. off
+Syncthing Open-source peer-to-peer file synchronization off
+Tautulli Monitoring and tracking tool for Plex Media Server off
+Tdarr Audio/Video Library Analytics & Transcode/Remux Automation off
+TdarrNode Tdarr Node is a self hosted module used for encoding in conjunction with Tdarr off
+Telegraf Agent for collecting metrics and writing them to InfluxDB off
+TheLounge Web IRC client that you host on your own server off
+TimeMachine Docker image to run Samba to provide a compatible Time Machine for macOS off
+Traefik A modern HTTP reverse proxy and load balancer that makes deploying microservices easy off
+Traktarr Traktarr uses Trakt.tv to find shows and movies to add in to Sonarr and Radarr, respectively. off
+Transmission Fast, easy, and free BitTorrent client off
+TransmissionVPN Transmission, WebUI and OpenVPN off
+Tvheadend TV streaming server and recorder off
+Ubooquity Home server for your comics and ebooks off
+UnifiController Controller software for wireless networks off
+Unmanic Tool for optimising your video library to a single format off
+Unpackerr Checks for completed downloads and extracts them so Radarr, Lidarr, Sonarr, and Readarr may import them off
+UptimeKuma A self-hosted monitoring tool like Uptime Robot off
+Varken Utility to aggregate data from the Plex ecosystem off
+vsftpd Probably the most secure and fastest FTP server for UNIX-like systems off
+Watchtower Automatically update running Docker containers off
+Wireguard WireGuard is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. off
+xbackbone XBackBone is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX off
+xTeVe xTeVe is a M3U proxy server for Plex, Emby and any client and provider which supports the .TS and .M3U8 (HLS) streaming formats. off
+Yacht Yacht is a container management UI with a focus on templates and 1-click deployments. off
+YoutubeDL Simple Web and REST interface for downloading YouTube videos onto a server. off
+ZNC IRC network bouncer or BNC off
