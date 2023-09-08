@@ -1,0 +1,21 @@
+2023
+https://www.linuxfordevices.com/tutorials/linux/install-a-font-in-linux
+    /usr/share/fonts/
+    /usr/local/share/fonts/
+    ~/.local/share/fonts/
+
+    fc-cache -fv
+    fc-cache -fv "~/.local/share/fonts/"
+    fc-list | grep <font name>
+
+apt (ui)
+    font-viewer
+    gnome-font-viewer
+
+post_install() {
+  echo -n "Updating font cache... "
+  mkfontscale /usr/share/fonts/TTF > /dev/null 2>&1
+  mkfontdir /usr/share/fonts/TTF > /dev/null 2>&1
+  fc-cache -s >/dev/null
+  echo "done"
+}
