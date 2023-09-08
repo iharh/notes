@@ -1,0 +1,41 @@
+This is METAFONT, Version 2.71828182 (preloaded base=mf 2023.8.26)  8 SEP 2023 11:05
+**fontninja.txt fonts-ninja.txt
+(fontninja.txt
+>> https
+! Isolated expression.
+<to be read again> 
+                   :
+l.1 https:
+          //chrome.google.com/webstore/detail/fonts-ninja/eljapbgkmlngdpckoi...
+
+? 
+! Extra tokens will be flushed.
+<to be read again> 
+                   :
+l.1 https:
+          //chrome.google.com/webstore/detail/fonts-ninja/eljapbgkmlngdpckoi...
+
+? 
+! Interruption.
+l.1 https:
+          //chrome.google.com/webstore/detail/fonts-ninja/eljapbgkmlngdpckoi...
+
+? q
+OK, entering batchmode...
+)
+! File ended while scanning to the end of the statement.
+<inserted text> 
+                ;
+<*> fontninja.txt
+                  fonts-ninja.txt
+A previous error seems to have propagated,
+causing me to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+! Emergency stop.
+<*> fontninja.txt fonts-ninja.txt
+                                 
+*** (job aborted, no legal end found)
+
+
