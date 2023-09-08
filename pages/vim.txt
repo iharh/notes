@@ -20,3 +20,8 @@ PurpleSchool - Larichev - NeoVim Lua Config Tuning ru 0:00 of 52:16
 Goloburdin - NeoVim Tuning ru 3:30 of 23:21
     https://www.youtube.com/watch?v=PA7zZNJXJEk
     https://github.com/alexey-goloburdin/nvim-config
+ElijahManor - Neovim Config Switcher 3:00 of 5:20
+    https://www.youtube.com/watch?v=LkHjJlSgKZY
+    https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
+    https://neovim.io/doc/user/starting.html#%24NVIM_APPNAME
+    NVIM_APPNAME env var to ~/.config/$NVIM_APPNAME
