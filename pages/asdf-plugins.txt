@@ -1,3 +1,4 @@
+updating plugin repository...HEAD is now at b03baaa feat: add asdf-oapi-codegen plugin (#864)
 1password-cli                 https://github.com/NeoHsu/asdf-1password-cli.git
 act                           https://github.com/grimoh/asdf-act.git
 actionlint                    https://github.com/crazy-matt/asdf-actionlint.git
@@ -134,7 +135,7 @@ deno                          https://github.com/asdf-community/asdf-deno.git
 dep                           https://github.com/paxosglobal/asdf-dep.git
 depot                         https://github.com/depot/asdf-depot.git
 desk                          https://github.com/endorama/asdf-desk.git
-devspace                      https://github.com/NeoHsu/asdf-devspace.git
+devspace                     *https://github.com/NeoHsu/asdf-devspace.git
 dhall                         https://github.com/aaaaninja/asdf-dhall.git
 difftastic                    https://github.com/volf52/asdf-difftastic.git
 digdag                        https://github.com/jtakakura/asdf-digdag.git
@@ -297,7 +298,7 @@ jiq                           https://github.com/chessmango/asdf-jiq.git
 jless                         https://github.com/jc00ke/asdf-jless.git
 jmespath                      https://github.com/skyzyx/asdf-jmespath.git
 jmeter                        https://github.com/comdotlinux/asdf-jmeter
-jq                            https://github.com/lsanwick/asdf-jq.git
+jq                           *https://github.com/lsanwick/asdf-jq.git
 jqp                           https://gitlab.com/wt0f/asdf-jqp.git
 jreleaser                     https://github.com/joschi/asdf-jreleaser.git
 jsonnet                       https://github.com/Banno/asdf-jsonnet.git
@@ -421,7 +422,7 @@ nancy                         https://github.com/iilyak/asdf-nancy.git
 nano                          https://github.com/mfakane/asdf-nano.git
 nasm                          https://github.com/Dpbm/asdf-nasm.git
 neko                          https://github.com/asdf-community/asdf-neko.git
-neovim                        https://github.com/richin13/asdf-neovim.git
+neovim                       *https://github.com/richin13/asdf-neovim.git
 nerdctl                       https://github.com/dmpe/asdf-nerdctl
 newrelic-cli                  https://github.com/NeoHsu/asdf-newrelic-cli.git
 nfpm                          https://github.com/ORCID/asdf-nfpm
