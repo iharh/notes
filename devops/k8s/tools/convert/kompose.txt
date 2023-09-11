@@ -1,6 +1,8 @@
-AUR
-    kompose-bin - translate docker-compose files to k8s resources
+asdf
+    kompose
+
+2022
+    https://habr.com/ru/company/otus/blog/695040/
 
 cli
     kompose -f docker-compose.yml convert -c
-    # https://habr.com/ru/company/otus/blog/695040/
