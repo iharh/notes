@@ -1,8 +1,105 @@
+https://kubernetes.io/docs/tasks/configure-pod-container/translate-compose-kubernetes/
+
 asdf
     kompose
 
 2022
     https://habr.com/ru/company/otus/blog/695040/
+????
+    https://www.digitalocean.com/community/tutorials/how-to-migrate-a-docker-compose-workflow-to-kubernetes
+    --dry-run
+        https://www.digitalocean.com/community/books/from-containers-to-kubernetes-with-node-js-ebook
 
 cli
     kompose -f docker-compose.yml convert -c
+
+podman
+      buildah catatonit conmon containernetworking-plugins crun fuse-overlayfs golang-github-containernetworking-plugin-dnsname
+  golang-github-containers-common golang-github-containers-image uidmap
+  sudo mkdir -p /etc/apt/keyrings
+curl -fsSL "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/xUbuntu_$(lsb_release -rs)/Release.key" \
+  | gpg --dearmor \
+  | sudo tee /etc/apt/keyrings/devel_kubic_libcontainers_unstable.gpg > /dev/null
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/devel_kubic_libcontainers_unstable.gpg]\
+    https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/xUbuntu_$(lsb_release -rs)/ /" \
+  | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:unstable.list > /dev/null
+sudo apt update -qq
+sudo apt -qq -y install podman
+
+https://docs.oracle.com/en/learn/podman-compose/index.html
+    sudo curl -w "\n" -H "Content-Type: application/json" --unix-socket /var/run/docker.sock http://localhost/_ping
+
+https://github.com/containers/podman/issues/13396
+    podman info --debug
+    sudo apt install containernetworking-plugins
+
+https://github.com/containers/podman-compose
+https://github.com/containerd/nerdctl
+https://github.com/crc-org/crc
+https://crc.dev/crc/getting_started/getting_started/introducing/
+https://github.com/containers/podman-desktop
+
+https://podman-desktop.io/
+https://podman-desktop.io/downloads
+https://podman-desktop.io/docs/Installation
+https://podman-desktop.io/docs/installation/linux-install
+https://podman-desktop.io/docs/Installation/linux-install/installing-podman-desktop-from-a-compressed-tar-file
+    flatpak install io.podman_desktop.PodmanDesktop
+https://github.com/containers/podman-desktop
+https://blog.misterspex.tech/managing-containers-using-podman-desktop-5068350f95a6
+
+https://docs.podman.io/en/latest/markdown/podman-kube-generate.1.html
+    podman generate kube --help  
+
+https://willsena.dev/building-kubernetes-style-pods-with-podman/
+    podman play kube onelog-pod.yaml
+    podman play kube --down onelog-pod.yaml
+
+https://blog.tilt.dev/2019/09/16/tips-on-moving-your-dev-env-from-docker-compose-to-kubernetes.html
+    tilt
+
+https://github.com/pulumi/kubespy
+https://github.com/pulumi/kubespy/releases
+    k spy
+    k spy [-c CONTAINER] [-n NAMESPACE] [--spy-image IMAGE] POD
+https://www.pulumi.com/blog/how-do-kubernetes-deployments-work-an-adversarial-perspective/
+https://www.pulumi.com/blog/kubespy-trace-a-real-time-view-into-the-heart-of-a-kubernetes-service/
+https://www.pulumi.com/blog/kubespy-and-the-lifecycle-of-a-kubernetes-pod-in-four-images/
+
+https://move2kube.konveyor.io/
+https://move2kube.konveyor.io/commands
+https://move2kube.konveyor.io/docs/commands/move2kube-cheatsheet/
+https://move2kube.konveyor.io/docs/commands/move2kube-cheatsheet/move2kube-cheat-sheet.pdf
+https://move2kube.konveyor.io/tutorials
+https://move2kube.konveyor.io/tutorials/cli
+https://move2kube.konveyor.io/tutorials/running-non-interactively
+https://move2kube.konveyor.io/tutorials/api
+https://move2kube.konveyor.io/tutorials/parameterizing-kubernetes-yamls
+https://move2kube.konveyor.io/tutorials/ui
+https://github.com/konveyor/move2kube/
+
+https://konveyor.github.io/konveyor/
+https://konveyor.github.io/move2kube/tutorials/migratedockercomposekube/
+https://github.com/migtools/tackle-ui
+
+https://cwienczek.com/2020/06/import-images-to-k3s-without-docker-registry/
+k3d cluster list
+    ihcluster 
+k3d node list
+k3d image import/load
+k3d image import onelog:latest
+k3d image import -c ihcluster onelog:latest
+    INFO[0001] Importing images from tarball '/k3d/images/k3d-ihcluster-images-20230911134507.tar' into node 'k3d-ihcluster-server-0'...
+    
+    k apply -f pod.yaml
+    k apply -f pod.yaml --dry-run=client
+    k logs mypod
+    k logs mypod -c onelog
+    k delete po onelog-pod
+
+    sudo k3s server --docker
+
+    which will use host's Docker rather than containerd. This will make all local images available to k3sand
+    and if your ImagePullPolicy is IfNotPresent k3s will use it rather than trying to pull it.
+    https://stackoverflow.com/questions/57590030/access-local-docker-images-with-k3s
