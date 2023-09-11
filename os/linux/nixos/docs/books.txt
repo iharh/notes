@@ -1,3 +1,17 @@
 2023
 https://leanpub.com/nixos-in-production
-    https://www.haskellforall.com/2023/01/terraform-nixos-ng-modern-terraform.html?m=1
+    https://github.com/Gabriella439/nixos-in-production/tree/develop/manuscript
+    https://github.com/Gabriella439/nixos-in-production/blob/develop/manuscript/Book.txt
+    https://github.com/Gabriella439/nixos-in-production/blob/develop/manuscript/Setup.md
+        https://releases.nixos.org/nix/nix-${VERSION}/install
+    https://github.com/Gabriella439/nixos-in-production/blob/develop/manuscript/ContinuousIntegrationDeployment.md
+        garnix
+        https://garnix.io/
+        https://github.com/apps/garnix-ci
+    https://www.haskellforall.com/2023/01/terraform-nixos-ng-modern-terraform.html
+        https://nix.dev/tutorials/nixos/deploying-nixos-using-terraform
+        https://www.haskellforall.com/2023/01/announcing-nixos-rebuild-new-deployment.html
+        https://discourse.nixos.org/t/morph-nix-based-deployment-tool/1276/9
+        https://github.com/NixOS/nixpkgs/issues/108984
+        https://github.com/YorikSar/nixos-vm-on-macos
+    https://github.com/Gabriella439/nixos-in-production
