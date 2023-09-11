@@ -6,3 +6,12 @@ $ DOCKER_BUILDKIT=1 docker build .
 
 2022
 https://support.atlassian.com/bitbucket-cloud/docs/run-docker-commands-in-bitbucket-pipelines/#Enable-Docker-BuildKit
+2021
+Shulyak - Cook Dockerfiles Right of 59:02
+    https://www.youtube.com/watch?v=Dx8WOurCCaM
+    /etc/docker/daemon.json
+    {"features":{"buildkit":true}}
+    docker build --target ...
+    RUN --mount=target=. ...
+    docker run --rm -it --net container:nginx alpine
+        to run container in the same network namespace as nginx
