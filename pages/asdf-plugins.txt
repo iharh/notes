@@ -1,3 +1,4 @@
+updating plugin repository...HEAD is now at fbc76d7 feat: add asdf-plugin-manager plugin (#868)
 1password-cli                 https://github.com/NeoHsu/asdf-1password-cli.git
 act                           https://github.com/grimoh/asdf-act.git
 actionlint                    https://github.com/crazy-matt/asdf-actionlint.git
@@ -330,13 +331,13 @@ kiota                         https://github.com/asdf-community/asdf-kiota.git
 kn                            https://github.com/joke/asdf-kn.git
 ko                            https://github.com/zasdaym/asdf-ko.git
 koka                          https://github.com/susurri/asdf-koka.git
-kompose                       https://github.com/technikhil314/asdf-kompose.git
+kompose                      *https://github.com/technikhil314/asdf-kompose.git
 kops                          https://github.com/Antiarchitect/asdf-kops.git
 kotlin                        https://github.com/asdf-community/asdf-kotlin.git
 kp                            https://github.com/vmware-tanzu/tanzu-plug-in-for-asdf.git
 kpt                           https://github.com/nlamirault/asdf-kpt.git
 krab                          https://github.com/ohkrab/asdf-krab.git
-krew                          https://github.com/bjw-s/asdf-krew.git
+krew                         *https://github.com/bjw-s/asdf-krew.git
 kscript                       https://github.com/edgelevel/asdf-kscript.git
 ksonnet                       https://github.com/Banno/asdf-ksonnet.git
 ktlint                       *https://github.com/esensar/asdf-ktlint.git
@@ -454,7 +455,7 @@ openresty                     https://github.com/smashedtoatoms/asdf-openresty.g
 opensearch                    https://github.com/randikabanura/asdf-opensearch.git
 opensearch-cli                https://github.com/iul1an/asdf-opensearch-cli.git
 openshift-install             https://github.com/hhemied/asdf-openshift-install.git
-operator-sdk                  https://github.com/Medium/asdf-operator-sdk.git
+operator-sdk                 *https://github.com/Medium/asdf-operator-sdk.git
 opsgenie-lamp                 https://github.com/ORCID/asdf-opsgenie-lamp
 oras                          https://github.com/bodgit/asdf-oras.git
 osm                           https://github.com/nlamirault/asdf-osm.git
