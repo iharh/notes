@@ -1,0 +1,6 @@
+apt
+    clipman
+        wayland
+    xfce4-clipman
+    xfce4-goodies
+        lots-of-useful-stuff
