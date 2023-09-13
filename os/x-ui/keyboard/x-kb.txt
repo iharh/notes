@@ -1,7 +1,62 @@
+https://github.com/xkbcommon/libxkbcommon
+https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/
+
+https://www.charvolant.org/doug/xkb/html/node5.html
+https://xkbcommon.org/doc/current/md_doc_user_configuration.html
+http://www.kulichki.com/moshkow/unixhelp/fonty.txt
+https://wiki.archlinux.org/title/Category:Xorg_commands
+https://wiki.archlinux.org/title/X_keyboard_extension
+https://wiki.archlinux.org/title/Xorg
+https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
+https://wiki.archlinux.org/title/Xorg_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)/Keyboard_configuration_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)#%D0%A7%D0%B5%D1%80%D0%B5%D0%B7_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5_%D1%84%D0%B0%D0%B9%D0%BB%D1%8B_X
+https://help.ubuntu.com/community/Custom%20keyboard%20layout%20definitions
+https://www.x.org/releases/current/doc/xorg-docs/input/XKB-Config.html
+https://www.x.org/releases/current/doc/libX11/XKB/xkblib.html
+man xkeyboard-config
+
+https://dev.to/frost/add-a-custom-keyboard-layout-in-ubuntu-using-ansible-5235
+https://delapouite.com/ramblings/xkb-walkthrough/
+https://forums.gentoo.org/viewtopic-t-447805.html
+http://aluarium.net/forum/thread-927.html
+http://who-t.blogspot.com/2020/09/user-specific-xkb-configuration-putting.html
+   https://gitlab.freedesktop.org/whot/xkblayout
+https://who-t.blogspot.com/2020/08/user-specific-xkb-configuration-part-3.html
+https://who-t.blogspot.com/2020/07/user-specific-xkb-configuration-part-2.html
+https://who-t.blogspot.com/2020/02/user-specific-xkb-configuration-part-1.html
+https://medium.com/@damko/a-simple-humble-but-comprehensive-guide-to-xkb-for-linux-6f1ad5e13450
+https://rlog.rgtti.com/2014/05/01/how-to-modify-a-keyboard-layout-in-linux/
+https://github.com/baskerville/sxhkd
+https://habr.com/ru/articles/486872/
+    ~/.config/xkb/config
+
+https://gitlab.com/interception/linux/tools
+https://xkbcommon.org/doc/current/md_doc_user_configuration.html
+http://www.thamnos.de/computer-corner/keyboard-layout/
+https://michal.kosmulski.org/computing/articles/custom-keyboard-layouts-xkb.html
+http://lug-mgn.ru/ftp/Linux/X11/xkb-notes.pdf
+
+https://ubuntu-mate.community/t/make-your-own-custom-keyboard-layout-for-linux/19733/14
+https://unix.stackexchange.com/questions/292868/how-to-customise-keyboard-mappings-with-wayland
+https://unix.stackexchange.com/questions/294286/how-can-i-autoload-xkb-customisations-in-gnome``
+https://unix.stackexchange.com/questions/212573/how-can-i-make-backspace-act-as-escape-using-setxkbmap
+https://stackoverflow.com/questions/72240945/can-not-use-keyboard-3rd-level-on-manjaro
+setxkbmap -print -verbose 10
+~/rules/evdev
+/usr/share/X11/xkb/rules/
+      evdev - no ctrl_space_toggle
+      evdev.lst - no ctrl_space_toggle
+      evdev.xml - no ctrl_space_toggle
+      evdev.extra.xml - no ...
+/usr/share/X11/xkb/symbols/group
+!!!
+grep -hroE 'grp:.*toggle ' /usr/share/X11/xkb/rules/ | sort -
+https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/blob/master/rules/base.xml
+https://unix.stackexchange.com/questions/244883/xkb-how-toggle-keyboard-layout-with-win-capslock/246491#246491
+
+setxkbmap -layout 'us,ru(winkeys)' -variant -option grp:ctrl_shift_toggle,terminate:ctrl_alt_bksp
+
 https://www.x.org/releases/current/doc/xorg-docs/input/XKB-Config.html
     https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/x11/xserver.nix
-
-https://wiki.archlinux.org/title/Xorg/Keyboard_configuration
 
 https://www.linux.org.ru/tag/setxkbmap?section=2
 https://itectec.com/ubuntu/ubuntu-permanently-set-keyboard-layout-options-with-setxkbmap-in-gnome-unity/
