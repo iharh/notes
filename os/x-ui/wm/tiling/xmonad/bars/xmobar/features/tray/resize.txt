@@ -35,3 +35,37 @@ kmonad
 https://github.com/kmonad/kmonad
     https://www.youtube.com/watch?v=Dhj1eauljwU
     https://github.com/kmonad/kmonad/blob/master/keymap/tutorial.kbd
+
+my code
+
+-- from upstream Hacks
+
+-- | A fully generic tray resize hook that invokes a callback whenever a
+-- tray-like window changes width.
+trayPaddingEventHook
+  :: Query Bool     -- ^ query to identify the tray window
+  -> (Int -> X ())  -- ^ action to perform when tray width changes
+  -> Event -> X All -- ^ resulting event hook
+trayPaddingEventHook trayQ widthChanged ConfigureEvent{ ev_window = w, ev_width = wa } = do
+  whenX (runQuery trayQ w) $ widthChanged (fi wa)
+  mempty
+trayPaddingEventHook _ _ _ = mempty
+
+
+-- | A generic version of 'trayerPaddingXmobarEventHook' that
+-- allows the user to specify how to identify a tray window and the property
+-- to use with 'xmonadPropLog''. This is useful for other trays like
+-- stalonetray and also when space for more than one tray-like window needs to
+-- be reserved.
+trayPaddingXmobarEventHook
+  :: Query Bool     -- ^ query to identify the tray window
+  -> String         -- ^ 'xmonadPropLog'' property to use
+  -> Event -> X All -- ^ resulting event hook
+trayPaddingXmobarEventHook trayQ prop = trayPaddingEventHook trayQ hspaceLog
+  where hspaceLog width = xmonadPropLog' prop ("<hspace=" ++ show width ++ "/>")
+
+-- | A simple trayer/xmobar-specific event hook that watches for trayer window
+-- resize changes and updates the _XMONAD_TRAYPAD property with xmobar markup
+-- that leaves a gap for the myTray.
+myTrayPaddingXmobarEventHook :: Event -> X All -- ^ event hook
+myTrayPaddingXmobarEventHook = trayPaddingXmobarEventHook (className =? myTray) "_XMONAD_TRAYPAD"
