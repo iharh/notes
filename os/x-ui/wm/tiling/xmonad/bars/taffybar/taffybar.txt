@@ -80,6 +80,7 @@ https://github.com/evanjs/gentoo-dotfiles/blob/master/.xmonad/xmonad1.hs#L387
 
 issues
 https://github.com/taffybar/taffybar/issues/501
-    ???
+    arch-inst
 https://github.com/taffybar/taffybar/issues/542
+    taffybar-3.3.0 failed to build in Stackage Nightly
     https://github.com/taffybar/taffybar/pull/541
