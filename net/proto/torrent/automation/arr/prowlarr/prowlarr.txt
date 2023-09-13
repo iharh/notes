@@ -1,13 +1,17 @@
-https://github.com/Prowlarr/Prowlarr
 https://wiki.servarr.com/prowlarr
 
-https://requests.prowlarr.com/
-https://wiki.servarr.com/en/prowlarr/supported-indexers
+https://github.com/Prowlarr/Prowlarr
 
-https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/prowlarr/#flirt-with-waiter-subscribe
+https://requests.prowlarr.com/
+
+https://wiki.servarr.com/en/prowlarr/supported-indexers
+https://wiki.servarr.com/prowlarr/supported#applications
 
 https://hub.docker.com/r/linuxserver/prowlarr
     https://gitlab.com/Linuxserver.io/docker-prowlarr/
+
+https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/prowlarr/#flirt-with-waiter-subscribe
+https://yams.media/config/prowlarr/
 
 features
 https://prowlarr.com/docs/api/#/
@@ -22,4 +26,3 @@ https://wiki.servarr.com/prowlarr/search
       &apikey=badef4d9c35b4b759e9d3362a16d301a
       &offset=0
       &limit=100
-https://wiki.servarr.com/prowlarr/supported#applications
