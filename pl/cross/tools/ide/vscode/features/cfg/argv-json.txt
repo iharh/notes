@@ -1,0 +1,5 @@
+https://github.com/microsoft/vscode/issues/186792
+https://code.visualstudio.com/docs/editor/settings-sync#_troubleshooting-keychain-issues
+    ~/.vscode/argv.json
+        "password-store":"gnome"
+
