@@ -1,3 +1,9 @@
+https://www.x.org/wiki/XKB/
+https://www.x.org/releases/current/doc/xorg-docs/input/XKB-Enhancing.html
+    !!! really good rules intro
+http://who-t.blogspot.com/2008/09/rmlvo-keyboard-configuration.html
+    !!! short on rules
+
 https://github.com/xkbcommon/libxkbcommon
 https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config/
 
@@ -24,6 +30,9 @@ https://who-t.blogspot.com/2020/08/user-specific-xkb-configuration-part-3.html
 https://who-t.blogspot.com/2020/07/user-specific-xkb-configuration-part-2.html
 https://who-t.blogspot.com/2020/02/user-specific-xkb-configuration-part-1.html
 https://medium.com/@damko/a-simple-humble-but-comprehensive-guide-to-xkb-for-linux-6f1ad5e13450
+    !!! cool review of all the cfg-files !!!
+    /usr/share/X11/xkb/ stuff reinstall
+        sudo apt install --reinstall xkb-data
 https://rlog.rgtti.com/2014/05/01/how-to-modify-a-keyboard-layout-in-linux/
 https://github.com/baskerville/sxhkd
 https://habr.com/ru/articles/486872/
@@ -98,6 +107,8 @@ Section "InputClass"
     Option "XkbOptions" "grp:menu_toggle"
 EndSection
 
+x11-utils
+    xev -event keyboard
 
 2020
 https://habr.com/ru/post/486872/
