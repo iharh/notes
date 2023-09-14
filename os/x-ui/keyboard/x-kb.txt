@@ -43,9 +43,14 @@ https://stackoverflow.com/questions/72240945/can-not-use-keyboard-3rd-level-on-m
 setxkbmap -print -verbose 10
 ~/rules/evdev
 /usr/share/X11/xkb/rules/
+      base - no ctrl_space_toggle
+      base.lst - no ctrl_space_toggle
+      base.xml - no ctrl_space_toggle
+
       evdev - no ctrl_space_toggle
       evdev.lst - no ctrl_space_toggle
       evdev.xml - no ctrl_space_toggle
+
       evdev.extra.xml - no ...
 /usr/share/X11/xkb/symbols/group
 !!!
