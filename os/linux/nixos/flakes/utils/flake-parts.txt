@@ -1,0 +1,5 @@
+https://flake.parts/
+https://github.com/hercules-ci/flake-parts
+
+samples
+https://github.com/argoproj/argo-workflows/blob/master/dev/nix/flake.nix

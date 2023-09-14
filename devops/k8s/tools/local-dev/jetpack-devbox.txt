@@ -1,0 +1,60 @@
+https://www.jetpack.io/devbox
+
+https://github.com/jetpack-io/devbox
+
+https://www.youtube.com/@jetpack-io/videos
+
+https://www.jetpack.io/devbox/docs/
+https://www.jetpack.io/devbox/docs/configuration/
+
+https://github.com/jetpack-io/devbox/tree/main/examples/flakes/remote
+https://github.com/jetpack-io/devbox/tree/main/plugins
+
+https://www.jetpack.io/blog/
+
+inst
+    curl -fsSL https://get.jetpack.io/devbox | bash
+devbox
+    help
+    version
+        update
+    init
+    search
+        https://www.jetpack.io/blog/0-5-0-install-nix-packages-by-version/
+        https://www.nixhub.io/
+        <name> [--show-all]
+    add <name>@<ver>
+    global add <name>@<ver>
+    global pull <fleek-url>
+        https://www.jetpack.io/devbox/docs/devbox_global/
+        https://getfleek.dev/
+        https://github.com/ublue-os/fleek
+        https://getfleek.dev/docs/cli/fleek
+    generate
+        direnv
+            https://www.jetpack.io/blog/automated-dev-envs-with-devbox-and-direnv/
+    shell
+    pinning
+        https://www.jetpack.io/devbox/docs/guides/pinning_packages/
+
+~/.cache/devbox/current-version
+~/.cache/devbox/bin/0.5.13_linux_amd64/devbox
+
+https://github.com/jetpack-io/devbox/tree/main/examples
+
+flakes
+    https://www.jetpack.io/blog/using-nix-flakes-with-devbox/
+    https://github.com/jetpack-io/devbox/tree/main/examples/flakes
+    https://github.com/jetpack-io/devbox/tree/main/examples/flakes/go-mod
+    https://github.com/jetpack-io/devbox/blob/main/examples/flakes/go-mod/devbox.json
+    https://github.com/jetpack-io/devbox/blob/main/examples/flakes/go-mod/ory-cli/flake.nix
+
+https://marketplace.visualstudio.com/items?itemName=jetpack-io.devbox_global
+
+https://www.jetpack.io/blog/
+
+2023
+https://www.jetpack.io/blog/creating-nix-powered-containers-with-devbox/
+https://www.jetpack.io/blog/0-5-0-install-nix-packages-by-version/
+https://www.jetpack.io/blog/powered-by-flakes/
+https://www.jetpack.io/blog/using-nix-flakes-with-devbox/
