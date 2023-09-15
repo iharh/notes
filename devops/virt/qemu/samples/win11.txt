@@ -1,0 +1,11 @@
+├── virtio-win-0.1.229.iso
+├── windows-11
+│   ├── unattended
+│   │   ├── autounattend.xml
+│   │   ├── spice-vdagent-x64-0.10.0.msi
+│   │   ├── spice-webdavd-x64-latest.msi
+│   │   └── UsbDk_1.0.22_x64.msi
+│   ├── unattended.iso
+│   ├── virtio-win.iso
+│   └── Win11_22H2_English_x64v1.iso
+└── windows-11-22H2.conf

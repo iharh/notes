@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+/usr/bin/swtpm socket \
+    --ctrl type=unixio,path=windows-11/windows-11-22H2.swtpm-sock \
+    --terminate \
+    --tpmstate dir=windows-11 \
+    --tpm2 &
+/usr/bin/qemu-system-x86_64 \
+    -name windows-11-22H2,process=windows-11-22H2 \
+    -pidfile windows-11/windows-11-22H2.pid \
+    -enable-kvm \
+    -machine q35,smm=on,vmport=off \
+    -no-hpet \
+    -global kvm-pit.lost_tick_policy=discard \
+    -global ICH9-LPC.disable_s3=1 \
+    -cpu host,kvm=on,+hypervisor,+invtsc,l3-cache=on,migratable=no,hv_passthrough \
+    -smp cores=2,threads=2,sockets=1 \
+    -m 8G \
+    -device virtio-balloon \
+    -vga none \
+    -device virtio-vga-gl \
+    -display sdl,gl=on \
+    -audiodev pa,id=audio0 \
+    -device intel-hda \
+    -device hda-duplex,audiodev=audio0 \
+    -rtc base=localtime,clock=host,driftfix=slew \
+    -device virtio-rng-pci,rng=rng0 \
+    -object rng-random,id=rng0,filename=/dev/urandom \
+    -device qemu-xhci,id=spicepass \
+    -chardev spicevmc,id=usbredirchardev1,name=usbredir \
+    -device usb-redir,chardev=usbredirchardev1,id=usbredirdev1 \
+    -chardev spicevmc,id=usbredirchardev2,name=usbredir \
+    -device usb-redir,chardev=usbredirchardev2,id=usbredirdev2 \
+    -chardev spicevmc,id=usbredirchardev3,name=usbredir \
+    -device usb-redir,chardev=usbredirchardev3,id=usbredirdev3 \
+    -device pci-ohci,id=smartpass \
+    -device usb-ccid \
+    -chardev spicevmc,id=ccid,name=smartcard \
+    -device ccid-card-passthru,chardev=ccid \
+    -device usb-ehci,id=input \
+    -device usb-kbd,bus=input.0 \
+    -k en-us \
+    -device usb-tablet,bus=input.0 \
+    -device virtio-net,netdev=nic \
+    -netdev user,hostname=windows-11-22H2,hostfwd=tcp::22220-:22,id=nic \
+    -global driver=cfi.pflash01,property=secure,value=on \
+    -drive if=pflash,format=raw,unit=0,file=/usr/share/OVMF/OVMF_CODE.fd,readonly=on \
+    -drive if=pflash,format=raw,unit=1,file=windows-11/OVMF_VARS.fd \
+    -drive media=cdrom,index=1,file=windows-11/virtio-win.iso \
+    -device virtio-blk-pci,drive=SystemDisk \
+    -drive id=SystemDisk,if=none,format=qcow2,file=windows-11/disk.qcow2 \
+    -chardev socket,id=chrtpm,path=windows-11/windows-11-22H2.swtpm-sock \
+    -tpmdev emulator,id=tpm0,chardev=chrtpm \
+    -device tpm-tis,tpmdev=tpm0 \
+    -monitor unix:windows-11/windows-11-22H2-monitor.socket,server,nowait \
+    -serial unix:windows-11/windows-11-22H2-serial.socket,server,nowait

@@ -20,6 +20,7 @@ https://github.com/quickemu-project/quickemu/blob/master/quickget#L2149
     quickemu --vm windows-11-22H2.conf
     !!!
     https://github.com/quickemu-project/quickemu/issues/646
+    https://github.com/quickemu-project/quickemu/issues/646
     https://github.com/quickemu-project/quickemu/blob/master/quickget#L2136
     https://github.com/aria2/aria2/issues/1739
     https://github.com/quickemu-project/quickemu/issues/646
@@ -63,6 +64,9 @@ windows-11
 https://www.microsoft.com/en-in/software-download/
 https://www.microsoft.com/en-in/software-download/windows11
 
+WimpyWorld
+https://www.youtube.com/playlist?list=PL2O-jVSvTrBwuhzX0orpeN98O8wOHLmZf
+
 2022
 Mayunix - How to Install Windows 11 in KVM on Ubuntu 22.04 0:00 of 16:04
     https://www.youtube.com/watch?v=0RiUrsljD_E
@@ -79,3 +83,11 @@ https://www.fossmint.com/quickemu-run-windows-macos-linux-virtual-machines/
 2020
 WimpyWorld - Replace VirtualBox with Bash & QEMU 0:00 of 1:20:27
     https://www.youtube.com/watch?v=AOTYWEgw0hI
+
+win-iss
+https://github.com/quickemu-project/quickemu/issues/654
+https://github.com/quickemu-project/quickemu/issues/572
+https://github.com/quickemu-project/quickemu/issues/594
+https://github.com/quickemu-project/quickemu/issues/609
+https://github.com/quickemu-project/quickemu/issues/275
+    ! try
