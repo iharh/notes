@@ -9,6 +9,7 @@ https://www.weave.works/technologies/what-is-flux-cd/
 
 2023
 https://tech.aufomm.com/how-to-use-flux-to-manage-kubernetes-declaratively/
+    https://github.com/liyangau/flux-demo
 https://learn.microsoft.com/ru-ru/azure/azure-arc/kubernetes/conceptual-gitops-flux2
     !!!
 https://itnext.io/simplify-kubernetes-resource-management-with-sveltos-carvel-ytt-and-flux-da960298c321

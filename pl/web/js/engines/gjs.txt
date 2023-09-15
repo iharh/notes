@@ -1,0 +1,30 @@
+https://gitlab.gnome.org/GNOME/gjs
+
+https://gjs.guide/
+https://gjs.guide/guides/
+https://gjs.guide/extensions/
+https://gitlab.gnome.org/ewlsh/gjs-guide
+
+https://github.com/Aylur/ags/wiki/widgets
+https://github.com/Aylur/ags/wiki/app
+https://github.com/Aylur/ags/wiki/service
+https://www.youtube.com/watch?v=gDPCRZ0SbNY
+
+samples
+https://github.com/thyeun/dotfiles/tree/master/V2/.config/eww/scripts/myshell
+https://github.com/thyeun/dotfiles/blob/master/V2/.config/eww/scripts/myshell/myshell
+
+https://github.com/Aylur/ags
+https://github.com/Aylur/dotfiles
+https://github.com/Aylur/ags/wiki/configuration
+https://github.com/Aylur/ags/wiki/theming
+    https://www.gtk.org/docs/language-bindings/javascript
+    https://docs.gtk.org/gtk3/css-overview.html
+    https://docs.gtk.org/gtk3/css-properties.html
+    https://wiki.gnome.org/Projects/GTK/Inspector
+
+apt
+    gjs/jammy-updates 1.72.4-0ubuntu0.22.04.1 amd64
+      Mozilla-based javascript bindings for the GNOME platform (cli tool)
+      https://gitlab.gnome.org/GNOME/gjs/-/tags
+          1.77.90

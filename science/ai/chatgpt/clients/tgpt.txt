@@ -1,0 +1,6 @@
+https://github.com/aandrew-me/tgpt
+curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
+go install github.com/aandrew-me/tgpt@latest
+
+2023
+https://www.youtube.com/watch?v=yrj8Pa1JHf

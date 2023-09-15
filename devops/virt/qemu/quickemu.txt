@@ -1,12 +1,81 @@
 https://github.com/quickemu-project/quickemu
 
+sudo apt install qemu bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip
+sudo apt-add-repository ppa:flexiondotorg/quickemu
+sudo apt update
+sudo apt install quickemu
+
+sudo apt install genisoimage
+    which mkisofs
+
 https://github.com/quickgui/quickgui
+https://github.com/quickemu-project/quickgui
 https://aur.archlinux.org/packages/quickgui/
 https://aur.archlinux.org/packages/quickgui-bin/
 
+https://github.com/quickemu-project/quickemu#windows-10--11-guests
+https://github.com/quickemu-project/quickemu/blob/master/quickget
+https://github.com/quickemu-project/quickemu/blob/master/quickget#L2149
+    quickget windows 11
+    quickemu --vm windows-11-22H2.conf
+    !!!
+    https://github.com/quickemu-project/quickemu/issues/646
+    https://github.com/quickemu-project/quickemu/blob/master/quickget#L2136
+    https://github.com/aria2/aria2/issues/1739
+    https://github.com/quickemu-project/quickemu/issues/646
+        The issue can be circumvented by adding--check-certificate--check-certificate
+          --check-certificate=falseto
+      to aria2c on line 706 of /usr/bin/quickget but this obviously comes with risks.
+      aria2c --check-certificate=false 'https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso'
+    !!!
+    https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/index.html
+    https://github.com/virtio-win/virtio-win-pkg-scripts/tree/master
+    https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers
+
+To start your Windows virtual machine run:
+    quickemu --vm windows-11-22H2.conf
+
+#! --vm
+guest_os="windows"
+disk_img="windows-11/disk.qcow2"
+iso="windows-11/Win11_22H2_English_x64v1.iso"
+fixed_iso="windows-11/virtio-win.iso"
+tpm="on"
+secureboot="off"
+
+
+https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines
+https://www.heiko-sieger.info/running-windows-10-on-linux-using-kvm-with-vga-passthrough/
+https://leduccc.medium.com/improving-the-performance-of-a-windows-10-guest-on-qemu-a5b3f54d9cf5
+https://frontpagelinux.com/tutorials/how-to-use-linux-kvm-to-optimize-your-windows-10-virtual-machine/
+https://www.kraxel.org/blog/2019/06/macos-qemu-guest/
+
+tpm
+https://qemu-project.gitlab.io/qemu/specs/tpm.html
+
+virtiofs
+https://virtio-fs.gitlab.io/
+
+drivers
+https://github.com/virtio-win/virtio-win-pkg-scripts/tree/master
+
+windows-11
+https://www.microsoft.com/en-in/software-download/
+https://www.microsoft.com/en-in/software-download/windows11
+
+2022
+Mayunix - How to Install Windows 11 in KVM on Ubuntu 22.04 0:00 of 16:04
+    https://www.youtube.com/watch?v=0RiUrsljD_E
+Trafotin - Using Windows 11 in KVM | Secure Boot, Simulated TPM, & VirtIO Guest Tools 0:00 of 18:57
+    https://www.youtube.com/watch?v=i-OHcENVMG0
+Trafotin - Using Windows 11 in KVM | Secure Boot, Simulated TPM, & VirtIO Guest Tools 0:00 of 18:57
+    https://www.youtube.com/watch?v=i-OHcENVMG0
+ChrisTitusTech - Quickemu 0:00 of 10:16
+    https://www.youtube.com/watch?v=87MCT3Ekjlo
+    https://christitus.com/quickemu/
 2021
 https://www.linuxuprising.com/2021/12/quickly-create-and-run-optimized-linux.html
 https://www.fossmint.com/quickemu-run-windows-macos-linux-virtual-machines/
 2020
-Replace VirtualBox with Bash & QEMU of 1:20:27
+WimpyWorld - Replace VirtualBox with Bash & QEMU 0:00 of 1:20:27
     https://www.youtube.com/watch?v=AOTYWEgw0hI
