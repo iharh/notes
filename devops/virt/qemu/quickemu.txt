@@ -68,8 +68,68 @@ WimpyWorld
 https://www.youtube.com/playlist?list=PL2O-jVSvTrBwuhzX0orpeN98O8wOHLmZf
 
 2022
-Mayunix - How to Install Windows 11 in KVM on Ubuntu 22.04 0:00 of 16:04
+Mayunix - How to Install Windows 11 in KVM on Ubuntu 22.04 10:00 of 16:04
     https://www.youtube.com/watch?v=0RiUrsljD_E
+    https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/index.html
+        download virtio-win-0.1.229.iso
+        mem - 8192
+        storage - 80G
+        select "customize configuration before install"
+        network selection - NAT
+        SATA Disk 1 -> Disk BUS - VirtIO
+        NIC -> Virtual Network Interface -> VirtIO
+        Add Hardware -> Graphics -> VNC Server
+        Add Hardware -> Storage -> Select or Create Custom Storage -> CDROM Device
+            Manage -> Attach virtio-win-0.1.229.iso
+        Add Hardware -> TPM -> Advanced Options -> Model -> TIS, Version -> 2.0
+        Overview -> Hypervisor Details -> Chipset -> Q35, Firmware -> UEFI
+        Boot Options -> SATA CDROM -> First
+        Apply
+        Begin Installation
+
+        Unable to complete install: 'unsupported configuration: only a single TPM non-proxy device is supported'
+
+        Traceback (most recent call last):
+          File "/usr/share/virt-manager/virtManager/asyncjob.py", line 72, in cb_wrapper
+            callback(asyncjob, *args, **kwargs)
+          File "/usr/share/virt-manager/virtManager/createvm.py", line 2008, in _do_async_install
+            installer.start_install(guest, meter=meter)
+          File "/usr/share/virt-manager/virtinst/install/installer.py", line 695, in start_install
+            domain = self._create_guest(
+          File "/usr/share/virt-manager/virtinst/install/installer.py", line 637, in _create_guest
+            domain = self.conn.createXML(initial_xml or final_xml, 0)
+          File "/usr/lib/python3/dist-packages/libvirt.py", line 4400, in createXML
+            raise libvirtError('virDomainCreateXML() failed')
+        libvirt.libvirtError: unsupported configuration: only a single TPM non-proxy device is supported
+
+        Remove TPM vNone
+
+        Begin Installation
+        UEFI shell
+
+        Custom Install Windows Only
+        Load Driver -> Browse -> virtio-cd drive -> amd64 -> w11
+
+        Connect to Internet
+        S-F10
+        oobe\BypassNRO.cmd
+        
+        I don't have internet
+        Continue with limited setup
+
+        Explorer -> This PC -> Show More Options -> Manage
+        ??? from C-R
+        Device Manager
+            Display Adapters -> Microsoft Basic Display Adapter -> right click -> Update Driver
+                Browse My Computer for Drivers -> Browse - virtio-cd driver -> OK -> Next ... non-proxy
+            Ethernet Cotroller -> Update Driver -> ...
+            Other Devices -> PCI Device -> Update Driver -> ...
+            Other Devices -> PCI Simple Communications Controller -> Update Driver -> ...
+
+        Restart Win11 VM
+
+    Restart Win11 VM
+
 Trafotin - Using Windows 11 in KVM | Secure Boot, Simulated TPM, & VirtIO Guest Tools 0:00 of 18:57
     https://www.youtube.com/watch?v=i-OHcENVMG0
 Trafotin - Using Windows 11 in KVM | Secure Boot, Simulated TPM, & VirtIO Guest Tools 0:00 of 18:57
