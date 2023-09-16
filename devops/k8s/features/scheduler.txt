@@ -1,3 +1,5 @@
+https://github.com/kubernetes/community/blob/master/contributors/devel/sig-scheduling/scheduling_code_hierarchy_overview.md#assembling-the-scheduler
+
 https://habrahabr.ru/company/flant/blog/335552/
 https://jvns.ca/blog/2017/07/27/how-does-the-kubernetes-scheduler-work/
 https://github.com/kubernetes/community/blob/8decfe4/contributors/devel/controllers.md
@@ -6,6 +8,8 @@ https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-scheduler
 http://blog.kubernetes.io/2017/03/advanced-scheduling-in-kubernetes.html
 https://sysdig.com/blog/kubernetes-scheduler/
 
+2023
+https://habr.com/ru/companies/otus/articles/761186/
 2021
 https://www.cncf.io/blog/2021/07/27/advanced-kubernetes-pod-to-node-scheduling/
     https://habr.com/ru/company/netologyru/blog/580902/
