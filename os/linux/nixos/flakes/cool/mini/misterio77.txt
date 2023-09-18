@@ -1,4 +1,12 @@
+https://github.com/Misterio77/nix-config
+
 https://github.com/Misterio77/nix-starter-configs/
+https://github.com/Misterio77/nix-starter-configs/tree/main/minimal
     # For minimal version
     nix flake init -t github:misterio77/nix-starter-config#minimal
     https://www.reddit.com/r/NixOS/comments/ym8lw7/flakes_trying_misterio77s_simple_flake_setup_with/
+
+https://github.com/Misterio77/nix-starter-configs/tree/main/standard
+
+full
+https://m7.rs/git/nix-config/

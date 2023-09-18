@@ -1,5 +1,9 @@
 https://github.com/NixOS/nixpkgs/tree/release-20.09/nixos/modules/services/cluster/kubernetes
 
+https://github.com/DeterminateSystems/nix-to-kubernetes
+https://determinate.systems/posts/nix-to-kubernetes
+https://github.com/DeterminateSystems/nix-to-kubernetes/blob/75945c01fb214feb2cc0e023c9b5bb5e699e09fb/flake.nix#L49-L58
+
 2021
 PetrisTech - NixOS Kubernetes Cluster of 50:54
     https://www.youtube.com/watch?v=rTovNSGH_qo
