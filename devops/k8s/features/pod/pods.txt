@@ -14,3 +14,5 @@ spec:
       - "60"
 
 !!! port is just a way to tell k8s that we declare appropriate port-num
+
+container_POD - some container for organizing network between all the containers of pod
