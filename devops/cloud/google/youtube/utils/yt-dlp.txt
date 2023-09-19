@@ -19,7 +19,7 @@ yt-dlp
 
 search
 sample
-    yt-dlp ytsearchdateall:nixos --dateafter today-14days --no-download -O "%(id)s -> %(duration_string)s -> %(channel)s -> %(title)s"
+    yt-dlp ytsearchdateall:nixos --dateafter today-14days --no-download -O "%(upload_date)s -> %(id)s -> %(duration_string)s -> %(channel)s -> %(title)s"
         https://github.com/yt-dlp/yt-dlp#output-template
     --skip-download, --no-download
     --get-id
