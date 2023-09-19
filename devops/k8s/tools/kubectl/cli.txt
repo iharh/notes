@@ -21,6 +21,8 @@ kubectl
         !!! ??? get resources of all kinds (from api-server)
     explain
         ... doc on specific part of descr ...
+        ex:
+            deployment.spec.strategy
     get
         namespace
             list namespaces

@@ -1,6 +1,65 @@
 https://github.com/yt-dlp/yt-dlp
+https://github.com/yt-dlp/yt-dlp/wiki/Installation
+https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md
+https://github.com/yt-dlp/yt-dlp/wiki/Plugins
+    https://github.com/flashdagger/ytdlp-plugins
 
 deb/yt-dlp
 
 yt-dlp
     -f 'b' -S 'res:480' <id|url>
+    --default-search PREFIXUse
+        Use this prefix for unqualified URLs.
+        E.g. "gvsearch2:python" downloads two videos from google videos for the search term "python".
+        Use the value "auto" to let yt-dlp guessing
+            ("auto_warning" to emit a warning when guessing).
+            "error" just throws an error.
+            The default value "fixup_error" repairs broken URLs,
+            but emits an error if this is not possible instead of searching
+
+search
+sample
+    yt-dlp ytsearchdateall:nixos --dateafter today-14days --no-download -O "%(id)s -> %(duration_string)s -> %(channel)s -> %(title)s"
+        https://github.com/yt-dlp/yt-dlp#output-template
+    --skip-download, --no-download
+    --get-id
+    --get-duration
+    -e, --get-title
+    --get-description
+        https://github.com/yt-dlp/yt-dlp#video-selection
+            --dateafter
+
+https://github.com/yt-dlp/yt-dlp/issues/6035
+    !!!
+https://github.com/yt-dlp/yt-dlp/issues/6335
+    --date-after along with --lazy-playlist --break-on-reject
+https://github.com/yt-dlp/yt-dlp/issues/6365
+    ytsearchdateall:abcd
+        means search youtube for "abcd", sorted by date, which is just equivalent todayhttps
+            https://www.youtube.com/results?search_query=abcd&sp=CAI%253D
+    yt-dlp ytsearchdateall:today --print id --flat-playlist
+    
+https://stackoverflow.com/questions/63275916/youtube-dl-with-ytsearchdate-return-only-20-results
+https://write.corbpie.com/searching-youtube-videos-with-yt-dlp/
+    ytsearchall
+    yt-dlp ytsearch10:lebron james --get-id --get-title
+        list out 10 video id’s and the titles for the term "lebron james"
+https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md
+    youtube:search:
+        YouTube search; "ytsearch:" prefix
+        https://github.com/yt-dlp/yt-dlp/blob/master/yt_dlp/extractor/youtube.py#L6912
+            class YoutubeSearchIE(YoutubeTabBaseInfoExtractor, SearchInfoExtractor):
+                ...
+    youtube:search:date:
+        YouTube search, newest videos first; "ytsearchdate:" prefix
+        https://github.com/yt-dlp/yt-dlp/blob/master/yt_dlp/extractor/youtube.py#L6926
+            class YoutubeSearchDateIE(YoutubeTabBaseInfoExtractor, SearchInfoExtractor):
+                ...
+    youtube:notif:
+        YouTube notifications; ":ytnotif" keyword (requires cookies)
+    youtube:subscriptions:
+        YouTube subscriptions feed; ":ytsubs" keyword (requires cookies)
+
+2023
+https://habr.com/ru/articles/759164/
+https://habr.com/ru/companies/ruvds/articles/716058/
