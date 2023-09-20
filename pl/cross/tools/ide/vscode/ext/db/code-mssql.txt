@@ -11,3 +11,6 @@ downloading
 
 snippets
     sqlCreateDatabase
+
+config (connections)
+~/.config/Code/User/settings.json

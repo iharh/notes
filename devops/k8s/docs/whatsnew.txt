@@ -1,4 +1,6 @@
 1.28
+https://kubernetes.io/blog/2023/09/13/userns-alpha/
+    user namespace for stateful pods
 https://habr.com/ru/companies/flant/articles/754398/
 
 1.27
