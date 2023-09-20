@@ -1,0 +1,8 @@
+https://stackoverflow.com/questions/880557/socket-accept-too-many-open-files
+    cat /proc/sys/fs/file-max
+    ulimit -n
+    in /etc/security/limits.conf - it's the nofile param.
+        * soft nofile 16384
+        * hard nofile 16384
+    https://unix.stackexchange.com/questions/365622/how-to-raise-open-file-limit-etc-security-limits-d-vs-etc-security-limits-co
+        /etc/security/limits.d/30-user-nofile.conf

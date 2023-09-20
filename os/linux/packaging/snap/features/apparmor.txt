@@ -1,6 +1,7 @@
 https://stackoverflow.com/questions/70053614/snap-confine-has-elevated-permissions-and-is-not-confined-but-should-be-refusin
     https://www.linux.org/threads/solved-snap-confine-has-elevated-permissions-and-is-not-confined-but-should-be.40205/
     sudo systemctl enable --now apparmor.service    
+    sudo systemctl disable --now apparmor.service    
     sudo systemctl enable --now snapd.apparmor.service
 
 2023
