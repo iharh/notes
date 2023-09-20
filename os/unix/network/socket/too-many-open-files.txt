@@ -6,3 +6,8 @@ https://stackoverflow.com/questions/880557/socket-accept-too-many-open-files
         * hard nofile 16384
     https://unix.stackexchange.com/questions/365622/how-to-raise-open-file-limit-etc-security-limits-d-vs-etc-security-limits-co
         /etc/security/limits.d/30-user-nofile.conf
+
+2021
+https://www.baeldung.com/linux/error-too-many-open-files
+    lsof | wc -l
+    sudo vi /etc/security/limits.d/30-user-nofile.conf
