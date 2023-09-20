@@ -1,4 +1,13 @@
 2023
+https://vladmihalcea.com/source-sql-query-hibernate/
+    @Component public class HibernateConfig implements HibernatePropertiesCustomizer {
+        @Override public void customize(Map<String, Object> hibernateProperties) {
+            hibernateProperties.put(AvailableSettings.STATEMENT_INSPECTOR, new QueryStackTraceLogger("org.springframework.samples.petclinic"));
+        }
+    }
+    and
+        logging.level.io.hypersistence.utils.hibernate.query=DEBUG
+    https://github.com/vladmihalcea/high-performance-java-persistence/blob/master/core/src/test/java/com/vladmihalcea/hpjp/hibernate/logging/QueryStackTraceLoggerTest.java
 https://jpa-buddy.com/blog/hibernate6-whats-new-and-why-its-important/
     SQM, SemanticQueryWalker,
     SqlAstTranslator
