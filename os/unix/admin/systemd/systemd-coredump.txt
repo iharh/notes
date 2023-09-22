@@ -37,6 +37,7 @@ man coredump.conf
 /run/systemd/coredump.conf.d/*.conf
 /usr/lib/systemd/coredump.conf.d/*.conf
 
+https://freedesktop.org/software/systemd/man/coredump.conf.html
 2021
 https://blogs.gnome.org/mcatanzaro/2021/09/18/creating-quality-backtraces-for-crash-reports/
     !!! need to read

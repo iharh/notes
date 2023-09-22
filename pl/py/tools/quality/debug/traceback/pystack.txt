@@ -1,0 +1,10 @@
+https://bloomberg.github.io/pystack/overview.html
+https://pypi.org/project/pystack/
+https://realpython.com/python-traceback/
+
+qa
+https://stackoverflow.com/questions/1032813/dump-stacktraces-of-all-active-threads
+https://stackoverflow.com/questions/6849138/check-what-a-running-process-is-doing-print-stack-trace-of-an-uninstrumented-py
+https://stackoverflow.com/questions/132058/showing-the-stack-trace-from-a-running-python-application
+https://stackoverflow.com/questions/1156023/print-current-call-stack-from-a-method-in-code
+https://stackoverflow.com/questions/1781935/get-stacktrace-from-stuck-python-process-that-does-not-accept-signals
