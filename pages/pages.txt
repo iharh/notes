@@ -1,11 +1,10 @@
+https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/materials/microservice_architecture_overview/README.md
+
 RedGroup - Max - cool cursor at vscode
 
-cleanup old pg 11
 https://github.com/bobbbay/dotfiles
 https://github.com/chvp/nixos-config
 
-https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-flake-check.html
-    ??? self
 https://github.com/ryantm/agenix
 https://man.sr.ht/~hutzdog/dotfiles/
     interesting wiki system
@@ -23,8 +22,6 @@ https://github.com/nix-community/fenix
     https://github.com/nix-community/fenix/blob/main/default.nix
         fromJson, readFile, pkgs.callPackage, ?? //
 
-https://habr.com/ru/post/685518/
-    Memory Ordering vs Instructions Ordering
 https://wearecommunity.io/events/integration-tests-in-java/talks/47164
     int-tests
 https://blog.predanie.ru/article/pochemu-stradali-prometej-sokrat-i-elli-smit-obyasneno-bogom/
