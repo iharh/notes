@@ -6,6 +6,7 @@ https://github.com/clap-rs/clap
 cargo add clap --features derive
 
 2023
+https://developerlife.com/2023/09/17/tuify-clap/
 rimClike - Delightful command-line utilities with Rust 0:00 of 46:57
     https://www.youtube.com/watch?v=Y-LTWNciEks
 https://epage.github.io/blog/2023/03/clap-v4-2/
