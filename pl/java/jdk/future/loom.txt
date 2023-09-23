@@ -38,6 +38,8 @@ https://www.davidvlijmincx.com/posts/pitfalls-of-virtual-threads/
 https://www.davidvlijmincx.com/posts/how-many-virtual-threads-run-in-parallel/
 https://www.davidvlijmincx.com/posts/create_virtual_threads_with_project_loom/
 https://www.davidvlijmincx.com/posts/loom/jep_428_structured_concurrency/
+https://filia-aleks.medium.com/project-loom-with-spring-boot-performance-tests-c007e0e411c8
+    https://habr.com/ru/articles/745748/
 2021
 ReactiveSummit - Project Loom - A Friend or Foe of Reactive? - Oleh Dokuka, VMware & Andrii Rodionov of 36:46
     https://www.youtube.com/watch?v=YwG04UZP2a0
