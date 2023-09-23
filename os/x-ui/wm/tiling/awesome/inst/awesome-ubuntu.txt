@@ -1,7 +1,8 @@
 https://help.ubuntu.ru/wiki/awesome
 
+deps
+    acpi feh liblua5.3-0 libxcb-cursor0 libxcb-xrm0 libxcb-xtest0 libxdg-basedir1 lua-filesystem lua-lgi menu rlwrap yudit-common
 sudo apt install awesome awesome-extra awesome-doc
-
 
 https://packages.ubuntu.com/search?keywords=awesome
 https://repology.org/project/awesome/versions
@@ -12,6 +13,3 @@ DistroTube - Getting Started With Awesome Window Manager
     https://www.youtube.com/watch?v=qKtit_B7Keo
 ????
 https://www.cs.cornell.edu/~edward/awesome.html
-
-deps
-acpi feh liblua5.3-0 libxcb-cursor0 libxcb-xrm0 libxcb-xtest0 libxdg-basedir1 lua-filesystem lua-lgi menu rlwrap yudit-common
