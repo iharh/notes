@@ -1,3 +1,6 @@
+https://www.gnu.org/software/parted/manual/
+https://wiki.archlinux.org/title/parted
+
 sudo parted <dev>
     just enter the interactive mode without any other args
     h[elp] [cmd]
@@ -5,6 +8,11 @@ sudo parted <dev>
     p[rint] devices|free|list,all
     sel[ect] <dev/...>
 
+????
+https://deploy.equinix.com/developers/docs/metal/storage/nvme-flash-drives/
+    -a optimal
+2023
+https://www.tecmint.com/parted-command-create-linux-partitions/
 2020
 https://unix.stackexchange.com/questions/200582/scripteable-gpt-partitions-using-parted
     parted /dev/mmcblk0 --script mklabel gpt
@@ -39,3 +47,14 @@ https://linuxhint.com/linux-parted-command-line-examples/
         ... [512Mib..N-8GiB] ... for the disk of size N
     mkpart primary linux-swap -8GiB 100%
         swap at the end of disk
+
+https://github.com/iharh/nixcfg/blob/main/sh/prepare-all.sh#L17
+    sudo parted -s -a opt $DEVICE mklabel gpt \
+        mkpart primary 512MB 100% \
+        mkpart ESP fat32 1MB 512MB \
+        set 2 esp on p
+
+Number  Start   End     Size    File system  Name                  Flags
+ 1      1049kB  538MB   537MB   fat32        EFI System Partition  boot, esp
+ 2      538MB   1500GB  1499GB  ext4
+ 3      1500GB  2000GB  500GB
