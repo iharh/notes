@@ -1,0 +1,5 @@
+2023
+Vimjoyer - Nix derivations explained of 6:08
+    https://www.youtube.com/watch?v=WT75jfETWRg
+    nix edit ...
+    https://github.com/NixOS/nixpkgs/blob/master/pkgs/stdenv/generic/make-derivation.nix
