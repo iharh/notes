@@ -58,3 +58,10 @@ Number  Start   End     Size    File system  Name                  Flags
  1      1049kB  538MB   537MB   fat32        EFI System Partition  boot, esp
  2      538MB   1500GB  1499GB  ext4
  3      1500GB  2000GB  500GB
+
+sudo parted -s -a opt $DEVICE mklabel gpt \
+    mkpart p 512MB 100% \
+    mkpart ESP fat32 1MB 512MB \
+    set 2 esp on p \
+    mkpart p ext4 512MB -500GB \
+    mkpart luks ext4 -500GB 100%
