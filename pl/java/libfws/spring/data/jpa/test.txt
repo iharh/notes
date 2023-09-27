@@ -4,6 +4,14 @@ https://www.baeldung.com/spring-boot-unable-to-find-springbootconfiguration-with
     https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-config-jpa-error
 https://www.baeldung.com/spring-boot-testing
     https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-testing
+JPointJokerJUG - Kirekov - Spring Data JPA Testing Antipatterns ru of 54:33
+    https://www.youtube.com/watch?v=Q9UiuHvNTp4
+    ! super, trans-n stuff
+    ! @AutoConfigureTestDatabase
+    ! @MockBean
+    ! @DirtiesContext - to clean up between tests (antipattern, slows down, works onfly for in-mem DB)
+    ! logging.level.org.springframework.orm.jpa.JpaTransactionManager=DEBUG
+    https://github.com/SimonHarmonicMinor/spring-data-jpa-efficient-testing
 
 samples
 https://github.com/stsypanov/spring-data-examples/blob/master/src/test

@@ -5,8 +5,9 @@ Spilka - JPA/Hibernate Fundamentals 2023 of 7 parts
         8:00 of 1:05:21
         https://www.youtube.com/watch?v=t6n1NwMM8a8
 2022
-JPointJokerJUG - Kirekov - Spring Data JPA Testing Antipatterns ru 0:00 of 54:33
+JPointJokerJUG - Kirekov - Spring Data JPA Testing Antipatterns ru of 54:33
     https://www.youtube.com/watch?v=Q9UiuHvNTp4
+    ! @AutoConfigureTestDatabase
     https://github.com/SimonHarmonicMinor/spring-data-jpa-efficient-testing
 JPointJokerJUG - Borisov - Spring Data Builder (Spark it!) part 2 ru 50:00 of 5:15:20
     https://www.youtube.com/watch?v=yWEy7j5lvaE
