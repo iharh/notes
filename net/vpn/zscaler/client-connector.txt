@@ -1,0 +1,88 @@
+https://help.zscaler.com/client-connector
+https://help.zscaler.com/client-connector/what-is-zscaler-client-connector
+https://help.zscaler.com/client-connector/zscaler-client-connector-processes-allowlist
+
+https://help.zscaler.com/z-app/release-notes/zscaler-client-connector-release-notes-os
+https://help.zscaler.com/client-connector/client-connector-app-release-summary-2023
+    1.5
+    https://d32a6ru7mhaq0c.cloudfront.net/Zscaler-linux-1.5.2.10-installer.run
+    https://help.zscaler.com/eos-eol/supported-versions
+    https://help.zscaler.com/client-connector/configuring-client-certificate-posture-check-linux
+    1.4
+        1.4.1.41
+        wget 'https://d32a6ru7mhaq0c.cloudfront.net/Zscaler-linux-1.4.1.41-installer.run'
+    1.3
+        wget 'https://d32a6ru7mhaq0c.cloudfront.net/Zscaler-linux-1.3.1.6-installer.run'
+
+https://help.zscaler.com/client-connector/client-connector-app-release-summary-2022
+    https://d32a6ru7mhaq0c.cloudfront.net/Zscaler-linux-1.3.1.6-installer.run
+
+cert
+https://github.com/andy-cheatwood/zscaler/tree/main
+https://github.com/orgs/zscaler/repositories
+https://github.com/zscaler/terraform-provider-zia/tree/master
+https://github.com/zscaler/zscaler-sdk-go
+https://github.com/zscaler/zscaler-script-samples/
+
+https://help.zscaler.com/client-connector/resolving-auto-update-issues-zscaler-client-connector-linux-1.2
+    apparmor
+    https://d32a6ru7mhaq0c.cloudfront.net/zcc-update-apparmor-from-1-1-0.zip
+    https://config.zscaler.com/zscaler.net/zscaler-app
+    https://help.zscaler.com/z-app/resolving-update-issues-zscaler-app-1.4.3
+    https://help.zscaler.com/zdx/allowlist-domains-zdx
+
+https://help.zscaler.com/client-connector/end-user-guide
+
+portal
+https://help.zscaler.com/client-connector/accessing-and-navigating-zscaler-client-connector-portal
+
+https://help.zscaler.com/client-connector/step-step-configuration-guide-zscaler-client-connector
+https://help.zscaler.com/client-connector/configuring-update-settings-zscaler-client-connector
+
+https://help.zscaler.com/client-connector/downloading-deployment
+
+install
+https://help.zscaler.com/client-connector/customizing-zscaler-client-connector-install-options-linux
+https://help.zscaler.com/client-connector/customizing-zscaler-client-connector-install-options-linux#install-package-command-line
+    --userDomain somecompany.com
+
+    ??? sudo zscaler-config
+        -h
+https://help.zscaler.com/client-connector/customizing-zscaler-client-connector-install-options-macos
+    --launchTray 0
+    --mode ???
+    --userDomain somecompany.com
+    --externalRedirect true
+
+
+
+
+client connector profiles
+https://help.zscaler.com/client-connector/about-zscaler-client-connector-app-profiles
+https://help.zscaler.com/client-connector/configuring-zscaler-client-connector-profiles
+forwarding profiles
+https://help.zscaler.com/client-connector/about-forwarding-profiles
+https://help.zscaler.com/client-connector/configuring-forwarding-profiles-zscaler-client-connector
+
+logs
+~/.Zscaler/logs
+    tray
+/var/log/zscaler/
+    system
+https://help.zscaler.com/customer-logs-fair-use
+https://help.zscaler.com/customer-logs-fair-use/zia-customer-logs-and-data
+https://help.zscaler.com/customer-logs-fair-use/zpa-customer-logs-and-data
+https://help.zscaler.com/customer-logs-fair-use/zscaler-client-connector-customer-logs-and-data
+
+???
+https://help.zscaler.com/client-connector/best-practices-adding-bypasses-z-tunnel-2.0
+https://help.zscaler.com/client-connector/about-z-tunnel-1.0-z-tunnel-2.0
+
+zia
+https://help.zscaler.com/zia/deploying-ssl-inspection
+https://help.zscaler.com/zia/step-step-configuration-guide-workflow-automation
+zpa
+https://help.zscaler.com/zpa/creating-dns-txt-records
+z-app
+https://help.zscaler.com/z-app/configuring-ssl-inspection-zscaler-app
+https://help.zscaler.com/z-app/best-practices-deploying-z-tunnel-2.0
