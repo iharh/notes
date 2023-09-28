@@ -1,4 +1,3 @@
-updating plugin repository...HEAD is now at 22e3806 feat: add regsync plugin (#882)
 1password-cli                 https://github.com/NeoHsu/asdf-1password-cli.git
 act                           https://github.com/grimoh/asdf-act.git
 actionlint                    https://github.com/crazy-matt/asdf-actionlint.git
@@ -21,8 +20,8 @@ ant                           https://github.com/jackboespflug/asdf-ant.git
 apollo-router                 https://github.com/safx/asdf-apollo-router.git
 arc                           https://github.com/ORCID/asdf-arc.git
 argo                          https://github.com/sudermanjr/asdf-argo.git
-argocd                       *https://github.com/beardix/asdf-argocd.git
-argo-rollouts                *https://github.com/abatilo/asdf-argo-rollouts.git
+argocd                        https://github.com/beardix/asdf-argocd.git
+argo-rollouts                 https://github.com/abatilo/asdf-argo-rollouts.git
 aria2                         https://github.com/asdf-community/asdf-aria2.git
 asciidoctorj                  https://github.com/gliwka/asdf-asciidoctorj.git
 asdf-plugin-manager           https://github.com/asdf-community/asdf-plugin-manager
@@ -40,7 +39,7 @@ aws-sam-cli                   https://github.com/amrox/asdf-pyapp.git
 aws-sso-cli                   https://github.com/adamcrews/asdf-aws-sso-cli.git
 aws-vault                     https://github.com/karancode/asdf-aws-vault.git
 awsweeper                     https://github.com/chessmango/asdf-awsweeper.git
-azure-cli                    *https://github.com/EcoMind/asdf-azure-cli.git
+azure-cli                     https://github.com/EcoMind/asdf-azure-cli.git
 azure-functions-core-tools    https://github.com/daveneeley/asdf-azure-functions-core-tools.git
 babashka                      https://github.com/pitch-io/asdf-babashka.git
 balena-cli                    https://github.com/boatkit-io/asdf-balena-cli
@@ -66,7 +65,7 @@ brig                          https://github.com/Ibotta/asdf-brig.git
 btrace                        https://github.com/joschi/asdf-btrace.git
 buf                           https://github.com/truepay/asdf-buf.git
 buildpack                     https://github.com/johnlayton/asdf-buildpack.git
-bun                          *https://github.com/cometkim/asdf-bun.git
+bun                           https://github.com/cometkim/asdf-bun.git
 bundler                       https://github.com/jonathanmorley/asdf-bundler.git
 caddy                         https://github.com/salasrod/asdf-caddy.git
 calicoctl                     https://github.com/TheCubicleJockey/asdf-calicoctl.git
@@ -137,7 +136,7 @@ deno                          https://github.com/asdf-community/asdf-deno.git
 dep                           https://github.com/paxosglobal/asdf-dep.git
 depot                         https://github.com/depot/asdf-depot.git
 desk                          https://github.com/endorama/asdf-desk.git
-devspace                     *https://github.com/NeoHsu/asdf-devspace.git
+devspace                      https://github.com/NeoHsu/asdf-devspace.git
 dhall                         https://github.com/aaaaninja/asdf-dhall.git
 difftastic                    https://github.com/volf52/asdf-difftastic.git
 digdag                        https://github.com/jtakakura/asdf-digdag.git
@@ -201,7 +200,7 @@ flyway                        https://github.com/junminahn/asdf-flyway.git
 func-e                        https://github.com/carnei-ro/asdf-func-e.git
 furyctl                       https://github.com/sighupio/asdf-furyctl.git
 fx                            https://gitlab.com/wt0f/asdf-fx.git
-fzf                           https://github.com/kompiro/asdf-fzf.git
+fzf                          *https://github.com/kompiro/asdf-fzf.git
 gallery-dl                    https://github.com/iul1an/asdf-gallery-dl
 gam                           https://github.com/offbyone/asdf-gam.git
 gator                         https://github.com/MxNxPx/asdf-gator.git
@@ -245,7 +244,7 @@ go-sdk                        https://github.com/yacchi/asdf-go-sdk.git
 goss                          https://github.com/raimon49/asdf-goss.git
 go-swagger                    https://github.com/jfreeland/asdf-go-swagger.git
 graalvm                       https://github.com/asdf-community/asdf-graalvm.git
-gradle                       *https://github.com/rfrancis/asdf-gradle.git
+gradle                        https://github.com/rfrancis/asdf-gradle.git
 gradle-profiler               https://github.com/joschi/asdf-gradle-profiler.git
 grails                        https://github.com/weibemoura/asdf-grails.git
 grain                         https://github.com/cometkim/asdf-grain.git
@@ -266,7 +265,7 @@ hasura-cli                    https://github.com/gurukulkarni/asdf-hasura.git
 haxe                          https://github.com/asdf-community/asdf-haxe.git
 hcl2json                      https://github.com/dex4er/asdf-hcl2json.git
 hcloud                        https://github.com/chessmango/asdf-hcloud.git
-helm                         *https://github.com/Antiarchitect/asdf-helm.git
+helm                          https://github.com/Antiarchitect/asdf-helm.git
 helm-cr                       https://github.com/Antiarchitect/asdf-helm-cr.git
 helm-ct                       https://github.com/tablexi/asdf-helm-ct.git
 helm-diff                     https://github.com/dex4er/asdf-helm-diff.git
@@ -276,7 +275,7 @@ helmsman                      https://github.com/luisdavim/asdf-helmsman
 heroku-cli                    https://github.com/treilly94/asdf-heroku-cli.git
 hey                           https://github.com/raimon49/asdf-hey.git
 hostctl                       https://github.com/svenluijten/asdf-hostctl.git
-httpie-go                    *https://github.com/abatilo/asdf-httpie-go.git
+httpie-go                     https://github.com/abatilo/asdf-httpie-go.git
 hub                           https://github.com/vixus0/asdf-hub.git
 hugo                          https://github.com/NeoHsu/asdf-hugo.git
 hurl                          https://github.com/raimon49/asdf-hurl.git
@@ -295,15 +294,15 @@ inlets                        https://github.com/nlamirault/asdf-inlets.git
 io                            https://github.com/mracos/asdf-io.git
 istioctl                      https://github.com/virtualstaticvoid/asdf-istioctl.git
 janet                         https://github.com/Jakski/asdf-janet.git
-java                         *https://github.com/halcyon/asdf-java.git
+java                          https://github.com/halcyon/asdf-java.git
 jb                            https://github.com/beardix/asdf-jb.git
-jbang                        *https://github.com/joschi/asdf-jbang.git
+jbang                         https://github.com/joschi/asdf-jbang.git
 jib                           https://github.com/joschi/asdf-jib.git
 jiq                           https://github.com/chessmango/asdf-jiq.git
 jless                         https://github.com/jc00ke/asdf-jless.git
 jmespath                      https://github.com/skyzyx/asdf-jmespath.git
 jmeter                        https://github.com/comdotlinux/asdf-jmeter
-jq                           *https://github.com/lsanwick/asdf-jq.git
+jq                            https://github.com/lsanwick/asdf-jq.git
 jqp                           https://gitlab.com/wt0f/asdf-jqp.git
 jreleaser                     https://github.com/joschi/asdf-jreleaser.git
 jsonnet                       https://github.com/Banno/asdf-jsonnet.git
@@ -313,7 +312,7 @@ jx                            https://github.com/vbehar/asdf-jx.git
 k0sctl                        https://github.com/Its-Alex/asdf-plugin-k0sctl.git
 k14s                          https://github.com/k14s/asdf-k14s.git
 k2tf                          https://github.com/carlduevel/asdf-k2tf.git
-k3d                          *https://github.com/spencergilbert/asdf-k3d.git
+k3d                           https://github.com/spencergilbert/asdf-k3d.git
 k3sup                         https://github.com/cgroschupp/asdf-k3sup.git
 k6                            https://github.com/grimoh/asdf-k6.git
 k9s                           https://github.com/looztra/asdf-k9s.git
@@ -331,7 +330,7 @@ kiota                         https://github.com/asdf-community/asdf-kiota.git
 kn                            https://github.com/joke/asdf-kn.git
 ko                            https://github.com/zasdaym/asdf-ko.git
 koka                          https://github.com/susurri/asdf-koka.git
-kompose                      *https://github.com/technikhil314/asdf-kompose.git
+kompose                       https://github.com/technikhil314/asdf-kompose.git
 kops                          https://github.com/Antiarchitect/asdf-kops.git
 kotlin                        https://github.com/asdf-community/asdf-kotlin.git
 kp                            https://github.com/vmware-tanzu/tanzu-plug-in-for-asdf.git
@@ -340,7 +339,7 @@ krab                          https://github.com/ohkrab/asdf-krab.git
 krew                         *https://github.com/bjw-s/asdf-krew.git
 kscript                       https://github.com/edgelevel/asdf-kscript.git
 ksonnet                       https://github.com/Banno/asdf-ksonnet.git
-ktlint                       *https://github.com/esensar/asdf-ktlint.git
+ktlint                        https://github.com/esensar/asdf-ktlint.git
 kubebuilder                   https://github.com/virtualstaticvoid/asdf-kubebuilder.git
 kube-capacity                 https://github.com/looztra/asdf-kube-capacity.git
 kubecm                        https://github.com/samhvw8/asdf-kubecm
@@ -354,7 +353,7 @@ kubectl-bindrole              https://github.com/looztra/asdf-kubectl-bindrole.g
 kubectl-buildkit              https://github.com/ezcater/asdf-kubectl-buildkit.git
 kubectl-convert               https://github.com/iul1an/asdf-kubectl-convert.git
 kubectl-kots                  https://github.com/ganta/asdf-kubectl-kots.git
-kubectx                      *https://gitlab.com/wt0f/asdf-kubectx.git
+kubectx                       https://gitlab.com/wt0f/asdf-kubectx.git
 kubefedctl                    https://github.com/kvokka/asdf-kubefedctl.git
 kubefirst                     https://github.com/Claywd/asdf-kubefirst
 kube-linter                   https://github.com/devlincashman/asdf-kube-linter.git
@@ -399,7 +398,7 @@ mark                          https://github.com/jfreeland/asdf-mark.git
 markdownlint-cli2             https://github.com/paulo-ferraz-oliveira/asdf-markdownlint-cli2
 marp-cli                      https://github.com/xataz/asdf-marp-cli
 mask                          https://github.com/aaaaninja/asdf-mask.git
-maven                        *https://github.com/halcyon/asdf-maven.git
+maven                         https://github.com/halcyon/asdf-maven.git
 mc                            https://github.com/penpyt/asdf-mc.git
 mdbook                        https://github.com/cipherstash/asdf-mdbook.git
 mdbook-linkcheck              https://github.com/cipherstash/asdf-mdbook-linkcheck.git
@@ -434,7 +433,7 @@ newrelic-cli                  https://github.com/NeoHsu/asdf-newrelic-cli.git
 nfpm                          https://github.com/ORCID/asdf-nfpm
 nim                           https://github.com/asdf-community/asdf-nim.git
 ninja                         https://github.com/asdf-community/asdf-ninja.git
-nodejs                       *https://github.com/asdf-vm/asdf-nodejs.git
+nodejs                        https://github.com/asdf-vm/asdf-nodejs.git
 nomad                         https://github.com/asdf-community/asdf-hashicorp.git
 notation                      https://github.com/bodgit/asdf-notation.git
 nova                          https://github.com/elementalvoid/asdf-nova.git
@@ -455,7 +454,7 @@ openresty                     https://github.com/smashedtoatoms/asdf-openresty.g
 opensearch                    https://github.com/randikabanura/asdf-opensearch.git
 opensearch-cli                https://github.com/iul1an/asdf-opensearch-cli.git
 openshift-install             https://github.com/hhemied/asdf-openshift-install.git
-operator-sdk                 *https://github.com/Medium/asdf-operator-sdk.git
+operator-sdk                  https://github.com/Medium/asdf-operator-sdk.git
 opsgenie-lamp                 https://github.com/ORCID/asdf-opsgenie-lamp
 oras                          https://github.com/bodgit/asdf-oras.git
 osm                           https://github.com/nlamirault/asdf-osm.git
@@ -523,7 +522,7 @@ rlwrap                        https://github.com/asdf-community/asdf-rlwrap.git
 rome                          https://github.com/kichiemon/asdf-rome.git
 rstash                        https://github.com/carlduevel/asdf-rstash.git
 ruby                          https://github.com/asdf-vm/asdf-ruby.git
-rust                          https://github.com/code-lever/asdf-rust.git
+rust                         *https://github.com/code-lever/asdf-rust.git
 rust-analyzer                 https://github.com/Xyven1/asdf-rust-analyzer
 rye                           https://github.com/Azuki-bar/asdf-rye
 saml2aws                      https://github.com/elementalvoid/asdf-saml2aws.git
@@ -572,7 +571,7 @@ spruce                        https://github.com/woneill/asdf-spruce.git
 sqldef                        https://github.com/cometkim/asdf-sqldef.git
 sqlite                        https://github.com/cLupus/asdf-sqlite.git
 sshuttle                      https://github.com/xanmanning/asdf-sshuttle.git
-stack                         https://github.com/sestrella/asdf-ghcup.git
+stack                        *https://github.com/sestrella/asdf-ghcup.git
 starboard                     https://github.com/zufardhiyaulhaq/asdf-starboard.git
 starport                      https://github.com/nikever/asdf-starport.git
 starship                      https://github.com/grimoh/asdf-starship.git
