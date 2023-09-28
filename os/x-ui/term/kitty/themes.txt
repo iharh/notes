@@ -1,6 +1,8 @@
 https://github.com/dexpota/kitty-themes
     ! 2yo
 https://github.com/fretboardfreak/kitty-theme-changer
+    kitty +kitten themes
+    kitty +kittens themes
 
 active_border_color     #676767
 inactive_border_color   #3c3c3c

@@ -2,6 +2,12 @@ https://www.haskell.org/ghcup/
 https://gitlab.haskell.org/haskell/ghcup-hs
 
 https://www.haskell.org/ghcup/install/
+pre-requisites
+curl g++ gcc gmp make ncurses realpath xz-utils
+    Error: gmp not found
+    Error: ncurses not found
+    Error: realpath has no installation candidate.
+
 https://www.haskell.org/ghcup/guide/
 https://www.haskell.org/ghcup/dev/
 
