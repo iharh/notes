@@ -1,0 +1,495 @@
+Log started 09/28/2023 at 12:26:45
+Preferred installation mode : text
+Trying to init installer in mode text
+Mode text successfully initialized
+Setting variable sudo_user from echo  iharh
+Script exit code: 127
+
+Script output:
+ 
+
+Script stderr:
+ /bin/sh: 1: echo : not found
+
+Error running echo  iharh: /bin/sh: 1: echo : not found
+Preparing to Install
+Executing which sudo
+Script exit code: 0
+
+Script output:
+ /usr/bin/sudo
+
+Script stderr:
+ 
+
+Setting variable OS_NAME from awk -F= '/^NAME/{print toupper ($2) }' /etc/os-release|sed -e 's/\"//g'|awk '{print $1}'
+Script exit code: 0
+
+Script output:
+ UBUNTU
+
+Script stderr:
+ 
+
+Setting variable OS_VERSION_NUMBER from cat /etc/os-release | grep "^VERSION_ID" | cut -d '"' -f2 | cut -d '.' -f1
+Script exit code: 0
+
+Script output:
+ 22
+
+Script stderr:
+ 
+
+Setting variable loggedInUser from stat -c '%U' /dev/null
+Script exit code: 0
+
+Script output:
+ root
+
+Script stderr:
+ 
+
+Preparing to Install
+Creating directory /opt/zscaler
+Unpacking files
+Creating directory /opt/zscaler/bin
+Unpacking files
+Unpacking /opt/zscaler/bin/ZSTray.Deb
+Directory already exists: /opt/zscaler/bin
+Unpacking files
+Unpacking /opt/zscaler/bin/zstunnel
+Unpacking /opt/zscaler/bin/zsupdater
+Unpacking /opt/zscaler/bin/zsaservice
+Creating directory /opt/zscaler/lib
+Unpacking files
+Unpacking /opt/zscaler/lib/libssl.so.1.0.0
+Directory already exists: /opt/zscaler/lib
+Unpacking files
+Unpacking /opt/zscaler/lib/libcrypto.so.1.0.0
+Directory already exists: /opt/zscaler/lib
+Unpacking files
+Unpacking /opt/zscaler/lib/libpacparser.so
+Creating directory /opt/zscaler/scripts
+Unpacking files
+Unpacking /opt/zscaler/scripts/zscaler-client.config
+Unpacking /opt/zscaler/scripts/zscaler.config
+Unpacking /opt/zscaler/scripts/config_vpn_dns.sh
+Unpacking /opt/zscaler/scripts/zscaler.sh
+Unpacking /opt/zscaler/scripts/install-gnome-extensions.sh
+Unpacking /opt/zscaler/scripts/install.sh
+Unpacking /opt/zscaler/scripts/zstunnel.xml
+Unpacking /opt/zscaler/scripts/zscaler-client.templates
+Unpacking /opt/zscaler/scripts/zscaler.templates
+Unpacking /opt/zscaler/scripts/zscaler-config
+Directory already exists: /opt/zscaler
+Creating directory /opt/zscaler/Images
+Unpacking files
+Unpacking /opt/zscaler/Images/ZscalerAppSplash.png
+Unpacking /opt/zscaler/Images/icon-feeback-unselected.png
+Unpacking /opt/zscaler/Images/loader.gif
+Unpacking /opt/zscaler/Images/busy.gif
+Unpacking /opt/zscaler/Images/exit-dialog.png
+Unpacking /opt/zscaler/Images/icon-more-unselected.png
+Unpacking /opt/zscaler/Images/hide_logs.png
+Unpacking /opt/zscaler/Images/icon-enabled.png
+Unpacking /opt/zscaler/Images/icon-disabled.png
+Unpacking /opt/zscaler/Images/icon-back.png
+Unpacking /opt/zscaler/Images/icon-refresh.png
+Unpacking /opt/zscaler/Images/icon-disabled-alert.png
+Unpacking /opt/zscaler/Images/icon-disabled-error.png
+Unpacking /opt/zscaler/Images/icon-enabled-alert.png
+Unpacking /opt/zscaler/Images/icon-secureaccess-disabled-error.png
+Unpacking /opt/zscaler/Images/About.png
+Unpacking /opt/zscaler/Images/icon-feeback-white.png
+Unpacking /opt/zscaler/Images/icon-more-selected.png
+Unpacking /opt/zscaler/Images/icon-notifications-selected-alert.png
+Unpacking /opt/zscaler/Images/icon-notifications-unselected.png
+Unpacking /opt/zscaler/Images/icon-notifications-selected.png
+Unpacking /opt/zscaler/Images/icon-feeback-selected.png
+Unpacking /opt/zscaler/Images/icon-power.png
+Unpacking /opt/zscaler/Images/icon-enabled-error.png
+Unpacking /opt/zscaler/Images/icon-notifications-unselected-alert.png
+Unpacking /opt/zscaler/Images/response-icon-checkmark.png
+Unpacking /opt/zscaler/Images/icon-settings-unselected.png
+Unpacking /opt/zscaler/Images/menu-icon-zcloud-hover.png
+Unpacking /opt/zscaler/Images/menu-icon-hamburger.png
+Unpacking /opt/zscaler/Images/menu-logout-icon.png
+Unpacking /opt/zscaler/Images/menu-icon-issue-hover.png
+Unpacking /opt/zscaler/Images/icon-status-help.png
+Unpacking /opt/zscaler/Images/zscaler-logo-blue.png
+Unpacking /opt/zscaler/Images/zscaler-logo-white.png
+Unpacking /opt/zscaler/Images/icon-shield-enabled-notify.png
+Unpacking /opt/zscaler/Images/icon-shield-enabled.png
+Unpacking /opt/zscaler/Images/menu-icon-cloudname-hover.png
+Unpacking /opt/zscaler/Images/show_logs.png
+Unpacking /opt/zscaler/Images/menu-icon-agreement.png
+Unpacking /opt/zscaler/Images/menu-icon-issue.png
+Unpacking /opt/zscaler/Images/icon-secureaccess-enabled-notify.png
+Unpacking /opt/zscaler/Images/menu-icon-hamburger-hover.png
+Unpacking /opt/zscaler/Images/more.png
+Unpacking /opt/zscaler/Images/icon-secureaccess-disabled.png
+Unpacking /opt/zscaler/Images/menu-icon-user.png
+Unpacking /opt/zscaler/Images/icon-secureaccess-enabled-error.png
+Unpacking /opt/zscaler/Images/response-icon-x.png
+Unpacking /opt/zscaler/Images/icon-shield-disabled-error.png
+Unpacking /opt/zscaler/Images/icon-secureaccess-disabled-notify.png
+Unpacking /opt/zscaler/Images/icon-shield-disabled.png
+Unpacking /opt/zscaler/Images/toggle-on.png
+Unpacking /opt/zscaler/Images/Exit.png
+Unpacking /opt/zscaler/Images/icon-settings-selected.png
+Unpacking /opt/zscaler/Images/toggle-off.png
+Unpacking /opt/zscaler/Images/menu-icon-zcloud.png
+Unpacking /opt/zscaler/Images/icon-secureaccess-enabled.png
+Unpacking /opt/zscaler/Images/icon-shield-disabled-notify.png
+Unpacking /opt/zscaler/Images/ZscalerAppTop.png
+Unpacking /opt/zscaler/Images/menu-icon-agreement-hover.png
+Unpacking /opt/zscaler/Images/menu-icon-cloudname.png
+Unpacking /opt/zscaler/Images/Open.png
+Unpacking /opt/zscaler/Images/icon-shield-enabled-error.png
+Unpacking /opt/zscaler/Images/ZSATrayIconNotify.ico
+Unpacking /opt/zscaler/Images/ZSATrayIcon.ico
+Unpacking /opt/zscaler/Images/ZSATrayIconDisableNotify.ico
+Unpacking /opt/zscaler/Images/ZSATrayIconError.ico
+Unpacking /opt/zscaler/Images/ZSATrayIconDisable.ico
+Unpacking /opt/zscaler/Images/ZSATrayIconDisableError.ico
+Directory already exists: /opt/zscaler
+Creating directory /opt/zscaler/secure
+Unpacking files
+Unpacking /opt/zscaler/secure/zsaservice.pp
+Unpacking /opt/zscaler/secure/zsupdater.pp
+Unpacking /opt/zscaler/secure/zstunnel.pp
+Unpacking /opt/zscaler/secure/zsupdater.aa
+Unpacking /opt/zscaler/secure/zstunnel.aa
+Unpacking /opt/zscaler/secure/zsaservice.aa
+Directory already exists: /usr/share/applications
+Unpacking files
+Unpacking /usr/share/applications/ZSTray.desktop
+Directory already exists: /usr/share/applications
+Unpacking files
+Unpacking /usr/share/applications/ZSTray.service
+Directory already exists: /etc/systemd/system
+Unpacking files
+Unpacking /etc/systemd/system/zstunnel.service
+Unpacking /etc/systemd/system/zsaservice.service
+Directory already exists: /etc/dbus-1/system.d
+Unpacking files
+Unpacking /etc/dbus-1/system.d/com.zscaler.zsaservice.service.conf
+Unpacking /etc/dbus-1/system.d/com.zscaler.ztray.service.conf
+Unpacking /etc/dbus-1/system.d/com.zscaler.ztunnel.service.conf
+Installing dependent package from distro provided package manager 
+Executing /opt/zscaler/scripts/zscaler.sh install_dependency_libs 0
+Script exit code: 0
+
+Script output:
+ ---------------------
+Going to install pacakages...
+OS_TYPE : UBUNTU_18_19_20
+Checking for missing dependency packages ...
+installing : libglib2.0-0
+installing : net-tools
+installing : libqt5dbus5
+installing : libqt5core5a
+installing : libqt5gui5
+installing : libqt5opengl5
+installing : libqt5qml5
+installing : libqt5quick5
+installing : libqt5quickcontrols2-5
+installing : libqt5quickparticles5
+installing : libqt5quickwidgets5
+installing : libqt5sql5
+installing : libqt5sql5-sqlite
+installing : libqt5webchannel5
+installing : libqt5webengine5
+installing : libqt5webenginecore5
+installing : libqt5webenginewidgets5
+installing : libqt5webkit5
+installing : libqt5webview5
+installing : libqt5widgets5
+installing : dbus
+installing : libdbus-glib-1-2
+installing : libnss3-tools
+installing : libnss-resolve
+installing : libpcap
+installing : curl
+installing : jq
+installing : systemd-coredump
+ca-certificates
+sudo password : 
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ca-certificates is already the newest version (20230311ubuntu0.22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+finished installdependencies
+---------------------
+
+Script stderr:
+ 
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+Configuring the ZCC..
+Executing /opt/zscaler/scripts/install.sh --preInstall 0
+Script exit code: 0
+
+Script output:
+ params [--preInstall 0]
+cleanup before install 
+ Done with Daemon removal
+stopTrayProcesses: numberOfTrays: 
+Tray process still left post stop
+
+Script stderr:
+ 
+
+Checking dependent packages installed on the device... 
+Executing /opt/zscaler/scripts/zscaler.sh list_missing_dependency_libs 0
+Script exit code: 0
+
+Script output:
+ ---------------------
+OS_TYPE : UBUNTU_18_19_20
+Checking for missing dependency packages on UBUNTU_18_19_20 ...
+
+
+---------------------
+
+Script stderr:
+ 
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+Executing /opt/zscaler/scripts/install.sh --postInstall 0 1.3.1.6
+Script exit code: 0
+
+Script output:
+ params [--postInstall 0 1.3.1.6]
+setup while installing
+apparmor module is loaded.
+14 profiles are loaded.
+14 profiles are in enforce mode.
+   /opt/zscaler/bin/zsaservice
+   /opt/zscaler/bin/zsaservice//browser_openjdk
+   /opt/zscaler/bin/zstunnel
+   /opt/zscaler/bin/zsupdater
+   /opt/zscaler/bin/zsupdater//sanitized_helper
+   /snap/core/16091/usr/lib/snapd/snap-confine
+   /snap/core/16091/usr/lib/snapd/snap-confine//mount-namespace-capture-helper
+   /snap/snapd/19993/usr/lib/snapd/snap-confine
+   /snap/snapd/19993/usr/lib/snapd/snap-confine//mount-namespace-capture-helper
+   /snap/snapd/20092/usr/lib/snapd/snap-confine
+   /snap/snapd/20092/usr/lib/snapd/snap-confine//mount-namespace-capture-helper
+   docker-default
+   snap-update-ns.core
+   snap.core.hook.configure
+0 profiles are in complain mode.
+0 profiles are in kill mode.
+0 profiles are in unconfined mode.
+3 processes have profiles defined.
+3 processes are in enforce mode.
+   /opt/mssql/bin/sqlservr (2589) docker-default
+   /usr/bin/mongod (2830) docker-default
+   /opt/mssql/bin/sqlservr (3530) docker-default
+0 processes are in complain mode.
+0 processes are unconfined but have a profile defined.
+0 processes are in mixed mode.
+0 processes are in kill mode.
+success
+● zsaservice.service - Zscaler Service for monitoring Tunnel and Tray
+     Loaded: loaded (/etc/systemd/system/zsaservice.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2023-09-28 12:27:36 +03; 13ms ago
+   Main PID: 31849 (zsaservice)
+      Tasks: 2 (limit: 75695)
+     Memory: 1.7M
+        CPU: 8ms
+     CGroup: /system.slice/zsaservice.service
+             └─31849 /opt/zscaler/bin/zsaservice
+
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.543958(+0300)[31849:31849] DBG ZSAServiceSessionMgr::De-Serialize
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.543970(+0300)[31849:31849] DBG ZSAServiceSessionMgr::readFromFile
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.543986(+0300)[31849:31849] DBG ZSAServiceSessionMgr::updateFromJsonStr
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.543996(+0300)[31849:31849] DBG ZSAServiceSessionMgr::De-Serialize finished
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.544007(+0300)[31849:31849] DBG ZSProcessHandler ctor
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.544049(+0300)[31849:31849] INF Initializing auth librarry with fips enabled
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.544057(+0300)[31849:31857] INF ZSAProcessLauncher::run start
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.544063(+0300)[31849:31849] INF Getting CA certificates in file: /etc/ssl/certs/ca-certificates.crt
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.544730(+0300)[31849:31849] INF System Certs read from disc : 143
+вер 28 12:27:36 EPBYGOMW0024T1 zsaservice[31849]: 2023-09-28 09:27:36.544763(+0300)[31849:31849] INF Auth::Lib::initializeAuthenticationLibrary: Called: 143
+Cert update was sucessful
+
+Script stderr:
+ ln: failed to create symbolic link '/usr/bin/zscaler-config': File exists
+/opt/zscaler/scripts/install.sh: line 174: systemd-resolve: command not found
+not running
+Created symlink /etc/systemd/system/multi-user.target.wants/zsaservice.service → /etc/systemd/system/zsaservice.service.
+
+Creating Uninstaller
+Creating uninstaller 25%
+Creating uninstaller 50%
+Creating uninstaller 75%
+Creating uninstaller 100%
+Installation completed
+Log finished 09/28/2023 at 12:27:39
+Exiting with code 0
