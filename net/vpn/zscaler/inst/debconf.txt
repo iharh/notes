@@ -1,0 +1,16 @@
+/usr/share/debconf/
+    confmodule
+    frontend
+        pearl module
+    fix_db.pl
+        /var/lib/dpkg/info/*.templates
+    debconf.conf
+        !!! template files
+        /var/cache/debconf/
+            config.dat
+                ??? no zscaler here
+            templates.dat
+                ??? no zscaler here
+            passwords.dat
+                ??? empty
+
