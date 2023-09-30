@@ -1,4 +1,5 @@
 2023
+https://thorben-janssen.com/hibernate-performance-tuning/
 https://vladmihalcea.com/source-sql-query-hibernate/
     @Component public class HibernateConfig implements HibernatePropertiesCustomizer {
         @Override public void customize(Map<String, Object> hibernateProperties) {
