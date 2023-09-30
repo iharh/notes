@@ -1,7 +1,12 @@
 https://gitlab.com/cryptsetup/cryptsetup
 https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
+
+spec
 https://gitlab.com/cryptsetup/LUKS2-docs
 https://gitlab.com/cryptsetup/LUKS2-docs/blob/master/luks2_doc_wip.pdf
 
 luks1
 https://mirrors.edge.kernel.org/pub/linux/utils/cryptsetup/LUKS_docs/on-disk-format.pdf
+
+samples
+cryptsetup luksFormat --type luks2 <target device>
