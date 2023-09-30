@@ -3,4 +3,4 @@ https://linuxconfig.org/how-to-label-hard-drive-partition-under-linux
     # for ext fs-s only
 
 https://unix.stackexchange.com/questions/230308/how-can-i-set-a-label-on-a-dm-cryptluks-container
-    sudo cryptsetup config /dev/nvme0n1p3 --label lukswrk
+    sudo cryptsetup config /dev/nvme0n1p2 --label luks
