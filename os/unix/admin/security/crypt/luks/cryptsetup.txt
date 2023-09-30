@@ -13,6 +13,7 @@ sudo cryptsetup
         and write down slot number
     close <name>
     luksDump /dev/sdX
+    luksChangeKey /path/to/dev/
 
 http://unix.stackexchange.com/questions/206476/cryptsetup-dm-crypt-plain-mode-using-keyfile-and-passphrase
 
