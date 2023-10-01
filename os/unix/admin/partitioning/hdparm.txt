@@ -1,0 +1,2 @@
+sudo hdparm -r0 /dev/sdX
+    check ro
