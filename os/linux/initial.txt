@@ -1,0 +1,14 @@
+Failed to load module appmenu-gtk-module
+apt/
+    libcanberra-gtk-modul
+    appmenu-gtk2-module
+    appmenu-gtk3-module
+
+Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    systemctl status dbus.service
+    https://github.com/flatpak/flatpak/issues/4603
+        journalctl -b -p err
+    https://community.postman.com/t/could-not-get-any-response-socket-hang-up/11603/27
+    https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1358
+        $ flatpak run --command=gnutls-cli com.slack.Slack app.slack.com
+        https://github.com/p11-glue/p11-kit/issues/404
