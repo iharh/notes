@@ -1,3 +1,14 @@
+https://www.tutorialspoint.com/fixing-the-too-many-open-files-error-in-linux
+https://winitpro.ru/index.php/2019/11/19/oshibka-too-many-open-files-v-linux/
+    cat /proc/sys/fs/file-max
+    ulimit -n
+    ulimit -Sn
+    ulimit -Hn
+    lsof | wc -l
+    sudo vi /etc/security/limits.conf
+    /etc/security/limits.d/*.conf
+
+
 Failed to load module appmenu-gtk-module
 apt/
     libcanberra-gtk-module
