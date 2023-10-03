@@ -15,6 +15,7 @@ apt/
     libcanberra-gtk3-module
     appmenu-gtk2-module
     appmenu-gtk3-module
+    xdg-utils
 
 Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
     systemctl status dbus.service
@@ -24,3 +25,5 @@ Failed to connect to socket /run/dbus/system_bus_socket: No such file or directo
     https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1358
         $ flatpak run --command=gnutls-cli com.slack.Slack app.slack.com
         https://github.com/p11-glue/p11-kit/issues/404
+
+xdg-mime: command not found
