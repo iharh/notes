@@ -15,3 +15,4 @@ sudo chmod 644 /etc/apt/trusted.gpg.d/google.gpg
 inst
 sudo apt update
 sudo apt install google-chrome-stable
+    fonts-liberation-sans-narrow
