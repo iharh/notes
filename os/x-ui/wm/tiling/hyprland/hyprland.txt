@@ -1,9 +1,6 @@
 https://hyprland.org/
 https://github.com/hyprwm/Hyprland
 
-https://wiki.hyprland.org/Getting-Started/Installation/
-    https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000
-    ! Ubuntu 23.04
 https://wiki.hyprland.org/Nix/
     https://github.com/hyprwm/Hyprland/blob/main/flake.nix
 https://wiki.hyprland.org/Configuring/Configuring-Hyprland/
@@ -11,13 +8,6 @@ https://wiki.hyprland.org/Configuring/Dwindle-Layout/
 https://wiki.hyprland.org/Useful-Utilities/
 
 https://wiki.hyprland.org/FAQ/
-
-2023
-TechHeart - So you want to customize hyprland on Arch Linux??? 0:00 of 40:46
-    https://www.youtube.com/watch?v=3aO9HDQj9do
-2022
-BrodieRobertson - Hyprland The Greatest Wayland Compositor Ever? 0:00 of 14:51
-    https://www.youtube.com/watch?v=e89w9IFFut0
 
 samples
 https://github.com/Ruixi-rebirth/nixos-config

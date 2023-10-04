@@ -1,0 +1,15 @@
+https://reactnative.dev/docs/environment-setup?guide=native&os=linux&platform=android
+
+node 16+
+jdk 11 (not later)
+
+https://developer.android.com/studio/index.html
+    ! download here
+https://developer.android.com/studio/install#linux
+    sudo apt install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+!!! jbt toolbox
+
+options
+    Android SDK
+    Android SDK Platform
+    Android Virtual Device
