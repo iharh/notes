@@ -5,7 +5,7 @@ https://xmonad.org/INSTALL.html
         # for full xmobar->alsa
         libasound2-dev libxpm-dev
     ...
-    rm ~/Downloads/stack-build.txt && stack build 2>&1 > ~/Downloads/stack-build.txt
+    rm ~/Downloads/stack-build.txt && stack build --verbose 2>&1 | tee ~/Downloads/stack-build.txt
     stack install
     ...
     Copying from /home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/<hash>/9.0.2/bin/xmonad to /home/iharh/.local/bin/xmonad
@@ -41,6 +41,56 @@ https://github.com/haskell-gi/haskell-gi/issues/226
         0.26.7
     https://stackoverflow.com/questions/18025730/pygobject-2-28-6-wont-configure-no-package-gobject-introspection-1-0-found
         Debian, Ubuntu, Mint, etc.: libgirepository1.0-dev
+        apt
+            libgirepository1.0-dev
 
 Did not find a GI repository for Dbusmenu-0.4 in ["/usr/share/unicorn/gir-1.0","/home/iharh/.local/share/flatpak/exports/share/gir-1.0",
     "/var/lib/flatpak/exports/share/gir-1.0","/usr/local/share/gir-1.0","/usr/share/gir-1.0","/opt/homebrew/share/gir-1.0"].
+    HASKELL_GI_GIR_SEARCH_PATH
+
+    apt (dbusmenu)
+        gir1.2-glib-2.0
+        gir1.2-dbusmenu-gtk-0.4
+
+        gir1.2-dbusmenu-glib-0.4
+        gir1.2-dbusmenu-gtk3-0.4
+        libghc-gi-dbusmenu-dev
+
+    https://github.com/vdt/gt-overlay/blob/edc63efb07d087a85046883d60ce3cf4f663b6c7/dev-libs/libdbusmenu/files/libdbusmenu_0.5.0.patch#L91
+
+    https://github.com/commercialhaskell/stackage/issues/5174
+    https://github.com/commercialhaskell/stack/issues/3154
+
+    https://github.com/haskell-gi/haskell-gi/issues/226
+    https://github.com/haskell-gi/haskell-gi/issues/36
+        !!! need to read
+    /usr/lib/girepository-1.0/
+        Keybinder-3.0.typelib
+        PackageKitGlib-1.0.typelib
+
+    package
+        gobject-introspection
+
+    https://www.reddit.com/r/haskell/comments/6xtpa0/lets_make_a_gtk_video_player_with_haskell/
+        libgtk-3-dev
+
+
+    tgpt "hot to fix in ubuntu: did not find a GI repository for Dbusmenu-0.4"
+        The error message "did not find a GI repository for Dbusmenu-0.4" typically occurs when a program or library is looking for GObject Introspection (GI) information for the Dbusmenu-0
+
+    https://gitlab.gnome.org/GNOME/gobject-introspection
+    https://gnome.pages.gitlab.gnome.org/gobject-introspection/girepository/
+    https://gnome.pages.gitlab.gnome.org/gobject-introspection/girepository/GIRepository.html
+
+    https://gi.readthedocs.io/en/latest/
+    https://gi.readthedocs.io/en/latest/tools/index.html
+         g-ir-scanner --namespace Dbusmenu --nsversion=0.4 
+         sudo g-ir-generate
+
+    https://gi.readthedocs.io/en/latest/tools/g-ir-scanner.html
+        ? need to search for samples
+    https://gi.readthedocs.io/en/latest/tools/g-ir-generate.html
+
+    export GI_TYPELIB_PATH=/usr/lib/girepository-1.0
+
+    sudo g-ir-scanner --update /usr/share/gir-1.0/Dbusmenu-0.4.gir
