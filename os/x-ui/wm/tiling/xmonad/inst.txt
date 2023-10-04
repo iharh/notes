@@ -1,8 +1,11 @@
 https://xmonad.org/INSTALL.html
-    sudo apt install libx11-dev libxft-dev libxinerama-dev libxrandr-dev libxss-dev
-    # for full xmobar->alsa
-    sudo apt install libasound2-dev libxpm-dev
+    sudo apt install
+        libx11-dev libxft-dev libxinerama-dev libxrandr-dev libxss-dev
+        gobject-introspection
+        # for full xmobar->alsa
+        libasound2-dev libxpm-dev
     ...
+    rm ~/Downloads/stack-build.txt && stack build 2>&1 > ~/Downloads/stack-build.txt
     stack install
     ...
     Copying from /home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/<hash>/9.0.2/bin/xmonad to /home/iharh/.local/bin/xmonad
@@ -29,3 +32,15 @@ https://brianbuccola.com/how-to-install-xmonad-and-xmobar-via-stack/
 
 !!!
 # add "stack build" to ~/.config/xmonad/build
+
+errors:
+https://github.com/haskell-gi/haskell-gi/issues/391
+https://github.com/haskell-gi/haskell-gi/issues/226
+    The pkg-config package 'gobject-introspection-1.0' version haskell-gi >=1.32 is required but it could not be found.
+    https://hackage.haskell.org/package/haskell-gi
+        0.26.7
+    https://stackoverflow.com/questions/18025730/pygobject-2-28-6-wont-configure-no-package-gobject-introspection-1-0-found
+        Debian, Ubuntu, Mint, etc.: libgirepository1.0-dev
+
+Did not find a GI repository for Dbusmenu-0.4 in ["/usr/share/unicorn/gir-1.0","/home/iharh/.local/share/flatpak/exports/share/gir-1.0",
+    "/var/lib/flatpak/exports/share/gir-1.0","/usr/local/share/gir-1.0","/usr/share/gir-1.0","/opt/homebrew/share/gir-1.0"].
