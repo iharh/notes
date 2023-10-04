@@ -13,3 +13,22 @@ options
     Android SDK
     Android SDK Platform
     Android Virtual Device
+
+https://developer.android.com/studio/run/emulator-acceleration
+    https://www.linux-kvm.org/page/Main_Page
+    https://help.ubuntu.com/community/KVM/Installation
+        # 0, 1 - bad
+        egrep -c '(vmx|svm)' /proc/cpuinfo
+        # /usr/sbin/kvm-ok
+        kvm-ok
+        # 0 - bad
+        egrep -c ' lm ' /proc/cpuinfo
+        # x86_64 - good
+        uname -m
+        # sudo apt install
+        qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+
+        sudo adduser `id -un` libvirt
+        sudo adduser `id -un` kvm
+
+        relogin

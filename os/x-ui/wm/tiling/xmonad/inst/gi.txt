@@ -1,38 +1,3 @@
-https://xmonad.org/INSTALL.html
-    sudo apt install
-        libx11-dev libxft-dev libxinerama-dev libxrandr-dev libxss-dev
-        gobject-introspection
-        # for full xmobar->alsa
-        libasound2-dev libxpm-dev
-    ...
-    rm ~/Downloads/stack-build.txt && stack build --verbose 2>&1 | tee ~/Downloads/stack-build.txt
-    stack install
-    ...
-    Copying from /home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/<hash>/9.0.2/bin/xmonad to /home/iharh/.local/bin/xmonad
-
-https://wiki.haskell.org/Xmonad/Frequently_asked_questions#How_can_I_use_xmonad_with_a_display_manager.3F_.28xdm.2C_kdm.2C_gdm.29
-    sudo ln -s ~/.local/bin/xmonad /usr/local/bin 
-
-/usr/share/xsessions/xmonad.desktop
-[Desktop Entry]
-Encoding=UTF-8
-Name=xmonad
-Comment=This session starts xmonad
-Exec=/usr/local/bin/xmonad
-Type=Application
-    ->~/.local/bin/xmonad
-
-https://packages.ubuntu.com/search?keywords=xmonad
-
-2018
-http://sitr.us/2018/05/13/build-xmonad-with-stack.html
-https://functor.tokyo/blog/2018-02-16-setup-xmonad-on-nixos
-2017
-https://brianbuccola.com/how-to-install-xmonad-and-xmobar-via-stack/
-
-!!!
-# add "stack build" to ~/.config/xmonad/build
-
 errors:
 https://github.com/haskell-gi/haskell-gi/issues/391
 https://github.com/haskell-gi/haskell-gi/issues/226
