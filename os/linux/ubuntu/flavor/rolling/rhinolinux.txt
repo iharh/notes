@@ -16,6 +16,12 @@ https://rhinolinux.org/wiki-rpk.html
 https://rhinolinux.org/news.html
 https://hosted.weblate.org/projects/rhino-linux/rhino-setup/
 
+updater
+/usr/local/bin/rhinosystem
+/usr/local/share/rhinosystem
+/usr/local/share/rhinosystem/rhinosystem/views/upgrade.py
+    rpk update -y
+
 2023
 DistroTube -  First Look At Rhino Linux With The Unicorn Desktop of 23:29
     https://www.youtube.com/watch?v=SAiCA6CeiIQ
