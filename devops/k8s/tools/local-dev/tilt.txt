@@ -4,11 +4,13 @@ https://tilt.dev/
     ! https://github.com/bazelbuild/starlark/blob/master/spec.md
 
 https://github.com/tilt-dev/tilt
+https://github.com/tilt-dev/tilt/releases
 
 https://docs.tilt.dev/
 
 https://docs.tilt.dev/install.html
     https://github.com/eaceaser/asdf-tilt.git
+
 https://docs.tilt.dev/choosing_clusters.html
 
 https://docs.tilt.dev/tiltfile_authoring.html
