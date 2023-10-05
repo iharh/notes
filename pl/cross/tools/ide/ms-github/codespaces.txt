@@ -6,6 +6,10 @@ https://docs.github.com/en/codespaces
 run locally with
 https://code.visualstudio.com/docs/remote/containers
 
+https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
+https://docs.github.com/en/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account
+https://docs.github.com/en/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+
 2022
 https://devblogs.microsoft.com/cppblog/customizing-github-codespaces-for-cpp-projects/
 https://devblogs.microsoft.com/cppblog/using-github-codespaces-and-visual-studio-code-for-cplusplus-development/
