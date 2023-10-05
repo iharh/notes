@@ -1,4 +1,17 @@
 https://reactnative.dev/docs/environment-setup?guide=native&os=linux&platform=android
+    https://expo.dev/
+    https://docs.expo.dev/
+    https://github.com/orgs/expo/repositories
+    https://github.com/expo/expo
+    web-only
+    https://snack.expo.dev/
+
+    https://reactnative.dev/docs/running-on-device
+
+    https://facebook.github.io/watchman/
+    https://facebook.github.io/watchman/docs/install
+    https://github.com/facebook/watchman
+    https://github.com/facebook/watchman/releases/
 
 node 16+
 jdk 11 (not later)
