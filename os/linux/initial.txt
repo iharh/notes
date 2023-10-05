@@ -36,3 +36,7 @@ https://github.com/microsoft/vscode/issues/187338
     ! need
 https://learn.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-errors-issues?view=azuresql
 https://github.com/Microsoft/vscode-mssql/wiki/manage-connection-profiles
+
+fuse
+https://github.com/AppImage/AppImageKit/wiki/FUSE
+    libfuse2
