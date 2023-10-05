@@ -1,14 +1,20 @@
 https://tabby.sh/
-https://github.com/eugeny/tabby
 
-https://eugeny.github.io/terminus/
-https://github.com/Eugeny/terminus
+https://github.com/eugeny/tabby
+https://github.com/Eugeny/tabby/releases
 
 https://tabby.sh/about/features
 
 inst
 pacstall
     tabby-deb
+
+old
+https://eugeny.github.io/terminus/
+https://github.com/Eugeny/terminus
+
+plugins
+https://github.com/Eugeny/tabby-docker
 
 2021
 AwesomeOpenSource - Tabby - An Open Source Terminal Emulator tool for the modern self hoster of 19:46
