@@ -4,8 +4,26 @@ https://github.com/Prowlarr/Prowlarr
 
 https://requests.prowlarr.com/
 
-https://wiki.servarr.com/en/prowlarr/supported-indexers
+https://wiki.servarr.com/prowlarr/indexers
+https://wiki.servarr.com/prowlarr/supported-indexers
 https://wiki.servarr.com/prowlarr/supported#applications
+
+https://wiki.servarr.com/prowlarr/system
+https://wiki.servarr.com/prowlarr/settings
+https://wiki.servarr.com/prowlarr/settings#download-clients
+https://wiki.servarr.com/prowlarr/custom-scripts
+https://wiki.servarr.com/prowlarr/appdata-directory
+https://wiki.servarr.com/prowlarr/postgres-setup
+https://wiki.servarr.com/prowlarr/cardigann-yml-definition
+    https://github.com/Prowlarr/Indexers/tree/master
+    https://github.com/Prowlarr/Indexers/blob/master/definitions/v9/schema.json
+    https://github.com/cardigann/cardigann
+        ! too old, from 2017-2019
+        https://github.com/cardigann/cardigann/issues/372
+https://wiki.servarr.com/prowlarr/troubleshooting
+
+apps integration and donload-clients conf and notifications
+https://wiki.servarr.com/prowlarr/supported
 
 https://hub.docker.com/r/linuxserver/prowlarr
     https://gitlab.com/Linuxserver.io/docker-prowlarr/
@@ -26,3 +44,7 @@ https://wiki.servarr.com/prowlarr/search
       &apikey=badef4d9c35b4b759e9d3362a16d301a
       &offset=0
       &limit=100
+
+2021
+Ibracorp - Prowlarr: King of the Indexer Jungle - Cover Your 'Arrs of 18:30
+    https://www.youtube.com/watch?v=nPm5pMfk1OA
