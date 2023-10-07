@@ -1,0 +1,38 @@
+node 16+
+jdk 11 (not later)
+
+https://developer.android.com/studio/intro
+https://developer.android.com/studio/index.html
+    ! download here
+https://developer.android.com/studio/install#linux
+    sudo apt install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+https://www.youtube.com/channel/UCVHFbqXqoYvEWM1Ddxl0QDg
+
+!!! jbt toolbox
+
+options
+    Android SDK
+    Android SDK Platform
+    Android Virtual Device
+
+https://developer.android.com/studio/run/emulator-acceleration
+    sudo apt install cpu-checker
+    # 0, 1 - bad
+    egrep -c '(vmx|svm)' /proc/cpuinfo
+
+    https://www.linux-kvm.org/page/Main_Page
+    https://help.ubuntu.com/community/KVM/Installation
+
+        # /usr/sbin/kvm-ok
+        kvm-ok
+        # 0 - bad
+        egrep -c ' lm ' /proc/cpuinfo
+        # x86_64 - good
+        uname -m
+        # sudo apt install
+        qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+
+        sudo adduser `id -un` libvirt
+        sudo adduser `id -un` kvm
+
+        relogin
