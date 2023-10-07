@@ -1,4 +1,44 @@
+need to set:
+    export HASKELL_GI_GIR_SEARCH_PATH=/usr/lib/x86_64-linux-gnu/girepository-1.0
+
+    Dbusmenu-0.4.typelib
+    DbusmenuGtk-0.4.typelib
+    DbusmenuGtk3-0.4.typelib
+
+    DbusmenuGtk3-0.4.tylib
+    !!! not a
+    DbusmenuGtk3-0.4.gir
+
+    Did not find a GI repository for DbusmenuGtk3-0.4 in ["/usr/lib/x86_64-linux-gnu/girepository-1.0",...]
+    ???
+    libdbusmenu-gtk3-dev
+    /usr/share/gir-1.0/DbusmenuGtk3-0.4.gir
+
+
+
+rhino:
+DbusmenuGtk3-0.4 in ...
+    gir1.2-dbusmenu-gtk3-0.4
+    dpkg -L gir1.2-dbusmenu-gtk3-0.4
+        /usr/lib/x86_64-linux-gnu/girepository-1.0/DbusmenuGtk3-0.4.typelib
+ubuntu:
+    ???
+
 errors:
+https://github.com/haskell-gi/haskell-gi/issues/36
+    !!! need to read
+    /usr/lib/girepository-1.0/
+        Keybinder-3.0.typelib
+        PackageKitGlib-1.0.typelib
+    ??? 
+        export GI_TYPELIB_PATH=/usr/lib/girepository-1.0
+    ???
+    HASKELL_GI_GIR_SEARCH_PATH
+
+    /usr/share/gir-1.0
+        !!! tons of *.gir files, including
+        Dbusmenu-0.4.gir
+
 https://github.com/haskell-gi/haskell-gi/issues/391
 https://github.com/haskell-gi/haskell-gi/issues/226
     The pkg-config package 'gobject-introspection-1.0' version haskell-gi >=1.32 is required but it could not be found.
@@ -26,12 +66,6 @@ Did not find a GI repository for Dbusmenu-0.4 in ["/usr/share/unicorn/gir-1.0","
     https://github.com/commercialhaskell/stackage/issues/5174
     https://github.com/commercialhaskell/stack/issues/3154
 
-    https://github.com/haskell-gi/haskell-gi/issues/226
-    https://github.com/haskell-gi/haskell-gi/issues/36
-        !!! need to read
-    /usr/lib/girepository-1.0/
-        Keybinder-3.0.typelib
-        PackageKitGlib-1.0.typelib
 
     package
         gobject-introspection
@@ -59,3 +93,61 @@ Did not find a GI repository for Dbusmenu-0.4 in ["/usr/share/unicorn/gir-1.0","
     export GI_TYPELIB_PATH=/usr/lib/girepository-1.0
 
     sudo g-ir-scanner --update /usr/share/gir-1.0/Dbusmenu-0.4.gir
+
+https://github.com/willdonnelly/xdg-basedir/blob/master/System/Environment/XDG/BaseDir.hs
+    ...
+    -- | Get a list of the system-wide data directories.
+    getSystemDataDirs   :: String -> IO [FilePath]
+    getSystemDataDirs   = multiDirs "XDG_DATA_DIRS"
+    ...
+    echo $XDG_DATA_DIRS
+    /usr/share/unicorn:
+    /home/iharh/.local/share/flatpak/exports/share:
+    /var/lib/flatpak/exports/share:
+    /usr/local/share:
+    /usr/share
+
+https://github.com/haskell-gi/haskell-gi/blob/master/lib/Data/GI/GIR/Repository.hs#L94
+    buildSearchPath
+        import System.Environment.XDG.BaseDir (getSystemDataDirs) -- + "gir1.0"
+
+    HASKELL_GI_GIR_SEARCH_PATH
+    ...
+    girFilePath :: String -> String -> FilePath -> FilePath
+    girFilePath name version path = path </> name ++ "-" ++ version <.> "gir"
+
+    girFile' :: Text -> Maybe Text -> FilePath -> IO (Maybe FilePath)
+    girFile' name (Just version) path =
+        let filePath = girFilePath (T.unpack name) (T.unpack version) path
+        in  doesFileExist filePath >>= \case
+            True  -> return $ Just filePath
+            False -> return Nothing
+    ...
+    buildSearchPath :: [FilePath] -> IO [FilePath]
+    buildSearchPath extraPaths = do
+      paths <- case extraPaths of
+                 [] -> lookupEnv "HASKELL_GI_GIR_SEARCH_PATH" >>= \case
+                   Nothing -> return []
+                   Just s -> return (splitOn searchPathSeparator s)
+                 ps -> return ps
+      dataDirs <- girDataDirs
+      return (paths ++ dataDirs)
+    ...
+
+gi-dbusmenugtk3>
+Did not find a GI repository for DbusmenuGtk3-0.4 index
+[
+    "/usr/share/unicorn/gir-1.0",
+    "/home/iharh/.local/share/flatpak/exports/share/gir-1.0",
+    "/var/lib/flatpak/exports/share/gir-1.0",
+    "/usr/local/share/gir-1.0",
+    "/usr/share/gir-1.0",
+    "/opt/homebrew/share/gir-1.0"
+].
+gi-dbusmenugtk3>
+CallStack (from HasCallStack):
+gi-dbusmenugtk3>
+error, called at lib/Data/GI/GIR/Repository.hs:94:20 in haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS:Data.GI.GIR.Repository
+???
+    /usr/lib/x86_64-linux-gnu/girepository-1.0/
+
