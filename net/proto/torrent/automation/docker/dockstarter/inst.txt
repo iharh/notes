@@ -1,0 +1,17 @@
+2023-10-08 22:37:15 [INFO  ]   Removing conflicting Docker packages.
+2023-10-08 22:37:15 [NOTICE]   Installing docker. Please be patient, this can take a while.
+2023-10-08 22:37:15 [INFO  ]   Downloading docker install script.
+2023-10-08 22:37:16 [INFO  ]   Running docker install script.
+# Executing docker install script, commit: e5543d473431b782227f8908005543bb4389b8de
++ sudo -E sh -c apt-get update -qq >/dev/null
++ sudo -E sh -c DEBIAN_FRONTEND=noninteractive apt-get install -y -qq apt-transport-https ca-certificates curl >/dev/null
++ sudo -E sh -c install -m 0755 -d /etc/apt/keyrings
++ sudo -E sh -c curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | gpg --dearmor --yes -o /etc/apt/keyrings/docker.gpg
+gpg: WARNING: unsafe ownership on homedir '/home/iharh/.gnupg'
++ sudo -E sh -c chmod a+r /etc/apt/keyrings/docker.gpg
++ sudo -E sh -c echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu devel stable" > /etc/apt/sources.list.d/docker.list
++ sudo -E sh -c apt-get update -qq >/dev/null
+E: The repository 'https://download.docker.com/linux/ubuntu devel Release' does not have a Release file.
+2023-10-08 22:37:19 [FATAL ]   Failed to install docker.
+Failing command: sh /tmp/tmp.h4cioVEoiG
+DockSTARTer did not finish running successfully.

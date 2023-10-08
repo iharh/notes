@@ -1,3 +1,15 @@
+!!! arch/pacman supported !!!
+https://www.youtube.com/user/opswat1
+
+https://docs.opswat.com/macloud-sdp/kb/what-is-system-requirement-for-opswat-client-
+    Debian 8+
+
+https://docs.opswat.com/macloud-sdp/release-notes/release-notes
+    3.35.0
+    Persistent Client for Debian-based Linux: 15.4.2309.114
+https://docs.opswat.com/macloud-sdp/kb
+https://docs.opswat.com/macloud-sdp
+
 wget https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient_deb.tar
 tar -xvf opswatclient_deb.tar
 cd opswatclient_deb
@@ -11,6 +23,8 @@ https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/61511
     ! corp policy (+ sentinel and other stuff, quallis-scanner, opswat + 100500 chekers)
 https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/15009832
     ! byod, 802-1 auth req
+???
+https://console.metaaccess-b.opswat.com/signin
 
 https://docs.opswat.com/macloud-sdp/kb/what-is-system-requirement-for-opswat-client-
 https://docs.opswat.com/macloud-sdp/kb/where-can-i-find-opswat-client-logs-on-my-machine-
@@ -27,3 +41,12 @@ https://eapi.opswatgears.com:11369/opswat/devinfo?count=10&callback=myCallback
 
 /etc/hosts
 127.0.0.1	eapi.opswatgears.com
+
+sdk
+https://software.opswat.com/OESIS_V4/Linux/docs/support_charts/support_charts.html
+
+rhino
+An out of date or unsupported OS could expose your device to attack and critical loss of data.
+Upgrade your operating system to any of the approved operating systems versions listed below:
+    Ubuntu version 18.04 or later
+Please contact your Administrator for specific instructions.

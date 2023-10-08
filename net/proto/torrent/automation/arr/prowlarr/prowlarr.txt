@@ -1,6 +1,11 @@
 https://wiki.servarr.com/prowlarr
 
 https://github.com/Prowlarr/Prowlarr
+    src/NzbDrone.Core/Indexers/
+        Definitions/
+            RuTracker.cs
+        NzbDrone.Core/Indexers/IndexerFactory.cs
+            ???
 
 https://requests.prowlarr.com/
 
@@ -45,6 +50,9 @@ https://wiki.servarr.com/prowlarr/search
       &offset=0
       &limit=100
 
+2023
+Chitalov - Prowlarr ...
+    https://www.youtube.com/watch?v=kvp8lWgHwa0
 2021
 Ibracorp - Prowlarr: King of the Indexer Jungle - Cover Your 'Arrs of 18:30
     https://www.youtube.com/watch?v=nPm5pMfk1OA
