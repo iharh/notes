@@ -1,0 +1,17 @@
+https://github.com/Jackett/Jackett
+https://github.com/Jackett/Jackett#supported-systems
+
+https://github.com/Jackett/Jackett/tree/master/src/Jackett.Common/Definitions
+https://github.com/Jackett/Jackett/tree/master/src/Jackett.Common/Indexers
+https://github.com/Jackett/Jackett/wiki/Definition-format
+
+src/Jackett.Common/
+    Definitions/
+        .yaml
+    Indexers/
+
+https://github.com/webtor-io/go-jackett
+    usage sample !!!
+
+https://github.com/Jackett/Jackett/blob/master/CONTRIBUTING.md
+https://github.com/Jackett/Jackett/wiki/Troubleshooting
