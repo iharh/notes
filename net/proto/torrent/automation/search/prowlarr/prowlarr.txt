@@ -28,7 +28,8 @@ https://wiki.servarr.com/prowlarr/cardigann-yml-definition
 https://wiki.servarr.com/prowlarr/troubleshooting
 
 apps integration and donload-clients conf and notifications
-https://wiki.servarr.com/prowlarr/supported
+    https://wiki.servarr.com/prowlarr/supported
+    !!! has a lot of notifications, incl Telegram
 
 https://hub.docker.com/r/linuxserver/prowlarr
     https://gitlab.com/Linuxserver.io/docker-prowlarr/
