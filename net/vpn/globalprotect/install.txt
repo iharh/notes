@@ -10,3 +10,7 @@ N: Download is performed unsandboxed as root as file '/home/iharh/Downloads/dist
 
 # package name - globalprotect
 dpkg -r $(dpkg -f your-file-here.deb Package)
+
+autostart
+/etc/xdg/autostart/PanGPUI.desktop
+    /opt/paloaltonetworks/globalprotect/PanGPUI
