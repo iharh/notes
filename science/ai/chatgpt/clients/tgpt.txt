@@ -1,4 +1,5 @@
 https://github.com/aandrew-me/tgpt
+    3.5
 curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
 go install github.com/aandrew-me/tgpt@latest
 
