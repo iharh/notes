@@ -33,7 +33,14 @@ https://github.com/microsoft/vscode/issues/190062
     https://github.com/NixOS/nixpkgs/pull/248167/files
     libsecret
 https://github.com/microsoft/vscode/issues/187338
-    ! need
+    ???
+    code --password-store="gnome"
+    cat ~/.vscode/argv.json
+    {
+      "enable-crash-reporter": true,
+      "crash-reporter-id": "<snip>",
+      "password-store": "gnome"
+    }
 https://learn.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-errors-issues?view=azuresql
 https://github.com/Microsoft/vscode-mssql/wiki/manage-connection-profiles
 
