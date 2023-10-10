@@ -1,3 +1,29 @@
 https://docs.paloaltonetworks.com/compatibility-matrix/globalprotect/where-can-i-install-the-globalprotect-app
+    RH, Centos, Ubuntu
+    https://docs.paloaltonetworks.com/globalprotect/6-1/globalprotect-app-user-guide/globalprotect-app-for-linux/download-and-install-the-globalprotect-app-for-linux
+    https://docs.paloaltonetworks.com/globalprotect/6-1/globalprotect-app-user-guide/globalprotect-app-for-linux/use-the-globalprotect-app-for-linux
+    https://docs.paloaltonetworks.com/globalprotect/6-1/globalprotect-app-user-guide/globalprotect-app-for-linux/disable-the-globalprotect-app-for-linux
+    https://docs.paloaltonetworks.com/globalprotect/6-1/globalprotect-app-user-guide/globalprotect-app-for-linux/uninstall-the-globalprotect-app-for-linux
+        gp_uninstall.sh
+
 https://play.google.com/store/apps/details?id=com.paloaltonetworks.globalprotect
 https://itunes.apple.com/us/app/globalprotect/id1400555706
+
+
+2018
+https://www.reddit.com/r/paloaltonetworks/comments/9hh9g0/does_globalprotect_work_with_linux_distributions/
+
+The following commands have been tested on Linux Mint, Arch Linux, and Manjaro distributions:
+REPLACE=`lsb_release -ds | sed -e 's/"//g' | xxd -l6 -g1 | cut -d ' ' -f2,3,4,5,6,7 | sed -e 's/^/\\\\x/g' -e 's/ /\\\\x/g'`
+sudo sed -i "s/\x55\x62\x75\x6e\x74\x75/$REPLACE/g" /opt/paloaltonetworks/globalprotect/PanGPS
+sudo systemctl restart gpd.service
+
+For Fedora distribution:
+cd /opt/paloaltonetworks/globalprotect/
+sudo sed -i 's/CentOS/Fedora/g' PanGPS
+sudo systemctl restart gpd.service
+
+For Debian distribution:
+sudo echo 'DISTRIB_DESCRIPTION="Ubuntu 18.04.1 LTS"' > /etc/lsb-release
+sudo systemctl restart gpd.service
+

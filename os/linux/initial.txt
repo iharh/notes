@@ -55,3 +55,6 @@ python
     python3-tk tk-dev
     libreadline-dev
     # libedit-dev
+
+lsb
+    lsb-base, lsb-release
