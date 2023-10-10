@@ -40,3 +40,10 @@ https://github.com/Microsoft/vscode-mssql/wiki/manage-connection-profiles
 fuse
 https://github.com/AppImage/AppImageKit/wiki/FUSE
     libfuse2
+
+
+python
+    zlib1g zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev
+    python3-tk tk-dev
+    libreadline-dev
+    # libedit-dev
