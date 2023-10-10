@@ -4,6 +4,9 @@ sudo -E dpkg -i <gp-app-pkg>
 ar -x <...deb>
 # does not work
 sudo apt-get install <gp-app-pkg>
+!!!
+    sudo apt install ./GlobalProtect_UI_deb-6.1.1.0-49.deb
+N: Download is performed unsandboxed as root as file '/home/iharh/Downloads/dist/epam/gp/GlobalProtect_UI_deb-6.1.1.0-49.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
 
 # package name - globalprotect
 dpkg -r $(dpkg -f your-file-here.deb Package)

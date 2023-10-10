@@ -41,6 +41,7 @@ https://github.com/microsoft/vscode/issues/187338
       "crash-reporter-id": "<snip>",
       "password-store": "gnome"
     }
+    https://wiki.archlinux.org/title/GNOME/Keyring
 https://learn.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-errors-issues?view=azuresql
 https://github.com/Microsoft/vscode-mssql/wiki/manage-connection-profiles
 
