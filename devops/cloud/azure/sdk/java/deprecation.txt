@@ -1,0 +1,60 @@
+Deprecated Azure SDK libraries are detected in your project, refer to Azure SDK Releases for the latest releases.
+com.microsoft.azure/azure-keyvault
+Replaced by: com.azure/azure-security-keyvault-certificates, com.azure/azure-security-keyvault-secrets, com.azure/azure-security-keyvault-certificates, com.azure/azure-security-keyvault-key
+com.microsoft.azure/azure-mgmt-dns
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-dns
+com.microsoft.azure/azure-mgmt-containerservice
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-containerservice
+com.microsoft.azure/azure-mgmt-network
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-network
+com.microsoft.azure/azure-mgmt-storage
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-storage
+com.microsoft.azure/azure-mgmt-batchai
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-batchai
+com.microsoft.azure/azure-mgmt-msi
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-msi
+com.microsoft.azure/azure-keyvault-core
+com.microsoft.azure/azure-mgmt-keyvault
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-keyvault
+com.microsoft.azure/azure-mgmt-servicebus
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-servicebus
+com.microsoft.azure/azure-mgmt-locks
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-resources
+com.microsoft.azure/azure-mgmt-cosmosdb
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-cosmos
+com.microsoft.azure/azure-mgmt-graph-rbac
+Replaced by: com.microsoft.graph/microsoft-graph
+com.microsoft.azure/azure-mgmt-sql
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-sql
+com.microsoft.azure/azure-storage
+Replaced by: com.azure/azure-storage-blob
+com.microsoft.azure/azure-mgmt-trafficmanager
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-trafficmanager
+com.microsoft.azure/azure-mgmt-batch
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-batch
+com.microsoft.azure/azure-mgmt-eventhub
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-eventhubs
+com.microsoft.azure/azure-mgmt-compute
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-compute
+com.microsoft.azure/azure-mgmt-cdn
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-cdn
+com.microsoft.azure/azure-mgmt-appservice
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-appservice
+com.microsoft.azure/azure-mgmt-containerregistry
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-containerregistry
+com.microsoft.azure/azure-mgmt-monitor
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-monitor
+com.microsoft.azure/azure-mgmt-search
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-search
+com.microsoft.azure/azure-keyvault-webkey
+Replaced by: com.azure/azure-security-keyvault-secrets, com.azure/azure-security-keyvault-certificates, com.azure/azure-security-keyvault-key
+com.microsoft.azure/azure-servicebus
+Replaced by: com.azure/azure-messaging-servicebus
+com.microsoft.azure/azure-mgmt-containerinstance
+Replaced by: com.azure.resourcemanager/azure-resourcemanager-containerinstance
+com.microsoft.azure/msal4j
+com.microsoft.azure/azure
+Replaced by: com.azure.resourcemanager/azure-resourcemanager
+com.microsoft.azure/azure-mgmt-redis
+Replaced by:
+

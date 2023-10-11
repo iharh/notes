@@ -1,0 +1,19 @@
+https://github.com/loiccoyle/rofi-prowlet
+
+https://github.com/loiccoyle/prowlet
+
+paru -S prowlet-git
+
+git clone https://github.com/loiccoyle/prowlet
+cd prowlet
+cp prowlet /somewhere/in/your/PATH/
+
+prowlet
+    indexers
+        List configured indexers.
+    categories
+        List torrent categories.
+    config
+        Show prowlarr config (json).
+    open
+        Open the prowlarr dashboard using 'xdg-open'.
