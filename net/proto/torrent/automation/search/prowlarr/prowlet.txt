@@ -1,6 +1,8 @@
 https://github.com/loiccoyle/rofi-prowlet
 
 https://github.com/loiccoyle/prowlet
+https://github.com/loiccoyle/prowlet/blob/main/prowlet
+    ! 336 lines only
 
 paru -S prowlet-git
 
