@@ -1,7 +1,12 @@
 https://www.soimort.org/translate-shell/#code-list
 https://github.com/soimort/translate-shell
 
-apt/translate-shell
+apt
+    translate-shell
+recommended
+    aspell
+    hunspell
+    gawk-doc
 
 https://github.com/soimort/translate-shell/wiki/Configuration
 https://github.com/soimort/translate-shell/wiki/REPL
