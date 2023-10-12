@@ -1,0 +1,13 @@
+https://slimtoolkit.org/
+https://github.com/slimtoolkit/slim
+
+obsolete
+    https://dockersl.im/
+    https://github.com/docker-slim/docker-slim
+
+aur
+    docker-slim
+
+asdf
+    docker-slim
+    https://github.com/xataz/asdf-docker-slim
