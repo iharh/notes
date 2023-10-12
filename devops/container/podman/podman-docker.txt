@@ -2,6 +2,19 @@ files
     /usr/bin/docker
     /usr/lib/tmpfiles.d/podman-docker.conf
 
+deps
+    apt/uidmap
+
+issues
+sudo touch /etc/containers/nodocker
+https://github.com/containers/podman/blob/main/troubleshooting.10/12/2023
+https://github.com/containers/crun/issues/704
+    https://wiki.archlinux.org/title/podman
+        4.1
+        sudo su
+        echo +cpu +cpuset +io +memory +pids > /sys/fs/cgroup/cgroup.subtree_control
+        exit
+
 ========================================================================================================================================================
  Installing                                                                                                                                             
 ========================================================================================================================================================
