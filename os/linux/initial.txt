@@ -62,3 +62,41 @@ lsb
     lsb-release - already installed
     ???
         lsb-core
+
+temperature
+https://www.cyberciti.biz/faq/how-to-check-cpu-temperature-on-ubuntu-linux/
+apt
+    lm-sensors
+ryzen7
+Found `Nuvoton NCT6798D Super IO Sensors'
+    (address 0x290, driver `nct6775')
+Using driver `i2c-piix4' for device 0000:00:14.0: AMD KERNCZ SMBus
+
+Probing for `National Semiconductor LM82/LM83'...           Success!
+    (confidence 6, driver `lm83')
+
+Driver `nct6775':
+  * ISA bus, address 0x290
+    Chip `Nuvoton NCT6798D Super IO Sensors' (confidence: 9)
+
+Driver `lm83':
+  * Bus `SMBus PIIX4 adapter port 1 at 0b20'
+    Busdriver `i2c_piix4', I2C address 0x2a
+    Chip `National Semiconductor LM82/LM83' (confidence: 6)
+
+To load everything that is needed, add this to /etc/modules:
+#----cut here----
+# Chip drivers
+lm83
+nct6775
+#----cut here----
+If you have some drivers built into your kernel, the list above will
+contain too many modules. Skip the appropriate ones!
+
+https://askubuntu.com/questions/15832/how-do-i-get-the-cpu-temperature
+    no thermal_zone
+
+apt/conky-all
+
+https://www.baeldung.com/linux/cpu-temperature
+apt/acpi
