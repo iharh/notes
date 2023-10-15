@@ -1,5 +1,12 @@
 https://rancher.com/docs/k3s/latest/en/installation/install-options/
     #installing-k3s-from-the-binary
+
+https://docs.k3s.io/advanced
+    cri-dockerd by default
+    https://github.com/Mirantis/cri-dockerd
+    curl -sfL https://get.k3s.io | sh -s - --docker
+
+
 https://www.rancher.co.jp/docs/k3s/latest/en/running/
 
 curl -sfL https://get.k3s.io | sh -

@@ -1,12 +1,25 @@
 https://www.truenas.com/
+    ! core is on BSD
 https://truecharts.org/
 
 https://github.com/truenas
 https://github.com/orgs/truenas/repositories
+https://github.com/truenas/truenas-installer
+https://github.com/truenas/scale-build
+
+https://www.truenas.com/truenas-scale/
+    ! more modern than core
+https://www.truenas.com/download-truenas-scale/
+https://www.truenas.com/docs/scale/
+
+https://www.truenas.com/community/
 
 https://www.youtube.com/@TrueNAS
 
+
 2023
+https://habr.com/ru/companies/hostkey/articles/734242/
+    ! scale or core
 RaidOwl - TrueNAS Scale - Your New Hypervisor/NAS OS - Setup & Walkthrough of 32:35
     https://www.youtube.com/watch?v=C-UI8Wvl9YU
 LearnLinuxTV - 2023 Homelab Tour - TrueNAS, Proxmox, and More! of 13:31

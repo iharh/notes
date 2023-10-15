@@ -1,3 +1,17 @@
 https://caddyserver.com/
+    ! auto create certs
+
+https://github.com/caddyserver
+https://github.com/caddyserver/caddy
+
+https://github.com/caddyserver/certmagic
+https://pkg.go.dev/github.com/caddyserver/certmagic
+    https://linuxiac.com/lets-encrypt-free-ssl-certificate/
+
+https://caddyserver.com/download
 
 https://github.com/salasrod/asdf-caddy
+
+https://caddyserver.com/docs/getting-started
+https://caddyserver.com/docs/api
+https://caddy.community/
