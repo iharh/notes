@@ -5,6 +5,8 @@ https://linuxways.net/ubuntu/how-to-upgrade-from-ubuntu-22-04-to-ubuntu-23-04/
 https://www.omgubuntu.co.uk/2023/04/upgrade-to-ubuntu-23-04
 
 2023
+https://sypalo.com/how-to-upgrade-ubuntu
+    to 23.10
 SergeySypalo - How to upgrade Ubuntu to 23.10 using GUI or command line 0:00 of 28:43
     https://www.youtube.com/watch?v=x-3U3omNbXM
         https://sypalo.com/how-to-upgrade-ubuntu
@@ -12,6 +14,9 @@ SergeySypalo - How to upgrade Ubuntu to 23.10 using GUI or command line 0:00 of 
 https://jumpcloud.com/blog/how-to-upgrade-ubuntu-22-04-to-ubuntu-23-04
 https://linuxconfig.org/how-to-upgrade-ubuntu-to-21-04
 
+sudo sed -i 's/jammy/lunar/g' /etc/apt/sources.list
+sudo sed -i 's/lunar/mantic/g' /etc/apt/sources.list
+    !!! use appropriate code names
 sudo apt update
 sudo apt upgrade
 sudo apt dist-upgrade
@@ -20,3 +25,8 @@ sudo do-release-upgrade
     There is no development version of an LTS available.
     To upgrade to the latest non-LTS development release 
     set Prompt=normal in /etc/update-manager/release-upgrades
+    sudo sed -i 's/lts/normal/g' /etc/update-manager/release-upgrades
+
+sudo do-release-upgrade -c
+
+lsb_release -a
