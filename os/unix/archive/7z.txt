@@ -6,3 +6,4 @@ file:///usr/share/doc/p7zip/DOC/MANUAL/cmdline/switches/method.htm
 7z
     a <arc-name>.7z <files>
     -p ask for password
+    -mx=0
