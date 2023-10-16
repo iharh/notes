@@ -37,31 +37,7 @@ docker
     https://help.rapidseedbox.com/en/
     https://help.rapidseedbox.com/en/articles/6982065-getting-started-with-prowlarr-2023-update
 helm
-https://hub.datree.io/ (deprecated)
-    https://www.datree.io/helm-chart/prowlarr-truecharts
-https://artifacthub.io/packages/helm/k8s-home-lab-repo/prowlarr
-https://staging.artifacthub.io/packages/helm/k8s-at-home/prowlarr
-    https://github.com/onedr0p/containers
-https://truecharts.org/
-https://truecharts.org/manual/scope
-    !!!
-https://truecharts.org/manual/FAQ/
-    https://github.com/Heavybullets8/heavy_script
-https://github.com/truecharts/charts
-https://truecharts.org/manual/SCALE/guides/getting-started/
-https://truecharts.org/manual/development/chart-structure/
-https://truecharts.org/charts/description_list/
-    https://truecharts.org/charts/stable/prowlarr/
-tf
-    https://registry.terraform.io/providers/Fuochi/prowlarr/latest/docs
-    ! vpn
-
-
-# Executing docker install script, commit: e5543d473431b782227f8908005543bb4389b8de
-+ sudo -E sh -c apt-get update -qq >/dev/null
-+ sudo -E sh -c DEBIAN_FRONTEND=noninteractive apt-get install -y -qq apt-transport-https ca-certificates curl >/dev/null
-    ...
-
+https://github.com/onedr0p/containers
 
 echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \

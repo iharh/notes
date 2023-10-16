@@ -27,9 +27,12 @@ devbox
     global add <name>@<ver>
     global pull <fleek-url>
         https://www.jetpack.io/devbox/docs/devbox_global/
+        https://www.jetpack.io/devbox/docs/guides/using_flakes/
         https://getfleek.dev/
-        https://github.com/ublue-os/fleek
+        https://getfleek.dev/docs/design
         https://getfleek.dev/docs/cli/fleek
+            !!!
+        https://github.com/ublue-os/fleek
     generate
         direnv
             https://www.jetpack.io/blog/automated-dev-envs-with-devbox-and-direnv/
