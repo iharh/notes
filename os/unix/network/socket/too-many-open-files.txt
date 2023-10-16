@@ -11,3 +11,5 @@ https://stackoverflow.com/questions/880557/socket-accept-too-many-open-files
 https://www.baeldung.com/linux/error-too-many-open-files
     lsof | wc -l
     sudo vi /etc/security/limits.d/30-user-nofile.conf
+2019
+https://winitpro.ru/index.php/2019/11/19/oshibka-too-many-open-files-v-linux/
