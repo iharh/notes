@@ -1,14 +1,8 @@
-https://docs.docker.com/engine/install/ubuntu/
-https://docs.docker.com/engine/install/ubuntu/#os-requirements
-
-# Add the repository to Apt sources:
-./de.sh
-
-dist_version -> devel ???
-./de.sh:427
-		dist_version="$(lsb_release --codename | cut -f2)"
-    -> devel ???
-    http://archive.ubuntu.com/ubuntu/ubuntu/dists/devel/
+.scripts/require_docker.sh
+INSTALLED_COMPOSE=$( (docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)") || echo "0")
+docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
+echo Docker Compose version 2.20.2+ds1-0ubuntu1 | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
+    !!! no v
 
 ????
     https://wiki.servarr.com/prowlarr/troubleshooting
@@ -17,62 +11,11 @@ dist_version -> devel ???
     https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/prowlarr/
     https://geek-cookbook.funkypenguin.co.nz/kubernetes/
     https://geek-cookbook.funkypenguin.co.nz/blog/
-docker
-    https://docs.saltbox.dev/saltbox/basics/basics/#how-does-saltbox-function
-    https://docs.saltbox.dev/#created-with-the-help-of
-    https://docs.saltbox.dev/apps/prowlarr/
-    https://wiki.servarr.com/docker-guide
-    https://wiki.servarr.com/en/prowlarr/installation/docker
-    https://hotio.dev/
-    https://hotio.dev/faq/
-    https://hotio.dev/containers/prowlarr/
-    https://hub.docker.com/r/hotio/prowlarr
-    https://github.com/hotio
-    https://github.com/hotio/cloudflareddns
-    https://github.com/hotio/prowlarr
-    https://docs.linuxserver.io/
-    https://docs.linuxserver.io/faq
-    https://docs.linuxserver.io/images/docker-prowlarr
 ????
     https://help.rapidseedbox.com/en/
     https://help.rapidseedbox.com/en/articles/6982065-getting-started-with-prowlarr-2023-update
 helm
 https://github.com/onedr0p/containers
-
-echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/nul
-
-    If you use an Ubuntu derivative distro, such as Linux Mint, you may need to users
-        UBUNTU_CODENAME
-    instead of
-        VERSION_CODENAME.
-
-de.sh:512
-    $sh_c "echo \"$apt_repo\" > /etc/apt/sources.list.d/docker.list"
-
-    https://download.docker.com/linux/ubuntu/dists/
-
-https://docs.docker.com/engine/install/ubuntu/#uninstall-old-versions
-(B[m2023-10-14 21:27:24 [34m[INFO  ](B[m   Setting executable permission on /home/iharh/.docker/main.sh(B[m
-(B[m2023-10-14 21:27:24 [32m[NOTICE](B[m   Updating repositories. Please be patient, this can take a while.(B[m
-(B[m2023-10-14 21:27:24 [34m[INFO  ](B[m   Updating repositories.(B[m
-(B[m2023-10-14 21:27:25 [32m[NOTICE](B[m   Upgrading packages. Please be patient, this can take a while.(B[m
-(B[m2023-10-14 21:27:26 [32m[NOTICE](B[m   Installing dependencies. Please be patient, this can take a while.(B[m
-(B[m2023-10-14 21:27:26 [34m[INFO  ](B[m   Removing unused packages.(B[m
-(B[m2023-10-14 21:27:27 [34m[INFO  ](B[m   Cleaning up package cache.(B[m
-(B[m2023-10-14 21:27:27 [34m[INFO  ](B[m   Removing conflicting Docker packages.(B[m
-(B[m2023-10-14 21:27:27 [32m[NOTICE](B[m   Installing docker. Please be patient, this can take a while.(B[m
-(B[m2023-10-14 21:27:27 [34m[INFO  ](B[m   Downloading docker install script.(B[m
-(B[m2023-10-14 21:27:28 [34m[INFO  ](B[m   Running docker install script.(B[m
-(B[m2023-10-14 21:27:51 [41m[37m[FATAL ](B[m   Failed to install docker.
-Failing command: [36msh /tmp/tmp.AmvlhtHVut(B[m
-
-Error: The repository 'https://download.docker.com/linux/ubuntu devel Release' does not have a Release file.
-
-
-
 
 epam-to-look
 https://wearecommunity.io/events/azure-api-management-ci-cd/talks/60129

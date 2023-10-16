@@ -2,6 +2,9 @@ install:
 https://github.com/docker/compose/releases
 community/docker-compose
 
+apt/docker-compose-v2
+    /usr/libexec/docker/cli-plugins/docker-compose
+
 pyinstaller:
 https://github.com/docker/compose/blob/master/script/build/windows.ps1
 https://github.com/docker/compose/blob/master/script/build/linux-entrypoint
