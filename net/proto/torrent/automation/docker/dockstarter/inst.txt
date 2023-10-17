@@ -15,3 +15,10 @@ E: The repository 'https://download.docker.com/linux/ubuntu devel Release' does 
 2023-10-08 22:37:19 [FATAL ]   Failed to install docker.
 Failing command: sh /tmp/tmp.h4cioVEoiG
 DockSTARTer did not finish running successfully.
+
+
+.scripts/require_docker.sh
+INSTALLED_COMPOSE=$( (docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)") || echo "0")
+docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
+echo Docker Compose version 2.20.2+ds1-0ubuntu1 | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
+    !!! no v

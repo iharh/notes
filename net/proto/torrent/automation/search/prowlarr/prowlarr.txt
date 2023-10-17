@@ -17,8 +17,9 @@ https://wiki.servarr.com/prowlarr/system
 https://wiki.servarr.com/prowlarr/settings
 https://wiki.servarr.com/prowlarr/settings#download-clients
 https://wiki.servarr.com/prowlarr/custom-scripts
-https://wiki.servarr.com/prowlarr/appdata-directory
 https://wiki.servarr.com/prowlarr/postgres-setup
+https://wiki.servarr.com/prowlarr/troubleshooting
+https://wiki.servarr.com/prowlarr/appdata-directory
 https://wiki.servarr.com/prowlarr/cardigann-yml-definition
     https://github.com/Prowlarr/Indexers/tree/master
     https://github.com/Prowlarr/Indexers/blob/master/definitions/v9/schema.json
@@ -36,6 +37,9 @@ https://hub.docker.com/r/linuxserver/prowlarr
 
 https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/prowlarr/#flirt-with-waiter-subscribe
 https://yams.media/config/prowlarr/
+
+https://wiki.ravianand.me/en/home-server/apps/servarr/prowlarr
+https://geek-cookbook.funkypenguin.co.nz/recipes/autopirate/prowlarr/
 
 features
 https://prowlarr.com/docs/api/#/
