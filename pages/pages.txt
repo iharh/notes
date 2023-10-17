@@ -1,3 +1,5 @@
+https://habr.com/ru/companies/oleg-bunin/articles/766898/
+
 .scripts/require_docker.sh
 INSTALLED_COMPOSE=$( (docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)") || echo "0")
 docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
