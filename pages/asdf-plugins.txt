@@ -1,4 +1,3 @@
-updating plugin repository...HEAD is now at 22e3806 feat: add regsync plugin (#882)
 1password-cli                 https://github.com/NeoHsu/asdf-1password-cli.git
 act                           https://github.com/grimoh/asdf-act.git
 actionlint                    https://github.com/crazy-matt/asdf-actionlint.git
