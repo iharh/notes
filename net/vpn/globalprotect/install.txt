@@ -14,3 +14,8 @@ dpkg -r $(dpkg -f your-file-here.deb Package)
 autostart
 /etc/xdg/autostart/PanGPUI.desktop
     /opt/paloaltonetworks/globalprotect/PanGPUI
+
+arch
+https://git.epam.com/viktar_chemko/globalprotect-archlinux.git
+https://git.epam.com/viktar_chemko/opswatclient-archlinux
+https://software.opswat.com/OESIS_V4/Linux/docs/support_charts/support_charts.html

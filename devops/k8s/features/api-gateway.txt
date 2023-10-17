@@ -1,5 +1,9 @@
 https://gateway-api.sigs.k8s.io/
+https://gateway-api.sigs.k8s.io/guides/
 
 2022
 https://dzone.com/articles/a-quick-glance-at-the-kubernetes-gateway-api
     https://habr.com/ru/company/nixys/blog/690934/
+    https://dzone.com/articles/back-to-basics-accessing-kubernetes-pods
+        https://blog.frankel.ch/basics-access-kubernetes-pods/
+        https://github.com/ajavageek/k8s-access
