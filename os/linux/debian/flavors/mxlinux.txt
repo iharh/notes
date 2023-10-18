@@ -4,11 +4,14 @@
 https://mxlinux.org
 https://mxlinux.org/about-us/
 https://mxlinux.org/wiki/help-files/mx-faqs/
+    not a rolling, bug has several times a year releases without a need to reinstall
+    sysv-init, not a systemd, but can select systemd from grub-menu
 
 https://mxlinux.org/download-links/
 https://mxlinux.org/current-release-features/
 
 https://mxlinux.org/manuals/
+https://raw.githubusercontent.com/MX-Linux/mx-docs/master/mxum_ru.pdf
 
 https://mxlinux.org/wiki/system/systemd/
 
@@ -16,6 +19,9 @@ https://mxlinux.org/reviews/
 
 https://mxlinux.org/wiki/xfce/xfce-commands-and-other-useful-stuff/
 
+2023
+LinuxTech - MX Linux 23 Out Now! Why is MX Ranked #1 From The Last FIVE YEARS? (UNDISPUTED) of 17:01
+    https://www.youtube.com/watch?v=bjKKfo8Szsc
 2021
 https://www.linuxtechi.com/install-mx-linux-step-by-step/
 Pingvinus - antiX and MX 21 ru of 5:11

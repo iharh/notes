@@ -1,0 +1,11 @@
+name="brave-browser-deb"
+gives="brave-browser"
+homepage='https://brave.com/'
+pkgdesc="Release version of world's most unique, privacy friendly web browser"
+pkgver="1.59.117"
+repology=("project: brave")
+breaks=("${gives}-bin" "${gives}-git" "${gives}-app")
+url="https://github.com/brave/${gives}/releases/download/v${pkgver}/${gives}_${pkgver}_amd64.deb"
+hash="c9c9314ca02082593a6115e2b2df5166e7d9748db68a2b5e7266f4d4d9983c64"
+arch=('amd64')
+pacdeps=("brave-keyring-deb")
