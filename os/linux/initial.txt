@@ -1,3 +1,6 @@
+apt
+    p7zip-full
+
 https://www.tutorialspoint.com/fixing-the-too-many-open-files-error-in-linux
 https://winitpro.ru/index.php/2019/11/19/oshibka-too-many-open-files-v-linux/
     cat /proc/sys/fs/file-max
