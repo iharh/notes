@@ -1,3 +1,22 @@
-https://github.com/containers/libpod/blob/master/install.md
+https://docs.docker.com/engine/install/ubuntu/
+    Lunar at the moment
+https://forums.docker.com/t/cant-install-docker-on-ubuntu-20-04/93058/11
 
+/etc/apt/sources.list.d/docker.list
+deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu mantic stable
+
+curl -fsSL https://get.docker.comm
+    :560
+    --dry-run
+    DEBIAN_FRONTEND=noninteractive apt-get install -y -qq docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-ce-rootless-extras docker-buildx-plugin
+
+
+.scripts/require_docker.sh
+INSTALLED_COMPOSE=$( (docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)") || echo "0")
+docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
+echo Docker Compose version 2.20.2+ds1-0ubuntu1 | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
+    !!! no v
+
+????
+https://github.com/containers/libpod/blob/master/install.md
 https://github.com/bmcgonag/docker_installs
