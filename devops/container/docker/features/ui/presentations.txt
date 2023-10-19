@@ -1,0 +1,12 @@
+2022
+Docker - Running Linux desktop environments in containers 0:00 of 9:90
+    https://www.youtube.com/watch?v=9A8PMkLaSHs
+    ! 3:24
+    FROM ubuntu:implish-20220128
+    RUN apt update && \
+        DEBINA_FRONTEND=noninteractive apt install -y kubuntu-desktop xrdp && \
+        adduser xrdp ssl-cert
+    RUN useradd -m testuser -p $(openssl passwd 1234) && \
+        usermod -aG sudo testuser
+    EXPOSE 3389
+    CMD service dbus start ; /usr/lib/systemd/systemd-logind && service xrdp start ; bash
