@@ -2,10 +2,14 @@ unixp
 2020-apr-1
 https://t.me/reddit_unixporn/559
 
+https://unixporn-dots.github.io/
+https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
+
 awesome
 https://github.com/awesomeWM/awesome/discussions/3813
 https://github.com/kotbaton/awesomewm-config
     ru
+https://github.com/elenapan/dotfiles
 https://github.com/Eredarion/dotfiles
 https://github.com/szorfein/dotfiles
 https://github.com/szorfein/unix-portfolio/tree/master/morpho
@@ -14,12 +18,15 @@ https://github.com/Sinomor/dotfiles
 https://github.com/eromatiya/the-glorious-dotfiles
     https://github.com/koaie/awesomedotfiles
     https://github.com/koaie/luc
+    https://gist.github.com/Bearbobs/2b744adda0a5151d4530ba763de993ef
 https://github.com/mpourismaiel/dotfiles
 https://github.com/venam/2bwm
 https://github.com/chadcat7/crystal
 https://github.com/beastsongithub/AwesomeWMRice
 https://github.com/Amitabha37377/Awful-DOTS
 https://github.com/Glassinatorn/Hello-world
+https://github.com/alba4k/.dotfiles
+https://github.com/Manas140/dotfiles
 
 hyprland
 https://github.com/linkfrg/dotfiles
@@ -40,3 +47,14 @@ https://github.com/midnight-the-rock/dotfiles
         !!! defpoll, defwindow, include
     https://github.com/midnight-the-rock/dotfiles/blob/master/widgets/eww.scss
         @import "./.../some.scss"
+
+kde
+https://github.com/Rashad-707/dotfiles
+    https://github.com/PrettyCoffee/fluidity
+
+openbox
+https://github.com/ilham25/dotfiles-openbox
+
+????
+https://prettycoffee.github.io/fluidity/
+
