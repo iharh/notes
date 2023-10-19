@@ -1,5 +1,5 @@
 unixp
-2020-jan-16
+2020-apr-1
 https://t.me/reddit_unixporn/559
 
 awesome
@@ -19,6 +19,7 @@ https://github.com/venam/2bwm
 https://github.com/chadcat7/crystal
 https://github.com/beastsongithub/AwesomeWMRice
 https://github.com/Amitabha37377/Awful-DOTS
+https://github.com/Glassinatorn/Hello-world
 
 hyprland
 https://github.com/linkfrg/dotfiles
@@ -30,3 +31,12 @@ https://codeberg.org/zvava/config
 
 color
 https://github.com/hercules261188/cosmic_latte
+
+xmonad
+https://github.com/midnight-the-rock/dotfiles
+    with eww
+    https://github.com/midnight-the-rock/dotfiles/tree/master/widgets
+    https://github.com/midnight-the-rock/dotfiles/blob/master/widgets/eww.yuck
+        !!! defpoll, defwindow, include
+    https://github.com/midnight-the-rock/dotfiles/blob/master/widgets/eww.scss
+        @import "./.../some.scss"
