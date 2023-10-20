@@ -1,0 +1,22 @@
+https://github.com/Aylur/ags/
+
+https://gjs.guide/
+https://gjs.guide/guides/
+https://gjs-docs.gnome.org/
+https://docs.gtk.org/gtk3/
+
+https://github.com/Aylur/ags/wiki
+https://github.com/Aylur/ags/wiki/installation
+    sudo apt install node-typescript npm meson libgjs-dev gjs libgtk-layer-shell-dev libgtk-3-dev libpulse-dev network-manager-dev libgnome-bluetooth-3.0-dev libdbusmenu-gtk3-dev
+https://github.com/Aylur/ags/wiki/configuration
+https://github.com/Aylur/ags/wiki/theming
+    https://docs.gtk.org/gtk3/css-overview.html
+    https://docs.gtk.org/gtk3/css-properties.html
+    https://wiki.gnome.org/Projects/GTK/Inspector
+https://github.com/Aylur/ags/wiki/examples
+https://github.com/Aylur/ags/wiki/javascript
+https://github.com/Aylur/ags/wiki/widgets
+https://github.com/Aylur/ags/wiki/utils
+https://github.com/Aylur/ags/wiki/variable
+https://github.com/Aylur/ags/wiki/service
+https://github.com/Aylur/ags/wiki/app
