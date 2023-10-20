@@ -184,3 +184,7 @@ https://bbs.archlinux.org/viewtopic.php?id=281222
     lsmod | grep coretemp
     modprobe coretemp
     ls /sys/devices/platform/coretemp.0
+
+firefox
+cat /lib/firefox/defaults/pref/syspref.js
+pref("browser.startup.homepage", "https://rhinolinux.org/landing/", locked);
