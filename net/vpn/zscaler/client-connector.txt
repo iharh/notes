@@ -58,11 +58,11 @@ https://help.zscaler.com/client-connector/customizing-zscaler-client-connector-i
 
 
 client connector profiles
-https://help.zscaler.com/client-connector/about-zscaler-client-connector-app-profiles
-https://help.zscaler.com/client-connector/configuring-zscaler-client-connector-profiles
+    https://help.zscaler.com/client-connector/about-zscaler-client-connector-app-profiles
+    https://help.zscaler.com/client-connector/configuring-zscaler-client-connector-profiles
 forwarding profiles
-https://help.zscaler.com/client-connector/about-forwarding-profiles
-https://help.zscaler.com/client-connector/configuring-forwarding-profiles-zscaler-client-connector
+    https://help.zscaler.com/client-connector/about-forwarding-profiles
+    https://help.zscaler.com/client-connector/configuring-forwarding-profiles-zscaler-client-connector
 
 logs
 ~/.Zscaler/logs
