@@ -1,5 +1,7 @@
 https://wiki.hyprland.org/Getting-Started/Installation/
     https://gist.github.com/Vertecedoc4545/3b077301299c20c5b9b4db00f4ca6000
+        https://gist.github.com/Vertecedoc4545/6e54487f07a1888b656b656c0cdd9764
+            ??? hwdata-dev -> hwdata
     ! Ubuntu 23.04
     https://www.youtube.com/watch?v=K1D2iTMX3j4
     https://www.youtube.com/watch?v=KKo-4ZuozUA
@@ -26,6 +28,9 @@ not present
     hwdata-dev
 present
     hwdata
+
+https://aur.archlinux.org/packages/hyprland-git
+https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=hyprland-git
 
 2023
 SamArcade - Debian 12 Linux with Hyprland Version [ 0.28.0 ] 0:00 of 26:27

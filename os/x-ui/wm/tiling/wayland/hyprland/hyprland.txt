@@ -1,13 +1,17 @@
 https://hyprland.org/
 https://github.com/hyprwm/Hyprland
 
+https://wiki.hyprland.org/FAQ/
 https://wiki.hyprland.org/Nix/
     https://github.com/hyprwm/Hyprland/blob/main/flake.nix
 https://wiki.hyprland.org/Configuring/Configuring-Hyprland/
 https://wiki.hyprland.org/Configuring/Dwindle-Layout/
 https://wiki.hyprland.org/Useful-Utilities/
 
-https://wiki.hyprland.org/FAQ/
+https://wiki.archlinux.org/title/Hyprland
+
+packages
+https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/
 
 samples
 https://github.com/Ruixi-rebirth/nixos-config
