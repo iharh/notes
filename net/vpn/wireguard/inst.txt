@@ -1,2 +1,5 @@
 https://github.com/Nyr/wireguard-install
     wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
+
+https://github.com/angristan/wireguard-install
+    https://stanislas.blog/2019/01/how-to-setup-vpn-server-wireguard-nat-ipv6/
