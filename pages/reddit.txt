@@ -1,5 +1,5 @@
 unixp
-2020-jul-4
+2020-aug-1
 https://t.me/reddit_unixporn/559
 
 https://unixporn-dots.github.io/
@@ -7,6 +7,7 @@ https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
 
 awesome
 https://github.com/awesomeWM/awesome/discussions/3813
+https://github.com/WillPower3309/awesome-dotfiles
 https://github.com/kotbaton/awesomewm-config
     ru
 https://github.com/elenapan/dotfiles
@@ -30,6 +31,7 @@ https://github.com/alba4k/.dotfiles
 https://github.com/Manas140/dotfiles
 https://github.com/kvaps/dotfiles
 https://github.com/16bitmood/dotfiles
+https://github.com/eromatiya/the-glorious-dotfiles
 
 hyprland
 https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#vm
@@ -54,6 +56,8 @@ icons
 https://github.com/mjkim0727/OneUI4-Icons
 
 xmonad
+https://github.com/NeshHari/XMonad
+    with eww ?
 https://github.com/midnight-the-rock/dotfiles
     with eww
     https://github.com/midnight-the-rock/dotfiles/tree/master/widgets
@@ -61,6 +65,8 @@ https://github.com/midnight-the-rock/dotfiles
         !!! defpoll, defwindow, include
     https://github.com/midnight-the-rock/dotfiles/blob/master/widgets/eww.scss
         @import "./.../some.scss"
+https://github.com/Horhik/dotfiles
+
 
 kde
 https://github.com/Rashad-707/dotfiles
