@@ -8,3 +8,6 @@ dpkg
         /etc/os-release -> base-files
     -r [--force-all] <pkg_name>
         remove
+
+    ???
+    --status-fd 35 --no-triggers --configure base-files:amd64

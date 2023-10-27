@@ -1,10 +1,11 @@
 https://www.clamav.net/
-
 https://www.clamav.net/downloads
 
-https://blog.clamav.net/
-
 https://docs.clamav.net/Introduction.html
+
+https://en.opensuse.org/Clamav
+
+https://blog.clamav.net/
 
 docker
 https://hub.docker.com/r/clamav/clamav
@@ -15,3 +16,25 @@ https://linuxiac.com/clamav-0-104/
 
 whatsnew
 https://blog.clamav.net/2021/09/clamav-01040-released.html
+
+inst
+sudo apt install clamav-daemon
+sudo systemctl enable clamav-daemon
+sudo systemctl start clamav-daemon
+
+check socket connection
+ls -l /var/run/clamav/clamd.ctl
+expected result 
+srw-rw-rw- 1 clamav clamav 0 Jun 28 19:08 /var/run/clamav/clamd.ctl
+
+check scan
+sudo clamdscan --fdpass, wait for 2-4 minutes
+
+to enable OnAccess scan:
+sudo vi /etc/clamav/clamd.conf
+# at the end
+OnAccessPrevention yes
+OnAccessExcludeRootUID yes
+
+to run OnAccess scan.
+sudo clamonacc --fdpass 

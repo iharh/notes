@@ -1,0 +1,13 @@
+https://github.com/Free-TV/IPTV
+https://github.com/Free-TV/IPTV/pulls
+
+https://aur.archlinux.org/packages/hypnotix-git
+https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=hypnotix-git
+
+https://github.com/Free-TV/IPTV/blob/master/.github/workflows/test_playlist.yml
+    m3u-linter
+    iptv-checker
+https://github.com/Free-TV/IPTV/blob/master/.github/workflows/update_playlist.yml
+
+To use it point your IPTV player to
+https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8

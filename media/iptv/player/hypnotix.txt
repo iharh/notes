@@ -1,0 +1,56 @@
+https://linuxmasterclub.com/hypnotix/
+https://github.com/linuxmint/hypnotix
+https://github.com/linuxmint/hypnotix/releases
+
+wayland
+https://trello.com/b/HHs01Pab/cinnamon-wayland
+
+sudo add-apt-repository ppa:stefanlobbenmeier/hypnotix
+sudo apt-get update
+sudo apt-get install hypnotix
+
+...
+Err:10 https://ppa.launchpadcontent.net/stefanlobbenmeier/hypnotix/ubuntu noble Release
+  404  Not Found [IP: 185.125.190.52 443]
+Reading package lists... Done
+W: Conflicting distribution: https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu devel InRelease (expected devel but got noble)
+E: The repository 'https://ppa.launchpadcontent.net/stefanlobbenmeier/hypnotix/ubuntu noble Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+
+Recommended packages:
+  dnsutils
+
+pacstall/hypnotix-deb
+name="hypnotix-deb"
+gives="hypnotix"
+repology=("project: ${gives}")
+codename="$(lsb_release -cs)"
+pacdeps=("gir1.2-xapp-1.0-deb")
+case "${codename}" in
+  bullseye | bookworm | trixie)
+    pacdeps=("gir1.2-xapp-1.0-deb" "python3-imdbpy-deb")
+    ;;
+  *) ;;
+esac
+pkgver="3.6"
+hash="22173ffdced6a22f3b048a66ce3bfdaec1b67de948c2fab3d74bcbce46361f3a"
+url="http://packages.linuxmint.com/pool/main/h/hypnotix/hypnotix_${pkgver}_all.deb"
+pkgdesc="An IPTV streaming application with support for live TV, movies and series"
+
+...
+[+] INFO: Retrieving packages
+Initializing download: http://packages.linuxmint.com/pool/main/h/hypnotix/hypnotix_3.6_all.deb
+ERROR 404: Not Found.
+[!] ERROR: Failed to download package
+[+] INFO: Cleaning up
+
+2023
+https://itsfoss.com/hypnotix-iptv-app/
+https://owlhowto.com/how-to-watch-free-tv-on-linux-mint/
+2022
+https://linuxcool.net/instrukczii/hypnotix-iptv-pleer-ot-razrabotchikov-linux-mint/
+    ! need to check inst
+2020
+https://www.funkyspacemonkey.com/hypnotix-a-linux-iptv-streaming-app-with-support-for-live-tv-movies-and-series
+    ? FreeIPTV
