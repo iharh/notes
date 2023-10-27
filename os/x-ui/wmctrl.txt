@@ -1,0 +1,10 @@
+at of the argument is:
+
+                       (remove|add|toggle),<PROP1>[,<PROP2>]
+
+                       The EWMH specification defines the
+                       following properties:
+
+                           modal, sticky, maximized_vert, maximized_horz,
+                           shaded, skip_taskbar, skip_pager, hidden,
+                           fullscreen, above, below
