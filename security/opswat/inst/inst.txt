@@ -1,5 +1,10 @@
 !!! arch/pacman supported !!!
 https://www.youtube.com/user/opswat1
+    
+https://docs.opswat.com/macloud-sdp/kb/how-do-i-open-the-remediation-page-from-the-opswat-client-on-arc
+    Download the xdg-utils package via This Link.
+    Install the package by running the command: pacman -S xdg-utils
+
 
 https://docs.opswat.com/macloud-sdp/kb/what-is-system-requirement-for-opswat-client-
     Debian 8+
@@ -50,3 +55,25 @@ An out of date or unsupported OS could expose your device to attack and critical
 Upgrade your operating system to any of the approved operating systems versions listed below:
     Ubuntu version 18.04 or later
 Please contact your Administrator for specific instructions.
+
+
+************************************************************************
+(Reading database ... 300809 files and directories currently installed.)
+Preparing to unpack ./opswatclient.deb ...
+Check agent running state
+Stop agent
+Check tray app running state
+Check tools running state
+All processes stopped
+ready for upgrading ...
+Unpacking opswatclient (15.4.2310.117) over (15.4.2310.117) ...
+Check agent working
+New agent working
+Setting up opswatclient (15.4.2310.117) ...
+Start the agent
+Processing triggers for bamfdaemon (0.5.6+22.04.20220217-0ubuntu1) ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers for gnome-menus (3.36.0-1.1ubuntu1) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu5) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Ready to remove temp file
