@@ -1,3 +1,5 @@
 https://git.epam.com/Anton_Griadchenko/opswatclient-arch
 https://git.epam.com/viktar_chemko/opswatclient-archlinux
     https://git.epam.com/viktar_chemko/globalprotect-archlinux
+
+wget https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient.tar
