@@ -1,5 +1,20 @@
 sent/opsw
 
+https://github.com/rust-lang/rust/pull/116978/files
+Warning: Some installed formulae are deprecated or disabled.
+You should find replacements for the following formulae:
+  openssl@1.1
+
+Zykov - Programming Functional Approach ru
+    B94D53D424715F2E21A19149D3E9DA05
+
+https://spring.io/projects/spring-cloud-stream-applications
+https://github.com/spring-cloud/stream-applications
+
+https://www.reddit.com/r/haskell/comments/17j135h/tallinn_haskell_user_group_2_agda_introduction/
+https://nnmclub.to/forum/viewtopic.php?t=1672713
+https://www.cyberciti.biz/tips/top-linux-monitoring-tools.html
+
 java booster
 https://web.yammer.com/main/org/epam.com/topics/eyJfdHlwZSI6IlRvcGljIiwiaWQiOiI3MDM2OTc3MTUyMCJ9/all
 
@@ -63,7 +78,7 @@ https://github.com/nix-community/fenix
 https://wearecommunity.io/events/integration-tests-in-java/talks/47164
     int-tests
 https://blog.predanie.ru/article/pochemu-stradali-prometej-sokrat-i-elli-smit-obyasneno-bogom/
-    ! 
+    !
 NixOS
     https://www.youtube.com/watch?v=DjB0_ENFZWY
     https://www.youtube.com/watch?v=xkzUjEj2tTg
@@ -390,7 +405,7 @@ Metametrics - Vasserman 1:15:00 of 1:21:59
     ! 10:00 - exclude edu and health from services-sphere
 WithoutLazyness
     https://www.youtube.com/watch?v=CCb5ps194fw
-LilyaGrad - 
+LilyaGrad -
     https://www.youtube.com/watch?v=x-OV3unRzY4
 Borisov - Let Them Talk - Tutberidze ru 2:00 of 1:00:19
     https://www.youtube.com/watch?v=MeHslO1WGeM
@@ -673,7 +688,7 @@ Boris Geidman - 1543
 Zavelskiy
     http://1543.ru/teachers/zavelsky/inter2018.htm
     http://www.1543.ru/teachers/zavelsky/inter2009.htm
-Novikov - Math on the Threshold of 21st Century 
+Novikov - Math on the Threshold of 21st Century
     http://aspirant.rggu.ru/article.html?id=50768
 Arnold - About Teaching Math ru
     http://www.ega-math.narod.ru/Arnold2.htm
