@@ -1,4 +1,7 @@
 2023
+vimjoyer - Nix Language Explained of 8:52
+    https://www.youtube.com/watch?v=UgrwoAGSPOQ
+    ! nix-instantiate --eval "...expr"
 JakeHamilton - Nix From Nothing | Let's Learn Nix & NixOS! of 1:06:35
     https://www.youtube.com/watch?v=t8ydCYe9Y3M
     ! $ echo 42 > example.nix
