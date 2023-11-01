@@ -1,3 +1,5 @@
+cp: cannot stat '/var/log/pacstall/metadata/*': No such file or directory
+
 sent/opsw
 
 https://github.com/rust-lang/rust/pull/116978/files

@@ -1,5 +1,6 @@
 apt
     p7zip-full
+    gir1.2-xapp-1.0
 
 https://www.tutorialspoint.com/fixing-the-too-many-open-files-error-in-linux
 https://winitpro.ru/index.php/2019/11/19/oshibka-too-many-open-files-v-linux/
