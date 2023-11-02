@@ -2,7 +2,7 @@ https://www.linux.org.ru/gallery/
 https://www.linux.org.ru/tag/nixos
 
 unixp
-2020-oct-7
+2020-dec-4
 https://t.me/reddit_unixporn/559
 
 https://unixporn-dots.github.io/
@@ -39,6 +39,7 @@ https://github.com/eromatiya/the-glorious-dotfiles
 https://github.com/jazz-g/shining-plum
     !!!
     https://github.com/jazz-g/shining-plum/tree/master/.config/awesome/scripts
+https://github.com/figsoda/cfg
 
 hyprland
 https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#vm
@@ -103,3 +104,6 @@ https://prettycoffee.github.io/fluidity/
 https://github.com/romkatv/powerlevel10k/blob/master/README.md#show-on-command
 
 https://github.com/szorfein/dots
+
+nixos
+https://github.com/sherubthakur/dotfiles/tree/master
