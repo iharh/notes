@@ -23,3 +23,6 @@ ls -lah /dev/disk/by-uuid/
 
 2021
 https://linuxhandbook.com/check-ssd-health/
+
+scrutiny
+https://github.com/AnalogJ/scrutiny
