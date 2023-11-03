@@ -1,0 +1,115 @@
+https://cfssl.org/
+https://github.com/cloudflare/cfssl
+    https://serveradmin.ru/kak-perevypustit-novyj-ca-dlya-openvpn/
+    https://serveradmin.ru/nastroyka-openvpn-na-centos/#Sozdanie_sertifikatov
+
+В современном интернете очень активно используется протокол шифрования TLS. Чаще всего с ним сталкиваешься в HTTPS, VPN, STARTTLS (imap и smtp в основном). В Linux (и Unix в целом) этот протокол в основном реализован посредством OpenSSL. Это библиотека libssl и утилита командной строки openssl. Работа с этой утилитой настоящий вынос мозга. Там море всяких ключей, длиннющих конструкций и команд. Сталкиваться с этим напрямую приходится, например, при настройке своего OpenVPN сервера. 
+
+Чтобы упростить задачу управления сертификатами с помощью OpenSSL, придумали набор скриптов EasyRSA, которые даже в винду портировали. Именно с ними я всегда взаимодействовал, когда нужно было создать CA, серверные и клиентские ключи для OpenVPN (вот пример из моей статьи (https://serveradmin.ru/nastroyka-openvpn-na-centos/#Sozdanie_sertifikatov)). Да и не только. Для всех подобных задач использовал EasyRSA и не знал, что есть инструменты проще. 
+
+В одном из комментариев увидел информацию, что есть CFSSL. Это утилита от cloudflare, с помощью которой можно создать и управлять CA, только без лишних костылей и подпорок. У неё вполне простой и понятный CLI, которым пользоваться в разы удобнее и проще, чем у openssl. Покажу сразу на примере создания CA и выпуска сертификатов для нужд OpenVPN сервера. Использую потом эту заметку при очередном обновлении статьи (уже назрело).
+
+CFSSL это просто бинарник, скомпилированный из исходников на GO. В репозиториях Debian 12 он живёт под названием golang-cfssl:
+# apt install golang-cfssl
+Версия почему-то очень древнючая - 1.2.0, когда в репе уже 1.6.4 есть (https://github.com/cloudflare/cfssl). Можно вручную скачать свежий бинарник. 
+
+Для cfssl нужно готовить конфиги в формате json. Сделать это нужно будет 1 раз. Интерактивного ввода, как у easyrsa, как я понял, нет. Готовим простой конфиг для выпуска СА:
+{
+ "CN": "My Root CA",
+ "key": {
+  "algo": "rsa",
+  "size": 2048
+ },
+ "ca": {
+  "expiry": "87600h"
+ },
+ "names": [
+  {
+   "C": "RU",
+   "L": "Moscow",
+   "O": "Serveradmin Company",
+   "OU": "OpenVPN",
+   "ST": "Moscow"
+  }
+ ]
+}
+
+Сохранили с именем ca-csr.json. Тут срок действия стоит 10 лет. Кажется, что много. Но на самом деле у меня лично был случай, когда 10-ти летний CA протух (https://serveradmin.ru/kak-perevypustit-novyj-ca-dlya-openvpn/).
+
+Генерируем ключ для CA:
+# mkdir keys && cd keys
+# cfssl gencert -initca ca-csr.json | cfssljson -bare ca
+
+Получили 3 файла:
+▪️ ca-key.pem - приватный ключ для подписи сертификатов
+▪️ ca.pem - сам сертификат удостоверяющего центра
+▪️ ca.csr - запрос на сертификат
+
+Подготовим конфиг профилей, которые нужны будут для сертификата сервера и клиентов:
+
+{
+  "signing": {
+    "profiles": {
+      "server": {
+        "expiry": "87600h",
+        "usages": [
+          "digital signature",
+          "key encipherment",
+          "server auth"
+        ]
+      },
+      "client": {
+        "expiry": "87600h",
+        "usages": [
+          "signing",
+          "client auth"
+        ]
+      }
+    }
+  }
+}
+
+Сохранили с именем ca.json. И делаем конфиг для запроса, такой же как для CA, только секцию с CA убираем:
+
+{
+ "CN": "My Root CA",
+ "key": {
+  "algo": "rsa",
+  "size": 2048
+ },
+ "names": [
+  {
+   "C": "RU",
+   "L": "Moscow",
+   "O": "Serveradmin Company",
+   "OU": "OpenVPN",
+   "ST": "Moscow"
+  }
+ ]
+}
+
+Сохранили с именем csr.json. Выпускаем сертификат сервера:
+# cfssl gencert -ca=ca.pem -ca-key=ca-key.pem \
+-config=ca.json -profile="server" \
+-cn="openvpn.server.local" -hostname="openvpn" \
+csr.json | cfssljson -bare server
+
+Получили 3 файла:
+# ls | grep server
+server.csr
+server-key.pem
+server.pem
+
+Выпускаем сертификат для клиента:
+# cfssl gencert -ca=ca.pem -ca-key=ca-key.pem \
+-config=ca.json -profile="client" \
+-cn="client01"  -hostname="User 01" \
+csr.json | cfssljson -bare client01
+
+Проверяем:
+# ls | grep client01
+client01.csr
+client01-key.pem
+client01.pem
+
+Вот и всё. Подготовили удостоверяющий центр и выпустили сертификаты клиента и сервера. Выглядит действительно удобнее и проще EasyRSA. 
