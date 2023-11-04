@@ -1,0 +1,18 @@
+https://gitlab.com/librephoenix/nixos-config
+https://gitlab.com/librephoenix/nixos-config/-/blob/main/flake.nix?ref_type=heads
+
+   nixpkgs-patched = (import nixpkgs { inherit system; }).applyPatches {
+      name = "nixpkgs-patched";
+      src = nixpkgs;
+      patches = [ ./patches/emacs-no-version-check.patch ];
+    };
+    # configure pkgs
+    pkgs = import nixpkgs-patched {
+      inherit system;
+      config = { allowUnfree = true; };
+      overlays = [ rust-overlay.overlays.default ];
+    };
+
+    # configure lib
+    lib = nixpkgs.lib;
+

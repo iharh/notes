@@ -2,11 +2,10 @@ https://www.linux.org.ru/gallery/
 https://www.linux.org.ru/tag/nixos
 
 unixp
-2021-jan-1
+2021-feb-1
 https://t.me/reddit_unixporn/559
-
-https://unixporn-dots.github.io/
 https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
+https://unixporn-dots.github.io/
 
 awesome
 https://github.com/awesomeWM/awesome/discussions/3813
@@ -40,6 +39,10 @@ https://github.com/jazz-g/shining-plum
     !!!
     https://github.com/jazz-g/shining-plum/tree/master/.config/awesome/scripts
 https://github.com/figsoda/cfg
+https://github.com/drahenprofi/dotfiles
+https://github.com/mut-ex/awesome-wm-nice/
+    macos-like
+https://github.com/mpourismaiel/dotfiles
 
 hyprland
 https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#vm
@@ -61,6 +64,16 @@ https://github.com/Ehllay/hyprland-dotfiles
 https://www.reddit.com/r/unixporn/comments/17d2q6o/hyprland_because_linux/
     https://www.youtube.com/watch?v=utbs1cO8VnI
 https://github.com/enchanted-coder/nix-config
+https://github.com/phant80m/dotfiles
+    https://www.youtube.com/watch?v=qVUdr7KDl-4
+https://github.com/TesterTech/hyprland-config
+    https://www.youtube.com/watch?v=89aYpPMlqFs
+    https://www.youtube.com/watch?v=CeOfycrY5JI
+
+eww
+https://www.youtube.com/watch?v=AmVqENmVu8w
+https://www.youtube.com/watch?v=SBPZNjDiggE
+    dashboard
 
 sway
 https://codeberg.org/zvava/config
@@ -110,3 +123,8 @@ https://github.com/fredmny/dotfiles
 
 nixos
 https://github.com/sherubthakur/dotfiles/tree/master
+https://github.com/JavaCafe01/dotfiles
+https://github.com/moni-dz/nix-config
+stylix
+https://danth.github.io/stylix/
+    https://github.com/danth/stylix
