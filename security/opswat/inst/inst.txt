@@ -15,14 +15,15 @@ https://docs.opswat.com/macloud-sdp/release-notes/release-notes
 https://docs.opswat.com/macloud-sdp/kb
 https://docs.opswat.com/macloud-sdp
 
-wget https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient_deb.tar
-tar -xvf opswatclient_deb.tar
-cd opswatclient_deb
+https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/
+    wget https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient_deb.tar
+    tar -xvf opswatclient_deb.tar
+    cd opswatclient_deb
 
-# byod
-sudo ./setup.sh -s=3445 -l=835dc08839b78a925c9f8882b85b3592 -g=15009832
-# corp
-sudo ./setup.sh -s=3445 -l=835dc08839b78a925c9f8882b85b3592 -g=6151106
+    # byod
+    sudo ./setup.sh -s=3445 -l=835dc08839b78a925c9f8882b85b3592 -g=15009832
+    # corp
+    sudo ./setup.sh -s=3445 -l=835dc08839b78a925c9f8882b85b3592 -g=6151106
 
 https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/6151106
     ! corp policy (+ sentinel and other stuff, quallis-scanner, opswat + 100500 chekers)
