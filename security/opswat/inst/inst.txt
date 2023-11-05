@@ -58,6 +58,13 @@ ln -s /usr/bin/opswatclient/bin/tlaxzac /usr/bin/opswat-clinet
 
 opswat-client -i
 
+svc
+systemctl status opswatclient.service
+# 835dc08839b78a925c9f8882b85b3592 3445 15009832
+/usr/bin/opswatclient/bin/daxz -s ${LICENSE} ${SERVER} ${GROUPID}
+#stop
+/usr/bin/opswatclient/bin/daxz -e
+
 rhino
 An out of date or unsupported OS could expose your device to attack and critical loss of data.
 Upgrade your operating system to any of the approved operating systems versions listed below:
