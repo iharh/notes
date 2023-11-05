@@ -51,6 +51,13 @@ https://eapi.opswatgears.com:11369/opswat/devinfo?count=10&callback=myCallback
 sdk
 https://software.opswat.com/OESIS_V4/Linux/docs/support_charts/support_charts.html
 
+???
+ls -la /usr/bin/opswatclient/bin/tlaxzac
+ls -la /usr/bin/opswat-client
+ln -s /usr/bin/opswatclient/bin/tlaxzac /usr/bin/opswat-clinet
+
+opswat-client -i
+
 rhino
 An out of date or unsupported OS could expose your device to attack and critical loss of data.
 Upgrade your operating system to any of the approved operating systems versions listed below:

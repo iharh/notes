@@ -2,7 +2,7 @@ https://habrahabr.ru/post/280037/
 
 hostnamectl
     hostname
-    set-hostname <new-name>
+    set-hostname EPBYGOMW0024T.
 /etc/hostname
     old-way to set persistent
 
