@@ -9,6 +9,8 @@ spring.jpa.properties
     store_data_at_delete: bool
 
 2023
+BoualiAli - JPA Auditing for Spring boot and Spring Security 0:00 of 25:59
+    https://www.youtube.com/watch?v=lGULtrZqk-c
 https://habr.com/ru/post/715918/
 2022
 https://www.baeldung.com/database-auditing-jpa
