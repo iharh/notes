@@ -47,6 +47,10 @@ ThorgersenSilva - Keycloak - Identity and Access Management for Modern Applicati
     2FCEDB79A750149203A1E5CEA5118AA2
 
 2023
+https://habr.com/ru/articles/772010/
+https://habr.com/ru/articles/716232/
+    ! +ABAC
+    https://github.com/mgalaktionov/keycloak-demo-2
 https://itnext.io/what-is-new-in-jakarta-security-3-98db53317e19
 https://habr.com/ru/companies/otus/articles/733404/
 https://habr.com/ru/articles/546428/
@@ -82,9 +86,6 @@ https://www.baeldung.com/spring-boot-keycloak
     https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-keycloak
 https://www.baeldung.com/spring-boot-keycloak-integration-testing
     with testcontainers
-https://habr.com/ru/articles/716232/
-    ! +ABAC
-    https://github.com/mgalaktionov/keycloak-demo-2
 
 https://habr.com/ru/post/724738/
     refresh-token, bad ideology

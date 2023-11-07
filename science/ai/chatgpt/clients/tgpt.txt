@@ -1,7 +1,20 @@
 https://github.com/aandrew-me/tgpt
-    3.5
+    2.1.1
+    model? 3.5
 curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s /usr/local/bin
 go install github.com/aandrew-me/tgpt@latest
 
+paru
+    tgpt-bin
+
+tgpt 
+    -c "Hello world in Python"
+
+cfg
+~/.config/tgpt
+
 2023
 https://www.youtube.com/watch?v=yrj8Pa1JHf
+
+https://github.com/aandrew-me/tgpt/blob/main/functions.go#L466
+    http.NewRequest("POST", "https://ai.fakeopen.com/v1/chat/completions", data)
