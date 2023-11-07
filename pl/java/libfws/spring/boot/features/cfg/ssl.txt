@@ -7,6 +7,7 @@ server:
     keyAlias: 1
 
 2023
+https://spring.io/blog/2023/11/07/ssl-hot-reload-in-spring-boot-3-2-0
 https://spring.io/blog/2023/06/07/securing-spring-boot-applications-with-ssl
 2021
 https://habr.com/ru/post/593507/
