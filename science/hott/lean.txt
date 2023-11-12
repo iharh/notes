@@ -1,12 +1,22 @@
 Term Format
 http://maxim.livejournal.com/464619.html
 
+https://leanprover-community.github.io/learn.html
+
+https://github.com/digama0/lean-type-theory
+
 Presentations:
 
 DeMoura
 http://www.cs.cmu.edu/~soonhok/talks/20131004/#/
 
 -- We need UIP, K-axiom of proof irrelevance
+
+https://loogle.lean-lang.org/
+https://github.com/nomeata/loogle
+
+https://leanprover-community.github.io/mathlib4_docs/
+https://github.com/leanprover-community/mathlib4
 
 2021
 Artem Vasilyev - Lean
