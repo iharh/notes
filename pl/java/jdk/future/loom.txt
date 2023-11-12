@@ -11,7 +11,11 @@ https://cr.openjdk.java.net/~rpressler/loom/Loom-Proposal.html
 demo
 https://github.com/tipsy/loomylin
 
+https://github.com/softwaremill/ox/
+
 2023
+https://www.baeldung.com/openjdk-project-loom
+https://softwaremill.com/limits-of-looms-performance/
 https://softwaremill.com/what-is-blocking-in-loom/
     https://blog.cloudflare.com/missing-manuals-io_uring-worker-pool/
 https://blog.rockthejvm.com/ultimate-guide-to-java-virtual-threads/

@@ -32,12 +32,20 @@ https://huggingface.co/blog/personal-copilot
 https://huggingface.co/blog/falcon
 https://huggingface.co/tiiuae/falcon-40b
 https://huggingface.co/tiiuae/falcon-40b-instruct
+https://github.com/OpenBuddy/OpenBuddy/blob/main/models.md
 
 datasets
 https://huggingface.co/datasets
 
 models
 https://huggingface.co/models
+
+https://huggingface.co/blog/safecoder
+https://huggingface.co/bigcode/starcoder
+
+https://duckdb.org/
+https://duckdb.org/docs/extensions/httpfs
+https://huggingface.co/blog/hub-duckdb
 
 vscode ext
 https://marketplace.visualstudio.com/items?itemName=HuggingFace.huggingface-vscode
