@@ -5,3 +5,6 @@ https://www.postgresql.org/docs/current/functions-formatting.html
 ... field_date >= now() - '30 days'::interval ...
 
 field_date: timestamp without time zone
+
+2023
+https://habr.com/ru/articles/772954/
