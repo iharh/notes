@@ -1,7 +1,24 @@
-xfreerdp +clipboard /u:<user> /v:<host>
+https://www.freerdp.com/
 
-com.freerdp.legacy - Unable to get current timezone rule
+https://github.com/FreeRDP/FreeRDP/
+https://github.com/FreeRDP/FreeRDP/releases
+
+apt/
+    freerdp2-dev
+    freerdp2-wayland (apt)
+    freerdp2-x11 (apt)
+
+https://github.com/FreeRDP/FreeRDP/wiki/CommandLineInterface
+xfreerdp 
+    /v:<host>
+    /u:<user> 
+    /w:<width> Width
+    /h:<height> Height
+    +clipboard 
+
+https://github.com/FreeRDP/FreeRDP/wiki
 https://github.com/FreeRDP/FreeRDP/wiki/Time-Zone-Redirection
+    com.freerdp.legacy - Unable to get current timezone rule
 
 https://github.com/FreeRDP/Remmina/issues/868
 [08:52:59:175] [12957:12958] [ERROR][com.winpr.timezone] - Unable to get current timezone rule
@@ -9,4 +26,3 @@ https://github.com/FreeRDP/Remmina/issues/868
 [08:52:59:198] [12957:12958] [ERROR][com.freerdp.core.transport] - transport_check_fds: transport->ReceiveCallback() - -1
 [08:52:59:198] [12957:12958] [ERROR][com.freerdp.client.x11] - Freerdp connect error exit status 1
 [08:52:59:199] [12957:12957] [ERROR][com.winpr.sync.mutex] - pthread_mutex_destroy failed with Device or resource busy [16]
-
