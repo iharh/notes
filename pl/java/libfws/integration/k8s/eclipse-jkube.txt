@@ -1,4 +1,5 @@
 https://eclipse.dev/jkube/
+
 https://github.com/eclipse/jkube
 https://github.com/eclipse/jkube#kubernetes-gradle-plugin
 https://github.com/eclipse/jkube/tree/master/quickstarts/gradle
@@ -9,3 +10,6 @@ https://github.com/eclipse/jkube/blob/master/quickstarts/gradle/dapr-hello-world
 
 2023
 https://www.baeldung.com/ops/eclipse-jkube
+https://blog.marcnuri.com/eclipse-jkube-1-15
+2020
+https://blog.marcnuri.com/eclipse-jkube-introduction-kubernetes-openshift
