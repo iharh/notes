@@ -20,6 +20,12 @@ https://github.com/FreeRDP/FreeRDP/wiki
 https://github.com/FreeRDP/FreeRDP/wiki/Time-Zone-Redirection
     com.freerdp.legacy - Unable to get current timezone rule
 
+host key
+https://github.com/FreeRDP/FreeRDP/issues/931
+    R-Ctrl, Alt-Tab
+    https://github.com/FreeRDP/FreeRDP/pull/3622
+    https://github.com/FreeRDP/FreeRDP-old/issues/49
+
 https://github.com/FreeRDP/Remmina/issues/868
 [08:52:59:175] [12957:12958] [ERROR][com.winpr.timezone] - Unable to get current timezone rule
 [08:52:59:198] [12957:12958] [INFO][com.freerdp.core] - ERRINFO_SERVER_INSUFFICIENT_PRIVILEGES (0x00000009):The user cannot connect to the server due to insufficient access privileges.
