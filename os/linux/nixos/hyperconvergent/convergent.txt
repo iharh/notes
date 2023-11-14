@@ -1,0 +1,8 @@
+2023
+https://news.ycombinator.com/item?id=36262356
+    In a 'divergent' system (e.g. managed by bash scripts), the resulting system state might diverge from what the bash scripts have,
+    because of manually running commands on the system.
+    In a 'convergent' system, the system tries to reach a target state by comparing what's there with what it's got.
+    In a 'congruent' system, the system is forcibly built to equal the target state.
+2016
+https://flyingcircus.io/blog/thoughts-on-systems-management-methods/
