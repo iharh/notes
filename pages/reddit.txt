@@ -130,6 +130,8 @@ qtile
 https://github.com/fredmny/dotfiles
 
 nixos
+https://github.com/wochap/nix-config
+    ! nix-ld, nix-alien, hyprland, waybar
 https://github.com/sherubthakur/dotfiles/tree/master
 https://github.com/JavaCafe01/dotfiles
 https://github.com/moni-dz/nix-config
