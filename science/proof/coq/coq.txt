@@ -1,5 +1,13 @@
+http://coq.io/
+https://github.com/coq-io/system
+https://github.com/coq-io/io
+
+
 scoop
     coq
+
+extractors:
+https://github.com/pirapira/coq2rust
 
 Vocab
 
