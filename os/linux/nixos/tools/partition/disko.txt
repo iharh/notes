@@ -1,13 +1,26 @@
+https://numtide.com/
+
 https://nixos.wiki/wiki/Disko
+    !!!
 
 https://github.com/nix-community/disko
 https://github.com/nix-community/disko/tree/master/docs
 https://github.com/nix-community/disko/blob/master/docs/INDEX.md
 https://github.com/nix-community/disko/blob/master/docs/quickstart.md
+    cd /tmp
+    curl https://raw.githubusercontent.com/nix-community/disko/master/example/hybrid.nix -o /tmp/disko-config.nix
+    # edit /tmp/disko-config.nix
+    sudo nix run github:nix-community/disko -- --mode disko /tmp/disko-config.nix
+    # or ./disko [options] --flake github:somebody/somewhere#disk-config
 https://github.com/nix-community/disko/blob/master/docs/reference.md
+    # ? generate the .raw VM image
 https://github.com/nix-community/disko/blob/master/docs/upgrade-guide.md
+https://github.com/nix-community/disko/blob/master/docs/HowTo.md#installing-nixos-module
 
 https://github.com/nix-community/disko/tree/master/example
+https://github.com/nix-community/disko/blob/master/example/simple-efi.nix
+https://github.com/nix-community/disko/blob/master/example/hybrid.nix
+
 https://github.com/LGUG2Z/nixos-hetzner-cloud-starter/blob/master/disk-config.nix
 
 ????
@@ -15,5 +28,18 @@ https://cgit.krebsco.de/disko/about/
 https://www.reddit.com/r/NixOS/comments/12opqbj/more_disko_woes/
 https://cgit.krebsco.de/disko/tree/example/stand-alone/tsp-disk.json
 
+https://numtide.com/blog/we-dont-need-nixos-cloud-images-anymore-2/
+
+????
+https://wiki.nikiv.dev/package-managers/nix/
+https://www.tweag.io/blog/2022-11-01-hard-user-separation-with-nixos/
+
 2023
+https://www.reddit.com/r/NixOS/comments/16kiznc/flake_disko_nixosinstall/
+    https://aldoborrero.com/posts/2023/01/15/setting-up-my-machines-nix-style/
+        ! +flake-parts
+    https://bmcgee.ie/posts/2022/12/setting-up-my-new-laptop-nix-style/
 https://www.reddit.com/r/NixOS/comments/12ahclh/disko_issues/
+NixCon 0:00 of 33:55
+    https://www.youtube.com/watch?v=U_UwzMhixr8
+    ! +nix-anywhere
