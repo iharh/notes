@@ -1,6 +1,10 @@
 https://github.com/marketplace/actions/install-nix
 https://github.com/cachix/install-nix-action
 
+samples
+https://github.com/LGUG2Z/nixos-wsl-starter/blob/master/.github/workflows/build.yml
+          - uses: cachix/install-nix-action@6a9a9e84a173d90b3ffb42c5ddaf9ea033fad011
+
 2022
 https://danth.me/posts/post/update_your_nix_flake_using_github_actions.html
 2021

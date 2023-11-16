@@ -1,5 +1,52 @@
+Keeping all of it well organized via
+    !!! flake-parts
+
+https://dr460nf1r3.org/
+    My setup is available as ISO with an installer, bringing this particular setup to everyone who likes it.
+
 https://nixed.dr460nf1r3.org/
+    ISO builds are available as well as a simple installer, which employs nix flake init to deploy a basic and generic version of this flake's template based on user's choices.
+    Partitioning is achieved via disko presets and the installer may be used on regular NixOS live mediums as well.
+    Users may then continue building their own version of NixOS using code snippets of this repository and further linked sources.
+    Furthermore, the flakes' outputs are automatically build and cached via garnix.
+    ...
+    ...
+    https://github.com/garuda-linux/garuda-nix-subsystem
+        https://nix.garudalinux.org/
+        https://nix.garudalinux.org/subsystem/quick-start
+            ! a lot of current constraints
+        https://nix.garudalinux.org/nixos-module/quick-start
+    https://www.nyx.chaotic.cx/
+
+    https://nixed.dr460nf1r3.org/quick-start
+        ! need to continue reading from this one !
+
 https://github.com/dr460nf1r3
+https://github.com/dr460nf1r3/dr460nixed
+    !!!
+https://github.com/dr460nf1r3/dr460nf1r3
+    ? just a short description of the user
+
+https://gitlab.com/users/dr460nf1r3
+
+
+https://nixed.dr460nf1r3.org/generating-images
+
+!!! declarative disk partitioning
+https://github.com/nix-community/disko
+
+???
+https://garnix.io/
+https://lemmy.org/
+https://lemmy.garudalinux.org/
+https://gitlab.com/garuda-linux/infra-nix
+
+# simple
+https://gitlab.com/garuda-linux/infra-nix/-/blob/main/docker-compose/github-runner/docker-compose.yml
+https://gitlab.com/garuda-linux/infra-nix/-/blob/main/docker-compose/gitlab-runner/docker-compose.yml
+# more complex
+https://gitlab.com/garuda-linux/infra-nix/-/blob/main/docker-compose/proxied/docker-compose.yml
+https://gitlab.com/garuda-linux/infra-nix/-/blob/main/docker-compose/all-in-one/docker-compose.yml
 
 https://nix.garudalinux.org/
 https://nix.garudalinux.org/intro
