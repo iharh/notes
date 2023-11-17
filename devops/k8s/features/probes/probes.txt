@@ -1,0 +1,5 @@
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+
+startProbe is only recommended for legacy-apps
+
+Note (for myself) need 120 for both for initialDelaySeconds
