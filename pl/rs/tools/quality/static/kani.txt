@@ -1,6 +1,10 @@
 https://model-checking.github.io/kani/
 https://github.com/model-checking/kani
 
+2023
+https://aws.amazon.com/ru/blogs/opensource/how-open-source-projects-are-using-kani-to-write-better-software-in-rust/
+https://model-checking.github.io/kani-verifier-blog/2023/08/31/using-kani-to-validate-security-boundaries-in-aws-firecracker.html
+https://model-checking.github.io/kani-verifier-blog/2023/03/31/how-kani-helped-find-bugs-in-hifitime.html
 2022
 https://model-checking.github.io/kani-verifier-blog/2022/12/21/easily-verify-your-rust-in-ci-with-kani.html
 https://model-checking.github.io/kani-verifier-blog/2022/07/13/using-the-kani-rust-verifier-on-a-firecracker-example.html

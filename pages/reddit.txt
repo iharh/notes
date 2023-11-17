@@ -105,6 +105,8 @@ https://github.com/midnight-the-rock/dotfiles
         !!! defpoll, defwindow, include
     https://github.com/midnight-the-rock/dotfiles/blob/master/widgets/eww.scss
         @import "./.../some.scss"
+https://github.com/tail-r/xmonad_eww_dotfiles
+    with eww
 https://github.com/Horhik/dotfiles
 
 
