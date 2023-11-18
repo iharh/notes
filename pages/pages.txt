@@ -1,5 +1,10 @@
 cp: cannot stat '/var/log/pacstall/metadata/*': No such file or directory
 
+$ apt-file search `which ecryptfs-migrate-home`
+ecryptfs-utils: /usr/bin/ecryptfs-migrate-home
+
+https://learn.microsoft.com/en-us/azure/well-architected/
+
 https://epam.sharepoint.com/sites/EPAMEMEACloudengineering/_layouts/15/stream.aspx?id=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall%2FCloud%20Townhall%20%2D%20Recording%20Oct%2026%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
 https://epam.sharepoint.com/sites/EPAMEMEACloudengineering/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall%2FCloud%20Townhall%20%2D%20Oct%2026%2Epdf&parent=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall&p=true&ga=1
 
