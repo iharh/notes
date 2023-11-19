@@ -5,6 +5,9 @@ type: Code
 language:Java
 filename:<file-name>.java
 
+repo:gianarb/dotfiles 
+path:**/flake.nix
+
 2023
 https://github.blog/2023-02-06-the-technology-behind-githubs-new-code-search/
     https://habr.com/ru/company/skillfactory/blog/718350/
