@@ -9,6 +9,7 @@ https://github.com/kasmtech/workspaces-core-images
 https://github.com/kasmtech/noVNC
 https://github.com/kasmtech/kasm-install-wizard
 https://github.com/kasmtech/kasm-workspaces-dind
+https://github.com/linuxserver/docker-kasm
 
 https://www.kasmweb.com/docs/latest/index.html
 https://kasmweb.com/docs/latest/how_to/building_images.html
@@ -20,6 +21,7 @@ https://hub.docker.com/r/kasmweb/desktop-deluxe
 
 https://www.kasmweb.com/workspace_images.html
 
+https://kasmregistry.linuxserver.io/1.0/
 
 2023
 https://habr.com/ru/articles/747192/
