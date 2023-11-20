@@ -5,3 +5,8 @@ python3-setuptools
 
 easy_install pip
 pip install urllib3
+
+asdf
+ImportError: No named '_tkinter', please install the python3-tk package
+    https://askubuntu.com/questions/815874/importerror-no-named-tkinter-please-install-the-python3-tk-package
+    https://github.com/pyenv/pyenv/issues/2523
