@@ -1,0 +1,2 @@
+https://www.reddit.com/r/git/comments/dss843/chmod_not_working_with_git_bash_in_windows/
+    git update-index --chmod=+x gradlew
