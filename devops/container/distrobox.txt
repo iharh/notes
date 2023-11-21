@@ -41,6 +41,11 @@ https://distrobox.it/usage/usage/
 /usr/bin/distrobox-host-exec
     https://distrobox.it/posts/execute_commands_on_host/
 /usr/bin/distrobox-init
+    INIT_BINS="
+      /sbin/init
+      /usr/sbin/init
+      /lib/systemd/systemd
+      /usr/lib/systemd/systemd
 /usr/bin/distrobox-upgrade
 
 cfg
