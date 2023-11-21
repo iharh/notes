@@ -18,3 +18,6 @@ dhclient -v eth0
   and    DHCPACK
 
 ip addres send for some period of time (but remembers at the cache)
+
+2023
+https://habr.com/ru/companies/yandex/articles/774462/

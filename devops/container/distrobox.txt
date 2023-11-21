@@ -1,9 +1,79 @@
-https://distrobox.privatedns.org/
+https://distrobox.it/
+https://distrobox.it/compatibility/
+https://distrobox.it/compatibility/#host-distros
+https://distrobox.it/compatibility/#containers-distros
+    NixOS is not a supported container distro, and there are currently no plans to bring support to it.
+    If you are looking for unprivileged NixOS environments, we suggest you look into nix-shell or nix portable
+https://distrobox.it/useful_tips/
+https://distrobox.it/posts/posts/
+https://distrobox.it/posts/integrate_vscode_distrobox/
+https://distrobox.it/posts/run_libvirt_in_distrobox/
+https://distrobox.it/posts/run_latest_gnome_kde_on_distrobox/
+https://distrobox.it/featured_articles/
 
 https://github.com/89luca89/distrobox
 https://gitlab.com/89luca89/distrobox
 
+apt/distrobox
+pacstall/distrobox
+
+suggested packages:
+  containers-storage docker-compose
+recommended packages:
+  netavark buildah catatonit | tini | dumb-init passt slirp4netns
+
+cli
+https://distrobox.it/usage/usage/
+/usr/bin/distrobox-create
+    -i registry...:38 -n "fedora1"
+    --init --image debian:latest --additional-packages "systemd libpam-systemd"
+/usr/bin/distrobox-enter
+    enter "fedora1"
+    -- command-to-execute
+/usr/bin/distrobox-list
+/usr/bin/distrobox-stop
+/usr/bin/distrobox-rm
+
+/usr/bin/distrobox-assemble
+/usr/bin/distrobox-ephemeral
+/usr/bin/distrobox-export
+/usr/bin/distrobox-generate-entry
+/usr/bin/distrobox-host-exec
+    https://distrobox.it/posts/execute_commands_on_host/
+/usr/bin/distrobox-init
+/usr/bin/distrobox-upgrade
+
+cfg
+    /usr/share/distrobox/distrobox.conf
+    /usr/etc/distrobox/distrobox.conf
+    /etc/distrobox/distrobox.conf
+    ${HOME}/.config/distrobox/distrobox.conf
+    ${HOME}/.distroboxrc
+env vars
+    DBX_CONTAINER_ALWAYS_PULL
+    DBX_CONTAINER_CUSTOM_HOME
+    DBX_CONTAINER_IMAGE
+    DBX_CONTAINER_MANAGER
+    DBX_CONTAINER_NAME
+    DBX_CONTAINER_ENTRY
+    DBX_NON_INTERACTIVE
+    DBX_SKIP_WORKDIR
+
+
+
+2023
+TheLinuxCast - 5 Reasons You Should Use Distrobox of 20:54
+    https://www.youtube.com/watch?v=eqWjfMwPUYc
+TheLinuxCast - Get Any App on Any Distro Easily of 26:26
+    https://www.youtube.com/watch?v=eh-a1W5IJbA
+https://itsfoss.com/distrobox/
 2022
 https://www.tecmint.com/distrobox-run-any-linux-distribution/
 JorgeCastro - How I use distrobox on Fedora Silverblue 0:00 of 12:33
     https://www.youtube.com/watch?v=Q2PrISAOtbY
+????
+https://www.youtube.com/watch?v=Wp8v0e1-wT8
+https://www.youtube.com/watch?v=w9SlWZf0y8I
+https://www.youtube.com/watch?v=7-FPAWjROos
+https://www.youtube.com/watch?v=3YOpUEKSBFI
+https://www.youtube.com/watch?v=Q2PrISAOtbY
