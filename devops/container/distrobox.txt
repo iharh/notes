@@ -37,6 +37,11 @@ https://distrobox.it/usage/usage/
 /usr/bin/distrobox-assemble
 /usr/bin/distrobox-ephemeral
 /usr/bin/distrobox-export
+    distrobox-export --app kate
+        create desktop-file on a host system for guest app launcher
+    distrobox-export --bin /usr/bin/kate --export-path ~/local/bin/
+        ! actually - broken
+
 /usr/bin/distrobox-generate-entry
 /usr/bin/distrobox-host-exec
     https://distrobox.it/posts/execute_commands_on_host/
@@ -78,6 +83,9 @@ https://www.opennet.ru/opennews/art.shtml?num=60147
 https://www.tecmint.com/distrobox-run-any-linux-distribution/
 JorgeCastro - How I use distrobox on Fedora Silverblue 0:00 of 12:33
     https://www.youtube.com/watch?v=Q2PrISAOtbY
+Brodie Robertson - Distrobox Is Basically A Linux Subsystem For Linux of 16:41
+    https://www.youtube.com/watch?v=FhW-3PPldAg
+    ! 14:00 xhost +si:localuser:$USER # for x-server ACL ...
 ????
 https://www.youtube.com/watch?v=Wp8v0e1-wT8
 https://www.youtube.com/watch?v=w9SlWZf0y8I
