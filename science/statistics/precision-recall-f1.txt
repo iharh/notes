@@ -1,6 +1,9 @@
 precision = tp / (tp + fp)
 recall = tp / (tp + fn)
 
+2023
+https://habr.com/ru/articles/775032/
+    !!!
 2020
 https://www.kdnuggets.com/2020/10/imbalanced-data-machine-learning.html
 https://machinelearningmastery.com/fbeta-measure-for-machine-learning/
