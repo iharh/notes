@@ -1,0 +1,21 @@
+2023
+https://garrit.xyz/posts/2023-10-13-organizing-multiple-git-identities
+
+~/.gitconfig
+[user]
+    name = Garrit Franke
+    email = garrit@slashdev.space
+[includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig-work
+[includeIf "gitdir:~/work/client2/"]
+    path = ~/.gitconfig-client2
+[includeIf "gitdir:~/sources/"]
+    path = ~/.gitconfig-personal
+
+~/.gitconfig-work
+[user]
+    name = Garrit Franke
+    signingkey = 12345678
+    email = garrit@work.de
+[commit]
+    gpgsign = true
