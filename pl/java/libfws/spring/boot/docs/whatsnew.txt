@@ -1,6 +1,8 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
 3.x
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2.0-Release-Notes
+    https://vived.substack.com/p/spring-framework-61-and-spring-boot
 SpringDeveloper - How Netflix Is Upgrading to Spring Boot 3 of 50:00
     https://www.youtube.com/watch?v=IMGcD08rdVw
 https://www.linkedin.com/learning/spring-6-and-spring-boot-3-first-look/spring-to-the-latest
