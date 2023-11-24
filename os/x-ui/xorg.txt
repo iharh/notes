@@ -25,3 +25,6 @@ vboxsf
 vboxvideo
 
 group/xorg-apps
+
+forwarding
+https://ostechnix.com/how-to-configure-x11-forwarding-using-ssh-in-linux/
