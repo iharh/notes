@@ -1,10 +1,12 @@
 https://crates.io/crates/sqlx
 https://crates.io/crates/sqlx-cli
+https://crates.io/crates/sqlx_migrator
 
 https://docs.rs/sqlx/latest/sqlx/
 https://github.com/launchbadge/sqlx
 
 2023
+https://www.shuttle.rs/blog/2023/10/04/sql-in-rust
 https://cosmichorror.dev/posts/speeding-up-sqlx-compile-times/
 2019
 https://www.reddit.com/r/rust/comments/egpw7g/announcing_sqlx_a_fully_asynchronous_pure_rust/

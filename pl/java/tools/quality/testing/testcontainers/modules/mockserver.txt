@@ -1,3 +1,4 @@
+https://java.testcontainers.org/modules/mockserver/
 https://www.testcontainers.org/modules/mockserver/
 
 testCompile "org.testcontainers:mockserver:${ver}"
