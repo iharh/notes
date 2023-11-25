@@ -5,6 +5,11 @@ https://gitlab.com/inspire1/digital-platform/domain-services/notification-domain
 
 cp: cannot stat '/var/log/pacstall/metadata/*': No such file or directory
 
+voronezh math life - homologies and data analysis
+    https://www.youtube.com/@user-fk5tb3iq1l
+vim
+    https://www.youtube.com/playlist?list=PL5fd4SsfvECzQbXMq8p4KIixgTYysBvGK
+
 $ apt-file search `which ecryptfs-migrate-home`
 ecryptfs-utils: /usr/bin/ecryptfs-migrate-home
 
