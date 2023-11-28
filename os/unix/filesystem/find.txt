@@ -8,6 +8,9 @@ pacman -Ss findutils
 
 find - util
 
+# modified for the last 5 min
+find . -type f -mmin -5
+
 find . -name '*.c' -print
 	it is important to quote pattern (in order to avoid shell expansion).
 find . \( -name '*.exe' -or -name '*.obj' \) -print
