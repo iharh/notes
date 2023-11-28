@@ -2,7 +2,7 @@ https://www.linux.org.ru/gallery/
 https://www.linux.org.ru/tag/nixos
 
 unixp
-2021-jun-1
+2021-jun-15
 https://t.me/reddit_unixporn/559
 https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
 https://unixporn-dots.github.io/
@@ -94,6 +94,9 @@ https://github.com/TesterTech/hyprland-config
     https://www.youtube.com/watch?v=CeOfycrY5JI
 https://github.com/Axenide/Dotfiles
 https://github.com/JakeMartinezz/hyprland-dots
+https://github.com/AhmedSaadi0/my-hyprland-config
+    ! super cool graphics
+    https://github.com/AhmedSaadi0/my-hyprland-config/tree/main/configs/ags/images
 
 eww
 https://www.youtube.com/watch?v=AmVqENmVu8w
@@ -183,3 +186,6 @@ https://github.com/nix-community/nixos-anywhere/blob/main/docs/flake-module.nix
 https://github.com/nix-community/nixos-anywhere/tree/main/docs/howtos
 Jeezy - nixos lunarvim
     https://www.youtube.com/watch?v=XGv8RADogeY
+
+bspwm, nvchad
+https://github.com/siduck/dotfiles

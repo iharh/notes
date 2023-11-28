@@ -84,10 +84,6 @@ https://teams.microsoft.com/l/message/19:9b661fc2a8724fe4bc9f9c7a0a6feea1@thread
 helm
 https://github.com/onedr0p/containers
 
-epam-to-look
-https://wearecommunity.io/events/azure-api-management-ci-cd/talks/60129
-https://wearecommunity.io/events/mjc-light-talk-50-generics/talks/66084
-
 https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/materials/microservice_architecture_overview/README.md#drawbacks
 
 https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/tasks/microservice_architecture_overview/README.md
@@ -120,8 +116,6 @@ https://github.com/nix-community/fenix
     https://github.com/nix-community/fenix/blob/main/default.nix
         fromJson, readFile, pkgs.callPackage, ?? //
 
-https://wearecommunity.io/events/integration-tests-in-java/talks/47164
-    int-tests
 https://blog.predanie.ru/article/pochemu-stradali-prometej-sokrat-i-elli-smit-obyasneno-bogom/
     !
 NixOS
