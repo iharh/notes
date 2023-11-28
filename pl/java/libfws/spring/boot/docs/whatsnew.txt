@@ -1,6 +1,8 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
 3.x
+DanVega - Building a new application with Spring Boot 3.2 0:00 of 23:20
+    https://www.youtube.com/watch?v=w1Nzqm7MnZI
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2.0-Release-Notes
     https://vived.substack.com/p/spring-framework-61-and-spring-boot
 SpringDeveloper - How Netflix Is Upgrading to Spring Boot 3 of 50:00
