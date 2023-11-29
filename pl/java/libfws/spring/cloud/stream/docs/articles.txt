@@ -1,6 +1,7 @@
 2023
-https://spring.io/blog/2023/10/04/synchronizing-with-external-transaction-managers-in-spring-cloud-stream
 https://spring.io/blog/2023/10/24/a-use-case-for-transactions-adapting-to-transactional-outbox-pattern
+https://spring.io/blog/2023/10/04/synchronizing-with-external-transaction-managers-in-spring-cloud-stream
+https://spring.io/blog/2023/09/27/introduction-to-transactions-in-spring-cloud-stream-kafka-applications
 2020
 https://spring.io/blog/2020/09/10/case-study-relational-database-source-and-file-sink
 https://spring.io/blog/2020/08/25/case-study-reading-from-a-file-and-writing-to-mongodb

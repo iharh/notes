@@ -2,7 +2,7 @@ https://www.linux.org.ru/gallery/
 https://www.linux.org.ru/tag/nixos
 
 unixp
-2021-jun-15
+2021-jul-2
 https://t.me/reddit_unixporn/559
 https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
 https://unixporn-dots.github.io/
@@ -151,6 +151,10 @@ https://github.com/szorfein/dots
 qtile
 https://github.com/fredmny/dotfiles
 https://github.com/urielzo/qtile
+https://github.com/cursed12/dotfiles
+https://github.com/naurissteins/dotfiles
+https://github.com/hhmaia/gentoo-config
+https://github.com/AmitGolden/dotfiles
 
 nixos
 https://github.com/wochap/nix-config
@@ -164,6 +168,7 @@ https://github.com/datsfilipe/dotfiles
 stylix
 https://danth.github.io/stylix/
     https://github.com/danth/stylix
+https://github.com/samthepacman/IdempotentDots
 
 https://wiki.archlinux.org/title/kexec
 https://xeiaso.net/blog/backslash-kubernetes-2021-01-03/
@@ -189,3 +194,5 @@ Jeezy - nixos lunarvim
 
 bspwm, nvchad
 https://github.com/siduck/dotfiles
+nvim
+https://github.com/samthepacman/IdempotentDots/tree/main/root/config/neovim

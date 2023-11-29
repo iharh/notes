@@ -35,6 +35,7 @@ jpql->spec
     https://stackoverflow.com/questions/60382298/convert-specific-query-into-jpql-or-criteria-builder-query
 
 2023
+https://discourse.hibernate.org/t/deprecation-of-hibernate-criteria-and-how-we-can-still-prevent-it/788/28
 https://www.baeldung.com/spring-jpa-joining-tables
 2022
 https://engineering.linecorp.com/en/blog/kotlinjdsl-jpa-criteria-api-with-kotlin/
