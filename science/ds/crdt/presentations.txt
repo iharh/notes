@@ -1,3 +1,5 @@
+2023
+https://slides.com/cblpsu/crdt
 2020
 Kleppmann - CRDTs - The Hard Parts
     https://www.youtube.com/watch?v=x7drE24geUw
@@ -18,6 +20,9 @@ Kleppmann - CRDTs and the quest for distributed consistency
     https://www.infoq.com/presentations/crdt-distributed-consistency
     https://www.infoq.com/news/2018/03/data-consistency-crdto
     https://qconlondon.com/london2018/presentation/crdts-and-quest-distributed-consistency
+2015
+Consistency without Consensus: CRDTs in Production at SoundCloud
+    http://www.infoq.com/presentations/crdt-soundcloud
 2013
 http://lanyrd.com/2013/riconwest/scmzrm/
 https://speakerdeck.com/lenary/crdts-an-update-or-just-a-put
