@@ -1,6 +1,13 @@
 https://www.vim.org/scripts/script.php?script_id=5665
 https://github.com/tpope/vim-dadbod
+    :DB jdbc:sqlserver://...
+
+    sql-ib-ue1-arb-dev03-dp-kuz3.database.windows.net
+
+https://github.com/kristijanhusak/vim-dadbod-ui
 https://github.com/kristijanhusak/vim-dadbod-completion
+
+https://vimawesome.com/plugin/vim-lovehandle
 
 2023
 https://habr.com/ru/articles/714926/
@@ -8,3 +15,56 @@ WhereToEnter - DB Queries from Editor of 25:32
     https://www.youtube.com/watch?v=SITIs6kAOoA
 2022
 https://alpha2phi.medium.com/neovim-for-beginners-database-explorer-7db3d3910876
+    .config/nvim/lua/custom/plugins.lua
+    -- Database ??? use {...}
+    {
+      "tpope/vim-dadbod",
+      opt = true,
+      requires = {
+        "kristijanhusak/vim-dadbod-ui",
+        "kristijanhusak/vim-dadbod-completion",
+      },
+      config = function()
+        require("custom.configs.dadbod").setup()
+      end,
+      cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
+    }
+
+    .config/nvim/lua/custom/configs/dadbod.lua
+    -- Dadbod
+    local M = {}
+
+    local function db_completion()
+      require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
+    end
+
+    function M.setup()
+      vim.g.db_ui_save_location = vim.fn.stdpath "config" .. require("plenary.path").path.sep .. "db_ui"
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "sql",
+        },
+        command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "sql",
+          "mysql",
+          "plsql",
+        },
+        callback = function()
+          vim.schedule(db_completion)
+        end,
+      })
+    end
+
+    return M
+
+issues
+https://vi.stackexchange.com/questions/42377/neovim-lua-module-not-found-even-though-it-exist
+    Command DBUI not found after loading vim-dadbod
+
+https://www.reddit.com/r/neovim/comments/zr0njo/toggleterm_does_not_open_vimdadbodui_with_v_c/
+https://github.com/kristijanhusak/vim-dadbod-completion/issues/51
