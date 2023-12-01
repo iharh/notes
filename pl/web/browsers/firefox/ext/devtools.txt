@@ -1,5 +1,12 @@
 https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_Flexbox_layouts
 
+fond size
+about:config
+devtools.toolbox.zoomValue 
+    set more than 1
+or just use C-+
+
+
 2021
 https://mozilladevelopers.github.io/playground/debugger/04-conditional-breakpoints/
     https://habr.com/ru/post/592095/
