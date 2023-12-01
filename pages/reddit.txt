@@ -2,7 +2,7 @@ https://www.linux.org.ru/gallery/
 https://www.linux.org.ru/tag/nixos
 
 unixp
-2021-jul-2
+2021-jul-16
 https://t.me/reddit_unixporn/559
 https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
 https://unixporn-dots.github.io/
@@ -53,6 +53,7 @@ https://github.com/nonamescm/dotfiles
 https://github.com/Corvance/dotfiles
 https://github.com/MobSenpai/sugoi
 https://github.com/hmathsan/dotfiles
+https://github.com/llyram/awesomewm-dotfiles
 
 hyprland
 https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#vm
@@ -161,7 +162,7 @@ https://github.com/AmitGolden/dotfiles
 nixos
 https://github.com/wochap/nix-config
     ! nix-ld, nix-alien, hyprland, waybar
-https://github.com/sherubthakur/dotfiles/tree/master
+https://github.com/sherubthakur/dotfiles
 https://github.com/JavaCafe01/dotfiles
 https://github.com/moni-dz/nix-config
 https://github.com/gianarb/dotfiles
