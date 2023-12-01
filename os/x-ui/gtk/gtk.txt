@@ -1,5 +1,25 @@
-$ lxappearance
+https://wiki.archlinux.org/title/GTK
+    gsettings set org.gnome.desktop.interface gtk-theme Adwaita
 
+
+https://docs.gtk.org/gtk4/css-properties.html
+https://docs.w3cub.com/gtk~4.0/ch39s04
+
+font engine
+https://freetype.org/
+https://freetype.org/freetype2/docs/documentation.html
+https://freetype.org/freetype2/docs/design/index.html
+https://freetype.org/freetype2/docs/tutorial/index.html
+https://freetype.org/freetype2/docs/reference/index.html
+https://freetype.org/freetype2/docs/ft2faq.html
+https://freetype.org/freetype2/docs/glyphs/index.html
+
+$ lxappearance
+    https://github.com/lxde/lxappearance
+??? lxqt-config-appearance
+
+?
+~/.Xdefaults
 ~/.gtkrc-2.0
 
 ~/.config/gtk-3.0/settings.ini
@@ -30,3 +50,7 @@ ls -la /usr/share/themes
     <name>Bear-tangerine</name>
     ...
 </theme>
+
+whatsnew
+https://www.opennet.ru/opennews/art.shtml?num=59561
+https://www.opennet.ru/opennews/art.shtml?num=58747
