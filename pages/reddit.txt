@@ -2,7 +2,7 @@ https://www.linux.org.ru/gallery/
 https://www.linux.org.ru/tag/nixos
 
 unixp
-2021-jul-16
+2021-sep-1
 https://t.me/reddit_unixporn/559
 https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
 https://unixporn-dots.github.io/
@@ -54,6 +54,8 @@ https://github.com/Corvance/dotfiles
 https://github.com/MobSenpai/sugoi
 https://github.com/hmathsan/dotfiles
 https://github.com/llyram/awesomewm-dotfiles
+https://github.com/Lorago/dots
+https://github.com/NTBBloodbath/dotfiles
 
 hyprland
 https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#vm
@@ -105,6 +107,7 @@ eww
 https://www.youtube.com/watch?v=AmVqENmVu8w
 https://www.youtube.com/watch?v=SBPZNjDiggE
     dashboard
+https://github.com/TheWonkyTestube/Pink-Hills
 
 sway
 https://codeberg.org/zvava/config
@@ -160,6 +163,7 @@ https://github.com/hhmaia/gentoo-config
 https://github.com/AmitGolden/dotfiles
 
 nixos
+https://namishpande.is-a.dev/archives/nixos/
 https://github.com/wochap/nix-config
     ! nix-ld, nix-alien, hyprland, waybar
 https://github.com/sherubthakur/dotfiles
@@ -199,3 +203,8 @@ bspwm, nvchad
 https://github.com/siduck/dotfiles
 nvim
 https://github.com/samthepacman/IdempotentDots/tree/main/root/config/neovim
+https://github.com/chadcat7/kodo
+
+misc
+rofi
+https://www.youtube.com/watch?v=cDDMrUwrce0
