@@ -1,0 +1,31 @@
+2023
+https://arxiv.org/abs/2311.14452
+    \begin{minipage}[t]{0.45\linewidth}
+    \begin{rustcode}
+    // assume connection to node B in socket
+    fn node_a(socket: &mut TcpStream) {
+      let mut ctr = 0;
+      loop {
+        // send
+        (*\codehl{socket.send(ctr)}*)socket.send(ctr);(*\label{loc:impl:a-send}*)
+        // wait for response, with timeout
+        match (*\codehl{socket.recv\_timeout()}*)socket.recv_timeout()(*\label{loc:impl:a-recv}*) {
+          Some((n, resp)) if ctr == n =>
+            { ctr += 1; }
+          None => {}
+        }
+      }
+    }\end{rustcode}
+    \end{minipage} \;
+    ...
+    \begin{rustcode}
+    fn init(state: SystemState) -> bool {
+      state.a_ctr == 0 (*\codepoint{A}*)
+      && state.b_work == None (*\codepoint{B}*)
+      && state.a_to_b == Seq::empty() && state.b_to_a == Seq::empty() (*\codepoint{C}*)
+    }
+    \end{rustcode}
+
+    \noindent The \code{init} predicate requires \codepoint{A} that the counter is initialised to zero, \codepoint{B} that node B is initially not performing any computation, and \codepoint{C} that both channels are empty.
+
+
