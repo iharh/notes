@@ -3,3 +3,6 @@ https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-read
 startProbe is only recommended for legacy-apps
 
 Note (for myself) need 120 for both for initialDelaySeconds
+
+2022
+https://www.baeldung.com/spring-boot-kubernetes-self-healing-apps
