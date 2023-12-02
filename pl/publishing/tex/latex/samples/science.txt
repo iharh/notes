@@ -1,5 +1,6 @@
 2023
 https://arxiv.org/abs/2311.14452
+https://arxiv.org/e-print/2311.14452
     \begin{minipage}[t]{0.45\linewidth}
     \begin{rustcode}
     // assume connection to node B in socket
@@ -27,5 +28,66 @@ https://arxiv.org/abs/2311.14452
     \end{rustcode}
 
     \noindent The \code{init} predicate requires \codepoint{A} that the counter is initialised to zero, \codepoint{B} that node B is initially not performing any computation, and \codepoint{C} that both channels are empty.
+    ...
+    It is a logic where temporal properties are expressed using first-order logic combined with temporal operators, such as \emph{always} ($\always$) or \emph{eventually} ($\eventually$).
+    ...
+    \begin{align*}
+      \phi &::= \phi \land \phi
+        \;|\; \phi \lor \phi
+        \;|\; \phi \rightarrow \phi &&\text{standard logical connectives} \\
+      &\phantom{::=}|\; \always \phi
+        \;|\; \eventually \phi
+        \;|\; \phi \Rightarrow \phi &&\text{temporal operators} \\
+      &\phantom{::=}|\; \bot
+        \;|\; \top
+        \;|\; S
+        \;|\; A &&\text{atoms} \\
+      &\phantom{::=}|\; \forall v.\, \phi
+        \;|\; \exists v.\, \phi &&\text{value quantifiers}
+    \end{align*}
+    ...
+    \begin{figure}
+    \begin{center}
+    \scriptsize\begin{tabular}{cc}
+      \LDischargeDef{%
+        \codeltl{\( \phi(\code{i}) \)}%
+      }{%
+        \{ \texttt{show\_at(}\codeltln{\( \phi \)}\texttt{, i)} \}%
+        \; \texttt{discharge()} \;%
+        \{ \}}\vspace{0.2cm}
+      & \LStrDef{%
+        \codeltl{\( \phi_1(\texttt{i}) \)} \Rightarrow \codeltl{\( \phi_2(\texttt{j}) \)}%
+      }{%
+        \{ \texttt{show\_at(}\codeltln{\( \phi_2 \)}\texttt{, j)} \}%
+        \; \texttt{strengthen()} \;%
+        \{ \texttt{show\_at(}\codeltln{\( \phi_1 \)}\texttt{, i)} \}}\vspace{0.2cm}
+    \end{tabular}
 
+    \begin{tabular}{c}
+      \LSplitDef{%
+      }{%
+        \{ \texttt{show\_at(}\codeltln{\( \phi_1 \land \phi_2 \)}\texttt{, i)} \}%
+        \; \texttt{split()} \;%
+        \{%
+          \texttt{show\_at(}\codeltln{\( \phi_1 \)}\texttt{, i)}%
+          * \texttt{show\_at(}\codeltln{\( \phi_2 \)}\texttt{, i)} \}}\vspace{0.4cm} \\
+      \LQSplitDef{%
+        P(v)%
+      }{%
+        \{ \texttt{show\_at(}\codeltln{\( \forall i.\, P(i) \Rightarrow A(i) \)}\texttt{, i)} \; \}%
+        \; \texttt{qsplit()} \;%
+        \{%
+          \texttt{show\_at(}\codeltln{\( A(v) \)}\texttt{, i)}%
+          * \texttt{show\_at(}\codeltln{\( \forall i.\, i \neq v \land P(i) \Rightarrow A(i) \)}\texttt{, i)} \}}\vspace{0.4cm} \\
+      \LQEmptyDef{%
+        \forall i.\, \lnot P(i)
+      }{%
+        \{ \texttt{show\_at(}\codeltln{\( \forall i.\, P(i) \Rightarrow A(i) \)}\texttt{, i)} \; \}%
+        \; \texttt{qempty()} \;%
+        \{ \}}\vspace{0.2cm}
+    \end{tabular}\end{center}
+    \Description{Rules of the LTL proof system related to obligations and univeral quantifier reasoning. L.Discharge discharges an LTL obligation if the formula holds. L.Str strengthens an LTL formula to be shown. L.Split splits an obligation to show a conjunction of two formulas into two obligations to show the conjuncts. L.QSplit splits off a conjunct off a quantified formula. Note that we impose an additional restriction on the order of conjuncts in the quantifier, not shown here. L.QEmpty discharges a quantifier which holds vacuously.}
+    \caption{Rules of the \ltl{} proof system related to obligations and universal quantifier reasoning. \protect\LDischarge{} discharges an \ltl{} obligation if the formula holds. \protect\LStr{} strengthens an \ltl{} formula to be shown. \protect\LSplit{} splits an obligation to show a conjunction of two formulas into two obligations to show the conjuncts. \protect\LQSplit{} splits off a conjunct off a quantified formula. Note that we impose an additional restriction on the order of conjuncts in the quantifier, not shown here. \protect\LQEmpty{} discharges a quantifier which holds vacuously.}
+    \label{fig:ltl-rules}
+    \end{figure}
 
