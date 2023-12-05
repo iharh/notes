@@ -1,5 +1,8 @@
 2023
- I've been using Redis wrong this whole time of 20:52
+SpringIO - Vector Similarity Search in Spring with Redis Stack by Brian Sam-Bodden 0:00 of 54:35
+    https://www.youtube.com/watch?v=0lT4vu6Kmxw
+    https://2023.springio.net/docs/slides/vector-similarity-search-in-spring-with-redis-stack-springio23.pdf
+I've been using Redis wrong this whole time of 20:52
     https://www.youtube.com/watch?v=WQ61RL1GpEE
     redis-dli -a $REDIS_PWD
     > KEYS *

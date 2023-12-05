@@ -1,1 +1,12 @@
 https://wiki.manjaro.org/index.php/Install_Display_Managers
+
+
+which one ?display-manager? do I use?
+https://unix.stackexchange.com/questions/20370/is-there-a-simple-linux-command-that-will-tell-me-what-my-display-manager-is
+systemd
+    grep 'ExecStart=' /etc/systemd/system/display-manager.service
+debian/ubuntu
+    /etc/X11/default-display-manager
+rh/fedora
+    /etc/sysconfig/desktop
+rhino -> lightdm
