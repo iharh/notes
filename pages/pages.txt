@@ -15,6 +15,11 @@ Thompson - The ChatGPT Prompt Book
 
 cp: cannot stat '/var/log/pacstall/metadata/*': No such file or directory
 
+apt
+W: Conflicting distribution: https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu devel InRelease (expected devel but got noble)
+    https://bugs.launchpad.net/ubuntu/+source/apt/+bug/1728616
+    https://github.com/wimpysworld/rolling-rhino/commit/9615562f4d4908dfff4f4cc99e5b6523a55413b3
+
 voronezh math life - homologies and data analysis
     https://www.youtube.com/@user-fk5tb3iq1l
 vim
