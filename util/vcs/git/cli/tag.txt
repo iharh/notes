@@ -28,6 +28,8 @@ git checkout <tag-name>
 
 git push --tags <remote-branch>
     push tags to a remote branch
+    samplegit
+        git push origin --tags
 
 git push <remote-branch> :<tag-name>
     push nothing to tag-name at remote-branch
