@@ -2,7 +2,7 @@ https://www.linux.org.ru/gallery/
 https://www.linux.org.ru/tag/nixos
 
 unixp
-2021-sep-1
+2021-sep-15
 https://t.me/reddit_unixporn/559
 https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
 https://unixporn-dots.github.io/
@@ -179,6 +179,7 @@ stylix
 https://danth.github.io/stylix/
     https://github.com/danth/stylix
 https://github.com/samthepacman/IdempotentDots
+https://github.com/kpritam/nixpkgs
 
 https://wiki.archlinux.org/title/kexec
 https://xeiaso.net/blog/backslash-kubernetes-2021-01-03/
@@ -201,12 +202,33 @@ https://github.com/nix-community/nixos-anywhere/blob/main/docs/flake-module.nix
 https://github.com/nix-community/nixos-anywhere/tree/main/docs/howtos
 Jeezy - nixos lunarvim
     https://www.youtube.com/watch?v=XGv8RADogeY
+https://github.com/MCotocel/nixdots
+    https://github.com/MCotocel/nixdots/blob/master/flake.nix
+    https://github.com/MCotocel/nixdots/tree/master/config
+    https://github.com/MCotocel/nixdots/blob/master/config/eww/default.nix
+    https://github.com/MCotocel/nixdots/blob/master/config/nvim/default.nix
+    https://github.com/MCotocel/nixdots/blob/master/config/hypr/default.nix
+    https://github.com/MCotocel/nixdots/blob/master/config/rofi/default.nix
+    https://github.com/MCotocel/nixdots/blob/master/config/wezterm/default.nix
+    https://github.com/MCotocel/nixdots/blob/master/config/bin/default.nix
+    https://github.com/MCotocel/nixdots/blob/master/config/applications/Cava.desktop
+
+    https://github.com/MCotocel/nixdots/tree/master/hosts/lithium#installing
+        nix-shell -p git nixFlakes
+    https://github.com/MCotocel/nixdots/blob/master/hosts/lithium/configuration.nix
+    https://github.com/MCotocel/nixdots/blob/master/hosts/lithium/desktop.nix
+    https://github.com/MCotocel/nixdots/blob/master/hosts/lithium/network.nix
+    https://github.com/MCotocel/nixdots/blob/master/hosts/lithium/services.nix
+    https://github.com/MCotocel/nixdots/blob/master/hosts/lithium/sound.nix
 
 bspwm, nvchad
 https://github.com/siduck/dotfiles
 nvim
 https://github.com/samthepacman/IdempotentDots/tree/main/root/config/neovim
 https://github.com/chadcat7/kodo
+
+yabai
+https://github.com/RishTheFish21/.files
 
 misc
 rofi
