@@ -18,3 +18,7 @@ https://www.youtube.com/watch?v=yrj8Pa1JHf
 
 https://github.com/aandrew-me/tgpt/blob/main/functions.go#L466
     http.NewRequest("POST", "https://ai.fakeopen.com/v1/chat/completions", data)
+
+issues
+PandoraNext
+https://github.com/aandrew-me/tgpt/issues/166

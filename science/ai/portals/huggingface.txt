@@ -34,6 +34,7 @@ hub
 https://huggingface.co/docs/hub/index
 
 models
+https://huggingface.co/models
 https://huggingface.co/blog/llama2
 https://github.com/huggingface/blog/blob/main/llama2.md
 https://huggingface.co/blog/personal-copilot
@@ -45,8 +46,8 @@ https://github.com/OpenBuddy/OpenBuddy/blob/main/models.md
 datasets
 https://huggingface.co/datasets
 
-models
-https://huggingface.co/models
+spaces
+https://huggingface.co/spaces
 
 https://huggingface.co/blog/safecoder
 https://huggingface.co/bigcode/starcoder
