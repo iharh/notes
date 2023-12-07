@@ -21,7 +21,13 @@ W: Conflicting distribution: https://ppa.launchpadcontent.net/mozillateam/ppa/ub
     https://bugs.launchpad.net/ubuntu/+source/apt/+bug/1728616
     https://github.com/wimpysworld/rolling-rhino/commit/9615562f4d4908dfff4f4cc99e5b6523a55413b3
 
-
+/etc/apt/sources.list.d/mozillateam-ubuntu-ppa-devel.sources
+    Types: deb
+    URIs: https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/
+    Suites: devel
+    Components: main
+    Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
+    ...
 /etc/apt/preferences.d/mozilla-firefox
     Package: *
     Pin: release o=LP-PPA-mozillateam
@@ -29,6 +35,19 @@ W: Conflicting distribution: https://ppa.launchpadcontent.net/mozillateam/ppa/ub
 
 https://ubuntuforums.org/showthread.php?t=2477853
     sudo add-apt-repository ppa:mozillateam/ppa
+
+to-read:
+https://github.com/wimpysworld/rolling-rhino/issues/39
+https://blog.launchpad.net/ppa/failed-to-fetch-errors-for-ppas
+https://bugs.launchpad.net/ubuntu/+source/apt/+bug/1728616
+https://itecnote.com/tecnote/ubuntu-how-to-resolve-conflicting-distributions-in-apt-get/
+https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/
+https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/
+https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/by-hash/SHA256/d5f89f7951ed744f7a1bcb3f54d323fee2512b15b5a6a4eef591e85a4b1fe854
+https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/main/
+https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/Release
+https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/InRelease
+
 
 voronezh math life - homologies and data analysis
     https://www.youtube.com/@user-fk5tb3iq1l
