@@ -24,6 +24,8 @@ S-Esc
     Hide Tool Window (project/definition/...)
 C-Q
     Quick doc (javadoc)
+C-W
+    Expand code selection (to wider region)
     
 
 Editing

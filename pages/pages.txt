@@ -21,6 +21,15 @@ W: Conflicting distribution: https://ppa.launchpadcontent.net/mozillateam/ppa/ub
     https://bugs.launchpad.net/ubuntu/+source/apt/+bug/1728616
     https://github.com/wimpysworld/rolling-rhino/commit/9615562f4d4908dfff4f4cc99e5b6523a55413b3
 
+
+/etc/apt/preferences.d/mozilla-firefox
+    Package: *
+    Pin: release o=LP-PPA-mozillateam
+    Pin-Priority: 1002
+
+https://ubuntuforums.org/showthread.php?t=2477853
+    sudo add-apt-repository ppa:mozillateam/ppa
+
 voronezh math life - homologies and data analysis
     https://www.youtube.com/@user-fk5tb3iq1l
 vim
