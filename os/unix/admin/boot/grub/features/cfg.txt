@@ -1,9 +1,37 @@
+https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html
+https://wiki.archlinux.org/title/GRUB
+
 info -f grub -n 'Simple configuration'
+
+???
+etc/default/grub.d
+
+cat /etc/grub.d/40_custom                                                                                                                                                ✔  18:54:24   
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
 
 /etc/default/grub
 GRUB_THEME="/usr/share/grub/themes/starfield/theme.txt"
+
+https://microsin.net/adminstuff/xnix/nomodeset-quiet-splash-kernel-parameters.html
+    https://microsin.net/adminstuff/xnix/linux-kernel-parameters.html
+    https://microsin.net/adminstuff/xnix/ubuntu-nomodeset-boot-mode.html
+
+GRUB_CMDLINE_LINUX_DEFAULT="nomodeset"
+GRUB_TIMEOUT=5
+# - quiet splash
 
 ubuntu:
     sudo update-grub
 other:
     grub-mkconfig -o /boot/grub/grub.cfg
+
+generated (do not edit):
+/boot/grub/grub.cfg
+
+cat /usr/sbin/grub-mkconfig
+
+# For full documentation of the options in this file, see:
+#   info -f grub -n 'Simple configuration'
