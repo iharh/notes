@@ -1,0 +1,68 @@
+Вот выжимка, у меня давно в закладках:
+
+1. uptime ⟶ load averages
+2. dmesg -T | tail ⟶ kernel errors
+3. vmstat 1 ⟶ overall stats by time
+4. mpstat -P ALL 1 ⟶ CPU balance
+5. pidstat 1 ⟶ process usage
+6. iostat -xz 1 ⟶ disk I/O
+7. free -m ⟶ memory usage
+8. sar -n DEV 1 ⟶ network I/O
+9. sar -n TCP,ETCP 1 ⟶ TCP stats
+10. top ⟶ check overview
+
+Linux Disk Checklist
+
+1. iostat -xz 1 ⟶ any disk I/O? if not, stop looking
+2. vmstat 1 ⟶ is this swapping? or, high sys time?
+3. df -h ⟶ are file systems nearly full?
+4. ext4slower 10 ⟶ (zfs*, xfs*, etc.) slow file system I/O?
+5. bioslower 10 ⟶ if so, check disks
+6. ext4dist 1 ⟶ check distribution and rate
+7. biolatency 1 ⟶ if interesting, check disks
+8. cat /sys/devices/…/ioerr_cnt ⟶ (if available) errors
+9. smartctl -l error /dev/sda1 ⟶ (if available) errors
+
+* Another short checklist. Won't solve everything. ext4slower/dist, bioslower/latency, are from bcc/BPF tools.
+
+Linux Network Checklist
+
+1. sar -n DEV,EDEV 1 ⟶ at interface limits? or use nicstat
+2. sar -n TCP,ETCP 1 ⟶ active/passive load, retransmit rate
+3. cat /etc/resolv.conf ⟶ it's always DNS
+4. mpstat -P ALL 1 ⟶ high kernel time? single hot CPU?
+5. tcpretrans ⟶ what are the retransmits? state?
+6. tcpconnect ⟶ connecting to anything unexpected?
+7. tcpaccept ⟶ unexpected workload?
+8. netstat -rnv ⟶ any inefficient routes?
+9. check firewall config ⟶ anything blocking/throttling?
+10. netstat -s ⟶ play 252 metric pickup
+
+* tcp*, are from bcc/BPF tools.
+
+Linux CPU Checklist
+
+1. uptime ⟶ load averages
+2. vmstat 1 ⟶ system-wide utilization, run q length
+3. mpstat -P ALL 1 ⟶ CPU balance
+4. pidstat 1 ⟶ per-process CPU
+5. CPU flame graph ⟶ CPU profiling
+6. CPU subsecond offset heat map ⟶ look for gaps
+7. perf stat -a -- sleep 10 ⟶ IPC, LLC hit ratio
+
+
+Почти во всех популярных дистрибутивах Linux в составе присутствует утилита vmstat. С её помощью можно узнать подробную информацию по использованию оперативной памяти, cpu и дисках. Лично я её не люблю, потому что вывод неинформативен. Утилита больше для какой-то глубокой диагностики или мониторинга, нежели простого использования в консоли. 
+
+Если есть возможность установить дополнительный пакет, то я предпочту dstat (https://t.me/srv_admin/2150). Там и вывод более наглядный, и ключей больше. А информацию по базовому отображению памяти хорошо перекрывает утилита free.
+
+Тем не менее, если хочется быстро посмотреть некоторую системную информацию, то можно воспользоваться vmstat. У неё есть возможность выводить с определённым интервалом информацию в консоль. Иногда для быстрой отладки это может быть полезно. Запускать лучше сразу с парой дополнительных ключей для вывода информации в мегабайтах и с более широкой таблицей:
+
+# vmstat 1 -w -S M
+
+Как можно убедиться, вывод такой себе. Сокращения, как по мне, выбраны неудачно и неинтуитивно. В том же dstat такой проблемы нет. Но в целом привыкнуть можно. В man vmstat они подробно описаны, так что с интерпретацией проблем не должно возникать.
+
+А вообще, эта заметка была написана, чтобы в неё тиснуть необычный однострочник для bash, который меня поразил своей сложностью и непонятностью, но при этом он рабочий. Увидел его в комментариях на хабре и сохранил. Он сравнивает вывод информации об использовании памяти утилиты free и cat /proc/meminfo: 
+
+# eval $(free -kw | awk '/Mem/{print "mtotal="$2"\nmused="$3"\nmfree="$4"\nmshared="$5"\nmbuffers="$6"\nmcache="$7"\nmavailable="$8}/Swap/{print "stotal="$2"\nsused="$3"\nsfree="$4}');eval $(awk -F'(: +)| ' '!/\(/{print $1"="$2}' /proc/meminfo);clear; echo -e ";;;;;\nMem;total;$mtotal;│;$MemTotal;MemTotal\nMem;used;$mused;│;$[MemTotal-MemFree-Buffers-Cached-KReclaimable];MemTotal-MemFree-Buffers-Cached-KReclaimable\nMem;free;$mfree;│;$MemFree;MemFree\nMem;shared;$mshared;│;$Shmem;Shmem\nMem;buffers;$mbuffers;│;$Buffers;Buffers\nMem;cache;$mcache;│;$[Cached+KReclaimable];Cached+KReclaimable\nMem;available;$mavailable;│;$MemAvailable;MemAvailable\nSwap;total;$stotal;│;$SwapTotal;SwapTotal\nSwap;used;$sused;│;$[SwapTotal-SwapFree];SwapTotal-SwapFree\nSwap;free;$sfree;│;$SwapFree;SwapFree\n\n" | column -t -s ";" --table-columns " ,free -kw¹,KiB¹, ,KiB²,/proc/meminfo²" --table-right "free -kw¹,KiB¹" --table-truncate "/proc/meminfo²"
+
+Это прям какой-то царь-однострочник. Я когда его первый раз запускал, не верил, что он заработает. Но он заработал. В принципе, можно сохранить и использовать.
