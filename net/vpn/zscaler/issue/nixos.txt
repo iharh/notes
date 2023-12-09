@@ -1,5 +1,22 @@
+for nix-darwin
 https://github.com/NixOS/nix/issues/7808
 https://www.reddit.com/r/NixOS/comments/11dhoby/nixshell_cert_issues_at_work/
-https://github.com/NixOS/nix/issues/7914
-https://discourse.nixos.org/t/nix-cannot-find-my-custom-ssl-certificate/27361
 https://discourse.nixos.org/t/cert-issue-with-zscaler/25870
+https://github.com/NixOS/nix/issues/7914
+
+determinate
+https://github.com/DeterminateSystems/nix-installer/issues/669
+    https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate/31830614#31830614
+    https://github.com/DeterminateSystems/nix-installer/pull/671
+
+cert
+https://discourse.nixos.org/t/nix-cannot-find-my-custom-ssl-certificate/27361
+https://nixos.org/manual/nix/stable/installation/env-variables.html?highlight=certi#nix_ssl_cert_file-with-macos-and-the-nix-daemon
+https://github.com/NixOS/nix/pull/8062
+https://github.com/NixOS/nix/issues/8081
+
+https://community.zscaler.com/s/question/0D54u00009evn0tCAA/zpa-zapp-for-linux-required
+
+to-search
+https://discourse.nixos.org
+    only 25870
