@@ -1,0 +1,2 @@
+https://github.com/thiagokokada/nix-configs
+    $ nix flake new --template '.#new-host' # if this is a new hardware

@@ -168,6 +168,17 @@ https://github.com/GroosL/dotfiles/
 https://github.com/100lvlmaster/dots
 
 nixos
+https://nix-community.github.io/awesome-nix/#development
+    ! TBD
+    https://github.com/astro/microvm.nix
+    https://github.com/erikarvstedt/extra-container
+    https://github.com/Mic92/nixos-shell
+    https://github.com/nix-community/comma
+    https://git.maralorn.de/nix-output-monitor/
+    https://github.com/utdemir/nix-tree
+    https://github.com/hercules-ci/arion
+https://github.com/hercules-ci/flake-parts
+    ! ? Mic92-minimal
 https://namishpande.is-a.dev/archives/nixos/
 https://github.com/wochap/nix-config
     ! nix-ld, nix-alien, hyprland, waybar

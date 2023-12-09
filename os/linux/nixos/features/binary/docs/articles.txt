@@ -3,9 +3,11 @@ https://nixos-and-flakes.thiscute.world/best-practices/run-downloaded-binaries-o
 2023
 https://discourse.nixos.org/t/tips-tricks-for-nixos-desktop/28488/10
 2020
-https://fzakaria.com/2020/11/17/on-demand-linked-libraries-for-nix.html
+https://fzakaria.com/2020/11/18/on-demand-linked-libraries-for-nix.html
+    https://github.com/Mic92/nix-ld
+    https://github.com/nix-community/nix-index
 2019
 https://unix.stackexchange.com/questions/522822/different-methods-to-run-a-non-nixos-executable-on-nixos
-    !!!
+    !!! local lib deps for individual bins
 2015
 https://sandervanderburg.blogspot.com/2015/10/deploying-prebuilt-binary-software-with.html
