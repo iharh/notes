@@ -2,15 +2,19 @@ https://flakehub.com/
 
 https://flakehub.com/docs
 https://flakehub.com/docs/features/discovery
+https://flakehub.com/docs/concepts/mirroring
 
 https://flakehub.com/orgs
 https://flakehub.com/flakes
 
 https://github.com/DeterminateSystems/magic-nix-cache-action
+https://github.com/DeterminateSystems/magic-nix-cache
 https://determinate.systems/posts/magic-nix-cache
+    https://docs.github.com/en/rest/actions/cache
 
 cli
 https://github.com/DeterminateSystems/fh
+https://flakehub.com/docs/cli
 https://determinate.systems/posts/fh-updates
 https://determinate.systems/posts/flakehub-cli
 
@@ -19,8 +23,5 @@ https://github.com/DeterminateSystems/flakehub-push
 https://github.com/DeterminateSystems/flake-checker
 https://github.com/DeterminateSystems/nix-installer-action
 
-https://determinate.systems/posts/introducing-flakehub
-
 2023
-PackagingCon - Flakes: Nix Unshackled – Graham Christensen 0:00 of 24:19
-    https://www.youtube.com/watch?v=wZBiRv3ixhU
+https://determinate.systems/posts/introducing-flakehub

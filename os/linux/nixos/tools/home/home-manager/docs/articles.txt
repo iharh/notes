@@ -1,5 +1,11 @@
 2023
 https://itsfoss.com/home-manager-nixos/
+2022
+https://determinate.systems/posts/nix-home-env
+    https://github.com/the-nix-way/nome
+    https://github.com/the-nix-way/nome/blob/main/flake.nix
+    https://github.com/the-nix-way/nome/tree/main/templates
+    !!!
 2021
 https://ghedam.at/24353/tutorial-getting-started-with-home-manager-for-nix
 2020
