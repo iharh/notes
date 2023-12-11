@@ -176,6 +176,7 @@ nixos
 man
     configuration.nix
     home-configuration.nix
+    !!! home-manager works on any other distro as well !!!
 https://nix-community.github.io/awesome-nix/#development
     ! TBD
     https://github.com/astro/microvm.nix
@@ -241,6 +242,16 @@ https://github.com/MCotocel/nixdots
     https://github.com/MCotocel/nixdots/blob/master/hosts/lithium/network.nix
     https://github.com/MCotocel/nixdots/blob/master/hosts/lithium/services.nix
     https://github.com/MCotocel/nixdots/blob/master/hosts/lithium/sound.nix
+https://github.com/johnk1917/nixrland
+https://git.catgirl.cloud/999eagle/dotfiles-nix
+https://git.catgirl.cloud/999eagle/dotfiles-nix/-/blob/main/secrets.nix
+https://git.catgirl.cloud/999eagle/dotfiles-nix/-/blob/main/hosts/metadata/hosts.nix
+  {lib, ...}: let
+    metadata = lib.importTOML ./hosts.toml;
+  in {
+    inherit metadata;
+  }
+https://git.catgirl.cloud/999eagle/dotfiles-nix/-/blob/main/hosts/metadata/hosts.toml
 
 bspwm, nvchad
 https://github.com/siduck/dotfiles
