@@ -173,6 +173,8 @@ https://github.com/GroosL/dotfiles/
 https://github.com/100lvlmaster/dots
 
 nixos
+man
+    configuration.nix
 https://nix-community.github.io/awesome-nix/#development
     ! TBD
     https://github.com/astro/microvm.nix
