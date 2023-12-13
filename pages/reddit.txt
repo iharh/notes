@@ -173,6 +173,8 @@ https://github.com/GroosL/dotfiles/
 https://github.com/100lvlmaster/dots
 
 nixos
+kexec
+    https://nixos.org/manual/nixos/stable/#sec-booting-via-kexec
 man
     configuration.nix
     home-configuration.nix
@@ -197,6 +199,7 @@ https://github.com/moni-dz/nix-config
 https://github.com/gianarb/dotfiles
 https://github.com/gianarb/dotfiles/blob/main/nixos/machines/live-usb/flake.nix
 https://github.com/datsfilipe/dotfiles
+https://github.com/erictossell/nixflakes
 stylix
 https://danth.github.io/stylix/
     https://github.com/danth/stylix
@@ -260,6 +263,7 @@ https://github.com/samthepacman/IdempotentDots/tree/main/root/config/neovim
 https://github.com/chadcat7/kodo
 https://github.com/justinlime/dotfiles/tree/main/nvim
 https://github.com/justinlime/dotfiles/blob/main/nvim/install.sh
+https://github.com/erictossell/eriixvim/blob/main/config/default.nix
 
 yabai
 https://github.com/RishTheFish21/.files
