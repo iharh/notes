@@ -1,0 +1,43 @@
+https://t.me/srv_admin/2596
+https://t.me/srv_admin/2729
+spec mailx util. 
+
+https://everything.curl.dev/usingcurl/smtp
+
+# curl -v --url "smtp://mail.server.ru:25" --mail-from "root@server.ru" --mail-rcpt "user@gmail.com" --user 'root@server.ru:password123' --upload-file ~/mail.txt
+
+Содержимое mail.txt примерно следующее:
+
+From: "Vladimir" <root@server.ru>
+To: "User" <user@gmail.com>
+Subject: Mail from curl
+
+Hello! How are you?
+
+Причём с помощью curl очень удобно управлять адресом отправителя. 
+В mail.txt его любой указать можно, а не тот, от которого идёт отправка. 
+Впрочем, как и другие заголовки.
+
+Не очень хорошая идея светить почтовый пароль в консоли. 
+Можно его спрятать в .netrc файл. 
+Для этого его надо создать в домашней директории пользователя ~/.netrc. Содержание такое:
+
+machine mail.server.ru login root@server.ru password password123
+machine mail.server02.ru login user@server02.ru password password12345
+
+Каждый сервер на новой строке. Удобно, если используется отправка через несколько разных серверов. 
+В соответствии с указанным smtp сервером берутся настройки учётной записи из файла .netrc. 
+Команда на отправку с использованием .netrc будет такая:
+
+# curl -v --url "smtp://mail.server.ru:25" --mail-from "root@server.ru" --mail-rcpt "user@gmail.com" --netrc --upload-file ~/mail.txt
+
+Так как мы используем ключ -v, в консоли видим весь лог общения с почтовым сервером, что может быть удобно для отладки. 
+Если не указывать никаких ключей для TLS, то будет использоваться нешифрованное соединение. 
+Если нужно только шифрованное, то можно добавить ключ --ssl-reqd, 
+а если хотите чтобы при поддержке сервером шифрование использовалось, а если поддержки нет, то нет, тогда добавьте ключ --ssl. 
+
+Если используется шифрованное соединение и порт 465, то достаточно просто указать адрес сервера в виде smtps://mail.server.ru. 
+Отдельно указывать порт и ключи для ssl не обязательно. 
+
+Для того, чтобы явно указать HELO / EHLO при отправке, добавьте его через слеш после адреса сервера. Примерно так: 
+smtp://mail.server.ru/client_helo.server.ru
