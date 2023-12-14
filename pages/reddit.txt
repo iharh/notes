@@ -258,6 +258,9 @@ https://git.catgirl.cloud/999eagle/dotfiles-nix/-/blob/main/hosts/metadata/hosts
     inherit metadata;
   }
 https://git.catgirl.cloud/999eagle/dotfiles-nix/-/blob/main/hosts/metadata/hosts.toml
+https://gitlab.com/Zaney/zaneyos
+    https://www.youtube.com/watch?v=vHjl47cjqIY
+    hypr+vim
 
 bspwm, nvchad
 https://github.com/siduck/dotfiles
@@ -267,6 +270,9 @@ https://github.com/chadcat7/kodo
 https://github.com/justinlime/dotfiles/tree/main/nvim
 https://github.com/justinlime/dotfiles/blob/main/nvim/install.sh
 https://github.com/erictossell/eriixvim/blob/main/config/default.nix
+https://github.com/cpow/neovim-for-newbs
+    https://www.youtube.com/watch?v=zHTeCSVAFNY
+https://github.com/logandonley/dotfiles/tree/main/dot_config/nvim
 
 yabai
 https://github.com/RishTheFish21/.files
