@@ -5,6 +5,8 @@ https://github.com/rust-lang-nursery/stdsimd/issues/159
 
 https://github.com/rust-lang-nursery/simd
 
+2023
+https://towardsdatascience.com/nine-rules-for-simd-acceleration-of-your-rust-code-part-1-c16fe639ce21
 2020
 https://www.nickwilcox.com/blog/autovec2/
 https://www.nickwilcox.com/blog/autovec/
