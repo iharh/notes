@@ -5,3 +5,6 @@ fp-compiler/jammy 3.2.2+dfsg-9ubuntu1 amd64
 
 fp-compiler-3.2.2/jammy,now 3.2.2+dfsg-9ubuntu1 amd64 [installed,automatic]
   Free Pascal - compiler
+recommended
+  fp-utils-3.2.2
+  fp-docs-3.2.2
