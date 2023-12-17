@@ -63,8 +63,6 @@ https://github.com/lVoidi/dots
 
 hyprland
 https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#vm
-for kali
-    https://www.youtube.com/watch?v=NtpRtSBjz3I
 https://github.com/prasanthrangan/hyprdots
     https://github.com/KskRoyal/HyprLand
     !!!!!
@@ -77,50 +75,49 @@ https://github.com/prasanthrangan/hyprdots
         ! wpaperd
     KskRoyal - EndeavourOS And HyprLand Setup // Hyprland Installation 0:00 of 11:34
         https://www.youtube.com/watch?v=mb8h1-LB9K0
-    ?
-    https://www.youtube.com/watch?v=BFppwQa4Yys
-
-https://github.com/JaKooLit/Hyprland-v2.1
-https://github.com/Senshi111/debian-hyprland-hyprdots
-    debian-based
-https://github.com/Senshi111/hyprland-hyprdots-files
-    !!! install_all.sh !!!
-    https://github.com/Senshi111/debian-hyprland-hyprdots/blob/main/build-hyprland-and-apps/install_all.sh
+    JackKeifer - Garuda Hyprland - A First Look, and Wowee wow, outta sight! 0:00 of 31:51
+        https://www.youtube.com/watch?v=BFppwQa4Yys
+arch-based
 https://github.com/end-4/dots-hyprland/tree/illogical-impulse
     eww, ags
     https://github.com/end-4/dots-hyprland/wiki/illogical_impulse
 https://github.com/ImRayy/dotfiles
-    with eww !!!, arch-based ?
+    with eww !!!
 https://github.com/linkfrg/dotfiles
-    arch-based ?
 https://github.com/linkfrg/dotfiles/wiki/Installation
     hyprland-git
-
-!!! look from here
 https://github.com/Ehllay/hyprland-dotfiles
-https://www.reddit.com/r/unixporn/comments/17d2q6o/hyprland_because_linux/
-    https://www.youtube.com/watch?v=utbs1cO8VnI
-https://github.com/enchanted-coder/nix-config
-https://github.com/phant80m/dotfiles
-    https://www.youtube.com/watch?v=qVUdr7KDl-4
-https://github.com/TesterTech/hyprland-config
-    https://www.youtube.com/watch?v=89aYpPMlqFs
-    https://www.youtube.com/watch?v=CeOfycrY5JI
 https://github.com/Axenide/Dotfiles
-https://github.com/JakeMartinezz/hyprland-dots
+https://github.com/kannakalyan05/hyprland
 https://github.com/AhmedSaadi0/my-hyprland-config
     ! super cool graphics
     https://github.com/AhmedSaadi0/my-hyprland-config/tree/main/configs/ags/images
-https://github.com/kotontrion/dotfiles
-https://github.com/JaKooLit/Hyprland-Dots
-https://github.com/obsqrbtz/dotfiles
-https://github.com/kannakalyan05/hyprland
-https://github.com/justinlime/dotfiles
-https://github.com/justinlime/dotfiles/tree/main/non-nix
-https://github.com/linuxmobile/kaku/
 https://gitlab.com/Zaney/dotfiles
 https://www.youtube.com/watch?v=e9ro_P9rbFk
     ! cfg
+
+just a conf
+https://github.com/JakeMartinezz/hyprland-dots
+https://github.com/kotontrion/dotfiles
+https://github.com/obsqrbtz/dotfiles
+https://github.com/phant80m/dotfiles
+    https://www.youtube.com/watch?v=qVUdr7KDl-4
+    ??? strange dotfiles manager
+https://github.com/TesterTech/hyprland-config
+    https://www.youtube.com/watch?v=89aYpPMlqFs
+    https://www.youtube.com/watch?v=CeOfycrY5JI
+
+debian-based
+https://github.com/JaKooLit/Debian-Hyprland
+    KskRoyal - Make Your Kali linux Desktop Look Professional // Amazing Kali Linux And HYPRLAND Setup 0:00 of 14:45
+    https://www.youtube.com/watch?v=NtpRtSBjz3I 
+    !!!
+https://github.com/JaKooLit/Hyprland-v2.1
+https://github.com/JaKooLit/Hyprland-Dots
+https://github.com/Senshi111/debian-hyprland-hyprdots
+https://github.com/Senshi111/hyprland-hyprdots-files
+    !!! install_all.sh !!!
+    https://github.com/Senshi111/debian-hyprland-hyprdots/blob/main/build-hyprland-and-apps/install_all.sh
 
 eww
 https://www.youtube.com/watch?v=AmVqENmVu8w
@@ -186,6 +183,8 @@ https://github.com/GroosL/dotfiles/
 https://github.com/100lvlmaster/dots
 
 nixos
+https://github.com/linuxmobile/kaku/
+    ! really interesting setup system !!!
 kexec
     https://nixos.org/manual/nixos/stable/#sec-booting-via-kexec
 man
@@ -213,11 +212,14 @@ https://github.com/gianarb/dotfiles
 https://github.com/gianarb/dotfiles/blob/main/nixos/machines/live-usb/flake.nix
 https://github.com/datsfilipe/dotfiles
 https://github.com/erictossell/nixflakes
+https://github.com/justinlime/dotfiles
+https://github.com/justinlime/dotfiles/tree/main/non-nix
 stylix
 https://danth.github.io/stylix/
     https://github.com/danth/stylix
 https://github.com/samthepacman/IdempotentDots
 https://github.com/kpritam/nixpkgs
+https://github.com/enchanted-coder/nix-config
 
 https://wiki.archlinux.org/title/kexec
 https://xeiaso.net/blog/backslash-kubernetes-2021-01-03/
