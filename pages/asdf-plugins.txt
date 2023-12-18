@@ -1,3 +1,4 @@
+updating plugin repository...HEAD is now at 3594ba8 fix: update `bin` & `pipx` plugins (#891)
 1password-cli                 https://github.com/NeoHsu/asdf-1password-cli.git
 act                           https://github.com/grimoh/asdf-act.git
 actionlint                    https://github.com/crazy-matt/asdf-actionlint.git
@@ -26,6 +27,7 @@ aria2                         https://github.com/asdf-community/asdf-aria2.git
 asciidoctorj                  https://github.com/gliwka/asdf-asciidoctorj.git
 asdf-plugin-manager           https://github.com/asdf-community/asdf-plugin-manager
 assh                          https://github.com/zekker6/asdf-assh.git
+atlas                         https://github.com/pbr0ck3r/asdf-atlas.git
 aws-amplify-cli               https://github.com/LozanoMatheus/asdf-aws-amplify-cli.git
 awscli                        https://github.com/MetricMike/asdf-awscli.git
 awscli-local                  https://github.com/paulo-ferraz-oliveira/asdf-awscli-local
@@ -46,15 +48,17 @@ balena-cli                    https://github.com/boatkit-io/asdf-balena-cli
 bashbot                       https://github.com/mathew-fleisch/asdf-bashbot.git
 bat                           https://gitlab.com/wt0f/asdf-bat.git
 batect                        https://github.com/johnlayton/asdf-batect.git
+bat-extras                    https://github.com/vhdirk/asdf-bat-extras.git
 bats                          https://github.com/timgluz/asdf-bats.git
 bazel                         https://github.com/rajatvig/asdf-bazel.git
 bbr                           https://github.com/vmware-tanzu/tanzu-plug-in-for-asdf.git
 bbr-s3-config-validator       https://github.com/vmware-tanzu/tanzu-plug-in-for-asdf.git
 benthos                       https://github.com/benthosdev/benthos-asdf.git
 bfs                           https://github.com/virtualroot/asdf-bfs.git
-bin                           https://github.com/joe733/asdf-bin.git
+bin                           https://github.com/yozachar/asdf-bin.git
 binnacle                      https://github.com/Traackr/asdf-binnacle.git
 bitwarden                     https://github.com/vixus0/asdf-bitwarden.git
+bitwarden-secrets-manager     https://github.com/asdf-community/asdf-bitwarden-secrets-manager
 bombardier                    https://github.com/NeoHsu/asdf-bombardier.git
 borg                          https://github.com/lwiechec/asdf-borg
 bosh                          https://github.com/vmware-tanzu/tanzu-plug-in-for-asdf.git
@@ -78,6 +82,7 @@ certstrap                     https://github.com/carnei-ro/asdf-certstrap.git
 cf                            https://github.com/mattysweeps/asdf-cf.git
 cfssl                         https://github.com/mathew-fleisch/asdf-cfssl.git
 chamber                       https://github.com/mintel/asdf-chamber
+changie                       https://github.com/pdemagny/asdf-changie
 cheat                         https://github.com/jmoratilla/asdf-cheat-plugin
 checkov                       https://github.com/bosmak/asdf-checkov.git
 chezmoi                       https://github.com/joke/asdf-chezmoi.git
@@ -90,6 +95,7 @@ cidr-merger                   https://github.com/ORCID/asdf-cidr-merger.git
 cilium-cli                    https://github.com/carnei-ro/asdf-cilium-cli.git
 cilium-hubble                 https://github.com/NitriKx/asdf-cilium-hubble.git
 circleci-cli                  https://github.com/ucpr/asdf-circleci-cli.git
+clarinet                      https://github.com/alexgo-io/asdf-clarinet.git
 clojure                       https://github.com/asdf-community/asdf-clojure.git
 cloudflared                   https://github.com/threkk/asdf-cloudflared
 cloud-sql-proxy               https://github.com/pbr0ck3r/asdf-cloud-sql-proxy.git
@@ -136,7 +142,7 @@ deno                          https://github.com/asdf-community/asdf-deno.git
 dep                           https://github.com/paxosglobal/asdf-dep.git
 depot                         https://github.com/depot/asdf-depot.git
 desk                          https://github.com/endorama/asdf-desk.git
-devspace                      https://github.com/NeoHsu/asdf-devspace.git
+devspace                     *https://github.com/NeoHsu/asdf-devspace.git
 dhall                         https://github.com/aaaaninja/asdf-dhall.git
 difftastic                    https://github.com/volf52/asdf-difftastic.git
 digdag                        https://github.com/jtakakura/asdf-digdag.git
@@ -160,6 +166,7 @@ dprint                        https://github.com/asdf-community/asdf-dprint
 draft                         https://github.com/kristoflemmens/asdf-draft.git
 driftctl                      https://github.com/nlamirault/asdf-driftctl.git
 drone                         https://github.com/virtualstaticvoid/asdf-drone.git
+dt                            https://github.com/so-dang-cool/asdf-dt.git
 dtm                           https://github.com/zhenyuanlau/asdf-dtm.git
 duf                           https://github.com/NeoHsu/asdf-duf.git
 dust                          https://github.com/looztra/asdf-dust.git
@@ -171,6 +178,7 @@ ejson                         https://github.com/cipherstash/asdf-ejson.git
 eksctl                        https://github.com/elementalvoid/asdf-eksctl.git
 elasticsearch                 https://github.com/asdf-community/asdf-elasticsearch.git
 elixir                        https://github.com/asdf-vm/asdf-elixir.git
+elixir-ls                     https://github.com/juantascon/asdf-elixir-ls
 elm                           https://github.com/asdf-community/asdf-elm.git
 embulk                        https://github.com/yuokada/asdf-embulk.git
 emsdk                         https://github.com/RobLoach/asdf-emsdk.git
@@ -296,7 +304,8 @@ istioctl                      https://github.com/virtualstaticvoid/asdf-istioctl
 janet                         https://github.com/Jakski/asdf-janet.git
 java                         *https://github.com/halcyon/asdf-java.git
 jb                            https://github.com/beardix/asdf-jb.git
-jbang                        *https://github.com/joschi/asdf-jbang.git
+jbang                        *https://github.com/jbangdev/jbang-asdf.git
+jfrog-cli                     https://github.com/LozanoMatheus/asdf-jfrog-cli.git
 jib                           https://github.com/joschi/asdf-jib.git
 jiq                           https://github.com/chessmango/asdf-jiq.git
 jless                         https://github.com/jc00ke/asdf-jless.git
@@ -373,6 +382,7 @@ kustomize                     https://github.com/Banno/asdf-kustomize.git
 kuttl                         https://github.com/jimmidyson/asdf-kuttl.git
 kwt                           https://github.com/vmware-tanzu/asdf-carvel.git
 lab                           https://github.com/particledecay/asdf-lab.git
+lane                          https://github.com/CodeReaper/asdf-lane.git
 lazygit                       https://github.com/nklmilojevic/asdf-lazygit.git
 lean                          https://github.com/asdf-community/asdf-lean.git
 lefthook                      https://github.com/jtzero/asdf-lefthook.git
@@ -408,6 +418,7 @@ mercury                       https://github.com/susurri/asdf-mercury.git
 meson                         https://github.com/asdf-community/asdf-meson.git
 micronaut                     https://github.com/weibemoura/asdf-micronaut.git
 mill                          https://github.com/asdf-community/asdf-mill.git
+mimirtool                     https://github.com/asdf-community/asdf-mimirtool.git
 minify                        https://github.com/axilleas/asdf-minify
 minikube                      https://github.com/alvarobp/asdf-minikube.git
 minio                         https://github.com/aeons/asdf-minio.git
@@ -417,6 +428,7 @@ mitmproxy                     https://github.com/NeoHsu/asdf-mitmproxy.git
 mkcert                        https://github.com/salasrod/asdf-mkcert.git
 mlton                         https://github.com/asdf-community/asdf-mlton.git
 mockery                       https://github.com/cabify/asdf-mockery.git
+monarch                       https://github.com/nyuyuyu/asdf-monarch.git
 mongodb                       https://github.com/sylph01/asdf-mongodb.git
 mongosh                       https://github.com/itspngu/asdf-mongosh.git
 mongo-tools                   https://github.com/itspngu/asdf-mongo-tools.git
@@ -454,6 +466,7 @@ openresty                     https://github.com/smashedtoatoms/asdf-openresty.g
 opensearch                    https://github.com/randikabanura/asdf-opensearch.git
 opensearch-cli                https://github.com/iul1an/asdf-opensearch-cli.git
 openshift-install             https://github.com/hhemied/asdf-openshift-install.git
+opentofu                      https://github.com/virtualroot/asdf-opentofu.git
 operator-sdk                  https://github.com/Medium/asdf-operator-sdk.git
 opsgenie-lamp                 https://github.com/ORCID/asdf-opsgenie-lamp
 oras                          https://github.com/bodgit/asdf-oras.git
@@ -468,7 +481,7 @@ perl                          https://github.com/ouest/asdf-perl.git
 php                           https://github.com/asdf-community/asdf-php.git
 pint                          https://github.com/sam-burrell/asdf-pint.git
 pipectl                       https://github.com/pipe-cd/asdf-pipectl.git
-pipx                          https://github.com/joe733/asdf-pipx.git
+pipx                          https://github.com/yozachar/asdf-pipx.git
 pivnet                        https://github.com/vmware-tanzu/tanzu-plug-in-for-asdf.git
 please                        https://github.com/asdf-community/asdf-please.git
 pluto                         https://github.com/FairwindsOps/asdf-pluto.git
@@ -480,6 +493,7 @@ postgres                      https://github.com/smashedtoatoms/asdf-postgres.gi
 powerline-go                  https://github.com/dex4er/asdf-powerline-go.git
 powershell-core               https://github.com/daveneeley/asdf-powershell-core.git
 pre-commit                    https://github.com/jonathanmorley/asdf-pre-commit.git
+promtool                      https://github.com/asdf-community/asdf-promtool
 protoc                        https://github.com/paxosglobal/asdf-protoc.git
 protoc-gen-connect-go         https://github.com/dylanrayboss/asdf-protoc-gen-connect-go.git
 protoc-gen-go                 https://github.com/pbr0ck3r/asdf-protoc-gen-go.git
@@ -491,7 +505,7 @@ protonge                      https://github.com/augustobmoura/asdf-protonge.git
 psc-package                   https://github.com/nsaunders/asdf-psc-package.git
 pulumi                        https://github.com/canha/asdf-pulumi.git
 purerl                        https://github.com/GoNZooo/asdf-purerl.git
-purescript                    https://github.com/nsaunders/asdf-purescript.git
+purescript                    https://github.com/jrrom/asdf-purescript.git
 purty                         https://github.com/nsaunders/asdf-purty.git
 python                       *https://github.com/danhper/asdf-python.git
 qdns                          https://github.com/moritz-makandra/asdf-plugin-qdns.git
@@ -557,12 +571,12 @@ snyk                          https://github.com/nirfuchs/asdf-snyk.git
 soft-serve                    https://github.com/chessmango/asdf-soft-serve.git
 solidity                      https://github.com/diegodorado/asdf-solidity.git
 sonobuoy                      https://github.com/Nick-Triller/asdf-sonobuoy.git
-sops                          https://github.com/feniix/asdf-sops.git
+sops                         *https://github.com/feniix/asdf-sops.git
 sopstool                      https://github.com/elementalvoid/asdf-sopstool.git
 soracom                       https://github.com/grimoh/asdf-soracom.git
 sourcery                      https://github.com/younke/asdf-sourcery.git
 spacectl                      https://github.com/bodgit/asdf-spacectl.git
-spago                         https://github.com/nsaunders/asdf-spago.git
+spago                         https://github.com/jrrom/asdf-spago.git
 spark                         https://github.com/joshuaballoch/asdf-spark.git
 spectral                      https://github.com/vbyrd/asdf-spectral.git
 spin                          https://github.com/pavloos/asdf-spin.git
@@ -573,8 +587,10 @@ sqlite                        https://github.com/cLupus/asdf-sqlite.git
 sshuttle                      https://github.com/xanmanning/asdf-sshuttle.git
 stack                         https://github.com/sestrella/asdf-ghcup.git
 starboard                     https://github.com/zufardhiyaulhaq/asdf-starboard.git
+starknet-foundry              https://github.com/foundry-rs/asdf-starknet-foundry.git
 starport                      https://github.com/nikever/asdf-starport.git
 starship                      https://github.com/grimoh/asdf-starship.git
+staticcheck                   https://github.com/pbr0ck3r/asdf-staticcheck.git
 steampipe                     https://github.com/carnei-ro/asdf-steampipe.git
 step                          https://github.com/log2/asdf-step.git
 stern                         https://github.com/looztra/asdf-stern.git
@@ -593,6 +609,7 @@ talhelper                     https://github.com/bjw-s/asdf-talhelper
 talos                         https://github.com/particledecay/asdf-talos.git
 talosctl                      https://github.com/bjw-s/asdf-talosctl
 tanka                         https://github.com/trotttrotttrott/asdf-tanka.git
+tanzu                         https://github.com/vmware-tanzu/tanzu-plug-in-for-asdf.git
 task                          https://github.com/particledecay/asdf-task.git
 tctl                          https://github.com/eko/asdf-tctl.git
 tekton-cli                    https://github.com/johnhamelink/asdf-tekton-cli.git
@@ -632,6 +649,7 @@ tokei                         https://github.com/gasuketsu/asdf-tokei.git
 tomcat                        https://github.com/mbutov/asdf-tomcat
 tonnage                       https://github.com/elementalvoid/asdf-tonnage.git
 tool-versions-to-env          https://github.com/smartcontractkit/tool-versions-to-env-action.git
+traefik                       https://github.com/Dabolus/asdf-traefik.git
 trdsql                        https://github.com/johnlayton/asdf-trdsql.git
 tree-sitter                   https://github.com/ivanvc/asdf-tree-sitter.git
 tridentctl                    https://github.com/asdf-community/asdf-tridentctl.git
@@ -643,6 +661,7 @@ tx                            https://github.com/ORCID/asdf-transifex.git
 typos                         https://github.com/aschiavon91/asdf-typos.git
 uaa-cli                       https://github.com/vmware-tanzu/tanzu-plug-in-for-asdf.git
 unison                        https://github.com/susurri/asdf-unison.git
+updatecli                     https://github.com/updatecli/asdf-updatecli.git
 upt                           https://github.com/ORCID/asdf-upt.git
 upx                           https://github.com/jimmidyson/asdf-upx.git
 usql                          https://github.com/itspngu/asdf-usql.git
@@ -686,6 +705,7 @@ yj                            https://github.com/ryodocx/asdf-yj.git
 yor                           https://github.com/ordinaryexperts/asdf-yor
 youtube-dl                    https://github.com/iul1an/asdf-youtube-dl
 yq                            https://github.com/sudermanjr/asdf-yq.git
+yt-dlp                        https://github.com/duhow/asdf-yt-dlp
 ytt                           https://github.com/vmware-tanzu/asdf-carvel.git
 zbctl                         https://github.com/camunda-community-hub/asdf-zbctl.git
 zellij                        https://github.com/chessmango/asdf-zellij.git
