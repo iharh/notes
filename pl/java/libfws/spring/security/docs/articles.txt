@@ -1,6 +1,8 @@
 https://www.baeldung.com/security-spring
 
 2023
+https://habr.com/ru/articles/781066/
+    https://gitlab.com/SilverRid/SpringSecurityJWT
 https://reflectoring.io/spring-security/
     ! good architecture and filters with urls
     https://docs.spring.io/spring-security/reference/6.0.0-M4/servlet/authentication/architecture.html#servlet-authentication-providermanager

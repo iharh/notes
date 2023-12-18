@@ -1,6 +1,8 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
 3.x
+https://tanzu.vmware.com/content/blog/how-netflix-increased-application-performance-with-spring-boot-3-and-java-17
+https://digma.ai/blog/top-features-coming-in-spring-boot-3-2/
 DanVega - Building a new application with Spring Boot 3.2 0:00 of 23:20
     https://www.youtube.com/watch?v=w1Nzqm7MnZI
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2.0-Release-Notes
