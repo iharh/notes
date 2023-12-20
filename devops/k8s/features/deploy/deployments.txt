@@ -3,6 +3,7 @@ https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 Declarative opertations description agaist a group of pods
 
 2023
+https://hardeeppsinghh725.medium.com/blue-green-deployment-vs-canary-deployment-a7cd62ad608a
 https://www.baeldung.com/ops/kubernetes-deployment-vs-statefulsets
 2019
 https://www.exoscale.com/syslog/kubernetes-zero-downtime-deployment/
