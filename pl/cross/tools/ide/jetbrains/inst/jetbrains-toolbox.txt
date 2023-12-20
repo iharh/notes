@@ -5,6 +5,8 @@ aur
     https://aur.archlinux.org/packages/jetbrains-toolbox/
     https://download.jetbrains.com/toolbox/${pkgname}-${pkgver}.tar.gz
     https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.8.3678.tar.gz
+pacstall
+    jetbrains-toolbox-bin
 
 scoop
     jetbrain-toolbox
