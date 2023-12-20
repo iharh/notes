@@ -4,6 +4,9 @@ https://docs.oracle.com/en/java/javase/15/gctuning/z-garbage-collector.html
 https://openjdk.java.net/jeps/377
 https://openjdk.java.net/jeps/376
 
+2023
+https://inside.java/2023/11/28/gen-zgc-explainer/
+    https://www.youtube.com/watch?v=wpkbJGRCwRo
 2021
 https://malloc.se/blog/zgc-jdk16
 2020
