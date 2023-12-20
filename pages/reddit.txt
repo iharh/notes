@@ -5,10 +5,13 @@ father
 juice-squizer
 
 unixp
-2021-sep-20
+2021-oct-15
 https://t.me/reddit_unixporn/559
 https://www.reddit.com/r/unixporn/wiki/info/postofthemonth
 https://unixporn-dots.github.io/
+
+multi
+https://github.com/Alcadramin/Dots
 
 awesome
 https://github.com/awesomeWM/awesome/discussions/3813
@@ -61,6 +64,7 @@ https://github.com/llyram/awesomewm-dotfiles
 https://github.com/Lorago/dots
 https://github.com/NTBBloodbath/dotfiles
 https://github.com/lVoidi/dots
+https://github.com/ChocolateBread799/dotfiles
 
 hyprland
 https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#vm
@@ -218,6 +222,8 @@ https://github.com/datsfilipe/dotfiles
 https://github.com/erictossell/nixflakes
 https://github.com/justinlime/dotfiles
 https://github.com/justinlime/dotfiles/tree/main/non-nix
+https://github.com/Icy-Thought/Snowflake
+    xmon..
 stylix
 https://danth.github.io/stylix/
     https://github.com/danth/stylix
@@ -292,9 +298,11 @@ https://github.com/cpow/neovim-for-newbs
     https://www.youtube.com/watch?v=zHTeCSVAFNY
 https://github.com/logandonley/dotfiles/tree/main/dot_config/nvim
 https://github.com/BirdeeHub/nixCats-nvim
+https://github.com/VapourNvim/VapourNvim
 
 yabai
 https://github.com/RishTheFish21/.files
+https://github.com/hackorum/.dotfiles
 
 misc
 rofi

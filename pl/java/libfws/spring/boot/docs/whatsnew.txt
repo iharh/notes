@@ -1,6 +1,9 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
 3.x
+Lviv JavaClub - [Event 302] Spring boot news by Ihor Didyk 0:00 of 47:37
+    https://www.youtube.com/watch?v=Fze4mG5DXRQ
+    https://github.com/lvivJavaClub/spring-boot3-updates
 https://tanzu.vmware.com/content/blog/how-netflix-increased-application-performance-with-spring-boot-3-and-java-17
 https://digma.ai/blog/top-features-coming-in-spring-boot-3-2/
 DanVega - Building a new application with Spring Boot 3.2 0:00 of 23:20
