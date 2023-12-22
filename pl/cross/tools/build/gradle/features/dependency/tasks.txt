@@ -2,5 +2,5 @@ tasks
     dependencies [--configuration compile|test|...]
         list transitive dependencies
             org.slf4j:slf4j-api:1.7.7 -> 1.7.12 (conflict resolution)
-    dependencyInsight --dependency <name>
-        ???
+    dependencyInsight --dependency <dependency-name> --configuration <conf-name>
+        gra dependencyInsight --dependency io.projectreactor.netty:reactor-netty-core --configuration compileClasspath
