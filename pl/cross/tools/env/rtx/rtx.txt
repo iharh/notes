@@ -11,6 +11,7 @@ cli
 rtx
     -h, --help
     -v, --verbose
+        RTX_VERBOSE=1
     -vv
     -q, --quiet
     p[lugins]
@@ -20,6 +21,10 @@ rtx
         # list locally installed versions
     ls-remote,...
         <plugin-name>
+            list all remote vers
+    latest
+        <plugin-name>
+            latest remote version of plugin
     i[nstall] 
         <plugin-name> <plugin-ver>
     g[lobal] 
