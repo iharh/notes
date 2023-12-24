@@ -1,0 +1,12 @@
+https://github.com/search?q=zstunnel&type=code
+
+TOLOOK
+https://github.com/mtik00/ansible-role-zscaler/blob/main/tasks/main.yml
+? docker systemd
+
+/opt/zscaler/
+    bin/
+        zsaservice
+        ZSTray
+        zstunnel
+        zsupdater
