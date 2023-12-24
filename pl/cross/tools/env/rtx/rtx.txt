@@ -12,6 +12,7 @@ rtx
     -h, --help
     -v, --verbose
     -vv
+    -q, --quiet
     p[lugins]
         ls-remote, list-remote, list-all
         a[dd] <plugin-name>
