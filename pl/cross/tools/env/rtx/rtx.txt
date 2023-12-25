@@ -1,4 +1,11 @@
 https://github.com/jdx/rtx
+https://github.com/jdx/rtx-action
+https://github.com/jdx/rtx-versions
+https://github.com/jdx/rtx-versions/tree/main/docs
+https://github.com/jdx/rtx-java-metadata
+    https://github.com/joschi/java-metadata
+    https://joschi.github.io/java-metadata/index.html
+https://github.com/jdx/rtx-shorthands
 
 https://github.com/jdx/rtx#installation
     sudo install -dm 755 /etc/apt/keyrings
@@ -29,3 +36,24 @@ rtx
         <plugin-name> <plugin-ver>
     g[lobal] 
         <plugin-name> <plugin-ver>
+
+files
+    ~/.tool-versions
+    ~/.local/share/rtx/
+        tracked_config_files/
+        installs/azure-cli/2.55.0/bin/az
+    .rtx.toml
+
+integration
+    eval "$(rtx activate zsh)"
+
+plugins
+    https://github.com/jdx/rtx/blob/main/src/default_shorthands.rs
+
+shebangs
+#!/usr/bin/env -S rtx x ruby@3.0 -- ruby
+puts "running with ruby version: #{RUBY_VERSION}"
+
+2023
+https://jdx.dev/posts/2023-04-08-10-rtx-features/
+https://dev.to/jdxcode/beginners-guide-to-rtx-ac4
