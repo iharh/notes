@@ -1,4 +1,8 @@
 2023
+Vimjoyer - Nix File Fetching | fetchurl and Flakes of 4:20
+    https://www.youtube.com/watch?v=IdHbRGB-yXI
+    ! fetchFromGithub, fetchFromGitlab
+    ! inputs.someFile = { url=...; flake=false; }
 PackagingCon - Flakes: Nix Unshackled – Graham Christensen 0:00 of 24:19
     https://www.youtube.com/watch?v=wZBiRv3ixhU
 SystemMaid - [Tech Maid] Running Software On NixOS 0:00 of 8:38
