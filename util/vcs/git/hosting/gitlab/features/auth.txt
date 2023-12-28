@@ -1,3 +1,6 @@
+https://gitlab.com/-/user_settings/personal_access_tokens
+    api, read_api, read_user, create_runner, read_repository, write_repository, read_registry, write_registry
+
 2022
 https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token
 https://gitlab.com/gitlab-org/gitlab/-/issues/340848
