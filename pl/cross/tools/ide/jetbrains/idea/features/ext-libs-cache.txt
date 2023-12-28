@@ -1,3 +1,5 @@
 https://intellij-support.jetbrains.com/hc/en-us/community/posts/360010618919-IntelliJ-Idea-not-removing-external-libraries
 https://youtrack.jetbrains.com/issue/IDEA-255594
 https://youtrack.jetbrains.com/issue/IDEA-256331/Intelij-fails-to-load-the-correct-version-of-the-dependencies
+
+Gradle -> Refresh/Reload
