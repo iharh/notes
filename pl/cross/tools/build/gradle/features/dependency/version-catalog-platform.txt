@@ -1,5 +1,7 @@
-https://docs.gradle.org/current/userguide/platforms.html
+https://docs.gradle.org/current/userguide/platforms.html#sub:type-unsafe-access-to-catalog
 https://docs.gradle.org/current/userguide/java_platform_plugin.html
+
+https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/VersionCatalog.html
 
 samples
 https://github.com/lovekty/ktpractice/blob/master/gradle/libs.versions.toml
@@ -10,6 +12,12 @@ integrations
 https://github.com/spring-projects/spring-boot/issues/29588
     https://github.com/gradle/gradle/issues/19142
 
+2023
+https://docs.gradle.org/8.5/release-notes.html#build-init-improvements
+    Starting from this release, the build init plugin generates projects utilizing version catalogs in the conventional location 
+        gradle/libs.versions.toml.
+    https://docs.gradle.org/8.5/userguide/platforms.html#sub:central-declaration-of-dependencies
+    https://docs.gradle.org/8.5/userguide/platforms.html#sub::toml-dependencies-format
 2022
 https://proandroiddev.com/gradle-version-catalogs-for-an-awesome-dependency-management-f2ba700ff894
     ! no kt-script, just a groovy-based
