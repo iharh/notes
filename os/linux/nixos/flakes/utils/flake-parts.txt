@@ -1,6 +1,10 @@
 https://flake.parts/
 https://github.com/hercules-ci/flake-parts
 
+https://community.flake.parts/
+https://community.flake.parts/nixos-flake
+https://github.com/srid/nixos-flake/blob/f6b7757ad88483afca306c9f3bf387887fba7284/flake-module.nix#L50-L100
+
 samples
 https://github.com/argoproj/argo-workflows/blob/master/dev/nix/flake.nix
 https://zero-to-flakes.com/nixos-flake/
