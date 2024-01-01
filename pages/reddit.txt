@@ -213,14 +213,14 @@ https://nix-community.github.io/awesome-nix/#development
     https://github.com/hercules-ci/arion
 https://github.com/hercules-ci/flake-parts
     ! ? Mic92-minimal
-https://namishpande.is-a.dev/archives/nixos/
 https://github.com/wochap/nix-config
     ! nix-ld, nix-alien, hyprland, waybar
 https://github.com/sherubthakur/dotfiles
 https://github.com/JavaCafe01/dotfiles
 https://github.com/moni-dz/nix-config
 https://github.com/gianarb/dotfiles
-https://github.com/gianarb/dotfiles/blob/main/nixos/machines/live-usb/flake.nix
+    https://github.com/gianarb/dotfiles/blob/main/nixos/machines/live-usb/flake.nix
+    ! live-usb only !
 https://github.com/datsfilipe/dotfiles
 https://github.com/erictossell/nixflakes
 https://github.com/justinlime/dotfiles
@@ -228,7 +228,7 @@ https://github.com/justinlime/dotfiles/tree/main/non-nix
 https://github.com/Icy-Thought/Snowflake
     xmon..
 stylix
-https://danth.github.io/stylix/
+    https://danth.github.io/stylix/
     https://github.com/danth/stylix
 https://github.com/samthepacman/IdempotentDots
 https://github.com/kpritam/nixpkgs
