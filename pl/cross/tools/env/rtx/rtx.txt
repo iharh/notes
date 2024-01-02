@@ -54,6 +54,10 @@ shebangs
 #!/usr/bin/env -S rtx x ruby@3.0 -- ruby
 puts "running with ruby version: #{RUBY_VERSION}"
 
+errors
+Backtrace omitted. Run with RUST_BACKTRACE=1 environment variable to display it.
+Run with RUST_BACKTRACE=full to include source snippets.
+
 2023
 https://jdx.dev/posts/2023-04-08-10-rtx-features/
 https://dev.to/jdxcode/beginners-guide-to-rtx-ac4
