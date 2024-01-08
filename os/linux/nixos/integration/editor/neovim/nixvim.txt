@@ -1,0 +1,8 @@
+https://nix-community.github.io/nixvim/
+https://github.com/nix-community/nixvim
+
+2024
+Vimjoyer - Nixvim: Neovim Distro Powered By Nix of 4:34
+    https://www.youtube.com/watch?v=b641h63lqy0
+    https://github.com/vimjoyer/nixvim-video
+    nix run github:<yourusername>/nixvim-flake-repo
