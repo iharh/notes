@@ -5,3 +5,52 @@ https://linuxconfig.org/how-to-label-hard-drive-partition-under-linux
 https://unix.stackexchange.com/questions/230308/how-can-i-set-a-label-on-a-dm-cryptluks-container
     sudo cryptsetup config /dev/nvme0n1p2 --label luks
     sudo cryptsetup config /dev/nvme0n1p3 --label luks
+
+sudo tune2fs -L luks /dev/nvme0n1p3
+sudo tune2fs -L luks /dev/dm-0
+
+tune2fs: Bad magic number in super-block while trying to open /dev/nvme0n1p3
+/dev/nvme0n1p3 contains a crypto_LUKS file system
+...
+I expect you have to perform tune2fs on this /dev/mapper/xxx-xxx, there is the visible ext4 filesystem.
+
+l /dev/disk/by-label
+good
+    luks@ ⇒ ../../nvme0n1p2
+    root@ ⇒ ../../nvme0n1p1
+bad
+    NO_LABEL@ ⇒ ../../nvme0n1p1
+
+l /dev/mapper
+before
+    control
+after (by label)
+    luks@ ⇒ ../dm-0
+    and after that it is available:
+        /dev/dm-0
+    blkid
+        /dev/nvme0n1p2: UUID="..." LABEL="luks" TYPE="crypto_LUKS" PARTUUID="..."
+after (by uuid)
+    luks-788e6b7d-18de-4c73-973a-27126348c4cb@ ⇒ ../dm-0
+    blkid
+        /dev/mapper/luks-...: UUID="..." BLOCK_SIZE="4096" TYPE="ext4"
+
+???
+/dev/disk/by-partlabel
+
+https://forum.endeavouros.com/t/how-to-create-new-uuid-for-external-drive/43391/5
+https://unix.stackexchange.com/questions/12858/how-to-change-filesystem-uuid-2-same-uuid
+https://unix.stackexchange.com/questions/257652/change-encrypted-partition-uuid
+    For changing the file system UUID you have to decrypt /dev/sda1
+        sudo cryptsetup luksOpen /dev/disk/by-uuid/788e6b7d-18de-4c73-973a-27126348c4cb luks-788e6b7d-18de-4c73-973a-27126348c4cb
+    and then run tune2fs on the decrypted device mapper device.
+
+    To change the UUID of the LUKS volume, use cryptsetup luksUUID --uuid=<the new UUID> /dev/sda1.
+
+https://superuser.com/questions/1393014/change-partitions-labels-only-on-dolphin-or-change-label-on-not-mounted-luks-pa
+    sudo cryptsetup status /dev/mapper/luks-788e6b7d-18de-4c73-973a-27126348c4cb
+        ...
+        type: LUKS1
+        ...
+    sudo cryptsetup convert /dev/nvme0n1p3 --type luks2 --debug
+    sudo cryptsetup config /dev/nvme0n1p3 --label luks
