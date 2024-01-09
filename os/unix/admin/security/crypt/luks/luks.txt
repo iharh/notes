@@ -10,3 +10,9 @@ https://mirrors.edge.kernel.org/pub/linux/utils/cryptsetup/LUKS_docs/on-disk-for
 
 samples
 cryptsetup luksFormat --type luks2 <target device>
+
+https://fedoraproject.org/wiki/Disk_Encryption_User_Guide
+https://geekpeek.net/disk-encryption-on-centos-linux/
+
+https://julien.coubronne.net/en/2017/02/03/luks-backups-and-headers/
+https://dradis.com/support/guides/customization/auto-unlock-luks-encrypted-drive.html

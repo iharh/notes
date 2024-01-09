@@ -48,6 +48,7 @@ https://unix.stackexchange.com/questions/257652/change-encrypted-partition-uuid
     To change the UUID of the LUKS volume, use cryptsetup luksUUID --uuid=<the new UUID> /dev/sda1.
 
 https://superuser.com/questions/1393014/change-partitions-labels-only-on-dolphin-or-change-label-on-not-mounted-luks-pa
+    sudo cryptsetup status /dev/mapper/luks
     sudo cryptsetup status /dev/mapper/luks-788e6b7d-18de-4c73-973a-27126348c4cb
         ...
         type: LUKS1
