@@ -19,6 +19,14 @@ pacdeps=("brave-keyring-deb")
 repology=("project: brave")
 maintainer="Elsie19 <elsie19@pm.me>"
 
+
+
+#  __      __________   ______
+# /  \    /  \_____  \ /  __  \
+# \   \/\/   //  ____/ >      <
+#  \        //       \/   --   \
+#   \__/\  / \_______ \______  /
+#        \/          \/      \/
 maintainer="wizard-28 <wiz28@pm.me>"
 
 name="awesome-git"
@@ -38,25 +46,28 @@ breaks=("${pkgname}" "${pkgname}-bin")
 pkgver() {
   git ls-remote "${url}" master | cut -f1 | cut -c1-8
 }
+
 build() {
   # Build rquired files
   make -j"${NCPU}" DESTDIR="${pkgdir}"
 }
+
 package() {
   # Install awesome
   sudo make install DESTDIR="${pkgdir}"
 }
+
 post_install() {
   # Install to correct location .desktop file
   sudo mkdir -p /usr/share/xsessions/
   sudo ln -sf /usr/local/share/xsessions/"${pkgname}".desktop /usr/share/xsessions/"${pkgname}".desktop
 }
+
 post_remove() {
   # Remove desktop file
   sudo rm -f /usr/share/xsessions/"${pkgname}".desktop
 }
 # vim:set ft=sh ts=2 sw=2 et:
-
 
 maintainer="wizard-28 <wiz28@pm.me>"
 
