@@ -7,7 +7,9 @@ https://github.com/jdx/rtx-java-metadata
     https://joschi.github.io/java-metadata/index.html
 https://github.com/jdx/rtx-shorthands
 
-https://github.com/jdx/mise#installation
+inst
+https://mise.jdx.dev/getting-started.html
+curl https://mise.jdx.dev/install.sh | sh
 
 cli
 mise

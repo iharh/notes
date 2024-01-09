@@ -1,3 +1,6 @@
+pacstall -L
+    list installed
+
 name="linux-kernel-stable"
 pkgver="6.7"
 url="https://github.com/oklopfer/debs/raw/master/empty.tar.xz"
