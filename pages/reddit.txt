@@ -141,6 +141,7 @@ https://www.youtube.com/watch?v=AmVqENmVu8w
 https://www.youtube.com/watch?v=SBPZNjDiggE
     dashboard
 https://github.com/TheWonkyTestube/Pink-Hills
+https://github.com/freddyvelarde/dotfiles
 
 sway
 https://codeberg.org/zvava/config
@@ -256,6 +257,11 @@ https://jonascarpay.com/posts/2022-09-19-declarative-deployment.html
 https://xakep.ru/2013/11/18/space-in-nix-systems/
 https://github.com/nix-community/nixos-anywhere/issues/18
     https://github.com/nix-community/nixos-images/pull/50/files
+https://github.com/mahmoudk1000/nix-config
+    https://github.com/mahmoudk1000/nix-config/blob/main/hosts/labbi/hardware-configuration.nix
+    https://github.com/mahmoudk1000/nix-config/blob/main/hosts/labbi/configuration.nix
+    ! simple, xfs
+
 
 https://github.com/nix-community/nixos-anywhere/blob/main/docs/reference.md
 https://github.com/nix-community/nixos-anywhere/blob/main/docs/howtos/custom-kexec.md
