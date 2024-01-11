@@ -1,2 +1,18 @@
 https://wiki.hyprland.org/Configuring/Configuring-Hyprland/
 https://wiki.hyprland.org/Configuring/Dwindle-Layout/
+
+https://github.com/JaKooLit/Hyprland-Dots
+https://github.com/JaKooLit/Hyprland-Dots/tree/main/config/hypr
+https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/hyprland.conf
+    ! just soure= ... other stuff
+https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/initial-boot.sh
+    ...
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark > /dev/null 2>&1 &
+    ...
+https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/configs/Keybinds.conf
+https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/UserConfigs/UserSettings.conf
+https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/UserConfigs/WindowRules.conf
+
+https://github.com/JaKooLit/Hyprland-Dots/wiki/Changelogs
+https://github.com/JaKooLit/Hyprland-Dots/wiki/Install_&_Update
+https://github.com/JaKooLit/screenshots
