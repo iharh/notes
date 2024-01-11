@@ -2,3 +2,11 @@ https://wimpysworld.com/
 https://wimpysworld.com/about/
 
 https://www.youtube.com/@WimpysWorld
+
+https://github.com/wimpysworld/nix-config
+https://github.com/wimpysworld/nix-config#installing-
+    Run install-system <hostname> <username> from a terminal 
+    curl -sL https://raw.githubusercontent.com/wimpysworld/nix-config/main/scripts/install.sh | bash -s <hostname> <username>
+
+2024
+https://www.youtube.com/watch?v=VqNaOOm7Dhw
