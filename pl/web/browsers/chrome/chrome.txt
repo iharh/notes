@@ -1,3 +1,5 @@
+chromium --app="https://teams.microsoft.com/" --class=WebApp-MSBugs7061 --user-data-dir=${HOME}/.local/share/ice/profiles/MSBugs7061-Microsoft-Teams --incognito --new-window
+
 The launcher is called: 'google-chrome-stable'
 Custom flags should be put directly in: ~/.config/chrome-flags.conf
 

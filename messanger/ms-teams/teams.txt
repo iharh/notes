@@ -1,0 +1,5 @@
+https://teams.microsoft.com/v2/
+
+https://www.office.com/?auth=2
+
+chromium --app="https://teams.microsoft.com/" --class=WebApp-MSBugs7061 --user-data-dir=${HOME}/.local/share/ice/profiles/MSBugs7061-Microsoft-Teams --incognito --new-window
