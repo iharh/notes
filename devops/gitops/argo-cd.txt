@@ -2,6 +2,9 @@ https://argoproj.github.io
 https://github.com/argoproj
 https://blog.argoproj.io
 
+analysis-run
+https://argo-rollouts.readthedocs.io/en/stable/features/analysis/
+
 https://habr.com/ru/search/?target_type=posts&order=relevance&q=%5Bargo%20rollouts%5D
 https://habr.com/ru/search/?target_type=posts&order=relevance&q=%5Bargocd%5D
 
