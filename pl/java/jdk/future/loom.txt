@@ -13,6 +13,11 @@ https://github.com/tipsy/loomylin
 
 https://github.com/softwaremill/ox/
 
+https://github.com/Anamorphosee/loomoroutines
+
+2024
+https://habr.com/ru/articles/785334/
+    https://stackoverflow.com/questions/49652855/does-io-in-coroutines-cause-suspension
 2023
 https://developers.redhat.com/articles/2023/10/03/beyond-loom-weaving-new-concurrency-patterns#structured_concurrency
 https://www.baeldung.com/openjdk-project-loom
