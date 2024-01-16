@@ -1,8 +1,15 @@
 fin
     vocab/vocab
     @maksimtemchenko
+    cfi
+        https://www.wikiwand.com/en/ISO_10962
+        https://cbonds.com/glossary/cfi/
+        https://en.wikipedia.org/wiki/ISO_10962
+        https://www.iotafinance.com/en/Classification-of-Financial-Instrument-codes-CFI-ISO-10962.html
 
 mise latest <tool>@<ver>
+
+metodichka sharpa
 
 snesarev - war philosophy
 http://flibusta.site/a/79981
