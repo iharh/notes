@@ -1,0 +1,7 @@
+https://www.jbang.dev/documentation/guide/latest/dependencies.html
+
+Allow mavenlocal repository to be configured #431
+    https://github.com/jbangdev/jbang/issues/602
+    https://github.com/jbangdev/jbang/issues/431
+    https://github.com/jbangdev/jbang/issues/431#issuecomment-744071036
+        //REPOS local=file:///Users/max/.m2/repository
