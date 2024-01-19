@@ -67,6 +67,8 @@ C-A-Up/Down
     Navigate to prev/next compiler error
 S-F2
     ? -//-
+C-A-7
+    Show Usages
 A-F7
     Find Usages
 F3, S-F3
