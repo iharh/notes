@@ -62,6 +62,23 @@ https://www.linkedin.com/learning/what-is-generative-ai/generative-ai-is-a-tool-
 https://learn.microsoft.com/en-us/training/paths/introduction-generative-ai/
 https://microsoft.github.io/generative-ai-for-beginners/#/
 
+ai - transformers
+https://habr.com/ru/users/Kouki_RUS/
+https://jalammar.github.io/illustrated-transformer/
+    https://arxiv.org/abs/1706.03762
+    https://habr.com/ru/companies/ruvds/articles/725618/
+    https://habr.com/ru/companies/ruvds/articles/723538/
+http://jalammar.github.io/illustrated-transformer/
+    https://habr.com/ru/articles/486358/
+https://peterbloem.nl/blog/transformers
+    https://habr.com/ru/companies/wunderfund/articles/592231/
+http://nlp.seas.harvard.edu/2018/04/03/attention.html
+Warmerdam - Why Transformers Work 1:00 of 44:06
+    https://www.youtube.com/watch?v=QHkpGtDySqM
+    https://www.youtube.com/watch?v=cFUSjztXbL8
+https://www.youtube.com/playlist?list=PLIXJ-Sacf8u60G1TwcznBmK6rEL3gmZmV
+https://huggingface.co/learn/nlp-course/chapter1/1
+
 cp: cannot stat '/var/log/pacstall/metadata/*': No such file or directory
 
 apt
@@ -605,9 +622,6 @@ Klabnik - WebAssembly (Digging a bit deeper) 1:00 of 38:44
 Mew - VS Code and Data Science Tools 1:00 of 20:57
     https://www.youtube.com/watch?v=cylCnxzzwdA
     https://www.youtube.com/watch?v=Tyvg0LOwd5o
-Warmerdam - Why Transformers Work 1:00 of 44:06
-    https://www.youtube.com/watch?v=QHkpGtDySqM
-    https://www.youtube.com/watch?v=cFUSjztXbL8
 Down - Linux Memory Management at Scale 2:00 of 40:26
     https://www.youtube.com/watch?v=w9YQawAfkPw
     https://www.youtube.com/watch?v=QZZWAsBI_zY
