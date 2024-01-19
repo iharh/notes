@@ -1,3 +1,7 @@
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto.application.failure-analyzer
+    https://docs.spring.io/spring-boot/docs/3.2.2/api/org/springframework/boot/diagnostics/FailureAnalyzer.html
+    https://docs.spring.io/spring-boot/docs/3.2.2/api/org/springframework/boot/diagnostics/FailureAnalysis.html
+
 2023
 https://blog.stackademic.com/mastering-exception-handling-in-spring-boot-33d74a1dfc9e
 https://dip-mazumder.medium.com/spring-boot-exception-handling-best-practices-e8ebe97e8ce
