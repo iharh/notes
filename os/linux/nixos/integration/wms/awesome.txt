@@ -1,7 +1,9 @@
 https://nixos.wiki/wiki/Awesome
+
+https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/awesome.nix
+
 https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/window-managers/awesome/default.nix
 https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/x11/window-managers/awesome.nix
-https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/awesome.nix
 
 makeWrapper, .awesome-wrapper
 https://nixos.org/manual/nixpkgs/stable/#ssec-stdenv-functions
@@ -16,8 +18,10 @@ https://github.com/NixOS/nixpkgs/pull/61043
 samples
 https://github.com/actionless/dotfiles/blob/master/workstation-dell/nixos/xserver.nix
     ! custom session
+https://github.com/Mic92/dotfiles/blob/main/nixos/modules/xserver.nix
 https://github.com/Mic92/dotfiles/blob/master/nixos/modules/awesome.nix
-https://github.com/Mic92/dotfiles/blob/master/nixos/modules/xserver.nix
+    ?
+
 https://github.com/ar1a/dotfiles
 https://github.com/ar1a/dotfiles/tree/master/awesome/.config/awesome    
 
