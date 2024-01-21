@@ -1,9 +1,7 @@
-Vimjoyer - Declare Hyprland Config With Nix Home-Manager of 4:37
-https://www.youtube.com/watch?v=zt3hgSBs11g
-{ pkgs, lin, input, ... }:
-{
-    programs.hyperland.enable = true;
-}
+Elliot Ackerman & Admiral James Stavridis
+    http://flibusta.site/b/681041
+    DCEB342C0F579153A4363F31EFF3A372
+    https://www.rulit.me/books/2034-roman-o-sleduyushchej-mirovoj-vojne-get-722234.html
 
 fin
     vocab/vocab
