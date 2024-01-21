@@ -1,3 +1,10 @@
+Vimjoyer - Declare Hyprland Config With Nix Home-Manager of 4:37
+https://www.youtube.com/watch?v=zt3hgSBs11g
+{ pkgs, lin, input, ... }:
+{
+    programs.hyperland.enable = true;
+}
+
 fin
     vocab/vocab
     @maksimtemchenko
@@ -7,7 +14,11 @@ fin
         https://en.wikipedia.org/wiki/ISO_10962
         https://www.iotafinance.com/en/Classification-of-Financial-Instrument-codes-CFI-ISO-10962.html
 
-mise latest <tool>@<ver>
+telusko
+    https://courses.telusko.com/learn/Java-8-stream-API-Features-Lambda-Expression
+
+mise
+    latest <tool>@<ver>
 
 metodichka sharpa
 
