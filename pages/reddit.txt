@@ -204,6 +204,10 @@ https://github.com/romkatv/powerlevel10k/blob/master/README.md#show-on-command
 https://github.com/szorfein/dots
 
 qtile
+https://github.com/ValdezFOmar/.dotfiles
+    https://github.com/ValdezFOmar/.dotfiles/blob/main/user/home/.bashrc
+        MANPAGER
+    https://github.com/ValdezFOmar/.dotfiles/blob/main/user/home/.gitconfig
 https://github.com/tuffgniuz/qtile
     ! simple
 https://github.com/fredmny/dotfiles
