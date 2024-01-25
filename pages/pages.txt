@@ -3,6 +3,35 @@ Elliot Ackerman & Admiral James Stavridis
     DCEB342C0F579153A4363F31EFF3A372
     https://www.rulit.me/books/2034-roman-o-sleduyushchej-mirovoj-vojne-get-722234.html
 
+journalctl
+    /lib/systemd/system/sentinelone.service:23: Unit uses MemoryLimit=; please use MemoryMax= instead. Support for MemoryLimit= will be removed soon.
+    Jan 25 09:07:36 EPBYGOMW0024T2 NetworkManager[1255]: <info>  [1706162856.4985] manager: (virbr0): new Bridge device (/org/freedesktop/NetworkManager/Devices/3)
+Jan 25 09:07:36 EPBYGOMW0024T2 resolvconf[1412]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Jan 25 09:07:36 EPBYGOMW0024T2 dbus-daemon[622]: [system] Activating via systemd: service name='org.freedesktop.network1' unit='dbus-org.freedesktop.network1.service' requested by ':1.18' (uid=0 pid>
+Jan 25 09:07:36 EPBYGOMW0024T2 dbus-daemon[622]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.network1.service': Unit dbus-org.freedesktop.network1.service not found.
+Jan 25 09:07:36 EPBYGOMW0024T2 resolvconf[1412]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Jan 25 09:07:36 EPBYGOMW0024T2 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Jan 25 09:07:36 EPBYGOMW0024T2 systemd[1]: Reached target nss-lookup.target - Host and Network Name Lookups.
+    ..
+    systemd[1]: Started containerd.service - containerd container runtime.
+    dnsmasq[1388]: failed to access /run/dnsmasq/resolv.conf: No such file or directory
+    ...
+    Jan 25 09:07:37 EPBYGOMW0024T2 pipewire[1525]: mod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown
+    Jan 25 09:07:37 EPBYGOMW0024T2 pipewire[1525]: mod.rt: RTKit does not give us MaxRealtimePriority, using 1
+    ...
+    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire-pulse[1528]: default: snap_get_audio_permissions: failed to get the AppArmor info.
+    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire[1525]: spa.v4l2: '/dev/video0' VIDIOC_QUERYCTRL: Broken pipe
+    Jan 25 09:07:38 EPBYGOMW0024T2 kernel: usb 3-2.2: Failed to query (GET_DEF) UVC control 12 on unit 2: 0 (exp. 4).
+    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire[1525]: spa.v4l2: '/dev/video0' VIDIOC_QUERYCTRL: Broken pipe
+    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire-pulse[1528]: default: snap_get_audio_permissions: failed to get the AppArmor info.
+    Jan 25 09:07:38 EPBYGOMW0024T2 kernel: usb 3-2.2: Failed to query (GET_DEF) UVC control 12 on unit 2: 0 (exp. 4).
+    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire-pulse[1528]: default: snap_get_audio_permissions: failed to get the AppArmor info.
+    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire-pulse[1528]: default: snap_get_audio_permissions: failed to get the AppArmor info.
+    ...
+    Jan 25 09:54:42 EPBYGOMW0024T2 wireplumber[1970]: <WpSiStandardLink:0x55767a9abdc0> 2 of 2 PipeWire links failed to activate
+    Jan 25 09:54:42 EPBYGOMW0024T2 wireplumber[1970]: <WpSiAudioAdapter:0x55767a772b60> tried to link on last rescan, not retrying
+    Jan 25 09:54:42 EPBYGOMW0024T2 wireplumber[1970]: <WpSiAudioAdapter:0x55767a8c06f0> tried to link on last rescan, not retrying
+
 wezterm
 https://wezfurlong.org/wezterm/config/fonts.html
 ?
