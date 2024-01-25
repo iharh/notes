@@ -16,21 +16,6 @@ Jan 25 09:07:36 EPBYGOMW0024T2 systemd[1]: Reached target nss-lookup.target - Ho
     systemd[1]: Started containerd.service - containerd container runtime.
     dnsmasq[1388]: failed to access /run/dnsmasq/resolv.conf: No such file or directory
     ...
-    Jan 25 09:07:37 EPBYGOMW0024T2 pipewire[1525]: mod.rt: RTKit error: org.freedesktop.DBus.Error.ServiceUnknown
-    Jan 25 09:07:37 EPBYGOMW0024T2 pipewire[1525]: mod.rt: RTKit does not give us MaxRealtimePriority, using 1
-    ...
-    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire-pulse[1528]: default: snap_get_audio_permissions: failed to get the AppArmor info.
-    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire[1525]: spa.v4l2: '/dev/video0' VIDIOC_QUERYCTRL: Broken pipe
-    Jan 25 09:07:38 EPBYGOMW0024T2 kernel: usb 3-2.2: Failed to query (GET_DEF) UVC control 12 on unit 2: 0 (exp. 4).
-    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire[1525]: spa.v4l2: '/dev/video0' VIDIOC_QUERYCTRL: Broken pipe
-    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire-pulse[1528]: default: snap_get_audio_permissions: failed to get the AppArmor info.
-    Jan 25 09:07:38 EPBYGOMW0024T2 kernel: usb 3-2.2: Failed to query (GET_DEF) UVC control 12 on unit 2: 0 (exp. 4).
-    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire-pulse[1528]: default: snap_get_audio_permissions: failed to get the AppArmor info.
-    Jan 25 09:07:38 EPBYGOMW0024T2 pipewire-pulse[1528]: default: snap_get_audio_permissions: failed to get the AppArmor info.
-    ...
-    Jan 25 09:54:42 EPBYGOMW0024T2 wireplumber[1970]: <WpSiStandardLink:0x55767a9abdc0> 2 of 2 PipeWire links failed to activate
-    Jan 25 09:54:42 EPBYGOMW0024T2 wireplumber[1970]: <WpSiAudioAdapter:0x55767a772b60> tried to link on last rescan, not retrying
-    Jan 25 09:54:42 EPBYGOMW0024T2 wireplumber[1970]: <WpSiAudioAdapter:0x55767a8c06f0> tried to link on last rescan, not retrying
 
 wezterm
 https://wezfurlong.org/wezterm/config/fonts.html

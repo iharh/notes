@@ -17,6 +17,14 @@ https://handbook.sourcegraph.com/
 
 https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
 
+https://sourcegraph.com/whitepaper/cody-context-architecture.pdf
+https://sourcegraph.com/whitepaper/how-sourcegraph-ai-platform-powers-cody.pdf
+
+https://github.com/sourcegraph/cody/releases
+    https://github.com/sourcegraph/cody/compare/vscode-v1.0.5...vscode-v1.1.0
+
+2024
+https://sourcegraph.com/blog/cody-vscode-1.1.0-release
 2023
 https://sourcegraph.com/blog/cody-is-generally-available
 https://blog.logrocket.com/leveraging-cody-ai-better-more-efficient-code/

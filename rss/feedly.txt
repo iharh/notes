@@ -9,3 +9,17 @@ http://feedly.com/#cortex
 
 What's New:
 https://blog.feedly.com/organize-sources/
+
+
+reddit sample
+    <outline type="rss" text="r/DockSTARTer" title="r/DockSTARTer" xmlUrl="https://api.reddit.com/subreddit/DockSTARTer" htmlUrl="https://www.reddit.com/r/DockSTARTer/new"/>
+
+    https://blog.feedly.com/follow-reddit-communities-and-searches-in-feedly/
+
+    r/DockSTARTer
+    https://api.reddit.com/subreddit/DockSTARTer
+    https://www.reddit.com/r/DockSTARTer/new
+
+    r/rhinolinux
+    https://api.reddit.com/subreddit/rhinolinux
+    https://www.reddit.com/r/rhinolinux/new
