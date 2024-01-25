@@ -3,3 +3,6 @@ boot.kernelPackages
 
 boot.initrd.availableKernelModules
     https://www.reddit.com/r/NixOS/comments/fvceeg/internal_keyboard_not_recognized_at_early_boot/
+
+samples
+https://github.com/KnutHoltet/nixos-config/blob/main/nixos/linux-kernel.nix
