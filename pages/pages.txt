@@ -3,6 +3,31 @@ Elliot Ackerman & Admiral James Stavridis
     DCEB342C0F579153A4363F31EFF3A372
     https://www.rulit.me/books/2034-roman-o-sleduyushchej-mirovoj-vojne-get-722234.html
 
+https://www.baeldung.com/linux/screen-resolution
+    xrandr | grep '*' | awk '{print $1}'
+    hwinfo --monitor --short
+    sudo get-edid | parse-edid
+https://www.cyberciti.biz/faq/how-do-i-find-out-screen-resolution-of-my-linux-desktop/
+    xdpyinfo | awk '/dimensions/ {print $2}'
+https://github.com/wez/wezterm/discussions/4827
+    local isTmux = os.getenv("TERM_PROGRAM") == "tmux"
+    if isTmux then
+      return "ALT"
+    else
+      return "CTRL"
+    end
+https://wezfurlong.org/wezterm/config/lua/pane/get_user_vars.html
+https://github.com/wez/wezterm/issues/4096#issuecomment-1666944269
+    C-S-L
+        wezterm.gui.screens()
+https://wezfurlong.org/wezterm/troubleshooting.html
+    C-S-L - debug overlay activation
+    $XDG_RUNTIME_DIR/wezterm
+        /run/user/1000/wezterm
+        WEZTERM_LOG=debug wezterm
+https://wezfurlong.org/wezterm/config/lua/wezterm/log_info.html
+    wezterm.log_info 'Hello!'
+
 journalctl
     /lib/systemd/system/sentinelone.service:23: Unit uses MemoryLimit=; please use MemoryMax= instead. Support for MemoryLimit= will be removed soon.
     Jan 25 09:07:36 EPBYGOMW0024T2 NetworkManager[1255]: <info>  [1706162856.4985] manager: (virbr0): new Bridge device (/org/freedesktop/NetworkManager/Devices/3)
