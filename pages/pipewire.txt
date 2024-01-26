@@ -36,6 +36,8 @@ need!!!
 https://askubuntu.com/questions/138284/how-to-downgrade-a-package-via-apt-get
     apt list -a <pkg>
       ...
+      /var/cache/apt/archives/
+      ...
       libpipewire-0.3-0_0.3.79-2_amd64.deb
       libpipewire-0.3-0_0.3.83-1_amd64.deb
       libpipewire-0.3-0_0.3.84-1_amd64.deb
