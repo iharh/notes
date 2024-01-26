@@ -1,10 +1,18 @@
 ?
+https://gitlab.freedesktop.org/pipewire
+https://gitlab.freedesktop.org/pipewire/pipewire
+https://launchpad.net/pipewire
+https://launchpad.net/pipewire/+packages
 https://launchpad.net/ubuntu/+source/pipewire/1.0.1-1ubuntu2/+build/27654538
+bugs
+https://gitlab.freedesktop.org/pipewire/pipewire/-/issues
+https://bugs.launchpad.net/bugs/bugtrackers/auto-gitlab.freedesktop.org-pipewire-pipewire--
+https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/3813
+    !!!
 
 https://www.reddit.com/r/rhinolinux/
     https://www.reddit.com/r/rhinolinux/comments/19f4yqc/sound_problems_in_firefoxchrome/
 
-https://gitlab.freedesktop.org/pipewire/pipewire
 https://launchpad.net/~pipewire-debian/+archive/ubuntu/pipewire-upstream
     https://wiki.archlinux.org/title/PipeWire
 
