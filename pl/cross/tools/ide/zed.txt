@@ -1,6 +1,10 @@
 https://zed.dev
+
 https://github.com/zed-industries
-https://zed.dev/faq#will-zed-be-open-source
+https://github.com/zed-industries/zed
+
+https://zed.dev/download
+https://zed.dev/releases/stable
 
 https://zed.dev/features
 https://zed.dev/faq
@@ -9,6 +13,11 @@ https://zed.dev/blog
 
 https://docs.zed.dev/general/readme
 
+https://docs.zed.dev/configuration/configuring-zed
+    https://devhints.io/vim
+https://zed.dev/ref/vim.json
+
 https://github.com/zed-industries/community/issues/174
 linux
 https://github.com/zed-industries/community/issues/172
+https://github.com/zed-industries/zed/issues/5395
