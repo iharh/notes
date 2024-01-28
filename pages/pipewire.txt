@@ -32,6 +32,19 @@ https://launchpad.net/~pipewire-debian/+archive/ubuntu/pipewire-upstream
     wireplumber[1970]: <WpSiStandardLink:0x55767a9abdc0> 2 of 2 PipeWire links failed to activate
     wireplumber[1970]: <WpSiAudioAdapter:0x55767a772b60> tried to link on last rescan, not retrying
     wireplumber[1970]: <WpSiAudioAdapter:0x55767a8c06f0> tried to link on last rescan, not retrying
+    ...
+    pipewire-pulse[1550]: default: snap_get_audio_permissions: failed to get the AppArmor info.
+    kernel: usb 3-2.2: 3:1: cannot get freq at ep 0x84
+    lightdm[1610]: pam_succeed_if(lightdm:auth): requirement "user ingroup nopasswdlogin" not met by user "iharh"
+    systemd[1]: dmesg.service: Deactivated successfully.
+    kernel: usb 3-2.2: 3:1: cannot get freq at ep 0x84
+    pipewire-pulse[1550]: default: snap_get_audio_permissions: failed to get the AppArmor info.
+    pipewire[1547]: spa.v4l2: '/dev/video0' VIDIOC_QUERYCTRL: Broken pipe
+    kernel: usb 3-2.2: Failed to query (GET_DEF) UVC control 12 on unit 2: 0 (exp. 4).
+    pipewire[1547]: spa.v4l2: '/dev/video0' VIDIOC_QUERYCTRL: Broken pipe
+    kernel: usb 3-2.2: Failed to query (GET_DEF) UVC control 12 on unit 2: 0 (exp. 4).
+    pipewire-pulse[1550]: default: snap_get_audio_permissions: failed to get the AppArmor info.
+
     
 2022
 https://bbs.archlinux.org/viewtopic.php?id=273822
