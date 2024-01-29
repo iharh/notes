@@ -1,3 +1,7 @@
+pacstall -I unicorn-desktop-git
+
+
+
 [+] INFO: Installing pipewire-bundle
 [*] WARNING: Prompts are disabled
 (pipewire-bundle) Do you want to view/edit the pacscript? [y/N] N
