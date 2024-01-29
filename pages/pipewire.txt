@@ -1,3 +1,43 @@
+[+] INFO: Installing pipewire-bundle
+[*] WARNING: Prompts are disabled
+(pipewire-bundle) Do you want to view/edit the pacscript? [y/N] N
+[+] INFO: Sourcing pacscript
+[+] INFO: Retrieving packages
+Initializing download: https://github.com/oklopfer/debs/raw/master/empty.tar.xz
+File size: 164 byte(s) (164 bytes)
+Opening output file empty.tar.xz
+Starting download
+
+[100%] [.........................................................................................................................................................................] [ 819.0B/s]
+
+Downloaded 164 byte(s) in 0 second(s). (0.80 KB/s)
+[+] INFO: Extracting empty.tar.xz
+[*] WARNING: Could not enter into the downloaded archive
+[+] INFO: Running functions
+    [>] Running prepare
+    [>] Running build
+    [>] Running package
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ rhino-core : Depends: unicorn-desktop but it is not installable
+E: Error, pkgProblemResolver::Resolve generated breaks, this may be caused by held packages.
+    [!] ERROR: Could not package pipewire-bundle properly
+dpkg: warning: ignoring request to remove pipewire-bundle which isn't installed
+[+] INFO: Cleaning up
+[!] ERROR: Failed to install dependency
+Looking for updates…
+
+
+
+
 ?
 https://gitlab.freedesktop.org/pipewire
 https://gitlab.freedesktop.org/pipewire/pipewire
