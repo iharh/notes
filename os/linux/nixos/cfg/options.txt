@@ -3,3 +3,8 @@ https://search.nixos.org/options
 
 samples
 $ nixos-option system.build | grep -o 'installBootLoader = [^ ]*'
+
+2024
+LibrePhoenix - Custom Options and If-else Statements in Your NixOS Config 0:00 of 26:15
+    https://www.youtube.com/watch?v=Qull6TMQm4Q
+    https://librephoenix.com/2023-12-26-nixos-conditional-config-and-custom-options.html
