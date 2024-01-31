@@ -1,6 +1,11 @@
 2022
+https://howtodoinjava.com/spring-boot2/testing/spring-mockbean-annotation/
 https://www.baeldung.com/java-spring-mockito-mock-mockbean
+    ! MockBean to Spring context
 https://rieckpil.de/difference-between-mock-and-mockbean-spring-boot-applications/
+????
+https://filip-prochazka.com/blog/mockbean-is-an-anti-pattern
+    ! good replacement
 
 qa
 https://stackoverflow.com/questions/54548461/create-mockbean-with-qualifier-by-annotating-class

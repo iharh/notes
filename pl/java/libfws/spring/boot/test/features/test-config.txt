@@ -1,0 +1,9 @@
+@ContextConfiguration(classes = {SomeConfig.class})
+or
+@SpringBootTest(
+        properties = {
+                "prop.name=false"
+        },
+        classes = {
+                SomeConfig.class
+        })
