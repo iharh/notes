@@ -16,6 +16,8 @@ https://mpv.io/manual/stable/#configuration-files
 
 cfg
     https://github.com/mpv-player/mpv/blob/master/etc/input.conf
+    https://gitlab.com/jacinthsamuel/dotfiles/-/blob/master/.config/mpv/input.conf
+    https://gitlab.com/jacinthsamuel/dotfiles/-/blob/master/.config/mpv/mpv.conf
 
 shift+q
     exit and remember position

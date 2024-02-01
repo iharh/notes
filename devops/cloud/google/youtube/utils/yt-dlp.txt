@@ -6,6 +6,9 @@ https://github.com/yt-dlp/yt-dlp/wiki/Plugins
 
 deb/yt-dlp
 
+cfg
+    https://gitlab.com/jacinthsamuel/dotfiles/-/blob/master/.config/yt-dlp.conf
+
 yt-dlp
     -f 'b' -S 'res:480' <id|url>
     --default-search PREFIXUse
