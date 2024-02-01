@@ -1,0 +1,8 @@
+~/.config/nvim/lua/custom/
+
+https://github.com/search?q=language%3Alua+config.lua&type=repositories
+
+https://github.com/NvChad/NvChad/issues/1868
+
+samples
+https://github.com/creativenull/dotfiles/blob/main/config/nvim/init.lua
