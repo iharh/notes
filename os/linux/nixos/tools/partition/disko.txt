@@ -25,7 +25,6 @@ https://github.com/LGUG2Z/nixos-hetzner-cloud-starter/blob/master/disk-config.ni
 
 ????
 https://cgit.krebsco.de/disko/about/
-https://www.reddit.com/r/NixOS/comments/12opqbj/more_disko_woes/
 https://cgit.krebsco.de/disko/tree/example/stand-alone/tsp-disk.json
 
 https://numtide.com/blog/we-dont-need-nixos-cloud-images-anymore-2/
@@ -33,6 +32,10 @@ https://numtide.com/blog/we-dont-need-nixos-cloud-images-anymore-2/
 ????
 https://wiki.nikiv.dev/package-managers/nix/
 https://www.tweag.io/blog/2022-11-01-hard-user-separation-with-nixos/
+
+reddit
+https://www.reddit.com/r/NixOS/comments/1ad0m5n/impermanence_disko_setup/
+https://www.reddit.com/r/NixOS/comments/12opqbj/more_disko_woes/
 
 2023
 https://www.reddit.com/r/NixOS/comments/16kiznc/flake_disko_nixosinstall/

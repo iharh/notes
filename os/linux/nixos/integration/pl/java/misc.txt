@@ -1,3 +1,7 @@
+https://nixos.wiki/wiki/Java
+
+2024
+https://www.reddit.com/r/NixOS/comments/1aglg5x/nixos_for_java_development/?share_id=6ngDUgZFc-jI-gp2PmJGj
 2020
 https://fzakaria.com/2020/11/12/debugging-a-jnr-ffi-bug-in-nix.html
     export JAVA_TOOL_OPTIONS=-Djava.library.path=${stdenv.lib.makeLibraryPath [ stdenv.cc.libc ]}
