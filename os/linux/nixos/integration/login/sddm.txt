@@ -1,0 +1,8 @@
+2023
+Vimjoyer - NixOS: Sddm, Gtk, QT5 Simple Theming Guide 0:30 of 8:16
+    https://www.youtube.com/watch?v=m_6eqpKrtxk
+    ! both gtk and qt theming
+
+    # home.nix
+    gtk.enable = true;
+    qt.enable = true;
