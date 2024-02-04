@@ -7,6 +7,8 @@ Vimjoyer - Nix home-manager tutorial: Declare your entire home directory of 5:50
     ! home-manager switch --flake ~/.config/home-manager/#ihah
     ! ...
     ! sudo nixos-rebuild switch --flake ~/path/to/flake/#ih-nixos
+    ! man configuration.nix
+    ! man home-configuration.nix
 
 
 LiYang - NixOS Introduction - Home manager of 16:14
