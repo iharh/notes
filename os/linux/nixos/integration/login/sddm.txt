@@ -1,3 +1,7 @@
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/x11/display-managers/sddm.nix
+https://wiki.hyprland.org/Nix/
+    https://nixos.wiki/wiki/Hyprland
+
 2023
 Vimjoyer - NixOS: Sddm, Gtk, QT5 Simple Theming Guide of 8:16
     https://www.youtube.com/watch?v=m_6eqpKrtxk
@@ -7,3 +11,20 @@ Vimjoyer - NixOS: Sddm, Gtk, QT5 Simple Theming Guide of 8:16
     # home.nix
     gtk.enable = true;
     qt.enable = true;
+
+with wayland
+https://github.com/NixOS/nixpkgs/issues/252577
+    https://github.com/NixOS/nixpkgs/pull/242009
+xserver refactoring
+    https://github.com/NixOS/nixpkgs/issues/94799
+with hyprland
+    https://wiki.hyprland.org/0.20.1beta/Getting-Started/Installation/
+    https://github.com/sddm/sddm/issues/1476
+
+https://search.nixos.org/options?channel=23.11&type=packages&query=hyprland
+https://search.nixos.org/options?channel=23.11&type=packages&query=sddm
+
+qa
+https://www.linux.org.ru/forum/desktop/17089688?lastmod=1674376550849
+    services.xserver.displayManager.sddm.enable = true;
+    services.xserver.displayManager.defaultSession = "sddm";
