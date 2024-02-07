@@ -1,0 +1,32 @@
+rhino
+Feb 07 15:58:00 EPBYGOMW0024T2 kernel: usb-storage 1-7.4:1.0: USB Mass Storage device detected
+Feb 07 15:58:00 EPBYGOMW0024T2 kernel: scsi host6: usb-storage 1-7.4:1.0
+Feb 07 15:58:00 EPBYGOMW0024T2 kernel: usbcore: registered new interface driver usb-storage
+Feb 07 15:58:00 EPBYGOMW0024T2 kernel: usbcore: registered new interface driver uas
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel: scsi 6:0:0:0: Direct-Access              USB DISK 3.0     PMAP PQ: 0 ANSI: 6
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel: sd 6:0:0:0: Attached scsi generic sg0 type 0
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel: sd 6:0:0:0: [sda] 242483200 512-byte logical blocks: (124 GB/116 GiB)
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel: sd 6:0:0:0: [sda] Write Protect is off
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel: sd 6:0:0:0: [sda] Mode Sense: 23 00 00 00
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel: sd 6:0:0:0: [sda] No Caching mode page found
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel: sd 6:0:0:0: [sda] Assuming drive cache: write through
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel:  sda: sda1
+Feb 07 15:58:05 EPBYGOMW0024T2 kernel: sd 6:0:0:0: [sda] Attached SCSI removable disk
+Feb 07 15:58:22 EPBYGOMW0024T2 dbus-daemon[2084]: [session uid=1002 pid=2084] Activating via systemd: service name='org.freedesktop.thumbnails.Thumbnailer1' unit='tumblerd.service' requested by ':1.>
+Feb 07 15:58:22 EPBYGOMW0024T2 systemd[2061]: Starting tumblerd.service - Thumbnailing service...
+Feb 07 15:58:22 EPBYGOMW0024T2 dbus-daemon[2084]: [session uid=1002 pid=2084] Successfully activated service 'org.freedesktop.thumbnails.Thumbnailer1'
+Feb 07 15:58:22 EPBYGOMW0024T2 systemd[2061]: Started tumblerd.service - Thumbnailing service.
+Feb 07 15:58:41 EPBYGOMW0024T2 kernel: usb 1-7.4: reset high-speed USB device number 4 using xhci_hcd
+Feb 07 15:58:46 EPBYGOMW0024T2 kernel: usb 1-7.4: device descriptor read/64, error -110
+Feb 07 15:58:52 EPBYGOMW0024T2 sudo[68739]:    iharh : TTY=pts/3 ; PWD=/home/iharh ; USER=root ; COMMAND=/usr/bin/lsblk
+Feb 07 15:58:52 EPBYGOMW0024T2 sudo[68739]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1002)
+Feb 07 15:58:52 EPBYGOMW0024T2 sudo[68739]: pam_unix(sudo:session): session closed for user root
+Feb 07 15:59:02 EPBYGOMW0024T2 kernel: usb 1-7.4: device descriptor read/64, error -110
+Feb 07 15:59:02 EPBYGOMW0024T2 kernel: usb 1-7.4: reset high-speed USB device number 4 using xhci_hcd
+Feb 07 15:59:07 EPBYGOMW0024T2 kernel: usb 1-7.4: device descriptor read/64, error -110
+Feb 07 15:59:08 EPBYGOMW0024T2 kernel: sd 6:0:0:0: [sda] 242483200 512-byte logical blocks: (124 GB/116 GiB)
+Feb 07 15:59:08 EPBYGOMW0024T2 kernel:  sda: sda1
+Feb 07 15:59:08 EPBYGOMW0024T2 udisksd[822]: Mounted /dev/sda1 at /media/iharh/83C5-2D5E on behalf of uid 1002
+Feb 07 15:59:08 EPBYGOMW0024T2 kernel: FAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+
+

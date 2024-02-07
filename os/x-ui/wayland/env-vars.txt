@@ -1,2 +1,6 @@
 XDG_SESSION_TYPE
     wayland
+
+2023
+https://www.baeldung.com/linux/display-server-xorg-wayland
+https://www.cyberciti.biz/faq/howto-check-for-wayland-or-x11-with-my-linux-desktop/
