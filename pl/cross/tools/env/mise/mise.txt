@@ -34,6 +34,9 @@ mise
     g[lobal]
         <plugin-name> <plugin-ver>
 
+    outdated <tool@version>
+        show outdated
+
 files
     ~/.tool-versions
     ~/.local/share/rtx/
