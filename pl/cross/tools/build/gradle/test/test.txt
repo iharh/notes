@@ -1,4 +1,11 @@
 https://docs.gradle.org/current/userguide/java_testing.html
+    # Executes all tests in SomeTestClass
+    gradle test --tests SomeTestClass
+    # Executes a single specified test in SomeTestClass
+    gradle test --tests SomeTestClass.someSpecificMethod
+
+    gradle test --tests SomeTestClass.*someMethod*
+
 
 https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html
 
