@@ -15,6 +15,8 @@ systemd-analyze cat-config systemd/journald.conf
 SystemMaxUse
   max disk size
   default - 10% of the file system, the journal is at
+SystemMaxFiles/RuntimeMaxFiles
+  https://bbs.archlinux.org/viewtopic.php?id=284692
 SystemMaxFileSize
   the max size of each individual journal file
 
