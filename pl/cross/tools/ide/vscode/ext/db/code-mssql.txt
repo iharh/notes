@@ -14,3 +14,16 @@ snippets
 
 config (connections)
 ~/.config/Code/User/settings.json
+
+    "mssql.connections": [
+        {
+            "profileName": "some-customer",
+            "server": "sql-some.database.windows.net",
+            "database": "customer",
+            "authenticationType": "AzureMFA",
+            "accountId": "...",
+            "tenantId": "...",
+            "azureAccountToken": "",
+            "expiresOn": ...,
+            "email": "first.last@some.com"
+        },
