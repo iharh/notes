@@ -1,4 +1,5 @@
 2023
+https://howtodoinjava.com/jackson/java-8-date-time-type-not-supported-by-default/
 https://www.baeldung.com/jackson-serialize-dates
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
