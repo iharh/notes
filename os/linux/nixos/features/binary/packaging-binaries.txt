@@ -1,1 +1,5 @@
 https://nixos.wiki/wiki/Packaging/Binaries
+
+qa
+https://unix.stackexchange.com/questions/717168/how-to-package-my-software-in-nix-or-write-my-own-package-derivation-for-nixpkgs/717169
+https://unix.stackexchange.com/questions/522822/different-methods-to-run-a-non-nixos-executable-on-nixos
