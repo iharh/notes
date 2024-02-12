@@ -37,6 +37,9 @@ mise
     outdated <tool@version>
         show outdated
 
+    plugin
+        ls-remote -u
+
 files
     ~/.tool-versions
     ~/.local/share/rtx/

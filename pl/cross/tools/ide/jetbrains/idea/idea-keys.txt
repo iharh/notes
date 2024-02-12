@@ -132,3 +132,7 @@ Help
 
 S-F1
     External Help
+
+VCS
+A-`
+    vcs-related cmds in current context
