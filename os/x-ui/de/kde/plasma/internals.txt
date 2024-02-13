@@ -1,0 +1,3 @@
+/urs/bin/plasmashell --no-respawn
+    /usr/bin/kwin_wayland --wayland-fd 7 --socket wayland
+    ...
