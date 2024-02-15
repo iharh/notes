@@ -30,6 +30,9 @@ PG
 https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Lock.html
     apply locking to all records, returned by a given query in JPA repo
 
+2024
+MihailKeselyov - Transactions Theory and Practice 0:00 of 30:09
+    https://www.youtube.com/watch?v=ovas9OCVfqo
 2023
 https://www.baeldung.com/spring-transactional-propagation-isolation
     !!!

@@ -118,6 +118,7 @@ https://github.com/1882COYS/1882-dots
 https://github.com/keelus/dotfiles/
 MyLinuxForWork - Install Arch Linux with HYPRLAND and QTILE. With dotfiles 2.7.1. Complete installation guide. of 17:46
     https://www.youtube.com/watch?v=kHG5czrQ7WA
+https://github.com/floodedcodeboy/hyprland-dots
 
 just a conf
 https://github.com/aw4ki/dotfiles
@@ -227,6 +228,7 @@ https://github.com/wimpysworld/nix-config
     ! from determinate
 https://github.com/linuxmobile/kaku/
     ! really interesting setup system !!!
+    ! NvChad v2
 kexec
     https://nixos.org/manual/nixos/stable/#sec-booting-via-kexec
 man
