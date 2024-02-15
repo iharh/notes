@@ -6,7 +6,7 @@
 sudo dd bs=4M of=/dev/sda status=progress oflag=sync status=progress if=<dist>.iso
 ```
 
-## nomodeset
+## rhino dist grub nomodeset
 
 ```
 e -> splash -> nomodeset -> F10
