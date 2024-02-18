@@ -7,19 +7,42 @@ https://github.com/QubesOS
 https://www.qubes-os.org/doc/
 https://www.qubes-os.org/doc/system-requirements/
 https://www.qubes-os.org/intro/
-https://www.qubes-os.org/getting-started/
 https://www.qubes-os.org/doc/installation-guide/
+    bios: AMD-Vi
+https://www.qubes-os.org/getting-started/
+https://www.qubes-os.org/doc/how-to-organize-your-qubes/
+https://www.qubes-os.org/doc/how-to-update/
+https://www.qubes-os.org/doc/how-to-back-up-restore-and-migrate/
 https://www.qubes-os.org/doc/architecture/
 https://www.qubes-os.org/faq/
 https://www.qubes-os.org/news/
+https://www.qubes-os.org/doc/templates/
+    https://www.qubes-os.org/doc/glossary/#template
+    https://qubes.3isec.org/
+    https://qubes.3isec.org/Live/
+    https://qubes.3isec.org/tasks.html
+https://www.qubes-os.org/doc/template-implementation/
+
+https://www.qubes-os.org/doc/issue-tracking/
+    https://github.com/QubesOS/qubes-issues
 
 https://www.qubes-os.org/downloads/
+    https://www.qubes-os.org/doc/qubes-builder/
+        https://github.com/QubesOS/qubes-builder/
+    https://www.qubes-os.org/security/verifying-signatures/
 
 https://www.qubes-os.org/screenshots/
 
 https://en.wikipedia.org/wiki/Qubes_OS
 https://ru.wikipedia.org/wiki/Qubes_OS
 
+
 whats new
-https://www.opennet.ru/opennews/art.shtml?num=34732
+https://www.qubes-os.org/news/2023/12/18/qubes-os-4-2-0-has-been-released/
 https://www.qubes-os.org/news/2018/03/28/qubes-40/
+https://www.opennet.ru/cgi-bin/opennet/ks.cgi?mask=qube
+2023
+https://www.opennet.ru/opennews/art.shtml?num=60308
+    ! weak amdgpu support
+2012
+https://www.opennet.ru/opennews/art.shtml?num=34732
