@@ -1,0 +1,4 @@
+/etc/apt/preferences.d/repo-radeon-pin-600
+    Package: *
+    Pin: release o=repo.radeon.com
+    Pin-Priority: 600
