@@ -1,3 +1,9 @@
+packages/jbt-new-bin/jbt-new-bin.pacscript
+pkgver="2.2.1.19765"
+hash="737fd85838e6f48d4c7ad2ae88b6830bf43564101d68fbac52e59f018dc7836b"
+
+~/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox
+
 name="jetbrains-toolbox-bin"
 pkgname="jetbrains-toolbox"
 pkgver="1.24.12080"
