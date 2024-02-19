@@ -1,13 +1,31 @@
+https://raw.githubusercontent.com/pacstall/pacstall/master/pacstall
+    export STGDIR="/usr/share/pacstall"
+
+pacstall -A file:///data/wrk/repo/pacstall-files
+cat /usr/share/pacstall/repo/pacstallrepo
+
 pacstall
-    -S foo
-        search
+    -S, --search
+        {{package_name}}
     -I foo
         install
     -R foo
         remove
-    -A github/gitlab repo
-        add a repo
+    -A, --add-repo 
+        {{remote_repository_location}}
+
+        $STGDIR/scripts/add-repo.sh
+            cat /usr/share/pacstall/scripts/add-repo.sh
+        $STGDIR/repo/
+            update
+                pacstall master
+            pacstallrepo
+                https://raw.githubusercontent.com/pacstall/pacstall-programs/master
+            packagelist file should be there
+                https://raw.githubusercontent.com/pacstall/pacstall-programs/master/packagelist
     -U
         update own scripts
     -Up
         update packages
+    --query-info
+        {{package_name}}

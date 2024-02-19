@@ -88,6 +88,15 @@ https://github.com/prasanthrangan/hyprdots
         https://www.youtube.com/watch?v=mb8h1-LB9K0
     JackKeifer - Garuda Hyprland - A First Look, and Wowee wow, outta sight! 0:00 of 31:51
         https://www.youtube.com/watch?v=BFppwQa4Yys
+
+https://github.com/Gxnum/dot-nix
+https://github.com/Gxnum/dot-nix/blob/main/configuration.nix
+    nvidia
+https://github.com/jamibear/home.nix
+https://github.com/jamibear/home.nix/blob/main/programs/hyprland.nix
+https://github.com/jamibear/home.nix/blob/main/nixos/configuration.nix
+    programs.hyprland.enabled
+
 arch-based
 https://github.com/Cybersnake223/Hypr
     https://github.com/Cybersnake223/Hypr/blob/main/hypr/hyprland.conf
@@ -140,6 +149,7 @@ https://github.com/phant80m/dotfiles
 https://github.com/TesterTech/hyprland-config
     https://www.youtube.com/watch?v=89aYpPMlqFs
     https://www.youtube.com/watch?v=CeOfycrY5JI
+https://github.com/qxb3/gruvbox.hypr/tree/vim_styled
 
 debian-based
 https://github.com/JaKooLit/Debian-Hyprland
@@ -349,3 +359,6 @@ https://github.com/hackorum/.dotfiles
 misc
 rofi
 https://www.youtube.com/watch?v=cDDMrUwrce0
+
+color
+https://stephango.com/flexoki
