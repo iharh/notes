@@ -1,3 +1,5 @@
+https://github.com/pacstall/pacstall-programs/blob/master/packages/rhino-core/rhino-core.pacscript
+
 name="rhino-core"
 url="https://github.com/oklopfer/debs/raw/master/empty.tar.xz"
 pacdeps=("unicorn-desktop-git" "rhino-kvantum-theme-git" "rhino-plymouth-theme-git" "rhino-pkg-git" "rhino-neofetch-git" "rhino-system-git" "pacstall-qa-git" "pipewire-bundle")
