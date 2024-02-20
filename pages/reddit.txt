@@ -88,6 +88,9 @@ https://github.com/prasanthrangan/hyprdots
         https://www.youtube.com/watch?v=mb8h1-LB9K0
     JackKeifer - Garuda Hyprland - A First Look, and Wowee wow, outta sight! 0:00 of 31:51
         https://www.youtube.com/watch?v=BFppwQa4Yys
+    SamArcade -  Hypr-Debian [ Hyprland for Debian 12 Linux ] 0:00 of 13:12
+        https://www.youtube.com/watch?v=SiLXXv7URAg
+        ! not in a VM, need a real hw
 
 https://github.com/Gxnum/dot-nix
 https://github.com/Gxnum/dot-nix/blob/main/configuration.nix
@@ -231,6 +234,7 @@ https://github.com/AmitGolden/dotfiles
 https://github.com/GroosL/dotfiles/
 https://github.com/100lvlmaster/dots
 https://github.com/MagnuSiwy/dotfilesQtile
+https://github.com/junnunkarim/dotfiles_home
 
 nixos
 https://github.com/dustinlyons/nixos-config

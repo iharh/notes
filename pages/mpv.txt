@@ -5,6 +5,12 @@ mpv
   --gpu-api=opengl
       https://forum.manjaro.org/t/mpv-not-working-well-with-vulkan-api-on-gnome-wayland-after-update/47063
 
+vulkan
+    https://github.com/mpv-player/mpv/issues/11739
+    https://www.reddit.com/r/mpv/comments/hoaook/stuttering_with_vulkan_anime/
+    https://www.reddit.com/r/mpv/comments/vxuz8y/need_help_with_vulkandevice_setting/
+    https://imgur.com/a/LHTi3hU
+    https://forum.manjaro.org/t/mpv-not-working-well-with-vulkan-api-on-gnome-wayland-after-update/47063/4
 sudo apt remove
     libvulkan-dev
 
