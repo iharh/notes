@@ -1,0 +1,70 @@
+mpv --log-file=/home/iharh/Downloads/mpv.txt --gpu-api=opengl -v
+mpv 
+  --list-options
+  --gpu-api=help
+  --gpu-api=opengl
+      https://forum.manjaro.org/t/mpv-not-working-well-with-vulkan-api-on-gnome-wayland-after-update/47063
+
+sudo apt remove
+    libvulkan-dev
+
+https://steamcommunity.com/app/730/discussions/0/3766734615742735050/
+    https://github.com/ValveSoftware/steam-runtime/issues/560
+    ! videodriver issue
+https://forums.opensuse.org/t/lightdm-fails-after-upgrade/166517/20
+https://github.com/bpftrace/bpftrace/issues/1855
+https://github.com/negativo17/mpv/issues/11
+    mpv --gpu-api=help
+https://github.com/mpv-player/mpv/issues/9961
+    mpv --log-file=/home/iharh/Downloads/mpv.txt -v
+    -v -v
+    https://drive.google.com/file/d/1H2nUVKioWwKC3BjyAIGwsBkbIZNOVAoB/view
+
+libEGL warning: DRI2: failed to authenticate
+[vo/gpu/opengl] Suspected software renderer or indirect context.
+[vo/gpu/drm] VT_GETMODE failed: Inappropriate ioctl for device
+[vo/gpu/drm] Failed to set up VT switcher. Terminal switching will be unavailable.
+[vo/gpu/drm] Listing DRM devices with drmGetDevices failed! (No such file or directory)
+[vo/gpu/drm] Failed to find a usable DRM primary node!
+: CommandLine Error: Option 'disable-auto-upgrade-debug-info' registered more than once!
+LLVM ERROR: inconsistency in registered CommandLine options
+
+
+[vo/gpu] Probing for best GPU context.
+[vo/gpu/opengl] Initializing GPU context 'wayland'
+[vo/gpu/opengl] Initializing GPU context 'x11egl'
+[vo/gpu/x11] X11 opening display: :0
+[vo/gpu/x11] Display 0 (default): [0, 0, 3840, 2160] @ 88.000000 FPS
+[vo/gpu/x11] Current display FPS: 88.000000
+libEGL warning: DRI2: failed to authenticate
+[vo/gpu/opengl] EGL_VERSION=1.5
+[vo/gpu/opengl] EGL_VENDOR=Mesa Project
+[vo/gpu/opengl] EGL_CLIENT_APIS=OpenGL OpenGL_ES
+[vo/gpu/opengl] Trying to create Desktop OpenGL context.
+[vo/gpu/opengl] Choosing visual EGL config 0xb, visual ID 0x21
+[vo/gpu/x11] The XPresent extension was found.
+[vo/gpu/x11] XPresent disabled.
+[vo/gpu/opengl] GL_VERSION='4.5 (Core Profile) Mesa 23.3.0-devel'
+[vo/gpu/opengl] Detected desktop OpenGL 4.5.
+[vo/gpu/opengl] GL_VENDOR='Mesa'
+[vo/gpu/opengl] GL_RENDERER='llvmpipe (LLVM 17.0.4, 256 bits)'
+[vo/gpu/opengl] GL_SHADING_LANGUAGE_VERSION='4.50'
+[vo/gpu/opengl] Loaded extension GL_KHR_debug.
+[vo/gpu/opengl] Detected suspected software renderer.
+[vo/gpu/opengl] Suspected software renderer or indirect context.
+[vo/gpu/opengl] Initializing GPU context 'drm'
+[vo/gpu/drm] VT_GETMODE failed: Inappropriate ioctl for device
+[vo/gpu/drm] Failed to set up VT switcher. Terminal switching will be unavailable.
+[vo/gpu/drm] Listing DRM devices with drmGetDevices failed! (No such file or directory)
+[vo/gpu/drm] Failed to find a usable DRM primary node!
+[vo/gpu/vulkan] Initializing GPU context 'waylandvk'
+[vo/gpu/libplacebo] Initialized libplacebo v6.338.2 (API v338)
+: CommandLine Error: Option 'disable-auto-upgrade-debug-info' registered more than once!
+LLVM ERROR: inconsistency in registered CommandLine options
+
+https://github.com/mull-project/mull/issues/1006
+https://github.com/bpftrace/bpftrace/issues/1855
+https://github.com/bpftrace/bpftrace/commit/debc79ef9ad4784258705a92ae70f9c7689a9c24
+
+sudo apt autoremove
+    libdrm ...
