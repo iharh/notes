@@ -1,0 +1,10 @@
+https://forums.opensuse.org/t/lightdm-fails-after-upgrade/166517/20
+
+libEGL warning: DRI2: failed to authenticate
+[vo/gpu/opengl] Suspected software renderer or indirect context.
+[vo/gpu/drm] VT_GETMODE failed: Inappropriate ioctl for device
+[vo/gpu/drm] Failed to set up VT switcher. Terminal switching will be unavailable.
+[vo/gpu/drm] Listing DRM devices with drmGetDevices failed! (No such file or directory)
+[vo/gpu/drm] Failed to find a usable DRM primary node!
+: CommandLine Error: Option 'disable-auto-upgrade-debug-info' registered more than once!
+LLVM ERROR: inconsistency in registered CommandLine options
