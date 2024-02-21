@@ -3,3 +3,16 @@ https://github.com/motion-canvas/motion-canvas
 
 https://motioncanvas.io/docs/
 https://motioncanvas.io/docs/quickstart/
+
+samples
+https://github.com/IogaMaster/videos
+https://github.com/IogaMaster/videos/blob/main/videos/direnv/vite.config.ts
+https://github.com/IogaMaster/videos/blob/main/videos/direnv/package.json
+https://github.com/IogaMaster/videos/blob/main/videos/direnv/src/project.meta
+https://github.com/IogaMaster/videos/blob/main/videos/direnv/src/project.ts
+https://github.com/IogaMaster/videos/tree/main/videos/direnv/src/assets
+    !!!
+https://github.com/IogaMaster/videos/tree/main/videos/direnv/src/scenes
+https://github.com/IogaMaster/videos/blob/main/videos/direnv/src/scenes/video.meta
+https://github.com/IogaMaster/videos/blob/main/videos/direnv/src/scenes/video.tsx
+    !!!

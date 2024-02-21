@@ -18,6 +18,13 @@ https://aw.club/global/ru/courses/learning-with-ai-assisted-tools
 arhipov - idea debugging
 https://wearecommunity.io/events/pgGU1tyn8L/talks/70243
 
+Tips and Tricks how to build authorization
+https://wearecommunity.io/events/jar-ge-tips-and-tricks-how-to-build-authorization/talks/68967
+
+??
+https://access.epam.com/auth/realms/plusx/protocol/openid-connect/auth?state=D85EDAEoBi69wpje-ybSWrgP_lCgRtY2lmPnz1FEqi5NmS_uMtJkfjnU31A-3M5kLjNMwbxzoiBkyaP_ejmH8FPz6UZKTBcIPj6TE9EPEqJe1HWKVga5IyoWB5nCZZD2caSa1m9JvJA4XMqJOMnqWD2zOtaOqosXz13V-8rEVcD7kUQXlSw24SZSpjTnwG7LIbt9MduRp98ODIaZJkn_2sf3-CsrFGrQsfRtSYkgKYJ5fF9sItv6cg0LeSS25BEmdl4msEimYIunqCwE&response_type=code&client_id=oauth-client.epm-tmc.learn.prod&redirect_uri=https%3A%2F%2Flearn.epam.com%2Flogin%2Foauth2%2Fcode%2Fepam
+https://access.epam.com/auth/realms/plusx/protocol/openid-connect/auth?state=UX9J4JieiOM0_gXrZuH6y84832gLxY4Gx5XQB8qSSD-cAJ0819yA5oBiT_Wiif3yhBorjVAFfjbxAomMIDKYarB4rIlH-HK1mP26_BqutmD9P5sR1NNgPdlHbmuYUJhHL-F7oQyHl_vJPSVKX_D_swtRwDCi77-gRuWr7lFuZwS_QC3UBc5VBUGxelEC9xxokqmsAw8onvojGx69ma3i6U14QmKTsi0jYmQceAvmkGE8KS846iHRjame9b-n3mtrhX7FpGxqvilSkZWg&response_type=code&client_id=oauth-client.epm-tmc.learn.prod&redirect_uri=https%3A%2F%2Flearn.epam.com%2Flogin%2Foauth2%2Fcode%2Fepam
+
 pg
 https://wearecommunity.io/events/postgre-sql/talks/70605
 
