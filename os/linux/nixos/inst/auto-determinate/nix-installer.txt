@@ -1,0 +1,36 @@
+https://github.com/DeterminateSystems/nix-installer
+    ! not a nixos
+
+https://zero-to-nix.com/start
+https://zero-to-nix.com/start/install
+https://zero-to-nix.com/concepts/nix-installer
+    ! /nix/receipt.json
+
+https://github.com/DeterminateSystems/nix-installer-action
+
+https://crates.io/crates/nix-installer/
+https://docs.rs/nix-installer/latest/nix_installer/
+
+2024
+https://nixcademy.com/2024/01/15/nix-on-macos/
+https://davi.sh/blog/2024/01/nix-darwin/
+    ! homebrew integration
+2023
+https://determinate.systems/posts/graphical-nix-installer/
+https://determinate.systems/posts/kvm-on-github-actions
+https://determinate.systems/posts/nix-survival-mode-on-macos
+https://determinate.systems/posts/lessons-from-1-million-nix-installs
+https://determinate.systems/posts/determinate-nix-installer
+    ! installer receipes - jsons at nix store
+misc
+https://news.ycombinator.com/item?id=34957953
+https://github.com/astro/microvm.nix
+
+/nix/nix-installer
+    uninstall
+    install
+        --no-confirm
+        -- init none
+            do not use init system like systemd
+        --extra-config
+            add extra stuff to the nix.conf
