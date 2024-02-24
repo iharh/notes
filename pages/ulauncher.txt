@@ -1,0 +1,3 @@
+ImportError: /usr/lib/python3/dist-packages/Levenshtein/_levenshtein.cpython-312-x86_64-linux-gnu.so: undefined symbol: PyUnicode_AS_UNICODE
+
+https://www.reddit.com/r/voidlinux/comments/174dz5z/need_help_fixing_ulauncher_after_python_updates/
