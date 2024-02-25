@@ -1,0 +1,30 @@
+https://calamares.io/
+https://github.com/calamares/calamares
+https://github.com/calamares/calamares/tree/master/src/modules
+https://github.com/calamares/calamares/blob/master/hacking/GlobalStorage.md
+
+https://github.com/calamares/calamares-manjaro
+https://github.com/calamares/calamares-manjaro/tree/master/conf
+https://github.com/calamares/calamares-manjaro/tree/master/src/branding
+
+https://github.com/NixOS/nixpkgs/pull/161788
+https://github.com/NixOS/nixpkgs/pull/161788/files
+          The GNOME and Plasma installation CDs now use
+          <literal>pkgs.calamares</literal> and
+          <literal>pkgs.calamares-nixos-extensions</literal> to allow
+https://github.com/NixOS/nixpkgs/tree/master/nixos/modules/installer/cd-dvd
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/installation-cd-base.nix
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix
+
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix
+    calamares-nixos
+    calamares-nixos-autostart
+    calamares-nixos-extensions
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix
+
+https://calamares.io/ci/
+https://github.com/calamares/jenkins-dockerfiles/blob/master/archlinux/Dockerfile
+
+https://github.com/bbqlinux/calamares-bbqlinux
