@@ -101,6 +101,9 @@ https://github.com/jamibear/home.nix/blob/main/nixos/configuration.nix
     programs.hyprland.enabled
 
 arch-based
+https://gitlab.com/stephan-raabe/dotfiles
+https://gitlab.com/stephan-raabe/hyprland-starter
+    https://www.youtube.com/watch?v=KHwJxpV_L1g
 https://github.com/Cybersnake223/Hypr
     https://github.com/Cybersnake223/Hypr/blob/main/hypr/hyprland.conf
 https://github.com/lxbx44/dotfiles
@@ -367,3 +370,9 @@ https://www.youtube.com/watch?v=cDDMrUwrce0
 
 color
 https://stephango.com/flexoki
+
+chatgpt
+https://gitlab.com/stephan-raabe/mychatgpt
+    openai lib
+    https://pypi.org/project/openai/
+    https://pypi.org/project/openai-copilot/
