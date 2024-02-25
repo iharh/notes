@@ -3,8 +3,12 @@ https://raw.githubusercontent.com/pacstall/pacstall/master/pacstall
   jbt-new-bin
 env vars
   STGDIR=/usr/share/pacstall
+  MEDADIR=/var/lib/pacstall/metadata
 
 pacstall
+  -L
+      list installed packages
+
   -S, --search
       {{package_name}}
   -I foo
@@ -28,6 +32,8 @@ pacstall
       update own scripts
   -Up
       update packages
+
+      $STGDIR/scripts/upgrade.sh
   -Qi, --query-info
       {{package_name}}
       package should already be installed
