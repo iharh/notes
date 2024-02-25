@@ -1,0 +1,11 @@
+# osinfo-query os
+# https://manpages.ubuntu.com/manpages/focal/man1/osinfo-query.1.html
+# https://launchpad.net/ubuntu/focal/+package/libosinfo-bin
+
+# apt/libosinfo-bin
+# /usr/bin/osinfo-detect
+# /usr/bin/osinfo-install-script
+# /usr/bin/osinfo-query
+
+virt-install
+    --osinfo list
