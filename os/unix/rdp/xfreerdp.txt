@@ -16,6 +16,9 @@ xfreerdp
     /h:<height> Height
     +clipboard 
 
+samples
+    xfreerdp /v:<host-ip> /u:Administrator +clipboard /w:1900 /h:1150'
+
 https://github.com/FreeRDP/FreeRDP/wiki
 https://github.com/FreeRDP/FreeRDP/wiki/Time-Zone-Redirection
     com.freerdp.legacy - Unable to get current timezone rule

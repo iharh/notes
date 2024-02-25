@@ -1,35 +1,35 @@
 https://raw.githubusercontent.com/pacstall/pacstall/master/pacstall
-    export STGDIR="/usr/share/pacstall"
-
-pacstall -A file:///data/wrk/repo/pacstall-files
-cat /usr/share/pacstall/repo/pacstallrepo
-pacstall -S jbt-new-bin
-pacstall -I jbt-new-bin
-pacstall -Qi jbt-new-bin
+?
+  jbt-new-bin
+env vars
+  STGDIR=/usr/share/pacstall
 
 pacstall
-    -S, --search
-        {{package_name}}
-    -I foo
-        install
-    -R foo
-        remove
-    -A, --add-repo 
-        {{remote_repository_location}}
+  -S, --search
+      {{package_name}}
+  -I foo
+      install
+  -R foo
+      remove
+  -A, --add-repo 
+      {{remote_repository_location}}
+      file:///data/wrk/repo/pacstall-files
 
-        $STGDIR/scripts/add-repo.sh
-            cat /usr/share/pacstall/scripts/add-repo.sh
-        $STGDIR/repo/
-            update
-                pacstall master
-            pacstallrepo
-                https://raw.githubusercontent.com/pacstall/pacstall-programs/master
-            packagelist file should be there
-                https://raw.githubusercontent.com/pacstall/pacstall-programs/master/packagelist
-    -U
-        update own scripts
-    -Up
-        update packages
-    -Qi, --query-info
-        {{package_name}}
-        package should already be installed
+      $STGDIR/scripts/add-repo.sh
+          cat /usr/share/pacstall/scripts/add-repo.sh
+      $STGDIR/repo/
+          update
+              pacstall master
+          pacstallrepo
+              https://raw.githubusercontent.com/pacstall/pacstall-programs/master
+          packagelist file should be there
+              https://raw.githubusercontent.com/pacstall/pacstall-programs/master/packagelist
+  -U
+      update own scripts
+  -Up
+      update packages
+  -Qi, --query-info
+      {{package_name}}
+      package should already be installed
+      
+      $STGDIR/scripts/search.sh
