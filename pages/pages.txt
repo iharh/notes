@@ -1,6 +1,19 @@
 zed
 https://github.com/zed-industries/zed/issues/5395
 
+/usr/share/doc/ubuntu-minimal/changelog.gz
+
+/etc/lightdm/lightdm-gtk-greeter.conf
+/etc/lightdm/lightdm.conf.d/
+
+[greeter]
+user-background = false
+background = /etc/lightdm/rhino-blur.png
+theme-name = Yaru-purple-dark
+icon-theme-name = Papirus-Dark
+cursor-theme-name = Quintom_Ink
+font-name = Ubuntu Regular
+
 debian inst inside qemu
     https://www.youtube.com/watch?v=Jo6keIRnBQc
 
