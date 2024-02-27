@@ -1,0 +1,26 @@
+https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
+
+https://stackoverflow.com/questions/72808674/monorepo-multiple-vscode-settings
+    https://stackoverflow.com/a/75454597
+
+https://code.visualstudio.com/docs/getstarted/settings#_settingsjson
+    $HOME/.config/Code/User/settings.json
+
+Local workspace settings
+https://github.com/microsoft/vscode/issues/40233
+
+Add ability to extend from other settings files #15909
+https://github.com/microsoft/vscode/issues/15909
+    dup
+        https://github.com/microsoft/vscode/issues/49359
+        https://github.com/microsoft/vscode/issues/15162
+    open
+    {
+      "extends": "../../.vscode/my-company-settings.json",
+      ...
+    }
+
+https://github.com/microsoft/vscode/issues/32693
+https://github.com/microsoft/vscode/issues/156144#issuecomment-1640284109
+
+https://github.com/Jayin/jsonmerge/pull/1

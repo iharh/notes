@@ -1,8 +1,9 @@
 https://redis.io/docs/ui/cli/
 
+apt/redist-tools
+
 https://lightrun.com/using-the-redis-command-line/
 https://cloud.google.com/memorystore/docs/redis/connect-redis-instance
-    sudo apt-get install redis-tools
 
 127.0.0.1:6379> ?
 redis-cli 6.0.16
@@ -16,3 +17,6 @@ To set redis-cli preferences:
       ":set hints" enable online hints
       ":set nohints" disable online hints
 Set your preferences in ~/.redisclirc
+
+redis-cli
+    -h <redis-host>

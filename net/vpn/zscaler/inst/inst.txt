@@ -9,3 +9,5 @@ Creating directory /opt/zscaler/Images
 Unpacking files
 Unpacking /opt/zscaler/Images/ZscalerAppSplash.png
 ...
+
+https://github.com/microsoft/shell-intune-samples/blob/master/macOS/Apps/Zscaler/installZscaler.sh
