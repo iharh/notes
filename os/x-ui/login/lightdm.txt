@@ -18,10 +18,10 @@ https://github.com/canonical/lightdm/issues/344
         'file:///usr/share/xfce4/backdrops/xubuntu-wallpaper.png'
     Desktop
         /usr/bin/xfdesktop-settings
+        ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
         /usr/share/backgrounds/xfce/rolling-rhino-default.png
         https://docs.xfce.org/xfce/xfdesktop/start
         https://gitlab.xfce.org/xfce/xfdesktop
-        ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 
 lightdm
     --show-config
