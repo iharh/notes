@@ -1,9 +1,25 @@
+https://mpv.io/
+https://github.com/mpv-player/mpv
+https://github.com/mpv-player/mpv/wiki
+https://github.com/mpv-player/mpv/wiki/FAQ
+https://github.com/mpv-player/mpv/wiki/Option-replacement-list
+https://mpv.io/manual/
+https://mpv.io/manual/master/
+https://mpv.io/manual/master/#configuration-files
+    --save-position-on-quit 
+https://mpv.io/manual/stable/#options-term-remaining-playtime
+https://mpv.io/manual/master/#on-screen-controller
+
+https://wiki.archlinux.org/title/Mpv_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+
 mpv --log-file=/home/iharh/Downloads/mpv.txt --gpu-api=opengl -v
 mpv 
   --list-options
   --gpu-api=help
   --gpu-api=opengl
       https://forum.manjaro.org/t/mpv-not-working-well-with-vulkan-api-on-gnome-wayland-after-update/47063
+
+/usr/share/doc/mpv/
 
 vulkan
     https://github.com/mpv-player/mpv/issues/11739
