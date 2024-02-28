@@ -1,6 +1,16 @@
 zed
 https://github.com/zed-industries/zed/issues/5395
 
+sys search
+/etc
+/opt
+/root
+/srv
+/sys
+  ???
+/usr
+/var
+
 /usr/share/doc/ubuntu-minimal/changelog.gz
 
 /etc/lightdm/lightdm-gtk-greeter.conf

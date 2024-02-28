@@ -1,10 +1,46 @@
 https://wiki.archlinux.org/title/LightDM
+https://www.linux.org.ru/forum/desktop/15357434
+https://github.com/canonical/lightdm/blob/main/data/lightdm.conf
+
+https://github.com/canonical/lightdm/issues/344
+
+
+lightdm
+    --show-config
 
 dm-tool
     --help
 
+/var/cache/lightdm/dmrc
+    iharh.dmrc
+    [Desktop]
+    Session=xmonad
+
+/var/lib/
+    lightdm/
+        .cache/lightdm-gtk-greeter/
+            state
+            [greeter]
+            last-user=iharh
+            last-session=xmonad
+    lightdm-data/
+    
+
+/usr/share/lightdm/
+    lightdm.conf.d/
+    lightdm-gtk-greeter.conf.d/
+        01_ubuntu.conf
+        30_xubuntu.conf
+
 cfg sample:
 /etc/lightdm/lightdm.conf
+  [greeter]
+  theme-name = Yaru-purple-dark
+  icon-theme-name = Papirus-Dark
+  cursor-theme-name = Quintom_Ink
+  font-name = Ubuntu Regular
+  user-background = false
+
 /etc/lightdm/lightdm-gtk-greeter.conf
 
 /etc/lightdm/lightdm.conf
@@ -22,3 +58,45 @@ lightdm-webkit2-greeter.desktop
 #background=
 user-background=false
 #indicators = ~hosts;~spacer;~clock;~spacer;~layout;~language;~session;~ally;~power
+
+cat /usr/lib/systemd/system/lightdm.service
+[Unit]
+Description=Light Display Manager
+Documentation=man:lightdm(1)
+Conflicts=getty@tty7.service plymouth-quit.service
+After=systemd-user-sessions.service getty@tty7.service plymouth-quit.service
+
+[Service]
+# temporary safety check until all DMs are converted to correct
+# display-manager.service symlink handling
+ExecStartPre=/bin/sh -c '[ "$(basename $(cat /etc/X11/default-display-manager 2>/dev/null))" = "lightdm" ]'
+ExecStart=/usr/sbin/lightdm
+Restart=always
+BusName=org.freedesktop.DisplayManager
+
+
+[+0.00s] DEBUG: Loading configuration dirs from /usr/share/lightdm/lightdm.conf.d
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/50-disable-guest.conf
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/50-disable-log-backup.conf
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/50-greeter-wrapper.conf
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/50-guest-wrapper.conf
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/50-xserver-command.conf
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/50-xubuntu-numlock.conf
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/60-lightdm-gtk-greeter.conf
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/60-unicorn.conf
+[+0.00s] DEBUG: Loading configuration from /usr/share/lightdm/lightdm.conf.d/60-xubuntu.conf
+[+0.00s] DEBUG: Loading configuration dirs from /usr/local/share/lightdm/lightdm.conf.d
+[+0.00s] DEBUG: Loading configuration dirs from /var/lib/flatpak/exports/share/lightdm/lightdm.conf.d
+[+0.00s] DEBUG: Loading configuration dirs from /etc/xdg/lightdm/lightdm.conf.d
+[+0.00s] DEBUG: Loading configuration from /etc/lightdm/lightdm.conf.d/rhino-lightdm.conf
+[+0.00s] DEBUG:   Unknown group [greeter] in configuration
+[+0.00s] DEBUG: Loading configuration from /etc/lightdm/lightdm.conf
+
+
+lightdm-gtk-greeter --help
+** Message: 09:17:50.392: Starting lightdm-gtk-greeter 2.0.9 (Feb 25 2024, 03:20:24)
+** Message: 09:17:50.392: [Configuration] Reading file: /usr/share/lightdm/lightdm-gtk-greeter.conf.d/01_ubuntu.conf
+** Message: 09:17:50.392: [Configuration] Reading file: /usr/share/lightdm/lightdm-gtk-greeter.conf.d/30_xubuntu.conf
+** Message: 09:17:50.392: [Configuration] Reading file: /etc/lightdm/lightdm-gtk-greeter.conf
+
+(lightdm-gtk-greeter:11033): dbind-WARNING **: 09:17:50.431: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
