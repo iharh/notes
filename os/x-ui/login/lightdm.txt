@@ -3,7 +3,19 @@ https://www.linux.org.ru/forum/desktop/15357434
 https://github.com/canonical/lightdm/blob/main/data/lightdm.conf
 
 https://github.com/canonical/lightdm/issues/344
-
+    gsettings set org.gnome.desktop.background <<image-name/path>>
+    gsettings list-schemas
+    gsettings list-keys org.gnome.desktop.background
+        color-shading-type
+        picture-opacity
+        picture-options
+        picture-uri
+        picture-uri-dark
+        primary-color
+        secondary-color
+        show-desktop-icons
+    gsettings get org.gnome.desktop.background picture-uri
+        'file:///usr/share/xfce4/backdrops/xubuntu-wallpaper.png'
 
 lightdm
     --show-config
