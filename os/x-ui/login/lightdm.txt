@@ -16,6 +16,12 @@ https://github.com/canonical/lightdm/issues/344
         show-desktop-icons
     gsettings get org.gnome.desktop.background picture-uri
         'file:///usr/share/xfce4/backdrops/xubuntu-wallpaper.png'
+    Desktop
+        /usr/bin/xfdesktop-settings
+        /usr/share/backgrounds/xfce/rolling-rhino-default.png
+        https://docs.xfce.org/xfce/xfdesktop/start
+        https://gitlab.xfce.org/xfce/xfdesktop
+        ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 
 lightdm
     --show-config
