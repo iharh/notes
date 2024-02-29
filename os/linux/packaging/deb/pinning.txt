@@ -2,3 +2,9 @@
     Package: *
     Pin: release o=repo.radeon.com
     Pin-Priority: 600
+
+2023
+https://www.baeldung.com/linux/apt-packages-kept-back
+????
+https://askubuntu.com/questions/601/the-following-packages-have-been-kept-back-why-and-how-do-i-solve-it
+    sudo apt dist-upgrade
