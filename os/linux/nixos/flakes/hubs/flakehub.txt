@@ -13,10 +13,14 @@ https://determinate.systems/posts/magic-nix-cache
     https://docs.github.com/en/rest/actions/cache
 
 cli
-https://github.com/DeterminateSystems/fh
 https://flakehub.com/docs/cli
-https://determinate.systems/posts/fh-updates
-https://determinate.systems/posts/flakehub-cli
+https://github.com/DeterminateSystems/fh
+https://github.com/DeterminateSystems/fh/tree/main/src/cli/cmd/init/handlers
+https://github.com/DeterminateSystems/fh/blob/main/src/cli/cmd/init/handlers/java.rs
+    ? no 21
+nix shell "https://flakehub.com/f/DeterminateSystems/fh/*.tar.gz"
+fh --version
+0.1.9
 
 https://github.com/DeterminateSystems
 https://github.com/DeterminateSystems/flakehub-push
@@ -24,4 +28,8 @@ https://github.com/DeterminateSystems/flake-checker
 https://github.com/DeterminateSystems/nix-installer-action
 
 2023
+https://determinate.systems/posts/flake-schemas/
+https://determinate.systems/posts/fh-updates/
+https://determinate.systems/posts/flakehub-cli
+    ! how to add fh into devShell
 https://determinate.systems/posts/introducing-flakehub
