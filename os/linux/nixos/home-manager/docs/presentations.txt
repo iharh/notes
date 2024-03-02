@@ -12,8 +12,10 @@ Vimjoyer - Nix home-manager tutorial: Declare your entire home directory of 5:50
     ! sudo nixos-rebuild switch --flake ~/path/to/flake/#ih-nixos
     ! man configuration.nix
     ! man home-configuration.nix
-
-
+Librephoenix - Manage Your Dotfiles with Home Manager! 0:00 of 32:05
+    https://www.youtube.com/watch?v=IiyBeR-Guqw
+    https://librephoenix.com/2023-11-02-how-to-manage-your-dotfiles-the-nix-way-with-home-manager.html
+    https://odysee.com/@LibrePhoenix:8/manage-your-dotfiles-with-home-manager!:9
 LiYang - NixOS Introduction - Home manager of 16:14
     https://www.youtube.com/watch?v=C5eAecVeO_c
     https://tech.aufomm.com/my-nixos-journey-home-manager/
