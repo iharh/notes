@@ -1,10 +1,31 @@
 https://github.com/DeterminateSystems/nix-installer
     ! not a nixos
 
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+PATH=...:~/.nix-profile/bin:/nix/var/nix/profiles/default/bin
+
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/mod.rs
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_nix.rs
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_shell_profile.rs
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/planner/macos.rs
+    launchd
+    ShellProfileLocations
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/planner/mod.rs#L345
+    /etc/zshrc
+    /etc/zsh/zshrc
+
+    # Nix
+    if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    fi
+    # End Nix
+
+
 https://zero-to-nix.com/start
 https://zero-to-nix.com/start/install
 https://zero-to-nix.com/concepts/nix-installer
     ! /nix/receipt.json
+    1171 lines
 
 https://github.com/DeterminateSystems/nix-installer-action
 
@@ -17,6 +38,7 @@ https://davi.sh/blog/2024/01/nix-darwin/
     ! homebrew integration
 2023
 https://determinate.systems/posts/graphical-nix-installer/
+    for macos
 https://determinate.systems/posts/kvm-on-github-actions
 https://determinate.systems/posts/nix-survival-mode-on-macos
 https://determinate.systems/posts/lessons-from-1-million-nix-installs
