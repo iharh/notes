@@ -1,0 +1,486 @@
+DEBUG execute:execute:plan: Creating directory `/etc/tmpfiles.d` already complete is_mountpoint=false
+Nix install plan (v0.17.0)
+Planner: linux (with default settings)
+
+Planned actions:
+* Create directory `/nix`
+* Fetch `https://releases.nixos.org/nix/nix-2.20.3/nix-2.20.3-x86_64-linux.tar.xz` to `/nix/temp-install-dir`
+* Create a directory tree in `/nix`
+* Move the downloaded Nix into `/nix`
+* Create build users (UID 30001-30032) and group (GID 30000)
+* Setup the default Nix profile
+* Place the Nix configuration in `/etc/nix/nix.conf`
+* Configure the shell profiles
+* Configure Nix daemon related settings with systemd
+* Remove directory `/nix/temp-install-dir`
+
+Proceed? ([Y]es/[n]o/[e]xplain): e
+Nix install plan (v0.17.0)
+Planner: linux
+
+Configured settings:
+* diagnostic_endpoint: "https://install.determinate.systems/nix/diagnostic"
+* extra_conf: []
+* force: false
+* init: "Systemd"
+* modify_profile: true
+* nix_build_group_id: 30000
+* nix_build_group_name: "nixbld"
+* nix_build_user_count: 32
+* nix_build_user_id_base: 30000
+* nix_build_user_prefix: "nixbld"
+* nix_package_url: {"Url":"https://releases.nixos.org/nix/nix-2.20.3/nix-2.20.3-x86_64-linux.tar.xz"}
+* proxy: null
+* ssl_cert_file: null
+* start_daemon: true
+
+Planned actions:
+* Create directory `/nix`
+* Fetch `https://releases.nixos.org/nix/nix-2.20.3/nix-2.20.3-x86_64-linux.tar.xz` to `/nix/temp-install-dir`
+* Create a directory tree in `/nix`
+  Create directory `/nix/var`
+  Create directory `/nix/var/log`
+  Create directory `/nix/var/log/nix`
+  Create directory `/nix/var/log/nix/drvs`
+  Create directory `/nix/var/nix`
+  Create directory `/nix/var/nix/db`
+  Create directory `/nix/var/nix/gcroots`
+  Create directory `/nix/var/nix/gcroots/per-user`
+  Create directory `/nix/var/nix/profiles`
+  Create directory `/nix/var/nix/profiles/per-user`
+  Create directory `/nix/var/nix/temproots`
+  Create directory `/nix/var/nix/userpool`
+  Create directory `/nix/var/nix/daemon-socket`
+* Move the downloaded Nix into `/nix`
+  Nix is being downloaded to `/nix/temp-install-dir` and should be in `/nix`
+* Create build users (UID 30001-30032) and group (GID 30000)
+  The Nix daemon requires system users (and a group they share) which it can act as in order to build
+  Create group `nixbld` (GID 30000)
+  Create user `nixbld1` (UID 30001) in group `nixbld` (GID 30000)
+  Create user `nixbld2` (UID 30002) in group `nixbld` (GID 30000)
+  Create user `nixbld3` (UID 30003) in group `nixbld` (GID 30000)
+  Create user `nixbld4` (UID 30004) in group `nixbld` (GID 30000)
+  Create user `nixbld5` (UID 30005) in group `nixbld` (GID 30000)
+  Create user `nixbld6` (UID 30006) in group `nixbld` (GID 30000)
+  Create user `nixbld7` (UID 30007) in group `nixbld` (GID 30000)
+  Create user `nixbld8` (UID 30008) in group `nixbld` (GID 30000)
+  Create user `nixbld9` (UID 30009) in group `nixbld` (GID 30000)
+  Create user `nixbld10` (UID 30010) in group `nixbld` (GID 30000)
+  Create user `nixbld11` (UID 30011) in group `nixbld` (GID 30000)
+  Create user `nixbld12` (UID 30012) in group `nixbld` (GID 30000)
+  Create user `nixbld13` (UID 30013) in group `nixbld` (GID 30000)
+  Create user `nixbld14` (UID 30014) in group `nixbld` (GID 30000)
+  Create user `nixbld15` (UID 30015) in group `nixbld` (GID 30000)
+  Create user `nixbld16` (UID 30016) in group `nixbld` (GID 30000)
+  Create user `nixbld17` (UID 30017) in group `nixbld` (GID 30000)
+  Create user `nixbld18` (UID 30018) in group `nixbld` (GID 30000)
+  Create user `nixbld19` (UID 30019) in group `nixbld` (GID 30000)
+  Create user `nixbld20` (UID 30020) in group `nixbld` (GID 30000)
+  Create user `nixbld21` (UID 30021) in group `nixbld` (GID 30000)
+  Create user `nixbld22` (UID 30022) in group `nixbld` (GID 30000)
+  Create user `nixbld23` (UID 30023) in group `nixbld` (GID 30000)
+  Create user `nixbld24` (UID 30024) in group `nixbld` (GID 30000)
+  Create user `nixbld25` (UID 30025) in group `nixbld` (GID 30000)
+  Create user `nixbld26` (UID 30026) in group `nixbld` (GID 30000)
+  Create user `nixbld27` (UID 30027) in group `nixbld` (GID 30000)
+  Create user `nixbld28` (UID 30028) in group `nixbld` (GID 30000)
+  Create user `nixbld29` (UID 30029) in group `nixbld` (GID 30000)
+  Create user `nixbld30` (UID 30030) in group `nixbld` (GID 30000)
+  Create user `nixbld31` (UID 30031) in group `nixbld` (GID 30000)
+  Create user `nixbld32` (UID 30032) in group `nixbld` (GID 30000)
+  Add user `nixbld1` (UID 30001) to group `nixbld` (GID 30000)
+  Add user `nixbld2` (UID 30002) to group `nixbld` (GID 30000)
+  Add user `nixbld3` (UID 30003) to group `nixbld` (GID 30000)
+  Add user `nixbld4` (UID 30004) to group `nixbld` (GID 30000)
+  Add user `nixbld5` (UID 30005) to group `nixbld` (GID 30000)
+  Add user `nixbld6` (UID 30006) to group `nixbld` (GID 30000)
+  Add user `nixbld7` (UID 30007) to group `nixbld` (GID 30000)
+  Add user `nixbld8` (UID 30008) to group `nixbld` (GID 30000)
+  Add user `nixbld9` (UID 30009) to group `nixbld` (GID 30000)
+  Add user `nixbld10` (UID 30010) to group `nixbld` (GID 30000)
+  Add user `nixbld11` (UID 30011) to group `nixbld` (GID 30000)
+  Add user `nixbld12` (UID 30012) to group `nixbld` (GID 30000)
+  Add user `nixbld13` (UID 30013) to group `nixbld` (GID 30000)
+  Add user `nixbld14` (UID 30014) to group `nixbld` (GID 30000)
+  Add user `nixbld15` (UID 30015) to group `nixbld` (GID 30000)
+  Add user `nixbld16` (UID 30016) to group `nixbld` (GID 30000)
+  Add user `nixbld17` (UID 30017) to group `nixbld` (GID 30000)
+  Add user `nixbld18` (UID 30018) to group `nixbld` (GID 30000)
+  Add user `nixbld19` (UID 30019) to group `nixbld` (GID 30000)
+  Add user `nixbld20` (UID 30020) to group `nixbld` (GID 30000)
+  Add user `nixbld21` (UID 30021) to group `nixbld` (GID 30000)
+  Add user `nixbld22` (UID 30022) to group `nixbld` (GID 30000)
+  Add user `nixbld23` (UID 30023) to group `nixbld` (GID 30000)
+  Add user `nixbld24` (UID 30024) to group `nixbld` (GID 30000)
+  Add user `nixbld25` (UID 30025) to group `nixbld` (GID 30000)
+  Add user `nixbld26` (UID 30026) to group `nixbld` (GID 30000)
+  Add user `nixbld27` (UID 30027) to group `nixbld` (GID 30000)
+  Add user `nixbld28` (UID 30028) to group `nixbld` (GID 30000)
+  Add user `nixbld29` (UID 30029) to group `nixbld` (GID 30000)
+  Add user `nixbld30` (UID 30030) to group `nixbld` (GID 30000)
+  Add user `nixbld31` (UID 30031) to group `nixbld` (GID 30000)
+  Add user `nixbld32` (UID 30032) to group `nixbld` (GID 30000)
+* Setup the default Nix profile
+* Place the Nix configuration in `/etc/nix/nix.conf`
+  This file is read by the Nix daemon to set its configuration options at runtime.
+  Create directory `/etc/nix`
+  Merge or create nix.conf file `/etc/nix/nix.conf`
+* Configure the shell profiles
+  Update shell profiles to import Nix
+* Configure Nix daemon related settings with systemd
+  Run `systemd-tempfiles --create --prefix=/nix/var/nix`
+  Symlink `/nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.service` to `/etc/systemd/system/nix-daemon.service`
+  Symlink `/nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.socket` to `/etc/systemd/system/nix-daemon.socket`
+  Run `systemctl daemon-reload`
+  Run `systemctl enable --now /nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.socket`
+* Remove directory `/nix/temp-install-dir`
+
+
+
+Proceed? ([Y]es/[n]o): y
+ INFO execute:execute:install: Step: Create directory `/nix`
+DEBUG execute:execute:install:try_execute: Executing: Create directory `/nix`
+DEBUG execute:execute:install:try_execute: Completed: Create directory `/nix`
+ INFO execute:execute:install: Step: Provision Nix
+DEBUG execute:execute:install:try_execute: Executing: Provision Nix
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree: Executing: Create a directory tree in `/nix`
+DEBUG fetch_and_unpack_nix: Executing: Fetch `https://releases.nixos.org/nix/nix-2.20.3/nix-2.20.3-x86_64-linux.tar.xz` to `/nix/temp-install-dir` url_or_path=https://releases.nixos.org/nix/nix-2.20.3/nix-2.20.3-x86_64-linux.tar.xz dest=/nix/temp-install-dir
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var` path=/nix/var user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var` path=/nix/var user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/log` path=/nix/var/log user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/log` path=/nix/var/log user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/log/nix` path=/nix/var/log/nix user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/log/nix` path=/nix/var/log/nix user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/log/nix/drvs` path=/nix/var/log/nix/drvs user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/log/nix/drvs` path=/nix/var/log/nix/drvs user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix` path=/nix/var/nix user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix` path=/nix/var/nix user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix/db` path=/nix/var/nix/db user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix/db` path=/nix/var/nix/db user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix/gcroots` path=/nix/var/nix/gcroots user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix/gcroots` path=/nix/var/nix/gcroots user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix/gcroots/per-user` path=/nix/var/nix/gcroots/per-user user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix/gcroots/per-user` path=/nix/var/nix/gcroots/per-user user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix/profiles` path=/nix/var/nix/profiles user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix/profiles` path=/nix/var/nix/profiles user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix/profiles/per-user` path=/nix/var/nix/profiles/per-user user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix/profiles/per-user` path=/nix/var/nix/profiles/per-user user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix/temproots` path=/nix/var/nix/temproots user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix/temproots` path=/nix/var/nix/temproots user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix/userpool` path=/nix/var/nix/userpool user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix/userpool` path=/nix/var/nix/userpool user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Executing: Create directory `/nix/var/nix/daemon-socket` path=/nix/var/nix/daemon-socket user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree:execute:create_directory: Completed: Create directory `/nix/var/nix/daemon-socket` path=/nix/var/nix/daemon-socket user="root" mode=0o755
+DEBUG execute:execute:install:try_execute:execute:create_nix_tree: Completed: Create a directory tree in `/nix`
+TRACE fetch_and_unpack_nix:execute: Unpacking tar.xz url_or_path=https://releases.nixos.org/nix/nix-2.20.3/nix-2.20.3-x86_64-linux.tar.xz dest=/nix/temp-install-dir
+DEBUG fetch_and_unpack_nix: Completed: Fetch `https://releases.nixos.org/nix/nix-2.20.3/nix-2.20.3-x86_64-linux.tar.xz` to `/nix/temp-install-dir` url_or_path=https://releases.nixos.org/nix/nix-2.20.3/nix-2.20.3-x86_64-linux.tar.xz dest=/nix/temp-install-dir
+DEBUG execute:execute:install:try_execute:execute:mount_unpacked_nix: Executing: Move the downloaded Nix into `/nix` src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/592b20xppcfwqb5673gd12qv7sysq1p6-boehm-gc-8.2.2 dest=/nix/store/592b20xppcfwqb5673gd12qv7sysq1p6-boehm-gc-8.2.2 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/1zr0id3y0hcpxx71gia9ax9asr8anfxn-curl-8.1.1 dest=/nix/store/1zr0id3y0hcpxx71gia9ax9asr8anfxn-curl-8.1.1 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/wfnx7nlgjcylwfcqk117v0l3dnpj5l1b-libidn2-2.3.4 dest=/nix/store/wfnx7nlgjcylwfcqk117v0l3dnpj5l1b-libidn2-2.3.4 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/vs4j1fk3y6h4y775nx443dn9z6gypgzv-xz-5.4.3 dest=/nix/store/vs4j1fk3y6h4y775nx443dn9z6gypgzv-xz-5.4.3 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/73607zrlqz12j17jvqfy5gc3ircffq3x-libkrb5-1.20.2 dest=/nix/store/73607zrlqz12j17jvqfy5gc3ircffq3x-libkrb5-1.20.2 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/apq7dilvkywn0864kfwy5fnxnmixlp06-libgit2-20231018162940 dest=/nix/store/apq7dilvkywn0864kfwy5fnxnmixlp06-libgit2-20231018162940 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/j36iqkrp73arz2zkr8rnl69x099z3qx1-libxml2-2.10.4 dest=/nix/store/j36iqkrp73arz2zkr8rnl69x099z3qx1-libxml2-2.10.4 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/glndkz3gh7npgiisjdc5y2bc5jc59gph-pcre-8.45 dest=/nix/store/glndkz3gh7npgiisjdc5y2bc5jc59gph-pcre-8.45 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/gkkgwwbsqyybs0j0y6zd18h2qpi7f5gp-aws-c-io-0.13.19 dest=/nix/store/gkkgwwbsqyybs0j0y6zd18h2qpi7f5gp-aws-c-io-0.13.19 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/gj8pj83n94gd19s4w617qvj4w8mrzb2p-s2n-tls-1.3.43 dest=/nix/store/gj8pj83n94gd19s4w617qvj4w8mrzb2p-s2n-tls-1.3.43 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/a8jhf3k44gn4a5dl3rj98nkf8lnaasgg-lowdown-1.0.2-lib dest=/nix/store/a8jhf3k44gn4a5dl3rj98nkf8lnaasgg-lowdown-1.0.2-lib src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/ld6xfhp9kf9fscj665amb2g792mqqpp9-aws-c-cal-0.5.21 dest=/nix/store/ld6xfhp9kf9fscj665amb2g792mqqpp9-aws-c-cal-0.5.21 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/p62gmzkbrm2sz545w78ngm7rkvfvjcc5-libssh2-1.11.0 dest=/nix/store/p62gmzkbrm2sz545w78ngm7rkvfvjcc5-libssh2-1.11.0 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/63py46bgmdcg6pssshy2y4yfyw8dvr6r-openssl-3.0.12 dest=/nix/store/63py46bgmdcg6pssshy2y4yfyw8dvr6r-openssl-3.0.12 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/55byk2fn6548ni8ibgd2dyzpmk4z180w-gcc-12.2.0-lib dest=/nix/store/55byk2fn6548ni8ibgd2dyzpmk4z180w-gcc-12.2.0-lib src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/ibvkbplrjqld755gm67pdps5vzpj5w6c-aws-c-auth-0.6.26 dest=/nix/store/ibvkbplrjqld755gm67pdps5vzpj5w6c-aws-c-auth-0.6.26 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/2vg536fyqr5pbnfqq9c5szrrqcm8hqc7-aws-c-http-0.7.6 dest=/nix/store/2vg536fyqr5pbnfqq9c5szrrqcm8hqc7-aws-c-http-0.7.6 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/zrw68x16q9qlkmjf7k71pq1xsbjl1p2z-zstd-1.5.5 dest=/nix/store/zrw68x16q9qlkmjf7k71pq1xsbjl1p2z-zstd-1.5.5 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/yw24cx1ddcas2v1kwal8s10b6vmdv9hg-attr-2.5.1 dest=/nix/store/yw24cx1ddcas2v1kwal8s10b6vmdv9hg-attr-2.5.1 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/hdsinhgla9iimprcjrw652a4njhs3fq2-sqlite-3.41.2 dest=/nix/store/hdsinhgla9iimprcjrw652a4njhs3fq2-sqlite-3.41.2 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/sll4lljxcss1maj31jaygkidkfr4w39k-aws-c-event-stream-0.2.20 dest=/nix/store/sll4lljxcss1maj31jaygkidkfr4w39k-aws-c-event-stream-0.2.20 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/rssr63gyfcfbn6r5n6hixpd2d9qn73vd-keyutils-1.6.3-lib dest=/nix/store/rssr63gyfcfbn6r5n6hixpd2d9qn73vd-keyutils-1.6.3-lib src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/1vg7526bbnf6bma1lslc49p5xp0y1pxx-editline-1.17.1 dest=/nix/store/1vg7526bbnf6bma1lslc49p5xp0y1pxx-editline-1.17.1 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/cq1ad27xv42j87g6cxv6zayyhfm8glk9-acl-2.3.1 dest=/nix/store/cq1ad27xv42j87g6cxv6zayyhfm8glk9-acl-2.3.1 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/9g6ysav85mxh1mhj8myjqc0yz7bx72v5-libcpuid-0.6.3 dest=/nix/store/9g6ysav85mxh1mhj8myjqc0yz7bx72v5-libcpuid-0.6.3 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/a2g0jnc647y38sv4hx88wlww9zzf5zs4-aws-c-s3-0.2.8 dest=/nix/store/a2g0jnc647y38sv4hx88wlww9zzf5zs4-aws-c-s3-0.2.8 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/siw3fbs0l7riyn0m1w21bwgz939ishj2-aws-c-mqtt-0.8.8 dest=/nix/store/siw3fbs0l7riyn0m1w21bwgz939ishj2-aws-c-mqtt-0.8.8 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/vi8vjs4m4dnj5lwgm9p6071m0s7v4p26-nix-2.20.3 dest=/nix/store/vi8vjs4m4dnj5lwgm9p6071m0s7v4p26-nix-2.20.3 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/mg1wbmmmmzhdjfkkxrbw2dj5jznpy9kl-aws-checksums-0.1.14 dest=/nix/store/mg1wbmmmmzhdjfkkxrbw2dj5jznpy9kl-aws-checksums-0.1.14 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/fp8d1666g91zplqr4wb77ca7ri33p0b7-bzip2-1.0.8 dest=/nix/store/fp8d1666g91zplqr4wb77ca7ri33p0b7-bzip2-1.0.8 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/mb0s503cqnff2crvq6lzlvll2mjjqsv7-libarchive-3.6.2-lib dest=/nix/store/mb0s503cqnff2crvq6lzlvll2mjjqsv7-libarchive-3.6.2-lib src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/f52mk615m62iq2xs02wcpdh8sw560afm-libunistring-1.1 dest=/nix/store/f52mk615m62iq2xs02wcpdh8sw560afm-libunistring-1.1 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/3d2zixcqwnfmmzj5b7z42vbrwzx9fxxd-nghttp2-1.51.0-lib dest=/nix/store/3d2zixcqwnfmmzj5b7z42vbrwzx9fxxd-nghttp2-1.51.0-lib src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/bfg4k6ips1j0lbd3jaygiw2wwf90gz7h-aws-c-common-0.8.15 dest=/nix/store/bfg4k6ips1j0lbd3jaygiw2wwf90gz7h-aws-c-common-0.8.15 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/grb35k3ah0vnskd20mn6a14412k2dfpr-libsodium-1.0.18 dest=/nix/store/grb35k3ah0vnskd20mn6a14412k2dfpr-libsodium-1.0.18 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/mgi3jwxbp98qqaiy3pfw4cy7b4hx6kpk-aws-crt-cpp-0.19.8 dest=/nix/store/mgi3jwxbp98qqaiy3pfw4cy7b4hx6kpk-aws-crt-cpp-0.19.8 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/9v5d40jyvmwgnq1nj8f19ji2rcc5dksd-glibc-2.37-45 dest=/nix/store/9v5d40jyvmwgnq1nj8f19ji2rcc5dksd-glibc-2.37-45 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/dpvm66bfdwkx3s3vcf3brnx2dzhmq52j-aws-sdk-cpp-1.11.37 dest=/nix/store/dpvm66bfdwkx3s3vcf3brnx2dzhmq52j-aws-sdk-cpp-1.11.37 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/hjvr93ym7jw9kj8yl664fi0skdrar4nx-http-parser-2.9.4 dest=/nix/store/hjvr93ym7jw9kj8yl664fi0skdrar4nx-http-parser-2.9.4 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/jd99cyc0251p0i5y69w8mqjcai8mcq7h-xgcc-12.2.0-libgcc dest=/nix/store/jd99cyc0251p0i5y69w8mqjcai8mcq7h-xgcc-12.2.0-libgcc src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/1xh1f2rzz3sx8lv4y58samyd83vwkraw-nlohmann_json-3.11.2 dest=/nix/store/1xh1f2rzz3sx8lv4y58samyd83vwkraw-nlohmann_json-3.11.2 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/sp6cj9vw557zpfirwvvix36p58av82dj-nss-cacert-3.95 dest=/nix/store/sp6cj9vw557zpfirwvvix36p58av82dj-nss-cacert-3.95 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/vwcxhdj6wc4q1d3y85i06qfk318wfqiz-aws-c-sdkutils-0.1.9 dest=/nix/store/vwcxhdj6wc4q1d3y85i06qfk318wfqiz-aws-c-sdkutils-0.1.9 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/8f21zwwbkc1gw8ka4d3lkghbd28a0pgj-busybox-static-x86_64-unknown-linux-musl-1.36.1 dest=/nix/store/8f21zwwbkc1gw8ka4d3lkghbd28a0pgj-busybox-static-x86_64-unknown-linux-musl-1.36.1 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/fp1wx3qwzwpkznxjzj8ilkq89l5h092x-brotli-1.0.9-lib dest=/nix/store/fp1wx3qwzwpkznxjzj8ilkq89l5h092x-brotli-1.0.9-lib src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/sa4iglrbr3kyaivdxc2svpfbfyp98dx8-gcc-12.2.0-libgcc dest=/nix/store/sa4iglrbr3kyaivdxc2svpfbfyp98dx8-gcc-12.2.0-libgcc src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/226mxicx2n7hgdf2424vz5y526nlyly8-bash-5.2-p15 dest=/nix/store/226mxicx2n7hgdf2424vz5y526nlyly8-bash-5.2-p15 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/g6y95vcykv1hh6bizcqvafazk6mhj0pn-zlib-1.2.13 dest=/nix/store/g6y95vcykv1hh6bizcqvafazk6mhj0pn-zlib-1.2.13 src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/1fgam3fgxa69m9fv0q61504hib2b269r-libseccomp-2.5.4-lib dest=/nix/store/1fgam3fgxa69m9fv0q61504hib2b269r-libseccomp-2.5.4-lib src=/nix/temp-install-dir dest="/nix/"
+TRACE execute:execute:install:try_execute:execute:mount_unpacked_nix:execute: Renaming src=/nix/temp-install-dir/nix-2.20.3-x86_64-linux/store/77pf0amk5z3f9j3hpicvabbhq5h46mq5-aws-c-compression-0.2.16 dest=/nix/store/77pf0amk5z3f9j3hpicvabbhq5h46mq5-aws-c-compression-0.2.16 src=/nix/temp-install-dir dest="/nix/"
+DEBUG execute:execute:install:try_execute:execute:mount_unpacked_nix: Completed: Move the downloaded Nix into `/nix` src=/nix/temp-install-dir dest="/nix/"
+DEBUG execute:execute:install:try_execute: Completed: Provision Nix
+ INFO execute:execute:install: Step: Create build users (UID 30001-30032) and group (GID 30000)
+DEBUG execute:execute:install:try_execute: Executing: Create build users (UID 30001-30032) and group (GID 30000)
+DEBUG execute:execute:install:try_execute:execute:create_group: Executing: Create group `nixbld` (GID 30000) user="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_group:execute:execute_command: Executing user="nixbld" gid=30000 command="groupadd" "-g" "30000" "--system" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:create_group: Completed: Create group `nixbld` (GID 30000) user="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld1` (UID 30001) in group `nixbld` (GID 30000) user="nixbld1" uid=30001 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld1" uid=30001 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 1" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30001" "--password" "!" "nixbld1"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld1` (UID 30001) in group `nixbld` (GID 30000) user="nixbld1" uid=30001 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld2` (UID 30002) in group `nixbld` (GID 30000) user="nixbld2" uid=30002 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld2" uid=30002 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 2" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30002" "--password" "!" "nixbld2"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld2` (UID 30002) in group `nixbld` (GID 30000) user="nixbld2" uid=30002 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld3` (UID 30003) in group `nixbld` (GID 30000) user="nixbld3" uid=30003 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld3" uid=30003 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 3" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30003" "--password" "!" "nixbld3"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld3` (UID 30003) in group `nixbld` (GID 30000) user="nixbld3" uid=30003 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld4` (UID 30004) in group `nixbld` (GID 30000) user="nixbld4" uid=30004 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld4" uid=30004 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 4" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30004" "--password" "!" "nixbld4"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld4` (UID 30004) in group `nixbld` (GID 30000) user="nixbld4" uid=30004 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld5` (UID 30005) in group `nixbld` (GID 30000) user="nixbld5" uid=30005 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld5" uid=30005 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 5" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30005" "--password" "!" "nixbld5"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld5` (UID 30005) in group `nixbld` (GID 30000) user="nixbld5" uid=30005 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld6` (UID 30006) in group `nixbld` (GID 30000) user="nixbld6" uid=30006 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld6" uid=30006 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 6" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30006" "--password" "!" "nixbld6"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld6` (UID 30006) in group `nixbld` (GID 30000) user="nixbld6" uid=30006 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld7` (UID 30007) in group `nixbld` (GID 30000) user="nixbld7" uid=30007 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld7" uid=30007 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 7" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30007" "--password" "!" "nixbld7"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld7` (UID 30007) in group `nixbld` (GID 30000) user="nixbld7" uid=30007 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld8` (UID 30008) in group `nixbld` (GID 30000) user="nixbld8" uid=30008 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld8" uid=30008 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 8" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30008" "--password" "!" "nixbld8"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld8` (UID 30008) in group `nixbld` (GID 30000) user="nixbld8" uid=30008 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld9` (UID 30009) in group `nixbld` (GID 30000) user="nixbld9" uid=30009 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld9" uid=30009 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 9" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30009" "--password" "!" "nixbld9"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld9` (UID 30009) in group `nixbld` (GID 30000) user="nixbld9" uid=30009 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld10` (UID 30010) in group `nixbld` (GID 30000) user="nixbld10" uid=30010 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld10" uid=30010 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 10" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30010" "--password" "!" "nixbld10"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld10` (UID 30010) in group `nixbld` (GID 30000) user="nixbld10" uid=30010 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld11` (UID 30011) in group `nixbld` (GID 30000) user="nixbld11" uid=30011 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld11" uid=30011 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 11" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30011" "--password" "!" "nixbld11"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld11` (UID 30011) in group `nixbld` (GID 30000) user="nixbld11" uid=30011 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld12` (UID 30012) in group `nixbld` (GID 30000) user="nixbld12" uid=30012 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld12" uid=30012 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 12" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30012" "--password" "!" "nixbld12"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld12` (UID 30012) in group `nixbld` (GID 30000) user="nixbld12" uid=30012 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld13` (UID 30013) in group `nixbld` (GID 30000) user="nixbld13" uid=30013 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld13" uid=30013 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 13" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30013" "--password" "!" "nixbld13"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld13` (UID 30013) in group `nixbld` (GID 30000) user="nixbld13" uid=30013 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld14` (UID 30014) in group `nixbld` (GID 30000) user="nixbld14" uid=30014 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld14" uid=30014 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 14" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30014" "--password" "!" "nixbld14"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld14` (UID 30014) in group `nixbld` (GID 30000) user="nixbld14" uid=30014 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld15` (UID 30015) in group `nixbld` (GID 30000) user="nixbld15" uid=30015 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld15" uid=30015 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 15" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30015" "--password" "!" "nixbld15"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld15` (UID 30015) in group `nixbld` (GID 30000) user="nixbld15" uid=30015 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld16` (UID 30016) in group `nixbld` (GID 30000) user="nixbld16" uid=30016 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld16" uid=30016 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 16" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30016" "--password" "!" "nixbld16"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld16` (UID 30016) in group `nixbld` (GID 30000) user="nixbld16" uid=30016 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld17` (UID 30017) in group `nixbld` (GID 30000) user="nixbld17" uid=30017 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld17" uid=30017 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 17" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30017" "--password" "!" "nixbld17"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld17` (UID 30017) in group `nixbld` (GID 30000) user="nixbld17" uid=30017 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld18` (UID 30018) in group `nixbld` (GID 30000) user="nixbld18" uid=30018 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld18" uid=30018 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 18" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30018" "--password" "!" "nixbld18"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld18` (UID 30018) in group `nixbld` (GID 30000) user="nixbld18" uid=30018 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld19` (UID 30019) in group `nixbld` (GID 30000) user="nixbld19" uid=30019 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld19" uid=30019 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 19" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30019" "--password" "!" "nixbld19"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld19` (UID 30019) in group `nixbld` (GID 30000) user="nixbld19" uid=30019 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld20` (UID 30020) in group `nixbld` (GID 30000) user="nixbld20" uid=30020 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld20" uid=30020 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 20" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30020" "--password" "!" "nixbld20"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld20` (UID 30020) in group `nixbld` (GID 30000) user="nixbld20" uid=30020 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld21` (UID 30021) in group `nixbld` (GID 30000) user="nixbld21" uid=30021 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld21" uid=30021 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 21" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30021" "--password" "!" "nixbld21"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld21` (UID 30021) in group `nixbld` (GID 30000) user="nixbld21" uid=30021 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld22` (UID 30022) in group `nixbld` (GID 30000) user="nixbld22" uid=30022 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld22" uid=30022 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 22" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30022" "--password" "!" "nixbld22"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld22` (UID 30022) in group `nixbld` (GID 30000) user="nixbld22" uid=30022 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld23` (UID 30023) in group `nixbld` (GID 30000) user="nixbld23" uid=30023 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld23" uid=30023 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 23" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30023" "--password" "!" "nixbld23"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld23` (UID 30023) in group `nixbld` (GID 30000) user="nixbld23" uid=30023 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld24` (UID 30024) in group `nixbld` (GID 30000) user="nixbld24" uid=30024 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld24" uid=30024 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 24" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30024" "--password" "!" "nixbld24"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld24` (UID 30024) in group `nixbld` (GID 30000) user="nixbld24" uid=30024 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld25` (UID 30025) in group `nixbld` (GID 30000) user="nixbld25" uid=30025 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld25" uid=30025 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 25" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30025" "--password" "!" "nixbld25"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld25` (UID 30025) in group `nixbld` (GID 30000) user="nixbld25" uid=30025 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld26` (UID 30026) in group `nixbld` (GID 30000) user="nixbld26" uid=30026 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld26" uid=30026 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 26" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30026" "--password" "!" "nixbld26"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld26` (UID 30026) in group `nixbld` (GID 30000) user="nixbld26" uid=30026 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld27` (UID 30027) in group `nixbld` (GID 30000) user="nixbld27" uid=30027 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld27" uid=30027 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 27" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30027" "--password" "!" "nixbld27"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld27` (UID 30027) in group `nixbld` (GID 30000) user="nixbld27" uid=30027 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld28` (UID 30028) in group `nixbld` (GID 30000) user="nixbld28" uid=30028 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld28" uid=30028 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 28" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30028" "--password" "!" "nixbld28"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld28` (UID 30028) in group `nixbld` (GID 30000) user="nixbld28" uid=30028 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld29` (UID 30029) in group `nixbld` (GID 30000) user="nixbld29" uid=30029 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld29" uid=30029 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 29" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30029" "--password" "!" "nixbld29"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld29` (UID 30029) in group `nixbld` (GID 30000) user="nixbld29" uid=30029 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld30` (UID 30030) in group `nixbld` (GID 30000) user="nixbld30" uid=30030 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld30" uid=30030 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 30" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30030" "--password" "!" "nixbld30"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld30` (UID 30030) in group `nixbld` (GID 30000) user="nixbld30" uid=30030 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld31` (UID 30031) in group `nixbld` (GID 30000) user="nixbld31" uid=30031 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld31" uid=30031 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 31" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30031" "--password" "!" "nixbld31"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld31` (UID 30031) in group `nixbld` (GID 30000) user="nixbld31" uid=30031 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:create_user: Executing: Create user `nixbld32` (UID 30032) in group `nixbld` (GID 30000) user="nixbld32" uid=30032 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:create_user:execute:execute_command: Executing user="nixbld32" uid=30032 groupname="nixbld" gid=30000 command="useradd" "--home-dir" "/var/empty" "--comment" "Nix build user 32" "--gid" "30000" "--groups" "30000" "--no-user-group" "--system" "--shell" "/sbin/nologin" "--uid" "30032" "--password" "!" "nixbld32"
+DEBUG execute:execute:install:try_execute:execute:create_user: Completed: Create user `nixbld32` (UID 30032) in group `nixbld` (GID 30000) user="nixbld32" uid=30032 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld1` (UID 30001) to group `nixbld` (GID 30000) user="nixbld1" uid=30001 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld1" uid=30001 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld1" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld1` (UID 30001) to group `nixbld` (GID 30000) user="nixbld1" uid=30001 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld2` (UID 30002) to group `nixbld` (GID 30000) user="nixbld2" uid=30002 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld2" uid=30002 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld2" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld2` (UID 30002) to group `nixbld` (GID 30000) user="nixbld2" uid=30002 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld3` (UID 30003) to group `nixbld` (GID 30000) user="nixbld3" uid=30003 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld3" uid=30003 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld3" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld3` (UID 30003) to group `nixbld` (GID 30000) user="nixbld3" uid=30003 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld4` (UID 30004) to group `nixbld` (GID 30000) user="nixbld4" uid=30004 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld4" uid=30004 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld4" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld4` (UID 30004) to group `nixbld` (GID 30000) user="nixbld4" uid=30004 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld5` (UID 30005) to group `nixbld` (GID 30000) user="nixbld5" uid=30005 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld5" uid=30005 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld5" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld5` (UID 30005) to group `nixbld` (GID 30000) user="nixbld5" uid=30005 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld6` (UID 30006) to group `nixbld` (GID 30000) user="nixbld6" uid=30006 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld6" uid=30006 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld6" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld6` (UID 30006) to group `nixbld` (GID 30000) user="nixbld6" uid=30006 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld7` (UID 30007) to group `nixbld` (GID 30000) user="nixbld7" uid=30007 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld7" uid=30007 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld7" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld7` (UID 30007) to group `nixbld` (GID 30000) user="nixbld7" uid=30007 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld8` (UID 30008) to group `nixbld` (GID 30000) user="nixbld8" uid=30008 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld8" uid=30008 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld8" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld8` (UID 30008) to group `nixbld` (GID 30000) user="nixbld8" uid=30008 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld9` (UID 30009) to group `nixbld` (GID 30000) user="nixbld9" uid=30009 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld9" uid=30009 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld9" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld9` (UID 30009) to group `nixbld` (GID 30000) user="nixbld9" uid=30009 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld10` (UID 30010) to group `nixbld` (GID 30000) user="nixbld10" uid=30010 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld10" uid=30010 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld10" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld10` (UID 30010) to group `nixbld` (GID 30000) user="nixbld10" uid=30010 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld11` (UID 30011) to group `nixbld` (GID 30000) user="nixbld11" uid=30011 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld11" uid=30011 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld11" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld11` (UID 30011) to group `nixbld` (GID 30000) user="nixbld11" uid=30011 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld12` (UID 30012) to group `nixbld` (GID 30000) user="nixbld12" uid=30012 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld12" uid=30012 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld12" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld12` (UID 30012) to group `nixbld` (GID 30000) user="nixbld12" uid=30012 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld13` (UID 30013) to group `nixbld` (GID 30000) user="nixbld13" uid=30013 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld13" uid=30013 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld13" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld13` (UID 30013) to group `nixbld` (GID 30000) user="nixbld13" uid=30013 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld14` (UID 30014) to group `nixbld` (GID 30000) user="nixbld14" uid=30014 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld14" uid=30014 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld14" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld14` (UID 30014) to group `nixbld` (GID 30000) user="nixbld14" uid=30014 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld15` (UID 30015) to group `nixbld` (GID 30000) user="nixbld15" uid=30015 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld15" uid=30015 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld15" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld15` (UID 30015) to group `nixbld` (GID 30000) user="nixbld15" uid=30015 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld16` (UID 30016) to group `nixbld` (GID 30000) user="nixbld16" uid=30016 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld16" uid=30016 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld16" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld16` (UID 30016) to group `nixbld` (GID 30000) user="nixbld16" uid=30016 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld17` (UID 30017) to group `nixbld` (GID 30000) user="nixbld17" uid=30017 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld17" uid=30017 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld17" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld17` (UID 30017) to group `nixbld` (GID 30000) user="nixbld17" uid=30017 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld18` (UID 30018) to group `nixbld` (GID 30000) user="nixbld18" uid=30018 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld18" uid=30018 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld18" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld18` (UID 30018) to group `nixbld` (GID 30000) user="nixbld18" uid=30018 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld19` (UID 30019) to group `nixbld` (GID 30000) user="nixbld19" uid=30019 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld19" uid=30019 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld19" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld19` (UID 30019) to group `nixbld` (GID 30000) user="nixbld19" uid=30019 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld20` (UID 30020) to group `nixbld` (GID 30000) user="nixbld20" uid=30020 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld20" uid=30020 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld20" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld20` (UID 30020) to group `nixbld` (GID 30000) user="nixbld20" uid=30020 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld21` (UID 30021) to group `nixbld` (GID 30000) user="nixbld21" uid=30021 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld21" uid=30021 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld21" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld21` (UID 30021) to group `nixbld` (GID 30000) user="nixbld21" uid=30021 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld22` (UID 30022) to group `nixbld` (GID 30000) user="nixbld22" uid=30022 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld22" uid=30022 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld22" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld22` (UID 30022) to group `nixbld` (GID 30000) user="nixbld22" uid=30022 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld23` (UID 30023) to group `nixbld` (GID 30000) user="nixbld23" uid=30023 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld23" uid=30023 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld23" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld23` (UID 30023) to group `nixbld` (GID 30000) user="nixbld23" uid=30023 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld24` (UID 30024) to group `nixbld` (GID 30000) user="nixbld24" uid=30024 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld24" uid=30024 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld24" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld24` (UID 30024) to group `nixbld` (GID 30000) user="nixbld24" uid=30024 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld25` (UID 30025) to group `nixbld` (GID 30000) user="nixbld25" uid=30025 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld25" uid=30025 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld25" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld25` (UID 30025) to group `nixbld` (GID 30000) user="nixbld25" uid=30025 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld26` (UID 30026) to group `nixbld` (GID 30000) user="nixbld26" uid=30026 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld26" uid=30026 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld26" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld26` (UID 30026) to group `nixbld` (GID 30000) user="nixbld26" uid=30026 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld27` (UID 30027) to group `nixbld` (GID 30000) user="nixbld27" uid=30027 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld27" uid=30027 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld27" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld27` (UID 30027) to group `nixbld` (GID 30000) user="nixbld27" uid=30027 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld28` (UID 30028) to group `nixbld` (GID 30000) user="nixbld28" uid=30028 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld28" uid=30028 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld28" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld28` (UID 30028) to group `nixbld` (GID 30000) user="nixbld28" uid=30028 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld29` (UID 30029) to group `nixbld` (GID 30000) user="nixbld29" uid=30029 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld29" uid=30029 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld29" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld29` (UID 30029) to group `nixbld` (GID 30000) user="nixbld29" uid=30029 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld30` (UID 30030) to group `nixbld` (GID 30000) user="nixbld30" uid=30030 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld30" uid=30030 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld30" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld30` (UID 30030) to group `nixbld` (GID 30000) user="nixbld30" uid=30030 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld31` (UID 30031) to group `nixbld` (GID 30000) user="nixbld31" uid=30031 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld31" uid=30031 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld31" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld31` (UID 30031) to group `nixbld` (GID 30000) user="nixbld31" uid=30031 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Executing: Add user `nixbld32` (UID 30032) to group `nixbld` (GID 30000) user="nixbld32" uid=30032 groupname="nixbld" gid=30000
+TRACE execute:execute:install:try_execute:execute:add_user_to_group:execute:execute_command: Executing user="nixbld32" uid=30032 groupname="nixbld" gid=30000 command="gpasswd" "-a" "nixbld32" "nixbld"
+DEBUG execute:execute:install:try_execute:execute:add_user_to_group: Completed: Add user `nixbld32` (UID 30032) to group `nixbld` (GID 30000) user="nixbld32" uid=30032 groupname="nixbld" gid=30000
+DEBUG execute:execute:install:try_execute: Completed: Create build users (UID 30001-30032) and group (GID 30000)
+ INFO execute:execute:install: Step: Configure Nix
+DEBUG execute:execute:install:try_execute: Executing: Configure Nix
+DEBUG execute:execute:install:try_execute:execute:setup_default_profile: Executing: Setup the default Nix profile unpacked_path=/nix/temp-install-dir
+DEBUG execute:execute:install:try_execute:execute:place_nix_configuration: Executing: Place the Nix configuration in `/etc/nix/nix.conf`
+DEBUG execute:execute:install:try_execute:execute:place_nix_configuration:execute:create_directory: Executing: Create directory `/etc/nix` path=/etc/nix mode=0o755
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile: Executing: Configure the shell profiles
+TRACE execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_directory: Completed: (Already done) Create directory `/usr/share/fish/vendor_conf.d` path=/usr/share/fish/vendor_conf.d mode=0o755
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Executing: Create or insert file `/etc/bashrc` path=/etc/bashrc mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Executing: Create or insert file `/etc/zshrc` path=/etc/zshrc mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Executing: Create or insert file `/etc/profile.d/nix.sh` path=/etc/profile.d/nix.sh mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Executing: Create or insert file `/usr/share/fish/vendor_conf.d/nix.fish` path=/usr/share/fish/vendor_conf.d/nix.fish mode=0o644 buf="\n# Nix\nif test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'\nend\n# End Nix\n\n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Executing: Create or insert file `/etc/zsh/zshrc` path=/etc/zsh/zshrc mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Executing: Create or insert file `/etc/bash.bashrc` path=/etc/bash.bashrc mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Completed: Create or insert file `/etc/profile.d/nix.sh` path=/etc/profile.d/nix.sh mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Completed: Create or insert file `/usr/share/fish/vendor_conf.d/nix.fish` path=/usr/share/fish/vendor_conf.d/nix.fish mode=0o644 buf="\n# Nix\nif test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'\nend\n# End Nix\n\n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Completed: Create or insert file `/etc/bashrc` path=/etc/bashrc mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:place_nix_configuration:execute:create_directory: Completed: Create directory `/etc/nix` path=/etc/nix mode=0o755
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Completed: Create or insert file `/etc/zshrc` path=/etc/zshrc mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:place_nix_configuration:execute:create_or_merge_nix_config: Executing: Merge or create nix.conf file `/etc/nix/nix.conf` path=/etc/nix/nix.conf mode=0o664 pending_nix_config="build-users-group=\"nixbld\",experimental-features=\"nix-command flakes repl-flake\",auto-optimise-store=\"true\",bash-prompt-prefix=\"(nix:$name)\\040\",max-jobs=\"auto\",extra-nix-path=\"nixpkgs=flake:nixpkgs\",upgrade-nix-store-path-url=\"https://install.determinate.systems/nix-upgrade/stable/universal\""
+TRACE execute:execute:install:try_execute:execute:setup_default_profile:execute: Executing `HOME="/root" "/nix/store/vi8vjs4m4dnj5lwgm9p6071m0s7v4p26-nix-2.20.3/bin/nix-store" "--load-db"` with stdin from `/nix/temp-install-dir/nix-2.20.3-x86_64-linux/.reginfo` unpacked_path=/nix/temp-install-dir
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Completed: Create or insert file `/etc/zsh/zshrc` path=/etc/zsh/zshrc mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile:execute:create_or_insert_file: Completed: Create or insert file `/etc/bash.bashrc` path=/etc/bash.bashrc mode=0o644 buf="\n# Nix\nif [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then\n    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'\nfi\n# End Nix\n\n        \n"
+TRACE execute:execute:install:try_execute:execute:setup_default_profile:execute: Wrote `/nix/temp-install-dir/nix-2.20.3-x86_64-linux/.reginfo` to stdin of `nix-store --load-db` unpacked_path=/nix/temp-install-dir
+DEBUG execute:execute:install:try_execute:execute:configure_shell_profile: Completed: Configure the shell profiles
+DEBUG execute:execute:install:try_execute:execute:place_nix_configuration:execute:create_or_merge_nix_config: Completed: Merge or create nix.conf file `/etc/nix/nix.conf` path=/etc/nix/nix.conf mode=0o664 pending_nix_config="build-users-group=\"nixbld\",experimental-features=\"nix-command flakes repl-flake\",auto-optimise-store=\"true\",bash-prompt-prefix=\"(nix:$name)\\040\",max-jobs=\"auto\",extra-nix-path=\"nixpkgs=flake:nixpkgs\",upgrade-nix-store-path-url=\"https://install.determinate.systems/nix-upgrade/stable/universal\""
+DEBUG execute:execute:install:try_execute:execute:place_nix_configuration: Completed: Place the Nix configuration in `/etc/nix/nix.conf`
+TRACE execute:execute:install:try_execute:execute:setup_default_profile:execute:execute_command: Executing unpacked_path=/nix/temp-install-dir command=HOME="/root" NIX_SSL_CERT_FILE="/nix/store/sp6cj9vw557zpfirwvvix36p58av82dj-nss-cacert-3.95/etc/ssl/certs/ca-bundle.crt" "/nix/store/vi8vjs4m4dnj5lwgm9p6071m0s7v4p26-nix-2.20.3/bin/nix-env" "-i" "/nix/store/vi8vjs4m4dnj5lwgm9p6071m0s7v4p26-nix-2.20.3"
+TRACE execute:execute:install:try_execute:execute:setup_default_profile:execute:execute_command: Executing unpacked_path=/nix/temp-install-dir command=HOME="/root" NIX_SSL_CERT_FILE="/nix/store/sp6cj9vw557zpfirwvvix36p58av82dj-nss-cacert-3.95/etc/ssl/certs/ca-bundle.crt" "/nix/store/vi8vjs4m4dnj5lwgm9p6071m0s7v4p26-nix-2.20.3/bin/nix-env" "-i" "/nix/store/sp6cj9vw557zpfirwvvix36p58av82dj-nss-cacert-3.95"
+TRACE execute:execute:install:try_execute:execute:setup_default_profile:execute:set_env: Setting env unpacked_path=/nix/temp-install-dir k=NIX_SSL_CERT_FILE v=/nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt
+DEBUG execute:execute:install:try_execute:execute:setup_default_profile: Completed: Setup the default Nix profile unpacked_path=/nix/temp-install-dir
+DEBUG execute:execute:install:try_execute: Completed: Configure Nix
+ INFO execute:execute:install: Step: Create directory `/etc/tmpfiles.d`
+TRACE execute:execute:install:try_execute: Completed: (Already done) Create directory `/etc/tmpfiles.d`
+ INFO execute:execute:install: Step: Configure Nix daemon related settings with systemd
+DEBUG execute:execute:install:try_execute: Executing: Configure Nix daemon related settings with systemd
+TRACE execute:execute:install:try_execute:execute:execute_command: Executing command="systemctl" "daemon-reload"
+TRACE execute:execute:install:try_execute:execute: Is not enabled unit=nix-daemon.socket
+TRACE execute:execute:install:try_execute:execute: Is not active unit=nix-daemon.socket
+TRACE execute:execute:install:try_execute:execute: Is not enabled unit=nix-daemon.service
+TRACE execute:execute:install:try_execute:execute: Is not active unit=nix-daemon.service
+TRACE execute:execute:install:try_execute:execute: Symlinking src="/nix/var/nix/profiles/default/lib/tmpfiles.d/nix-daemon.conf" dest="/etc/tmpfiles.d/nix-daemon.conf"
+TRACE execute:execute:install:try_execute:execute:execute_command: Executing command="systemd-tmpfiles" "--create" "--prefix=/nix/var/nix"
+TRACE execute:execute:install:try_execute:execute: Symlinking src=/nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.service dest=/etc/systemd/system/nix-daemon.service
+TRACE execute:execute:install:try_execute:execute: Symlinking src=/nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.socket dest=/etc/systemd/system/nix-daemon.socket
+TRACE execute:execute:install:try_execute:execute:execute_command: Executing command="systemctl" "daemon-reload"
+TRACE execute:execute:install:try_execute:execute: Enabled unit unit=/nix/var/nix/profiles/default/lib/systemd/system/nix-daemon.socket now=true
+DEBUG execute:execute:install:try_execute: Completed: Configure Nix daemon related settings with systemd
+ INFO execute:execute:install: Step: Remove directory `/nix/temp-install-dir`
+DEBUG execute:execute:install:try_execute: Executing: Remove directory `/nix/temp-install-dir`
+DEBUG execute:execute:install:try_execute: Completed: Remove directory `/nix/temp-install-dir`
+DEBUG execute:execute:install:self_test:discover: Discovered `sh`
+DEBUG execute:execute:install:self_test:discover: Discovered `bash`
+DEBUG execute:execute:install:self_test:discover: Discovered `zsh`
+DEBUG execute:execute:install:self_test:self_test: Testing Nix install via `sh` command="\"sh\" \"-lc\" \"nix build --no-link --expr \\'derivation { name = \\\"self-test-sh-1709447160215\\\"; system = \\\"x86_64-linux\\\"; builder = \\\"/bin/sh\\\"; args = [\\\"-c\\\" \\\"echo hello > \\\\$out\\\"]; }\\'\""
+DEBUG execute:execute:install:self_test:self_test: Testing Nix install via `bash` command="\"bash\" \"-lc\" \"nix build --no-link --expr \\'derivation { name = \\\"self-test-bash-1709447161606\\\"; system = \\\"x86_64-linux\\\"; builder = \\\"/bin/sh\\\"; args = [\\\"-c\\\" \\\"echo hello > \\\\$out\\\"]; }\\'\""
+DEBUG execute:execute:install:self_test:self_test: Testing Nix install via `zsh` command="\"zsh\" \"-ic\" \"nix build --no-link --expr \\'derivation { name = \\\"self-test-zsh-1709447162064\\\"; system = \\\"x86_64-linux\\\"; builder = \\\"/bin/sh\\\"; args = [\\\"-c\\\" \\\"echo hello > \\\\$out\\\"]; }\\'\""
+DEBUG execute:execute:install:send: Sending diagnostic to `https://install.determinate.systems/nix/diagnostic`
+Nix was installed successfully!
+To get started using Nix, open a new shell or run `. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh`

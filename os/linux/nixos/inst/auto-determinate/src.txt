@@ -16,7 +16,30 @@ https://github.com/DeterminateSystems/nix-installer/blob/main/src/planner/linux.
         #[cfg_attr(feature = "cli", clap(flatten))]
         pub init: InitSettings,
     }
-      
+    ? start_daemon
+        ...
+        plan.push(
+        ConfigureInitService::plan(self.init.init, self.init.start_daemon)
+            .await
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_init_service.rs 
+    https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_init_service.rs#L136
+        fn execute_description(&self) -> Vec<ActionDescription> {
+        let mut vec = Vec::new();
+        match self.init {
+            #[cfg(target_os = "linux")]
+            InitSystem::Systemd => {
+                let mut explanation = vec![
+                    "Run `systemd-tempfiles --create --prefix=/nix/var/nix`".to_string(),
+                    format!("Symlink `{SERVICE_SRC}` to `{SERVICE_DEST}`"),
+                    format!("Symlink `{SOCKET_SRC}` to `{SOCKET_DEST}`"),
+                    "Run `systemctl daemon-reload`".to_string(),
+                ];
+                if self.start_daemon {
+                    explanation.push(format!("Run `systemctl enable --now {SOCKET_SRC}`"));
+                }
+                vec.push(ActionDescription::new(self.tracing_synopsis(), explanation))
+            },
+    ? nix-daemon.service, nix-daemon.socket
 
 https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/mod.rs
 https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_nix.rs
