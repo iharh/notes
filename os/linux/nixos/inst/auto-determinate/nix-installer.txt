@@ -1,25 +1,8 @@
 https://github.com/DeterminateSystems/nix-installer
-    ! not a nixos
+    ! not a nixos, just plain nix
 
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 PATH=...:~/.nix-profile/bin:/nix/var/nix/profiles/default/bin
-
-https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/mod.rs
-https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_nix.rs
-https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_shell_profile.rs
-https://github.com/DeterminateSystems/nix-installer/blob/main/src/planner/macos.rs
-    launchd
-    ShellProfileLocations
-https://github.com/DeterminateSystems/nix-installer/blob/main/src/planner/mod.rs#L345
-    /etc/zshrc
-    /etc/zsh/zshrc
-
-    # Nix
-    if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-    fi
-    # End Nix
-
 
 https://zero-to-nix.com/start
 https://zero-to-nix.com/start/install
@@ -49,14 +32,3 @@ https://determinate.systems/posts/determinate-nix-installer
 misc
 https://news.ycombinator.com/item?id=34957953
 https://github.com/astro/microvm.nix
-
-/nix/nix-installer
-    uninstall
-    install
-        --no-confirm
-        -- init none
-            do not use init system like systemd
-        --extra-config
-            add extra stuff to the nix.conf
-
-sudo -i nix upgrade-nix

@@ -1,0 +1,35 @@
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/cli/subcommand/install.rs
+    ? CommonSettings
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/settings.rs
+    ? InitSystem (None, Launchd, Systemd)
+
+    pub struct InitSettings {
+      pub init: InitSystem,
+      ...
+      /// Start the daemon (if not `--init none`)
+      long = "no-start-daemon"
+    }
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/planner/linux.rs
+    pub struct Linux {
+        #[cfg_attr(feature = "cli", clap(flatten))]
+        pub settings: CommonSettings,
+        #[cfg_attr(feature = "cli", clap(flatten))]
+        pub init: InitSettings,
+    }
+      
+
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/mod.rs
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_nix.rs
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/action/common/configure_shell_profile.rs
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/planner/macos.rs
+    launchd
+    ShellProfileLocations
+https://github.com/DeterminateSystems/nix-installer/blob/main/src/planner/mod.rs#L345
+    /etc/zshrc
+    /etc/zsh/zshrc
+
+    # Nix
+    if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    fi
+    # End Nix
