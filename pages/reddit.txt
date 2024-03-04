@@ -307,6 +307,7 @@ https://github.com/mahmoudk1000/nix-config
     https://github.com/mahmoudk1000/nix-config/blob/main/hosts/labbi/hardware-configuration.nix
     https://github.com/mahmoudk1000/nix-config/blob/main/hosts/labbi/configuration.nix
     ! simple, xfs
+    https://github.com/mahmoudk1000/awedots
 
 
 https://github.com/nix-community/nixos-anywhere/blob/main/docs/reference.md
