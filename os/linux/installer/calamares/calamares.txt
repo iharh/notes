@@ -28,3 +28,5 @@ https://calamares.io/ci/
 https://github.com/calamares/jenkins-dockerfiles/blob/master/archlinux/Dockerfile
 
 https://github.com/bbqlinux/calamares-bbqlinux
+
+https://github.com/calamares/calamares/blob/calamares/src/modules/displaymanager/main.py
