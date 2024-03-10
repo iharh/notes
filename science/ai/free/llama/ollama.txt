@@ -6,3 +6,23 @@ https://github.com/ollama/ollama
 2024
 KskRoyal - Running OLLAMA On Windows 11 // Run LLMs locally on Windows W/ Ollama 0:00 of 7:20
     https://www.youtube.com/watch?v=srGF8P8-8Jk
+
+1. AI models wrapper ollama (https://ollama.com/download)
+1.1 curl -fsSL https://ollama.com/install.sh | sh
+    ollama run mistral 
+    https://ollama.com/library/mistral
+
+2. terminal-helper https://github.com/yusufcanb/tlm
+2.1 curl -fsSL https://raw.githubusercontent.com/yusufcanb/tlm/main/install.sh | sudo bash -E - 
+    will download codellama (https://ollama.com/library/codellama) for work
+2.2 tlm уже готов объяснять или подсказывать
+
+А дальше. Магия не хуже чем в warp. И русский понимает (ответ англ).
+
+Думаю каждый справится. Модели примерно по ~5-7Gb качает. Будьте внимательны!
+
+Бонус! Так как модели уже на компьютере, а ollama даёт удобный доступ к ним. Можно развернуть веб-интерфейс, для общения уже в режиме чатов, как ChatGPT - https://github.com/ivanfioravanti/chatbot-ollama
+
+Или BigAGI тут прям комбайн нормальный умеет работать с кучей моделей включая нашу https://github.com/enricoros/big-agi
+
+@toxblh_linux

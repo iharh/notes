@@ -5,6 +5,9 @@ CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
     https://www.youtube.com/watch?v=M_P93LyJrzI
     ! 33:30 ! tons of links
 
+https://github.com/yusufcanb/tlm
+    go install github.com/yusufcanb/tlm@latest
+
 /usr/share/doc/ubuntu-minimal/changelog.gz
 
 /etc/lightdm/lightdm-gtk-greeter.conf
