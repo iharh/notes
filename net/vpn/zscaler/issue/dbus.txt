@@ -1,0 +1,128 @@
+https://help.zscaler.com/client-connector/zscaler-client-connector-errors
+
+zstunnel sway log
+Redirected stderr
+2024-03-12 17:23:17.167059(+0300)[ 1498: 1498] INF Timezone: +03, Offset: 10800, Standard Name: +03
+2024-03-12 17:23:17.167067(+0300)[ 1498: 1498] INF ZSTunnel App Version: 1.3.1.6
+2024-03-12 17:23:17.167072(+0300)[ 1498: 1498] INF ZSTunnel SVN Revision: 82261b27a94118882bcd2834613be250e907c974
+2024-03-12 17:23:17.167078(+0300)[ 1498: 1498] INF ZSTunnel ProcAuxVals: Platform: x86_64; SECURE: 0; UID: 0; EUID: 0; GID: 0; EGID: 0
+2024-03-12 17:23:17.167083(+0300)[ 1498: 1498] INF startTunnelLogMonitor called!
+2024-03-12 17:23:17.167125(+0300)[ 1498: 1498] INF Default RLIMIT_NOFILE = 1024
+2024-03-12 17:23:17.167136(+0300)[ 1498: 1498] INF ZSTunnel runService called!
+2024-03-12 17:23:17.167170(+0300)[ 1498: 1503] INF [LogMon] Log tag
+2024-03-12 17:23:17.167175(+0300)[ 1498: 1498] INF Pac Parser Library initialized
+2024-03-12 17:23:17.167187(+0300)[ 1498: 1503] INF [LogMon] Logger monitor started
+2024-03-12 17:23:17.167197(+0300)[ 1498: 1498] INF ZSTunnelRpcServer startServer called!
+2024-03-12 17:23:17.167249(+0300)[ 1498: 1498] INF Sending notification to application for code: 100
+2024-03-12 17:23:17.167261(+0300)[ 1498: 1504] INF ZSTunnelRpcServer run function called!
+2024-03-12 17:23:17.167260(+0300)[ 1498: 1498] DBG SendZSTrayNotification Called!!!
+2024-03-12 17:23:17.169000(+0300)[ 1498: 1498] DBG Notification Msg 100
+
+
+2024-03-12 17:23:17.169225(+0300)[ 1498: 1498] ERR Error While doing g_dbus_proxy_call_sync For TrayNotification
+2024-03-12 17:23:17.169236(+0300)[ 1498: 1498] ERR Error Message : GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.zscaler.ztray.service was not provided by any .service files
+
+2024-03-12 17:23:59.042645(+0300)[ 1498: 1504] INF ZSTunnelRpcServer request: com.zscaler.ztunnel.Interface::sendTunnelCommand on /var/opt/zscaler/ztunnel/tunnelObject from :1.61
+2024-03-12 17:23:59.042687(+0300)[ 1498: 1504] DBG Verifying RPC client :1.61
+2024-03-12 17:23:59.043934(+0300)[ 1498: 1504] INF User id received : 1000 and retrieved from system user : root where the user from json : :1.61
+2024-03-12 17:23:59.044104(+0300)[ 1498: 1504] INF getProcessFromPid: /opt/zscaler/bin/ZSTray
+2024-03-12 17:23:59.044160(+0300)[ 1498: 1504] DBG The RPC client is from root(1000) in process /opt/zscaler/bin/ZSTray(1514)
+2024-03-12 17:23:59.044175(+0300)[ 1498: 1504] DBG Verifying /opt/zscaler/bin/ZSTray signature for root
+2024-03-12 17:23:59.055249(+0300)[ 1498: 1504] DBG /opt/zscaler/bin/ZSTray signature for root has been verified
+
+2024-03-12 17:23:59.055281(+0300)[ 1498: 1504] DBG ZTunnelMonitoringTask Resetting tunnel2 retry counters
+2024-03-12 17:23:59.055289(+0300)[ 1498: 1504] INF ZTunnelMain: Default Constructor called!!
+
+????
+2024-03-12 17:23:59.055323(+0300)[ 1498: 1504] INF ZSTunnel RPC command: 12
+2024-03-12 17:23:59.055330(+0300)[ 1498: 1504] DBG notifyZSProxyMonitoringTask called!
+
+
+rhino good-case (mine)
+Redirected stderr
+2024-03-12 18:10:20.524295(+0300)[280408:280408] INF Timezone: +03, Offset: 10800, Standard Name: +03
+2024-03-12 18:10:20.524306(+0300)[280408:280408] INF ZSTunnel App Version: 1.3.1.6
+2024-03-12 18:10:20.524313(+0300)[280408:280408] INF ZSTunnel SVN Revision: 82261b27a94118882bcd2834613be250e907c974
+2024-03-12 18:10:20.524322(+0300)[280408:280408] INF ZSTunnel ProcAuxVals: Platform: x86_64; SECURE: 0; UID: 0; EUID: 0; GID: 0; EGID: 0
+2024-03-12 18:10:20.524329(+0300)[280408:280408] INF startTunnelLogMonitor called!
+2024-03-12 18:10:20.524372(+0300)[280408:280408] INF Default RLIMIT_NOFILE = 1024
+2024-03-12 18:10:20.524383(+0300)[280408:280408] INF ZSTunnel runService called!
+2024-03-12 18:10:20.524396(+0300)[280408:280408] INF Pac Parser Library initialized
+2024-03-12 18:10:20.524403(+0300)[280408:280408] INF ZSTunnelRpcServer startServer called!
+2024-03-12 18:10:20.524439(+0300)[280408:280408] INF Sending notification to application for code: 100
+2024-03-12 18:10:20.524449(+0300)[280408:280408] DBG SendZSTrayNotification Called!!!
+2024-03-12 18:10:20.525014(+0300)[280408:280421] INF ZSTunnelRpcServer run function called!
+2024-03-12 18:10:20.525158(+0300)[280408:280420] INF [LogMon] Log tag
+2024-03-12 18:10:20.525170(+0300)[280408:280420] INF [LogMon] Logger monitor started
+2024-03-12 18:10:20.542087(+0300)[280408:280408] DBG Notification Msg 100
+2024-03-12 18:10:20.542342(+0300)[280408:280408] ERR Error While doing g_dbus_proxy_call_sync For TrayNotification
+2024-03-12 18:10:20.542353(+0300)[280408:280408] ERR Error Message : GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name com.zscaler.ztray.service was not provided by any .service files
+2024-03-12 18:10:22.624991(+0300)[280408:280421] INF ZSTunnelRpcServer request: com.zscaler.ztunnel.Interface::sendUserCredentials on /var/opt/zscaler/ztunnel/tunnelObject from :1.5848
+2024-03-12 18:10:22.625020(+0300)[280408:280421] DBG Verifying RPC client :1.5848 
+2024-03-12 18:10:22.626026(+0300)[280408:280421] INF User id received : 1002 and retrieved from system user : root where the user from json : :1.5848
+2024-03-12 18:10:22.626170(+0300)[280408:280421] INF getProcessFromPid: /opt/zscaler/bin/ZSTray
+2024-03-12 18:10:22.626230(+0300)[280408:280421] DBG The RPC client is from root(1002) in process /opt/zscaler/bin/ZSTray(280382)
+2024-03-12 18:10:22.626240(+0300)[280408:280421] DBG Verifying /opt/zscaler/bin/ZSTray signature for root 
+2024-03-12 18:10:22.634242(+0300)[280408:280421] DBG /opt/zscaler/bin/ZSTray signature for root has been verified
+
+!!! absent
+2024-03-12 18:10:22.634258(+0300)[280408:280421] INF ZTunnel config received
+2024-03-12 18:10:22.634619(+0300)[280408:280421] DBG processZPAConfiguration: Converting client cert data to X509Certificat
+2024-03-12 18:10:22.635143(+0300)[280408:280421] DBG processZPAConfiguration: Converting client key data to RSAKey
+2024-03-12 18:10:22.635162(+0300)[280408:280421] DBG processZPAConfiguration: Loading private key
+2024-03-12 18:10:22.635183(+0300)[280408:280421] DBG processZPAConfiguration: Converting chained cert
+2024-03-12 18:10:22.635275(+0300)[280408:280421] DBG setConfigFromJson: Getting empty value for key appVersion
+2024-03-12 18:10:22.635288(+0300)[280408:280421] DBG setConfigFromJson: Getting empty value for key tunnelZappTraffic
+
+2024-03-12 18:10:22.635323(+0300)[280408:280421] DBG ZTunnelMonitoringTask Resetting tunnel2 retry counters
+2024-03-12 18:10:22.635330(+0300)[280408:280421] INF ZTunnelMain: Default Constructor called!!
+
+2024-03-12 18:10:22.635344(+0300)[280408:280421] INF PAC URL: http://pac.zscalertwo.net/g1psffM1GSng/zcc_app_profile.pac
+2024-03-12 18:10:22.635349(+0300)[280408:280421] INF ZPA SAML size: 27008
+2024-03-12 18:10:22.635354(+0300)[280408:280421] INF ZPA URL: https://samlsp.private.zscaler.com/auth/v2/login
+2024-03-12 18:10:22.635359(+0300)[280408:280421] INF Tunnel UA: Linux Ubuntu Noble Numbat (development branch) ZTunnel/1.0
+2024-03-12 18:10:22.635364(+0300)[280408:280421] INF Tunnel local TCP port: 9000
+2024-03-12 18:10:22.635369(+0300)[280408:280421] INF Digest PIN length: 16
+2024-03-12 18:10:22.635381(+0300)[280408:280421] INF Digest user length: 26
+2024-03-12 18:10:22.635386(+0300)[280408:280421] INF User ID  length: 8
+2024-03-12 18:10:22.635391(+0300)[280408:280421] INF Device ID length: 8
+2024-03-12 18:10:22.635396(+0300)[280408:280421] INF Group IDs: 33685526,31303281,48775354
+2024-03-12 18:10:22.635401(+0300)[280408:280421] INF Company Size: 11470
+2024-03-12 18:10:22.635405(+0300)[280408:280421] INF Policy Version: 1709627926000
+2024-03-12 18:10:22.635461(+0300)[280408:280421] DBG processPostureProfile json: []
+2024-03-12 18:10:22.635476(+0300)[280408:280421] DBG TRACEROUTE:: collectRouteInfoMinutes value = 15, collectRouteInfoOnNetworkChangeEnabled value = 1, collectRouteInfoOnReportAnIssueEnabled value = 1
+2024-03-12 18:10:22.635490(+0300)[280408:280421] INF setFirefoxIntergrationState called !!
+2024-03-12 18:10:22.635495(+0300)[280408:280421] INF Checking for driver switch before Tunnel start
+2024-03-12 18:10:22.635500(+0300)[280408:280421] INF FIPS not enabled
+2024-03-12 18:10:22.635572(+0300)[280408:280421] INF Fresh ZTunnel config
+2024-03-12 18:10:22.635579(+0300)[280408:280421] INF ZTunnelMain start called!! Enable Proxy: 1 Enable Zpn: 1 Proxy Turned off: 0 Zpn Turned Off: 0 Local Captive mode: 0
+
+
+
+src
+https://github.com/GNOME/glib/blob/main/gio/gdbusproxy.h
+https://github.com/GNOME/glib/blob/main/gio/gdbusproxy.c
+https://github.com/GNOME/glib/blob/main/gio/gdbusproxy.c#L3024
+https://github.com/GNOME/glib/blob/main/gio/gdbusproxy.c#L2765
+
+misc
+https://askubuntu.com/questions/1447877/why-do-i-get-gdbus-errororg-freedesktop-dbus-error-serviceunknown-with-notify-s
+    sudo apt info notification-daemon
+    ls -la /usr/share/dbus-1/services/
+
+https://github.com/Kistler-Group/sdbus-cpp/issues/148
+    /etc/dbus-1/session.d
+
+https://github.com/lyokha/vim-xkbswitch/issues/39
+
+https://stackoverflow.com/questions/56329914/the-name-is-not-activable-on-g-dbus-proxy-call-sync
+
+swaylock
+???
+https://github.com/swaywm/swaylock
+https://man.archlinux.org/man/swaylock.1
+https://www.mankier.com/1/swaylock
+    loginctl 
+        list-sessions
+        unloock-session X where X is the tty number your session is on.
+    ~/.config/swaylock/config
