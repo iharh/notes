@@ -1,0 +1,20 @@
+2024-03-12 19:24:49.261299(+0300)[ 1578: 1601] INF Auth::Lib::executeMobileAdminPostAPI: https://mobile.zscaler.net/api/mobile/cloud/getGlobalCloudMapping
+2024-03-12 19:24:50.040463(+0300)[ 1578: 1601] INF Auth::Lib::executeMobileAdminPostAPI: Response: 200, Length: 70
+2024-03-12 19:24:50.040531(+0300)[ 1578: 1601] INF Response: {"success":"false","error":"3007","errorMessage":"Login Invalid User"}
+2024-03-12 19:24:50.040637(+0300)[ 1578: 1601] INF Auth::Lib::executeMobileAdminPostAPI: Finish
+2024-03-12 19:24:50.040670(+0300)[ 1578: 1601] INF Auth::Library::getCloudForDomain: Finish: {"error":"3007","errorMessage":"Login Invalid User","success":"false"}
+2024-03-12 19:24:50.040680(+0300)[ 1578: 1601] DBG Get Domain Response: {"error":"3007","errorMessage":"Login Invalid User","success":"false"}
+
+
+https://help.zscaler.com/client-connector/troubleshooting
+https://help.zscaler.com/zia/zia-authentication-error-codes
+https://help.zscaler.com/client-connector/zscaler-client-connector-connection-status-errors
+https://help.zscaler.com/client-connector/zscaler-client-connector-zpa-authentication-errors
+
+help
+https://help.zscaler.com/client-connector
+https://help.zscaler.com/client-connector/using-zscaler-client-connector
+release
+https://help.zscaler.com/client-connector/client-connector-app-release-summary-2024
+    Zscaler Client Connector 1.5.0.66 Enhancements and Fixes
+https://help.zscaler.com/client-connector/client-connector-app-release-summary-2023

@@ -1,4 +1,16 @@
 https://ru.wikibooks.org/wiki/Iptables
+https://wiki.nftables.org/wiki-nftables/index.php/Main_Page
+https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu
+https://webhostinggeeks.com/howto/how-to-disable-iptables-on-ubuntu/
+    sudo systemctl disable netfilter-persistent
+https://www.shellhacks.com/disable-iptables-temporary-ubuntu-debian-centos/
+    !!! via iptables-save
+
+nft
+sudo systemctl status nftables.service
+https://wiki.archlinux.org/title/Nftables
+https://wiki.archlinux.org/title/Nftables_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+    /etc/nftables.conf
 
 inst
 https://askubuntu.com/questions/1052919/iptables-reload-restart-on-ubuntu-18-04
@@ -7,6 +19,7 @@ https://askubuntu.com/questions/1052919/iptables-reload-restart-on-ubuntu-18-04
         /lib/systemd/system/netfilter-persistent.service
 
 2021
+https://habr.com/ru/companies/ruvds/articles/580648/
 https://te.legra.ph/Nastrojka-iptables-v-Linux-11-25
 https://www.cyberciti.biz/faq/howto-iptables-show-nat-rules/
 SiteSupport - iptables from zero up ru of 39:12
