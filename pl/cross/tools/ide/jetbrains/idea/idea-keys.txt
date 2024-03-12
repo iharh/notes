@@ -22,7 +22,7 @@ A-S-Enter
 
 View
 C-S-I
-    View Definition [List] ???
+    View/Preview Quick Definition of the current symbol
 C-E
     Recent Files/Windows List
 S-C-E
