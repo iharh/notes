@@ -1,0 +1,4 @@
+$ sudo systemctl status apparmor.service
+Unit apparmor.service could not be found.
+
+$ sudo apt remove --assume-yes --purge apparmor

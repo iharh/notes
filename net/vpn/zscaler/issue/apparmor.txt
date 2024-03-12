@@ -1,0 +1,10 @@
+AppArmor parser error for /etc/apparmor.d in profile /etc/apparmor.d/opt.zscaler.bin.zsupdater at line 9: could not open 'abstractions/evince'
+
+$ cat /etc/apparmor.d/opt.zscaler.bin.zsupdater
+...
+#include <abstractions/evince>
+
+$ sudo systemctl status apparmor.service
+Unit apparmor.service could not be found.
+
+$ sudo apt remove --assume-yes --purge apparmor

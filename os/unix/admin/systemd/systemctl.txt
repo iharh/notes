@@ -1,1 +1,7 @@
 https://www.freedesktop.org/software/systemd/man/systemctl.html
+
+systemctl 
+    list-units 
+        --state=failed
+            https://www.baeldung.com/linux/systemctl-list-failed-units
+                systemctl list-units --state=failed
