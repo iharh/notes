@@ -1,0 +1,35 @@
+2024
+Vimjoyer - Build Your Own NixOS Installer ISO of 3:58
+    https://www.youtube.com/watch?v=-G8mN6HJSZE
+    https://github.com/vimjoyer/custom-installer-video
+
+    { pkgs, modulesPath, ... }: 
+    {
+      imports = [
+        "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+      ];
+      nixpkgs.hostPlatform = "x86_64-linux";
+    }
+    
+    $ nix build .#nixosConfigurations.exampleIso.config.system.build.isoImage
+    ...
+      result/
+        nix-support/
+        iso/
+          nixos-24.05.20240216.5863c27-x86_64-linux.iso
+
+    $ nix run nixpkgs#nixos-generators -- --format iso --flake /path/to/flake#exampleIso -o result
+
+    { pkgs, modulesPath, ... }: 
+    {
+      imports = [
+        "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+      ];
+      # nixpkgs.hostPlatform = "x86_64-linux";
+      environment.systemPackages = with pkgs; [
+        neovim
+        parted
+        disko
+        git
+      ];
+    }
