@@ -1,3 +1,16 @@
+2024
+BusyCoderAcademy - Java 8 Stream API Workshop 1:07:00 of 3:09:22
+    https://www.youtube.com/watch?v=5IJG483LIjk
+    https://github.com/rgupta00/java8workshop-busycoder-25-02-24
+    https://github.com/rgupta00/java8workshop-busycoder-25-02-24/blob/master/notes%20java%208.pdf
+    https://www.linkedin.com/posts/rajeevguptajavatrainer_java8-javaprogramming-streamprocessing-activity-7165247752170405891-x-A2
+    https://www.youtube.com/@busycoderacademy
+    https://www.linkedin.com/in/rajeevguptajavatrainer/
+    https://www.linkedin.com/in/rajeevguptajavatrainer/recent-activity/all/
+    java dev community
+    https://www.linkedin.com/groups/3983267/
+    ! SAM - single abstract method (for FI, @FunctionalInterface), but can have default methods, static methods
+    ! Lambda is not Anonymous Inner Class (which has a bad perf and creates a lot of extra classes)
 2016
 Valeev - JPoint - Stream API 0:00 of 55:28
     https://www.youtube.com/watch?v=vxikpWnnnCU
