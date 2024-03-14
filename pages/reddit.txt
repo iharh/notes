@@ -74,6 +74,9 @@ https://github.com/ChocolateBread799/dotfiles
 
 hyprland
 https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#vm
+https://github.com/ryan4yin/nix-config
+    https://nixos-and-flakes.thiscute.world/
+    https://github.com/ryan4yin/nixos-and-flakes-book
 https://github.com/yusamock/nixos
 https://gitlab.com/mbednarek360/dots
 https://github.com/prasanthrangan/hyprdots
@@ -104,6 +107,7 @@ https://github.com/jamibear/home.nix/blob/main/nixos/configuration.nix
 
 arch-based
 https://gitlab.com/stephan-raabe/dotfiles
+https://github.com/Zakar98k/hyprland-catppuccin-dotz
 https://gitlab.com/stephan-raabe/hyprland-starter
     https://www.youtube.com/watch?v=KHwJxpV_L1g
     https://www.youtube.com/watch?v=n6Yg232bCOU
