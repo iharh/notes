@@ -1,0 +1,19 @@
+sonar-project.properties
+https://stackoverflow.com/questions/34071879/how-do-i-use-or-set-up-sonar-project-properties-file
+
+suppression
+https://www.baeldung.com/sonar-exclude-violations
+
+common-java:DuplicatedBlocks
+@SuppressWarnings("common-java:DuplicatedBlocks")
+https://stackoverflow.com/questions/21103175/how-to-disable-sonar-rules-for-specific-files
+https://community.sonarsource.com/t/how-to-disable-a-sonarqube-rule-ex-go-s3776-for-the-go-language-in-the-go-code/85345/5
+@java.lang.SuppressWarnings("squid:S2696")
+
+java:S2111
+@SuppressWarnings("java:S2111")
+https://sonarqube.inspirebrands.net/coding_rules?open=java%3AS2111&rule_key=java%3AS2111
+
+
+quality profiles
+https://community.sonarsource.com/t/how-to-disable-inbuilt-rules/57744/7
