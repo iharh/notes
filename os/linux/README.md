@@ -24,6 +24,4 @@ sudo chroot /mnt
 
 ## grub
 
-```
-TBD:
-```
+* [nomodeset-quiet-splash](https://microsin.net/adminstuff/xnix/nomodeset-quiet-splash-kernel-parameters.html)
