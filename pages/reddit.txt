@@ -97,7 +97,21 @@ https://github.com/prasanthrangan/hyprdots
         https://www.youtube.com/watch?v=SiLXXv7URAg
         ! not in a VM, need a real hw
 
-with ags
+with ags (aylur gtk shell)
+https://github.com/Aylur/dotfiles
+    nix profile install github:Aylur/dotfiles
+    https://aylur.github.io/ags-docs/
+    https://aylur.github.io/ags-docs/config/installation/
+    Store paths:
+        /nix/store/89h5ksr0rgk6vsvz54pbph286infk3v3-ags-1.8.0
+    ~/which ags
+        ~/.nix-profile/bin/ags
+    USAGE:
+        /nix/store/89h5ksr0rgk6vsvz54pbph286infk3v3-ags-1.8.0/bin/.ags-wrapped [OPTIONS]
+    samples
+        https://github.com/Aylur/ags/tree/main/example
+        https://github.com/Aylur/ags/tree/main/example/applauncher
+        https://github.com/Aylur/ags/tree/main/example/media-widget
 https://github.com/juweeism/home.nix
     https://github.com/juweeism/home.nix/blob/main/programs/fonts.nix
     https://github.com/juweeism/home.nix/blob/main/programs/hyprland.nix
@@ -129,6 +143,8 @@ https://github.com/aw4ki/dotfiles
 https://github.com/yusamock/dotfiles
 https://github.com/flick0/dotfiles
 https://github.com/nyxfr/.dotfiles
+https://github.com/uday-sudo/dotfiles/tree/main
+    ags
 https://github.com/end-4/dots-hyprland/tree/illogical-impulse
     eww, ags
     https://github.com/end-4/dots-hyprland/wiki/illogical_impulse

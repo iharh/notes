@@ -6,5 +6,7 @@ nix profile
 
 If you’re already familiar with Nix, this is a replacement for nix-env.
 
+~/.nix-profile
+
 2021
 https://serokell.io/blog/practical-nix-flakes

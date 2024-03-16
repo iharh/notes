@@ -9,3 +9,6 @@ samples
 https://github.com/argoproj/argo-workflows/blob/master/dev/nix/flake.nix
 https://zero-to-flakes.com/nixos-flake/
     https://github.com/srid/nixos-flake
+
+2023
+https://ayats.org/blog/no-flake-utils/

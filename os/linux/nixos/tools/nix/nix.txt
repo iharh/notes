@@ -5,8 +5,17 @@ https://github.com/NixOS/nix/blob/master/src/nix/main.cc
 http://www.opennet.ru/opennews/art.shtml?num=48133
 
 nix
+    --help
     --version
         ... nix-shell -p nixUnstable
+    profile
+        --help
+                 · --profile <path>
+                 --debug
+                    evaluating file '<nix/derivation-internal.nix>'
+        list
+            list installed
+        install <url>|???
     shell
         nix shell should set IN_NIX_SHELL variable
         https://github.com/NixOS/nix/issues/3862
