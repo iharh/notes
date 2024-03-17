@@ -1,5 +1,10 @@
 org.springframework.jdbc.core.JdbcTemplate
 https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html
 
+2024
+BusyCoderAcademy - Rajeev Gupta - Spring Boot JdbcTemplate of 16:00
+    https://www.youtube.com/watch?v=_IEVhhsMelg
+    https://github.com/rgupta00/spring-boot-projects-busycoder-2024/tree/master/employeeapp-jdbc-temlate
+    ! KeyHolder - for auto-generated ids
 2021
 https://spring.io/blog/2021/02/01/ymnnalft-a-lightweight-sql-data-mapper-with-the-jdbctemplate
