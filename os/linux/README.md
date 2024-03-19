@@ -25,3 +25,7 @@ sudo chroot /mnt
 ## grub
 
 * [nomodeset-quiet-splash](https://microsin.net/adminstuff/xnix/nomodeset-quiet-splash-kernel-parameters.html)
+
+## amdgpu
+
+* [kernel-lack-ums-support] (https://uchet-jkh.ru/i/otsutstvie-podderzki-ums-v-module-radeon/)
