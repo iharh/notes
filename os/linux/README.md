@@ -89,6 +89,10 @@ insmod gzio
 ...
 set root='hd0,...'
 
+$vt_handoff 
+(vt = virtualterminal) is a kernel boot parameter unique to Ubuntu, and is not an upstream kernel boot parameter.
+Its purpose is to allow the kernel to maintain the current contents of video memory on a virtual terminal.
+
 * https://community.frame.work/t/resolved-linux-wont-start-on-amd-without-nomodeset/42220/4
 journalctl -k -b-1 > journal.txt
 
@@ -103,3 +107,5 @@ journalctl -k -b-1 > journal.txt
 * https://bbs.archlinux.org/viewtopic.php?id=292265
 * https://salsa.debian.org/tails-team/tails/blob/master/config/chroot_local-includes/usr/share/initramfs-tools/hooks/kms
 * https://forum.puppylinux.com/viewtopic.php?t=2010
+* https://losst.pro/ispravlyaem-chernyj-ekran-ubuntu
+* https://wiki.astralinux.ru/pages/viewpage.action?pageId=23199819
