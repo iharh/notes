@@ -103,6 +103,7 @@ journalctl -k -b-1 > journal.txt
 
 ## to-read
 
+* https://linuxmint.com.ru/viewtopic.php?p=83892#p83892
 * https://www.reddit.com/r/pop_os/comments/qyfh7s/cant_boot_without_nomodeset_with_amd_gpu_stuck_at/
 * https://bbs.archlinux.org/viewtopic.php?id=292265
 * https://salsa.debian.org/tails-team/tails/blob/master/config/chroot_local-includes/usr/share/initramfs-tools/hooks/kms
