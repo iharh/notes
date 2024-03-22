@@ -1,5 +1,9 @@
 2024
 https://discourse.nixos.org/t/what-do-i-need-to-know-to-use-nix-and-where-to-find-more-a-concise-overview-for-new-users/41656
+    The packages in nix are called derivations and are like mini filesystems, 
+        i.e. they have a /bin folder a /lib folder a /share folder etc. 
+    These all get linked together to form an environment which becomes your path, includes, and things like that. 
+    For example, every derivation added to environment.systemPackages has its bin directory added to your system PATH
 2020
 https://stephank.nl/p/2020-06-01-a-nix-primer-by-a-newcomer.html
     ! need to read

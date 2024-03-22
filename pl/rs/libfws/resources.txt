@@ -1,5 +1,8 @@
 http://libs.rs/
 
+2023
+https://serokell.io/blog/most-popular-rust-libraries
+
 chrono v0.2.25
 diesel_infer_schema v0.1.0
 dotenv v0.8.0
