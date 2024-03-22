@@ -1,3 +1,5 @@
+https://nixos.wiki/wiki/Linux_kernel
+
 boot.kernel.sysctl
 boot.kernelPackages
 
@@ -6,3 +8,6 @@ boot.initrd.availableKernelModules
 
 samples
 https://github.com/KnutHoltet/nixos-config/blob/main/nixos/linux-kernel.nix
+
+2024
+https://www.reddit.com/r/NixOS/comments/1bgyepf/how_to_adjust_kernel_version_in_flakes_setup
