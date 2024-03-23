@@ -1,6 +1,9 @@
 zed
 https://github.com/zed-industries/zed/issues/5395
 
+remove from path
+data/wrk/.cargo/bin/rg
+
 CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
     https://www.youtube.com/watch?v=M_P93LyJrzI
     ! 33:30 ! tons of links
