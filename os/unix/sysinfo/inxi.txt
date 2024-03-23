@@ -1,3 +1,4 @@
+https://www.systutorials.com/docs/linux/man/1-inxi/
 http://www.binarytides.com/inxi-system-information-linux/
 https://code.google.com/p/inxi/wiki/Installation
 
@@ -16,12 +17,15 @@ inxi
         verbosity level
     -Fxz
         ???
+    -m
+        memory
 
 2022
 https://www.tecmint.com/inxi-command-to-find-linux-system-information/
 2021
 https://www.binarytides.com/linux-cpu-information/
     https://habr.com/ru/company/otus/blog/581796/
+https://blog.unixhost.pro/ru/2021/12/inxi-utilita-kotoraja-rasskazhet-vse-o-sisteme/
 ????
 https://www.2daygeek.com/inxi-command-check-linux-system-hardware-information/
 
