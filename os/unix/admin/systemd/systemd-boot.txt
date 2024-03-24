@@ -5,3 +5,6 @@ At Grub menu press "e" and add:
 systemd.unit=multi-user.target
 
 rescue/emergency targets are also available
+
+2022
+https://discovery.endeavouros.com/installation/systemd-boot/2022/12/

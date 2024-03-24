@@ -342,6 +342,8 @@ stylix
 https://github.com/samthepacman/IdempotentDots
 https://github.com/kpritam/nixpkgs
 https://github.com/enchanted-coder/nix-config
+https://github.com/BirdeeHub/birdeeSystems/blob/main/flake.nix
+    ! lot of interesting flakes
 
 https://wiki.archlinux.org/title/kexec
 https://xeiaso.net/blog/backslash-kubernetes-2021-01-03/
