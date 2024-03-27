@@ -42,13 +42,17 @@ mise
 
 files
     ~/.tool-versions
-    ~/.local/share/rtx/
-        tracked_config_files/
-        installs/azure-cli/2.55.0/bin/az
-    .rtx.toml
+    ~/.local/
+        bin/
+            mise
+        share/mise/
+            downloads/
+            installs/
+            plugins/
+            shims/
 
 integration
-    eval "$(rtx activate zsh)"
+    eval "$(mise activate zsh)"
 
 plugins
     https://github.com/jdx/rtx/blob/main/src/default_shorthands.rs
