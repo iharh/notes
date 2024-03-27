@@ -1,0 +1,37 @@
+plugins {
+    id 'org.openapi.generator' version '5.4.0'
+}
+compileJava.dependsOn('openApiGenerate')
+
+openApiGenerate {
+    generatorName = "spring"
+    library = "spring-boot"
+    inputSpec.set("$rootDir/api-contract/some-file-1.1.1.yaml".toString())
+    outputDir.set("$projectDir".toString())
+    globalProperties = [
+        models         : "",
+        modelDocs      : "false",
+        apis           : "",
+        supportingFiles: "false"
+    ]
+    configOptions = [
+        useOptional                   : "true",
+        swaggerDocketConfig           : "false",
+        performBeanValidation         : "true",
+        useBeanValidation             : "true",
+        useTags                       : "true",
+        singleContentTypes            : "true",
+        basePackage                   : "some.package",
+        configPackage                 : "some.package",
+        title                         : rootProject.name,
+        java8                         : "false",
+        dateLibrary                   : "java11",
+        serializableModel             : "true",
+        artifactId                    : rootProject.name,
+        apiPackage                    : "some.package.generated.api",
+        modelPackage                  : "some.package.generated.dto",
+        invokerPackage                : "some.package.invoker",
+        interfaceOnly                 : "true",
+        additionalModelTypeAnnotations: "@lombok.Builder\n@lombok.NoArgsConstructor\n@lombok.AllArgsConstructor\n@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)"
+    ]
+}
