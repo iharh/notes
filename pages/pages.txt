@@ -1,11 +1,7 @@
 zed
 https://github.com/zed-industries/zed/issues/5395
 
-mise ReqwestError: error sending request for url (https://api.github.com/repos/jdx/mise/releases): error trying to connect: invalid URL, scheme is not http
-mise error sending request for url (https://api.github.com/repos/jdx/mise/releases): error trying to connect: invalid URL, scheme is not http
-mise error trying to connect: invalid URL, scheme is not http
-mise invalid URL, scheme is not http
-mise Run with --verbose or MISE_VERBOSE=1 for more information
+Classic Teams will soon be unavailable for use. To use the new Teams, update your browser to meet requirements or contact your IT admin. See requirements
 
 remove from path
 data/wrk/.cargo/bin/rg
@@ -16,8 +12,6 @@ CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
 
 https://github.com/yusufcanb/tlm
     go install github.com/yusufcanb/tlm@latest
-
-/usr/share/doc/ubuntu-minimal/changelog.gz
 
 /etc/lightdm/lightdm-gtk-greeter.conf
 /etc/lightdm/lightdm.conf.d/
