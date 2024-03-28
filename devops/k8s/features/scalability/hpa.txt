@@ -1,2 +1,5 @@
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+2020
+https://prophetstor.medium.com/why-horizontal-pod-autoscaling-in-kubernetes-needs-to-be-application-aware-3647b5b40383
