@@ -15,6 +15,9 @@ for ubuntu
     https://www.youtube.com/watch?v=KKo-4ZuozUA
         https://notabug.org/owl410/owl_dotfiles/src/master/dotfiles/hyprland/hypr_arch
 
+for endeavor
+    https://forum.endeavouros.com/t/getting-hyprland/40840
+
 sudo apt-get install -ymeson
     meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev
     libdrm-dev libxkbcommon-x11-dev libxkbregistry-dev libxkbcommon-dev libpixman-1-dev libudev-dev libseat-dev seatd libxcb-dri3-dev
