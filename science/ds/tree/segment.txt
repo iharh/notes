@@ -1,10 +1,13 @@
 https://ru.wikipedia.org/wiki/%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BE_%D0%BE%D1%82%D1%80%D0%B5%D0%B7%D0%BA%D0%BE%D0%B2
 https://e-maxx.ru/algo/segment_tree
 http://brestprog.by/topics/segmenttree/
-https://en.algorithmica.org/hpc/data-structures/segment-trees/
+https://wiki.algocode.ru/index.php?title=%D0%94%D0%B5%D1%80%D0%B5%D0%B2%D0%BE_%D0%BE%D1%82%D1%80%D0%B5%D0%B7%D0%BA%D0%BE%D0%B2
 
-samples
-https://codeforces.com/blog/entry/22616
+https://raw.githubusercontent.com/9kin/segment_tree/main/conspect.pdf
+    https://sch9.ru/files/lectures/ict/segment-tree-v2.pdf
+
+?
+https://polygon.codeforces.com/
 
 2022
 Mavrin - S02E04 - Two Dimensional Problems on Segment Tree 0:00 of 1:16:55
@@ -24,6 +27,9 @@ Mavrin - Segment Tree of 1:24:56
     https://www.youtube.com/watch?v=NAOY3YbaNMk
 TinkofEdu - Segment Tree of 2:40:06
     https://www.youtube.com/watch?v=kcX732Fo4W8
+SergeySlotin - Persistent Segment Tree ru
+    https://ru.algorithmica.org/cs/persistent/persistent-segtree/
+    https://en.algorithmica.org/hpc/data-structures/segment-trees/
 2020
 OtusOnlineEdu - SegmentTree 0:00 of 1:31:31
     https://www.youtube.com/watch?v=99M67y9kLJs
@@ -45,3 +51,19 @@ CSC - Novosib - Segment Tree Seminar
 2013
 Intuit - Problems on Trees 0:00 of 1:28:13
     https://www.youtube.com/watch?v=8v6ylOY4cG0
+
+samples
+https://codeforces.com/blog/entry/22616
+https://codeforces.com/blog/entry/56880
+https://codeforces.com/blog/entry/55274
+https://codeforces.com/blog/entry/57319
+https://codeforces.com/blog/entry/18051
+https://codeforces.com/blog/entry/15890
+https://codeforces.com/blog/entry/43230
+https://codeforces.com/blog/entry/78898
+https://codeforces.com/blog/entry/61364
+https://codeforces.com/blog/entry/15729
+https://codeforces.com/blog/entry/83170
+https://codeforces.com/blog/entry/80195
+    https://www.youtube.com/watch?v=eMXNWcbw75E
+    https://github.com/Errichto/youtube/tree/master/matrix-exponentiation
