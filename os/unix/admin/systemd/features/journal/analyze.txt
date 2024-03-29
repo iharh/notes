@@ -1,0 +1,5 @@
+analyze:
+systemd-analyze [blame|critical-chain|plot]
+
+systemd-bootchart
+bootchart.conf

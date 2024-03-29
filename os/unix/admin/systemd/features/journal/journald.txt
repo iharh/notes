@@ -7,14 +7,14 @@ Journal:
 http://0pointer.de/blog/projects/journalctl.html
 
 cfg
-man journald.conf
+!!! man journald.conf
 systemd-analyze cat-config systemd/journald.conf
 /etc/systemd/journald.conf
-/etc/systemd/journald.conf.d/size.conf
 
 SystemMaxUse
   max disk size
   default - 10% of the file system, the journal is at
+  100M
 SystemMaxFiles/RuntimeMaxFiles
   https://bbs.archlinux.org/viewtopic.php?id=284692
 SystemMaxFileSize
@@ -25,12 +25,7 @@ or
     journalctl --full
 
 
-analyze:
-systemd-analyze [blame|critical-chain|plot]
-
-systemd-bootchart
-bootchart.conf
-
-Power Management:
-https://wiki.archlinux.org/index.php/Power_Management
-https://forum.manjaro.org/index.php?topic=8351.0
+$ cat /etc/systemd/journald.conf.d/size.conf
+[Journal]
+Storage=persistent
+SystemMaxUse=1G

@@ -1,6 +1,21 @@
 journalctl
 options
     --list-boots
+        https://askubuntu.com/questions/1002524/why-does-journalctl-list-boots-only-show-the-current-boot
+        https://unix.stackexchange.com/questions/408936/why-journalctl-list-boots-doesnt-match-what-uptime-and-who-b-report
+        https://unix.stackexchange.com/questions/383551/journalctl-shows-very-old-boots-which-are-not-recycled/383575#383575
+        last reboot
+        https://itsfoss.com/wrong-time-dual-boot/
+        https://bbs.archlinux.org/viewtopic.php?id=284692
+            SystemMaxFiles=
+            RuntimeMaxFiles=
+            Storage=persistent
+    --verify
+        verify journal consistency
+        /run/log/journal/<only-one-hash>/system.journal
+        ??? /var/log/journal
+        sudo mkdir /var/log/journal/
+
     -b, --boot=[1...n]
         current session, -1 - previous, -2 - ...
     --since
@@ -43,6 +58,3 @@ commands
 
 samples
     journalctl -xeu <unit>.service
-
-2023
-https://habr.com/ru/articles/749714/
