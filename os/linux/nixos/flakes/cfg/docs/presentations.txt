@@ -1,3 +1,15 @@
 2024
 Vimjoyer - Modularize NixOS and Home Manager | Great Practices of 8:06
     https://www.youtube.com/watch?v=vYc6IzKvAJQ
+    https://github.com/vimjoyer/modularize-video
+
+    # module1.nix
+    module1.enable = lib.mkOverride 1000 false
+    # module2.nix
+    module1.enable = lib.mkOverride 900 true
+    # aliases
+    lib.mkDefault            = mkOverride 1000;
+    lib.mkOptionDefault      = mkOverride 1500;
+    lib.mkImageMediaOverride = mkOverride 60;
+    lib.mkForce              = mkOverride 50;
+    lib.mkVMOverride         = mkOverride 10;
