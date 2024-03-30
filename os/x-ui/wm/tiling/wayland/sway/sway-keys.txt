@@ -1,0 +1,26 @@
+https://www.reddit.com/r/swaywm/comments/he9imx/what_are_the_keyboard_shortcuts_for_sway/
+
+M-Enter
+	new terminal
+M-S-E
+	exit sway
+M-S-Q
+	quit program
+M-S-C
+	reload sway cfg
+
+M-+
+	show scratchpad
+M-S-+
+	move the window to scratchpad
+
+workspace
+M-0..9
+	change current workspace
+
+M-W
+	tabbed layout
+M-arrows
+	move to windos ...
+M-S-arrows
+	move to windos ...
