@@ -9,6 +9,11 @@ Classic Teams will soon be unavailable for use. To use the new Teams, update you
 remove from path
 data/wrk/.cargo/bin/rg
 
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+
 CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
     https://www.youtube.com/watch?v=M_P93LyJrzI
     ! 33:30 ! tons of links
