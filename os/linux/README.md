@@ -4,8 +4,13 @@
 
 ```
 $ sudo systemctl disable lightdm.service
+Synchronizing state of lightdm.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable lightdm
+Removed "/etc/systemd/system/display-manager.service".
+
 $ sudo systemctl enable --now lightdm.service
 $ sudo dpkg-reconfigure lightdm
+
 $ sway -d --unsupported-gpu
 ```
 
