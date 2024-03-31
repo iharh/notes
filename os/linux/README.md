@@ -12,6 +12,16 @@ $ sudo systemctl enable --now lightdm.service
 $ sudo dpkg-reconfigure lightdm
 
 $ sway -d --unsupported-gpu
+
+Mar 31 20:43:25 EPBYGOMW0024T2 systemd[1]: Started greetd.service - Greeter daemon.
+Mar 31 20:43:25 EPBYGOMW0024T2 greetd[1642]: PAM unable to dlopen(pam_lastlog.so): /usr/lib/security/pam_lastlog.so: cannot open shared object file: No such file or directory
+Mar 31 20:43:25 EPBYGOMW0024T2 greetd[1642]: PAM adding faulty module: pam_lastlog.so
+
+$ dpkg -L login
+...
+/etc/pam.d/login
+...
+82:session    optional   pam_lastlog.so
 ```
 
 ## dd
