@@ -27,11 +27,8 @@ https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Bo
 
 ## UMS/KMS
 
-* https://wiki.archlinux.org/title/Kernel_mode_setting
 * https://en.wikipedia.org/wiki/Mode_setting
-
-## EDID
-
+* https://wiki.archlinux.org/title/Kernel_mode_setting
 * https://wiki.archlinux.org/title/Kernel_mode_setting#Forcing_modes_and_EDID
 
 ## grub
@@ -164,6 +161,8 @@ run_bootloader()
 
 kmod: /etc/modprobe.d/blacklist.conf
 
+```
+
 tree /etc/modprobe.d
 /etc/modprobe.d
 ├── alsa-base.conf
@@ -216,7 +215,7 @@ $ dpkg -L kmod
 /usr/sbin/rmmod
 /usr/share/doc/kmod
 /usr/share/man/man5/modules.dep.bin.5.gz
-
+```
 ## internals
 
 * https://www.linux.org.ru/forum/general/4221448
@@ -228,8 +227,7 @@ drivers/gpu/radeon/radeon_drv.c
 
 ## misc 1
 
-https://www.linuxquestions.org/questions/linux-hardware-18/how-to-permanently-load-radeon-driver-4175695012/
-
+* https://www.linuxquestions.org/questions/linux-hardware-18/how-to-permanently-load-radeon-driver-4175695012/
 
 ```
 $ cat /usr/share/X11/xorg.conf.d/00-amdgpu.conf
@@ -313,7 +311,6 @@ Its purpose is to allow the kernel to maintain the current contents of video mem
 
 * https://community.frame.work/t/resolved-linux-wont-start-on-amd-without-nomodeset/42220/4
 journalctl -k -b-1 > journal.txt
-
 
 ## issues
 
