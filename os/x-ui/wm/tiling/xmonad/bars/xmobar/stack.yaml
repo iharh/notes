@@ -1,0 +1,14 @@
+#  extra-deps:
+#  - xmobar-0.47.1
+
+#flags:
+#  xmobar:
+#    with_threaded: true
+#    with_inotify: true
+##    with_alsa: true
+#    with_datezone: true
+#    with_xpm: true
+##    with_mpd: true
+##    with_xft: true
+##    with_utf8: true
+##    all_extensions: true

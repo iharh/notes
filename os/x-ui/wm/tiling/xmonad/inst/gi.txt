@@ -24,7 +24,7 @@ DbusmenuGtk3-0.4 in ...
 ubuntu:
     ???
 
-errors:
+issues:
 https://github.com/haskell-gi/haskell-gi/issues/36
     !!! need to read
     /usr/lib/girepository-1.0/
@@ -151,3 +151,17 @@ error, called at lib/Data/GI/GIR/Repository.hs:94:20 in haskell-gi-0.26.7-AumvBx
 ???
     /usr/lib/x86_64-linux-gnu/girepository-1.0/
 
+*********************************************************************************
+https://hackage.haskell.org/package/haskell-gi
+    0.26.8
+https://github.com/haskell-gi/haskell-gi
+https://github.com/haskell-gi/haskell-gi/issues/425
+https://github.com/haskell-gi/haskell-gi/pull/427
+    Great, many thanks! I have just released haskell-gi-0.26.8 with this change.
+
+https://github.com/haskell-gi/haskell-gi/pull/427/files
+
+2024-03-31 08:56:10.734203: [warn] gi-glib                          > CallStack (from HasCallStack):
+2024-03-31 08:56:10.734221: [warn] gi-glib                          >   error, called at lib/Data/GI/CodeGen/API.hs:182:19 in haskell-gi-0.26.5-K9DYxaTAUS3EadmJLVyRwq:Data.GI.CodeGen.API
+2024-03-31 08:56:10.758815: [warn] gi-cairo                         > Parse error: Error when parsing "record [Error] / function [domain_register] / parameters / parameter [error_type_init]": Unknown scope type "forever"
+*********************************************************************************

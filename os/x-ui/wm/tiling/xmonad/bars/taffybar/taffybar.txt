@@ -1,5 +1,8 @@
 https://hackage.haskell.org/package/taffybar
+
 https://github.com/taffybar/taffybar
+https://github.com/taffybar/taffybar/blob/master/stack.yaml
+https://github.com/taffybar/taffybar/blob/master/flake.nix
 
 inst
 sudo apt-get install libgirepository1.0-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev
