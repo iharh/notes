@@ -272,6 +272,17 @@ $ sudo update-grub
 
 ```
 
+* https://forum.garudalinux.org/t/amd-7900xtx-live-usb/26303
+* https://forum.garudalinux.org/t/amd-7900xtx-live-usb/26303/3
+    Currently the new AMD 7900XTX graphics card needs llvm-libs version 15 or higher to boot. All live USB ISO files are version 14.
+* https://forum.garudalinux.org/t/amd-7900xtx-live-usb/26303/4
+    So, I googled the issue and it appears to be a problem for almost all distros and their live USB with the exception of Fedora and one other. 
+    llvm-libs needs to be version 15 or better and not 14.
+* https://forum.garudalinux.org/t/amd-7900xtx-live-usb/26303/13
+    https://forum.garudalinux.org/u/dr460nf1r3/summary
+    https://forum.garudalinux.org/u/dr460nf1r3/activity
+* https://forum.garudalinux.org/t/call-for-testers-of-our-new-major-release-builds/35597
+
 ## recovery console
 
 * [recovery-console](https://wiki.astralinux.ru/pages/viewpage.action?pageId=27361474)
