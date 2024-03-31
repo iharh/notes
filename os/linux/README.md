@@ -1,5 +1,14 @@
 # reparing
 
+## login
+
+```
+$ sudo systemctl disable lightdm.service
+$ sudo systemctl enable --now lightdm.service
+$ sudo dpkg-reconfigure lightdm
+$ sway -d --unsupported-gpu
+```
+
 ## dd
 
 ```
@@ -216,6 +225,13 @@ $ dpkg -L kmod
 /usr/share/doc/kmod
 /usr/share/man/man5/modules.dep.bin.5.gz
 ```
+
+## dkms
+
+```
+$ sudo dkms autoinstall
+```
+
 ## internals
 
 * https://www.linux.org.ru/forum/general/4221448
