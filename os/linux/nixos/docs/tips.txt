@@ -1,6 +1,21 @@
 https://ops.functionalalgebra.com/nix-by-example/
 
 2024
+Vimjoyer - Top 6 Best NixOS Tips & Tricks of 13:33
+    https://www.youtube.com/watch?v=cH9HGs2AxuA
+    ! nix-env -iA <pkg> - install package globally
+    ! nix-shell -p nodejs nodePackages.typsecript-language-server typescript --command pwsh
+    ! {pkgs, lib, ...}: {
+      system.activationScripts = {
+        myCustomConfigFile = ''
+          mkdir -p /home/<usr>/.config/hypr
+          cat << EOF > /home/<usr>/.config/hypr/hyprland.conf
+          general {
+            ...
+          }
+        '';
+      };
+    }
 Chris McDonough - NixOS 75: Nix Tips and Tricks 0:00 of 13:27
     https://www.youtube.com/watch?v=hrBxHmuzEBo
     https://github.com/mcdonc/.nixconfig/blob/master/videos/tipsntricks/script.rst
