@@ -1,2 +1,7 @@
 https://julianhyde.github.io/sqlline/manual.html
 https://github.com/julianhyde/sqlline
+
+jbang alias add 
+  --name=color_sqlline \
+  --deps com.oracle.database.jdbc:ojdbc8:23.3.0.23.09,com.h2database:h2:2.0.204 \
+  sqlline:sqlline:1.12.0 --color=true

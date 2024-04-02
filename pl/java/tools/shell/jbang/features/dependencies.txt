@@ -1,4 +1,5 @@
 https://www.jbang.dev/documentation/guide/latest/dependencies.html
+https://github.com/jbangdev/jbang/blob/main/docs/modules/ROOT/pages/dependencies.adoc
 
 Allow mavenlocal repository to be configured #431
     https://github.com/jbangdev/jbang/issues/602
