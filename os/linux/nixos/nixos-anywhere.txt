@@ -3,6 +3,9 @@ https://nix-community.github.io/nixos-anywhere/
 
 https://github.com/nix-community/nixos-anywhere
 
+https://github.com/nix-community/nixos-anywhere/tree/main/docs
+https://github.com/nix-community/nixos-anywhere/blob/main/docs/howtos/no-os.md#installing-on-a-machine-with-no-operating-system
+
 2023
     https://www.youtube.com/watch?v=wr22CyoyRo4
     https://github.com/lgug2z/nixos-wsl-starter

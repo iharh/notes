@@ -102,3 +102,8 @@ https://github.com/sioodmy/dotfiles
 https://github.com/fufexan/dotfiles
 https://m7.rs/git/nix-config/
     https://github.com/Misterio77/nix-config
+
+cli
+    https://github.com/BirdeeHub/birdeeSystems/blob/main/systems/PCs/installer/default.nix
+        sudo nix run github:nix-community/disko -- --mode disko --flake github:BirdeeHub/birdeeSystems#$hostname
+        https://www.reddit.com/r/NixOS/comments/1bs686e/how_can_i_deploycreate_the_entire_system_with_a/?share_id=y09jsb6Hkc2rLsrDunLcz
