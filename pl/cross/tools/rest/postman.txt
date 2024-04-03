@@ -8,6 +8,9 @@ download
 https://dl.pstmn.io/download/version/10.18.10/linux64
 https://dl.pstmn.io/download/latest/linux_64
 
+pacstall/
+    postman-bin
+
 2023
  API Performance Tests with Postman of 21:10
     https://videoportal.epam.com/video/ba2KNxYk
