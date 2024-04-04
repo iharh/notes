@@ -1,0 +1,5 @@
+2021
+https://www.freecodecamp.org/news/bash-array-how-to-declare-an-array-of-strings-in-a-bash-script/
+????
+https://stackoverflow.com/questions/8880603/loop-through-an-array-of-strings-in-bash
+    for year in $(seq 2000 2013)

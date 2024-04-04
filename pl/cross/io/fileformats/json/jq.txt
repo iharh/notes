@@ -19,5 +19,9 @@ https://codefaster.substack.com/p/mastering-jq-part-1-59c
 xml
 https://codefaster.substack.com/p/mastering-jq-xml-and-any-other-data
 
+quiet
+https://github.com/jqlang/jq/issues/1225
+https://github.com/jqlang/jq/issues/2385
+
 sammples
 "{took:.took, timed_out:.timed_out}"
