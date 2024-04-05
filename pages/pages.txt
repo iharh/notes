@@ -17,6 +17,10 @@ https://repo.radeon.com/rocm/rhel9/5.6/
 ? not-for-wayland
 https://www.schotty.com/EL_And_Fedora/amdgpu_Plus_Fedora/
 
+https://discussion.fedoraproject.org/t/fedora-32-radeon-5700-xt-support/71382/11
+  nomodeset disables any attempts to load amdgpu
+  amdgpu.dc=0 radeon.cik_support=0 amdgpu.cik_support=1
+
 https://discussion.fedoraproject.org/t/how-to-load-different-version-of-radeon-driver/74055/2
   sudo vi /etc/modprobe.d/amd.conf
   options amdgpu si_support=1
