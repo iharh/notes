@@ -1,25 +1,21 @@
-http://askubuntu.com/questions/452108/cannot-change-screen-size-from-640x480-after-14-04-installation-on-virtualbox-os
-http://askubuntu.com/questions/379123/can-i-zoom-out-windows-or-scale-the-whole-desktop
-
-xrandr and udev
+2018
+https://losst.pro/razreshenie-ekrana-v-linux
+????
 http://habrahabr.ru/post/229167/
-
-xrandr --current
-
-Screen 0: minimum 320 x 200, current 1024 x 600, maximum 32767 x 32767
-LVDS1 connected primary 1024x600+0+0 (normal left inverted right x axis y axis) 220mm x 129mm
-   1024x600       60.0*+   65.0  
+    ! xrandr and udev
 
 xrandr --output VBOX0 --mode 1600x1200
 xrandr --output VBOX0 --mode 1024x768
 xrandr --output VBOX0 --mode 800x600
 
+http://askubuntu.com/questions/452108/cannot-change-screen-size-from-640x480-after-14-04-installation-on-virtualbox-os
+http://askubuntu.com/questions/379123/can-i-zoom-out-windows-or-scale-the-whole-desktop
+
 !!! lxrandr
 
 xrandr
+    --current
+        show current info
     --listactivemonitors
     Monitors: 1
      0: +HDMI1 1920/520x1200/320+0+0  HDMI1
-
-2018
-https://losst.pro/razreshenie-ekrana-v-linux

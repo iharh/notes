@@ -19,6 +19,9 @@ inxi
         ???
     -m
         memory
+    -G, --graphics
+    --edid
+        full graphics data (with audio)
 
 2022
 https://www.tecmint.com/inxi-command-to-find-linux-system-information/

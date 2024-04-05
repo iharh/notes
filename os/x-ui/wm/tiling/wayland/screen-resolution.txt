@@ -1,0 +1,11 @@
+https://github.com/swaywm/sway/wiki#configuration
+
+https://wiki.archlinux.org/title/sway#Change_screen_resolution_after_start
+    https://aur.archlinux.org/packages/wdisplays
+    https://aur.archlinux.org/packages/swayrandr
+    https://aur.archlinux.org/packages/wlr-randr
+        out-of-date
+
+https://stackoverflow.com/questions/72460852/setting-3440x1440-resolution-makes-screen-turn-off-in-sway
+    swaymsg -t get_outputs
+    https://github.com/swaywm/sway/issues/423
