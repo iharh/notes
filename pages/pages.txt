@@ -1,6 +1,79 @@
 zed
 https://github.com/zed-industries/zed/issues/5395
 
+https://discussion.fedoraproject.org/t/how-to-load-different-version-of-radeon-driver/74055/10
+  current grub boot options
+  cat /proc/cmdline
+
+supported hw
+https://www.kernel.org/doc/html/latest/gpu/amdgpu/driver-misc.html
+
+propriatory drvs
+amdgpu-install --uninstall
+
+rocm
+https://repo.radeon.com/rocm/rhel9/5.6/
+
+? not-for-wayland
+https://www.schotty.com/EL_And_Fedora/amdgpu_Plus_Fedora/
+
+https://discussion.fedoraproject.org/t/how-to-load-different-version-of-radeon-driver/74055/2
+  sudo vi /etc/modprobe.d/amd.conf
+  options amdgpu si_support=1
+  Fedora uses dracut instead of mkinitcpio
+
+https://wiki.archlinux.org/title/Dracut
+  ?
+https://man.archlinux.org/man/dracut.conf.5
+  add_drivers+="..."
+  drivers+="..."
+https://bugzilla.redhat.com/show_bug.cgi?id=1873804
+  $ sudo vi /etc/dracut.conf.d/amdgpu.conf
+  add_drivers+=" amdgpu "
+  fw_dir+=" /lib/firmware/amdgpu "
+  install_items+=" /lib/firmware/amdgpu/* "
+
+https://ervinbarta.com/2020/04/26/troubleshooting-fedora-black-screen-on-boot/
+  /etc/dracut.conf.d
+https://discussion.fedoraproject.org/t/fedora-38-not-finding-secondary-monitor-with-amdgpu/85406/11
+  $ sudo dracut --regenerate-all --force
+https://community.frame.work/t/fedora-39-on-the-framework-laptop-13/37465/127
+  ???
+
+!!!
+https://wiki.archlinux.org/title/AMDGPU
+  lspci -k | grep -A 3 -E "(VGA|3D)"
+  # no at fedora
+  $ sudo vi /etc/mkinitcpuio.conf
+  MODULES
+  ???
+  /etc/modprobe.d/
+  /etc/modules-load.d/
+  sudo dnf list installed '*linux-firmware*' 
+
+https://discussion.fedoraproject.org/t/amd-gpu-not-being-used-radeon-rx-6700-xt-external-egpu-wayland/71815/20
+  $ sudo dnf list installed '*amd-gpu*' '*amdgpu*' '*rocm*' '*roct*' '*hsa*' '*mesa*' '*vulkan*' | grep -v 'procmail|setproctitle'
+  !!!
+  amd-gpu-firmware.noarch
+https://discussion.fedoraproject.org/t/amdgpu-install-nuked-my-system/98124/8
+  fedora is not supported by AMD
+
+https://discussion.fedoraproject.org/t/fixing-amdgpu-radeon-missing-modules-after-package-install-from-external-repo/75408
+find /lib/modules/$(uname -r) -type f -name '*.ko*' | egrep '(gpu|radeon)'
+dnf upgrade --refresh
+
+https://www.reddit.com/r/Fedora/comments/owwk17/missing_amdgpu_kernel_module/
+sudo dnf whatprovides 'kmod(amdgpu.ko*)'
+https://discussion.fedoraproject.org/t/switching-from-radeon-to-amdgpu/91013/10
+    ???
+    https://github.com/ublue-os/bazzite/commit/aea93df97b1bfd38400197f1f160dcb8aa371869
+    https://forums.linuxmint.com/viewtopic.php?t=389454
+
+https://discussion.fedoraproject.org/t/upgrade-to-fedora-31-and-amdgpu-driver-not-loading/75150
+    amdgpu module was blacklisted in 
+    /etc/modprobe.d/amdgpu
+    lsmod | grep amd
+
 https://discussion.fedoraproject.org/t/need-help-installing-amd-graphics-drivers/100774/
 lsmod | grep amdgpu
   empty
