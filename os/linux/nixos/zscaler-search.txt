@@ -1,0 +1,43 @@
+https://github.com/search?type=code&q=language%3ANix+zscaler
+https://github.com/search?type=discussions&q=language%3ANix+zscaler
+
+https://github.com/search?q=repo%3ANixOS%2Fnixpkgs%20zscaler&type=code
+
+https://discourse.nixos.org/search?q=zscaler
+
+@ddg zscaler docker
+
+https://www.reddit.com/r/Zscaler
+https://www.reddit.com/r/Zscaler/comments/12yh69x/configuring_docker_to_use_with_zscaler_proxy/
+
+https://help.zscaler.com/zpa/app-connector-deployment-guide-docker
+    https://help.zscaler.com/search
+    https://help.zscaler.com/zpa/release-notes/zpa-service-release-notes
+    https://help.zscaler.com/zpa/release-upgrade-summary-2023
+    https://help.zscaler.com/zpa/release-upgrade-summary-2024
+
+https://hub.docker.com/u/zscaler
+https://hub.docker.com/r/zscaler/zpa-connector
+
+old
+https://gitlab.com/daxm/zpa-connector-in-docker
+    https://gitlab.com/menglert/docker.zpa-connector/-/blob/master/zscaler.repo
+https://gitlab.com/menglert/docker.zpa-connector
+https://gitlab.com/menglert/zpa-connector-monitoring
+
+az
+https://help.zscaler.com/zpa/connector-deployment-guide-microsoft-azure
+https://www.zscaler.com/partners/microsoft
+https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=pay-as-you-go%3Bsaas&page=1&search=zscaler&exp=ubp8
+
+https://help.zscaler.us/zpa/about-connectors
+https://help.zscaler.com/zpa/connector-deployment-prerequisites
+https://help.zscaler.com/zpa/managing-deployed-connectors
+    !!! /opt/zscaler/var/provision_key
+https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms
+
+files
+/opt/zscaler/Device_password
+
+cmd
+sudo journalctl -b -u zsaservice
