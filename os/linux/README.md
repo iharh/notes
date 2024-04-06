@@ -322,6 +322,10 @@ $ sudo update-grub
 
 * [recovery-console](https://wiki.astralinux.ru/pages/viewpage.action?pageId=27361474)
 
+## plymouth
+
+plymouth-start.service
+
 ## amdgpu
 
 * https://forum.garudalinux.org/t/not-able-to-execute-this-command-sudo-echo-balanced-sys-class-drm-card0-device-power-dpm-state/12185
