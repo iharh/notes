@@ -353,6 +353,8 @@ You need to install mesa-dri-gallium to have radeonsi or radv, the firmware is n
     ? mesa-dri-drivers
 simpledrm is the kernel default framebuffer driver when no gpu is available.
 
+??? /lib/firmware/vendor
+
 ## amdgpu
 
 * https://forum.garudalinux.org/t/not-able-to-execute-this-command-sudo-echo-balanced-sys-class-drm-card0-device-power-dpm-state/12185
