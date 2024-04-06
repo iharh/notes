@@ -25,6 +25,8 @@ or
     journalctl --full
 
 
+# Use 'systemd-analyze cat-config systemd/journald.conf' to display the full config.
+
 $ cat /etc/systemd/journald.conf.d/size.conf
 [Journal]
 Storage=persistent
