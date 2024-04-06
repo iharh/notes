@@ -55,6 +55,22 @@ sudo chroot /mnt
 
 https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot
 
+## lshw
+
+❯ sudo lshw -c video
+  *-display UNCLAIMED       
+       description: VGA compatible controller
+       product: Cezanne [Radeon Vega Series / Radeon Vega Mobile Series]
+       vendor: Advanced Micro Devices, Inc. [AMD/ATI]
+       physical id: 0
+       bus info: pci@0000:06:00.0
+       version: c8
+       width: 64 bits
+       clock: 33MHz
+       capabilities: pm pciexpress msi msix vga_controller bus_master cap_list
+       configuration: latency=0
+       resources: memory:d0000000-dfffffff memory:e0000000-e01fffff ioport:e000(size=256) memory:fcb00000-fcb7ffff memory:c0000-dffff
+
 ## UMS/KMS
 
 * https://en.wikipedia.org/wiki/Mode_setting
@@ -325,6 +341,17 @@ $ sudo update-grub
 ## plymouth
 
 plymouth-start.service
+
+## mesa
+
+fedora sway[1275]: MESA-LOADER: failed to open simpledrm: /usr/lib64/dri/simpledrm_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib64/dri, suffix _dri)
+
+* https://github.com/swaywm/sway/issues/7767
+
+You need to install mesa-dri-gallium to have radeonsi or radv, the firmware is not the userland driver.
+    mesa-dri-gallium
+    ? mesa-dri-drivers
+simpledrm is the kernel default framebuffer driver when no gpu is available.
 
 ## amdgpu
 

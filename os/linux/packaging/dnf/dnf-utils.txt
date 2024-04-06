@@ -1,0 +1,6 @@
+dnf/dnf-utils
+
+https://www.cyberciti.biz/faq/rhel-centos-fedora-list-contents-of-package-using-yum-command/
+
+repoquery
+  -l <package>
