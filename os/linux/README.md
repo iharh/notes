@@ -103,7 +103,11 @@ $ dpkg -L grub-common
 /lib
 diverted by base-files to: /lib.usr-is-merged
 /lib/systemd/system/grub-initrd-fallback.service
+
+$ cat /etc/default/grub.d/timeout
+GRUB_TIMEOUT=5
 ```
+
 
 
 ## amdgpu

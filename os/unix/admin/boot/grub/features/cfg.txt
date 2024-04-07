@@ -6,7 +6,7 @@ info -f grub -n 'Simple configuration'
 ???
 etc/default/grub.d
 
-cat /etc/grub.d/40_custom                                                                                                                                                ✔  18:54:24   
+cat /etc/grub.d/40_custom
 #!/bin/sh
 exec tail -n +3 $0
 # This file provides an easy way to add custom menu entries.  Simply type the
