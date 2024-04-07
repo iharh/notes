@@ -16,3 +16,7 @@ https://github.com/ilya-zlobintsev/LACT
 
 2023
 * https://uchet-jkh.ru/i/otsutstvie-podderzki-ums-v-module-radeon/
+
+## lact util
+
+* https://habr.com/ru/news/776322/
