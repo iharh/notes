@@ -439,7 +439,7 @@ journalctl -k -b-1 > journal.txt
 
 ## bios
 
-P2.62
+P2.90
 
 * https://www.asrock.com/mb/AMD/B550M%20Pro4/index.ru.asp
 * https://www.asrock.com/MB/AMD/B550M%20Pro4/index.ru.asp#BIOS
