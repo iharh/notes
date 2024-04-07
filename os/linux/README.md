@@ -81,6 +81,31 @@ https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Bo
 
 * [nomodeset-quiet-splash](https://microsin.net/adminstuff/xnix/nomodeset-quiet-splash-kernel-parameters.html)
 
+```
+$ sudo dpkg-reconfigure grub-pc
+$ sudo update-grub
+
+$ dpkg -L grub-common
+/etc/default/grub.d
+/etc/grub.d/00_header
+/etc/grub.d/05_debian_theme
+/etc/grub.d/10_linux
+/etc/grub.d/10_linux_zfs
+/etc/grub.d/20_linux_xen
+/etc/grub.d/25_bli
+/etc/grub.d/30_os-prober
+/etc/grub.d/30_uefi-firmware
+/etc/grub.d/40_custom
+/etc/grub.d/41_custom
+/etc/grub.d/README
+/etc/init.d/grub-common
+/etc/pm/sleep.d/10_grub-common
+/lib
+diverted by base-files to: /lib.usr-is-merged
+/lib/systemd/system/grub-initrd-fallback.service
+```
+
+
 ## amdgpu
 
 * https://wiki.archlinux.org/title/AMDGPU
@@ -318,10 +343,6 @@ $ ls -la /lib/firmware/amdgpu
 * https://forums.opensuse.org/t/12-3-radeon-modeset-boot-problem/87954/
 !!!
 
-```
-$ sudo update-grub
-
-```
 
 * https://forum.garudalinux.org/t/amd-7900xtx-live-usb/26303
 * https://forum.garudalinux.org/t/amd-7900xtx-live-usb/26303/3
