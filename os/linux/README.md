@@ -436,15 +436,3 @@ journalctl -k -b-1 > journal.txt
 * https://forum.puppylinux.com/viewtopic.php?t=2010
 * https://losst.pro/ispravlyaem-chernyj-ekran-ubuntu
 * https://wiki.astralinux.ru/pages/viewpage.action?pageId=23199819
-
-## bios
-
-P2.90
-
-* https://www.asrock.com/mb/AMD/B550M%20Pro4/index.ru.asp
-* https://www.asrock.com/MB/AMD/B550M%20Pro4/index.ru.asp#BIOS
-* https://www.youtube.com/watch?v=jovQnvUwkvI
-* https://forums.overclockers.ru/viewtopic.php?t=588285
-
-* https://www.asrock.com/support/BIOSIG.ru.asp?cat=BIOS8
-tool -> instant flash
