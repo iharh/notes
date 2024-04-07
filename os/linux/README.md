@@ -82,6 +82,7 @@ https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Bo
 * [nomodeset-quiet-splash](https://microsin.net/adminstuff/xnix/nomodeset-quiet-splash-kernel-parameters.html)
 
 ```
+$ info -f grub -n 'Simple configuration'
 $ sudo dpkg-reconfigure grub-pc
 $ sudo update-grub
 
@@ -106,6 +107,7 @@ diverted by base-files to: /lib.usr-is-merged
 
 $ cat /etc/default/grub.d/timeout
 GRUB_TIMEOUT=5
+GRUB_TIMEOUT_STYLE="countdown"
 ```
 
 
