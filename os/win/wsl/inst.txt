@@ -1,3 +1,15 @@
+https://aka.ms/wsl2
+
+https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#uninstall-legacy-version-of-wsl
+
+https://devblogs.microsoft.com/commandline/install-wsl-with-a-single-command-now-available-in-windows-10-version-2004-and-higher/
+
+https://github.com/yuk7/wsldl
+https://github.com/yuk7/ArchWSL
+https://wsldl-pg.github.io/ArchW-docs/
+https://apps.microsoft.com/detail/9mznmnksm73x?hl=en-US&gl=US
+?gwsl
+
 https://learn.microsoft.com/ru-ru/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 
 https://docs.microsoft.com/en-us/windows/wsl/install#step-4---download-the-linux-kernel-update-package
@@ -34,3 +46,7 @@ wsl
         --online
     --install
         -d [Debian|...]
+
+wsl –install –no-distribution
+reboot
+wsl –set-default-version 2

@@ -443,6 +443,8 @@ P2.60
 
 * https://www.asrock.com/mb/AMD/B550M%20Pro4/index.ru.asp
 * https://www.asrock.com/MB/AMD/B550M%20Pro4/index.ru.asp#BIOS
+* https://www.youtube.com/watch?v=jovQnvUwkvI
+* https://forums.overclockers.ru/viewtopic.php?t=588285
 
 * https://www.asrock.com/support/BIOSIG.ru.asp?cat=BIOS8
 tool -> instant flash
