@@ -84,6 +84,9 @@ https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Bo
 ```
 $ info -f grub -n 'Simple configuration'
 $ sudo dpkg-reconfigure grub-pc
+$ sudo dpkg-reconfigure grub-common
+$ sudo debconf-show grub-pc
+...
 $ sudo update-grub
 
 $ dpkg -L grub-common
@@ -433,3 +436,13 @@ journalctl -k -b-1 > journal.txt
 * https://forum.puppylinux.com/viewtopic.php?t=2010
 * https://losst.pro/ispravlyaem-chernyj-ekran-ubuntu
 * https://wiki.astralinux.ru/pages/viewpage.action?pageId=23199819
+
+## bios
+
+P2.60
+
+* https://www.asrock.com/mb/AMD/B550M%20Pro4/index.ru.asp
+* https://www.asrock.com/MB/AMD/B550M%20Pro4/index.ru.asp#BIOS
+
+* https://www.asrock.com/support/BIOSIG.ru.asp?cat=BIOS8
+tool -> instant flash
