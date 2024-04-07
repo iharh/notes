@@ -108,6 +108,7 @@ diverted by base-files to: /lib.usr-is-merged
 $ cat /etc/default/grub.d/timeout
 GRUB_TIMEOUT=5
 GRUB_TIMEOUT_STYLE="countdown"
+GRUB_TERMINAL=console
 ```
 
 
