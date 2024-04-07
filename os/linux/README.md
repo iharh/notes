@@ -113,13 +113,54 @@ GRUB_TIMEOUT=5
 GRUB_TIMEOUT_STYLE="countdown"
 GRUB_TERMINAL=console
 ```
-
-
-
 ## amdgpu
 
 * https://wiki.archlinux.org/title/AMDGPU
 * [kernel-lack-ums-support] (https://uchet-jkh.ru/i/otsutstvie-podderzki-ums-v-module-radeon/)
+
+* https://www.reddit.com/r/linux4noobs/comments/p5q6r7/warning_there_are_still_no_video_drivers_for_amd/
+    I installed kernel 5.13 and amdgpu is loading for X and have kodi running on Ubuntu with HDMI passthrough sound to a Onkyo AVR. It currently thinks its RENOIR but its working...
+
+* https://www.linux.org.ru/forum/linux-hardware/16947549
+    tags: amd, amdgpu, fedora, ryzen
+* https://www.linux.org.ru/forum/general/16192601
+    sudo systemctl enable --now debug-shell.service
+    vt9
+    Apr 06 07:34:20 fedora kernel: PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+    Apr 06 07:34:20 fedora kernel: PCI: Ignoring E820 reservations for host bridge windows
+    https://wiki.ubuntu.com/DebuggingACPI
+    acpi=off
+* https://www.linux.org.ru/forum/linux-hardware/16947549?cid=17220017
+    https://discussion.fedoraproject.org/t/desktop-amd-5700g-only-working-with-nomodeset/75864
+* https://gitlab.freedesktop.org/drm/amd/-/issues/450
+    Skipping BIOS ROM (signature is 0 0)
+    harmless
+
+* https://github.com/swaywm/sway/issues/7240
+    drm_info log?
+* https://bbs.archlinux.org/viewtopic.php?id=272512
+    amdgpu.si_support=1
+    amdgpu.cik_support=1
+
+* https://www.linux.org.ru/forum/linux-hardware/17577369
+    acpi=noirq
+    acpi_osi=Linux
+    acpi_osi=‘Windows 2017’
+    acpi_osi=‘Windows 2012’
+
+* https://www.linux.org.ru/forum/general/17327196
+    amdgpu.dc=0
+
+## boot to runlevel 3
+
+https://forums.opensuse.org/t/amdgpu-displaying-black-screen-on-amd-ryzen-2300u/173024/22?page=2
+    systemctl set-default multi-user.target
+
+* sudo journalctl -b -1 | grep -E "drm|amdgpu"
+
+## ryzen 7 5700G spec
+
+* https://www.amd.com/en/product/11171
 
 ## disabling modesetting
 
