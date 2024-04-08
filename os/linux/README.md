@@ -113,9 +113,14 @@ GRUB_TIMEOUT=5
 GRUB_TIMEOUT_STYLE="countdown"
 GRUB_TERMINAL=console
 ```
+## xf86-video-amdgpu
+
+* https://gitlab.freedesktop.org/xorg/driver/xf86-video-amdgpu
+
 ## amdgpu
 
 * https://wiki.archlinux.org/title/AMDGPU
+* https://www.kernel.org/doc/html/latest/gpu/amdgpu/index.html
 * [kernel-lack-ums-support] (https://uchet-jkh.ru/i/otsutstvie-podderzki-ums-v-module-radeon/)
 
 * https://www.reddit.com/r/linux4noobs/comments/p5q6r7/warning_there_are_still_no_video_drivers_for_amd/
@@ -150,6 +155,36 @@ GRUB_TERMINAL=console
 
 * https://www.linux.org.ru/forum/general/17327196
     amdgpu.dc=0
+
+* https://gitlab.freedesktop.org/drm/amd/-/issues
+* https://gitlab.freedesktop.org/drm/amd/-/issues/?sort=created_date&state=all&label_name%5B%5D=Cezanne&first_page_size=20
+
+## kernel parameters
+
+* https://www.kernel.org/doc/html/v4.14/admin-guide/kernel-parameters.html
+* https://www.kernel.org/doc/html/v4.20/gpu/amdgpu.html
+* https://www.kernel.org/doc/html/v4.20/_sources/gpu/amdgpu.rst.txt
+* https://www.kernel.org/doc/html/latest/gpu/amdgpu/module-parameters.html
+
+## ryzen 7 5700G
+
+* https://gitlab.freedesktop.org/drm/amd/-/issues/2587
+* https://gitlab.freedesktop.org/drm/amd/-/issues/2614
+* https://gitlab.freedesktop.org/drm/amd/-/issues/2046
+* https://gitlab.freedesktop.org/drm/amd/-/issues/?label_name%5B%5D=Cezanne
+* https://gitlab.freedesktop.org/drm/amd/-/issues/?label_name=7000%20dGPU%20series
+* https://gitlab.freedesktop.org/drm/amd/-/issues?label_name=hang%2Ffreeze
+
+## bug  bisect debug troubleshoot
+
+* https://community.kde.org/Guidelines_and_HOWTOs/Debugging/How_to_create_useful_crash_reports
+* https://www.kernel.org/doc/html/latest/admin-guide/bug-bisect.html
+
+## community
+
+* https://www.phoronix.com/linux/AMD
+* https://gitlab.freedesktop.org/superm1
+* https://gitlab.freedesktop.org/siqueira
 
 ## boot to runlevel 3
 
