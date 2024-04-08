@@ -1,5 +1,24 @@
 https://github.com/IsmaelMartinez/teams-for-linux
     https://flathub.org/apps/com.github.IsmaelMartinez.teams_for_linux
+    v2 taskbar notification icon
+    https://github.com/IsmaelMartinez/teams-for-linux/issues/1172
+    v2 header
+    https://github.com/IsmaelMartinez/teams-for-linux/issues/1156
+        https://github.com/IsmaelMartinez/teams-for-linux/pull/1160
+        https://github.com/IsmaelMartinez/teams-for-linux/issues/1162
+    v2 interface
+    https://github.com/IsmaelMartinez/teams-for-linux/labels/teams-v2
+    https://github.com/IsmaelMartinez/teams-for-linux/discussions/1163
+        https://www.electronjs.org/blog/webview2
+        https://learn.microsoft.com/en-us/microsoft-edge/webview2/
+        https://windowsreport.com/microsoft-teams-2-0-download/
+        https://techcommunity.microsoft.com/t5/microsoft-teams/teams-2-0-moves-away-from-electron-to-embrace-edge-webview2/m-p/2484565
+        https://office365itpros.com/2021/06/25/teams-2-webview2-replaces-electron/
+        https://blog.thoughtstuff.co.uk/2021/08/stop-saying-microsoft-teams-is-being-rewritten-from-electron-to-react/
+        https://blog.thoughtstuff.co.uk/2021/06/electron-to-webview2-what-does-it-really-mean-for-the-teams-desktop-client-and-for-a-client-sdk/
+        https://learn.microsoft.com/en-us/microsoftteams/new-teams-deploy-using-policies?tabs=teams-admin-center
+    https://github.com/IsmaelMartinez/teams-for-linux/discussions/1141
+    https://github.com/IsmaelMartinez/teams-for-linux/issues/1116
     multi-accounts
     https://github.com/IsmaelMartinez/teams-for-linux/issues/689
         customUserDir
@@ -11,7 +30,8 @@ https://github.com/IsmaelMartinez/teams-for-linux
     https://github.com/IsmaelMartinez/teams-for-linux/discussions/764
         teams --customUserDir=/home/iharh/teams-custom/epam --appTitle=teams-epam
         teams --customUserDir=/home/iharh/teams-custom/inspire --appTitle=teams-inspire
-    ------
+
+------
     sudo wget -qO /etc/apt/keyrings/teams-for-linux.asc /etc/apt/keyrings/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc
     echo "deb [signed-by=/etc/apt/keyrings/teams-for-linux.asc arch=$(dpkg --print-architecture)] https://repo.teamsforlinux.de/debian/ stable main" | sudo tee /etc/apt/sources.list.d/teams-for-linux-packages.list
     sudo apt update
