@@ -1,0 +1,4 @@
+https://www.reddit.com/r/LibreWolf/comments/le8r72/save_passwords_and_restore_previous_session/
+    //lockPref("signon.storeSignons", false);
+    //lockPref("signon.rememberSignons", false);
+    //lockPref("signon.storeWhenAutocompleteOff", false);

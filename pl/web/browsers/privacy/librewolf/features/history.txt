@@ -1,0 +1,13 @@
+https://gitlab.com/librewolf-community/browser/arch/-/issues/14
+    user_pref("browser.startup.page", 3);
+    user_pref("privacy.clearOnShutdown.history", false);
+
+https://www.reddit.com/r/LibreWolf/comments/le8r72/save_passwords_and_restore_previous_session/
+    /var/lib/librewolf/librewolf.cfg
+
+    //lockPref("signon.storeSignons", false);
+    //lockPref("signon.rememberSignons", false);
+    //lockPref("signon.storeWhenAutocompleteOff", false);
+    ...
+    //lockPref("security.ask_for_password", 2);
+    //lockPref("security.password_lifetime", 5);
