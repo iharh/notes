@@ -106,4 +106,10 @@ https://m7.rs/git/nix-config/
 cli
     https://github.com/BirdeeHub/birdeeSystems/blob/main/systems/PCs/installer/default.nix
         sudo nix run github:nix-community/disko -- --mode disko --flake github:BirdeeHub/birdeeSystems#$hostname
-        https://www.reddit.com/r/NixOS/comments/1bs686e/how_can_i_deploycreate_the_entire_system_with_a/?share_id=y09jsb6Hkc2rLsrDunLcz
+        https://www.reddit.com/r/NixOS/comments/1bs686e/how_can_i_deploycreate_the_entire_system_with_a/
+    disko-install
+        https://github.com/nix-community/disko/pull/548
+        https://github.com/nixos-asia/website/issues/32
+        https://github.com/nix-community/disko/blob/master/disko-install
+        https://github.com/nix-community/disko/blob/master/disko-install.nix
+        https://github.com/nix-community/disko/tree/master/tests/disko-install
