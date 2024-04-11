@@ -1,0 +1,2 @@
+  https://www.educative.io/answers/how-to-get-a-json-string-without-field-name-quotes-in-jackson
+      objectMapper.disable(JsonWriteFeature.QUOTE_FIELD_NAMES.mappedFeature());
