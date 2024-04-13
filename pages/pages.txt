@@ -1,18 +1,8 @@
-zed
-https://github.com/zed-industries/zed/issues/5395
-
 zscaler
 /etc/dbus-1/system.d/com...zscaler...
 
-Classic Teams will soon be unavailable for use. To use the new Teams, update your browser to meet requirements or contact your IT admin. See requirements
-
 remove from path
 data/wrk/.cargo/bin/rg
-
-Warning: os-prober will not be executed to detect other bootable partitions.
-Systems on them will not be added to the GRUB boot configuration.
-Check GRUB_DISABLE_OS_PROBER documentation entry.
-Adding boot menu entry for UEFI Firmware Settings ...
 
 CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
     https://www.youtube.com/watch?v=M_P93LyJrzI
@@ -20,74 +10,6 @@ CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
 
 https://github.com/yusufcanb/tlm
     go install github.com/yusufcanb/tlm@latest
-
-/etc/lightdm/lightdm-gtk-greeter.conf
-/etc/lightdm/lightdm.conf.d/
-
-[greeter]
-user-background = false
-background = /etc/lightdm/rhino-blur.png
-theme-name = Yaru-purple-dark
-icon-theme-name = Papirus-Dark
-cursor-theme-name = Quintom_Ink
-font-name = Ubuntu Regular
-
-debian inst inside qemu
-    https://www.youtube.com/watch?v=Jo6keIRnBQc
-
-motioncanvas
-    to make good animation with ffmpeg
-
-Elliot Ackerman & Admiral James Stavridis
-    http://flibusta.site/b/681041
-    DCEB342C0F579153A4363F31EFF3A372
-    https://www.rulit.me/books/2034-roman-o-sleduyushchej-mirovoj-vojne-get-722234.html
-
-https://www.baeldung.com/linux/screen-resolution
-    xrandr | grep '*' | awk '{print $1}'
-    hwinfo --monitor --short
-    sudo get-edid | parse-edid
-https://www.cyberciti.biz/faq/how-do-i-find-out-screen-resolution-of-my-linux-desktop/
-    xdpyinfo | awk '/dimensions/ {print $2}'
-https://github.com/wez/wezterm/discussions/4827
-    local isTmux = os.getenv("TERM_PROGRAM") == "tmux"
-    if isTmux then
-      return "ALT"
-    else
-      return "CTRL"
-    end
-https://wezfurlong.org/wezterm/config/lua/pane/get_user_vars.html
-https://github.com/wez/wezterm/issues/4096#issuecomment-1666944269
-    C-S-L
-        wezterm.gui.screens()
-https://wezfurlong.org/wezterm/troubleshooting.html
-    C-S-L - debug overlay activation
-    $XDG_RUNTIME_DIR/wezterm
-        /run/user/1000/wezterm
-        WEZTERM_LOG=debug wezterm
-https://wezfurlong.org/wezterm/config/lua/wezterm/log_info.html
-    wezterm.log_info 'Hello!'
-
-journalctl
-    /lib/systemd/system/sentinelone.service:23: Unit uses MemoryLimit=; please use MemoryMax= instead. Support for MemoryLimit= will be removed soon.
-    Jan 25 09:07:36 EPBYGOMW0024T2 NetworkManager[1255]: <info>  [1706162856.4985] manager: (virbr0): new Bridge device (/org/freedesktop/NetworkManager/Devices/3)
-Jan 25 09:07:36 EPBYGOMW0024T2 resolvconf[1412]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
-Jan 25 09:07:36 EPBYGOMW0024T2 dbus-daemon[622]: [system] Activating via systemd: service name='org.freedesktop.network1' unit='dbus-org.freedesktop.network1.service' requested by ':1.18' (uid=0 pid>
-Jan 25 09:07:36 EPBYGOMW0024T2 dbus-daemon[622]: [system] Activation via systemd failed for unit 'dbus-org.freedesktop.network1.service': Unit dbus-org.freedesktop.network1.service not found.
-Jan 25 09:07:36 EPBYGOMW0024T2 resolvconf[1412]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
-Jan 25 09:07:36 EPBYGOMW0024T2 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
-Jan 25 09:07:36 EPBYGOMW0024T2 systemd[1]: Reached target nss-lookup.target - Host and Network Name Lookups.
-    ..
-    systemd[1]: Started containerd.service - containerd container runtime.
-    dnsmasq[1388]: failed to access /run/dnsmasq/resolv.conf: No such file or directory
-    ...
-
-wezterm
-https://wezfurlong.org/wezterm/config/fonts.html
-?
-  console-setup
-  console-setup-linux
-  keyboard-configuration
 
 epam - tech debt
     https://web.yammer.com/main/threads/eyJfdHlwZSI6IlRocmVhZCIsImlkIjoiMjYzMzE1MTY3NDA5NzY2NCJ9
@@ -105,11 +27,6 @@ fin
 telusko
     https://courses.telusko.com/learn/Java-8-stream-API-Features-Lambda-Expression
 
-mise
-    latest <tool>@<ver>
-
-metodichka sharpa
-
 snesarev - war philosophy
 http://flibusta.site/a/79981
 https://www.koob.ru/snesarev_a_e/
@@ -123,63 +40,20 @@ https://habr.com/ru/articles/780322/
 diagrams software
 https://github.com/erictossell/nixflakes/issues/67
 
-todo
-chrome color theme
-
 zinoviev - zapad
 https://chitatel.by/catalog/book/1494029
 https://chitatel.by/catalog/book/1524490
 https://chitatel.by/catalog/book/1524393
-
-https://gitlab.com/inspire1/digital-platform/domain-services/notification-domain/notification-service/-/merge_requests/300
-    https://gitlab.com/inspire1/digital-platform/domain-services/notification-domain/notification-service/-/pipelines/1072267119
-
-https://wezfurlong.org/wezterm/features.html#available-features
 
 ? github/nushell
 https://github.com/x-way/iptables-tracer
 lightdm/font-size
 
 java books
-subramaniam 2023
+    subramaniam 2023
 
 net
 https://habr.com/ru/articles/307252/
-
-cp: cannot stat '/var/log/pacstall/metadata/*': No such file or directory
-
-apt
-W: Conflicting distribution: https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu devel InRelease (expected devel but got noble)
-    https://bugs.launchpad.net/ubuntu/+source/apt/+bug/1728616
-    https://github.com/wimpysworld/rolling-rhino/commit/9615562f4d4908dfff4f4cc99e5b6523a55413b3
-
-/etc/apt/sources.list.d/mozillateam-ubuntu-ppa-devel.sources
-    Types: deb
-    URIs: https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/
-    Suites: devel
-    Components: main
-    Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
-    ...
-/etc/apt/preferences.d/mozilla-firefox
-    Package: *
-    Pin: release o=LP-PPA-mozillateam
-    Pin-Priority: 1002
-
-https://ubuntuforums.org/showthread.php?t=2477853
-    sudo add-apt-repository ppa:mozillateam/ppa
-
-to-read:
-https://github.com/wimpysworld/rolling-rhino/issues/39
-https://blog.launchpad.net/ppa/failed-to-fetch-errors-for-ppas
-https://bugs.launchpad.net/ubuntu/+source/apt/+bug/1728616
-https://itecnote.com/tecnote/ubuntu-how-to-resolve-conflicting-distributions-in-apt-get/
-https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/
-https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/
-https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/by-hash/SHA256/d5f89f7951ed744f7a1bcb3f54d323fee2512b15b5a6a4eef591e85a4b1fe854
-https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/main/
-https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/Release
-https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu/dists/devel/InRelease
-
 
 voronezh math life - homologies and data analysis
     https://www.youtube.com/@user-fk5tb3iq1l
@@ -218,13 +92,6 @@ Data Integration with Azure Data Factory #3
 Java Advanced: Backend Core
     https://learn.epam.com/detailsPage?id=c60c5696-dfbe-4396-b0a0-72051bbaff5d&source=PROGRAM
 
-opsw/sent
-
-https://github.com/rust-lang/rust/pull/116978/files
-Warning: Some installed formulae are deprecated or disabled.
-You should find replacements for the following formulae:
-  openssl@1.1
-
 Zykov - Programming Functional Approach ru
     B94D53D424715F2E21A19149D3E9DA05
 
@@ -242,10 +109,6 @@ Naftalin Wadler - java generics and collections 2nd ed
     https://www.oreilly.com/library/view/java-generics-and/9781098136710/
 Weidig - A Functional Approach to Java
     https://www.oreilly.com/library/view/a-functional-approach/9781098109912/
-Tudose
-    https://www.oreilly.com/library/view/java-persistence-with/9781617299186/
-
-https://github.com/chenggangpro/reactive-mybatis-support
 
 azure
 https://teams.microsoft.com/l/message/19:9b661fc2a8724fe4bc9f9c7a0a6feea1@thread.tacv2/1664352421318?tenantId=b41b72d0-4e9f-4c26-8a69-f949f367c91d&groupId=e51e4b05-3cb4-47b7-ae33-b5f93a2db84e
@@ -257,7 +120,7 @@ https://teams.microsoft.com/l/message/19:9b661fc2a8724fe4bc9f9c7a0a6feea1@thread
     https://help.rapidseedbox.com/en/
     https://help.rapidseedbox.com/en/articles/6982065-getting-started-with-prowlarr-2023-update
 helm
-https://github.com/onedr0p/containers
+    https://github.com/onedr0p/containers
 
 https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/materials/microservice_architecture_overview/README.md#drawbacks
 
@@ -268,8 +131,6 @@ good-old
 https://github.com/iharh/dotfiles/commit/a16b2e3a07c58aaf442bbb341db25efa36f3df45
 huge-new
 https://github.com/iharh/dotfiles/commit/40d506f491742f5f3cf9535ab1e3743beca19b31
-
-RedGroup - Max - cool cursor at vscode
 
 https://github.com/bobbbay/dotfiles
 https://github.com/chvp/nixos-config
@@ -303,15 +164,6 @@ NixOS
     https://www.youtube.com/watch?v=tl9I-R83lKo
     https://www.youtube.com/watch?v=c_lyvedQEyI
 
-trayer
-https://bbs.archlinux.org/viewtopic.php?id=141148
-https://xmonad.github.io/xmonad-docs/xmonad-contrib/XMonad-Util-Hacks.html#g:3
-https://github.com/Maeda1/My-Xmonad-Xmobar-Trayer-configuration-files
-https://wiki.haskell.org/Xmonad/Config_archive/John_Goerzen%27s_Configuration
-    trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x191970 --height 12 &
-https://www.reddit.com/r/xmonad/comments/pbtqh/trayer_usage/
-https://github.com/AlecsFerra/dot-config/blob/master/scripts/start_programs.sh
-
 https://blogs.oracle.com/linux/post/unwinding-stack-frame-pointers-and-orc
 https://rodtv.ru/w/uEFBuLGsXQmGdTeDkCQWxn
 https://galkovsky.livejournal.com/46189.html
@@ -330,9 +182,6 @@ FoodAndIT - Siling - Rust Developer Interview ru 46:00 of 1:05:11
 2020
 InformTV - Why Drubich Left Soloviev 0:00 of 4:12
     https://www.youtube.com/watch?v=T1EpQOG7X2U
-2018
-Bamboo - Karaganov - End of West Mastersheep 0:00 of 1:18:46
-    https://www.youtube.com/watch?v=DUcUCy4sykY
 2017
 FirstChannel - Pozner - Satanovskiy 0:00 of 53:06
     https://www.youtube.com/watch?v=KOaXd9Rflj0

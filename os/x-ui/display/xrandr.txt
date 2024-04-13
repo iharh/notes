@@ -11,6 +11,14 @@ xrandr --output VBOX0 --mode 800x600
 http://askubuntu.com/questions/452108/cannot-change-screen-size-from-640x480-after-14-04-installation-on-virtualbox-os
 http://askubuntu.com/questions/379123/can-i-zoom-out-windows-or-scale-the-whole-desktop
 
+https://www.baeldung.com/linux/screen-resolution
+    xrandr | grep '*' | awk '{print $1}'
+    hwinfo --monitor --short
+    sudo get-edid | parse-edid
+https://www.cyberciti.biz/faq/how-do-i-find-out-screen-resolution-of-my-linux-desktop/
+    xdpyinfo | awk '/dimensions/ {print $2}'
+
+
 !!! lxrandr
 
 xrandr
