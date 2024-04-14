@@ -2,7 +2,10 @@ https://github.com/neovim/neovim/issues/9213
     :h clipboard-tool
 https://stackoverflow.com/questions/75548458/copy-into-system-clipboard-from-neovim
 https://askubuntu.com/questions/1486871/how-can-i-copy-and-paste-outside-of-neovim
-    :lua vim.api.nvim_get_option_value("clipboard", {})
+    :lua print(vim.api.nvim_get_option('updatetime'))
+    :lua print(vim.api.nvim_get_option('clipboard'))
+        unnamedplus
+
         https://neovim.io/doc/user/api.html#nvim_get_option_info2()
         https://neovim.io/doc/user/api.html#nvim_get_option_value()
             https://github.com/neovim/neovim/issues/18246
@@ -40,3 +43,4 @@ provider#clipboard#Call
 
 TODO:
   +-register remap to C-C
+  https://github.com/jasonccox/vim-wayland-clipboard

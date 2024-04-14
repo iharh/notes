@@ -5,3 +5,9 @@ https://neovim.io/doc/user/lua-guide.html
 https://neovim.io/doc/user/lua-guide.html#lua-guide-variables
 :lua vim.print(vim.g.clipboard)
 :lua print(vim.g.clipboard)
+
+https://github.com/nanotee/nvim-lua-guide/blob/master/README.md#using-meta-accessors-1
+    vim.g
+    vim.b
+    vim.w
+    ...
