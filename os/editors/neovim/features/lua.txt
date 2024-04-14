@@ -1,0 +1,7 @@
+https://neovim.io/doc/user/lua.html
+https://neovim.io/doc/user/lua-guide.html
+:lua print("hello")
+
+https://neovim.io/doc/user/lua-guide.html#lua-guide-variables
+:lua vim.print(vim.g.clipboard)
+:lua print(vim.g.clipboard)

@@ -1,0 +1,42 @@
+https://github.com/neovim/neovim/issues/9213
+    :h clipboard-tool
+https://stackoverflow.com/questions/75548458/copy-into-system-clipboard-from-neovim
+https://askubuntu.com/questions/1486871/how-can-i-copy-and-paste-outside-of-neovim
+    :lua vim.api.nvim_get_option_value("clipboard", {})
+        https://neovim.io/doc/user/api.html#nvim_get_option_info2()
+        https://neovim.io/doc/user/api.html#nvim_get_option_value()
+            https://github.com/neovim/neovim/issues/18246
+    vim.api.nvim_set_option("clipboard", "unnamed")
+https://stackoverflow.com/questions/61379318/how-to-copy-from-vim-to-system-clipboard-using-wayland-and-without-compiled-vim
+
+:echo has('clipboard')
+
+https://github.com/neovim/neovim/blob/master/runtime/autoload/provider/clipboard.vim
+  ...
+  elseif !empty($WAYLAND_DISPLAY) && executable('wl-copy') && executable('wl-paste')
+    let s:copy['+'] = ['wl-copy', '--type', 'text/plain']
+    let s:paste['+'] = ['wl-paste', '--no-newline']
+    let s:copy['*'] = ['wl-copy', '--primary', '--type', 'text/plain']
+    let s:paste['*'] = ['wl-paste', '--no-newline', '--primary']
+    return 'wl-copy'
+
+https://github.com/neovim/neovim/blob/master/runtime/doc/provider.txt#L184
+:help clipboard
+    ...
+    let g:clipboard = {
+                \   'name': 'WslClipboard',
+                \   'copy': {
+                \      '+': 'clip.exe',
+                \      '*': 'clip.exe',
+                \    },
+                \   'paste': {
+                \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                \   },
+                \   'cache_enabled': 0,
+                \ }
+
+provider#clipboard#Call
+
+TODO:
+  +-register remap to C-C
