@@ -4,7 +4,7 @@ https://github.com/Beastwick18/nyaa
 https://crates.io/crates/nyaa
 
 cargo install nyaa
-~/.local/share/mise/installs/rust/1/bin/nyaa
+~/.local/share/mise/installs/rust/latest/bin/nyaa
 
 2024
 https://www.reddit.com/r/unixporn/comments/1bqkofw/oc_nyaa_a_nyaasi_tui_tool_for_browsing_and/
