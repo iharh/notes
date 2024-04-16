@@ -1,7 +1,13 @@
-https://github.com/jbangdev/jbang/tree/main/src/main/java/dev/jbang/catalog
+https://www.jbang.dev/documentation/guide/latest/alias_catalogs.html
+
+https://github.com/jbangdev/jbang-catalog
+https://github.com/jbangdev/jbang-catalog/blob/main/jbang-catalog.json
 https://github.com/jbangdev/jbang/blob/main/src/main/resources/jbang-catalog.json
 
+https://github.com/jbangdev/jbang/tree/main/src/main/java/dev/jbang/catalog
+https://github.com/jbangdev/jbang/blob/main/src/main/resources/jbang-catalog.json
 https://github.com/jbangdev/jbang/blob/main/itests/catalog.feature
-
 https://github.com/jbangdev/jbang/blob/main/src/test/java/dev/jbang/cli/TestCatalog.java
 https://github.com/jbangdev/jbang/blob/main/src/test/java/dev/jbang/cli/TestCatalogNearest.java
+
+https://github.com/quarkusio/jbang-catalog
