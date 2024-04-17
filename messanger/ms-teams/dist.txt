@@ -36,6 +36,14 @@ https://github.com/IsmaelMartinez/teams-for-linux
     echo "deb [signed-by=/etc/apt/keyrings/teams-for-linux.asc arch=$(dpkg --print-architecture)] https://repo.teamsforlinux.de/debian/ stable main" | sudo tee /etc/apt/sources.list.d/teams-for-linux-packages.list
     sudo apt update
     sudo apt install teams-for-linux
+------
+curl -1sLf -o /tmp/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc
+sudo rpm --import /tmp/teams-for-linux.asc
+rm -f /tmp/teams-for-linux.asc
+sudo curl -1sLf -o /etc/yum.repos.d/teams-for-linux.repo https://repo.teamsforlinux.de/rpm/teams-for-linux.repo
+sudo yum update
+sudo yum install teams-for-linux
+------
 
 https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-progressive-web-app-now-available-on-linux/ba-p/3669846
 
