@@ -1,6 +1,11 @@
 https://dzone.com/articles/java-11-standardized-http-client-api
 https://github.com/manouti/java-http-client-api
 
+2024
+DanVega - How to call a Java REST API using JDK Http Client 0:00 of 22:22
+    https://www.youtube.com/watch?v=MAw5Ku1OVFA
+    https://github.com/danvega/todos-http-client
+        java.net.http.HttpClient
 2022
 https://www.baeldung.com/java-httpclient-timeout
 https://www.baeldung.com/java-9-http-client
