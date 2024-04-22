@@ -1,7 +1,7 @@
-PRETTY_NAME="Rhino Linux 2023.3 (mainline)"
+PRETTY_NAME="Rhino Linux 2023.4 (mainline)"
 NAME="Rhino Linux"
-VERSION_ID="2023.3"
-VERSION="2023.3 (mainline)"
+VERSION_ID="2023.4"
+VERSION="2023.4 (mainline)"
 VERSION_CODENAME="devel"
 ID=ubuntu
 ID_LIKE=debian
