@@ -1,0 +1,11 @@
+https://github.com/aws/aws-msk-iam-auth/issues/112
+https://github.com/aws/aws-msk-iam-auth/issues/112#issuecomment-2071747265
+Regarding this error message:
+java.lang.ClassNotFoundException: org.gradle.api.plugins.MavenPlugin
+
+As far as I know (now) the old maven plugin was finally removed, so if that is still used instead of the maven-publish plugin it will fail (no matter what Java version is used). 
+In my case it was indirectly used by another plugin (shadow) where I had to switch to the latest version.
+
+https://docs.gradle.org/current/userguide/upgrading_version_6.html#removal_of_the_legacy_maven_plugin
+says it has been removed already in Gradle 7 but for me it was working in Gradle 7 and only failed when I was trying to switch to Gradle 8 in several projects 
+(maybe there was a special mode for that case where the maven plugin was only indirectly used by another plugin?).
