@@ -6,6 +6,9 @@ dpkg
     -S|--search <pattern>
         find package(s) owning file(s)
         /etc/os-release -> base-files
+        rhino-core
+            /usr/lib/os-release
+            package diverts others to: /usr/lib/ubuntu-release
     -r [--force-all] <pkg_name>
         remove
 

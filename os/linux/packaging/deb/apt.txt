@@ -4,6 +4,7 @@ https://blog.jak-linux.org/2020/03/07/apt-2.0/
 
 apt-get
     install [--no-install-recommends] <package>
+        --reinstall <package>
     full-upgrade
     dist-upgrade
     autoclean
