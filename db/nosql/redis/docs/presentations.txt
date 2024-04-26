@@ -1,8 +1,34 @@
 ????
 https://squidex.jugru.team/api/assets/srm/3221c203-b174-4f0f-bbf2-2fcc15a59813/artem-artemsev.pdf
 2024
-SuchkovTech - Redis for 20 min 5:00 of 23:21
+SuchkovTech - Redis for 20 min 9:00 of 23:21
     https://www.youtube.com/watch?v=QpBaA6B1U90
+    ! iredis
+      set firstKey "Hello"
+      get firstKey
+          (nil)
+      del firstKey
+      set num 1
+      incrby num num 3
+      (integer) 4
+      lpush cars Toyota
+      (integer) 1
+      lpush cars BMW
+      (integer) 2
+      rpush cars KIA
+      (integer) 3
+      lrange cars 0 -1 # all the list
+      1) "BMW"
+      2) "Toyota"
+      3) "KIA"
+      lpop cars
+      "BMW"
+      llen cars
+      (integer) 2
+      lpush sold Mersedes LEFT LEFT
+      lmove cars sold # from, to
+      ...
+
 2023
 SpringIO - Vector Similarity Search in Spring with Redis Stack by Brian Sam-Bodden 0:00 of 54:35
     https://www.youtube.com/watch?v=0lT4vu6Kmxw
