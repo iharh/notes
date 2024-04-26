@@ -1,0 +1,24 @@
+2021
+https://www.reddit.com/r/swaywm/comments/le3lg3/switching_keyboard_layout/
+    man sway-input
+      input <identifier> xkb_variant <variant> 
+
+    man xkeyboard-config
+    input type:keyboard {
+      xkb_layout us,rs(latinunicode),rs
+      xkb_options grp:rctrl_toggle
+    }
+
+    https://github.com/swaywm/sway/wiki#keyboard-layout
+    input "type:keyboard" {
+        xkb_layout us,de
+        xkb_variant ,nodeadkeys
+        xkb_options grp:alt_shift_toggle
+    }
+    input "type:keyboard" {
+        xkb_layout us,ru
+        xkb_variant ,nodeadkeys
+        xkb_options grp:ctrl_space_toggle
+    }
+????
+https://askubuntu.com/questions/1348902/how-to-set-keyboard-layout-when-using-sway
