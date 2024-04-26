@@ -1,3 +1,9 @@
+https://www.tecmint.com/fedora-upgrade-guide/
+    sudo dnf upgrade --refresh
+    sudo dnf install dnf-plugin-system-upgrade
+    sudo dnf system-upgrade download --releasever=40
+    sudo dnf system-upgrade reboot
+
 2024
 LearnLinuxTV - Fedora's 40th Release: A Quick Look and Overview 0:00 of 7:43
     https://www.youtube.com/watch?v=iuBzZPvCE-M
