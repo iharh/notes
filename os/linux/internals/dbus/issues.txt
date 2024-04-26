@@ -1,0 +1,4 @@
+https://gist.github.com/jeffcogswell/62395900725acef1c0a5a608f7eb7a05
+    sudo apt install at-spi2-core
+    https://github.com/NixOS/nixpkgs/issues/16327
+    https://forums.raspberrypi.com/viewtopic.php?t=196070

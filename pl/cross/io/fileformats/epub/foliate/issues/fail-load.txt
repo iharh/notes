@@ -1,0 +1,74 @@
+pacstall foliate-deb
+https://github.com/pacstall/pacstall-programs/blob/master/packages/foliate-deb/foliate-deb.pacscript
+
+https://github.com/futurepress/epub.js
+
+apt/foliate
+    Recommended packages:
+        gnome-epub-thumbnailer
+
+System: Rhino Linux 2023.4 (mainline)
+Desktop: Unknown
+Session: xmonad (x11)
+Language: en_US.UTF-8
+
+Versions:
+- Foliate 3.1.1
+- GJS 1.80.02
+- GTK 4.14.2
+- Adwaita 1.5.0
+- GLib 2.80.0
+- WebKitGTK 2.44.0
+
+User directories:
+- /home/iharh/.local/share
+- /home/iharh/.cache
+
+https://www.reddit.com/r/wine_gaming/comments/mo5hne/wine_66_libgl_error_mesaloader_failed_to_open/
+https://github.com/ValveSoftware/steam-runtime/issues/309
+    ./amdgpu-install --uninstall
+
+https://github.com/pygame/pygame/issues/3405
+    https://github.com/pygame/pygame/issues/3405#issuecomment-1221266709
+    Thank you, the 
+        export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+    successfully solve my problem.
+    https://stackoverflow.com/questions/72110384/libgl-error-mesa-loader-failed-to-open-iris
+    https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo
+        sudo apt install libgl1-mesa-glx
+        Package libgl1-mesa-glx is not available, but is referred to by another package.
+        This may mean that the package is missing, has been obsoleted, or is only available from another source
+
+        sudo apt install libopencv-dev
+    https://askubuntu.com/questions/1279974/libgl-error-mesa-loader-failed-to-open-radeonsi-search-paths-usr-lib-x86-64
+    https://community.amd.com/t5/drivers-software/looking-for-the-driver-graphics/td-p/637035 https://amdgpu-install.readthedocs.io/en/latest/install-script.html https://gitlab.freedesktop.org/mesa/mesa/-/issues/3477
+        interesting env-vars
+
+MESA-LOADER: failed to open radeonsi: /usr/lib/dri/radeonsi_dri.so: cannot open shared object file: 
+No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+
+$ l /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so
+/usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so@ ⇒ /opt/amdgpu/lib/x86_64-linux-gnu/dri/radeonsi_dri.so
+$ dpkg -S /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so
+libgl1-mesa-dri:amd64: /usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so
+
+https://github.com/johnfactotum/foliate/issues/325
+    G_MESSAGES_DEBUG=all
+
+
+failed to load driver: radeonsi
+MESA-LOADER: failed to open radeonsi: /usr/lib/dri/radeonsi_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+failed to load driver: radeonsi
+MESA-LOADER: failed to open swrast: /usr/lib/dri/swrast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+MESA-LOADER: failed to open radeonsi: /usr/lib/dri/radeonsi_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+MESA-LOADER: failed to open kms_swrast: /usr/lib/dri/kms_swrast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+MESA-LOADER: failed to open swrast: /usr/lib/dri/swrast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+Failed to create GBM device for render device: /dev/dri/renderD128: No such file or directory
+libEGL warning: MESA-LOADER: failed to open radeonsi: /usr/lib/dri/radeonsi_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+
+libEGL warning: MESA-LOADER: failed to open radeonsi: /usr/lib/dri/radeonsi_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+
+libEGL warning: MESA-LOADER: failed to open swrast: /usr/lib/dri/swrast_dri.so: cannot open shared object file: No such file or directory (search paths /usr/lib/x86_64-linux-gnu/dri:\$${ORIGIN}/dri:/usr/lib/dri, suffix _dri)
+
+EGLDisplay Initialization failed: EGL_NOT_INITIALIZED
+Cannot create EGL context: invalid display (last error: EGL_SUCCESS)

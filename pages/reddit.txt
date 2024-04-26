@@ -139,6 +139,7 @@ https://github.com/jamibear/home.nix/blob/main/nixos/configuration.nix
     programs.hyprland.enabled
 
 arch-based
+https://github.com/command-z-z/Arch-dotfiles
 https://github.com/koiyae/dotfiles-blue
 https://github.com/luyu-wu/Config
 https://gitlab.com/stephan-raabe/dotfiles
