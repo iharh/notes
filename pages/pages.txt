@@ -6,6 +6,7 @@ https://habr.com/ru/articles/106806/
     ~/.config/pulse/default.pa
     pactl
     https://www.baeldung.com/linux/boost-sound-volume-above-max
+    https://megamorf.gitlab.io/2018/12/16/set-audio-volume-from-command-line/
 
 sway
 https://www.reddit.com/r/swaywm/comments/r4m1gn/new_windows_layout/
