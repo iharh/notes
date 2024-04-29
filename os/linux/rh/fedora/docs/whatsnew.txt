@@ -1,3 +1,4 @@
+https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-new-release/
 https://www.tecmint.com/fedora-upgrade-guide/
     sudo dnf upgrade --refresh
     sudo dnf install dnf-plugin-system-upgrade
@@ -10,6 +11,7 @@ LearnLinuxTV - Fedora's 40th Release: A Quick Look and Overview 0:00 of 7:43
     https://www.youtube.com/watch?v=iuBzZPvCE-M
 https://fedoraproject.org/wiki/Releases/40/ChangeSet
     https://habr.com/ru/companies/ru_mts/articles/804069/
+    https://habr.com/ru/companies/ru_mts/articles/810067/
     https://www.opennet.ru/opennews/art.shtml?num=60852
 2022
 https://fedoramagazine.org/announcing-fedora-36/

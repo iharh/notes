@@ -1,5 +1,9 @@
-http://ostree.readthedocs.io/en/latest/
+https://ostreedev.github.io/ostree/
+
+https://coreos.github.io/rpm-ostree/
 https://github.com/projectatomic/rpm-ostree
+
+http://ostree.readthedocs.io/en/latest/
 https://github.com/ostreedev/ostree/
 
 https://ostreedev.github.io/ostree/
@@ -14,8 +18,13 @@ https://ostreedev.github.io/ostree/repository-management/
 https://ostreedev.github.io/ostree/related-projects/
 https://ostreedev.github.io/ostree/reference/
 
+https://ostreedev.github.io/ostree/man/
 https://ostree.readthedocs.io/en/latest/manual/introduction/
 
+https://osbuild.org/docs/on-premises/commandline/building-ostree-images/
+
+2020
+https://lwn.net/Articles/821367/
 2013
 https://www.opennet.ru/opennews/art.shtml?num=37750
 https://blog.verbum.org/2013/08/26/ostree-v2013-6-released/

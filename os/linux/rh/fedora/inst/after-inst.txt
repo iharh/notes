@@ -1,0 +1,9 @@
+2023
+https://discussion.fedoraproject.org/t/video-playback-broken-after-upgrading-to-f39-libopenh264-so-7-is-missing-openh264-support-will-be-disabled/100019
+    sudo dnf remove libswscale-free
+    l /etc/yum.repos.d/
+        ... fedora-cisco-openh264.repo
+    sudo dnf config-manager --set-enabled fedora-cisco-openh264
+
+    dnf install openh264 mpv
+    # ??? sudo dnf install ffmpeg avidemux vlc
