@@ -1,4 +1,21 @@
-zscaler
+https://wiki.archlinux.org/title/PulseAudio
+https://wiki.gentoo.org/wiki/PulseAudio
+https://habr.com/ru/articles/106806/
+    /etc/asound.conf
+    /etc/pulse/client.conf
+    ~/.config/pulse/default.pa
+    pactl
+    https://www.baeldung.com/linux/boost-sound-volume-above-max
+
+sway
+https://www.reddit.com/r/swaywm/comments/r4m1gn/new_windows_layout/
+    splith/splitv
+    https://github.com/nwg-piotr/autotiling
+    https://wiki.gentoo.org/wiki/Sway/en#Layouts
+
+atomic
+    https://pagure.io/workstation-ostree-config
+    https://gitlab.com/fedora/ostree/sig/-/issues
 
 remove from path
 data/wrk/.cargo/bin/rg
