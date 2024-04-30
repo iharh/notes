@@ -16,3 +16,8 @@ https://discussion.fedoraproject.org/t/video-playback-broken-after-upgrading-to-
 
     dnf install openh264 mpv
     # ??? sudo dnf install ffmpeg avidemux vlc
+
+https://gist.github.com/abn/022c5f9eae491687a766f25bd8322fc0
+
+https://github.com/nagygergo/jetbrains-toolbox-install
+https://github.com/nagygergo/jetbrains-toolbox-install/blob/master/jetbrains-toolbox.sh
