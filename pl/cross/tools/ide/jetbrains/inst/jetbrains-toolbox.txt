@@ -1,5 +1,7 @@
 https://www.jetbrains.com/toolbox-app/
-    Version: 2.2.1, Released: February 7, 2024
+    Version: 2.3, Released: Apr 16, 2024
+
+https://copr.fedorainfracloud.org/coprs/medzik/jetbrains/packages/
 
 aur
     jetbrains-toolbox
@@ -41,6 +43,17 @@ cfg
         tools (IDEs) install dir
 
 2023
+https://dev.to/jorgecastro/install-jetbrains-toolbox-on-linux-596n
 https://blog.jetbrains.com/toolbox-app/2023/08/toolbox-app-2-0-overhauls-installations-and-updates/
 2022
 https://blog.jetbrains.com/blog/2022/07/07/toolbox-app-1-25-is-here/
+2021
+https://thirddriver.medium.com/jetbrains-toolbox-the-best-way-to-install-intellij-idea-on-linux-53c1070cd03b
+    cd /opt/
+    sudo tar -xvzf ~/Downloads/jetbrains-toolbox-1.20.8804.tar.gz
+    sudo mv jetbrains-toolbox-1.20.8804 jetbrains
+    jetbrains/jetbrains-toolbox
+
+wayland
+https://www.jetbrains.com/help/idea/installation-guide.html#requirements
+https://youtrack.jetbrains.com/issue/JBR-3206
