@@ -1,0 +1,15 @@
+https://nvchad.com/news/v2.5_release/
+    https://github.com/NvChad/NvChad/tree/v2.5
+    https://gist.github.com/siduck/048bed2e7570569e6b327b35d1715404
+    ...
+    if [ -e custom/configs ]; then
+	      mv custom/configs/* "$nvim_config/lua/configs/"
+    ...
+    cd "$nvim_config"
+
+    # load custom.init.lua if it exists
+    [ -e lua/myinit.lua ] && echo "require 'myinit'" >> init.lua
+
+    # Some users have plugins.lua instead of plugins dir/ so move it in the plugins dir
+    [ -e lua/plugins.lua ] && mv lua/plugins.lua lua/plugins/myplugins.lua
+    ...

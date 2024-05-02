@@ -8,6 +8,8 @@ https://github.com/NvChad/NvChad
 ~/.config/nvim/
 lua/
     plugins
+        ??? put extra stuff here ???
+        https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
         init.lua
     configs
         conform.lua
