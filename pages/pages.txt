@@ -1,3 +1,13 @@
+dnf
+Skipping packages with conflicts:
+(add '--best --allowerasing' to command line to force their upgrade):
+ qt6-qtbase                                           x86_64                                 6.7.0-3.fc40                                        updates                                         4.1 M
+ qt6-qtbase-gui
+...
+Skipped:
+  qt6-qtbase-6.7.0-3.fc40.x86_64
+  qt6-qtbase-gui-6.7.0-3.fc40.x86_64
+
 https://wiki.archlinux.org/title/PulseAudio
 https://wiki.gentoo.org/wiki/PulseAudio
 https://habr.com/ru/articles/106806/
