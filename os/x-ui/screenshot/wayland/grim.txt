@@ -1,0 +1,7 @@
+https://github.com/OctopusET/sway-contrib/blob/master/grimshot
+    uses grim under the hood
+
+grimshot
+    check
+    copy|save|savecopy
+        area|...
