@@ -1,5 +1,17 @@
 https://nvchad.com/docs/features/
 
+~/.config/nvim/
+lua/
+    plugins
+        init.lua
+    configs
+        conform.lua
+        lazy.lua
+        lspconfig.lua
+    chadrc.lua
+    mappings.lua
+    options.lua
+
 ~/.config/nvim/lua/custom/
 
 https://github.com/search?q=language%3Alua+config.lua&type=repositories
