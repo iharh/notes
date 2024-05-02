@@ -1,8 +1,18 @@
+https://nvchad.com/docs/features/
+
 ~/.config/nvim/lua/custom/
 
 https://github.com/search?q=language%3Alua+config.lua&type=repositories
 
 https://github.com/NvChad/NvChad/issues/1868
+https://github.com/NvChad/NvChad/issues/1868#issuecomment-1502940186
+    custom/configs/overrides.lua
+    https://github.com/NvChad/NvChad/issues/2020
+    lua/custom/abc.lua
+
+Current line and column in status line
+https://github.com/NvChad/NvChad/issues/1562
+https://github.com/NvChad/NvChad/issues/863
 
 samples
 https://github.com/creativenull/dotfiles/blob/main/config/nvim/init.lua
