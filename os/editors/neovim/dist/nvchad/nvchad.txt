@@ -21,3 +21,11 @@ https://docs.rockylinux.org/books/nvchad/nvchad_ui/plugins_manager/
 
 https://github.com/NvChad/nvcommunity
     NvChad community repo for sharing plugin configurations 
+
+:Nvdash
+    dashboard
+        https://nvchad.com/docs/features/#dashboard
+        themes
+        mappings
+        ...
+:NvCheatsheet

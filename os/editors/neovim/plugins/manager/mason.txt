@@ -1,0 +1,50 @@
+https://github.com/williamboman/mason.nvim
+https://github.com/williamboman/mason.nvim/tree/main/doc
+https://github.com/williamboman/mason.nvim/blob/main/doc/mason.txt
+https://github.com/williamboman/mason.nvim/blob/main/doc/reference.md
+
+:h 
+    lsp
+    mason-help-guide, mason.nvim
+    mason-commands
+    mason-debugging
+    mason-settings
+    mason-default-settings
+    mason-how-to-use-packages
+        LSP: `lspconfig` & `mason-lspconfig.nvim`
+        :LspLog
+            ~/.local/state/nvim/lsp.log
+        :LspInfo
+
+
+:Mason
+    open mason ui window
+:MasonInstall
+    lua-language-server
+    lua-language-server@v3.0.0
+    https://github.com/williamboman/mason.nvim/issues/995
+    :MasonInstall --target=linux_x64_gnu lua-language-server
+:MasonUpdate
+:MasonLog
+    ~/.local/state/nvim/mason.log
+
+:checkhealth mason
+
+~/.local/share/nvim/mason
+    bin
+        lua-language-server@ -> ~/.local/share/nvim/mason/packages/lua-language-server/lua-language-server
+    packages/
+        lua-language-server/
+            libexec/log/
+                service.log
+            ...
+    share/mason-schemas/lsp/
+        lua-language-server.json@ -> ~/.local/share/nvim/mason/packages/lua-language-server/mason-schemas/lsp.json
+
+mason.nvim [GitHub] ~
+- OK GitHub API rate limit. Used: 1. Remaining: 59. Limit: 60. Reset: Fri 03 May 2024 09:29:17 AM +03.
+  Install and authenticate via gh-cli to increase rate limit.
+
+to-look
+https://www.reddit.com/r/neovim/comments/15qxb2l/is_there_a_way_to_make_setting_up_lsps_only_very/
+    :LspConfig

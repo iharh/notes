@@ -13,3 +13,4 @@ https://nvchad.com/news/v2.5_release/
     # Some users have plugins.lua instead of plugins dir/ so move it in the plugins dir
     [ -e lua/plugins.lua ] && mv lua/plugins.lua lua/plugins/myplugins.lua
     ...
+https://nvchad.com/news/v2.0_release/
