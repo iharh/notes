@@ -1,7 +1,13 @@
 https://github.com/OctopusET/sway-contrib/blob/master/grimshot
     uses grim under the hood
+    bindsym $mod+Shift+p exec grimshot savecopy area
 
 grimshot
     check
     copy|save|savecopy
         area|...
+
+samples
+https://github.com/yschaeff/sway_screenshots
+    bindsym Print exec ~/.config/sway/screenshot.sh
+https://github.com/yschaeff/sway_screenshots/blob/master/screenshot.sh
