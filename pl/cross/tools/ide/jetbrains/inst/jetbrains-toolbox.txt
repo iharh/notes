@@ -1,7 +1,9 @@
 https://www.jetbrains.com/toolbox-app/
     Version: 2.3, Released: Apr 16, 2024
 
+https://copr.fedorainfracloud.org/coprs/medzik/jetbrains
 https://copr.fedorainfracloud.org/coprs/medzik/jetbrains/packages/
+    no jetbrains-toolbox here !!!
 
 aur
     jetbrains-toolbox
@@ -10,11 +12,10 @@ aur
     https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.8.3678.tar.gz
 pacstall
     jetbrains-toolbox-bin
-
 scoop
     jetbrain-toolbox
-
-pacman -Qql jetbrains-toolbox
+pacman 
+    -Qql jetbrains-toolbox
 
 https://formulae.brew.sh/cask/jetbrains-toolbox
 

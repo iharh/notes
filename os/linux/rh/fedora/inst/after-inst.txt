@@ -21,3 +21,13 @@ https://gist.github.com/abn/022c5f9eae491687a766f25bd8322fc0
 
 https://github.com/nagygergo/jetbrains-toolbox-install
 https://github.com/nagygergo/jetbrains-toolbox-install/blob/master/jetbrains-toolbox.sh
+wget https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh
+    l18: remove "--show-progress"
+
+Extracting to ~/.local/share/JetBrains/Toolbox/bin...
+Symlinking to ~/.local/bin/jetbrains-toolbox...
+Running for the first time to set-up...
+
+my
+cd $WRK_DIR
+git clone git@bitbucket.org:iigoncharenko/wnotes.git
