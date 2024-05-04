@@ -9,10 +9,14 @@ https://wezfurlong.org/wezterm/install/linux.html#__tabbed_1_3
 https://github.com/wez/wezterm/releases/download/20230712-072601-f4abf8fd/wezterm-20230712-072601-f4abf8fd.Ubuntu20.04.deb
     curl -LO https://github.com/wez/wezterm/releases/download/20230712-072601-f4abf8fd/wezterm-20230712-072601-f4abf8fd.Ubuntu20.04.deb
     sudo apt install ./wezterm-20230712-072601-f4abf8fd.Ubuntu20.04.deb
-
+corp
+    sudo dnf copr enable wezfurlong/wezterm-nightly
+    sudo dnf install wezterm
+fedora
+    https://gist.github.com/xpando/7696a3946e1193b3d5ba0a0261cf1ba0
+        wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora39.rpm ~/Downloads/wezterm-nightly-fedora39.rpm && sudo dnf install -y ~/Downloads/wezterm-nightly-fedora39.rpm
+mac
     brew install --HEAD wezterm
-https://gist.github.com/xpando/7696a3946e1193b3d5ba0a0261cf1ba0
-    wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora39.rpm ~/Downloads/wezterm-nightly-fedora39.rpm && sudo dnf install -y ~/Downloads/wezterm-nightly-fedora39.rpm
 
 dpkg -L wezterm
 /etc
