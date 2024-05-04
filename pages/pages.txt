@@ -1,6 +1,8 @@
 ? lsblk
 zram0 8g
 
+? /boot/efi/
+
 https://wiki.archlinux.org/title/PulseAudio
 https://wiki.gentoo.org/wiki/PulseAudio
 https://habr.com/ru/articles/106806/
