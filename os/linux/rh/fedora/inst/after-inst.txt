@@ -27,6 +27,15 @@ todo: integrate to ulauncher
     Extracting to ~/.local/share/JetBrains/Toolbox/bin...
     Symlinking to ~/.local/bin/jetbrains-toolbox...
 
+to-install
+    foliate
+    pdf-reader
+
+to-font-increase
+    idea
+    firefox
+        layout.css.devPixelsPerPx 1.5
+
 secrets
 ~/.ssh/
 /etc/hosts
