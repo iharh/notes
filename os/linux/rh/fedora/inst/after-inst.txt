@@ -27,6 +27,9 @@ todo: integrate to ulauncher
     Extracting to ~/.local/share/JetBrains/Toolbox/bin...
     Symlinking to ~/.local/bin/jetbrains-toolbox...
 
+media
+    zathura, foliate
+
 to-install
     foliate
     pdf-reader
