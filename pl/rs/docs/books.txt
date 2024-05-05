@@ -13,6 +13,12 @@ https://doc.rust-lang.org/nightly/unstable-book/
 
 https://killercup.github.io/trpl-ebook/
 
+https://google.github.io/comprehensive-rust/
+
+https://rust-unofficial.github.io/patterns/rust-design-patterns.pdf
+
+https://epam.sharepoint.com/:b:/r/sites/EPAMRustCommunity/Shared%20Documents/General/Rust_Zero_to_Production.pdf?csf=1&web=1&e=b8gLYq
+
 https://users.rust-lang.org/t/the-bookshelf-is-largely-implemented-please-check-out-the-new-docs/9715
 
 https://github.com/kgv/rust_book_ru
@@ -93,7 +99,7 @@ Smith - Game Development with Rust and WebAssembly
     ???
 2021
 BlandyOrendorff - Programming Rust 2nd ed
-    BE8F942065F8AED49ABE0414C9602182 
+    BE8F942065F8AED49ABE0414C9602182
 KlabnikNichols - The Rust Programming Language ru
     57FC451B6927457078601721158474B9
 Gjengset - Rust for Rustaceans
@@ -134,7 +140,7 @@ Kaihlarita - Mastering Rust
 Johnson - Learning Rust
 2016
 Blandy - Programming Rust
-2015 
+2015
 Blandy - Why Rust:
     http://www.oreilly.com/programming/free/files/why-rust.pdf
     https://www.reddit.com/r/cpp/comments/3kkgfz/why_rust_brief_introduction_but_good_for_c/
