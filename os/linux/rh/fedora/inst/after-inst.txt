@@ -27,6 +27,10 @@ todo: integrate to ulauncher
     Extracting to ~/.local/share/JetBrains/Toolbox/bin...
     Symlinking to ~/.local/bin/jetbrains-toolbox...
 
+secrets
+~/.ssh/
+/etc/hosts
+
 my
 cd $WRK_DIR
 git clone git@bitbucket.org:iigoncharenko/wnotes.git
