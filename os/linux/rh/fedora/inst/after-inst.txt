@@ -30,6 +30,7 @@ todo: integrate to ulauncher
 secrets
 ~/.ssh/
 /etc/hosts
+/etc/profile.d/secret-vars.sh
 
 my
 cd $WRK_DIR
