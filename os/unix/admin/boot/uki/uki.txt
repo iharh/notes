@@ -1,0 +1,8 @@
+https://fedoraproject.org/wiki/Changes/Unified_Kernel_Support_Phase_2
+
+2024
+https://www.opennet.ru/opennews/art.shtml?num=61052
+    UKI unites in a single file:
+         * kernell handler for boot loading from UEFI (UEFI boot stub)
+         * kernel image and loded initrd-env
+    https://www.opennet.ru/opennews/art.shtml?num=57984
