@@ -16,12 +16,23 @@ https://discussion.fedoraproject.org/t/video-playback-broken-after-upgrading-to-
     sudo dnf install openh264 mpv
     # ??? sudo dnf install ffmpeg avidemux vlc
 
-https://gist.github.com/abn/022c5f9eae491687a766f25bd8322fc0
+https://docs.fedoraproject.org/en-US/quick-docs/installing-chromium-or-google-chrome-browsers/
+    sudo dnf install fedora-workstation-repositories
+    sudo dnf config-manager --set-enabled google-chrome
+    sudo dnf install google-chrome-stable
 
+https://gist.github.com/abn/022c5f9eae491687a766f25bd8322fc0
 https://github.com/nagygergo/jetbrains-toolbox-install
 https://github.com/nagygergo/jetbrains-toolbox-install/blob/master/jetbrains-toolbox.sh
 wget https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh
     l18: remove "--show-progress"
+
+curl -1sLf -o /tmp/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc
+sudo rpm --import /tmp/teams-for-linux.asc
+rm -f /tmp/teams-for-linux.asc
+sudo curl -1sLf -o /etc/yum.repos.d/teams-for-linux.repo https://repo.teamsforlinux.de/rpm/teams-for-linux.repo
+sudo dnf update
+sudo dnf install teams-for-linux
 
 todo: integrate to ulauncher
     Extracting to ~/.local/share/JetBrains/Toolbox/bin...
@@ -43,6 +54,7 @@ secrets
 ~/.ssh/
 /etc/hosts
 /etc/profile.d/secret-vars.sh
+yadm decrypt
 
 my
 cd $WRK_DIR
