@@ -41,6 +41,7 @@ todo: integrate to ulauncher
 media
     zathura mupdf zathura-pdf-mupdf
     foliate
+    https://github.com/artemsen/swayimg/
 arch
     p7zip
 
