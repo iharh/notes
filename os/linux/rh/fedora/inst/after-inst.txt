@@ -39,11 +39,10 @@ todo: integrate to ulauncher
     Symlinking to ~/.local/bin/jetbrains-toolbox...
 
 media
-    zathura, foliate
-
-to-install
+    zathura mupdf zathura-pdf-mupdf
     foliate
-    pdf-reader
+arch
+    p7zip
 
 to-font-increase
     idea
