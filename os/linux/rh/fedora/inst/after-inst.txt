@@ -42,8 +42,9 @@ media
     zathura mupdf zathura-pdf-mupdf
     foliate
     https://github.com/artemsen/swayimg/
-arch
+misc
     p7zip
+    iotop-c
 
 to-font-increase
     idea
