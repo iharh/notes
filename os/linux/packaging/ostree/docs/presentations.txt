@@ -1,5 +1,5 @@
 2023
-TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Running with Ostree on Your...- Davis Roman 24:00 of 46:26
+TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Running with Ostree on Your...- Davis Roman 32:00 of 46:26
     https://www.youtube.com/watch?v=_CwGUt0CpvU
     ! ostree remote add ...
     !   remote summary <name>
@@ -13,6 +13,9 @@ TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Ru
     ! ostree log <name>
     ! ostree --repo=/ostree/repo init --mode=archive-z2
     ! ~/.config/ostree
+    ! ostree summary -v
+    ! ostree admin unlock --hotfix
+    ! ostree admin config-diff
 2021
 Pingvinus - Fedora 35 of 6:52
     https://www.youtube.com/watch?v=mNziXTfZcGk
@@ -26,6 +29,6 @@ Pynkin - OSTree Atomic Updates in Git Style ru of 23:57
     https://www.youtube.com/watch?v=5LE8XF0rUak
     ! ostree objects: .commit, .dirtree, .file
 2014
-RedHatCzech - Colin Walters - OSTree: A middle ground between packages and images 21:00 of 32:01
+RedHatCzech - Colin Walters - OSTree: A middle ground between packages and images of 32:01
     https://www.youtube.com/watch?v=Hy0ZEHPXJ9Q
     ! tree also requires naming (vs anoymous subset of ...)
