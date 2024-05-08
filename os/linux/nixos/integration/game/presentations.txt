@@ -1,0 +1,9 @@
+2024
+Vimjoyer - Is NixOS The Best Gaming Distro | Linux Gaming Setup 3:30 of 8:36
+    https://www.youtube.com/watch?v=qlfm3MEbqYA
+    hardware.opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+    services.xserver.videoDrivers = ["amdgpu"];

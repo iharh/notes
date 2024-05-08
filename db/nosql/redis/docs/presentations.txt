@@ -1,7 +1,7 @@
 ????
 https://squidex.jugru.team/api/assets/srm/3221c203-b174-4f0f-bbf2-2fcc15a59813/artem-artemsev.pdf
 2024
-SuchkovTech - Redis for 20 min 9:00 of 23:21
+SuchkovTech - Redis for 20 min 12:00 of 23:21
     https://www.youtube.com/watch?v=QpBaA6B1U90
     ! iredis
       set firstKey "Hello"
@@ -28,6 +28,26 @@ SuchkovTech - Redis for 20 min 9:00 of 23:21
       lpush sold Mersedes LEFT LEFT
       lmove cars sold # from, to
       ...
+    ! hset iphone brand Apple model "iPhone X" memory 64 color black
+    ! hget iphone model
+    !   "iPhone X"
+    ! hmget iphone memory color wrongField
+    !   1) "64"
+    !   2) black
+    !   3) (nil)
+    ! hgetall iphone
+    !   1) "brand"
+    !      "Apple"
+    !   2) "model"
+    !      ...
+    ! hincrby iphone memory 64
+    !   (integer) 128
+    ! keys *
+    !   1) firstKey
+    !   ...
+    !   3) iphone
+    !   ...
+
 
 2023
 SpringIO - Vector Similarity Search in Spring with Redis Stack by Brian Sam-Bodden 0:00 of 54:35
