@@ -1,5 +1,5 @@
 2024
-Vimjoyer - Is NixOS The Best Gaming Distro | Linux Gaming Setup 3:30 of 8:36
+Vimjoyer - Is NixOS The Best Gaming Distro | Linux Gaming Setup of 8:36
     https://www.youtube.com/watch?v=qlfm3MEbqYA
     hardware.opengl = {
       enable = true;
@@ -7,3 +7,12 @@ Vimjoyer - Is NixOS The Best Gaming Distro | Linux Gaming Setup 3:30 of 8:36
       driSupport32Bit = true;
     };
     services.xserver.videoDrivers = ["amdgpu"];
+
+    inputs.nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    outputs = { self, nixpkgs, nixos-hardware }: {
+      nixosConfigurations.<your-hostname> = nixpkgs.lin.nixosSystem {
+        modules = [
+          nixos-hardware.nixosModules.dell-xps-13-9380
+        ];
+      };
+    };

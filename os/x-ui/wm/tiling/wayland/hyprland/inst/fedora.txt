@@ -1,0 +1,18 @@
+https://wiki.hyprland.org/Getting-Started/Installation/#manual-releases
+https://copr.fedorainfracloud.org/coprs/solopasha/hyprland
+
+https://github.com/JaKooLit/Fedora-Hyprland
+https://github.com/JaKooLit/Hyprland-Dots
+
+from src
+https://github.com/hyprwm/Hyprland/discussions/284
+
+2023
+Ja.KooLit - Hyprland on Fedora Workstation and Nobara - nvidia, amd and intel gpu support of 10:03
+    https://www.youtube.com/watch?v=w2dt4GlHjV0
+    ! git clone https://github.com/JaKooLit/Fedora-Hyprland
+    ! chmod +x install.sh
+    ! customize install-scripts/
+    !   corp.sh
+    ! ./install.sh
+    ! M-e - key-bindings help

@@ -1,9 +1,5 @@
 https://wiki.hyprland.org/Getting-Started/Installation/
 
-for fedora
-    https://github.com/JaKooLit/Fedora-Hyprland
-    https://github.com/JaKooLit/Hyprland-Dots
-
 for ubuntu
     https://github.com/ipg0/dotfiles-hypr
     https://github.com/ipg0/dotfiles-hypr/issues/1
@@ -14,9 +10,6 @@ for ubuntu
     https://www.youtube.com/watch?v=K1D2iTMX3j4
     https://www.youtube.com/watch?v=KKo-4ZuozUA
         https://notabug.org/owl410/owl_dotfiles/src/master/dotfiles/hyprland/hypr_arch
-
-for endeavor
-    https://forum.endeavouros.com/t/getting-hyprland/40840
 
 sudo apt-get install -ymeson
     meson wget build-essential ninja-build cmake-extras cmake gettext gettext-base fontconfig libfontconfig-dev libffi-dev libxml2-dev

@@ -1,6 +1,3 @@
-https://wiki.hyprland.org/Configuring/Configuring-Hyprland/
-https://wiki.hyprland.org/Configuring/Dwindle-Layout/
-
 https://github.com/JaKooLit/Hyprland-Dots
 https://github.com/JaKooLit/Hyprland-Dots/tree/main/config/hypr
 https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/hyprland.conf
@@ -23,3 +20,9 @@ monitor=,preferred,auto,1,mirror,eDP-1,bitdepth,8
 xwayland {
     force_zero_scaling = true
 }
+
+2024
+Ja.KooLit - My Hyprland Dots v2.2.10 Changes - Dots for Arch, Fedora, Debian, Ubuntu, Opensuse Install scripts 0:00 of 36:29
+    https://www.youtube.com/watch?v=BFR1zteVT7k
+Ja.KooLit - My Hyprland Dots v2.2 Changes - Dots for Arch, Fedora, Debian, Ubuntu, Opensuse Install scripts 0:00 of 44:51
+    https://www.youtube.com/watch?v=FKg_HhFBlNs
