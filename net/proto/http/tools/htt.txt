@@ -1,0 +1,12 @@
+2024
+PurpleSchool - Larichev - MacOS term of 21:23
+    https://www.youtube.com/watch?v=n3CWYPGjVns
+    https://github.com/AlariCode/dotfiles
+    httpyac api.http
+    function htt() {
+      httpyac $1 --json -a | jq -r ".requests[0].response.body" | jq | bat --language=json
+    }
+    https://httpyac.github.io/guide/
+        code --install-extension anweber.vscode-httpyac
+        alias httpyac="docker run -it -v ${PWD}:/data ghcr.io/anweber/httpyac:latest"
+        httpyac --help
