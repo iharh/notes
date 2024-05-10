@@ -34,6 +34,12 @@ sudo curl -1sLf -o /etc/yum.repos.d/teams-for-linux.repo https://repo.teamsforli
 sudo dnf update
 sudo dnf install teams-for-linux
 
+https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+    dnf check-update
+    sudo dnf install code
+
 todo: integrate to ulauncher
     Extracting to ~/.local/share/JetBrains/Toolbox/bin...
     Symlinking to ~/.local/bin/jetbrains-toolbox...
