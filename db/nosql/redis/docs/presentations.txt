@@ -1,7 +1,7 @@
 ????
 https://squidex.jugru.team/api/assets/srm/3221c203-b174-4f0f-bbf2-2fcc15a59813/artem-artemsev.pdf
 2024
-SuchkovTech - Redis for 20 min 12:00 of 23:21
+SuchkovTech - Redis for 20 min 14:00 of 23:21
     https://www.youtube.com/watch?v=QpBaA6B1U90
     ! iredis
       set firstKey "Hello"
@@ -47,7 +47,15 @@ SuchkovTech - Redis for 20 min 12:00 of 23:21
     !   ...
     !   3) iphone
     !   ...
-
+    ! ttl cars
+    !   (integer) -1 # not-limited
+    ! expire cars 10
+    ...
+    ! ttl cars
+    !   (integer) -2 # deleted
+    ! exists cars
+    !   (integer) 0 # no data by this case
+    ! setex vars 20 10 # with ttl 10 (with suffix ex)
 
 2023
 SpringIO - Vector Similarity Search in Spring with Redis Stack by Brian Sam-Bodden 0:00 of 54:35
