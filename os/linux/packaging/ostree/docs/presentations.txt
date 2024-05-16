@@ -71,6 +71,7 @@ Pynkin - OSTree CLI for OS management 16:00 of 25:00
     !   /ostree/repo/objects/3a/<hash1>.commit
     !   /ostree/repo/objects/3a/<hash1>.commitmeta
     !   ...
+
 2018
 Pynkin - OSTree Atomic Updates in Git Style ru of 23:57
     https://www.youtube.com/watch?v=N0expbwB0OM
