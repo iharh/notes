@@ -38,7 +38,7 @@ TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Ru
 Pingvinus - Fedora 35 of 6:52
     https://www.youtube.com/watch?v=mNziXTfZcGk
 2020
-Pynkin - OSTree CLI for OS management 16:00 of 25:00
+Pynkin - OSTree CLI for OS management 18:00 of 25:00
     https://www.youtube.com/watch?v=B0xvrXkEwr4
     https://www.collabora.com/assets/pdfs/OSTree_CLI_for_OS_management.pdf
     ! libostre/ostree cli tool
@@ -71,6 +71,16 @@ Pynkin - OSTree CLI for OS management 16:00 of 25:00
     !   /ostree/repo/objects/3a/<hash1>.commit
     !   /ostree/repo/objects/3a/<hash1>.commitmeta
     !   ...
+    ! ostree show origin:apertis/v2020pre/armhf-uboot/minimal [--raw]
+    !   commit ...
+    !   ContentChecksum: ...
+    !   Date ...
+    ! ostree show origin:apertis/v2020pre/armhf-uboot/minimal --raw
+    !   ... additional info (like bindings) in json
+    ! ostree admin config-diff
+    !   output in a git-diff format
+    ! ostree fsck
+    ! ostree prune ... misc options
 
 2018
 Pynkin - OSTree Atomic Updates in Git Style ru of 23:57
