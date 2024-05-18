@@ -1,4 +1,6 @@
 2023
+JustinGarrison - OStree vs. AB root vs. nix 2:00 of 15:51
+    https://www.youtube.com/watch?v=E_6b5_lEg88
 TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Running with Ostree on Your...- Davis Roman of 46:26
     https://www.youtube.com/watch?v=_CwGUt0CpvU
     ! ostree remote add ...
@@ -38,7 +40,7 @@ TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Ru
 Pingvinus - Fedora 35 of 6:52
     https://www.youtube.com/watch?v=mNziXTfZcGk
 2020
-Pynkin - OSTree CLI for OS management 21:00 of 25:00
+Pynkin - OSTree CLI for OS management of 25:00
     https://www.youtube.com/watch?v=B0xvrXkEwr4
     https://www.collabora.com/assets/pdfs/OSTree_CLI_for_OS_management.pdf
     ! libostre/ostree cli tool
@@ -85,6 +87,11 @@ Pynkin - OSTree CLI for OS management 21:00 of 25:00
     ! ostree admin status
     ! ostree admin undeploy 1
     ! ostree admin unlock
+    ...
+    ! ostree log origin:apertis/v2020pre/armhf-uboot/minimal
+    ! ostree pull --commit-metadata-only --depth=1 origin apertis/v2020pre/armhf-uboot/minimal
+    ! ostree log origin:apertis/v2020pre/armhf-uboot/minimal
+
 
 2018
 Pynkin - OSTree Atomic Updates in Git Style ru of 23:57
