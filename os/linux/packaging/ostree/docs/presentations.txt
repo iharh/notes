@@ -38,7 +38,7 @@ TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Ru
 Pingvinus - Fedora 35 of 6:52
     https://www.youtube.com/watch?v=mNziXTfZcGk
 2020
-Pynkin - OSTree CLI for OS management 18:00 of 25:00
+Pynkin - OSTree CLI for OS management 21:00 of 25:00
     https://www.youtube.com/watch?v=B0xvrXkEwr4
     https://www.collabora.com/assets/pdfs/OSTree_CLI_for_OS_management.pdf
     ! libostre/ostree cli tool
@@ -79,8 +79,12 @@ Pynkin - OSTree CLI for OS management 18:00 of 25:00
     !   ... additional info (like bindings) in json
     ! ostree admin config-diff
     !   output in a git-diff format
-    ! ostree fsck
+    ! ostree fsck -a --delete
+    !   ostree pull origin ... # to restore
     ! ostree prune ... misc options
+    ! ostree admin status
+    ! ostree admin undeploy 1
+    ! ostree admin unlock
 
 2018
 Pynkin - OSTree Atomic Updates in Git Style ru of 23:57

@@ -68,3 +68,10 @@ yadm decrypt
 my
 cd $WRK_DIR
 git clone git@bitbucket.org:iigoncharenko/wnotes.git
+
+font size
+sudo dnf install xfce4-settings
+xfce4-appearance-settings
+    fonts
+
+thunar - ?
