@@ -1,7 +1,17 @@
 2024
-Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder 3:00 of 36:55
+Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder 7:00 of 36:55
     https://www.youtube.com/watch?v=AgFOJEkBVjg
     ! default conf is at lib/jfr/default.jfc, profile.jfc
+    ! java -XX:StartFlightRecording # less than 1% overhead
+    ! java -XX:StartFlightRecording:maxage=10m,maxsize=750M
+    ! java -XX:StartFlightRecording:dumponexit=true,filename=/var/log/rec_%p_%t.jfr
+    ! ... at runtime ...
+    ! jcmd <pid> JFR.start
+    ! jcmd <pid> JFR.dump
+    ! jcmd <pid> JFR.stop
+    ! jcmd <pid> JFR.check
+    !   20496:
+    !   Recording 1: name=1 maxsize=250,0Mb (running)
 2023
 Java - Continuous Monitoring with JDK Flight Recorder 0:00 of 45:55
     https://www.youtube.com/watch?v=Gx_JGVborJ0
