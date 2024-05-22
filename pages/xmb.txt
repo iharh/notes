@@ -1,0 +1,342 @@
+!!!
+Wed, 22 May 2024 13:16:23 +0300
+OUTPUT : /home/iharh/.cache/xmonad/xmonad-x86_64-linux
+XDG_CACHE_HOME :
+STACK_ROOT : /data/wrk/.stack
+XMONAD_CONFIG_DIR:
+--- stack install
+Version 2.15.7, Git revision 75bb479f04755c1daf91ec8f445e17e2ba2ab7a3 x86_64 hpack-0.36.0
+2024-05-22 13:16:23.373841: [debug] Checking for project config at: /home/iharh/.config/xmonad/stack.yaml
+2024-05-22 13:16:23.374010: [debug] Loading project config file stack.yaml
+2024-05-22 13:16:23.375904: [debug] Use of Casa server enabled: (CasaRepoPrefix "https://casa.stackage.org", 1280).
+2024-05-22 13:16:23.377848: [debug] (SQL) SELECT COUNT(*) FROM "last_performed" WHERE ("action"=?) AND ("timestamp">=?); [PersistInt64 1,PersistUTCTime 2024-05-21 10:16:23.377818883 UTC]
+2024-05-22 13:16:23.378370: [debug] Using package location completions from a lock file
+2024-05-22 13:16:23.380095: [debug] Loaded snapshot from Pantry database.
+2024-05-22 13:16:23.519789: [debug] Running Hpack on /home/iharh/.config/xmonad/package.yaml
+2024-05-22 13:16:23.520697: [debug] Hpack output unchanged in /home/iharh/.config/xmonad/xmonad-stuff.cabal
+2024-05-22 13:16:23.520802: [debug] Prefetching git repos: []
+2024-05-22 13:16:23.520827: [debug] []
+2024-05-22 13:16:23.525583: [debug] Asking for a supported GHC version
+2024-05-22 13:16:23.525704: [debug] Installed tools: 
+ - ghc-tinfo6-9.4.7
+ - ghc-tinfo6-9.2.8
+ - ghc-tinfo6-9.4.6
+ - ghc-tinfo6-9.0.2
+2024-05-22 13:16:23.525817: [debug] Run process: /sbin/ldconfig -p
+2024-05-22 13:16:23.527256: [debug] Process finished in 1ms: /sbin/ldconfig -p
+2024-05-22 13:16:23.527302: [debug] Did not find shared library libc.musl-x86_64.so.1
+2024-05-22 13:16:23.527536: [debug] Run process: /usr/bin/ldd --version
+2024-05-22 13:16:23.528877: [debug] Process finished in 1ms: /usr/bin/ldd --version
+2024-05-22 13:16:23.528908: [debug] Found shared library libc6 in version: 2.39
+2024-05-22 13:16:23.528977: [debug] Found shared library libtinfo.so.5 in 'ldconfig -p' output
+2024-05-22 13:16:23.528996: [debug] Found shared library libtinfo.so.6 in 'ldconfig -p' output
+2024-05-22 13:16:23.529057: [debug] Found shared library libncursesw.so.6 in 'ldconfig -p' output
+2024-05-22 13:16:23.529111: [debug] Found shared library libgmp.so.10 in 'ldconfig -p' output
+2024-05-22 13:16:23.529826: [debug] Did not find shared library libgmp.so.3
+2024-05-22 13:16:23.529848: [debug] Potential GHC builds: tinfo6, standard, ncurses6
+2024-05-22 13:16:23.529875: [debug] Found already installed GHC builds: tinfo6
+2024-05-22 13:16:23.529956: [debug] (SQL) SELECT "id","actual_version","arch","ghc_path","ghc_size","ghc_modified","ghc_pkg_path","runghc_path","haddock_path","cabal_version","global_db","global_db_cache_size","global_db_cache_modified","info","global_dump" FROM "compiler_cache" WHERE "ghc_path"=?; [PersistText "/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7"]
+2024-05-22 13:16:23.560599: [debug] Loaded compiler information from cache
+2024-05-22 13:16:23.560689: [debug] Asking for a supported GHC version
+2024-05-22 13:16:23.560712: [debug] Resolving package entries
+2024-05-22 13:16:23.560736: [debug] Parsing the targets
+2024-05-22 13:16:23.563005: [debug] Checking flags
+2024-05-22 13:16:23.563033: [debug] SourceMap constructed
+2024-05-22 13:16:23.566964: [debug] Starting to execute command inside EnvConfig
+2024-05-22 13:16:23.568044: [debug] Finding out which packages are already installed
+2024-05-22 13:16:23.568120: [debug] Run process: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --global --no-user-package-db dump --expand-pkgroot
+2024-05-22 13:16:23.601204: [debug] Process finished in 33ms: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --global --no-user-package-db dump --expand-pkgroot
+2024-05-22 13:16:23.609430: [debug] Run process: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --user --no-user-package-db --package-db /data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb dump --expand-pkgroot
+2024-05-22 13:16:23.703040: [debug] Process finished in 94ms: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --user --no-user-package-db --package-db /data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb dump --expand-pkgroot
+2024-05-22 13:16:23.713775: [debug] Run process: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --user --no-user-package-db --package-db /home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb dump --expand-pkgroot
+2024-05-22 13:16:23.736299: [debug] Process finished in 22ms: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --user --no-user-package-db --package-db /home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb dump --expand-pkgroot
+2024-05-22 13:16:23.736592: [debug] Constructing the build plan
+2024-05-22 13:16:23.738729: [debug] Parsing cabal file for taffybar (from Hackage)
+2024-05-22 13:16:23.738869: [debug] Got blob from Pantry database for taffybar-4.0.1@sha256:af83b455cabe5e3f4a6ce4ffabf58e80b2d4ba776edb456e97b2863f9e87c51f,6940
+2024-05-22 13:16:23.741751: [debug] Parsing cabal file for gtk-strut (from Hackage)
+2024-05-22 13:16:23.741844: [debug] Got blob from Pantry database for gtk-strut-0.1.3.2@sha256:b915d46dd0853fbb447fd4614941356c6e4a291a8164fa24690bd4858008aafa,1128
+2024-05-22 13:16:23.742309: [debug] Parsing cabal file for gi-gtk (from Hackage)
+2024-05-22 13:16:23.742389: [debug] Got blob from Pantry database for gi-gtk-3.0.41@sha256:61dbfd271731fe3b3dcd25247451b40650743d0f537ed96778e3397aadb8cd63,40182
+2024-05-22 13:16:23.747960: [debug] Parsing cabal file for gi-pango (from Hackage)
+2024-05-22 13:16:23.748051: [debug] Got blob from Pantry database for gi-pango-1.0.29@sha256:0c8bfd18a0fc106c66524d5f8df9d3bbdf6f6164665274d867502a48e019081e,7469
+2024-05-22 13:16:23.749389: [debug] Parsing cabal file for gi-harfbuzz (from Hackage)
+2024-05-22 13:16:23.749520: [debug] Got blob from Pantry database for gi-harfbuzz-0.0.9@sha256:70ca22aa44654355c1bad5896a33a656a002689abe87a401a4df0bafb83db0d1,6867
+2024-05-22 13:16:23.750842: [debug] Parsing cabal file for gi-gobject (from Hackage)
+2024-05-22 13:16:23.750935: [debug] Got blob from Pantry database for gi-gobject-2.0.30@sha256:cfc1933959854c24500afcb7c803b931b3474407ca4e635a40a05aab54720820,9557
+2024-05-22 13:16:23.752569: [debug] Parsing cabal file for gi-glib (from Hackage)
+2024-05-22 13:16:23.752659: [debug] Got blob from Pantry database for gi-glib-2.0.29@sha256:5857f4b4bbd589e494c17b185e9510f4079a7878d4fe7fbbac0437a4396ab952,10040
+2024-05-22 13:16:23.754307: [debug] Parsing cabal file for gi-gio (from Hackage)
+2024-05-22 13:16:23.754394: [debug] Got blob from Pantry database for gi-gio-2.0.32@sha256:a58ecfad6ef659b7f47d5b0e88113142a9cb76c0d5104b563525f3ae4ae5aac0,22327
+2024-05-22 13:16:23.757688: [debug] Parsing cabal file for gi-gdkpixbuf (from Hackage)
+2024-05-22 13:16:23.757774: [debug] Got blob from Pantry database for gi-gdkpixbuf-2.0.31@sha256:716e91583a58ff2a787a22cbb758fbc2b45ec2353a2ca3c0fc78d845e2b6fd31,4364
+2024-05-22 13:16:23.758767: [debug] Parsing cabal file for gi-gmodule (from Hackage)
+2024-05-22 13:16:23.758848: [debug] Got blob from Pantry database for gi-gmodule-2.0.5@sha256:65d985d913732d70161e64750a54b29ecaf7797127c1cd2be90e85c55dd7873e,2774
+2024-05-22 13:16:23.759655: [debug] Parsing cabal file for gi-gdk (from Hackage)
+2024-05-22 13:16:23.759740: [debug] Got blob from Pantry database for gi-gdk-3.0.28@sha256:744de92384ab26932c205b6a6bcd5f3f5a89ebbb222d5a1d5bdd52a4cf21ece2,8991
+2024-05-22 13:16:23.761313: [debug] Parsing cabal file for gi-cairo (from Hackage)
+2024-05-22 13:16:23.761397: [debug] Got blob from Pantry database for gi-cairo-1.0.29@sha256:7a7aafc74c5d86203cf74640ed4739cb75b739d1a6477a3e0287e413da2eb657,3715
+2024-05-22 13:16:23.762303: [debug] Parsing cabal file for gi-atk (from Hackage)
+2024-05-22 13:16:23.762398: [debug] Got blob from Pantry database for gi-atk-2.0.27@sha256:49846d1b3f40662503f18631665f1c6ad9699a38afd338b16143ad9e912afc1f,6779
+2024-05-22 13:16:23.763680: [debug] Parsing cabal file for gtk-sni-tray (from Hackage)
+2024-05-22 13:16:23.763763: [debug] Got blob from Pantry database for gtk-sni-tray-0.1.8.1@sha256:7d44e532a79d841f669123491f9b5f79d9c7729b07c7925d774c29e834dc4bbe,2132
+2024-05-22 13:16:23.764612: [debug] Parsing cabal file for gi-dbusmenugtk3 (from Hackage)
+2024-05-22 13:16:23.764698: [debug] Got blob from Pantry database for gi-dbusmenugtk3-0.4.14@sha256:e15750b9078ef58e41f6708dd980e3ebbd22d8a85545b01477f858588bfb4c5f,3395
+2024-05-22 13:16:23.765611: [debug] Parsing cabal file for gi-dbusmenu (from Hackage)
+2024-05-22 13:16:23.765697: [debug] Got blob from Pantry database for gi-dbusmenu-0.4.13@sha256:0959c85e58ab0f56ed3ba6d616fad67d1f5d7b9971553385609645ff3072e46f,3236
+2024-05-22 13:16:23.766562: [debug] Parsing cabal file for gi-cairo-connector (from Hackage)
+2024-05-22 13:16:23.766644: [debug] Got blob from Pantry database for gi-cairo-connector-0.1.1@sha256:621d03434a0d6e3d5e68178f5890f2a7142818fcf4c6a5b15079f6b67955407d,1213
+2024-05-22 13:16:23.767056: [debug] Parsing cabal file for gi-gtk-hs (from Hackage)
+2024-05-22 13:16:23.767133: [debug] Got blob from Pantry database for gi-gtk-hs-0.3.16@sha256:66b7d1a3488dcad988ddde1cd766a306b972f75cfde6ea4435adc63444f58960,2046
+2024-05-22 13:16:23.767695: [debug] Parsing cabal file for gi-gdkx11 (from Hackage)
+2024-05-22 13:16:23.767943: [debug] Got blob from Pantry database for gi-gdkx11-3.0.15@sha256:6149fe60f7756a4305653478e5146a8ca4ebd58076afdc4f69ca1a1785c2ef0c,4505
+2024-05-22 13:16:23.769226: [debug] Checking if we are going to build multiple executables with the same name
+2024-05-22 13:16:23.769268: [debug] Executing the build plan
+2024-05-22 13:16:23.769755: [debug] (SQL) SELECT "id","platform_ghc_dir","compiler","cabal_version","package_key","options_hash","haddock","library" FROM "precompiled_cache" WHERE "platform_ghc_dir"=? AND "compiler"=? AND "cabal_version"=? AND "package_key"=? AND "options_hash"=? AND "haddock"=?; [PersistText "x86_64-linux-tinfo6/",PersistText "ghc-9.4.7",PersistText "3.8.1.0",PersistText "fb9e18eeebd7cfaa4b132f5906f3ecc4b3fa37ad58c1a315ab43f371739be038,358",PersistByteString "\198\191\198\226\165VJ_h\f\159g\186\214\244\&4Y\149\CAN\SI\183\161\223\152\247\246\SOH\234\v#\RSP",PersistBool False]
+2024-05-22 13:16:23.770266: [debug] (SQL) SELECT "id","platform_ghc_dir","compiler","cabal_version","package_key","options_hash","haddock","library" FROM "precompiled_cache" WHERE "platform_ghc_dir"=? AND "compiler"=? AND "cabal_version"=? AND "package_key"=? AND "options_hash"=? AND "haddock"=?; [PersistText "x86_64-linux-tinfo6/",PersistText "ghc-9.4.7",PersistText "3.8.1.0",PersistText "f734405645a824e6b2452b17b099cbd79dfbe92c4a23ab38af696e3ac38967b9,360",PersistByteString "\198\191\198\226\165VJ_h\f\159g\186\214\244\&4Y\149\CAN\SI\183\161\223\152\247\246\SOH\234\v#\RSP",PersistBool False]
+2024-05-22 13:16:23.770817: [debug] Loaded package from Pantry: gi-cairo-1.0.29@sha256:7a7aafc74c5d86203cf74640ed4739cb75b739d1a6477a3e0287e413da2eb657,3715 (from Hackage)
+2024-05-22 13:16:23.771810: [debug] (SQL) SELECT "id","directory","type","pkg_src","active","path_env_var","haddock" FROM "config_cache" WHERE "directory"=? AND "type"=?; [PersistText "/tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/",PersistText "config"]
+2024-05-22 13:16:23.772067: [debug] (SQL) UPDATE "config_cache" SET "active"=? WHERE ("directory"=?) AND ("type"=?); [PersistBool False,PersistText "/tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/",PersistText "config"]
+2024-05-22 13:16:23.772144: [info] gi-cairo          > configure
+2024-05-22 13:16:23.772569: [debug] Run process within /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7 --make -odir /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup -hidir /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup -i -i. -clear-package-db -global-package-db -package-db=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb -package-db=/home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb -hide-all-packages -package-id=Cabal-3.8.1.0 -package-id=base-4.17.2.0 -package-id=haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS -optP-include -optP/tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup_macros.h /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/Setup.hs /data/wrk/.stack/setup-exe-src/setup-shim-HwdwpEmb.hs -main-is StackSetupShim.mainOverride -o /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup -threaded
+2024-05-22 13:16:23.775555: [debug] Loaded package from Pantry: gi-glib-2.0.29@sha256:5857f4b4bbd589e494c17b185e9510f4079a7878d4fe7fbbac0437a4396ab952,10040 (from Hackage)
+2024-05-22 13:16:23.776719: [debug] (SQL) SELECT "id","directory","type","pkg_src","active","path_env_var","haddock" FROM "config_cache" WHERE "directory"=? AND "type"=?; [PersistText "/tmp/stack-265684d4da1c593d/gi-glib-2.0.29/",PersistText "config"]
+2024-05-22 13:16:23.776889: [debug] (SQL) UPDATE "config_cache" SET "active"=? WHERE ("directory"=?) AND ("type"=?); [PersistBool False,PersistText "/tmp/stack-265684d4da1c593d/gi-glib-2.0.29/",PersistText "config"]
+2024-05-22 13:16:23.776964: [info] gi-glib           > configure
+2024-05-22 13:16:23.777427: [debug] Run process within /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7 --make -odir /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup -hidir /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup -i -i. -clear-package-db -global-package-db -package-db=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb -package-db=/home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb -hide-all-packages -package-id=Cabal-3.8.1.0 -package-id=base-4.17.2.0 -package-id=haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS -optP-include -optP/tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup_macros.h /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/Setup.hs /data/wrk/.stack/setup-exe-src/setup-shim-HwdwpEmb.hs -main-is StackSetupShim.mainOverride -o /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup -threaded
+2024-05-22 13:16:23.848464: [info] gi-cairo          > [1 of 3] Compiling Main             ( /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/Setup.hs, /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/Main.o )
+2024-05-22 13:16:23.848711: [info] gi-glib           > [1 of 3] Compiling Main             ( /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/Setup.hs, /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/Main.o )
+2024-05-22 13:16:23.897652: [info] gi-cairo          > [2 of 3] Compiling StackSetupShim   ( /data/wrk/.stack/setup-exe-src/setup-shim-HwdwpEmb.hs, /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/StackSetupShim.o )
+2024-05-22 13:16:23.898364: [info] gi-glib           > [2 of 3] Compiling StackSetupShim   ( /data/wrk/.stack/setup-exe-src/setup-shim-HwdwpEmb.hs, /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/StackSetupShim.o )
+2024-05-22 13:16:23.927848: [info] gi-cairo          > [3 of 3] Linking /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup
+2024-05-22 13:16:23.927930: [info] gi-glib           > [3 of 3] Linking /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup
+2024-05-22 13:16:24.668805: [debug] Process finished in 891ms: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7 --make -odir /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup -hidir /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup -i -i. -clear-package-db -global-package-db -package-db=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb -package-db=/home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb -hide-all-packages -package-id=Cabal-3.8.1.0 -package-id=base-4.17.2.0 -package-id=haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS -optP-include -optP/tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup_macros.h /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/Setup.hs /data/wrk/.stack/setup-exe-src/setup-shim-HwdwpEmb.hs -main-is StackSetupShim.mainOverride -o /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup -threaded
+2024-05-22 13:16:24.668942: [debug] Run process within /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/: /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup --verbose=1 --builddir=.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7 configure --with-ghc=/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7 --with-ghc-pkg=/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --user --package-db=clear --package-db=global --package-db=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb --libdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/lib --bindir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/bin --datadir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/share --libexecdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/libexec --sysconfdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/etc --docdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-glib-2.0.29 --htmldir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-glib-2.0.29 --haddockdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-glib-2.0.29 --dependency=Cabal=Cabal-3.8.1.0 --dependency=base=base-4.17.2.0 --dependency=bytestring=bytestring-0.11.5.2 --dependency=containers=containers-0.6.7 --dependency=haskell-gi=haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS --dependency=haskell-gi-base=haskell-gi-base-0.26.4-AhgYz8E4LFy6UlbNZ0P0Ls --dependency=haskell-gi-overloading=haskell-gi-overloading-1.0-6w3IXGDooXgu3RA2LfTuf --dependency=text=text-2.0.2 --dependency=transformers=transformers-0.5.6.2 --exact-configuration --ghc-option=-fhide-source-paths
+2024-05-22 13:16:24.675894: [debug] Process finished in 903ms: /data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7 --make -odir /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup -hidir /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup -i -i. -clear-package-db -global-package-db -package-db=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb -package-db=/home/iharh/.config/xmonad/.stack-work/install/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb -hide-all-packages -package-id=Cabal-3.8.1.0 -package-id=base-4.17.2.0 -package-id=haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS -optP-include -optP/tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup_macros.h /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/Setup.hs /data/wrk/.stack/setup-exe-src/setup-shim-HwdwpEmb.hs -main-is StackSetupShim.mainOverride -o /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup -threaded
+2024-05-22 13:16:24.676040: [debug] Run process within /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/: /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup --verbose=1 --builddir=.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7 configure --with-ghc=/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7 --with-ghc-pkg=/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --user --package-db=clear --package-db=global --package-db=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb --libdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/lib --bindir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/bin --datadir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/share --libexecdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/libexec --sysconfdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/etc --docdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-cairo-1.0.29 --htmldir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-cairo-1.0.29 --haddockdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-cairo-1.0.29 --dependency=Cabal=Cabal-3.8.1.0 --dependency=base=base-4.17.2.0 --dependency=bytestring=bytestring-0.11.5.2 --dependency=containers=containers-0.6.7 --dependency=haskell-gi=haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS --dependency=haskell-gi-base=haskell-gi-base-0.26.4-AhgYz8E4LFy6UlbNZ0P0Ls --dependency=haskell-gi-overloading=haskell-gi-overloading-1.0-6w3IXGDooXgu3RA2LfTuf --dependency=text=text-2.0.2 --dependency=transformers=transformers-0.5.6.2 --exact-configuration --ghc-option=-fhide-source-paths
+2024-05-22 13:16:25.070576: [warn] gi-glib           > Parse error: Error when parsing "record [Error] / function [domain_register] / parameters / parameter [error_type_init]": Unknown scope type "forever"
+2024-05-22 13:16:25.070653: [warn] gi-glib           > Element
+2024-05-22 13:16:25.070678: [warn] gi-glib           >   { elementName =
+2024-05-22 13:16:25.070700: [warn] gi-glib           >       Name
+2024-05-22 13:16:25.070721: [warn] gi-glib           >         { nameLocalName = "parameter"
+2024-05-22 13:16:25.070740: [warn] gi-glib           >         , nameNamespace = Just "http://www.gtk.org/introspection/core/1.0"
+2024-05-22 13:16:25.070758: [warn] gi-glib           >         , namePrefix = Nothing
+2024-05-22 13:16:25.070776: [warn] gi-glib           >         }
+2024-05-22 13:16:25.070793: [warn] gi-glib           >   , elementAttributes =
+2024-05-22 13:16:25.070809: [warn] gi-glib           >       fromList
+2024-05-22 13:16:25.070828: [warn] gi-glib           >         [ ( Name
+2024-05-22 13:16:25.070842: [warn] gi-glib           >               { nameLocalName = "name"
+2024-05-22 13:16:25.070857: [warn] gi-glib           >               , nameNamespace = Nothing
+2024-05-22 13:16:25.070975: [warn] gi-glib           >               , namePrefix = Nothing
+2024-05-22 13:16:25.071005: [warn] gi-glib           >               }
+2024-05-22 13:16:25.071022: [warn] gi-glib           >           , "error_type_init"
+2024-05-22 13:16:25.071038: [warn] gi-glib           >           )
+2024-05-22 13:16:25.071053: [warn] gi-glib           >         , ( Name
+2024-05-22 13:16:25.071066: [warn] gi-glib           >               { nameLocalName = "scope"
+2024-05-22 13:16:25.071084: [warn] gi-glib           >               , nameNamespace = Nothing
+2024-05-22 13:16:25.071103: [warn] gi-glib           >               , namePrefix = Nothing
+2024-05-22 13:16:25.071122: [warn] gi-glib           >               }
+2024-05-22 13:16:25.071142: [warn] gi-glib           >           , "forever"
+2024-05-22 13:16:25.071161: [warn] gi-glib           >           )
+2024-05-22 13:16:25.071189: [warn] gi-glib           >         , ( Name
+2024-05-22 13:16:25.071210: [warn] gi-glib           >               { nameLocalName = "transfer-ownership"
+2024-05-22 13:16:25.071228: [warn] gi-glib           >               , nameNamespace = Nothing
+2024-05-22 13:16:25.071245: [warn] gi-glib           >               , namePrefix = Nothing
+2024-05-22 13:16:25.071260: [warn] gi-glib           >               }
+2024-05-22 13:16:25.071275: [warn] gi-glib           >           , "none"
+2024-05-22 13:16:25.071291: [warn] gi-glib           >           )
+2024-05-22 13:16:25.071309: [warn] gi-glib           >         ]
+2024-05-22 13:16:25.071324: [warn] gi-glib           >   , elementNodes =
+2024-05-22 13:16:25.071336: [warn] gi-glib           >       [ NodeContent "\n            "
+2024-05-22 13:16:25.071351: [warn] gi-glib           >       , NodeElement
+2024-05-22 13:16:25.071363: [warn] gi-glib           >           Element
+2024-05-22 13:16:25.071379: [warn] gi-glib           >             { elementName =
+2024-05-22 13:16:25.071392: [warn] gi-glib           >                 Name
+2024-05-22 13:16:25.071405: [warn] gi-glib           >                   { nameLocalName = "doc"
+2024-05-22 13:16:25.071423: [warn] gi-glib           >                   , nameNamespace = Just "http://www.gtk.org/introspection/core/1.0"
+2024-05-22 13:16:25.071451: [warn] gi-glib           >                   , namePrefix = Nothing
+2024-05-22 13:16:25.071471: [warn] gi-glib           >                   }
+2024-05-22 13:16:25.071489: [warn] gi-glib           >             , elementAttributes =
+2024-05-22 13:16:25.071507: [warn] gi-glib           >                 fromList
+2024-05-22 13:16:25.071525: [warn] gi-glib           >                   [ ( Name
+2024-05-22 13:16:25.071543: [warn] gi-glib           >                         { nameLocalName = "filename"
+2024-05-22 13:16:25.071560: [warn] gi-glib           >                         , nameNamespace = Nothing
+2024-05-22 13:16:25.071577: [warn] gi-glib           >                         , namePrefix = Nothing
+2024-05-22 13:16:25.071590: [warn] gi-glib           >                         }
+2024-05-22 13:16:25.071608: [warn] gi-glib           >                     , "glib/gerror.c"
+2024-05-22 13:16:25.071627: [warn] gi-glib           >                     )
+2024-05-22 13:16:25.071644: [warn] gi-glib           >                   , ( Name
+2024-05-22 13:16:25.071663: [warn] gi-glib           >                         { nameLocalName = "line"
+2024-05-22 13:16:25.071680: [warn] gi-glib           >                         , nameNamespace = Nothing
+2024-05-22 13:16:25.071698: [warn] gi-glib           >                         , namePrefix = Nothing
+2024-05-22 13:16:25.071715: [warn] gi-glib           >                         }
+2024-05-22 13:16:25.071732: [warn] gi-glib           >                     , "162"
+2024-05-22 13:16:25.071750: [warn] gi-glib           >                     )
+2024-05-22 13:16:25.071769: [warn] gi-glib           >                   , ( Name
+2024-05-22 13:16:25.071786: [warn] gi-glib           >                         { nameLocalName = "space"
+2024-05-22 13:16:25.071804: [warn] gi-glib           >                         , nameNamespace = Just "http://www.w3.org/XML/1998/namespace"
+2024-05-22 13:16:25.071826: [warn] gi-glib           >                         , namePrefix = Just "xml"
+2024-05-22 13:16:25.071844: [warn] gi-glib           >                         }
+2024-05-22 13:16:25.071863: [warn] gi-glib           >                     , "preserve"
+2024-05-22 13:16:25.071880: [warn] gi-glib           >                     )
+2024-05-22 13:16:25.071898: [warn] gi-glib           >                   ]
+2024-05-22 13:16:25.071916: [warn] gi-glib           >             , elementNodes =
+2024-05-22 13:16:25.071932: [warn] gi-glib           >                 [ NodeContent
+2024-05-22 13:16:25.071951: [warn] gi-glib           >                     "function initializing fields of the private error data"
+2024-05-22 13:16:25.071969: [warn] gi-glib           >                 ]
+2024-05-22 13:16:25.071987: [warn] gi-glib           >             }
+2024-05-22 13:16:25.072005: [warn] gi-glib           >       , NodeContent "\n            "
+2024-05-22 13:16:25.072022: [warn] gi-glib           >       , NodeElement
+2024-05-22 13:16:25.072040: [warn] gi-glib           >           Element
+2024-05-22 13:16:25.072058: [warn] gi-glib           >             { elementName =
+2024-05-22 13:16:25.072075: [warn] gi-glib           >                 Name
+2024-05-22 13:16:25.072093: [warn] gi-glib           >                   { nameLocalName = "type"
+2024-05-22 13:16:25.072111: [warn] gi-glib           >                   , nameNamespace = Just "http://www.gtk.org/introspection/core/1.0"
+2024-05-22 13:16:25.072127: [warn] gi-glib           >                   , namePrefix = Nothing
+2024-05-22 13:16:25.072145: [warn] gi-glib           >                   }
+2024-05-22 13:16:25.072162: [warn] gi-glib           >             , elementAttributes =
+2024-05-22 13:16:25.072179: [warn] gi-glib           >                 fromList
+2024-05-22 13:16:25.072197: [warn] gi-glib           >                   [ ( Name
+2024-05-22 13:16:25.072213: [warn] gi-glib           >                         { nameLocalName = "name"
+2024-05-22 13:16:25.072231: [warn] gi-glib           >                         , nameNamespace = Nothing
+2024-05-22 13:16:25.072249: [warn] gi-glib           >                         , namePrefix = Nothing
+2024-05-22 13:16:25.072265: [warn] gi-glib           >                         }
+2024-05-22 13:16:25.072283: [warn] gi-glib           >                     , "ErrorInitFunc"
+2024-05-22 13:16:25.072301: [warn] gi-glib           >                     )
+2024-05-22 13:16:25.072318: [warn] gi-glib           >                   , ( Name
+2024-05-22 13:16:25.072336: [warn] gi-glib           >                         { nameLocalName = "type"
+2024-05-22 13:16:25.072353: [warn] gi-glib           >                         , nameNamespace = Just "http://www.gtk.org/introspection/c/1.0"
+2024-05-22 13:16:25.072371: [warn] gi-glib           >                         , namePrefix = Just "c"
+2024-05-22 13:16:25.072388: [warn] gi-glib           >                         }
+2024-05-22 13:16:25.072405: [warn] gi-glib           >                     , "GErrorInitFunc"
+2024-05-22 13:16:25.072422: [warn] gi-glib           >                     )
+2024-05-22 13:16:25.072446: [warn] gi-glib           >                   ]
+2024-05-22 13:16:25.072463: [warn] gi-glib           >             , elementNodes = []
+2024-05-22 13:16:25.072481: [warn] gi-glib           >             }
+2024-05-22 13:16:25.072499: [warn] gi-glib           >       , NodeContent "\n          "
+2024-05-22 13:16:25.072516: [warn] gi-glib           >       ]
+2024-05-22 13:16:25.072534: [warn] gi-glib           >   }
+2024-05-22 13:16:25.072550: [warn] gi-glib           > CallStack (from HasCallStack):
+2024-05-22 13:16:25.072569: [warn] gi-glib           >   error, called at lib/Data/GI/CodeGen/API.hs:182:19 in haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS:Data.GI.CodeGen.API
+2024-05-22 13:16:25.106914: [warn] gi-cairo          > Parse error: Error when parsing "record [Error] / function [domain_register] / parameters / parameter [error_type_init]": Unknown scope type "forever"
+2024-05-22 13:16:25.107022: [warn] gi-cairo          > Element
+2024-05-22 13:16:25.107066: [warn] gi-cairo          >   { elementName =
+2024-05-22 13:16:25.107104: [warn] gi-cairo          >       Name
+2024-05-22 13:16:25.107153: [warn] gi-cairo          >         { nameLocalName = "parameter"
+2024-05-22 13:16:25.107192: [warn] gi-cairo          >         , nameNamespace = Just "http://www.gtk.org/introspection/core/1.0"
+2024-05-22 13:16:25.107238: [warn] gi-cairo          >         , namePrefix = Nothing
+2024-05-22 13:16:25.107271: [warn] gi-cairo          >         }
+2024-05-22 13:16:25.107300: [warn] gi-cairo          >   , elementAttributes =
+2024-05-22 13:16:25.107328: [warn] gi-cairo          >       fromList
+2024-05-22 13:16:25.107354: [warn] gi-cairo          >         [ ( Name
+2024-05-22 13:16:25.107381: [warn] gi-cairo          >               { nameLocalName = "name"
+2024-05-22 13:16:25.107408: [warn] gi-cairo          >               , nameNamespace = Nothing
+2024-05-22 13:16:25.107440: [warn] gi-cairo          >               , namePrefix = Nothing
+2024-05-22 13:16:25.107476: [warn] gi-cairo          >               }
+2024-05-22 13:16:25.107502: [warn] gi-cairo          >           , "error_type_init"
+2024-05-22 13:16:25.107526: [warn] gi-cairo          >           )
+2024-05-22 13:16:25.107552: [warn] gi-cairo          >         , ( Name
+2024-05-22 13:16:25.107578: [warn] gi-cairo          >               { nameLocalName = "scope"
+2024-05-22 13:16:25.107605: [warn] gi-cairo          >               , nameNamespace = Nothing
+2024-05-22 13:16:25.107633: [warn] gi-cairo          >               , namePrefix = Nothing
+2024-05-22 13:16:25.107659: [warn] gi-cairo          >               }
+2024-05-22 13:16:25.107686: [warn] gi-cairo          >           , "forever"
+2024-05-22 13:16:25.107712: [warn] gi-cairo          >           )
+2024-05-22 13:16:25.107736: [warn] gi-cairo          >         , ( Name
+2024-05-22 13:16:25.107762: [warn] gi-cairo          >               { nameLocalName = "transfer-ownership"
+2024-05-22 13:16:25.107787: [warn] gi-cairo          >               , nameNamespace = Nothing
+2024-05-22 13:16:25.107812: [warn] gi-cairo          >               , namePrefix = Nothing
+2024-05-22 13:16:25.107837: [warn] gi-cairo          >               }
+2024-05-22 13:16:25.107862: [warn] gi-cairo          >           , "none"
+2024-05-22 13:16:25.107887: [warn] gi-cairo          >           )
+2024-05-22 13:16:25.107914: [warn] gi-cairo          >         ]
+2024-05-22 13:16:25.107938: [warn] gi-cairo          >   , elementNodes =
+2024-05-22 13:16:25.107964: [warn] gi-cairo          >       [ NodeContent "\n            "
+2024-05-22 13:16:25.107989: [warn] gi-cairo          >       , NodeElement
+2024-05-22 13:16:25.108013: [warn] gi-cairo          >           Element
+2024-05-22 13:16:25.108046: [warn] gi-cairo          >             { elementName =
+2024-05-22 13:16:25.108073: [warn] gi-cairo          >                 Name
+2024-05-22 13:16:25.108111: [warn] gi-cairo          >                   { nameLocalName = "doc"
+2024-05-22 13:16:25.108147: [warn] gi-cairo          >                   , nameNamespace = Just "http://www.gtk.org/introspection/core/1.0"
+2024-05-22 13:16:25.108182: [warn] gi-cairo          >                   , namePrefix = Nothing
+2024-05-22 13:16:25.108218: [warn] gi-cairo          >                   }
+2024-05-22 13:16:25.108254: [warn] gi-cairo          >             , elementAttributes =
+2024-05-22 13:16:25.108289: [warn] gi-cairo          >                 fromList
+2024-05-22 13:16:25.108325: [warn] gi-cairo          >                   [ ( Name
+2024-05-22 13:16:25.108362: [warn] gi-cairo          >                         { nameLocalName = "filename"
+2024-05-22 13:16:25.108396: [warn] gi-cairo          >                         , nameNamespace = Nothing
+2024-05-22 13:16:25.108438: [warn] gi-cairo          >                         , namePrefix = Nothing
+2024-05-22 13:16:25.108477: [warn] gi-cairo          >                         }
+2024-05-22 13:16:25.108518: [warn] gi-cairo          >                     , "glib/gerror.c"
+2024-05-22 13:16:25.108557: [warn] gi-cairo          >                     )
+2024-05-22 13:16:25.108592: [warn] gi-cairo          >                   , ( Name
+2024-05-22 13:16:25.108628: [warn] gi-cairo          >                         { nameLocalName = "line"
+2024-05-22 13:16:25.108665: [warn] gi-cairo          >                         , nameNamespace = Nothing
+2024-05-22 13:16:25.108700: [warn] gi-cairo          >                         , namePrefix = Nothing
+2024-05-22 13:16:25.108736: [warn] gi-cairo          >                         }
+2024-05-22 13:16:25.108770: [warn] gi-cairo          >                     , "162"
+2024-05-22 13:16:25.108806: [warn] gi-cairo          >                     )
+2024-05-22 13:16:25.108842: [warn] gi-cairo          >                   , ( Name
+2024-05-22 13:16:25.108877: [warn] gi-cairo          >                         { nameLocalName = "space"
+2024-05-22 13:16:25.108913: [warn] gi-cairo          >                         , nameNamespace = Just "http://www.w3.org/XML/1998/namespace"
+2024-05-22 13:16:25.108949: [warn] gi-cairo          >                         , namePrefix = Just "xml"
+2024-05-22 13:16:25.108983: [warn] gi-cairo          >                         }
+2024-05-22 13:16:25.109020: [warn] gi-cairo          >                     , "preserve"
+2024-05-22 13:16:25.109055: [warn] gi-cairo          >                     )
+2024-05-22 13:16:25.109090: [warn] gi-cairo          >                   ]
+2024-05-22 13:16:25.109126: [warn] gi-cairo          >             , elementNodes =
+2024-05-22 13:16:25.109162: [warn] gi-cairo          >                 [ NodeContent
+2024-05-22 13:16:25.109198: [warn] gi-cairo          >                     "function initializing fields of the private error data"
+2024-05-22 13:16:25.109234: [warn] gi-cairo          >                 ]
+2024-05-22 13:16:25.109269: [warn] gi-cairo          >             }
+2024-05-22 13:16:25.109305: [warn] gi-cairo          >       , NodeContent "\n            "
+2024-05-22 13:16:25.109340: [warn] gi-cairo          >       , NodeElement
+2024-05-22 13:16:25.109374: [warn] gi-cairo          >           Element
+2024-05-22 13:16:25.109513: [warn] gi-cairo          >             { elementName =
+2024-05-22 13:16:25.109542: [warn] gi-cairo          >                 Name
+2024-05-22 13:16:25.109572: [warn] gi-cairo          >                   { nameLocalName = "type"
+2024-05-22 13:16:25.109600: [warn] gi-cairo          >                   , nameNamespace = Just "http://www.gtk.org/introspection/core/1.0"
+2024-05-22 13:16:25.109629: [warn] gi-cairo          >                   , namePrefix = Nothing
+2024-05-22 13:16:25.109658: [warn] gi-cairo          >                   }
+2024-05-22 13:16:25.109687: [warn] gi-cairo          >             , elementAttributes =
+2024-05-22 13:16:25.109715: [warn] gi-cairo          >                 fromList
+2024-05-22 13:16:25.109744: [warn] gi-cairo          >                   [ ( Name
+2024-05-22 13:16:25.109772: [warn] gi-cairo          >                         { nameLocalName = "name"
+2024-05-22 13:16:25.109801: [warn] gi-cairo          >                         , nameNamespace = Nothing
+2024-05-22 13:16:25.109829: [warn] gi-cairo          >                         , namePrefix = Nothing
+2024-05-22 13:16:25.109858: [warn] gi-cairo          >                         }
+2024-05-22 13:16:25.109889: [warn] gi-cairo          >                     , "ErrorInitFunc"
+2024-05-22 13:16:25.109918: [warn] gi-cairo          >                     )
+2024-05-22 13:16:25.109947: [warn] gi-cairo          >                   , ( Name
+2024-05-22 13:16:25.109977: [warn] gi-cairo          >                         { nameLocalName = "type"
+2024-05-22 13:16:25.110006: [warn] gi-cairo          >                         , nameNamespace = Just "http://www.gtk.org/introspection/c/1.0"
+2024-05-22 13:16:25.110035: [warn] gi-cairo          >                         , namePrefix = Just "c"
+2024-05-22 13:16:25.110070: [warn] gi-cairo          >                         }
+2024-05-22 13:16:25.110099: [warn] gi-cairo          >                     , "GErrorInitFunc"
+2024-05-22 13:16:25.110127: [warn] gi-cairo          >                     )
+2024-05-22 13:16:25.110154: [warn] gi-cairo          >                   ]
+2024-05-22 13:16:25.110182: [warn] gi-cairo          >             , elementNodes = []
+2024-05-22 13:16:25.110210: [warn] gi-cairo          >             }
+2024-05-22 13:16:25.110238: [warn] gi-cairo          >       , NodeContent "\n          "
+2024-05-22 13:16:25.110266: [warn] gi-cairo          >       ]
+2024-05-22 13:16:25.110294: [warn] gi-cairo          >   }
+2024-05-22 13:16:25.110322: [warn] gi-cairo          > CallStack (from HasCallStack):
+2024-05-22 13:16:25.110350: [warn] gi-cairo          >   error, called at lib/Data/GI/CodeGen/API.hs:182:19 in haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS:Data.GI.CodeGen.API
+2024-05-22 13:16:25.145869: [debug] Checking for project config at: /home/iharh/.config/xmonad/stack.yaml
+2024-05-22 13:16:25.145926: [debug] Loading project config file stack.yaml
+2024-05-22 13:16:25.146631: [debug] Use of Casa server enabled: (CasaRepoPrefix "https://casa.stackage.org", 1280).
+2024-05-22 13:16:25.148302: [debug] (SQL) SELECT COUNT(*) FROM "last_performed" WHERE ("action"=?) AND ("timestamp">=?); [PersistInt64 1,PersistUTCTime 2024-05-21 10:16:25.14828648 UTC]
+2024-05-22 13:16:25.148546: [error] 
+Error: [S-7282]
+       Stack failed to execute the build plan.
+       
+       While executing the build plan, Stack encountered the following errors:
+       
+       [S-7011]
+       While building package gi-cairo-1.0.29 (scroll up to its section to see the error) using:
+       /tmp/stack-265684d4da1c593d/gi-cairo-1.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup --verbose=1 --builddir=.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7 configure --with-ghc=/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7 --with-ghc-pkg=/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --user --package-db=clear --package-db=global --package-db=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb --libdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/lib --bindir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/bin --datadir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/share --libexecdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/libexec --sysconfdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/etc --docdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-cairo-1.0.29 --htmldir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-cairo-1.0.29 --haddockdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-cairo-1.0.29 --dependency=Cabal=Cabal-3.8.1.0 --dependency=base=base-4.17.2.0 --dependency=bytestring=bytestring-0.11.5.2 --dependency=containers=containers-0.6.7 --dependency=haskell-gi=haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS --dependency=haskell-gi-base=haskell-gi-base-0.26.4-AhgYz8E4LFy6UlbNZ0P0Ls --dependency=haskell-gi-overloading=haskell-gi-overloading-1.0-6w3IXGDooXgu3RA2LfTuf --dependency=text=text-2.0.2 --dependency=transformers=transformers-0.5.6.2 --exact-configuration --ghc-option=-fhide-source-paths
+       Process exited with code: ExitFailure 1 
+       
+       [S-7011]
+       While building package gi-glib-2.0.29 (scroll up to its section to see the error) using:
+       /tmp/stack-265684d4da1c593d/gi-glib-2.0.29/.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7/setup/setup --verbose=1 --builddir=.stack-work/dist/x86_64-linux-tinfo6/ghc-9.4.7 configure --with-ghc=/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-9.4.7 --with-ghc-pkg=/data/wrk/.stack/programs/x86_64-linux/ghc-tinfo6-9.4.7/bin/ghc-pkg-9.4.7 --user --package-db=clear --package-db=global --package-db=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/pkgdb --libdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/lib --bindir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/bin --datadir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/share --libexecdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/libexec --sysconfdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/etc --docdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-glib-2.0.29 --htmldir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-glib-2.0.29 --haddockdir=/data/wrk/.stack/snapshots/x86_64-linux-tinfo6/aa5b27ef59ba45d23877e4990ce3681ad7f637b9ec93ee3ef737b833c33f5a1e/9.4.7/doc/gi-glib-2.0.29 --dependency=Cabal=Cabal-3.8.1.0 --dependency=base=base-4.17.2.0 --dependency=bytestring=bytestring-0.11.5.2 --dependency=containers=containers-0.6.7 --dependency=haskell-gi=haskell-gi-0.26.7-AumvBxWDZqL8bzQhGlj8ZS --dependency=haskell-gi-base=haskell-gi-base-0.26.4-AhgYz8E4LFy6UlbNZ0P0Ls --dependency=haskell-gi-overloading=haskell-gi-overloading-1.0-6w3IXGDooXgu3RA2LfTuf --dependency=text=text-2.0.2 --dependency=transformers=transformers-0.5.6.2 --exact-configuration --ghc-option=-fhide-source-paths
+       Process exited with code: ExitFailure 1 
