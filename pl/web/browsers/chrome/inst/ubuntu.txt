@@ -1,6 +1,19 @@
 https://help.ubuntu.ru/wiki/google_chrome
 https://www.google.com/linuxrepositories/
 
+2024
+https://ubuntuhandbook.org/index.php/2024/04/install-google-chrome-ubuntu-24-04-lts/
+    sudo mv /etc/apt/trusted.gpg.d/google-chrome.gpg /etc/apt/keyrings
+    wget -qO - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /etc/apt/keyrings/google-chrome.gpg
+    /etc/apt/sources.list.d/google-chrome.sources
+Types: deb
+URIs: https://dl.google.com/linux/chrome/deb/
+Suites: stable
+Components: main
+Architectures: amd64
+Signed-By: /etc/apt/keyrings/google-chrome.gpg
+    sudo apt install google-chrome-stable
+
 2020
 https://zalinux.ru/?p=5066
 https://www.linuxbabe.com/ubuntu/install-google-chrome-ubuntu-18-04-lts
