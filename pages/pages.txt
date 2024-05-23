@@ -1,5 +1,4 @@
-? lsblk
-zram0 8g
+LiKongYu - Singapur - Iz 3-go mira v 1-y
 
 ? /boot/efi/
 
@@ -12,12 +11,6 @@ https://habr.com/ru/articles/106806/
     pactl
     https://www.baeldung.com/linux/boost-sound-volume-above-max
     https://megamorf.gitlab.io/2018/12/16/set-audio-volume-from-command-line/
-
-sway
-https://www.reddit.com/r/swaywm/comments/r4m1gn/new_windows_layout/
-    splith/splitv
-    https://github.com/nwg-piotr/autotiling
-    https://wiki.gentoo.org/wiki/Sway/en#Layouts
 
 atomic
     https://pagure.io/workstation-ostree-config
