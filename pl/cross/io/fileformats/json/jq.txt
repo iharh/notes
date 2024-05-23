@@ -25,3 +25,11 @@ https://github.com/jqlang/jq/issues/2385
 
 sammples
 "{took:.took, timed_out:.timed_out}"
+
+unescaping
+https://github.com/jqlang/jq/issues/2501
+https://stackoverflow.com/questions/35154684/how-to-parse-a-json-string-with-jq-or-other-alternatives
+    s/\\\"/\"/g replacing all backslashes and quotes ( \" ) into quotes only (")
+    s/^.//g replacing the first character in the stream to none character
+    s/.$//g replacing the last character in the stream to none character
+    cat <file>.json | sed -e 's/\\\"/\"/g' | jq .
