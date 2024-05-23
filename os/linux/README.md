@@ -55,6 +55,9 @@ sudo chroot /mnt
 
 https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot
 
+fat32, 512M, /boot/efi, flags: boot,esp
+ext4,   10G, /        , flags: root
+
 ## lshw
 
 ❯ sudo lshw -c video
