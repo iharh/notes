@@ -1,32 +1,32 @@
-LiKongYu - Singapur - Iz 3-go mira v 1-y
-
-https://wiki.archlinux.org/title/PulseAudio
-https://wiki.gentoo.org/wiki/PulseAudio
-https://habr.com/ru/articles/106806/
-    /etc/asound.conf
-    /etc/pulse/client.conf
-    ~/.config/pulse/default.pa
-    pactl
-    https://www.baeldung.com/linux/boost-sound-volume-above-max
-    https://megamorf.gitlab.io/2018/12/16/set-audio-volume-from-command-line/
-
+LiKongYu
+    Singapur - Iz 3-go mira v 1-y
 atomic
     https://pagure.io/workstation-ostree-config
     https://gitlab.com/fedora/ostree/sig/-/issues
-
-remove from path
-data/wrk/.cargo/bin/rg
-
 CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
     https://www.youtube.com/watch?v=M_P93LyJrzI
     ! 33:30 ! tons of links
-
-https://github.com/yusufcanb/tlm
-    go install github.com/yusufcanb/tlm@latest
-
-epam - tech debt
+epam - 
+  tech debt
     https://web.yammer.com/main/threads/eyJfdHlwZSI6IlRocmVhZCIsImlkIjoiMjYzMzE1MTY3NDA5NzY2NCJ9
-
+  Data Integration with Azure Data Factory #3
+    https://learn.epam.com/detailsPage?id=7502ff1f-b030-4c6d-8611-615e8d1eb716&source=PROGRAM_RUN
+    ! inside half/doesen of good links
+  Java Advanced: Backend Core
+    https://learn.epam.com/detailsPage?id=c60c5696-dfbe-4396-b0a0-72051bbaff5d&source=PROGRAM
+  AI Learning collection
+    https://learn.epam.com/study/promoDetails?id=79503b5d-8186-433c-a831-875fe12a4292
+    https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/
+    https://learn.microsoft.com/en-us/training/modules/introduction-to-github-copilot/1-introduction
+    https://www.promptingguide.ai/
+  EngX AI-Supported Engineering
+    https://learn.epam.com/detailsPage?id=f2e28252-98fd-431c-8c20-c6244dde0126
+  misc
+    https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/materials/microservice_architecture_overview/README.md#drawbacks
+    https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/tasks/microservice_architecture_overview/README.md
+java-courses/introduction-to-microservices/tasks/microservice_architecture_overview
+    https://epam.sharepoint.com/sites/EPAMEMEACloudengineering/_layouts/15/stream.aspx?id=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall%2FCloud%20Townhall%20%2D%20Recording%20Oct%2026%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
+    https://epam.sharepoint.com/sites/EPAMEMEACloudengineering/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall%2FCloud%20Townhall%20%2D%20Oct%2026%2Epdf&parent=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall&p=true&ga=1
 fin
     people/yardo
     vocab/vocab
@@ -36,118 +36,55 @@ fin
         https://cbonds.com/glossary/cfi/
         https://en.wikipedia.org/wiki/ISO_10962
         https://www.iotafinance.com/en/Classification-of-Financial-Instrument-codes-CFI-ISO-10962.html
-
-telusko
-    https://courses.telusko.com/learn/Java-8-stream-API-Features-Lambda-Expression
-
-snesarev - war philosophy
-http://flibusta.site/a/79981
-https://www.koob.ru/snesarev_a_e/
-https://www.koob.ru/snesarev_a_e/philosophy_war_snesarev
-https://kniger.by/shop/%D1%84%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%B2%D0%BE%D0%B9%D0%BD%D1%8B-5/
-https://mybooks.by/filosofiya/Filosofiya_voyny/
-
 docker-ui-matlab
-https://habr.com/ru/articles/780322/
-
+    https://habr.com/ru/articles/780322/
 diagrams software
-https://github.com/erictossell/nixflakes/issues/67
-
-zinoviev - zapad
-https://chitatel.by/catalog/book/1494029
-https://chitatel.by/catalog/book/1524490
-https://chitatel.by/catalog/book/1524393
-
+    https://github.com/erictossell/nixflakes/issues/67
 ? github/nushell
-https://github.com/x-way/iptables-tracer
-lightdm/font-size
-
-java books
-    subramaniam 2023
-
+    https://github.com/x-way/iptables-tracer
 net
-https://habr.com/ru/articles/307252/
-
-voronezh math life - homologies and data analysis
-    https://www.youtube.com/@user-fk5tb3iq1l
+    https://habr.com/ru/articles/307252/
 vim
     https://www.youtube.com/playlist?list=PL5fd4SsfvECzQbXMq8p4KIixgTYysBvGK
-
-$ apt-file search `which ecryptfs-migrate-home`
-ecryptfs-utils: /usr/bin/ecryptfs-migrate-home
-
-https://learn.microsoft.com/en-us/azure/well-architected/
-
-fun - vyhuhol
-https://m.vk.com/wall-107530098_40599
-https://hobbitdrug.livejournal.com/26990.html
-
-?
-setfont -d
-
-https://neiry.ru/mindtracker
-
-https://epam.sharepoint.com/sites/EPAMEMEACloudengineering/_layouts/15/stream.aspx?id=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall%2FCloud%20Townhall%20%2D%20Recording%20Oct%2026%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
-https://epam.sharepoint.com/sites/EPAMEMEACloudengineering/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall%2FCloud%20Townhall%20%2D%20Oct%2026%2Epdf&parent=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall&p=true&ga=1
-
-AI Learning collection
-    https://learn.epam.com/study/promoDetails?id=79503b5d-8186-433c-a831-875fe12a4292
-    https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/
-    https://learn.microsoft.com/en-us/training/modules/introduction-to-github-copilot/1-introduction
-    https://www.promptingguide.ai/
-EngX AI-Supported Engineering
-    https://learn.epam.com/detailsPage?id=f2e28252-98fd-431c-8c20-c6244dde0126
-
-
-Data Integration with Azure Data Factory #3
-    https://learn.epam.com/detailsPage?id=7502ff1f-b030-4c6d-8611-615e8d1eb716&source=PROGRAM_RUN
-    ! inside half/doesen of good links
-Java Advanced: Backend Core
-    https://learn.epam.com/detailsPage?id=c60c5696-dfbe-4396-b0a0-72051bbaff5d&source=PROGRAM
-
-    B94D53D424715F2E21A19149D3E9DA05
-
-https://spring.io/projects/spring-cloud-stream-applications
-https://github.com/spring-cloud/stream-applications
-
-https://www.reddit.com/r/haskell/comments/17j135h/tallinn_haskell_user_group_2_agda_introduction/
-https://nnmclub.to/forum/viewtopic.php?t=1672713
-https://www.cyberciti.biz/tips/top-linux-monitoring-tools.html
-
-java booster
-https://web.yammer.com/main/org/epam.com/topics/eyJfdHlwZSI6IlRvcGljIiwiaWQiOiI3MDM2OTc3MTUyMCJ9/all
-
-Naftalin Wadler - java generics and collections 2nd ed
+az
+    https://learn.microsoft.com/en-us/azure/well-architected/
+    https://teams.microsoft.com/l/message/19:9b661fc2a8724fe4bc9f9c7a0a6feea1@thread.tacv2/1664352421318?tenantId=b41b72d0-4e9f-4c26-8a69-f949f367c91d&groupId=e51e4b05-3cb4-47b7-ae33-b5f93a2db84e
+java 
+  booster
+    https://web.yammer.com/main/org/epam.com/topics/eyJfdHlwZSI6IlRvcGljIiwiaWQiOiI3MDM2OTc3MTUyMCJ9/all
+  Naftalin Wadler - java generics and collections 2nd ed
     https://www.oreilly.com/library/view/java-generics-and/9781098136710/
-Weidig - A Functional Approach to Java
+  Weidig - A Functional Approach to Java
     https://www.oreilly.com/library/view/a-functional-approach/9781098109912/
-
-azure
-https://teams.microsoft.com/l/message/19:9b661fc2a8724fe4bc9f9c7a0a6feea1@thread.tacv2/1664352421318?tenantId=b41b72d0-4e9f-4c26-8a69-f949f367c91d&groupId=e51e4b05-3cb4-47b7-ae33-b5f93a2db84e
-
+???
+    B94D53D424715F2E21A19149D3E9DA05
+    https://spring.io/projects/spring-cloud-stream-applications
+    https://github.com/spring-cloud/stream-applications
+    https://www.reddit.com/r/haskell/comments/17j135h/tallinn_haskell_user_group_2_agda_introduction/
+    https://nnmclub.to/forum/viewtopic.php?t=1672713
+    https://www.cyberciti.biz/tips/top-linux-monitoring-tools.html
 ????
     https://geek-cookbook.funkypenguin.co.nz/
     https://geek-cookbook.funkypenguin.co.nz/kubernetes/
     https://geek-cookbook.funkypenguin.co.nz/blog/
     https://help.rapidseedbox.com/en/
     https://help.rapidseedbox.com/en/articles/6982065-getting-started-with-prowlarr-2023-update
+    https://blogs.oracle.com/linux/post/unwinding-stack-frame-pointers-and-orc
+NixOS
+    https://www.youtube.com/watch?v=DjB0_ENFZWY
+    https://www.youtube.com/watch?v=xkzUjEj2tTg
+    https://www.youtube.com/watch?v=5doOHe8mnMU
+    https://www.youtube.com/watch?v=YrLjbPR3wfo
+    https://www.youtube.com/watch?v=e8XlEBMyzEw
+    https://www.youtube.com/watch?v=us7V2NvsQRA
+    https://www.youtube.com/watch?v=tl9I-R83lKo
+    https://www.youtube.com/watch?v=c_lyvedQEyI
 helm
     https://github.com/onedr0p/containers
-
-https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/materials/microservice_architecture_overview/README.md#drawbacks
-
-https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/tasks/microservice_architecture_overview/README.md
-java-courses/introduction-to-microservices/tasks/microservice_architecture_overview
-
-good-old
-https://github.com/iharh/dotfiles/commit/a16b2e3a07c58aaf442bbb341db25efa36f3df45
-huge-new
-https://github.com/iharh/dotfiles/commit/40d506f491742f5f3cf9535ab1e3743beca19b31
 
 https://github.com/bobbbay/dotfiles
 https://github.com/chvp/nixos-config
 
-https://github.com/ryantm/agenix
 https://man.sr.ht/~hutzdog/dotfiles/
     interesting wiki system
 https://github.com/nix-community/fenix
@@ -166,17 +103,11 @@ https://github.com/nix-community/fenix
 
 https://blog.predanie.ru/article/pochemu-stradali-prometej-sokrat-i-elli-smit-obyasneno-bogom/
     !
-NixOS
-    https://www.youtube.com/watch?v=DjB0_ENFZWY
-    https://www.youtube.com/watch?v=xkzUjEj2tTg
-    https://www.youtube.com/watch?v=5doOHe8mnMU
-    https://www.youtube.com/watch?v=YrLjbPR3wfo
-    https://www.youtube.com/watch?v=e8XlEBMyzEw
-    https://www.youtube.com/watch?v=us7V2NvsQRA
-    https://www.youtube.com/watch?v=tl9I-R83lKo
-    https://www.youtube.com/watch?v=c_lyvedQEyI
 
-https://blogs.oracle.com/linux/post/unwinding-stack-frame-pointers-and-orc
+voronezh math life - homologies and data analysis
+    https://www.youtube.com/@user-fk5tb3iq1l
+https://neiry.ru/mindtracker
+
 https://rodtv.ru/w/uEFBuLGsXQmGdTeDkCQWxn
 https://galkovsky.livejournal.com/46189.html
 https://nplus1.ru/material/2022/02/17/soviet-physics-school
@@ -222,8 +153,6 @@ Trushin - 25 years of 2:32:57
 Trushin - How to Help Schoolboy of 1:04:58
     https://www.youtube.com/watch?v=30Uv38YdN_w
 
-NotYetPozner - 2019 - Ilya Novikov of 1:12:35
-    https://www.youtube.com/watch?v=Ik_V4Ldv6pQ
 NotYetPozner - Dugin of 1:33:57
     https://www.youtube.com/watch?v=paHuy5IidzY
 Droider - Lasers of 9:20
@@ -329,7 +258,6 @@ OhHowSimple - How Killing RU Intell of 1:31:55
     https://www.youtube.com/watch?v=tiMFwTcKgTE
 OhHowSimple - All about Hackintosh ru of 50:26
     https://www.youtube.com/watch?v=fV5x8WdcrtU
-
 
 Mihalkov - Gena Crocodyle 1:00 of 48:50
     https://www.youtube.com/watch?v=lRbnMDMrQ5Q
