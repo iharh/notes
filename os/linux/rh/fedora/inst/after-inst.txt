@@ -1,11 +1,13 @@
 dnf install
     git zsh gcc g++ htop ulauncher
+mise i
+    yadm, neovim
+    fzf, fd, ripgrep
 
 https://mise.jdx.dev/getting-started.html
 TODO:
 mise activate
 echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
-mise i yadm, neovim
 
 yadm clone git@github.com:iharh/dotfiles.git
 
