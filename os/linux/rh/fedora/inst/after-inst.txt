@@ -1,3 +1,14 @@
+dnf install
+    git zsh gcc g++ htop ulauncher
+
+https://mise.jdx.dev/getting-started.html
+TODO:
+mise activate
+echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
+mise i yadm, neovim
+
+yadm clone git@github.com:iharh/dotfiles.git
+
 2024
 https://www.linuxcapable.com/install-telegram-on-fedora-linux/
     sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
