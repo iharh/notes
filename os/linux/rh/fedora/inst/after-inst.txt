@@ -1,8 +1,28 @@
 dnf install
-    git zsh gcc g++ htop ulauncher
+    git zsh gcc g++ htop ulauncher dnf5
 mise i
     yadm, neovim
     fzf, fd, ripgrep, lsd, bat, delta
+
+ls /etc/dnf/plugins/
+    corp.conf
+    corp.d/
+
+sudo dnf install https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora40.rpm
+
+dnf config-manager --dump
+
+https://docs.pagure.org/copr.copr/user_documentation.html
+https://github.com/rpm-software-management/dnf-plugins-core/
+https://www.mankier.com/package/dnf-plugins-core
+https://www.mankier.com/8/dnf-copr
+https://dnf-plugins-core.readthedocs.io/en/latest/copr.html
+    dnf install dnf-plugins-core
+    rpm -q --provides dnf-plugins-core
+    rpm -q --provides dnf-plugins-core | grep command
+    dnf list installed dnf-plugins-core
+https://dnf-plugins-core.readthedocs.io/en/latest/index.html
+sudo dnf corp enable wezfurlong/wezterm-nightly
 
 https://mise.jdx.dev/getting-started.html
 TODO:
