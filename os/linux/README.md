@@ -515,3 +515,7 @@ journalctl -k -b-1 > journal.txt
 * https://forum.puppylinux.com/viewtopic.php?t=2010
 * https://losst.pro/ispravlyaem-chernyj-ekran-ubuntu
 * https://wiki.astralinux.ru/pages/viewpage.action?pageId=23199819
+
+## to-clone
+
+git@bb-.org:ii-ko/wnotes.git
