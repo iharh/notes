@@ -1,5 +1,5 @@
 dnf install
-    git zsh gcc g++ htop ulauncher dnf5
+    dnf5 git zsh gcc g++ htop ulauncher keepassxc
 mise i
     yadm, neovim
     fzf, fd, ripgrep, lsd, bat, delta
@@ -8,6 +8,7 @@ ls /etc/dnf/plugins/
     corp.conf
     corp.d/
 
+wezterm
 https://wezfurlong.org/wezterm/install/linux.html#raw-linux-binary
     sudo dnf install https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora40.rpm
 
