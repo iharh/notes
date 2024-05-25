@@ -8,7 +8,8 @@ ls /etc/dnf/plugins/
     corp.conf
     corp.d/
 
-sudo dnf install https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora40.rpm
+https://wezfurlong.org/wezterm/install/linux.html#raw-linux-binary
+    sudo dnf install https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora40.rpm
 
 dnf config-manager --dump
 
