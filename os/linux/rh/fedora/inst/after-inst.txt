@@ -2,7 +2,7 @@ dnf install
     git zsh gcc g++ htop ulauncher
 mise i
     yadm, neovim
-    fzf, fd, ripgrep
+    fzf, fd, ripgrep, lsd, bat, delta
 
 https://mise.jdx.dev/getting-started.html
 TODO:
