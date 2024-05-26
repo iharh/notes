@@ -28,6 +28,10 @@ public class MyBean {
     WRITER$.write(this, SpecificData.getEncoder(out));
   }
 
+testing
+2024
+https://habr.com/ru/companies/alfastrah/articles/816057/
+
 batching
 https://stackoverflow.com/questions/58492689/how-to-send-batched-data-with-spring-kafka-producer
 2020
