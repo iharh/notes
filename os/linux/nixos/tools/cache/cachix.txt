@@ -11,5 +11,7 @@ https://github.com/colemickens/nixpkgs-wayland
     https://blog.cachix.org/posts/2020-11-09-write-access-control-for-binary-caches/
         CACHIX_AUTH_TOKEN or via configuration file by running cachix authtoken.
 
+2024
+https://blog.cachix.org/posts/2024-01-12-cachix-v1-7/
 2020
 https://fzakaria.com/2020/08/11/caching-your-nix-shell.html

@@ -1,0 +1,5 @@
+// Sort stringySort = Sort.by("age");
+
+TypedSort<Employee> typedSort = Sort.sort(Employee.class);
+Sort sort = typedSort.by(Employee::getAge);
+List<Employee> result = employeeRepository.findAll(sort);
