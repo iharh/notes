@@ -34,6 +34,7 @@ https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data
 MihailKeselyov - Transactions Theory and Practice 0:00 of 30:09
     https://www.youtube.com/watch?v=ovas9OCVfqo
 2023
+https://blog.devgenius.io/pessimistic-lock-in-spring-boot-a3c44055be0f
 https://www.baeldung.com/spring-transactional-propagation-isolation
     !!!
 https://www.linkedin.com/pulse/implementing-optimistic-pessimistic-locking-spring-boot-sanchez
