@@ -1,7 +1,7 @@
 ????
 https://squidex.jugru.team/api/assets/srm/3221c203-b174-4f0f-bbf2-2fcc15a59813/artem-artemsev.pdf
 2024
-SuchkovTech - Redis for 20 min 14:00 of 23:21
+SuchkovTech - Redis for 20 min of 23:21
     https://www.youtube.com/watch?v=QpBaA6B1U90
     ! iredis
       set firstKey "Hello"
@@ -56,6 +56,23 @@ SuchkovTech - Redis for 20 min 14:00 of 23:21
     ! exists cars
     !   (integer) 0 # no data by this case
     ! setex vars 20 10 # with ttl 10 (with suffix ex)
+    !
+    ! 18:30
+    public ArticleInfo getCachedArticle(Long id) {
+        try (Jedis jedis = jedisPool.getResource()) {
+            String key = "article:%d".formatted(id);
+            String raw = jedis.get(key);
+            if (raw != null) {
+                return mapper.readValue(raw, ArticleInfo.class);
+            }
+            var article = getArticle(id); // from DB
+            if (article == null) {
+                return null;
+            }
+            jedis.setex(key, TTL, mapper.writeValueAsString(article));
+            return article;
+        }
+    }
 
 2023
 SpringIO - Vector Similarity Search in Spring with Redis Stack by Brian Sam-Bodden 0:00 of 54:35
