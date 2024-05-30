@@ -1,0 +1,12 @@
+https://github.com/spring-gradle-plugins/dependency-management-plugin
+
+* What went wrong:
+An exclusion requires both a group and a name
+
+https://github.com/spring-gradle-plugins/dependency-management-plugin/blob/main/src/main/java/io/spring/gradle/dependencymanagement/internal/dsl/StandardDependencyHandler.java#L51
+
+
+    implementation("com.some:some-artifact") {
+            // exclude group: '...', "name" to "..."
+            exclude(mapOf("group" to "org.springframework.boot"))
+    }
