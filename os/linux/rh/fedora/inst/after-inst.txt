@@ -110,3 +110,7 @@ xfce4-appearance-settings
     fonts
 
 thunar - ?
+
+libreoffice
+https://www.libreoffice.org/download/download-libreoffice/
+    dnf install libreoffice
