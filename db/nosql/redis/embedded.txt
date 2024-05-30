@@ -1,0 +1,15 @@
+import redis.clients.jedis.Jedis;
+import redis.embedded.RedisExecProvider;
+import redis.embedded.RedisServer;
+import redis.embedded.util.Architecture;
+import redis.embedded.util.OS;
+
+var customerProvider = RedisExecProvider.defaultProvider()
+      .override(OS.MAC_OS_X, Architecture.x86_64, "/opt/homebrew/bin/redis-server");
+
+var redisServer = RedisServer.builder().redisExecProvider(customerProvider)
+      .port(...).setting(REDIS_MAX_MEMORY)
+      .build();
+
+redisServer.start();
+var jedis = new Jedis(redisContainerHost, redisContainerPort);

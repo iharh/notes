@@ -36,11 +36,9 @@ pam_lastlog: deprecate it and disable by default
 sudo dd bs=4M of=/dev/sda status=progress oflag=sync status=progress if=<dist>.iso
 ```
 
-## rhino dist grub nomodeset
+## grub
 
-```
-e -> splash -> nomodeset -> F10
-```
+https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/#create-an-esp
 
 ## chroot
 
