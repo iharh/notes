@@ -33,6 +33,9 @@ echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
 
 yadm clone git@github.com:iharh/dotfiles.git
 
+rpmfusion
+https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/
+
 2024
 https://www.linuxcapable.com/install-telegram-on-fedora-linux/
     sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -114,3 +117,18 @@ thunar - ?
 libreoffice
 https://www.libreoffice.org/download/download-libreoffice/
     dnf install libreoffice
+
+
+/etc/yum.repos.d/
+    _copr:copr.fedorainfracloud.org:wezfurlong:wezterm-nightly.repo
+
+[copr:copr.fedorainfracloud.org:wezfurlong:wezterm-nightly]
+name=Copr repo for wezterm-nightly owned by wezfurlong
+baseurl=https://download.copr.fedorainfracloud.org/results/wezfurlong/wezterm-nightly/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/wezfurlong/wezterm-nightly/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
