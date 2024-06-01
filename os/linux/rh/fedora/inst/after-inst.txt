@@ -1,5 +1,5 @@
 dnf install
-    dnf5 git zsh gcc g++ htop ulauncher keepassxc
+    dnf5 git zsh gcc g++ htop ulauncher keepassxc flatpak
 mise i
     yadm, neovim
     fzf, fd, ripgrep, lsd, bat, delta
