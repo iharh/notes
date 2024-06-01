@@ -1,5 +1,5 @@
 dnf install
-    dnf5 git zsh gcc g++ htop ulauncher keepassxc flatpak
+    dnf5 git zsh gcc g++ htop ulauncher keepassxc 
 mise i
     yadm, neovim
     fzf, fd, ripgrep, lsd, bat, delta
@@ -132,3 +132,7 @@ gpgkey=https://download.copr.fedorainfracloud.org/results/wezfurlong/wezterm-nig
 repo_gpgcheck=0
 enabled=1
 enabled_metadata=1
+
+flatpak
+sudo dnf install flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
