@@ -3,7 +3,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto.appl
     https://docs.spring.io/spring-boot/docs/3.2.2/api/org/springframework/boot/diagnostics/FailureAnalysis.html
 
 2024
-BusyCoderAcademy - 5. Spring Boot Rest Project Employee Mgt Application with Ex handling Validation||Rajeev Gupta 50:00 of 1:31:30
+BusyCoderAcademy - 5. Spring Boot Rest Project Employee Mgt Application with Ex handling Validation||Rajeev Gupta 1:20:00 of 1:31:30
     https://www.youtube.com/watch?v=XTk6fz1i9UA
     ! package for exceptions
     ! 44:00 proper way is to create separate @RestControllerAdvice EmployeeAppExHandlerController
@@ -26,6 +26,17 @@ BusyCoderAcademy - 5. Spring Boot Rest Project Employee Mgt Application with Ex 
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(errorInfo);
         }
+    }
+    !
+    ! add spring-boot-starter-validation
+    ! Dto-classes to transfer data between controller/service layer
+    ! GenerateAllSetter idea plugin to convert one objecto into the other
+    ! Entity-Corruption pattern - controller-layer should not talk to entities
+    !
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorInfo> handle400(MethodArgumentNotValidException e) {
+        String errorMessage = e.getBindingResult().getAllErrors().stream().map(e -> e.getDefaultMessage())
+        ...
     }
 
 2023
