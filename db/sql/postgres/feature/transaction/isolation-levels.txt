@@ -1,3 +1,5 @@
+https://postgrespro.ru/docs/postgresql/16/transaction-iso
+
 mainly relevant to lock-based DB impls (while PG is an MVCC-one)
 
 read uncommitted
