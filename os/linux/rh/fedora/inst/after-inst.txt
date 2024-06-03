@@ -65,6 +65,7 @@ https://github.com/nagygergo/jetbrains-toolbox-install/blob/master/jetbrains-too
 wget https://raw.githubusercontent.com/nagygergo/jetbrains-toolbox-install/master/jetbrains-toolbox.sh
     l18: remove "--show-progress"
 
+teams-for-linux
 curl -1sLf -o /tmp/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc
 sudo rpm --import /tmp/teams-for-linux.asc
 rm -f /tmp/teams-for-linux.asc
