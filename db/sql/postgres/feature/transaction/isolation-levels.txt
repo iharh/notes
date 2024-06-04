@@ -16,3 +16,6 @@ show default_transaction_isolation;
     read committed
 
 at distinct level we use distinct snapshoting strategies ...
+
+2024
+https://habr.com/ru/articles/815323/
