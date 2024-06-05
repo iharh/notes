@@ -1,3 +1,5 @@
+2024
+https://habr.com/ru/companies/simbirsoft/articles/812097/
 2023
 https://xalgord.in/multi-threaded-programming-in-java/
     ExecutorService executor = Executors.newFixedThreadPool(10);
