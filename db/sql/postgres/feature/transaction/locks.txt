@@ -1,10 +1,10 @@
-https://habrahabr.ru/company/postgrespro/blog/270827/
+https://postgrespro.ru/docs/postgresql/16/explicit-locking
 
 2018
 https://www.citusdata.com/blog/2018/02/22/seven-tips-for-dealing-with-postgres-locks/
     https://habr.com/ru/company/otus/blog/452986/
 2015
-https://habr.com/en/company/postgrespro/blog/270827/
+https://habrahabr.ru/company/postgrespro/blog/270827/
 
 samples
 select ... for update;
