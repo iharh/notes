@@ -1,5 +1,8 @@
+https://docs.oracle.com/en/java/javase/22/jfapi/why-use-jfr-api.html
+https://inside.java/tag/jfr
+
 2024
-Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder 7:00 of 36:55
+Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder 21:00 of 36:55
     https://www.youtube.com/watch?v=AgFOJEkBVjg
     ! default conf is at lib/jfr/default.jfc, profile.jfc
     ! java -XX:StartFlightRecording # less than 1% overhead
@@ -12,6 +15,41 @@ Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder 7:00 of 36:5
     ! jcmd <pid> JFR.check
     !   20496:
     !   Recording 1: name=1 maxsize=250,0Mb (running)
+    ! jfr summary <file>.jfr
+    ! jfr view --verbose <file>.jfr 
+    ! jfr help view # 70 predefined views
+    @Name("inside.dumpster.ServiceCall")
+    @Label("Service.Call")
+    @Category({"Business Application", "Services"})
+    public class ServiceCallEvent extends jdk.jfr.Event {
+        @Label("Service Destination")
+        public String destination;
+        
+        @Name("serviceClass")
+        @Label("Service Implementation Class")
+        public Class serviceImplClass;
+    }
+
+        Hello event = new Hello();
+        event.begin();
+        ...
+        event.message = "Hello Event!";
+        ...
+        event.commit();
+
+    ! monitoring
+    Configuration conf = Configuration.getConfiguration("default");
+    try (var stream = new RecordingStream(conf)) {
+      stream.enable("jdk.CPULoad").withPeriod(Duration.ofSeconds(1));
+      stream.onEvent("jdk.CPULoad", event -> {
+        float cpuLoad = event.getFloat("jvmUser");
+        if (cpuLoad > 0.8) {
+          stream.dupm(dupmPath);
+        }
+      });
+      stream.start();
+    }
+
 2023
 Java - Continuous Monitoring with JDK Flight Recorder 0:00 of 45:55
     https://www.youtube.com/watch?v=Gx_JGVborJ0

@@ -1,7 +1,7 @@
 2023
-JustinGarrison - OStree vs. AB root vs. nix 6:00 of 15:51
+Justin Garrison - OStree vs. AB root vs. nix 10:00 of 15:51
     https://www.youtube.com/watch?v=E_6b5_lEg88
-TheLinuxExperiment - What are immutable distros, and are they the future of Linux? 3:00 of 15:22
+TheLinuxExperiment - What are immutable distros, and are they the future of Linux? of 15:22
     https://www.youtube.com/watch?v=9hiPFEUoUyI
 TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Running with Ostree on Your...- Davis Roman of 46:26
     https://www.youtube.com/watch?v=_CwGUt0CpvU
@@ -38,6 +38,9 @@ TheLinuxFoundation - Ostree for the Uninitiated - What You Need to Get Up and Ru
     ! after building initramfs, 
     !   image_types_ostree.bbclass commits yocto's final rootfs into the buildsystem's ostree repository
     !
+2022
+Brodie Robertson - Debunking 7 Myths About Immutable Linux Distros 0:00 of 13:20
+    https://www.youtube.com/watch?v=SgDw5aCEkrs
 2021
 Pingvinus - Fedora 35 of 6:52
     https://www.youtube.com/watch?v=mNziXTfZcGk
