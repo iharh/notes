@@ -2,6 +2,7 @@ https://flake.parts/
 https://github.com/hercules-ci/flake-parts
 
 https://community.flake.parts/
+https://community.flake.parts/intro
 https://community.flake.parts/nixos-flake
 https://github.com/srid/nixos-flake/blob/f6b7757ad88483afca306c9f3bf387887fba7284/flake-module.nix#L50-L100
 
