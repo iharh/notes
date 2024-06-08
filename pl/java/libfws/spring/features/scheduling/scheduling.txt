@@ -2,18 +2,6 @@ https://spring.io/guides/gs/scheduling-tasks/
 
 https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/annotation/Scheduled.html
 
-2021
-https://reflectoring.io/spring-scheduler/
-    https://habr.com/ru/post/580062/
-    https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-scheduler
-DevmarkRu - Scheduler in Spring ru of 10:14
-    https://www.youtube.com/watch?v=gJbhPjNSm9k
-2020
-https://spring.io/blog/2020/11/10/new-in-spring-5-3-improved-cron-expressions
-2019
-SpringAcademy - Spring Boot @Scheduled Crash Course of 14:20
-    https://www.youtube.com/watch?v=92-qLIxv0JA
-
 at main app
 import org.springframework.scheduling.annotation.EnableScheduling;
     @EnableScheduling
