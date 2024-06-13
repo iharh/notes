@@ -2,21 +2,6 @@ https://help.zscaler.com/client-connector
 https://help.zscaler.com/client-connector/what-is-zscaler-client-connector
 https://help.zscaler.com/client-connector/zscaler-client-connector-processes-allowlist
 
-https://help.zscaler.com/z-app/release-notes/zscaler-client-connector-release-notes-os
-https://help.zscaler.com/client-connector/client-connector-app-release-summary-2023
-    1.5
-    https://d32a6ru7mhaq0c.cloudfront.net/Zscaler-linux-1.5.2.10-installer.run
-    https://help.zscaler.com/eos-eol/supported-versions
-    https://help.zscaler.com/client-connector/configuring-client-certificate-posture-check-linux
-    1.4
-        1.4.1.41
-        wget 'https://d32a6ru7mhaq0c.cloudfront.net/Zscaler-linux-1.4.1.41-installer.run'
-    1.3
-        wget 'https://d32a6ru7mhaq0c.cloudfront.net/Zscaler-linux-1.3.1.6-installer.run'
-
-https://help.zscaler.com/client-connector/client-connector-app-release-summary-2022
-    https://d32a6ru7mhaq0c.cloudfront.net/Zscaler-linux-1.3.1.6-installer.run
-
 cert
 https://github.com/andy-cheatwood/zscaler/tree/main
 https://github.com/orgs/zscaler/repositories
