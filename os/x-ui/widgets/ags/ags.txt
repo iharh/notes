@@ -25,5 +25,8 @@ cfg samples
 https://github.com/flick0/ags-sootspirits
 
 2024
-Vimjoyer - Revolutionize Your Desktop With AGS | Easiest Wayland Widgets of 10:14
+Vimjoyer - Revolutionize Your Desktop With AGS | Easiest Wayland Widgets 4:40 of 10:14
     https://www.youtube.com/watch?v=GvpTUKaXqNk
+    ags --init
+    ls ~/.config/ags
+        config.js tsconfig.json types/
