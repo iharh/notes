@@ -1,3 +1,6 @@
+mise ~/.local/share/mise/installs/python/3.10.11/bin/python failed
+/home/iharh/.local/share/mise/installs/python/3.10.11/bin/python: error while loading shared libraries: libcrypt.so.1: cannot open shared object file: No such file or directory
+
 zay vlad nikitich
 https://www.youtube.com/watch?v=Nk8zUVAUuH0
 klyos
