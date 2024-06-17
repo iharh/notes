@@ -2,7 +2,7 @@ https://docs.oracle.com/en/java/javase/22/jfapi/why-use-jfr-api.html
 https://inside.java/tag/jfr
 
 2024
-Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder 31:00 of 36:55
+Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder of 36:55
     https://www.youtube.com/watch?v=AgFOJEkBVjg
     ! default conf is at lib/jfr/default.jfc, profile.jfc
     ! java -XX:StartFlightRecording # less than 1% overhead
@@ -61,6 +61,11 @@ Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder 31:00 of 36:
         @MemoryAddress
         @Frequency
         @Percentage
+        @Enabled
+        @Threshold
+
+    to enable dynamically
+        jfr 23544 JFR.start +backend.io.BytesRead#enabled=true
 
 2023
 Java - Continuous Monitoring with JDK Flight Recorder 0:00 of 45:55
