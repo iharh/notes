@@ -8,8 +8,12 @@ http://wiremock.org/docs/getting-started/
     @WireMockTest, @RegisterExtension, given/when/then
 https://wiremock.org/docs/junit-jupiter/
     @WireMockTest
+
 https://wiremock.org/docs/stubbing/
+
 https://wiremock.org/docs/request-matching/
+https://wiremock.org/docs/request-matching/#path-templates
+
 https://wiremock.org/docs/extending-wiremock/
 
 https://github.com/tomakehurst/wiremock/issues/684
@@ -91,3 +95,38 @@ https://wiremock.org/docs/mock-api-templates/usage/
 
 custom request matchers
 https://wiremock.org/docs/extending-wiremock/#custom-request-matchers
+
+deps
++--- org.springframework.cloud:spring-cloud-contract-wiremock -> 4.1.0
+|    +--- com.github.tomakehurst:wiremock-jre8-standalone:2.35.1
+
+https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-contract-wiremock
+https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-contract-wiremock/4.1.3
+
+https://central.sonatype.com/artifact/org.springframework.cloud/spring-cloud-contract-wiremock/versions
+https://central.sonatype.com/artifact/org.springframework.cloud/spring-cloud-contract-wiremock/4.1.3
+
+https://repo1.maven.org/maven2/org/springframework/cloud/spring-cloud-contract-wiremock/4.1.3/
+https://repo1.maven.org/maven2/org/springframework/cloud/spring-cloud-contract-wiremock/4.1.3/spring-cloud-contract-wiremock-4.1.3.pom
+
+springBootVersion= 3.2.1
+springCloudVersion=2023.0.0
+
+https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-contract-wiremock
+
+tags
+https://github.com/wiremock/wiremock/releases/tag/2.35.1
+
+
+https://docs.spring.io/spring-cloud-contract/reference/project-features-wiremock.html
+https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#features-wiremock
+https://github.com/spring-cloud/spring-cloud-contract
+
+upgrade
+https://github.com/spring-cloud/spring-cloud-contract/issues/1933
+    https://github.com/cameleeck/spring-cloud-contract/commit/13560216fc2cfb96e723070c965a3dc39889a4fd
+    https://github.com/spring-cloud/spring-cloud-contract/compare/main...cameleeck:spring-cloud-contract:main
+    3.3.0
+    https://github.com/spring-cloud/spring-cloud-contract/pull/2092
+https://github.com/spring-cloud/spring-cloud-contract/issues/2031
+https://github.com/spring-cloud/spring-cloud-contract/issues/2104
