@@ -1,0 +1,4 @@
+https://openjdk.org/projects/babylon/articles/code-models
+    ! MLIR of LLVM
+    ! are in a SSA form
+    ! blocks are interconnected with each other and form a CFG

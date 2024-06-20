@@ -1,0 +1,5 @@
+A full Spring Boot starter for a library may contain the following components:
+* The autoconfigure module that contains the auto-configuration code.
+* The starter module that provides a dependency to the autoconfigure module as well
+  as the library and any additional dependencies that are typically useful.
+  In a nutchell, addding the starter should be enought to start using the library.
