@@ -1,1 +1,6 @@
 management.endpoint.health.show-details=always
+
+2024
+https://wearecommunity.io/communities/jacov/articles/5135
+    ! CustomHealthIndicator
+    https://github.com/saikrishnasaski/orders-api
