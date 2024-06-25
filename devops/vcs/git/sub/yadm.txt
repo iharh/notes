@@ -56,11 +56,14 @@ bootstrap
 ~/.config/yadm/bootstrap
 
 configuration
-~/.config/yadm/config
-    local.class
-    local.os
-    local.hostname
-    local.user
+~/.config/yadm/
+    config
+        local.class
+        local.os
+        local.hostname
+        local.user
+    encrypt
+        list of patterns (to encrypt)
 
 encryption
 https://yadm.io/docs/encryption
@@ -86,7 +89,6 @@ yadm
         https://www.agwa.name/projects/git-crypt/
         https://github.com/AGWA/git-crypt
 
-.config/secrets
 .ssh/*
 !.ssh/authorized_keys
 !.ssh/known_hosts*
@@ -98,4 +100,3 @@ yadm init
 cat yadm.files | xargs -n 1 yadm add -f
 yadm ci -m first
 yadm remote add origin git@github.com:iharh/dotfiles.git
-

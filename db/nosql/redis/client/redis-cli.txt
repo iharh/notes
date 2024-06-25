@@ -1,9 +1,16 @@
-https://redis.io/docs/ui/cli/
+https://redis.io/docs/latest/develop/connect/cli/
 
 apt/redist-tools
+dnf/redis
 
 https://lightrun.com/using-the-redis-command-line/
 https://cloud.google.com/memorystore/docs/redis/connect-redis-instance
+
+2024
+https://www.baeldung.com/linux/redis-client-alone-installation
+    docker run -it --rm redis:latest-alpine redis-cli -h localhost -p 6379
+    redis-cli -h localhost -p 6379
+    auth <pwd>
 
 127.0.0.1:6379> ?
 redis-cli 6.0.16
