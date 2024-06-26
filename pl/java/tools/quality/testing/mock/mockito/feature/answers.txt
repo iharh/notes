@@ -1,6 +1,10 @@
 https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/AdditionalAnswers.html
 
-2023
-https://www.baeldung.com/mockito-void-methods
+2024
+https://www.baeldung.com/mockito-void-methods#answering-a-call-to-void
+https://www.baeldung.com/mockito-void-methods#partial-mocking
+    doCallRealMocking
 2022
 https://www.baeldung.com/mockito-additionalanswers
+???
+https://stackoverflow.com/questions/27421417/modify-input-parameter-of-a-void-function-and-read-it-afterwards
