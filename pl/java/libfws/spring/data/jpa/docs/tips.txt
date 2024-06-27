@@ -2,4 +2,6 @@ https://habr.com/ru/articles/265061/
 
 2024
 https://habr.com/ru/companies/magnit/articles/814573/
-    ! n+1
+    ! other models adaptation
+    @OneToMany 
+	  @Fetch(FetchMode.SUBSELECT) // but does now work with pagination, hbm-bug
