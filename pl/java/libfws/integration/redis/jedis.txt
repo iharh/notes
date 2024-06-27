@@ -2,5 +2,7 @@ https://redis.io/docs/clients/java/
 https://github.com/redis/jedis
 https://www.javadoc.io/doc/redis.clients/jedis/latest/index.html
 
+jedis.keys("*").forEach(System.out::println);
+
 2023
 https://www.baeldung.com/jedis-java-redis-client-library
