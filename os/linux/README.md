@@ -169,6 +169,7 @@ GRUB_TERMINAL=console
 
 ## ryzen 7 5700G
 
+* https://www.amd.com/en/product/11171
 * https://gitlab.freedesktop.org/drm/amd/-/issues/2587
 * https://gitlab.freedesktop.org/drm/amd/-/issues/2614
 * https://gitlab.freedesktop.org/drm/amd/-/issues/2046
@@ -193,10 +194,6 @@ https://forums.opensuse.org/t/amdgpu-displaying-black-screen-on-amd-ryzen-2300u/
     systemctl set-default multi-user.target
 
 * sudo journalctl -b -1 | grep -E "drm|amdgpu"
-
-## ryzen 7 5700G spec
-
-* https://www.amd.com/en/product/11171
 
 ## disabling modesetting
 
@@ -463,12 +460,6 @@ simpledrm is the kernel default framebuffer driver when no gpu is available.
 
 ??? /lib/firmware/vendor
 
-## amdgpu
-
-* https://forum.garudalinux.org/t/not-able-to-execute-this-command-sudo-echo-balanced-sys-class-drm-card0-device-power-dpm-state/12185
-* https://forum.garudalinux.org/t/amdgpu-driver-issue-gpu-crashes-on-reaching-400mhz-core-clock-speeds-amd-radeon-r5-m330-430/11972
-* https://www.reddit.com/r/archlinux/comments/pelxaw/amdgpu_driver_issue/
-
 ## loglevel
 
 * https://stackoverflow.com/questions/16390004/change-default-console-loglevel-during-boot-up
@@ -513,6 +504,17 @@ journalctl -k -b-1 > journal.txt
 * https://forum.puppylinux.com/viewtopic.php?t=2010
 * https://losst.pro/ispravlyaem-chernyj-ekran-ubuntu
 * https://wiki.astralinux.ru/pages/viewpage.action?pageId=23199819
+
+## partition
+
+* https://www.baeldung.com/linux/usb-drive-format
+* https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks#Default:_Using_parted_to_partition_the_disk
+
+```
+$ sudo parted /dev/sda -s -a opt mklabel gpt mkpart primary fat32 0% 100%
+$ sudo parted /dev/sda -s print
+$ sudo mkfs.fat -F 32 /dev/sda1
+```
 
 ## to-clone
 
