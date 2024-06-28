@@ -1,2 +1,8 @@
+2024
+https://habr.com/ru/articles/824594/
+    junit.jupiter.execution.parallel.enabled=true
+    junit.jupiter.execution.parallel.config.strategy=dynamic
+    junit.jupiter.execution.parallel.mode.classes.default=concurrent
+    junit.jupiter.execution.parallel.mode.default=same_thread
 2022
 https://habr.com/ru/company/otus/blog/671122/
