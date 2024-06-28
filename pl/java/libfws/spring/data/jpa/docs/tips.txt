@@ -2,6 +2,6 @@ https://habr.com/ru/articles/265061/
 
 2024
 https://habr.com/ru/companies/magnit/articles/814573/
-    ! other models adaptation
+    ! getting rid of SQL in Java Code
     @OneToMany 
 	  @Fetch(FetchMode.SUBSELECT) // but does now work with pagination, hbm-bug

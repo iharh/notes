@@ -2,7 +2,7 @@ docker run -e DISPLAY -v /home/root/.Xauthority:/root/.Xauthority — -net=host 
 
 2023
 https://habr.com/ru/articles/780322/
-    ! super-cool !!!
+    ! super-cool !!! about matlab inside
 2022
 https://sivanaikk0903.medium.com/run-gui-applications-in-docker-container-ba3f6ebcfc91
     -net=host

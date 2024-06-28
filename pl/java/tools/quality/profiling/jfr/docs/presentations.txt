@@ -68,11 +68,12 @@ Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder of 36:55
         jfr 23544 JFR.start +backend.io.BytesRead#enabled=true
 
 2023
-Java - Continuous Monitoring with JDK Flight Recorder 18:00 of 45:55
+Java - Continuous Monitoring with JDK Flight Recorder of 45:55
     https://www.youtube.com/watch?v=Gx_JGVborJ0
     ! import jdk.jfr.Event;
     ! extend ...
     ! @StackTrace(... depth ...)
+    ! cfg-files $JAVA_HOME/lib/jfr/{default,profile}.jfc
 2022
 Java - Programmer's Guide to JDK Flight Recorder of 24:08
     https://www.youtube.com/watch?v=K1ApBZGiT-Y

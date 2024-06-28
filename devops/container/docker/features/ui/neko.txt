@@ -1,0 +1,73 @@
+https://neko.m1k1o.net
+
+https://github.com/m1k1o/neko/
+https://github.com/m1k1o/neko/tree/master/.docker
+https://github.com/m1k1o/neko/tree/master/.docker/remmina
+https://github.com/m1k1o/neko/blob/master/.docker/remmina/Dockerfile
+https://github.com/m1k1o/neko/tree/master/.docker/firefox
+https://github.com/m1k1o/neko/blob/master/.docker/firefox/Dockerfile
+https://github.com/m1k1o/neko/blob/master/.docker/firefox/supervisord.conf
+https://github.com/m1k1o/neko/blob/master/.docker/firefox/profiles.ini
+https://github.com/m1k1o/neko/blob/master/.docker/firefox/policies.json
+https://github.com/m1k1o/neko/blob/master/.docker/firefox/neko.js
+
+https://github.com/m1k1o/neko-rooms
+https://github.com/m1k1o/neko-rooms/tree/master/docs
+https://github.com/m1k1o/neko-rooms/blob/master/docs/storage.md
+
+https://neko.m1k1o.net/#/getting-started/quick-start
+https://neko.m1k1o.net/#/getting-started/examples
+https://neko.m1k1o.net/#/changelog
+
+http://supervisord.org
+http://supervisord.org/introduction.html
+http://supervisord.org/configuration.html
+
+****************************************************************************
+В продолжение утренней темы про удалённые рабочие места. Есть интересный проект n.eko (https://github.com/m1k1o/neko) по запуску различных браузеров в Docker контейнере с доступом к нему по протоколу WebRTC.
+
+На практике это может выглядеть так. Вы арендуете где-то VPS, ставите туда Docker и запускаете необходимый вам браузер из готового образа neko. Далее со своего рабочего места в браузере открываете этот браузер. Благодаря возможностям WebRTC всё работает быстро в том числе с передачей звука и видео. Спокойно можно смотреть ютуб или любое другое видео. 
+
+В дополнение к такому использованию, вы можете подключать к своему браузеру зрителей с возможностью смотреть, что вы там делаете. В таком режиме можно даже фильмы совместно просматривать. Есть отдельный образ с VLC плеером. 
+
+Работает это максимально просто и быстро. Создаём compose.yaml с нужным браузером:
+
+services:
+  neko:
+    image: m1k1o/neko:google-chrome
+    restart: unless-stopped
+    shm_size: 3gb
+    ports:
+      - 8080:8080
+      - 52000-52100:52000-52100/udp
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      NEKO_SCREEN: 1920x1080@30
+      NEKO_PASSWORD: neko
+      NEKO_PASSWORD_ADMIN: admin
+      NEKO_EPR: 52000-52100
+      NEKO_NAT1TO1: 10.20.1.36
+
+И запускаем:
+
+# docker compose up -d
+
+В данном примере NEKO_NAT1TO1: 10.20.1.36 - адрес сервера в локальной сети, где я запускаю neko. Если это будет VPS с внешним ip адресом, ничего указывать не надо. Адрес будет определён автоматически. 
+
+После того, как загрузится и запустится образ, можно идти по ip адресу сервера на порт 8080 и логиниться в neko. 
+
+NEKO_PASSWORD: neko - пароль для пользователей, которые смогут только смотреть.
+NEKO_PASSWORD_ADMIN: admin - пароль для пользователя admin. То есть заходить админом вам надо будет с учёткой admin / admin.
+
+Когда залогинитесь, снизу будет иконка клавиатуры и ползунок. Иконку надо нажать, ползунок подвинуть, чтобы заработало управление внутри контейнера. Справа вверху будут настройки разрешения экрана и некоторые другие. Рекомендую сразу снизить чувствительность скрола мышки. У меня он по умолчанию был очень чувствительный. Было некомфортно пользоваться, пока не нашёл эту настройку.
+
+Neko можно запустить по HTTPS или через обратный прокси. В документации есть примеры настроек для этого. Для прокси удобно использовать упомянутый ранее Traefik (https://t.me/srv_admin/3775). Для него тоже пример конфигурации представлен.
+
+Вот, в общем-то, и всё. Можно пользоваться. С переключением раскладки проблем нет, русский ввод работает. Список готовых образов с браузерами и не только представлен в документации (https://neko.m1k1o.net/#/getting-started/). Можно и обычную систему запустить с xfce, или собрать собственный образ. Есть образы под arm, отдельно с поддержкой видеокарт.
+
+Образы регулярно автоматически обновляются, так что браузеры там свежих версий. Получается хорошее решение для гарантированной изоляции, если хочется запустить в браузере что-то сомнительное. Или просто использовать отдельный браузер с необходимыми настройками и локацией. 
+
+Подключаться к такому браузеру можно с мобильных клиентов. Интерфейс адаптирован под разрешения экранов смартфонов.
+
+Отдельно есть проект по управлению виртуальными комнатами с запущенными браeзерами neko - neko-rooms (https://github.com/m1k1o/neko-rooms).
