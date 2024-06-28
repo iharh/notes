@@ -9,5 +9,7 @@ docker pull
     docker.elastic.co/elasticsearch/elasticsearch:7.17.6
     docker.elastic.co/elasticsearch/elasticsearch:8.4.1
 
+2024
+https://www.reddit.com/r/docker/comments/1dpruuz/what_am_i_doing_wrong_here_im_trying_to_get
 2019
 https://medium.com/@TimvanBaarsen/how-to-run-an-elasticsearch-7-x-single-node-cluster-for-local-development-using-docker-compose-2b7ab73d8b82
