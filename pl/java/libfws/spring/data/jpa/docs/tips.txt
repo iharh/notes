@@ -3,6 +3,7 @@ https://habr.com/ru/articles/265061/
 2024
 https://habr.com/ru/articles/824936/
 https://habr.com/ru/companies/magnit/articles/814573/
-    ! getting rid of SQL in Java Code
+    ! criteria-api
     @OneToMany 
 	  @Fetch(FetchMode.SUBSELECT) // but does now work with pagination, hbm-bug
+    @Formula-annotation
