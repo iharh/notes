@@ -1,0 +1,33 @@
+Employing advanced prompt parameters enables prompt engineers to achieve, among others, several objectives:
+  Control response length and stop sequence
+  Define the underlying model
+  Manage the Creativity Level
+  Control frequency and presence penalties
+  Inject start and restart text
+
+The "temperature [0 to 1]" is a parameter that controls the creativity and randomness of the model's output. 
+A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
+
+
+The "top_p [0-1]" (also known as nucleus sampling) dictates the scope of randomness for the language model. 
+It determines how many random results the model should consider based on the temperature setting.
+
+The "stop_sequences [list of strings]" is a list of strings or tokens that, when encountered by the model, will cause it to stop generating further text. 
+This helps control the length and structure of the generated content, preventing the model from producing unwanted text beyond the specified stopping point.
+
+The "frequency_penalty [-2 to 2]" parameter reduces the likelihood of the model repeating the same line verbatim by assigning a penalty to more frequent tokens. 
+A positive frequency penalty (e.g., 1.0) discourages the model from repeating tokens that appear frequently in the input, while a negative frequency penalty (e.g., -1.0) 
+encourages the model to repeat such tokens.
+
+The "presence_penalty [-2 to 2]" parameter increases the chances of the model discussing new topics by penalizing tokens already present in the input. 
+A positive presence penalty (e.g., 1.0) discourages the model from using tokens already appearing in the input. 
+In contrast, a negative presence penalty (e.g., -1.0) encourages the model to reuse tokens from the input.
+
+The "best_of [positive integer]" allows you to specify the number of completions (n) that the model should generate, 
+and it returns the best completion according to the model's internal evaluation. 
+This is useful when obtaining the highest quality completion from different possible results. 
+(n) can be an integer in the range from 1 to 20.
+
+[
+{"role": "user", "content": "Write a user story for the login process.", "settings": {"temperature": 0.8, " frequency_penalty": -1}}
+]
