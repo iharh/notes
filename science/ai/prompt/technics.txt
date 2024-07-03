@@ -5,3 +5,19 @@ Let's think step-by-step
 
 ToT tree-of-thought
 please generate list of 3 distinct options
+
+20 For each option: evaluate potential, summarize pros and cons, and assign a probability of being clicked by a user. 
+Assign a score based on these factors. Provide output as a list. <important>Sort by score</important>. 
+Use the template.
+...
+Option 1:
+[Score]
+[Score justification, 100 characters maximum]
+[Pros/Cons]
+...
+
+4. In CoT prompting, what intermediate reasoning steps help LLM to learn?
+Relationsheeps between distinct pieces of text
+
+6. Application of CoT
+QA and Summarizations
