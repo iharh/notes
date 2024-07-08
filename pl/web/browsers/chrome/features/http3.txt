@@ -1,0 +1,14 @@
+https://www.watchguard.com/help/docs/help-center/en-US/Content/en-US/Endpoint-Security/manage-settings/disable-http-3-protocol-for-web-access-control.html
+https://developers.cloudflare.com/cloudflare-one/policies/gateway/http-policies/http3/
+    chrome://flags. Disable the Experimental QUIC protocol option.
+
+https://knowledge.broadcom.com/external/article/173741/http3-aka-quic-protocol-bypasses-wss-ag.html
+
+2021
+https://www.smashingmagazine.com/2021/09/http3-practical-deployment-options-part3/
+    https://habr.com/ru/companies/slurm/articles/588230/
+    quic
+https://www.smashingmagazine.com/2021/08/http3-performance-improvements-part2/
+    https://habr.com/ru/companies/slurm/articles/583434/
+https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/
+    https://habr.com/ru/companies/slurm/articles/575464/
