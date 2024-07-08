@@ -3,7 +3,9 @@ https://codeql.github.com/
 https://github.com/github/codeql
 https://github.com/github/codeql-action
 https://github.com/github/codeql-go
+
 https://github.com/github/codeql-cli-binaries
+https://github.com/github/codeql-cli-binaries/blob/main/LICENSE.md
 
 https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql
 https://github.com/github/vscode-codeql
