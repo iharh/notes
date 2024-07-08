@@ -1,0 +1,7 @@
+2024
+MerionAcademy - How NAT Saved Inet ru of 11:41
+    https://www.youtube.com/watch?v=LqkIJc0rEfs
+    ! 3:30 - NAT translates local address to a global one
+    ! Router has a pool of global addresses
+    ! Static and Dynamic NAT
+    ! PAT - port-address translation (can translate multiple local addresses (port) to a single global one)

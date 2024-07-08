@@ -1,0 +1,14 @@
+2016
+NaumenTalks - Rogozin - What Every Java Developer Need to Know About Networks 24:00 of 59:39
+    https://www.youtube.com/watch?v=yYxypJRjgJM
+    ! 8:00 - After socket.close() it still lives at OS-level, sending buffered data
+    ! FIN - graceful shutdown of connection
+    ! RST - connection reset (terminated in unknown state)
+    ! Closing TCP Connection
+    !   all buffered data is sent
+    !   ... TIME_WAIT ...
+    ! SO_LINGER is enabled
+    !   OS will keep connection for some timeout
+    !   if timeout is reached, connection will be reset
+    ! 17:00 - TCP FSM inside Kernell (wiki/Transmission_Control_Protocol)
+    ! TCP Sliding Window (send window - 64 kb - SO_RCVBUF - at receiving side)
