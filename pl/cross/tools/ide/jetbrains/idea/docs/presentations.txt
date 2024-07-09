@@ -1,11 +1,12 @@
 2024
-SpringIO - IntelliJ IDEA Tips and Tricks for Spring Developers by Anton Arhipov 13:00 of 56:15
+SpringIO - IntelliJ IDEA Tips and Tricks for Spring Developers by Anton Arhipov 15:00 of 56:15
     https://www.youtube.com/watch?v=1kum1N_-cb0
     https://www.jetbrains.com/idea/spring/
     C-E - Recent Files (with shortcuts)
     View Modes: Zen, Presentation Assistant (or Zoom feature)
     S-S -> Actions (A-Enter - set a shortcut)
     C-D -> Diff 2 selected files
+    15:15 - Right-Click on entity -> "Select in Persistence View", "Show Entity Relationship Diagram", ...
 2023
 SpringIO - Debugging applications with IntelliJ IDEA by Anton Arhipov 0:00 of 45:23
     https://www.youtube.com/watch?v=4rb5CxjPhgU

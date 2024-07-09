@@ -8,5 +8,8 @@ https://keda.sh/docs/2.11/scalers/azure-service-bus/
 https://github.com/kedacore/keda/blob/main/pkg/scalers/azure_servicebus_scaler.go
 https://github.com/kedacore/keda/blob/main/pkg/scalers/azure_eventhub_scaler_test.go
 
+2024
+GotoConferences - Scaling EDA Workloads with Kubernetes, KEDA & Karpenter • Natasha Wright 0:00 of 45:33
+    https://www.youtube.com/watch?v=YWmu2SFNNVY
 2021
 https://learnk8s.io/scaling-celery-rabbitmq-kubernetes
