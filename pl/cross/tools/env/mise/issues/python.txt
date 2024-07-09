@@ -1,0 +1,17 @@
+$ az login
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/iharh/.local/share/mise/installs/azure-cli/2.62.0/bin/venv/lib64/python3.12/site-packages/azure/cli/__main__.py", line 39, in <module>
+    az_cli = get_default_cli()
+             ^^^^^^^^^^^^^^^^^
+  File "/home/iharh/.local/share/mise/installs/azure-cli/2.62.0/bin/venv/lib64/python3.12/site-packages/azure/cli/core/__init__.py", line 917, in get_default_cli
+    from azure.cli.core.azlogging import AzCliLogging
+  File "/home/iharh/.local/share/mise/installs/azure-cli/2.62.0/bin/venv/lib64/python3.12/site-packages/azure/cli/core/azlogging.py", line 30, in <module>
+    from azure.cli.core.commands.events import EVENT_INVOKER_PRE_CMD_TBL_TRUNCATE
+  File "/home/iharh/.local/share/mise/installs/azure-cli/2.62.0/bin/venv/lib64/python3.12/site-packages/azure/cli/core/commands/__init__.py", line 25, in <module>
+    from azure.cli.core.extension import get_extension
+  File "/home/iharh/.local/share/mise/installs/azure-cli/2.62.0/bin/venv/lib64/python3.12/site-packages/azure/cli/core/extension/__init__.py", line 11, in <module>
+    from distutils.sysconfig import get_python_lib  # pylint: disable=deprecated-module
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'distutils'
