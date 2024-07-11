@@ -1,7 +1,7 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
 3.x
-[VDBUH2024] - Josh Long - Bootiful Spring Boot 3.x 20:00 of 58:09
+[VDBUH2024] - Josh Long - Bootiful Spring Boot 3.x of 58:09
     https://www.youtube.com/watch?v=3SiYK0BWr0M
     @SpringBootApplication
     public class ServiceApplication {
