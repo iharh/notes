@@ -1,5 +1,5 @@
 2016
-NaumenTalks - Rogozin - What Every Java Developer Need to Know About Networks 35:00 of 59:39
+NaumenTalks - Rogozin - What Every Java Developer Need to Know About Networks 36:00 of 59:39
     https://www.youtube.com/watch?v=yYxypJRjgJM
     ! 8:00 - After socket.close() it still lives at OS-level, sending buffered data
     ! FIN - graceful shutdown of connection
