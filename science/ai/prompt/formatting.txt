@@ -2,3 +2,36 @@
 ... using wiki syntax to format response.
 
 The main key phrases should be in bold|
+
+md
+Markdown tables use pipes | and hyphens - to define columns and headers. The alignment can be specified using colons :.
+
+| Header 1 | Hd 2 | Hd 3 | 
+| -------- |:-------:| --------:| 
+| R1C1 | R1C2 | R1C3 | 
+| R2C1 | R2C2 | R2C3 | 
+| R3C1 | R3C2 | R3C3 |
+
+wiki
+Wiki Syntax tables use curly braces { and } along with pipes | to define table structure, rows, and cells.
+{| class="wikitable" 
+|+ Table Caption 
+|- 
+! Header 1 !! Header 2 !! Header 3 
+|- 
+| Row 1, Column 1 || Row 1, Column 2 || Row 1, Column 3 
+|- 
+| Row 2, Column 1 || Row 2, Column 2 || Row 2, Column 3 
+|- 
+| Row 3, Column 1 || Row 3, Column 2 || Row 3, Column 3 
+|}
+
+sample
+	
+Fill in the table:
+
+| Question | Answer |
+|------------------------------|--------|
+| What is the capital of France? | Paris |
+| What is the biggest population country? | ? |
+| ?| Brazil|
