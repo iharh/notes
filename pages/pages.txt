@@ -1,14 +1,9 @@
-mise ~/.local/share/mise/installs/python/3.10.11/bin/python failed
-/home/iharh/.local/share/mise/installs/python/3.10.11/bin/python: error while loading shared libraries: libcrypt.so.1: cannot open shared object file: No such file or directory
-
-zay vlad nikitich
-https://www.youtube.com/watch?v=Nk8zUVAUuH0
 klyos
-https://nday.club/video/kartina-mira-s-tochki-zreniya-molekulyarnoy-istorii
+    https://nday.club/video/kartina-mira-s-tochki-zreniya-molekulyarnoy-istorii
 zhukov
-https://www.youtube.com/watch?v=4lP-eYMlBEg
+    https://www.youtube.com/watch?v=4lP-eYMlBEg
 foma
-https://www.youtube.com/watch?v=w37mZiiYaMA
+    https://www.youtube.com/watch?v=w37mZiiYaMA
 
 LiKongYu
     Singapur - Iz 3-go mira v 1-y
@@ -18,29 +13,6 @@ atomic
 CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
     https://www.youtube.com/watch?v=M_P93LyJrzI
     ! 33:30 ! tons of links
-epam - 
-  tech debt
-    https://web.yammer.com/main/threads/eyJfdHlwZSI6IlRocmVhZCIsImlkIjoiMjYzMzE1MTY3NDA5NzY2NCJ9
-  AI-Assisted Engineering.Java[self-paced]
-    https://learn.epam.com/detailsPage?id=24c79ac5-d8af-4e43-9433-bd1b854d4b67
-  Data Integration with Azure Data Factory #3
-    https://learn.epam.com/detailsPage?id=7502ff1f-b030-4c6d-8611-615e8d1eb716&source=PROGRAM_RUN
-    ! inside half/doesen of good links
-  Java Advanced: Backend Core
-    https://learn.epam.com/detailsPage?id=c60c5696-dfbe-4396-b0a0-72051bbaff5d&source=PROGRAM
-  AI Learning collection
-    https://learn.epam.com/study/promoDetails?id=79503b5d-8186-433c-a831-875fe12a4292
-    https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/
-    https://learn.microsoft.com/en-us/training/modules/introduction-to-github-copilot/1-introduction
-    https://www.promptingguide.ai/
-  EngX AI-Supported Engineering
-    https://learn.epam.com/detailsPage?id=f2e28252-98fd-431c-8c20-c6244dde0126
-  misc
-    https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/materials/microservice_architecture_overview/README.md#drawbacks
-    https://git.epam.com/epm-cdp/global-java-foundation-program/java-courses/-/blob/main/introduction-to-microservices/tasks/microservice_architecture_overview/README.md
-java-courses/introduction-to-microservices/tasks/microservice_architecture_overview
-    https://epam.sharepoint.com/sites/EPAMEMEACloudengineering/_layouts/15/stream.aspx?id=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall%2FCloud%20Townhall%20%2D%20Recording%20Oct%2026%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview
-    https://epam.sharepoint.com/sites/EPAMEMEACloudengineering/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall%2FCloud%20Townhall%20%2D%20Oct%2026%2Epdf&parent=%2Fsites%2FEPAMEMEACloudengineering%2FShared%20Documents%2FGeneral%2F2023%20%2D%20Cloud%20Practice%20Townhalls%2F20231023%20%2D%20Second%20Global%20Cloud%20Townhall&p=true&ga=1
 fin
     people/yardo
     vocab/vocab

@@ -1,0 +1,32 @@
+https://github.com/johnfactotum/foliate/blob/gtk4/docs/faq.md
+
+~/.local/share/com.github.johnfactotum.Foliate/
+    library/
+        uri-store.json
+
+~/.config/com.github.johnfactotum.Foliate/
+    themes/
+    user-stylesheet.css
+
+zoom
+    https://github.com/johnfactotum/foliate/blob/gtk4/src/reader/reader.js#L617
+        pinch-zoom
+    https://github.com/johnfactotum/foliate/blob/gtk4/src/image-viewer.js#L78
+    https://github.com/johnfactotum/foliate/commit/7e58e544700f4083fd3e882b055a5283075c73c4
+        zoomLevel (no longer)
+        epub-viewwer.js
+    https://github.com/johnfactotum/foliate/blob/gtk4/src/book-viewer.js#L218
+        pinch-zoom
+    https://github.com/johnfactotum/foliate/blob/gtk4/src/book-viewer.js#L269
+    https://github.com/johnfactotum/foliate/blob/gtk4/src/book-viewer.js#L340
+        webView.zoom_level
+        _zoom_button
+        view.zoom-in
+    https://github.com/johnfactotum/foliate/blob/gtk4/src/book-viewer.js#L340
+        zoom-level
+    https://github.com/johnfactotum/foliate/issues/1135
+    https://github.com/johnfactotum/foliate/issues/1158
+        ~/.config/com.github.johnfactotum.Foliate/user-stylesheet.css
+        body {
+            zoom: 150%;
+        }

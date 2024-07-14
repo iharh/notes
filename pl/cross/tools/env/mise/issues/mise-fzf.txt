@@ -1,0 +1,8 @@
+https://github.com/kompiro/asdf-fzf
+
+https://github.com/kompiro/asdf-fzf/issues/2
+    The latest release of fzf (v0.54.0) documents a change in the tagging scheme to include the "v" prefix. 
+    I've updated my local version of this plugin to use that new naming scheme for the download_url since I generally stay on the latest releases. 
+    I'm not sure how to conditionally apply this as a PR to this project without breaking backwards compat.
+    https://github.com/junegunn/fzf/releases/tag/v0.54.0
+    https://github.com/junegunn/fzf/releases/download/v0.54.0/fzf-0.54.0-linux_arm64.tar.gz
