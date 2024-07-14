@@ -35,3 +35,9 @@ Fill in the table:
 | What is the capital of France? | Paris |
 | What is the biggest population country? | ? |
 | ?| Brazil|
+
+
+json
+[
+  {"role": "user", "content": "Write a user story for the login process.", "settings": {"temperature": 0.8, " frequency_penalty": -1}}
+]
