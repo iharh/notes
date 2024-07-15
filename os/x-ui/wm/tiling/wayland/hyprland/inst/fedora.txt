@@ -7,6 +7,35 @@ https://github.com/JaKooLit/Hyprland-Dots
 from src
 https://github.com/hyprwm/Hyprland/discussions/284
 
+2024
+MLFW - Install HYPRLAND on Fedora and Arch with the ML4W Hyprland Starter. Easy to install, ready to use 0:00 of 14:04
+    https://www.youtube.com/watch?v=jc-vFSXpZF4
+    https://github.com/mylinuxforwork/hyprland-starter
+    https://github.com/mylinuxforwork/hyprland-starter/wiki
+    https://github.com/mylinuxforwork/hyprland-starter/wiki/Installation
+        bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/hyprland-starter/main/setup.sh)
+    https://github.com/mylinuxforwork/hyprland-starter/blob/main/setup.sh
+    https://github.com/mylinuxforwork/hyprland-starter/blob/main/install.sh
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/install
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/install/includes
+        !!!
+        https://github.com/mylinuxforwork/hyprland-starter/blob/main/install/includes/backup.sh
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/install/fedora
+    https://github.com/mylinuxforwork/hyprland-starter/blob/main/install/fedora/install_packages.sh
+    https://github.com/mylinuxforwork/hyprland-starter/blob/main/install/fedora/install_required.sh
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/dotfiles
+    https://github.com/mylinuxforwork/hyprland-starter/blob/main/dotfiles/.bashrc
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/dotfiles/.config
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/dotfiles/.config/ml4w
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/dotfiles/.config/ml4w/apps
+        ML4W_Hyprland_Settings-x86_64.AppImage
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/dotfiles/.config/ml4w/settings
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/dotfiles/.config/ml4w/scripts
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/dotfiles/.config/hypr
+    https://github.com/mylinuxforwork/hyprland-starter/blob/main/dotfiles/.config/hypr/hyprland.conf
+        source = ~/.config/hypr/conf/<...>.conf
+    https://github.com/mylinuxforwork/hyprland-starter/tree/main/dotfiles/.config/hypr/conf
+    
 2023
 Ja.KooLit - Hyprland on Fedora Workstation and Nobara - nvidia, amd and intel gpu support of 10:03
     https://www.youtube.com/watch?v=w2dt4GlHjV0
