@@ -1,3 +1,16 @@
+2024
+JPoint - Ilya and Fedor Sazonov - DB Tamer 11:00 of 48:02
+    https://www.youtube.com/watch?v=mIxr65ZGGFw
+    ! 5:20 it is recommended to set hbm logs (vs show_sql=true)
+    !   logging.level.org.hibernate.SQL=DEBUG
+    ! 8:00
+    !   spring.jpa.properties.hibernate.query.fail_on_pagination_over_collection_fetch=true
+    ! 8:40
+    !   @BatchSize(N) for pagination -> where id in (?, ?, ...?)
+    !   spring.jpa.properties.hibernate.default_batch_fetch_size=N
+    !   spring.jpa.properties.hibernate.batch_fetch_style=dynamic
+    !   !!! not a spring.jpa.properties.hibernate.jdbc.batch_syze=1000
+    !   
 2022
 JPoint - Sazonov Ilya and Fedor Interview of 50:31
     https://www.youtube.com/watch?v=vP4uagDBvzg

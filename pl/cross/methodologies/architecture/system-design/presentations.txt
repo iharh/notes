@@ -1,8 +1,13 @@
 2024
-JPoint - Volyhin - System Design Interview ru 20:00 of 49:46
+JPoint - Volyhin - System Design Interview ru 31:00 of 49:46
     https://www.youtube.com/watch?v=RAMWRgt-3G0
     ! functional req - answer q "what"
     ! non-functional req - answer q "how much"
+    ! consistent hashing - auto reballancing partitions ... voldemort
+    !   also interesting to read about cassandra, dynamo
+    ! snowflake-param, ? id-generator
+    !   uuid approach bad: it is not long, big, random, not ordered
+    !   snowflake: 64b, 41b timestamp, 10b workder_id, 12b counter
 2023
 JPoint - Maslov - System Design of 46:38
     https://www.youtube.com/watch?v=popkBBjbAv8
