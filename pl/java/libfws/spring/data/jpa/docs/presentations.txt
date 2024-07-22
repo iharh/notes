@@ -1,6 +1,7 @@
 2024
-JPoint - Ilya and Fedor Sazonov - DB Tamer 13:00 of 48:02
+JPoint - Ilya and Fedor Sazonov - DB Tamer 15:00 of 48:02
     https://www.youtube.com/watch?v=mIxr65ZGGFw
+    https://www.youtube.com/watch?v=1T5LjQaWGhQ
     ! 5:20 it is recommended to set hbm logs (vs show_sql=true)
     !   logging.level.org.hibernate.SQL=DEBUG
     ! 8:00
@@ -12,6 +13,8 @@ JPoint - Ilya and Fedor Sazonov - DB Tamer 13:00 of 48:02
     !   !!! not a spring.jpa.properties.hibernate.jdbc.batch_syze=1000
     ! 13:30 Artyom Gordienko - Hibernate - Cartesian Porduct problem for Queries with Pagination
     !   https://www.youtube.com/watch?v=X8OA10hIt18
+    ! 14:20
+    !   @Fetch(FetchMode.SUBSELECT)
 Amplicode - Lombok Problems with Spring Data JPA 0:00 of 12:00
     https://www.youtube.com/watch?v=7kdQTh4oOQM
 Build faster persistence layers with Spring Data JPA 3 by Thorben Janssen @ Spring I/O 2024 0:00 of 49:49
