@@ -1,5 +1,5 @@
 2024
-JPoint - Ilya and Fedor Sazonov - DB Tamer 15:00 of 48:02
+JPoint - Ilya and Fedor Sazonov - DB Tamer 22:00 of 48:02
     https://www.youtube.com/watch?v=mIxr65ZGGFw
     https://www.youtube.com/watch?v=1T5LjQaWGhQ
     ! 5:20 it is recommended to set hbm logs (vs show_sql=true)
@@ -15,6 +15,14 @@ JPoint - Ilya and Fedor Sazonov - DB Tamer 15:00 of 48:02
     !   https://www.youtube.com/watch?v=X8OA10hIt18
     ! 14:20
     !   @Fetch(FetchMode.SUBSELECT)
+    ! 15:00
+    !   limit and offset -> only in Hibernate 6
+    ! 22:00
+    !   @Query("delete from ...")
+    !   @Modifying
+    !   @Transactional
+    !   void deleteAllRows();
+    !   ... void deleteAllInBatch();
 Amplicode - Lombok Problems with Spring Data JPA 0:00 of 12:00
     https://www.youtube.com/watch?v=7kdQTh4oOQM
 Build faster persistence layers with Spring Data JPA 3 by Thorben Janssen @ Spring I/O 2024 0:00 of 49:49
