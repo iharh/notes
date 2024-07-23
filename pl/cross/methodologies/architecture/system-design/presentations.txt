@@ -1,5 +1,5 @@
 2024
-JPoint - Volyhin - System Design Interview ru 38:00 of 49:46
+JPoint - Volyhin - System Design Interview ru of 49:46
     https://www.youtube.com/watch?v=RAMWRgt-3G0
     ! functional req - answer q "what"
     ! non-functional req - answer q "how much"
@@ -8,6 +8,8 @@ JPoint - Volyhin - System Design Interview ru 38:00 of 49:46
     ! snowflake-param, ? id-generator
     !   uuid approach bad: it is not long, big, random, not ordered
     !   snowflake: 64b, 41b timestamp, 10b workder_id, 12b counter
+    ! 41:00 - bucket4j - token bucket algo
+    ! 43:00 - geohash, quadtree
 2023
 JPoint - Maslov - System Design of 46:38
     https://www.youtube.com/watch?v=popkBBjbAv8

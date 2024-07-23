@@ -6,6 +6,9 @@ https://github.com/MarcGiffing/bucket4j-spring-boot-starter-examples
 
 https://bucket4j.com/7.5.0/toc.html
 
+2024
+https://medium.com/dandelion-tutorials/rate-limiting-with-bucket4j-for-spring-boot-web-1a42af2b8b80
+https://www.baeldung.com/spring-bucket4j
 2022
 JPointJokerAndJUGRu - Bartkov - Complex Rate-Limiting is Just a Bucket4j 0:00 of 48:25
     https://www.youtube.com/watch?v=OSNFNxgZZ3A
@@ -18,8 +21,6 @@ https://online-journals.org/index.php/i-joe/article/view/25641
 https://virendraoswal.com/rate-limit-apis-with-bucket4j-via-java
     https://github.com/cycorax12/basic-bucket4j-demo
     https://github.com/cycorax12/basic-bucket4j-demo/blob/main/server/src/main/java/in/virendra/oswal/server/ServerApplication.java
-2020
-https://www.baeldung.com/spring-bucket4j
 2019
 https://golb.hplar.ch/2019/08/rate-limit-bucket4j.html
 ????

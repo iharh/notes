@@ -1,9 +1,23 @@
 https://github.com/heynickc/awesome-ddd
 
+books
+2021
+Vlad Konovalov - Learning Domain-Driven Design
+    4F6FC3E2CE3FB49FDA969A126A42C899
+    7F73B4FDC4241131CD44C7DEE74272B3
+
+2024
+SpringIO - Implementing Domain Driven Design with Spring by Maciej Walkowiak 37:00 of 50:17
+    https://www.youtube.com/watch?v=VGhg6Tfxb60
+    https://speakerdeck.com/maciejwalkowiak/implementing-domain-driven-design-with-spring
+    https://github.com/maciejwalkowiak/implementing-ddd-with-spring-talk
 2023
 Devoxx - REST next level : Crafting domain driven web APIs By Julien Topçu 0:00 of 50:52
     https://www.youtube.com/watch?v=bHc8Gudrhdo
 2022
+SpringIO - Getting modules right with Domain-driven Design by Michael Plöd @ Spring I/O 2022 0:00 of 47:04
+    https://www.youtube.com/watch?v=Q_0XW46IlHY
+    https://speakerdeck.com/mploed/getting-modules-right-with-domain-driven-design?slide=89
 https://learn.microsoft.com/ru-ru/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/
 2020
 https://habr.com/ru/companies/dododev/articles/489352/
