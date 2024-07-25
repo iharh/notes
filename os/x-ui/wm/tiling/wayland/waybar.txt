@@ -9,6 +9,7 @@ https://github.com/Alexays/Waybar/wiki/FAQ#how-to-use-with-sway
 https://github.com/Alexays/Waybar/wiki/Installation#how-to-use-with-sway
     otf-font-awesome
         https://docs.fontawesome.com/desktop/setup/get-started
+    bar swaybar_command waybar
 
 2024
 MyLinuxForWork - Create a custom Waybar Theme for Hyprland: ML4W Dotfiles Insights 0:00 of 8:23
