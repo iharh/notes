@@ -12,6 +12,9 @@ env
     -e MONGODB_PASSWORD=admin \
     -e MONGODB_DATABASE=CB_Studio \
 
+????
+https://learnmongo.com/getting-started-with-mongodb-on-docker-a-step-by-step-guide/
+
 issues
 persistence folder permissions
     https://github.com/bitnami/bitnami-docker-mongodb/issues/103
