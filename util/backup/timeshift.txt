@@ -2,7 +2,24 @@ https://github.com/linuxmint/timeshift
 https://ru.wikipedia.org/wiki/Timeshift_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0)
 
 2024
+DrewHowdenTech - Backup and Restore a Linux System with Timeshift 0:00 of 9:24
+    https://www.youtube.com/watch?v=MzPMIUzRAJ0
+KristalOfComputer - System Backup and Restore For Linux - How To Use Timeshift! (2024) 0:00 of 11:44
+    https://www.youtube.com/watch?v=g-Ik-9jjBEM
 https://www.reddit.com/r/Fedora/comments/1d89q69/timeshift_doesnt_work/
 2023
+linux-syr - backup ubuntu server to external hard drive and restore it | cli timeshift rsync automated of 7:40
+    https://www.youtube.com/watch?v=ATDzlHOrZ_s
 https://itsfoss.com/backup-restore-linux-timeshift/
     rsync/btrfs
+2020
+Plaforn - Timeshift of 11:09
+    https://www.youtube.com/watch?v=u05HGflJ_cg
+
+cli
+sudo timeshift
+    --list
+    --create --comment "new backup" --snapshot-device /dev/sdb4 --tags D
+        ...
+        /dev/sdb4 is mounted at: /run/timeshift/backup
+    --restore --snapshot-device /dev/sdb4
