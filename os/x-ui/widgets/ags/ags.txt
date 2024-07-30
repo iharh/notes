@@ -1,10 +1,11 @@
-https://aylur.github.io
-
 https://github.com/Aylur/ags/
 https://github.com/astal-sh/libastal
 https://github.com/Aylur/ags/tree/main/example/simple-bar
 
 https://aylur.github.io/ags-docs/
+https://aylur.github.io/ags-docs/config/installation/
+    sudo dnf copr enable solopasha/hyprland
+    sudo dnf install aylurs-gtk-shell
 https://aylur.github.io/ags-docs/config/services/#list-of-builtin-services
 
 https://gjs.guide/
@@ -16,6 +17,7 @@ https://github.com/Aylur/ags/wiki
 https://github.com/Aylur/ags/wiki/installation
     sudo apt install node-typescript npm meson libgjs-dev gjs libgtk-layer-shell-dev libgtk-3-dev libpulse-dev network-manager-dev libgnome-bluetooth-3.0-dev libdbusmenu-gtk3-dev
 https://github.com/Aylur/ags/wiki/configuration
+    ~/.config/ags/config.js
 https://github.com/Aylur/ags/wiki/theming
     https://docs.gtk.org/gtk3/css-overview.html
     https://docs.gtk.org/gtk3/css-properties.html
