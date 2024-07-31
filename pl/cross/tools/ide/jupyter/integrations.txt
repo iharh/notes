@@ -1,3 +1,6 @@
-cpp:
-https://github.com/QuantStack/xeus
-https://blog.jupyter.org/interactive-workflows-for-c-with-jupyter-fe9b54227d92
+cpp
+    https://github.com/QuantStack/xeus
+    https://blog.jupyter.org/interactive-workflows-for-c-with-jupyter-fe9b54227d92
+java
+    https://www.javaadvent.com/2023/12/jupyter-notebooks-and-java.html
+    https://github.com/jupyter-java/anywhere
