@@ -1,0 +1,7 @@
+20??
+https://serokell.io/blog/practical-nix-flakes
+
+nix flake
+    --help
+    clone <url> -f <dst>
+    lock (previously - update)

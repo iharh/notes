@@ -1,0 +1,12 @@
+https://github.com/DeterminateSystems/nix-installer/issues/823
+
+cat /etc/nix/nix.conf
+
+build-users-group = nixbld
+experimental-features = nix-command flakes repl-flake
+bash-prompt-prefix = (nix:$name)\040
+max-jobs = auto
+extra-nix-path = nixpkgs=flake:nixpkgs
+upgrade-nix-store-path-url = https://install.determinate.systems/nix-upgrade/stable/universal
+
+https://github.com/SAP/macOS-enterprise-privileges/
