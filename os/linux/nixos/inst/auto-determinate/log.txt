@@ -1,0 +1,32 @@
+info: downloading installer https://install.determinate.systems/nix/tag/v0.20.2/nix-installer-x86_64-linux
+`nix-installer` needs to run as `root`, attempting to escalate now via `sudo`...
+[sudo] password for iharh:
+Nix install plan (v0.20.2)
+Planner: linux (with default settings)
+
+Planned actions:
+* Create directory `/nix`
+* Extract the bundled Nix (originally from /nix/store/i71d2zyp9c30v98mvqc4dvmnvb1sbx90-nix-binary-tarball-2.23.3/nix-2.23.3-x86_64-linux.tar.xz)
+* Create a directory tree in `/nix`
+* Move the downloaded Nix into `/nix`
+* Create build users (UID 30001-30032) and group (GID 30000)
+* Setup the default Nix profile
+* Place the Nix configuration in `/etc/nix/nix.conf`
+* Configure the shell profiles
+* Install an SELinux Policy for Nix
+* Configure Nix daemon related settings with systemd
+* Remove directory `/nix/temp-install-dir`
+
+
+Proceed? ([Y]es/[n]o/[e]xplain): y
+ INFO Step: Create directory `/nix`
+ INFO Step: Provision Nix
+ INFO Step: Create build users (UID 30001-30032) and group (GID 30000)
+ INFO Step: Configure Nix
+ INFO Step: Install an SELinux Policy for Nix
+ INFO Step: Create directory `/etc/tmpfiles.d`
+ INFO Step: Configure Nix daemon related settings with systemd
+ INFO Step: Remove directory `/nix/temp-install-dir`
+[6] 5973
+Nix was installed successfully!
+To get started using Nix, open a new shell or run `. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh`
