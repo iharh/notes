@@ -16,3 +16,8 @@ INSTALLED_COMPOSE=$( (docker compose version 2> /dev/null | grep --color=never -
 docker compose version 2> /dev/null | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
 echo Docker Compose version 2.20.2+ds1-0ubuntu1 | grep --color=never -Po "Docker Compose version v\K([0-9][a-zA-Z0-9_.-]*)"
     !!! no v
+
+https://dockstarter.com/#system-requirements
+    sudo dnf install curl git
+    bash -c "$(curl -fsSL https://get.dockstarter.com)"
+    sudo reboot
