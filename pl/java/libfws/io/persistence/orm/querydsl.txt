@@ -2,16 +2,24 @@ http://www.querydsl.com/
 http://www.querydsl.com/static/querydsl/latest/reference/html_single/
 https://github.com/querydsl/querydsl
 
+es
+https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/java-query-dsl.html
+
 2023
 https://www.baeldung.com/querydsl-with-jpa-tutorial
 https://www.baeldung.com/intro-to-querydsl
 2018
 https://habr.com/ru/articles/344450/
+2017
+http://www.baeldung.com/intro-to-querydsl
 2011
 http://blog.mysema.com/2011/01/querying-in-sql-with-querydsl.html
 https://www.credera.com/blog/technology-insights/java/can-querydsl-part-1-enhance-simplify-existing-spring-data-jpa-repositories/
 
 presentations:
+2020
+Distributed Systems Guy - Bala G - Spring Boot MongoDB QueryDsl 6:00 of 28:31
+    https://www.youtube.com/watch?v=2xGygIAvg4E
 http://mitemitreski.github.io/talks/query-dsl.html
 http://www.slideshare.net/timowestkamper/querydsl-overview-2014
 http://www.slideshare.net/mrjavascript/an-evening-with-querydsl
