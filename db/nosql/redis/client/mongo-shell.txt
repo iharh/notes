@@ -1,0 +1,13 @@
+Tab-twice for completion
+
+help
+    help admin
+    help commands
+
+version()
+interpreterVersion()
+
+db.help()
+db.version()
+db.serverBuildInfo()
+db.stats()
