@@ -49,8 +49,8 @@ MongoDB Essentials – Complete MongoDB Guide
     !   Object           3  "object"
     !   Array            4  "array"
     !   Boolean          8  "bool"
-    !   32-bit Integer  16  "int"
-    !   64-bit Integer  18  "long"
+    !   32-bit Integer  16  "int"       NumberInt()     // in shell-mode
+    !   64-bit Integer  18  "long"      NumberLong()
     !   Double           1  "double"
     !   Date             9  "date"
     !   ObjectId         7  "objectId"
