@@ -1,4 +1,7 @@
-klyos
+error: unable to download 'https://install.determinate.systems/nix-upgrade/stable/universal': SSL peer certificate or SSH remote key was not OK (60)
+https://github.com/NixOS/nixpkgs/issues/70939
+
+klyosov
     https://nday.club/video/kartina-mira-s-tochki-zreniya-molekulyarnoy-istorii
 zhukov
     https://www.youtube.com/watch?v=4lP-eYMlBEg
@@ -35,7 +38,7 @@ vim
 az
     https://learn.microsoft.com/en-us/azure/well-architected/
     https://teams.microsoft.com/l/message/19:9b661fc2a8724fe4bc9f9c7a0a6feea1@thread.tacv2/1664352421318?tenantId=b41b72d0-4e9f-4c26-8a69-f949f367c91d&groupId=e51e4b05-3cb4-47b7-ae33-b5f93a2db84e
-java 
+java
   booster
     https://web.yammer.com/main/org/epam.com/topics/eyJfdHlwZSI6IlRvcGljIiwiaWQiOiI3MDM2OTc3MTUyMCJ9/all
   Naftalin Wadler - java generics and collections 2nd ed
