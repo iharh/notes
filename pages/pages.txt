@@ -1,6 +1,3 @@
-error: unable to download 'https://install.determinate.systems/nix-upgrade/stable/universal': SSL peer certificate or SSH remote key was not OK (60)
-https://github.com/NixOS/nixpkgs/issues/70939
-
 klyosov
     https://nday.club/video/kartina-mira-s-tochki-zreniya-molekulyarnoy-istorii
 zhukov
