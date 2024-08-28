@@ -1,5 +1,15 @@
 https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-developing-auto-configuration.html
 
+exclusion
+https://stackoverflow.com/questions/28747909/how-to-disable-spring-data-mongodb-autoconfiguration-in-spring-boot
+@SpringBootApplication(exclude = {
+  MongoAutoConfiguration.class, 
+  MongoDataAutoConfiguration.class
+}
+spring.autoconfigure.exclude= \
+  org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration,\
+  org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration)
+
 2020
 https://www.marcobehler.com/guides/spring-boot
 2016
