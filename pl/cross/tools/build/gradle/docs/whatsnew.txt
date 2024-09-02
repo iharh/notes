@@ -1,6 +1,11 @@
 https://github.com/gradle/gradle/releases
 
+9.x
+Jfocus - The road to Gradle 9 by Louis Jacomet 0:00 of 50:24
+    https://www.youtube.com/watch?v=uIq5X7Ty0_0
+
 8.x
+https://docs.gradle.org/8.10/release-notes.html
 https://docs.gradle.org/8.9/release-notes.html
 https://docs.gradle.org/8.8/release-notes.html
 https://docs.gradle.org/8.7/release-notes.html
@@ -11,6 +16,7 @@ https://docs.gradle.org/8.3/release-notes.html
 https://docs.gradle.org/8.2/release-notes.html
 https://docs.gradle.org/8.1/release-notes.html
 https://docs.gradle.org/8.0/release-notes.html
+https://gradle.org/whats-new/gradle-8/
 
 7.x
 https://docs.gradle.org/7.6/release-notes.html
