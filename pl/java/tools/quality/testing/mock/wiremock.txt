@@ -86,6 +86,7 @@ https://wiremock.org/docs/record-playback/
 
 admin
 https://wiremock.org/docs/standalone/admin-api-reference
+    _admin/mappings
 
 api templates
 https://wiremock.org/docs/mock-api-templates/
