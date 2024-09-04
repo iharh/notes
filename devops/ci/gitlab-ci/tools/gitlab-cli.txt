@@ -1,0 +1,25 @@
+https://gitlab.com/gitlab-org/cli/
+https://gitlab.com/gitlab-org/cli/-/tree/main/docs/source
+
+https://gitlab.com/gitlab-org/cli/#installation
+    brew/glab
+https://gitlab.com/gitlab-org/cli/-/blob/main/docs/installation_options.md
+https://gitlab.com/gitlab-org/cli/-/blob/main/docs/installation_options.md#asdf
+    mise plugin add glab
+https://gitlab.com/gitlab-org/cli/-/releases
+
+https://gitlab.com/gitlab-org/cli/-/tree/main/docs/source/
+https://docs.gitlab.com/ee/editor_extensions/gitlab_cli/index.html#authenticate-with-gitlab
+    glab auth login
+
+    mr - https://gitlab.com/gitlab-org/cli/-/tree/main/docs/source/mr
+        https://gitlab.com/gitlab-org/cli/-/blob/main/docs/source/mr/list.md
+        glab mr ls -a
+
+    release - https://gitlab.com/gitlab-org/cli/-/tree/main/docs/source/release
+        glab release ls
+
+https://docs.gitlab.com/ee/editor_extensions/gitlab_cli/index.html
+    Work with issues.
+    Work with merge requests.
+    Watch running pipelines directly from your CLI.
