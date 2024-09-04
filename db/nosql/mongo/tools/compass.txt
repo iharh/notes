@@ -1,9 +1,13 @@
 https://www.mongodb.com/docs/compass/current/
 https://www.mongodb.com/docs/compass/current/install/
+    https://www.mongodb.com/try/download/compass
+        MongoDB Command Line Database Tools Download available as well
+        rpm - 1.44.0
+        /usr/bin/mongodb-compass
+
 https://www.mongodb.com/docs/compass/current/query/queries
 
-https://www.mongodb.com/try/download/compass
-
-    MongoDB Command Line Database Tools Download available as well
-
 https://flathub.org/apps/com.mongodb.Compass
+
+compass can not access credential storage.
+You can still connect, but please note that passwords will not be saved.
