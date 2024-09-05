@@ -1,0 +1,44 @@
+https://www.mongodb.com/docs/atlas/troubleshoot-connection/
+    !!!
+https://www.mongodb.com/docs/atlas/security/ip-access-list/
+https://www.mongodb.com/docs/atlas/reference/microsoft-azure/
+
+https://www.mongodb.com/community/forums/t/openssl-error-when-starting-mongosh/243323
+https://stackoverflow.com/questions/77062607/mongosh-not-running-digital-envelope-routinesalg-module-initunknown/77085893#77085893
+
+cli
+https://medium.com/@nkav2447/how-to-download-and-install-mongodb-on-fedora-40-2db148a7c2f0
+https://www.mongodb.com/docs/atlas/cli/current/
+    ! need to check links
+    https://www.mongodb.com/docs/atlas/cli/current/command/atlas/
+    atlas setup
+
+
+https://www.mongodb.com/docs/atlas/cli/current/install-atlas-cli/#std-label-install-atlas-cli
+    sudo rpm --import https://www.mongodb.org/static/pgp/server-7.0.asc
+    sudo vi /etc/yum.repos.d/mongodb-org-7.0.repo
+    [mongodb-org-7.0]
+    name=MongoDB Repository
+    baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/7.0/x86_64/
+    gpgcheck=1
+    enabled=1
+    gpgkey=https://pgp.mongodb.com/server-7.0.asc
+
+    #$releasever - change to 9
+
+    # sudo dnf install mongodb-org mongodb-org-server
+    sudo dnf install mongodb-atlas
+    sudo dnf install mongodb-atlas-cli
+    sudo dnf install mongodb-mongosh-shared-openssl3
+
+https://www.geeksforgeeks.org/how-to-install-mongodb-atlas/
+https://www.geeksforgeeks.org/how-to-connect-to-mongodb-atlas-using-shell/
+    ! interesting
+
+https://www.mongodb.com/docs/atlas/cli/current/command/atlas/
+https://www.mongodb.com/docs/atlas/cli/current/connect-atlas-cli/
+
+https://www.mongodb.com/docs/atlas/cli/current/atlas-cli-save-connection-settings/
+    $XDG_CONFIG_HOME/atlascli
+    $HOME/.config/atlascli
+    !!! need to read about profiles

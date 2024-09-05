@@ -1,0 +1,3 @@
+wlprop
+https://gist.github.com/crispyricepc/f313386043395ff06570e02af2d9a8e0
+    swaymsg -t get_tree
