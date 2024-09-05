@@ -1,0 +1,7 @@
+samples
+
+mongoexport --uri mongodb://localhost/mydb \
+  --collection "my_collection" \
+  --quiet \
+  --limit 1 \
+  --out my_file.json

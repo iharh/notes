@@ -1,3 +1,4 @@
+https://www.mongodb.com/docs/mongodb-shell/
 https://www.mongodb.com/docs/mongodb-shell/install/
 https://github.com/mongodb-js/mongosh
     
@@ -6,4 +7,22 @@ https://github.com/mongodb-js/mongosh
     
     mongodb://<usr>:<pwd>@localhost:27017/test 
 
+https://www.mongodb.com/docs/mongodb-shell/
+    show dbs
+    use ...
+    show collections
+        db.getCollectionNames()
+            [ '...', ... ]
+        db.getCollectionInfos()
+            https://www.mongodb.com/docs/manual/reference/method/db.getCollectionInfos
+            ...
+
+https://www.mongodb.com/docs/mongodb-shell/crud/
+https://www.mongodb.com/docs/mongodb-shell/crud/read/
+    db.<coll>.find()
+
+print output to file
+https://stackoverflow.com/questions/22565231/printing-mongo-query-output-to-a-file-while-in-the-mongo-shell
+
+???
 https://www.mongodb.com/docs/manual/reference/method/
