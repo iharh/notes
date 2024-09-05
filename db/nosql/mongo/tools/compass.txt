@@ -9,5 +9,31 @@ https://www.mongodb.com/docs/compass/current/query/queries
 
 https://flathub.org/apps/com.mongodb.Compass
 
-compass can not access credential storage.
+https://github.com/mongodb-js/compass/
+
+compass cannot access credential storage...
 You can still connect, but please note that passwords will not be saved.
+https://github.com/mongodb-js/compass/blob/main/packages/compass/src/app/index.tsx#L269
+    if (!isSecretStorageAvailable) {...}
+    ...
+    render
+        const isSecretStorageAvailable = await checkSecretStorageIsAvailable();
+
+    async function checkSecretStorageIsAvailable(): Promise<boolean> {
+      return await ipcRenderer?.call('compass:check-secret-storage-is-available');
+    }
+https://github.com/mongodb-js/compass/blob/main/packages/compass/src/main/application.ts#L261
+    ...
+    import { app, safeStorage, session } from 'electron';
+    ...
+      'compass:check-secret-storage-is-available': async function () {
+        // Accessing isEncryptionAvailable is not allowed when app is not ready on Windows
+        // https://github.com/electron/electron/issues/33640
+        await app.whenReady();
+        return safeStorage.isEncryptionAvailable();
+      },
+
+encryption
+https://www.mongodb.com/docs/compass/current/connect/advanced-connection-options/in-use-encryption/
+https://www.mongodb.com/docs/compass/current/in-use-encryption-tutorial/
+https://github.com/search?q=repo%3Amongodb-js%2Fcompass%20encryption&type=code

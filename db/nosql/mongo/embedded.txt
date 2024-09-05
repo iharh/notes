@@ -1,0 +1,8 @@
+testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.5.5.tgz
+EmbeddedMongoAutoconfiguration
+ExtractedArtifactStore
+    boolean foundExecutable
+ArtifactStore
+AbstractExtractor.extract()
+   ~/.embedmongo/extracted 
