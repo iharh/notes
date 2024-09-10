@@ -5,9 +5,18 @@ https://github.com/querydsl/querydsl
 es
 https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/java-query-dsl.html
 
+2024
+JavalinUa - Subquery в Criteria API і QueryDSL | JavalinUa | Java | Hibernate | Postgresql 0:00 of 21:38
+    https://www.youtube.com/watch?v=k6XGo0NjMLA
 2023
 https://www.baeldung.com/querydsl-with-jpa-tutorial
 https://www.baeldung.com/intro-to-querydsl
+EngAdda - Query DSL in Spring Boot of p8
+    https://www.youtube.com/playlist?list=PLoNChWlyFPxfYJGWc-RnImbkbpz6cwwSD
+JavaGuru - 19. HIBERNATE. Criteria API, QueryDSL, Filters, N+1 poblem (Java Enterprise - полный курс) 0:00 of 56:46
+    https://www.youtube.com/watch?v=8GtgqctWrIM
+TechnoTownTechie - Spring Boot ElasticSearch using Spring Data | Query DSL | Fuzziness | Aggregations 0:00 of 55:16
+    https://www.youtube.com/watch?v=KFyPbtZXCWE
 2018
 https://habr.com/ru/articles/344450/
 2017
@@ -24,6 +33,9 @@ http://mitemitreski.github.io/talks/query-dsl.html
 http://www.slideshare.net/timowestkamper/querydsl-overview-2014
 http://www.slideshare.net/mrjavascript/an-evening-with-querydsl
 http://www.slideshare.net/zipkyh/querydsl-50557542
+2018
+JavaTechie - Spring Data ElasticSearch using QueryDSL 0:00 of 25:08
+    https://www.youtube.com/watch?v=XHOTfs7upWk
 
 gradle-plugin:
 https://github.com/querydsl/querydsl/issues/599
