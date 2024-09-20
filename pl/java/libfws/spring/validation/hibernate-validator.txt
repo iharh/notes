@@ -1,3 +1,5 @@
 http://hibernate.org/validator/
 
 http://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/
+
+https://docs.jboss.org/hibernate/stable/validator/api/org/hibernate/validator/constraints/UUID.html
