@@ -1,5 +1,34 @@
-https://floxdev.com/
+https://flox.dev/
+
 https://github.com/flox/flox
 https://github.com/flox/floxpkgs
 
-https://floxdev.com/docs/
+https://flox.dev/features/
+
+https://flox.dev/docs/
+https://flox.dev/docs/install-flox/
+https://flox.dev/docs/tutorials/
+https://flox.dev/docs/tutorials/creating-environments/
+
+https://flox.dev/docs/concepts/floxhub/
+https://flox.dev/docs/concepts/generations/
+https://flox.dev/docs/concepts/packages-and-catalog/
+https://flox.dev/docs/concepts/services/
+
+https://flox.dev/docs/reference/command-reference/flox/
+
+https://flox.dev/environments/
+
+https://flox.dev/blog/
+
+2024
+https://flox.dev/blog/extending-flox-with-nix-flakes/
+https://flox.dev/blog/run-containers-easily-with-podman-flox/
+https://flox.dev/blog/conflict-resolution-made-easy-with-package-groups-in-flox/
+https://flox.dev/blog/mastering-hooks-and-profiles-for-reproducible-flox-environments/
+https://flox.dev/blog/write-once-take-anywhere-home-away-from-home-with-floxhub/
+2023
+BitInByte - Neovim | It's a lua? It's a line? It's a lualine 0:00 of 31:14
+    https://www.youtube.com/watch?v=z8-pctD-scc
+2022
+https://flox.dev/blog/announcing-flox/

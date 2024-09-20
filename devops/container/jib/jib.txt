@@ -8,12 +8,3 @@ https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin
 FROM gcr.io/distroless/java
 
 https://github.com/GoogleContainerTools/jib-extensions
-
-2021
-https://ashishtechmill.com/comparing-modern-day-container-image-builders-jib-buildpacks-and-docker
-    https://habr.com/ru/post/552494/
-2018
-https://circleci.com/blog/dockerizing-java-apps-with-circleci-and-jib/?utm_source=cooperpress&utm_medium=newsletter&utm_campaign=oct18&utm_content=javascript-weekly
-https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html
-https://speakerdeck.com/coollog/build-containers-faster-with-jib-a-google-image-build-tool-for-java-applications
-https://www.infoq.com/news/2018/08/jib

@@ -25,8 +25,9 @@ SpringIO - Getting modules right with Domain-driven Design by Michael Plöd @ Sp
     https://speakerdeck.com/mploed/getting-modules-right-with-domain-driven-design?slide=89
 https://learn.microsoft.com/ru-ru/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/
 2021
-DotNext - Horikov - DDD - Most Important ru 38:00 of 1:13:59
+DotNext - Hisnulin - Horikov - DDD - Most Important ru of 1:13:59
     https://www.youtube.com/watch?v=JOy_SNK3qj4
+    ! bubble context, anti-corruption layer, pluralsight course, link to E. Evans article
 2020
 https://habr.com/ru/companies/dododev/articles/489352/
     ! DDD Ubiquitos Language
