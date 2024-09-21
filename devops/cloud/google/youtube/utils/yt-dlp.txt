@@ -6,6 +6,8 @@ https://github.com/yt-dlp/yt-dlp/wiki/Plugins
 
 deb/yt-dlp
 
+https://github.com/BKSalman/ytdlp-gui
+
 cfg
     https://gitlab.com/jacinthsamuel/dotfiles/-/blob/master/.config/yt-dlp.conf
 
