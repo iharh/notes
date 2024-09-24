@@ -41,10 +41,16 @@ Udemy Full Stack Development With Spring Boot And MongoDB
     https://therarbg.to/post-detail/558a34/udemy-full-stack-development-with-spring-boot-and-mongodb/
     ! 828Mb
 2020
-MongoDB Essentials – Complete MongoDB Guide
+Staschuk - MongoDB Essentials – Complete MongoDB Guide 9-3
     https://1337x.to/torrent/4415133/Udemy-MongoDB-Essentials-Complete-MongoDB-Guide-Course-Drive/
     https://www.torrentdownloads.pro/torrent/1668225001/MongoDB-Essentials---Complete-MongoDB-Guide
     magnet:?xt=urn:btih:96F2D7B67D9F591C201CDE479C2159506E7C66E6
+    !
+    ! mongo "mongodb://<username>:<password>@hostname/database"
+    ! db.createUser(user: "...", pwd: "...", "roles": [{"role": "...", "db": "..."}, ...])
+    !
+    ! BSON, Json, ExtJson
+    !
     ! 12.2G
     ! Extended Json - Shell mode, ? strict
     ! typeof obj.a;
