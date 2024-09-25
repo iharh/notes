@@ -13,8 +13,6 @@ tgpt
 cfg
 ~/.config/tgpt
 
-2023
-https://www.youtube.com/watch?v=yrj8Pa1JHf
 
 https://github.com/aandrew-me/tgpt/blob/main/functions.go#L466
     http.NewRequest("POST", "https://ai.fakeopen.com/v1/chat/completions", data)
@@ -22,3 +20,9 @@ https://github.com/aandrew-me/tgpt/blob/main/functions.go#L466
 issues
 PandoraNext
 https://github.com/aandrew-me/tgpt/issues/166
+
+2024
+CodeBest - How to Use ChatGPT in Your Linux Terminal: Step-by-Step Guide 0:00 of 4:32
+    https://www.youtube.com/watch?v=Ad-QsxHH108
+2023
+https://www.youtube.com/watch?v=yrj8Pa1JHf
