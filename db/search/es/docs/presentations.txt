@@ -1,7 +1,23 @@
 2024
-SuchkovTech - ES for 30 min Ru 11:00 of 28:39
+SuchkovTech - ES for 30 min Ru 17:20 of 28:39
     https://www.youtube.com/watch?v=vxE1aGTEnbE
     ! 10:50 index creation PUT-sample
+    ! PUT lh:9200/first_index
+    ! { "mappings": { "properties": { "title": {type": "text", "analyzer": "russian"}, "price": {"type": "float"}, "available": { "type": "boolean" }}}
+    ! PUT lh:9200/first_index/_doc1/1 -d '{ "title": "...", "price": "...", ...}'
+    ! { "_id": "1", "_type": "_doc", "_version": 1, "_shards": {...}, "_seq_no": 0, "_primary_term": "result": "created/updated", ... }
+    ! PUT ... _doc1/1/_create -d'...' - to not update existing
+    ! error -> root_cause
+    ! GET ... _doc1/1
+    !   if not found { ... "found": false }
+    ! DELETE ->
+    !   { ... "result": "deleted" }
+    ! POST lh:9200/first_index/_bulk
+    !
+    ! ?GET lh:9200/first_index/_search
+    ! { "from": 20, "size": 3}
+    ! { "query": {"match": {"title": "cableless"}}}
+    ! ... "_score": 6.57...
     https://github.com/SuchkovDenis/elasticexample
     https://suchkov.tech/elasticsearch-quick-start/
     https://suchkov.tech/wp-content/uploads/2024/08/ElasticSearch-Postman-collection.zip

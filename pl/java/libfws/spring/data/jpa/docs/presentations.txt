@@ -6,6 +6,21 @@ SeleniumExpress - Spring Data JPA - ORM Mappings of p2
     https://www.youtube.com/playlist?list=PL3NrzZBjk6m-XiX22zxJYJd6CYzmNENUI
 
 2024
+JPoint - Sindeev - Hibernate OOM and really HUGE Queries (in) of 39:18
+    https://www.youtube.com/watch?v=KUmzw-gAhCY
+    ! -XX:HeapDumpPath=/opt/dumps # mapped volume
+    ! -XX:MaxRAMPercentage=70
+    ! -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+    ! -Dcom.sun.management.jmxremote=true
+    ! ... port, rmi.port
+    ! -Djava.rmi.server.hostname=127.0.0.1
+    ! starter.actuator.
+    ! yaml: managements.endpoints.web.exposure.include: heapdump
+    ! org.hibernate.internal.StatisticsImpl
+    ! org.hibernate.internal.SessionFactoryImpl
+    !   ... queryPlanCache
+    ! yaml: spring.jpa.properties.hibernate.generate_statistics: false
+    !   hibernate.query.in_clause_parameter_padding: ON
 JPoint - Ilya and Fedor Sazonov - DB Tamer of 48:02
     https://www.youtube.com/watch?v=mIxr65ZGGFw
     https://www.youtube.com/watch?v=1T5LjQaWGhQ
