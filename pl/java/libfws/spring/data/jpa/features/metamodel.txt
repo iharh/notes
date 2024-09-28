@@ -1,0 +1,16 @@
+https://projectlombok.org/features/experimental/FieldNameConstants
+
+https://habr.com/ru/companies/magnit/articles/814573/
+
+ext { 
+	jpamodelgenVersion = '6.4.4.Final' 
+}
+
+implementation "org.hibernate:hibernate-jpamodelgen:${jpamodelgenVersion}" 
+annotationProcessor "org.hibernate:hibernate-jpamodelgen:${jpamodelgenVersion}"
+
+sourceSets.main.java.srcDirs += layout.buildDirectory.dir("/generated") 
+ 
+compileJava { 
+	options.generatedSourceOutputDirectory = layout.buildDirectory.dir("/generated") 
+}

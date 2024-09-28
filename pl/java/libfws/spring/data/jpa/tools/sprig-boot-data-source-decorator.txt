@@ -1,0 +1,9 @@
+https://github.com/gavlyukovskiy/spring-boot-data-source-decorator
+
+decorator.datasource.datasource-proxy.slow-query.enable-logging=true
+decorator.datasource.datasource-proxy.slow-query.log-level=warn
+decorator.datasource.datasource-proxy.slow-query.logger-name=
+# Number of seconds to consider query as slow and log it
+decorator.datasource.datasource-proxy.slow-query.threshold=300
+
+decorator.datasource.datasource-proxy.multiline=true

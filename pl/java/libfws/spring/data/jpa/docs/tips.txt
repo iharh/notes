@@ -3,7 +3,11 @@ https://habr.com/ru/articles/265061/
 2024
 https://habr.com/ru/articles/824936/
 https://habr.com/ru/companies/magnit/articles/814573/
-    ! criteria-api
-    @OneToMany 
-	  @Fetch(FetchMode.SUBSELECT) // but does now work with pagination, hbm-bug
-    @Formula-annotation
+    ! which to replace criteria-api by - QueryDSL
+    @DynamicUpdate - to not cache update p-stmt
+    ! for N+1 problem solving
+    @OneToMany @BatchSize(size=50)
+	  @OneToMany @Fetch(FetchMode.SUBSELECT) // but does now work with pagination, hbm-bug
+    @Formula("price * quantity")
+    @Formula("SEQURE_RAND(quantity)")
+    @Formula("(select count(*) from FORMULA_TABLE f where f.price < price)") 

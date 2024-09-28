@@ -49,6 +49,17 @@ JPoint - Ilya and Fedor Sazonov - DB Tamer of 48:02
     !   https://www.youtube.com/watch?v=mIxr65ZGGFw
     !       hikari
     ! 43:00 pgBouncer ?
+Devoxx - Performance oriented Spring Data JPA & Hibernate by Maciej Walkowiak 23:00 of 43:43
+    !!!
+    https://www.youtube.com/watch?v=exqfB1WaqIw
+    ! DB connection pool (hikari) should not be too big (even 100 is big)
+    ! need to optimize queries
+        https://github.com/gavlyukovskiy/spring-boot-data-source-decorator
+        https://p6spy.readthedocs.io/en/latest/index.html
+    ! to post-pone connection obtaining till real DB-call
+    !   spring.datasource.hikari.auto-commit=false # spring will not open connection untill real DB access
+    ! if long ext-call is after DB-call - need to use spring transactionTemplate
+    !   
 Amplicode - Lombok Problems with Spring Data JPA 0:00 of 12:00
     https://www.youtube.com/watch?v=7kdQTh4oOQM
 Build faster persistence layers with Spring Data JPA 3 by Thorben Janssen @ Spring I/O 2024 0:00 of 49:49
@@ -56,8 +67,6 @@ Build faster persistence layers with Spring Data JPA 3 by Thorben Janssen @ Spri
     https://2024.springio.net/slides/build-faster-persistence-layers-with-spring-data-jpa-3-springio24.pdf
 Telusko - Spring Data JPA 0:00 of 28:27
     https://www.youtube.com/watch?v=ImBqsE2exGo
-Devoxx - Performance oriented Spring Data JPA & Hibernate by Maciej Walkowiak 14:00 of 43:43
-    https://www.youtube.com/watch?v=exqfB1WaqIw
 2023
 Spilka - JPA/Hibernate Fundamentals 2023 of 7 parts
     https://www.youtube.com/playlist?list=PLEocw3gLFc8UYNv0uRG399GSggi8icTL6
