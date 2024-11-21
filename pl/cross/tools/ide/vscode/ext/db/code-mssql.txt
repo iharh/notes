@@ -27,3 +27,6 @@ config (connections)
             "expiresOn": ...,
             "email": "first.last@some.com"
         },
+
+modern features
+https://github.com/microsoft/vscode-mssql/blob/main/FEATURES.md#modern-features-in-mssql-for-visual-studio-code

@@ -3,6 +3,9 @@ https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download
     https://dotnet.microsoft.com/en-us/download/dotnet/6.0
         https://dotnet.microsoft.com/en-us/download/dotnet/scripts
         https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script
+            ./dotnet-install.sh --channel 8.0
+            ./dotnet-install.sh --runtime dotnet --version 8.0.0
+            
     dotnet tool install -g microsoft.sqlpackage
     dotnet tool update -g microsoft.sqlpackage
     dotnet tool uninstall -g microsoft.sqlpackage
