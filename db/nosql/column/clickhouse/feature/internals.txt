@@ -1,0 +1,21 @@
+https://clickhouse.com/docs/en/updating-data
+https://clickhouse.com/docs/en/guides/developer/lightweight-delete#lightweight-delete-internals
+
+mutations
+https://clickhouse.com/docs/en/sql-reference/statements/alter#mutations
+    alter ... update|delete
+    set mutations_sync 1
+
+https://clickhouse.com/docs/en/optimize/skipping-indexes
+    ! no secondary indices, because data is not stored in rows
+    skip inexes (skp_idx_)
+    ... alter table <> materialize index <> ... to apply newly added index
+
+2023
+https://clickhouse.com/blog/handling-updates-and-deletes-in-clickhouse
+
+system db
+\c system
+\d
+
+query_log

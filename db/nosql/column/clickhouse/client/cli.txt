@@ -1,0 +1,7 @@
+https://clickhouse.com/docs/en/integrations/sql-clients/cli
+
+https://clickhouse.com/docs/en/integrations/sql-clients/cli#cli_aliases
+    \l - SHOW DATABASES
+    \d - SHOW TABLES
+    \c <DATABASE> - USE DATABASE
+    . - repeat the last query

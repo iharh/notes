@@ -1,0 +1,39 @@
+https://clickhouse.com/
+https://clickhouse.com/clickhouse
+
+https://github.com/ClickHouse/ClickHouse
+
+https://clickhouse.com/docs
+https://clickhouse.com/learn
+https://clickhouse.com/blog
+
+https://clickhouse.com/docs/en/sql-reference/
+
+functions
+state functions, agg, accum
+    https://habr.com/ru/articles/842078/
+    https://habr.com/ru/companies/magnit/articles/825264/
+array
+    https://habr.com/ru/articles/836140/
+
+integrations
+https://clickhouse.com/docs/en/integrations/java/jdbc-driver
+
+compression
+https://habr.com/en/company/yandex/blog/457612/
+
+lsm
+https://habr.com/ru/companies/wildberries/articles/821865/
+
+internals
+https://habr.com/ru/companies/wildberries/articles/821865/
+    system.parts
+
+2020
+https://habr.com/ru/company/solarsecurity/blog/485850/
+https://habr.com/ru/articles/519168/
+2019
+https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html
+    https://habr.com/ru/company/otus/blog/463665/
+2018
+https://habrahabr.ru/company/yandex/blog/347696/
