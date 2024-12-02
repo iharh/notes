@@ -1,4 +1,19 @@
 https://clickhouse.com/docs/ru/engines/table-engines
 https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family
 https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replacingmergetree
+    only eventually dedups (and on mutations)
 https://clickhouse.com/docs/en/engines/table-engines/special/join
+
+https://clickhouse.com/docs/en/guides/developer/deduplication
+https://kb.altinity.com/altinity-kb-schema-design/insert_deduplication/
+
+2024
+https://habr.com/ru/companies/oleg-bunin/articles/836078/
+    select ... final
+    optimize table <> final -- for replacingmergetree only
+    ! clickhouse has no transactionality !
+    index granularity (8192 - num of rows to read at once)
+    primary index is stored in RAM
+2021
+https://habr.com/ru/articles/539538/
+    ! need to read

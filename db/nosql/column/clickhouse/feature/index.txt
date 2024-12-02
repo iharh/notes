@@ -1,0 +1,4 @@
+https://clickhouse-docs.vercel.app/docs/en/optimize/sparse-primary-indexes
+    ! each part has its own primary index
+    sparse index - one 'mark' per group of rows 'granule'
+    it must fit into the RAM

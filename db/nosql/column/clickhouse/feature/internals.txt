@@ -13,6 +13,8 @@ https://clickhouse.com/docs/en/optimize/skipping-indexes
 
 2023
 https://clickhouse.com/blog/handling-updates-and-deletes-in-clickhouse
+https://habr.com/ru/companies/oleg-bunin/articles/726570/
+    ! perf-opt
 
 system db
 \c system

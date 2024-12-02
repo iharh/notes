@@ -1,0 +1,5 @@
+2024
+https://habr.com/ru/companies/oleg-bunin/articles/836078/
+    ! need to directly provide consistence of predaggr-table and src-one
+    !   ? using materialized-views (but m-v does not trigger updates/deletes)
+    ! projections - clickhouse makes automatically
