@@ -1,10 +1,52 @@
 2024
 dmdev - Java Date and Time API 0:00 of 32:32
     https://www.youtube.com/watch?v=5QzLsYQRt0I
-https://www.baeldung.com/java-date-to-localdate-and-localdatetime
 2023
 https://jonasg.io/posts/how-to-effectively-test-time-dependent-code/
 2017
 https://codeblog.jonskeet.uk/2017/04/23/all-about-java-util-date/
 2015
 https://codeblog.jonskeet.uk/2015/05/05/common-mistakes-in-datetime-formatting-and-parsing/
+
+????
+https://www.baeldung.com/category/java/java-dates
+https://www.baeldung.com/java-dates-series
+
+https://www.baeldung.com/java-8-date-time-intro
+    ZonedDateTime.parse("2015-05-03T10:15:30+01:00[Europe/Paris]");
+https://www.baeldung.com/java-convert-epoch-localdate
+https://www.baeldung.com/java-instant-vs-localdatetime
+https://www.baeldung.com/java-localdatetime-zoneddatetime
+https://www.baeldung.com/java-localdate-epoch
+
+https://www.baeldung.com/java-zone-offset
+https://www.baeldung.com/java-zoneddatetime-offsetdatetime
+        https://stackoverflow.com/questions/30234594/whats-the-difference-between-zoneddatetime-and-offsetdatetime
+    ZonedDateTime holds 3 parts: LocalDateTime, ZoneId and the resolved ZoneOffset. 
+    ZoneId determines how and when the offset changes. So, the offset can’t be freely set, as the zone controls which offsets are valid.
+        ZonedDateTime.now(ZoneId.of("Europe/Berlin"))
+    fully DST-aware
+
+    OffsetDateTime is an immutable representation of a date-time with an offset from UTC/Greenwich
+        OffsetDateTime.now(ZoneOffset.of("+02:00"))
+    we should always prefer storing OffsetDateTime in the database over the ZonedDateTime, 
+    as dates with a local time offset always represent the same instants in time.
+
+https://www.baeldung.com/java-date-to-localdate-and-localdatetime
+    There are 2 implementations of ZoneId. 
+    First, with a fixed offset as compared to GMT/UTC. 
+    And second, as a geographical region, which has a set of rules to calculate the offset with GMT/UTC.
+
+    ZoneOffset extends ZoneId and defines the fixed offset of the current time-zone with GMT/UTC, such as +02:00.
+        ZoneOffset zoneOffset = ZoneId.of("Europe/Berlin").getRules().getOffset(LocalDateTime.now());
+    In case a country has 2 different offsets – in summer and winter, there will be 2 different ZoneOffset implementations for the same region, 
+    hence the need to specify a LocalDateTime
+
+????
+https://www.baeldung.com/java-combine-local-date-time
+    truncate hour
+https://www.baeldung.com/spring-date-parameters
+https://www.baeldung.com/jackson-serialize-dates
+https://medium.com/elca-it/how-to-get-time-zones-right-with-java-8dea13aabe5c
+https://stackoverflow.com/questions/57327134/how-to-search-by-dates-and-times-with-spring-data-jpa
+https://www.baeldung.com/java-check-two-date-ranges-overlap
