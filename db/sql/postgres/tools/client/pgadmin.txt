@@ -1,7 +1,12 @@
 https://www.pgadmin.org/download/
-https://www.pgadmin.org/download/pgadmin-4-apt/
+
+rpm
+    https://www.pgadmin.org/download/pgadmin-4-rpm/
+    sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-2-1.noarch.rpm
+    sudo yum install pgadmin4-desktop
 
 apt/
+    https://www.pgadmin.org/download/pgadmin-4-apt/
     pgadmin4
         6.9 - both desktop and web
     pgadmin4-desktop
