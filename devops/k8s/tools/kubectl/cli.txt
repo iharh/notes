@@ -29,6 +29,7 @@ kubectl
         nodes
         events
         po[ds]
+            -o yaml
             [--namespace=kube-system]
             -l app=<name>
         rs[replicaset]
