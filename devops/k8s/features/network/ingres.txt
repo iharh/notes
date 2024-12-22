@@ -1,7 +1,5 @@
 https://kubernetes.io/docs/concepts/services-networking/ingress/
 
-https://kubernetes.github.io/ingress-nginx/deploy/baremetal/
-
 2023
 https://medium.com/@danielepolencic/learning-how-an-ingress-controller-works-by-building-one-in-bash-ac3929f7699
     !!!
