@@ -1,0 +1,18 @@
+https://docs.spring.io/spring-data/rest/reference/paging-and-sorting.html
+
+PageRequest 
+    [number: 0, size 10, sort: UNSORTED]
+    pageNumber
+    pageSize
+    offset=pN*pS
+
+Page
+    "size":10,"currentPage":0,"totalPages":1,"totalElements":7
+
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/web/PageableHandlerMethodArgumentResolver.html
+    PageableHandlerMethodArgumentResolverSupport
+    DEFAULT_PAGE_PARAMETER = "page"
+    DEFAULT_SIZE_PARAMETER = "size"
+    SortHandlerMethodArgumentResolverSupport
+
+    sort=name,desc
