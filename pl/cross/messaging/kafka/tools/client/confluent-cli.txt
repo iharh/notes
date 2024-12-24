@@ -1,0 +1,6 @@
+https://github.com/confluentinc/cli
+    sudo rpm --import https://packages.confluent.io/confluent-cli/rpm/archive.key
+    sudo yum install yum-utils
+    sudo yum-config-manager --add-repo https://packages.confluent.io/confluent-cli/rpm/confluent-cli.repo
+    # sudo yum clean all && sudo yum install confluent-cli
+    sudo yum install confluent-cli
