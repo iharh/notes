@@ -14,6 +14,11 @@ https://github.com/keycloak/keycloak-quickstarts/blob/latest/docs/getting-starte
 
 https://github.com/keycloak/keycloak
 
+token endpoint
+https://www.baeldung.com/postman-keycloak-endpoints
+https://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
+https://habr.com/ru/companies/flant/articles/670628/
+
 mvn
 https://search.maven.org/search?q=a:keycloak-adapter-bom
 https://search.maven.org/artifact/org.keycloak.bom/keycloak-adapter-bom/18.0.2/pom
