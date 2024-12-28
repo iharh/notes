@@ -14,5 +14,9 @@ https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/request_li
         https://regexone.com/
         https://regexper.com
 
+persistent log
+about:config - persistlog
+https://stackoverflow.com/questions/21526871/can-i-prevent-the-firefox-developer-tools-network-panel-from-clearing-on-page-re
+
 2020
 https://alan.norbauer.com/articles/browser-debugging-tricks

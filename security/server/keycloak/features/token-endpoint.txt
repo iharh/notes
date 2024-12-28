@@ -1,0 +1,26 @@
+KC -> authorization-code -> browser
+    grant_type=authorization_code
+browser exchanges it for
+    - id token
+    - access/refresh token
+rest api
+    retrieve pub-keys (to verify access tokens)
+    https://developers.redhat.com/blog/2020/01/29/api-login-and-jwt-token-generation-using-keycloak
+        client -> auth flow overrides
+            Settings -> Capability Config
+                Client Authentication -> On
+                Authentication flow -> Direct Access Grants
+                credentials tab
+                    Client Authenticator -> Client Id and Secret
+            Advanced -> Authentication flow Overrides
+                Direct Grant Flow -> Direct Grant
+    https://developers.redhat.com/blog/authentication-and-authorization-using-the-keycloak-rest-api
+        https://github.com/edwin/java-keycloak-integration/blob/master/src/main/resources/application.properties
+        https://github.com/edwin/java-keycloak-integration/blob/master/src/main/java/com/edw/service/KeycloakRestService.java
+        token endpoint
+            username=
+            password=
+            grant_type=password
+            client_id=?
+            client_secret=?
+            scope="openid, profile"

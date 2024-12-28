@@ -2,6 +2,12 @@ https://jwt.io/
     s a standard RFC 7519 for exchanging cryptographically signed JSON data
 https://datatracker.ietf.org/doc/html/rfc7519
 
+https://jwt.io/beta
+    jwtv2
+    https://github.com/jsonwebtoken/jsonwebtoken.github.io/issues/723
+
+https://jwt.io/beta/libraries?filter=java
+
 2023
 https://habr.com/ru/companies/doubletapp/articles/764424/
 2022
