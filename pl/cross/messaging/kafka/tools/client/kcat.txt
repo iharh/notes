@@ -2,3 +2,6 @@ https://github.com/edenhill/kcat
 https://rmoff.net/2018/08/02/kafka-listeners-explained/
 
 docker run --rm --network=host edenhill/kafkacat:1.5.0 kafkacat -b localhost:29092 -L
+-b $HOST_PORT
+-L list
+#  -X sasl.username= -X sasl.password= -X security.protocol=SASL_SSL -X sasl.mechanisms=SCRAM-SHA-512 -X ssl.ca.location=~/.kafka/root.crt

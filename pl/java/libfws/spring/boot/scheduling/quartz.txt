@@ -1,0 +1,53 @@
+https://www.quartz-scheduler.org/
+https://github.com/quartz-scheduler/quartz
+
+https://www.quartz-scheduler.org/documentation/
+
+cfg
+https://github.com/quartz-scheduler/quartz/blob/main/docs/configuration.adoc
+    org.quartz.dataSource.
+
+init-schema
+https://github.com/quartz-scheduler/quartz/blob/main/quartz/src/main/resources/org/quartz/impl/jdbcjobstore/tables_postgres.sql
+
+ver
+boot 3.3.4 - quartz 2.3.2
+
+
+api
+https://www.quartz-scheduler.org/api/2.3.0/index.html
+
+http://www.opencodez.com/java/quartz-scheduler-with-spring-boot.htm
+https://github.com/pavansolapure/opencodez-samples/tree/master/quartz-demo
+
+2024
+https://www.baeldung.com/quartz
+2022
+https://habr.com/ru/companies/surfstudio/articles/685980/
+2019
+https://dzone.com/articles/adding-quartz-to-spring-boot
+    https://habr.com/ru/company/otus/blog/475996/
+
+cfg sample
+        quartz:
+          job-store-type: jdbc
+          initialize-schema: never
+          properties:
+            org:
+              quartz:
+                jobStore:
+                  class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
+                  driverDelegateClass: org.quartz.impl.jdbcjobstore.<some>Delegate
+                  useProperties: true
+                  misfireThreshold: 60000
+                  tablePrefix: qrtz_
+                  isClustered: true
+                threadPool:
+                  threadCount: 1
+                scheduler:
+                  instanceName: <some->-service
+                  instanceId: AUTO
+                plugin:
+                  shutdownHook:
+                    class: org.quartz.plugins.management.ShutdownHookPlugin
+                    cleanShutdown: TRUE
