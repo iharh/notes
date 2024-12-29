@@ -9,6 +9,7 @@ https://zero-to-nix.com/start/install
 https://zero-to-nix.com/concepts/nix-installer
     ! /nix/receipt.json
     1171 lines
+https://zero-to-nix.com/start/uninstall/
 
 https://github.com/DeterminateSystems/nix-installer-action
 
