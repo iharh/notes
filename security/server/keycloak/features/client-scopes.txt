@@ -1,0 +1,34 @@
+https://www.baeldung.com/keycloak-custom-user-attributes
+
+"operator_id": "54c496e5-de79-4ed7-9acb-248181e6c780"
+"realm_access": { "roles": [ ..., "operator" ] }
+"scopes" : "... operator_id"
+"groups": [..., "operator" ],
+
+Realm settings -> User profile -> Create attribute
+    operator_id
+    permissions -> Admin/Admin
+    annotations -> Input type - text
+    JSON editor
+        https://www.keycloak.org/docs/latest/server_admin/#_user-profile-json-configuration
+        fix displayName
+
+Realm roles -> operator
+Users -> some-user -> Role mapping -> Assign role -> select "Filter by Realm Roles"
+
+Client scopes -> operator_id
+    Settings -> 
+        Include in token scope -> On
+    Mappers 
+        Mapper type: "User Attribute"
+        Name: operator_id
+        User Attribute: operator_id
+        Token Claim Name: operator_id
+        Add to: id token, access token, user info, token introspection
+Clients -> account-console - Client scopes -> Add client scope -> operator_id (Default)
+
+check 
+    "Realm Roles -> operator -> Users in role"
+    Users -> some-user -> Details -> operatorId attribute
+    clients -> client scopes tab -> evaluate -> 
+        generated access token
