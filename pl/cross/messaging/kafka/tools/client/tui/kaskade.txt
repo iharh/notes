@@ -1,0 +1,10 @@
+https://github.com/sauljabin/kaskade
+https://github.com/sauljabin/kaskade/blob/main/kaskade/main.py
+
+docker run --rm -it sauljabin/kaskade:latest
+
+kaskade admin -b ${BOOTSTRAP_SERVERS} \
+        -c security.protocol=SASL_SSL \
+        -c sasl.mechanism=PLAIN \
+        -c sasl.username=${CLUSTER_API_KEY} \
+        -c sasl.password=${CLUSTER_API_SECRET}

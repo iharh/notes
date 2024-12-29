@@ -1,6 +1,11 @@
+2022
+https://medium.com/@TimvanBaarsen/apache-kafka-cli-commands-cheat-sheet-a6f06eac01b
+
 ? KafkaManager
+https://github.com/yahoo/CMAK
 
 kafka-topic.sh
+    https://habr.com/ru/companies/slurm/articles/719540/
     most topic operations
 kafka-config.sh
     config changes
