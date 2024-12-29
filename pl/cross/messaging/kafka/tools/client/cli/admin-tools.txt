@@ -1,5 +1,15 @@
+https://github.com/apache/kafka/tree/trunk/tools/src/main/java/org/apache/kafka/tools
+https://github.com/apache/kafka/blob/trunk/tools/src/main/java/org/apache/kafka/tools/GetOffsetShell.java
+https://github.com/apache/kafka/blob/trunk/tools/src/main/java/org/apache/kafka/tools/DeleteRecordsCommand.java
+
+2023
+https://lukianovihor.medium.com/kafka-cli-basic-commands-bb55449d1cb0
 2022
 https://medium.com/@TimvanBaarsen/apache-kafka-cli-commands-cheat-sheet-a6f06eac01b
+
+https://docs.confluent.io/kafka/operations-tools/kafka-tools.html
+https://github.com/confluentinc/kafka/blob/master/bin/kafka-run-class.sh
+https://github.com/apache/kafka/tree/trunk/bin
 
 ? KafkaManager
 https://github.com/yahoo/CMAK

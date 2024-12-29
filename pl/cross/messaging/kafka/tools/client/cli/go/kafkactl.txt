@@ -2,19 +2,31 @@ https://deviceinsight.github.io/kafkactl/
 https://github.com/deviceinsight/kafkactl
 https://snapcraft.io/kafkactl
 
+mise/kafkactl
 GOBIN=/home/iharh/bin go install github.com/deviceinsight/kafkactl@latest
 sudo mv bin/kafkactl /usr/local/bin
 
 kafkactl
-    create
-        topic <name>
-            --help
-            -p, --partitions
-                default 1
-    list
-        topics
+  create
+    topic <name>
+      --help
+      -p, --partitions
+        default 1
+  list
+    topics
 
-    describe
-        topic <name>
+  describe
+    topic <name>
 
-kafkactl create topic -p 5 iharh-63747
+  consume 
+      <topic>  -k -t --print-headers --tail 3
+
+~/.config/kafkactl/config.yml
+    tls:
+      enabled: true
+      insecure: true
+    sasl:
+      enabled: true
+      mechanism: scram-sha512
+      username: 
+      password: 

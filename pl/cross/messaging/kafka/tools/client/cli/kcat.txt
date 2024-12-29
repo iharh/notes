@@ -1,4 +1,10 @@
 https://github.com/edenhill/kcat
+    no means to reset offsets
+
+https://codingharbour.com/kafkacat-cheatsheet/
+https://codingharbour.com/apache-kafka/learn-how-to-use-kafkacat-the-most-versatile-cli-client/
+
+2018
 https://rmoff.net/2018/08/02/kafka-listeners-explained/
 
 docker run --rm --network=host edenhill/kafkacat:1.5.0 kafkacat -b localhost:29092 -L
