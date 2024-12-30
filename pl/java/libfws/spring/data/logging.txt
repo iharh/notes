@@ -1,0 +1,5 @@
+pg
+org.postgresql.core.v3
+    QueryExecutorImpl 
+    SimpleQuery
+    FINEST

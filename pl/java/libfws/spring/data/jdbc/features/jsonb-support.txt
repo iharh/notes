@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/64521056/how-to-read-write-postgres-jsonb-type-with-spring-data-jdbc
+
+2024
+https://habr.com/ru/companies/T1Holding/articles/858762/
+    overriding AbstractJdbcConfiguration.userConverters is the thing!
