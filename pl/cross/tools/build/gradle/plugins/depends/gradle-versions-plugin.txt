@@ -2,3 +2,22 @@ https://github.com/ben-manes/gradle-versions-plugin
 https://plugins.gradle.org/plugin/com.github.ben-manes.versions
 
 gra dependencyUpdates -Drevision=release
+
+2023
+https://habr.com/ru/articles/742968/
+
+plugins {
+  id "com.github.ben-manes.versions" version "$version"
+}
+
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return !stableKeyword && !(version ==~ regex)
+}
+
+tasks.named("dependencyUpdates").configure {
+    rejectVersionIf {
+        isNonStable(it.candidate.version)
+    }
+}

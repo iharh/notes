@@ -1,8 +1,9 @@
-https://plugins.gradle.org/plugin/io.spring.dependency-management
 https://github.com/spring-gradle-plugins/dependency-management-plugin
+https://plugins.gradle.org/plugin/io.spring.dependency-management
 
-https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/
 https://docs.spring.io/dependency-management-plugin/docs/current/api/
+https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/
+https://docs.spring.io/dependency-management-plugin/docs/current-SNAPSHOT/reference/html/
 
 https://docs.gradle.org/current/userguide/dependency_management_attribute_based_matching.html
 
@@ -15,9 +16,15 @@ https://docs.spring.io/dependency-management-plugin/docs/current/reference/html/
          }
     }
 
+2023
+https://medium.com/@sarguru1981/dependency-management-using-kotlin-dsl-28d06d678dfc
+2016
+https://spring.io/blog/2016/12/16/dependency-management-plugin-1-0-0-rc1#better-support-for-gradle-script-kotlin
 2015
 https://spring.io/blog/2015/02/23/better-dependency-management-for-gradle
 https://blog.jayway.com/2015/11/23/reusing-spring-boots-dependency-management/
+qa
+https://stackoverflow.com/questions/40818688/gradle-script-kotlin-and-dependencymanagement
 
 notes
 Gradle does not provide an API for accessing a dependency’s classifier during resolution.
