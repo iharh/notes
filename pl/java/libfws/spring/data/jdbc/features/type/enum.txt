@@ -1,5 +1,22 @@
 ERROR: operator does not exist: = character varying Hint: No operator matches the given name and argument types. You might need to add explicit type casts.
 
+https://www.postgresql.org/docs/current/datatype-enum.html
+https://docs.oracle.com/en/java/javase/21/docs/api/java.sql/java/sql/JDBCType.html
+
+https://stackoverflow.com/questions/851758/java-enums-jpa-and-postgres-enums-how-do-i-make-them-work-together
+    jdbc-url:...&stringtype=unspecified
+    https://postgrespro.ru/list/thread-id/1932527
+    https://jdbc.postgresql.org/documentation/use/
+    spring:
+      datasource:
+        hikari:
+          data-source-properties:
+            stringtype=unspecified
+    PGPreparedStatement
+      private int getStringType() {
+        return connection.getStringVarcharFlag() ? Oid.VARCHAR : Oid.UNSPECIFIED;
+      }
+
 https://github.com/spring-projects/spring-data-relational/issues/1136
 https://github.com/spring-projects/spring-data-relational/pull/1517
 

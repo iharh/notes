@@ -1,0 +1,5 @@
+java.sql.JDBCType
+java.sql.Types
+    12 VARCHAR
+
+org.postgresql.core.Oid

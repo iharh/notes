@@ -1,0 +1,23 @@
+https://docs.spring.io/spring-data/relational/reference/jdbc/mapping.html
+
+2022
+TechTrain - Belyaev - Exchange Spring Data JPA to Spring Data JDBC 0:00 of 1:01:52
+    https://www.youtube.com/watch?v=WB8S_miQNvM
+    https://squidex.jugru.team/api/assets/srm/ef7583f9-e5eb-49a3-b04b-36b3c670f627/6bda9419-2b7c-409b-943a-a42a0124e286.pdf
+https://www.youtube.com/watch?v=l_T0nQNbFiM
+    Persisting Entities
+    AggregatedReference<,>
+https://spring.io/blog/2022/01/20/spring-data-jdbc-how-can-i-do-a-partial-update-of-an-aggregate-root
+2021
+https://spring.io/blog/2021/09/22/spring-data-jdbc-how-do-i-make-bidirectional-relationships
+  internal rel
+    https://github.com/spring-projects/spring-data-examples/tree/main/jdbc/howto/bidirectionalinternal
+    https://github.com/spring-projects/spring-data-examples/blob/main/jdbc/howto/bidirectionalinternal/src/main/java/example/springdata/jdbc/howto/bidirectionalinternal/Minion.java
+    https://github.com/spring-projects/spring-data-examples/blob/main/jdbc/howto/bidirectionalinternal/src/main/java/example/springdata/jdbc/howto/bidirectionalinternal/Toy.java   
+  external rel
+    https://github.com/spring-projects/spring-data-examples/tree/main/jdbc/howto/bidirectionalexternal
+    https://github.com/spring-projects/spring-data-examples/blob/main/jdbc/howto/bidirectionalexternal/src/test/java/example/springdata/jdbc/howto/bidirectionalexternal/BidirectionalApplicationTests.java
+    https://github.com/spring-projects/spring-data-examples/blob/main/jdbc/howto/bidirectionalexternal/src/main/java/example/springdata/jdbc/howto/bidirectionalexternal/Minion.java
+????
+https://temofeev.ru/info/articles/kak-spring-data-jdbc-soedinyaet-tablitsy/
+    MappedCollection
