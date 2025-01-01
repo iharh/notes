@@ -1,3 +1,6 @@
+https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/cache
+https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/cache/CacheType.java
+
 2017
 http://www.baeldung.com/spring-cache-tutorial
 http://www.baeldung.com/jcache

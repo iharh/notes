@@ -1,6 +1,7 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
 3.x
+https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes
 https://habr.com/ru/companies/spring_aio/articles/836506/
     ! 3.3
 DevBcn - From Spring Boot 2 to Spring Boot 3 with Java 21 and Jakarta EE 0:00 of 42:40

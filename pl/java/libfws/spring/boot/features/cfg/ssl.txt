@@ -1,3 +1,8 @@
+https://docs.spring.io/spring-boot/reference/features/ssl.html
+https://docs.spring.io/spring-boot/reference/io/rest-client.html
+
+https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/ssl
+
 server:
   port: 8443
   ssl:
