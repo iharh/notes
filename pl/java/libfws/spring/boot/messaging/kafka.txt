@@ -26,17 +26,27 @@ https://docs.spring.io/spring-kafka/reference/kafka/annotation-error-handling.ht
     CommonErrorHandler kafkaErrorHandler() {
         return new KafkaErrorHandler();
     }
+https://medium.com/javarevisited/robust-kafka-consumer-error-handling-on-a-spring-boot-3-application-6fc95e92c956
+    @RetryableTopic, Listeners with Acknoledgement
+
+idempotence
+    configProps.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
 
 jaas
 https://kafka.apache.org/documentation/#security_jaas_client
 
 testing
+https://docs.spring.io/spring-kafka/reference/testing.html
+    MockProducer, MockConsumer, assertj kafka-related assertions
 https://testcontainers.com/guides/testing-spring-boot-kafka-listener-using-testcontainers/
+https://www.baeldung.com/spring-boot-kafka-testing
 
 compression
 https://medium.com/swlh/exploit-apache-kafkas-message-format-to-save-storage-and-bandwidth-7e0c533edf26
 
-http://www.baeldung.com/spring-kafka
+ser-de
+https://docs.spring.io/spring-kafka/reference/kafka/serdes.html
+
 
 presentations
 2022
@@ -45,12 +55,15 @@ SpringIO - Spring Kafka beyond the basics - Lessons learned on our Kafka journey
 
 articles
 2024
+https://www.baeldung.com/spring-kafka
+    @KafkaListenerAnnotation has containerFactory attribute
 Programming Techie - Spring Boot Microservices Tutorial Part 11 - Integrating Kafka with Schema Registry 0:00 of 58:42
     https://www.youtube.com/watch?v=BObDQv_sCb4
 https://javatechonline.com/how-to-work-with-apache-kafka-in-spring-boot/
 https://habr.com/ru/articles/797049/
     testing
     https://habr.com/ru/articles/781812/
+https://medium.com/ing-tech-romania/implementing-a-basic-kafka-producer-and-consumer-using-spring-boot-spring-kafka-and-avro-schema-2b6d06e6c4cf
 2023
 https://habr.com/ru/companies/slurm/articles/772818/
     @Bean

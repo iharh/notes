@@ -1,0 +1,40 @@
+https://en.wikipedia.org/wiki/Inbox_and_outbox_pattern
+    Inbox - The application receives data which it persists to an inbox table in a database
+
+https://microservices.io/patterns/data/transactional-outbox.html
+https://softwaremill.com/microservices-101/
+    Outbox - need msg-broker guaranteed delivery
+        At receiving size - use Ack at Listener/Consumer, @RetryableTopic/DLQ
+
+2024
+https://habr.com/ru/companies/kuper/articles/819803/
+Kondratieva - Transactional Outbox 0:00 of 40:25
+    https://www.youtube.com/watch?v=HI-XvL2FkTQ 
+    https://gitlab.com/transactional-outbox-realisation-sample
+    https://gitlab.com/transactional-outbox-realisation-sample/orderservice/
+    https://gitlab.com/transactional-outbox-realisation-sample/orderservice/-/blob/master/src/main/java/jgr/orderservice/scheduler/RetryableTaskScheduler.java
+https://www.wimdeblauwe.com/blog/2024/06/25/transactional-outbox-pattern-with-spring-boot/
+    with spring integration
+JPoint - Kashin - Kafka from CDC to Transactional Outbox 0:00 of 46:46
+    https://www.youtube.com/watch?v=b42gkdta_6s
+    https://jokerconf.com/talks/ce55a0ab278d4ed0b4af7296bc8f2eba
+    !!!, kafka buffer/batching settings
+    kafka-jdbc-connector
+2023
+https://spring.io/blog/2023/10/24/a-use-case-for-transactions-adapting-to-transactional-outbox-pattern
+    with spring cloud stream
+https://medium.com/javarevisited/robust-kafka-consumer-error-handling-on-a-spring-boot-3-application-6fc95e92c956
+    !!! Inbox @RetryableTopic listener
+JPoint - Serebryanskiy - CDC and Debezium problems 0:00 of 43:05
+    https://www.youtube.com/watch?v=llBCFID167E
+    https://squidex.jugru.team/api/assets/srm/47cd2c0b-a2a8-46b5-8a00-5a5e965a0a97/andrei-serebryanskii-.pdf
+    !!! no transactional outbox
+2022
+https://habr.com/ru/companies/lamoda/articles/678932/
+
+https://github.com/gruelbox/transaction-outbox
+https://github.com/gruelbox/transaction-outbox/tree/master/transactionoutbox-spring
+    https://medium.com/cloud-workers/integration-of-the-transactional-outbox-pattern-in-java-microservices-as-lightweight-alternativ-to-31eee0aebbac
+https://www.javadoc.io/doc/com.gruelbox/transactionoutbox-core/latest/index.html
+https://www.javadoc.io/doc/com.gruelbox/transactionoutbox-spring/latest/index.html
+https://mvnrepository.com/artifact/com.gruelbox/transactionoutbox-spring
