@@ -1,3 +1,4 @@
+https://docs.spring.io/spring-data/relational/reference/jdbc/domain-driven-design.html
 https://docs.spring.io/spring-data/relational/reference/jdbc/mapping.html
 
 2022
@@ -18,6 +19,9 @@ https://spring.io/blog/2021/09/22/spring-data-jdbc-how-do-i-make-bidirectional-r
     https://github.com/spring-projects/spring-data-examples/tree/main/jdbc/howto/bidirectionalexternal
     https://github.com/spring-projects/spring-data-examples/blob/main/jdbc/howto/bidirectionalexternal/src/test/java/example/springdata/jdbc/howto/bidirectionalexternal/BidirectionalApplicationTests.java
     https://github.com/spring-projects/spring-data-examples/blob/main/jdbc/howto/bidirectionalexternal/src/main/java/example/springdata/jdbc/howto/bidirectionalexternal/Minion.java
+2020
+https://habr.com/ru/companies/otus/articles/531332/
+    @MappedCollection for one-to-main
 ????
 https://temofeev.ru/info/articles/kak-spring-data-jdbc-soedinyaet-tablitsy/
     MappedCollection

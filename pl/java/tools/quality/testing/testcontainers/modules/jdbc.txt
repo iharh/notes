@@ -1,1 +1,4 @@
 https://www.testcontainers.org/modules/databases/jdbc/
+
+https://testcontainers.com/guides/replace-h2-with-real-database-for-testing/
+    ?TC_INIT_SCRIPT=sql/a.sql

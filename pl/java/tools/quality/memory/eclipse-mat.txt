@@ -23,5 +23,30 @@ REM
 
 endlocal
 
+2024
+JPoint - Plizga - HeapDump Mem Analysis Guide 0:00 of 46:10
+    https://www.youtube.com/watch?v=fPns2O-cnYQ
+    https://jokerconf.com/talks/73c199ab870d45f9b27439962cd77f91
+        Dominator Tree
+        OQL
+        Apache Callcite
+            https://calcite.apache.org/
+            https://github.com/vlsi/mat-calcite-plugin
+        JFR Settings for Recording -> Object Allocation Sample, Stack Trace = true
+        btrace (can print vars)
+        https://www.datadoghq.com/blog/java-memory-management/
+        https://github.com/DataDog/jmxfetch
+        https://github.com/DataDog/dd-trace-java
+        https://docs.datadoghq.com/tracing/trace_collection/automatic_instrumentation/dd_libraries/java/?tab=wget
+        https://github.com/Toparvion/spring-petclinic-rest
+        https://toparvion.pro/project/bugclinic/
+        https://github.com/Toparvion/heap-talk
+        https://toparvion.pro/project/heap-talk/
 2020
 https://habr.com/ru/post/519830/
+2019
+JPint - Pangin
+    https://www.youtube.com/watch?v=kKigibHrV5I
+2016
+JPoint - Sitnikov
+    https://www.youtube.com/watch?v=OE3wowy29mg

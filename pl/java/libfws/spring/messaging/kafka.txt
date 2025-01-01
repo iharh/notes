@@ -52,6 +52,12 @@ https://habr.com/ru/articles/797049/
     testing
     https://habr.com/ru/articles/781812/
 2023
+https://habr.com/ru/companies/slurm/articles/772818/
+    @Bean
+    public KafkaTemplate<String, String> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory()); // can have multiple producer factories
+    }
+    RoutingKafkaTemplate
 https://medium.com/simform-engineering/kafka-integration-made-easy-with-spring-boot-b7aaf44d8889
     https://nuancesprog.ru/p/19474/
 https://blog.devgenius.io/consume-the-same-data-with-different-consumer-groups-in-kafka-spring-boot-e7ba8cce31df
