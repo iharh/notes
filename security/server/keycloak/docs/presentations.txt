@@ -26,6 +26,8 @@ https://www.youtube.com/watch?v=vmEWywGzWbA
         token can be pasted to jwt.io
         @PreAuthorize("hasRole('client_role')")
             defaultRolePrefix="ROLE_" // !!!
+SelskiyJavist - Keycloak 0:00 of 37:36
+    https://www.youtube.com/watch?v=vlu9FJkj6F0
 2022
 https://www.youtube.com/watch?v=rbKzR6QWKLI&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=5
 2021

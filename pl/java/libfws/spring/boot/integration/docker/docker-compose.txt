@@ -1,7 +1,32 @@
-docker-compose
-https://docs.spring.io/spring-boot/reference/features/dev-services.html#features.dev-services.docker-compose
-    https://www.baeldung.com/ops/docker-compose-support-spring-boot
+https://docs.spring.io/spring-boot/reference/features/dev-services.html
+    dependencies {
+      developmentOnly("org.springframework.boot:spring-boot-docker-compose")
+      // testAndDevelopmentOnly("org.springframework.boot:spring-boot-docker-compose")
+    }
+    // https://docs.spring.io/spring-boot/gradle-plugin/packaging.html#packaging-executable.configuring.including-development-only-dependencies
+    tasks.named<BootWar>("bootWar") {
+      classpath(configurations["developmentOnly"])
+    }
+https://docs.spring.io/spring-boot/reference/features/dev-services.html#features.dev-services.docker-compose.service-connections
+    // the connection details take precedence over any connection-related configuration properties
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/service/connection/ConnectionDetails.html
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/jdbc/JdbcConnectionDetails.html
+
+https://docs.spring.io/spring-boot/reference/features/dev-services.html#features.dev-services.testcontainers
+https://docs.spring.io/spring-boot/reference/testing/testcontainers.html
+    @ServiceConnection
+        https://docs.spring.io/spring-boot/reference/testing/testcontainers.html#testing.testcontainers.service-connections
+        https://docs.spring.io/spring-boot/api/java/org/springframework/boot/testcontainers/service/connection/ServiceConnection.html
+            Annotation used to indicate that a field or method is a ContainerConnectionSource which provides a service that can be connected to.
+    @DynamicPropertySource
+        https://docs.spring.io/spring-boot/reference/testing/testcontainers.html#testing.testcontainers.dynamic-properties
+
+    Using a @ServiceConnection is recommended whenever possible, 
+    however, dynamic properties can be a useful fallback for technologies that don’t yet have @ServiceConnection support
+
 2024
+https://alexkosarev.name/2023/06/05/docker-compose-and-testcontainers-in-spring-boot-3-1/
+https://www.baeldung.com/docker-compose-support-spring-boot
 Amplicode - Spring Boot Applications Conterization of 3:49
     https://www.youtube.com/watch?v=f_eyfLVgoq8
     https://habr.com/ru/companies/haulmont/articles/848696/

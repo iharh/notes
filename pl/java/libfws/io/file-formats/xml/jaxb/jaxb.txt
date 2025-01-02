@@ -1,0 +1,23 @@
+https://www.oracle.com/technical-resources/articles/javase/jaxb.html
+
+articles
+baeldung
+https://www.baeldung.com/tag/jaxb
+https://www.baeldung.com/jaxb
+    https://github.com/eugenp/tutorials/tree/master/jaxb
+    https://github.com/eugenp/tutorials/blob/master/jaxb/pom.xml
+https://www.baeldung.com/jaxb-unmarshalling-dates
+
+http://www.mojohaus.org/jaxb2-maven-plugin/Documentation/v2.4/
+https://github.com/mojohaus/jaxb2-maven-plugin/
+https://www.mojohaus.org/jaxb2-maven-plugin/#/repo
+https://mvnrepository.com/artifact/org.codehaus.mojo/jaxb2-maven-plugin
+    3.2.0
+
+http://www.mojohaus.org/jaxb2-maven-plugin/Documentation/v2.4/example_xjc_basic.html
+https://stackoverflow.com/questions/76045464/jaxb2-maven-plugin-fails-to-generate-java-packages-with-correct-imports-or-throw
+    src/main/xsd
+    <schemaDirectory>
+    https://unogeeks.com/jaxb2-maven-plugin/
+
+https://github.com/highsource/jaxb-tools
