@@ -1,0 +1,11 @@
+https://github.com/spring-projects/spring-boot/blob/v3.4.1/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/flyway/FlywayProperties.java
+    table
+  
+https://www.baeldung.com/database-migrations-with-flyway
+https://www.baeldung.com/flyway-roll-back
+https://www.baeldung.com/flyway-callbacks
+
+2024
+https://habr.com/ru/companies/haulmont/articles/829782/
+    !!! amplicode, jpa-based
+    equals/hashcode - check objects for HibernateProxy

@@ -1,0 +1,3 @@
+https://search.maven.org/search?q=a:keycloak-adapter-bom
+https://search.maven.org/artifact/org.keycloak.bom/keycloak-adapter-bom/18.0.2/pom
+    implementation("org.keycloak.bom:keycloak-adapter-bom:18.0.2")

@@ -4,5 +4,25 @@ https://docs.spring.io/spring-boot/reference/features/dev-services.html#features
 2024
 Amplicode - Spring Boot Applications Conterization of 3:49
     https://www.youtube.com/watch?v=f_eyfLVgoq8
+    https://habr.com/ru/companies/haulmont/articles/848696/
+    !!!
 2023
 https://spring.io/blog/2023/06/21/docker-compose-support-in-spring-boot-3-1
+
+https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-docker-compose
+
+
+dependencies {
+    implementation (
+      ...
+      'org.springframework.boot:spring-boot-docker-compose'
+    )
+}
+
+multiple compose files (from 3.4)
+spring:
+  docker:
+    compose:
+      file:
+        - "compose-postgres.yml"
+        - "compose-redis.yml"

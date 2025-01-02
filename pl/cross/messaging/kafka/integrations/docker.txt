@@ -1,3 +1,6 @@
+https://github.com/Amplicode/amplicode-tutorials/blob/main/http-client-demo/app/docker-compose-dev.yaml
+    + kafka-ui
+
 2022
 https://www.baeldung.com/ops/kafka-docker-setup
     ! tip about healthcheck in comment

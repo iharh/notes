@@ -1,34 +1,15 @@
 https://www.keycloak.org/
-https://www.baeldung.com/tag/keycloak/
+https://github.com/keycloak/keycloak
 
-https://www.keycloak.org/documentation.html
-https://www.keycloak.org/docs-api/21.1.2/javadocs/index.html
-https://www.keycloak.org/docs/latest/authorization_services/index.html
-    https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-rest-springboot
+https://www.baeldung.com/tag/keycloak/
 
 client -> app
 client scope -> allow to manage common set of perm-s (default)
-
-guides
-https://github.com/keycloak/keycloak-quickstarts/blob/latest/docs/getting-started.md
-
-https://github.com/keycloak/keycloak
 
 token endpoint
 https://www.baeldung.com/postman-keycloak-endpoints
 https://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
 https://habr.com/ru/companies/flant/articles/670628/
-
-mvn
-https://search.maven.org/search?q=a:keycloak-adapter-bom
-https://search.maven.org/artifact/org.keycloak.bom/keycloak-adapter-bom/18.0.2/pom
-    implementation("org.keycloak.bom:keycloak-adapter-bom:18.0.2")
-
-docker
-https://www.keycloak.org/server/containers
-https://www.keycloak.org/getting-started/getting-started-docker
-docker run -p 8081:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:17.0.1 start-dev
-https://hub.docker.com/r/bitnami/keycloak/
 
 cfg
 https://www.keycloak.org/server/all-config
@@ -45,101 +26,3 @@ https://www.keycloak.org/server/logging
 
 spring-boot
 https://www.keycloak.org/docs/latest/securing_apps/index.html#_spring_boot_adapter
-
-books
-2023
-ThorgersenSilva - Keycloak - Identity and Access Management for Modern Applications 2nd ed
-    2FCEDB79A750149203A1E5CEA5118AA2
-
-courses
-2024
-BoualiAli - [NEW] KEYCLOAK Integration with Spring Boot & Angular 0:00 of 2:28:54
-    https://www.youtube.com/watch?v=Ppkys9dKadA
-2023
-RealManual - Egorov - ArgoCD+Keycloak
-    nnm:1692389
-
-2023
-https://habr.com/ru/companies/axenix/articles/780422/
-https://habr.com/ru/articles/779170/
-https://habr.com/ru/articles/772010/
-https://habr.com/ru/articles/716232/
-https://habr.com/ru/articles/772010/
-https://habr.com/ru/articles/716232/
-    ! +ABAC
-    https://github.com/mgalaktionov/keycloak-demo-2
-https://itnext.io/what-is-new-in-jakarta-security-3-98db53317e19
-https://habr.com/ru/companies/otus/articles/733404/
-https://habr.com/ru/articles/546428/
-https://habr.com/ru/companies/kaspersky/articles/756812/
-https://habr.com/ru/companies/nixys/articles/752994/
-https://habr.com/ru/articles/735076/
-https://www.youtube.com/watch?v=vmEWywGzWbA
-    https://github.com/ali-bouali/keycloak-integration-with-spring-boot-3
-    boot 3, secur 6
-    23:00
-    25:30
-    32:30 - jwt.io debugger
-    We can assign client roles to realm roles (composite:true)
-    realmroles->for-specific-role->menu-action->Add associated roles
-        now it is composite role
-            # jwt.io: .resource_access.myclient11.roles=client11_admin,client11_user
-            # https://github.com/ali-bouali/keycloak-integration-with-spring-boot-3/blob/main/src/main/java/com/alibou/keycloak/JwtAuthConverter.java
-            # JwtGrantedAuthoritiesConverter -> SCOPE_, split(by space) "scope" attr of jwt
-
-        user can also be a composite
-    /realms/<relm-name>/well-known/openid-configuration
-        token_endpoint
-        grant_type: password
-        client_id: ...
-        username: ...
-        password: ...
-        -> refresh_token is also provided
-        token can be pasted to jwt.io
-        @PreAuthorize("hasRole('client_role')")
-            defaultRolePrefix="ROLE_" // !!!
-
-https://www.baeldung.com/spring-boot-keycloak
-    https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-keycloak
-https://www.baeldung.com/spring-boot-keycloak-integration-testing
-    with testcontainers
-
-https://habr.com/ru/post/724738/
-    refresh-token, bad ideology
-https://habr.com/ru/post/720070/
-    application.yaml, KeycloakWebSecurityConfigurerAdapter is depr-ted
-    spring-security-oauth2-resource-server
-2022
-https://www.youtube.com/watch?v=rbKzR6QWKLI&list=PLSVW22jAG8pBnhAdq9S8BpLnZ0_jVBj0c&index=5
-https://habr.com/ru/articles/661541/
-    https://www.keycloak.org/2022/02/adapter-deprecation
-https://habr.com/ru/companies/alfastrah/articles/651861/
-2021
-Slurm - Keycloak Exp ru of 3:58:09
-    https://www.youtube.com/watch?v=Llvnq-n43k0
-https://habr.com/ru/companies/reksoft/articles/552346/
-https://habr.com/ru/articles/550704/
-https://www.baeldung.com/java-keycloak-custom-user-providers
-https://www.baeldung.com/keycloak-embedded-in-spring-boot-app
-    https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-rest/oauth-authorization-server
-Spilca - Software Architecture Fundamentals - Episode 16 - OAuth 2 and OpenID Connect 0:00 of 55:00
-    https://www.youtube.com/watch?v=j1yOkj2JzwM&list=PLEocw3gLFc8VYPSFuQfTbqsK-0q2wDCoR&index=17
-        /auth/realms/master/.well-known/openid-configuration
-        /auth/realms/master/protocol/openid-connect/certs
-        /auth/realms/master/protocol/openid-connect/token
-        curl -XPOST "http://localhost:8080/auth/realms/master/protocol/openid-connect/token" \
-          -H "Content-Type: application/x-www-form-urlencoded" \
-          --data-urlencode "grant_type=password" \
-          --data-urlencode "username=<usr> \
-          --data-urlencode "password=<pwd> \
-          --data-urlencode "scope=<scope>" \
-          --data-urlencode "client_id=<client-id>"
-        application.properties
-            jwkSetUri=.../certs
-                new JwkTokenStore(jwkSetUri) // obsolete
-                ...JwtDecoder
-                Provider
-2020
-https://www.baeldung.com/postman-keycloak-endpoints
-https://habr.com/ru/companies/southbridge/articles/511380/
-    HA

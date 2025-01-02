@@ -1,0 +1,4 @@
+https://www.keycloak.org/server/containers
+https://www.keycloak.org/getting-started/getting-started-docker
+docker run -p 8081:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:17.0.1 start-dev
+https://hub.docker.com/r/bitnami/keycloak/

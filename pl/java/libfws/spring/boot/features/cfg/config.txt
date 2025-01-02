@@ -1,4 +1,5 @@
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-disabling-specific-auto-configuration
+https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure
 
 export JAVA_OPTS=-Xmx1024m -XX:MaxPermSize=128M
 
