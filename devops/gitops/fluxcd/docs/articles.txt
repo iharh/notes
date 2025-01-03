@@ -1,12 +1,3 @@
-https://fluxcd.io/
-https://github.com/fluxcd/flux2
-
-https://fluxcd.io/docs/
-
-https://fluxcd.io/flux/cmd/
-
-https://www.weave.works/technologies/what-is-flux-cd/
-
 2023
 https://tech.aufomm.com/how-to-use-flux-to-manage-kubernetes-declaratively/
     https://github.com/liyangau/flux-demo
@@ -16,8 +7,6 @@ https://itnext.io/simplify-kubernetes-resource-management-with-sveltos-carvel-yt
 2022
 https://earthly.dev/blog/k8s-gitops-with-fluxcd/
 2021
-Pathak - Flux CD v2 - Kubernetes GitOps (CNCFMinutes 20) of 8:36
-    https://www.youtube.com/watch?v=1X3JgCnRNsw
 https://habr.com/ru/articles/574432/
 2020
 https://medium.com/swlh/deploying-applications-in-kubernetes-using-flux-a9d171b11917
