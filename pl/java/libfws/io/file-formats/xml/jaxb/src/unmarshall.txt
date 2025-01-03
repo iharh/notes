@@ -1,0 +1,116 @@
+...
+org.glassfish.jaxb.runtime.v2
+public class JAXBContextFactory implements jakarta.xml.bind.JAXBContextFactory {
+    ...
+    public JAXBContext createContext(Class<?>[] classesToBeBound, Map<String, ?> properties) throws JAXBException {
+        return ContextFactory.createContext(classesToBeBound, (Map<String, Object>) properties);
+    }
+
+public class ContextFactory {
+    ...
+    public static JAXBContext createContext(Class[] classes, Map<String,Object> properties ) throws JAXBException {
+        ...
+        // !!! 1
+        JAXBContextImpl.JAXBContextBuilder builder = new JAXBContextImpl.JAXBContextBuilder();
+        builder.setClasses(classes);
+        ...
+        return builder.build();
+    }
+    ...
+}
+
+org.glassfish.jaxb.runtime.api
+public abstract class JAXBRIContext extends JAXBContext {
+    !!! interesting properties
+
+org.glassfish.jaxb.runtime.v2.runtime
+public final class JAXBContextImpl extends JAXBRIContext {
+    ...
+    private JAXBContextImpl(JAXBContextBuilder builder) throws JAXBException {
+        // !!! 2 - tons of interesting internals
+        ...
+        RuntimeTypeInfoSet typeSet = getTypeInfoSet();    // start from only one "beans" - param (ObjectFactory)
+        ...
+        // end
+        // typeMap - 40 (39 std, one for ObjectFactory)
+        // beanInfoMap - 40 ... 
+        // beanInfos - 30 ...
+        // classes - 1 - ObjectFactory
+
+    }
+    ...
+    @Override
+    public UnmarshallerImpl createUnmarshaller() {
+        return new UnmarshallerImpl(this, null);    // !!! assoc = null
+    }
+    ...
+}
+
+org.glassfish.jaxb.runtime.v2.runtime.unmarshaller
+public final class UnmarshallerImpl extends AbstractUnmarshallerImpl implements ValidationEventHandler, Closeable
+{
+    /** Owning {@link JAXBContext} */
+    protected final JAXBContextImpl context;
+
+    /**
+     * schema which will be used to validate during calls to unmarshal
+     */
+    private Schema schema;
+
+    public final UnmarshallingContext coordinator;
+    ...
+    public UnmarshallerImpl( JAXBContextImpl context, AssociationMap assoc ) {
+        this.context = context;
+        this.coordinator = new UnmarshallingContext( this, assoc ); // !!! 3, assoc - null
+
+        try {
+            setEventHandler(this);
+        } catch (JAXBException e) {
+            throw new AssertionError(e);    // impossible
+        }
+    }
+    ...
+}
+
+
+public final class UnmarshallingContext extends Coordinator
+    implements NamespaceContext, ValidationEventHandler, ErrorHandler, XmlVisitor, XmlVisitor.TextPredictor {
+    ...
+
+    private static final Loader DEFAULT_ROOT_LOADER = new DefaultRootLoader();
+    private static final Loader EXPECTED_TYPE_ROOT_LOADER = new ExpectedTypeRootLoader();
+
+    /**
+     * Root loader that uses the tag name and possibly its @xsi:type
+     * to decide how to start unmarshalling.
+     */
+    private static final class DefaultRootLoader extends Loader implements Receiver {
+        /**
+         * Receives the root element and determines how to start
+         * unmarshalling.
+         */
+        @Override
+        public void childElement(UnmarshallingContext.State state, TagName ea) throws SAXException {
+            Loader loader = state.getContext().selectRootLoader(state,ea);
+            if(loader!=null) {
+                state.loader = loader;
+                state.receiver = this;
+                return;
+            }
+
+            // the registry doesn't know about this element.
+            // try its xsi:type
+            JaxBeanInfo beanInfo = XsiTypeLoader.parseXsiType(state, ea, null);
+            if(beanInfo==null) {                                                  // !!! 4 - need to dig deeper
+                // we don't even know its xsi:type
+                reportUnexpectedChildElement(ea,false);
+                return;
+            }
+
+            state.loader = beanInfo.getLoader(null,false);
+            state.prev.backup = new JAXBElement<>(ea.createQName(),Object.class,null);
+            state.receiver = this;
+        }
+        ...
+    }
+
