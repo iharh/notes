@@ -3,11 +3,14 @@ https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframe
 
 import org.springframework.web.client.RestTemplate
 
+baeldung
+https://www.baeldung.com/rest-template
+    ! WebClient is a modern way to go, while RestTemplate - will be deprecated
 2023
 https://www.baeldung.com/spring-resttemplate-exchange-postforentity-execute
 2021
-https://www.baeldung.com/rest-template
-    ! WebClient is a modern way to go, while RestTemplate - will be deprecated
+https://reflectoring.io/spring-resttemplate/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/resttemplate
 2019
 http://www.baeldung.com/rest-template
 https://www.baeldung.com/spring-resttemplate-post-json
