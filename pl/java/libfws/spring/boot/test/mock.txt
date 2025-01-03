@@ -1,3 +1,8 @@
-@MockBean
+baeldung
+https://www.baeldung.com/spring-beans-integration-test-override
+    @MockBean
+2019
+https://reflectoring.io/spring-boot-mock/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/mocking
 
 https://stackoverflow.com/questions/40563409/configure-mockbean-component-before-application-start

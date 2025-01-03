@@ -1,10 +1,12 @@
+baeldung
+https://www.baeldung.com/spring-aop
 2023
 https://habr.com/ru/articles/347752/
     about proxies and transactional
 https://ashish-bania.medium.com/adding-aspects-to-spring-boot-project-d5890e489072
     https://github.com/ashishbania/OpenBankingDemo
 2022
-https://www.baeldung.com/spring-aop
+https://reflectoring.io/aop-spring/
 https://www.geeksforgeeks.org/spring-boot-aopaspect-oriented-programming/
 2021
 https://medium.com/walmartglobaltech/understanding-the-worker-ants-of-spring-aop-proxies-902208881493

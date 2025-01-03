@@ -6,3 +6,14 @@ Headers
     Access-Control-Allow-Headers: ... limitation, to which headers
 
 @CrossOrigin
+
+@CorsConfiguration
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/cors/CorsConfiguration.html
+
+2022
+https://reflectoring.io/spring-cors/
+    @CrossOrigin, web.cors:, WebMvcConfigurer.addCorsMappings(CorsRegistry r)
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/cors/configuring-cors-with-spring
+2021
+https://reflectoring.io/complete-guide-to-cors/
+    https://github.com/thombergs/code-examples/tree/master/cors

@@ -1,32 +1,34 @@
-https://docs.spring.io/spring-authorization-server/docs/current/reference/html/index.html
-https://docs.spring.io/spring-authorization-server/docs/current/reference/html/overview.html
-https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html
-https://docs.spring.io/spring-authorization-server/docs/current/reference/html/configuration-model.html
-https://docs.spring.io/spring-authorization-server/docs/current/reference/html/core-model-components.html
-https://docs.spring.io/spring-authorization-server/docs/current/reference/html/protocol-endpoints.html
+https://docs.spring.io/spring-authorization-server/reference/index.html
+https://docs.spring.io/spring-authorization-server/reference/overview.html
+https://docs.spring.io/spring-authorization-server/reference/how-to.html
+https://docs.spring.io/spring-authorization-server/reference/getting-started.html
+https://docs.spring.io/spring-authorization-server/reference/configuration-model.html
+
+https://github.com/spring-projects/spring-authorization-server
+
+1.4.1 at the moment
+
+https://docs.spring.io/spring-authorization-server/docs/current/api/
+
+implementation 'org.springframework.security:spring-security-oauth2-authorization-server:1.0.0'
+
+https://github.com/spring-projects/spring-authorization-server/wiki/Feature-List
+
+https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-authorization-server
+
+specs
+https://github.com/spring-projects-experimental/spring-authorization-server/wiki/OAuth-2.0-Specifications
 
 The OAuth 2.0 Authorization Framework
 https://datatracker.ietf.org/doc/html/rfc6749
 
-https://github.com/spring-projects/spring-security-samples
-https://github.com/spring-projects/spring-authorization-server/tree/main/samples
-
-implementation 'org.springframework.security:spring-security-oauth2-authorization-server:1.0.0'
-
-https://github.com/spring-projects/spring-authorization-server
-    https://github.com/spring-projects/spring-authorization-server/wiki/Feature-List
-
-https://github.com/Baeldung/spring-security-oauth/tree/master/oauth-authorization-server
-
-https://github.com/spring-projects-experimental/spring-authorization-server
-    https://tools.ietf.org/html/rfc6749#section-1.1
-    
-specs
-https://github.com/spring-projects-experimental/spring-authorization-server/wiki/OAuth-2.0-Specifications
-
 samples
 https://github.com/spring-projects/spring-authorization-server/tree/main/samples
+https://github.com/spring-projects/spring-security-samples
 
+2024
+https://reflectoring.io/spring-security-jwt/
+    ! good, with tests
 2023
 https://habr.com/ru/articles/746698/
     https://github.com/dlabs71/spring-authorization-server-example

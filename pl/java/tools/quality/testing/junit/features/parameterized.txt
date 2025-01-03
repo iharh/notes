@@ -11,6 +11,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 @CsvSource, @CsvFileSource
 @ArgumentsSource, custom ArgumentsProvider
 
+2023
+https://reflectoring.io/tutorial-junit5-parameterized-tests/
 2021
 https://mikemybytes.com/2021/10/19/parameterize-like-a-pro-with-junit-5-csvsource/
 2019

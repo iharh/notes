@@ -1,8 +1,10 @@
-https://www.baeldung.com/security-spring
 
+baeldung
+https://www.baeldung.com/security-spring
 2024
+https://reflectoring.io/spring-security-jwt/
 https://habr.com/ru/articles/815285/
-    ! combined
+    ! combined, using github auth
 2023
 https://habr.com/ru/articles/781066/
     https://gitlab.com/SilverRid/SpringSecurityJWT

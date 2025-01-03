@@ -4,3 +4,7 @@ management.endpoint.health.show-details=always
 https://wearecommunity.io/communities/jacov/articles/5135
     ! CustomHealthIndicator
     https://github.com/saikrishnasaski/orders-api
+2020
+https://reflectoring.io/spring-boot-health-check/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-health-check
+    ! registered and custom health indicators

@@ -23,13 +23,22 @@ idea-plugin
 https://plugins.jetbrains.com/plugin/10036-mapstruct-support
 https://github.com/mapstruct/mapstruct-idea
 
+baeldung
 https://www.baeldung.com/tag/mapstruct
-
+https://www.baeldung.com/mapstruct
 2024
 https://habr.com/ru/articles/818489/
     https://github.com/yayauheny/javanotice-mapstruct
-2023
-https://www.baeldung.com/mapstruct
+2022
+https://reflectoring.io/java-mapping-with-mapstruct/
+    https://github.com/thombergs/code-examples/tree/master/mapstruct
+    ! @MappingTarget - for updating existing instances
+    !!! Exceptions throwing during mapping
+    ! using Formatters
+    ! mapping collections, streams, enums
+    ! default values/expressions and constraints
+    ! @DecoratedWith, @BeforeMapping, @AfterMapping
+    ! additional cfg-options
 2020
 Lviv JavaClub - [Event 159] - MapStruct 0:00 of 1:05:32
     https://www.youtube.com/watch?v=0fNKc0daZ-c

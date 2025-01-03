@@ -2,6 +2,10 @@
 https://piotrminkowski.com/2024/04/25/interesting-facts-about-java-streams-and-collections/
     ! aggregate, partitionBy, gather, slidingWindow
 2022
+https://reflectoring.io/comprehensive-guide-to-java-streams/
+    https://github.com/thombergs/code-examples/tree/master/core-java/streams/data-streams
+    ! Stream.ofNullable()
+    ! generate, iterate -> unbound streams
 https://habr.com/ru/post/693666/
 2019
 https://medium.com/glovo-engineering/method-references-the-unpolished-gem-of-java-8-e7264dfdfcf4

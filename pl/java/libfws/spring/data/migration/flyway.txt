@@ -9,3 +9,6 @@ https://www.baeldung.com/flyway-callbacks
 https://habr.com/ru/companies/haulmont/articles/829782/
     !!! amplicode, jpa-based
     equals/hashcode - check objects for HibernateProxy
+2020
+https://reflectoring.io/database-migration-spring-boot-flyway/
+    !!! java-based migration

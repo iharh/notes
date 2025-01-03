@@ -1,13 +1,17 @@
-2023
-https://www.baeldung.com/spring-boot-testing-pitfalls
-2021
-https://www.baeldung.com/integration-testing-in-spring
-2020
+baeldung
 https://www.baeldung.com/spring-boot-testing
     !!!
+https://www.baeldung.com/spring-boot-testing-pitfalls
+https://www.baeldung.com/integration-testing-in-spring
+
+2021
+https://reflectoring.io/spring-boot-test/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-testing
+https://reflectoring.io/spring-boot-web-controller-test/
 2019
-https://habr.com/ru/post/446184/
+https://reflectoring.io/spring-boot-data-jpa-test/
 https://reflectoring.io/unit-testing-spring-boot/
+https://habr.com/ru/post/446184/
 2018
 https://habr.com/post/431306/
 https://dzone.com/articles/unit-and-integration-tests-in-spring-boot-2

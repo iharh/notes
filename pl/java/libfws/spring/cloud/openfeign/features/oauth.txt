@@ -1,13 +1,4 @@
-2.2.0.RELEASE
-+--- org.springframework.cloud:spring-cloud-starter-security -> 2.2.0.RELEASE
-|    +--- org.springframework.cloud:spring-cloud-starter:2.2.0.RELEASE (*)
-|    \--- org.springframework.cloud:spring-cloud-security:2.2.0.RELEASE
-
-
 https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html
-https://javadoc.io/doc/org.springframework.cloud/spring-cloud-security/latest/index.html
-
-https://github.com/spring-cloud/spring-cloud-security/blob/master/spring-cloud-security
 
 OAuth2FeignRequestInterceptor 
 https://github.com/spring-cloud/spring-cloud-security/blob/master/spring-cloud-security/src/main/java/org/springframework/cloud/security/oauth2/client/feign/OAuth2FeignRequestInterceptor.java
@@ -16,6 +7,8 @@ https://github.com/spring-cloud/spring-cloud-security/blob/master/spring-cloud-s
 cfg
 https://docs.spring.io/spring-security/oauth/apidocs/org/springframework/security/oauth2/client/resource/OAuth2ProtectedResourceDetails.html
 
+baeldung
+https://www.baeldung.com/spring-cloud-feign-oauth-token
 2017
 https://stackoverflow.com/questions/45859676/spring-cloud-feign-oauth2-request-interceptor-is-not-working
 

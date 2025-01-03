@@ -3,6 +3,9 @@ dmdev - Java Date and Time API 0:00 of 32:32
     https://www.youtube.com/watch?v=5QzLsYQRt0I
 2023
 https://jonasg.io/posts/how-to-effectively-test-time-dependent-code/
+2022
+https://reflectoring.io/spring-timezones/
+    !!!, using Clock for UTs
 2017
 https://codeblog.jonskeet.uk/2017/04/23/all-about-java-util-date/
 2015

@@ -3,6 +3,13 @@ com.fasterxml.jackson.annotation.JsonInclude
 
 https://www.tutorialspoint.com/jackson_annotations/jackson_annotations_jsoncreator.htm
 
+@JsonCreator
+https://reflectoring.io/spring-jsoncreator/
+@JsonView
+https://reflectoring.io/jackson-jsonview-tutorial/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/jackson-jsonview
+    https://spring.io/blog/2014/12/02/latest-jackson-integration-improvements-in-spring
+
 2023
 https://www.baeldung.com/jackson-annotations
 2020

@@ -16,3 +16,6 @@ https://www.baeldung.com/java-postgresql-create-schema-before-liquibase
 2024
 https://habr.com/ru/companies/haulmont/articles/826188/
     ! amplicode
+2020
+https://reflectoring.io/database-migration-spring-boot-liquibase/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/data-migration/liquibase
