@@ -1,0 +1,31 @@
+import some.custom.ObjectFactory;
+import some.custom.schemas.schemaname.Response;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.soap.MessageFactory;
+import javax.xml.soap.SOAPMessage;
+
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import static org.w3c.dom.Node.ELEMENT_NODE;
+...
+JAXBContext context = JAXBContext.newInstance(ObjectFactory.class);
+Unmarshaller unmarshaller = context.createUnmarshaller();
+Resource resource = resourceLoader.getResource(ResourceLoader.CLASSPATH_URL_PREFIX + "soap-response.xml");
+
+SOAPMessage message = MessageFactory.newInstance().createMessage(null, resource.getInputStream());
+Document document = message.getSOAPBody().extractContentAsDocument();
+Element rootElement = document.getDocumentElement();
+Node childNode = rootElement.getFirstChild();
+while (childNode != null && childNode.getNodeType() != ELEMENT_NODE) {
+    childNode = childNode.getNextSibling();
+}
+JAXBElement<Response> unmarshalledElement = unmarshaller.unmarshal(childNode, Response.class);
+Response unmarshalledValue = unmarshalledElement.getValue();
