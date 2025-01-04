@@ -70,11 +70,97 @@ public final class UnmarshallerImpl extends AbstractUnmarshallerImpl implements 
         }
     }
     ...
+    ???
+    private Object unmarshal0( XMLReader reader, InputSource source, JaxBeanInfo expectedType ) throws JAXBException {
+
+        SAXConnector connector = getUnmarshallerHandler(needsInterning(reader),expectedType);
+
+        reader.setContentHandler(connector);
+        // saxErrorHandler will be set by the getUnmarshallerHandler method.
+        // configure XMLReader so that the error will be sent to it.
+        // This is essential for the UnmarshallerHandler to be able to abort
+        // unmarshalling when an error is found.
+        //
+        // Note that when this XMLReader is provided by the client code,
+        // it might be already configured to call a client error handler.
+        // This will clobber such handler, if any.
+        //
+        // Ryan noted that we might want to report errors to such a client
+        // error handler as well.
+        reader.setErrorHandler(coordinator);
+
+        try {
+            reader.parse(source);                                   // !!! 4 - tons of xerces internals after that
+        } catch( IOException e ) {
+            coordinator.clearStates();
+            throw new UnmarshalException(e);
+        } catch( SAXException e ) {
+            coordinator.clearStates();
+            throw createUnmarshalException(e);
+        }
+
+        Object result = connector.getResult();          // ???
+
+        // avoid keeping unnecessary references too long to let the GC
+        // reclaim more memory.
+        // setting null upsets some parsers, so use a dummy instance instead.
+        reader.setContentHandler(dummyHandler);
+        reader.setErrorHandler(dummyHandler);
+
+        return result;
+    }
+}
+
+public final class SAXConnector implements UnmarshallerHandler {
+  ...
+    private final XmlVisitor next;
+  ...
+    @Override
+    public void startElement(String uri, String local, String qname, Attributes atts) throws SAXException {
+        if (logger.isLoggable(Level.FINER)) {
+            logger.log(Level.FINER, "SAXConnector.startElement: {0}:{1}:{2}, attrs: {3}", new Object[]{uri, local, qname, atts});
+        }
+        // work gracefully with misconfigured parsers that don't support namespaces
+        if( uri==null || uri.length()==0 )
+            uri="";
+        if( local==null || local.length()==0 )
+            local=qname;
+        if( qname==null || qname.length()==0 )
+            qname=local;
+
+        processText(!context.getCurrentState().isMixed());
+
+        tagName.uri = uri;                                                          // "http://...tran.xsd"
+        tagName.local = local;                                                      // Request
+        tagName.qname = qname;                                                      // ns39:Request
+        tagName.atts = atts;
+        next.startElement(tagName);                                                 // !!! 5
+    }
+  ...
+    private void _startElement(TagName tagName) throws SAXException {
+        // remember the current element if we are interested in it.
+        // because the inner peer might not be found while we consume
+        // the enter element token, we need to keep this information
+        // longer than this callback. That's why we assign it to a field.
+        if( assoc!=null )
+            currentElement = scanner.getCurrentElement();
+
+        Loader h = current.loader;
+        current.push();
+
+        // tell the parent about the new child
+        h.childElement(current,tagName);                                            // !!! 6
+        assert current.loader!=null;   // the childElement should register this
+        // and tell the new child that you are activated
+        current.loader.startElement(current,tagName);
+    }
+
+  ...
 }
 
 
 public final class UnmarshallingContext extends Coordinator
-    implements NamespaceContext, ValidationEventHandler, ErrorHandler, XmlVisitor, XmlVisitor.TextPredictor {
+    implements NamespaceContext, ValidationEventHandler, ErrorHandler, !!! XmlVisitor !!!, XmlVisitor.TextPredictor {
     ...
 
     private static final Loader DEFAULT_ROOT_LOADER = new DefaultRootLoader();
@@ -100,8 +186,8 @@ public final class UnmarshallingContext extends Coordinator
 
             // the registry doesn't know about this element.
             // try its xsi:type
-            JaxBeanInfo beanInfo = XsiTypeLoader.parseXsiType(state, ea, null);
-            if(beanInfo==null) {                                                  // !!! 4 - need to dig deeper
+            JaxBeanInfo beanInfo = XsiTypeLoader.parseXsiType(state, ea, null);     // !!! 7 - need to dig deeper (don't go here in simple case)
+            if(beanInfo==null) {                                                  
                 // we don't even know its xsi:type
                 reportUnexpectedChildElement(ea,false);
                 return;
@@ -113,4 +199,27 @@ public final class UnmarshallingContext extends Coordinator
         }
         ...
     }
+    ...
+}
 
+public class XsiTypeLoader extends Loader {
+    ...
+
+    /*pacakge*/ static JaxBeanInfo parseXsiType(UnmarshallingContext.State state, TagName ea, @Nullable JaxBeanInfo defaultBeanInfo) throws SAXException {
+        UnmarshallingContext context = state.getContext();
+        JaxBeanInfo beanInfo = null;
+
+        // look for @xsi:type
+        Attributes atts = ea.atts;
+        int idx = atts.getIndex(XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI,"type");  // !!! 8 don't go here in a simple case
+        ...
+    }
+    ...
+}
+
+javax.xml
+public final class XMLConstants {
+    public static final String W3C_XML_SCHEMA_INSTANCE_NS_URI =
+        "http://www.w3.org/2001/XMLSchema-instance";
+    ...
+}
