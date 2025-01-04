@@ -11,6 +11,14 @@ SpringIO - Implementing Domain Driven Design with Spring by Maciej Walkowiak of 
     https://www.youtube.com/watch?v=VGhg6Tfxb60
     https://speakerdeck.com/maciejwalkowiak/implementing-domain-driven-design-with-spring
     https://github.com/maciejwalkowiak/implementing-ddd-with-spring-talk
+        https://speakerdeck.com/maciejwalkowiak/implementing-domain-driven-design-with-spring?slide=17
+            each entity and value object can only exist in valid state
+            ensure system-wide consistency through "domain events"
+            business rules, state changes - implemented in entities
+            domain services - rules, that do not belong to any entity (perharps no domain services at all)
+                JPA entity may be a DDD entity, but does not have to
+            aggregates refer to each other by id, not by a direct reference
+            model VOs with records
 2023
 Devoxx - REST next level : Crafting domain driven web APIs By Julien Topçu 0:00 of 50:52
     https://www.youtube.com/watch?v=bHc8Gudrhdo

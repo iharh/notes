@@ -1,6 +1,11 @@
 https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA
 
+spring.threads.virtual.enabled: true
+
 2024
+CodeWiz - REST API with Spring Boot 3.3, Java 21 and Virtual Threads | Benchmarking performance of 47:59
+    https://www.youtube.com/watch?v=iRiJqI3oAqA
+    ! 
 Javapro - Java Virtual Threads and Pipelined Database Operations | Kuassi Mensah (EN) 0:00 of 40:43
     https://www.youtube.com/watch?v=-jA2twRtCuY
 https://habr.com/ru/articles/803955/

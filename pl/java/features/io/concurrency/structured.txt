@@ -1,0 +1,23 @@
+https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/StructuredTaskScope.html
+? ScopedValue API
+
+baeldung
+    https://www.baeldung.com/java-structured-concurrency
+        try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+            Future<Shelter> shelter = scope.fork(this::getShelter);
+            Future<List<Dog>> dogs = scope.fork(this::getDogs);
+            scope.join();
+            Response response = new Response(shelter.resultNow(), dogs.resultNow());
+            // ...
+        }
+2024
+Schmidt - Walkthrough of the Java StructuredTaskScope Code of 11:37
+    https://www.youtube.com/watch?v=WfyKt9dkgmM
+    http://www.dre.vanderbilt.edu/~schmidt/cs891/2024-PDFs/14.2.5-StructuredTaskScope.pdf
+    + VirtualThreads
+https://www.happycoders.eu/java/scoped-values/
+    ScopedValues
+https://www.happycoders.eu/java/structured-concurrency-structuredtaskscope/
+    std/custom policies
+?
+    https://www.youtube.com/watch?v=wWAnjsBgDA4

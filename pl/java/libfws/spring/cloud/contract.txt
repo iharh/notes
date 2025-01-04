@@ -1,23 +1,35 @@
+https://spring.io/projects/spring-cloud-contract
+https://docs.spring.io/spring-cloud-contract/reference/
+https://docs.spring.io/spring-cloud-contract/reference/project-features-messaging.html
+https://docs.spring.io/spring-cloud-contract/reference/customization/wiremock-customization.html
+https://docs.spring.io/spring-cloud-contract/reference/customization/pluggable-architecture.html
+https://docs.spring.io/spring-cloud-contract/reference/configprops.html
+https://docs.spring.io/spring-cloud-contract/reference/yml-schema.html
+
+https://spring.io/guides/gs/contract-rest/
+
+dsl
+https://docs.spring.io/spring-cloud-contract/reference/project-features-contract.html
+
 contract-testing
 https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html
 https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#features-wiremock
 
 https://www.infoq.com/minibooks/emag-testing-distributed-systems
-https://spring.io/guides/gs/contract-rest/
-https://docs.pact.io/readme
-
-https://cloud.spring.io/spring-cloud-contract/
-
 http://antkorwin.com/cloud/spring_cloud_contract_junit5.html
+
+https://docs.pact.io/readme
 
 pactflow
 https://pactflow.io/
 
-2024
+baeldung
 https://www.baeldung.com/spring-cloud-contract
 2019
 https://rieckpil.de/howto-consumer-driven-contracts-with-spring-cloud-contract/
 2018
+https://reflectoring.io/consumer-driven-contract-consumer-spring-cloud-contract/
+    https://github.com/thombergs/code-examples/tree/master/spring-cloud/spring-cloud-contract-consumer
 Sharma - Consumer Driven Contract Testing with Spring Cloud Contract
     https://www.infoq.com/presentations/spring-cloud-contract
     https://www.youtube.com/watch?v=QHlhYQQa7bg
