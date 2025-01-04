@@ -1,5 +1,6 @@
 2013
 https://solidsyntax.be/2013/12/07/howto-use-jaxb-class-customization-avoid-xsd-conflicts/
+  ...
   <jxb:bindings xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" version="2.1">
     <jxb:bindings schemaLocation="xsd/CommonTypes.xsd">
         <jxb:bindings node="//xs:complexType[@name='AnXSDType']">
