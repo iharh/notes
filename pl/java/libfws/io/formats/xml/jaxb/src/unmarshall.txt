@@ -37,6 +37,41 @@ public final class JAXBContextImpl extends JAXBRIContext {
         // beanInfos - 30 ...
         // classes - 1 - ObjectFactory
 
+        // ??? why rootMap is empty for the bad-case ?
+        // !!! filled only in c-tor !!!
+
+        ...
+        this.classes = builder.classes;                                         // objectFactory in a good-case
+        ...
+        Collection<TypeReference> typeRefs = builder.typeRefs;
+
+        boolean fastB;
+        try {
+            fastB = Boolean.getBoolean(JAXBContextImpl.class.getName()+".fastBoot");
+        } catch (SecurityException e) {
+            fastB = false;
+        }
+        this.fastBoot = fastB;
+
+        RuntimeTypeInfoSet typeSet = getTypeInfoSet();
+        ...
+
+        // !!! beans.size()=2, (userRequest, userResponse in a good case, objectFactory in a bad-one) RuntimeElementInfoImpl
+        // 36 builtins
+
+        // fill in element mappings
+        for( RuntimeElementInfo n : typeSet.getAllElements() ) {    
+            ElementBeanInfoImpl bi = getOrCreate(n);
+            if(n.getScope()==null)
+                rootMap.put(n.getElementName(),bi);
+
+            RuntimeClassInfo scope = n.getScope();
+            Class scopeClazz = scope==null?null:scope.getClazz();
+            Map<QName, ElementBeanInfoImpl> m = elements.computeIfAbsent(scopeClazz, k -> new LinkedHashMap<>());
+            m.put(n.getElementName(),bi);
+        }
+
+        ...
     }
     ...
     @Override
@@ -44,7 +79,97 @@ public final class JAXBContextImpl extends JAXBRIContext {
         return new UnmarshallerImpl(this, null);    // !!! assoc = null
     }
     ...
+
+    public Loader selectRootLoader(UnmarshallingContext.State state, TagName tag ) {
+        JaxBeanInfo beanInfo = rootMap.get(tag.uri,tag.local);                    // !!! 9 rootMap is empty !!! => null in a bad case, 2 entries (userRequest, userResponse) in a good one
+        if(beanInfo==null)
+            return null;
+
+        return beanInfo.getLoader(this,true);
+    }
 }
+
+*********************
+org.glassfish.jaxb.runtime.v2.model.impl
+public class ModelBuilder<T,C,F,M> implements ModelBuilderI<T,C,F,M> {
+    ...
+    public NonElement<T,C> getTypeInfo(Ref<T,C> ref) {
+        // TODO: handle XmlValueList
+        assert !ref.valueList;
+        C c = nav.asDecl(ref.type);
+
+        //
+        // good-case: jakarta.xml.bind.annotation.XmlRegistry
+        // bad-case:  javax.xml.bind.annotation.XmlRegistry;
+
+        if(c!=null && reader.getClassAnnotation(XmlRegistry.class,c,null/*TODO: is this right?*/)!=null) {    // ??? in both case we have @XmlRegistry class annotation for ObjectFactory ???
+            if(!registries.containsKey(nav.getPackageName(c)))
+                addRegistry(c,null);
+            return null;    // TODO: is this correct?
+        } else
+            return getTypeInfo(ref.type,null);
+    }
+
+    public RegistryInfo<T,C> addRegistry(C registryClass, Locatable upstream ) {
+        return new RegistryInfoImpl<>(this,upstream,registryClass);
+    }
+
+    ...
+}
+
+org.glassfish.jaxb.runtime.v2.model.impl
+final class RegistryInfoImpl<T,C,F,M> implements Locatable, RegistryInfo<T,C> {
+    ...
+    RegistryInfoImpl(ModelBuilder<T,C,F,M> builder, Locatable upstream, C registryClass) {
+        this.nav = builder.nav;
+        this.registryClass = registryClass;
+        this.upstream = upstream;
+        builder.registries.put(getPackageName(),this);
+
+        if(nav.getDeclaredField(registryClass,ContextFactory.USE_JAXB_PROPERTIES)!=null) {
+            // the user is trying to use ObjectFactory that we generate for interfaces,
+            // that means he's missing jaxb.properties
+            builder.reportError(new IllegalAnnotationException(
+                Messages.MISSING_JAXB_PROPERTIES.format(getPackageName()),
+                this
+            ));
+            // looking at members will only add more errors, so just abort now
+            return;
+        }
+
+        for( M m : nav.getDeclaredMethods(registryClass) ) {                      // 2 times go here in a good case
+            XmlElementDecl em = builder.reader.getMethodAnnotation(
+                XmlElementDecl.class, m, this );
+
+            if(em==null) {
+                if(nav.getMethodName(m).startsWith("create")) {
+                    // this is a factory method. visit this class
+                    references.add(
+                        builder.getTypeInfo(nav.getReturnType(m),
+                            new MethodLocatable<>(this,m,nav)));
+                }
+
+                continue;
+            }
+
+            ElementInfoImpl<T,C,F,M> ei;
+            try {
+                ei = (ElementInfoImpl<T, C, F, M>) builder.createElementInfo(this,m);
+            } catch (IllegalAnnotationException e) {
+                builder.reportError(e);
+                continue;   // recover by ignoring this element
+            }
+
+            // register this mapping
+            // TODO: any chance this could cause a stack overflow (by recursively visiting classes)?
+            builder.typeInfoSet.add(ei,builder);                                    // good case - call this for userRequest
+            references.add(ei);
+        }
+        ...
+  }
+
+*********************
+
 
 org.glassfish.jaxb.runtime.v2.runtime.unmarshaller
 public final class UnmarshallerImpl extends AbstractUnmarshallerImpl implements ValidationEventHandler, Closeable
@@ -137,6 +262,22 @@ public final class SAXConnector implements UnmarshallerHandler {
         next.startElement(tagName);                                                 // !!! 5
     }
   ...
+}
+
+public final class UnmarshallingContext extends Coordinator
+    implements NamespaceContext, ValidationEventHandler, ErrorHandler, !!! XmlVisitor !!!, XmlVisitor.TextPredictor {
+    ...
+
+    private static final Loader DEFAULT_ROOT_LOADER = new DefaultRootLoader();
+    private static final Loader EXPECTED_TYPE_ROOT_LOADER = new ExpectedTypeRootLoader();
+  ...
+    // state
+    //    .numNsDecl=88
+    // !!! ea.fAttributes .. 47
+    // 4 - tran.xsd
+    ...
+    // 47
+    //
     private void _startElement(TagName tagName) throws SAXException {
         // remember the current element if we are interested in it.
         // because the inner peer might not be found while we consume
@@ -145,27 +286,17 @@ public final class SAXConnector implements UnmarshallerHandler {
         if( assoc!=null )
             currentElement = scanner.getCurrentElement();
 
-        Loader h = current.loader;
+        Loader h = current.loader;                                                  // UnmarshallingContext.DefaultRootLoader
         current.push();
 
         // tell the parent about the new child
         h.childElement(current,tagName);                                            // !!! 6
         assert current.loader!=null;   // the childElement should register this
         // and tell the new child that you are activated
-        current.loader.startElement(current,tagName);
+        current.loader.startElement(current,tagName);                               // ??? ProxyLoader, IntercepterLoader
     }
 
   ...
-}
-
-
-public final class UnmarshallingContext extends Coordinator
-    implements NamespaceContext, ValidationEventHandler, ErrorHandler, !!! XmlVisitor !!!, XmlVisitor.TextPredictor {
-    ...
-
-    private static final Loader DEFAULT_ROOT_LOADER = new DefaultRootLoader();
-    private static final Loader EXPECTED_TYPE_ROOT_LOADER = new ExpectedTypeRootLoader();
-
     /**
      * Root loader that uses the tag name and possibly its @xsi:type
      * to decide how to start unmarshalling.
@@ -177,16 +308,16 @@ public final class UnmarshallingContext extends Coordinator
          */
         @Override
         public void childElement(UnmarshallingContext.State state, TagName ea) throws SAXException {
-            Loader loader = state.getContext().selectRootLoader(state,ea);
+            Loader loader = state.getContext().selectRootLoader(state,ea);          // !!! 7
             if(loader!=null) {
                 state.loader = loader;
                 state.receiver = this;
-                return;
+                return;                                                             // we exit here in a good-case
             }
 
             // the registry doesn't know about this element.
             // try its xsi:type
-            JaxBeanInfo beanInfo = XsiTypeLoader.parseXsiType(state, ea, null);     // !!! 7 - need to dig deeper (don't go here in simple case)
+            JaxBeanInfo beanInfo = XsiTypeLoader.parseXsiType(state, ea, null);     // !!! 11111 - need to dig deeper (don't go here in simple case)
             if(beanInfo==null) {                                                  
                 // we don't even know its xsi:type
                 reportUnexpectedChildElement(ea,false);
@@ -198,8 +329,31 @@ public final class UnmarshallingContext extends Coordinator
             state.receiver = this;
         }
         ...
-    }
+    } // DefaultRootLoader
     ...
+    ...
+    public Loader selectRootLoader(State state, TagName tag) throws SAXException {
+        try {
+            Loader l = getJAXBContext().selectRootLoader(state, tag);                   // ??? 8 (check up) - ElementBeanInfoImpl$IntercepterLoader in a good-case, null in a bad one !!!
+            if(l!=null)     return l;
+
+            if(classResolver!=null) {
+                Class<?> clazz = classResolver.resolveElementName(tag.uri, tag.local);
+                if(clazz!=null) {
+                    JAXBContextImpl enhanced = getJAXBContext().createAugmented(clazz);
+                    JaxBeanInfo<?> bi = enhanced.getBeanInfo(clazz);
+                    return bi.getLoader(enhanced,true);
+                }
+            }
+        } catch (RuntimeException e) {
+            throw e;
+        } catch (Exception e) {
+            handleError(e);
+        }
+
+        return null;
+    }
+
 }
 
 public class XsiTypeLoader extends Loader {
