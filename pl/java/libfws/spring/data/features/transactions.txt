@@ -5,6 +5,7 @@ https://www.baeldung.com/spring-programmatic-transaction-management
 2023
 https://reflectoring.io/spring-transactions-and-exceptions/
     rollbackFor, noRollbackFo, default - onnly in the case of runtime, unchecked exceptions (RuntimeException, Error)
+    https://habr.com/ru/articles/871582/
 https://habr.com/ru/post/725064/
 2022
 JPointJokerAndJUGRu - Letov - Use Transactional Like a Pro of 1:16:30
