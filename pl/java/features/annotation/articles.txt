@@ -1,0 +1,36 @@
+2024
+https://www.infoworld.com/article/2257851/how-to-describe-java-code-with-annotations.html
+2023
+MJC - Creating Annotations in Java ru of 6:51
+    https://www.youtube.com/watch?v=7D4Wn0GndCA
+https://www.baeldung.com/java-annotation-processing-builder
+2022
+https://reflectoring.io/java-annotation-processing/ 
+    https://github.com/thombergs/code-examples/tree/master/core-java/annotation-processing/introduction-to-annotations
+    !!!
+    ! @Inherited -> propagates annotation to inherited classes
+https://docs.oracle.com/javase/tutorial/java/annotations/index.html
+    https://habr.com/ru/post/662023/
+https://reflectoring.io/java-annotation-processing/
+    https://habr.com/ru/company/otus/blog/655239/
+    https://github.com/thombergs/code-examples/tree/master/core-java/annotation-processing/introduction-to-annotations
+2020
+https://blog.frankel.ch/introductory-guide-annotation-processor/
+2019
+https://dzone.com/articles/creating-custom-annotations-in-java
+2018
+https://jaxenter.com/understand-annotations-java-148001.html
+Compile Time Annoations
+    https://habr.com/post/414715/
+Albano - Creating Annotations in Java
+    https://dzone.com/articles/creating-custom-annotations-in-java
+????
+https://habrahabr.ru/company/e-Legion/blog/206208/
+https://github.com/DanielSerdyukov/droidcon2015
+https://docs.google.com/presentation/d/1zamMD_7LeGItOYFUPoYYjKb8hFl243krqZgPKwVgvr0/edit#slide=id.p4
+https://www.youtube.com/watch?v=dBUAqPs0TB0
+https://www.youtube.com/watch?v=tRmJm2_qytM
+https://speakerdeck.com/search?q=droidcon+2014+nyc
+
+Erni - The Hacker's Guide to Javac
+http://scg.unibe.ch/archive/projects/Erni08b.pdf

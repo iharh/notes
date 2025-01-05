@@ -10,7 +10,28 @@ server:
     key-store-type: pkcs12
     key-store-password: <pwd>
     keyAlias: 1
+    ...
+    trust-store
+    ...
+    bundle:
+      jks:
+        <bundle-name>:
+          key:
+            alias: server
+            password: <pwd-val>
+          keystore:
+            type: pkcs12
+            location: ${secrets.server.keyStorePath}
+            password: <pwd-val>
+          truststore:
+            ...
+          reloadOnUpdate: true
 
+pem-format - just encoded in base64
+
+2024
+https://habr.com/ru/companies/sberbank/articles/870116/
+    !
 2023
 https://spring.io/blog/2023/11/07/ssl-hot-reload-in-spring-boot-3-2-0
 https://spring.io/blog/2023/06/07/securing-spring-boot-applications-with-ssl

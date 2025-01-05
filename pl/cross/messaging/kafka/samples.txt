@@ -1,2 +1,5 @@
 https://github.com/confluentinc/examples
 https://github.com/gwenshap/kafka-examples
+
+KafkaProducer.send(...)
+KafkaConsumer.poll(num)

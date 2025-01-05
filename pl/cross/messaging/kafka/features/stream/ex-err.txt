@@ -1,0 +1,8 @@
+sample
+Properties props = new Properties();
+props.put(StreamsConfig.DEFAULT_DESERIALIZATION_EXCEPTION_HANDLER_CLASS_CONFIG,
+          LogAndContinueExceptionHandler.class);
+props.put(StreamsConfig.DEFAULT_PRODUCTION_EXCEPTION_HANDLER_CLASS_CONFIG,
+          DefaultProductionExceptionHandler.class);
+
+streams.setUncaughtExceptionHandler(...)

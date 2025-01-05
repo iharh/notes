@@ -8,6 +8,11 @@ Spectr - Apache Kafka Typical Erors 0:00 of 54:46
     https://www.youtube.com/watch?v=FGETRVOPdiA
 ByteByteGo - System Design: Why is Kafka so Popular? of 4:19
     https://www.youtube.com/watch?v=yIAcHMJzqJc
+SelskiJavist - Kafka Fundamentals 0:00 of 2:09:05
+    https://www.youtube.com/watch?v=YluvsLmPU78
+    ! producer/consumer related
+    at-least-onece, at-most-once, fixing offset, a lot of props
+    transactions, partitions direct manip-n
 2022
 SpringDeveloper - Long - Spring Tips: Spring Boot & Apache Kafka 0:00 of 42:58
     https://www.youtube.com/watch?v=DJHUNSGh3K0

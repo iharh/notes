@@ -5,3 +5,5 @@ https://postgrespro.ru/docs/postgresql/16/using-explain
 -- file:///D:/dev/Utils/PostgreSQL/9.1/doc/postgresql/html/sql-analyze.html
 -- file:///D:/dev/Utils/PostgreSQL/9.1/doc/postgresql/html/auto-explain.html
 -- explain analyze
+
+explain (analyze, costs off, buffers)  -- buffers is aprox about num of disk ops

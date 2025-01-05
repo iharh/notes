@@ -1,0 +1,6 @@
+@RefreshScope of spring-cloud
+http://<host>:<port>/actuator/refresh
+applicationContext.publishEvent(new RefreshEvent(this, <event>, <eventName>))
+
+notes:
+Hikary uses AutoCloseable objects => open connections are hanging after refresh

@@ -1,0 +1,5 @@
+https://www.postgresql.org/docs/current/monitoring-stats.html
+    cummulative
+
+https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-STATS-FUNCTIONS
+    incl manual pg_stat_reset()

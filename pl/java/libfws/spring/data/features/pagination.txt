@@ -1,0 +1,23 @@
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/PageRequest.html
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Pageable.html
+    ofSize(pageSize) - first page...
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Page.html
+    int getTotalPages
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Slice.html
+    if we don't need total number of items/pages
+https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/util/Streamable.html
+    toList()
+
+Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
+Pageable secondPageWithFiveElements = PageRequest.of(1, 5);
+
+Pageable sortedByName =
+  PageRequest.of(0, 3, Sort.by("name"));
+Pageable sortedByPriceDesc =
+  PageRequest.of(0, 3, Sort.by("price").descending());
+Pageable sortedByPriceDescNameAsc =
+  PageRequest.of(0, 5, Sort.by("price").descending().and(Sort.by("name")));
+
+2019
+https://reflectoring.io/spring-boot-paging/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/paging

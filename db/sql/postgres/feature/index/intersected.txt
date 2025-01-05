@@ -1,0 +1,5 @@
+2024
+    https://habr.com/ru/articles/871546/
+        INTERSECTED_INDEXES, if columns of one index - are prefix for the other one
+        !!! putting id into the index is almost always a bad idea
+

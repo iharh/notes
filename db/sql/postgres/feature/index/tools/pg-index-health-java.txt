@@ -1,10 +1,13 @@
 https://github.com/mfvanek/pg-index-health
+https://github.com/mfvanek/pg-index-health-sql
 
 https://github.com/mfvanek/pg-index-health/blob/master/gradle/libs.versions.toml
 https://github.com/mfvanek/pg-index-health/blob/master/pg-index-health-model/src/main/java/io/github/mfvanek/pg/model/settings/ImportantParam.java
+https://github.com/mfvanek/pg-index-health/blob/master/pg-index-health-core/src/main/java/io/github/mfvanek/pg/core/checks/common/Diagnostic.java
 
 2024
 https://habr.com/ru/articles/871546/
+    io.github.mfvanek:pg-index-health-test-starter:<ver>
 2020
 https://habr.com/ru/articles/490824/
 https://habr.com/ru/companies/tensor/articles/488104/

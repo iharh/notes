@@ -3,3 +3,7 @@ https://edu.postgrespro.ru/sqlprimer/sqlprimer-2019-msu-06.pdf
 
 create unique index <index-name> on <table-name> (col1, col2, ...);
     ! nulls are accepted at unique indices
+
+2024
+https://habr.com/ru/articles/871546/
+    ! each field with unique-constraint gets unique idx auto-created !!!

@@ -1,0 +1,7 @@
+https://docs.spring.io/spring-kafka/reference/kafka/annotation-error-handling.html
+    @Bean
+    CommonErrorHandler kafkaErrorHandler() {
+        return new KafkaErrorHandler();
+    }
+https://medium.com/javarevisited/robust-kafka-consumer-error-handling-on-a-spring-boot-3-application-6fc95e92c956
+    @RetryableTopic, Listeners with Acknoledgement

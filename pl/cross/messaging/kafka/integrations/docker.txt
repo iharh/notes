@@ -1,6 +1,9 @@
 https://github.com/Amplicode/amplicode-tutorials/blob/main/http-client-demo/app/docker-compose-dev.yaml
     + kafka-ui
 
+2024
+https://habr.com/ru/articles/854680/
+    confluentinc/confluent-local:latest
 2022
 https://www.baeldung.com/ops/kafka-docker-setup
     ! tip about healthcheck in comment

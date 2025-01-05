@@ -1,0 +1,9 @@
+https://docs.spring.io/spring-kafka/reference/testing.html
+    MockProducer, MockConsumer, assertj kafka-related assertions
+https://testcontainers.com/guides/testing-spring-boot-kafka-listener-using-testcontainers/
+
+baeldung
+https://www.baeldung.com/spring-boot-kafka-testing
+2024
+https://habr.com/ru/articles/824594/
+https://habr.com/ru/companies/alfastrah/articles/816057/
