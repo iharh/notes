@@ -1,9 +1,12 @@
+https://docs.gradle.org/current/userguide/version_catalogs.html
+
 https://docs.gradle.org/current/userguide/platforms.html#sub:type-unsafe-access-to-catalog
 https://docs.gradle.org/current/userguide/java_platform_plugin.html
 
 https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/VersionCatalog.html
 
 samples
+
 https://github.com/lovekty/ktpractice/blob/master/gradle/libs.versions.toml
 ...
     ! check ones at structuring/large.txt
@@ -23,3 +26,13 @@ https://proandroiddev.com/gradle-version-catalogs-for-an-awesome-dependency-mana
     ! no kt-script, just a groovy-based
 2021
 https://melix.github.io/blog/2021/03/version-catalogs.html
+
+
+private val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+dependencies {
+    versionCatalog.findLibrary("jsr305").ifPresent {
+        implementation(it)
+    }
+    ...
+}
