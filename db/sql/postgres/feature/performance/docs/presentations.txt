@@ -1,5 +1,5 @@
 2024
-Digitalize - PG Optimization Basics 1:54:00 of 2:07:51
+Digitalize - PG Optimization Basics of 2:07:51
     https://www.youtube.com/watch?v=gA3A_epB3So
     ! 13:00 - from index pages go into buffer-cache in RAM
     ! 37:00 - select ... from employee e join contacts ec using(employee_id) -- on e.employee_id = ec.employee_id

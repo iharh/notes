@@ -1,0 +1,9 @@
+https://www.pgadmin.org/docs/pgadmin4/latest/debugger.html
+
+postgresql.conf
+    shared_preload_libraries = ‘$libdir/plugin_debugger’
+    # after modifying - restart the server to apply the changes.
+
+2021
+EDB - pgAdmin Debugger Tool of 7:43
+    https://www.youtube.com/watch?v=wYyUjmnsbT4

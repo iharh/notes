@@ -1,0 +1,11 @@
+https://www.pgadmin.org
+
+https://www.pgadmin.org/download/pgadmin-4-container/
+https://hub.docker.com/r/dpage/pgadmin4/
+    dpage/pgadmin4
+    https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
+
+https://www.pgadmin.org/docs/pgadmin4/8.13/query_tool.html
+
+files
+/usr/share/applications/pgadmin4.desktop

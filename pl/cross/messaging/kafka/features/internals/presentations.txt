@@ -1,0 +1,22 @@
+2022
+JPoint - Koshelev - By Kafka 3 - Apache Kafka and Consumers of 53:43
+    https://www.youtube.com/watch?v=NXU_F_7STSM
+    https://squidex.jugru.team/api/assets/srm/9830ff16-aa51-46e7-b08f-62dc3e5e4996/grigorii-koshelev.pdf
+    ! 16:08 Under the hood of consumer are:
+    !   KafkaConsumer
+    !   ConsumerMetadata
+    !   SubscriptionState // subscriptions
+    !   ConsumerNetworkClient
+    !   NetworkClient
+    !   Fetcher
+    !   ConsumerCoordinator   // if consumer groups are used
+    !     assign (we specify concrete partitions)
+    !     subscribe - auto ...
+    !   !!! subscribe - can subscribe for multiple topics, named accroding to some regex-pattern
+2020
+Koshelev - Speeding Up Producers 0:00 of 1:11:53
+    https://www.youtube.com/watch?v=zMLfxztAVlo
+2019
+Koshelev - By Kafka
+    https://www.youtube.com/watch?v=A_yUaPARv8U
+    https://assets.ctfassets.net/oxjq45e8ilak/5C3BJ4jXm0xaI5Cz8ZN2ra/e3cceba5659722f6d94859f0e96356dc/Grigoriy_Koshelev_Kogda_vs_poshlo_po_Kafke.pdf
