@@ -21,6 +21,411 @@ public class JdbcAggregateTemplate implements JdbcAggregateOperations {
 }
 
 class AggregateChangeExecutor {
+
+	private final JdbcConverter converter;
+	private final DataAccessStrategy accessStrategy;
+
   ...
+	<T> List<T> executeSave(AggregateChange<T> aggregateChange) {
+
+		JdbcAggregateChangeExecutionContext executionContext = new JdbcAggregateChangeExecutionContext(converter,
+				accessStrategy);
+
+		aggregateChange.forEachAction(action -> execute(action, executionContext));
+
+		return executionContext.populateIdsIfNecessary();
+	}
+  ...
+
+	private void execute(DbAction<?> action, JdbcAggregateChangeExecutionContext executionContext) {
+
+		try {
+			if (action instanceof DbAction.InsertRoot<?> insertRoot) {
+				executionContext.executeInsertRoot(insertRoot);
+			} else if (action instanceof DbAction.BatchInsertRoot<?> batchInsertRoot) {
+				executionContext.executeBatchInsertRoot(batchInsertRoot);
+			} else if (action instanceof DbAction.Insert<?> insert) {
+				executionContext.executeInsert(insert);
+			} else if (action instanceof DbAction.BatchInsert<?> batchInsert) {
+				executionContext.executeBatchInsert(batchInsert);
+			} else if (action instanceof DbAction.UpdateRoot<?> updateRoot) {
+				executionContext.executeUpdateRoot(updateRoot);
+			} else if (action instanceof DbAction.Delete<?> delete) {
+				executionContext.executeDelete(delete);
+			} else if (action instanceof DbAction.BatchDelete<?> batchDelete) {
+				executionContext.executeBatchDelete(batchDelete);
+			} else if (action instanceof DbAction.DeleteAll<?> deleteAll) {
+				executionContext.executeDeleteAll(deleteAll);
+			} else if (action instanceof DbAction.DeleteRoot<?> deleteRoot) {
+				executionContext.executeDeleteRoot(deleteRoot);
+			} else if (action instanceof DbAction.BatchDeleteRoot<?> batchDeleteRoot) {
+				executionContext.executeBatchDeleteRoot(batchDeleteRoot);
+			} else if (action instanceof DbAction.DeleteAllRoot<?> deleteAllRoot) {
+				executionContext.executeDeleteAllRoot(deleteAllRoot);
+			} else if (action instanceof DbAction.AcquireLockRoot<?> acquireLockRoot) {
+				executionContext.executeAcquireLock(acquireLockRoot);
+			} else if (action instanceof DbAction.AcquireLockAllRoot<?> acquireLockAllRoot) {
+				executionContext.executeAcquireLockAllRoot(acquireLockAllRoot);
+			} else {
+				throw new RuntimeException("unexpected action");
+			}
+		} catch (Exception e) {
+
+			if (e instanceof OptimisticLockingFailureException) {
+				throw e;
+			}
+			throw new DbActionExecutionException(action, e);
+		}
+	}
+}
+
+@SuppressWarnings("rawtypes")
+class JdbcAggregateChangeExecutionContext {
+
+	private final RelationalMappingContext context;
+	private final JdbcConverter converter;
+	private final DataAccessStrategy accessStrategy;
+
+	private final Map<DbAction<?>, DbActionExecutionResult> results = new LinkedHashMap<>();
+
+  ...
+	<T> void executeInsertRoot(DbAction.InsertRoot<T> insert) {
+
+		Object id = accessStrategy.insert(insert.getEntity(), insert.getEntityType(), Identifier.empty(),
+				insert.getIdValueSource());
+		add(new DbActionExecutionResult(insert, id));
+	}
+  ...
+}
+
+package org.springframework.data.jdbc.core.convert;
+
+
+public interface DataAccessStrategy extends ReadingDataAccessStrategy, RelationResolver {
+  ...
+
+  ...
+}
+
+core/convert/DefaultDataAccessStrategy.java
+core/convert/DelegatingDataAccessStrategy.java
+core/convert/CascadingDataAccessStrategy.java
+
+
+public class DefaultDataAccessStrategy implements DataAccessStrategy {
+
+	private final SqlGeneratorSource sqlGeneratorSource;
+	private final RelationalMappingContext context;
+	private final JdbcConverter converter;
+	private final NamedParameterJdbcOperations operations;
+	private final SqlParametersFactory sqlParametersFactory;
+	private final InsertStrategyFactory insertStrategyFactory;
+  ...
+	@Override
+	public <T> Object insert(T instance, Class<T> domainType, Identifier identifier, IdValueSource idValueSource) {
+
+		SqlIdentifierParameterSource parameterSource = sqlParametersFactory.forInsert(instance, domainType, identifier,
+				idValueSource);
+
+		String insertSql = sql(domainType).getInsert(parameterSource.getIdentifiers());
+
+		return insertStrategyFactory.insertStrategy(idValueSource, getIdColumn(domainType)).execute(insertSql,
+				parameterSource);
+	}
+
+
+	private SqlGenerator sql(Class<?> domainType) {
+		return sqlGeneratorSource.getSqlGenerator(domainType);
+	}
+  ...
+}
+
+core/convert/DataAccessStrategyFactory.java
+
+
+public class SqlGeneratorSource {
+
+	private final Map<Class<?>, SqlGenerator> CACHE = new ConcurrentReferenceHashMap<>();
+	private final RelationalMappingContext context;
+	private final JdbcConverter converter;
+	private final Dialect dialect;
+
+	public Dialect getDialect() {
+		return dialect;
+	}
+
+	SqlGenerator getSqlGenerator(Class<?> domainType) {
+
+		return CACHE.computeIfAbsent(domainType,
+				t -> new SqlGenerator(context, converter, context.getRequiredPersistentEntity(t), dialect));
+	}
+}
+
+
+class SqlGenerator {
+
+	static final SqlIdentifier VERSION_SQL_PARAMETER = SqlIdentifier.unquoted("___oldOptimisticLockingVersion");
+	static final SqlIdentifier ID_SQL_PARAMETER = SqlIdentifier.unquoted("id");
+	static final SqlIdentifier IDS_SQL_PARAMETER = SqlIdentifier.unquoted("ids");
+	static final SqlIdentifier ROOT_ID_PARAMETER = SqlIdentifier.unquoted("rootId");
+
+	/**
+	 * Length of an aggregate path that is one longer then the root path.
+	 */
+	private static final int FIRST_NON_ROOT_LENTH = 2;
+
+	private final RelationalPersistentEntity<?> entity;
+	private final RelationalMappingContext mappingContext;
+	private final RenderContext renderContext;
+
+	private final SqlContext sqlContext;
+	private final SqlRenderer sqlRenderer;
+	private final Columns columns;
+
+	private final Lazy<String> findOneSql = Lazy.of(this::createFindOneSql);
+	private final Lazy<String> findAllSql = Lazy.of(this::createFindAllSql);
+	private final Lazy<String> findAllInListSql = Lazy.of(this::createFindAllInListSql);
+
+	private final Lazy<String> existsSql = Lazy.of(this::createExistsSql);
+	private final Lazy<String> countSql = Lazy.of(this::createCountSql);
+
+	private final Lazy<String> updateSql = Lazy.of(this::createUpdateSql);
+	private final Lazy<String> updateWithVersionSql = Lazy.of(this::createUpdateWithVersionSql);
+
+	private final Lazy<String> deleteByIdSql = Lazy.of(this::createDeleteByIdSql);
+	private final Lazy<String> deleteByIdInSql = Lazy.of(this::createDeleteByIdInSql);
+	private final Lazy<String> deleteByIdAndVersionSql = Lazy.of(this::createDeleteByIdAndVersionSql);
+	private final Lazy<String> deleteByListSql = Lazy.of(this::createDeleteByListSql);
+	private final QueryMapper queryMapper;
+	private final Dialect dialect;
+  ...
+	String getInsert(Set<SqlIdentifier> additionalColumns) {
+		return createInsertSql(additionalColumns);
+	}
+
+	private String createInsertSql(Set<SqlIdentifier> additionalColumns) {
+
+		Table table = getTable();
+
+		Set<SqlIdentifier> columnNamesForInsert = new TreeSet<>(Comparator.comparing(SqlIdentifier::getReference));
+		columnNamesForInsert.addAll(columns.getInsertableColumns());
+		columnNamesForInsert.addAll(additionalColumns);
+
+		InsertBuilder.InsertIntoColumnsAndValuesWithBuild insert = Insert.builder().into(table);
+
+		for (SqlIdentifier cn : columnNamesForInsert) {
+			insert = insert.column(table.column(cn));
+		}
+
+		if (columnNamesForInsert.isEmpty()) {
+			return render(insert.build());
+		}
+
+		InsertBuilder.InsertValuesWithBuild insertWithValues = null;
+		for (SqlIdentifier cn : columnNamesForInsert) {
+			insertWithValues = (insertWithValues == null ? insert : insertWithValues).values(getBindMarker(cn));
+		}
+
+		return render(insertWithValues.build());
+	}
+
+	private String render(Insert insert) {
+		return this.sqlRenderer.render(insert);
+	}
+  ...
+}
+
+*************************************************************************
+
+package org.springframework.data.relational.core.sql.render;
+
+
+public class SqlRenderer implements Renderer {
+
+	private final RenderContext context;
+  ...
+	@Override
+	public String render(Insert insert) {
+		InsertStatementVisitor visitor = new InsertStatementVisitor(context);
+		insert.visit(visitor);
+		return visitor.getRenderedPart().toString();
+	}
+  ...
+}
+
+
+class InsertStatementVisitor extends DelegatingVisitor implements PartRenderer {
+
+	private final StringBuilder builder = new StringBuilder();
+	private final StringBuilder into = new StringBuilder();
+	private final StringBuilder columns = new StringBuilder();
+	private final StringBuilder values = new StringBuilder();
+
+	private final IntoClauseVisitor intoClauseVisitor;
+	private final ColumnVisitor columnVisitor;
+	private final ValuesVisitor valuesVisitor;
+	private final RenderContext renderContext;
+  ...
+
+  // !!! from here !!!
+	@Override
+	public Delegation doEnter(Visitable segment) {
+
+		if (segment instanceof Into) {
+			return Delegation.delegateTo(this.intoClauseVisitor);
+		}
+
+		if (segment instanceof Column) {
+			return Delegation.delegateTo(this.columnVisitor);
+		}
+
+		if (segment instanceof Values) {
+			return Delegation.delegateTo(this.valuesVisitor);
+		}
+
+		return Delegation.retain();
+	}
+
+	@Override
+	public Delegation doLeave(Visitable segment) {
+
+		if (segment instanceof Insert) {
+
+			builder.append("INSERT");
+
+			builder.append(" INTO ").append(into);
+
+			addInsertColumnsIfPresent();
+
+			addInsertValuesIfPresentElseDefault();
+
+			return Delegation.leave();
+		}
+
+		return Delegation.retain();
+	}
+  ...
+
+	@Override
+	public CharSequence getRenderedPart() {
+		return builder;                                         // just a StringBuilder
+	}
+  ...
+}
+
+
+abstract class DelegatingVisitor implements Visitor {
+  ...
+
+	@Nullable
+	public abstract Delegation doEnter(Visitable segment);
+
+	@Override
+	public final void enter(Visitable segment) {
+
+		if (delegation.isEmpty()) {
+
+			Delegation visitor = doEnter(segment);
+			Assert.notNull(visitor,
+					() -> String.format("Visitor must not be null Caused by %s.doEnter(…)", getClass().getName()));
+			Assert.state(!visitor.isLeave(),
+					() -> String.format("Delegation indicates leave. Caused by %s.doEnter(…)", getClass().getName()));
+
+			if (visitor.isDelegate()) {
+				delegation.push(visitor.getDelegate());
+				visitor.getDelegate().enter(segment);
+			}
+		} else {
+			delegation.peek().enter(segment);
+		}
+	}
+  ...
+
+	public abstract Delegation doLeave(Visitable segment);
+
+	public final void leave(Visitable segment) {
+		doLeave0(segment);
+	}
+
+	private Delegation doLeave0(Visitable segment) {
+
+		if (delegation.isEmpty()) {
+			return doLeave(segment);
+		} else {
+
+			DelegatingVisitor visitor = delegation.peek();
+			while (visitor != null) {
+
+				Delegation result = visitor.doLeave0(segment);
+				Assert.notNull(visitor,
+						() -> String.format("Visitor must not be null Caused by %s.doLeave(…)", getClass().getName()));
+
+				if (visitor == this) {
+					if (result.isLeave()) {
+						return delegation.isEmpty() ? Delegation.leave() : Delegation.retain();
+					}
+					return Delegation.retain();
+				}
+
+				if (result.isRetain()) {
+					return result;
+				}
+
+				if (result.isLeave()) {
+
+					if (!delegation.isEmpty()) {
+						delegation.pop();
+					}
+
+					if (!delegation.isEmpty()) {
+						visitor = delegation.peek();
+					} else {
+						visitor = this;
+					}
+				}
+			}
+		}
+
+		return Delegation.leave();
+	}
+  ...
+}
+
+----------------------------------------------------------------------------------------
+package org.springframework.data.relational.core.sql;
+
+public interface Insert extends Segment, Visitable {
+
+	/**
+	 * Creates a new {@link InsertBuilder}.
+	 *
+	 * @return a new {@link InsertBuilder}.
+	 */
+	static InsertBuilder builder() {
+		return new DefaultInsertBuilder();
+	}
+}
+
+
+class DefaultInsert implements Insert {
+
+	private final Into into;
+	private final List<Column> columns;
+	private final Values values;
+  ...
+
+	@Override
+	public void visit(Visitor visitor) {
+
+		Assert.notNull(visitor, "Visitor must not be null");
+
+		visitor.enter(this);
+
+		into.visit(visitor);
+		columns.forEach(it -> it.visit(visitor));
+		values.visit(visitor);
+
+		visitor.leave(this);
+	}
   ...
 }
