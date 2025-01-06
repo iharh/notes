@@ -4,6 +4,8 @@ https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spr
 @ConditionalOnBean(SomeBean.class)
     https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/condition/ConditionalOnBean.html
 
+baeldung
+https://www.baeldung.com/spring-conditionalonthreading
 2019
 https://reflectoring.io/spring-boot-conditionals/
 https://habr.com/ru/articles/462541/

@@ -29,6 +29,8 @@ server:
 
 pem-format - just encoded in base64
 
+baeldung
+https://www.baeldung.com/java-custom-truststore
 2024
 https://habr.com/ru/companies/sberbank/articles/870116/
     !

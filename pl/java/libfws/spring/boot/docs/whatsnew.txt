@@ -2,6 +2,14 @@ runtime("org.springframework.boot:spring-boot-properties-migrator")
 
 3.x
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes
+    https://spring.io/blog/2024/11/25/bootiful-34-index
+    https://spring.io/blog/2024/11/24/bootiful-34-framework
+    https://spring.io/blog/2024/11/24/bootiful-34-data
+    https://spring.io/blog/2024/11/24/bootiful-34-security
+    https://dzen.ru/a/Z0o0xHzk5Gfj4iWx
+    https://digma.ai/spring-boot-3-4-what-to-keep-an-eye-on/
+    https://habr.com/ru/companies/spring_aio/articles/861182/
+    https://www.youtube.com/watch?v=ivKvlLJ_y4s
 https://habr.com/ru/companies/spring_aio/articles/836506/
     ! 3.3
 DevBcn - From Spring Boot 2 to Spring Boot 3 with Java 21 and Jakarta EE 0:00 of 42:40
@@ -28,13 +36,15 @@ DanVega - Building a new application with Spring Boot 3.2 0:00 of 23:20
     https://www.youtube.com/watch?v=w1Nzqm7MnZI
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2.0-Release-Notes
     https://vived.substack.com/p/spring-framework-61-and-spring-boot
-SpringDeveloper - How Netflix Is Upgrading to Spring Boot 3 of 50:00
-    https://www.youtube.com/watch?v=IMGcD08rdVw
 https://www.linkedin.com/learning/spring-6-and-spring-boot-3-first-look/spring-to-the-latest
     spring.factories is no longer supported
     META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports
 https://medium.com/@nonowak/whats-new-in-spring-boot-3-0-bed0b3ed080f
 https://www.baeldung.com/spring-boot-3-migration
+SpringDeveloper - Spring Tips: Go Further and Faster with Spring Boot 3.3 (Updated) 0:00 of 36:56
+    https://www.youtube.com/watch?v=zeY3Wg1ieqI
+SpringDeveloper - How Netflix Is Upgrading to Spring Boot 3 of 50:00
+    https://www.youtube.com/watch?v=IMGcD08rdVw
 SpringDeveloper - Long - Spring Tips: the road to Spring Boot 3: Spring Framework 6 0:00 of 28:36
     https://www.youtube.com/watch?v=aUm5WZjh8RA
 Devoxx - Ahead Of Time and Native in Spring Boot 3 0 by Stéphane Nicoll & Brian Clozel 0:00 of 50:43

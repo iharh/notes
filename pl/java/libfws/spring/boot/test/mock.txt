@@ -1,6 +1,12 @@
+https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/bean/override/mockito/MockitoBean.html
+
 baeldung
 https://www.baeldung.com/spring-beans-integration-test-override
-    @MockBean
+    @MockBean is deprecated now
+2024
+https://habr.com/ru/companies/spring_aio/articles/859430/
+    ! bean redef using @TestBean, @MockitoBean
 2019
 https://reflectoring.io/spring-boot-mock/
     https://github.com/thombergs/code-examples/tree/master/spring-boot/mocking

@@ -9,5 +9,8 @@ org.springframework.security.test.context.support.WithSecurityContextTestExecuti
 2023
 https://www.baeldung.com/spring-oauth-testing-access-control
     https://github.com/eugenp/tutorials/tree/master/spring-security-modules/spring-security-oauth2-testing
+2021
+SpringDeveloper - Test-Driven Security 0:00 of 22:25
+    https://www.youtube.com/watch?v=TytSz7u1xQ8
 2019
 https://medium.com/@mark.hoogenboom/testing-a-spring-boot-application-secured-by-oauth-e40d1e9a6f60

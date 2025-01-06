@@ -1,2 +1,5 @@
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/jdbc/JdbcTestUtils.html
+https://www.baeldung.com/spring-jdbctemplate-testing#spring-boot-jdbctest
+
 spring.test.database.replace: none
 https://habr.com/ru/articles/446184/

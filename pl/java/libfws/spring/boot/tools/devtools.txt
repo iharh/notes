@@ -1,3 +1,4 @@
+https://docs.spring.io/spring-boot/reference/using/devtools.html
 https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools
 https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools.livereload
 
@@ -10,6 +11,10 @@ https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spr
 https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-devtools/src/main/resources/org/springframework/boot/devtools/env/devtools-property-defaults.properties
 
 https://central.sonatype.com/artifact/org.springframework.boot/spring-boot-devtools/3.0.4
+
+@RefreshScope
+https://docs.spring.io/spring-cloud-commons/reference/spring-cloud-commons/application-context-services.html#refresh-scope
+https://dev.to/saladlam/spring-cloud-refresh-scope-bean-2149
 
 cfg
 ~/.spring-boot-devtools.properties

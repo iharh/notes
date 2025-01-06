@@ -4,6 +4,13 @@ try http
 pg internals 16 - 357
 kafka - 76
 
+spring
+    spring.jdbc.getParameterType.ignore=false
+    SqlParameterValue
+    getParameterType
+    @AutoConfigureTestDatabase (for testcontainers)
+    spring/mvc/test assertJ stuff
+
 Harrison - MongoDB 117 of 360
 
 LiKongYu

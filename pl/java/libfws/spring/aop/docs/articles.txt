@@ -1,10 +1,13 @@
 baeldung
 https://www.baeldung.com/spring-aop
+https://www.baeldung.com/spring-aop-pointcut-tutorial
 2023
 https://habr.com/ru/articles/347752/
     about proxies and transactional
 https://ashish-bania.medium.com/adding-aspects-to-spring-boot-project-d5890e489072
     https://github.com/ashishbania/OpenBankingDemo
+https://www.springcloud.io/post/2023-08/spring-aop-pointcut/#gsc.tab=0
+    ! tons of code examples
 2022
 https://reflectoring.io/aop-spring/
 https://www.geeksforgeeks.org/spring-boot-aopaspect-oriented-programming/
@@ -13,7 +16,8 @@ https://medium.com/walmartglobaltech/understanding-the-worker-ants-of-spring-aop
     https://habr.com/ru/post/597797/
 2018
 https://dzone.com/articles/implementing-aop-with-spring-boot-and-aspectj
-https://habrahabr.ru/post/347752/
+https://habr.com/ru/articles/347752/
+https://habr.com/ru/articles/428548/
 
 http://mergetag.com/spring-aop-advice-on-annotated-controllers-2/
 http://stackoverflow.com/questions/3991249/how-can-i-combine-aspect-with-controller-in-spring-3

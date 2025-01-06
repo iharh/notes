@@ -1,3 +1,11 @@
+baeldung
+https://www.baeldung.com/cs/orm-n-plus-one-select-problem
+https://www.baeldung.com/spring-hibernate-n1-problem
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-boot-persistence-4
+https://www.baeldung.com/hibernate-fetchmode
+    FetchMode
+https://www.baeldung.com/hibernate-common-performance-problems-in-logs
+    !!!
 2024
 https://habr.com/ru/companies/magnit/articles/814573/
 2023
@@ -16,8 +24,6 @@ https://habr.com/ru/companies/rosbank/articles/743536/
         Support using ARRAY parameter for handling keys in
             Session#byMultipleIds and Session#byMultipleNaturalId
 
-https://www.baeldung.com/hibernate-common-performance-problems-in-logs
-    !!!
 https://habr.com/ru/companies/rosbank/articles/743536/
 2022
 https://hackernoon.com/3-ways-to-deal-with-hibernate-n1-problem
@@ -39,6 +45,3 @@ https://allaroundjava.com/hibernate-n1-selects-problem/
 https://thorben-janssen.com/5-ways-to-initialize-lazy-relations-and-when-to-use-them/
 
 https://stackoverflow.com/questions/32453989/what-is-the-solution-for-the-n1-issue-in-jpa-and-hibernate
-
-FetchMode
-    https://www.baeldung.com/hibernate-fetchmode

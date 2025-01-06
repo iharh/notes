@@ -1,0 +1,18 @@
+https://docs.spring.io/spring-framework/reference/data-access/jdbc/core.html#jdbc-JdbcClient
+
+https://docs.spring.io/spring-framework/reference/data-access/jdbc/simple.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/simple/package-summary.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/simple/SimpleJdbcInsert.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/simple/SimpleJdbcCall.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/simple/JdbcClient.html
+
+baeldung
+https://www.baeldung.com/spring-6-jdbcclient-api
+????
+https://javarush.com/quests/lectures/questspring.level03.lecture14
+2023
+https://howtodoinjava.com/spring-data/spring-jdbcclient-with-examples/
+    ! .paramSource(someObj)
+    ! no support for batch ops
+2019
+https://alexkosarev.name/2019/05/04/spring-framework-simple-jdbc-insert/

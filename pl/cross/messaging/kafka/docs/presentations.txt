@@ -14,8 +14,9 @@ SelskiJavist - Kafka Fundamentals 0:00 of 2:09:05
     at-least-onece, at-most-once, fixing offset, a lot of props
     transactions, partitions direct manip-n
 2022
-SpringDeveloper - Long - Spring Tips: Spring Boot & Apache Kafka 0:00 of 42:58
+SpringDeveloper - Long - Spring Tips: Spring Boot & Apache Kafka of 42:58
     https://www.youtube.com/watch?v=DJHUNSGh3K0
+    ! 2:00 - Kafka is not a msg-system, but distributed log with almost linear scalability
 Slurm - Obkafkilsya 0:00 of 1:06:43
     https://www.youtube.com/watch?v=5Sf8nKRQc8Y
 Slurm - Programming with Kafka 0:00 of 1:23:33

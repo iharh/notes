@@ -1,0 +1,26 @@
+package org.springframework.data.jdbc.core;
+
+public class JdbcAggregateTemplate implements JdbcAggregateOperations {
+  ...
+	private final AggregateChangeExecutor executor;
+  ...
+	private <T> T performSave(EntityAndChangeCreator<T> instance) {
+
+		// noinspection unchecked
+		BatchingAggregateChange<T, RootAggregateChange<T>> batchingAggregateChange = //
+				BatchingAggregateChange.forSave((Class<T>) ClassUtils.getUserClass(instance.entity));
+		batchingAggregateChange.add(beforeExecute(instance));
+
+		Iterator<T> afterExecutionIterator = executor.executeSave(batchingAggregateChange).iterator();  // !
+
+		Assert.isTrue(afterExecutionIterator.hasNext(), "Instances after execution must not be empty");
+
+		return afterExecute(batchingAggregateChange, afterExecutionIterator.next());
+	}
+  ...
+}
+
+class AggregateChangeExecutor {
+  ...
+  ...
+}

@@ -1,0 +1,16 @@
+https://docs.spring.io/spring-framework/reference/data-access/jdbc/core.html#jdbc-SQLExceptionTranslator
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/support/SQLExceptionTranslator.html
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/support/CustomSQLExceptionTranslatorRegistry.html
+https://github.com/spring-projects/spring-framework/issues/24634
+
+!!!
+    need to find actual translator for pg
+
+???
+https://javarush.com/quests/lectures/questspring.level03.lecture10
+baeldung
+https://www.baeldung.com/spring-jdbc-jdbctemplate
+
+
+samples
+https://github.com/hakanozbay/database-error-handling

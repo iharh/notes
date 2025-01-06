@@ -1,3 +1,10 @@
+https://docs.spring.io/spring-framework/reference/testing/mockmvc.html
+    MockMvc can be used on its own to perform requests and verify responses using Hamcrest 
+    or through MockMvcTester which provides a fluent API using AssertJ
+https://docs.spring.io/spring-framework/reference/testing/mockmvc/assertj.html
+https://docs.spring.io/spring-framework/reference/testing/mockmvc/assertj/setup.html
+https://docs.spring.io/spring-framework/reference/testing/mockmvc/assertj/requests.html
+
 2023
 https://habr.com/ru/companies/otus/articles/747852/
 https://habr.com/ru/companies/otus/articles/746414/
