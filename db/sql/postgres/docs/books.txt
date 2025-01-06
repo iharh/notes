@@ -7,6 +7,8 @@ https://github.com/le0pard/postgresql_book
 https://habrahabr.ru/post/324334/
 
 2024
+Rogov - PostgreSQL 16 Internals ru
+    https://postgrespro.ru/education/books/internals
 Lesovsky - Monitoring PostgreSQL ru
     0918352909AF136EE97DFC29AD5B2994
     https://nnmclub.to/forum/viewtopic.php?t=1710482
@@ -28,9 +30,6 @@ Ferrari - Learn PostgreSQL 2nd ed of p745
 Burch - Learn PostgreSQL from Basics
     ????
 2022
-Rogov - PostgreSQL 14 Internals ru
-    https://postgrespro.ru/education/books/internals
-    C795F5BF0B4EF2B486C3EBFDA06CA2A3
 RiggsCiolli - PostgreSQL 14 Administration Cookbook 3rd ed
     0F79C87E2333B20A1ACF933D7573595C
     767AD513EF357427D187C4A4935FA4A3
