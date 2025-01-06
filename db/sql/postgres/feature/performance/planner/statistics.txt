@@ -1,0 +1,38 @@
+https://www.postgresql.org/docs/current/planner-stats.html
+https://www.postgresql.org/docs/current/multivariate-statistics-examples.html
+
+CREATE EXTENSION pgstattuple;
+SELECT * FROM pgstattuple('table-name') \gx
+-[ RECORD 1 ]------+--------
+table_len          | 4427680
+tuple_count        | 100000
+tuple_len          | 3368895
+tuple_percent      | 76.61
+dead_tuple_count   | 0
+dead_tuple_len     | 0
+dead_tuple_percent | 0
+free_space         | 16552
+free_percent       | 0.37
+
+tuple_percent - percent of useful info
+free_percent - .. of free (old row versions and free space)
+dead_tuple_count - quality of autovacuum
+
+SELECT relname, n_live_tup, n_dead_tup
+FROM pg_stat_user_tables/pg_stat_all_tables;
+
+SELECT
+    relname AS "table",
+    n_live_tup AS live_rows,
+    n_dead_tup AS dead_rows,
+    ROUND((n_dead_tup::float8 / NULLIF(n_live_tup + n_dead_tup, 0)) * 100, 2) AS dead_proc
+FROM
+    pg_stat_user_tables
+WHERE
+    n_live_tup + n_dead_tup > 0
+ORDER BY
+    dead_proc DESC;
+
+SELECT relname, last_autovacuum, last_autoanalyze
+FROM pg_stat_user_tables
+WHERE relname="<table-name>";
