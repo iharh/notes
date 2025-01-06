@@ -1,0 +1,28 @@
+2024
+AzatYakupov - BTree Index in PG 0:00 of 1:09:10
+    https://www.youtube.com/watch?v=hMoBH7drftk
+JPoint - Salnikov - PostgreSQL Indices ru 0:00 of 2:00:44
+    https://www.youtube.com/watch?v=ju9F8OvnL4E
+    https://squidex.jugru.team/api/assets/srm/5a15546d-af53-46d4-be84-63367a5aaaf3/jpoint2022.andrei-.salsnikov.pdf
+2023
+JPoint - Sitnikov - B-Tree indices using Boot, PostgreSQL, JPA 18:00 of 45:07
+    https://www.youtube.com/watch?v=y-Wtyvme4gE
+    ! using indices improves search-perf, but degrades ins/upd perf
+    ! indices have types
+    ! 21:30 explain (analyze, costs off, buffers)  -- buffers is aprox about num of disk ops
+    ! b-tree index has nodes with like 100 children
+    ! 26:00 index only scan
+    !   Heap Fetches: 4 (pg went into table because of visibility/autovac)
+    ! 28:00 index on random uuid - will have more r/w
+    !   because of randomizeness (pg optimized insert of sequential values)
+    !   !!! UUID v7 can generate sequential ones
+    !   select ... from users where state = 'PENDING' and name = ?
+    !       create index state_name_users on users(name) include(state)  -- idx will not sort by state, just include it
+    !   create index of (col1, col2) -- index sorted on combination of state, name
+Tenzor - Backend School - PG Indices p2 0:00 of 1:21:33
+    https://www.youtube.com/watch?v=WTELBpLUb2E
+Tenzor - Backend School - PG Indices p1 0:00 of 1:10:44
+    https://www.youtube.com/watch?v=sNCKlklvGO0
+2017
+BartunovKorotkov - All truth about Indices 0:00 of 46:35
+    https://www.youtube.com/watch?v=aaecM4wKdhY

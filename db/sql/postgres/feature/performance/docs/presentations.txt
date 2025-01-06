@@ -1,0 +1,27 @@
+2024
+Digitalize - PG Optimization Basics 1:46:00 of 2:07:51
+    https://www.youtube.com/watch?v=gA3A_epB3So
+    ! 13:00 - from index pages go into buffer-cache in RAM
+    ! 37:00 - select ... from employee e join contacts ec using(employee_id) -- on e.employee_id = ec.employee_id
+    ! 39:00 - data access methods: seq-scan, idx-scan(with going into table), index-only-scan(without going into table), bitmap-heap-scan
+    ! 45:00 - Seq Scan on employee (cost=0.00..173528.84 rows ...)
+    !             0.00 - cost of first raw obtaining, 173528.84 - cost of all rows obtaining
+    ! 47:00 select relpages, current_setting('seq_page_cost'), relpages*current_setting('seq_page_cost')::int as total
+    !       from pg_class where relname='employee';
+    !       relpages:         73 530
+    !       current_setting:  1
+    !       total:            73 530
+    ! 53:00 selectivity (0.0 .. 1.0) - percentage/proportion of chosen rows
+    !       idx is effectively used only on low-selectivity, otherwise - seq scan
+    ! 1:08:00 - vacuum analyze - for updating statistics
+    ! 1:17:00 - create extension pg_stat_statements; alter system set shared_preload_libraries = 'pg_stat_statements';
+    ! 1:18:00 - other perf-related settings !!!
+    ! recommendation - https://www.youtube.com/playlist?list=PLaFqU3KCWw6JW80WBHPOe-SMJD2NOjmge
+JPoint - Zhilin - PG Can Make a Pain 0:00 of 45:49
+    https://www.youtube.com/watch?v=pTWfjyeQ5Ks
+    https://jokerconf.com/talks/0bd645ad3a0f48c292547db572a1c7eb
+WorkSolutions - Kostenko - Postgres World Optimization Misteries ru 0:00 of 32:50
+    https://www.youtube.com/watch?v=MeTDmLyYD9k
+2023
+Tenzor - Backend School of p9
+    https://www.youtube.com/playlist?list=PLt0vzWoDuwcTdFnp-QWtx2yEvKMDlPw7l

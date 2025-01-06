@@ -1,0 +1,5 @@
+https://explain.dalibo.com/
+    psql -XqAt -f explain.sql > analyze.json
+
+https://github.com/dalibo/pev2
+    https://github.com/AlexTatiyants/pev

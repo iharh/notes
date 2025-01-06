@@ -6,6 +6,9 @@ https://www.citusdata.com/blog/2018/02/22/seven-tips-for-dealing-with-postgres-l
     https://habr.com/ru/company/otus/blog/452986/
 2015
 https://habrahabr.ru/company/postgrespro/blog/270827/
+2012
+https://www.youtube.com/watch?v=s3ee0nuDDqs
+    https://momjian.us/main/writings/pgsql/locking.pdf
 
 samples
 select ... for update;
