@@ -3,6 +3,8 @@ https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306F
 spring.threads.virtual.enabled: true
 
 2024
+SpringDeveloper - Long - Spring Tips: Virtual Threads of 50:30
+    https://www.youtube.com/watch?v=9iH5h11YJak
 CodeWiz - REST API with Spring Boot 3.3, Java 21 and Virtual Threads | Benchmarking performance of 47:59
     https://www.youtube.com/watch?v=iRiJqI3oAqA
     ! 

@@ -1,4 +1,18 @@
 https://docs.spring.io/spring-boot/reference/features/ssl.html
+    keystore - for embedded web server
+    truststore - to secure client-side connection
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/ssl/JksSslBundleProperties.html
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/ssl/SslBundleProperties.html
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/ssl/SslBundleProperties.Key.html
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/ssl/SslBundleProperties.Options.html
+        full list of supported props
+        https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/ssl/JksSslBundleProperties.Store.html
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/autoconfigure/ssl/PemSslBundleProperties.html
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/ssl/SslBundle.html
+    https://docs.spring.io/spring-boot/api/java/org/springframework/boot/ssl/SslStoreBundle.html
+    https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/security/KeyStore.html
+    https://docs.oracle.com/en/java/javase/21/docs/api/java.base/javax/net/ssl/SSLContext.html
+
 https://docs.spring.io/spring-boot/reference/io/rest-client.html
 
 https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/ssl
@@ -39,3 +53,6 @@ https://spring.io/blog/2023/11/07/ssl-hot-reload-in-spring-boot-3-2-0
 https://spring.io/blog/2023/06/07/securing-spring-boot-applications-with-ssl
 2021
 https://habr.com/ru/post/593507/
+2017
+https://reflectoring.io/how%20to%20sign/
+    certs

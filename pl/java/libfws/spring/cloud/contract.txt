@@ -28,6 +28,8 @@ https://www.baeldung.com/spring-cloud-contract
 2019
 https://rieckpil.de/howto-consumer-driven-contracts-with-spring-cloud-contract/
 2018
+https://reflectoring.io/consumer-driven-contract-feign-pact/
+    https://github.com/thombergs/code-examples/tree/master/pact/pact-feign-consumer
 https://reflectoring.io/consumer-driven-contract-consumer-spring-cloud-contract/
     https://github.com/thombergs/code-examples/tree/master/spring-cloud/spring-cloud-contract-consumer
 Sharma - Consumer Driven Contract Testing with Spring Cloud Contract

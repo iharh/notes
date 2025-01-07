@@ -21,3 +21,19 @@ Pageable sortedByPriceDescNameAsc =
 2019
 https://reflectoring.io/spring-boot-paging/
     https://github.com/thombergs/code-examples/tree/master/spring-boot/paging
+    at Configuration add @EnableSpringDataWebSupport
+        SpringDataWebAutoConfiguration
+        SpringDataWebProperties
+    https://github.com/spring-projects/spring-data-commons/blob/main/src/main/java/org/springframework/data/web/PageableHandlerMethodArgumentResolver.java
+    https://github.com/spring-projects/spring-data-commons/blob/main/src/main/java/org/springframework/data/web/SortHandlerMethodArgumentResolver.java
+    props:
+    spring.data.web.pageable.size-parameter=size
+    spring.data.web.pageable.page-parameter=page
+    spring.data.web.pageable.default-page-size=20
+    spring.data.web.pageable.one-indexed-parameters=false
+    spring.data.web.pageable.max-page-size=2000
+    spring.data.web.pageable.prefix=
+    spring.data.web.pageable.qualifier-delimiter=_
+
+    @PagableDefault
+    @SortDefault

@@ -12,8 +12,11 @@ Rogov - PostgreSQL 16 Internals ru
 Lesovsky - Monitoring PostgreSQL ru
     0918352909AF136EE97DFC29AD5B2994
     https://nnmclub.to/forum/viewtopic.php?t=1710482
+Suzuki - The Internals of PostgreSQL
+    https://www.interdb.jp/pg/index.html
 DombrovskayaNovikovBailiekova - PostgreSQL Query Optimization 2nd ed
     3521A8CEC5CB2336367A1947715FE801
+    ! from p248
 Komarov - DB Roadmap ru of p521
     33DC59667E2408E5BF0129885E59C007
 2023
@@ -48,10 +51,12 @@ NovikovGorshkova - DB Technology Fundamentals ru
 2018
 Morgunov - PostgreSQL Language Fundamentals ru
 2017
-Morgunov - SQL Basic Course ru
-Juba - Learning PostgreSQL 10 2nd ed
+Vasiliev - PG Tuning and Scalability ru
+    https://postgresql.leopard.in.ua/html/#pf8
 Luzanov
     https://postgrespro.ru/media/2017/06/06/introbook_v3finalrelease1-text.pdf
+Morgunov - SQL Basic Course ru
+Juba - Learning PostgreSQL 10 2nd ed
 Fontaine - Mastering PostgreSQL
 
 ????
