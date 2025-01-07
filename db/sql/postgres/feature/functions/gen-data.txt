@@ -1,0 +1,3 @@
+https://www.postgresql.org/docs/current/functions-srf.html
+    https://postgrespro.ru/docs/postgrespro/17/functions-srf
+... from generate_series(1, 10000) as id;

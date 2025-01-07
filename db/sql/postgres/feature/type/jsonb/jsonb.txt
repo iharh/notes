@@ -8,6 +8,10 @@ https://devhints.io/postgresql-json
 https://www.postgresql.org/docs/current/datatype-json.html
 
 https://www.postgresql.org/docs/current/functions-json.html
+https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSON-CREATION-TABLE
+https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-TABLE
+    json_table
+
     ->
     ->> ... as text
 
