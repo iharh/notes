@@ -1,2 +1,7 @@
 https://www.postgresql.org/docs/current/runtime-config-query.html
 https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT
+
+2023
+floy: Introduction to Postgres Query Planning 0:00 of 57:02
+    https://www.youtube.com/watch?v=k9AAkbII3Pg
+    https://leftshift.github.io/query-planner-talk/

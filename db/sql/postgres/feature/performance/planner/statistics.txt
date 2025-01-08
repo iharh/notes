@@ -4,6 +4,20 @@ https://www.postgresql.org/docs/current/sql-createstatistics.html
 https://www.postgresql.org/docs/current/planner-stats.html
 https://www.postgresql.org/docs/current/multivariate-statistics-examples.html
 
+2023
+Otus - Anton Zolotov - Statistics usage for Query Optimization 1:00:00 of 1:55:27
+    https://www.youtube.com/watch?v=yNAbEtnFikI
+    ! 14:00 - create table ... with(autovacuum_enabled=false);
+    ! 19:00 - select reltuples, relpages from pg_class where relname='<our-table>';
+    !         -1 0
+    ! 26:00 - pg_statistics/pg_stats view
+    !         null_frac, n_distinct   -- negative/positive values - are real-num/fraction
+    ! 28:00 - while analyze, table is checked not fully (default_statistics_target (100) * 300 = 300 000 is statistically good number of rows)
+    !         clustered idx - data is ordered
+    !         correlation - data is ordered asc, 0 - not orered, -1 - desc
+    !         most_common_vals - array (of 100)
+    !         most_common_freqs - array as well (of 100)
+
 CREATE EXTENSION pgstattuple;
 SELECT * FROM pgstattuple('table-name') \gx
 -[ RECORD 1 ]------+--------

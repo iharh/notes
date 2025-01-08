@@ -30,3 +30,9 @@ public class ShedLockConfig {
                 .build());
     }
 }
+
+spring/shedlock-spring/src/main/java/net/javacrumbs/shedlock/spring/aop/SpringLockConfigurationExtractor.java
+
+    private final Converter<String, Duration> durationConverter;
+
+    Duration result = durationConverter.convert(stringValueFromAnnotation);
