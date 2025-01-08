@@ -9,6 +9,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
     
 later...
     @Scheduled(initialDelay = ONE_SECOND, fixedDelay = ONE_MINUTE)
+https://en.wikipedia.org/wiki/ISO_8601#Durations
+    @Scheduled(fixedDelay = ${interval})
 
 2021
 https://reflectoring.io/spring-scheduler/

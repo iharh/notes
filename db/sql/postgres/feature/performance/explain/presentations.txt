@@ -1,6 +1,11 @@
 2023
-Tenzor - Backend School p4 - Query Analysis p2 0:00 of 1:40:59
+Tenzor - Backend School p4 - Query Analysis p2 10:00 of 1:40:59
     https://www.youtube.com/watch?v=Rg7AAEso3z0
+    ! 5:00  - Custom Scan (<impl-method-name>)
+    !         Recheck Cond - ???
+    ! 7:00  - Beatmap Heap Scan
+    !         exact ... lossy - not enough mem for gen full bitmap map
+    ! 10:00 - Append + Unique (Sort Key:)
 Tenzor - Backend School p4 - Query Analysis p1 9:00 of 1:24:11
     https://www.youtube.com/watch?v=4g2CJv0jRk0
     ! 3:00  - by default PG does not get hints regarding plans

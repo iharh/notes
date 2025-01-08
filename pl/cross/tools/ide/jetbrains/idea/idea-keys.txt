@@ -132,6 +132,8 @@ F9
     Debug/Resume
 C-A-F9
     Force run to cursor
+C-F2
+    Stop
 NoButton
     Reset Frame
 
