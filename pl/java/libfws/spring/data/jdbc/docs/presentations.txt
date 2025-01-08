@@ -5,6 +5,15 @@ SpringDeveloper - Long - Spring Tips: Spring Data JDBC 0:00 of 27:35
 JPoint - Polivaha - Spring Data JDBC Problems 0:00 of 52:26
     https://www.youtube.com/watch?v=dfANAAxfQ2c
     https://jpoint.ru/archive/2024/talks/cd59886578984e3b8edb76f85ae4aea8
+    ! spring data jdbc contributor
+    ! spring-data-common - a lot of stuff
+    !!! spring-data-jdbc has been renamed to spring-data-relational (to remove extra confusion)
+    ! 5:00 - aggregate - transactionally consistent set of objects (non-divided, atomic thing)
+    ! 6:00 - data-jdbc for the people who tired from jpa
+    ! no proxying, lazy-loading, dirty-checking, session/caching, cascading
+    ! you specify aggregate bounds youself and need to save/get full aggregate
+    ! 9:00 - JdbcAggregateTemplate (the same pattern as Repository)
+    ! 16:00 - IdValueSource.java - select insert/update behavior (BeforeConvertCallback) - for id-gen on client #1169
 2023
 https://www.youtube.com/playlist?list=PLbuI9mmWSoUFGL6B_NxB9IoGqyDq-vEen
 2022
