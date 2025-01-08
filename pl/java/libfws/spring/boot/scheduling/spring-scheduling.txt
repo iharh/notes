@@ -1,6 +1,0 @@
-@ConditionalOnProperty(value = "app.scheduling.enabled", havingValue = "true", matchIfMissing = true)
-@Configuration
-@EnableScheduling
-public class SchedulingConfig {
-    ...
-}

@@ -10,8 +10,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 later...
     @Scheduled(initialDelay = ONE_SECOND, fixedDelay = ONE_MINUTE)
 
-samples
-
 2021
 https://reflectoring.io/spring-scheduler/
     https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-scheduler
+
+samples
+@ConditionalOnProperty(value = "app.scheduling.enabled", havingValue = "true", matchIfMissing = true)
+@Configuration
+@EnableScheduling
+public class SchedulingConfig {
+    ...
+}
