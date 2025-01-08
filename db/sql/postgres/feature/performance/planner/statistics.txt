@@ -1,3 +1,6 @@
+https://www.postgresql.org/docs/current/sql-createstatistics.html
+    !!! alter table ... alter column ... set statistics [0..10000] -- columns of hystogram (max 10000 per column)
+
 https://www.postgresql.org/docs/current/planner-stats.html
 https://www.postgresql.org/docs/current/multivariate-statistics-examples.html
 

@@ -21,10 +21,62 @@ JPoint - Sitnikov - B-Tree indices using Boot, PostgreSQL, JPA 18:00 of 45:07
     !   select ... from users where state = 'PENDING' and name = ?
     !       create index state_name_users on users(name) include(state)  -- idx will not sort by state, just include it
     !   create index of (col1, col2) -- index sorted on combination of state, name
-Tenzor - Backend School - PG Indices p2 0:00 of 1:21:33
+Tenzor - Backend School - PG Indices p2 2:00 of 1:21:33
     https://www.youtube.com/watch?v=WTELBpLUb2E
-Tenzor - Backend School - PG Indices p1 0:00 of 1:10:44
+    ! 4:00  - hash idx - https://www.postgresql.org/docs/current/hash-index.html
+    ! 6:00  - !! hash idx can be created only on one field (with = operator), we can use op with single eq-op
+    ! 7:00  - create index ... using hash(fild-name);
+    ! 10:00 - gist - generalized search tree -- https://www.postgresql.org/docs/current/gist.html
+    !         universal infrastructure (b-tree, r-tree, rd-tree)
+    ! 12:00 - gist support geom-operators (<<, &<, &>, >>, <@, ~=, &&, <<|, &<|, ~, @), point, box, circle, poly types
+    !         https://www.postgresql.org/docs/current/functions-geometry.html
+    ! 18:00   https://www.postgresql.org/docs/current/functions-net.html, inet-type
+    ! 25:00 - gist is good for ranges ... using gist(daterange(dtb, dte, '[]'));
+    !             ... where daterange(dtb, dte, '[]') @> '2023-01-01'::date; -- 8-times less hits than b-tree
+    ! 29:00 - gist-operators with btree behavior
+    !         https://www.postgresql.org/docs/current/btree-gist.html
+    ! 31:00 - pg-antipatterns for gist - https://habr.com/ru/companies/tensor/articles/679834/
+    ! 40:00 - https://www.postgresql.org/docs/16/gist-examples.html (? no from v17)
+    ! 51:00 - create index ...with (buffering=auto); -- https://www.postgresql.org/docs/16/gist-implementation.html (? no for 17)
+    ! 52:00 - spgist (gist optimized for space partitioning) -- https://www.postgresql.org/docs/current/spgist.html
+    !         only for the single field
+    ! 54:00 - gin (generalized inverted index) -- https://www.postgresql.org/docs/current/gin.html
+    !         https://www.postgresql.org/docs/16/gin-examples.html (? no from v17)
+    ! 1:02:00 - brin - store only min/max or bloom-mask -- https://www.postgresql.org/docs/current/brin.html
+    !           good for cases like append-only logs with timestamps
+    !           https://www.postgresql.org/docs/16/brin-intro.html (? no from v17)
+    ! 1:10:00 - bloom - store only min/max or bloom-mask -- https://www.postgresql.org/docs/current/bloom.html
+    !           logic is the same as for hash
+
+
+Tenzor - Backend School - PG Indices p1 of 1:10:44
     https://www.youtube.com/watch?v=sNCKlklvGO0
+    ! 11:00 - select relname, relpages from pg_class where relaname like 'idx_%';   -- for estimating idx size
+    ! 12:00   create index on <tbl>((field=val))  -- expr-base idx, but bad
+    ! 12:30   create index on <tbl>(field) where field=val;  -- partial/conditional ind - better because size of it is smaller
+    ! 15:00       pg has 3 types of expr: immutable, stable, volatile -- https://www.postgresql.org/docs/current/xfunc-volatility.html
+    !             only immutable are for idx
+    ! 21:00   create index concurrently - for helping queries not to wait, but concurrent-idxes can't be rolled back from transactions
+    ! 24:00 - create unique index ... alter table ... add primary key using index ...
+    ! 25:00 - select * from pg_stat_progress_create_index; -- https://www.postgresql.org/docs/current/progress-reporting.html
+    ! 27:00 - Uber - from PG to MySQL and back - https://habr.com/ru/companies/slurm/articles/322624/
+    ! 28:00 - select * from pg_stat_user_indexes where idx_scan = 0; -- find not-used indexes
+    !         drop index concurrently;
+    ! 31:00 - index types - https://www.postgresql.org/docs/current/indexes-types.html
+    !         btree, hash, gist, spgist, gin, brin, xindex (https://www.postgresql.org/docs/current/xindex.html)
+    ! 33:00   btree - balanced tree, good for ordered types - https://www.postgresql.org/docs/current/btree.html 
+    ! 36:00   btree uses prefix condition idx(a, b, c) - can be used for (a), (a, b)
+    ! 39:00   for conditions a <> .., a not in ... a <> any/all - index will be used very bad (search all the layer)
+    ! 44:00   for btree it is good to use field in cardinality grow order
+    ! 49:00   for btree array field using is bad
+    ! 51:00   ... null values - better to use conditional indexes - where a is not null or b is not null, where (a, b) is not null
+    ! 54:00   if we have 2 independent indexes for (a) and for (b), then select ... where a=1 and b=1; 
+    !         will use use bitmap index scan, but with a lot of rows each
+    !         create idx on (a, b), create idx on (a) where v = 1; create idx on (?) where a=1 and b=1;
+    ! 58:00   suspicious Limit/Sort/Scan
+    !         better to put sorb-by field to index fields tail
+    ! 59:00   btree can be used for prefix like-search ... relname like 'pg\_class\_%'
+    ! 1:05:00 - create index on prefix(md5 text_pattern_ops)    -- use uperator-class text_pattern_ops
 2022
 Percona - A Deep Dive Into PostgreSQL Indexing - Ibrar Ahmad 0:00 of 46:10
     https://www.youtube.com/watch?v=7OvrBmxW_e8

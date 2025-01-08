@@ -1,0 +1,24 @@
+http://mapstruct.org/
+
+spring extensions
+https://mapstruct.org/documentation/spring-extensions/reference/html/
+https://github.com/mapstruct/mapstruct-spring-extensions
+
+https://github.com/mapstruct/mapstruct
+https://github.com/mapstruct/mapstruct-examples
+
+http://mapstruct.org/documentation/
+http://mapstruct.org/documentation/installation/
+
+http://mapstruct.org/documentation/reference-guide/
+http://mapstruct.org/documentation/stable/reference/html/
+
+lombok-int
+'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+<scope>provided</scope>
+    If you are using Lombok 1.18.16 or newer you also need to add lombok-mapstruct-binding in order to make Lombok and MapStruct work together.
+https://www.baeldung.com/java-mapstruct-lombok
+
+idea-plugin
+https://plugins.jetbrains.com/plugin/10036-mapstruct-support
+https://github.com/mapstruct/mapstruct-idea

@@ -1,3 +1,6 @@
+https://www.postgresql.org/docs/current/storage.html
+https://www.postgresql.org/docs/current/storage-page-layout.html
+
 each table consists from multiple layers
 each file is no more than 1 Gb
 

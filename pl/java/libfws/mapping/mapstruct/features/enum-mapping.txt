@@ -1,0 +1,6 @@
+2022
+https://reflectoring.io/java-mapping-with-mapstruct/#mapping-enums
+    @ValueMappings/@ValueMapping
+    <AnyRamaining>/<AnyUnmapped>
+    @EnumMapping(nameTransformationStrategy="...")
+    strategies: suffix, stripSuffix, prefix, stripPrefix

@@ -1,5 +1,25 @@
 2023
 Tenzor - Backend School p4 - Query Analysis p2 0:00 of 1:40:59
     https://www.youtube.com/watch?v=Rg7AAEso3z0
-Tenzor - Backend School p4 - Query Analysis p1 0:00 of 1:24:11
+Tenzor - Backend School p4 - Query Analysis p1 9:00 of 1:24:11
     https://www.youtube.com/watch?v=4g2CJv0jRk0
+    ! 3:00  - by default PG does not get hints regarding plans
+    ! 18:00 - explain(settings) select * from pg_class; -- to check current settings
+    !         https://www.postgresql.org/docs/current/runtime-config.html
+    ! 27:48 - if counts of planned and actual record does not near the same, most probably statistics is obsolete
+    !         https://www.postgresql.org/docs/current/planner-stats.html
+    !         https://www.postgresql.org/docs/current/runtime-config-autovacuum.html
+    ! 30:32 !!! not enough statistics
+    !         alter table ... alter column ... set statistics [0..10000] -- columns of hystogram (max 10000 per column)
+    !         https://www.postgresql.org/docs/current/sql-createstatistics.html
+    ! 39:00 - shared_buffers setting need to be increased if multiple clients get mostly the same data
+    ! 43:00 - set io_track_timings=on; explain analyze ...
+    ! 52:00 - ! rows removed by filter should be small
+    ! 58.00 - https://www.postgresql.org/docs/current/storage.html
+    ! 59.00 - https://www.postgresql.org/docs/current/storage-page-layout.html
+    !         TID Scan - the dumbiest one
+    !         Seq Scan - linear, dumb one
+    !         Index Scan - smart
+    !         Index Only Scan - smartest
+    ! 1:09:00 - if Heap Fetches quite large, we made worse by this idx, compare to just "Index Scan"
+    ! 1:13:00 - Foreign Scan - for tables on ext servers
