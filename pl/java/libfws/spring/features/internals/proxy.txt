@@ -1,0 +1,56 @@
+2024
+SpringDeveloper - Long - Spring Tips: Proxies of 27:17
+    https://www.youtube.com/watch?v=pvE4pwyzkpE
+
+    static class MyBeanPostProcessor implements BeanPostProcessor {
+      @Override
+      public Object postProcessAfterInitialization(Object target, String beanName) throws BeansException {
+        var proxyInstance = (SomeService) Proxy.newProxyInstance(...classloader,
+          new Class[]{defaultCustomer.getClass.getInterfaces()},
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+              var result = method.invoke(defaultCustomer, args);  // call method on an impl, not on a proxy instance itself
+              return result;
+            }
+          }
+        var pf = new ProxyFactory();
+        pf.setInterfaces(target.getClass().getInterfaces());
+        pf.setTarget(target);
+        pf.addAdvice(new MethodInterceptor() {
+          @Override
+          public Object invoke(MethodInvocation invocation) throws Throwable {
+            Method method = invocation.getMethod();
+            Object[] arguments = invocation.getArguments();
+            return method.invoke(target, arguments);
+          }
+        });
+        return pf.getProxy(getClass().getClassLoader());
+      }
+    }
+        
+    static class ProxyBeanFactoryInitializationAotProcessor implements BeanFactoryInitializationAotProcessor {
+      @Override
+      public BeanFactoryInitializationAotContribution processAheadOfTime(ConfigurableListableBeanFactory beanFactory) {
+        return new BeanFactoryInitializationAotContribution() {
+          @Override
+          public void applyTo(GenerationContext generationContext, BeanFactoryInitializationCode beanFactoryInitializationCode) {
+            generationContext.getRuntimeHints().proxies()
+              .registerJdkProxy(CustomerService.class,
+                org.springframework.aop.SpringProxy.class,
+                org.springframework.aop.framework.Advised.class,
+                org.springframework.core.DecoratingProxy.class
+              );
+          }
+        }
+      }
+    }
+
+    check classes:
+    AdvisedSupport
+    DefaultAopProxyFactory
+        createAopProxy - returns either JdkDynamicAopProxy or 
+        ObjenesisCglibAopProxy - the only way to proxy concrete types
+    ProxyCreatorSupport,
+    ClassUtils
+2023
+https://habr.com/ru/articles/750894/
