@@ -47,8 +47,6 @@ Tenzor - Backend School - PG Indices p2 2:00 of 1:21:33
     !           https://www.postgresql.org/docs/16/brin-intro.html (? no from v17)
     ! 1:10:00 - bloom - store only min/max or bloom-mask -- https://www.postgresql.org/docs/current/bloom.html
     !           logic is the same as for hash
-
-
 Tenzor - Backend School - PG Indices p1 of 1:10:44
     https://www.youtube.com/watch?v=sNCKlklvGO0
     ! 11:00 - select relname, relpages from pg_class where relaname like 'idx_%';   -- for estimating idx size
@@ -77,6 +75,8 @@ Tenzor - Backend School - PG Indices p1 of 1:10:44
     !         better to put sorb-by field to index fields tail
     ! 59:00   btree can be used for prefix like-search ... relname like 'pg\_class\_%'
     ! 1:05:00 - create index on prefix(md5 text_pattern_ops)    -- use uperator-class text_pattern_ops
+ListenIT - SQL Indices in 10 min of 10:40
+    https://www.youtube.com/watch?v=LpEwssOYRKA
 2022
 Percona - A Deep Dive Into PostgreSQL Indexing - Ibrar Ahmad 0:00 of 46:10
     https://www.youtube.com/watch?v=7OvrBmxW_e8

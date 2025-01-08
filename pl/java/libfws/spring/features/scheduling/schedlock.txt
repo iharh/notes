@@ -1,10 +1,32 @@
 https://github.com/lukas-krecan/ShedLock
+
 https://mvnrepository.com/artifact/net.javacrumbs.shedlock
 
-2023
+baeldung
 https://www.baeldung.com/shedlock-spring
+2023
+https://jetherrodrigues.dev.br/efficient-job-scheduling-and-locking-in-spring-boot-applications-quartz-vs-shedlock-b3ccca18cfe5
+https://medium.com/@marcoscarneirolima/scheduler-lock-using-spring-shedlock-b9ac3e51a934
 2021
 https://42talents.com/blog/2021/08/29/shedlock-with-spring-boot/
 http://buraktas.com/spring-shedlock-tutorial/
 https://habr.com/ru/articles/580062/
     good comment
+2020
+https://for-each.dev/lessons/b/-shedlock-spring
+
+samples
+@EnableScheduling
+@EnableSchedulerLock(defaultLockAtMostFor = "PT60S")
+@Configuration
+public class ShedLockConfig {
+
+    @Bean
+    public LockProvider lockProvider(DataSource dataSource) {
+        return new JdbcTemplateLockProvider(JdbcTemplateLockProvider.Configuration
+                .builder()
+                .withJdbcTemplate(new JdbcTemplate(dataSource))
+                .usingDbTime() // Use database time for locks
+                .build());
+    }
+}
