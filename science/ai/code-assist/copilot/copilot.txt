@@ -1,5 +1,67 @@
-2023
-https://habr.com/ru/news/778144/
-https://habr.com/ru/news/774194/
-https://habr.com/ru/news/776926/
-    ! gpt4-turbo
+https://github.com/features/copilot
+https://github.com/features/copilot/plans
+
+https://github.com/settings/copilot
+
+https://docs.github.com/en/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-github
+
+https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+https://github.com/marketplace?type=apps&copilot_app=true
+
+https://code.visualstudio.com/docs/copilot/overview
+https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot?tool=vscode
+
+2024
+https://github.blog/news-insights/product-news/github-copilot-in-vscode-free/
+    https://www.youtube.com/watch?v=dMbOh114Vd4
+
+
+https://github.com/orgs/community/discussions/114673
+
+https://github.com/microsoft/vscode-copilot-release/issues/1188
+https://stackoverflow.com/questions/77374105/invalid-copilot-token-missing-token-403
+https://github.com/settings/tokens
+
+
+2025-01-09 22:24:46.067 [warning] [certificates] Failed to parse certificate # Zscaler Root CA
+ Error: error:0900006e:PEM routines:OPENSSL_internal:NO_START_LINE
+    at new X509Certificate (node:internal/crypto/x509:119:21)
+    at /home/iharh/.vscode/extensions/github.copilot-1.256.0/lib/src/network/certificateReaders.ts:79:36
+    at Array.filter (<anonymous>)
+    at Sae.removeExpiredCertificates (/home/iharh/.vscode/extensions/github.copilot-1.256.0/lib/src/network/certificateReaders.ts:77:32)
+    at Sae.getAllRootCAs (/home/iharh/.vscode/extensions/github.copilot-1.256.0/lib/src/network/certificateReaders.ts:68:38)
+    at pme.createSecureContext (/home/iharh/.vscode/extensions/github.copilot-1.256.0/lib/src/network/certificates.ts:47:23) {
+  opensslErrorStack: [
+    'error:0c00006d:ASN.1 encoding routines:OPENSSL_internal:DECODE_ERROR'
+  ],
+  library: 'PEM routines',
+  function: 'OPENSSL_internal',
+  reason: 'NO_START_LINE',
+  code: 'ERR_OSSL_PEM_NO_START_LINE'
+}
+2025-01-09 22:24:46.067 [warning] [certificates] Failed to parse certificate # Zscaler Root CA
+ Error: error:0900006e:PEM routines:OPENSSL_internal:NO_START_LINE
+    at new X509Certificate (node:internal/crypto/x509:119:21)
+    at /home/iharh/.vscode/extensions/github.copilot-1.256.0/lib/src/network/certificateReaders.ts:79:36
+    at Array.filter (<anonymous>)
+    at Sae.removeExpiredCertificates (/home/iharh/.vscode/extensions/github.copilot-1.256.0/lib/src/network/certificateReaders.ts:77:32)
+    at Sae.getAllRootCAs (/home/iharh/.vscode/extensions/github.copilot-1.256.0/lib/src/network/certificateReaders.ts:68:38)
+    at pme.createSecureContext (/home/iharh/.vscode/extensions/github.copilot-1.256.0/lib/src/network/certificates.ts:47:23) {
+  opensslErrorStack: [
+    'error:0c00006d:ASN.1 encoding routines:OPENSSL_internal:DECODE_ERROR'
+  ],
+  library: 'PEM routines',
+  function: 'OPENSSL_internal',
+  reason: 'NO_START_LINE',
+  code: 'ERR_OSSL_PEM_NO_START_LINE'
+}
+2025-01-09 22:24:46.067 [info] [certificates] Removed 2 expired certificates
+2025-01-09 22:24:46.538 [info] [auth] Invalid copilot token: missing token: 403 
+2025-01-09 22:24:46.830 [info] [auth] Invalid copilot token: missing token: 403 
+2025-01-09 22:24:46.832 [error] [auth] auth: CopilotAuthError: At this time, Copilot is not available in your location. You are currently logged in as iharh.
+    at authShowWarnings (/home/iharh/.vscode/extensions/github.copilot-1.256.0/extension/src/auth.ts:105:15)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at lie.getCopilotToken (/home/iharh/.vscode/extensions/github.copilot-1.256.0/extension/src/auth.ts:135:33) {
+  cause: undefined
+}
+2025-01-09 22:28:39.348 [info] [auth] Invalid copilot token: missing token: 403 

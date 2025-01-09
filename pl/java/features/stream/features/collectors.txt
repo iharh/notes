@@ -1,0 +1,37 @@
+https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/Collector.html
+https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/IntSummaryStatistics.html
+
+minBy()
+
+baeldung
+https://www.baeldung.com/java-groupingby-collector
+    Collectors.groupingBy(.,.)
+https://www.baeldung.com/java-list-find-duplicates
+2024
+CodeDecode - Most Complex Stream Operation in Java 8 0:00 of 38:10
+    https://www.youtube.com/watch?v=VGVS_i-XvxY
+https://www.delftstack.com/howto/java/java-stream-distinct-by-property/
+2019
+https://4comprehension.com/an-ultimate-guide-to-java-stream-api-collectors/
+    toUnmodifiableList/Set/Map
+    teeing()
+    counting()
+    reducing()
+    filtering()
+    flatMapping()
+    
+https://blog.filippobuletto.info/stream-collector-fu/#
+    Collector.of(
+      supplier()
+      accumulator()
+      combiner()
+      finisher()
+      Set<Characteristics> characteristics()
+    )
+2018
+https://dzone.com/articles/java-stream-collectors
+    collectingAndThen(...)
+    groupingBy()
+    mapping()
+    joining()
+    partitioningBy(...)
