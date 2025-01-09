@@ -2,7 +2,7 @@
 SpringDeveloper - Long - Spring Tips: Spring Data JDBC 0:00 of 27:35
     https://www.youtube.com/watch?v=srBYXhhLVV4
     ! using records, cache
-Otus - Spring Data Jdbc Fundamentals ru 1:25:00 of 2:34:40
+Otus - Spring Data Jdbc Fundamentals ru of 2:34:40
     https://www.youtube.com/watch?v=dhTje0tsfU8
     ! 1:05:00 @MappedCollection(idColumn="book_id")
     ! 1:07:00 @PersistenceCreator c-tor
