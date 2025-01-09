@@ -4,6 +4,11 @@ try http
 pg internals 16 - 357
 kafka - 76
 
+ScottGamovKlein - Kafka in Action
+    39F3B9630BE2320963068F9CACE55C24
+    F6F136E4C2EC26C534ACF11A7088B7F4
+    92EE2370E5CAB2E99BDD1A46B9F1009B
+
 spring
     spring.jdbc.getParameterType.ignore=false
     SqlParameterValue
