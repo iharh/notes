@@ -2,7 +2,7 @@
 SpringDeveloper - Long - Spring Tips: Spring Data JDBC 0:00 of 27:35
     https://www.youtube.com/watch?v=srBYXhhLVV4
     ! using records, cache
-JPoint - Polivaha - Spring Data JDBC Problems 0:00 of 52:26
+JPoint - Polivaha - Spring Data JDBC Problems of 52:26
     https://www.youtube.com/watch?v=dfANAAxfQ2c
     https://jpoint.ru/archive/2024/talks/cd59886578984e3b8edb76f85ae4aea8
     ! spring data jdbc contributor
@@ -14,6 +14,8 @@ JPoint - Polivaha - Spring Data JDBC Problems 0:00 of 52:26
     ! you specify aggregate bounds youself and need to save/get full aggregate
     ! 9:00 - JdbcAggregateTemplate (the same pattern as Repository)
     ! 16:00 - IdValueSource.java - select insert/update behavior (BeforeConvertCallback) - for id-gen on client #1169
+    ! 35:00 - QueryMapperConfiguration works for query-based stuff only at the moment #1006
+    ! 36:00 - java time stuff
 2023
 https://www.youtube.com/playlist?list=PLbuI9mmWSoUFGL6B_NxB9IoGqyDq-vEen
 2022

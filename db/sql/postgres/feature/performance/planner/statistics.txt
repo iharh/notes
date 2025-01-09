@@ -5,7 +5,7 @@ https://www.postgresql.org/docs/current/planner-stats.html
 https://www.postgresql.org/docs/current/multivariate-statistics-examples.html
 
 2023
-Otus - Anton Zolotov - Statistics usage for Query Optimization 1:00:00 of 1:55:27
+Otus - Anton Zolotov - Statistics usage for Query Optimization 1:20:00 of 1:55:27
     https://www.youtube.com/watch?v=yNAbEtnFikI
     ! 14:00 - create table ... with(autovacuum_enabled=false);
     ! 19:00 - select reltuples, relpages from pg_class where relname='<our-table>';
