@@ -1,0 +1,21 @@
+2021
+JavaGuides - Spring Data REST Tutorial | Crash Course 0:00 of 48:46
+2023
+JPoint - Kuramshin - Spring Data Rest 0:00 of 45:03
+    https://www.youtube.com/watch?v=M3aAcOgeyuQ
+    https://squidex.jugru.team/api/assets/srm/94f45778-43bb-402d-b765-08daef9fd4b9/rustam-kuramshin.pdf
+    https://github.com/RustamKuramshin/companies-data-rest
+    !!!
+    ! HAL (can be switched off)
+    ! HATEOAS
+    @RepositoryRestInterface(excerptProjection = CompanyName.class)
+    ?projection=companyInfo
+    handlers
+    QueryDSL integration
+        querydsl-core
+        querydsl-jpa
+        @QueryEntity
+        QuerydslPredicateExecutor<Company>
+        QuerydslBinderCustomizer<QCompany>
+    Jackson2HalModule
+

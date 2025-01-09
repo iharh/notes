@@ -7,7 +7,7 @@ JPoint - Salnikov - PostgreSQL Indices ru 0:00 of 2:00:44
 Percona - PostgreSQL Indexes demystified — Charly Batista 0:00 of 2:40:09
     https://www.youtube.com/watch?v=C3GGR4f8CLk
 2023
-JPoint - Sitnikov - B-Tree indices using Boot, PostgreSQL, JPA 18:00 of 45:07
+JPoint - Sitnikov - B-Tree indices using Boot, PostgreSQL, JPA of 45:07
     https://www.youtube.com/watch?v=y-Wtyvme4gE
     ! using indices improves search-perf, but degrades ins/upd perf
     ! indices have types
@@ -21,7 +21,7 @@ JPoint - Sitnikov - B-Tree indices using Boot, PostgreSQL, JPA 18:00 of 45:07
     !   select ... from users where state = 'PENDING' and name = ?
     !       create index state_name_users on users(name) include(state)  -- idx will not sort by state, just include it
     !   create index of (col1, col2) -- index sorted on combination of state, name
-Tenzor - Backend School - PG Indices p2 2:00 of 1:21:33
+Tenzor - Backend School - PG Indices p2 of 1:21:33
     https://www.youtube.com/watch?v=WTELBpLUb2E
     ! 4:00  - hash idx - https://www.postgresql.org/docs/current/hash-index.html
     ! 6:00  - !! hash idx can be created only on one field (with = operator), we can use op with single eq-op

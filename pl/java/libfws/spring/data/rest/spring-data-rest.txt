@@ -1,0 +1,18 @@
+https://spring.io/projects/spring-data-rest
+https://docs.spring.io/spring-data/rest/reference/paging-and-sorting.html
+https://docs.spring.io/spring-data/rest/reference/etags-and-other-conditionals.html
+
+https://github.com/spring-projects/spring-data-rest
+
+https://docs.spring.io/spring-data/rest/reference/introduction/getting-started.html
+    https://spring.io/guides/gs/accessing-data-rest
+https://docs.spring.io/spring-data/rest/reference/introduction/spring-data-rest-examples.html
+    
+https://docs.spring.io/spring-data/rest/reference/repository-resources.html
+    The core functionality of Spring Data REST is to export resources for Spring Data repositories.
+    Thus, the core artifact to look at and potentially customize the way the exporting works is the repository interface.
+
+https://docs.spring.io/spring-data/rest/reference/projections-excerpts.html
+https://docs.spring.io/spring-data/rest/reference/metadata.html
+
+https://docs.spring.io/spring-data/rest/reference/customizing-sdr.html

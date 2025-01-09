@@ -1,0 +1,19 @@
+baeldung
+https://www.baeldung.com/tag/spring-data-rest
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-data-rest
+https://www.baeldung.com/spring-data-rest-intro
+https://www.baeldung.com/spring-data-rest-customize-http-endpoints
+    programmatic cfg
+2023
+https://medium.com/@mertkagan/spring-data-rest-say-goodbye-to-controller-and-service-1acb6c7437f1
+    https://github.com/mertkagan/spring-data-rest-tutorial
+    @RepositoryRestResource
+https://www.geeksforgeeks.org/what-is-spring-data-rest/
+    Spring Data REST is a framework that exposes Spring Data repositories as RESTful endpoints.
+https://dev.to/tienbku/spring-data-rest-example-ggg
+2022
+https://for-each.dev/lessons/b/-spring-data-rest-intro
+https://dzone.com/articles/less-code-with-spring-data-rest-1
+    hal-explorer
+2019
+https://auth0.com/blog/spring-data-rest-tutorial-developing-rest-apis-with-ease/
