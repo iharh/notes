@@ -1,7 +1,8 @@
 2024
-Otus - MVCC, vacuum and autovacuum in PG ru 14:00 of 1:22:40
+Otus - MVCC, vacuum and autovacuum in PG ru 37:00 of 1:22:40
     https://www.youtube.com/watch?v=mrobq6Ggggc
     ! 12:00 - pg_size_pretty, pg_total_relation_size
+    ! 31:00 - heap_page_items(get_raw_page('user_data', 0))
 ????
 Rogov - MVCC
     https://habr.com/ru/companies/postgrespro/articles/452762/
