@@ -1,3 +1,9 @@
+docs..transaction_iso
+
 2023
-Tensor - Backend School - Transactions 0:00 of 50:51
+Tensor - Backend School - Transactions of 50:51
     https://www.youtube.com/watch?v=c9iF_4Xag4E
+    ! 18:00 - Repeatable Read is not impl-ted in pg
+    ! 24:00 - begin transaction <iso-level>;
+    !         set transaction <iso-level>; -- docs..sql-set-transaction, change for current tr-n
+    !         set session characteristics as transaction <iso-level>;
