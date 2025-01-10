@@ -4,3 +4,7 @@
 ... join 
     (values (v11, v12),
             (v21, v22), ...) as ...
+
+natural ??? join (auto-detect fields with same name)
+... using(a, b) - directly specify equal fields
+lateral(values(i + 1))

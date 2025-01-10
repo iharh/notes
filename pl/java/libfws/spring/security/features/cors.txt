@@ -17,3 +17,9 @@ https://reflectoring.io/spring-cors/
 2021
 https://reflectoring.io/complete-guide-to-cors/
     https://github.com/thombergs/code-examples/tree/master/cors
+
+cors:
+  allowed-origins: http://localhost:8080
+  allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+  allowed-headers: "*"
+  allow-credentials: true
