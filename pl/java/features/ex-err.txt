@@ -1,8 +1,19 @@
 2024
-JUGNsk - Sitnikov - Fundamentals and Details Mechanics of Java Exceptions 23:00 of 1:01:43
+JUGNsk - Sitnikov - Fundamentals and Details Mechanics of Java Exceptions of 1:01:43
     https://www.youtube.com/watch?v=UIbbNsta2UE
     ! 22:00 -XX:HeapDumpGzipLevel=5
     !       -XX:CrashDumpOnOutOfMemory # minidump 
+    ! 40:00 while(true) {
+    !   if (Thread.interrupted()) { thrown new InterruptedException(); }
+    !   try {
+    !       Thread.sleep(300);
+    !   } catch (InterruptedException ignore) {
+    !       Thread.currentThread().interrupt();
+    !       return;
+    !   }
+    ! }
+    ! 46:00 StackWalker.getInstance(RETAIN_CLASS_REFERENCE).getCallerClass();
+    !       StackWalker.getInstance().walk(s -> s.findFirst().get().getLineNumber());
 2022
 Devoxx - Subramaniam - Exception Handling in Functional and Reactive Programming of 2:29:17
     https://www.youtube.com/watch?v=S5tLVsvbHBg
