@@ -18,7 +18,7 @@ https://dev.to/nilelazarus/series/23873
     https://dev.to/nilelazarus/demystifying-the-internals-of-postgresql-chapter-5-2pe4
 
 2024
-Otus - MVCC, vacuum and autovacuum in PG ru 25..37:00 of 1:22:40
+Otus - MVCC, vacuum and autovacuum in PG ru 32..37:00 of 1:22:40
     https://www.youtube.com/watch?v=mrobq6Ggggc
     ! 12:00 - pg_size_pretty, pg_total_relation_size
     ! 25:00 - insert
@@ -29,7 +29,11 @@ Otus - MVCC, vacuum and autovacuum in PG ru 25..37:00 of 1:22:40
     !   for new one - insert
     !     xmin=txid_current(), xmax=0
     ! 26:00 rollback - xmax_aborted
-    ! 31:00 - heap_page_items(get_raw_page('user_data', 0))
+    ! 28:00 select *, xmin, xmax, cmin, cmax, ctid from user_data;
+    ! 29:00 select * from pg_stat_user_tables;
+    !   n_live_tup, n_dead_tup, ratio%, last_autovacuum, ...
+    ! 31:00 - ... from heap_page_items(get_raw_page('user_data', 0)) -- neet to set some ext
+    ! 
 2022
 https://habr.com/ru/companies/quadcode/articles/671254/
     !
