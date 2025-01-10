@@ -1,8 +1,40 @@
+https://www.postgresql.org/docs/current/storage.html
+https://www.postgresql.org/docs/current/storage-page-layout.html
+https://postgrespro.ru/docs/postgrespro/current/storage-page-layout
+hot
+https://www.postgresql.org/docs/current/storage-hot.html
+    ! pg_stat_all_tables
+
+!!!
+https://github.com/dmagda/DevMastersDb/blob/main/postgres/postgres_mvcc_backstage.md
+    https://postgrespro.com/blog/pgsql/5967910
+    https://habr.com/ru/companies/postgrespro/articles/449704/
+    https://habr.com/ru/companies/postgrespro/articles/483768/
+https://opensource-db.com/postgresql-mvcc/
+    !!! *from -> show hidden columns (ctid, xmin, xmax)
+https://cloud.google.com/blog/products/databases/deep-dive-into-postgresql-vacuum-garbage-collector
+    !!!
+https://dev.to/nilelazarus/series/23873
+    https://dev.to/nilelazarus/demystifying-the-internals-of-postgresql-chapter-5-2pe4
+
 2024
-Otus - MVCC, vacuum and autovacuum in PG ru 37:00 of 1:22:40
+Otus - MVCC, vacuum and autovacuum in PG ru 25..37:00 of 1:22:40
     https://www.youtube.com/watch?v=mrobq6Ggggc
     ! 12:00 - pg_size_pretty, pg_total_relation_size
+    ! 25:00 - insert
+    !   add new record with xmin=txid_current(), xmax=0
+    !   delete - xmax=txid_current()
+    !   update - for old record we do delete
+    !     xmax=txid_current(), 
+    !   for new one - insert
+    !     xmin=txid_current(), xmax=0
+    ! 26:00 rollback - xmax_aborted
     ! 31:00 - heap_page_items(get_raw_page('user_data', 0))
+2022
+https://habr.com/ru/companies/quadcode/articles/671254/
+    !
+2020
+https://postgrespro.com/blog/pgsql/5967856
 ????
 Rogov - MVCC
     https://habr.com/ru/companies/postgrespro/articles/452762/
