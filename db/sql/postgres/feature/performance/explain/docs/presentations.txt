@@ -29,9 +29,29 @@ Tenzor - Backend School p4 - Query Analysis p1 9:00 of 1:24:11
     ! 1:09:00 - if Heap Fetches quite large, we made worse by this idx, compare to just "Index Scan"
     ! 1:13:00 - Foreign Scan - for tables on ext servers
 2021
-PGConf - Augustine - Deeper understanding of PG execution plan 5:00 of 47:55
+PGConf - Augustine - Deeper understanding of PG execution plan 26:00 of 47:55
     https://www.youtube.com/watch?v=Ls-uE1V31lE
     ! 4:00 - debug_print_parse(boolean) - https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-DEBUG-PRINT-PARSE
     !       https://postgrespro.ru/docs/postgrespro/current/runtime-config-logging#GUC-DEBUG-PRINT-PARSE
     !       https://postgresqlco.nf/doc/en/param/debug_print_parse/
     !     !!! and other interesting stuff for debug printing
+    ! 6:00 - pg_analyze_and_rewrite internal (c) func
+    !   https://patshaughnessy.net/2014/10/13/following-a-select-statement-through-postgres-internals
+    !     https://habr.com/ru/articles/304258/
+    !     https://medium.com/@divya.n/how-postgres-works-733bc5cf61a
+    !     https://github.com/melanieplageman/debugging_planner
+    ! 7:00  - set log_parser_stats=on
+    ! 11:00 - views are rules - pg_rewrite
+    !   https://www.postgresql.org/docs/current/rules.html
+    !   https://www.postgresql.org/docs/current/rules-views.html
+    ! 13:00 - Paths - internal DS, used for plans
+    ! 23:00 - Analyze
+    !   autovacuum gathers stats
+    !   pg_statistics, pg_stats,
+    !   default_statistics_target
+    !!! https://postgrespro.ru/docs/postgresql/12/runtime-config-query#GUC-DEFAULT-STATISTICS-TARGET
+    !   https://postgresqlco.nf/doc/en/param/default_statistics_target/
+    !   https://postgrespro.ru/docs/postgrespro/current/catalog-pg-rewrite
+    !   https://www.postgresql.org/docs/current/catalog-pg-rewrite.html
+    !   https://dzone.com/articles/postgresql-rewrite-rules
+    !   https://habr.com/ru/companies/first/articles/656673/

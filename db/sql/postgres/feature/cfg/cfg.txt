@@ -11,3 +11,5 @@ https://edu.postgrespro.ru/dba1-13/dba1_03_tools_configuration.html
 
 postgresql.auto.conf
     alter system set/reset <par> to <val>;
+
+select pg_settings from pg_show_all_settings ...
