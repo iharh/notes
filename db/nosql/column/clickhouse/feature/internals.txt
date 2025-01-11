@@ -1,6 +1,9 @@
 https://clickhouse.com/docs/en/updating-data
 https://clickhouse.com/docs/en/guides/developer/lightweight-delete#lightweight-delete-internals
 
+Clickhouse - Internal Structure of p19
+https://www.youtube.com/playlist?list=PL0Z2YDlm0b3jsHXli7yll7CGHI9qyALmK
+
 mutations
 https://clickhouse.com/docs/en/sql-reference/statements/alter#mutations
     alter ... update|delete

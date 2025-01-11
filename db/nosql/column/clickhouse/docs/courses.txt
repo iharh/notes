@@ -1,6 +1,18 @@
 2023
 Otus - ClickHouse for engeneers and DB architects of p8
     https://www.youtube.com/playlist?list=PLfnFOImnyWRVvsSzKlwXiUCNqFPyBC7SB
-    CH 1 - setting up and tuning 48:00 of 1:26:36
+    Zheleznoy - CH 1 - setting up and tuning 1:19:00 of 1:26:36
         https://www.youtube.com/watch?v=xKhXlhgUGKA
         ! 1:13:00 - !!! ch prod settings recommendations !!!
+        ! 1:24:00 - resources
+        !   https://presentations.clickhouse.com/2017-shad/index.html
+        ! Zatelepin
+        !   https://habr.com/ru/articles/509540/
+        !   https://www.youtube.com/watch?v=PLMSA_gDdyM
+        ! Kita
+        !   https://maksimkita.com/
+        !   https://habr.com/ru/companies/oleg-bunin/articles/726570/
+        !   https://www.youtube.com/watch?v=hFuTo76tizU
+        !   https://www.youtube.com/watch?v=KedCUDZE9N4
+        !   https://maksimkita.com/presentations/zero_cost_conf/hash_tables/c++_zero_cost_hash_tables.pdf
+        ! 1:25:00 - !!! 2 extra links about cfg

@@ -29,7 +29,7 @@ Tenzor - Backend School p4 - Query Analysis p1 9:00 of 1:24:11
     ! 1:09:00 - if Heap Fetches quite large, we made worse by this idx, compare to just "Index Scan"
     ! 1:13:00 - Foreign Scan - for tables on ext servers
 2021
-PGConf - Augustine - Deeper understanding of PG execution plan 26:00 of 47:55
+PGConf - Augustine - Deeper understanding of PG execution plan 34:00 of 47:55
     https://www.youtube.com/watch?v=Ls-uE1V31lE
     ! 4:00 - debug_print_parse(boolean) - https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-DEBUG-PRINT-PARSE
     !       https://postgrespro.ru/docs/postgrespro/current/runtime-config-logging#GUC-DEBUG-PRINT-PARSE
@@ -55,3 +55,7 @@ PGConf - Augustine - Deeper understanding of PG execution plan 26:00 of 47:55
     !   https://www.postgresql.org/docs/current/catalog-pg-rewrite.html
     !   https://dzone.com/articles/postgresql-rewrite-rules
     !   https://habr.com/ru/companies/first/articles/656673/
+    ! 31:00 - seq_page_cost, random_page_cost, cpu_tuple_cost, cpu_index_tuple_cost
+    !   void cost_seqscan(Path *path, ...)
+    !   create tablespace tbs1 LOCATION '/var/local/../tbs1' with (seq_page_cost=1, random_page_cost=1.1, effective_io_concurrency=2);
+    ! 33:00 - select hystogram_bounds from pg_stats where ...
