@@ -20,6 +20,9 @@ SelskiJavist - Kafka Fundamentals 0:00 of 2:09:05
     ! producer/consumer related
     at-least-onece, at-most-once, fixing offset, a lot of props
     transactions, partitions direct manip-n
+2023
+Otus - Petrelevich - Working with Kafka in Boot apps 2:00 of 54:12
+    https://www.youtube.com/watch?v=9FikRH8rXas
 2022
 SpringDeveloper - Long - Spring Tips: Spring Boot & Apache Kafka of 42:58
     https://www.youtube.com/watch?v=DJHUNSGh3K0
