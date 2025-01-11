@@ -13,5 +13,6 @@ where
 pg_locks
     transactionid, granted
 
+https://www.postgresql.org/docs/current/functions-admin.html
 pg_terminate_backend(pid)
     function

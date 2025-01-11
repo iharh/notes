@@ -28,3 +28,6 @@ Tenzor - Backend School p4 - Query Analysis p1 9:00 of 1:24:11
     !         Index Only Scan - smartest
     ! 1:09:00 - if Heap Fetches quite large, we made worse by this idx, compare to just "Index Scan"
     ! 1:13:00 - Foreign Scan - for tables on ext servers
+2021
+PGConf - Augustine - Deeper understanding of PG execution plan 1:00 of 47:55
+    https://www.youtube.com/watch?v=Ls-uE1V31lE

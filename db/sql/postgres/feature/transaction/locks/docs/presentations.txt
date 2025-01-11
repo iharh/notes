@@ -1,7 +1,48 @@
 2023
-Tenzor - Borovikov - Backend School - 7 Locks 3:00 of 1:04:52
+Tenzor - Borovikov - Backend School - 7 Locks of 1:04:52
     https://www.youtube.com/watch?v=RjLlixMdnSQ
     https://www.postgresql.org/docs/current/explicit-locking.html
+    ! https://www.postgresql.org/docs/current/sql-lock.html
+    ! 6:00  - https://www.postgresql.org/docs/current/functions-admin.html
+    !   pg_cancel_backend, pg_terminate_backend
+    ! 9:00  - pg_advisory_unlock(*) -- outside of tran
+    ! 10:00 - commit/rollback/rollback to sp, exception in stored proc
+    ! 11:00 - lock types:
+    !   table-level, row-level, page-level, advisory, deadlocks
+    ! 12:00 - table-level locks - https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-TABLES
+    ! 13:00 - table-level modes
+    !   AS  - access share            - select put this on all tables and all its indices from query, lock ... nowait
+    !   RS  - row share               - select ... for ...
+    !   RE  - row exclusive
+    !   SUE - share update exclusive
+    !   S   - share
+    !   SRE - share row exclusive
+    !   E   - exclusive
+    !   AE  - access exclusive
+    ! 20:00 - ... nowait - either now or exception is thrown
+    ! 22:00 - lock_timeout(integer) - https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT ch19 (server config)
+    ! 23:00 - alter_in_transaction_session_timeout (for mezkih clients)
+    ! 25:00 - row-level locks - https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-ROWS
+    ! 27:00 - row-level modes
+    !   RS  - select ... for key share
+    !   S   - select ... for share
+    !   SRE - select ... for no key update, update [*]
+    !   E   - select ... for update, delete, update (cols of unique idx)
+    ! 32:00 - page-level locks - https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-PAGES
+    !   S   - share
+    !   E   - exclusive
+    !   !!! mostly hw-level (should not see in normal flow)
+    ! 33:00 - advisory locks https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS
+    !   blocked resource - arbitrary number (64-bit)
+    !   PG-only thing - https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS
+    !   pg_advisory_*(...), tg_try_advisory_(...), pg_advisory_unlock_all(hiliotina)
+    !   S   - share
+    !   E   - exclusive
+    !   problems - max_locks_per_transaction * max_connections
+    ! 51:00 - deadlocks - https://www.postgresql.org/docs/current/explicit-locking.html#LOCKING-DEADLOCKS
+    ! 59:00 - pg_stat_activity - https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW
+    !   wait event types
+    ! 1:02:00 - pg_locks where not granted
 2019
 HighLoad - Rogov - PG Locks of 48:42
     https://www.youtube.com/watch?v=_R2-IsKfsUU
