@@ -1,0 +1,5 @@
+2024
+JavaGuru - Filtering, Pagination, Validation. Spring Boot 3 of 36:24
+    https://www.youtube.com/watch?v=eqzgTo-YMaU
+    ! 2:00  - findAllByFilter(FilterRecord filter) with Criteria
+    ! 12:00 - with QueryDSL
