@@ -10,6 +10,9 @@ https://www.baeldung.com/spring-null-safety-annotations
 https://habr.com/ru/articles/778064/
 https://gorkemgok.com/enable-annotations-for-better-spring-libraries-5a467a028e06
     https://github.com/gorkemgok/enabler-annotation-example
+CodeDecode - Difference between @component & @bean annotations in Spring boot
+    https://www.youtube.com/watch?v=6X_Xx0CyCqE
+    ! @Component - class-level, @Bean - method-level
 2019
 https://dzone.com/articles/5-spring-annotations-every-java-developer-should-k
 https://habr.com/ru/post/439594/

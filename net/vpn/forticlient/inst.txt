@@ -1,0 +1,3 @@
+https://www.fortinet.com/support/product-downloads
+
+Created symlink '/etc/systemd/system/multi-user.target.wants/forticlient.service' → '/usr/lib/systemd/system/forticlient.service'

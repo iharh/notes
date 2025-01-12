@@ -1,5 +1,8 @@
 bookmarks
 https://support.mozilla.org/mk/questions/1363890
-    layout.css.devPixelsPerPx 1.5
+    layout.css.devPixelsPerPx 2.0
+
+https://wiki.archlinux.org/title/HiDPI#Firefox
+    ui.textScaleFactor=100
 
 https://addons.mozilla.org/en-US/firefox/addon/theme-font-size-changer/

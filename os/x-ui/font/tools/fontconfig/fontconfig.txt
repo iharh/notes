@@ -1,0 +1,5 @@
+https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html
+
+files:
+/etc/fonts/
+    fonts.conf
