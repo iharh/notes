@@ -1,4 +1,6 @@
 https://redis.io/docs/clients/java/
+https://redis.io/docs/latest/develop/clients/jedis/
+
 https://github.com/redis/jedis
 https://www.javadoc.io/doc/redis.clients/jedis/latest/index.html
 
