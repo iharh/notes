@@ -12,6 +12,32 @@ https://wiki.hyprland.org/Getting-Started/Installation/#manual-releases
 https://copr.fedorainfracloud.org/coprs/solopasha/hyprland
 
 https://github.com/JaKooLit/Fedora-Hyprland
+  git clone --depth=1 https://github.com/JaKooLit/Fedora-Hyprland.git ~/Fedora-Hyprland
+  cd ~/Fedora-Hyprland
+  chmod +x install.sh
+  ./install.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install.sh
+  -mako
+  +dunst
+  -rofi
+  +rofi-wayland
+https://github.com/JaKooLit/Fedora-Hyprland/tree/main/install-scripts
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/Global_functions.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/copr.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/InputGroup.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/fonts.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/00-hypr-pkgs.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/hyprland.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/hyprland-eco.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/xdph.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/zsh.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/02-Final-Check.sh
+
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/ags.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/thunar.sh
+
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/dotfiles.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/dotfiles-main.sh
 https://github.com/JaKooLit/Hyprland-Dots
 
 from src
