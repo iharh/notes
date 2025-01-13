@@ -1,0 +1,3 @@
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+https://flathub.org/apps/org.gnome.Extensions
+flatpak install org.gnome.Extensions

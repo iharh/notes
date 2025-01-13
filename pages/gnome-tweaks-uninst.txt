@@ -1,0 +1,106 @@
+[ 1/72] Prepare transaction                                                                                                                                    100% | 390.0   B/s |  71.0   B |  00m00s
+[ 2/72] Removing gnome-session-wayland-session-0:47.0.1-1.fc41.x86_64                                                                                          100% | 181.0   B/s |   2.0   B |  00m00s
+[ 3/72] Removing gnome-shell-0:47.2-1.fc41.x86_64                                                                                                              100% |   5.3 KiB/s | 189.0   B |  00m00s
+[ 4/72] Removing gdm-1:47.0-9.fc41.x86_64                                                                                                                      100% |  12.6 KiB/s | 283.0   B |  00m00s
+[ 5/72] Removing gnome-control-center-0:47.2-1.fc41.x86_64                                                                                                     100% |  17.7 KiB/s | 362.0   B |  00m00s
+[ 6/72] Removing evolution-data-server-0:3.54.2-1.fc41.x86_64                                                                                                  100% |  21.8 KiB/s | 268.0   B |  00m00s
+[ 7/72] Removing mutter-0:47.3-1.fc41.x86_64                                                                                              100% [==================] |  25.2 KiB/s | 154.0   B |  00m00s
+>>> Running pre-uninstall scriptlet: gnome-settings-daemon-0:47.2-2.fc41.x86_64
+>>> Finished pre-uninstall scriptlet: gnome-settings-daemon-0:47.2-2.fc41.x86_64
+>>> Scriptlet output:
+>>> Failed to stop org.gnome.SettingsDaemon.A11ySettings.service: Operation refused, unit org.gnome.SettingsDaemon.A11ySettings.service may be requested by dependency only (it is configured to refuse
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.A11ySettings.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Color.service: Operation refused, unit org.gnome.SettingsDaemon.Color.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Color.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Datetime.service: Operation refused, unit org.gnome.SettingsDaemon.Datetime.service may be requested by dependency only (it is configured to refuse manual
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Datetime.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Housekeeping.service: Operation refused, unit org.gnome.SettingsDaemon.Housekeeping.service may be requested by dependency only (it is configured to refuse
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Housekeeping.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Keyboard.service: Operation refused, unit org.gnome.SettingsDaemon.Keyboard.service may be requested by dependency only (it is configured to refuse manual
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Keyboard.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.A11ySettings.service: Operation refused, unit org.gnome.SettingsDaemon.A11ySettings.service may be requested by dependency only (it is configured to refuse
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.A11ySettings.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.MediaKeys.service: Operation refused, unit org.gnome.SettingsDaemon.MediaKeys.service may be requested by dependency only (it is configured to refuse manua
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.MediaKeys.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Power.service: Operation refused, unit org.gnome.SettingsDaemon.Power.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Power.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Color.service: Operation refused, unit org.gnome.SettingsDaemon.Color.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Color.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.PrintNotifications.service: Operation refused, unit org.gnome.SettingsDaemon.PrintNotifications.service may be requested by dependency only (it is configur
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.PrintNotifications.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Datetime.service: Operation refused, unit org.gnome.SettingsDaemon.Datetime.service may be requested by dependency only (it is configured to refuse manual
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Datetime.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Housekeeping.service: Operation refused, unit org.gnome.SettingsDaemon.Housekeeping.service may be requested by dependency only (it is configured to refuse
+[ 7/72] Removing mutter-0:47.3-1.fc41.x86_64                                                                                                                   100% | 522.0   B/s | 154.0   B |  00m00s
+>>> Running pre-uninstall scriptlet: gnome-settings-daemon-0:47.2-2.fc41.x86_64unit org.gnome.SettingsDaemon.Rfkill.service may be requested by dependency only (it is configured to refuse manual star
+>>> Finished pre-uninstall scriptlet: gnome-settings-daemon-0:47.2-2.fc41.x86_64ervice' for details.
+>>> Scriptlet output:g.gnome.SettingsDaemon.Keyboard.service: Operation refused, unit org.gnome.SettingsDaemon.Keyboard.service may be requested by dependency only (it is configured to refuse manual
+>>> Failed to stop org.gnome.SettingsDaemon.A11ySettings.service: Operation refused, unit org.gnome.SettingsDaemon.A11ySettings.service may be requested by dependency only (it is configured to refuse
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.A11ySettings.service' for details.ttingsDaemon.ScreensaverProxy.service may be requested by dependency only (it is configured t
+>>> Failed to stop org.gnome.SettingsDaemon.Color.service: Operation refused, unit org.gnome.SettingsDaemon.Color.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Color.service' for details.ttingsDaemon.MediaKeys.service may be requested by dependency only (it is configured to refuse manua
+>>> Failed to stop org.gnome.SettingsDaemon.Datetime.service: Operation refused, unit org.gnome.SettingsDaemon.Datetime.service may be requested by dependency only (it is configured to refuse manual
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Datetime.service' for details.sDaemon.Sharing.service may be requested by dependency only (it is configured to refuse manual st
+>>> Failed to stop org.gnome.SettingsDaemon.Housekeeping.service: Operation refused, unit org.gnome.SettingsDaemon.Housekeeping.service may be requested by dependency only (it is configured to refuse
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Housekeeping.service' for details.n.Power.service may be requested by dependency only (it is configured to refuse manual start/
+>>> Failed to stop org.gnome.SettingsDaemon.Keyboard.service: Operation refused, unit org.gnome.SettingsDaemon.Keyboard.service may be requested by dependency only (it is configured to refuse manual
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Keyboard.service' for details.ngsDaemon.Smartcard.service may be requested by dependency only (it is configured to refuse manua
+>>> Failed to stop org.gnome.SettingsDaemon.A11ySettings.service: Operation refused, unit org.gnome.SettingsDaemon.A11ySettings.service may be requested by dependency only (it is configured to refuse
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.A11ySettings.service' for details.SettingsDaemon.PrintNotifications.service may be requested by dependency only (it is configur
+>>> Failed to stop org.gnome.SettingsDaemon.MediaKeys.service: Operation refused, unit org.gnome.SettingsDaemon.MediaKeys.service may be requested by dependency only (it is configured to refuse manua
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.MediaKeys.service' for details.emon.Sound.service may be requested by dependency only (it is configured to refuse manual start/
+>>> Failed to stop org.gnome.SettingsDaemon.Power.service: Operation refused, unit org.gnome.SettingsDaemon.Power.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Power.service' for details.ngsDaemon.Rfkill.service may be requested by dependency only (it is configured to refuse manual star
+>>> Failed to stop org.gnome.SettingsDaemon.Color.service: Operation refused, unit org.gnome.SettingsDaemon.Color.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Color.service' for details.e.SettingsDaemon.UsbProtection.service may be requested by dependency only (it is configured to refu
+>>> Failed to stop org.gnome.SettingsDaemon.PrintNotifications.service: Operation refused, unit org.gnome.SettingsDaemon.PrintNotifications.service may be requested by dependency only (it is configur
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.PrintNotifications.service' for details.Daemon.ScreensaverProxy.service may be requested by dependency only (it is configured t
+>>> Failed to stop org.gnome.SettingsDaemon.Datetime.service: Operation refused, unit org.gnome.SettingsDaemon.Datetime.service may be requested by dependency only (it is configured to refuse manual
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Datetime.service' for details.emon.Wwan.service may be requested by dependency only (it is configured to refuse manual start/st
+>>> Failed to stop org.gnome.SettingsDaemon.Housekeeping.service: Operation refused, unit org.gnome.SettingsDaemon.Housekeeping.service may be requested by dependency only (it is configured to refuse
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Housekeeping.service' for details.mon.Sharing.service may be requested by dependency only (it is configured to refuse manual st
+>>> Failed to stop org.gnome.SettingsDaemon.Rfkill.service: Operation refused, unit org.gnome.SettingsDaemon.Rfkill.service may be requested by dependency only (it is configured to refuse manual star
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Rfkill.service' for details.tingsDaemon.XSettings.service may be requested by dependency only (it is configured to refuse manua
+>>> Failed to stop org.gnome.SettingsDaemon.Keyboard.service: Operation refused, unit org.gnome.SettingsDaemon.Keyboard.service may be requested by dependency only (it is configured to refuse manual
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Keyboard.service' for details.ngsDaemon.Smartcard.service may be requested by dependency only (it is configured to refuse manua
+>>> Failed to stop org.gnome.SettingsDaemon.ScreensaverProxy.service: Operation refused, unit org.gnome.SettingsDaemon.ScreensaverProxy.service may be requested by dependency only (it is configured t
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.ScreensaverProxy.service' for details.com.service may be requested by dependency only (it is configured to refuse manual start/
+>>> Failed to stop org.gnome.SettingsDaemon.MediaKeys.service: Operation refused, unit org.gnome.SettingsDaemon.MediaKeys.service may be requested by dependency only (it is configured to refuse manua
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.MediaKeys.service' for details.emon.Sound.service may be requested by dependency only (it is configured to refuse manual start/
+>>> Failed to stop org.gnome.SettingsDaemon.Sharing.service: Operation refused, unit org.gnome.SettingsDaemon.Sharing.service may be requested by dependency only (it is configured to refuse manual st
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Sharing.service' for details.SettingsDaemon.UsbProtection.service may be requested by dependency only (it is configured to refu
+>>> Failed to stop org.gnome.SettingsDaemon.Power.service: Operation refused, unit org.gnome.SettingsDaemon.Power.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Power.service' for details.sDaemon.Wwan.service may be requested by dependency only (it is configured to refuse manual start/st
+>>> Failed to stop org.gnome.SettingsDaemon.Smartcard.service: Operation refused, unit org.gnome.SettingsDaemon.Smartcard.service may be requested by dependency only (it is configured to refuse manua
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Smartcard.service' for details.gsDaemon.XSettings.service may be requested by dependency only (it is configured to refuse manua
+>>> Failed to stop org.gnome.SettingsDaemon.PrintNotifications.service: Operation refused, unit org.gnome.SettingsDaemon.PrintNotifications.service may be requested by dependency only (it is configur
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.PrintNotifications.service' for details.m.service may be requested by dependency only (it is configured to refuse manual start/
+>>> Failed to stop org.gnome.SettingsDaemon.Sound.service: Operation refused, unit org.gnome.SettingsDaemon.Sound.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Sound.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Rfkill.service: Operation refused, unit org.gnome.SettingsDaemon.Rfkill.service may be requested by dependency only (it is configured to refuse manual star
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Rfkill.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.UsbProtection.service: Operation refused, unit org.gnome.SettingsDaemon.UsbProtection.service may be requested by dependency only (it is configured to refu
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.UsbProtection.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.ScreensaverProxy.service: Operation refused, unit org.gnome.SettingsDaemon.ScreensaverProxy.service may be requested by dependency only (it is configured t
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.ScreensaverProxy.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Wwan.service: Operation refused, unit org.gnome.SettingsDaemon.Wwan.service may be requested by dependency only (it is configured to refuse manual start/st
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Wwan.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Sharing.service: Operation refused, unit org.gnome.SettingsDaemon.Sharing.service may be requested by dependency only (it is configured to refuse manual st
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Sharing.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.XSettings.service: Operation refused, unit org.gnome.SettingsDaemon.XSettings.service may be requested by dependency only (it is configured to refuse manua
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.XSettings.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Smartcard.service: Operation refused, unit org.gnome.SettingsDaemon.Smartcard.service may be requested by dependency only (it is configured to refuse manua
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Smartcard.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Wacom.service: Operation refused, unit org.gnome.SettingsDaemon.Wacom.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Wacom.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Sound.service: Operation refused, unit org.gnome.SettingsDaemon.Sound.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Sound.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.UsbProtection.service: Operation refused, unit org.gnome.SettingsDaemon.UsbProtection.service may be requested by dependency only (it is configured to refu
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.UsbProtection.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Wwan.service: Operation refused, unit org.gnome.SettingsDaemon.Wwan.service may be requested by dependency only (it is configured to refuse manual start/st
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Wwan.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.XSettings.service: Operation refused, unit org.gnome.SettingsDaemon.XSettings.service may be requested by dependency only (it is configured to refuse manua
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.XSettings.service' for details.
+>>> Failed to stop org.gnome.SettingsDaemon.Wacom.service: Operation refused, unit org.gnome.SettingsDaemon.Wacom.service may be requested by dependency only (it is configured to refuse manual start/
+>>> See user logs and 'systemctl --user status org.gnome.SettingsDaemon.Wacom.service' for details.
+>>>
