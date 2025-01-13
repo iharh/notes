@@ -1,4 +1,6 @@
 https://docs.fedoraproject.org/en-US/quick-docs/installing-chromium-or-google-chrome-browsers/
+https://discussion.fedoraproject.org/t/how-to-install-google-chrome-on-fedora-41/134918
     sudo dnf install fedora-workstation-repositories
-    sudo dnf config-manager --set-enabled google-chrome
+    #sudo dnf config-manager --set-enabled google-chrome
+    sudo dnf config-manager setopt google-chrome.enabled=1
     sudo dnf install google-chrome-stable
