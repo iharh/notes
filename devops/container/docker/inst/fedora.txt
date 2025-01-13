@@ -1,2 +1,21 @@
 2023
 https://www.fosslinux.com/95109/how-to-install-docker-on-fedora.htm
+    sudo dnf install dnf-plugins-core
+    # sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+    # sudo dnf config-manager setopt google-chrome.enabled=1
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+chmod u+x ./get-docker.sh
+sudo sh ./get-docker.sh
+
+sudo dnf makecache
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo systemctl enable --now docker
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+dockerd-rootless-setuptool.sh install
+Visit https://docs.docker.com/go/rootless/ to learn about rootless mode.
+
+To run the Docker daemon as a fully privileged service, but granting non-root
+users access, refer to https://docs.docker.com/go/daemon-access/

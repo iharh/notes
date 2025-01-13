@@ -1,0 +1,6 @@
+https://github.com/zavoloklom/docker-compose-linter
+https://github.com/zavoloklom/docker-compose-linter/blob/main/docs/cli.md
+    docker pull zavoloklom/dclint
+    docker run -t --rm -v ${PWD}:/app zavoloklom/dclint .
+
+https://hubgw.docker.com/r/zavoloklom/dclint
