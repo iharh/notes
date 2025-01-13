@@ -1,0 +1,6 @@
+https://zed.dev/linux
+    curl -f https://zed.dev/install.sh | sh
+
+https://zed.dev/docs/assistant/configuration
+https://zed.dev/docs/assistant/assistant-panel
+https://zed.dev/docs/assistant/commands

@@ -18,4 +18,5 @@ show default_transaction_isolation;
 at distinct level we use distinct snapshoting strategies ...
 
 2024
+https://habr.com/ru/articles/845522/
 https://habr.com/ru/articles/815323/
