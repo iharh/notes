@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-TMP_DIR="/tmp"
+TMP_DIR="$HOME/Downloads/inst/jbt"
 INSTALL_DIR="$HOME/.local/share/JetBrains/Toolbox/bin"
 SYMLINK_DIR="$HOME/.local/bin"
 
@@ -15,14 +15,13 @@ ARCHIVE_FILENAME=$(basename "$ARCHIVE_URL")
 
 echo -e "\e[94mDownloading $ARCHIVE_FILENAME...\e[39m"
 rm "$TMP_DIR/$ARCHIVE_FILENAME" 2>/dev/null || true
-# wget -q --show-progress -cO "$TMP_DIR/$ARCHIVE_FILENAME" "$ARCHIVE_URL"
-wget -q -cO "$TMP_DIR/$ARCHIVE_FILENAME" "$ARCHIVE_URL"
+wget -cO "$TMP_DIR/$ARCHIVE_FILENAME" "$ARCHIVE_URL"
 
 echo -e "\e[94mExtracting to $INSTALL_DIR...\e[39m"
 mkdir -p "$INSTALL_DIR"
 rm "$INSTALL_DIR/jetbrains-toolbox" 2>/dev/null || true
 tar -xzf "$TMP_DIR/$ARCHIVE_FILENAME" -C "$INSTALL_DIR" --strip-components=1
-rm "$TMP_DIR/$ARCHIVE_FILENAME"
+# rm "$TMP_DIR/$ARCHIVE_FILENAME"
 chmod +x "$INSTALL_DIR/jetbrains-toolbox"
 
 echo -e "\e[94mSymlinking to $SYMLINK_DIR/jetbrains-toolbox...\e[39m"
