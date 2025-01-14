@@ -1,0 +1,23 @@
+https://wiki.hyprland.org/Getting-Started/Installation/
+    On Fedora 39+, run:
+    sudo dnf install hyprland
+    sudo dnf install hyprland-devel # If you want to build plugins (use hyprpm)
+    Faster updates and additional packages are available in the solopasha/hyprland Copr repository.
+    https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/
+    https://github.com/solopasha/hyprlandRPM
+        sudo dnf copr enable solopasha/hyprland -y # once again to enable the runtime dependency repo solopasha/libdrm
+        sudo dnf up --refresh
+
+https://wiki.hyprland.org/Getting-Started/Installation/#manual-releases
+https://copr.fedorainfracloud.org/coprs/solopasha/hyprland
+
+from src
+https://github.com/hyprwm/Hyprland/discussions/284
+
+2024
+MichaelHorn - An Introduction To Hyprland ... 0:00 of 8:37
+    https://www.youtube.com/watch?v=mmRKWgiPulg
+
+dotfiles
+https://github.com/prasanthrangan/hyprdots
+https://github.com/sudoharun/dotfiles

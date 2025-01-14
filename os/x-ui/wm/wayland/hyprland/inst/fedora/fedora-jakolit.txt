@@ -1,0 +1,52 @@
+https://github.com/JaKooLit/Fedora-Hyprland
+  git clone --depth=1 https://github.com/JaKooLit/Fedora-Hyprland.git ~/Fedora-Hyprland
+  cd ~/Fedora-Hyprland
+  chmod +x install.sh
+  ./install.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install.sh
+  -mako
+  -dunst
+  -rofi
+  +swaync
+      https://github.com/ErikReider/SwayNotificationCenter
+      https://man.archlinux.org/man/swaync.5.en
+      ~/.config/swaync/
+          config.json
+              /etc/xdg/swaync/configSchema.json
+              Hot-reload config through swaync-client -R, -rs
+              swaync-client -t
+          style.css
+* {
+    ...
+    font-size: 2rem;
+}
+
+  +rofi-wayland
+https://github.com/JaKooLit/Fedora-Hyprland/tree/main/install-scripts
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/Global_functions.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/copr.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/InputGroup.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/fonts.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/00-hypr-pkgs.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/hyprland.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/hyprland-eco.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/xdph.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/zsh.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/02-Final-Check.sh
+
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/ags.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/thunar.sh
+
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/dotfiles.sh
+https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/dotfiles-main.sh
+https://github.com/JaKooLit/Hyprland-Dots
+
+2023
+Ja.KooLit - Hyprland on Fedora Workstation and Nobara - nvidia, amd and intel gpu support of 10:03
+    https://www.youtube.com/watch?v=w2dt4GlHjV0
+    ! git clone https://github.com/JaKooLit/Fedora-Hyprland
+    ! chmod +x install.sh
+    ! customize install-scripts/
+    !   corp.sh
+    ! ./install.sh
+    ! M-e - key-bindings help
