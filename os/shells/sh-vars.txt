@@ -2,3 +2,6 @@ http://unix.stackexchange.com/questions/813/how-to-determine-where-an-environmen
 
 /etc/profile
 /etc/environment
+
+https://github.com/fhirbase/master-class/blob/master/github.sh
+echo " ... \`curl  \"https://api.github.com/repos/postgres/postgres/commits?page=$i\"\`

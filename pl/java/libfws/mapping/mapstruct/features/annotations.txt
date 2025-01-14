@@ -1,0 +1,7 @@
+@Mapping
+    defaultValue
+    devaultExpression="java(...)"
+    numberFormat
+
+customimzation
+    @BeforeMapping/@AfterMapping - generic

@@ -1,0 +1,6 @@
+https://docs.risingwave.com/deploy/install-psql-without-postgresql
+
+apt/
+    postgresql-client-14
+dnf
+    postgresql.x86_64: PostgreSQL client programs

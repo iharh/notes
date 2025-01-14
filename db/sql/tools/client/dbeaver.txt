@@ -1,12 +1,16 @@
 https://dbeaver.io/
 https://github.com/dbeaver/dbeaver/
 
-https://dbeaver.jkiss.org/
-https://dbeaver.jkiss.org/docs/features/
+https://dbeaver.com/buy/
+https://dbeaver.com/docs/dbeaver/
 
 https://en.wikipedia.org/wiki/DBeaver
+
 https://github.com/dbeaver/dbeaver/wiki
 https://github.com/dbeaver/dbeaver/wiki/Command-Line
+https://github.com/dbeaver/dbeaver/wiki/SQL-Execution
+
+https://github.com/dbeaver/dbeaver/wiki/SSL-Configuration
 
 files ($XDG_DATA_DIRS)
 ~/.local/share/DBeaverData
