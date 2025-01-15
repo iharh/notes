@@ -1,8 +1,9 @@
 https://redis.io/docs/clients/om-clients/stack-spring/
 
 2025
-JPoint - Toropov - Spring Data Redis as unsuccessful decision 6:00 of 45:34
+JPoint - Toropov - Spring Data Redis as unsuccessful decision of 45:34
     https://www.youtube.com/watch?v=pKGYdagyjJU
+    !!!
     ! 5:00  SADD, SREM, ...
     !       HGET, HMSET, ...
     ! 6:00  @RedisHash("component")
