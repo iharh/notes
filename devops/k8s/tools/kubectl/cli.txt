@@ -23,6 +23,10 @@ kubectl
         ... doc on specific part of descr ...
         ex:
             deployment.spec.strategy
+    auth
+        can-i
+          list pod
+          get hr
     get
         namespace
             list namespaces
