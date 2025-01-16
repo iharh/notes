@@ -15,8 +15,14 @@ ClickHouse - Kita - Modern SQL in 2023 20:00 of 33:05
 ListenIT - What ClickHouse is and Columnt DBs ru of 14:46
     https://www.youtube.com/watch?v=2b4heaO3U8k
 2018
-HighLoad - Zatelepin - What Need to Know about CH Arch ru 2:00 of 51:02
+HighLoad - Zatelepin - What Need to Know about CH Arch ru 22:00 of 51:02
     https://www.youtube.com/watch?v=PLMSA_gDdyM
+    ! 11:00 index writes stuff only for each 8192 rows
+    ! 15:00 reordring via MergeTree engines (idea is like LSM-tree)
+    ! 16:00 sorted data are written to disk in chunks (recommended no less than 1000 records)
+    ! 17:00 background merge
+    ! 18:00 if we have a lot of chunks, insert-perf will be really slow
+    ! 20:00 sharding
 YandexForDevelopers - Milovidov - SHAD - 005 - How ClickHouse Works ru 38:00 of 1:56:30
     https://www.youtube.com/watch?v=vbhSrZxm66E
     https://habr.com/ru/companies/yandex/articles/273305/
