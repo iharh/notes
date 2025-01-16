@@ -15,7 +15,7 @@ ClickHouse - Kita - Modern SQL in 2023 20:00 of 33:05
 ListenIT - What ClickHouse is and Columnt DBs ru of 14:46
     https://www.youtube.com/watch?v=2b4heaO3U8k
 2018
-HighLoad - Zatelepin - What Need to Know about CH Arch ru 22:00 of 51:02
+HighLoad - Zatelepin - What Need to Know about CH Arch ru of 51:02
     https://www.youtube.com/watch?v=PLMSA_gDdyM
     ! 11:00 index writes stuff only for each 8192 rows
     ! 15:00 reordring via MergeTree engines (idea is like LSM-tree)
