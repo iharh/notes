@@ -3,6 +3,11 @@ https://github.com/spring-projects/spring-framework/wiki/What's-New-in-the-Sprin
 7.x
 https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-7.0-Release-Notes
 6.x
+SpringDeveloper - Long - Spring Tips: the road to Spring Boot 3: Spring Framework 6 of 28:36
+    https://www.youtube.com/watch?v=aUm5WZjh8RA
+    ! 7:00  ProblemDetails
+    ! 12:00 MicrometerObservationRegistry
+    ! 20:00 WebClient and decl-ve i-faces
 https://github.com/spring-projects/spring-framework/wiki/What's-New-in-Spring-Framework-6.x
     https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.2-Release-Notes
         https://spring.io/blog/2024/10/01/from-spring-framework-6-2-to-7-0

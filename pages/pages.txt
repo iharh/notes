@@ -1,3 +1,5 @@
+dsworks.ru/super-aintelligence
+
 kc - 76 of ...
 try http
     hurl
@@ -10,6 +12,7 @@ ScottGamovKlein - Kafka in Action
     92EE2370E5CAB2E99BDD1A46B9F1009B
 
 spring
+    ProblemDetails an RFC 9457
     spring.jdbc.getParameterType.ignore=false
     SqlParameterValue
     getParameterType
