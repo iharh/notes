@@ -1,0 +1,4 @@
+https://developers.sber.ru/docs/ru/gigachat/certificates?lang=python&OS=arch-linux
+  openssl x509 -outform der -in russiantrustedca.pem -out russiantrustedca.crt
+  sudo cp <path>/russiantrustedca.crt /etc/ca-certificates/trust-source/anchors/
+  sudo update-ca-trust

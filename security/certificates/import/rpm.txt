@@ -1,0 +1,4 @@
+https://developers.sber.ru/docs/ru/gigachat/certificates?lang=python&OS=redhat-enterprise-linux-7
+  sudo cp file.crt /usr/share/pki/ca-trust-source/anchors
+  sudo update-ca-trust
+  trust list | grep EPAm

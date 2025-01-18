@@ -1,22 +1,2 @@
 https://www.gosuslugi.ru/crt
-
-deb
-https://developers.sber.ru/docs/ru/gigachat/certificates?lang=python&OS=debian-ubuntu
-  sudo mkdir /usr/local/share/ca-certificates/russian-trusted
-  sudo cp russian_trusted_root_ca_pem.crt russian_trusted_sub_ca_pem.crt /usr/local/share/ca-certificates/russian-trusted
-  sudo update-ca-certificates -v
-  trust list | grep Russian
-    label: Russian Trusted Root CA
-    label: Russian Trusted Sub CA
-
-rpm
-https://developers.sber.ru/docs/ru/gigachat/certificates?lang=python&OS=redhat-enterprise-linux-7
-  sudo cp russian_trusted_root_ca_pem.crt /usr/share/pki/ca-trust-source/anchors
-  sudo update-ca-trust
-  trust list
-
-arch
-https://developers.sber.ru/docs/ru/gigachat/certificates?lang=python&OS=arch-linux
-  openssl x509 -outform der -in russiantrustedca.pem -out russiantrustedca.crt
-  sudo cp <path>/russiantrustedca.crt /etc/ca-certificates/trust-source/anchors/
-  sudo update-ca-trust
+https://developers.sber.ru/docs/ru/gigachat/certificates

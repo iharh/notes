@@ -1,0 +1,7 @@
+https://developers.sber.ru/docs/ru/gigachat/certificates?lang=python&OS=debian-ubuntu
+  sudo mkdir /usr/local/share/ca-certificates/russian-trusted
+  sudo cp russian_trusted_root_ca_pem.crt russian_trusted_sub_ca_pem.crt /usr/local/share/ca-certificates/russian-trusted
+  sudo update-ca-certificates -v
+  trust list | grep Russian
+    label: Russian Trusted Root CA
+    label: Russian Trusted Sub CA
