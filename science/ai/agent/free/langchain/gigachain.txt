@@ -1,0 +1,38 @@
+https://developers.sber.ru/docs/ru/gigachain/overview
+https://developers.sber.ru/docs/ru/gigachat/models
+
+https://github.com/ai-forever/gigachain
+https://github.com/ai-forever/gigachain/tree/master/hub
+https://github.com/ai-forever/gigaserve
+
+https://developers.sber.ru/docs/ru/gigachat/api/tariffs
+https://developers.sber.ru/docs/ru/gigachat/api/overview
+
+https://python.langchain.com/docs/introduction/
+
+LangChain-gigachat lib
+
+https://developers.sber.ru/docs/ru/gigachat/quickstart/ind-using-api
+
+NUTS MINCIFRY
+https://developers.sber.ru/docs/ru/gigachat/certificates
+curl -k "https://gu-st.ru/content/Other/doc/russian_trusted_root_ca.cer" -w "\n" >> $(python -m certifi)
+
+video tutorials
+https://developers.sber.ru/docs/ru/gigachat/api/video-tutorials
+
+salute gigachat of p9
+    https://www.youtube.com/playlist?list=PLJU_M19giWaGy6MW8GVYdX312WBRnuof8
+
+course
+https://courses.sberuniversity.ru/llm-gigachat/0
+
+2024
+Rai220 - Crestnikov - AI Agents Create and Validation ru 2:00 of 32:13
+    https://www.youtube.com/watch?v=9QXRAC8G89I
+    ! 4:00 describe Graph
+SaluteTech - GigaChat API and GigaChain for 1 min ru of 0:59
+    https://www.youtube.com/watch?v=HAg-GFKl1rc
+https://habr.com/ru/companies/sberdevices/articles/794773/
+    pip install gigachain_community
+https://habr.com/ru/companies/sberdevices/articles/794773/
