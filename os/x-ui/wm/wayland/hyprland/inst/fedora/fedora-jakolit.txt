@@ -21,7 +21,7 @@ https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install.sh
     font-size: 2rem;
 }
 
-  +rofi-wayland
++rofi-wayland
 https://github.com/JaKooLit/Fedora-Hyprland/tree/main/install-scripts
 https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/Global_functions.sh
 https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/copr.sh
@@ -39,7 +39,102 @@ https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/thunar.sh
 
 https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/dotfiles.sh
 https://github.com/JaKooLit/Fedora-Hyprland/blob/main/install-scripts/dotfiles-main.sh
+
 https://github.com/JaKooLit/Hyprland-Dots
+    copy.sh
+        wallpaper=$HOME/.config/hypr/wallpaper_effects/.wallpaper_modified
+        waybar_style="$HOME/.config/waybar/style/[Dark] Latte-Wallust combined.css"
+        waybar_config="$HOME/.config/waybar/configs/[TOP] Default_v4"
+        waybar_config_laptop="$HOME/.config/waybar/configs/[TOP] Default Laptop_v4" 
+
+~/.config/hypr/
+    hyprland.conf
+
+        # Default Configs
+        $configs = $HOME/.config/hypr/configs
+
+        source=$configs/Settings.conf
+        source=$configs/Keybinds.conf
+
+        # User Configs
+        $UserConfigs = $HOME/.config/hypr/UserConfigs
+
+        source= $UserConfigs/Startup_Apps.conf
+        source= $UserConfigs/ENVariables.conf
+        source= $UserConfigs/Monitors.conf
+        source= $UserConfigs/Laptops.conf
+        source= $UserConfigs/LaptopDisplay.conf
+        source= $UserConfigs/WindowRules.conf
+        source= $UserConfigs/UserDecorAnimations.conf
+        source= $UserConfigs/UserKeybinds.conf
+        source= $UserConfigs/UserSettings.conf
+        source= $UserConfigs/WorkspaceRules.conf
+
+
+~/.config/qt5ct/qt5ct.conf
+    [Fonts]
+    !!!
+~/.config/qt6ct/qt6ct.conf
+kvantummanager --set "$kvantum_theme"
+
+https://alphacoders.com/
+https://github.com/JaKooLit/Wallpaper-Bank.git
+
+https://github.com/JaKooLit/GTK-themes-icons
+https://github.com/JaKooLit/GTK-themes-icons/blob/main/auto-extract.sh
+    ~/.icons/
+        Flat-Remix-Blue-Light/
+        Flat-Remix-Blue-Dark/
+        Bibata-Modern-Ice/
+    ~/.themes/
+        Kali-Dark/
+        Kali-Light/
+    ~/Pictures/wallpapers/
+packages
+    hyprland
+    pyprland
+        https://hyprland-community.github.io/pyprland/
+        https://hyprland-community.github.io/pyprland/Plugins.html
+    gtk-murrine-engine
+        for gtk2
+    nwg-panel
+    wofi
+    wlpaste
+    hypridle
+    hyprcursor
+    hyprpaper
+    thunarvolman
+    ffmpegthumbnailer
+    thumbler
+    xarchiver
+    swaync
+    wallust
+    wlogout
+ags
+    /usr/local/share/com.github.Aylur.ags
+user add into input group
+
+assets/
+  gtk-3.0
+      settings.ini:
+      [Settings]
+      gtk-theme-name=Andromeda-dark
+      gtk-icon-theme-name=Flat-Remix-Blue-Dark
+      gtk-font-name=Fira Code Semi-Bold 14
+      gtk-cursor-theme-name=Bibata-Modern-Ice
+      gtk-cursor-theme-size=24
+      gtk-toolbar-style=GTK_TOOLBAR_ICONS
+      gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+      gtk-button-images=1
+      gtk-menu-images=1
+      gtk-enable-event-sounds=1
+      gtk-enable-input-feedback-sounds=0
+      gtk-xft-antialias=1
+      gtk-xft-hinting=1
+      gtk-xft-hintstyle=hintslight
+      gtk-xft-rgba=rgb
+      gtk-application-prefer-dark-theme=1
+    
 
 2023
 Ja.KooLit - Hyprland on Fedora Workstation and Nobara - nvidia, amd and intel gpu support of 10:03
