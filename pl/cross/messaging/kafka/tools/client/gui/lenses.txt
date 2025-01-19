@@ -1,0 +1,38 @@
+https://lenses.io
+https://lenses.io/product/
+https://lenses.io/apache-kafka-docker/
+    wget https://lenses.io/preview -O docker-compose.yml && ACCEPT_EULA=true docker compose up
+    # create-configs service
+    http://localhost:9991/
+
+https://github.com/lensesio/fast-data-dev
+https://github.com/lensesio/lenses-docker
+
+
+https://lenses.io/product/pricing/
+
+https://docs.lenses.io/latest
+https://docs.lenses.io/latest/deployment/installation
+https://docs.lenses.io/latest/deployment/installation/linux/hq
+https://docs.lenses.io/latest/deployment/installation/docker/hq
+
+
+https://docs.lenses.io/latest/user-guide/topics
+https://docs.lenses.io/latest/user-guide/sql-studio
+
+https://docs.lenses.io/latest/deployment/configuration/agent/automation/kafka-connect
+!!!
+
+cfg
+https://docs.lenses.io/latest/deployment/configuration
+https://docs.lenses.io/latest/deployment/configuration/authentication/sso-and-saml
+https://docs.lenses.io/latest/deployment/configuration/authentication/sso-and-saml/overview
+https://docs.lenses.io/latest/deployment/configuration/hq
+https://docs.lenses.io/latest/deployment/configuration/hq#samlconfig
+https://docs.lenses.io/latest/deployment/configuration/agent/configuration-reference
+
+https://docs.lenses.io/latest/resources/api-reference/lenses-api-spec
+
+
+https://docs.lenses.io/latest/resources/cli
+https://archive.lenses.io/pub/testing/lenses/

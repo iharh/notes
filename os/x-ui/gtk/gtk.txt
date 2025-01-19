@@ -1,9 +1,11 @@
 https://wiki.archlinux.org/title/GTK
     gsettings set org.gnome.desktop.interface gtk-theme Adwaita
 
-
 https://docs.gtk.org/gtk4/css-properties.html
 https://docs.w3cub.com/gtk~4.0/ch39s04
+
+awt
+https://superuser.com/questions/652606/is-there-a-way-to-increase-the-default-font-size-for-java-gui-applications
 
 font engine
 https://freetype.org/

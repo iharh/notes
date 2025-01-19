@@ -1,0 +1,151 @@
+https://docs.redpanda.com/current/home/
+https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/manual/production/dev-deployment/
+https://docs.redpanda.com/current/get-started/architecture/
+
+https://www.redpanda.com/resources#tech-talks
+
+https://github.com/redpanda-data/redpanda
+
+docker
+    docker run --network=host -p 8080:8080 \
+      -e KAFKA_BROKERS=pkc-4r000.europe-west1.gcp.confluent.cloud:9092 \
+      -e KAFKA_TLS_ENABLED=true \
+      -e KAFKA_TLS_INSECURESKIPTLSVERIFY=true \
+      -e KAFKA_SASL_ENABLED=true \
+      -e KAFKA_SASL_USERNAME=xxx \
+      -e KAFKA_SASL_PASSWORD=xxx \
+      -e KAFKA_SASL_MECHANISM=SCRAM-SHA-256 \
+      docker.redpanda.com/redpandadata/console:latest
+
+!!!
+https://docs.redpanda.com/current/console/quickstart/
+    https://docs.redpanda.com/current/console/_attachments/docker-compose.yml
+      kafka:
+        sasl:
+          enabled: true
+          username: superuser
+          password: secretpassword
+          mechanism: SCRAM-SHA-256
+    https://docs.redpanda.com/current/console/config/configure-console/
+      kafka:
+        #tls:
+        # If you connect to a Cluster that uses commonly trusted certificates, enable TLS and do not provide a certificate authority in the caFilepath. 
+        # In this case, the system's certificate pool is used.
+          #enabled: false
+          #caFilepath:
+          #certFilepath:
+          #keyFilepath:
+          #insecureSkipTlsVerify: false
+!!!
+https://docs.redpanda.com/current/reference/properties/cluster-properties/
+https://docs.redpanda.com/current/manage/security/encryption/
+https://www.redpanda.com/blog/tls-config
+https://docs.redpanda.com/current/manage/security/authentication/#enable-sasl-with-tls-encryption
+  redpanda.yaml:    
+    redpanda:
+      kafka_api:
+        - address: 0.0.0.0
+          port: 9092
+          name: sasl_tls_listener
+          authentication_method: sasl
+      kafka_api_tls:
+        - name: sasl_tls_listener
+          #key_file: broker.key
+          #cert_file: broker.crt
+          truststore_file: ca.crt
+          #crl_file: ca.crl # Optional
+          enabled: true
+          require_client_auth: false
+
+rpk
+https://github.com/redpanda-data/redpanda/tree/dev/src/go/rpk
+https://github.com/redpanda-data/redpanda/blob/dev/src/go/rpk/pkg/config/params.go
+RedpandaData - Your Friendly Guide to rpk - Redpanda's Powerful Command-Line Tool of 9:32
+  https://www.youtube.com/watch?v=CfR6LUBbUzs
+    !!!
+RedpandaData - Redpanda Office Hour: HUGE rpk - Redpanda CLI update! of 43:09
+  https://www.youtube.com/watch?v=dbqRJgPgXcU
+    rpk profile edit
+https://www.redpanda.com/blog/get-started-rpk-manage-streaming-data-clusters
+https://go.redpanda.com/rpk-commands-cheat-sheet
+https://go.redpanda.com/hubfs/PDFs/redpanda-rpk-commands-cheat-sheet.pdf?hsLang=en
+https://docs.redpanda.com/current/reference/rpk/
+https://docs.redpanda.com/current/reference/rpk/rpk-cluster/rpk-cluster/
+https://docs.redpanda.com/current/reference/rpk/rpk-cluster/rpk-cluster-info/
+rpk cluster info \
+  -X sasl.mechanism=SCRAM-SHA-256 \
+  -X user=myuser \
+  -X pass='changethispassword'
+
+console:
+https://github.com/redpanda-data/console/
+https://docs.redpanda.com/current/console/config/configure-console/
+    !!!
+https://docs.redpanda.com/current/manage/console/
+redpanda-console -config.filepath ./redpanda-console.yaml
+
+
+https://docs.redpanda.com/current/get-started/quickstarts/
+https://docs.redpanda.com/current/get-started/architecture/
+https://docs.redpanda.com/current/get-started/intro-to-events/
+https://docs.redpanda.com/current/get-started/licensing/overview/
+https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/manual/production/
+
+https://docs.redpanda.com/current/deploy/deployment-option/self-hosted/manual/production/dev-deployment/
+  curl -1sLf 'https://dl.redpanda.com/nzc4ZYQK3WRGd9sy/redpanda/cfg/setup/bash.rpm.sh' | sudo -E bash 
+      cat /etc/yum.repos.d/redpanda-redpanda.repo
+      ...
+      https://dl.redpanda.com/public/redpanda/rpm/fedora/41/$basearch
+
+  sudo dnf search redpanda
+  sudo dnf install redpanda 
+  sudo dnf install redpanda-rpk
+      rpm -ql redpanda-rpk
+        /opt/redpanda/RELEASE-DATE.txt
+        /opt/redpanda/bin/hwloc-calc-redpanda
+        /opt/redpanda/bin/hwloc-distrib-redpanda
+        /opt/redpanda/bin/iotune-redpanda
+        /opt/redpanda/bin/rpk
+        /opt/redpanda/libexec/hwloc-calc-redpanda
+        /opt/redpanda/libexec/hwloc-distrib-redpanda
+        /opt/redpanda/libexec/iotune-redpanda
+        /opt/redpanda/libexec/rpk
+        /usr/bin/rpk
+  sudo dnf install redpanda-console
+      rpm -ql redpanda-console
+      sudo systemctl start redpanda-console
+        /usr/bin/redpanda-console
+        /usr/lib/systemd/system/redpanda-console.service
+            ExecStart=/usr/bin/redpanda-console -config.filepath /etc/redpanda/redpanda-console-config.yaml
+        /etc/redpanda/redpanda-console-config.yaml
+            kafka:
+              brokers: "localhost:9092"
+  sudo dnf install redpanda-connect
+  sudo dnf install redpanda-tuner
+  sudo dnf install redpanda-debuginfo
+
+  sudo systemctl start redpanda-tuner redpanda
+
+https://docs.redpanda.com/current/manage/security/listener-configuration/
+https://docs.redpanda.com/current/console/config/configure-console/
+    https://docs.redpanda.com/current/shared/_attachments/redpanda-console-config.yaml
+https://docs.redpanda.com/current/get-started/quick-start/
+    https://docs.redpanda.com/current/get-started/_attachments/single-broker/docker-compose.yml
+
+    curl -LO https://github.com/redpanda-data/redpanda/releases/latest/download/rpk-linux-amd64.zip
+    mkdir -p ~/.local/bin
+    export PATH="~/.local/bin:$PATH" &&
+    unzip rpk-linux-amd64.zip -d ~/.local/bin/
+
+https://docs.redpanda.com/current/manage/monitoring/
+
+labs
+debezium
+  https://docs.redpanda.com/redpanda-labs/docker-compose/cdc-postgres-json/
+
+https://www.redpanda.com/blog
+
+baeldung
+https://www.baeldung.com/redpanda
+2023
+https://www.redpanda.com/blog/web-user-interface-tools-kafka
