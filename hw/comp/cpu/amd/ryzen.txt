@@ -1,9 +1,25 @@
 https://catalog.onliner.by/cpu/amd
+https://catalog.onliner.by/cpu?mfr%5B0%5D=amd&socket_cpu%5B0%5D=am5&socket_cpu%5Boperation%5D=union&cpu_graphics=1&cpu_ram%5B0%5D=ddr5&cpu_ram%5Boperation%5D=union&order=price%3Adesc&basetpd%5Bto%5D=105
 
+AMD Ryzen 7 8700G (BOX)
+https://catalog.onliner.by/cpu/amd/ryzen78700g
+https://catalog.onliner.by/cpu/amd/ryzen78700gbox
+    !!! 1094 bin (1597 bin), 2024, TDP , max mem 5200 Mhz, max 256G
+
+AMD Ryzen 7 9700X
+https://catalog.onliner.by/cpu/amd/100000001404
+    ! ... max 192
+
+AMD Ryzen 7 9700X (WOF)
+https://catalog.onliner.by/cpu/amd/100100001404wof
+    ! 1600 bin, 2024, TDP 65, max mem 5600Mhz, max 192G
+https://catalog.onliner.by/cpu/amd/ryzen77700xbox
+    ! 1635 bin, 2022, TDP 105, max mem 5200Mhz
+
+https://www.777555.by/product/1395682-amd-ryzen-7-8700g/
+    ! 1082 bin, 2024y, TDP 65, max mem 5200Mhz
 https://www.777555.by/product/909061-amd-ryzen-7-7700x/
-    1114 bin
-    TDP 105
-    AMD-V
+    ! 1183 bin, 2022y, TDP 105, AMD-V, max mem - 5200Mhz
 https://www.777555.by/product/789866-amd-ryzen-7-5800x3d/
     2022
     1098 bin
