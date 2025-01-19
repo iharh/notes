@@ -3,3 +3,20 @@ BackendExtendsJava - Hibernate N+1 of p3
     https://www.youtube.com/watch?v=II3Yh7H3blc
     https://www.youtube.com/watch?v=gh-e5lvjcE8
     https://www.youtube.com/watch?v=qb1g3G1dDhk
+2023
+CodeDecode - HBN N+1 problem and solution of 15:51
+    https://www.youtube.com/watch?v=_6Ni_wxfoyI
+    ! 3:00 STS DB Explorer
+    ! 11:00 
+    ! @Query("select p from Department p left join fetch p.listOfEmployees")
+    ! ??:??
+    ! @EntityGraph(attributePaths={"listOfEmployees"})
+    ! List<Department> findAll();
+    ! 15:00
+    ! Criteria criteria = session.createCriteria(Department.class);
+    ! criteria.setFetchMode("listOfEmployees", FetchMode.EAGER);
+
+
+????
+https://www.youtube.com/watch?v=8Y_Y3P_xrWs
+https://www.youtube.com/watch?v=mJrrJEIQxOQ

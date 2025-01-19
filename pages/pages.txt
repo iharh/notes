@@ -1,6 +1,14 @@
-dsworks.ru/super-aintelligence
-nvim
+kc - 76 of ...
+bellemare - 21 (ch2)
+pg internals 16 - 357
+kafka - 76
 
+!!! jakarta enterprise
+    https://www.youtube.com/playlist?list=PLt91xr-Pp57QEnGJPuI4R_VqEXikn2a76
+
+dsworks.ru/super-aintelligence
+
+nvim
 :LspInfo
 https://github.com/williamboman/mason-lspconfig.nvim
 https://github.com/neovim/nvim-lspconfig/tree/master
@@ -15,11 +23,6 @@ https://github.com/LunarVim/LunarVim/issues/3413
 ...10.3/nvim-linux64/share/nvim/runtime/lua/vim/lsp/rpc.lua:800: 
 Spawning language server with cmd: `{ "vscode-css-language-server", "--stdio" }` failed. The language server is either not installed, missing from PATH, or not executable.
 
-kc - 76 of ...
-try http
-    hurl
-pg internals 16 - 357
-kafka - 76
 
 ScottGamovKlein - Kafka in Action
     39F3B9630BE2320963068F9CACE55C24
