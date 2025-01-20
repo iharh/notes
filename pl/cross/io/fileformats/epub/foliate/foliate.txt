@@ -3,6 +3,27 @@ https://github.com/johnfactotum/foliate
 
 https://github.com/johnfactotum/foliate/blob/gtk4/docs/faq.md
 
+custom themes
+https://github.com/johnfactotum/foliate/issues/53
+https://github.com/johnfactotum/foliate/blob/gtk4/docs/faq.md#how-to-use-custom-themes
+~/.config/com.github.johnfactotum.Foliate/
+    user-stylesheet.css
+    themes/
+        themes.json
+{
+    "label": "Ghostly Mist",
+    "light": {
+        "fg": "#999999",
+        "bg": "#cccccc",
+        "link": "#666666"
+    },
+    "dark": {
+        "fg": "#666666",
+        "bg": "#333333",
+        "link": "#777777"
+    }
+}
+
 keys
 n/p
 
