@@ -17,6 +17,10 @@ ClickHouse - Kita - Modern SQL in 2023 20:00 of 33:05
     !   ... run_passes=0/1 select id, value from test_table; 
 ListenIT - What ClickHouse is and Columnt DBs ru of 14:46
     https://www.youtube.com/watch?v=2b4heaO3U8k
+2020
+HighLoad - Krasheninnikov - ClickHouse Data Processing Patterns ru 39:00 of 51:47
+    https://www.youtube.com/watch?v=JSLhU_LJ5VE
+    https://highload.ru/spb/2019/abstracts/4862
 2018
 HighLoad - Zatelepin - What Need to Know about CH Arch ru of 51:02
     https://www.youtube.com/watch?v=PLMSA_gDdyM
