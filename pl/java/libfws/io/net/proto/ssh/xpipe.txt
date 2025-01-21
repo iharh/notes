@@ -1,0 +1,53 @@
+https://xpipe.io/
+
+https://github.com/xpipe-io/xpipe
+https://github.com/xpipe-io/xpipe/tree/master/app/src/main/java/io/xpipe/app/util
+https://github.com/xpipe-io/xpipe/blob/master/app/src/main/java/io/xpipe/app/util/VaultKeySecretValue.java
+https://github.com/xpipe-io/xpipe/blob/master/app/src/main/java/io/xpipe/app/util/SshLocalBridge.java
+https://github.com/xpipe-io/xpipe/tree/master/core/src/main/java/io/xpipe/core/util
+https://github.com/xpipe-io/xpipe/blob/master/core/src/main/java/io/xpipe/core/util/EncryptedSecretValue.java
+    ! just base64
+https://github.com/xpipe-io/xpipe/blob/master/core/src/main/java/io/xpipe/core/util/AesSecretValue.java
+    ssh-keygen -q -N -t ed25519 -f
+https://github.com/xpipe-io/xpipe/blob/master/app/src/main/java/io/xpipe/app/util/EncryptionKey.java
+    import java.security.spec.KeySpec;
+    import javax.crypto.SecretKey;
+    import javax.crypto.SecretKeyFactory;
+    import javax.crypto.spec.PBEKeySpec;
+    import javax.crypto.spec.SecretKeySpec;
+    https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2
+    @SneakyThrows
+    public static SecretKey getEncryptedKey(char[] password, byte[] salt) {
+        String algorithm = "PBKDF2WithHmacSHA256";
+        int derivedKeyLength = 256;
+        // https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2
+        int iterations = 600000;
+
+        KeySpec spec = new PBEKeySpec(password, salt, iterations, derivedKeyLength);
+        SecretKeyFactory f = SecretKeyFactory.getInstance(algorithm);
+        return new SecretKeySpec(f.generateSecret(spec).getEncoded(), "AES");
+    }
+https://github.com/xpipe-io/xpipe/blob/master/core/src/main/java/io/xpipe/core/util/InPlaceSecretValue.java
+https://github.com/xpipe-io/xpipe/blob/master/app/src/main/java/io/xpipe/app/util/EncryptionToken.java
+https://github.com/xpipe-io/xpipe/tree/master/core/src/main/java/io/xpipe/core/process
+
+https://xpipe.io/integrations
+
+https://xpipe.io/blog
+
+https://github.com/xpipe-io/kasm-registr
+https://kasm.xpipe.io/1.0/
+
+https://github.com/xpipe-io/xpipe-webtop
+    https://github.com/linuxserver/docker-baseimage-kasmvnc
+
+https://www.youtube.com/@crschnick/videos
+
+2024
+AwesomeOpenSource - xPipe is a fantastic, amazing remote connection manager! 0:00 of 18:42
+    https://www.youtube.com/watch?v=qfqYMyMsutc
+2023
+AwesomeOpenSource - X-pipe - Open Source, Connection Hub for SSH, Powershell, Docker Container access, and so much more 0:00 of 24:58
+    https://www.youtube.com/watch?v=wjd3E0EN2xk
+https://foojay.io/today/presenting-xpipe/
+    SshStore

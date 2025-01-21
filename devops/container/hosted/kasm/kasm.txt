@@ -4,14 +4,17 @@ https://kasmweb.com/community-edition
 https://github.com/kasmtech
 https://github.com/kasmtech/KasmVNC
 https://github.com/kasmtech/terraform
-https://github.com/kasmtech/workspaces-images
-https://github.com/kasmtech/workspaces-core-images
 https://github.com/kasmtech/noVNC
 https://github.com/kasmtech/kasm-install-wizard
 https://github.com/kasmtech/kasm-workspaces-dind
 https://github.com/linuxserver/docker-kasm
 
 https://www.kasmweb.com/docs/latest/index.html
+
+images
+https://github.com/kasmtech/workspaces-images
+https://github.com/kasmtech/workspaces-core-images
+https://kasmweb.com/docs/latest/guide/custom_images.html
 https://kasmweb.com/docs/latest/how_to/building_images.html
 
 https://www.kasmweb.com/kasmvnc.html
@@ -19,6 +22,7 @@ https://www.kasmweb.com/kasmvnc.html
 https://hub.docker.com/u/kasmweb
 https://hub.docker.com/r/kasmweb/desktop-deluxe
 
+https://www.kasmweb.com/images
 https://www.kasmweb.com/workspace_images.html
 
 https://kasmregistry.linuxserver.io/1.0/
