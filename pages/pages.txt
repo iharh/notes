@@ -3,6 +3,8 @@ kina2 - 78 of 1461 (1.2.5)
 bellemare - 21 (ch2)
 pg internals 16 - 357
 kafka - 76
+dnf info ostree-libs
+    deps - ?
 
 !!! jakarta enterprise
     https://www.youtube.com/playlist?list=PLt91xr-Pp57QEnGJPuI4R_VqEXikn2a76
