@@ -9,7 +9,7 @@ https://github.com/jdx/rtx-shorthands
 
 inst
 https://mise.jdx.dev/getting-started.html
-curl https://mise.jdx.dev/install.sh | sh
+    curl https://mise.jdx.dev/install.sh | sh
 
 cli
 mise
