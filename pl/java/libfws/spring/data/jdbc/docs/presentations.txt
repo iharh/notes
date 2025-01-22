@@ -28,6 +28,11 @@ DanVega - Spring Data JDBC Tutorial: How to simplify data access in Spring Boot 
 TechTrain - Belyaev - Exchange Spring Data JPA to Spring Data JDBC 0:00 of 1:01:52
     https://www.youtube.com/watch?v=WB8S_miQNvM
     https://squidex.jugru.team/api/assets/srm/ef7583f9-e5eb-49a3-b04b-36b3c670f627/6bda9419-2b7c-409b-943a-a42a0124e286.pdf
+2021
+SpringDeveloper - Spring Data JDBC: Beyond the Obvious 1:00 of 52:39
+    https://www.youtube.com/watch?v=SJlKBkZ2yAU
+    ! 10:00 - https://docs.spring.io/spring-data/jdbc/docs/current/api/org/springframework/data/jdbc/core/JdbcAggregateTemplate.html
+    ! https://github.com/spring-projects/spring-data-relational/blob/main/spring-data-jdbc/src/main/java/org/springframework/data/jdbc/core/JdbcAggregateTemplate.java
 2019
 SpringDeveloper - Domain-Driven Design with Relational Databases Using Spring Data JDBC of 1:10:29
     https://www.youtube.com/watch?v=GOSW911Ox6s
