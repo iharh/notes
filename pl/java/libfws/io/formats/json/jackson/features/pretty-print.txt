@@ -1,4 +1,5 @@
 https://stackoverflow.com/questions/14515994/convert-json-string-to-pretty-print-json-output-using-jackson
 mapper.withDefaultPrettyPrintingWriter().writeValueAsString(jsonString)
+writerWithDefaultPrettyPrinter()
 
 objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
