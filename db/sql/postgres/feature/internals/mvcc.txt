@@ -18,7 +18,7 @@ https://dev.to/nilelazarus/series/23873
     https://dev.to/nilelazarus/demystifying-the-internals-of-postgresql-chapter-5-2pe4
 
 2024
-Otus - MVCC, vacuum and autovacuum in PG ru 32..37:00 of 1:22:40
+Otus - MVCC, vacuum and autovacuum in PG ru 53:00 of 1:22:40
     https://www.youtube.com/watch?v=mrobq6Ggggc
     ! 12:00 - pg_size_pretty, pg_total_relation_size
     ! 25:00 - insert
@@ -32,8 +32,10 @@ Otus - MVCC, vacuum and autovacuum in PG ru 32..37:00 of 1:22:40
     ! 28:00 select *, xmin, xmax, cmin, cmax, ctid from user_data;
     ! 29:00 select * from pg_stat_user_tables;
     !   n_live_tup, n_dead_tup, ratio%, last_autovacuum, ...
-    ! 31:00 - ... from heap_page_items(get_raw_page('user_data', 0)) -- neet to set some ext
-    ! 
+    ! 31:00 - ... from heap_page_items(get_raw_page('user_data', 0)) -- neet to set ext
+    !   https://www.postgresql.org/docs/current/pageinspect.html
+    ! 44:00 vacuum_cost_delay, vacuum_cost_limit, vacuum_cost_page_miss, vacuum_cost_page_dirty
+    ! 55:00 vacuum verbose <rel>;
 2022
 https://habr.com/ru/companies/quadcode/articles/671254/
     !
