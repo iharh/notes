@@ -1,3 +1,6 @@
 2025
-Otus - Rudnov - NIO2 intro 15:00 of 1:37:09
+Otus - Rudnov - NIO2 intro of 1:37:09
     https://www.youtube.com/watch?v=apDCLGEcRB8
+    ! 23:00   nio is buffer/channel oriented and non-blocking
+    ! 55:00   need to call .flip() for channel in order to switch writer/read
+    ! 1:05:00 selector - entity for waiting events impl
