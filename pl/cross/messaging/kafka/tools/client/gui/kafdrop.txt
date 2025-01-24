@@ -1,3 +1,17 @@
 https://github.com/obsidiandynamics/kafdrop
 
 with nginx
+
+https://hub.docker.com/r/obsidiandynamics/kafdrop
+https://github.com/obsidiandynamics/kafdrop?tab=readme-ov-file#running-with-docker
+docker run -d --rm -p 9000:9000 \
+    -e KAFKA_BROKERCONNECT=<host:port,host:port> \
+    -e JVM_OPTS="-Xms32M -Xmx64M" \
+    -e SERVER_SERVLET_CONTEXTPATH="/" \
+    obsidiandynamics/kafdrop
+
+!!! env vars
+https://github.com/obsidiandynamics/kafdrop/blob/master/chart/templates/deployment.yaml
+
+https://github.com/obsidiandynamics/kafdrop/tree/master/chart
+https://github.com/obsidiandynamics/kafdrop/blob/master/chart/values.yaml
