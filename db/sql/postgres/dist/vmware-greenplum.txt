@@ -1,5 +1,8 @@
 https://greenplum.org/
+MPP - massive parallel processing
+
 https://en.wikipedia.org/wiki/Greenplum
+
 https://github.com/greenplum-db/gpdb
 
 https://greenplum.docs.pivotal.io/6-20/main/index.html
@@ -8,6 +11,8 @@ https://network.pivotal.io/products/vmware-tanzu-greenplum
 https://gpdb.docs.pivotal.io/6-17/main/index.html
 https://gpdb.docs.pivotal.io/6-17/admin_guide/intro/arch_overview.html
 
+2024
+https://habr.com/ru/articles/797361/
 2022
 Slurm - Southbridge - DWN using Greenplum Webinar ru 0:00 of 1:10:06
     https://www.youtube.com/watch?v=BaOQYSWNLwI

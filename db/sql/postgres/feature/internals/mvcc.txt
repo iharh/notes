@@ -34,6 +34,7 @@ Otus - MVCC, vacuum and autovacuum in PG ru 53:00 of 1:22:40
     !   n_live_tup, n_dead_tup, ratio%, last_autovacuum, ...
     ! 31:00 - ... from heap_page_items(get_raw_page('user_data', 0)) -- neet to set ext
     !   https://www.postgresql.org/docs/current/pageinspect.html
+    !   https://eax.me/pageinspect/
     ! 44:00 vacuum_cost_delay, vacuum_cost_limit, vacuum_cost_page_miss, vacuum_cost_page_dirty
     ! 55:00 vacuum verbose <rel>;
 2022

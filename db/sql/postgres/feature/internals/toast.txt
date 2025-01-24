@@ -17,3 +17,5 @@ alter table <tblname> alter column <columnname> set storage <storagename>;
 
 2023
 https://habr.com/ru/company/postgrespro/blog/710104/
+2022
+https://eax.me/postgresql-toast/
