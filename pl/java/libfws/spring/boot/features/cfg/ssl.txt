@@ -19,6 +19,15 @@ https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spr
 
 management.info.ssl.enabled=true
 
+https://github.com/obsidiandynamics/kafdrop/blob/master/src/main/resources/application.yml
+server:
+  ssl:
+    key-store-type: ${SSL_KEY_STORE_TYPE:PKCS12}
+    key-store: ${SSL_KEY_STORE:}
+    key-store-password: ${SSL_KEY_STORE_PASSWORD:}
+    key-alias: ${SSL_KEY_ALIAS:}
+    enabled: ${SSL_ENABLED:false}
+
 server:
   port: 8443
   ssl:

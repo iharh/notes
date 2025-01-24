@@ -11,7 +11,32 @@ docker run -d --rm -p 9000:9000 \
     obsidiandynamics/kafdrop
 
 !!! env vars
+https://github.com/obsidiandynamics/kafdrop/tree/master?tab=readme-ov-file#basic-configuration
 https://github.com/obsidiandynamics/kafdrop/blob/master/chart/templates/deployment.yaml
 
 https://github.com/obsidiandynamics/kafdrop/tree/master/chart
 https://github.com/obsidiandynamics/kafdrop/blob/master/chart/values.yaml
+
+https://github.com/obsidiandynamics/kafdrop/blob/master/src/main/java/kafdrop/controller/MessageController.java
+https://github.com/obsidiandynamics/kafdrop/tree/master/src/main/java/kafdrop/service
+https://github.com/obsidiandynamics/kafdrop/blob/master/src/main/java/kafdrop/service/KafkaHighLevelAdminClient.java
+    import org.apache.kafka.clients.admin.AdminClient;
+https://github.com/obsidiandynamics/kafdrop/blob/master/src/main/java/kafdrop/service/KafkaHighLevelConsumer.java
+    import org.apache.kafka.clients.consumer.ConsumerConfig;
+    import org.apache.kafka.clients.consumer.ConsumerRecord;
+    import org.apache.kafka.clients.consumer.ConsumerRecords;
+    import org.apache.kafka.clients.consumer.KafkaConsumer;
+    import org.apache.kafka.clients.consumer.OffsetAndTimestamp;
+https://github.com/obsidiandynamics/kafdrop/blob/master/src/main/java/kafdrop/service/KafkaHighLevelProducer.java
+    import org.apache.kafka.clients.producer.KafkaProducer;
+    import org.apache.kafka.clients.producer.ProducerConfig;
+    import org.apache.kafka.clients.producer.ProducerRecord;
+    import org.apache.kafka.clients.producer.RecordMetadata;
+https://github.com/obsidiandynamics/kafdrop/blob/master/src/main/java/kafdrop/service/KafkaMonitor.java
+https://github.com/obsidiandynamics/kafdrop/blob/master/src/main/java/kafdrop/service/KafkaMonitorImpl.java
+    private final KafkaHighLevelConsumer highLevelConsumer;
+    private final KafkaHighLevelAdminClient highLevelAdminClient;
+    private final KafkaHighLevelProducer highLevelProducer;
+
+https://github.com/obsidiandynamics/kafdrop/blob/master/src/main/java/kafdrop/service/MessageInspector.java
+    private final KafkaMonitor kafkaMonitor;
