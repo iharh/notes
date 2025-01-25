@@ -13,6 +13,15 @@ https://habrahabr.ru/company/JetBrains/blog/335646/
     181.4203.550.vmoptions
 ??? /ch-1/
 
+right margin
+https://otvet.mail.ru/question/188453398
+https://intellij-support.jetbrains.com/hc/en-us/community/posts/206341649-Right-margin
+    Editor -> 
+        Appearance ->
+            Show Hard Wrap and Visual Guides
+        Code Style -> 
+            Hard Wrap At
+            Visual Guides
 
 files
 .config/JetBrains/IdeaIC<YYYY.N>

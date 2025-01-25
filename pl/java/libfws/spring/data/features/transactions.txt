@@ -2,6 +2,9 @@ https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html
 
 baeldung
 https://www.baeldung.com/spring-programmatic-transaction-management
+2025
+JavaTechie - Spring Transaction of p4
+    https://www.youtube.com/playlist?list=PLVz2XdJiJQxxj_zMhm6zCPO6zhtOcq-wl
 2023
 https://reflectoring.io/spring-transactions-and-exceptions/
     rollbackFor, noRollbackFo, default - onnly in the case of runtime, unchecked exceptions (RuntimeException, Error)
