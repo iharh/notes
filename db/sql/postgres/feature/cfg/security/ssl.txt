@@ -1,3 +1,31 @@
 https://www.postgresql.org/docs/current/ssl-tcp.html
+https://postgrespro.ru/docs/postgrespro/current/sslinfo
+https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-SSL-VIEW
 
 https://www.opswat.com/docs/mdcore/installation/ssl-connection-for-postgresql-communication
+
+https://www.postgresql.org/docs/current/sslinfo.html
+
+https://docs.arenadata.io/adb/adminguide/sslencr.html
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.SSL.html
+
+https://doxygen.postgresql.org/sslinfo_8c_source.html
+
+https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-connect-tls-ssl
+    psql "sslmode=verify-full sslrootcert=/path-to/DigiCertGlobalRootCA.crt.pem host=mydemoserver.postgres.database.azure.com dbname=postgres user=myadmin"
+
+2025
+https://www.ibm.com/docs/en/sqsp/51?topic=dr-step-3-configuring-postgres-ssl
+2024
+https://goteleport.com/learn/postgresql-ssl-authentication-guide/
+https://dev.to/dm8ry/postgresql-how-to-check-connections-that-are-not-using-ssl-encryption-42am
+    SELECT usename, datname, ssl, client_addr, query 
+    FROM pg_stat_ssl 
+    JOIN pg_stat_activity ON pg_stat_ssl.pid = pg_stat_activity.pid 
+    WHERE ssl!='t'
+2023
+https://demirhuseyinn-94.medium.com/postgresql-ssl-configuration-to-connect-database-114f867d96e0
+2022
+https://knowledge.informatica.com/s/article/DOC-19085?language=en_US
+2021
+https://www.cybertec-postgresql.com/en/setting-up-ssl-authentication-for-postgresql/

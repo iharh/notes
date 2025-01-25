@@ -13,3 +13,5 @@ postgresql.auto.conf
     alter system set/reset <par> to <val>;
 
 select pg_settings from pg_show_all_settings ...
+!!!
+show config_file;

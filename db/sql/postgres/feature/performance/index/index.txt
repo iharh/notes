@@ -1,5 +1,12 @@
 https://postgrespro.ru/docs/postgresql/14/indexes-types
 
+!!!
+https://github.com/ankane/pghero/blob/master/lib/pghero/methods/indexes.rb
+https://github.com/ankane/pghero/blob/master/lib/pghero/methods/suggested_indexes.rb
+https://github.com/ankane/pghero/blob/master/lib/pghero/methods/maintenance.rb
+https://github.com/ankane/pghero/blob/master/lib/pghero/methods/space.rb
+https://github.com/ankane/pghero/blob/master/lib/pghero/methods/queries.rb
+
 create index <name>
     on ... concurrently;
 

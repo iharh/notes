@@ -1,0 +1,5 @@
+pg_available_extensions (available for install)
+    https://www.postgresql.org/docs/current/view-pg-available-extensions.html
+
+pg_extension (installed)
+    https://www.postgresql.org/docs/current/catalog-pg-extension.html
