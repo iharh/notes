@@ -1,18 +1,12 @@
 https://wiki.archlinux.org/title/PulseAudio
+https://wiki.archlinux.org/title/PulseAudio/Examples
 https://wiki.gentoo.org/wiki/PulseAudio
+https://wiki.ubuntu.com/PulseAudio
+
 https://habr.com/ru/articles/106806/
     /etc/asound.conf
     /etc/pulse/client.conf
     ~/.config/pulse/default.pa
-    pactl
-    https://www.baeldung.com/linux/boost-sound-volume-above-max
-    https://megamorf.gitlab.io/2018/12/16/set-audio-volume-from-command-line/
-
-PulseAudio
-https://wiki.archlinux.org/index.php/PulseAudio
-https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting
-https://wiki.archlinux.org/index.php/PulseAudio/Examples
-https://wiki.ubuntu.com/PulseAudio
 
 https://bbs.archlinux.org/viewtopic.php?id=164868
 
@@ -31,10 +25,6 @@ and that's it.
 
 https://forum.manjaro.org/index.php?topic=4809.0
     manjaro-pulse, pavucontrol, pulseaudio, pulseaudio-alsa
-
-
-pactl
-    list short sinks
 
 /etc/pulse/default.pa
 ~/.config/pulse/default.pa

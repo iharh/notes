@@ -1,3 +1,79 @@
 #!/bin/bash 
 vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
 echo "${vol}% volume "
+
+tui
+$ alsamixer
+F2
+/proc/asound/version
+/proc/asound/cards
+    0 HD-Audio Generic
+      ATI R6xx HDMI
+      pavucontrol: Renoir Radeon HD Audio Controller Digital Stereo (HDMI)
+      ??? monitor speakers
+
+    1 HD-Audio Generic
+      Realtec ALCS1200A
+      pavucontrol: Family 17h/19h/1ah HD Audio Controller Analog Stereo
+      ??? speakers
+
+    2 USB Audio - USB Audio Device
+      General Pulse USD Audio Device at usb-0000:06:00
+    3 HD WebCam C270
+      USB Mixer
+/proc/asound/devices
+/proc/asound/oss/devices
+/proc/asound/timers
+/proc/asound/pcm
+
+F6, S - select sound card
+
+baeldung
+https://www.baeldung.com/linux/volume-level-command-line
+
+$ amixer info
+Card default 'pipewire'/'PipeWire'
+  Mixer name    : 'PipeWire'
+  Components    : ''
+  Controls      : 4
+  Simple ctrls  : 2
+
+$ amixer scontrols
+Simple mixer control 'Master',0
+Simple mixer control 'Capture',0
+
+$ amixer scontents
+Simple mixer control 'Master',0
+  Capabilities: pvolume pswitch pswitch-joined
+  Playback channels: Front Left - Front Right
+  Limits: Playback 0 - 65536
+  Mono:
+  Front Left: Playback 28847 [44%] [on]
+  Front Right: Playback 28847 [44%] [on]
+Simple mixer control 'Capture',0
+  Capabilities: cvolume cswitch cswitch-joined
+  Capture channels: Front Left - Front Right
+  Limits: Capture 0 - 65536
+  Front Left: Capture 21845 [33%] [on]
+  Front Right: Capture 21845 [33%] [on]
+
+$ amixer controls
+numid=4,iface=MIXER,name='Master Playback Switch'
+numid=3,iface=MIXER,name='Master Playback Volume'
+numid=2,iface=MIXER,name='Capture Switch'
+numid=1,iface=MIXER,name='Capture Volume'
+
+$ amixer contents
+numid=4,iface=MIXER,name='Master Playback Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=3,iface=MIXER,name='Master Playback Volume'
+  ; type=INTEGER,access=rw------,values=2,min=0,max=65536,step=1
+  : values=28847,28847
+numid=2,iface=MIXER,name='Capture Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=1,iface=MIXER,name='Capture Volume'
+  ; type=INTEGER,access=rw------,values=2,min=0,max=65536,step=1
+  : values=21845,21845
+

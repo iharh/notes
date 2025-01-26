@@ -1,2 +1,11 @@
 https://pipewire.org/
 https://gitlab.freedesktop.org/pipewire/pipewire
+
+https://wiki.archlinux.org/title/PipeWire
+
+pwvucontrol
+https://github.com/saivert/pwvucontrol
+
+no
+pulseaudio.service
+pipewire-pulse.service

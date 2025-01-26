@@ -1,0 +1,16 @@
+https://wiki.archlinux.org/title/WirePlumber#Keyboard_volume_control
+
+wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+
+wpctl get-volume @DEFAULT_AUDIO_SINK@
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+mute/unmute the volume
+wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+mute/unmite microphone
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+???
+https://kowalcj0.github.io/2022/01/09/handy-pipewire-commands-and-tools/
+/etc/wireplumber/wireplumber.conf.d

@@ -1,0 +1,21 @@
+https://www.baeldung.com/linux/boost-sound-volume-above-max
+https://megamorf.gitlab.io/2018/12/16/set-audio-volume-from-command-line/
+
+pactl list [short] sinks
+54      alsa_output.pci-0000_06_00.1.hdmi-stereo        PipeWire        s32le 2ch 48000Hz       SUSPENDED
+59      alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo   PipeWire        s16le 2ch 48000Hz       RUNNING
+61      alsa_output.pci-0000_06_00.6.analog-stereo      PipeWire        s32le 2ch 48000Hz       SUSPENDED
+
+https://linux.die.net/man/1/pactl
+pactl [options] suspend-sink [SINK] 1|0
+pactl [options] suspend-source [SOURCE] 1|0 
+
+pactl list sinks | grep -B1 -A9 State:
+    ...
+    Driver: PipeWire
+
+pactl set-sink-volume @DEFAULT_SINK@ +5%
+pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+pamixer -i 5 #to increase 5%
+pamixer -d 5 #to decrease 5%
