@@ -26,6 +26,9 @@ SmartData - Shutak - Insert into ClickHouse and not to die of 1:01:45
     ! 18:00 - insert_deduplicate (shocking default behavior)
     ! 40:00 - Kafka Engine and shards unballancing fight
     !!! https://github.com/odnoklassniki/spark-to-clickhouse-sink
+2021
+Percona - Robert Hodges and Alexander Zaitsev - ClickHouse Developer Tutorial, Part 1 - Intro to ClickHouse 35:00 of 1:05:39
+    https://www.youtube.com/watch?v=WVk5_tQ-wx8
 2020
 HighLoad - Krasheninnikov - ClickHouse Data Processing Patterns ru of 51:47
     https://www.youtube.com/watch?v=JSLhU_LJ5VE

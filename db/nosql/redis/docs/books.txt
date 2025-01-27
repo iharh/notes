@@ -1,0 +1,44 @@
+2021
+KaleKulkarni - Redis Deep Dive
+    2FDC3D91F070C9EE0AF470E948A2B6B5
+    16C0779B3354E292FA702FACF9617FC8
+    ! dirty and ugly
+Suehring - Redis for Dummies 2nd ed
+    9B233E13C8C550DCD8E9258CDAF99BBF
+    ! p96, js samples, redis search
+    ! redis-cli
+    https://github.com/RedisLabs/redis-for-dummies
+2018
+HuangCu - Redis 4 Cookbook
+    A9ED2821A5B81A6E7F3851CCC6E39310
+    https://www.wildberries.by/catalog/21889575/detail.aspx
+    ! 39 bin
+2017
+Seguin - The Little Redis Book
+    4F3972B847D44F79CE8C90AADE24A28A
+    ! 32p
+2016
+Nelson - Mastering Redis
+    C63CF93623E3ABDB1F1C124A037BF795
+    https://www.wildberries.by/catalog/21887824/detail.aspx
+    ! 44 bin, py-based samples, src-code of redis itself
+2015
+Das - Learning Redis
+    0F4A4FD940F5C27579042D799CD0D228
+    C2F2772421528988F6169090B9A600ED
+    ! Java, Jedis-based samples, pub-sub, pipelines
+DaSilvaTavares - Redis Essentials
+    5E669E7DD5B1AE4AC33558978E88E165
+    26C5168C7542A566EFE54EE0E813D1B0
+    js samples
+2013
+Carlson - Redis in Action of 322p
+    8F34D16FB6315B3F76D721F820761E85
+    0D2BF1E7F7A1ABF3F6A39203141F5A44
+    6C3235E66EC3BD02D79BFD21C14CEE11
+    75CCA3E72701F61C0E7B40ED2605320D
+    ! py samples
+    ! searching
+Palmer - Instant Redis Persistence
+    https://www.wildberries.by/catalog/21888788/detail.aspx
+    ! 34 bin
