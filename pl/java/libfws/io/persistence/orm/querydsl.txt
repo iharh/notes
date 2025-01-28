@@ -5,6 +5,11 @@ https://github.com/querydsl/querydsl
 es
 https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/java-query-dsl.html
 
+projections
+При использовании Projections и QueryDSL, вместо того чтобы использовать Projections.constructor(Class type, Expression ...), 
+можно добиться большей типобезопасности, применяя аннотации @QueryProjection и @QueryEntity. 
+Таким образом, для вашей проекции будет сгенерирован типобезопасный QClass.
+
 2024
 JavalinUa - Subquery в Criteria API і QueryDSL | JavalinUa | Java | Hibernate | Postgresql 0:00 of 21:38
     https://www.youtube.com/watch?v=k6XGo0NjMLA
