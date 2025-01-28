@@ -15,6 +15,8 @@ JUGNsk - Sitnikov - Fundamentals and Details Mechanics of Java Exceptions of 1:0
     ! 46:00 StackWalker.getInstance(RETAIN_CLASS_REFERENCE).getCallerClass();
     !       StackWalker.getInstance().walk(s -> s.findFirst().get().getLineNumber());
 2022
+CSC - Valeev - Ex, try-catch and generics 0:00 of 1:35:15
+    https://www.youtube.com/watch?v=9yt4SiA7OiU
 Devoxx - Subramaniam - Exception Handling in Functional and Reactive Programming of 2:29:17
     https://www.youtube.com/watch?v=S5tLVsvbHBg
 2021

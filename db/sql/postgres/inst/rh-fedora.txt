@@ -1,0 +1,12 @@
+https://www.postgresql.org/download/linux/redhat/
+
+sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-41-x86_64/pgdg-fedora-repo-latest.noarch.rpm
+sudo dnf install postgresql17
+
+#sudo dnf install -y postgresql17-server
+#sudo /usr/pgsql-17/bin/postgresql-17-setup initdb
+#sudo systemctl enable postgresql-17
+#sudo systemctl start postgresql-17
+
+???
+postgresql-client
