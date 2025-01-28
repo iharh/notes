@@ -1,0 +1,7 @@
+https://github.com/keycloak/keycloak/blob/main/core/src/main/java/org/keycloak/TokenVerifier.java
+https://www.keycloak.org/docs-api/latest/javadocs/org/keycloak/TokenVerifier.html#issuedFor(java.lang.String)
+
+https://github.com/keycloak/keycloak/blob/main/core/src/main/java/org/keycloak/representations/JsonWebToken.java
+    org.keycloak.representations.JsonWebToken.getIssuedFor()
+
+import static org.keycloak.representations.JsonWebToken.AZP;
