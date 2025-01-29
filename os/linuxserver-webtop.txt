@@ -5,7 +5,7 @@ https://www.kasmweb.com/docs/latest/license.html
 
 https://github.com/linuxserver
 https://github.com/linuxserver/docker-webtop
-!!!
+!!! (alpine/based)
 https://docs.linuxserver.io/images/docker-webtop
 https://github.com/linuxserver/docker-webtop/blob/master/Dockerfile
     FROM ghcr.io/linuxserver/baseimage-kasmvnc:alpine321
@@ -14,8 +14,31 @@ https://github.com/linuxserver/docker-webtop?tab=readme-ov-file#docker-compose-r
 https://github.com/linuxserver/docker-baseimage-kasmvnc
 https://github.com/linuxserver/docker-baseimage-kasmvnc/blob/master/Dockerfile
     FROM node:12-buster AS wwwstage
+    FROM alpine:...
     wget https://github.com/kasmtech/noVNC/tarball/${KASMWEB_RELEASE} -O - \
     | tar  --strip-components=1 -xz &&
+
+!!! fedora
+https://github.com/fedora-cloud/docker-brew-fedora/tree/41
+    systemd-libs
+https://github.com/linuxserver/docker-baseimage-fedora
+https://github.com/linuxserver/docker-baseimage-fedora/blob/master/Dockerfile
+    ??? 
+    FROM alpine:3 as rootfs-stage
+    ...
+    git clone --depth 1 -b ${FEDORA_VERSION} https://github.com/fedora-cloud/docker-brew-fedora.git
+    ...
+    # set version for s6 overlay
+    ARG S6_OVERLAY_VERSION="3.2.0.2"
+    ARG S6_OVERLAY_ARCH="x86_64"
+
+    # add s6 overlay
+    ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
+    RUN tar -C /root-out -Jxpf /tmp/s6-overlay-noarch.tar.xz
+    ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${S6_OVERLAY_ARCH}.tar.xz /tmp
+    RUN tar -C /root-out -Jxpf /tmp/s6-overlay-${S6_OVERLAY_ARCH}.tar.xz
+    ...
+    https://github.com/just-containers/s6-overlay/releases
 
 https://docs.linuxserver.io/
 https://docs.linuxserver.io/images/docker-webtop/#native-apps
@@ -100,6 +123,9 @@ https://github.com/kasmtech/workspaces-core-images/blob/develop/src/ubuntu/insta
 !!!
 https://github.com/kasmtech/workspaces-core-images/blob/develop/dockerfile-kasm-core
 
+docker-hub
+    https://kasmweb.com/docs/latest/guide/custom_images.html
+    https://hub.docker.com/u/kasmweb
 ubuntu
     https://hub.docker.com/r/kasmweb/ubuntu-noble-desktop
     https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-ubuntu-noble-desktop
@@ -111,6 +137,17 @@ ubuntu
     https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-ubuntu-noble-dind
     https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-ubuntu-noble-dind-rootless
 
+    https://hub.docker.com/r/kasmweb/ubuntu-noble-desktop
+fedora
+    https://hub.docker.com/r/kasmweb/core-fedora-40
+    https://github.com/kasmtech/workspaces-core-images/blob/develop/dockerfile-kasm-core-fedora
+    https://hub.docker.com/r/kasmweb/fedora-40-desktop
+    https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-fedora-40-desktop
+        ARG BASE_TAG="develop"
+        ARG BASE_IMAGE="core-fedora-40"
+        FROM kasmweb/$BASE_IMAGE:$BASE_TAG
+
+        sudo docker run --rm -it --shm-size=512m -p 6901:6901 -e VNC_PW=password kasmweb/fedora-40-desktop:1.16.0
 
 vpn
 https://www.kasmweb.com/docs/latest/how_to/vpn_sidecar/vpn_sidecar.html
