@@ -1,0 +1,8 @@
+https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/digest/HmacUtils.html
+https://commons.apache.org/proper/commons-codec/jacoco/org.apache.commons.codec.digest/HmacUtils.java.html
+
+https://github.com/apache/commons-codec/blob/master/src/main/java/org/apache/commons/codec/digest/HmacAlgorithms.java
+https://github.com/apache/commons-codec/blob/master/src/main/java/org/apache/commons/codec/digest/HmacUtils.java
+
+baeldung
+https://www.baeldung.com/java-hmac

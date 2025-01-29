@@ -1,6 +1,59 @@
+https://www.linuxserver.io/
+
+
+https://github.com/linuxserver
 https://github.com/linuxserver/docker-webtop
+
+https://docs.linuxserver.io/
+https://docs.linuxserver.io/images/docker-webtop/#native-apps
+
+images
+https://fleet.linuxserver.io/
+https://hub.docker.com/u/linuxserver
+    https://hub.docker.com/r/linuxserver/firefox
+    https://github.com/linuxserver/docker-firefox
+
+base-image
+https://github.com/linuxserver/docker-baseimage-kasmvnc
+
+kasm
+https://www.kasmweb.com/community-edition
+https://www.kasmweb.com/downloads
+https://www.youtube.com/@KasmWorkspaces/videos
+    inst
+        https://www.youtube.com/watch?v=BYJ0M04cD18
+    ug
+        https://www.youtube.com/watch?v=EJ5TYZLvJ70
+    workspaces cfg
+        https://www.youtube.com/watch?v=JkYF20Kq4G8
+    admin course
+        https://www.youtube.com/watch?v=kSvW6m_CksI
+    custom images
+        https://www.youtube.com/watch?v=BGP69_f1wq0
+
+dev api
+https://www.kasmweb.com/developer-api
+https://kasmweb.com/docs/latest/developers/developer_api.html
+
+inst
+https://kasmweb.com/docs/latest/install/single_server_install.html
+
+s6 init-system
+https://skarnet.org/
+https://skarnet.org/poweredby.html
+
+https://skarnet.org/software/
+https://skarnet.org/software/s6/
+https://skarnet.org/software/s6/why.html
+https://skarnet.org/software/s6/index.html
+https://skarnet.org/software/s6/overview.html
+https://skarnet.org/software/s6/s6-log.html
+    https://github.com/just-containers/s6-overlay
+https://skarnet.org/software/s6-rc/
+https://skarnet.org/software/execline/
 
 2023
 https://www.linuxserver.io/blog/webtop-2-0-the-year-of-the-linux-desktop
 2019
 https://www.linuxserver.io/blog/2019-02-21-the-lsio-pipeline-project
+    docker run --rm --privileged multiarch/qemu-user-static:register --reset
