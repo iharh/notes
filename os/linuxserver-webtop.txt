@@ -1,5 +1,7 @@
 https://www.linuxserver.io/
 
+https://www.kasmweb.com/docs/latest/index.html
+https://www.kasmweb.com/docs/latest/license.html
 
 https://github.com/linuxserver
 https://github.com/linuxserver/docker-webtop
@@ -15,6 +17,11 @@ https://hub.docker.com/u/linuxserver
 
 base-image
 https://github.com/linuxserver/docker-baseimage-kasmvnc
+https://hub.docker.com/r/kasmweb/core-ubuntu-noble
+https://github.com/kasmtech/workspaces-core-images/blob/develop/dockerfile-kasm-core
+    ! sysbox
+https://hub.docker.com/r/kasmweb/desktop
+    ! try
 
 kasm
 https://www.kasmweb.com/community-edition
@@ -30,6 +37,72 @@ https://www.youtube.com/@KasmWorkspaces/videos
         https://www.youtube.com/watch?v=kSvW6m_CksI
     custom images
         https://www.youtube.com/watch?v=BGP69_f1wq0
+        https://www.kasmweb.com/docs/latest/guide/custom_images.html#rolling-images
+        https://www.kasmweb.com/docs/latest/how_to/building_images.html
+            FROM kasmweb/core-ubuntu-focal:1.16.1
+        https://hub.docker.com/r/kasmweb/core-ubuntu-noble
+        https://www.kasmweb.com/docs/latest/guide/sessions.html#create-image-from-session
+            https://github.com/kasmtech/workspaces-images
+        https://www.kasmweb.com/docs/latest/how_to/image_maintenance.html
+    root
+        https://www.youtube.com/watch?v=G8c5Fq0Dx94
+        https://www.kasmweb.com/docs/latest/how_to/running_as_root.html
+    volume mapping
+        https://www.kasmweb.com/docs/latest/guide/persistent_data/volume_mapping.html
+    ssh
+        https://www.kasmweb.com/docs/latest/guide/compute/servers.html
+    scale
+        https://www.kasmweb.com/docs/latest/guide/compute/pools.html#autoscale-scheduling
+    sysbox
+        https://www.youtube.com/watch?v=4Wuz7laoLGw
+        https://hub.docker.com/r/alphabravocompany/kasm-ubuntu-sysbox/
+        https://kasmweb.com/docs/develop/how_to/sysbox_runtime.html
+        https://github.com/nestybox/sysbox
+        https://github.com/nestybox/sysbox/tree/master/docs/quickstart
+        https://github.com/nestybox/sysbox/blob/master/docs/quickstart/README.md
+        https://github.com/nestybox/sysbox/tree/master/docs/user-guide
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/features.md
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/security.md
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/install-package.md
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/deploy.md
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/design.md
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/configuration.md
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/concepts.md
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/images.md
+        https://github.com/nestybox/sysbox/blob/master/docs/distro-compat.md#supported-linux-distros
+        https://medium.kasmweb.com/sysbox-docker-isolation-for-rootless-containers-fbc1be64b59f
+        !!!
+        https://github.com/nestybox/sysbox/blob/master/docs/user-guide/systemd.md
+    browser-ext
+        https://www.kasmweb.com/docs/latest/how_to/kasm_extension.html
+        https://addons.mozilla.org/en-US/firefox/addon/kasm-open-in-isolation/
+        https://chromewebstore.google.com/detail/kasm-open-in-isolation/pamimfbchojeflegdjgijcgnoghgfemn?hl=en&pli=1
+
+images
+https://registry.dev.kasmweb.net/1.0/
+https://github.com/kasmtech/workspaces-images
+https://github.com/kasmtech/workspaces-core-images
+https://github.com/kasmtech/workspaces-core-images/blob/develop/dockerfile-kasm-core
+    install_systemd.sh
+    RUN bash $INST_SCRIPTS/sysbox/install_systemd.sh && rm -rf $INST_SCRIPTS/sysbox/
+https://github.com/kasmtech/workspaces-core-images/blob/develop/src/ubuntu/install/sysbox/install_systemd.sh
+!!!
+https://github.com/kasmtech/workspaces-core-images/blob/develop/dockerfile-kasm-core
+
+ubuntu
+    https://hub.docker.com/r/kasmweb/ubuntu-noble-desktop
+    https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-ubuntu-noble-desktop
+    https://github.com/kasmtech/workspaces-images/tree/develop/src/ubuntu/install
+    https://github.com/kasmtech/workspaces-images/tree/develop/src/ubuntu/install/firefox
+    https://github.com/kasmtech/workspaces-images/blob/develop/src/ubuntu/install/firefox/install_firefox.sh
+    https://github.com/kasmtech/workspaces-images/blob/develop/src/ubuntu/install/firefox/custom_startup.sh
+    .
+    https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-ubuntu-noble-dind
+    https://github.com/kasmtech/workspaces-images/blob/develop/dockerfile-kasm-ubuntu-noble-dind-rootless
+
+
+vpn
+https://www.kasmweb.com/docs/latest/how_to/vpn_sidecar/vpn_sidecar.html
 
 dev api
 https://www.kasmweb.com/developer-api
@@ -57,3 +130,17 @@ https://www.linuxserver.io/blog/webtop-2-0-the-year-of-the-linux-desktop
 2019
 https://www.linuxserver.io/blog/2019-02-21-the-lsio-pipeline-project
     docker run --rm --privileged multiarch/qemu-user-static:register --reset
+
+faq
+https://www.kasmweb.com/docs/latest/FAQ.html
+
+There are two options for customizing the Workspace set at installation time.
+There is a -I or –no-images option for install.sh that will instruct the installer to not pre seed any default Kasm Workspaces.
+
+After extracting the installation zip, but before running the install.sh, 
+    you can edit “kasm_release/conf/database/seed_data/default_images_amd64.yaml” 
+    or           “kasm_release/conf/database/seed_data/default_images_arm64.yaml” 
+    depending on the architecture of the host you are installing on. 
+Editing these files will allow you to customize the set of Workspaces that are installed during Kasm Workspaces installation.
+
+
