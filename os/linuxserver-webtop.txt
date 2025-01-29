@@ -5,6 +5,17 @@ https://www.kasmweb.com/docs/latest/license.html
 
 https://github.com/linuxserver
 https://github.com/linuxserver/docker-webtop
+!!!
+https://docs.linuxserver.io/images/docker-webtop
+https://github.com/linuxserver/docker-webtop/blob/master/Dockerfile
+    FROM ghcr.io/linuxserver/baseimage-kasmvnc:alpine321
+https://github.com/linuxserver/docker-webtop?tab=readme-ov-file#docker-compose-recommended-click-here-for-more-info
+    docker-compose pull webtop
+https://github.com/linuxserver/docker-baseimage-kasmvnc
+https://github.com/linuxserver/docker-baseimage-kasmvnc/blob/master/Dockerfile
+    FROM node:12-buster AS wwwstage
+    wget https://github.com/kasmtech/noVNC/tarball/${KASMWEB_RELEASE} -O - \
+    | tar  --strip-components=1 -xz &&
 
 https://docs.linuxserver.io/
 https://docs.linuxserver.io/images/docker-webtop/#native-apps
@@ -131,6 +142,12 @@ EasySelfHost - Webtop: Run a Linux Desktop in Your Browser with a Lightweight Do
     https://www.youtube.com/watch?v=PGBwfUkfTlY
         lscr.io/linuxserver/webtop:ubuntu-kde
 https://www.linuxserver.io/blog/webtop-2-0-the-year-of-the-linux-desktop
+2021
+https://medium.com/featurepreneur/webtop-running-linux-desktop-inside-a-container-in-the-browser-d8de91192276
+TechnoTim - Linux desktop, inside of a container, inside of a browser??? Yes. A Webtop. 0:00 of 18:15
+    https://www.youtube.com/watch?v=Gd9bvdkIXOQ
+    https://github.com/techno-tim/launchpad/tree/master/docker/webtop
+    https://github.com/techno-tim/launchpad/blob/master/docker/webtop/docker-compose.yml
 2019
 https://www.linuxserver.io/blog/2019-02-21-the-lsio-pipeline-project
     docker run --rm --privileged multiarch/qemu-user-static:register --reset
