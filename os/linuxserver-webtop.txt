@@ -220,6 +220,10 @@ EasySelfHost - Webtop: Run a Linux Desktop in Your Browser with a Lightweight Do
     https://www.youtube.com/watch?v=PGBwfUkfTlY
         lscr.io/linuxserver/webtop:ubuntu-kde
 https://www.linuxserver.io/blog/webtop-2-0-the-year-of-the-linux-desktop
+CloudUnderground - Sandbox your ideas in Linux Webtop containers using docker and virtualization of 17:28
+    https://www.youtube.com/watch?v=0Rnv8_qIM8o
+    ! 4:00 docker run -itd --name=webtoptest -e PUID=1000 -e PGID=1000 -p 6050:3000 -v /path/to/data:/config --restart unless-stopped \
+        lscr.io/linuxserver/webtop:ubuntu-xfce
 2021
 https://medium.com/featurepreneur/webtop-running-linux-desktop-inside-a-container-in-the-browser-d8de91192276
 TechnoTim - Linux desktop, inside of a container, inside of a browser??? Yes. A Webtop. 0:00 of 18:15
