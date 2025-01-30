@@ -1,6 +1,9 @@
 https://pwmt.org/
 https://pwmt.org/projects/zathura/index.html
 
+dnf/
+    zathura zathura-pdf-poppler
+
 https://git.pwmt.org/pwmt
 https://git.pwmt.org/pwmt/zathura
 
