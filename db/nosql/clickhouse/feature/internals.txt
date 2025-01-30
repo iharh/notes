@@ -23,6 +23,7 @@ https://clickhouse.com/docs/en/optimize/skipping-indexes
     ... alter table <> materialize index <> ... to apply newly added index
 
 2024
+https://altinity.com/blog/how-we-stopped-our-clickhouse-db-from-getting-crushed
 https://altinity.com/blog/learning-to-appreciate-monotonic-functions-in-clickhouse
     https://github.com/ClickHouse/ClickHouse/blob/master/src/Functions/toYear.cpp
     https://github.com/ClickHouse/ClickHouse/blob/6dd675579f0df1004ea3ab55e6a9793d176af2a5/src/Functions/IFunctionDateOrDateTime.h#L47
