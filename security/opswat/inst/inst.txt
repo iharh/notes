@@ -2,6 +2,8 @@ https://www.opswat.com/products/metadefender/access
 
 https://github.com/OPSWAT/metadefender-k8s/blob/main/helm_charts/mdcore/templates/deployments-template.yml
 
+!!! disable selinux
+
 forum
 https://go2.opswat.com/s/
 https://go2.opswat.com/s/topic/0TO4X000000c3gkWAA/metadefender-core
@@ -98,15 +100,21 @@ https://software.opswat.com/OESIS_V4/Release_Notes_Log_Linux
     Release Notes for Version 4.3.3479.0		03/12/2024
         Fedora 41 error Dandified Yum Auto-update setting is not turned on -  Fixed GetAgentState of Dandified Yum that is not report correctly
 
-        https://discussion.fedoraproject.org/t/autoupdate-dont-work-in-fedora-kde/128181/
-        https://fedoraproject.org/wiki/AutoUpdates
+https://docs.fedoraproject.org/en-US/quick-docs/autoupdates/
+https://dnf.readthedocs.io/en/latest/automatic.html
+https://discussion.fedoraproject.org/t/autoupdate-dont-work-in-fedora-kde/128181/
+https://fedoraproject.org/wiki/AutoUpdates
 
-        sudo dnf install dnf-automatic
-            dnf5-plugin-automatic
-        sudo systemctl enable --now dnf-automatic.timer
-            cat /etc/systemd/system/timers.target.wants/dnf5-automatic.timer
-            -> /etc/systemd/system/dnf5-automatic.timer.d/override.conf
-        sudo systemctl start dnf-automatic.timer
+
+https://discussion.fedoraproject.org/t/unable-to-install-dnf-automatic/136754
+sudo dnf install dnf5-plugin-automatic --allowerasing
+sudo tee /etc/dnf/automatic.conf << EOF > /dev/null
+[commands]
+apply_updates = yes
+EOF
+sudo systemctl enable dnf5-automatic.timer --now
+dnf --version
+systemctl list-timers 'dnf5-*'
 
 ???
 ls -la /usr/bin/opswatclient/bin/tlaxzac
