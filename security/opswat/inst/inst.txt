@@ -1,3 +1,33 @@
+https://www.opswat.com/products/metadefender/access
+
+https://github.com/OPSWAT/metadefender-k8s/blob/main/helm_charts/mdcore/templates/deployments-template.yml
+
+forum
+https://go2.opswat.com/s/
+
+https://www.opswat.com/docs/macloud-sdp/kb/no-agent-installed-remediation-instruction
+    Metadefender Endpoint
+https://www.opswat.com/docs/macloud-sdp/release-notes/client-sdk
+https://www.opswat.com/docs/macloud-sdp/release-notes/opswat-client-for-redhat-based-linux--persistent-client-
+https://www.opswat.com/docs/ocm/v7.28.0/knowledgebase/how-do-i-retrieve-the-opswat-client-logs-
+
+https://www.opswat.com/docs/mdcore/configuration/ssl-configurations
+https://www.opswat.com/docs/mdcore/configuration/enabling-https
+https://www.opswat.com/docs/mdcore/container-deployment
+https://www.opswat.com/docs/mdcore/metascan-engines/anti-malware-vendors
+
+?
+https://www.opswat.com/docs/macloud-sdp
+https://www.opswat.com/docs/macloud-sdp/kb/is-the-metaaccess-download-link-static-or-expire-
+    https://gears.opswat.com/console/download/%7Byour-metaaccess-api-key%7D
+https://www.opswat.com/docs/macloud-sdp/configuration---management/on-demand-client-cli
+
+https://www.opswat.com/products/metadefender/core
+https://www.opswat.com/docs/mdcore/v5.3.1/advanced-deployment/docker-image-published-on-opswat-docker-hub
+https://hub.docker.com/r/opswat/metadefendercore-debian
+
+https://www.youtube.com/user/opswat1
+
 !!! arch/pacman supported !!!
 https://www.youtube.com/user/opswat1
     
@@ -15,6 +45,11 @@ https://docs.opswat.com/macloud-sdp/release-notes/release-notes
 https://docs.opswat.com/macloud-sdp/kb
 https://docs.opswat.com/macloud-sdp
 
+!!! rpm
+https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/index.html?prefix=linux_installer/latest/
+    2025-01-22T06:49:18.000Z        14.5 MB        opswatclient.tar
+    wget https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient.tar
+
 https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/
     wget https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient_deb.tar
     tar -xvf opswatclient_deb.tar
@@ -29,8 +64,12 @@ https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/61511
     ! corp policy (+ sentinel and other stuff, quallis-scanner, opswat + 100500 chekers)
 https://gears.opswat.com/console/download/835dc08839b78a925c9f8882b85b3592/15009832
     ! byod, 802-1 auth req
-???
+
+??? trial
 https://console.metaaccess-b.opswat.com/signin
+https://console.metaaccess-b.opswat.com/onlanding/install/linux
+    wget https://s3-us-west-2.amazonaws.com/opswat-gears-cloud-clients/linux_installer/latest/opswatclient.tar
+    sudo ./setup.sh -s=3445 -l=44a14b965542886458d4009d33bce412 -g=3b25d182-7f73-4722-87b9-55b7480c2897default
 
 https://docs.opswat.com/macloud-sdp/kb/what-is-system-requirement-for-opswat-client-
 https://docs.opswat.com/macloud-sdp/kb/where-can-i-find-opswat-client-logs-on-my-machine-
@@ -49,6 +88,8 @@ https://eapi.opswatgears.com:11369/opswat/devinfo?count=10&callback=myCallback
 127.0.0.1	eapi.opswatgears.com
 
 sdk
+https://software.opswat.com/OESIS_V4/
+https://software.opswat.com/OESIS_V4/html/index.html
 https://software.opswat.com/OESIS_V4/Linux/docs/support_charts/support_charts.html
 
 ???
@@ -92,3 +133,107 @@ Processing triggers for gnome-menus (3.36.0-1.1ubuntu1) ...
 Processing triggers for desktop-file-utils (0.26-1ubuntu5) ...
 Processing triggers for hicolor-icon-theme (0.17-2) ...
 Ready to remove temp file
+
+$ rpm -ql opswatclient
+/etc/systemd/system/opswatclient.service
+/usr/bin/opswatclient/bin
+/usr/bin/opswatclient/bin/apaxz
+/usr/bin/opswatclient/bin/apaxz-15.6.2412.143
+/usr/bin/opswatclient/bin/daxz
+/usr/bin/opswatclient/bin/daxz-15.6.2412.143
+/usr/bin/opswatclient/bin/tlaxzac
+/usr/bin/opswatclient/bin/tlaxzac-15.6.2412.143
+/usr/bin/opswatclient/bin/tlaxzcus_executer
+/usr/bin/opswatclient/bin/tlaxzcus_executer-15.6.2412.143
+/usr/bin/opswatclient/bin/tlaxzcus_reader
+/usr/bin/opswatclient/bin/tlaxzcus_reader-15.6.2412.143
+/usr/bin/opswatclient/bin/tlaxzproxy
+/usr/bin/opswatclient/bin/tlaxzproxy-15.6.2412.143
+/usr/bin/opswatclient/bin/tlaxzsdpcleaner
+/usr/bin/opswatclient/bin/tlaxzsdpcleaner-15.6.2412.143
+/usr/bin/opswatclient/bin/tlaxzuns
+/usr/bin/opswatclient/bin/tlaxzuns-15.6.2412.143
+/usr/bin/opswatclient/lib
+/usr/bin/opswatclient/lib/CertificateInstall.sh
+/usr/bin/opswatclient/lib/SdpSetup.sh
+/usr/bin/opswatclient/lib/certutil
+/usr/bin/opswatclient/lib/curl-ca-bundle.crt
+/usr/bin/opswatclient/lib/jsonp_server.crt
+/usr/bin/opswatclient/lib/libaxzac.so
+/usr/bin/opswatclient/lib/libaxzac.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzcert.so
+/usr/bin/opswatclient/lib/libaxzcert.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzcld.so
+/usr/bin/opswatclient/lib/libaxzcld.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzcus.so
+/usr/bin/opswatclient/lib/libaxzcus.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzdct.so
+/usr/bin/opswatclient/lib/libaxzdct.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzfc.so
+/usr/bin/opswatclient/lib/libaxzfc.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzfea.so
+/usr/bin/opswatclient/lib/libaxzfea.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzgui.so
+/usr/bin/opswatclient/lib/libaxzgui.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzhttps.so
+/usr/bin/opswatclient/lib/libaxzhttps.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxziad.so
+/usr/bin/opswatclient/lib/libaxziad.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzmawf.so
+/usr/bin/opswatclient/lib/libaxzmawf.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzmng.so
+/usr/bin/opswatclient/lib/libaxzmng.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzoss.so
+/usr/bin/opswatclient/lib/libaxzoss.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzscu.so
+/usr/bin/opswatclient/lib/libaxzscu.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzsdp.so
+/usr/bin/opswatclient/lib/libaxzsdp.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzuc.so
+/usr/bin/opswatclient/lib/libaxzuc.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libaxzutls.so
+/usr/bin/opswatclient/lib/libaxzutls.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libcrontab.so
+/usr/bin/opswatclient/lib/libcrontab.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libcrypto.so
+/usr/bin/opswatclient/lib/libcrypto.so.3
+/usr/bin/opswatclient/lib/libcurl.so
+/usr/bin/opswatclient/lib/libcurl.so.4
+/usr/bin/opswatclient/lib/libcurl.so.4.8.0
+/usr/bin/opswatclient/lib/libgcc_s.so
+/usr/bin/opswatclient/lib/libgcc_s.so.1
+/usr/bin/opswatclient/lib/liblibmawfapi.so
+/usr/bin/opswatclient/lib/libmaf.so
+/usr/bin/opswatclient/lib/libmalwarescan.so
+/usr/bin/opswatclient/lib/libmalwarescan.so.15.6.2412.143
+/usr/bin/opswatclient/lib/libssl.so
+/usr/bin/opswatclient/lib/libssl.so.3
+/usr/bin/opswatclient/lib/oes
+/usr/bin/opswatclient/lib/oes/libwaapi.so
+/usr/bin/opswatclient/lib/oes/libwaapi.so.4
+/usr/bin/opswatclient/lib/oes/libwaapi.so.4.3.3489.0
+/usr/bin/opswatclient/lib/oes/libwadeviceinfo.so
+/usr/bin/opswatclient/lib/oes/libwadeviceinfo.so.4
+/usr/bin/opswatclient/lib/oes/libwadeviceinfo.so.4.3.3489.0
+/usr/bin/opswatclient/lib/oes/libwaheap.so
+/usr/bin/opswatclient/lib/oes/libwaheap.so.4
+/usr/bin/opswatclient/lib/oes/libwalocal.so
+/usr/bin/opswatclient/lib/oes/libwalocal.so.4
+/usr/bin/opswatclient/lib/oes/libwalocal.so.4.3.3489.0
+/usr/bin/opswatclient/lib/oes/libwaresource.so
+/usr/bin/opswatclient/lib/oes/libwautils.so
+/usr/bin/opswatclient/lib/oes/libwautils.so.4
+/usr/bin/opswatclient/lib/oes/libwautils.so.4.3.3489.0
+/usr/bin/opswatclient/lib/oes/libwavmodapi.so
+/usr/bin/opswatclient/lib/oes/libwavmodapi.so.4
+/usr/bin/opswatclient/lib/oes/libwavmodapi.so.4.3.3489.0
+/usr/bin/opswatclient/lib/oes/license.cfg
+/usr/share/applications/opswatclient.desktop
+/usr/share/icons/hicolor/128x128/apps/metaaccess.png
+/usr/share/icons/hicolor/16x16/apps/metaaccess.png
+/usr/share/icons/hicolor/24x24/apps/metaaccess.png
+/usr/share/icons/hicolor/256x256/apps/metaaccess.png
+/usr/share/icons/hicolor/32x32/apps/metaaccess.png
+/usr/share/icons/hicolor/48x48/apps/metaaccess.png
+/usr/share/icons/hicolor/64x64/apps/metaaccess.png
+/usr/share/icons/hicolor/scalable/apps/metaaccess.svg
