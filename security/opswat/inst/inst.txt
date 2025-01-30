@@ -4,6 +4,7 @@ https://github.com/OPSWAT/metadefender-k8s/blob/main/helm_charts/mdcore/template
 
 forum
 https://go2.opswat.com/s/
+https://go2.opswat.com/s/topic/0TO4X000000c3gkWAA/metadefender-core
 
 https://www.opswat.com/docs/macloud-sdp/kb/no-agent-installed-remediation-instruction
     Metadefender Endpoint
@@ -74,6 +75,8 @@ https://console.metaaccess-b.opswat.com/onlanding/install/linux
 https://docs.opswat.com/macloud-sdp/kb/what-is-system-requirement-for-opswat-client-
 https://docs.opswat.com/macloud-sdp/kb/where-can-i-find-opswat-client-logs-on-my-machine-
     /var/log/opswatclient
+        core.log
+        oesis.log
 
 dpkg --list
 sudo apt --installed list | grep opswat
@@ -91,6 +94,13 @@ sdk
 https://software.opswat.com/OESIS_V4/
 https://software.opswat.com/OESIS_V4/html/index.html
 https://software.opswat.com/OESIS_V4/Linux/docs/support_charts/support_charts.html
+https://software.opswat.com/OESIS_V4/Release_Notes_Log_Linux
+    Release Notes for Version 4.3.3479.0		03/12/2024
+        Fedora 41 error Dandified Yum Auto-update setting is not turned on -  Fixed GetAgentState of Dandified Yum that is not report correctly
+        sudo dnf install dnf-automatic
+            dnf5-plugin-automatic
+            https://discussion.fedoraproject.org/t/autoupdate-dont-work-in-fedora-kde/128181/
+            https://fedoraproject.org/wiki/AutoUpdates
 
 ???
 ls -la /usr/bin/opswatclient/bin/tlaxzac
