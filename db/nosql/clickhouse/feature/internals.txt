@@ -1,6 +1,14 @@
 https://clickhouse.com/docs/en/updating-data
 https://clickhouse.com/docs/en/guides/developer/lightweight-delete#lightweight-delete-internals
 
+https://github.com/ClickHouse/ClickHouse/tree/master/src
+
+https://github.com/ClickHouse/ClickHouse/tree/master/src/Functions
+https://github.com/ClickHouse/ClickHouse/blob/master/src/Functions/DateTimeTransforms.h
+https://github.com/ClickHouse/ClickHouse/blob/master/src/Functions/IFunctionDateOrDateTime.h
+
+https://github.com/ClickHouse/ClickHouse/tree/master/src/Storages
+
 Clickhouse - Internal Structure of p19
 https://www.youtube.com/playlist?list=PL0Z2YDlm0b3jsHXli7yll7CGHI9qyALmK
 
@@ -14,6 +22,10 @@ https://clickhouse.com/docs/en/optimize/skipping-indexes
     skip inexes (skp_idx_)
     ... alter table <> materialize index <> ... to apply newly added index
 
+2024
+https://altinity.com/blog/learning-to-appreciate-monotonic-functions-in-clickhouse
+    https://github.com/ClickHouse/ClickHouse/blob/master/src/Functions/toYear.cpp
+    https://github.com/ClickHouse/ClickHouse/blob/6dd675579f0df1004ea3ab55e6a9793d176af2a5/src/Functions/IFunctionDateOrDateTime.h#L47
 2023
 https://clickhouse.com/blog/handling-updates-and-deletes-in-clickhouse
 https://habr.com/ru/companies/oleg-bunin/articles/726570/
