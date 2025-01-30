@@ -1,1 +1,17 @@
+https://dotfyle.com/plugins/yetone/avante.nvim
 https://github.com/yetone/avante.nvim
+
+https://github.com/yetone/avante.nvim/wiki/Custom-providers#deepseek
+provider = "deepseek",
+vendors = {
+  deepseek = {
+    __inherited_from = "openai",
+    api_key_name = "DEEPSEEK_API_KEY",
+    endpoint = "https://api.deepseek.com",
+    model = "deepseek-coder",
+  },
+},
+
+2024
+AdibHanna - Amazing New Neovim AI Plugin! 0:00 of 6:19
+    https://www.youtube.com/watch?v=BEjO6AZdh6M
