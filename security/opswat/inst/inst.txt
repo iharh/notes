@@ -97,10 +97,16 @@ https://software.opswat.com/OESIS_V4/Linux/docs/support_charts/support_charts.ht
 https://software.opswat.com/OESIS_V4/Release_Notes_Log_Linux
     Release Notes for Version 4.3.3479.0		03/12/2024
         Fedora 41 error Dandified Yum Auto-update setting is not turned on -  Fixed GetAgentState of Dandified Yum that is not report correctly
+
+        https://discussion.fedoraproject.org/t/autoupdate-dont-work-in-fedora-kde/128181/
+        https://fedoraproject.org/wiki/AutoUpdates
+
         sudo dnf install dnf-automatic
             dnf5-plugin-automatic
-            https://discussion.fedoraproject.org/t/autoupdate-dont-work-in-fedora-kde/128181/
-            https://fedoraproject.org/wiki/AutoUpdates
+        sudo systemctl enable --now dnf-automatic.timer
+            cat /etc/systemd/system/timers.target.wants/dnf5-automatic.timer
+            -> /etc/systemd/system/dnf5-automatic.timer.d/override.conf
+        sudo systemctl start dnf-automatic.timer
 
 ???
 ls -la /usr/bin/opswatclient/bin/tlaxzac
