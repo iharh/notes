@@ -4,17 +4,58 @@ https://www.kasmweb.com/docs/latest/index.html
 https://www.kasmweb.com/docs/latest/license.html
 
 https://github.com/linuxserver
+https://docs.linuxserver.io/images-by-category/
+
 https://github.com/linuxserver/docker-webtop
-!!! (alpine/based)
+    !!! (alpine/based)
 https://docs.linuxserver.io/images/docker-webtop
+    !!!
 https://github.com/linuxserver/docker-webtop/blob/master/Dockerfile
     FROM ghcr.io/linuxserver/baseimage-kasmvnc:alpine321
+    !!! ubuntu-i3
+    !!! fedora-i3
+    http://yourhost:3000/
+    http://yourhost:3001/
+docker run -d \
+  --name=webtop \
+  --security-opt seccomp=unconfined `#optional` \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Etc/UTC \
+  -e SUBFOLDER=/ `#optional` \
+  -e TITLE=Webtop `#optional` \
+  -p 3000:3000 \
+  -p 3001:3001 \
+  -v /path/to/data:/config \
+  -v /var/run/docker.sock:/var/run/docker.sock `#optional` \
+  --device /dev/dri:/dev/dri `#optional` \
+  --shm-size="1gb" `#optional` \
+  --restart unless-stopped \
+  lscr.io/linuxserver/webtop:latest
+
+!!!
+docker run -d \
+  --name=webtop \
+  --security-opt seccomp=unconfined \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Etc/UTC \
+  -e TITLE=Webtop \
+  -p 3000:3000 \
+  -p 3001:3001 \
+  -v /path/to/data:/config \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --device /dev/dri:/dev/dri \
+  --shm-size="4gb" \
+  --restart unless-stopped \
+  lscr.io/linuxserver/webtop:latest
+
 https://github.com/linuxserver/docker-webtop?tab=readme-ov-file#docker-compose-recommended-click-here-for-more-info
     docker-compose pull webtop
 https://github.com/linuxserver/docker-baseimage-kasmvnc
 https://github.com/linuxserver/docker-baseimage-kasmvnc/blob/master/Dockerfile
     FROM node:12-buster AS wwwstage
-    FROM alpine:...
+    !!! FROM alpine:...
     wget https://github.com/kasmtech/noVNC/tarball/${KASMWEB_RELEASE} -O - \
     | tar  --strip-components=1 -xz &&
 
