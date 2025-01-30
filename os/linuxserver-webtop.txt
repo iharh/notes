@@ -50,6 +50,32 @@ docker run -d \
   --restart unless-stopped \
   lscr.io/linuxserver/webtop:latest
 
+https://github.com/easyselfhost/self-host/blob/main/apps/webtop/docker-compose.yml
+docker run -d \
+  --name=webtop \
+  --security-opt seccomp=unconfined \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Etc/UTC \
+  -e TITLE=Webtop \
+  -p 3000:3000 \
+  -p 3001:3001 \
+  -v home:/config \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --device /dev/dri:/dev/dri \
+  --shm-size="4gb" \
+  --restart unless-stopped \
+  lscr.io/linuxserver/webtop:ubuntu-xfce
+
+  $ dpkg -S /usr/bin/systemctl
+  systemd: /usr/bin/systemctl
+  $ dpkg -L systemd
+  /usr/lib/systemd/***
+  $ sudo systemctl
+  System has not been booted with systemd as init system (PID 1). Can't operate. 
+  Failed to connect to bus: Host is down
+
+
 https://github.com/linuxserver/docker-webtop?tab=readme-ov-file#docker-compose-recommended-click-here-for-more-info
     docker-compose pull webtop
 https://github.com/linuxserver/docker-baseimage-kasmvnc
@@ -219,6 +245,8 @@ https://skarnet.org/software/execline/
 EasySelfHost - Webtop: Run a Linux Desktop in Your Browser with a Lightweight Docker Container 0:00 of 7:10
     https://www.youtube.com/watch?v=PGBwfUkfTlY
         lscr.io/linuxserver/webtop:ubuntu-kde
+    ! 3:00 volumes: - home:/config
+    https://github.com/easyselfhost/self-host/blob/main/apps/webtop/docker-compose.yml
 https://www.linuxserver.io/blog/webtop-2-0-the-year-of-the-linux-desktop
 CloudUnderground - Sandbox your ideas in Linux Webtop containers using docker and virtualization of 17:28
     https://www.youtube.com/watch?v=0Rnv8_qIM8o
