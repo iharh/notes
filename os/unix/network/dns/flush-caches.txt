@@ -1,0 +1,6 @@
+https://www.siteground.com/kb/flush-dns-cache-in-linux/
+    sudo resolvectl statistics
+    sudo resolvectl flush-caches
+
+    sudo systemd-resolve --statistics
+    sudo systemd-resolve --flush-caches

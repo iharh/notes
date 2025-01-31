@@ -1,0 +1,2 @@
+https://www.siteground.com/kb/flush-dns-cache-in-linux/
+    sudo lsof -i :53 -S
