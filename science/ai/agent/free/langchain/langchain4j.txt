@@ -1,6 +1,26 @@
 https://github.com/langchain4j
 https://hackmd.io/@alculexum/embedding4j
 
+https://github.com/langchain4j/langchain4j-examples/
+https://github.com/langchain4j/langchain4j-examples/tree/main/tutorials
+https://github.com/langchain4j/langchain4j-examples/tree/main/spring-boot-example
+https://github.com/langchain4j/langchain4j-examples/tree/main/jakartaee-microprofile-example
+https://github.com/langchain4j/langchain4j-examples/tree/main/quarkus-example
+https://github.com/langchain4j/langchain4j-examples/tree/main/rag-examples
+https://github.com/langchain4j/langchain4j-examples/blob/main/rag-examples/src/main/java/_3_advanced/_01_Advanced_RAG_with_Query_Compression_Example.java
+https://github.com/langchain4j/langchain4j-examples/blob/main/rag-examples/src/main/java/_3_advanced/_03_Advanced_RAG_with_ReRanking_Example.java
+https://github.com/langchain4j/langchain4j-examples/blob/main/rag-examples/src/main/java/_3_advanced/_04_Advanced_RAG_with_Metadata_Example.java
+https://github.com/langchain4j/langchain4j-examples/blob/main/rag-examples/src/main/java/_3_advanced/_05_Advanced_RAG_with_Metadata_Filtering_Examples.java
+https://github.com/langchain4j/langchain4j-examples/blob/main/rag-examples/src/main/java/_3_advanced/_06_Advanced_RAG_Skip_Retrieval_Example.java
+https://github.com/langchain4j/langchain4j-examples/blob/main/rag-examples/src/main/java/_3_advanced/_07_Advanced_RAG_Multiple_Retrievers_Example.java
+https://github.com/langchain4j/langchain4j-examples/blob/main/rag-examples/src/main/java/_3_advanced/_08_Advanced_RAG_Web_Search_Example.java
+https://github.com/langchain4j/langchain4j-examples/tree/main/ollama-examples
+
+https://github.com/langchain4j/langchain4j-examples/tree/main/other-examples/src/main/java
+
+https://github.com/langchain4j/langchain4j-examples/blob/main/elasticsearch-example/src/main/java/ElasticsearchEmbeddingStoreWithScriptExample.java
+https://github.com/langchain4j/langchain4j-examples/blob/main/elasticsearch-example/src/main/java/ElasticsearchEmbeddingStoreExample.java
+
 2024
 JavaPro -  Unlocking the Future of Java: LLM Integration Unveiled by Quarkus & LangChain4j | Elder Moraes (EN) 0:00 of 43:40
     https://www.youtube.com/watch?v=MfA4p9kXemo
