@@ -6,7 +6,15 @@ https://github.com/darrenburns/posting
     https://textual.textualize.io/tutorial/
     https://textual.textualize.io/getting_started/
 
+curl -LsSf https://astral.sh/uv/install.sh | sh
+    dnf/uv
+    mise/uv
+
 https://posting.sh/guide/
+    https://docs.astral.sh/uv/getting-started/installation/
+
+    uv tool install --python 3.12 posting
+
 https://posting.sh/guide/keymap/
 https://posting.sh/guide/scripting/
 
