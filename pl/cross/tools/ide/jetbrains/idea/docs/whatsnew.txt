@@ -1,5 +1,13 @@
 https://www.jetbrains.com/idea/whatsnew/
 
+2025.1
+https://blog.jetbrains.com/idea/2025/01/intellij-idea-2025-1-eap-3/
+    https://habr.com/ru/companies/spring_aio/articles/878530/
+    https://youtrack.jetbrains.com/articles/IDEA-A-2100662357/IntelliJ-IDEA-2025.1-EAP-3-251.18673.35-build-Release-Notes
+    ! java -> kt autoconvert
+    ! jdbc repos autocomplete for non-existed methods
+https://blog.jetbrains.com/idea/2025/01/intellij-idea-2025-1-eap-2/
+    ! containerfile support (podman, buildah)
 2023.5
 https://blog.jetbrains.com/idea/2024/03/intellij-idea-2023-3-5/
 2023.3
