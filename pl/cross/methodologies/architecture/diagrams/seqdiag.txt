@@ -1,0 +1,21 @@
+https://mermaid.js.org/syntax/sequenceDiagram.html
+https://mermaid.js.org/syntax/zenuml.html
+
+https://kroki.io/
+https://github.com/yuzutech/kroki
+https://docs.kroki.io/kroki/setup/use-docker-or-podman/
+
+https://typora.io/
+https://github.com/typora
+https://support.typora.io/
+https://support.typora.io/Draw-Diagrams-With-Markdown/#sequence-diagrams
+    –sequence-theme: hand
+
+https://bramp.github.io/js-sequence-diagrams/
+
+seqdiag {
+  browser  -> webserver [label = "1. GET /seqdiag/svg/base64"];
+  webserver  -> processor [label = "2. Convert text to image"];
+  webserver <-- processor;
+  browser <-- webserver;
+}
