@@ -2,6 +2,9 @@ download
 https://help.zscaler.com/client-connector/downloading-zscaler-client-connector
 https://help.zscaler.com/client-connector/about-zscaler-client-connector-store
 https://help.zscaler.com/client-connector/configuring-update-settings-zscaler-client-connector
+uninstall
+https://help.zscaler.com/zscaler-client-connector/uninstalling-zscaler-client-connector
+    /opt/zscaler/UninstallApplication
 to-look
 https://github.com/microsoft/shell-intune-samples/blob/master/macOS/Apps/Zscaler/installZscaler.sh
 
