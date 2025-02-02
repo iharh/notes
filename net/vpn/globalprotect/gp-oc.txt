@@ -1,0 +1,18 @@
+https://github.com/yuezk/GlobalProtect-openconnect
+    gui
+
+https://launchpad.net/~yuezk/+archive/ubuntu/globalprotect-openconnect
+sudo add-apt-repository ppa:yuezk/globalprotect-openconnect
+sudo apt update
+sudo apt install globalprotect-openconnect
+dpkg -L globalprotect-openconnect
+
+/usr/bin/gpclient
+/usr/bin/gpservice
+/etc/gpservice/gp.conf
+/lib/systemd/system/gpservice.service
+/usr/share/applications/com.yuezk.qt.gpclient.desktop
+/usr/share/dbus-1/system-services/com.yuezk.qt.GPService.service
+/usr/share/dbus-1/system.d/com.yuezk.qt.GPService.conf
+
+systemctl is-enabled gpservice
