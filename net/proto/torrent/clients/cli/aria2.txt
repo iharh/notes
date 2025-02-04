@@ -5,6 +5,10 @@ apt/aria2
 
 ui
 apt/persepolis
+https://giantpinkrobots.github.io/varia/
+    https://github.com/giantpinkrobots/varia
+    https://flathub.org/apps/io.github.giantpinkrobots.varia
+    https://www.youtube.com/watch?v=FoAP9eqeVBg
 
 https://aria2.github.io/manual/en/html/
 https://aria2.github.io/manual/en/html/README.html#bittorrent
