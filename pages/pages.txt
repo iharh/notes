@@ -4,57 +4,16 @@ mise devspace
 https://www.jetify.com/devspace
 
 
-good yuv420p
-need yuv44p
-color space
 https://habr.com/ru/articles/575914/
 https://stackoverflow.com/questions/2869281/how-to-determine-video-codec-of-a-file-with-ffmpeg
     ffmpeg -i file.avi
 https://discussion.fedoraproject.org/t/cleanest-way-to-install-all-video-codecs-on-fedora-kde-40/134005
 
-good
-Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'ch_webinar_2.mp4':
-  Metadata:
-    major_brand     : mp42
-    minor_version   : 0
-    compatible_brands: isommp42
-    creation_time   : 2024-05-03T22:49:38.000000Z
-  Duration: 02:42:44.64, start: 0.000000, bitrate: 999 kb/s
-  Stream #0:0[0x1](eng): Video: h264 (libopenh264) (High) (avc1 / 0x31637661), yuv420p(progressive), 2540x1250, 903 kb/s, 15 fps, 15 tbr, 30k tbn (default)
-      Metadata:
-        creation_time   : 2024-05-03T22:49:38.000000Z
-        handler_name    : Mainconcept MP4 Video Media Handler
-        vendor_id       : [0][0][0][0]
-        encoder         : AVC Coding
-  Stream #0:1[0x2](eng): Audio: aac (libfdk_aac) (mp4a / 0x6134706D), 44100 Hz, stereo, s16, 93 kb/s (default)
-      Metadata:
-        creation_time   : 2024-05-03T22:49:38.000000Z
-        handler_name    : Mainconcept MP4 Sound Media Handler
-        vendor_id       : [0][0][0][0]
-
-bad
-Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'ch_webinar_1.mp4':
-  Metadata:
-    major_brand     : isom
-    minor_version   : 512
-    compatible_brands: isomiso2avc1mp41
-    encoder         : Lavf60.11.100
-  Duration: 02:47:21.17, start: 0.000000, bitrate: 210 kb/s
-  Stream #0:0[0x1](und): Video: h264 (libopenh264) (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 104 kb/s, SAR 8001:8000 DAR 889:500, 15.17 fps, 25 tbr, 1000k tbn (default)
-      Metadata:
-        handler_name    : VideoHandler
-        vendor_id       : [0][0][0][0]
-        encoder         : Lavc60.26.100 libx264
-  Stream #0:1[0x2](und): Audio: aac (libfdk_aac) (mp4a / 0x6134706D), 48000 Hz, stereo, s16, 100 kb/s (default)
-      Metadata:
-        handler_name    : SoundHandler
-        vendor_id       : [0][0][0][0]
-
 kc - 76 of ...
 kina2 - 37 of 8xx (?1.2.5)
 bellemare - 21 (ch2)
 anand - clickhouse - 129 of (column-oriented)
-pg internals 16 - 357
+pg internals 16 - 75
 kafka - 76
 dnf info ostree-libs
     deps - ?
