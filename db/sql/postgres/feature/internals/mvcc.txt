@@ -18,7 +18,7 @@ https://dev.to/nilelazarus/series/23873
     https://dev.to/nilelazarus/demystifying-the-internals-of-postgresql-chapter-5-2pe4
 
 2024
-Otus - MVCC, vacuum and autovacuum in PG ru 53:00 of 1:22:40
+Otus - MVCC, vacuum and autovacuum in PG ru 1:00:00 of 1:22:40
     https://www.youtube.com/watch?v=mrobq6Ggggc
     ! 12:00 - pg_size_pretty, pg_total_relation_size
     ! 25:00 - insert
@@ -36,7 +36,13 @@ Otus - MVCC, vacuum and autovacuum in PG ru 53:00 of 1:22:40
     !   https://www.postgresql.org/docs/current/pageinspect.html
     !   https://eax.me/pageinspect/
     ! 44:00 vacuum_cost_delay, vacuum_cost_limit, vacuum_cost_page_miss, vacuum_cost_page_dirty
+    ! 54:00
+    !   create table ... (with autovacuum_enabled=off)
+    !   alter table <rel> set (autovacuum_enabled=on);
     ! 55:00 vacuum verbose <rel>;
+    !   pg_relation_filepath('<rel>');
+    ! 58:00
+    !   pg_squeeze ext is not so lock-agressive (gh/cybertec_postgresql/...)
 2022
 https://habr.com/ru/companies/quadcode/articles/671254/
     !
