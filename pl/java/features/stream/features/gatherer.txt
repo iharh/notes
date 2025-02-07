@@ -1,6 +1,8 @@
 https://openjdk.org/jeps/461
 
 2024
+IntelliJIdea - JEP Explained. JEP 473: Stream Gatherers 0:00 of 1:10:48
+    https://www.youtube.com/watch?v=m7PW6fMCrmg
 CodeWiz - Stream Gatherers 0:00 of 16:56
     https://www.youtube.com/watch?v=qBcuOCzvS3Y
         public static <T> Gatherer<T, List<T>, List<T>> getFixedWindowGatherer(int limit) {

@@ -15,6 +15,12 @@ https://www.delftstack.com/howto/java/java-stream-distinct-by-property/
 Tsymbalyuk - Collectors Class 0:00 of 32:27
     https://www.youtube.com/watch?v=HOQpQWK9u28
         https://drive.google.com/file/d/1tC07o0FQov5If6HZfsTIy_2Q9ulQ4FNu/view
+2020
+CSC - Faleev - L8 - Stream API ru of 1:45:00
+    https://www.youtube.com/watch?v=FCT2jbAs_uA
+    ! 1:25:00 - groupingBy, mapping, flatMapping
+    ! 1:28:00 - minBy
+    ! 1:31:00 - collectingAndThen
 2019
 https://4comprehension.com/an-ultimate-guide-to-java-stream-api-collectors/
     toUnmodifiableList/Set/Map

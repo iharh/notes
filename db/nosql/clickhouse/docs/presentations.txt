@@ -46,6 +46,8 @@ HighLoad - Krasheninnikov - ClickHouse Data Processing Patterns ru of 51:47
 2018
 HighLoad - Zatelepin - What Need to Know about CH Arch ru of 51:02
     https://www.youtube.com/watch?v=PLMSA_gDdyM
+    https://habr.com/ru/articles/509540/
+    https://temofeev.ru/info/articles/chto-nuzhno-znat-ob-arkhitekture-clickhouse-chtoby-ego-effektivno-ispolzovat-aleksey-zatelepin-2018g/
     ! 11:00 index writes stuff only for each 8192 rows
     ! 15:00 reordring via MergeTree engines (idea is like LSM-tree)
     ! 16:00 sorted data are written to disk in chunks (recommended no less than 1000 records)

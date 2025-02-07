@@ -18,7 +18,7 @@ https://dev.to/nilelazarus/series/23873
     https://dev.to/nilelazarus/demystifying-the-internals-of-postgresql-chapter-5-2pe4
 
 2024
-Otus - MVCC, vacuum and autovacuum in PG ru 1:00:00 of 1:22:40
+Otus - MVCC, vacuum and autovacuum in PG ru of 1:22:40
     https://www.youtube.com/watch?v=mrobq6Ggggc
     ! 12:00 - pg_size_pretty, pg_total_relation_size
     ! 25:00 - insert
