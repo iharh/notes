@@ -1,0 +1,55 @@
+https://elixir-lang.org/
+    build on macros
+https://elixir-lang.org/cases.html
+https://hexdocs.pm/elixir/introduction.html
+https://elixir-lang.org/learning.html
+    tons of books !!!
+    Juric - Elixir in Action 3rd ed
+        31BD9B213585CE6A34064579DD3C8BC1
+        AAA59732853CEF80D730D4366DDA88B7
+    https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/
+        DBE1FDFA562AE8F72700EE648113887A
+        10094989C49E4BB81D1FC7A62B125951
+    https://pragprog.com/titles/cmelixir/metaprogramming-elixir/
+    https://leanpub.com/elixir-toyrobot
+    https://pragprog.com/titles/cdc-elixir/learn-functional-programming-with-elixir/
+    https://joyofelixir.com/
+    https://joyofelixir.com/toc.html
+    https://pragprog.com/titles/tvmelixir/adopting-elixir/
+    https://pragprog.com/titles/elixir16/programming-elixir-1-6/
+    http://www.erlang-in-anger.com/
+
+numerical elixir
+https://github.com/elixir-nx/
+https://github.com/elixir-nx/nx
+
+web
+https://phoenixframework.org/
+https://github.com/phoenixframework/phoenix
+https://hexdocs.pm/phoenix/overview.html
+
+testing
+https://hexdocs.pm/ex_unit/ExUnit.html
+
+package manager
+https://hex.pm/
+https://github.com/hexpm/hexpm
+https://hexdocs.pm/
+
+build tool
+https://hexdocs.pm/mix/Mix.html
+
+https://rebar3.org/
+https://rebar3.org/docs/
+https://github.com/erlang/rebar3
+
+interactive shell
+https://hexdocs.pm/iex/IEx.html
+
+notebooks
+https://livebook.dev/
+https://livebook.dev/integrations/
+https://github.com/livebook-dev/livebook
+https://hexdocs.pm/livebook/readme.html
+https://news.livebook.dev/
+https://github.com/livebook-dev/kino
