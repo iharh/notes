@@ -1,3 +1,6 @@
 /etc/selinux/config
 
 SELINUX=disabled
+
+????
+/etc/selinux/semanage.conf
