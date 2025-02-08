@@ -38,6 +38,14 @@ https://github.com/LunarVim/LunarVim/issues/3413
 ...10.3/nvim-linux64/share/nvim/runtime/lua/vim/lsp/rpc.lua:800: 
 Spawning language server with cmd: `{ "vscode-css-language-server", "--stdio" }` failed. The language server is either not installed, missing from PATH, or not executable.
 
+$ l ~/.config/waybar/
+drwxr-xr-x. iharh iharh 4.0 KB Sat Feb  8 16:55:23 2025  configs/
+drwxr-xr-x. iharh iharh 4.0 KB Sat Feb  8 16:55:23 2025  style/
+drwxr-xr-x. iharh iharh  31 B  Sat Feb  8 16:55:23 2025  wallust/
+.rw-r--r--. iharh iharh  13 KB Sat Feb  8 16:55:23 2025  Modules
+.rw-r--r--. iharh iharh 5.8 KB Sat Feb  8 16:55:23 2025  ModulesCustom
+.rw-r--r--. iharh iharh 1.7 KB Sat Feb  8 16:55:23 2025  ModulesGroups
+.rw-r--r--. iharh iharh 4.7 KB Sat Feb  8 16:55:23 2025  ModulesWorkspaces
 
 ScottGamovKlein - Kafka in Action
     39F3B9630BE2320963068F9CACE55C24
