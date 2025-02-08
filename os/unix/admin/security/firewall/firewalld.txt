@@ -1,5 +1,7 @@
 firewalld:
 http://www.unixmen.com/iptables-vs-firewalld/
+    sudo apt install firewalld
+https://computingforgeeks.com/install-and-use-firewalld-on-ubuntu/
 http://guoqiao.me/post/2015/0610-vagrant-network-not-working-for-centos-7
 
 sudo systemctl status firewalld.service 
