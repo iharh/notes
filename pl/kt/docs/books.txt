@@ -4,6 +4,7 @@ http://books.goalkicker.com/KotlinBook/
 SpäthGutierrez - Pro Spring Boot 3 with Kotlin 3rd ed
     4E35181261E22E2BBDFE5B403D1AECDE
     0AB55F4ADD8C2A444F14AB5A50F0F1ED
+    !!! 922 pages
 2024
 Soshin - Kotlin Design Patterns and Best Practices 3rd ed
     1EFBE911F031A2BC2F83625D13C821DF
@@ -14,6 +15,11 @@ AignerElizarovIsakovaJemerov - Kotlin in Action 2nd ed
     60A4A7FB7DF4D2F6842C6402930C4B63
     https://github.com/Kotlin/kotlin-in-action-2e
 2023
+Skeen - Programming for Professionals 2nd ed ru p599
+    https://www.wildberries.by/catalog/125130848/detail.aspx
+    31738BCDBC1165ACCB8704F0521BD457
+    D97D36FD745706A434051959EB2C0F4F
+    ! mostly fundamentals
 Hagos - Beginning Kotlin
     E75806E1E20237C3C5EBBC6951E71864
 Uzayr - Mastering Kotlin a Beginners Guide
@@ -28,6 +34,9 @@ Carli - Functional Programming in Kotlin by Tutorials
     !!! 567p, classic FP/Haskell approach
     ! good diagrams incl CT, beauty colors and diagrams
 2021
+SkeenGreenhalgh - Kotlin Programming: The Big Nerd Ranch Guide 2nd ed
+    FAFDC3ECEA10965CA4FC27D59CFBB090
+    EACC909D4C5A81DAD454C283064E1034
 McGregorPryce - Java to Kotlin a Refactoring Guidebook
     5EC7B6C8ECF22B8A22CC11B8E19852D0
     515580E11A0D76A8FA3C8A3EED7EBB37
@@ -36,6 +45,10 @@ McGregorPryce - Java to Kotlin a Refactoring Guidebook
 GalataHowardShapiro - Kotlin Apprentice 3rd ed
     D17DFA3A9BCFA9474B3E678309CCFC1A
 2020
+EckelIsaakov - Atomic Kotlin of p586
+    6195E3CAD1BDA6B533B56A4EA780FB60
+    https://www.wildberries.by/catalog/32541233/detail.aspx
+    ! mostly fundamentals
 SkeenGreenhalgh - Kotlin Programming for Profi ru
     07CAC78ECEDB7B044372EC1A8CBCBE72
     ! 2nd ed is also available
@@ -54,7 +67,9 @@ Arias - Functional Kotlin
 Chakraborty - Reactive Programming in Kotlin
 Chakraborty - Hands-On Data Structures and Algorithms with Kotlin (incomplete)
 Kucherenko - Mastering High Performance with Kotlin
+    https://www.wildberries.by/catalog/206333659/detail.aspx
 Soshin - Hands-On Design Patterns with Kotlin
+    https://www.wildberries.by/catalog/21890193/detail.aspx
 Roy - Kotlin Programming Cookbook
 Urbanowicz - Kotlin Standard Library Cookbook
 Vasic - Building Applications with Spring5 and Kotlin

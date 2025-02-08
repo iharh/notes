@@ -24,6 +24,13 @@ Details-summary sample
 </pre>
 </details>
 
+## Html sample
+Some html centering sample
+<div align="center">
+<img src="https://octodex.github.com/images/dunetocat.png" width="200">
+<p>This is some centered text.</p>
+</div>
+
 ## Diff sample
 Simple diff
 ```diff
