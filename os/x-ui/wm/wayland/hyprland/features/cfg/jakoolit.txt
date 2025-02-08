@@ -1,3 +1,5 @@
+! used it
+
 https://github.com/JaKooLit/Hyprland-Dots
 https://github.com/JaKooLit/Hyprland-Dots/tree/main/config/hypr
 https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/hyprland.conf
@@ -13,6 +15,15 @@ https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/UserConfigs/Wind
 https://github.com/JaKooLit/Hyprland-Dots/wiki/Changelogs
 https://github.com/JaKooLit/Hyprland-Dots/wiki/Install_&_Update
 https://github.com/JaKooLit/screenshots
+
+https://github.com/JaKooLit/Fedora-Hyprland
+https://github.com/JaKooLit/Ubuntu-Hyprland/tree/24.04
+    Latest Hyprland version that is compatible with Ubuntu 24.04 is Hyprland v0.39.1. 
+    Reason is that some dependencies are old so newer Hyprland wont build on it.
+git clone -b 24.04 --depth 1 https://github.com/JaKooLit/Ubuntu-Hyprland.git ~/Ubuntu-Hyprland-24.04
+cd ~/Ubuntu-Hyprland-24.04
+chmod +x install.sh
+./install.sh
 
 misec
 monitor=,1920x1080,auto,1,bitdepth,8
