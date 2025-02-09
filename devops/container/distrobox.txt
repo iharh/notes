@@ -16,33 +16,123 @@ https://gitlab.com/89luca89/distrobox
 
 apt/distrobox
 pacstall/distrobox
+dnf/distrobox
 
 suggested packages:
   containers-storage docker-compose
 recommended packages:
   netavark buildah catatonit | tini | dumb-init passt slirp4netns
 
+wiki
+https://alt-kde.wiki/apps/distrobox/
+    !!! post-install steps
+        https://distrobox.it/posts/install_podman_static/
+    $ cat ~/.distroboxrc
+    container_always_pull="0"
+    container_manager="podman"
+
+    $ su - -c "echo "$USER:524288:65536" | tee -a /etc/subuid /etc/subgid"
+    $ cat /etc/subgid
+      iharh:524288:65536
+    su - -c "chmod u+s /usr/bin/newuidmap /usr/bin/newuidmap"
+    su - -c "chmod a+x /usr/bin/newuidmap /usr/bin/newgidmap"
+    podman system migrate
+
 cli
 https://distrobox.it/usage/usage/
-/usr/bin/distrobox-create
-    -i registry...:38 -n "fedora1"
-    --init --image debian:latest --additional-packages "systemd libpam-systemd"
 /usr/bin/distrobox-enter
     enter "fedora1"
     -- command-to-execute
-/usr/bin/distrobox-list
-/usr/bin/distrobox-stop
-/usr/bin/distrobox-rm
 
+/usr/bin/distrobox
 /usr/bin/distrobox-assemble
+    https://distrobox.it/usage/distrobox-create/
+    --clone/-c
+    --compatibility/-C: 
+        show list of compatible images
+
+        quay.io/fedora/fedora:40
+        registry.fedoraproject.org/fedora-toolbox:40
+            ???
+        docker.io/library/ubuntu:24.04
+    --home/-H:
+        select a custom HOME directory for the container. Useful to avoid host's home littering with temp files.
+    --additional-packages/-ap:
+        additional packages to install during initial container setup
+    --init/-I:		
+        use init system (like systemd) inside the container.
+			  this will make host's processes not visible from within the container. (assumes --unshare-process)
+    --dry-run/-d:
+        only print the container manager command generated (podman run command for creating container)
+    --verbose/-v:
+        show more verbosity
+
+    samples
+        distrobox create -i quay.io/fedora/fedora:40 -n fedora40 -H ~/distrobox/fedora40 -ap "systemd" -I
+            -d
+            -v
+            --additional-flags 
+                "--env MY_VAR=value"
+                "--pids-limit -1"
+            --volume /opt/my-dir:/usr/local/my-dir:rw 
+            --pre-init-hooks "dnf config-manager --enable powertools && dnf -y install epel-release"
+            --init-hooks "touch /var/tmp/test1 && touch /var/tmp/test2"
+    !!!
+    Error: Unable to find a match: libpam-systemd pipewire-audio-client-libraries
+    !!!
+/usr/bin/distrobox-enter
+    Starting container...                            [ OK ]
+    Installing basic packages...                     [ OK ]
+    Setting up devpts mounts...                      [ OK ]
+    Setting up read-only mounts...                   [ OK ]
+    Setting up read-write mounts...                  [ OK ]
+    Setting up host's sockets integration...         [ OK ]
+    Integrating host's themes, icons, fonts...       [ OK ]
+    Setting up distrobox profile...                  [ OK ]
+    Setting up sudo...                               [ OK ]
+    Setting up kerberos integration...               [ OK ]
+    Setting up user's group list...                  [ OK ]
+    Setting up existing user...                      [ OK ]
+    Ensuring user's access...                        [ OK ]
+    Setting up skel...                               [ OK ]
+    Setting up init system...                        [ OK ]
+    Firing up init system...                         [ OK ]
+
+    Container Setup Complete!
+
 /usr/bin/distrobox-ephemeral
 /usr/bin/distrobox-export
     distrobox-export --app kate
         create desktop-file on a host system for guest app launcher
     distrobox-export --bin /usr/bin/kate --export-path ~/local/bin/
         ! actually - broken
+https://distrobox.it/usage/distrobox-generate-entry/
+    --delete/-d:
+        delete the entry
+    --verbose/-v:
+        show more verbosity
+    
+    samples
+        distrobox generate-entry fedora40 -v
 
-/usr/bin/distrobox-generate-entry
+        cat ~/.local/share/applications/fedora40.desktop
+            [Desktop Entry]
+            Name=Fedora40
+            GenericName=Terminal entering Fedora40
+            Comment=Terminal entering Fedora40
+            Categories=Distrobox;System;Utility
+            Exec=/usr/bin/distrobox enter  fedora40
+            Icon=/home/iharh/.local/share/icons/distrobox/fedora.png
+            Keywords=distrobox;
+            NoDisplay=false
+            Terminal=true
+            TryExec=/usr/bin/distrobox
+            Type=Application
+            Actions=Remove;
+
+            [Desktop Action Remove]
+            Name=Remove Fedora40 from system
+            Exec=/usr/bin/distrobox rm  fedora40
 /usr/bin/distrobox-host-exec
     https://distrobox.it/posts/execute_commands_on_host/
 /usr/bin/distrobox-init
@@ -51,7 +141,13 @@ https://distrobox.it/usage/usage/
       /usr/sbin/init
       /lib/systemd/systemd
       /usr/lib/systemd/systemd
+/usr/bin/distrobox-list
+/usr/bin/distrobox-rm
+/usr/bin/distrobox-stop
 /usr/bin/distrobox-upgrade
+/usr/bin/distrobox-list
+/usr/bin/distrobox-stop
+/usr/bin/distrobox-rm
 
 cfg
     /usr/share/distrobox/distrobox.conf
@@ -70,6 +166,35 @@ env vars
     DBX_SKIP_WORKDIR
 
 
+internals
+...
+DEBU[0000] Using conmon: "/usr/bin/conmon"
+INFO[0000] Using sqlite as database backend
+DEBU[0000] Using graph driver overlay
+DEBU[0000] Using graph root /home/iharh/.local/share/containers/storage
+DEBU[0000] Using run root /run/user/1000/containers
+DEBU[0000] Using static dir /home/iharh/.local/share/containers/storage/libpod
+DEBU[0000] Using tmp dir /run/user/1000/libpod/tmp
+DEBU[0000] Using volume path /home/iharh/.local/share/containers/storage/volumes
+...
+DEBU[0000] Initializing event backend journald
+DEBU[0000] Configured OCI runtime runj initialization failed: no valid executable found for OCI runtime runj: invalid argument
+DEBU[0000] Configured OCI runtime runsc initialization failed: no valid executable found for OCI runtime runsc: invalid argument
+DEBU[0000] Configured OCI runtime crun-vm initialization failed: no valid executable found for OCI runtime crun-vm: invalid argument
+DEBU[0000] Configured OCI runtime youki initialization failed: no valid executable found for OCI runtime youki: invalid argument
+DEBU[0000] Configured OCI runtime krun initialization failed: no valid executable found for OCI runtime krun: invalid argument
+DEBU[0000] Configured OCI runtime ocijail initialization failed: no valid executable found for OCI runtime ocijail: invalid argument
+DEBU[0000] Configured OCI runtime crun-wasm initialization failed: no valid executable found for OCI runtime crun-wasm: invalid argument
+DEBU[0000] Configured OCI runtime kata initialization failed: no valid executable found for OCI runtime kata: invalid argument
+DEBU[0000] Using OCI runtime "/usr/bin/crun"
+...
++ mkdir -p /home/iharh/.local/share/applications
++ mkdir -p /home/iharh/.local/share/icons/distrobox
++++ realpath /usr/bin/distrobox-generate-entry
+++ dirname /usr/bin/distrobox-generate-entry
+...
+
+
 
 2023
 TheLinuxCast - 5 Reasons You Should Use Distrobox of 20:54
@@ -83,6 +208,7 @@ https://www.opennet.ru/opennews/art.shtml?num=60147
 https://www.tecmint.com/distrobox-run-any-linux-distribution/
 JorgeCastro - How I use distrobox on Fedora Silverblue 0:00 of 12:33
     https://www.youtube.com/watch?v=Q2PrISAOtbY
+    !!!
 Brodie Robertson - Turning Distrobox Into Your Entire Linux Desktop of 11:48
     https://www.youtube.com/watch?v=IIVv5NjyYl0
 Brodie Robertson - Distrobox Is Basically A Linux Subsystem For Linux of 16:41
