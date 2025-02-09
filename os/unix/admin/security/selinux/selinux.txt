@@ -1,8 +1,1 @@
 https://docs.fedoraproject.org/en-US/quick-docs/selinux-getting-started/
-
-/etc/selinux/config
-
-SELINUX=disabled
-
-????
-/etc/selinux/semanage.conf
