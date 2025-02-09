@@ -1,3 +1,4 @@
+https://github.com/JaKooLit/Hyprland-Dots/wiki/Install_&_Update
 https://github.com/JaKooLit/Fedora-Hyprland
   git clone --depth=1 https://github.com/JaKooLit/Fedora-Hyprland.git ~/Fedora-Hyprland
   cd ~/Fedora-Hyprland
@@ -135,7 +136,9 @@ assets/
       gtk-xft-rgba=rgb
       gtk-application-prefer-dark-theme=1
     
-
+2025
+Ja.KooLit - KooL Hyprland Install Script improvements and KooL's Hyprland Dots new features 0:00 of 8:37
+    https://www.youtube.com/watch?v=wQ70lo7P6vA
 2023
 Ja.KooLit - Hyprland on Fedora Workstation and Nobara - nvidia, amd and intel gpu support of 10:03
     https://www.youtube.com/watch?v=w2dt4GlHjV0
