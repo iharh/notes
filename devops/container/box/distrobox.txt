@@ -41,8 +41,6 @@ https://alt-kde.wiki/apps/distrobox/
 cli
 https://distrobox.it/usage/usage/
 /usr/bin/distrobox-enter
-    enter "fedora1"
-    -- command-to-execute
 
 /usr/bin/distrobox
 /usr/bin/distrobox-assemble
@@ -81,7 +79,16 @@ https://distrobox.it/usage/usage/
     Error: Unable to find a match: libpam-systemd pipewire-audio-client-libraries
     !!!
 /usr/bin/distrobox-enter
+    ...
+    --no-workdir/-nw:	
+        always start the container from container's home directory
+    --additional-flags/-a:	
+        additional flags to pass to the container manager command
+    ...
+    enter "fedora1"
+
     Starting container...                            [ OK ]
+    --- ??? ---
     Installing basic packages...                     [ OK ]
     Setting up devpts mounts...                      [ OK ]
     Setting up read-only mounts...                   [ OK ]
@@ -97,8 +104,31 @@ https://distrobox.it/usage/usage/
     Setting up skel...                               [ OK ]
     Setting up init system...                        [ OK ]
     Firing up init system...                         [ OK ]
-
+    ---
     Container Setup Complete!
+
+    generate_enter_command() {
+      ...
+
+      # Start with the $PATH set in the container's config
+      container_paths="${container_path:-""}"
+      # Ensure the standard FHS program paths are in PATH environment
+      standard_paths="/usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin"
+
+      if [ "${clean_path}" -eq 1 ]; then
+        ...
+      else
+        ...
+      fi
+      ...
+    }
+    ...
+    # dry run mode, just generate the command and print it. No execution.
+    if [ "${dryrun}" -ne 0 ]; then
+      cmd="$(generate_enter_command | sed 's/\t//g')"
+      printf "%s %s\n" "${cmd}" "$*"
+      exit 0
+    fi
 
 /usr/bin/distrobox-ephemeral
 /usr/bin/distrobox-export
