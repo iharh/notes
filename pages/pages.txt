@@ -2,7 +2,7 @@ mebel Denis
 +375-29-681-86-50
 296818650
 
-talosctl cluster create
+talosctl cluster create --name ihcluster
 
 https://www.jetify.com/docs/devbox/quickstart/
 https://medium.com/vafion/devbox-a-user-friendly-approach-to-reproducible-development-environments-with-nix-83dbcd0ab8d8
