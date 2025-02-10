@@ -1,5 +1,6 @@
 https://www.onlyoffice.com/
 https://www.onlyoffice.com/download-desktop.aspx
+https://github.com/ONLYOFFICE/DesktopEditors
 
 aur
     onlyoffice-bin
@@ -11,3 +12,9 @@ snap
     onlyoffice-desktopeditors
 flathub
     org.onlyoffice
+dnf
+    https://discussion.fedoraproject.org/t/installing-the-onlyoffice-desktop-editors-on-fedora-through-their-repo-is-slightly-easier-than-i-expected/121562
+    https://helpcenter.onlyoffice.com/installation/desktop-install-rhel.aspx
+    sudo dnf install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
+    sudo dnf install onlyoffice-desktopeditors
+    desktopeditors
