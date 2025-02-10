@@ -1,0 +1,36 @@
+https://purplesyringa.moe/blog/recovering-garbled-bitcoin-addresses/
+https://github.com/purplesyringa/site/blob/master/blog/recovering-garbled-bitcoin-addresses/index.md
+https://raw.githubusercontent.com/purplesyringa/site/refs/heads/master/blog/recovering-garbled-bitcoin-addresses/index.md
+
+```tikz
+% alt A private key (random 32 bytes) maps via ECDSA magic to a public key (33 bytes). The public key is then hashed via SHA-256 and RIPEMD-160 to a 20-byte string. Prepending a 1-byte address type (0x00) to the hash produces a 21-byte payload. This payload is hashed via SHA-256 twice, and the first 4 bytes are used as the checksum. The payload and the checksum are then concatenated, resulting in a 25-byte decoded address. This address is then encoded with base58 to produce a human-readable string, about 34 characters long on average.
+\draw[step=1,DeepBlue,thick,fill=ShallowBlue] (0,0) grid (32,-1) rectangle (0,0);
+\node[scale=2] at(16,-0.5) {Private key (random 32 bytes)};
+\draw[-{>[length=0.25cm]},thick] (16,-1) -- node[right=0.5cm,scale=2] {ECDSA magic} (16,-4);
+\draw[step=1,shift={(-0.5,0)},DeepBlue,thick,fill=ShallowBlue] (0,-4) grid (33,-5) rectangle (0,-4);
+\node[scale=2] at(16,-4.5) {Public key (33 bytes)};
+\draw[-{>[length=0.25cm]},thick] (16,-5) -- node[right=0.5cm,scale=2] {SHA-256} (16,-8);
+\draw[step=1,DeepRed,thick,fill=ShallowRed] (0,-8) grid (32,-9) rectangle (0,-8);
+\node[scale=2] at(16,-8.5) {Hash (32 bytes)};
+\draw[-{>[length=0.25cm]},thick] (16,-9) -- node[right=0.5cm,scale=2] {RIPEMD-160} (16,-12);
+\draw[step=1,DeepRed,thick,fill=ShallowRed] (6,-12) grid (26,-13) rectangle (6,-12);
+\node[scale=2] at(16,-12.5) {Hash (20 bytes)};
+\draw[DeepBlue,thick,fill=ShallowBlue] (4,-12) rectangle (5,-13);
+\node[scale=2] at(4.5,-11) {Address type (1 byte)};
+\node[scale=2] at(4.5,-12.5) {00};
+\node[scale=2] at(5.5,-12.5) {+};
+\draw[decorate,thick,decoration={brace,amplitude=1cm,mirror}] (4,-13.5) -- (26,-13.5);
+\draw[DeepGold,shift={(-0.5,0)},thick,fill=ShallowGold] (5,-15) grid (26,-16) rectangle (5,-15);
+\node[scale=2] at(16,-15.5) {Payload (21 bytes)};
+\draw[-{>[length=0.25cm]},thick] (25.5,-15.5) -- node[above=0.5cm,scale=2] {SHA-256 $\times$ 2} (32,-15.5);
+\draw[step=1,DeepRed,thick,fill=ShallowRed] (32,-15) grid (36,-16) rectangle (32,-15);
+\draw[DeepLightRed,thin,fill=ShallowLightRed] (36,-15) rectangle (42,-16);
+\node[scale=2] at(34,-15.5) {Checksum};
+\node[scale=2] at(39,-15.5) {$\dots$};
+\draw[decorate,thick,decoration={brace,amplitude=1cm,mirror}] (4.5,-16.5) -- (36,-16.5);
+\draw[DeepGold,shift={(-0.5,0)},thick,fill=ShallowGold] (8,-18) grid (33,-19) rectangle (8,-18);
+\node[scale=2] at(20.5,-18.5) {Decoded address (25 bytes)};
+\draw[-{>[length=0.25cm]},thick] (20.5,-19) -- node[right=0.5cm,scale=2] {base58} (20.5,-22);
+\draw[step=1,DeepMagenta,thick,fill=ShallowMagenta] (3,-22) grid (37,-23) rectangle (3,-22);
+\node[scale=2] at(20,-22.5) {Encoded address ($\sim$ 34 characters)};
+```
