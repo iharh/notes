@@ -15,6 +15,8 @@ https://www.delftstack.com/howto/java/java-stream-distinct-by-property/
 CSC - Valeev - L9 - Terminal Operations and Collectors of 1:48:30
     https://www.youtube.com/watch?v=3qrNlWkJ3ac
     ! 50:00 - groupingBy, mapping, flatMapping
+    ! 1:11:00 - arbitrary Collector.of(...)
+    ! 1:28:00 - Collectors.teeing(...), created by Tagir himself
 2021
 Tsymbalyuk - Collectors Class 0:00 of 32:27
     https://www.youtube.com/watch?v=HOQpQWK9u28

@@ -49,6 +49,26 @@ waiting for kube-proxy to report ready: OK
 ◳ waiting for coredns to report ready: no ready pods found for namespace "kube-system" and label selector "k8s-app=kube-dns"
 context deadline exceeded
 
+???
+https://github.com/siderolabs/talos/issues/9456
+    Nevermind, I could get CoreDNS to work after replacing Flannel CNI with Cilium 
+    (which is what I had earlier, but I decided I give Flannel a try).
+https://github.com/siderolabs/talos/issues/9569
+https://github.com/siderolabs/talos/issues/9902
+    talosctl version --nodes 10.5.0.3
+    talosctl version --nodes 10.5.0.2
+https://github.com/siderolabs/talos/issues/9419
+    ??? k8s version upgrade
+https://github.com/siderolabs/talos/issues/9431
+    docker logs -f talos-default-worker-1
+    docker logs -f talos-default-controlplane-1
+
+talosctl cluster create
+    ...
+    renamed talosconfig context "talos-default" -> "talos-default-3"
+    ...
+
+# during cluster create
 $ talosctl cluster show
 PROVISIONER           docker
 NAME                  talos-default
@@ -56,10 +76,12 @@ NETWORK NAME          talos-default
 NETWORK CIDR          10.5.0.0/24
 NETWORK GATEWAY
 NETWORK MTU           1500
-KUBERNETES ENDPOINT   https://127.0.0.1:37487
+KUBERNETES ENDPOINT   https://127.0.0.1:35343
 
 NODES:
 
 NAME                           TYPE           IP         CPU    RAM      DISK
 talos-default-controlplane-1   controlplane   10.5.0.2   2.00   2.1 GB   -
 talos-default-worker-1         worker         10.5.0.3   2.00   2.1 GB   -
+
+
