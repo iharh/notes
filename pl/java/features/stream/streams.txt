@@ -39,6 +39,9 @@ characterized by Spliterator
         - uses more memory
         - short-circuiting (find result earlier than finishing consuming all the input)
         - .flatMap...spliterator().tryAdvance() - throws OOM because of the buffering
+    https://www.youtube.com/watch?v=3qrNlWkJ3ac
+    ! 25:14
+    List<String> result = List.of(List.of("foo", "bar"), List.of("baz", "...")).flatMap(List::stream).toList()
 
 .orElseThrow(IllegalStateException::new)
 

@@ -1,8 +1,27 @@
 https://github.com/Alexays/Waybar
+
 https://github.com/Alexays/Waybar/wiki
+https://github.com/Alexays/Waybar/wiki/Configuration
+https://github.com/Alexays/Waybar/wiki/Styling
+    https://docs.gtk.org/gtk3/css-properties.html
+    https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+https://github.com/Alexays/Waybar/wiki/Writing-Modules
+https://github.com/Alexays/Waybar/wiki/Module:-Hyprland
+https://github.com/Alexays/Waybar/wiki/Module:-Sway
+https://github.com/Alexays/Waybar/wiki/Module:-CPU
+https://github.com/Alexays/Waybar/wiki/Module:-Custom:-Simple
+
+https://github.com/Alexays/Waybar/tree/master/src/modules/hyprland
+https://github.com/Alexays/Waybar/tree/master/src/modules/sway
+
+https://gitlab.freedesktop.org/wlroots/wlr-protocols
+https://github.com/wmww/gtk4-layer-shell
+https://wmww.github.io/gtk-layer-shell/
 
 https://wiki.gentoo.org/wiki/Waybar
 https://wiki.hyprland.org/Useful-Utilities/Status-Bars/
+
+https://github.com/Alexays/Waybar/wiki/Examples
 
 dnf/waybar
 https://github.com/Alexays/Waybar/wiki/FAQ#how-to-use-with-sway
