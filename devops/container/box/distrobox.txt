@@ -41,7 +41,6 @@ https://alt-kde.wiki/apps/distrobox/
 
 cli
 https://distrobox.it/usage/usage/
-/usr/bin/distrobox-enter
 
 /usr/bin/distrobox
 /usr/bin/distrobox-assemble
@@ -79,12 +78,14 @@ https://distrobox.it/usage/usage/
     !!!
     Error: Unable to find a match: libpam-systemd pipewire-audio-client-libraries
     !!!
-/usr/bin/distrobox-enter
+https://distrobox.it/usage/distrobox-enter/
     ...
     --no-workdir/-nw:	
         always start the container from container's home directory
     --additional-flags/-a:	
         additional flags to pass to the container manager command
+    --/-e:
+        end arguments execute the rest as command to execute at login	
     ...
     enter "fedora1"
 
