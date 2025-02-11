@@ -1,11 +1,15 @@
-195337  Память DDR4 32Gb (pc-3600) Kingston HyperX Fury Beast Black CL18 (KF436C18BB/32) Доставка на 17.01.2023!!!   KF436C18BB/32  148,92
-
 inxi -m
   Device-1: Channel-A DIMM 0 type: DDR4 size: 32 GiB speed: 3000 MT/s
 
 Kingston
 https://www.777555.by/kompyutery_i_seti/kompyutery_i_komplektuyuschie/operativnaya_pamyat/?priceFrom=18&priceTo=3247&fb%5B162%5D=1
 https://www.777555.by/kompyutery_i_seti/kompyutery_i_komplektuyuschie/operativnaya_pamyat/?priceFrom=18&priceTo=3247&fb%5B162%5D=1&fp%5B3405%5D%5B%5D=2+%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8F&fp%5B3406%5D%5B%5D=64+%D0%B3%D0%B1
+
+256=8x32
+https://www.777555.by/product/1520987-kingston-fury-renegade-rgb-8x32gb-ddr4-3200-mgc-kf432c16rb2ak8-256/
+    ! 2899 bin
+https://www.777555.by/product/1520986-kingston-fury-renegade-8x32gb-ddr4-3200-mgc-kf432c16rb2k8-256/
+    ! 2639 bin
 
 128=4x32
 https://catalog.onliner.by/dram/kingston/kf436c18bbak4128
@@ -22,31 +26,3 @@ https://www.777555.by/product/541647-kingston-fury-beast-2x32gb-ddr4-pc4-28800-k
     ! 652 bin, black, 18-22-22, no-highlight, cooling !!!
 https://catalog.onliner.by/dram/kingston/kf436c18bbk264
     ! 630 bin
-
-
-
-256=8x32
-https://www.777555.by/product/1520987-kingston-fury-renegade-rgb-8x32gb-ddr4-3200-mgc-kf432c16rb2ak8-256/
-    ! 2899 bin
-https://www.777555.by/product/1520986-kingston-fury-renegade-8x32gb-ddr4-3200-mgc-kf432c16rb2k8-256/
-    ! 2639 bin
-
-!!! for current hw 
-128=4x32
-https://www.777555.by/product/1437382-kingston-fury-renegade-rgb-4x32gb-ddr4-3600-mgc-kf436c18rb2ak4-128/
-https://catalog.onliner.by/dram/kingston/kf436c18rb2ak412
-    ! 1285-1010 bin, 18T, 18-22-22
-https://catalog.onliner.by/dram/kingston/kf436c18bb2ak411
-    ! 2208 bin 3600 , cas latency 18T, 18-22-22
-
-Kingston FURY Beast 2x32GB DDR4 PC4-25600 KF432C16BBK2 / 64
-https://www.777555.by/product/541076-kingston-fury-beast-2x32gb-ddr4-pc4-25600-kf432c16bbk2-64/
-    ! 593bin, 2x32, 3200 MHz
-    https://www.21vek.by/ram/kf432c16bbk264_kingston.html
-    ! 666bin
-
-https://www.777555.by/product/689793-kingston-fury-beast-4x32gb-ddr4-pc4-25600-kf432c16bbk4-128/
-    ! 1405 bin, 4x32 3200 MHz
-    https://catalog.onliner.by/dram/kingston/kf432c16bbk4128
-    https://catalog.onliner.by/dram/kingston/kf432c16bbk4128/prices
-    ! 1231 bin,
