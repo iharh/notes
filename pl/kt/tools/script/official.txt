@@ -1,4 +1,5 @@
 https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md
+https://kotlinlang.org/docs/custom-script-deps-tutorial.html#what-s-next
 
 kotlinc -cp <path/to/kotlin-main-kts.jar> -script sample.main.kts
 

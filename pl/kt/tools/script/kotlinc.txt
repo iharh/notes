@@ -1,3 +1,4 @@
 https://kotlinlang.org/docs/tutorials/command-line.html#using-the-command-line-to-run-scripts
+https://kotlinlang.org/docs/custom-script-deps-tutorial.html#what-s-next
 
 kotlinc -script script.kts args
