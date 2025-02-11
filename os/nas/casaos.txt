@@ -1,10 +1,16 @@
 https://casaos.io/
+https://casaos.zimaspace.com/
     CasaOS is open-source and free. The applications in CasaOS also come from the open source community, most of which are free.
     But it must be noted that some applications also provide value-added services which may incur a fee.
+https://blog-casaos.zimaspace.com/
 
 https://github.com/IceWhaleTech/CasaOS
 
 https://wiki.casaos.io/en/get-started
+
+https://get.casaos.io/
+    https://ifconfig.io/country_code
+curl -fsSL https://get.casaos.io | sudo bash
 
 2024
 JCLaforgeTech - CasaOS: A Perfect Home Server Solution? 0:00 of 12:56
