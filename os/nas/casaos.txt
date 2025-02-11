@@ -6,11 +6,33 @@ https://blog-casaos.zimaspace.com/
 
 https://github.com/IceWhaleTech/CasaOS
 
+!!!
+http://awesome.casaos.io/
+http://awesome.casaos.io/content/3rd-party-app-stores/list.html
+https://community.bigbeartechworld.com/c/big-bear-casaos/10
+https://github.com/WisdomSky/CasaOS-Coolstore?tab=readme-ov-file#-list-of-applications
+!
+https://github.com/bigbeartechworld/big-bear-casaos
+https://github.com/bigbeartechworld/big-bear-scripts
+
 https://wiki.casaos.io/en/get-started
 
 https://get.casaos.io/
     https://ifconfig.io/country_code
 curl -fsSL https://get.casaos.io | sudo bash
+    CASA_DOWNLOAD_DOMAIN="https://github.com/"
+
+    CASA_PACKAGES=(
+        "${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-Gateway/releases/download/v0.4.9-alpha4/linux-${TARGET_ARCH}-casaos-gateway-v0.4.9-alpha4.tar.gz"
+"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-MessageBus/releases/download/v0.4.4-3-alpha2/linux-${TARGET_ARCH}-casaos-message-bus-v0.4.4-3-alpha2.tar.gz"
+"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-UserService/releases/download/v0.4.8/linux-${TARGET_ARCH}-casaos-user-service-v0.4.8.tar.gz"
+"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-LocalStorage/releases/download/v0.4.4/linux-${TARGET_ARCH}-casaos-local-storage-v0.4.4.tar.gz"
+"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-AppManagement/releases/download/v0.4.10-alpha2/linux-${TARGET_ARCH}-casaos-app-management-v0.4.10-alpha2.tar.gz"
+"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS/releases/download/v0.4.15/linux-${TARGET_ARCH}-casaos-v0.4.15.tar.gz"
+"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-CLI/releases/download/v0.4.4-3-alpha1/linux-${TARGET_ARCH}-casaos-cli-v0.4.4-3-alpha1.tar.gz"
+"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-UI/releases/download/v0.4.20/linux-all-casaos-v0.4.20.tar.gz"
+"${CASA_DOWNLOAD_DOMAIN}IceWhaleTech/CasaOS-AppStore/releases/download/v0.4.5/linux-all-appstore-v0.4.5.tar.gz" 
+    )
 
 2024
 JCLaforgeTech - CasaOS: A Perfect Home Server Solution? 0:00 of 12:56

@@ -30,9 +30,16 @@ sample
     --get-id
     --get-duration
     -e, --get-title
+  redundant options
     --get-description
         https://github.com/yt-dlp/yt-dlp#video-selection
             --dateafter
+    --default-search
+    'default_search': 'ytsearch5:'
+
+    https://write.corbpie.com/searching-youtube-videos-with-yt-dlp/
+    yt-dlp "ytsearch10:lebron james" --no-download -e --get-id --get-duration
+    yt-dlp "ytsearchall:nixos" --no-download -e --get-id --get-duration
 
 https://github.com/yt-dlp/yt-dlp/issues/6035
     !!!

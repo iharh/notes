@@ -2,6 +2,9 @@ mebel Denis
 +375-29-681-86-50
 296818650
 
+devenv.sh
+https://devenv.pages.wito.dev/20
+
 docker network ls
     47dffcaa358f   talos-default   bridge    local
 talosctl cluster create 

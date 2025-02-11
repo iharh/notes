@@ -42,6 +42,7 @@ https://artifacthub.io/packages/helm/k8s-at-home/miniflux
     https://github.com/miniflux/v2
 https://artifacthub.io/packages/helm/k8s-at-home/tt-rss
     https://git.tt-rss.org/fox/tt-rss
+    ? deprecates
 
 irc
 https://artifacthub.io/packages/helm/k8s-at-home/thelounge
