@@ -1,0 +1,21 @@
+Toggle
+<leader> + ch
+    :NvCheatsheet
+
+Whichkey
+<leader> + wK
+    All keymaps
+        ; - enter command mode
+            visual - go back to visual mode
+        v - visual mode
+        V - visual line
+
+Terminal
+<leader> + h/v
+M-h/v
+M-i
+    toggle floating term
+
+Telescope
+<leader> + cm
+    git commits
