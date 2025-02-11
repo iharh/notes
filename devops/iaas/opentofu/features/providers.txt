@@ -1,0 +1,14 @@
+https://opentofu.org/docs/language/providers/
+https://github.com/opentofu/registry/tree/main/providers
+
+https://registry.terraform.io/browse/providers
+
+https://github.com/opentofu/registry/blob/main/providers/b/bpg/proxmox.json
+https://github.com/bpg/terraform-provider-proxmox
+https://registry.terraform.io/providers/bpg/proxmox
+
+https://registry.terraform.io/providers/terra-farm/virtualbox/latest
+
+https://registry.terraform.io/providers/Project0/podman/latest
+https://github.com/Project0/terraform-provider-podman
+    https://tomsitcafe.com/2025/01/27/how-to-manage-podman-containers-with-opentofu/

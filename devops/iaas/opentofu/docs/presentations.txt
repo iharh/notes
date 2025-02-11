@@ -1,0 +1,11 @@
+2024
+Batagonov - VM Control in Proxmox Cluster using OpenTofu of 6:49
+    https://www.youtube.com/watch?v=YzBz6oUMk7I
+    https://github.com/batonogov/learn-devops/tree/main/opentofu
+    ! 2:45 - provider.tf
+    !   bpg/proxmox - https://github.com/opentofu/registry/blob/main/providers/b/bpg/proxmox.json
+    !   https://github.com/bpg/terraform-provider-proxmox
+Batagonov - What is OpenTofu and how to Install it of 9:13
+    https://www.youtube.com/watch?v=_khv2Jd0O_k
+    https://github.com/batonogov/learn-devops/tree/main/opentofu
+    ! sample of vm-migtration for proxmox

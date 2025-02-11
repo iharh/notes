@@ -47,6 +47,9 @@ I0210 20:13:59.019321       1 main.go:212] CLI flags config: {etcdEndpoints:http
 W0210 20:13:59.019416       1 client_config.go:618] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
 E0210 20:13:59.024229       1 main.go:229] Failed to create SubnetManager: error retrieving pod spec for 'kube-system/kube-flannel-82w5l': pods "kube-flannel-82w5l" is forbidden: User "system:serviceaccount:kube-system:flannel" cannot get resource "pods" in API group "" in the namespace "kube-system"
 
+talosctl machineconfig patch ...
+    https://www.youtube.com/watch?v=jzu2CAkwBro
+
 
 
 ... support

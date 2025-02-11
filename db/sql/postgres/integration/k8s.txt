@@ -1,4 +1,6 @@
 https://cloudnative-pg.io/
+https://cloudnative-pg.io/docs/
+https://cloudnative-pg.io/documentation/current/backup/
 https://github.com/cloudnative-pg/cloudnative-pg
 
 https://www.kubegres.io/
@@ -6,6 +8,14 @@ https://github.com/reactive-tech/kubegres
 
 https://github.com/movetokube/postgres-operator
 
+https://www.postgresql.org/docs/current/creating-cluster.html
+
+2024
+https://blog.stonegarden.dev/articles/2024/10/k8s-postgres/
+    !!! super, but a long read
+2023
+https://www.cncf.io/blog/2023/09/29/recommended-architectures-for-postgresql-in-kubernetes/
+    !
 2022
 https://habr.com/ru/company/domclick/blog/649167/
     bitnami helm repo

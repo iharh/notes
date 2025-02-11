@@ -1,0 +1,14 @@
+2024
+MirceaAnton - Talos Linux - The Best OS For Kubernetes of 23:42
+    https://www.youtube.com/watch?v=4_U0KK-blXQ
+Batagonov - Deploying k8s Cluster in Talos Linux ru of 16:34
+    https://www.youtube.com/watch?v=AVnMfl8GoiU
+    ! setting up Talos OS inside VM
+    https://github.com/batonogov/learn-devops
+    https://github.com/batonogov/learn-devops/tree/main/talos
+        talosctl gen secrets -o secrets.yaml
+        talosctl gen config --kubernetes-version 1.31.4 --with-secrets secrets.yaml my-cluster https://172.16.61.10:6443 --config-patch @patch.yaml
+    ! !!! patch.yaml
+    ! 6:00 use Cilium instead of Flanel !!!
+SideroLabs - Run Talos Linux in Docker of 4:43
+    https://www.youtube.com/watch?v=IO2Yo3N46nk

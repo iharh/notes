@@ -1,8 +1,14 @@
 https://www.qubes-os.org/
 https://www.qubes-os.org/intro/
     dom0 and fedora-based
+    https://wiki.xenproject.org/wiki/Xen_Project_Software_Overview
+  https://wiki.xenproject.org/wiki/Category:Guest_Install
 
 https://github.com/QubesOS
+
+qubes-os summit
+https://www.youtube.com/playlist?list=PLuISieMwVBpL5S7kPUHKenoFj_YJ8Y0_d
+https://www.youtube.com/playlist?list=PLuISieMwVBpJmIaHgyv7yKDwrHpqym9Qh
 
 https://www.qubes-os.org/doc/
 https://www.qubes-os.org/doc/system-requirements/
@@ -10,6 +16,7 @@ https://www.qubes-os.org/intro/
 https://www.qubes-os.org/doc/installation-guide/
     bios: AMD-Vi
 https://www.qubes-os.org/getting-started/
+    !!!
 https://www.qubes-os.org/doc/how-to-organize-your-qubes/
 https://www.qubes-os.org/doc/how-to-update/
 https://www.qubes-os.org/doc/how-to-back-up-restore-and-migrate/

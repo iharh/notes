@@ -1,4 +1,5 @@
 https://documentation.vanillaos.org/docs/ABRoot
+
 https://github.com/Vanilla-OS/ABRoot
 https://documentation.vanillaos.org/docs/abroot-manpage
 https://documentation.vanillaos.org/docs/abroot-porting
@@ -11,6 +12,17 @@ https://www.thegeekdiary.com/abroot-command-examples-in-linux/
 
 https://docs.vanillaos.org/handbook/en/installation
 https://docs.vanillaos.org/handbook/en/install-in-vm
+
+apx
+https://docs.vanillaos.org/collections/apx
+https://docs.vanillaos.org/apx/en/getting-started
+https://docs.vanillaos.org/apx/en/working-w-pkgms
+    ! apk/apt/dnf/pacman/zypper
+https://docs.vanillaos.org/apx/en/understanding-pmss
+https://docs.vanillaos.org/apx/en/working-w-stacks
+https://docs.vanillaos.org/apx/en/working-w-subsystems
+
+https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md
 
 2024
 https://vanillaos.org/blog/article/2024-07-16/discover-vso-v2-managing-your-vanilla-os-installation-like-never-before

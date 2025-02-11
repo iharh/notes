@@ -4,6 +4,7 @@ https://distrobox.it/compatibility/#host-distros
 https://distrobox.it/compatibility/#containers-distros
     NixOS is not a supported container distro, and there are currently no plans to bring support to it.
     If you are looking for unprivileged NixOS environments, we suggest you look into nix-shell or nix portable
+    https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md
 https://distrobox.it/useful_tips/
 https://distrobox.it/posts/posts/
 https://distrobox.it/posts/integrate_vscode_distrobox/
