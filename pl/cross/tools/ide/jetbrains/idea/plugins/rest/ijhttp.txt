@@ -1,0 +1,2 @@
+https://www.jetbrains.com/ijhttp/download/
+curl -f -L -o ijhttp.zip "https://download.jetbrains.com/resources/intellij/http-client/241.14494.240/intellij-http-client.zip"
