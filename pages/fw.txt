@@ -1,0 +1,61 @@
+$ sudo systemctl status firewalld
+○ firewalld.service - firewalld - dynamic firewall daemon
+     Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; preset: enabled)
+    Drop-In: /usr/lib/systemd/system/service.d
+             └─10-timeout-abort.conf
+     Active: inactive (dead)
+       Docs: man:firewalld(1)
+
+Feb 12 14:37:53 EPBYGOMW0024T4 firewalld[545]: ERROR: Raising SystemExit in run_server
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: ERROR: 'python-nftables' failed: netlink: Error: cache initialization failed: Operation not permitted
+
+                                               JSON blob:
+                                               {"nftables": [{"metainfo": {"json_schema_version": 1}}, {"add": {"table": {"family": "inet", "name": "firewalld"}}}, {"delete": {"table": {"family": "i>
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: ERROR: Failed to load user configuration. Falling back to full stock configuration.
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: ERROR: 'python-nftables' failed: netlink: Error: cache initialization failed: Operation not permitted
+
+                                               JSON blob:
+                                               {"nftables": [{"metainfo": {"json_schema_version": 1}}, {"add": {"table": {"family": "inet", "name": "firewalld"}}}, {"delete": {"table": {"family": "i>
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: ERROR: COMMAND_FAILED: 'python-nftables' failed: netlink: Error: cache initialization failed: Operation not permitted
+
+                                               JSON blob:
+                                               {"nftables": [{"metainfo": {"json_schema_version": 1}}, {"add": {"table": {"family": "inet", "name": "firewalld"}}}, {"delete": {"table": {"family": "i>
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: Traceback (most recent call last):
+                                                 File "/usr/lib/python3.12/site-packages/firewall/core/fw.py", line 724, in start
+                                                   self._start()
+                                                 File "/usr/lib/python3.12/site-packages/firewall/core/fw.py", line 692, in _start
+                                                   self._start_apply_objects(reload=reload, complete_reload=complete_reload)
+                                                 File "/usr/lib/python3.12/site-packages/firewall/core/fw.py", line 583, in _start_apply_objects
+                                                   transaction.execute(True)
+                                                 File "/usr/lib/python3.12/site-packages/firewall/core/fw_transaction.py", line 117, in execute
+                                                   raise FirewallError(errors.COMMAND_FAILED, errorMsg)
+                                               firewall.errors.FirewallError: COMMAND_FAILED: 'python-nftables' failed: netlink: Error: cache initialization failed: Operation not permitted
+
+                                               JSON blob:
+                                               {"nftables": [{"metainfo": {"json_schema_version": 1}}, {"add": {"table": {"family": "inet", "name": "firewalld"}}}, {"delete": {"table": {"family": "i>
+
+                                               During handling of the above exception, another exception occurred:
+
+                                               Traceback (most recent call last):
+                                                 File "/usr/lib/python3.12/site-packages/firewall/core/fw.py", line 734, in start
+                                                   self._start_failsafe()
+                                                 File "/usr/lib/python3.12/site-packages/firewall/core/fw.py", line 720, in _start_failsafe
+                                                   self._start_apply_objects(reload=reload, complete_reload=complete_reload)
+                                                 File "/usr/lib/python3.12/site-packages/firewall/core/fw.py", line 583, in _start_apply_objects
+                                                   transaction.execute(True)
+                                                 File "/usr/lib/python3.12/site-packages/firewall/core/fw_transaction.py", line 117, in execute
+                                                   raise FirewallError(errors.COMMAND_FAILED, errorMsg)
+                                               firewall.errors.FirewallError: COMMAND_FAILED: 'python-nftables' failed: netlink: Error: cache initialization failed: Operation not permitted
+
+                                               JSON blob:
+                                               {"nftables": [{"metainfo": {"json_schema_version": 1}}, {"add": {"table": {"family": "inet", "name": "firewalld"}}}, {"delete": {"table": {"family": "i>
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: ERROR: COMMAND_FAILED: 'python-nftables' failed: netlink: Error: cache initialization failed: Operation not permitted
+
+                                               JSON blob:
+                                               {"nftables": [{"metainfo": {"json_schema_version": 1}}, {"add": {"table": {"family": "inet", "name": "firewalld"}}}, {"delete": {"table": {"family": "i>
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: ERROR: Failed to load full stock configuration. This likely indicates a system level issue, e.g. the firewall backend (nftables, iptables) is broken. A>
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: ERROR: 'python-nftables' failed: netlink: Error: cache initialization failed: Operation not permitted
+
+                                               JSON blob:
+                                               {"nftables": [{"metainfo": {"json_schema_version": 1}}, {"add": {"table": {"family": "inet", "name": "firewalld"}}}, {"delete": {"table": {"family": "i>
+Feb 12 14:42:21 EPBYGOMW0024T4 firewalld[955]: ERROR: Raising SystemExit in run_server
