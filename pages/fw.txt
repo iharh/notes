@@ -1,10 +1,69 @@
+$ sudo dnf install selinux-policy
+
 python3-firewall-2.1.4-2.fc40.noarch
+
+?
+https://cyberchaos.dev/e1mo/nixfiles/-/blob/2a395103cfde4d70c3670c5a51538cd9d0c254cb/modules/nftables/default.nix
+https://code.mayfirst.org/mfmt/bruce/-/blob/master/bruce_banner.py
+    nft --check
+https://lists.osmocom.org/hyperkitty/list/gerrit-log@lists.osmocom.org/thread/VSV4C24PFCMFWV2BPRRIGNYICLDXPHZR/
+    --- a/contrib/systemd/osmo-upf.service
+    +++ b/contrib/systemd/osmo-upf.service
+    @@ -12,6 +12,7 @@
+     Group=osmocom
+     ExecStart=/usr/bin/osmo-upf -c /etc/osmocom/osmo-upf.cfg
+     RestartSec=2
+    +AmbientCapabilities=CAP_NET_ADMIN
+ 
+???
+nft --debug all flush ruleset
+???
+Conflicts=iptables.service ip6tables.service ebtables.service ipset.service nftables.service
 
 sudo vi /usr/lib/python3.12/site-packages/firewall/core/fw.py
 line 583, in _start_apply_objects
-    transaction = FirewallTransaction(self) 
+class Firewall:
     ...
-    transaction.execute(True)   # !!!
+    def _start_apply_objects(self, reload = False, complete_reload = False):
+        ...
+        transaction = FirewallTransaction(self) 
+        ...
+        self.apply_default_tables(use_transaction = transaction)
+        transaction.execute(True)   # !!!
+    ...
+    def apply_default_tables(self, use_transaction = None):
+        ...
+        transaction = use_transaction
+        ...
+        for backend in self.enabled_backends():
+            transaction.add_rules(backend, backend.build_default_tables())    # ???
+
+
+sudo vi /usr/lib/python3.12/site-packages/firewall/core/fw_transaction.py
+line 117, in execute
+    raise FirewallError(errors.COMMAND_FAILED, errorMsg)  # !!!
+    ...
+class FirewallTransaction:
+    ...
+    def execute(self, enable):
+        ...
+        rules = self.rules
+        ...
+        error = False
+        errorMsg = ""
+        ...
+        for backend_name in rules:
+            try:
+                self.fw.rules(backend_name, rules[backend_name])
+            except Exception as msg:
+                error = True
+                errorMsg = msg
+                log.debug1(traceback.format_exc())
+                log.error(msg
+        ...
+        if error:
+            ...
+            raise FirewallError(errors.COMMAND_FAILED, errorMsg)
 
 $ sudo systemctl status firewalld
 ○ firewalld.service - firewalld - dynamic firewall daemon

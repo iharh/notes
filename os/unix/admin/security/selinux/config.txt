@@ -6,3 +6,8 @@ SELINUX=disabled
 
 ????
 /etc/selinux/semanage.conf
+
+$ rpm -qf /etc/selinux/semanage.conf
+libsemanage-3.7-2.fc41.x86_64
+$ rpm -qf /etc/selinux/config
+selinux-policy-41.32-1.fc41.noarch
