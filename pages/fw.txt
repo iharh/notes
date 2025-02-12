@@ -1,5 +1,11 @@
 python3-firewall-2.1.4-2.fc40.noarch
 
+sudo vi /usr/lib/python3.12/site-packages/firewall/core/fw.py
+line 583, in _start_apply_objects
+    transaction = FirewallTransaction(self) 
+    ...
+    transaction.execute(True)   # !!!
+
 $ sudo systemctl status firewalld
 ○ firewalld.service - firewalld - dynamic firewall daemon
      Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; preset: enabled)
