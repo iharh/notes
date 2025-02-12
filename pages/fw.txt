@@ -1,3 +1,5 @@
+python3-firewall-2.1.4-2.fc40.noarch
+
 $ sudo systemctl status firewalld
 ○ firewalld.service - firewalld - dynamic firewall daemon
      Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; preset: enabled)
