@@ -1,12 +1,14 @@
-https://opensourcelibs.com/libs/bittorrent-tracker
-
-https://sumanjay.cf/torrent/
-https://newtrackon.com/list
-
 https://trackerslist.com/#/
+    https://trackerslist.com/#/?id=aria2
     https://cdn.jsdelivr.net/gh/XIU2/TrackersListCollection/all.txt
     https://github.com/SuperNG6/docker-qbittorrent/blob/master/root/etc/cont-init.d/40-config
     https://github.com/XIU2/TrackersListCollection
+
+http://www.torrentsnipe.info:2701/announce
+    https://github.com/ngosang/trackerslist
+https://sumanjay.cf/torrent/
+https://newtrackon.com/list
+
 
 https://github.com/ngosang/trackerslist
     https://github.com/ngosang/trackerslist
