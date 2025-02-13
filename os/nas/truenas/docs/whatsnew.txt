@@ -1,0 +1,8 @@
+24.10
+https://www.truenas.com/docs/scale/24.10/gettingstarted/scalereleasenotes/
+    The TrueNAS Apps feature backend moves from Kubernetes to Docker
+    https://forums.truenas.com/t/the-future-of-electric-eel-and-apps/5409
+https://forum.storj.io/t/truenas-scale-upgrade-to-24-10-kubernetes-to-docker-anyone-done-it-yet/28435
+    It migrates away from kubernettes to docker
+
+    https://github.com/fenio/k8s-truenas

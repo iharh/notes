@@ -1,5 +1,8 @@
 https://flexget.com/InstallWizard/Docker
 
+https://truecharts.org/charts/stable/flexget/
+    https://github.com/truecharts/public/tree/master/charts/stable/flexget
+
 https://hub.docker.com/r/wiserain/flexget
     https://github.com/wiserain/docker-flexget
 
@@ -17,8 +20,5 @@ https://hub.docker.com/r/cpoppema/docker-flexget/
 https://hub.docker.com/r/cptactionhank/flexget
     https://github.com/cptactionhank/docker-flexget
         ? transmission-rpc
-
-https://hub.docker.com/r/wiserain/flexget
-    https://github.com/wiserain/docker-flexget
 
 https://docs.linuxserver.io/images/docker-flexget/

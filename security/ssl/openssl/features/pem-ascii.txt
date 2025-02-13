@@ -1,0 +1,13 @@
+openssl ec --help
+https://docs.openssl.org/3.0/man1/openssl-ec/
+    processes EC keys
+
+baeldung
+https://www.baeldung.com/category/security
+https://www.baeldung.com/java-read-pem-file-keys
+    !!!
+https://www.baeldung.com/java-keystore-jks-list-private-keys
+
+samples
+openssl ec -in pvt.pem -pubout -out pub.pem
+

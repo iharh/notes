@@ -1,0 +1,28 @@
+https://en.wikipedia.org/wiki/X.509
+https://ru.wikipedia.org/wiki/X.509
+
+https://datatracker.ietf.org/doc/html/rfc5280
+
+https://pro-ldap.ru/tr/zytrax/tech/encryption.html#dhe
+    diffy-helman
+
+https://pro-ldap.ru/tr/zytrax/tech/ssl.html
+
+formats
+ascii pem
+ASCII PEM key
+
+libs
+https://stackoverflow.com/questions/58724396/parse-x509-certificate-string-in-node
+https://www.geeksforgeeks.org/node-js-new-x509certificate-function/
+https://pkijs.org/docs/api/pkijs
+
+2023
+https://learn.microsoft.com/en-us/azure/iot-hub/reference-x509-certificates
+https://learn.microsoft.com/ru-ru/azure/iot-hub/reference-x509-certificates
+    !!!
+2022
+https://www.techtarget.com/searchsecurity/definition/X509-certificate
+2018
+https://habr.com/ru/articles/346798/
+    !!! std, le
