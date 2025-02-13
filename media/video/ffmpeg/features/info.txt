@@ -1,0 +1,4 @@
+https://habr.com/ru/articles/575914/
+https://stackoverflow.com/questions/2869281/how-to-determine-video-codec-of-a-file-with-ffmpeg
+    ffmpeg -i file.avi
+https://discussion.fedoraproject.org/t/cleanest-way-to-install-all-video-codecs-on-fedora-kde-40/134005

@@ -1,74 +1,33 @@
-mebel Denis
-+375-29-681-86-50
-296818650
+Volkova Rome                                        -   06:00 (of 1:32:09)
+    https://www.youtube.com/watch?v=OcOrUp9MAho
+    https://www.youtube.com/playlist?list=PLGsJxQg4LPTEDpyRZ8cZAYrLZji8_LHvv
+    https://www.youtube.com/playlist?list=PLD5g3xBjBZK-ZNpuF4Qv_rSkGbI8EJpeL
 
 devenv.sh
 https://devenv.pages.wito.dev/20
-
-docker network ls
-    47dffcaa358f   talos-default   bridge    local
-talosctl cluster create 
-    --name ihcluster
-    ...
-    waiting for coredns to report ready: no ready pods for namespace "kube-system" and label selector "k8s-app=kube-dns"
-    ...
-talosctl cluster show
-
-talosctl config info
-talosctl config contexts
-talosctl config context <ctx>
-    switch context
-talosctl config remove <ctx>
-~/.talos/
-
-talosctl --nodes 10.5.0.2 dashboard
-...!!! kubeconfig
-    k get po -A
-        kube-system   coredns-578d4f8ffc-fxf5z                               0/1     ContainerCreating   0               19m
-        kube-system   coredns-578d4f8ffc-fxj62                               0/1     ContainerCreating   0               19m
-    k -n kube-system events --for pod/coredns-578d4f8ffc-fxf5z
-        Warning   FailedCreatePodSandBox   Pod/coredns-578d4f8ffc-fxf5z   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "181f87ccbdc633b1388a8d1eab3eae0e02242b4fc212fda1e656733904561185": plugin type="flannel" failed (add): loadFlannelSubnetEnv failed: open /run/flannel/subnet.env: no such file or directory
-    ???
-        https://github.com/flannel-io/flannel/blob/master/Documentation/configuration.md
-        https://github.com/kubernetes/kubernetes/issues/70202
-        https://github.com/k3s-io/k3s/issues/7028
-        https://github.com/k3s-io/k3s/issues/697
-            --cluster-cidr=10.42.0.0/16:
-        https://github.com/siderolabs/talos/issues/9419
-            !!! check kube-proxy logs regarding nftables errors
-        https://github.com/siderolabs/talos/discussions/8491
-            !!! a lot of diagnistics cmds sample
-        loadFlannelSubnetEnv "/run/flannel/subnet.env"
-            https://serverfault.com/questions/1167369/can-not-initialize-pod-and-create-the-container-due-to-deleted-flannel-name-spac
-        https://discuss.kubernetes.io/t/describe-pod-shows-open-run-flannel-subnet-env-no-such-file-or-directory/24863
-            !
-        https://github.com/flannel-io/flannel
-            k -n kube-system logs kube-flannel-82w5l
-
-Defaulted container "kube-flannel" out of: kube-flannel, install-config (init)
-I0210 20:13:59.019321       1 main.go:212] CLI flags config: {etcdEndpoints:http://127.0.0.1:4001,http://127.0.0.1:2379 etcdPrefix:/coreos.com/network etcdKeyfile: etcdCertfile: etcdCAFile: etcdUsername: etcdPassword: version:false kubeSubnetMgr:true kubeApiUrl: kubeAnnotationPrefix:flannel.alpha.coreos.com kubeConfigFile: iface:[] ifaceRegex:[] ipMasq:true ifaceCanReach: subnetFile:/run/flannel/subnet.env publicIP: publicIPv6: subnetLeaseRenewMargin:60 healthzIP:0.0.0.0 healthzPort:0 iptablesResyncSeconds:5 iptablesForwardRules:true netConfPath:/etc/kube-flannel/net-conf.json setNodeNetworkUnavailable:true}
-W0210 20:13:59.019416       1 client_config.go:618] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
-E0210 20:13:59.024229       1 main.go:229] Failed to create SubnetManager: error retrieving pod spec for 'kube-system/kube-flannel-82w5l': pods "kube-flannel-82w5l" is forbidden: User "system:serviceaccount:kube-system:flannel" cannot get resource "pods" in API group "" in the namespace "kube-system"
-
-talosctl machineconfig patch ...
-    https://www.youtube.com/watch?v=jzu2CAkwBro
-
-
-
-... support
-service
-mc gen/patch
-
 https://www.jetify.com/docs/devbox/quickstart/
+https://www.jetify.com/devspace
 https://medium.com/vafion/devbox-a-user-friendly-approach-to-reproducible-development-environments-with-nix-83dbcd0ab8d8
 mise devspace
-https://www.jetify.com/devspace
 
+/r/piracy
 
-https://habr.com/ru/articles/575914/
-https://stackoverflow.com/questions/2869281/how-to-determine-video-codec-of-a-file-with-ffmpeg
-    ffmpeg -i file.avi
-https://discussion.fedoraproject.org/t/cleanest-way-to-install-all-video-codecs-on-fedora-kde-40/134005
+LibreTrack - Darknet Lie Discovery 4:00 of 14:28
+    https://www.youtube.com/watch?v=BM0pC6lJOS8
+LibreTrack - Free Browsers for Mobile Devices 2 ru of 27:05
+    https://www.youtube.com/watch?v=nu2z4MXEDLc
+https://pingvinus.ru/gallery/3833
+https://docs.openvinotoolkit.org/latest/index.html
+http://www.xpdfreader.com/pdfinfo-man.html
+https://sr.ht/~emersion/soju/
+https://sourcehut.org/blog/2021-10-15-whats-cooking-october-2021/
+https://who-t.blogspot.com/2021/08/libinput-and-high-resolution-wheel.html
+https://github.qsf.workers.dev/topics/qbittorrent-plugin
+https://github.com/topics/torrent-tracker
+https://github.com/DEgITx/rats-search
+https://www.reddit.com/r/commandline/comments/r9ir76/rtv_no_longer_working/
+https://matrix.org/blog/2021/12/03/this-week-in-matrix-2021-12-03
+
 
 kc - 76 of ...
 kina2 - 37 of 8xx (?1.2.5)
@@ -84,62 +43,19 @@ dnf info ostree-libs
 
 dsworks.ru/super-aintelligence
 
-nvim
-:LspInfo
-https://github.com/williamboman/mason-lspconfig.nvim
-https://github.com/neovim/nvim-lspconfig/tree/master
-
-LSP configs active in this session (globally) ~
-- Configured servers: lua_ls, html, cssls
-...
-- Language client log: ~/.local/state/nvim/lsp.log
-
-https://github.com/LunarVim/LunarVim/issues/4617
-https://github.com/LunarVim/LunarVim/issues/3413
-...10.3/nvim-linux64/share/nvim/runtime/lua/vim/lsp/rpc.lua:800: 
-Spawning language server with cmd: `{ "vscode-css-language-server", "--stdio" }` failed. The language server is either not installed, missing from PATH, or not executable.
-
-$ l ~/.config/waybar/
-drwxr-xr-x. iharh iharh 4.0 KB Sat Feb  8 16:55:23 2025  configs/
-drwxr-xr-x. iharh iharh 4.0 KB Sat Feb  8 16:55:23 2025  style/
-drwxr-xr-x. iharh iharh  31 B  Sat Feb  8 16:55:23 2025  wallust/
-.rw-r--r--. iharh iharh  13 KB Sat Feb  8 16:55:23 2025  Modules
-.rw-r--r--. iharh iharh 5.8 KB Sat Feb  8 16:55:23 2025  ModulesCustom
-.rw-r--r--. iharh iharh 1.7 KB Sat Feb  8 16:55:23 2025  ModulesGroups
-.rw-r--r--. iharh iharh 4.7 KB Sat Feb  8 16:55:23 2025  ModulesWorkspaces
-
-ScottGamovKlein - Kafka in Action
-    39F3B9630BE2320963068F9CACE55C24
-    F6F136E4C2EC26C534ACF11A7088B7F4
-    92EE2370E5CAB2E99BDD1A46B9F1009B
-
-spring
-    ProblemDetails an RFC 9457
-    spring.jdbc.getParameterType.ignore=false
-    SqlParameterValue
-    getParameterType
-    @AutoConfigureTestDatabase (for testcontainers)
-    spring/mvc/test assertJ stuff
-
 Harrison - MongoDB 117 of 360
 
-LiKongYu
-    Singapur - Iz 3-go mira v 1-y
 atomic
     https://pagure.io/workstation-ostree-config
     https://gitlab.com/fedora/ostree/sig/-/issues
+Pynkin - OSTree Atomic Updates in Git Style ru 10:00 of 23:57
+    https://www.youtube.com/watch?v=N0expbwB0OM
+    https://www.youtube.com/watch?v=5LE8XF0rUak
 CodeFestRussia - Evgeniy Antonov - How not to Shoot a Foot 33:30 of 41:44
     https://www.youtube.com/watch?v=M_P93LyJrzI
     ! 33:30 ! tons of links
 fin
-    people/yardo
-    vocab/vocab
     @kaksimtemchenko
-    cfi
-        https://www.wikiwand.com/en/ISO_10962
-        https://cbonds.com/glossary/cfi/
-        https://en.wikipedia.org/wiki/ISO_10962
-        https://www.iotafinance.com/en/Classification-of-Financial-Instrument-codes-CFI-ISO-10962.html
 docker-ui-matlab
     https://habr.com/ru/articles/780322/
 diagrams software
@@ -162,8 +78,6 @@ java
     https://www.oreilly.com/library/view/a-functional-approach/9781098109912/
 ???
     B94D53D424715F2E21A19149D3E9DA05
-    https://spring.io/projects/spring-cloud-stream-applications
-    https://github.com/spring-cloud/stream-applications
     https://www.reddit.com/r/haskell/comments/17j135h/tallinn_haskell_user_group_2_agda_introduction/
     https://nnmclub.to/forum/viewtopic.php?t=1672713
     https://www.cyberciti.biz/tips/top-linux-monitoring-tools.html
@@ -205,9 +119,6 @@ https://github.com/nix-community/fenix
     https://github.com/nix-community/fenix/blob/main/default.nix
         fromJson, readFile, pkgs.callPackage, ?? //
 
-https://blog.predanie.ru/article/pochemu-stradali-prometej-sokrat-i-elli-smit-obyasneno-bogom/
-    !
-
 voronezh math life - homologies and data analysis
     https://www.youtube.com/@user-fk5tb3iq1l
 https://neiry.ru/mindtracker
@@ -229,14 +140,9 @@ FoodAndIT - Siling - Rust Developer Interview ru 46:00 of 1:05:11
 2020
 InformTV - Why Drubich Left Soloviev 0:00 of 4:12
     https://www.youtube.com/watch?v=T1EpQOG7X2U
-2017
-FirstChannel - Pozner - Satanovskiy 0:00 of 53:06
-    https://www.youtube.com/watch?v=KOaXd9Rflj0
 
 EPAM - English is Not So Hard as You Think 0:00 of 1:57:15
     https://www.youtube.com/watch?v=IExilXnDepo
-ProHi-Tech - RU Microelectronics Sensational News of 11:08
-    https://www.youtube.com/watch?v=iSjUxFbbmy8
 
 obuchalka.org
 https://www.youtube.com/watch?v=-_BbpqfvqDw
@@ -268,14 +174,8 @@ WildMathing - Brutal Square Formula 0:00 of 6:16
 Plaschevskiy - ZOZH                                 -   41:00 of 1:36:31
     https://predanie.ru/plaschevskiy-nikita/zozh-zdorovyy-obraz-zhizni-chto-eto-takoe/slushat/
     ! man - biopsychosocioduhovnoe suschestvo
-https://blog.predanie.ru/article/unizhennaya-bozhestvennost-i-tiraniya-diavola/
-    4
 https://proglib.io/p/pishi-na-react-v-dva-raza-bystree-prostye-tryuki-dlya-krutogo-razrabotchika-2021-04-08
     ! step 2
-https://blog.predanie.ru/article/besy-dostoevskogo-kak-marksistskij-tekst/
-    ! Marx as Communism Criticer
-https://blog.predanie.ru/article/bogoslovie-toksichnosti/
-    ! consequence
 https://blog.predanie.ru/article/est-li-u-bessmertnyh-lichnostnyj-rost/
     characteristics
 https://blog.predanie.ru/article/borba-za-nezavisimost/
@@ -305,10 +205,6 @@ Churchill - COMP 4300 - Intro to Game Programming
     https://docs.google.com/spreadsheets/d/1LTgXSI04ZUbhP8v58wYqHM9nQ31h_-02zsBslNE6Ei0/edit#gid=0
 https://habr.com/ru/company/karuna/blog/582808/
 https://habr.com/ru/company/karuna/blog/582814/
-https://www.reddit.com/r/commandline/comments/r9ir76/rtv_no_longer_working/
-https://matrix.org/blog/2021/12/03/this-week-in-matrix-2021-12-03
-https://geometry.ru/olimp/2022/zaoch.pdf
-    /r/piracy
 
 https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph
 https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration
@@ -321,18 +217,7 @@ https://www.twilio.com/blog/what-is-public-key-cryptography
 
 https://habr.com/ru/company/dins/blog/584562/
 
-https://github.qsf.workers.dev/topics/qbittorrent-plugin
-https://github.com/topics/torrent-tracker
-https://github.com/DEgITx/rats-search
-
 https://www.reddit.com/r/commandline/comments/q8m59x/terminal_bits_bytes_and_address_calculator_bcal/
-
-https://pingvinus.ru/gallery/3833
-https://docs.openvinotoolkit.org/latest/index.html
-http://www.xpdfreader.com/pdfinfo-man.html
-https://sr.ht/~emersion/soju/
-https://sourcehut.org/blog/2021-10-15-whats-cooking-october-2021/
-https://who-t.blogspot.com/2021/08/libinput-and-high-resolution-wheel.html
 
 https://github.com/pontaoski/greybird-geeko-theme
 https://github.com/editorconfig/editorconfig/wiki/Projects-Using-EditorConfig
@@ -350,18 +235,9 @@ https://medium.com/@olesyasun
 https://medium.com/@olesyasun?p=6d6a0897fb24
 
 https://lowlevelbits.org/how-to-learn-compilers-llvm-edition/
-
 https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth/
 
 https://health.mail.ru/news/v_aushvitse_antidepressantov_ne_bylo_kak/
-
-watched-to-sort
-OhHowSimple - Truth about Apple M1 and Elbrus of 56:51
-    https://www.youtube.com/watch?v=eWnZm1xVxec
-OhHowSimple - How Killing RU Intell of 1:31:55
-    https://www.youtube.com/watch?v=tiMFwTcKgTE
-OhHowSimple - All about Hackintosh ru of 50:26
-    https://www.youtube.com/watch?v=fV5x8WdcrtU
 
 Mihalkov - Gena Crocodyle 1:00 of 48:50
     https://www.youtube.com/watch?v=lRbnMDMrQ5Q
@@ -383,30 +259,8 @@ Matt Godbolt - 2021 - Interview and Q&A: Reluctantly a Verb 0:00 of 1:10:49
 thebennybox - 2017 - Intro to Modern OpenGL Tutorial: Graphics Pipeline 0:00 of 10:49
     https://www.youtube.com/watch?v=bgckX62f4EA
 
-ProHiTech - Bend Displays OLED of 17:54
-    https://www.youtube.com/watch?v=XgT--EIN67Q
-    ! 9:30 Ultra Fast IPS (360Hz) of Acer
-    ! comments ??? SHIM
-    https://habr.com/ru/company/asus/blog/530550/
-    miniLED light IPS
-    https://www.ixbt.com/news/2022/01/06/msi-meg-271q-mini-led-300.html
-
-Dubynin - Why Do we Need Love Sex and Orgasm of 1:36:44
-    https://www.youtube.com/watch?v=Wx5h0EI3nqg
-
-LibreTrack - Darknet Lie Discovery 4:00 of 14:28
-    https://www.youtube.com/watch?v=BM0pC6lJOS8
-LibreTrack - Free Browsers for Mobile Devices 2 ru of 27:05
-    https://www.youtube.com/watch?v=nu2z4MXEDLc
-
 ImatonInstitute - Romatskiy - Food Behavior of 1:23:21
     https://www.youtube.com/watch?v=0d9x5WMrtVw
-
-Brasil - USSR - 1965 3:32 of 10:51
-    https://www.youtube.com/watch?v=yOT-IwwbPxM
-Yuzefovich - Galkin Interview 1:00:00 of 1:34:30
-    https://www.youtube.com/watch?v=0OvRBzLrbUs
-    ! Darrel - capibara
 
 Shurov - Zgoda - Personal Growth - Director of "Advance" Center 20:00 of 1:33:59
     https://www.youtube.com/watch?v=M7k0cCTkt2c
@@ -414,18 +268,6 @@ Shurov - Zgoda - Personal Growth - Director of "Advance" Center 20:00 of 1:33:59
 Shurov - Vunkerkind Alice Teplyakova 1:00 of 24:03
     https://www.youtube.com/watch?v=mSRjHOiPdEw
 
-HowItsMade - Burka ru of 4:36
-    https://www.youtube.com/watch?v=h4_8Fay6bZI
-HowItsMade - Gibson ru of 12:10
-    https://www.youtube.com/watch?v=uYkXzul8PWg
-HowItsMade - Mango ru of 13:38
-    https://www.youtube.com/watch?v=-6tK4XwN6QY
-Rozetked - IPS vs OLED ru 2:00 of 13:56
-    https://www.youtube.com/watch?v=4KWCL51-80U
-    ! IPS - Innolux/ChiMei
-    ! OLED - Samsung
-Cloud & ESID Town Hall 23:00 of 57:04
-    https://videoportal.epam.com/video/GYlD9EYW
 eyes
     https://www.youtube.com/watch?v=WjfvF6I_NhY
 mango
@@ -438,13 +280,6 @@ mango
 PostScience - How to Win the Lazyness ru of 1:26:35
     https://www.youtube.com/watch?v=vFn7Mofosns
 
-CodingTech - The Rust Memory Safety Model Explained of 26:08
-    https://www.youtube.com/watch?v=jDOWSbH3fuA
-Stroustrup - C++20: Reaching for the Aims of C++ 6:00 of 1:37:55
-    https://www.youtube.com/watch?v=TeduHyHdH3A
-    https://www.youtube.com/watch?v=15QF2q66NhU
-    https://www.youtube.com/watch?v=802qonaapFc
-
 Pozner - Gradskiy of 50:37
     https://www.youtube.com/watch?v=dKV5_9nRdZA
 Chehov - 13:00 of 30:59
@@ -455,8 +290,6 @@ Occupation 101 of 1:30:00
 Uralov - Sionism 16:00 of 1:05:36
     https://www.youtube.com/watch?v=YjnB6k1b8uI
     ! 2:30 - Teodor Gertsel
-Conceptual - Rode - In the Footsteps of Comintern and Masons of 42:31
-    https://www.youtube.com/watch?v=0tfbecZfa5I
 
 Kirakozov - TDD and Legacy of 50:52
     https://www.youtube.com/watch?v=gXAwFF_yjYg
@@ -466,8 +299,6 @@ Korneev - Text Parsing ru of 1:25:06
     https://www.youtube.com/watch?v=pk-gqtHApSA
 Melnikov - Digital Culture - Computer Networks 1:02:00 of 1:57:15
     https://www.youtube.com/watch?v=DsEAClf2FPs
-Isakova - The Road to the New Kotlin Compiler 8:00 of 32:21
-    https://www.youtube.com/watch?v=iTdJJq_LyoY
 Adamczewski - Probabilistic Data Structures of 40:51
     https://www.youtube.com/watch?v=Swevh9RwfUw
     https://disk.yandex.ru/i/aSajyWYL2tKjfQ
@@ -475,11 +306,6 @@ Adamczewski - Probabilistic Data Structures of 40:51
 VimConfLive - Justin Restivo - Configuring Vim with NixOS 19:00 of 31:13
     https://www.youtube.com/watch?v=iwsoF9ISfaw
     https://github.com/vi-tality/neovitality
-Minin - 2020 - NextJS SSR                           - 1:01:00 (of 2:34:31)
-    https://www.youtube.com/watch?v=_EOrSmjdOZQ
-Pynkin - OSTree Atomic Updates in Git Style ru 10:00 of 23:57
-    https://www.youtube.com/watch?v=N0expbwB0OM
-    https://www.youtube.com/watch?v=5LE8XF0rUak
 
 Nemchinskiy - How to be a Good Developer ru 4:00 of 29:57
     https://www.youtube.com/watch?v=PPbVK9B_CVY
@@ -511,19 +337,8 @@ WithoutLazyness
     https://www.youtube.com/watch?v=CCb5ps194fw
 LilyaGrad -
     https://www.youtube.com/watch?v=x-OV3unRzY4
-Borisov - Let Them Talk - Tutberidze ru 2:00 of 1:00:19
-    https://www.youtube.com/watch?v=MeHslO1WGeM
-    https://www.youtube.com/watch?v=Tlsjv04H2LI
-Pozner - 2019 - Tutberidze of 49:53
-    https://www.youtube.com/watch?v=0mTs3GwrMpg
-    https://www.youtube.com/watch?v=7Y_hGEUeI4Q
-    https://www.youtube.com/watch?v=y7nQnika8bI
-    https://www.youtube.com/watch?v=gtftUeOouLM
-    https://www.youtube.com/watch?v=F_xoMJWLq7Y
 Mysterious Billioneer ru of 26:01
     https://www.youtube.com/watch?v=5wFgEcj88oM
-HowItsMade - Opuntsiya ru 4:00 of 10:07
-    https://www.youtube.com/watch?v=F0WULaKioUE
 WithoutSlides - Fedorov - Shafirov 0:00 of 1:11:55
     https://www.youtube.com/watch?v=YJd0-NLb9DA
 WithoutSlides - Fedorov - Sudogurskiy ru 00:00 of 1:06:09
@@ -620,7 +435,6 @@ CppCon - Sankel - Monoids, Monads, and Applicative Functors: Repeated Software P
 BerlinFPG - John De Goes - Programming without Type Classes 12:00 of 1:49:00
     https://www.youtube.com/watch?v=QDleESXlZJw
 
-
 https://ru-bykov.livejournal.com/5102695.html
 https://ru-bykov.livejournal.com/5088048.html
 https://ru-bykov.livejournal.com/5080908.html
@@ -629,7 +443,6 @@ https://ru-bykov.livejournal.com/5082613.html
     denikin
 https://serokell.io/blog/practical-nix-flakes
     some tips and tricks
-
 
 VertDider - How Imaginary Numbers Saved Math ru of 22:29
     https://www.youtube.com/watch?v=xJR8oL7UtQY
@@ -643,8 +456,6 @@ AdrianGoins - Why I Use Rancher 1 7:00 of 18:00
     https://www.youtube.com/watch?v=g4PCTodIm80
 OnlinerTechnologies - Chiacoin miner interview ru of 13:32
     https://www.youtube.com/watch?v=mDKiOzFyPqw
-Usmfox - 4 CPU a Month raptoreum ru of 18:38
-    https://www.youtube.com/watch?v=iyozZkA1tsk
 OnlinerTV - Bitcoin Cache Laundry ru of 10:13
     https://www.youtube.com/watch?v=5GWIiYx2v64
 DroiderRu - CPU Creation Magic ru of 11:06
@@ -818,12 +629,8 @@ Senderov
     http://trv-science.ru/2012/12/25/senderov-borec-s-intellektualnym-genocidom/
 
 Video
-Veller - Heretic                                    -   32:00 (of 3:01:00)
-    https://www.youtube.com/watch?v=zGTqnRFGCDg
 Smirnov - Why do Programmers need Math
     https://www.youtube.com/watch?v=fVzvl9jJEv8
-Miheev - UA
-    https://www.youtube.com/watch?v=8xHetUjg7YY
 Vavilov - Domino Tilings 3                          -   42:00 (of 1:36:57)
     https://www.youtube.com/watch?v=ST8zfx5vKvM
     https://www.youtube.com/playlist?list=PL-_cKNuVAYAXneWrX3yuKyuvw3-teNg65
@@ -839,8 +646,6 @@ other
     https://www.youtube.com/watch?v=DiIZL7JbDZQ
     https://www.youtube.com/watch?v=lzgc-wovOdY
     https://www.youtube.com/watch?v=cR3WoDBt9H4
-Psoy                                                -   03:00 (of   28:08)
-    https://www.youtube.com/watch?v=TQCLLM0Hp5c
 Skopenkov - Teaching Derivative using Olympiad Problems 18:00 (of 1:13:38)
     https://www.youtube.com/watch?v=0yed6ju3YIE
     Zeldovich - Vysshaya Matematika dlya Nachinayuschih
@@ -874,48 +679,19 @@ Gorbushin - Kubernetes for Beginners
     nJL03VJ9
 Soprunov - Graphs and Counters
     https://www.youtube.com/watch?v=ofIbozuiv9U
-Seminar 9
-    https://www.youtube.com/playlist?list=PLVdkoATzj9WR-VAo4B-xBaXEY3bh10TN7
-    Savvateev
-        https://www.youtube.com/watch?v=GfXJCKp26_s -   47:00 (of 1:32:51)
-    Shtern - Calculus or Math Analysis              -   39:00 (of 1:08:56)
-        https://www.youtube.com/watch?v=i0sSMlvcCVA
-    Ryzhik - About Teaching Geometry by Alexandrov AD
-        https://www.youtube.com/watch?v=tTmTiBie0gs -   10:00 (of 1:28:38)
-        http://cmcagu.ru/docs/Seminar/Materials/Ryzik.pdf
-            Zalman Alterovich Skopets
-            AD Al - napisal, chto uluchshit ego ne vozmozhno
-            Alexey Leonidovich Verner - soavtor
-    Stolbov - Teaching with Interest
-        https://www.youtube.com/watch?v=LJdRfA0YYYU -   09:00 (of   45:48)
-        http://cmcagu.ru/docs/Seminar/Materials/Stolbov.pdf
-        + book with O.A.Ivanov
-    Pisarenko - Misc Teaching Styles            -   07:00 (of 1:29:21)
-        https://www.youtube.com/watch?v=9ivnZNwhp3A
-            ! in Greece - theorem, theory - from word theatre
-            vse vystupayuschie - soperniki, nichego ne prinimalos na veru
-            math looks like ugolovnoe sudoproizvodstvo
 Dorichenko - About Cows, Linear Algebra
     https://www.youtube.com/watch?v=zQw-5Le9ZNU
 Ivanov - EGE                                        -   16:00 (of 1:11:29)
     https://www.youtube.com/watch?v=0GNfJut-dyo
     https://www.youtube.com/channel/UCt0t1Oy6OeYE6nVkqE9LqDQ/videos
-
 Kukin - 1994                                        -   04:00 (of 2:12:31)
     https://www.youtube.com/watch?v=0IbpQqzzGxc
 Lit
-Volkova Rome                                        -   06:00 (of 1:32:09)
-    https://www.youtube.com/watch?v=OcOrUp9MAho
-    https://www.youtube.com/playlist?list=PLGsJxQg4LPTEDpyRZ8cZAYrLZji8_LHvv
-    https://www.youtube.com/playlist?list=PLD5g3xBjBZK-ZNpuF4Qv_rSkGbI8EJpeL
 
 Misc
     https://avidreaders.ru/book/programmirovanie-na-c-tryuki-i-effekty.html
-    https://avidreaders.ru/book/c-c-strukturnoe-i-obektno-orientirovannoe.html
-    https://avidreaders.ru/book/bystroe-programmirovanie-na-s.html
     https://avidreaders.ru/book/vvedenie-v-nadezhnoe-i-bezopasnoe-raspredelennoe.html
     https://avidreaders.ru/book/sozdanie-i-obrabotka-struktur-dannyh-v.html
-    https://avidreaders.ru/book/konec-holivara-pascal-vs-c.html
 
 2015
 Pak - Enumerative Combinatorics
@@ -931,8 +707,8 @@ Zhukov - About Number Pi ru
     https://vk.com/doc48883461_497526838?hash=60d492767f269c6559
 
 misc27
-    https://www.facebook.com/groups/436519399842648/permalink/483040388523882/
     https://blogs.korrespondent.net/blog/users/3337521-matematycheskaia-shkola-s-humanytarnym-uklonom?fbclid=IwAR3lWVtdpnErQ4Q5tbH7nDS1fW6ZPhuGFC_RX_5PgSzZQQn953J_MdxProE
+    https://www.facebook.com/groups/436519399842648/permalink/483040388523882/
     https://www.facebook.com/groups/436519399842648/permalink/483038151857439/
 Lifshits
     https://www.facebook.com/groups/436519399842648/permalink/483035868524334/

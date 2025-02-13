@@ -5,3 +5,18 @@ https://luals.github.io/#neovim-install
     https://github.com/LuaLS/lua-language-server/releases
     https://github.com/LuaLS/lua-language-server/releases/download/3.8.3/lua-language-server-3.8.3-linux-x64.tar.gz
     https://github.com/williamboman/mason.nvim/issues/995
+
+
+:LspInfo
+https://github.com/williamboman/mason-lspconfig.nvim
+https://github.com/neovim/nvim-lspconfig/tree/master
+
+LSP configs active in this session (globally) ~
+- Configured servers: lua_ls, html, cssls
+...
+- Language client log: ~/.local/state/nvim/lsp.log
+
+https://github.com/LunarVim/LunarVim/issues/4617
+https://github.com/LunarVim/LunarVim/issues/3413
+...10.3/nvim-linux64/share/nvim/runtime/lua/vim/lsp/rpc.lua:800: 
+Spawning language server with cmd: `{ "vscode-css-language-server", "--stdio" }` failed. The language server is either not installed, missing from PATH, or not executable.

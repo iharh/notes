@@ -1,0 +1,48 @@
+docker network ls
+    47dffcaa358f   talos-default   bridge    local
+
+talosctl cluster create 
+    --name ihcluster
+    ...
+    waiting for coredns to report ready: no ready pods for namespace "kube-system" and label selector "k8s-app=kube-dns"
+    ...
+talosctl cluster show
+
+talosctl config info
+talosctl config contexts
+talosctl config context <ctx>
+    switch context
+talosctl config remove <ctx>
+~/.talos/
+
+talosctl --nodes 10.5.0.2 dashboard
+...!!! kubeconfig
+    k get po -A
+        kube-system   coredns-578d4f8ffc-fxf5z                               0/1     ContainerCreating   0               19m
+        kube-system   coredns-578d4f8ffc-fxj62                               0/1     ContainerCreating   0               19m
+    k -n kube-system events --for pod/coredns-578d4f8ffc-fxf5z
+        Warning   FailedCreatePodSandBox   Pod/coredns-578d4f8ffc-fxf5z   Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "181f87ccbdc633b1388a8d1eab3eae0e02242b4fc212fda1e656733904561185": plugin type="flannel" failed (add): loadFlannelSubnetEnv failed: open /run/flannel/subnet.env: no such file or directory
+    ???
+        https://github.com/flannel-io/flannel/blob/master/Documentation/configuration.md
+        https://github.com/kubernetes/kubernetes/issues/70202
+        https://github.com/k3s-io/k3s/issues/7028
+        https://github.com/k3s-io/k3s/issues/697
+            --cluster-cidr=10.42.0.0/16:
+        https://github.com/siderolabs/talos/issues/9419
+            !!! check kube-proxy logs regarding nftables errors
+        https://github.com/siderolabs/talos/discussions/8491
+            !!! a lot of diagnistics cmds sample
+        loadFlannelSubnetEnv "/run/flannel/subnet.env"
+            https://serverfault.com/questions/1167369/can-not-initialize-pod-and-create-the-container-due-to-deleted-flannel-name-spac
+        https://discuss.kubernetes.io/t/describe-pod-shows-open-run-flannel-subnet-env-no-such-file-or-directory/24863
+            !
+        https://github.com/flannel-io/flannel
+            k -n kube-system logs kube-flannel-82w5l
+
+Defaulted container "kube-flannel" out of: kube-flannel, install-config (init)
+I0210 20:13:59.019321       1 main.go:212] CLI flags config: {etcdEndpoints:http://127.0.0.1:4001,http://127.0.0.1:2379 etcdPrefix:/coreos.com/network etcdKeyfile: etcdCertfile: etcdCAFile: etcdUsername: etcdPassword: version:false kubeSubnetMgr:true kubeApiUrl: kubeAnnotationPrefix:flannel.alpha.coreos.com kubeConfigFile: iface:[] ifaceRegex:[] ipMasq:true ifaceCanReach: subnetFile:/run/flannel/subnet.env publicIP: publicIPv6: subnetLeaseRenewMargin:60 healthzIP:0.0.0.0 healthzPort:0 iptablesResyncSeconds:5 iptablesForwardRules:true netConfPath:/etc/kube-flannel/net-conf.json setNodeNetworkUnavailable:true}
+W0210 20:13:59.019416       1 client_config.go:618] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+E0210 20:13:59.024229       1 main.go:229] Failed to create SubnetManager: error retrieving pod spec for 'kube-system/kube-flannel-82w5l': pods "kube-flannel-82w5l" is forbidden: User "system:serviceaccount:kube-system:flannel" cannot get resource "pods" in API group "" in the namespace "kube-system"
+
+talosctl machineconfig patch ...
+    https://www.youtube.com/watch?v=jzu2CAkwBro
