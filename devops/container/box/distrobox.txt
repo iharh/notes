@@ -246,6 +246,7 @@ Brodie Robertson - Turning Distrobox Into Your Entire Linux Desktop of 11:48
 Brodie Robertson - Distrobox Is Basically A Linux Subsystem For Linux of 16:41
     https://www.youtube.com/watch?v=FhW-3PPldAg
     ! 14:00 xhost +si:localuser:$USER # for x-server ACL ...
+    ! for X-only - https://manpages.ubuntu.com/manpages/oracular/en/man1/xhost.1.html
 ????
 https://www.youtube.com/watch?v=Wp8v0e1-wT8
 https://www.youtube.com/watch?v=w9SlWZf0y8I
