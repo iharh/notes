@@ -1,7 +1,7 @@
 2025
 RafaelLedo - acelerando o build do maven com mvnd e nix-shell no NixOS 0:00 of 16:29
     https://www.youtube.com/watch?v=at9cgYH9uxE
-Vimjoyer - The Best Way To Use Python On NixOS of 8:56
+Vimjoyer - The Best Way To Use Python On NixOS 5:00 of 8:56
     https://www.youtube.com/watch?v=6fftiTJ2vuQ
     ! 4:00 shell.nix
     { pkgs: ? import <nixpkgs> {} }:
@@ -13,3 +13,23 @@ Vimjoyer - The Best Way To Use Python On NixOS of 8:56
       ];
     }
     $ nix-shell
+
+    flake.nix
+    {
+      description = "flake";
+      inputs = {
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+      };
+      outputs = {self, nixpkgs, ...}: let 
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      in {
+        devShells.x86_64-linux.default = pkgs.mkShell {
+          packages = [ pkgs.python3 ];
+          env.LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+            pkgs.stdenv.cc.cc.lib
+            pkgs.libz
+          ];
+        };
+      };
+    }
+    $ nix develop
