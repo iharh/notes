@@ -10,3 +10,27 @@ dis.close();
 X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
 KeyFactory kf = KeyFactory.getInstance("RSA");
 PublicKey publicKey = kf.generatePublic(spec);
+
+    private static String encrypt(RSAPrivateKey key, String algorithm, String input) throws Exception {
+        // https://docs.oracle.com/en/java/javase/21/docs/api/java.base/javax/crypto/Cipher.html
+        // https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/security/spec/AlgorithmParameterSpec.html
+        Cipher cipher = Cipher.getInstance(algorithm);
+
+        // Initializes this {@code Cipher} object with a key.
+        //     *
+        //     * <p>The {@code Cipher} object is initialized for one of the following four
+        //     * operations:
+        //     * encryption, decryption, key wrapping or key unwrapping, depending
+        //     * on the value of {@code opmode}.
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+        byte[] cipherText = cipher.doFinal(input.getBytes());
+        return encoder.encodeToString(cipherText);
+    }
+
+private static String sign(RSAPrivateKey key, String input) throws Exception {
+    var privateSignature = Signature.getInstance("SHA256withRSA");
+    privateSignature.initSign(key);
+    privateSignature.update(input.getBytes());
+    byte[] signature = privateSignature.sign();
+    return encoder.encodeToString(signature);
+}

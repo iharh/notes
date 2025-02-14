@@ -1,0 +1,18 @@
+https://www.bouncycastle.org
+
+https://github.com/bcgit/bc-java/
+
+https://www.bouncycastle.org/download/bouncy-castle-java/
+https://www.bouncycastle.org/documentation/documentation-java/
+
+https://downloads.bouncycastle.org/fips-java/docs/BCFipsIn100.pdf
+https://downloads.bouncycastle.org/fips-java/docs/BC-FJA-UserGuide-2.0.0.pdf
+https://downloads.bouncycastle.org/fips-java/docs/BC-FJA-(D)TLSUserGuide-2.0.19.pdf
+https://downloads.bouncycastle.org/fips-java/docs/Legion%20of%20the%20Bouncy%20Castle%20User%20Guide.pdf
+    !!! 14.3.1 - RSA with SHA-1
+
+dependency("org.bouncycastle:bc-fips:2.1.0")
+
+api
+https://downloads.bouncycastle.org/java/docs/bcprov-jdk18on-javadoc/
+https://downloads.bouncycastle.org/fips-java/docs/bc-fips-1.0.2.4-javadoc/
