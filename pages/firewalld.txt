@@ -1,3 +1,9 @@
+one of the following
+    IPTables
+    nftables
+    Firewalld
+    UFW
+
 $ sudo dnf install selinux-policy
 
 python3-firewall-2.1.4-2.fc40.noarch
