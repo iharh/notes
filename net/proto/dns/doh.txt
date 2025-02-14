@@ -6,11 +6,14 @@ https://developers.cloudflare.com/warp-client/get-started/linux/
     sudo dnf update
     sudo dnf install cloudflare-warp
 
-    warp-cli registration new
-    warp-cli connect
-    curl https://www.cloudflare.com/cdn-cgi/trace/ 
-        and verify that warp=on.
     warp-cli --help
+    warp-cli registration new
+    warp-cli status
+    warp-cli disconnect
+    warp-cli connect
+    curl https://www.cloudflare.com/cdn-cgi/trace/
+        and verify that warp=on.
+
     warp-cli mode --help
     warp-cli mode doh
     warp-cli mode warp+doh
