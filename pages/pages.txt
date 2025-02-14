@@ -6,6 +6,8 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
 ./.kube/config -> secret
 ~/.config/waybar/
     missing links
+    config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default_v4
+    style.css@ ⇒ /home/iharh/.config/waybar/style/[Dark] Wallust Obsidian Edge.css
 
 devenv.sh
 https://devenv.pages.wito.dev/20
