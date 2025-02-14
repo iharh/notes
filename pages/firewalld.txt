@@ -3,6 +3,8 @@ one of the following
     nftables
     Firewalld
         /usr/bin/python3 /usr/sbin/firewalld --nofork --nopid
+        https://www.tecmint.com/manage-firewalld-and-ufw-on-linux/
+        firewall-cmd --state
     UFW
 
 $ sudo dnf install selinux-policy
