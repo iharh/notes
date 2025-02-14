@@ -29,3 +29,11 @@ https://demirhuseyinn-94.medium.com/postgresql-ssl-configuration-to-connect-data
 https://knowledge.informatica.com/s/article/DOC-19085?language=en_US
 2021
 https://www.cybertec-postgresql.com/en/setting-up-ssl-authentication-for-postgresql/
+
+docker sample:
+~/.postgresql/root.crt
+...
+mkdir /usr/local/share/ca-certificates/<name>
+WORKDIR /usr/local/share/ca-certificates/<name>
+COPY cacert.pem .
+RUN update-ca-certificates
