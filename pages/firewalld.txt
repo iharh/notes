@@ -2,6 +2,7 @@ one of the following
     IPTables
     nftables
     Firewalld
+        /usr/bin/python3 /usr/sbin/firewalld --nofork --nopid
     UFW
 
 $ sudo dnf install selinux-policy
