@@ -1,0 +1,8 @@
+2022
+https://www.tecmint.com/install-viber-in-linux/
+    $ wget -c https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+    $ sudo dpkg -i viber.deb
+    $ wget -c https://download.cdn.viber.com/desktop/Linux/viber.rpm
+    $ sudo rpm -i viber.rpm
+
+https://flathub.org/apps/com.viber.Viber
