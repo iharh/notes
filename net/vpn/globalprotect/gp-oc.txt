@@ -1,6 +1,9 @@
 https://github.com/yuezk/GlobalProtect-openconnect
     gui
 
+sudo dnf copr enable yuezk/globalprotect-openconnect
+sudo dnf install globalprotect-openconnect
+
 https://launchpad.net/~yuezk/+archive/ubuntu/globalprotect-openconnect
 sudo add-apt-repository ppa:yuezk/globalprotect-openconnect
 sudo apt update
