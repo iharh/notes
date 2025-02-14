@@ -1,4 +1,30 @@
+https://one.one.one.one/
 https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/encrypted-dns-browsers/
+https://developers.cloudflare.com/warp-client/get-started/linux/
+    https://pkg.cloudflareclient.com/
+    curl -fsSl https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo | sudo tee /etc/yum.repos.d/cloudflare-warp.repo
+    sudo dnf update
+    sudo dnf install cloudflare-warp
+
+    warp-cli registration new
+    warp-cli connect
+    curl https://www.cloudflare.com/cdn-cgi/trace/ 
+        and verify that warp=on.
+    warp-cli --help
+    warp-cli mode --help
+    warp-cli mode doh
+    warp-cli mode warp+doh
+
+Mozilla Firefox
+    Select the menu button > Settings.
+    In the Privacy & Security menu, scroll down to the Enable secure DNS using: section.
+    Select Increased Protection or Max Protection. By default, it will use the Cloudflare provider.
+    If this is not the case, select Cloudflare in the Choose Provider dropdown.
+Google Chrome
+    Select the three-dot menu in your browser > Settings.
+    Select Privacy and security > Security.
+    Scroll down and enable Use secure DNS.
+    Select the With option, and from the drop-down menu choose Cloudflare (1.1.1.1).
 
 2018
 https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/

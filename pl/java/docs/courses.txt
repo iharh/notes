@@ -17,6 +17,7 @@ CSC - Valeev - Java Programming ru of 10 parts
     https://www.youtube.com/playlist?list=PLlb7e2G7aSpTCB2OxGlezpgOXwq4xer7Z
     p13 - concurrent collections
         https://www.youtube.com/watch?v=AvsJ6qWmwls
+        ! 35:00 - skip-list !!!
     p12 - sync primitives
         https://www.youtube.com/watch?v=5YLA29EybMo
         ! 12:00 Thread.onSpinWait();
