@@ -2,6 +2,7 @@ https://github.com/Jackett/Jackett
 https://github.com/Jackett/Jackett#supported-systems
 
 https://github.com/Jackett/Jackett/tree/master/src/Jackett.Common/Definitions
+    !!!
 https://github.com/Jackett/Jackett/tree/master/src/Jackett.Common/Indexers
 https://github.com/Jackett/Jackett/wiki/Definition-format
 
@@ -15,3 +16,6 @@ https://github.com/webtor-io/go-jackett
 
 https://github.com/Jackett/Jackett/blob/master/CONTRIBUTING.md
 https://github.com/Jackett/Jackett/wiki/Troubleshooting
+
+API
+https://github.com/Jackett/Jackett/tree/master/src/Jackett.Server/Controllers

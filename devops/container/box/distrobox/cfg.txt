@@ -1,0 +1,15 @@
+cfg
+    /usr/share/distrobox/distrobox.conf
+    /usr/etc/distrobox/distrobox.conf
+    /etc/distrobox/distrobox.conf
+    ${HOME}/.config/distrobox/distrobox.conf
+    ${HOME}/.distroboxrc
+env vars
+    DBX_CONTAINER_ALWAYS_PULL
+    DBX_CONTAINER_CUSTOM_HOME
+    DBX_CONTAINER_IMAGE
+    DBX_CONTAINER_MANAGER
+    DBX_CONTAINER_NAME
+    DBX_CONTAINER_ENTRY
+    DBX_NON_INTERACTIVE
+    DBX_SKIP_WORKDIR

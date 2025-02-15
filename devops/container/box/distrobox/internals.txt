@@ -1,0 +1,27 @@
+...
+DEBU[0000] Using conmon: "/usr/bin/conmon"
+INFO[0000] Using sqlite as database backend
+DEBU[0000] Using graph driver overlay
+DEBU[0000] Using graph root /home/iharh/.local/share/containers/storage
+DEBU[0000] Using run root /run/user/1000/containers
+DEBU[0000] Using static dir /home/iharh/.local/share/containers/storage/libpod
+DEBU[0000] Using tmp dir /run/user/1000/libpod/tmp
+DEBU[0000] Using volume path /home/iharh/.local/share/containers/storage/volumes
+...
+DEBU[0000] Initializing event backend journald
+DEBU[0000] Configured OCI runtime runj initialization failed: no valid executable found for OCI runtime runj: invalid argument
+DEBU[0000] Configured OCI runtime runsc initialization failed: no valid executable found for OCI runtime runsc: invalid argument
+DEBU[0000] Configured OCI runtime crun-vm initialization failed: no valid executable found for OCI runtime crun-vm: invalid argument
+DEBU[0000] Configured OCI runtime youki initialization failed: no valid executable found for OCI runtime youki: invalid argument
+DEBU[0000] Configured OCI runtime krun initialization failed: no valid executable found for OCI runtime krun: invalid argument
+DEBU[0000] Configured OCI runtime ocijail initialization failed: no valid executable found for OCI runtime ocijail: invalid argument
+DEBU[0000] Configured OCI runtime crun-wasm initialization failed: no valid executable found for OCI runtime crun-wasm: invalid argument
+DEBU[0000] Configured OCI runtime kata initialization failed: no valid executable found for OCI runtime kata: invalid argument
+DEBU[0000] Using OCI runtime "/usr/bin/crun"
+...
++ mkdir -p /home/iharh/.local/share/applications
++ mkdir -p /home/iharh/.local/share/icons/distrobox
++++ realpath /usr/bin/distrobox-generate-entry
+++ dirname /usr/bin/distrobox-generate-entry
+...
+

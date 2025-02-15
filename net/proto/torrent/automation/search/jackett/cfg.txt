@@ -1,2 +1,55 @@
 cfg samples
 https://github.com/h4wwk3ye/home-server/tree/master/configs/jackett/Jackett
+
+? jacket implements torznab and torrentpotato APIs
+    https://torznab.github.io/spec-1.3-draft/index.html
+    
+usenet
+    https://nzbget.net/
+
+https://github.com/sebgl/htpc-download-box
+jackett:
+  container_name: jackett
+  image: linuxserver/jackett:latest
+  restart: unless-stopped
+  network_mode: host
+  environment:
+    - PUID=${PUID} # default user id, defined in .env
+    - PGID=${PGID} # default group id, defined in .env
+    - TZ=${TZ} # timezone, defined in .env
+  volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - ${ROOT}/downloads/torrent-blackhole:/downloads # place where to put .torrent files for manual download
+    - ${ROOT}/config/jackett:/config # config files
+
+API
+https://github.com/Jackett/Jackett?tab=readme-ov-file#search-modes-and-parameters
+    .../api?apikey=APIKEY&t=search&cat=100002,100003&q=Show+Title+S01E02
+
+    /api/v2.0/indexers/all/results/torznab
+
+t=search:
+   params  : q
+t=tvsearch:
+   params  : q, season, ep, imdbid, tvdbid, rid, tmdbid, tvmazeid, traktid, doubanid, year, genre
+t=movie:
+   params  : q, imdbid, tmdbid, traktid, doubanid, year, genre
+t=music:
+   params  : q, album, artist, label, track, year, genre
+t=book:
+   params  : q, title, author, publisher, year, genre
+
+alternative
+    https://wiki.servarr.com/en/readarr
+    ...
+    https://wiki.servarr.com/en/prowlarr
+    https://docs.linuxserver.io/images/docker-prowlarr/#docker-cli-click-here-for-more-info
+    https://wiki.servarr.com/prowlarr/search
+        rss 
+    https://github.com/Prowlarr/Prowlarr/
+    https://wiki.servarr.com/en/prowlarr/supported-indexers
+    https://prowlarr.com/docs/api/
+    https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/src/Prowlarr.Api.V1/openapi.json
+    https://github.com/Prowlarr/Prowlarr/tree/develop/src/Prowlarr.Http
+    https://github.com/Prowlarr/Prowlarr/tree/develop/src/Prowlarr.Api.V1
+    https://github.com/Prowlarr/Prowlarr/blob/develop/src/Prowlarr.Api.V1/openapi.json

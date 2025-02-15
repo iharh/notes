@@ -1,2 +1,4 @@
+wget https://raw.githubusercontent.com/Jackett/Jackett/master/uninstall_service_systemd.sh --quiet -O - |sudo bas
+
 2021
 https://varhowto.com/install-jackett-ubuntu-20-04/
