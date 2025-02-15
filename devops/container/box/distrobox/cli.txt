@@ -24,8 +24,8 @@ https://distrobox.it/usage/usage/
         show more verbosity
 
     samples
-        distrobox create -i quay.io/fedora/fedora:40 -n fedora40 -H ~/distrobox/fedora40 -ap "systemd" -I
-            -d
+        distrobox create -i quay.io/fedora/fedora:40 -n fedora40 -H ~/distrobox/fedora40 -ap "systemd" -I -a NET_ADMIN -a NET_RAW -d
+
             -v
             --additional-flags 
                 "--env MY_VAR=value"
