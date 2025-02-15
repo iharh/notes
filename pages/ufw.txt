@@ -26,3 +26,9 @@ https://www.procustodibus.com/blog/2022/10/wireguard-in-podman/
     --cap-add NET_ADMIN \
     --cap-add NET_RAW \
     --sysctl net.ipv4.conf.all.forwarding=1 \
+
+ufw-init[1055]: modprobe: ERROR: could not insert 'ip_tables': Operation not permitted
+sudo modprobe ip_tables (both host/guest)
+Feb 15 22:18:06 EPBYGOMW0024T5 ufw-init[857]: modprobe: ERROR: could not insert 'nf_conntrack_ftp': Operation not permitted
+Feb 15 22:18:06 EPBYGOMW0024T5 ufw-init[858]: modprobe: ERROR: could not insert 'nf_nat_ftp': Operation not permitted
+Feb 15 22:18:06 EPBYGOMW0024T5 ufw-init[859]: modprobe: ERROR: could not insert 'nf_conntrack_netbios_ns': Operation not permitted
