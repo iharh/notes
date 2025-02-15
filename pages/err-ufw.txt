@@ -1,0 +1,34 @@
+ufw-init[1041]: modprobe: FATAL: Module nf_conntrack_ftp not found in directory /lib/modules/6.12.11-200.fc41.x86_64
+ufw-init[1042]: modprobe: FATAL: Module nf_nat_ftp not found in directory /lib/modules/6.12.11-200.fc41.x86_64
+ufw-init[1043]: modprobe: FATAL: Module nf_conntrack_netbios_ns not found in directory /lib/modules/6.12.11-200.fc41.x86_64
+ufw-init[1047]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1050]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1052]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1055]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1058]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1059]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1060]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1063]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1064]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1066]: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.conf.default.rp_filter"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.conf.all.rp_filter"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.conf.default.accept_source_route"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.conf.all.accept_source_route"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv6.conf.default.accept_source_route"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv6.conf.all.accept_source_route"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.conf.default.accept_redirects"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.conf.all.accept_redirects"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv6.conf.default.accept_redirects"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv6.conf.all.accept_redirects"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.icmp_echo_ignore_broadcasts"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.icmp_ignore_bogus_error_responses"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.icmp_echo_ignore_all"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.conf.default.log_martians"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.conf.all.log_martians"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.tcp_syncookies"
+ufw-init[1067]: sysctl: permission denied on key "net.ipv4.tcp_sack"
+ufw-init[1071]: Problem loading ipv6 (skipping)
+ufw-init[1071]: Problem running '/etc/ufw/before.rules'
+ufw-init[1071]: Problem running '/etc/ufw/after.rules'
+ufw-init[1071]: Problem running '/var/lib/ufw/user.rules'
