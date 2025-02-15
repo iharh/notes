@@ -9,13 +9,6 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
     config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default_v4
     style.css@ ⇒ /home/iharh/.config/waybar/style/[Dark] Wallust Obsidian Edge.css
 
-ufw inside rootless podman container
-https://github.com/containers/podman/discussions/22982
-modprobe: FATAL: Module nf_conntrack_ftp not found in directory /lib/modules/6.12.11-200.fc41.x86_64
-nf_nat_ftp, nf_conntrack_netbios_ns
-ufw-init: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
-ufw-init: sysctl: permission denied on key "net.ipv4.conf.default.rp_filter"
-
 devenv.sh
 https://devenv.pages.wito.dev/20
 https://www.jetify.com/docs/devbox/quickstart/

@@ -1,0 +1,28 @@
+ufw inside rootless podman container "Permission denied (you must be root)"
+
+https://blog.jarrousse.org/2023/03/18/how-to-use-ufw-firewall-with-docker-containers/
+    https://stackoverflow.com/questions/30383845/what-is-the-best-practice-of-docker-ufw-under-ubuntu
+        https://vpetersson.com/2014/11/03/the-dangers-of-ufw-docker.html
+        https://www.mkubaczyk.com/2017/09/05/force-docker-not-bypass-ufw-rules-ubuntu-16-04/
+https://github.com/chaifeng/ufw-docker
+https://github.com/chaifeng/ufw-docker/blob/master/ufw-docker
+
+https://github.com/containers/podman/discussions/22982
+    modprobe: FATAL: Module nf_conntrack_ftp not found in directory /lib/modules/6.12.11-200.fc41.x86_64
+    nf_nat_ftp, nf_conntrack_netbios_ns
+    ufw-init: iptables-restore v1.8.10 (nf_tables): Could not fetch rule set generation id: Permission denied (you must be root)
+    ufw-init: sysctl: permission denied on key "net.ipv4.conf.default.rp_filter"
+https://github.com/haugene/docker-transmission-openvpn/issues/328
+    --privileged
+    --sysctl net.ipv6.conf.all.disable_ipv6=0
+    --net=host (not)
+    --cap-add=NET_ADMIN
+
+ideas to fix
+https://github.com/containers/podman/issues/8784
+    --cap-add=all
+    --cap-add=NET_ADMIN,NET_RAW
+https://www.procustodibus.com/blog/2022/10/wireguard-in-podman/
+    --cap-add NET_ADMIN \
+    --cap-add NET_RAW \
+    --sysctl net.ipv4.conf.all.forwarding=1 \
