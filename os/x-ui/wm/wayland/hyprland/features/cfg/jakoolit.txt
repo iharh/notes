@@ -32,7 +32,14 @@ xwayland {
     force_zero_scaling = true
 }
 
+update
+https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/scripts/KooLsDotsUpdate.sh
+
 2025
+Ja.KooLit - KooL Hyprland v2.3.11 Update feat various ROFI Themes, update notification & more of 21:31
+    https://www.youtube.com/watch?v=Vft48floYyM
+    ! 14:30 - Check Update ~/.config/hypr/vA.B.C
+    !   ~/.config/hypr/scripts/KooLsDotsUpdate.sh
 ChrisTitusTech - Hyprland is Amazing of 11:48
     https://www.youtube.com/watch?v=83ZZp8wJ-UY
 2024
