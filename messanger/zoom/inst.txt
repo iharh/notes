@@ -2,9 +2,15 @@ https://zoom.us/support/down4j
     https://explore.zoom.us/en/opensource/?product=zoom&platform=linux&onlycontent=1
     https://explore.zoom.us/en/opensource/source/?product=zoom&platform=linux&onlycontent=1
 
+https://www.zoom.us/download
+    wget https://www.zoom.us/client/6.3.6.6315/zoom_x86_64.rpm
+    sudo dnf install zoom_x86_64.rpm
+
+https://addons.mozilla.org/en-US/firefox/addon/zoom-new-scheduler/
+
 snap
     zoom-client
     https://snapcraft.io/install/zoom-client/ubuntu
 
 flatpak
-us.zoom.Zoom
+    us.zoom.Zoom

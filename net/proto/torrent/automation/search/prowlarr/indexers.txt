@@ -1,2 +1,10 @@
+https://wiki.servarr.com/prowlarr/indexers#adding-a-custom-yml-definition
+
+https://wiki.servarr.com/prowlarr/cardigann-yml-definition
+    https://docs.linuxserver.io/deprecated_images/docker-cardigann/
+    https://github.com/cardigann/cardigann
+        depr-d
+    https://github.com/msergein/ru-cardigann-yml
+
 https://github.com/Prowlarr/Prowlarr/issues/29
     ! parity with jackett

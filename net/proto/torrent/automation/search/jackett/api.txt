@@ -1,0 +1,17 @@
+https://github.com/Jackett/Jackett/wiki/Jackett-API
+https://github.com/Jackett/Jackett#jackett-torznab-query-syntax
+https://github.com/Jackett/Jackett#search-modes-and-parameters
+https://github.com/Jackett/Jackett#filter-indexers
+https://github.com/Jackett/Jackett?tab=readme-ov-file#search-cache
+https://github.com/Jackett/Jackett?tab=readme-ov-file#torznab-cache
+
+https://github.com/Jackett/Jackett?tab=readme-ov-file#command-line-switches
+    -t, --Tracing
+
+https://github.com/Jackett/Jackett/wiki/Definition-format
+
+categories
+https://github.com/Jackett/Jackett/wiki/Jackett-Categories
+https://newznab.readthedocs.io/en/latest/misc/api.html#predefined-categories
+https://github.com/Jackett/Jackett/blob/master/src/Jackett.Common/Definitions/schema.json
+https://newznab.readthedocs.io/en/latest/misc/api.html#predefined-attributes

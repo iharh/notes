@@ -1,0 +1,11 @@
+Как попасть на узел в закрытой сети через jumphost  по  ssh.
+
+ssh -J user1@hostname1:port1 user2@hostname2:port2
+
+Где hostname1 - промежуточный jump узел с доступом извне, hostname2 узел изолированный от внешних каналов, но с сетевой связаностью с  hostname1
+
+Для удобства можно прописать алиасом в файле ~/.bashrc
+
+alias jump='ssh -J user1@hostname1:port1 $1'
+
+И просто вызывать командой jump user2@hostname2:port2
