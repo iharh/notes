@@ -5,6 +5,12 @@ BetterStack - Podman vs Docker in 2024: What's Really Different? of 6:14
     ! podman is daemon-less (daemon is potentially security risc), rootc-based
     ! great system-d integration
     ! podman desctop can manage both podman and docker containers/images
+2023
+IBMTechnologies - Clyburn - Podman vs. Docker of 6:32
+    https://www.youtube.com/watch?v=Xx588nbshlM
+    ! podman forks itself for running container
+IBMTechnologies - Clyburn - What is Podman? How is it Different Than Docker? of 7:25
+    https://www.youtube.com/watch?v=5WML8gX2F1c
 2019
 Replacing Docker With Podman
     https://www.youtube.com/watch?v=N0hSn5EwW8w

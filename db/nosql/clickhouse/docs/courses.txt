@@ -6,6 +6,85 @@ Otus - ClickHouse for engeneers and DB architects of p12
     https://vkvideo.ru/playlist/-145052891_167
 CH for Data Engeneers
     https://nnmclub.to/forum/viewtopic.php?t=1727486
+    https://www.infosystems.ru/courses/SQL/CB024/
+    https://github.com/clickHouse-courses-materials
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/.devcontainer/devcontainer.json
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/tree/main/dbt
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/dbt/docker-compose.yml
+      devcontainer:
+        build:
+          context: .
+          args:
+            DBT_VERSION: 1.0.0
+        volumes:
+          - ../:/workspace
+        ports:
+          - 8080:8080
+      clickhouse:
+        image: yandex/clickhouse-server
+        ports:
+          - "8124:8123"
+          - "9001:9000"
+          - "9010:9009"
+
+        ulimits:
+          nproc: 65535
+          nofile:
+            soft: 262144
+            hard: 262144
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/dbt/Dockerfile
+      ARG DBT_VERSION=1.0.0
+      FROM fishtownanalytics/dbt:${DBT_VERSION}
+
+      ENV DBT_PROFILES_DIR=.
+
+
+      RUN set -ex \
+          && python -m pip install setuptools \
+          && python -m pip install dbt-clickhouse==1.4.0 dbt-core==1.4.0 numpy
+
+
+      ENTRYPOINT [ "tail", "-f", "/dev/null" ]
+
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/engines/
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/engines/postgres_integration.md
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/task-2.md
+    https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/task-3.md
+    https://altinity.com/blog/
+
+    https://www.getdbt.com/product/what-is-dbt
+    https://www.getdbt.com/pricing
+    https://www.getdbt.com/dbt-learn
+    https://learn.getdbt.com/catalog
+    https://www.getdbt.com/resources
+    https://docs.getdbt.com/docs/introduction
+    https://docs.getdbt.com/docs/deploy/deployments
+    https://docs.getdbt.com/docs/supported-data-platforms
+    https://docs.getdbt.com/docs/core/installation-overview
+    https://discourse.getdbt.com/t/how-we-set-up-our-computers-for-working-on-dbt-projects/243/22
+    https://docs.getdbt.com/guides/codespace?step=1
+        !
+    https://docs.getdbt.com/guides
+    https://docs.getdbt.com/best-practices
+    https://docs.getdbt.com/docs/build/projects
+    dbt 101
+        https://www.youtube.com/watch?v=M8oi7nSaWps
+    https://ui.getdbt.com/?path=/docs/docs-getting-started--docs
+    https://medium.com/fishtown-analytics/what-exactly-is-dbt-47ba57309068
+    https://github.com/dbt-labs/dbt-utils
+    https://hub.getdbt.com/dbt-labs/dbt_utils/latest/
+
+    https://github.com/dbt-labs/dbt-core/tree/main/docker
+    https://github.com/dbt-labs/dbt-core/blob/main/docker/Dockerfile
+    https://docs.docker.com/build/buildkit/
+        /etc/docker/daemon.json
+        {
+          "features": {
+            "buildkit": true
+          }
+        }
+
 2023
 Otus - ClickHouse for engeneers and DB architects of p8
     https://www.youtube.com/playlist?list=PLfnFOImnyWRVvsSzKlwXiUCNqFPyBC7SB

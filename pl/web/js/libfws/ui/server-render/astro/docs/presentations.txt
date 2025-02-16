@@ -1,3 +1,21 @@
+2024
+BetterStack - Why Astro 5 is a Game-Changer of 5:20
+    https://www.youtube.com/watch?v=kIftpNnN_8I
+    ! The Content Layer
+    ! Server Islands (Dynamic Islands)
+    ! astro:env
+Isaac Harris-Holt - Astro for Impatient Devs of 10:34
+    https://www.youtube.com/watch?v=Rx6Al347_AY
+    ! astro is build-time templating, using slots
+    ! pages can be eiter html or md 
+    ! globs
+    ! layouts
+    ! a lot of integrations
+    ! (by mdx - https://mdxjs.com/)
+    ! Islands - are interactive UI components 
+    ! Support ext UI frameworks (like React/Svelte)
+    ! Can render in static/hybrid/ssr
+    ! content collections - schema
 2023
 freeCodeCamp - Astro Web Framework Crash Course 0:00 of 1:16:47
     https://www.youtube.com/watch?v=e-hTm5VmofI
