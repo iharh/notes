@@ -2,4 +2,3 @@ sha256sum
 
 md5 -q ...
   print md5
-
