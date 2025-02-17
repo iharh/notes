@@ -7,6 +7,10 @@ NetworkWithChris - Proxmox VE Helper Scripts - Install Anything With 1 Command!!
     https://github.com/community-scripts/ProxmoxVE/blob/main/ct/watcharr.sh
         bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/watcharr.sh)"
 2024
+RomNero - Proxmox Install and WebUI Review of
+    https://www.youtube.com/watch?v=ZrVx9lWmZ1s
+    ! use ext4 fs !
+    ! 4:00 - size split
 WunderTech - 5 Ways to Make Proxmox Better (New Install Changes) 0:00 of 16:40
     https://www.youtube.com/watch?v=DlWXQrIhYQk
 NetworkWithChris - How to install Proxmox 8.3 - The Complete Guide 2024 0:00 of 8:01

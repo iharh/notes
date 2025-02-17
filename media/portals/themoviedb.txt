@@ -5,6 +5,10 @@ https://www.themoviedb.org/documentation/api
 https://developer.themoviedb.org/reference/configuration-details
 https://developer.themoviedb.org/reference/intro/getting-started
 https://developer.themoviedb.org/reference/genre-movie-list
+https://developer.themoviedb.org/docs/daily-id-exports
+    !!!
+    https://files.tmdb.org/
+    https://pypi.org/project/themoviedb/
 
 documentary
 https://www.themoviedb.org/movie
