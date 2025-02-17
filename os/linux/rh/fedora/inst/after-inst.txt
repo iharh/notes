@@ -4,6 +4,10 @@ mise i
     yadm, neovim
     fzf, fd, ripgrep, lsd, bat, delta
 
+/etc/dnf/dnf.conf
+    max_parallel_downloads=10
+    fastestmirror=1
+
 ls /etc/dnf/plugins/
     corp.conf
     corp.d/
@@ -39,6 +43,7 @@ https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/
 2024
 KskRoyal - 10 Things You MUST DO After Installing Fedora 40 (2024) 0:00 of 15:18
     https://www.youtube.com/watch?v=XAJsscjoXMw
+    https://kskroyal.com/10-important-things-to-do-right-after-installing-fedora-40/
 https://www.linuxcapable.com/install-telegram-on-fedora-linux/
     sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
     sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
