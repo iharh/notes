@@ -135,6 +135,17 @@ assets/
       gtk-xft-hintstyle=hintslight
       gtk-xft-rgba=rgb
       gtk-application-prefer-dark-theme=1
+
+my waybar style
+style.css -> ~/.config/waybar/style/...
+    [Catppuccin] Mocha.css
+    [Colored] Translucent.css
+    ...
+    [Extra] EverForest.css
+    [Extra] Simple Pink.css
+    [Retro] Simple Style.css
+    [Wallust Bordered] Chroma Simple.css
+    [Wallust] Chroma Tally.css
     
 2025
 KskRoyal - BEAUTIFUL FEDORA HYPRLAND Setup // Make Your FEDORA Desktop Look Aesthetic 2025 0:00 of 13:19
