@@ -60,6 +60,7 @@ key-bindings
     bindn = ALT_L, SHIFT_L, exec, $scriptsDir/SwitchKeyboardLayout.sh # Change keyboard layout
 ~/.config/hypr/UserConfigs/UserSettings.conf
     input {
+      # ??? xkb_layout
       kb_layout = us
       ...
     }
