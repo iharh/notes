@@ -57,6 +57,14 @@ key-bindings
     Super-Ctrl-F  fake fullscreen
 ~/.config/hypr/UserConfigs/UserKeybinds.conf
     bind = $mainMod CTRL, F, fullscreen, 1 # fake full screen
+    bindn = ALT_L, SHIFT_L, exec, $scriptsDir/SwitchKeyboardLayout.sh # Change keyboard layout
+~/.config/hypr/UserConfigs/UserSettings.conf
+    input {
+      kb_layout = us
+      ...
+    }
+
+~/.config/hypr/scripts/SwitchKeyboardLayout.sh
 
 ~/.config/qt5ct/qt5ct.conf
     [Fonts]
