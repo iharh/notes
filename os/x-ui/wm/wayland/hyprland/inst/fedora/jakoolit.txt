@@ -53,6 +53,7 @@ https://github.com/JaKooLit/Hyprland-Dots
 
 key-bindings
 ~/.config/hypr/scripts/KeyHints.sh
+    Super-H       key-bindings help
     Super-Ctrl-F  fake fullscreen
 ~/.config/hypr/UserConfigs/UserKeybinds.conf
     bind = $mainMod CTRL, F, fullscreen, 1 # fake full screen
