@@ -32,6 +32,9 @@ https://github.com/IsmaelMartinez/teams-for-linux
     https://github.com/IsmaelMartinez/teams-for-linux/discussions/764
         teams --customUserDir=/home/iharh/teams-custom/epam --appTitle=teams-epam
         teams --customUserDir=/home/iharh/teams-custom/inspire --appTitle=teams-inspire
+    flatpack
+        https://github.com/IsmaelMartinez/teams-for-linux/issues/1569
+        https://github.com/IsmaelMartinez/teams-for-linux/issues/1538
 
 ------
     sudo wget -qO /etc/apt/keyrings/teams-for-linux.asc /etc/apt/keyrings/teams-for-linux.asc https://repo.teamsforlinux.de/teams-for-linux.asc
@@ -61,12 +64,14 @@ C-/
 aur/teams 1.3.00.5153-1 (+72 32.38%) 
     Microsoft Teams for Linux is your chat-centered workspace in Office 365
 
+cfg
+~/.var/app/com.github.IsmaelMartinez.teams_for_linux/config/teams-for-linux/
+~/.config/teams-for-linux/
+
 2022
 https://office365itpros.com/2022/09/19/teams-pwa-linux-client/
 https://news.itsfoss.com/microsoft-teams-pwa-linux/
 
-~/.var/app/com.github.IsmaelMartinez.teams_for_linux/config/teams-for-linux/
-~/.config/teams-for-linux/
 
 window-state.json
 {"width":1914,"height":1144,"x":3,"y":53,"isMaximized":false,"isFullScreen":false,"displayBounds":{"x":0,"y":0,"width":1920,"height":1200}}
