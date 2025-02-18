@@ -51,32 +51,18 @@ https://github.com/JaKooLit/Hyprland-Dots
 ~/.config/hypr/
     hyprland.conf
 
-        # Default Configs
-        $configs = $HOME/.config/hypr/configs
-
-        source=$configs/Settings.conf
-        source=$configs/Keybinds.conf
-
-        # User Configs
-        $UserConfigs = $HOME/.config/hypr/UserConfigs
-
-        source= $UserConfigs/Startup_Apps.conf
-        source= $UserConfigs/ENVariables.conf
-        source= $UserConfigs/Monitors.conf
-        source= $UserConfigs/Laptops.conf
-        source= $UserConfigs/LaptopDisplay.conf
-        source= $UserConfigs/WindowRules.conf
-        source= $UserConfigs/UserDecorAnimations.conf
-        source= $UserConfigs/UserKeybinds.conf
-        source= $UserConfigs/UserSettings.conf
-        source= $UserConfigs/WorkspaceRules.conf
-
+key-bindings
+~/.config/hypr/scripts/KeyHints.sh
+    Super-Ctrl-F  fake fullscreen
+~/.config/hypr/UserConfigs/UserKeybinds.conf
+    bind = $mainMod CTRL, F, fullscreen, 1 # fake full screen
 
 ~/.config/qt5ct/qt5ct.conf
     [Fonts]
     !!!
 ~/.config/qt6ct/qt6ct.conf
-kvantummanager --set "$kvantum_theme"
+    kvantummanager --set "$kvantum_theme"
+
 
 https://alphacoders.com/
 https://github.com/JaKooLit/Wallpaper-Bank.git
