@@ -31,8 +31,10 @@ https://github.com/JaKooLit/Hyprland-Dots/blob/main/config/hypr/scripts/KooLsDot
 
 key-bindings
 ~/.config/hypr/scripts/KeyHints.sh
-    Super-H       key-bindings help
-    Super-Ctrl-F  fake fullscreen
+    Super-H     key-bindings help
+    Super-C-F   fake fullscreen
+    Super-S-A   animations menu
+        [03] disabled
 ~/.config/hypr/UserConfigs/UserKeybinds.conf
     bind = $mainMod CTRL, F, fullscreen, 1 # fake full screen
     bindn = ALT_L, SHIFT_L, exec, $scriptsDir/SwitchKeyboardLayout.sh # Change keyboard layout
@@ -41,6 +43,7 @@ key-bindings
       # ??? xkb_layout
       kb_layout = us
       ...
+      kb_options = grp:ctrl_space_toggle
     }
 
 ~/.config/hypr/scripts/SwitchKeyboardLayout.sh
