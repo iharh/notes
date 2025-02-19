@@ -3,6 +3,10 @@ https://www.jbang.dev/
 https://github.com/jbangdev/jbang
 https://github.com/maxandersen/jbang
 
+scoop inst
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
 gradle
     https://github.com/jbangdev/jbang-gradle-plugin/
 docker
