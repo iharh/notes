@@ -41,13 +41,3 @@ k3s
 
 echo "export node_token=$(sudo cat /var/lib/rancher/k3s/server/node-token)"
 sudo /usr/local/bin/k3s agent --server https://<ip:port> --token "$node_token" >&k3s-agent.log &
-
-2020
-https://www.liquidweb.com/kb/how-to-install-and-configure-rancher-k3s/
-2019
-https://okteto.com/blog/lightweight-kubernetes-development-with-k3s-and-okteto/
-    https://raw.githubusercontent.com/rancher/k3s/master/docker-compose.yml
-????
-https://collabnix.com/multi-node-k3s-cluster-on-nvidia-jetson-nano-in-5-minutes/
-https://tutorials.keptn.sh/tutorials/keptn-installation-k3s-07/index.html?index=..%2F..keptn07x#2
-    curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.18.3+k3s1 K3S_KUBECONFIG_MODE="644" sh -s - --no-deploy=traefik

@@ -1,0 +1,14 @@
+https://github.com/siderolabs/terraform-provider-talos
+https://github.com/siderolabs/terraform-provider-talos/tree/main/docs
+https://github.com/siderolabs/terraform-provider-talos/tree/main/docs/resources
+https://github.com/siderolabs/terraform-provider-talos/blob/main/docs/resources/machine_secrets.md
+
+https://github.com/sergelogvinov/terraform-talos/tree/main/proxmox
+https://github.com/bpg/terraform-provider-proxmox/issues/1465
+
+2024
+https://blog.stonegarden.dev/articles/2024/08/talos-proxmox-tofu/
+    https://gitlab.com/vehagn/blog/-/tree/main/content/articles/2024/08/talos-proxmox-tofu/resources
+https://olav.ninja/talos-cluster-on-proxmox-with-terraform
+https://blog.grosdouli.dev/blog/talos-on-proxmox-opentofu-part-1
+    https://blog.grosdouli.dev/blog/tags/talos
