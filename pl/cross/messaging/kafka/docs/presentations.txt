@@ -52,6 +52,9 @@ https://www.infoq.com/presentations/kafka-pks
 2018
 Waehner - Introduction to Apache Kafka as Event-Driven Open Source Streaming Platform
 https://www.youtube.com/watch?v=OXLABLRNuzI
+HighLoadChannel - Vybornov - Kafka in HighLoad ru of 37:49
+    https://www.youtube.com/watch?v=BtmYjTO1EpI
+    ! The only way to provide exactly-once semantics is to atomically save both offsets and data outside of kafka
 2017
 Ward - Introduction to Apache Kafka
 https://www.youtube.com/watch?v=UEg40Te8pnE

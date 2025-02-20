@@ -1,0 +1,19 @@
+https://github.com/Psiphon-Labs/psiphon-tunnel-core
+https://github.com/Psiphon-Labs/psiphon-tunnel-core-binaries
+
+https://github.com/Alessandros-Hube/PsiphonLinuxGUI
+
+https://github.com/SpherionOS/PsiphonLinux
+    2.11 Beta
+https://github.com/SpherionOS/PsiphonLinux/blob/main/plinstaller2
+    !!! downloads bins from gh - dangerous
+https://github.com/SpherionOS/PsiphonLinux/blob/main/psiphon
+    #! /bin/bash
+    /etc/psiphon/psiphon-tunnel-core-x86_64 -config /etc/psiphon/psiphon.config
+https://github.com/SpherionOS/PsiphonLinux/blob/main/psiphon.config
+
+
+https://codesandbox.io/p/github/victorgeel/PsiphonLinux/main
+
+2023
+https://blog.tanatos.org/posts/psiphon-own/

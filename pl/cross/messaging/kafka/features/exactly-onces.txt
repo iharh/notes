@@ -1,0 +1,4 @@
+2018
+HighLoadChannel - Vybornov - Kafka in HighLoad ru of 37:49
+    https://www.youtube.com/watch?v=BtmYjTO1EpI
+    ! The only way to provide exactly-once semantics is to atomically save both offsets and data outside of kafka
