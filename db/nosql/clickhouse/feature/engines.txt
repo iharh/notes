@@ -1,3 +1,7 @@
+memory
+log
+...
+
 https://clickhouse.com/docs/ru/engines/table-engines
 https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family
 https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replacingmergetree
