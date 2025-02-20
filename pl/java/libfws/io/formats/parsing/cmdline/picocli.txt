@@ -1,7 +1,7 @@
 http://picocli.info/
 https://github.com/remkop/picocli
 
-https://github.com/kakawait/picocli-spring-boot-starter
+https://github.com/remkop/picocli/tree/main/picocli-spring-boot-starter
 
 whatsnew
 https://dzone.com/articles/announcing-picocli-10
@@ -9,7 +9,7 @@ https://dzone.com/articles/announcing-picocli-10
 issues
 https://github.com/remkop/picocli/issues/183
 
-2023
+baeldung
 https://www.baeldung.com/java-picocli-create-command-line-program
     !!! spring-boot integration
 2021

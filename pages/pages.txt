@@ -1,4 +1,5 @@
 TODO: 
+set up explorer
 turn notification off for kb-layout switch
 investigate buffer usage at hypr, vim -> S-I mapping, wezterm - middle mouse
 how to add trackers list to aria2
