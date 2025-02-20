@@ -1,8 +1,14 @@
 r/libgen/
 
+https://github.com/freereadorg/awesome-libgen
+
 status
+https://open-slum.org/
 https://vertsluisants.fr/index.php?article4/where-scihub-libgen-server-down
 
+mirrors
+https://libgen.onl/library-genesis/
+https://garbage.world/posts/libgen/
 https://www.facebook.com/libgen.in/
     http://libgen.rs
     https://libgen.il
@@ -14,16 +20,12 @@ https://www.facebook.com/libgen.in/
     https://booksdescr.com
     http://gen.lib.rus.ec
 
-https://garbage.world/posts/libgen/
-
-https://github.com/freereadorg/awesome-libgen
-
 go cli
 https://github.com/TonyChG/libgen-cli
 https://github.com/ciehanski/libgen-cli
     mirrors
 
-
+sci-hub
 https://sci-hub.ru/
 https://sci-hub.se/
 https://telegram.me/scihubot
