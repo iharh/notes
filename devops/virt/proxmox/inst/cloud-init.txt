@@ -3,8 +3,11 @@ https://pve.proxmox.com/wiki/Cloud-Init_FAQ
 https://pve.proxmox.com/wiki/Cloud-Init_Support
 https://forum.proxmox.com/tags/proxmox-cloud-init/
 
-https://github.com/trfore/proxmox-template-scripts
 https://www.trfore.com/posts/golden-images-and-proxmox-templates-using-cloud-init/
+https://github.com/trfore/proxmox-template-scripts
+https://github.com/trfore/proxmox-template-scripts/blob/main/scripts/image-update
+
+https://github.com/agstaylor/proxmox-cloud-init-scripts
 
 nixos
 https://gist.github.com/voidus/1230b200043b7f815e2513663d16353b
@@ -13,6 +16,14 @@ https://discourse.nixos.org/t/a-cloudinit-image-for-use-in-proxmox/27519/14
 Savolla - Zero to Hero CI/CD Pipeline | Part 2b [NixOS Cloud-Init on Proxmox] 0:00 of 16:05
     https://www.youtube.com/playlist?list=PLrwzufn0Pq4ZRnMoet0roO6si6NsBDSA-
     https://www.youtube.com/watch?v=ddO4SphmHU0
+https://justinas.org/nixos-in-the-cloud-step-by-step-part-1
+https://www.joshuamlee.com/nixos-proxmox-vm-images/
+    https://gist.github.com/joshleecreates/e6892ca21b0e6b7c24d96ca2a24bf23e
+?
+https://nixos.wiki/wiki/Proxmox_Virtual_Environment
+https://wiki.nixos.org/wiki/Proxmox_Virtual_Environment
+https://wiki.nixos.org/w/index.php?title=Proxmox_Virtual_Environment&mobileaction=toggle_view_desktop
+https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/virtualisation/proxmox-image.nix
 
 ubuntu
 https://documentation.ubuntu.com/server/tutorial/basic-installation/
@@ -27,6 +38,7 @@ https://fedoraproject.org/security
     curl -O https://fedoraproject.org/fedora.gpg
     gpgv --keyring ./fedora.gpg Fedora-Cloud-41-1.4-x86_64-CHECKSUM
     sha256sum --ignore-missing -c Fedora-Cloud-41-1.4-x86_64-CHECKSUM
+https://www.apalrd.net/posts/2023/pve_cloud/
 
 debian
 https://cloud.debian.org/images/cloud/
@@ -39,7 +51,9 @@ https://forum.proxmox.com/threads/how-to-create-windows-cloudinit-templates-on-p
 https://github.com/thundervm/proxmox-windows-template
 
 tf-cloudinit
+https://registry.terraform.io/providers/bpg/proxmox/latest/docs/guides/cloud-init
 https://codingpackets.com/blog/proxmox-cloud-init-with-terraform-and-saltstack/
+https://dev.to/marksie1988/proxmox-template-with-cloud-image-and-cloud-init-3660
 
 2024
 TechnoTim - Perfect Proxmox Template with Cloud Image and Cloud Init 0:00 of 11:50
@@ -52,3 +66,10 @@ https://medium.com/@alaayedi090/creating-a-proxmox-vm-template-with-cloud-init-c
     https://provision-linux-machines-in-proxmox-from-a-template.hashnode.space/default-guide/creating-a-proxmox-vm-template-with-cloud-init-for-ubuntu
     https://cloud-images.ubuntu.com/focal/current/
 https://dev.to/minerninja/create-an-ubuntu-cloud-init-template-on-proxmox-the-command-line-guide-5b61
+2023
+https://alvaromartmunoz.medium.com/efficiently-creating-cloud-init-vm-templates-in-proxmox-for-streamlined-configuration-105fb8f936aa
+    Cloud-init is a cloud server initialization and configuration tool used in Proxmox and other virtualization environments.
+    It allows system administrators to define and customize the configuration of servers and virtual machines (VMs) quickly and automatically.
+    In Proxmox, Cloud-init can be used to customize the configuration of VMs, such as network configuration, system users and groups, 
+    configuration files, SSH keys, and other configuration tasks. 
+    Cloud-init runs when a new VM is first started and is used to configure the VM with the data defined by the administrator.
