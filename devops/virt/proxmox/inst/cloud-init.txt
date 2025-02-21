@@ -1,11 +1,54 @@
+https://pve.proxmox.com/wiki/Cloud-Init_Support
+https://pve.proxmox.com/wiki/Cloud-Init_FAQ
+https://pve.proxmox.com/wiki/Cloud-Init_Support
+https://forum.proxmox.com/tags/proxmox-cloud-init/
+
+https://github.com/trfore/proxmox-template-scripts
+https://www.trfore.com/posts/golden-images-and-proxmox-templates-using-cloud-init/
+
+nixos
+https://gist.github.com/voidus/1230b200043b7f815e2513663d16353b
+    !!!
+https://discourse.nixos.org/t/a-cloudinit-image-for-use-in-proxmox/27519/14
+Savolla - Zero to Hero CI/CD Pipeline | Part 2b [NixOS Cloud-Init on Proxmox] 0:00 of 16:05
+    https://www.youtube.com/playlist?list=PLrwzufn0Pq4ZRnMoet0roO6si6NsBDSA-
+    https://www.youtube.com/watch?v=ddO4SphmHU0
+
+ubuntu
 https://documentation.ubuntu.com/server/tutorial/basic-installation/
 https://cloud-images.ubuntu.com/
 https://github.com/UntouchedWagons/Ubuntu-CloudInit-Docs
-
 https://provision-linux-machines-in-proxmox-from-a-template.hashnode.space/default-guide/creating-a-proxmox-vm-template-with-cloud-init-for-ubuntu
 
+fedora
+https://fedoraproject.org/cloud/download
+https://fedoraproject.org/security
+    https://download.fedoraproject.org/pub/fedora/linux/releases/41/Cloud/x86_64/images/Fedora-Cloud-41-1.4-x86_64-CHECKSUM
+    curl -O https://fedoraproject.org/fedora.gpg
+    gpgv --keyring ./fedora.gpg Fedora-Cloud-41-1.4-x86_64-CHECKSUM
+    sha256sum --ignore-missing -c Fedora-Cloud-41-1.4-x86_64-CHECKSUM
+
+debian
+https://cloud.debian.org/images/cloud/
+https://mattedwards.org/2024/07/using-cloud-init-with-proxmox-vms/
+https://static.xtremeownage.com/blog/2024/proxmox---debian-cloud-init-templates/
+https://blog.stefandroid.com/2021/07/02/proxmox-debian-cloud-init-template.html
+
+win
+https://forum.proxmox.com/threads/how-to-create-windows-cloudinit-templates-on-proxmox-7-3-patch-included.123338/
+https://github.com/thundervm/proxmox-windows-template
+
+tf-cloudinit
+https://codingpackets.com/blog/proxmox-cloud-init-with-terraform-and-saltstack/
+
 2024
+TechnoTim - Perfect Proxmox Template with Cloud Image and Cloud Init 0:00 of 11:50
+    https://www.youtube.com/watch?v=shiIi38cJe4
+    https://technotim.live/posts/cloud-init-cloud-image/
+https://bastientraverse.com/en/proxmox-optimized-cloud-init-templates/
+    !!!
 https://patrickpriestley.com/blog/how-to-create-vm-template/
 https://medium.com/@alaayedi090/creating-a-proxmox-vm-template-with-cloud-init-cloud-image-dcde7bb2d327
     https://provision-linux-machines-in-proxmox-from-a-template.hashnode.space/default-guide/creating-a-proxmox-vm-template-with-cloud-init-for-ubuntu
     https://cloud-images.ubuntu.com/focal/current/
+https://dev.to/minerninja/create-an-ubuntu-cloud-init-template-on-proxmox-the-command-line-guide-5b61
