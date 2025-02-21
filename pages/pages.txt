@@ -3,6 +3,8 @@ set up explorer
 proxmox:
     https://www.youtube.com/watch?v=JWPiedjyvsw
     https://www.youtube.com/watch?v=GoZaMgEgrHw
+    https://www.youtube.com/watch?v=kqZNFD0JNBc
+    https://www.youtube.com/watch?v=Kv6-_--y5CM # cloud-init
 turn notification off for kb-layout switch
 investigate buffer usage at hypr, vim -> S-I mapping, wezterm - middle mouse
 how to add trackers list to aria2
