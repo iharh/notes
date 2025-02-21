@@ -1,0 +1,80 @@
+https://vates.tech/
+https://vates.tech/open-source-commitment/
+https://www.youtube.com/c/Vates_tech
+https://www.youtube.com/@Xen_Project
+
+https://xcp-ng.org/
+
+https://github.com/xcp-ng
+https://github.com/xcp-ng/host-installer
+https://gitlab.com/xen-project/xen-guest-agent
+https://github.com/vatesfr
+https://github.com/orgs/vatesfr/repositories
+https://xcp-ng.org/blog/2024/11/26/making-rust-a-first-class-citizen-for-xen/
+    https://www.youtube.com/watch?v=n3MfiBKSjlA
+
+XO
+https://xen-orchestra.com
+    -> now part of
+https://github.com/vatesfr/xen-orchestra
+https://vates.tech/deploy/
+https://docs.xen-orchestra.com/
+https://docs.xen-orchestra.com/installation
+https://github.com/vatesfr/pulumi-xenorchestra
+https://gitlab.desy.de/cloud-public/pulumi-xenorchestra
+https://github.com/vatesfr/terraform-provider-xenorchestra
+https://github.com/vatesfr/terraform-provider-xenorchestra/blob/master/docs/index.md
+https://forums.lawrencesystems.com/t/how-to-build-xen-orchestra-from-sources-2024/19913
+    https://www.youtube.com/watch?v=fuS7tSOxcSo
+
+tf-provider
+https://registry.terraform.io/providers/vatesfr/xenorchestra/latest
+
+packer
+https://xcp-ng.org/blog/2024/02/22/using-packer-with-xcp-ng/
+    https://developer.hashicorp.com/packer/docs/templates/hcl_templates/syntax
+
+https://xcp-ng.org/blog/
+
+https://docs.xcp-ng.org/
+https://docs.xcp-ng.org/project/architecture/
+https://docs.xcp-ng.org/project/roadmap/
+    https://xcp-ng.org/blog/2020/11/13/xcp-ng-and-linbit-alliance-part-ii/
+    https://linbit.com/linstor/
+https://docs.xcp-ng.org/category/project/
+https://docs.xcp-ng.org/category/development-process/
+https://docs.xcp-ng.org/project/development-process/build-system/
+https://docs.xcp-ng.org/project/development-process/koji-initial-setup/
+    koji - rpm build system
+    https://pagure.io/koji
+    https://pagure.io/docs/koji/
+    https://koji.xcp-ng.org/
+https://docs.xcp-ng.org/project/development-process/ISO-modification/
+
+OCI containers support
+https://xcp-ng.org/blog/2021/10/19/runx-is-available-in-tech-preview/
+https://xcp-ng.org/blog/2021/09/14/runx-next-generation-secured-containers/
+
+
+2024
+LawrenceSystems - XCP-ng 8.3: Is it the Best Free and Open-Source Virtualization Solution Yet? 0:00 of 17:28
+    https://www.youtube.com/watch?v=9SPW4j4LNRY
+Vates - Xen Orchestra 5.101 0:00 of 36:48
+    https://www.youtube.com/watch?v=g3ldNVCESok
+LawrenceSystems - Your Complete Open Source Virtualization Guide For Getting Started With XCP-ng & Xen Orchestra 0:00 of 1:06:52
+    https://www.youtube.com/watch?v=2wMmSm_ZeZ4
+2023
+RaidOwl - Let's try XCP-ng & Xen Orchestra - Is this the Proxmox killer? 0:00 of 12:03
+    https://www.youtube.com/watch?v=kguTbVBqmuw
+LawrenceSystems - The Virtualization Debate: XCP-NG vs Proxmox for Businesses Leaving VMware of 5:28
+    https://www.youtube.com/watch?v=et54DxAC2uM
+Vates - Xen Orchestra 5.99 - Backup improvements, XO6 & XO Lite progress and more... 0:00 of 30:07
+    https://www.youtube.com/watch?v=McsCskMYjRs
+LawrenceSystems - Understanding How The XCP-NG & Xen Orchestra Open Source Virtualization Platform Works 0:00 of 18:03
+    https://www.youtube.com/watch?v=CEUFHudLO1g
+2020
+LawrenceSystems - How To Build XO From Sources on Debian 10 Using XenOrchestraInstallerUpdater 0:00 of 13:31
+    https://www.youtube.com/watch?v=bq1iKO-0jWs
+
+whatsnew
+https://xcp-ng.org/blog/2024/10/07/xcp-ng-8-3/
