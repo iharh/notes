@@ -1,0 +1,10 @@
+2025
+https://www.wundertech.net/xcp-ng-vs-proxmox-side-by-side-comparison/
+    ! xcp-ng is based on centos, proxmox - on debian
+    ! xcp-ng uses paravirtualization - https://www.geeksforgeeks.org/difference-between-full-virtualization-and-paravirtualization/
+    ! proxmox - +cepth, glusterfs
+    ! perf is great for both
+    !  XCP-ng is an enterprise virtualization platform, while Proxmox isn’t
+    !  proxmox is probably just a bit easier
+2024
+https://www.techwrix.com/proxmox-vs-xcp-ng-which-hypervisor-is-best-in-2024/
