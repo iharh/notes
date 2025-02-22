@@ -1,3 +1,18 @@
+eog
+    gnome imgviewer
+wget2
+gvfs
+pamixer
+playerctl
+slurp
+swappy
+wl-clipboard
+yad
+cava
+gnome-system-monitor
+calculate-gtk
+nvtop
+
 TODO: 
 set up explorer
 proxmox:
@@ -8,7 +23,7 @@ proxmox:
     https://codingpackets.com/blog/proxmox-cloud-init-with-terraform-and-saltstack/
     https://www.youtube.com/watch?v=v45lH43yU9s
 turn notification off for kb-layout switch
-investigate buffer usage at hypr, vim -> S-I mapping, wezterm - middle mouse
+investigate buffer usage at hypr, vim -> S-I mapping, wezterm - middle mouse (just pust does not work)
 how to add trackers list to aria2
 ? hyprctl
 ? hyprpanel (ags)
@@ -25,9 +40,10 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
 ./.kube/config -> secret
 ~/.config/waybar/
     missing links
-    config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default_v4
-    ln -s configs/[TOP] Default_v4 config
+    config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default
+    ln -s configs/[TOP] Default config
     style.css@ ⇒ /home/iharh/.config/waybar/style/[Dark] Wallust Obsidian Edge.css
+      [Extra] Modern-Combined - Transparent.css
 
 devenv.sh
 https://devenv.pages.wito.dev/20
