@@ -1,0 +1,35 @@
+proxmox inst
+    https://www.youtube.com/watch?v=kezUFNiS8z0
+    https://www.youtube.com/watch?v=gQpk_ZXnCjQ
+proxmox-tf
+    https://www.youtube.com/watch?v=ZGWn6xREdDE
+        https://github.com/JamesTurland/JimsGarage/tree/main/Terraform
+        https://github.com/JamesTurland/JimsGarage/blob/main/Terraform/test-cloudinit.tf
+            ! some cloud-init
+        tf proxmox providers
+            https://github.com/Telmate/terraform-provider-proxmox
+            https://github.com/bpg/terraform-provider-proxmox
+    https://www.youtube.com/watch?v=dvyeoDBUtsU
+devops ui
+    https://semaphoreui.com/
+    https://github.com/semaphoreui/semaphore
+    https://www.youtube.com/watch?v=tc3tqMIN89U
+opentofu
+    https://www.youtube.com/watch?v=HeUz6TMg82U
+    https://www.youtube.com/watch?v=_-9LhcPgoaY
+
+
+
+helper scripts
+    https://www.youtube.com/watch?v=P8V1Uw7E304
+    https://community-scripts.github.io/ProxmoxVE/
+    https://community-scripts.github.io/ProxmoxVE/scripts
+    https://github.com/community-scripts/ProxmoxVE/
+    https://github.com/community-scripts/ProxmoxVE/tree/main/vm
+    https://github.com/community-scripts/ProxmoxVE/blob/main/vm/ubuntu2410-vm.sh
+    https://github.com/community-scripts/ProxmoxVE/tree/main/misc
+    https://github.com/community-scripts/ProxmoxVE/blob/main/misc/post-pve-install.sh
+        !!!
+    https://github.com/community-scripts/ProxmoxVE/blob/main/misc/api.func
+    https://github.com/community-scripts/ProxmoxVE/blob/main/misc/code-server.sh
+    https://github.com/community-scripts/ProxmoxVE/blob/main/misc/update-repo.sh

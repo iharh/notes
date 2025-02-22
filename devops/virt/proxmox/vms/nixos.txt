@@ -1,0 +1,68 @@
+nixos-cloudinit
+    https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/system/cloud-init.nix
+    https://discourse.nixos.org/t/a-cloudinit-image-for-use-in-proxmox/27519/14
+    https://gist.github.com/voidus/1230b200043b7f815e2513663d16353b
+    https://justinas.org/nixos-in-the-cloud-step-by-step-part-1
+jayadeep km - nixos proxmox
+    https://www.youtube.com/playlist?list=PLloQ4skyGOpdW3_MsBjWsZ5S_MpVbJSqf
+        p1
+        https://www.youtube.com/watch?v=sYVScdeixGs
+            ! 4:00 - https://github.com/community-scripts/ProxmoxVE/blob/main/misc/post-pve-install.sh
+        p2
+        https://www.youtube.com/watch?v=Kpw6UzocMUA
+        p3
+        https://www.youtube.com/watch?v=IHH1o3mPYNo
+
+        https://github.com/kmjayadeep/homelab-iac
+        https://github.com/kmjayadeep/homelab-iac/tree/main/cosmos/jupiter
+        https://github.com/kmjayadeep/homelab-iac/tree/main/nixos-images
+        https://github.com/kmjayadeep/homelab-iac/tree/main/nixos-images/nixos-base-image
+        https://github.com/kmjayadeep/homelab-iac/tree/main/nixos-images/coder
+        https://github.com/kmjayadeep/homelab-iac/blob/main/nixos-images/coder/configuration.nix
+        https://github.com/kmjayadeep/homelab-iac/tree/main/nixos-images/coder/modules
+        https://github.com/kmjayadeep/homelab-iac/tree/main/terraform-modules/proxmox-vm-qemu
+            !!!
+
+savolla - nixos proxmox
+    https://www.youtube.com/playlist?list=PLrwzufn0Pq4ZRnMoet0roO6si6NsBDSA-
+    https://github.com/savolla?tab=repositories
+    https://savolla.github.io/cortex/#/page/videos
+        https://savolla.github.io/cortex/#/page/zero%20to%20hero%20cicd%20pipeline%20%7C%20part%201
+        https://www.canva.com/design/DAGRUMFFs3c/lNFwVoe4ymvXjbvVBlM0LQ/view
+        https://savolla.github.io/cortex/#/page/zero%20to%20hero%20cicd%20pipeline%20%7C%20part%202
+            !!!!! - need to carefully check each !!!!!
+            https://nix.dev/tutorials/nixos/deploying-nixos-using-terraform.html
+            !!!
+            https://github.com/JeremiahSecrist/terraform-proxmox-nix-deploy
+            https://fasterthanli.me/tags/nix
+            https://fasterthanli.me/series/building-a-rust-service-with-nix/part-1
+            ...
+            https://fasterthanli.me/series/building-a-rust-service-with-nix/part-9
+    https://www.youtube.com/watch?v=Y2xCmbXZAgc
+    ./create-infra.sh
+    cd cicd-pipeline/iac
+    iac ./create-infra.sh
+        Creating VMs
+        ~/cicd-pipeline/iac/terraform ~/cicd-pipeline/iac
+        proxmox_vm_qemu.nixos["monitoring"]: Creating..
+        proxmox_vm_qemu.nixos["jenkins-master"]: Creating..
+        proxmox_vm_qemu.nixos["jenkins-agent"]: Creating..
+        proxmox_vm_qemu.nixos["sonarqube"]: Creating..
+        proxmox_vm_qemu.nixos["nexus"]: Creating..
+        proxmox_vm_qemu.nixos["monitoring"]: Modifying...
+        ...
+        Waiting to newly created resources come alive 25 seconds
+        Installing and Starting services
+        ~/cicd-pipeline/iac/nix ~/cicd-pipeline/iac
+        building Nix...
+        building the system configuration...
+        ...
+        Launching All Service WebUIs In Web Browser
+    ! 4:36 tf files for nixos
+    resource "proxmox_vm_qemu" "nixos" {
+      clone = "nixos-cloudinit"
+      os_type = "cloud-init"
+      ...
+      ciuser = "savolla"
+      ...
+    }
