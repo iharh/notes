@@ -1,0 +1,7 @@
+2025
+VirtualizationHowto - Proxmox Swap and Memory Hack for Home Labs! 0:00 of 18:07
+    https://www.youtube.com/watch?v=v45lH43yU9s
+    ! 6:30 - sysctl -w vm.swappiness=75
+    ! echo "vm.swappiness=75" | tee /etc/sysctl.conf
+    ! 8.30 vm.page-cluster=0
+    !!! /etc/sysctl.d

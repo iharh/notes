@@ -1,0 +1,12 @@
+https://forum.proxmox.com/threads/proxmox-datacenter-manager-first-alpha-release.159324/
+    centralized overview of all your individual nodes and clusters.
+    It also enables basic management like migrations of virtual guests without any cluster network requirements.
+    The project is fully developed in the Rust programming language
+
+https://pve.proxmox.com/wiki/Proxmox_Datacenter_Manager_Roadmap
+
+https://git.proxmox.com/
+
+2024
+2GuysTek - Proxmox just got a vCenter Alternative?! - Proxmox Datacenter Manager! 0:00 of 12:46
+    https://www.youtube.com/watch?v=rsguS0hw1PI

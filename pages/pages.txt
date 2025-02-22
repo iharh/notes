@@ -6,6 +6,7 @@ proxmox:
     https://www.youtube.com/watch?v=kqZNFD0JNBc
     https://www.youtube.com/watch?v=Kv6-_--y5CM # cloud-init
     https://codingpackets.com/blog/proxmox-cloud-init-with-terraform-and-saltstack/
+    https://www.youtube.com/watch?v=v45lH43yU9s
 turn notification off for kb-layout switch
 investigate buffer usage at hypr, vim -> S-I mapping, wezterm - middle mouse
 how to add trackers list to aria2
