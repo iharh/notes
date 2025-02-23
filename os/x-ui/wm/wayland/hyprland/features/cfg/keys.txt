@@ -1,0 +1,17 @@
+https://wiki.hyprland.org/Configuring/Binds/#mouse-buttons
+    ~/.config/hypr/configs/Keybinds.conf
+    ~/.config/hypr/UserConfigs/UserKeybinds.conf
+/usr/bin/wev to check
+    # 274
+    `bindn = , mouse:274, exec, wl-copy -pc`
+
+
+gsettings get org.gnome.desktop.interface gtk-enable-primary-paste
+    true
+https://wiki.hyprland.org/FAQ/#how-to-disable-middle-click-paste
+    ~/.config/hypr/UserConfigs/UserSettings.conf
+    misc {
+        middle_click_paste = false
+    }
+????
+    https://wezterm.org/config/lua/keyassignment/PasteFrom.html
