@@ -31,12 +31,10 @@ mise
             latest remote version of plugin
     i[nstall]
         <plugin-name> <plugin-ver>
-    g[lobal]
-        <plugin-name> <plugin-ver>
 
     outdated <tool@version>
         show outdated
-
+!!! to list all
     plugin
         ls-remote -u
 

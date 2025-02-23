@@ -11,8 +11,15 @@ gnome-system-monitor
 calculate-gtk
 nvtop
 
+books
+protonvpn
+https://one.one.one.one/dns/
+Wang - Terraform Made Easy
+    https://libgen.la/edition.php?id=150906443
+    magnet:?xt=urn:tree:tiger:KV4MBQJU77KMVKGXYI4UGFI6M2D33P7JULX674Y&xl=3493721&dn=[]%20Ivy%20Wang%20-%20Terraform%20Made%20Easy:%20Provisioning,%20Managing%20and%20Automating%20Cloud%20Infrastructure%20with%20Terraform%20on%20Google%20Cloud%20(2025).pdf
+
 TODO: 
-turn notification off for kb-layout switch
+
 set up explorer
     qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
 proxmox:
@@ -52,8 +59,10 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
     style.css:
 	      font-size: 100%;
 ~/.config/hypr/UserConfigs/WindowRules.conf
-# OPACITY
-# windowrulev2 = opacity 0.9 0.7, tag:browser*
+    # OPACITY
+    # windowrulev2 = opacity 0.9 0.7, tag:browser*
+~/.config/hypr/scripts/SwitchKeyboardLayout.sh
+    # notify-send -u low -i "$notif_icon" " kb_layout: $new_layout"
 
 devenv.sh
 https://devenv.pages.wito.dev/20
