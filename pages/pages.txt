@@ -16,6 +16,8 @@ investigate buffer usage at hypr, vim -> S-I mapping, wezterm - middle mouse (ju
     sway
         wl-paste -t text --watch clipman store --no-persist
         wl-copy --type text/plain
+    hyprland
+        wl-paste -t image --watch cliphist store
 turn notification off for kb-layout switch
 set up explorer
     qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
