@@ -55,6 +55,8 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
       [Extra] Modern-Combined - Transparent.css
       style.css@ ⇒ /home/iharh/.config/waybar/style/[Catppuccin] Mocha.css
     ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
+    style.css:
+	      font-size: 100%;
 
 devenv.sh
 https://devenv.pages.wito.dev/20
