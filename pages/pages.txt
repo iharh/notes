@@ -12,6 +12,11 @@ calculate-gtk
 nvtop
 
 TODO: 
+investigate buffer usage at hypr, vim -> S-I mapping, wezterm - middle mouse (just pust does not work)
+    sway
+        wl-paste -t text --watch clipman store --no-persist
+        wl-copy --type text/plain
+turn notification off for kb-layout switch
 set up explorer
     qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
 proxmox:
@@ -23,8 +28,6 @@ proxmox:
     https://codingpackets.com/blog/proxmox-cloud-init-with-terraform-and-saltstack/
     https://www.youtube.com/watch?v=v45lH43yU9s
 
-turn notification off for kb-layout switch
-investigate buffer usage at hypr, vim -> S-I mapping, wezterm - middle mouse (just pust does not work)
 how to add trackers list to aria2
 ? hyprctl
 ? hyprpanel (ags)
