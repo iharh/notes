@@ -1,5 +1,3 @@
-eog
-    gnome imgviewer
 wget2
 gvfs
 pamixer
@@ -15,6 +13,7 @@ nvtop
 
 TODO: 
 set up explorer
+    qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
 proxmox:
     https://www.youtube.com/watch?v=xD9Xyt2mdSI
     https://www.youtube.com/watch?v=JWPiedjyvsw
@@ -46,9 +45,11 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
 ~/.config/waybar/
     missing links
     config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default
-    ln -s configs/[TOP] Default config
+    ln -f -s configs/[TOP] Default config
     style.css@ ⇒ /home/iharh/.config/waybar/style/[Dark] Wallust Obsidian Edge.css
       [Extra] Modern-Combined - Transparent.css
+      style.css@ ⇒ /home/iharh/.config/waybar/style/[Catppuccin] Mocha.css
+    ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
 
 devenv.sh
 https://devenv.pages.wito.dev/20
