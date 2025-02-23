@@ -51,6 +51,9 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
     ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
     style.css:
 	      font-size: 100%;
+~/.config/hypr/UserConfigs/WindowRules.conf
+# OPACITY
+# windowrulev2 = opacity 0.9 0.7, tag:browser*
 
 devenv.sh
 https://devenv.pages.wito.dev/20
