@@ -1,7 +1,13 @@
+https://en.wikipedia.org/wiki/Library_Genesis
+
 r/libgen/
 https://www.reddit.com/r/libgen/
 https://www.reddit.com/r/libgen/wiki/index/
+    !!!
 https://freeread.org/reddit-libgen.html
+
+guides
+https://www.reddit.com/r/Piracy/wiki/guides/
 
 https://libgen.la/torrents/
 https://libgen.la/torrents/libgen/
@@ -18,6 +24,10 @@ https://open-slum.org/
 https://vertsluisants.fr/index.php?article4/where-scihub-libgen-server-down
 
 mirrors
+https://libgen.onl/
+https://libgen.onl/z-library/
+https://zlibrary.st/
+https://z-library.sk/
 https://libgen.onl/library-genesis/
 https://garbage.world/posts/libgen/
 https://www.facebook.com/libgen.in/
@@ -46,10 +56,16 @@ https://vk.com/sci_hub
 https://sci-hub.red/
 https://sci-hub.box/
 
+libgen-downloader
+https://libgendownloader.com
+https://github.com/obsfx/libgen-downloader
+    npm i -g libgen-downloader
+https://github.com/obsfx/libgen-downloader/tree/configuration
+https://github.com/obsfx/libgen-downloader/blob/configuration/config.json
+    ?
+
 to-sort
 https://omercan.xyz/libgen-downloader/
-https://github.com/obsfx/libgen-downloader/tree/configuration
-https://github.com/obsfx/libgen-downloader
 https://www.npmjs.com/package/libgen-downloader
 https://github.com/ciehanski/libgen-cli
 https://github.com/mattboran/libgen-go

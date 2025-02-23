@@ -1,1 +1,32 @@
-https://docs.ipfs.io/how-to/command-line-quick-start/
+https://docs.ipfs.tech/how-to/command-line-quick-start/
+
+https://docs.ipfs.tech/install/command-line/
+https://docs.ipfs.tech/install/command-line/#install-official-binary-distributions
+    https://github.com/ipfs/kubo
+    https://github.com/ipfs/kubo/releases
+    https://dist.ipfs.tech/#kubo
+fedora
+    https://github.com/ipfs/kubo?tab=readme-ov-file#fedora-copr
+    https://github.com/taw00/ipfs-rpm
+    sudo dnf install dnf-plugins-core distribution-gpg-keys
+    sudo dnf copr enable taw/ipfs
+    sudo dnf install kubo --refresh
+    sudo usermod -a -G ipfs $USER
+    newgrp -
+    getent group ipfs
+    groups
+
+    rpm -ql kubo
+    ls -lh /usr/bin/ipfs
+
+# if you do not see ipfs as one of your groups, force the relogin.
+# if, for whatever reason, 'newgrp -' doesn't do what it is suppose to do
+sudo su -l $USER
+getent group ipfs
+groups
+docker
+    $ docker pull ipfs/kubo:latest
+    $ docker run --rm -it --net=host ipfs/kubo:latest
+https://docs.ipfs.tech/install/run-ipfs-inside-docker/#customizing-your-node
+
+https://docs.ipfs.tech/how-to/kubo-basic-cli/
