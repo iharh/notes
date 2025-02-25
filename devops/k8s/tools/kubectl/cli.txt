@@ -40,7 +40,8 @@ kubectl
         svc
         ingress
         secrets
-        configmap
+        cm, configmap
+            <cm-name> -o yaml
         rs[replicaset]
         pv
             list pvc-s
