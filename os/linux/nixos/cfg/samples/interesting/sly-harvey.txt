@@ -1,0 +1,64 @@
+https://github.com/Sly-Harvey/NixOS
+https://github.com/Sly-Harvey/NixOS/tree/master/dev-shells
+https://github.com/Sly-Harvey/NixOS/blob/master/dev-shells/default.nix
+https://github.com/Sly-Harvey/NixOS/tree/master/dev-shells/java/flake.nix
+https://github.com/Sly-Harvey/NixOS/blob/master/dev-shells/kotlin/flake.nix
+https://github.com/Sly-Harvey/NixOS/blob/master/hosts/common.nix
+https://github.com/Sly-Harvey/NixOS/blob/master/hosts/Default/configuration.nix
+    imports = [
+      ../common.nix
+      ...
+    ];
+https://github.com/Sly-Harvey/NixOS/tree/master/modules
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/desktop/hyprland/default.nix
+      #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+      wayland.windowManager.hyprland = {
+        enable = true;
+        xwayland.enable = true;
+        plugins = [ # inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap ];
+        systemd = {
+          enable = true;
+          variables = ["--all"];
+        };
+        settings = {
+          "$scriptsDir" = "XDG_BIN_HOME";
+          ...
+        }
+        ...
+      }
+https://github.com/Sly-Harvey/NixOS/tree/master/modules/programs
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/programs/terminal/wezterm/default.nix
+https://github.com/Sly-Harvey/NixOS/tree/master/modules/programs/cli
+https://github.com/Sly-Harvey/NixOS/tree/master/modules/programs/browser
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/programs/browser/firefox/default.nix
+https://github.com/Sly-Harvey/NixOS/tree/master/modules/programs/editor
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/programs/editor/nvchad/default.nix
+https://github.com/Sly-Harvey/NixOS/tree/master/modules/programs/misc
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/programs/misc/thunar/default.nix
+https://github.com/Sly-Harvey/NixOS/tree/master/modules/programs/shell
+https://github.com/Sly-Harvey/NixOS/tree/master/modules/programs/shell/zsh
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/programs/shell/zsh/default.nix
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/programs/shell/zsh/.p10k.zsh
+https://github.com/Sly-Harvey/NixOS/tree/master/modules/scripts
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/scripts/collect-garbage.nix
+    {pkgs, ...}:
+    pkgs.writeShellScriptBin "collect-garbage" ''
+      sudo nix-collect-garbage -d
+      nix-collect-garbage -d
+    ''
+https://github.com/Sly-Harvey/NixOS/blob/master/modules/scripts/default.nix
+
+https://github.com/yokoffing/Betterfox
+https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
+https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
+https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js
+https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js
+
+https://nextdns.io
+https://nextdns.io/pricing
+    ! 300000 q/mo
+https://support.mozilla.org/en-US/kb/dns-over-https
+
+2025
+Sly_Harvey - Custom NixOS operating system 0:00 of 1:19
+    https://www.youtube.com/watch?v=ya3DkxTorOM
