@@ -6,8 +6,10 @@ PostgresProfessional - RogovLuzanovTolmachyov - QPT13 - Query Optimization of p1
     https://www.youtube.com/playlist?list=PLaFqU3KCWw6JW80WBHPOe-SMJD2NOjmge
     p4 - Inex Scan 0:00 of 41:10
         https://www.youtube.com/watch?v=iu35dYTchu4
-    p3 - Sequential Scan of 47:06
+    p3 - Sequential Scan 19:00 of 47:06
         https://www.youtube.com/watch?v=X2DOIf0DfJ0
+        ! parallel processing is not-efficitent for full seq-load, but is effective for the case of agg-n
+        ! "Parallel Seq Scan" -> "Partial Aggregate" -> "Gather"
     p2 - Query Execution of 43:14
         https://www.youtube.com/watch?v=_6ce4YFFScc
         ! 26:00 - set jit = off;
