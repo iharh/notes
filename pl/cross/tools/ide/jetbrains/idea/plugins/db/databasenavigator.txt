@@ -1,3 +1,12 @@
 https://plugins.jetbrains.com/plugin/1800-database-navigator
   ! check later
   ?no mssql
+
+https://github.com/explyt/dbn
+    settings -> plugins -> Manage Plugin Repositories...
+    add https://repository.explyt.dev/
+
+2025
+https://habr.com/ru/companies/explyt/news/867758/
+2020
+https://habr.com/ru/sandbox/146588/

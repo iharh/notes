@@ -26,6 +26,13 @@ https://github.com/peergos/nabu
 https://chromewebstore.google.com/detail/ipfs-companion/nibjojkomfdiaoajekhjakgkdhaomnch
 https://brave.com/blog/ipfs-support/
 
+https://github.com/ipfs/ipfs-desktop/issues/1908
+$ sudo dnf install https://github.com/ipfs/ipfs-desktop/releases/download/v0.41.2/ipfs-desktop-0.41.2-linux-x86_64.rpm
+$ rpm -ql ipfs-desktop
+/opt/IPFS Desktop/ipfs-desktop
+cat /usr/share/applications/ipfs-desktop.desktop
+Exec="/opt/IPFS Desktop/ipfs-desktop" --no-sandbox %U
+
 2023
 Aferious - IPFS Kubo Installation Guide: Download & Install go-ipfs on Linux & Ubuntu! 0:00 of 4:42
     https://www.youtube.com/watch?v=RJBq1VXEmy8
