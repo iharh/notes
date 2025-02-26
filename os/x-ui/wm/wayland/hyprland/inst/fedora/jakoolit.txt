@@ -1,3 +1,6 @@
+https://github.com/JaKooLit/Hyprland-Dots/wiki/Changelogs
+    chmod +x upgrade.sh
+    ./upgrade.sh
 https://github.com/JaKooLit/Hyprland-Dots/wiki/Install_&_Update
 https://github.com/JaKooLit/Fedora-Hyprland
   git clone --depth=1 https://github.com/JaKooLit/Fedora-Hyprland.git ~/Fedora-Hyprland
@@ -144,6 +147,8 @@ style.css -> ~/.config/waybar/style/...
     [Wallust] Chroma Tally.css
     
 2025
+https://github.com/JaKooLit/Hyprland-Dots/wiki/Changelogs#v2312
+    https://www.youtube.com/watch?v=oBJb1qMNKY0
 KskRoyal - BEAUTIFUL FEDORA HYPRLAND Setup // Make Your FEDORA Desktop Look Aesthetic 2025 0:00 of 13:19
     https://www.youtube.com/watch?v=W9vQwSEtI0A
 Ja.KooLit - KooL Hyprland Install Script improvements and KooL's Hyprland Dots new features 0:00 of 8:37
