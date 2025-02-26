@@ -35,6 +35,9 @@ TheLinuxTV - What is Proxmox and Why Should You Use It? of 11:14
     https://www.youtube.com/watch?v=yGQK0t_h46k
 VirtualizationHowto - Proxmox vs ESXi in 2024 of 12:36
     https://www.youtube.com/watch?v=E-CEonr2sAA
+MoreThanNetworkSolutions - What is Proxmox? of 3:12
+    https://www.youtube.com/watch?v=0q5Kui2xF_I
+    ! proxmox is type one (T1) hypervisor, communicate with phisical hw itself (T2 - via underlying OS)
 2021
 TechHunt - the BEST virtual solution with Proxmox! (Windows and Linux Install) of 16:56
     https://www.youtube.com/watch?v=LuCXHHc2u18
