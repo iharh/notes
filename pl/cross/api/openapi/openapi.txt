@@ -1,0 +1,39 @@
+openapi
+https://www.openapis.org/what-is-openapi
+https://learn.openapis.org/
+https://learn.openapis.org/specification/
+...
+https://learn.openapis.org/specification/paths.html
+https://tools.openapis.org/
+https://openapiprocessor.io/oap/home/home.html
+https://openapiprocessor.io/gradle/2023.2/index.html
+    !!! need to go there
+https://openapiprocessor.io/oap/home/jdk.html
+https://openapiprocessor.io/spring/2023.6/index.html
+https://openapiprocessor.io/samples/index.html
+https://openapiprocessor.io/samples/spring-mvc-boot-3.html
+    https://github.com/openapi-processor
+    !!! where the samples are
+    https://github.com/openapi-processor/openapi-processor-samples
+    https://github.com/openapi-processor/openapi-processor-samples/tree/master/samples/spring-mvc-boot-3
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3/settings.gradle
+      dependencyResolutionManagement {
+          versionCatalogs {
+              create("libs") {
+                  from(files("../../gradle/libs.versions.toml"))
+              }
+          }
+      }
+
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-lombok/src/api/openapi.yaml
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-lombok/src/api/mapping.yaml
+
+    https://github.com/openapi-processor/openapi-processor-samples/tree/master/samples/spring-mvc-boot-3-kt
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-kt/build.gradle.kts
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-kt/src/api/openapi.yaml
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-kt/src/api/mapping.yaml
+    https://github.com/openapi-processor/openapi-processor-samples/tree/master/samples/spring-mvc-boot-3-kt/src/main/kotlin/io/openapiprocessor/samples
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-kt/src/main/kotlin/io/openapiprocessor/samples/ApiController.kt
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-kt/src/main/kotlin/io/openapiprocessor/samples/FooBar.kt
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-kt/src/main/kotlin/io/openapiprocessor/samples/MappedBar.kt
+    https://github.com/openapi-processor/openapi-processor-samples/blob/master/samples/spring-mvc-boot-3-kt/src/main/kotlin/io/openapiprocessor/samples/SamplesApplication.kt
