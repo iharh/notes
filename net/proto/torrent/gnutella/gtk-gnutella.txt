@@ -10,3 +10,6 @@ https://gtk-gnutella.sourceforge.io/?lang=en&page=faq
 man
 https://gtk-gnutella.sourceforge.io/manual/
 https://linux.die.net/man/1/gtk-gnutella
+
+cli
+    --topless
