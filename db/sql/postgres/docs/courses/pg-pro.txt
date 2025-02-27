@@ -7,6 +7,10 @@ PostgresProfessional - RogovLuzanovTolmachyov - QPT13 - Query Optimization of p1
     p6 - Join with Inner Loop 0:00 of 20:35
         https://www.youtube.com/watch?v=VeGJAQo9ogM
         ! Bitmap Index Scan
+        !   Heap Blocks: exact=4413 (we have enough RAM)
+        !     ... lossy=3989 (non-precise fragments, contains links to table segments for re-check)
+        ! !! set/reset workmem
+        !
     p5 - Bitmap Scan 0:00 of 25:57
         https://www.youtube.com/watch?v=j7e7EANyJhE
     p4 - Inex Scan of 41:10
