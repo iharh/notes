@@ -71,7 +71,7 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
 ~/.config/waybar/
     missing links
     config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default
-    ln -f -s configs/[TOP] Default config
+    ln -f -s configs/\[TOP\]\ Default config
     style.css@ ⇒ /home/iharh/.config/waybar/style/[Dark] Wallust Obsidian Edge.css
       [Extra] Modern-Combined - Transparent.css
       style.css@ ⇒ /home/iharh/.config/waybar/style/[Catppuccin] Mocha.css
