@@ -19,26 +19,42 @@ https://github.com/eclipse-ee4j/jaxb-ri/tree/master/jaxb-ri/samples/src/main/sam
     https://github.com/eclipse-ee4j/jaxb-ri/blob/master/jaxb-ri/samples/src/main/samples/unmarshal-read/po.xsd
 https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
 
-jxc
-https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-jxc
-
 api
 https://javadoc.io/doc/jakarta.xml.bind/jakarta.xml.bind-api/4.0.2/index.html
 
-https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/release-documentation.html#Jaxb_tooling
-    org.jvnet.jaxb2.maven2
-    maven-jaxb2-plugin
-    https://github.com/highsource/jaxb-tools
-    https://github.com/highsource/jaxb-tools/wiki/User-Guide
-
-jaxb-gradle-plugin
-https://github.com/IntershopCommunicationsAG/jaxb-gradle-plugin
-https://mvnrepository.com/artifact/com.intershop.gradle.jaxb/jaxb-gradle-plugin
-https://mvnrepository.com/artifact/com.github.seanrl/gradle-jaxb-plugin
-https://plugins.gradle.org/plugin/com.github.seanrl.jaxb
-
+tooling
+    https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/release-documentation.html#Jaxb_tooling
+jxc
+    https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-jxc
 maven
 https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-maven-plugin-core
+    // org.jvnet.jaxb2.maven2
+    // maven-jaxb2-plugin
+    // https://mvnrepository.com/artifact/org.jvnet.jaxb2.maven2/maven-jaxb2-plugin
+
+    // fresh
+    https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-maven-plugin
+
+    https://github.com/highsource/jaxb-tools#jaxb-maven-plugin
+    https://github.com/highsource/jaxb-tools
+    https://github.com/highsource/jaxb-tools/tree/master/maven-plugin
+    https://github.com/highsource/jaxb-tools/blob/master/maven-plugin/samples/catalog/project-pom.xml
+    https://github.com/highsource/jaxb-tools/tree/master/maven-plugin/samples/catalog/src/main/resources
+    https://github.com/highsource/jaxb-tools/blob/master/maven-plugin/samples/jaxbplugins/src/main/resources/purchaseorder.xsd
+    https://github.com/highsource/jaxb-tools/wiki/User-Guide
+    https://github.com/highsource/jaxb-tools/wiki/Specifying-What-To-Compile
+    https://github.com/highsource/jaxb-tools/wiki/Referencing-Resources-in-Maven-Artifacts
+    https://github.com/highsource/jaxb-tools/wiki/Using-Catalogs
+
+    https://www.mojohaus.org/jaxb2-maven-plugin/
+    https://github.com/mojohaus/jaxb2-maven-plugin
+
+jaxb-gradle-plugin
+    https://github.com/IntershopCommunicationsAG/jaxb-gradle-plugin
+    https://mvnrepository.com/artifact/com.intershop.gradle.jaxb/jaxb-gradle-plugin
+    https://mvnrepository.com/artifact/com.github.seanrl/gradle-jaxb-plugin
+    https://plugins.gradle.org/plugin/com.github.seanrl.jaxb
+
 
 https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-plugins
 https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-plugins-tools
@@ -74,3 +90,28 @@ https://github.com/mojohaus/jaxb2-maven-plugin/
 https://www.mojohaus.org/jaxb2-maven-plugin/#/repo
 https://mvnrepository.com/artifact/org.codehaus.mojo/jaxb2-maven-plugin
     3.2.0
+
+
+    <jaxb2-maven-plugin.version>3.2.0</jaxb2-maven-plugin.version>
+    <jaxb-runtime.version>4.0.5</jaxb-runtime.version>
+
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxb2-maven-plugin</artifactId>
+        <version>${jaxb2-maven-plugin.version}</version>
+        <executions>
+            <execution>
+              <id>xjc</id>
+              <goals>
+                <goal>xjc</goal>
+              </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <!-- arguments>
+            <argument>-XautoNameResolution</argument>
+          </arguments -->
+          <!-- packageName>jaxb2.myschema</packageName -->
+        </configuration>
+      </plugin>
