@@ -14,6 +14,7 @@ https://eclipse-ee4j.github.io/jaxb-ri/
 https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/
 https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/release-documentation.pdf
 https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/release-documentation.html
+    !!! a lot of tools/plugins
 https://github.com/eclipse-ee4j/jaxb-ri
 https://github.com/eclipse-ee4j/jaxb-ri/tree/master/jaxb-ri/samples/src/main/samples
     https://github.com/eclipse-ee4j/jaxb-ri/blob/master/jaxb-ri/samples/src/main/samples/unmarshal-read/po.xsd
@@ -39,10 +40,13 @@ https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-maven-plugin-core
     https://github.com/highsource/jaxb-tools
     https://github.com/highsource/jaxb-tools/tree/master/maven-plugin
     https://github.com/highsource/jaxb-tools/blob/master/maven-plugin/samples/catalog/project-pom.xml
+        ! configuration
     https://github.com/highsource/jaxb-tools/tree/master/maven-plugin/samples/catalog/src/main/resources
     https://github.com/highsource/jaxb-tools/blob/master/maven-plugin/samples/jaxbplugins/src/main/resources/purchaseorder.xsd
     https://github.com/highsource/jaxb-tools/wiki/User-Guide
     https://github.com/highsource/jaxb-tools/wiki/Specifying-What-To-Compile
+        !!!
+    https://github.com/highsource/jaxb-tools/wiki/Configuration-Cheat-Sheet
     https://github.com/highsource/jaxb-tools/wiki/Referencing-Resources-in-Maven-Artifacts
     https://github.com/highsource/jaxb-tools/wiki/Using-Catalogs
 
