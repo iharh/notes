@@ -60,31 +60,3 @@ https://docs.xcp-ng.org/project/development-process/ISO-modification/
 OCI containers support
 https://xcp-ng.org/blog/2021/10/19/runx-is-available-in-tech-preview/
 https://xcp-ng.org/blog/2021/09/14/runx-next-generation-secured-containers/
-
-
-2024
-LawrenceSystems - XCP-ng 8.3: Is it the Best Free and Open-Source Virtualization Solution Yet? 0:00 of 17:28
-    https://www.youtube.com/watch?v=9SPW4j4LNRY
-Vates - Xen Orchestra 5.101 0:00 of 36:48
-    https://www.youtube.com/watch?v=g3ldNVCESok
-LawrenceSystems - Your Complete Open Source Virtualization Guide For Getting Started With XCP-ng & Xen Orchestra 0:00 of 1:06:52
-    https://www.youtube.com/watch?v=2wMmSm_ZeZ4
-2023
-NovaspiritTech - I Wont Be Using XCP-NG And Here Is Why of 10:23
-    https://www.youtube.com/watch?v=kukoa_7BTig
-    !!! critice !!!
-    ! comments, proxmox - is not for really big DCs
-RaidOwl - Let's try XCP-ng & Xen Orchestra - Is this the Proxmox killer? 0:00 of 12:03
-    https://www.youtube.com/watch?v=kguTbVBqmuw
-LawrenceSystems - The Virtualization Debate: XCP-NG vs Proxmox for Businesses Leaving VMware of 5:28
-    https://www.youtube.com/watch?v=et54DxAC2uM
-Vates - Xen Orchestra 5.99 - Backup improvements, XO6 & XO Lite progress and more... 0:00 of 30:07
-    https://www.youtube.com/watch?v=McsCskMYjRs
-LawrenceSystems - Understanding How The XCP-NG & Xen Orchestra Open Source Virtualization Platform Works 0:00 of 18:03
-    https://www.youtube.com/watch?v=CEUFHudLO1g
-2020
-LawrenceSystems - How To Build XO From Sources on Debian 10 Using XenOrchestraInstallerUpdater 0:00 of 13:31
-    https://www.youtube.com/watch?v=bq1iKO-0jWs
-
-whatsnew
-https://xcp-ng.org/blog/2024/10/07/xcp-ng-8-3/
