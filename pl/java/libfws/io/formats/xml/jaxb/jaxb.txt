@@ -5,11 +5,53 @@ https://jakarta.ee/specifications/xml-binding/4.0/
 https://github.com/jakartaee/jaxb-api
 https://jakarta.ee/specifications/platform/10/apidocs/jakarta/xml/bind/package-summary
 
+reference implementation
+    https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-ri/4.0.5/jaxb-ri-4.0.5.zip
+    https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api
+    https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-ri
+    https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-core
 https://eclipse-ee4j.github.io/jaxb-ri/
+https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/
+https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/release-documentation.pdf
+https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/release-documentation.html
 https://github.com/eclipse-ee4j/jaxb-ri
 https://github.com/eclipse-ee4j/jaxb-ri/tree/master/jaxb-ri/samples/src/main/samples
     https://github.com/eclipse-ee4j/jaxb-ri/blob/master/jaxb-ri/samples/src/main/samples/unmarshal-read/po.xsd
 https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
+
+jxc
+https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-jxc
+
+api
+https://javadoc.io/doc/jakarta.xml.bind/jakarta.xml.bind-api/4.0.2/index.html
+
+https://eclipse-ee4j.github.io/jaxb-ri/4.0.5/docs/release-documentation.html#Jaxb_tooling
+    org.jvnet.jaxb2.maven2
+    maven-jaxb2-plugin
+    https://github.com/highsource/jaxb-tools
+    https://github.com/highsource/jaxb-tools/wiki/User-Guide
+
+jaxb-gradle-plugin
+https://github.com/IntershopCommunicationsAG/jaxb-gradle-plugin
+https://mvnrepository.com/artifact/com.intershop.gradle.jaxb/jaxb-gradle-plugin
+https://mvnrepository.com/artifact/com.github.seanrl/gradle-jaxb-plugin
+https://plugins.gradle.org/plugin/com.github.seanrl.jaxb
+
+maven
+https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-maven-plugin-core
+
+https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-plugins
+https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-plugins-tools
+https://mvnrepository.com/artifact/org.jvnet.jaxb/jaxb-plugins-runtime
+
+https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-jaxb-annotations
+
+https://quarkus.io/extensions/io.quarkus/quarkus-jaxb/
+https://mvnrepository.com/artifact/io.quarkus/quarkus-jaxb
+https://mvnrepository.com/artifact/io.quarkus/quarkus-jaxb-deployment
+https://github.com/quarkusio/quarkus/blob/main/extensions/jaxb/deployment/src/main/java/io/quarkus/jaxb/deployment/JaxbProcessor.java
+
+https://mvnrepository.com/artifact/io.github.openfeign/feign-jaxb-jakarta
 
 articles
 baeldung
