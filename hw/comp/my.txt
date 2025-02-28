@@ -1,32 +1,30 @@
 Gigabyte B850M DS3H
 https://catalog.onliner.by/motherboard/gigabyte/b850mds3h
 https://www.777555.by/product/1605489-gigabyte-b850m-ds3h/
-    !!! 762 bin (217USD), 2024y, 256G, 8200MHz
+    !!! 692 bin (217USD), 2024y, 4 slots, 256G max, 8200MHz
 
 AMD Ryzen 7 8700G (BOX)
 https://catalog.onliner.by/cpu/amd/100000001404
-    ! 1400bin, max mem 5600 Mhz
+    ! 1149 bin, max mem 5600 Mhz
 https://catalog.onliner.by/cpu/amd/ryzen78700g
+    ! 948 bin
 https://catalog.onliner.by/cpu/amd/ryzen78700gbox
-    !!! 1000-1094 bin (1597 bin), 2024, TDP , max mem 5200 Mhz, max 256G
+    !!! 1000-1094 bin (box - 1597 bin), 2024, TDP , max mem 5200 Mhz, max 256G
 
 
-https://catalog.onliner.by/dram/corsair/cmh128gx5m4b5600
-    ! 3773, 5600Mhz, 40T, 40-40-40-77
-
-FURY Beast 4x16ГБ DDR5 5200 МГц KF552C40BBK4-64 
-
+64G 2x32
+https://catalog.onliner.by/dram/kingston/kf564c32rsk264
+    1076 bin, 6400 Mhz
+https://catalog.onliner.by/dram/kingston/kf560c36bbek264
+    828 bin, 6000 MHz
+https://catalog.onliner.by/dram/kingston/kf556c40bbk264
+    683 bin, 2x32, 5600 Mhz, 40T, 40-40-40
+    
 128G 4x32
 https://catalog.onliner.by/dram/kingston/kf556c40bbk464
     ! 1492 bin, 4x32, 5600 Mhz, 40T, 40-40-40
 https://catalog.onliner.by/dram/kingston/kf552c40bbk464
     ! 1100 bin, 4x32, 5200 Mhz, 40T, 40-40-40
-
-64G 2x32
-https://catalog.onliner.by/dram/kingston/kf556c40bwak264
-https://catalog.onliner.by/dram/kingston/kf556c40bbk264
-    1002 bin, 2x32, 5600 Mhz, 40T, 40-40-40
-    
 
 ???
 https://catalog.onliner.by/dram/kingston/kf556c40bbk4128
@@ -36,8 +34,6 @@ https://www.777555.by/product/1554138-kingston-fury-beast-2x32gb-ddr5-6000-mgc-k
 https://catalog.onliner.by/dram/kingston/kf552c40bbk264
     ! 966 bin, 2x32 5200Mhz
 
-1100+
-1094+
- 762
+1076+1150+692
 ====
-2956
+2918 = 914$
