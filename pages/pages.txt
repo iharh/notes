@@ -51,6 +51,10 @@ proxmox:
     https://www.youtube.com/watch?v=bo33EQk9CCM
     cloud-init
     https://www.youtube.com/watch?v=09Zp0247F0U
+    begin
+    https://www.youtube.com/watch?v=b1BztUYB7VI
+    docker-inst
+    https://www.youtube.com/watch?v=5q4bFIff8ro
 
 how to add trackers list to aria2
 ? hyprctl
