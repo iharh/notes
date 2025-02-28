@@ -1,0 +1,23 @@
+https://tuned-project.org/
+https://github.com/redhat-performance/tuned
+
+https://github.com/xvitaly/tuned-switcher
+https://github.com/xvitaly/tuned-switcher/tree/master/docs
+https://github.com/xvitaly/tuned-switcher/blob/master/docs/screenshots.md
+
+dnf
+    tuned
+        /usr/lib/systemd/system/tuned.service
+    tuned-profiles-postgresql
+        man ...
+        /usr/lib/tuned/profiles/postgresql/tuned.conf
+    tuned-utils
+        /usr/bin/powertop2tuned
+        /usr/libexec/tuned/pmqos-static.py
+
+2024
+https://habr.com/ru/companies/otus/articles/859270/
+    sudo apt install tuned
+https://www.opennet.ru/opennews/art.shtml?num=62307
+2019
+https://tuned-project.org/docs/tuned_devconf_2019.pdf

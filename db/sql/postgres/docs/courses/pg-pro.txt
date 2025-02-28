@@ -17,6 +17,8 @@ PostgresProfessional - RogovLuzanovTolmachyov - QPT13 - Query Optimization of p1
         !   Nested Loop - node of plan
         ! 12:00 select * from aircrafts a left join seats s on (a.aircraft_code = s.aircraft_code) where a.model like '...';
         !   Nested Loop Left Join - node of plan
+        ! 19:00 nested-loop-join is effective on middle/sized cardinality only (for big ones need index)
+        !   + join can be done on anly condition
     p5 - Bitmap Scan 0:00 of 25:57
         https://www.youtube.com/watch?v=j7e7EANyJhE
     p4 - Inex Scan of 41:10
