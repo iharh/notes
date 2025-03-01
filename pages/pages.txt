@@ -1,6 +1,46 @@
 https://repo.teamsforlinux.de/rpm/repodata/repomd.xml
 thespeedcubers347@gmail.com
 
+proxmox:
+    inst
+        DigitalMirror - Let's install Proxmox 8.3 in 2025: From Scratch. Spelled out. of 14:30
+            https://www.youtube.com/watch?v=kqZNFD0JNBc
+        JimsGarage - Proxmox: Installation and Configuration 2023 of 21:22
+            https://www.youtube.com/watch?v=jNEjKdtMrZI
+    begin
+        NovaspiritTech - 5 Things I Would Do On Fresh Install Of ProxMox of 19:29
+            https://www.youtube.com/watch?v=xD9Xyt2mdSI
+        TechnoTim - Before I do anything on Proxmox, I do this first... of 23:03
+            https://www.youtube.com/watch?v=GoZaMgEgrHw
+    helper scripts
+        Liv4IT - Proxmox VE Helper Scripts of 14:43
+            https://www.youtube.com/watch?v=gRVSbqXejtk
+        AutomationAvenue - Proxmox VE Helper Scripts - install anything with 1 command !!! of 5:44
+            https://www.youtube.com/watch?v=V8st9WtmnCw
+            ! casaos
+        BarmineTech - Proxmox Helper Scripts | Must Watch Before Installing Proxmox of 13:56
+            https://www.youtube.com/watch?v=JWPiedjyvsw
+    tweaks
+        VirtualizationHowto - Proxmox Swap and Memory Hack for Home Labs! of 18:07
+            https://www.youtube.com/watch?v=v45lH43yU9s
+        VirtualizationHowto - Proxmox 10 tweaks you need to know of 9:47
+            https://www.youtube.com/watch?v=bo33EQk9CCM
+    cloud-init
+        JimsGarage - Use Proxmox Cloud-Init to Deploy Your Virtual Machines! Kubernetes At Home - Part 2 of 20:08
+            https://www.youtube.com/watch?v=Kv6-_--y5CM # cloud-init
+        HouseOfLogicBlog - Proxmox Cloud-Init Setup and Troubleshooting of 26:49
+            https://www.youtube.com/watch?v=09Zp0247F0U
+        https://codingpackets.com/blog/proxmox-cloud-init-with-terraform-and-saltstack/
+    tf
+        Liv4IT - How To Install Packages on Proxmox VM with Terraform of 12:18
+            https://www.youtube.com/watch?v=RRJrLTeU67Y
+    docker-inst
+        BigBearTechWorld - How to install Docker on Proxmox LXC of 12:46
+            https://www.youtube.com/watch?v=5q4bFIff8ro
+    misc
+        ServersAndHome - Proxmox Basics: The Ultimate Beginner’s Guide of 44:27
+            https://www.youtube.com/watch?v=b1BztUYB7VI
+
 wget2
 gvfs
 pamixer
@@ -33,28 +73,6 @@ TODO:
 
 set up explorer
     qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
-proxmox:
-    https://www.youtube.com/playlist?list=PLNVfdlaRvkEmgzzaFkZh6zynXLa5IfjPY
-    https://www.youtube.com/watch?v=xD9Xyt2mdSI
-    https://www.youtube.com/watch?v=JWPiedjyvsw
-    https://www.youtube.com/watch?v=GoZaMgEgrHw
-    https://www.youtube.com/watch?v=kqZNFD0JNBc
-    https://www.youtube.com/watch?v=Kv6-_--y5CM # cloud-init
-    https://codingpackets.com/blog/proxmox-cloud-init-with-terraform-and-saltstack/
-    https://www.youtube.com/watch?v=v45lH43yU9s
-    inst
-    https://www.youtube.com/watch?v=jNEjKdtMrZI
-    helper scripts
-    https://www.youtube.com/watch?v=gRVSbqXejtk
-    https://www.youtube.com/watch?v=V8st9WtmnCw
-    tweaks
-    https://www.youtube.com/watch?v=bo33EQk9CCM
-    cloud-init
-    https://www.youtube.com/watch?v=09Zp0247F0U
-    begin
-    https://www.youtube.com/watch?v=b1BztUYB7VI
-    docker-inst
-    https://www.youtube.com/watch?v=5q4bFIff8ro
 
 how to add trackers list to aria2
 ? hyprctl

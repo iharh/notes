@@ -1,6 +1,5 @@
 proxmox inst
     https://www.youtube.com/watch?v=kezUFNiS8z0
-    https://www.youtube.com/watch?v=gQpk_ZXnCjQ
 proxmox-tf
     https://www.youtube.com/watch?v=ZGWn6xREdDE
         https://github.com/JamesTurland/JimsGarage/tree/main/Terraform
@@ -18,7 +17,16 @@ opentofu
     https://www.youtube.com/watch?v=HeUz6TMg82U
     https://www.youtube.com/watch?v=_-9LhcPgoaY
 
-
+2024
+HouseOfLogicBlog - How to Install Proxmox 8.1 of 9:09
+    https://www.youtube.com/watch?v=gQpk_ZXnCjQ
+    ! ??? inside win-7
+    ! 3:30 FQDN, ip address: 192.168.5.255/24, GW, DNS: 192.168.5.1
+    ! 4:30 - uncheck "auto-reboot"
+    ! then - unconnect cdrom and reboot
+2023
+JimsGarage - Proxmox: Installation and Configuration 2023 of 21:22
+    https://www.youtube.com/watch?v=jNEjKdtMrZI
 
 helper scripts
     https://www.youtube.com/watch?v=P8V1Uw7E304
