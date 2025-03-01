@@ -82,7 +82,7 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
       style.css@ ⇒ /home/iharh/.config/waybar/style/[Catppuccin] Mocha.css
     ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
     style.css:
-	      font-size: 24;
+	      font-size: 30;
 ~/.config/hypr/UserConfigs/WindowRules.conf
     # OPACITY
     # windowrulev2 = opacity 0.9 0.7, tag:browser*
