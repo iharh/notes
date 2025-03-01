@@ -54,6 +54,18 @@ gnome-system-monitor
 calculate-gtk
 nvtop
 
+Tor Browser Launcher             A program to help you download, keep updated, and run the Tor Browser Bundle       org.torproject.torbrowser-launcher      0.3.7               stable  flathub
+OnionShare                       Securely and anonymously share files, host websites, and chat with friends         org.onionshare.OnionShare               2.6.3               stable  flathub
+Carburetor                       Browse anonymously                                                                 io.frama.tractor.carburetor             5.0.0               stable  flathub
+Torrhunt                         Torrent Search Engine                                                              com.ktechpit.torrhunt                   1.6                 stable  flathub
+Orion Torrent Client             Complete torrent client and streamer for Linux Desktop                             com.ktechpit.orion                      3.0.0               stable  flathub
+Torrent File Editor              Edit and create .torrent files                                                     …orrent_file_editor.Torrent-file-editor 1.0.0               stable  flathub
+TORCS                            The Open Racing Car Simulator                                                      net.sourceforge.torcs                   1.3.7               stable  fedora,flathub
+TrguiNG                          Remote GUI for Transmission torrent daemon                                         org.openscopeproject.TrguiNG            1.4.0               stable  flathub
+Varia                            Download files, videos and torrents                                                io.github.giantpinkrobots.varia         v2025.1.24          stable  flathub
+PikaTorrent                      The Torrent app for the 21st century ⚡                                            com.pikatorrent.PikaTorrent             0.11.0              stable  flathub
+Fragments                        Manage torrents                                                                    de.haeckerfelix.Fragments               3.0.1               stable  fedora,flathub
+
 books
 protonvpn
 https://one.one.one.one/dns/
