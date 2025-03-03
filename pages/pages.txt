@@ -30,6 +30,10 @@ proxmox:
     tf
         Liv4IT - How To Install Packages on Proxmox VM with Terraform of 12:18
             https://www.youtube.com/watch?v=RRJrLTeU67Y
+    templates
+        DBTech - Speed Up Your Proxmox Deployment With This Simple Trick of 18:34
+            https://www.youtube.com/watch?v=WYmdoTPTusk
+            container templates
     docker-inst
         BigBearTechWorld - How to install Docker on Proxmox LXC of 12:46
             https://www.youtube.com/watch?v=5q4bFIff8ro
