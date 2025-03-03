@@ -19,5 +19,6 @@ kubectl
 https://learnk8s.io/authentication-kubernetes
 2020
 https://learnk8s.io/microservices-authentication-kubernetes
+    !!!
     https://github.com/amitsaha/kubernetes-sa-volume-demo
 https://learnk8s.io/kubernetes-custom-authentication
