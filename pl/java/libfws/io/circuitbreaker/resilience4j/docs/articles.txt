@@ -1,0 +1,18 @@
+baeldung
+https://www.baeldung.com/spring-boot-resilience4j
+2024
+https://habr.com/ru/articles/793550/
+2023
+https://engineering.zalando.com/posts/2023/07/all-you-need-to-know-about-timeouts.html
+    https://habr.com/ru/articles/755750/
+2022
+https://arnoldgalovics.com/feign-rate-limiter-resilience4j/
+https://arnoldgalovics.com/resilience4j-resttemplate/
+    ! resttemplate is obsolete, need to use webclient instead
+2021
+https://arnoldgalovics.com/spring-cloud-feign-traffic-cut-off-with-resilience4j-timelimiter/
+https://habr.com/ru/post/544074/
+2020
+https://www.javaadvent.com/2020/12/resilient-applications-spring-resilience4j.html
+2017
+http://engineering.autotrader.co.uk/2017/09/13/resilience4j-circuit-breaker.html
