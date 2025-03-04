@@ -1,0 +1,33 @@
+https://elixir-lang.org/
+    build on macros
+https://elixir-lang.org/cases.html
+https://hexdocs.pm/elixir/introduction.html
+https://elixir-lang.org/learning.html
+    tons of books !!!
+
+numerical elixir
+https://github.com/elixir-nx/
+https://github.com/elixir-nx/nx
+
+web
+https://phoenixframework.org/
+https://github.com/phoenixframework/phoenix
+https://hexdocs.pm/phoenix/overview.html
+
+testing
+https://hexdocs.pm/ex_unit/ExUnit.html
+
+package manager
+https://hex.pm/
+https://github.com/hexpm/hexpm
+https://hexdocs.pm/
+
+build tool
+https://hexdocs.pm/mix/Mix.html
+
+https://rebar3.org/
+https://rebar3.org/docs/
+https://github.com/erlang/rebar3
+
+interactive shell
+https://hexdocs.pm/iex/IEx.html
