@@ -1,9 +1,14 @@
 https://pulumi.com/
 
 https://github.com/pulumi
+https://github.com/pulumi/pulumi
 https://github.com/pulumi/examples
 https://github.com/pulumi/examples/tree/master/kubernetes-ts-guestbook
 
+https://www.pulumi.com/docs/iac/download-install/
+https://www.pulumi.com/docs/iac/download-install/migrating-3.0/
+
+https://www.pulumi.com/docs/iac/languages-sdks/java/
 https://github.com/pulumi/pulumi-java
 https://github.com/pulumi/pulumi-java/tree/main/tests/examples
 
@@ -21,6 +26,9 @@ https://www.pulumi.com/docs/get-started/aws/
 https://www.pulumi.com/docs/intro/concepts/
 https://www.pulumi.com/docs/intro/concepts/state/
 
+https://www.pulumi.com/docs/iac/concepts/projects/
+https://www.pulumi.com/docs/iac/concepts/projects/project-file/
+
 https://pulumi.io/quickstart/aws-containers.html
 https://pulumi.io/quickstart/aws-rest-api.html
 https://pulumi.io/quickstart/aws-ec2.html
@@ -30,6 +38,18 @@ https://pulumi.io/reference/
 https://app.pulumi.com/welcome
 
 https://pypi.org/project/pulumi/
+
+https://www.pulumi.com/docs/iac/using-pulumi/automation-api/
+
+https://www.pulumi.com/registry/
+https://www.pulumi.com/registry/packages/command/
+https://www.pulumi.com/registry/packages/clickhouse/
+https://github.com/pulumiverse/pulumi-clickhouse
+https://www.pulumi.com/registry/packages/proxmoxve/
+https://www.pulumi.com/registry/packages/postgresql/
+https://central.sonatype.com/artifact/com.pulumi/postgresql
+
+https://www.pulumi.com/docs/iac/cli/commands/pulumi_plugin/
 
 2024
 https://www.docker.com/blog/pulumi-and-docker-build-cloud/
