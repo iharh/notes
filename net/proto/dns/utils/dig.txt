@@ -5,3 +5,8 @@ https://www.tecmint.com/dig-command-examples/
 https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/
 EF - Linux Made Simple - The DIG Utility or 6:51
     https://www.youtube.com/watch?v=ycRM1dR6mLU
+
+sample
+# via google
+dig @8.8.8.8 +short <host>
+<res.ip>
