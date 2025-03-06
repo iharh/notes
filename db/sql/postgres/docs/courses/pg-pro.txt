@@ -8,6 +8,12 @@ PostgresProfessional - RogovLuzanovTolmachyov - QPT13 - Query Optimization of p1
         https://www.youtube.com/watch?v=AsaGNjJtrR4
     p10 - profiling of 37:49
         https://www.youtube.com/watch?v=o5T0ApVFcDc
+        ! 16:00 log_min_duration_statements=0 # time and text of all queries
+        !       log_line_prefix               # identity info
+        !           # analyse via pgBadger tool
+        ! 19:00 pg_stat_statements ext
+        ! 22:00 set pg_stat_statements.track = 'all'; # store all queries info, including compound ones
+        !
     p9 - Statistics of 46:28
         https://www.youtube.com/watch?v=I4cedjshRrs
         ! pg_class - num of tuples/pages (reltuples/relpages) for tables
