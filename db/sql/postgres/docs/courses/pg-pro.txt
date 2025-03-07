@@ -4,8 +4,48 @@ PostgresProfessional - DBA2 Administration of 18 parts
 PostgresProfessional - RogovLuzanovTolmachyov - QPT13 - Query Optimization of p12
     https://postgrespro.ru/education/courses/QPT
     https://www.youtube.com/playlist?list=PLaFqU3KCWw6JW80WBHPOe-SMJD2NOjmge
-    p11 - Optimization Tricks 0:00 of 1:06:08
+    p11 - Optimization Tricks of 1:06:08
         https://www.youtube.com/watch?v=AsaGNjJtrR4
+        ! 6:00 vacuum cfg
+        !   autovacuum_max_workers, autovacuum_analyze_scale_factor
+        ! 11:00 io cfg
+        !   seq_page_cost             = 1.0
+        !   random_page_cost          = 4.0   # for ssd recommended to set 1.1
+        !   effective_io_concurrency  = 1
+        ! 12:00 cpu cfg
+        !   cpu_tuple_cost            = 0.01
+        !   cpu_index_tuple_cost      = 0.005
+        !   cpu_operator_cost         = 0.0025
+        !   CREATE FUNCTION ... COST <cost>   # 1 for c-function, 100 - for user-defined
+        ! 14:00 parallel cfg
+        !   parallel_setup_cost       = 1000
+        !   parallel_tuple_cost       = 0.1
+        !   ...
+        !   cursor_tuple_fraction     = 0.1
+        ! 18:00 ram settings
+        !   work_mem                  = 4MB   # pretty low, need to increase
+        !   hash_mem_multiplier       = 1
+        !   maintanance_work_mem      = 64MB
+        !   effective_cache_size      = 4GB
+        ! 20:00 some cfg can be set at tablespace/db/role/routine/session/transaction level
+        !   ALTER TABLESPACE SET ...
+        !   ALTER DATABASE SET ...
+        !   ALTER ROLE [IN DATABASE ...] SET ...
+        !   ALTER ROUTINE SET ...
+        !   SET [LOCAL] ...
+        ! 24:00 debug cfg
+        !   enable_seqscan
+        !   enable_indexscan, enable_bitmapscan, enable_indexonlyscan
+        !   enable_nestloop, enable_hashjoin, enable_mergejoin
+        !   enable_hashagg, enable_sort, enable_incremental_sort
+        !   force_parallel_mode
+        ! 39:00 manual join order control
+        !   join_collapse_limit               # 1 - for manual
+        !   from_collapse_limit
+        !   !!! move parts of query to CTE (in order to reduce number of joins and make planner work easier)
+        ! 42:00 ... with b as materialized (....)
+        !   first calc CTE (marked with b at plan) - not effective, but good for debug/trace purposes
+
     p10 - profiling of 37:49
         https://www.youtube.com/watch?v=o5T0ApVFcDc
         ! 16:00 log_min_duration_statements=0 # time and text of all queries
