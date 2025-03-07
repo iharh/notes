@@ -37,3 +37,7 @@ https://linuxhint.com/benchmark_hard_disks_linux/
 
 snap
     ssd-benchmark
+my ssds
+  ID-1: /dev/nvme0n1 vendor: Seagate model: BarraCuda Q5 ZP500CV30001
+  ID-2: /dev/nvme1n1 vendor: Kingston model: SFYRD2000G size: 1.82 TiB
+      current - kingston
