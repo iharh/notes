@@ -1,0 +1,10 @@
+https://pve.proxmox.com/wiki/Developer_Workstations_with_Proxmox_VE_and_X11
+
+https://www.reddit.com/r/Proxmox/comments/l8mrv7/why_are_people_advising_to_not_install_a_gui_and/
+    apt update && apt install lightdm xfce4 gpm xfce4-terminal --no-install-recommends
+    # Disable all power settings.
+    systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+    systemctl set-default graphical.target
+
+kiosk
+https://www.thepcgeek.net/posts/proxmox-local-gui/
