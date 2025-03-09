@@ -1,5 +1,7 @@
-https://repo.teamsforlinux.de/rpm/repodata/repomd.xml
-thespeedcubers347@gmail.com
+Volkova Rome                                        -   06:00 (of 1:32:09)
+    https://www.youtube.com/watch?v=OcOrUp9MAho
+    https://www.youtube.com/playlist?list=PLGsJxQg4LPTEDpyRZ8cZAYrLZji8_LHvv
+    https://www.youtube.com/playlist?list=PLD5g3xBjBZK-ZNpuF4Qv_rSkGbI8EJpeL
 
 proxmox:
     inst
@@ -44,7 +46,6 @@ proxmox:
 wget2
 gvfs
 pamixer
-playerctl
 slurp
 swappy
 wl-clipboard
@@ -54,21 +55,10 @@ gnome-system-monitor
 calculate-gtk
 nvtop
 
-Tor Browser Launcher             A program to help you download, keep updated, and run the Tor Browser Bundle       org.torproject.torbrowser-launcher      0.3.7               stable  flathub
-OnionShare                       Securely and anonymously share files, host websites, and chat with friends         org.onionshare.OnionShare               2.6.3               stable  flathub
-Carburetor                       Browse anonymously                                                                 io.frama.tractor.carburetor             5.0.0               stable  flathub
-Torrhunt                         Torrent Search Engine                                                              com.ktechpit.torrhunt                   1.6                 stable  flathub
-Orion Torrent Client             Complete torrent client and streamer for Linux Desktop                             com.ktechpit.orion                      3.0.0               stable  flathub
-Torrent File Editor              Edit and create .torrent files                                                     …orrent_file_editor.Torrent-file-editor 1.0.0               stable  flathub
-TORCS                            The Open Racing Car Simulator                                                      net.sourceforge.torcs                   1.3.7               stable  fedora,flathub
-TrguiNG                          Remote GUI for Transmission torrent daemon                                         org.openscopeproject.TrguiNG            1.4.0               stable  flathub
-Varia                            Download files, videos and torrents                                                io.github.giantpinkrobots.varia         v2025.1.24          stable  flathub
-PikaTorrent                      The Torrent app for the 21st century ⚡                                            com.pikatorrent.PikaTorrent             0.11.0              stable  flathub
-Fragments                        Manage torrents                                                                    de.haeckerfelix.Fragments               3.0.1               stable  fedora,flathub
+protonvpn
+    https://one.one.one.one/dns/
 
 books
-protonvpn
-https://one.one.one.one/dns/
 Wang - Terraform Made Easy
     https://libgen.la/ads798ffb80aff647e94441a7015ed728feA7N30EX2
         https://annas-archive.org/md5/798ffb80aff647e94441a7015ed728fe
@@ -81,8 +71,6 @@ Wang - Terraform Made Easy
     https://z-library.sk/book/30816300/ac0d60/terraform-cookbook-recipes-for-codifying-infrastructure.html    
     https://z-library.sk/book/31739686/f85974/terraform-cookbook-recipes-for-codifying-infrastructure.html
 
-TODO: 
-
 set up explorer
     qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
 
@@ -91,16 +79,8 @@ how to add trackers list to aria2
 ? hyprpanel (ags)
 326.307.049 -> 6,62
 
-sau
-    1 vidos, 2 channels
-
 Elizarof - Distributed 2
     https://www.youtube.com/watch?v=YgBzTRK3OoI
-
-Volkova Rome                                        -   06:00 (of 1:32:09)
-    https://www.youtube.com/watch?v=OcOrUp9MAho
-    https://www.youtube.com/playlist?list=PLGsJxQg4LPTEDpyRZ8cZAYrLZji8_LHvv
-    https://www.youtube.com/playlist?list=PLD5g3xBjBZK-ZNpuF4Qv_rSkGbI8EJpeL
 
 ./.kube/config -> secret
 ~/.config/waybar/
@@ -119,11 +99,34 @@ Volkova Rome                                        -   06:00 (of 1:32:09)
 ~/.config/hypr/scripts/SwitchKeyboardLayout.sh
     # notify-send -u low -i "$notif_icon" " kb_layout: $new_layout"
 
-devenv.sh
+https://devenv.sh/
+https://github.com/cachix/devenv
 https://devenv.pages.wito.dev/20
+https://devenv.sh/getting-started/
+https://devenv.sh/basics/
+https://devenv.sh/blog/
+https://devenv.sh/blog/2024/10/22/devenv-is-switching-its-nix-implementation-to-tvix/
+    Tvix compiles Nix code into compact bytecode, then executes it in a virtual machine
+NixCon2024 devenv is switching to Tvix
+    https://www.youtube.com/watch?v=moBTEnkMch4
+
+https://tvix.dev/
+https://code.tvl.fyi/tree/tvix
+https://github.com/tvlfyi/tvix/
+https://b.tvl.fyi/
+https://tvl.fyi/
+https://tvl.fyi/blog/rewriting-nix
+https://cl.tvl.fyi
+DomenKozar - Exploring Tvix.dev evaluator
+    https://www.youtube.com/watch?v=6FAxZDnsH5w
+
+https://craftinginterpreters.com/
+73DB153465CC7D5ED82451CF20B1F1BC
+
 https://www.jetify.com/docs/devbox/quickstart/
 https://www.jetify.com/devspace
 https://medium.com/vafion/devbox-a-user-friendly-approach-to-reproducible-development-environments-with-nix-83dbcd0ab8d8
+
 mise devspace
 
 /r/piracy
