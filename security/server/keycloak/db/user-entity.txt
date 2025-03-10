@@ -1,0 +1,34 @@
+                              Table "public.user_entity"
+           Column            |          Type          | Collation | Nullable | Default
+-----------------------------+------------------------+-----------+----------+---------
+ id                          | character varying(36)  |           | not null |
+ email                       | character varying(255) |           |          |
+ email_constraint            | character varying(255) |           |          |
+ email_verified              | boolean                |           | not null | false
+ enabled                     | boolean                |           | not null | false
+ federation_link             | character varying(255) |           |          |
+ first_name                  | character varying(255) |           |          |
+ last_name                   | character varying(255) |           |          |
+ realm_id                    | character varying(255) |           |          |
+ username                    | character varying(255) |           |          |
+ created_timestamp           | bigint                 |           |          |
+ service_account_client_link | character varying(255) |           |          |
+ not_before                  | integer                |           | not null | 0
+Indexes:
+    "constraint_fb" PRIMARY KEY, btree (id)
+    "idx_user_email" btree (email)
+    "idx_user_service_account" btree (realm_id, service_account_client_link)
+    "uk_dykn684sl8up1crfei6eckhd7" UNIQUE CONSTRAINT, btree (realm_id, email_constraint)
+    "uk_ru8tt6t700s9v50bu18ws5ha6" UNIQUE CONSTRAINT, btree (realm_id, username)
+Referenced by:
+    TABLE "federated_identity" CONSTRAINT "fk404288b92ef007a6" FOREIGN KEY (user_id) REFERENCES user_entity(id)
+    TABLE "user_attribute" CONSTRAINT "fk_5hrm2vlf9ql5fu043kqepovbr" FOREIGN KEY (user_id) REFERENCES user_entity(id)
+    TABLE "user_required_action" CONSTRAINT "fk_6qj3w1jw9cvafhe19bwsiuvmd" FOREIGN KEY (user_id) REFERENCES user_entity(id)
+    TABLE "user_role_mapping" CONSTRAINT "fk_c4fqv34p1mbylloxang7b1q3l" FOREIGN KEY (user_id) REFERENCES user_entity(id)
+    TABLE "user_consent" CONSTRAINT "fk_grntcsnt_user" FOREIGN KEY (user_id) REFERENCES user_entity(id)
+    TABLE "credential" CONSTRAINT "fk_pfyr0glasqyl0dei3kl69r6v0" FOREIGN KEY (user_id) REFERENCES user_entity(id)
+    TABLE "user_group_membership" CONSTRAINT "fk_user_group_user" FOREIGN KEY (user_id) REFERENCES user_entity(id)
+
+queries
+    select id, username, email, email_constraint, email_verified from user_entity;
+    select id, username, email, email_constraint, email_verified from user_entity where username='';
