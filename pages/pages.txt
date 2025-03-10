@@ -107,8 +107,6 @@ https://devenv.sh/basics/
 https://devenv.sh/blog/
 https://devenv.sh/blog/2024/10/22/devenv-is-switching-its-nix-implementation-to-tvix/
     Tvix compiles Nix code into compact bytecode, then executes it in a virtual machine
-NixCon2024 devenv is switching to Tvix
-    https://www.youtube.com/watch?v=moBTEnkMch4
 
 https://tvix.dev/
 https://code.tvl.fyi/tree/tvix
