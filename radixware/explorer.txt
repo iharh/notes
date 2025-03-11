@@ -2,6 +2,7 @@ https://sourceforge.net/projects/radixware/
 https://sourceforge.net/p/radixware/radix/HEAD/tree/
 https://sourceforge.net/p/radixware/radix/HEAD/tree/releases/
     2.1.57.10
+https://sourceforge.net/p/radixware/radix/commit_browser
 
 https://sourceforge.net/p/radixware/radix/HEAD/tree/clients/org.radixware/distributives/7-2.1.53.10/release/org.radixware/kernel/explorer/
 
@@ -12,6 +13,23 @@ https://github.com/thangtx/radixware/blob/master/branch.xml
 https://github.com/thangtx/radixware/tree/master/org.radixware/kernel/explorer
 https://github.com/thangtx/radixware/blob/master/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/Explorer.java
 
-our
+low
 org.radixware 2.1.55.10.21
 t-xis 3.2.42.10.24
+...
+explorer.sh
+...
+echo "Starting $FINAL_STARTER_JAR"
+...
+Starting $HOME/.radixware.org/starter/starter_724E4A982B43357D99616FA8AA31CA95E37D3D19.jar
+...
+java -Xmx2g -cp starter.jar org.radixware.kernel.starter.Starter -configFile explorer.cfg getActualStarter $HOME/.radixware.org/starter -appendDigest
+
+
+stg
+org.radixware 2.1.54.10.15
+t-xis 3.2.41.10.18
+
+WARNING: Illegal reflective access by org.radixware.kernel.starter.radixloader.RadixURLTool
+...
+Starting $HOME/.radixware.org/starter/starter_E9107FFC6DA9827C3ADDB56F325834A5A689A426.jar
