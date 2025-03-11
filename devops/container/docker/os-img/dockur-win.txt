@@ -1,5 +1,13 @@
 https://github.com/dockur/windows
 
+environment:
+  VERSION: "11"
+  RAM_SIZE: "8G"
+  CPU_CORES: "4"
+  DISK_SIZE="64G"
+volumes:
+  $PWD/data:/storage
+
 2024
 Wolfgang - Running Windows in a Docker Container! 0:00 of 10:06
     https://www.youtube.com/watch?v=xhGYobuG508
