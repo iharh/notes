@@ -3,6 +3,13 @@ list
 https://habr.com/ru/company/southbridge/blog/683168/
 
 2024
+https://manjulapiyumal.medium.com/mastering-kafka-advanced-concepts-every-senior-software-engineer-should-know-9283664c99e1
+    https://nuancesprog.ru/p/27478/
+    ! adv concepts
+    ! acks = 0,1,all
+    ! enable.auto.commit=false
+    ! commitSync/Async()
+    ! isolation.level=read_committed|...
 https://habr.com/ru/articles/811621/
 https://blog.bytebytego.com/p/cloudflares-trillion-message-kafka
 2023
