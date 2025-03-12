@@ -1,3 +1,6 @@
+https://docs.github.com/en/copilot/using-github-copilot
+https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli
+
 https://github.com/github/gh-copilot
     gh auth login --web
         The value of the GH_TOKEN environment variable is being used for authentication.
