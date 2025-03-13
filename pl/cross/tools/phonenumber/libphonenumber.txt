@@ -1,2 +1,5 @@
 https://libphonenumber.appspot.com/
 https://libphonenumber.appspot.com/phonenumberparser?number=%2B998200073529
+
+com.googlecode.libphonenumber:libphonenumber:8:13:9
+https://mvnrepository.com/artifact/com.googlecode.libphonenumber/libphonenumber/9.0.0
