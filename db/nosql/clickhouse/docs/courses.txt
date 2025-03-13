@@ -12,6 +12,8 @@ CH for Data Engeneers
     https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/.devcontainer/devcontainer.json
     https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/tree/main/dbt
     https://github.com/Clickhouse-Courses-Materials/clickhouse-2024-10-01/blob/main/dbt/docker-compose.yml
+    https://cuddly-blob-cc7.notion.site/Clickhouse-Data-361edfceabb647c48829529090d9f24f
+        https://cuddly-blob-cc7.notion.site/17cf1c0a2bc743a2af52a2b3fae01e6e
       devcontainer:
         build:
           context: .
