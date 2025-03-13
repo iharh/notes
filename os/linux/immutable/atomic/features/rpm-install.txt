@@ -1,0 +1,9 @@
+rpm install
+https://github.com/LizardByte/Sunshine/issues/2972
+    sudo dnf install rpmrebuild
+    rpmrebuild -ep sunshine-fedora-40-amd64.rpm
+    rpm-ostree install sunshine-0.0.0-1.x86_64.rpm
+    systemctl reboot
+https://github.com/LizardByte/Sunshine/pull/2977/files
+    if grep -q "OSTREE" /etc/os-release; then ... 
+https://www.dvlv.co.uk/pages/a-beginners-guide-to-fedora-silverblue.html#343-rpms

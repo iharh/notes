@@ -1,0 +1,15 @@
+https://mullvad.net/en/browser
+
+https://mullvad.net/en/help/tag/mullvad-browser
+    ! no ff-sync
+
+https://mullvad.net/en/help/install-mullvad-browser
+    sudo dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+    sudo dnf install mullvad-browser
+    ...
+    xdg-settings set default-web-browser mullvad-browser.desktop
+    ...
+    sudo rm /etc/yum.repos.d/mullvad.repo
+
+ext
+https://mullvad.net/en/help/mullvad-browser-extension

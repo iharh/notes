@@ -37,9 +37,16 @@ DailyCodeBuffer - Streams API Tutorial in Java 8+ of 31:37
 2020
 JetBrains - Good Old Stream API, by Tagir Valeev / JetBrains Technology Day for Java of 1:00:37
     https://www.youtube.com/watch?v=nklbYYQpQi8
+    ! 12:00 - we can create stream suppliers () -> Stream.of(..,..,..)
+2018
+Paumard - Lambda and Stream Master class !!!
+    https://www.slideshare.net/slideshow/lambdas-and-streams-master-class-part-2/123034234
+    https://www.slideshare.net/slideshow/lambda-and-stream-master-class-part-1/123033973
 2017
 JPoint - Valeev - Quirks of Stream API of 1:00:03
     https://www.youtube.com/watch?v=1_Zj3gS_a3E
+Paumard - Collectors in the Wild !!!
+    https://www.slideshare.net/slideshow/collectors-in-the-wild/81710508
 2016
 JPoint - Valeev - Strange of Stream API of 57:13
     https://www.youtube.com/watch?v=TPHMyVyktsw
@@ -52,6 +59,5 @@ Kuksenko - Java Stream API 1 ru 0:00 of 1:03:37
     https://www.youtube.com/watch?v=i0Jr2l3jrDA
 Kuksenko - Java Stream API 1 ru 0:00 of 1:13:17
     https://www.youtube.com/watch?v=O8oN4KSZEXE
-????
-Paumard - Java 8 Streams and Collectors Patterns
-    http://www.slideshare.net/jpaumard/java-8-streams-collectors-patterns-performances-and-parallelization
+Paumard - Java 8 Streams and Collectors Patterns of p373
+    https://www.slideshare.net/slideshow/java-8-streams-collectors-patterns-performances-and-parallelization/41467564
