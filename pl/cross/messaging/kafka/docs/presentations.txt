@@ -4,8 +4,33 @@ Kafka Summit 2017:
 https://www.youtube.com/watch?v=ySf7bDBHRUQ
 
 2025
-JPoint - Golovko - Spring Kafka - How not to Shoot a Foot of 46:18
+JPoint - Golovko - Spring Kafka - How not to Shoot a Foot 18:00 of 46:18
     https://www.youtube.com/watch?v=9r80FRcKGCA
+    ! 10:00 ack=all setting !!!
+    ! 12:00 @Bean DefaultKafkaProducerFactoryCustomizer serializerCustomizer(ObjectMapper objectMapper) {
+    !   var jsonSerializer = new JsonSerializer(objectMapper);
+    !   return producerFactory -> producerFactory.setValueSerializer(jsonSerializer);
+    ! }
+    ! 12:30 listener i-faces:
+    !   MessageListener
+    !   AcknowledgingMessageListener
+    !   ConsumerAwareMessageListener
+    !   AcknowledgingConsumerAwareMessageListener
+    ! 13:30 @Bean KafkaMessageListenerContainer<String, OtpDto> kafkaListenerContainer(
+    !                                                             ConsumerFactory<String, OtpDto> factory,
+    !                                                             MessageListener<String, OtpDto> listener) {
+    !   var containerProperties = new ContainerProperties(MY_TOPIC);
+    !   containerProperties.setMessageListener(listener);
+    !   return new KafkaMessageListenerContainer<>(factory, containerProperties);
+    ! } # it is single-threaded and very agile (gibkiy)
+    ! 16:00
+    !   props.put(JsonDeserializer.TYPE_MAPPINGS, "some.package.dto.OtpDto:" + OtpDto.class.getCanonicalName());
+    ! 17:00 - manual dserialization:
+    !   props.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, false);
+    !   props.put(JsonDeserializer.VALUE_DEFAULT_TYPE, OtpDto.class.getCanonicalName());
+    ! 18:00
+    !   container.setConcurrency(4);  // for KafkaMessageListenerContainer
+
 JavaGuru - Apache Kafka of p28
     https://www.youtube.com/playlist?list=PLt91xr-Pp57Q50WsXz9r-zmxy5ceu_hp_
 2024

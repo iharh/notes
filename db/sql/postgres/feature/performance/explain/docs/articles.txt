@@ -1,3 +1,9 @@
+2025
+https://habr.com/ru/companies/tbank/articles/880590/
+    ! custom and generic plans
+    ! testdb=# explain (generic_plan) select max(md5(v)) from mediumtab where n between $1::numeric and $2::numeric;
+    ! ...
+    ! testdb=# set plan_cache_mode=force_generic_plan;
 2024
 https://habr.com/ru/companies/spectr/articles/869472/
     https://github.com/Kilor/PG-for-beginners/tree/main
