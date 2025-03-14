@@ -38,6 +38,7 @@ DailyCodeBuffer - Streams API Tutorial in Java 8+ of 31:37
 JetBrains - Good Old Stream API, by Tagir Valeev / JetBrains Technology Day for Java of 1:00:37
     https://www.youtube.com/watch?v=nklbYYQpQi8
     ! 12:00 - we can create stream suppliers () -> Stream.of(..,..,..)
+    ! 39:00 - filter(...) should have stateless predicate
 2018
 Paumard - Lambda and Stream Master class !!!
     https://www.slideshare.net/slideshow/lambdas-and-streams-master-class-part-2/123034234
