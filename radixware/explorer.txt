@@ -114,6 +114,15 @@ WARNING: Illegal reflective access by org.radixware.kernel.starter.radixloader.R
 ...
 Starting $HOME/.radixware.org/starter/starter_E9107FFC6DA9827C3ADDB56F325834A5A689A426.jar
 
+.radixware.org/explorer/com.tranzaxis.octouz/explorer/
+    connections.xml
+    settings.ini
+
+[ADMINISTRATOR_ServerConsole]
+org.radixware.explorer\TEXT\Application="MS Shell Dlg 2,20,-1,5,50,0,0,0,0,0;;#000000;#ffffff"
+org.radixware.explorer\TEXT\X_S\S_E="monospace,20,-1,5,-,-,-,-,0,0;;-;-"
+org.radixware.explorer\TEXT\X_T="-,20,-1,5,-,-,-,-,0,0;;-;-"
+
 !!!
 jar tvf $HOME/.radixware.org/starter/cache/100.100.16.55/txrepo/test.tranzaxis/0/org.radixware/kernel/explorer/bin
 META-INF/
