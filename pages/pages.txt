@@ -1,3 +1,6 @@
+set up explorer
+    qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
+
 Volkova Art 01                                                of 1:28:48
     https://www.youtube.com/playlist?list=PLCBB7A5968336C8BD
     https://www.youtube.com/playlist?list=PLU_Coz0WBwt4xvZEVZJTvAyqXLZ2hyaZ6
@@ -76,18 +79,10 @@ Wang - Terraform Made Easy
     https://z-library.sk/book/30816300/ac0d60/terraform-cookbook-recipes-for-codifying-infrastructure.html    
     https://z-library.sk/book/31739686/f85974/terraform-cookbook-recipes-for-codifying-infrastructure.html
 
-set up explorer
-    qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
 
-how to add trackers list to aria2
 ? hyprctl
 ? hyprpanel (ags)
-326.307.049 -> 6,62
 
-Elizarof - Distributed 2
-    https://www.youtube.com/watch?v=YgBzTRK3OoI
-
-./.kube/config -> secret
 ~/.config/waybar/
     missing links
     config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default
@@ -113,19 +108,6 @@ https://devenv.sh/blog/
 https://devenv.sh/blog/2024/10/22/devenv-is-switching-its-nix-implementation-to-tvix/
     Tvix compiles Nix code into compact bytecode, then executes it in a virtual machine
 
-https://tvix.dev/
-https://code.tvl.fyi/tree/tvix
-https://github.com/tvlfyi/tvix/
-https://b.tvl.fyi/
-https://tvl.fyi/
-https://tvl.fyi/blog/rewriting-nix
-https://cl.tvl.fyi
-DomenKozar - Exploring Tvix.dev evaluator
-    https://www.youtube.com/watch?v=6FAxZDnsH5w
-
-https://craftinginterpreters.com/
-73DB153465CC7D5ED82451CF20B1F1BC
-
 https://www.jetify.com/docs/devbox/quickstart/
 https://www.jetify.com/devspace
 https://medium.com/vafion/devbox-a-user-friendly-approach-to-reproducible-development-environments-with-nix-83dbcd0ab8d8
@@ -138,7 +120,6 @@ LibreTrack - Darknet Lie Discovery 4:00 of 14:28
     https://www.youtube.com/watch?v=BM0pC6lJOS8
 LibreTrack - Free Browsers for Mobile Devices 2 ru of 27:05
     https://www.youtube.com/watch?v=nu2z4MXEDLc
-https://pingvinus.ru/gallery/3833
 https://docs.openvinotoolkit.org/latest/index.html
 http://www.xpdfreader.com/pdfinfo-man.html
 https://sr.ht/~emersion/soju/
@@ -519,9 +500,6 @@ Mew - VS Code and Data Science Tools 1:00 of 20:57
 Down - Linux Memory Management at Scale 2:00 of 40:26
     https://www.youtube.com/watch?v=w9YQawAfkPw
     https://www.youtube.com/watch?v=QZZWAsBI_zY
-Ajani - VS Code Tips and Tricks 1:00 of 27:50
-    https://www.youtube.com/watch?v=lSvP2ahPojg
-    https://www.youtube.com/watch?v=4qM3R69OzbQ
 Feldman - Why Isn't Functional Programming the Norm? 7:00 of 46:08
     https://www.youtube.com/watch?v=QyJZzq0v7Z4
 Doumler - How C++20 Changes the Way We Write Code 4:00 of 1:01:34

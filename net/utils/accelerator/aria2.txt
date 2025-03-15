@@ -33,3 +33,17 @@ $ aria2c -c -s 16 -x 16 -k 1M -j 1 -i dl.txt
   -k, --min-split-size=<SIZE>
   -j, --max-concurrent-downloads=<N>
   -i, --input-file=<FILE>
+
+docker
+https://github.com/P3TERX/Aria2-Pro-Docker
+
+cfg
+~/config/aria2/aria2.conf
+https://gist.github.com/ifyour/2be0055adbaea83881aacaab905afd43
+
+trackers list
+https://unix.stackexchange.com/questions/753268/easily-update-aria2-bittorrent-trackers
+https://gist.github.com/HaleTom/fe873dc2f3c5bd14f7418efefc2b91a8
+https://raw.githubusercontent.com/P3TERX/aria2_perfect_config/master/tracker.sh
+# Update the bt-tracker= line in aria2.conf
+# Any bt-tracker= lines are removed and and a new one added at the bottom of the file
