@@ -1,10 +1,27 @@
 https://sourceforge.net/projects/radixware/
 https://sourceforge.net/p/radixware/radix/HEAD/tree/
+    svn checkout https://svn.code.sf.net/p/radixware/radix/ radixware-radix
+    svn co https://svn.code.sf.net/p/radixware/radix/releases.src/2.1.57.10/ r-radix
+    svn co https://svn.code.sf.net/p/radixware/radix/dev/trunk/org.radixware/kernel/
+
+    https://sourceforge.net/p/radixware/radix/HEAD/tree/releases.src/2.1.57.10
+
+
 https://sourceforge.net/p/radixware/radix/HEAD/tree/releases/
-    2.1.57.10
+https://sourceforge.net/p/radixware/radix/HEAD/tree/releases.src/
+https://sourceforge.net/p/radixware/radix/HEAD/tree/releases.src/2.1.53.10/org.radixware/kernel/explorer/src/default_macosx_fonts.ini
+https://sourceforge.net/p/radixware/radix/HEAD/tree/releases.src/2.1.53.10/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/
+
+https://sourceforge.net/p/radixware/radix/HEAD/tree/releases.src/2.1.57.10/
+https://sourceforge.net/p/radixware/radix/HEAD/tree/releases.src/2.1.57.10/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/
+https://sourceforge.net/p/radixware/radix/HEAD/tree/releases.src/2.1.57.10/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/Explorer.java
 https://sourceforge.net/p/radixware/radix/commit_browser
 
 https://sourceforge.net/p/radixware/radix/HEAD/tree/clients/org.radixware/distributives/7-2.1.53.10/release/org.radixware/kernel/explorer/
+
+https://sourceforge.net/projects/radixware/
+https://sourceforge.net/p/radixware/activity/feed
+https://sourceforge.net/u/eyakovlev/profile/
 
 https://github.com/thangtx/radixware
 https://github.com/thangtx/radixware/blob/master/branch.xml
@@ -12,6 +29,69 @@ https://github.com/thangtx/radixware/blob/master/branch.xml
 
 https://github.com/thangtx/radixware/tree/master/org.radixware/kernel/explorer
 https://github.com/thangtx/radixware/blob/master/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/Explorer.java
+package org.radixware.kernel.explorer.dialogs.settings
+https://github.com/thangtx/radixware/blob/master/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/dialogs/settings/FontSettingsWidget.java
+    public void readSettings(IExplorerSettings src)
+    public void writeSettings(IExplorerSettings dst)
+https://github.com/thangtx/radixware/blob/master/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/dialogs/settings/PropertySettingsWidget.java
+
+??? search SettingsWidget
+src/org/radixware/kernel/explorer/dialogs/settings/ISettingsPage.java
+src/org/radixware/kernel/explorer/dialogs/settings/ExplorerTreeSettingsPage.java
+src/org/radixware/kernel/explorer/dialogs/settings/EditorSettingsPage.java
+
+src/org/radixware/kernel/explorer/dialogs/settings/SettingsTabSet.java
+src/org/radixware/kernel/explorer/dialogs/settings/ColumnAlignmentSetting.java
+src/org/radixware/kernel/explorer/dialogs/settings/DateTimeFormatsEditor.java
+src/org/radixware/kernel/explorer/dialogs/settings/SettingsDialog.java
+
+??? search SettingsPage
+src/org/radixware/kernel/explorer/dialogs/settings/SettingsDialog.java
+
+??? search SettingsDialog
+src/org/radixware/kernel/explorer/env/Application.java
+    ...
+    private void createMenu() {
+        ...
+        mainWindow.menuBar().clear();
+        optionsMenu = mainWindow.menuBar().addMenu(Application.translate("MainMenu", "&Options"));
+        optionsMenu.addAction(actions.runSettingsDialog);
+        optionsMenu.addAction(actions.clearSettings);
+        optionsMenu.addSeparator();
+        optionsMenu.addAction(actions.showConnectionsManager);
+        ...
+    }
+
+src/org/radixware/kernel/explorer/env/Environment.java
+src/org/radixware/kernel/explorer/editors/jmleditor/EditToolBar.java
+
+https://github.com/thangtx/radixware/blob/master/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/dialogs/settings/SettingsDialog.java
+https://github.com/thangtx/radixware/blob/master/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/env/IExplorerSettings.java
+https://github.com/thangtx/radixware/blob/master/org.radixware/kernel/explorer/src/org/radixware/kernel/explorer/env/ExplorerDefaultSettings.java
+      {
+        ...
+        try {
+            extractDefaultSettingsFile(defaultSettingsFileName, tmpFileInfo.absoluteFilePath());
+        } catch (IOException ex) {
+            throw new RadixError("Can't read default settings", ex);
+        }
+        environment.getTracer().debug("Trying to read default settings file \"" + tmpFileInfo.absoluteFilePath() + "\"", false);
+        final QSettings qsettings = new QSettings(tmpFileInfo.absoluteFilePath(), QSettings.Format.IniFormat);
+        environment.getTracer().debug("Default settings status is " + qsettings.status().name(), false);
+        return new QSettingsWrapper(qsettings, environment.getMessageProvider(), environment.getTracer());
+      }
+
+https://github.com/thangtx/radixware/blob/master/org.radixware/kernel/common/src/client/src/org/radixware/kernel/common/client/env/ClientSettings.java
+    public static final String DEFAULT_SETTINGS_FILE_NAME = "defaults.ini";
+
+
+
+https://doc.qtjambi.io/latest/
+https://wiki.qt.io/Qt_Jambi
+https://github.com/OmixVisualization/qtjambi
+https://github.com/OmixVisualization/qtjambi/tree/master/www
+https://github.com/OmixVisualization/qtjambi/blob/master/www/Modules.md
+https://github.com/OmixVisualization/qtjambi/blob/master/www/Characteristics-of-QtJambi.md
 
 low
 org.radixware 2.1.55.10.21
@@ -33,3 +113,23 @@ t-xis 3.2.41.10.18
 WARNING: Illegal reflective access by org.radixware.kernel.starter.radixloader.RadixURLTool
 ...
 Starting $HOME/.radixware.org/starter/starter_E9107FFC6DA9827C3ADDB56F325834A5A689A426.jar
+
+!!!
+jar tvf $HOME/.radixware.org/starter/cache/100.100.16.55/txrepo/test.tranzaxis/0/org.radixware/kernel/explorer/bin
+META-INF/
+    RadixWare.Digest
+        C17E03BCF60B88EEB55788658A72C80008391221
+    RadixWare.Version
+        1.0
+???
+default_macosx_fonts.ini
+
+
+
+A    radixware-radix/clients/org.radixware/distributives/1-2.1.6/release/org.radixware/kernel/report-editor/bin/ide/modules/locale/org-netbeans-modules-project-libraries_ja.jar
+A    radixware-radix/clients/org.radixware/distributives/1-2.1.6/release/org.radixware/kernel/report-editor/bin/ide/modules/locale/org-netbeans-modules-notifications_ru.jar
+A    radixware-radix/clients/org.radixware/distributives/1-2.1.6/release/org.radixware/kernel/report-editor/bin/ide/modules/locale/org-netbeans-modules-project-libraries_zh_CN.jar
+A    radixware-radix/clients/org.radixware/distributives/1-2.1.6/release/org.radixware/kernel/report-editor/bin/ide/modules/locale/org-netbeans-modules-projectapi_ru.jar
+A    radixware-radix/clients/org.radixware/distributives/1-2.1.6/release/org.radixware/kernel/report-editor/bin/ide/modules/locale/org-netbeans-modules-projectuiapi_pt_BR.jar
+A    radixware-radix/clients/org.radixware/distributives/1-2.1.6/release/org.radixware/kernel/report-editor/bin/ide/modules/locale/org-netbeans-modules-refactoring-api_ja.jar
+A    radixware-radix/clients/org.radixware/distributives/1-2.1.6/release/org.radixware/kernel/report-editor/bin/ide/modules/locale/org-netbeans-modules-refactoring-api_zh_CN.jar
