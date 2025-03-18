@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/35740543/check-instanceof-in-stream
+  .filter(SomeClass.class::isInstance)
+  .map(SomeClass.class::cast)
