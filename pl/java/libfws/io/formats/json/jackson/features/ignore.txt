@@ -1,7 +1,9 @@
 https://fasterxml.github.io/jackson-annotations/javadoc/2.7/com/fasterxml/jackson/annotation/JsonInclude.Include.html
 https://jse.readthedocs.io/en/latest/utils/jackson/jacksonIgnoreNull.html
 
-https://www.baeldung.com/jackson-ignore-properties-on-serialization
-
+baeldung
+    https://www.baeldung.com/jackson-deserialize-json-unknown-properties
+        new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+    https://www.baeldung.com/jackson-ignore-properties-on-serialization
 2019
 https://javakeypoint.wordpress.com/2019/11/10/jackson-ignore-empty-and-null-fields/

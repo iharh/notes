@@ -1,3 +1,10 @@
-https://www.baeldung.com/spring-boot-customize-jackson-objectmapper
+baeldung:
+    https://www.baeldung.com/spring-boot-customize-jackson-objectmapper
+2022
+    https://codingnconcepts.com/spring-boot/customize-jackson-json-mapper/
+    spring.jackson.default-property-inclusion=always, non_null, non_absent, non_default, non_empty
 
-spring.jackson.default-property-inclusion=always, non_null, non_absent, non_default, non_empty
+spring:
+  jackson:
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
