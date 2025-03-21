@@ -1,6 +1,8 @@
 set up explorer
     qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
 
+Zhitinskiy
+
 Volkova Art 01                                                of 1:28:48
     https://www.youtube.com/playlist?list=PLCBB7A5968336C8BD
     of p21
@@ -88,6 +90,8 @@ proxmox:
         DBTech - Speed Up Your Proxmox Deployment With This Simple Trick of 18:34
             https://www.youtube.com/watch?v=WYmdoTPTusk
             container templates
+        CloudyWithArnold - Proxmox VE | How to Build Ubuntu Cloud-init Template 0:00 of 8.04
+            https://www.youtube.com/watch?v=ke6MYhI8qDE
     docker-inst
         BigBearTechWorld - How to install Docker on Proxmox LXC of 12:46
             https://www.youtube.com/watch?v=5q4bFIff8ro
