@@ -2,7 +2,7 @@ https://presentations.clickhouse.com/
     https://presentations.clickhouse.com/2017-shad/index.html
 
 2025
-SqlNinja - Artemiy - What Is the Truth from What is Talking about ClickHouse 36:00 of 1:05:58
+SqlNinja - Artemiy - What Is the Truth from What is Talking about ClickHouse 42:00 of 1:05:58
     https://www.youtube.com/watch?v=7ziBC_lb6TY
     ! CH is motly like LSM-tree (SS-Table), write-optimized (MergeTree engine)
     ! CH has no mem-table (data is going directly to disk)
@@ -21,6 +21,10 @@ SqlNinja - Artemiy - What Is the Truth from What is Talking about ClickHouse 36:
     ! 25:00     SELECT part_name, mark_number, rows_in_granule, idx FROM mergeTreeIndex('test', 'table') LIMIT 4;
     ! 32:00     SET send_logs_level='trace' SELECT ...
     ! 35:00     SELECT ... SETTINGS join_algorithm='full_sorting_merge';
+    ! 38:00     CH and JOINs details
+    ! 39:00     ENGINE=Dictionary !!!
+    ! 40:00     Plus/Minus of CH, 
+    !           Super Cool SQL Dialect, Wide range of useful functions
 Otus - Integration with Kafka, PG, S3 and Superset ru of 1:27:53
     https://www.youtube.com/watch?v=GOT0kiOy-_M
     ! tg chat ???
