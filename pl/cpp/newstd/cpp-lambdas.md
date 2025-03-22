@@ -20,6 +20,7 @@
 
 ## Presentations
 
+* [Slurm - Lambdas Mechanics and Evolution] (https://www.youtube.com/watch?v=KooELqlZpTw)
 * [Sutter - Lambdas, Lambdas Everywhere] (http://nwcpp.org/talks/2011/lambda.pdf)
 * [Sutter - Lambdas, Lambdas Everywhere Video] (http://youtu.be/rcgRY7sOA58)
 * [ODwyer - Lambdas from First Principles] (https://github.com/CppCon/CppCon2015/tree/master/Tutorials/Lambdas%20from%20First%20Principles)
