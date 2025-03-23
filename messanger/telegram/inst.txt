@@ -8,3 +8,8 @@ https://idroot.us/install-telegram-fedora-41/
     # sudo dnf remove telegram
     sudo dnf config-manager --set-disabled rpmfusion-free
     sudo dnf config-manager --set-disabled rpmfusion-nonfree
+
+apt
+    sudo add-apt-repository ppa:atareao/telegram
+    sudo apt update
+    sudo apt install telegram
