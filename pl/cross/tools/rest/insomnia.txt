@@ -1,9 +1,35 @@
 https://insomnia.rest/
+https://insomnia.rest/pricing
 
 https://github.com/Kong/insomnia
 
+https://insomnia.rest/download
+https://github.com/Kong/insomnia/releases
+https://docs.insomnia.rest/insomnia/install
+
+https://app.insomnia.rest/app/authorize
+
 aur
     insomnia
+flathub
+    rest.insomnia.Insomnia
+
+https://docs.insomnia.rest/
+https://docs.insomnia.rest/insomnia/get-started
+
+https://chat.insomnia.rest/
+
+https://konghq.com/blog/tag/insomnia
 
 whatsnew
 https://konghq.com/blog/insomnia-2021.1/
+
+plugins
+https://insomnia.rest/plugins
+https://insomnia.rest/plugins/insomnia-plugin-postman-export
+    https://github.com/Vyoam/insomnia-plugin-postman-export
+    https://www.npmjs.com/package/insomnia-plugin-postman-export
+
+https://insodoc.github.io/insomnia-documenter/
+https://insomnia.rest/plugins/insomnia-plugin-documenter
+    https://github.com/insodoc/insomnia-documenter
