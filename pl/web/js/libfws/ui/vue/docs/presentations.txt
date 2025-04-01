@@ -1,6 +1,11 @@
 2025
 Otus - Kadochnikov - First step into Vue of 1:30:29
     https://www.youtube.com/watch?v=8gTIzl7TVg8
+    ! 39:00 npm create ...vue...@latest # to create a new vue project, select vite
+    ! 41:00 - vscode exts: vue 3 snippets, vscode snippets
+    ! 42:00 - templates: vbase-3-set 
+    ! 43:00 - 3 main parts of vue file: <template>..., <script>..., <style>...
+    !     
 2022
 Dudar - VueJS for an Hour 0:00 of 55:43
     https://www.youtube.com/watch?v=TiBCLraUFvA
