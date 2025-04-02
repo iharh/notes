@@ -1,0 +1,27 @@
+https://airdcpp.net/
+https://airdcpp.net/docs/general/ui.html
+https://airdcpp.net/docs/installation/installation.html
+
+https://github.com/airdcpp-web/airdcpp-webclient
+https://github.com/airdcpp-web/airdcpp-webclient/wiki
+
+https://airdcpp.docs.apiary.io/
+
+admin/password
+
+docker
+https://hub.docker.com/r/gangefors/airdcpp-webclient/
+https://github.com/gangefors/docker-airdcpp-webclient
+
+https://github.com/containers/podman/blob/main/rootless.md
+
+podman run --replace -d --name airdcpp-container \
+    -p 8099:5600 -p 443:5601 \
+    -p 21248:21248 -p 21248:21248/udp -p 21249:21249 \
+    -v airdcpp-volume:/.airdcpp \
+    -v $HOME/Downloads:/Downloads \
+    -v $HOME/Share:/Share \
+    gangefors/airdcpp-webclient
+
+podman stop/rm/prune <container-name>
+    https://stackoverflow.com/questions/67528841/podman-how-remove-all-exited-containers-if-there-are-many
