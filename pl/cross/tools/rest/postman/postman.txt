@@ -1,0 +1,11 @@
+https://www.postman.com/
+
+https://learning.postman.com/
+https://learning.postman.com/docs/getting-started/installation-and-updates/
+https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/mocking-with-examples/
+
+cli
+https://learning.postman.com/docs/postman-cli/postman-cli-installation/
+    curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+
+https://marketplace.visualstudio.com/items?itemName=Postman.postman-for-vscode

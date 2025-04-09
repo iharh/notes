@@ -1,0 +1,14 @@
+https://www.postman.com/downloads/
+https://dl.pstmn.io/download/version/10.18.10/linux64
+https://dl.pstmn.io/download/latest/linux_64
+https://gist.github.com/lucasalvessouza/682e8b46b2912822d9c836b189813d91
+https://copr.fedorainfracloud.org/coprs/coder966/postman
+    sudo dnf copr enable coder966/postman
+    sudo dnf install postman
+https://www.tecmint.com/install-postman-on-linux-desktop/
+    $ cd Downloads/
+    $ tar -xzf Postman-linux-x64-7.32.0.tar.gz
+    $ sudo mkdir -p /opt/apps/
+    $ sudo mv Postman /opt/apps/
+    $ sudo ln -s /opt/apps/Postman/Postman /usr/local/bin/postman
+https://webhamster.ru/mytetrashare/index/mtb339/15238741222tn63gr8ph
