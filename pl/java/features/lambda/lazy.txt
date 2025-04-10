@@ -1,0 +1,16 @@
+sample
+    public static class SomeResponseSupplier {
+        private final Supplier<SomeResponse> supplier;
+        private TxCardResponse data;
+
+        public SomeResponseSupplier(Supplier<SomeResponse> supplier) {
+            this.supplier = supplier;
+        }
+
+        public SomeResponse get() {
+            if (data != null) {
+                return data;
+            }
+            return data = supplier.get();
+        }
+    }
