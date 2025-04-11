@@ -1,14 +1,26 @@
 https://httpie.org
+https://httpie.io/download
 
 https://github.com/httpie
 https://github.com/httpie/httpie
+https://github.com/httpie/desktop
+https://github.com/httpie/desktop/releases
+https://github.com/httpie/cli
 
-aur,brew
+aur,brew,snap,dnf
     httpie
+flatpak
+    io.httpie.Httpie
 
-https://httpie.org/doc
+https://httpie.io/docs
+
+https://httpie.io/desktop
+https://httpie.io/docs/desktop/postman-and-insomnia-import
+
+https://httpie.io/blog
 
 cli
+https://httpie.io/cli
 https://httpie.io/docs/cli/examples
 httpie
     cli plugins
@@ -20,3 +32,6 @@ https://httpie.io/docs/cli/default-behavior
 
 https://github.com/nojima/httpie-go
 https://github.com/abatilo/asdf-httpie-go
+
+baeldung
+https://www.baeldung.com/httpie-http-client-command-line
