@@ -63,7 +63,7 @@ configuration
         local.hostname
         local.user
     encrypt
-        list of patterns (to encrypt)
+        list of patterns (to encrypt secrets)
 
 encryption
 https://yadm.io/docs/encryption
