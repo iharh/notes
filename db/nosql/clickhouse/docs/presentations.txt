@@ -49,6 +49,9 @@ ListenIT - What ClickHouse is and Columnt DBs ru of 14:46
     https://www.youtube.com/watch?v=2b4heaO3U8k
 PostHog - In-depth: ClickHouse vs PostgreSQL of 7:32
     https://www.youtube.com/watch?v=iLXXoDaFoxs
+YandexCloud - ClickHouse Naughty Advices of 32:03
+    https://www.youtube.com/watch?v=UR0rmA_-KfA
+    ! 17:00 !!! Do not insert by each single raw - every insert - is a separate part
 2022
 Altinity - High Performance, High Reliability Data Loading on ClickHouse® | Webinar for ClickHouse® of 1:00:52
     https://www.youtube.com/watch?v=rexGRyl8yuA
