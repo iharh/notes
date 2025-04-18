@@ -1,0 +1,18 @@
+https://kotlinlang.org/docs/kotlin-notebook-overview.html
+https://kotlinlang.org/docs/get-started-with-kotlin-notebooks.html
+https://www.jetbrains.com/help/idea/kotlin-notebook.html
+    File | New | Kotlin Notebook
+    File | New | Scratch File | Kotlin Notebook
+
+https://plugins.jetbrains.com/plugin/16340-kotlin-notebook
+https://github.com/Kotlin/kotlin-jupyter/tree/master
+
+https://github.com/Kotlin/kotlin-jupyter/tree/master/docs
+https://github.com/Kotlin/kotlin-jupyter/blob/master/docs/libraries.md
+
+https://github.com/Kotlin/kotlin-jupyter/tree/master/samples
+https://github.com/Kotlin/kotlin-jupyter/blob/master/samples/outputs.ipynb
+
+https://github.com/cheptsov/kotlin-jupyter-demo/blob/master/index.ipynb
+
+https://anaconda.org/jetbrains-dev/kotlin-jupyter-kernel
