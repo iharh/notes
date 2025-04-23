@@ -1,6 +1,15 @@
 2025
 Otus - Nurullin - VueJS Quick Start of 1:45:56
     https://www.youtube.com/watch?v=p5FrI1dcVlI
+    ! 29:00 starting page - index.html
+    !   <div id="app"></div>
+    !   <script type="module" src="/src/main.js"></script>
+    ! main.js
+    !   import { createApp } from 'vue'
+    !   import App from './App.vue'
+    !   
+    !   createApp(App).mount('#app')
+    !
 Otus - Kadochnikov - First step into Vue of 1:30:29
     https://www.youtube.com/watch?v=8gTIzl7TVg8
     ! 39:00 npm create ...vue...@latest # to create a new vue project, select vite
