@@ -7,6 +7,7 @@ https://devhints.io/postgresql-json
 
 https://www.postgresql.org/docs/current/datatype-json.html
 
+!!!
 https://www.postgresql.org/docs/current/functions-json.html
 https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSON-CREATION-TABLE
 https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-TABLE
@@ -15,9 +16,12 @@ https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-TA
     ->
     ->> ... as text
 
+    '{"a": {"b": ["foo","bar"]}}'::json #> '{a,b,1}' → "bar"
+
     select '[{"a":"foo"},{"b":"bar"},{"c":"baz"}]'::json -> 2
         {"c":"baz"}
     select '{"a":1,"b":"abc"}'::json ->> 'b';
+    select jsonb_path_query(column, '$...') ...
 
 jsonb_array_elements ( jsonb ) -> setof jsonb (like unnest for arrays)
 
