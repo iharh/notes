@@ -4,6 +4,8 @@ https://kubernetes.io/ru/docs/reference/kubectl/cheatsheet/
 https://www.learncloudnative.com/blog/2022-05-10-kubectl-tips
 
 kubectl
+    --kubeconfig=...
+
     completion -h
 
     ??? port-forward ???
