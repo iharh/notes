@@ -2,6 +2,10 @@ https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306F
 
 spring.threads.virtual.enabled: true
 
+JPoint - Popov - Virtual Threads - New Possibilities for IO Bound Microservices of 44:04
+    https://www.youtube.com/watch?v=YJmCdk_qvSI
+    https://jpoint.ru/talks/a3130b924c2c4690bcbaac245b931bdb/
+    https://squidex.jugru.team/api/assets/srm/5e7e37bf-9b37-477f-9789-90c97187e1e0/virtualsnye-potoki-v-java-21-.pdf
 2024
 SpringDeveloper - Long - Spring Tips: Virtual Threads of 50:30
     https://www.youtube.com/watch?v=9iH5h11YJak
