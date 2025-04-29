@@ -1,12 +1,13 @@
 prereq
 sudo dnf install fuse-libs
+    libfuse2 libxi6 libxrender1 libxtst6 mesa-utils libfontconfig libgtk-3-bin tar dbus-user-session
 
 ~/.local/share/JetBrains/Toolbox/logs/toolbox.log
     ...
     Download attempt failed: We are sorry, but we are currently unable to provide our products or services to you due to export control regulations., retrying
 
 https://www.jetbrains.com/toolbox-app/
-    Version: 2.5.2
+    Version: 2.6.1
 
 https://copr.fedorainfracloud.org/coprs/medzik/jetbrains
 https://copr.fedorainfracloud.org/coprs/medzik/jetbrains/packages/
