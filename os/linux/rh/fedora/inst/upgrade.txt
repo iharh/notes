@@ -1,0 +1,39 @@
+https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-new-release/
+https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/
+https://www.tecmint.com/fedora-upgrade-guide/
+https://itsfoss.com/upgrade-fedora-version/
+    sudo dnf upgrade --refresh
+    reboot
+    sudo dnf install dnf-plugin-system-upgrade
+    sudo dnf system-upgrade download --releasever=42
+        sudo dnf system-upgrade download --allowerasing --releasever=42
+    sudo dnf system-upgrade reboot
+    sudo dnf system-upgrade clean
+
+https://discussion.fedoraproject.org/t/fedora-42-upgrade-broken/149714
+https://discussion.fedoraproject.org/t/upgrade-lxqt-41-42-failed-sos/149622
+https://discussion.fedoraproject.org/t/fedora-41-update-failure/140650
+https://discussion.fedoraproject.org/t/rpmfusion-package-in-rpm-fusion-is-not-rebuilt-with-qt6-qtbase-6-5-2-1/86803
+    https://bugzilla.rpmfusion.org/show_bug.cgi?id=6738
+        sudo dnf upgrade telegram-desktop --enablerepo=rpmfusion-free-updates-testing
+        https://bugzilla.rpmfusion.org/show_bug.cgi?id=6811
+https://discussion.fedoraproject.org/t/dnf-package-management-not-updating-packages-potentially-due-to-conflicts/134420/
+    ???
+    --skip broken
+    --allowerasing
+
+Repositories loaded.
+Failed to resolve the transaction:
+Packages for argument 'system-config-printer' available, but not installed.
+Packages for argument 'dunst' available, but not installed.
+Packages for argument 'blueman' available, but not installed.
+Packages for argument 'system-config-printer' available, but not installed.
+Problem: cannot install both qt6-qtbase-6.8.2-3.fc42.x86_64 from fedora and qt6-qtbase-6.9.0-1.fc42.x86_64 from updates
+  - package telegram-desktop-5.13.1-1.fc42.x86_64 from rpmfusion-free requires libQt6Core.so.6(Qt_6.8_PRIVATE_API)(64bit), but none of the providers can be installed
+  - package hyprland-qt-support-0.1.0-4.fc42.x86_64 from copr:copr.fedorainfracloud.org:solopasha:hyprland requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
+  - package hyprland-qt-support-0.1.0-4.fc42.x86_64 from copr:copr.fedorainfracloud.org:solopasha:hyprland requires libQt6Core.so.6(Qt_6.9_PRIVATE_API)(64bit), but none of the providers can be installed
+  - problem with installed package
+  - problem with installed package
+  - telegram-desktop-5.13.1-1.fc41.x86_64 does not belong to a distupgrade repository
+  - qt6-qtbase-6.8.2-3.fc41.x86_64 does not belong to a distupgrade repository
+  - hyprland-qt-support-0.1.0-4.fc41.x86_64 does not belong to a distupgrade repository
