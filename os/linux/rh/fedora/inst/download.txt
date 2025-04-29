@@ -1,0 +1,6 @@
+https://fedoraproject.org/spins/sway/download
+
+https://fedoraproject.org/security
+curl -O https://fedoraproject.org/fedora.gpg
+gpgv --keyring ./fedora.gpg Fedora-Spins-42-1.1-x86_64-CHECKSUM
+sha256sum -c Fedora-Spins-42-1.1-x86_64-CHECKSUM
