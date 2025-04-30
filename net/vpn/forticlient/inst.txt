@@ -1,4 +1,8 @@
 https://www.fortinet.com/support/product-downloads
-wget https://filestore.fortinet.com/forticlient/forticlient_vpn_7.4.0.1636_x86_64.rpm
+wget https://filestore.fortinet.com/forticlient/downloads/forticlient_vpn_7.4.3.1736_x86_64.rpm
 
-Created symlink '/etc/systemd/system/multi-user.target.wants/forticlient.service' → '/usr/lib/systemd/system/forticlient.service'
+>>> If fortitray is not auto-started,
+>>> try running /opt/forticlient/start-fortitray-launcher.sh as non-root.
+>>> =====================================================================
+>>> gtk-update-icon-cache: Cache file created successfully.
+>>> Created symlink '/etc/systemd/system/multi-user.target.wants/forticlient.service' → '/usr/lib/systemd/system/forticlient.service'.
