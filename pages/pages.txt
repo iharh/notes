@@ -1,15 +1,15 @@
-electro-cabel-ups-comp?
 prostavki
     67.1 - 54.1
-pruzhinka
-https://www.wildberries.by/catalog/0/search.aspx?page=1&sort=priceup&search=пружина+сжатия&xsearch=true&targeturl=ST
-https://www.wildberries.by/brands/311306429-ironweld
-Пружины сжатия D-10,8 мм; d-0,9 мм; L-100 мм
-    https://www.wildberries.by/catalog/220087558/detail.aspx
-Пружины сжатия D-12,3 мм; d-0,9 мм; L-80 мм (5 шт) ironweld 176065317 купить за 24,87 р. в интернет‑магазине Wildberries
-    https://www.wildberries.by/catalog/176065317/detail.aspx
-Пружина сжатия (1.4*10*1200мм) (0833)
-    https://www.wildberries.by/catalog/210812244/detail.aspx
+
+Problem: problem with installed package
+  - installed package hyprland-qtutils-0.1.4-2.fc42.x86_64 requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
+  - package hyprland-qtutils-0.1.3-5.fc42.x86_64 from copr:copr.fedorainfracloud.org:solopasha:hyprland requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
+  - package hyprland-qtutils-0.1.4-1.fc42.x86_64 from copr:copr.fedorainfracloud.org:solopasha:hyprland requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
+  - package hyprland-qtutils-0.1.4-2.fc42.x86_64 from copr:copr.fedorainfracloud.org:solopasha:hyprland requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
+  - cannot install both qt6-qtbase-6.8.2-3.fc42.x86_64 from fedora and qt6-qtbase-6.9.0-2.fc42.x86_64 from @System
+  - cannot install both qt6-qtbase-6.8.2-3.fc42.x86_64 from fedora and qt6-qtbase-6.9.0-2.fc42.x86_64 from updates
+  - package telegram-desktop-5.13.1-1.fc42.x86_64 from rpmfusion-free requires libQt6Core.so.6(Qt_6.8_PRIVATE_API)(64bit), but none of the providers can be installed
+  - conflicting requests
 
 https://my.unet.by/pay
 https://u2.by/terminatetn
