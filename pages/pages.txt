@@ -1,3 +1,22 @@
+? hyprctl
+? hyprpanel (ags)
+
+~/.config/waybar/
+    missing links
+    config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default
+    ln -f -s configs/\[TOP\]\ Default config
+    style.css@ ⇒ /home/iharh/.config/waybar/style/[Dark] Wallust Obsidian Edge.css
+      [Extra] Modern-Combined - Transparent.css
+      style.css@ ⇒ /home/iharh/.config/waybar/style/[Catppuccin] Mocha.css
+    ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
+    style.css:
+	      font-size: 30;
+~/.config/hypr/UserConfigs/WindowRules.conf
+    # OPACITY
+    # windowrulev2 = opacity 0.9 0.7, tag:browser*
+~/.config/hypr/scripts/SwitchKeyboardLayout.sh
+    # notify-send -u low -i "$notif_icon" " kb_layout: $new_layout"
+
 prostavki
     67.1 - 54.1
 
@@ -152,24 +171,6 @@ Wang - Terraform Made Easy
     https://z-library.sk/book/31739686/f85974/terraform-cookbook-recipes-for-codifying-infrastructure.html
 
 
-? hyprctl
-? hyprpanel (ags)
-
-~/.config/waybar/
-    missing links
-    config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default
-    ln -f -s configs/\[TOP\]\ Default config
-    style.css@ ⇒ /home/iharh/.config/waybar/style/[Dark] Wallust Obsidian Edge.css
-      [Extra] Modern-Combined - Transparent.css
-      style.css@ ⇒ /home/iharh/.config/waybar/style/[Catppuccin] Mocha.css
-    ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
-    style.css:
-	      font-size: 30;
-~/.config/hypr/UserConfigs/WindowRules.conf
-    # OPACITY
-    # windowrulev2 = opacity 0.9 0.7, tag:browser*
-~/.config/hypr/scripts/SwitchKeyboardLayout.sh
-    # notify-send -u low -i "$notif_icon" " kb_layout: $new_layout"
 
 https://devenv.sh/
 https://github.com/cachix/devenv
