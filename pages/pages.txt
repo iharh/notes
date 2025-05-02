@@ -2,6 +2,7 @@
 ? hyprpanel (ags)
 
 ?
+https://jetclient.io/docs/introduction/getting-started/
 .config/hypr/scripts/KooLsDotsUpdate.sh
 .config/hypr/scripts/MonitorProfiles.sh
 
