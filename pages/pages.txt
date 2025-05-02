@@ -5,7 +5,7 @@
 https://jetclient.io/docs/introduction/getting-started/
 .config/hypr/scripts/KooLsDotsUpdate.sh
 .config/hypr/scripts/MonitorProfiles.sh
-? kb_layout: ...
+? kb_layout: en/ru
 
 ~/.config/waybar/
     missing links
