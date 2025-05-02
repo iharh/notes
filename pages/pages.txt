@@ -1,6 +1,10 @@
 ? hyprctl
 ? hyprpanel (ags)
 
+?
+.config/hypr/scripts/KooLsDotsUpdate.sh
+.config/hypr/scripts/MonitorProfiles.sh
+
 ~/.config/waybar/
     missing links
     config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default
