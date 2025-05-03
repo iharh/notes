@@ -3,6 +3,7 @@ https://www.linuxcapable.com/install-telegram-on-fedora-linux/
 https://idroot.us/install-telegram-fedora-41/
     sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
     sudo dnf install telegram-desktop
+    sudo dnf install --allowerasing telegram-desktop
     ...
     # sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
     # sudo dnf remove telegram
