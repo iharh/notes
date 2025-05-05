@@ -35,6 +35,8 @@ C-Q
     Quick doc (javadoc)
 C-W
     Expand code selection (to wider region)
+A-5
+    Debug
     
 
 Editing
