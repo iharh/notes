@@ -1,0 +1,15 @@
+https://libcamera.org/
+https://libcamera.org/introduction.html
+
+https://github.com/nxp-imx/libcamera
+
+libcamera-tools
+    /usr/bin/cam --help
+
+inxi -Fxxxrz 
+
+v4l2-ctl
+https://askubuntu.com/questions/48245/what-webcam-apps-are-available-and-how-to-check-if-your-webcam-is-working
+
+/dev/video0
+/dev/video1
