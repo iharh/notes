@@ -1,0 +1,17 @@
+https://wiremock.org/docs/standalone/docker/
+https://hub.docker.com/r/wiremock/wiremock
+https://github.com/wiremock/wiremock-docker
+
+volumes
+    -v $PWD/wiremock-docker/samples/hello/stubs:/home/wiremock
+
+# Sample compose file
+version: "3"
+services:
+  wiremock:
+    image: "wiremock/wiremock:latest"
+    container_name: my_wiremock
+    volumes:
+      - ./__files:/home/wiremock/__files
+      - ./mappings:/home/wiremock/mappings
+    entrypoint: ["/docker-entrypoint.sh", "--global-response-templating", "--disable-gzip", "--verbose"]
