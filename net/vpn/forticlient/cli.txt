@@ -1,0 +1,11 @@
+/opt/forticlient/
+    forticlient-cli
+
+forticlient-cli
+    -h, --help help
+
+    gui
+    version
+    vpn
+        list
+        edit <name>

@@ -1,5 +1,7 @@
 https://www.fortinet.com/support/product-downloads
-wget https://filestore.fortinet.com/forticlient/downloads/forticlient_vpn_7.4.3.1736_x86_64.rpm
+
+https://links.fortinet.com/forticlient/rhel/vpnagent
+    curl -O 'https://filestore.fortinet.com/forticlient/downloads/forticlient_vpn_7.4.3.1736_x86_64.rpm'
 
 >>> If fortitray is not auto-started,
 >>> try running /opt/forticlient/start-fortitray-launcher.sh as non-root.
