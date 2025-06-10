@@ -1,6 +1,7 @@
 https://wiki.hyprland.org/Configuring/Binds/#mouse-buttons
     ~/.config/hypr/configs/Keybinds.conf
     ~/.config/hypr/UserConfigs/UserKeybinds.conf
+        float, fullscreen
 /usr/bin/wev to check
     # 274
     `bindn = , mouse:274, exec, wl-copy -pc`
