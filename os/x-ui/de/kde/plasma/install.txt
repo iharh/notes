@@ -2,5 +2,13 @@ apt
     kubuntu-desktop
     ...
 
+https://docs.fedoraproject.org/en-US/kde/getkde/
+    dnf group list | grep kde
+    dnf group install kde-desktop --skip-broken
+    ? --allowerasing
+
+Skipping packages with conflicts:
+ sddm-wayland-plasma
+
 2021
 https://www.tecmint.com/install-kde-plasma-5-in-linux/
