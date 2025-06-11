@@ -17,6 +17,10 @@ themes
 https://gitlab.com/dwt1/multicolor-sddm-theme
 https://aur.archlinux.org/packages/multicolor-sddm-theme
 
+state
+https://man.archlinux.org/man/sddm-state.conf.5.en
+    ~sddm/
+        state.conf
 2021
 DistroTube - Theming My Login Screen For Maximum Gains (sddm) 9:00 of 22:34
     https://www.youtube.com/watch?v=16nduwlYioc
