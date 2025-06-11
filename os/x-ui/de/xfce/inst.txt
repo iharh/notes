@@ -2,6 +2,9 @@ apt
     xfce4-goodies
         lots-of-useful-stuff
 
+2025
+https://cloudspinx.com/how-to-install-xfce-desktop-on-fedora/
+    sudo dnf install @xfce-desktop-environment
 2020
 https://itsfoss.com/install-xfce-desktop-xubuntu/
     sudo apt install xfce4
