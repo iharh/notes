@@ -8,6 +8,7 @@ https://habr.com/ru/articles/53625/
 
 checking
     ip a | grep inet6
+    cat /proc/sys/net/ipv6/conf/*/disable_ipv6
 disabling
     https://idroot.us/disable-ipv6-fedora-39/
     https://linuxconfig.org/how-to-disable-ipv6-on-linux
