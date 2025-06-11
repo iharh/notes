@@ -5,3 +5,16 @@ https://habr.com/ru/companies/ruvds/articles/760338/
 https://habr.com/ru/articles/773708/
 2009
 https://habr.com/ru/articles/53625/
+
+checking
+    ip a | grep inet6
+disabling
+    https://idroot.us/disable-ipv6-fedora-39/
+    https://linuxconfig.org/how-to-disable-ipv6-on-linux
+
+    sudo vi /etc/sysctl.d/90-disable_ipv6.conf
+        net.ipv6.conf.all.disable_ipv6 = 1
+        net.ipv6.conf.default.disable_ipv6 = 1
+        net.ipv6.conf.lo.disable_ipv6 = 1
+    # /etc/sysctl.conf
+    sudo sysctl -p
