@@ -23,3 +23,11 @@ disabling
         net.ipv6.conf.lo.disable_ipv6 = 1
     # /etc/sysctl.conf
     sudo sysctl -p
+
+    sudo vi /etc/default/grub
+        ...
+        GRUB_CMDLINE_LINUX_DEFAULT="quiet ipv6.disable=1"
+
+    $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    $ ls /proc/sys/net/ipv6/
+    ls: cannot access '/proc/sys/net/ipv6/': No such file or directory
