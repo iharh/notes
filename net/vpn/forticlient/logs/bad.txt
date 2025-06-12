@@ -1,0 +1,24 @@
+[2025-06-12 09:14:32.057] [info]  Failed to add libcertd.so: Error: Command failed: /usr/bin/modutil -add "FortiClient ZTNA" -dbdir sql:/home/iharh/.pki/nssdb -libfile /opt/forticlient/libcertd.so -force
+ERROR: Failed to add module "FortiClient ZTNA". Probable cause : "/opt/forticlient/libcertd.so: cannot open shared object file: No such file or directory".
+
+[2025-06-12 09:14:51.808] [info]  Server init() port number is
+[2025-06-12 09:14:51.808] [info]  Fail to retrieve port number from file.
+[2025-06-12 09:14:52.811] [info]  Server init() port number is 34325
+[2025-06-12 09:14:52.811] [info]  Main process - Websocket open ws://127.0.0.1:34325/websocket
+[2025-06-12 09:14:52.814] [info]  WindowManager handlePossibleProtocolLauncherArgs argv=["/opt/forticlient/gui/FortiClient"]
+[2025-06-12 09:14:52.815] [info]  WindowManager handleCreateMainWindow
+[2025-06-12 09:14:52.823] [info]  MAIN MainWindow - createWindow Platform detected: fedora
+[2025-06-12 09:14:52.836] [info]  web-contents-created contents.id=1
+[2025-06-12 09:14:52.840] [info]  Saml - init
+[2025-06-12 09:14:52.840] [info]  Saml - listenSamlLoginRequest
+[2025-06-12 09:14:52.841] [info]  Server init() port number is 34325
+[2025-06-12 09:14:53.081] [info]  Renderer process - Websocket open ws://127.0.0.1:34325/websocket
+[2025-06-12 09:14:53.083] [info]  compliance configDir=/home/iharh/.config/FortiClient/config
+[2025-06-12 09:14:53.086] [info]  MAIN did-finish-load
+[2025-06-12 09:14:53.086] [info]  MAIN ready-to-show
+[2025-06-12 09:14:54.007] [info]  IPC_RENDERER_REQUEST.LOADED
+[2025-06-12 09:14:54.007] [info]  WindowManager handleWindowLoaded
+[2025-06-12 09:14:54.508] [info]  WindowManager handlePossibleProtocolLauncherArgs argv=["/opt/forticlient/gui/FortiClient"]
+[2025-06-12 09:14:54.508] [info]  WindowManager handleCreateMainWindow
+[2025-06-12 09:15:02.218] [info]  Vpn - start doSamlConnect
+[2025-06-12 09:15:13.336] [info]  IPC_RENDERER_REQUEST.UNLOCK_FORTICLIENT
