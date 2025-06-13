@@ -21,3 +21,8 @@ services:
       - ./__files:/home/wiremock/__files
       - ./mappings:/home/wiremock/mappings
     entrypoint: ["/docker-entrypoint.sh", "--global-response-templating", "--disable-gzip", "--verbose"]
+
+curl 'http://localhost:8080/__admin/mappings'
+
+2022
+https://habr.com/ru/companies/rostelecom/articles/679276/
