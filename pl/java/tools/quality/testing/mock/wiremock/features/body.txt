@@ -1,4 +1,10 @@
-  "response": {
-    "status": 200,
-    "bodyFileName": "user-deposits-initiate.json"
+"response": {
+  "status": 200,
+  "bodyFileName": "user-deposits-initiate.json"
+  "jsonBody": {
+    "SomeInput": {
+      "SomeNumber": "{{jsonPath request.body '$.ActivityInput.CertificateNumber'}}"
+    },
+    "SomeId": "{{request.path.[1]}}",
   }
+}

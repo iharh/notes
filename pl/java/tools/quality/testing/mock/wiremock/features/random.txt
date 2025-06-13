@@ -1,0 +1,4 @@
+https://docs.wiremock.io/response-templating/random-values/
+
+{{randomValue type='UUID'}}
+{{randomValue length=27 type='ALPHABETIC' uppercase=true}}

@@ -77,10 +77,6 @@ samples
   }
 }
 
-https://docs.wiremock.io/response-templating/random-values/
-{{randomValue type='UUID'}}
-{{randomValue length=27 type='ALPHABETIC' uppercase=true}}
-
 https://docs.wiremock.io/response-templating/json/#iterating-over-json-elements
 
 record/playback
@@ -89,6 +85,7 @@ https://wiremock.org/docs/record-playback/
 admin
 https://wiremock.org/docs/standalone/admin-api-reference
     _admin/mappings
+    __admin/mappings
 
 api templates
 https://wiremock.org/docs/mock-api-templates/
