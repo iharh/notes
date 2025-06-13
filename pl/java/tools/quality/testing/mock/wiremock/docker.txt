@@ -1,9 +1,15 @@
 https://wiremock.org/docs/standalone/docker/
+
 https://hub.docker.com/r/wiremock/wiremock
 https://github.com/wiremock/wiremock-docker
 
+Inside the container, the WireMock uses /home/wiremock as the root 
+    from which it reads the "mappings" and "__files" directories.
+
 volumes
     -v $PWD/wiremock-docker/samples/hello/stubs:/home/wiremock
+
+# image: "wiremock/wiremock:latest"
 
 # Sample compose file
 version: "3"
