@@ -11,9 +11,6 @@ https://wiremock.org/docs/junit-jupiter/
 
 https://wiremock.org/docs/stubbing/
 
-https://wiremock.org/docs/request-matching/
-https://wiremock.org/docs/request-matching/#path-templates
-
 https://wiremock.org/docs/extending-wiremock/
 
 https://github.com/tomakehurst/wiremock/issues/684
@@ -46,8 +43,6 @@ https://www.infoq.com/presentations/spring-cloud-contract
 https://dzone.com/articles/wiremock-mock-your-rest-apis
 
 docs
-https://github.com/tomakehurst/wiremock/blob/master/docs-v2/_docs/request-matching.md
-    .withHeader("Bearer", containing("some-data"))
 
 https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#features-wiremock
 
@@ -93,8 +88,6 @@ https://wiremock.org/docs/mock-api-templates/
 https://wiremock.org/docs/mock-api-templates/usage/
     https://library.wiremock.org/
 
-custom request matchers
-https://wiremock.org/docs/extending-wiremock/#custom-request-matchers
 
 deps
 +--- org.springframework.cloud:spring-cloud-contract-wiremock -> 4.1.0

@@ -1,0 +1,19 @@
+https://wiremock.org/docs/request-matching/
+https://wiremock.org/docs/request-matching/#path-templates
+custom request matchers
+https://wiremock.org/docs/extending-wiremock/#custom-request-matchers
+
+https://github.com/tomakehurst/wiremock/blob/master/docs-v2/_docs/request-matching.md
+    .withHeader("Bearer", containing("some-data"))
+
+"request": {
+  "method": "POST",
+  "urlPattern": "/v1/.+/suff",
+  "bodyPatterns": [
+    {
+      "matchesJsonPath" : "$.name"
+    }, {
+      "matchesJsonPath": "$[?($.ActivityType == 'SOMEACT')]"
+    }
+  ]
+}
