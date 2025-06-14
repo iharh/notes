@@ -1,0 +1,33 @@
+https://linuxcontainers.org/
+https://linuxcontainers.org/incus/
+    https://zabbly.com/#projects
+    https://github.com/zabbly/incus
+https://github.com/lxc/incus
+
+https://images.linuxcontainers.org/
+
+https://linuxcontainers.org/incus/try-it/
+
+https://www.youtube.com/@TheZabbly/playlists
+https://discuss.linuxcontainers.org/
+
+https://discuss.linuxcontainers.org/t/web-ui-for-incus/18198
+https://github.com/PenningLabs/lxconsole
+    https://blog.simos.info/how-to-install-and-setup-the-incus-web-ui/
+    https://discuss.linuxcontainers.org/t/configure-incus-ui-with-sso/19926
+
+inst
+https://linuxcontainers.org/incus/docs/main/installing/#installing
+https://linuxcontainers.org/incus/docs/main/installing/#installing-from-package
+    sudo dnf install incus
+
+https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/
+https://linuxcontainers.org/incus/docs/main/explanation/containers_and_vms/
+
+wn
+https://discuss.linuxcontainers.org/t/incus-6-13-has-been-released/23899/2
+    https://www.youtube.com/watch?v=T7IYmINpnHQ
+
+2025
+AerialAirwaves - Nixos, Incus etc 0:00 of 42:52
+    https://www.youtube.com/watch?v=RqT72ElMSbs
