@@ -18,7 +18,7 @@ Pageable sortedByPriceDescNameAsc =
   PageRequest.of(0, 5, Sort.by("price").descending().and(Sort.by("name")));
 
 2025
-LvivJavaClub - [Event 372] - Yastrubchak - Spring data JPA pagination 0:00 of ...
+LvivJavaClub - [Event 372] - Yastrubchak - Spring data JPA pagination 0:00 of 45:36
     https://www.youtube.com/watch?v=2U0lvtnztGM
 2023
 https://vladmihalcea.com/spring-data-findall-anti-pattern/
