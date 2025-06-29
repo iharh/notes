@@ -1,2 +1,20 @@
+https://docs.astral.sh/uv/
+
+https://github.com/astral-sh/uv
+
+https://docs.astral.sh/uv/guides/
+https://docs.astral.sh/uv/guides/projects/#building-distributions
+
+https://alberto-agudo.github.io/posts/02-uv-for-package-management-in-python/index.html
+
 2024
+https://bury-thomas.medium.com/mastering-python-project-management-with-uv-part-3-mlops-4906965f45a2
+https://bury-thomas.medium.com/mastering-python-project-management-with-uv-part-2-deep-dives-and-advanced-use-1e2540e6f4a6
+https://bury-thomas.medium.com/mastering-python-project-management-with-uv-part1-its-time-to-ditch-poetry-c2590091d90a
 https://nuancesprog.ru/p/21051/
+
+uv
+  add [--dev] <name>
+      "requests<3"
+      --group [dev|docs] ...
+  run app.py
