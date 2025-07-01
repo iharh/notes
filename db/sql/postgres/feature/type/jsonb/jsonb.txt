@@ -95,3 +95,9 @@ samples
 
 select 33 as id, jsonb_array_elements('[{"a": 1}, {"b": 2}]'::jsonb);
 select arr_el -> 1 as id from jsonb_array_elements('[["a", 11], ["a", 12]]'::jsonb) as arr_el;
+
+
+select id, jsonb_set('{}', '{"f1"}', '"v1"') from sometable;
+select id, jsonb_set('{}', '{"f1"}', to_jsonb(some_field)) from sometable;
+jsonb_pretty
+UPDATE sometable SET some_jsonb_field = jsonb_set('{}', '{"some_thing"}', to_jsonb(some_text_field));
