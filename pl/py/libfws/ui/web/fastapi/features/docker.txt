@@ -1,0 +1,6 @@
+https://fastapi.tiangolo.com/deployment/docker/
+
+https://docs.astral.sh/uv/guides/integration/docker/#mounting-the-project-with-docker-run
+
+samples
+https://github.com/fastapi/full-stack-fastapi-template/blob/master/backend/Dockerfile
