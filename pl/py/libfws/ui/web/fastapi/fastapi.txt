@@ -1,2 +1,10 @@
 https://fastapi.tiangolo.com/
 https://github.com/tiangolo/fastapi
+
+https://fastapi.tiangolo.com/external-links
+
+https://www.starlette.io/
+    uvicorn
+
+inst
+pip install "fastapi[standard]"

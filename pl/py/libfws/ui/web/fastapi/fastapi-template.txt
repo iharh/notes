@@ -1,1 +1,23 @@
+https://fastapi.tiangolo.com/project-generation/
+
+https://github.com/fastapi/full-stack-fastapi-template
+
+https://github.com/fastapi/full-stack-fastapi-template/blob/master/backend/app/main.py
+https://github.com/fastapi/full-stack-fastapi-template/blob/master/backend/app/models.py
+https://github.com/fastapi/full-stack-fastapi-template/blob/master/backend/app/utils.py
+
+https://github.com/fastapi/full-stack-fastapi-template/blob/master/backend/scripts/prestart.sh
+https://github.com/fastapi/full-stack-fastapi-template/blob/master/backend/app/backend_pre_start.py
+    main
+https://github.com/fastapi/full-stack-fastapi-template/tree/master/backend
+https://github.com/fastapi/full-stack-fastapi-template/blob/master/backend/Dockerfile
+
+https://github.com/fastapi/full-stack-fastapi-template/blob/master/.vscode/launch.json
+  "module": "uvicorn",
+  "args": [
+      "app.main:app",
+      "--reload"
+  ],
+  "cwd": "${workspaceFolder}/backend",
+
 https://github.com/s3rius/FastAPI-template

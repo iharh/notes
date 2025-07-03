@@ -1,0 +1,7 @@
+https://docs.pydantic.dev/latest/
+
+https://fastapi.tiangolo.com/tutorial/query-params-str-validations/
+https://fastapi.tiangolo.com/tutorial/extra-data-types/
+
+from typing import Annotated
+from pydantic import BaseModel
