@@ -1,2 +1,5 @@
 https://www.uvicorn.org/
 https://www.uvicorn.org/#command-line-options
+
+https://www.geeksforgeeks.org/python/fastapi-uvicorn/
+    uvicorn main:app --reload
