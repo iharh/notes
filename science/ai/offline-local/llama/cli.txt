@@ -78,4 +78,4 @@ time=2025-07-05T08:30:17.518+03:00 level=INFO source=server.go:601 msg="llama ru
 
 /api/tags
 
-curl 'http://localhost:45349/api/show'
+curl 'http://localhost:11434/api/ps'
