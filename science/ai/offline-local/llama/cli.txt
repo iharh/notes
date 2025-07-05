@@ -8,8 +8,10 @@ Available Commands:
   create      Create a model from a Modelfile
   show        Show information for a model
   run         Run a model
+      llama3.2:3b
   stop        Stop a running model
   pull        Pull a model from a registry
+      llama3.2:3b
   push        Push a model to a registry
   list        List models
   ps          List running models
@@ -38,9 +40,42 @@ Environment Variables:
       OLLAMA_GPU_OVERHEAD        Reserve a portion of VRAM per GPU (bytes)
       OLLAMA_LOAD_TIMEOUT        How long to allow model loads to stall before giving up (default "5m")
 
+Available keyboard shortcuts:
+  Ctrl + a            Move to the beginning of the line (Home)
+  Ctrl + e            Move to the end of the line (End)
+   Alt + b            Move back (left) one word
+   Alt + f            Move forward (right) one word
+  Ctrl + k            Delete the sentence after the cursor
+  Ctrl + u            Delete the sentence before the cursor
+  Ctrl + w            Delete the word before the cursor
+
+  Ctrl + l            Clear the screen
+  Ctrl + c            Stop the model from responding
+  Ctrl + d            Exit ollama (/bye)
+
 Output
 
 Couldn't find '/home/iharh/.ollama/id_ed25519'. Generating new private key.
 Your new public key is:
 
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8NPUj/JP0gIzX0Wfy3tuezgOyd5lypq59wh9Kr9Vff
+
+
+time=2025-07-05T08:30:15.765+03:00 level=INFO source=.:0 msg="Server listening on 127.0.0.1:45349"
+llama_model_loader: loaded meta data with 30 key-value pairs and 255 tensors from ~/.ollama/models/blobs/sha256-dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff (version GGUF V3 (latest))
+...
+time=2025-07-05T08:30:17.518+03:00 level=INFO source=server.go:601 msg="llama runner started in 1.76 seconds"
+[GIN] 2025/07/05 - 08:30:17 | 200 |   1.79838588s |       127.0.0.1 | POST     "/api/generate"
+[GIN] 2025/07/05 - 08:31:07 | 200 |  965.070709ms |       127.0.0.1 | POST     "/api/chat"
+[GIN] 2025/07/05 - 08:31:16 | 200 |   15.374323ms |       127.0.0.1 | POST     "/api/show"
+
+
+
+
+1. start
+2. pull
+3. run
+
+/api/tags
+
+curl 'http://localhost:45349/api/show'
