@@ -1,0 +1,50 @@
+https://mpv.io/
+https://github.com/mpv-player/mpv
+https://github.com/mpv-player/mpv/wiki
+https://github.com/mpv-player/mpv/wiki/FAQ
+https://github.com/mpv-player/mpv/wiki/Option-replacement-list
+https://mpv.io/manual/
+https://mpv.io/manual/master/
+https://mpv.io/manual/master/#configuration-files
+    --save-position-on-quit 
+https://mpv.io/manual/stable/#options-term-remaining-playtime
+https://mpv.io/manual/master/#on-screen-controller
+
+https://wiki.archlinux.org/title/Mpv_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+
+mpv --log-file=/home/iharh/Downloads/mpv.txt --gpu-api=opengl -v
+mpv 
+  --list-options
+  --gpu-api=help
+  --gpu-api=opengl
+      https://forum.manjaro.org/t/mpv-not-working-well-with-vulkan-api-on-gnome-wayland-after-update/47063
+
+/usr/share/doc/mpv/
+
+vulkan
+    https://github.com/mpv-player/mpv/issues/11739
+    https://www.reddit.com/r/mpv/comments/hoaook/stuttering_with_vulkan_anime/
+    https://www.reddit.com/r/mpv/comments/vxuz8y/need_help_with_vulkandevice_setting/
+    https://imgur.com/a/LHTi3hU
+    https://forum.manjaro.org/t/mpv-not-working-well-with-vulkan-api-on-gnome-wayland-after-update/47063/4
+sudo apt remove
+    libvulkan-dev
+
+https://steamcommunity.com/app/730/discussions/0/3766734615742735050/
+    https://github.com/ValveSoftware/steam-runtime/issues/560
+    ! videodriver issue
+https://forums.opensuse.org/t/lightdm-fails-after-upgrade/166517/20
+https://github.com/bpftrace/bpftrace/issues/1855
+https://github.com/negativo17/mpv/issues/11
+    mpv --gpu-api=help
+https://github.com/mpv-player/mpv/issues/9961
+    mpv --log-file=/home/iharh/Downloads/mpv.txt -v
+    -v -v
+    https://drive.google.com/file/d/1H2nUVKioWwKC3BjyAIGwsBkbIZNOVAoB/view
+
+https://github.com/mull-project/mull/issues/1006
+https://github.com/bpftrace/bpftrace/issues/1855
+https://github.com/bpftrace/bpftrace/commit/debc79ef9ad4784258705a92ae70f9c7689a9c24
+
+sudo apt autoremove
+    libdrm ...

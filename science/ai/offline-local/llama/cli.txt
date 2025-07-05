@@ -9,6 +9,7 @@ Available Commands:
   show        Show information for a model
   run         Run a model
       llama3.2:3b
+      echo "what is the two multiplied by three?" | ollama run llama3.2:3b
   stop        Stop a running model
   pull        Pull a model from a registry
       llama3.2:3b

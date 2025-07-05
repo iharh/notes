@@ -1,6 +1,7 @@
 https://github.com/ollama/ollama/blob/main/scripts/install.sh
 
 dnf/ollama
+    0.4.4
 
 files
 /usr/lib64/ollama/bin/
