@@ -1,10 +1,3 @@
-autoload/init.zsh
-# colors
-
-add-zsh-hook: function definition file not found
-https://github.com/ohmyzsh/ohmyzsh/issues/748
-https://github.com/disbelieveordoubt/oh-my-zsh/commit/c9afbeabfe0b8d683411b13f787a0a909bbffa25
-
 sudo dnf rm vlc-plugins-base
 file /usr/lib64/vlc/plugins/codec/libfaad_plugin.so conflicts between attempted installs of vlc-plugins-freeworld-3.0.21-4.fc42.x86_64 and vlc-plugins-base-1:3.0.21-24.fc42.x86_64
 
