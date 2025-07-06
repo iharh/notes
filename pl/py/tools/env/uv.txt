@@ -17,4 +17,5 @@ uv
   add [--dev] <name>
       "requests<3"
       --group [dev|docs] ...
+  build
   run app.py
