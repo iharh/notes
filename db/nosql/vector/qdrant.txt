@@ -3,9 +3,14 @@ https://qdrant.tech/
 https://qdrant.tech/pricing/
 
 https://github.com/qdrant/qdrant
+    ! written in rust
 https://github.com/qdrant/qdrant/releases
 
+https://qdrant.tech/benchmarks/
+
 https://qdrant.tech/documentation/
+https://qdrant.tech/documentation/overview/
+    !!! start from this
 https://github.com/qdrant/qdrant/blob/master/docs/roadmap/README.md
 
 https://qdrant.tech/demo/
