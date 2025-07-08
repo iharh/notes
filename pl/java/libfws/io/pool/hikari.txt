@@ -7,3 +7,9 @@ https://wearecommunity.io/communities/jacov/articles/6094
 2024
 Valkov - PG for Java Devs 0:00 of 44:21
     https://www.youtube.com/watch?v=QzIUHvDnEaI
+
+spring.datasource.hikari.data-source-properties.prepareThreshold=0
+spring.datasource.hikari.max-lifetime=1800000
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.minimum-idle=2
+spring.datasource.hikari.maximum-pool-size=10

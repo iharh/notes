@@ -1,3 +1,11 @@
+DEALLOCATE ALL;
+
+spring.datasource.hikari.data-source-properties.prepareThreshold=0
+spring.datasource.hikari.max-lifetime=1800000
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.minimum-idle=2
+spring.datasource.hikari.maximum-pool-size=10
+
 2021
 https://habr.com/ru/companies/postgrespro/articles/574702/
 
