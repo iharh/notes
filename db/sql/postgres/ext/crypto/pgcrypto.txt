@@ -1,0 +1,9 @@
+https://www.postgresql.org/docs/current/pgcrypto.html
+
+\dx pgcrypto
+
+https://www.postgresql.fastware.com/blog/further-protect-your-data-with-pgcrypto
+https://www.tigerdata.com/learn/postgresql-extensions-pgcrypto
+
+2025
+https://habr.com/ru/companies/selectel/articles/925848/
