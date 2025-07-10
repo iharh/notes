@@ -6,11 +6,18 @@ https://github.com/qdrant/qdrant
     ! written in rust
 https://github.com/qdrant/qdrant/releases
 
+https://github.com/qdrant/examples/tree/master
+https://github.com/qdrant/examples/tree/master/qdrant_101_getting_started
+    https://colab.research.google.com/github/qdrant/examples/blob/master/qdrant_101_getting_started/getting_started.ipynb
+https://github.com/qdrant/examples/tree/master/qdrant_101_text_data
+
 https://qdrant.tech/benchmarks/
 
 https://qdrant.tech/documentation/
 https://qdrant.tech/documentation/overview/
     !!! start from this
+https://qdrant.tech/documentation/beginner-tutorials/search-beginners/
+
 https://github.com/qdrant/qdrant/blob/master/docs/roadmap/README.md
 
 https://qdrant.tech/demo/
@@ -22,6 +29,34 @@ https://blog.qdrant.tech/
 https://qdrant.tech/articles/
 https://qdrant.tech/articles/new-recommendation-api/
 
+https://deepwiki.com/qdrant
+https://deepwiki.com/qdrant/examples/2-getting-started-with-qdrant
+
+code-search
+https://qdrant.tech/documentation/advanced-tutorials/code-search/
+
+api/swagger
+https://ui.qdrant.tech/
+https://raw.githubusercontent.com/qdrant/qdrant/master/docs/redoc/master/openapi.json
+
+docker
+https://qdrant.tech/documentation/quickstart/
+docker run -p 6333:6333 \
+    -v $(pwd)/qdrant_storage:/qdrant/storage \
+    qdrant/qdrant
+
+integration
+https://github.com/qdrant/mcp-server-qdrant
+https://github.com/qdrant/n8n-nodes-qdrant
+
+clients
+https://python-client.qdrant.tech/quickstart.html
+https://github.com/qdrant/qdrant-js
+
+web-ui
+https://qdrant.tech/documentation/web-ui/
+    http://localhost:6333/dashboard
+
 2024
 https://techcrunch.com/2024/01/23/qdrant-open-source-vector-database/
 2023
@@ -30,3 +65,4 @@ Rust - Gourlay - Qdrant - A Search Engine in Rust 0:00 of 44:48
 https://www.shuttle.rs/blog/2023/09/08/building-semantic-search-in-rust
     https://github.com/ddprrt/shuttle-qdrant-openai
     https://www.youtube.com/watch?v=YLWSeiDh2o0
+https://medium.com/@shaikhrayyan123/building-personalized-recommender-systems-with-qdrant-a-comprehensive-guide-caa366091dd6
