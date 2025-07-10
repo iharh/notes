@@ -32,18 +32,45 @@ https://qdrant.tech/articles/new-recommendation-api/
 https://deepwiki.com/qdrant
 https://deepwiki.com/qdrant/examples/2-getting-started-with-qdrant
 
+whatsnew
+https://github.com/qdrant/qdrant/pkgs/container/qdrant%2Fqdrant
+https://qdrant.tech/blog/qdrant-1.14.x/
+    v1.14.1-unprivileged
+
+explore
+https://qdrant.tech/documentation/concepts/explore/
+
 code-search
 https://qdrant.tech/documentation/advanced-tutorials/code-search/
 
 api/swagger
+https://api.qdrant.tech/master/api-reference
+https://api.qdrant.tech/v-1-14-x/api-reference
 https://ui.qdrant.tech/
+https://github.com/qdrant/qdrant/blob/master/docs/redoc/master/openapi.json
 https://raw.githubusercontent.com/qdrant/qdrant/master/docs/redoc/master/openapi.json
 
 docker
+https://hub.docker.com/r/qdrant/qdrant
 https://qdrant.tech/documentation/quickstart/
+https://lindevs.com/install-qdrant-inside-docker-container-on-linux
 docker run -p 6333:6333 \
     -v $(pwd)/qdrant_storage:/qdrant/storage \
     qdrant/qdrant
+https://medium.com/@fadil.parves/qdrant-self-hosted-28a30106e9dd
+    !!! ssl-cert super-sample
+    docker run -p 6333:6333 -v $(pwd)/qdrant_storage:/qdrant/storage:z -v $(pwd)/path/to/custom/custom_config.yaml:/qdrant/config/production.yaml qdrant/qdrant
+https://freedium.cfd/https://mattgosden.medium.com/security-and-authentication-workarounds-for-qdrant-vector-database-8cd16282a2c8
+    https://github.com/ttamg/qdrant-apikey-docker
+
+config
+https://qdrant.tech/documentation/guides/configuration/
+
+ssl/security
+https://qdrant.tech/documentation/guides/security/
+
+troubleshoot
+https://qdrant.tech/documentation/guides/common-errors/
 
 integration
 https://github.com/qdrant/mcp-server-qdrant
@@ -51,12 +78,15 @@ https://github.com/qdrant/n8n-nodes-qdrant
 
 clients
 https://python-client.qdrant.tech/quickstart.html
+https://github.com/qdrant/java-client
 https://github.com/qdrant/qdrant-js
 
 web-ui
 https://qdrant.tech/documentation/web-ui/
     http://localhost:6333/dashboard
 
+2025
+https://blog.futuresmart.ai/comprehensive-guide-to-qdrant-vector-db-installation-and-setup
 2024
 https://techcrunch.com/2024/01/23/qdrant-open-source-vector-database/
 2023
