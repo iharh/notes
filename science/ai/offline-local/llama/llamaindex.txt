@@ -18,6 +18,8 @@ books
 Gheorghiu - Building Data-Driven Applications with LlamaIndex 1st ed
     an: 3aec550a28a472fe765196a879abfe7f/0/0
 
+baeldung
+https://www.baeldung.com/cs/llamaindex-llm-multimodal-semantic-search
 2024
 https://blog.llamaindex.ai/introducing-query-pipelines-025dc2bb0537
     ! rag
