@@ -25,6 +25,8 @@ https://github.com/microsoft/vscode-copilot-release/issues/1188
 https://stackoverflow.com/questions/77374105/invalid-copilot-token-missing-token-403
 https://github.com/settings/tokens
 
+https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-in-github-desktop
+
 
 2025-01-09 22:24:46.067 [warning] [certificates] Failed to parse certificate # Zscaler Root CA
  Error: error:0900006e:PEM routines:OPENSSL_internal:NO_START_LINE
