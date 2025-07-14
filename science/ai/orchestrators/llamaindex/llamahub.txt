@@ -1,0 +1,17 @@
+https://llamahub.ai
+
+https://llamahub.ai/?tab=readers
+https://llamahub.ai/l/readers/
+
+https://docs.llamaindex.ai/en/v0.10.34/api_reference/readers/web/#llama_index.readers.web.NewsArticleReader
+https://newspaper.readthedocs.io/en/latest/user_guide/quickstart.html#articl
+
+https://llamahub.ai/l/readers/llama-index-readers-web
+https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/readers
+https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/readers/llama-index-readers-web
+https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/readers/llama-index-readers-web/llama_index/readers/web
+https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/readers/llama-index-readers-web/llama_index/readers/web/beautiful_soup_web
+
+https://llamahub.ai/l/readers/llama-index-readers-file
+
+https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/node_parser/llama-index-node-parser-topic
