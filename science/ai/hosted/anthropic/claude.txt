@@ -14,3 +14,10 @@ https://habr.com/ru/companies/bothub/articles/812659/
 https://techcrunch.com/2023/07/11/anthropic-releases-claude-2-the-second-generation-of-its-ai-chatbot/
 https://3dnews.ru/1089788/anthropic-predstavila-v-svobodnom-dostupe-claude-2-drugelyubnogo-chatbota-s-iskusstvennim-intellektom
 https://www.anthropic.com/index/introducing-claude
+
+misc
+Но токены жрет... Как не в себя. Сделал просто hello world приложение - пустой react + back-end с одним методом hello и результат показывать на экране. 40 центов. 
+Добавил стилей +10 центов. 
+Цена за токен не понятная - пишут только цену за подписку https://www.anthropic.com/pricing - 20 в месяц, но сразу надо отдать 200. 
+Я положил на счет 5 и оно работает, т.е. видимо идет расчет по токенам отсюда https://www.anthropic.com/pricing#api - ценник за Claude Sonnet 4 конский. 
+Попробую найти как выбирать модель, чтобы выставить Claude Haiku 3.5, то тогда не факт что будет хорошее качество.
