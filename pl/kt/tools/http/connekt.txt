@@ -1,0 +1,28 @@
+https://github.com/Amplicode/connekt
+https://github.com/Amplicode/connekt/releases
+
+inst
+https://github.com/Amplicode/connekt/blob/main/install/connekt
+https://github.com/Amplicode/connekt/blob/main/install/install.sh
+    curl -sSf https://raw.githubusercontent.com/Amplicode/connekt/main/install/install.sh | bash
+https://github.com/Amplicode/connekt/blob/main/connekt-script-definition/README.md
+
+docker
+ghcr.io/amplicode/connekt:0.2.10
+https://github.com/Amplicode/connekt/blob/main/connekt-scripting-host/Dockerfile
+
+samples
+https://github.com/Amplicode/connekt/tree/main/connekt-script-definition
+
+build
+https://github.com/Amplicode/connekt/blob/main/gradle/libs.versions.toml
+
+2025
+https://habr.com/ru/companies/haulmont/news/930424/
+Amplicode - Connekt HTTP Client of 1:22:44
+    https://www.youtube.com/watch?v=BBN3cjsmr8c
+    https://vkvideo.ru/video-222549074_456239194
+
+amplicode
+https://amplicode.ru/documentation/installation-guide-intellij/
+https://amplicode.ru/documentation/installation-guide-vs-code/
