@@ -1,0 +1,23 @@
+https://www.docker.com/products/model-runner/
+https://docs.docker.com/ai/model-runner/
+https://docs.docker.com/ai/model-runner/#enable-dmr-in-docker-engine
+    dnf/docker-model-plugin
+    docker model 
+        version
+        list
+        run ai/smollm2
+        rm <model>
+        logs
+
+https://docs.docker.com/reference/cli/docker/model/
+https://docs.docker.com/reference/cli/docker/model/logs/
+
+api
+https://docs.docker.com/ai/model-runner/#enable-dmr-in-docker-engine
+
+models
+https://hub.docker.com/u/ai
+
+2025
+AI.Dialogs - Local LLM run in 2025 0:00 f 49:25
+    https://www.youtube.com/watch?v=l2JmohAO0zY
