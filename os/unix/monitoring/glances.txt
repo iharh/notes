@@ -1,12 +1,23 @@
 https://nicolargo.github.io/glances/
+
 https://github.com/nicolargo/glances
 https://github.com/nicolargo/glances/wiki
 
 https://glances.readthedocs.io/en/latest/
+https://glances.readthedocs.io/en/develop/
 
 
+2021
+https://www.linode.com/docs/guides/how-to-use-glances-system-monitoring/
+    plugins
 2020
+https://blog.sedicomm.com/2020/02/13/glances-instrument-monitoringa-sistemy-v-realnom-vremeni-dlya-linux/
+    ! keys
 https://itsfoss.com/glances/
 AwesomeOpenSource - Glances, a free, open source, self hosted System Stats at a Glance! of 9:26
     https://www.youtube.com/watch?v=lQ34yOAhjZ8
     ! need to look
+
+keys
+    h - help
+    ...
