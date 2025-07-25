@@ -1,24 +1,10 @@
 TODO !!! Ask Ezenin
 
-sudo dnf rm vlc-plugins-base
-file /usr/lib64/vlc/plugins/codec/libfaad_plugin.so conflicts between attempted installs of vlc-plugins-freeworld-3.0.21-4.fc42.x86_64 and vlc-plugins-base-1:3.0.21-24.fc42.x86_64
+course
+https://www.coursera.org/
 
-https://computingforgeeks.com/how-to-solve-abrtd-doesnt-belong-to-any-package-and-processunpackaged-is-set-to-no/
-sudo vim /etc/abrt/abrt-action-save-package-data.conf
-...
-ProcessUnpackaged = yes
-
-https://kb.epam.com/display/EPMCES/How+to+work+with+EPAM+gitlab+after+migration+to+entraid
-? hyprctl
-? hyprpanel (ags)
-
-fied:   [LEFT] WestWing
-        modified:   [RIGHT] EastWing
-
-?
-https://jetclient.io/docs/introduction/getting-started/
-.config/hypr/scripts/KooLsDotsUpdate.sh
-.config/hypr/scripts/MonitorProfiles.sh
+inspect
+    /etc/yum.repos.d/
 
 ~/.config/waybar/
     missing links
@@ -39,33 +25,6 @@ https://jetclient.io/docs/introduction/getting-started/
     # on-timeout = notify-send -i $iDIR " You are idle!" # command to run when timeout has passed
     # on-resume = notify-send -i $iDIR " Oh! you're Back" " Hello !!!"  # command to run when activity is detected after timeout has fired.
 
-prostavki
-    67.1 - 54.1
-
-Problem: problem with installed package
-  - installed package hyprland-qtutils-0.1.4-2.fc42.x86_64 requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
-  - package hyprland-qtutils-0.1.3-5.fc42.x86_64 from copr:copr.fedorainfracloud.org:solopasha:hyprland requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
-  - package hyprland-qtutils-0.1.4-1.fc42.x86_64 from copr:copr.fedorainfracloud.org:solopasha:hyprland requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
-  - package hyprland-qtutils-0.1.4-2.fc42.x86_64 from copr:copr.fedorainfracloud.org:solopasha:hyprland requires libQt6Core.so.6(Qt_6.9)(64bit), but none of the providers can be installed
-  - cannot install both qt6-qtbase-6.8.2-3.fc42.x86_64 from fedora and qt6-qtbase-6.9.0-2.fc42.x86_64 from @System
-  - cannot install both qt6-qtbase-6.8.2-3.fc42.x86_64 from fedora and qt6-qtbase-6.9.0-2.fc42.x86_64 from updates
-  - package telegram-desktop-5.13.1-1.fc42.x86_64 from rpmfusion-free requires libQt6Core.so.6(Qt_6.8_PRIVATE_API)(64bit), but none of the providers can be installed
-  - conflicting requests
-
-https://my.unet.by/pay
-https://u2.by/terminatetn
-    https://unetby.omnidesk.ru/knowledge_base/item/264488?sid=58307
-    123@unet.by
-    г. Минск, ул. Ежи Гедройца 14, пом. 181,
-
-set up explorer
-    qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""
-
-Zhitinskiy
-
-course
-https://www.coursera.org/
-
 try
     librewolf
     https://www.librechat.ai/docs/features
@@ -77,19 +36,6 @@ Volkova
         https://www.youtube.com/playlist?list=PLU_Coz0WBwt4xvZEVZJTvAyqXLZ2hyaZ6
     Laevskiy - Volkova of p43
         https://www.youtube.com/playlist?list=PLGsJxQg4LPTEDpyRZ8cZAYrLZji8_LHvv
-
-Psy - Common Psychology p1 of p54
-    https://www.youtube.com/playlist?list=PLt3fgqeygGTVk5khY228EBHujarUgyLfv
-
-arr
-https://wiki.servarr.com/
-https://www.linuxserver.io/
-https://docs.linuxserver.io/
-https://fleet.linuxserver.io/
-
-karaoke
-https://www.a1.by/ru/services/razvlecheniya-i-media/karaoke/p/karaoke
-https://support.a1.by/chastnym-klientam/uslugi/internet-podpiski/kak-otklyuchit/kak-otklyuchit-podpiski/
 
 vpn
 https://www.reddit.com/r/gluetun/
