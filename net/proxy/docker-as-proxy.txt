@@ -1,0 +1,24 @@
+FROM ubuntu:20.04
+RUN apt-get update && apt-get install -y \
+    iproute2 iptables openvpn
+CMD ["sh"]
+
+docker build -t my-router .
+docker run --cap-add=NET_ADMIN --device /dev/net/tun -d --name my-container my-router
+# --device list  Add a host device to the container
+# --privileged --net=host
+
+docker exec -it my-container bash
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
+# if NAT is needed, where eth0 - output inet device
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+exit
+
+# at host
+docker inspect my-container | grep '"IPAddress"'
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name
+CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my-container)
+# something like  172.17.0.2
+
+ip route add default via <IP_CONTAINER> dev docker0
