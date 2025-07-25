@@ -25,3 +25,17 @@ DEBU[0000] Using OCI runtime "/usr/bin/crun"
 ++ dirname /usr/bin/distrobox-generate-entry
 ...
 
+/usr/bin
+    distrobox
+    distrobox-assemble
+    distrobox-create
+    distrobox-enter
+    distrobox-ephemeral
+    distrobox-export
+    distrobox-generate-entry
+    distrobox-host-exec
+    distrobox-init
+    distrobox-list
+    distrobox-rm
+    distrobox-stop
+    distrobox-upgrade

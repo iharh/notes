@@ -84,7 +84,7 @@ https://github.com/redpanda-data/console/
 https://docs.redpanda.com/current/console/config/configure-console/
     !!!
 https://docs.redpanda.com/current/manage/console/
-redpanda-console -config.filepath ./redpanda-console.yaml
+    redpanda-console -config.filepath ./redpanda-console.yaml
 
 
 https://docs.redpanda.com/current/get-started/quickstarts/

@@ -138,3 +138,47 @@ https://distrobox.it/usage/distrobox-generate-entry/
 /usr/bin/distrobox-list
 /usr/bin/distrobox-stop
 /usr/bin/distrobox-rm
+
+
+
+/usr/bin
+    distrobox
+    distrobox-assemble
+    distrobox-create
+    distrobox-enter
+    distrobox-ephemeral
+    distrobox-export
+    distrobox-generate-entry
+    distrobox-host-exec
+    distrobox-init
+    distrobox-list
+    distrobox-rm
+    distrobox-stop
+    distrobox-upgrade
+
+
+/usr/bin/distrobox-list
+  ...
+  # List containers using custom format that included MOUNTS
+  # we do this as we can detect the custom mounts done by distrobox to distringuish
+  # between a normal container and a distrobox one.
+  container_list=$(${container_manager} ps -a --no-trunc --format \
+    "{{.ID}}|{{.Image}}|{{.Names}}|{{.Status}}|{{.Labels}}{{.Mounts}}")
+  ...
+  podman ps -a --no-trunc --format "{{.ID}}|{{.Image}}|{{.Names}}|{{.Status}}|{{.Labels}}{{.Mounts}}"
+
+/usr/bin/distrobox-create
+    ...
+    # inject additional volumes if specified
+    if [ -n "${container_additional_volumes}" ]; then
+      for volume in ${container_additional_volumes}; do
+        container_manager_additional_flags="${container_manager_additional_flags}
+          --volume ${volume}"
+      done
+    fi
+    ...
+		--volume /tmp:/tmp:rslave
+		--volume \"${distrobox_entrypoint_path}\":/usr/bin/entrypoint:ro
+		--volume \"${distrobox_export_path}\":/usr/bin/distrobox-export:ro
+		--volume \"${distrobox_hostexec_path}\":/usr/bin/distrobox-host-exec:ro
+		--volume \"${container_user_home}\":\"${container_user_home}\":rslave"
