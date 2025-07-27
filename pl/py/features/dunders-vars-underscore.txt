@@ -1,0 +1,11 @@
+2025
+VisuallyExplained - Python if __name__ == '__main__' of 6:06
+    https://www.youtube.com/watch?v=KZpYtNtGxSU
+2021
+https://hackernoon.com/understanding-the-underscore-of-python-309d1a029edc
+    https://nuancesprog.ru/p/255/
+
+__name__
+    whether the file runned as a script (__main__) or a module (real file name)
+__file__
+__doc__
