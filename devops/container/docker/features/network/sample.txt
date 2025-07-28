@@ -1,3 +1,9 @@
+TODO
+https://forums.docker.com/t/solved-docker-networking-routing-containers/42050/8
+https://forums.docker.com/t/routing-network-traffic-from-one-service-to-another/117816
+https://docs.docker.com/engine/network/packet-filtering-firewalls/
+    !!!
+
 networks:
   vault-network:
     ipam:
