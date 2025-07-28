@@ -1,3 +1,15 @@
+for gluetun
+https://stackoverflow.com/questions/59340558/route-docker-container-traffic-through-a-vpn-container
+for nginx-proxy
+https://github.com/nginx-proxy/nginx-proxy
+https://github.com/nginx-proxy/docker-gen
+http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/
+
+2023
+https://blog.bartzz.com/how-to-route-docker-container-through-another-container/
+    --network container:<name>
+    network_mode: service:<name>
+
 FROM ubuntu:20.04
 RUN apt-get update && apt-get install -y \
     iproute2 iptables openvpn
