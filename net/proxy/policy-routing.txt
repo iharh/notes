@@ -1,0 +1,26 @@
+ip rule help
+man ip-rule
+
+https://tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.rpdb.simple.html
+https://doc.lagout.org/network/
+https://doc.lagout.org/network/inetdoc/
+https://doc.lagout.org/network/inetdoc/Policy_Routing_in_Linux_ENG.pdf
+
+http://www.policyrouting.org/
+http://www.policyrouting.org/PolicyRoutingBook/ONLINE/TOC.html
+
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-policy-based-routing-to-define-alternative-routes_configuring-and-managing-networking
+
+2025
+https://blog.sdn.clinic/2025/01/advanced-linux-routing-policy-based-routing/
+    ip rule add dport 80 table 80
+    ip rule add dport 443 table 80
+    ip route add default via 192.168.178.1 dev eth1 table 80
+2021
+https://freedium.cfd/https://medium.com/@marthin.pasaribu_72336/linux-policy-routing-introduction-37933f8cb62e
+    ip rule list
+    ip rule add from 192.168.39.199 lookup custom
+    ip route add default via 192.168.30.2 dev eth1 table custom
+2013
+https://blog.scottlowe.org/2013/05/29/a-quick-introduction-to-linux-policy-routing/
+    local-table is non-modifiable
