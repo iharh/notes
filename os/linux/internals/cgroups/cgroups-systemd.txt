@@ -1,0 +1,10 @@
+https://systemd.io/CONTROL_GROUP_INTERFACE/
+https://systemd.io/CONTAINER_INTERFACE/
+https://systemd.io/WRITING_VM_AND_CONTAINER_MANAGERS/
+
+?
+https://www.freedesktop.org/software/systemd/man/latest/systemd-cgls.html#
+    Recursively show control group contents
+https://www.freedesktop.org/software/systemd/man/latest/machinectl.html#
+https://www.freedesktop.org/software/systemd/man/latest/systemd-machined.service.html#
+https://www.freedesktop.org/software/systemd/man/latest/org.freedesktop.machine1
