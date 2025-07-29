@@ -2,6 +2,7 @@ TODO !!! Ask Ezenin
 ip a show fctvpnf9ffbefb
 ip l show fctvpnf9ffbefb
 sudo ip l delte fctvpnf9ffbefb
+/etc/NetworkManager/system-connections/fctvpnf9ffbefb.nmconnection
 
 course
 https://www.coursera.org/
