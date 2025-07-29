@@ -1,0 +1,13 @@
+https://quarkdown.com/
+
+https://github.com/iamgio/quarkdown
+https://github.com/iamgio/quarkdown/releases/
+https://github.com/iamgio/quarkdown/tree/main/quarkdown-stdlib/src/main/kotlin/com/quarkdown/stdlib
+
+presentation
+https://iamgio.eu/quarkdown/demo/
+https://github.com/iamgio/quarkdown/blob/main/demo/demo.qd
+
+https://github.com/iamgio/quarkdown?tab=readme-ov-file#install-script-linuxmacos
+    https://github.com/quarkdown-labs/get-quarkdown/blob/main/install.sh
+    curl -fsSL https://raw.githubusercontent.com/quarkdown-labs/get-quarkdown/refs/heads/main/install.sh | sudo env "PATH=$PATH" bash

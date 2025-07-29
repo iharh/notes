@@ -18,6 +18,12 @@ nmcli
     https://www.ibm.com/support/pages/setup-policy-based-routing-networkmanager
     https://www.networkmanager.dev/docs/api/latest/nm-settings-nmcli.html
     https://www.golinuxcloud.com/nmcli-command-examples-cheatsheet-centos-rhel/
+rh
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/configuring_and_managing_networking/index
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/configuring_and_managing_networking/configuring-policy-based-routing-to-define-alternative-routes
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/pdf/configuring_and_managing_networking/Red_Hat_Enterprise_Linux-10-Configuring_and_managing_networking-en-US.pdf
+    ? no this in rh10
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/configuring-policy-based-routing-to-define-alternative-routes_configuring-and-managing-networking
 
 4. ip routing
 http://linux-ip.net/html/ch-routing.html
