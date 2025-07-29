@@ -1,14 +1,7 @@
 TODO !!! Ask Ezenin
-ip a show fctvpnf9ffbefb
-ip l show fctvpnf9ffbefb
-sudo ip l delte fctvpnf9ffbefb
-/etc/NetworkManager/system-connections/fctvpnf9ffbefb.nmconnection
 
 course
 https://www.coursera.org/
-
-inspect
-    /etc/yum.repos.d/
 
 ~/.config/waybar/
     missing links
@@ -42,13 +35,6 @@ Volkova
         https://www.youtube.com/playlist?list=PLGsJxQg4LPTEDpyRZ8cZAYrLZji8_LHvv
 
 vpn
-https://www.reddit.com/r/gluetun/
-    https://www.youtube.com/watch?v=ES5C2kfDQrM
-https://dockstarter.com/apps/gluetun/
-https://github.com/qdm12/gluetun
-https://hub.docker.com/r/qmcgaw/gluetun
-https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers
-    https://github.com/qdm12/gluetun/issues/134
     https://windscribe.com/features/use-for-free/
     https://torguard.net/cart.php?gid=2&pid=4&billingcycle=monthly
     https://surfshark.com/pricing
