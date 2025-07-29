@@ -8,3 +8,12 @@ https://www.starlette.io/
 
 inst
 pip install "fastapi[standard]"
+
+misc
+https://fastapi.tiangolo.com/tutorial/bigger-applications/#include-an-apirouter-with-a-custom-prefix-tags-responses-and-dependencies
+https://fastapi.tiangolo.com/reference/dependencies/
+https://fastapi.tiangolo.com/tutorial/dependencies/global-dependencies/
+https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/
+https://fastapi.tiangolo.com/tutorial/dependencies/classes-as-dependencies/
+https://fastapi.tiangolo.com/reference/parameters/#fastapi.File
+https://medium.com/@johnidouglasmarangon/request-parameters-in-fastapi-8ba12ded1e5c

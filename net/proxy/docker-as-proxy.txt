@@ -34,3 +34,18 @@ CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddres
 # something like  172.17.0.2
 
 ip route add default via <IP_CONTAINER> dev docker0
+
+******************************************
+
+docker bridge network does not support fixed ip-addresses
+    docker network create \
+      --subnet=192.168.1.0/24 \
+      my_custom_network
+
+    docker run --rm -dit \
+      --net my_custom_network \
+      --ip 192.168.1.100 \
+      --name my_container \
+      nginx
+
+    docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my_container
