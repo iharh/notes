@@ -1,2 +1,7 @@
 https://redis.io/docs/latest/operate/oss_and_stack/management/
 https://redis.io/docs/latest/operate/oss_and_stack/management/config/
+
+2025
+Redis HighLoad Optimization
+    https://habr.com/ru/companies/selectel/articles/931760/
+    https://docs.selectel.ru/managed-databases/redis/eviction-policy/
