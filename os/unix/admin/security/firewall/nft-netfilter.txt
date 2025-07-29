@@ -1,15 +1,41 @@
 https://wiki.nftables.org/wiki-nftables/index.php/Main_Page
+https://wiki.nftables.org/wiki-nftables/index.php/Sets
+
+https://wiki.nftables.org/wiki-nftables/index.php/Moving_from_iptables_to_nftables
 https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes
+
+https://wiki.nftables.org/wiki-nftables/index.php/Setting_packet_metainformation
+    In this example, the conntrack mark is stored in the packet. 
+        nft add rule filter forward meta mark set ct mark
 https://wiki.nftables.org/wiki-nftables/index.php/Matching_packet_metainformation
     skuid <user id> 	UID associated with originating socket
+    You can use your user name to match traffic, eg.
+        nft add rule filter output meta skuid pablo[|1000] counter
+
+    nft add rule filter output meta mark 123 counter
+    secmark 	Y 	packet secmark 	integer (32 bit)
 
 https://www.mankier.com/8/nft
 https://www.netfilter.org/projects/nftables/manpage.html
 
+tutorial
+https://people.netfilter.org/pablo/nft-tutorial.pdf
+    ! p14
+    nft add rule ip foo bar meta skuid 1000-1100
+    nft add rule ip foo bar ct mark set 10
+    nft add rule ip foo bar ct mark set meta mark
+
+src
+https://git.netfilter.org/nftables/
+
+samples
+https://kernelnewbies.org/nftables_examples
 
 wiki
 https://wiki.gentoo.org/wiki/Nftables
 https://wiki.archlinux.org/title/Nftables
+    /etc/systemd/system/docker.service.d/netns.conf
+        ... nsenter ...
 https://wiki.archlinux.org/title/Nftables_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
 
 /etc/nftables/
@@ -23,7 +49,41 @@ nft
 sudo systemctl status nftables.service
 sudo systemctl is-enabled nftables.service
 
+backend
+    firewalld (https://wiki.archlinux.org/title/Firewalld)
+
 2016
 iptables deprecation
     https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables#known_limitations
     https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/9.0_release_notes/deprecated_functionality
+
+sudo nft
+
+table ip filter {
+    chain output {
+        type filter hook output priority 0; policy accept;
+        ip daddr 0.0.0.0/0 meta skuid 1000($UID) mark set 0x1
+    }
+}
+
+sudo nft list ruleset
+sudo ip rule add fwmark 0x1 table 100
+sudo ip route add default via 192.168.1.1 table 100
+
+install packages
+    nftables
+    # cgroup-tools
+    libcgroup-tools
+        /etc/cgconfig.conf
+
+sudo lsmod | grep net_cls
+sudo mkdir /sys/fs/cgroup/net_cls/firefox
+sudo sh -c "echo 0x100001 > /sys/fs/cgroup/net_cls/firefox/net_cls.classid"
+sudo cgexec -g net_cls:firefox firefox
+
+sudo nft add table ip filter
+sudo nft add chain ip filter output { type filter hook output priority 0; }
+sudo nft add rule ip filter output meta cgroup 0x100001 meta mark set 0x1
+
+sudo nft list ruleset > /etc/nftables.conf
+sudo systemctl enable nftables
