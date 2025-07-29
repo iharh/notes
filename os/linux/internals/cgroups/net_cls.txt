@@ -1,0 +1,19 @@
+https://kernel.org/doc/html/latest/admin-guide/cgroup-v1/net_cls.html
+
+sudo mount | grep cgroup
+cgroup2 on /sys/fs/cgroup type cgroup2 (rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot)
+
+sudo lsmod | grep net_cls
+sudo mkdir /sys/fs/cgroup/net_cls/firefox
+sudo sh -c "echo 0x100001 > /sys/fs/cgroup/net_cls/firefox/net_cls.classid"
+sudo cgexec -g net_cls:firefox firefox
+
+
+kernell should be built with option
+    CONFIG_NET_CLS_CGROUP
+
+for the cgroup2
+    Unified Cgroup Hierarchy
+
+    $ sudo cat /sys/fs/cgroup/cgroup.controllers
+    cpuset cpu io memory hugetlb pids rdma misc dmem
