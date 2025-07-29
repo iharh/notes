@@ -1,0 +1,29 @@
+https://wiki.nftables.org/wiki-nftables/index.php/Main_Page
+https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes
+https://wiki.nftables.org/wiki-nftables/index.php/Matching_packet_metainformation
+    skuid <user id> 	UID associated with originating socket
+
+https://www.mankier.com/8/nft
+https://www.netfilter.org/projects/nftables/manpage.html
+
+
+wiki
+https://wiki.gentoo.org/wiki/Nftables
+https://wiki.archlinux.org/title/Nftables
+https://wiki.archlinux.org/title/Nftables_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
+
+/etc/nftables/
+    main.nft
+???
+/etc/nftables.conf
+
+nft 
+    list ruleset
+
+sudo systemctl status nftables.service
+sudo systemctl is-enabled nftables.service
+
+2016
+iptables deprecation
+    https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables#known_limitations
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/9.0_release_notes/deprecated_functionality

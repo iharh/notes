@@ -50,11 +50,29 @@ man ip-rule
 $ ip rule 
     help
         http://linux-ip.net/html/tools-ip-rule.html
+        https://www.man7.org/linux/man-pages/man8/ip-rule.8.html
     list/show
         0:      from all lookup local
         32766:  from all lookup main
         32767:  from all lookup default
     add/del SELECTOR ACTION
+        SELECTOR
+            ... [ fwmark FWMARK[/MASK] ]
+                https://unix.stackexchange.com/questions/626779/whats-the-meaning-of-these-ip-route-rules
+                    ip rule add fwmark 1 lookup 100
+                    adds a rule to packets marked as 1 (I suppose with a --set-mark 1 in iptables) 
+                        https://tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.netfilter.html
+                        https://utcc.utoronto.ca/~cks/space/blog/linux/LinuxIpFwmarkMasks
+                        https://utcc.utoronto.ca/~cks/space/blog/tech/IPRecursiveRoutingProblem
+                        https://serverfault.com/questions/1014323/making-an-ip-rule-higher-priority-than-local
+                            !!!
+                        https://serverfault.com/questions/745878/command-line-utility-to-test-fwmark-in-ip-rule-ip-route
+                            !!! use ip route get with marks
+                            !!! eBPF program can also be attached for marking
+
+                        https://serverfault.com/questions/1100976/routing-fwmark-to-vpn-gateway-using-nftables-mark
+                            nft insert rule inet fw4 mangle_prerouting ip daddr @marker counter ct   mark set 390
+                            nft add    rule inet fw4 mangle_prerouting ip daddr @marker counter meta mark set ct mark
     flush
     save
     restore

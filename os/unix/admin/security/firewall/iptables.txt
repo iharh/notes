@@ -1,16 +1,9 @@
 https://ru.wikibooks.org/wiki/Iptables
-https://wiki.nftables.org/wiki-nftables/index.php/Main_Page
 https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu
 https://webhostinggeeks.com/howto/how-to-disable-iptables-on-ubuntu/
     sudo systemctl disable netfilter-persistent
 https://www.shellhacks.com/disable-iptables-temporary-ubuntu-debian-centos/
     !!! via iptables-save
-
-nft
-sudo systemctl status nftables.service
-https://wiki.archlinux.org/title/Nftables
-https://wiki.archlinux.org/title/Nftables_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
-    /etc/nftables.conf
 
 inst
 https://askubuntu.com/questions/1052919/iptables-reload-restart-on-ubuntu-18-04
@@ -28,6 +21,8 @@ https://upcloud.com/community/tutorials/configure-iptables-ubuntu/
 2020
 https://losst.ru/nastrojka-iptables-dlya-chajnikov
 2016
+https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables#known_limitations
+    iptables deprecation
 https://www.tecmint.com/start-stop-disable-enable-firewalld-iptables-firewall/
 2013
 KumarSiwal - Fundamentals of iptables of 1:04:03
