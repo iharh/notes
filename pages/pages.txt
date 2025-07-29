@@ -1,4 +1,7 @@
 TODO !!! Ask Ezenin
+ip a show fctvpnf9ffbefb
+ip l show fctvpnf9ffbefb
+sudo ip l delte fctvpnf9ffbefb
 
 course
 https://www.coursera.org/
