@@ -1,5 +1,12 @@
 TODO !!! Ask Ezenin
 
+/etc/NetworkManager/system-connections/Wired connection 1.nmconnection
+[ipv4]
+dns=100.100.100.1;100.100.100.2;
+dns-search=...
+ignore-auto-dns=true
+method=auto
+
 course
 https://www.coursera.org/
 
