@@ -1,5 +1,21 @@
+https://github.com/github/gh-copilot
+    gh auth login --web -h github.com
+
 https://docs.github.com/en/copilot/using-github-copilot
 https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli
+https://docs.github.com/en/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli
+2025
+https://mspoweruser.com/copilot-in-azure-sql-database-will-let-you-write-sql-queries-in-plain-english-preview-out/
+    https://techcommunity.microsoft.com/blog/azuresqlblog/microsoft-copilot-in-azure-extends-capabilities-to-azure-sql-database-public-pre/4075408
+https://mspoweruser.com/github-copilot-in-the-cli-is-now-generally-available/
+    https://github.blog/changelog/2024-03-21-github-copilot-general-availability-in-the-cli/
+        gh ext
+            --help
+            list
+                list installed
+            upgrade gh-copilot
+                1.1.1
+            
 
 https://github.com/github/gh-copilot
     gh auth login --web
@@ -15,6 +31,13 @@ https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/
     gh copilot alias -- zsh
     echo 'eval "$(gh copilot alias -- zsh)"' >> ~/.zshrc
 
+gh copilot
+    --help
+    config
+        ???
+    alias bash/zsh
+        generate aliases
 ghcs
-    suggest
+    gh copilot suggest
 ghce
+    gh copilot explain

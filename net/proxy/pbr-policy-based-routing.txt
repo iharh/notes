@@ -1,7 +1,57 @@
+?
+    https://n2x.io/blog/advanced-linux-routing-with-policy-routing
+    https://www.baeldung.com/linux/destination-source-routing
+    https://lartc.org/
+    http://www.ralphb.net/IPSubnet/
+    http://www.kohala.com/start/
+    https://tldp.org/HOWTO/Adv-Routing-HOWTO/index.html
+    https://tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.rpdb.simple.html
+    https://serverfault.com/questions/1120143/make-ip-route-and-routing-rules-permanent-using-nmcli-on-rhel-8-rocky-8
+        ... proto static/kernel
+Linux Network Administrators Guide
+    https://tldp.org/LDP/nag2/index.html
+Guide to IP Layer Network Administration with Linux
+    http://linux-ip.net/html/index.html
+tools
+    https://subnetonline.com/
+nmcli
+    https://www.ibm.com/support/pages/setup-policy-based-routing-networkmanager
+    https://www.networkmanager.dev/docs/api/latest/nm-settings-nmcli.html
+    https://www.golinuxcloud.com/nmcli-command-examples-cheatsheet-centos-rhel/
+
+4. ip routing
+http://linux-ip.net/html/ch-routing.html
+    4.7. routing cache
+    http://linux-ip.net/html/routing-cache.html
+5. nat
+http://linux-ip.net/html/ch-nat.html
+    http://linux-ip.net/html/nat-overview.html
+    http://linux-ip.net/html/nat-stateless.html
+    http://linux-ip.net/html/nat-dnat.html
+http://www.linas.org/linux/load.html
+D.2
+    http://linux-ip.net/html/tools-ip-route.html
+
+rules
+    https://bbs.archlinux.org/viewtopic.php?id=251095
+    https://doc.lagout.org/network/inetdoc/Policy_Routing_in_Linux_ENG.pdf
+    https://blog.scottlowe.org/2013/05/29/a-quick-introduction-to-linux-policy-routing/
+    http://www.policyrouting.org/
 ip rule help
 man ip-rule
 
-https://tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.rpdb.simple.html
+$ ip rule 
+    help
+        http://linux-ip.net/html/tools-ip-rule.html
+    list/show
+        0:      from all lookup local
+        32766:  from all lookup main
+        32767:  from all lookup default
+    add/del SELECTOR ACTION
+    flush
+    save
+    restore
+
 https://doc.lagout.org/network/
 https://doc.lagout.org/network/inetdoc/
 https://doc.lagout.org/network/inetdoc/Policy_Routing_in_Linux_ENG.pdf
