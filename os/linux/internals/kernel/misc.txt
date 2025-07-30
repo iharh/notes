@@ -1,0 +1,31 @@
+fedora
+dnf/
+    kernel
+    kernel-core
+      /boot/.vmlinuz-6.15.8-200.fc42.x86_64.hmac
+      /boot/System.map-6.15.8-200.fc42.x86_64
+      /boot/config-6.15.8-200.fc42.x86_64
+      /boot/initramfs-6.15.8-200.fc42.x86_64.img
+      /boot/symvers-6.15.8-200.fc42.x86_64.xz
+      /boot/vmlinuz-6.15.8-200.fc42.x86_64
+      /lib/modules/6.15.8-200.fc42.x86_64/.vmlinuz.hmac
+      /lib/modules/6.15.8-200.fc42.x86_64/System.map
+      /lib/modules/6.15.8-200.fc42.x86_64/config
+      /lib/modules/6.15.8-200.fc42.x86_64/modules.builtin
+      /lib/modules/6.15.8-200.fc42.x86_64/modules.builtin.modinfo
+      /lib/modules/6.15.8-200.fc42.x86_64/symvers.xz
+      /lib/modules/6.15.8-200.fc42.x86_64/vmlinuz
+      /usr/share/licenses/kernel-core/COPYING-6.15.8-200.fc42
+    kernel-modules
+      /lib/modules/6.15.8-200.fc42.x86_64/kernel/
+          fs/
+          drivers/
+          net/
+          mm/
+          sound/
+      ...
+    kernel-modules-core
+      ...
+    kernel-modules-extra
+      ...
+      /etc/modprobe.d/...
