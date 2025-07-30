@@ -9,3 +9,6 @@ pip install -U duckduckgo-search langchain-community
 2024
 https://www.restack.io/docs/langchain-knowledge-langchain-duckduckgo-integration
 https://medium.com/@garysvenson09/how-to-use-duckduckgo-search-with-python-in-langchain-157a816fa8d5
+2023
+https://nanonets.com/blog/langchain/
+    from langchain.tools import DuckDuckGoSearchRun
