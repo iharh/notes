@@ -18,6 +18,9 @@ https://www.jetbrains.com/help/idea/prerequisites-for-dev-containers.html
 ...
 https://www.jetbrains.com/help/idea/start-dev-container-for-a-remote-project.html
 https://www.jetbrains.com/help/idea/start-dev-container-from-welcome-screen.html
+https://www.jetbrains.com/help/idea/start-dev-container-from-scratch.html
+    create new project with devcontainers support
+https://www.jetbrains.com/help/idea/start-dev-container-inside-ide.html
 
 samples
 https://github.com/IdeaUJetBrains/idea-demo-devcontainers
@@ -25,5 +28,6 @@ https://github.com/IdeaUJetBrains/idea-demo-devcontainers/tree/master/.devcontai
 
 2024
 https://blog.jetbrains.com/idea/2024/07/using-dev-containers-in-jetbrains-ides-part-1/
+https://dzone.com/articles/local-development-environment-intellij-devcontainers-linux
 2022
 https://containers.dev/guide/dockerfile

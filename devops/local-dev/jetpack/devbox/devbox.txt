@@ -1,13 +1,14 @@
+https://www.jetify.com/devbox/
 https://www.jetpack.io/devbox
 
 https://github.com/jetpack-io/devbox
 
 https://www.youtube.com/@jetpack-io/videos
 
-https://www.jetpack.io/devbox/docs/
-https://www.jetpack.io/devbox/docs/quickstart/
-    requires nix package manager
-https://www.jetpack.io/devbox/docs/configuration/
+https://www.jetify.com/docs/devbox
+https://www.jetify.com/docs/devbox/quickstart/
+https://www.jetify.com/docs/devbox/configuration/
+    devbox json reference
 
 https://github.com/jetpack-io/devbox/tree/main/examples/flakes/remote
 https://github.com/jetpack-io/devbox/tree/main/plugins
