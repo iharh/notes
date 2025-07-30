@@ -49,8 +49,8 @@ man ip-rule
 
 $ ip rule 
     help
-        http://linux-ip.net/html/tools-ip-rule.html
         https://www.man7.org/linux/man-pages/man8/ip-rule.8.html
+        http://linux-ip.net/html/tools-ip-rule.html
     list/show
         0:      from all lookup local
         32766:  from all lookup main
@@ -61,21 +61,21 @@ $ ip rule
                 https://unix.stackexchange.com/questions/626779/whats-the-meaning-of-these-ip-route-rules
                     ip rule add fwmark 1 lookup 100
                     adds a rule to packets marked as 1 (I suppose with a --set-mark 1 in iptables) 
-                        https://tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.netfilter.html
-                        https://utcc.utoronto.ca/~cks/space/blog/linux/LinuxIpFwmarkMasks
-                        https://utcc.utoronto.ca/~cks/space/blog/tech/IPRecursiveRoutingProblem
-                        https://serverfault.com/questions/1014323/making-an-ip-rule-higher-priority-than-local
-                            !!!
-                        https://serverfault.com/questions/745878/command-line-utility-to-test-fwmark-in-ip-rule-ip-route
-                            !!! use ip route get with marks
-                            !!! eBPF program can also be attached for marking
-
-                        https://serverfault.com/questions/1100976/routing-fwmark-to-vpn-gateway-using-nftables-mark
-                            nft insert rule inet fw4 mangle_prerouting ip daddr @marker counter ct   mark set 390
-                            nft add    rule inet fw4 mangle_prerouting ip daddr @marker counter meta mark set ct mark
+                https://tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.netfilter.html
+                https://utcc.utoronto.ca/~cks/space/blog/linux/LinuxIpFwmarkMasks
+                https://utcc.utoronto.ca/~cks/space/blog/tech/IPRecursiveRoutingProblem
+                https://serverfault.com/questions/745878/command-line-utility-to-test-fwmark-in-ip-rule-ip-route
+                    !!! use ip route get with marks
+                    !!! eBPF program can also be attached for marking
     flush
     save
     restore
+
+with iptables
+https://serverfault.com/questions/1014323/making-an-ip-rule-higher-priority-than-local
+    !!!
+    # iptables -t mangle -A PREROUTING -i pppoe0 -p tcp -m tcp --dport 80 -j MARK --set-xmark [num]
+    # ip rule add fwmark [num] table 200
 
 https://doc.lagout.org/network/
 https://doc.lagout.org/network/inetdoc/
@@ -99,6 +99,31 @@ https://freedium.cfd/https://medium.com/@marthin.pasaribu_72336/linux-policy-rou
 2013
 https://blog.scottlowe.org/2013/05/29/a-quick-introduction-to-linux-policy-routing/
     local-table is non-modifiable
+
+tools
+https://github.com/cedrickchee/awesome-wireguard
+https://github.com/cedrickchee/awesome-wireguard#mesh-network
+https://github.com/slackhq/nebula
+    https://noiseprotocol.org/
+    https://nebula.defined.net/docs/
+    https://medium.com/several-people-are-coding/introducing-nebula-the-open-source-global-overlay-network-from-slack-884110a5579
+https://github.com/tonarino/innernet
+    https://blog.tonari.no/introducing-innernet
+    https://patchwork.ozlabs.org/project/netfilter-devel/patch/1479114761-19534-1-git-send-email-pablo@netfilter.org/#1511797
+https://tailscale.com/
+    https://github.com/juanfont/headscale
+        https://headscale.net/stable/
+    https://www.youtube.com/@Tailscale/videos 
+misc
+    https://github.com/linuxserver/docker-wireguard
+    https://github.com/netbirdio/netbird
+    https://github.com/gravitl/netmaker
+    https://github.com/svenstaro/wiresmith
+
+tools
+    https://github.com/wagoodman/dive
+    https://github.com/bitwister/twine
+        netwoking using labels
 
 
 Для перенаправления трафика внутрь Docker-контейнера с использованием policy routing, необходимо выполнить несколько шагов. 

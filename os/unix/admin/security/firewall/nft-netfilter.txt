@@ -87,3 +87,31 @@ sudo nft add rule ip filter output meta cgroup 0x100001 meta mark set 0x1
 
 sudo nft list ruleset > /etc/nftables.conf
 sudo systemctl enable nftables
+
+
+
+*****************************************************************
+
+
+# Создаем cgroup
+mkdir -p /sys/fs/cgroup/my_cgroup
+# Добавляем текущий процесс (или другой с PID x) в cgroup
+echo $$ > /sys/fs/cgroup/my_cgroup/cgroup.procs
+
+sudo nft add table inet filter
+sudo nft add chain inet filter input { type filter hook input priority 0 \; }
+???
+sudo nft add rule  inet filter output cgroup v2path "/my_cgroup" meta mark set 0x1
+sudo nft add rule  inet filter input cgroupv2 path /sys/fs/cgroup/my_cgroup mark set 0x1
+
+sudo nft list ruleset
+sudo tcpdump -nnvvv -i eth0 ip
+
+https://git.netfilter.org/nftables/tree/py/src/nftables.py
+https://blog.fraggod.net/2021/08/31/easy-control-over-applications-network-access-using-nftables-and-systemd-cgroup-v2-tree.html
+
+!!!
+https://unix.stackexchange.com/questions/752635/can-nftables-perform-postrouting-matching-on-crgroupv2
+    !!! need to read
+https://github.com/mk-fg/systemd-cgroup-nftables-policy-manager
+    https://github.com/systemd/systemd/issues/7327

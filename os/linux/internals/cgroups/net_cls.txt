@@ -1,5 +1,5 @@
 https://kernel.org/doc/html/latest/admin-guide/cgroup-v1/net_cls.html
-https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html
+    !!! v1-only
 
 https://systemd.io/CGROUP_DELEGATION/
 This means systemd currently does not and will never manage the following controllers on cgroup v1: 
@@ -18,16 +18,13 @@ sudo mkdir /sys/fs/cgroup/net_cls/firefox
 sudo sh -c "echo 0x100001 > /sys/fs/cgroup/net_cls/firefox/net_cls.classid"
 sudo cgexec -g net_cls:firefox firefox
 
-
 kernell should be built with option
     CONFIG_NET_CLS_CGROUP
 
 for the cgroup2
     Unified Cgroup Hierarchy
-
     $ sudo cat /sys/fs/cgroup/cgroup.controllers
     cpuset cpu io memory hugetlb pids rdma misc dmem
-
 
 https://github.com/libcgroup/libcgroup
 https://github.com/libcgroup/libcgroup/blob/main/README
@@ -35,68 +32,13 @@ https://github.com/libcgroup/libcgroup/issues/432
 https://github.com/libcgroup/libcgroup/issues/432#issuecomment-2200828308
     # export CGROUP_LOGLEVEL=debug
     # cgexec ...
-
 ? misc
 https://docs.kernel.org/admin-guide/cgroup-v2.html#misc
 https://manpages.ubuntu.com/manpages/questing/en/man7/cgroups.7.html
        There is no direct equivalent of the net_cls and net_prio controllers from cgroups version 1.  
        Instead, support has been added to iptables(8) to allow eBPF filters that hook on cgroup v2 path‐names to make decisions about network traffic on a per-cgroup basis.
-
 ! need
-The kernel source file 
-    Documentation/admin-guide/cgroup-v2.rst.
-
 https://gist.github.com/kriswebdev/a8d291936fe4299fb17d3744497b1170
     iptables_arg="--path $cgroup_name"
     ...
     sudo iptables -t mangle -C OUTPUT -m cgroup $iptables_arg -j MARK --set-mark
-
-
-# Создаем cgroup
-mkdir -p /sys/fs/cgroup/my_cgroup
-# Добавляем текущий процесс (или другой с PID x) в cgroup
-echo $$ > /sys/fs/cgroup/my_cgroup/cgroup.procs
-
-sudo nft add table inet filter
-sudo nft add chain inet filter input { type filter hook input priority 0 \; }
-
-???
-sudo nft add rule  inet filter output cgroup v2path "/my_cgroup" meta mark set 0x1
-sudo nft add rule  inet filter input cgroupv2 path /sys/fs/cgroup/my_cgroup mark set 0x1
-
-sudo nft list ruleset
-sudo tcpdump -nnvvv -i eth0 ip
-
-https://git.netfilter.org/nftables/tree/py/src/nftables.py
-https://blog.fraggod.net/2021/08/31/easy-control-over-applications-network-access-using-nftables-and-systemd-cgroup-v2-tree.html
-
-!!!
-https://unix.stackexchange.com/questions/752635/can-nftables-perform-postrouting-matching-on-crgroupv2
-    !!! need to read
-https://github.com/mk-fg/systemd-cgroup-nftables-policy-manager
-    https://github.com/systemd/systemd/issues/7327
-
-https://github.com/cedrickchee/awesome-wireguard
-https://github.com/cedrickchee/awesome-wireguard#mesh-network
-https://github.com/slackhq/nebula
-    https://noiseprotocol.org/
-    https://nebula.defined.net/docs/
-    https://medium.com/several-people-are-coding/introducing-nebula-the-open-source-global-overlay-network-from-slack-884110a5579
-https://github.com/tonarino/innernet
-    https://blog.tonari.no/introducing-innernet
-    https://patchwork.ozlabs.org/project/netfilter-devel/patch/1479114761-19534-1-git-send-email-pablo@netfilter.org/#1511797
-https://tailscale.com/
-    https://github.com/juanfont/headscale
-        https://headscale.net/stable/
-    https://www.youtube.com/@Tailscale/videos 
-misc
-    https://github.com/linuxserver/docker-wireguard
-    https://github.com/netbirdio/netbird
-    https://github.com/gravitl/netmaker
-    https://github.com/svenstaro/wiresmith
-
-
-tools
-    https://github.com/wagoodman/dive
-    https://github.com/bitwister/twine
-        netwoking using labels
