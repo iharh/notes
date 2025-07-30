@@ -115,3 +115,58 @@ https://unix.stackexchange.com/questions/752635/can-nftables-perform-postrouting
     !!! need to read
 https://github.com/mk-fg/systemd-cgroup-nftables-policy-manager
     https://github.com/systemd/systemd/issues/7327
+
+!!! man nft
+https://man.archlinux.org/man/nft.8
+https://netfilter.org/projects/nftables/manpage.html
+META EXPRESSIONS
+    meta {length | nfproto | l4proto | protocol | priority}
+    [meta] {mark | ... | nftrace | rtclassid | ... | cgroup | ... }
+    ...
+    mark        Packet mark       mark
+    rtclassid   Routing realm     realm
+    cgroup      control group id  integer (32 bit)
+
+SOCKET EXPRESSION
+    socket {transparent | mark | wildcard}
+    socket cgroupv2 level NUM   #(path from /sys/fs/cgroup)
+
+https://bbs.archlinux.org/viewtopic.php?id=289682
+    #
+    nft add rule inet "${table_name}" output \
+		    socket cgroupv2 level 5 \
+		    \""${cgroup}"\" \
+		    log
+https://blog.fraggod.net/2021/08/31/easy-control-over-applications-network-access-using-nftables-and-systemd-cgroup-v2-tree.html
+    https://github.com/mk-fg/systemd-cgroup-nftables-policy-manager
+    https://github.com/mk-fg/systemd-cgroup-nftables-policy-manager/issues/2
+    https://man.archlinux.org/man/systemd.resource-control.5
+        NFTSet=[family]:[table]:[set]
+        NFTSet=cgroup:inet:filter:my_service
+        # This option is only available for system services and is not supported for services running in per-user instances of the service manager.
+        # Added in version 255.
+!!!
+https://blogs.oracle.com/linux/post/cgroup-v2-meets-nftables
+    https://github.com/libcgroup/libcgroup/issues/432
+        ! workaround
+    https://systemd.io/CGROUP_DELEGATION/
+
+!!! cgroups v2
+https://manpath.be/f35/7/cgroups
+https://docs.kernel.org/admin-guide/cgroup-v2.html
+https://www.kernel.org/doc/Documentation/cgroup-v2.txt
+https://git.kernel.org/pub/scm/linux/kernel/git/tj/cgroup.git/tree/Documentation/admin-guide/cgroup-v2.rst
+https://zhiwayzhang.github.io/posts/cgroups/
+https://andrestc.com/post/cgroups-io/
+https://facebookmicrosites.github.io/cgroup2/docs/create-cgroups.html
+    $ stat -fc %T /sys/fs/cgroup/
+    # For cgroup v2, the output is cgroup2fs
+    # For cgroup v1, the output is tmpfs.
+
+???
+https://github.com/mk-fg/systemd-cgroup-nftables-policy-manager
+    ...
+    Both nftables/iptables rules use xt_cgroup kernel module that - when looking at the packet - actually matches numeric cgroup ID, and not the path string, 
+    and does not update those IDs dynamically when cgroups are created/removed in any way.
+xt_cgroup patchset
+https://lwn.net/Articles/667117/
