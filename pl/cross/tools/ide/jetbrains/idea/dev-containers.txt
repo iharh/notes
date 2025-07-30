@@ -1,3 +1,6 @@
+Ultimate-only !!!
+https://plugins.jetbrains.com/plugin/21962-dev-containers
+
 https://containers.dev/
 https://containers.dev/features
     !!!
@@ -27,7 +30,8 @@ https://github.com/IdeaUJetBrains/idea-demo-devcontainers
 https://github.com/IdeaUJetBrains/idea-demo-devcontainers/tree/master/.devcontainer
 
 2024
-https://blog.jetbrains.com/idea/2024/07/using-dev-containers-in-jetbrains-ides-part-1/
+https://blog.jetbrains.com/idea/tag/dev-containers/
+    https://blog.jetbrains.com/idea/2024/07/using-dev-containers-in-jetbrains-ides-part-1/
 https://dzone.com/articles/local-development-environment-intellij-devcontainers-linux
 2022
 https://containers.dev/guide/dockerfile
