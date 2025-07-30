@@ -19,6 +19,7 @@ https://www.mankier.com/8/nft
 https://www.netfilter.org/projects/nftables/manpage.html
 
 tutorial
+https://github.com/aborrero/python-nftables-tutorial
 https://people.netfilter.org/pablo/nft-tutorial.pdf
     ! p14
     nft add rule ip foo bar meta skuid 1000-1100
