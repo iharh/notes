@@ -14,8 +14,23 @@ https://firejail.wordpress.com/features-3/man-firejail/
 
 https://firejail.wordpress.com/blog
 
-https://wiki.archlinux.org/title/firejail
 https://wiki.gentoo.org/wiki/Firejail
+https://wiki.archlinux.org/title/Firejail
+
+profiles
+https://github.com/netblue30/firejail/tree/master/etc
+https://github.com/netblue30/firejail/tree/master/etc/net
+https://github.com/netblue30/firejail/tree/master/ci/check/profiles
+
+cfg
+https://github.com/netblue30/firejail/blob/master/etc/firejail.config
+templates
+https://github.com/netblue30/firejail/blob/master/etc/templates/profile.template
+
+contrib
+https://github.com/netblue30/firejail/tree/master/contrib
+https://github.com/netblue30/firejail/blob/master/contrib/syscalls.sh
+    with strace
 
 whatsnew
 https://firejail.wordpress.com/download-2/release-notes/
@@ -28,3 +43,7 @@ https://linuxthebest.net/firejail-bezopasnyj-zapusk-potentsialno-uyazvimykh-pril
 https://www.brighteon.com/channels/netblue30
 https://www.bitchute.com/channel/netblue30/
 https://www.linux.org.ru/articles/desktop/17042789
+
+cli
+firejail
+    --debug $Program > $PathToOutputFile
