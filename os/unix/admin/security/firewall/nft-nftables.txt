@@ -40,6 +40,15 @@ https://wiki.archlinux.org/title/Nftables
         ... nsenter ...
 https://wiki.archlinux.org/title/Nftables_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
 
+2023
+LinuxCloudHacks - Nftables Firewall of p8
+    https://www.youtube.com/playlist?list=PLUF494I4KUvqwDjhOoP3IFUpgEhE1OVDO
+2016
+iptables deprecation
+    https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables#known_limitations
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/9.0_release_notes/deprecated_functionality
+
+
 /etc/nftables/
     main.nft
 ???
@@ -54,10 +63,6 @@ sudo systemctl is-enabled nftables.service
 backend
     firewalld (https://wiki.archlinux.org/title/Firewalld)
 
-2016
-iptables deprecation
-    https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables#known_limitations
-    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/9.0_release_notes/deprecated_functionality
 
 sudo nft
 
