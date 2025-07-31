@@ -1,0 +1,33 @@
+https://onnxruntime.ai/
+
+https://github.com/microsoft/onnxruntime
+https://github.com/microsoft/onnxruntime/tree/main/.devcontainer
+https://github.com/microsoft/onnxruntime/blob/main/.devcontainer/Dockerfile
+    ARG VARIANT=ubuntu-20.04
+    FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
+https://github.com/microsoft/onnxruntime/blob/main/.devcontainer/devcontainer.json
+
+https://onnxruntime.ai/docs/
+https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html
+
+https://onnxruntime.ai/docs/api/
+https://onnxruntime.ai/docs/api/python/index.html
+https://onnxruntime.ai/docs/api/python/tutorial.html
+https://onnxruntime.ai/docs/api/python/api_summary.html
+
+https://onnxruntime.ai/docs/tutorials/web/
+https://www.npmjs.com/package/onnxruntime-web
+
+https://microsoft.github.io/onnxruntime-web-demo/#/
+
+https://www.youtube.com/@ONNXRuntime/videos
+
+samples
+https://github.com/redis-developer/ai-in-the-browser
+
+2025
+Redis - Run AI in the browser - faster, cheaper, and private 0:00 of 6:00
+    https://www.youtube.com/watch?v=nBaGhHipWb0
+    https://github.com/redis-developer/semantic-search-with-redis
+2021
+https://opensource.microsoft.com/blog/2021/09/02/onnx-runtime-web-running-your-machine-learning-model-in-browser/
