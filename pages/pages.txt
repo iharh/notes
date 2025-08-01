@@ -7,6 +7,9 @@ dns-search=...
 ignore-auto-dns=true
 method=auto
 
+nets for litteliest
+    https://habr.com/ru/articles/307252/
+
 course
 https://www.coursera.org/
 
@@ -203,8 +206,6 @@ diagrams software
     https://github.com/erictossell/nixflakes/issues/67
 ? github/nushell
     https://github.com/x-way/iptables-tracer
-net
-    https://habr.com/ru/articles/307252/
 vim
     https://www.youtube.com/playlist?list=PL5fd4SsfvECzQbXMq8p4KIixgTYysBvGK
 az
