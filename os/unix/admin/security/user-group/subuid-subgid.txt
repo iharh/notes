@@ -3,6 +3,14 @@ https://man.archlinux.org/man/subgid.5.en
 https://wiki.gentoo.org/wiki/Subuid_subgid
 https://wiki.archlinux.org/title/Podman
 
+https://man7.org/linux/man-pages/man7/user_namespaces.7.html
+https://www.baeldung.com/linux/etc-subuid
+https://www.funtoo.org/LXD/What_are_subuids_and_subgids%3F
+https://man7.org/linux/man-pages/man7/namespaces.7.html
+https://rootlesscontaine.rs/getting-started/common/subuid/
+https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md
+    !!! need to read
+
 https://freedium.cfd/https://medium.com/@ByteWaveNetwork/step-by-step-podman-tutorial-36259fad2690
 cat /etc/subuid
 <usr>:524288:65536
