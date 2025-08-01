@@ -1,0 +1,12 @@
+https://man.archlinux.org/man/subuid.5.en
+https://man.archlinux.org/man/subgid.5.en
+https://wiki.gentoo.org/wiki/Subuid_subgid
+https://wiki.archlinux.org/title/Podman
+
+https://freedium.cfd/https://medium.com/@ByteWaveNetwork/step-by-step-podman-tutorial-36259fad2690
+cat /etc/subuid
+<usr>:524288:65536
+
+https://github.com/containers/podman/discussions/23934
+
+sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $(id -nu)
