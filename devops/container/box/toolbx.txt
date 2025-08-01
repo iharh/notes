@@ -1,0 +1,33 @@
+https://containertoolbx.org/
+
+https://github.com/containers/toolbox/
+https://github.com/containers/toolbox/tree/main/doc
+https://github.com/containers/toolbox/blob/main/doc/toolbox.1.md
+
+https://containertoolbx.org/doc/
+https://containertoolbx.org/install/
+https://containertoolbx.org/use/
+    !!! need to try
+
+https://handbook.gnome.org/development/toolbx.html
+
+articles
+https://containertoolbx.org/articles/
+2024
+https://debarshiray.wordpress.com/2024/03/01/toolbx-is-a-release-blocker-for-fedora-39-onwards/
+presentations
+2025
+DevConf - Toolbx: Recent updates - DevConf.CZ 2024 0:00 of 14:09
+    https://www.youtube.com/watch?v=tM0HNGgY9Fs
+samples
+https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/main/tools/toolbox
+    https://flathub.org/apps/org.gnome.Builder
+    https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/tools/toolbox/toolbox-sysext-install.sh
+    https://blog.sebastianwick.net/posts/silverblue-gnome-shell-development/
+    https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/tools/toolbox/run-gnome-shell.sh
+    ...
+    SHELL_ARGS+=( --wayland )
+    ...
+    toolbox --container $TOOLBOX run \   
+        env "${SHELL_ENV[@]}" dbus-run-session $GDB gnome-shell "${SHELL_ARGS[@]}"
+    https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/tools/toolbox/create-toolbox.sh
