@@ -1,0 +1,31 @@
+https://universal-blue.org/
+
+https://github.com/ublue-os/
+https://github.com/ublue-os/ucore
+    uCore extends Fedora CoreOS; it does not provide it's own custom or GUI installer.
+https://github.com/ublue-os/ucore?tab=readme-ov-file#podman-and-firewalld
+    https://blog.podman.io/2023/11/new-netavark-firewalld-reload-service/
+
+https://github.com/ublue-os/cayo
+    This project builds a server image similar to uCore but based on bootc images provided by CentOS and Fedora.
+
+https://github.com/wayblueorg/wayblue
+
+https://projectbluefin.io/
+
+https://blue-build.org/
+https://universal-blue.discourse.group/docs?category=6
+
+bluefin-dx
+https://universal-blue.discourse.group/docs?topic=39
+https://universal-blue.discourse.group/t/introduction-to-bluefin/41/4
+https://www.ypsidanger.com/announcing-project-bluefin/
+
+2025
+Tailscale - You need to try this Linux distro - Fedora uCore is absolutely fantastic! of 26:48
+    https://www.youtube.com/watch?v=CipnV3yx2jw
+    https://github.com/tailscale-dev/video-code-snippets/tree/main/2025-06-fcos
+    comment: Not to throw sand to anyone's fun, but the uBlue is planning to dropping support of uCore in favor of a bootc based server distro.
+2023
+BrodieRobertson - uBlue Linux: Immutable Fedora With Batteries Included of 13:37
+    https://www.youtube.com/watch?v=HsKKh3WS1q0

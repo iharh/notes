@@ -1,3 +1,6 @@
+https://fedoraproject.org/coreos/
+https://fedoraproject.org/coreos/download
+
 https://getfedora.org/coreos
 https://getfedora.org/coreos?stream=stable
 
@@ -8,9 +11,30 @@ https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-containers/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-updates/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-user-systemd-unit-on-boot/
 
+inst
+https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+
+ignition
+https://docs.fedoraproject.org/en-US/fedora-coreos/producing-ign/
+https://docs.fedoraproject.org/en-US/fedora-coreos/remote-ign/
+
+https://coreos.github.io/butane/
+    yaml, easy for human to read/write
+https://coreos.github.io/butane/getting-started/
+https://coreos.github.io/butane/specs/
+https://coreos.github.io/butane/examples/
+https://coreos.github.io/butane/examples/#luks-encrypted-storage
+
 https://coreos.github.io/ignition/
+    json, mostly suitable for processing by core-os installer
+        https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+    ...
+    partitioning disks, formatting, writing files (regular files, systemd units, etc.), and configuring users
+https://coreos.github.io/ignition/supported-platforms/
 https://github.com/coreos/ignition
 https://github.com/coreos/ignition/blob/main/docs/getting-started.md
+
+cfg
 https://github.com/coreos/fedora-coreos-config
 https://github.com/coreos/fedora-coreos-tracker/blob/main/Design.md
 
