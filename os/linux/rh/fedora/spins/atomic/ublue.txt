@@ -21,6 +21,15 @@ https://universal-blue.discourse.group/docs?topic=39
 https://universal-blue.discourse.group/t/introduction-to-bluefin/41/4
 https://www.ypsidanger.com/announcing-project-bluefin/
 
+imst
+https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+https://fedoraproject.org/coreos/download?stream=stable
+https://builds.coreos.fedoraproject.org/streams/stable.json
+    architectures/x86_64/artifacts/metal/formats/iso/disk/location
+    https://builds.coreos.fedoraproject.org/streams/stable.json
+    wget "https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/42.20250705.3.0/aarch64/fedora-coreos-42.20250705.3.0-live-iso.aarch64.iso"
+    797M
+
 2025
 Tailscale - You need to try this Linux distro - Fedora uCore is absolutely fantastic! of 26:48
     https://www.youtube.com/watch?v=CipnV3yx2jw
