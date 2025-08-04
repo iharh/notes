@@ -1,3 +1,77 @@
+https://containers.github.io/bootable/
+https://containers.github.io/bootable/projects.html
+    https://uapi-group.org/specifications/specs/configuration_files_specification/
+    https://quay.io/
+    https://quay.io/tutorial/
+
+need
+https://github.com/wayblueorg/wayblue
+https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/silverblue-cheatsheet.pdf
+https://www.youtube.com/playlist?list=PLCrlcBRBAaTrFlOfmLW7XCmmAViLGOT7S
+https://pretalx.com/devconf-cz-2024/talk/RNDTRV/
+https://pretalx.com/devconf-cz-2024/talk/W3AVCT/
+https://www.redhat.com/en/introduction-to-image-mode-for-red-hat-enterprise-linux-interactive-lab
+https://developers.redhat.com/learn/rhel/rhel-image-mode-kickstart
+https://developers.redhat.com/learn/rhel/build-and-run-bootable-container-image-image-mode-rhel-and-podman-desktop
+https://developers.redhat.com/articles/2025/beyond-default-bootc-images-scratch
+https://developers.redhat.com/articles/2025/how-install-image-mode-system-using-system-reinstall-bootc
+https://developers.redhat.com/blog/2025/07/23/shape-future-linux-contribute-bootc-open-source-project
+https://github.com/uapi-group/specifications/blob/main/specs/unified_kernel_image.md
+https://fedoraproject.org/wiki/Changes/SystemdSysusers
+https://universal-blue.org/
+    https://bazzite.gg/
+    https://getaurora.dev/en
+    https://projectbluefin.io/
+    https://github.com/ublue-os/ucore
+    https://github.com/ublue-os/ucore?tab=readme-ov-file#installation
+        https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+            !!! need to read this
+https://www.heliumos.org/
+
+fs
+https://www.kernel.org/doc/html/next/filesystems/fsverity.html
+https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt
+
+fips-mode?
+https://manpages.ubuntu.com/manpages/focal/en/man8/fips-mode-setup.8.html
+https://manpages.ubuntu.com/manpages/focal/en/man8/fips-finish-install.8.html
+https://issues.redhat.com/browse/RHELDOCS-19284
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/security_hardening/switching-rhel-to-fips-mode_security-hardening
+
+misc
+https://github.com/opencontainers/image-spec/blob/main/config.md#image-json
+https://pykickstart.readthedocs.io/en/latest/kickstart-docs.html#ostreecontainer
+https://anaconda-installer.readthedocs.io/en/latest/
+https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux-10/image-mode
+    https://developers.redhat.com/products/rhel-image-mode/getting-started
+    https://developers.redhat.com/products/rhel-image-mode/faq
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/index
+https://www.redhat.com/en/blog/faster-container-image-pulls
+https://github.com/composefs/composefs
+
+https://podman-desktop.io/
+https://podman-desktop.io/docs/intro
+https://podman-desktop.io/docs/installation/linux-install
+    https://podman-desktop.io/docs/proxy
+https://www.redhat.com/en/topics/containers/what-is-podman-desktop
+https://developers.redhat.com/products/podman-desktop/overview
+https://developers.redhat.com/learn/openshift/develop-containers-using-podman-desktop-and-kubernetes
+https://developers.redhat.com/learn/rhel/build-your-ai-application-ai-lab-extension-podman-desktop
+https://developers.redhat.com/products/podman-desktop/red-hat-extension-pack
+https://catalog.redhat.com/en/search?gs=&q=bootc&searchType=containers
+https://developers.redhat.com/products/rhel-image-mode/overview?intcmp=7015Y000003ss1hQAA
+https://podman-desktop.io/downloads/linux
+    https://github.com/podman-desktop/podman-desktop/releases/
+    https://github.com/podman-desktop/podman-desktop/releases/download/v1.20.2/podman-desktop-1.20.2.tar.gz
+    flatpak install flathub io.podman_desktop.PodmanDesktop
+    ? podmantui
+    ? podmansh
+https://github.com/podman-desktop/podman-desktop
+https://github.com/podman-desktop/extension-podman-quadlet
+https://github.com/podman-desktop/extension-bootc
+    https://github.com/crc-org/macadam
+    
+
 https://gitlab.com/fedora/bootc
 https://github.com/coreos/fedora-coreos-docs
 
@@ -5,15 +79,26 @@ https://docs.fedoraproject.org/en-US/bootc/
 https://docs.fedoraproject.org/en-US/bootc/getting-started/
     FROM quay.io/fedora/fedora-bootc:40
     ...
-    bootc-image-builder
+    bootc-image-builder (osbuild.org)
         ? anaconda-iso, raw, qcow2, ami, ...
+            https://github.com/osbuild/bootc-image-builder?tab=readme-ov-file#-image-types
         ? podman-bootc
 https://docs.fedoraproject.org/en-US/bootc/base-images/
+https://docs.fedoraproject.org/en-US/bootc/bare-metal/
+    +anaconda
+https://docs.fedoraproject.org/en-US/bootc/bare-metal/#_generating_a_custom_installer_iso_with_bootc_image_builder
+https://docs.fedoraproject.org/en-US/bootc/qemu-and-libvirt/
+https://docs.fedoraproject.org/en-US/bootc/authentication/
+    !!! read from this and further !!!
 
 https://bootc-dev.github.io/bootc/
 https://bootc-dev.github.io/bootc/installation.html
 https://bootc-dev.github.io/bootc/bootc-install.html
 https://bootc-dev.github.io/bootc/bootc-install.html#using-bootc-install-to-existing-root
+    !!!
+    https://bootc-dev.github.io/bootc//bootc-install.html
+    https://docs.fedoraproject.org/en-US/bootc/podman-bootc-cli/
+    https://systemd.io/CREDENTIALS/
 https://bootc-dev.github.io/bootc/relationships.html
 
 https://osbuild.org/
@@ -25,10 +110,7 @@ auto-update
 https://coreos.github.io/zincati/
 https://github.com/openshift/cincinnati
 
-????
-https://www.youtube.com/watch?v=rCokgSYiVHQ
-https://www.youtube.com/watch?v=ERVyBc_fElY
-FedoraProject
+FedoraProject - ???
 https://www.youtube.com/watch?v=6FAVsMbhfnA
 https://www.youtube.com/watch?v=T9aDEF_4vr8
 https://www.youtube.com/watch?v=6FAVsMbhfnA
@@ -56,6 +138,55 @@ FedoraProject - Bootc: Getting Started with Bootable Containers of 8:28
     https://www.youtube.com/watch?v=bf1xqjLeA9M
 FedoraProject - Fedora bootc: GitOps for Noobs of 33:46
     https://www.youtube.com/watch?v=5ZN_7NDvavY
+DevConf - Keynote: What if you could boot a container? of 34:55
+    https://www.youtube.com/watch?v=ERVyBc_fElY
+    https://pretalx.com/devconf-cz-2024/talk/AVSUU3/
+        https://danwalsh.livejournal.com/
+        $ podman build           -t quay.io/examplecorp/soe:base .
+        $ podman run –privileged -d quay.io/examplecorp/soe:base
+        $ podman push               quay.io/examplecorp/soe:base
+        FROM quay.io/examplecorp/soe:base
+          RUN …
+        $ podman build -t quay.io/examplecorp/postgres:latest .
+        $ podman run   -d quay.io/examplecorp/postgres:latest
+        $ podman push     quay.io/examplecorp/postgres:latest
+        ...
+        15:00 var.bootc_image=ghcr.io/cgwalters/bootc-demo:latest podman run --rm \
+          --privileged \
+          -v /dev:/dev \
+          -v /:target \
+          -v /var/lib/containers:/var/lib/containers \
+          --pid=host \
+          --security-opt label=type:unconfined_t \
+          ${var.bootc_image} bootc install to-existing-root
+        doc: provisioning machines ... on GCP (via OpenTofu)
+        16:00 we are mounting entire root into container, later - replace ?host? system with a container
+        18:00 ... WARNING: This operation will OVERWRITE THE BOOTED HOST ROOT FILESYSTEM and is NOT REVERSIBLE.
+            $ bootc status
+        21:00
+            bootc-image-builder - build disk images from container images
+                raw, iso, qcow2, mac vms, vdmk, hyperv, ami, azure
+        22:00 
+            with Anaconda
+            # Basic setup
+            text
+            network --bootproto=dhcp --device=link --activate
+            # Basic partitioning
+            clearpart --all --initlabel --disklabel=gpt
+            reqpart --add-boot
+            part / --grow --fstype xfs
+
+            ostree container --url quay.io/exampleos/soe:latest
+
+            services --enabled=sshd
+            
+            # Only inject a SSH key for root
+            rootpw --iscrypted locked
+            sshkey --username root "<your-key-here>"
+            reboot
+All Systems Go! - bootc: Generating an ecosystem around bootable OCI containers 3:00 of 43:36
+    https://www.youtube.com/watch?v=rCokgSYiVHQ
+    https://media.ccc.de/v/all-systems-go-2024-266-bootc-generating-an-ecosystem-around-bootable-oci-containers
 
 issues
 https://github.com/coreos/bootupd/issues/468
