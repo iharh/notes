@@ -12,6 +12,23 @@ https://bootc-dev.github.io/bootc/installation.html
 https://bootc-dev.github.io/bootc/bootc-install.html
 https://bootc-dev.github.io/bootc/bootc-install.html#using-bootc-install-to-existing-root
 
+????
+https://www.youtube.com/watch?v=rCokgSYiVHQ
+https://www.youtube.com/watch?v=ERVyBc_fElY
+FedoraProject
+https://www.youtube.com/watch?v=6FAVsMbhfnA
+https://www.youtube.com/watch?v=T9aDEF_4vr8
+
 2024
+FedoraProject - Bootc: Hands on Demo of 12:51
+    https://www.youtube.com/watch?v=fccox6sGCWA
+    ! podman-bootc run --filesystem=xfs quay.io/vrothberg/build-and-boot:bootc
+    ...
+    # boots status
+        staged:
+        booted:
+    # bootc update
+    ! podman-bootc list
+    ! podman-bootc ssh <hash>
 FedoraProject - Bootc: Getting Started with Bootable Containers of 8:28
     https://www.youtube.com/watch?v=bf1xqjLeA9M
