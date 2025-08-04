@@ -1,3 +1,6 @@
+https://gitlab.com/fedora/bootc
+https://github.com/coreos/fedora-coreos-docs
+
 https://docs.fedoraproject.org/en-US/bootc/
 https://docs.fedoraproject.org/en-US/bootc/getting-started/
     FROM quay.io/fedora/fedora-bootc:40
@@ -11,6 +14,16 @@ https://bootc-dev.github.io/bootc/
 https://bootc-dev.github.io/bootc/installation.html
 https://bootc-dev.github.io/bootc/bootc-install.html
 https://bootc-dev.github.io/bootc/bootc-install.html#using-bootc-install-to-existing-root
+https://bootc-dev.github.io/bootc/relationships.html
+
+https://osbuild.org/
+https://github.com/osbuild/bootc-image-builder
+https://osbuild.org/docs/bootc/
+https://centos.github.io/centos-bootc/
+
+auto-update
+https://coreos.github.io/zincati/
+https://github.com/openshift/cincinnati
 
 ????
 https://www.youtube.com/watch?v=rCokgSYiVHQ
@@ -18,6 +31,15 @@ https://www.youtube.com/watch?v=ERVyBc_fElY
 FedoraProject
 https://www.youtube.com/watch?v=6FAVsMbhfnA
 https://www.youtube.com/watch?v=T9aDEF_4vr8
+https://www.youtube.com/watch?v=6FAVsMbhfnA
+https://www.youtube.com/watch?v=zF7aTCoWoLQ
+https://www.youtube.com/watch?v=uNZuYBq5XfI
+https://www.youtube.com/watch?v=shLgBytoaIU
+https://www.youtube.com/watch?v=uMkePEflqpk
+rel-party
+https://www.youtube.com/watch?v=yu5J2C1xqRs
+https://www.youtube.com/watch?v=-5O3p8KCMiw
+
 
 2024
 FedoraProject - Bootc: Hands on Demo of 12:51
@@ -32,3 +54,9 @@ FedoraProject - Bootc: Hands on Demo of 12:51
     ! podman-bootc ssh <hash>
 FedoraProject - Bootc: Getting Started with Bootable Containers of 8:28
     https://www.youtube.com/watch?v=bf1xqjLeA9M
+FedoraProject - Fedora bootc: GitOps for Noobs of 33:46
+    https://www.youtube.com/watch?v=5ZN_7NDvavY
+
+issues
+https://github.com/coreos/bootupd/issues/468
+https://gitlab.com/fedora/bootc/tracker/-/issues/61
