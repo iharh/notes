@@ -1,10 +1,20 @@
+https://universal-blue.discourse.group/t/ucore-lets-streamline-not-retiring/9098/
+
 https://universal-blue.org/
+https://universal-blue.org/images/
+https://universal-blue.org/images/main/
+https://universal-blue.org/introduction/
+https://universal-blue.org/media/
 
 https://github.com/ublue-os/
 https://github.com/ublue-os/ucore
     uCore extends Fedora CoreOS; it does not provide it's own custom or GUI installer.
 https://github.com/ublue-os/ucore?tab=readme-ov-file#podman-and-firewalld
     https://blog.podman.io/2023/11/new-netavark-firewalld-reload-service/
+
+https://docs.getaurora.dev/
+https://github.com/ublue-os/aurora-docs
+https://docs.getaurora.dev/dx/aurora-dx-intro/
 
 https://github.com/ublue-os/cayo
     This project builds a server image similar to uCore but based on bootc images provided by CentOS and Fedora.

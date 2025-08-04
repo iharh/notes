@@ -2,6 +2,9 @@ https://kinoite.fedoraproject.org/
 
 https://kinoite.fedoraproject.org/download/
     ! still in beta
+    wget "https://download.fedoraproject.org/pub/fedora/linux/releases/42/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-42-1.1.iso"
+    https://mirror.datacenter.by/pub/fedoraproject.org/linux/releases/42/Kinoite/x86_64/iso/Fedora-Kinoite-ostree-x86_64-42-1.1.iso
+    3.5G
 
 https://docs.fedoraproject.org/en-US/fedora-kinoite/
 https://docs.fedoraproject.org/en-US/fedora-kinoite/getting-started/
