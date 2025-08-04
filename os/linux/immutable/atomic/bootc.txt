@@ -1,0 +1,17 @@
+https://docs.fedoraproject.org/en-US/bootc/
+https://docs.fedoraproject.org/en-US/bootc/getting-started/
+    FROM quay.io/fedora/fedora-bootc:40
+    ...
+    bootc-image-builder
+        ? anaconda-iso, raw, qcow2, ami, ...
+        ? podman-bootc
+https://docs.fedoraproject.org/en-US/bootc/base-images/
+
+https://bootc-dev.github.io/bootc/
+https://bootc-dev.github.io/bootc/installation.html
+https://bootc-dev.github.io/bootc/bootc-install.html
+https://bootc-dev.github.io/bootc/bootc-install.html#using-bootc-install-to-existing-root
+
+2024
+FedoraProject - Bootc: Getting Started with Bootable Containers of 8:28
+    https://www.youtube.com/watch?v=bf1xqjLeA9M
