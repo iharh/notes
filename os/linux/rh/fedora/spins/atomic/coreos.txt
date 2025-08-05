@@ -1,6 +1,29 @@
+
+https://coreos.fedoraproject.org/
+https://github.com/coreos
+https://discussion.fedoraproject.org/c/coreos
+
+https://coreos.com/os/docs/latest/
+https://github.com/coreos/docs/
+https://coreos.com/docs/quickstart
+
+https://coreos.fedoraproject.org/faq
+
+articles
+https://fedoramagazine.org/announcing-fedora-coreos/
+2018
+http://www.opennet.ru/opennews/art.shtml?num=48808
+
+presentations
+https://www.slideshare.net/denisizmaylov/coreos-kubernetes
+
+fleet (now they recommend cubernetes):
+https://github.com/coreos/fleet
 https://fedoraproject.org/coreos/
 https://fedoraproject.org/coreos/download
 https://fedoraproject.org/coreos/download?stream=stable
+
+***************************************
 
 https://getfedora.org/coreos
 https://getfedora.org/coreos?stream=stable
@@ -13,6 +36,7 @@ https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-services/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-containers/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-updates/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-user-systemd-unit-on-boot/
+https://docs.fedoraproject.org/en-US/fedora-coreos/storage/
 
 inst
 https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
@@ -31,6 +55,7 @@ https://coreos.github.io/butane/
     yaml, easy for human to read/write
 https://coreos.github.io/butane/getting-started/
 https://coreos.github.io/butane/specs/
+https://coreos.github.io/butane/config-fcos-v1_6/
 https://coreos.github.io/butane/examples/
 https://coreos.github.io/butane/examples/#luks-encrypted-storage
 
@@ -42,6 +67,26 @@ https://coreos.github.io/ignition/
 https://coreos.github.io/ignition/supported-platforms/
 https://github.com/coreos/ignition
 https://github.com/coreos/ignition/blob/main/docs/getting-started.md
+
+auto-update
+https://coreos.github.io/zincati/
+https://coreos.github.io/zincati/usage/updates-strategy/
+
+security
+https://www.kicksecure.com/wiki/Security-misc
+https://github.com/Kicksecure/security-misc
+gvisor
+https://en.wikipedia.org/wiki/GVisor
+https://gvisor.dev/
+https://gvisor.dev/docs/
+https://gvisor.dev/docs/architecture_guide/intro/
+https://gvisor.dev/docs/user_guide/install/
+https://github.com/google/gvisor
+https://pkg.go.dev/gvisor.dev/gvisor
+https://medium.com/@remco_verhoef/sandboxing-with-gvisor-b9979bd424b9
+https://cloud.google.com/blog/products/identity-security/open-sourcing-gvisor-a-sandboxed-container-runtime
+https://lwn.net/Articles/754433/
+    https://www.youtube.com/watch?v=pWyJahTWa4I
 
 cfg
 https://github.com/coreos/fedora-coreos-config
@@ -55,6 +100,12 @@ https://github.com/Tecnativa/docker-socket-proxy
 
 ????
 https://www.youtube.com/watch?v=vH89CKVxLpA
+2023
+TommyTran - Installing Fedora CoreOS 37 of 30:56
+    https://www.youtube.com/watch?v=2eEiVYelFTo
+    ! 25:00 sudo coreos-installer install /dev/sda --copy-network --ignition-file|ignition-url 
+    https://github.com/Metropolis-nexus/Fedora-CoreOS-Ignition
+    https://github.com/Metropolis-nexus/Fedora-CoreOS-Ignition/blob/main/x86.yml
 2020
 https://fedoramagazine.org/getting-started-with-fedora-coreos/
 2019
