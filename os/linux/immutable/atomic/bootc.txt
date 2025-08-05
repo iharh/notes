@@ -27,6 +27,7 @@ https://universal-blue.org/
         https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
             !!! need to read this
 https://www.heliumos.org/
+https://grahamc.com/blog/nix-and-layered-docker-images/
 
 fs
 https://www.kernel.org/doc/html/next/filesystems/fsverity.html
@@ -111,19 +112,28 @@ https://coreos.github.io/zincati/
 https://github.com/openshift/cincinnati
 
 FedoraProject - ???
-https://www.youtube.com/watch?v=6FAVsMbhfnA
 https://www.youtube.com/watch?v=T9aDEF_4vr8
-https://www.youtube.com/watch?v=6FAVsMbhfnA
 https://www.youtube.com/watch?v=zF7aTCoWoLQ
 https://www.youtube.com/watch?v=uNZuYBq5XfI
 https://www.youtube.com/watch?v=shLgBytoaIU
-https://www.youtube.com/watch?v=uMkePEflqpk
 rel-party
 https://www.youtube.com/watch?v=yu5J2C1xqRs
 https://www.youtube.com/watch?v=-5O3p8KCMiw
 
 
 2024
+FedoraProject - DNF and bootc in Image Mode for Fedora - Fedora 41 Release Party of 14:36
+    https://www.youtube.com/watch?v=6FAVsMbhfnA
+    ! 0:00 dnf5 is included on image-based/ostree Fedora variants
+    !   rpm-ostree features will start being ported to dnf5
+    !   we sheep bootc on all of Fedora image-based variants
+    https://fedoraproject.org/wiki/Releases/41/ChangeSet#DNF_and_bootc_in_Image_Mode_Fedora_variants
+    ! 7:30 FROM quay.io/fedora/fedora-coreos:testing
+    !   ... dnf5, dnf5-plugins, virt-install virt-manager virt-viewer
+    ! 10:00 bootc switch ghcr.io/jmarrero/jmarrero-f41-demo:latest
+    !   podman bootc list
+    !   podman bootc sst <hash>
+    !   
 FedoraProject - Bootc: Hands on Demo of 12:51
     https://www.youtube.com/watch?v=fccox6sGCWA
     ! podman-bootc run --filesystem=xfs quay.io/vrothberg/build-and-boot:bootc
@@ -184,9 +194,22 @@ DevConf - Keynote: What if you could boot a container? of 34:55
             rootpw --iscrypted locked
             sshkey --username root "<your-key-here>"
             reboot
-All Systems Go! - bootc: Generating an ecosystem around bootable OCI containers 3:00 of 43:36
+MichaelHorn - Are Immutable Linux Distros Worth It? of 7:38
+    https://www.youtube.com/watch?v=TX0f_vyV06k
+All Systems Go! - bootc: Generating an ecosystem around bootable OCI containers of 43:36
     https://www.youtube.com/watch?v=rCokgSYiVHQ
+    ! 7:00
+    $ cat Containerfile.cs9
+    ...
+    RUN systemctl enable ... podman.socket ... custom-first-boot
+    ...
+    ! 9:00 sudo bootc switch registry...asg-bootc:latest-f40
+    ... on qemu ...
+    https://grahamc.com/blog/nix-and-layered-docker-images/
     https://media.ccc.de/v/all-systems-go-2024-266-bootc-generating-an-ecosystem-around-bootable-oci-containers
+    ! ...
+    ! podman run --privileged <yourimage> bootc install to-filesystem ...
+    ! 24:00 !!! components diagram
 
 issues
 https://github.com/coreos/bootupd/issues/468

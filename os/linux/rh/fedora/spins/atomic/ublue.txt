@@ -1,16 +1,72 @@
-https://universal-blue.discourse.group/t/ucore-lets-streamline-not-retiring/9098/
-
 https://universal-blue.org/
+https://universal-blue.org/documentation.html
 https://universal-blue.org/images/
 https://universal-blue.org/images/main/
+https://universal-blue.org/images/bluefin/admin
+    https://github.com/ublue-os/bluefin/pkgs/container/bluefin-dx
 https://universal-blue.org/introduction/
 https://universal-blue.org/media/
+https://universal-blue.discourse.group/t/ucore-lets-streamline-not-retiring/9098/
+
+aurora
+https://getaurora.dev/en
+    https://github.com/ublue-os/aurora
+        https://docs.getaurora.dev/guides/install-guide
+        https://docs.getaurora.dev/guides/building/
+        https://docs.getaurora.dev/dx/aurora-dx-intro/
+    https://universal-blue.discourse.group/t/aurora-goes-fedora-42/7852
+    https://docs.getaurora.dev/lts/introduction/
+    https://dl.getaurora.dev/aurora-live-lts.iso
+        git clone https://github.com/ublue-os/aurora-lts
+        cd aurora-lts
+        just build
+        just build-qcow2 ghcr.io/ublue-os/aurora:lts # if you want to build an ISO just change qcow2 to iso instead
+bluefin
+https://docs.projectbluefin.io/introduction/
+https://docs.projectbluefin.io/installation/
+https://docs.projectbluefin.io/bluefin-dx/#podman-and-podman-desktop
+bazzite
+https://bazzite.gg/
+    https://github.com/ublue-os/bazzite
+    https://docs.bazzite.gg/Installing_and_Managing_Software/Updates_Rollbacks_and_Rebasing/
+    https://universal-blue.discourse.group/t/bazzite-42-is-now-available/7861
+    https://universal-blue.discourse.group/t/bazzite-july-2025-update-bazaar-z13-kernel-6-15-steam-hardware-survey/9501/
+toolboxes
+https://github.com/ublue-os/toolboxes/pkgs/container/bluefin-cli
+https://github.com/ublue-os/toolboxes/pkgs/container/bluefin-dx-cli
+devcontainer
+https://github.com/ublue-os/devcontainer/pkgs/container/devcontainer
+term
+https://gitlab.gnome.org/chergert/ptyxis
+
 
 https://github.com/ublue-os/
 https://github.com/ublue-os/ucore
+    uCore is an OCI image of Fedora CoreOS with "batteries included". 
+    More specifically, it's an opinionated, custom CoreOS image, built daily with some common tools added in. 
+    The idea is to make a lightweight server image including commonly used services or the building blocks to host them.
+    ...
     uCore extends Fedora CoreOS; it does not provide it's own custom or GUI installer.
+https://github.com/ublue-os/main
+https://github.com/ublue-os/packages
+    Spec files for packages published in ublue COPR repos 
+https://github.com/ublue-os/packages/tree/main/packages
+    https://github.com/ublue-os/packages/blob/main/packages/ublue-recipes/src/recipes/apps.just
+        jbt toolbox
+    https://github.com/ublue-os/packages/blob/main/packages/ublue-recipes/src/recipes/vms.just
+    https://github.com/ublue-os/packages/tree/main/packages/ublue-os-just
+    https://github.com/ublue-os/packages/tree/main/packages/ublue-os-just/src/recipes
+    https://github.com/ublue-os/packages/tree/main/packages/bluefin
+    https://github.com/ublue-os/packages/tree/main/packages/aurora
+    ? DevPod
+https://copr.fedorainfracloud.org/coprs/ublue-os
+
 https://github.com/ublue-os/ucore?tab=readme-ov-file#podman-and-firewalld
     https://blog.podman.io/2023/11/new-netavark-firewalld-reload-service/
+
+https://docs.projectbluefin.io
+https://docs.projectbluefin.io/introduction/
+    !!!
 
 https://docs.getaurora.dev/
 https://github.com/ublue-os/aurora-docs
@@ -31,7 +87,19 @@ https://universal-blue.discourse.group/docs?topic=39
 https://universal-blue.discourse.group/t/introduction-to-bluefin/41/4
 https://www.ypsidanger.com/announcing-project-bluefin/
 
-imst
+inst
+https://docs.projectbluefin.io/bluefin-dx/
+https://docs.projectbluefin.io/bluefin-dx/#podman-and-podman-desktop
+    ... 
+https://universal-blue.discourse.group/t/introducing-bluefins-new-installation-experience/7991/
+    uefi settings in bios
+https://universal-blue.discourse.group/t/call-for-testing-new-bluefin-isos/7981/
+https://github.com/FyraLabs/readymade
+    anaconda replacer
+https://github.com/ublue-os/titanoboa
+    bootc installer designed to install an image as quickly as possible
+    https://github.com/ublue-os/titanoboa/blob/main/Justfile
+https://docs.projectbluefin.io/tips/#bluefin-to-go-using-an-external-drive
 https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
 https://fedoraproject.org/coreos/download?stream=stable
 https://builds.coreos.fedoraproject.org/streams/stable.json
@@ -40,11 +108,22 @@ https://builds.coreos.fedoraproject.org/streams/stable.json
     wget "https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/42.20250705.3.0/aarch64/fedora-coreos-42.20250705.3.0-live-iso.aarch64.iso"
     797M
 
+https://blog.jetbrains.com/idea/2024/07/using-dev-containers-in-jetbrains-ides-part-1/
+    remote development - devcontainer
+
 2025
 Tailscale - You need to try this Linux distro - Fedora uCore is absolutely fantastic! of 26:48
     https://www.youtube.com/watch?v=CipnV3yx2jw
     https://github.com/tailscale-dev/video-code-snippets/tree/main/2025-06-fcos
     comment: Not to throw sand to anyone's fun, but the uBlue is planning to dropping support of uCore in favor of a bootc based server distro.
+2024
+JorgeCastro - Universal Blue of p10
+    https://www.youtube.com/playlist?list=PLhiPP9M5fgWGlXehe4ztuu09TcdSAvfNb
 2023
+JorgeCastro - Flock 2024 Universal Blue: Building the Future using Fedora Atomic of 56:21
+    https://www.youtube.com/watch?v=uMkePEflqpk
+    !!! Aurora, Bluefin, Bazzite
+JorgeCastro - Tons of Universal Blue updates! of 34:07
+    https://www.youtube.com/watch?v=NWqcIkMMyX4
 BrodieRobertson - uBlue Linux: Immutable Fedora With Batteries Included of 13:37
     https://www.youtube.com/watch?v=HsKKh3WS1q0

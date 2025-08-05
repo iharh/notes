@@ -1,0 +1,69 @@
+https://en.wikipedia.org/wiki/Burrows%E2%80%93Wheeler_transform
+https://neerc.ifmo.ru/wiki/index.php?title=%D0%9F%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%91%D0%B0%D1%80%D1%80%D0%BE%D1%83%D0%B7%D0%B0-%D0%A3%D0%B8%D0%BB%D0%B5%D1%80%D0%B0
+https://ru.ruwiki.ru/wiki/%D0%9F%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%91%D0%B0%D1%80%D1%80%D0%BE%D1%83%D0%B7%D0%B0_%E2%80%94_%D0%A3%D0%B8%D0%BB%D0%B5%D1%80%D0%B0
+https://wiki2.org/ru/%D0%9F%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%91%D0%B0%D1%80%D1%80%D0%BE%D1%83%D0%B7%D0%B0_%E2%80%94_%D0%A3%D0%B8%D0%BB%D0%B5%D1%80%D0%B0
+https://web.archive.org/web/20060427023016/http://www.hpl.hp.com/techreports/Compaq-DEC/SRC-RR-124.pdf
+https://alphapedia.ru/w/Burrows%E2%80%93Wheeler_transform
+https://dic.academic.ru/dic.nsf/ruwiki/41087
+https://compression.ru/download/bwt.html
+https://руни.рф/%D0%9F%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%91%D0%B0%D1%80%D1%80%D0%BE%D1%83%D0%B7%D0%B0_%E2%80%94_%D0%A3%D0%B8%D0%BB%D0%B5%D1%80%D0%B0
+    https://yury.name/string-algorithms/
+    https://yury.name/internet/02ia.pdf
+https://arxiv.org/abs/0908.0239
+https://pco.iis.nsk.su/wega/index.php/%D0%9F%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%91%D0%B0%D1%80%D1%80%D0%BE%D1%83%D0%B7%D0%B0-%D0%A3%D0%B8%D0%BB%D0%B5%D1%80%D0%B0
+    core of bzip2
+
+prob-ds
+https://www.youtube.com/watch?v=qY6p1aI6n6Y
+
+????
+https://www.youtube.com/playlist?list=PLlb7e2G7aSpRp0_fj1OkEqaC-ml0t0PHf
+https://www.youtube.com/watch?v=8ASTK66iPxc
+https://www.youtube.com/watch?v=fUULCVBu4Lw
+https://www.youtube.com/watch?v=iR-z9gswGEY
+https://www.youtube.com/watch?v=RTyCL5I48nc
+https://www.youtube.com/watch?v=jJksS2a97S8
+https://www.youtube.com/watch?v=pjQh2e4ITW0
+https://www.youtube.com/watch?v=bJ83YpxMn90
+https://www.youtube.com/watch?v=MNk9A6PklVQ
+https://www.youtube.com/watch?v=rQ7wwh4HRZM
+https://www.youtube.com/watch?v=nMRrOs0jaOQ
+https://www.youtube.com/watch?v=5tlz64_TVMY
+https://www.youtube.com/watch?v=Lc-ACiJIrnM
+https://www.youtube.com/watch?v=hyfAHUvbU1A
+https://www.youtube.com/watch?v=GYbCttCF25A
+https://alexey.vladykin.name/lectures/2009/informatics/files/m20_burrows_wheeler.pdf
+
+books
+https://compression.ru/book/index.htm
+https://compression.ru/compression.ru/download/bwt.html
+
+baeldung
+https://www.baeldung.com/cs/bwt-rle-compression-algorithm-for-short-text-strings
+2021
+https://users.math-cs.spbu.ru/~okhotin/teaching/algorithms_2020/okhotin_algorithms_2020_l9.pdf
+2020
+GaleClarette - Pavel Pevzner - BWT - Algo on Strings 0:00 of 4:36
+    https://www.youtube.com/watch?v=UAge6JSjFpU
+    ! BTW - last column of sorted cyclic ...
+    acm.ucsd.edu
+2019
+CSC - Stenenko Gatilov - BWT 0:00 of 41:27
+    https://www.youtube.com/watch?v=Qi7BvuUCY-Q
+    https://compscicenter.ru/courses/algorithms-1/
+    https://compscicenter.ru/courses/algorithms-2/
+    https://compscicenter.ru/courses/algorithms-2/nsk/2020-spring/
+    https://www.compscicenter.ru/courses/algorithms-2/nsk/2020-spring/classes/5565/
+2015
+MITOpenCourseWare - Library Complexity and Short Read Alignment (Mapping) 0:00 of 1:20:05
+    https://www.youtube.com/watch?v=P3ORBMon8aw
+2014
+BenLangmead - BWT and FM Index 0:00 of 37:51
+    https://www.youtube.com/watch?v=kvVGj5V65io
+2012
+https://habr.com/ru/articles/142492/
+https://habr.com/ru/articles/142242/
+2011
+    https://alexey.vladykin.name/lectures/2010/informatics/files/m21_burrows_wheeler.pdf
+2003
+https://compression.ru/download/articles/bwt/khmelev_2003_bwt.html

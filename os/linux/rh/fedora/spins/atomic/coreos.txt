@@ -1,9 +1,12 @@
 https://fedoraproject.org/coreos/
 https://fedoraproject.org/coreos/download
+https://fedoraproject.org/coreos/download?stream=stable
 
 https://getfedora.org/coreos
 https://getfedora.org/coreos?stream=stable
 
+https://docs.fedoraproject.org/en-US/fedora-coreos/getting-started/
+    !!! need to follow for inst
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-setup/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-autologin/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-services/
@@ -13,6 +16,12 @@ https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-user-systemd-unit-on
 
 inst
 https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+2025
+ConsoleMode - Fedora Core OS Installation and ignition file url of 11:14
+    https://www.youtube.com/watch?v=Z3ofndO3ZiI
+    ! 3:30 sudo coreos-installer /dev/... --ignition-url=https://raw.githubusercontent.com/<usr>/<repo>/refs/heads/main/my.ign
+    ! 7:00 sudo passwd root
+    ! su - admin
 
 ignition
 https://docs.fedoraproject.org/en-US/fedora-coreos/producing-ign/
@@ -44,5 +53,10 @@ https://coreos.github.io/coreos-assembler/devel/
 
 https://github.com/Tecnativa/docker-socket-proxy
 
+????
+https://www.youtube.com/watch?v=vH89CKVxLpA
 2020
 https://fedoramagazine.org/getting-started-with-fedora-coreos/
+2019
+KeithY - Fedora CoreOS bare metal install using Ignition 3:00 of 22:54
+    https://www.youtube.com/watch?v=cvWN8dXHaVo
