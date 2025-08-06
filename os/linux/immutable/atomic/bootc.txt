@@ -4,6 +4,10 @@ https://containers.github.io/bootable/projects.html
     https://quay.io/
     https://quay.io/tutorial/
 
+https://docs.fedoraproject.org/en-US/bootc/getting-started/
+https://docs.fedoraproject.org/en-US/bootc/community/
+https://docs.fedoraproject.org/en-US/bootc/authentication/
+
 need
 https://github.com/wayblueorg/wayblue
 https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/silverblue-cheatsheet.pdf
@@ -92,7 +96,6 @@ https://docs.fedoraproject.org/en-US/bootc/getting-started/
         ? anaconda-iso, raw, qcow2, ami, ...
             https://github.com/osbuild/bootc-image-builder?tab=readme-ov-file#-image-types
         ? podman-bootc
-https://docs.fedoraproject.org/en-US/bootc/base-images/
 https://docs.fedoraproject.org/en-US/bootc/bare-metal/
     +anaconda
 https://docs.fedoraproject.org/en-US/bootc/bare-metal/#_generating_a_custom_installer_iso_with_bootc_image_builder
@@ -114,6 +117,10 @@ https://osbuild.org/
 https://github.com/osbuild/bootc-image-builder
 https://osbuild.org/docs/bootc/
 https://centos.github.io/centos-bootc/
+
+images
+https://gitlab.com/fedora/bootc/base-images
+https://docs.fedoraproject.org/en-US/bootc/base-images/
 
 auto-update
 https://coreos.github.io/zincati/
