@@ -10,12 +10,6 @@ https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/silverblue-c
 https://www.youtube.com/playlist?list=PLCrlcBRBAaTrFlOfmLW7XCmmAViLGOT7S
 https://pretalx.com/devconf-cz-2024/talk/RNDTRV/
 https://pretalx.com/devconf-cz-2024/talk/W3AVCT/
-https://www.redhat.com/en/introduction-to-image-mode-for-red-hat-enterprise-linux-interactive-lab
-https://developers.redhat.com/learn/rhel/rhel-image-mode-kickstart
-https://developers.redhat.com/learn/rhel/build-and-run-bootable-container-image-image-mode-rhel-and-podman-desktop
-https://developers.redhat.com/articles/2025/beyond-default-bootc-images-scratch
-https://developers.redhat.com/articles/2025/how-install-image-mode-system-using-system-reinstall-bootc
-https://developers.redhat.com/blog/2025/07/23/shape-future-linux-contribute-bootc-open-source-project
 https://github.com/uapi-group/specifications/blob/main/specs/unified_kernel_image.md
 https://fedoraproject.org/wiki/Changes/SystemdSysusers
 https://universal-blue.org/
@@ -28,6 +22,25 @@ https://universal-blue.org/
             !!! need to read this
 https://www.heliumos.org/
 https://grahamc.com/blog/nix-and-layered-docker-images/
+
+image-mode
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/index
+https://www.redhat.com/en/blog/image-mode-red-hat-enterprise-linux-quick-start-guide
+https://www.redhat.com/en/introduction-to-image-mode-for-red-hat-enterprise-linux-interactive-lab
+https://developers.redhat.com/learn/rhel/rhel-image-mode-kickstart
+https://developers.redhat.com/learn/rhel/build-and-run-bootable-container-image-image-mode-rhel-and-podman-desktop
+https://developers.redhat.com/articles/2025/beyond-default-bootc-images-scratch
+https://developers.redhat.com/articles/2025/how-install-image-mode-system-using-system-reinstall-bootc
+https://developers.redhat.com/blog/2025/07/23/shape-future-linux-contribute-bootc-open-source-project
+https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux-10/image-mode
+    https://developers.redhat.com/products/rhel-image-mode/getting-started
+    https://developers.redhat.com/products/rhel-image-mode/faq
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/index
+https://www.redhat.com/en/blog/faster-container-image-pulls
+2024
+HCSCompany - Custom Atomic RHEL met Bootc 0:00 of 31:53
+    https://www.youtube.com/watch?v=sreYntaY2LY
+    https://gitlab.com/hcs-company/bootc-example/
 
 fs
 https://www.kernel.org/doc/html/next/filesystems/fsverity.html
@@ -43,11 +56,6 @@ misc
 https://github.com/opencontainers/image-spec/blob/main/config.md#image-json
 https://pykickstart.readthedocs.io/en/latest/kickstart-docs.html#ostreecontainer
 https://anaconda-installer.readthedocs.io/en/latest/
-https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux-10/image-mode
-    https://developers.redhat.com/products/rhel-image-mode/getting-started
-    https://developers.redhat.com/products/rhel-image-mode/faq
-    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/index
-https://www.redhat.com/en/blog/faster-container-image-pulls
 https://github.com/composefs/composefs
 
 https://podman-desktop.io/
