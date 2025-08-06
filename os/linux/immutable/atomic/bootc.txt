@@ -222,3 +222,5 @@ All Systems Go! - bootc: Generating an ecosystem around bootable OCI containers 
 issues
 https://github.com/coreos/bootupd/issues/468
 https://gitlab.com/fedora/bootc/tracker/-/issues/61
+samples
+https://github.com/redhat-cop/rhel-bootc-examples

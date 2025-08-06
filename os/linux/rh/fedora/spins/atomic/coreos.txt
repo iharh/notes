@@ -79,6 +79,8 @@ cli
             coreos-installer download -s stable -p metal -f iso
     install
         https://github.com/coreos/coreos-installer/blob/main/docs/cmd/install.md
+        https://docs.fedoraproject.org/en-US/fedora-coreos/live-reference/
+            ! should boot from live iso !!!
     iso
         https://github.com/coreos/coreos-installer/blob/main/docs/cmd/iso.md
     pxe
@@ -90,6 +92,12 @@ https://docs.fedoraproject.org/en-US/fedora-coreos/getting-started/#_booting_on_
     You can use coreos-installer as a container, 
     or on Fedora install it from the repos.
 https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/#_customizing_installation
+    https://coreos.github.io/coreos-installer/customizing-install/#customize-options
+    !!!
+        https://docs.fedoraproject.org/en-US/fedora-coreos/live-booting/
+        !!!
+https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/#_reinstalling_fedora_coreos
 https://docs.fedoraproject.org/en-US/fedora-coreos/stream-metadata/
     STREAM="stable" coreos-installer download --decompress -s $STREAM -p openstack -f qcow2.xz
 https://docs.fedoraproject.org/en-US/fedora-coreos/update-streams/
