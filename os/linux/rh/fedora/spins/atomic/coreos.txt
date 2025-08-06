@@ -30,6 +30,17 @@ https://getfedora.org/coreos?stream=stable
 
 https://docs.fedoraproject.org/en-US/fedora-coreos/getting-started/
     !!! need to follow for inst
+    virt-install \
+        --connect="qemu:///system" \
+        --name=cos1
+        --vcpus=2 \
+        --memory=4096 \
+        --os-variant=fedora-coreos-stable \
+        --import \
+        --graphics=none \
+        --disk="size=20,backing_store=./image.qcow2" \
+        --network bridge=virbr0 \
+        --qemu-commandline="-fw_cfg name=opt/com.coreos/config,file=./example.ign"
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-setup/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-autologin/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-services/
