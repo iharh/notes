@@ -75,6 +75,8 @@ cli
         ???
         coreos-installer download -s stable -p openstack -f qcow2.xz --decompress
         ???
+        https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+            coreos-installer download -s stable -p metal -f iso
     install
         https://github.com/coreos/coreos-installer/blob/main/docs/cmd/install.md
     iso
