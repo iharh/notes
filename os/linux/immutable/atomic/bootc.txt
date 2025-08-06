@@ -1,3 +1,13 @@
+https://bootc-dev.github.io/bootc/
+https://bootc-dev.github.io/bootc/installation.html
+https://bootc-dev.github.io/bootc/bootc-install.html
+https://bootc-dev.github.io/bootc/bootc-install.html#using-bootc-install-to-existing-root
+    !!!
+    https://bootc-dev.github.io/bootc//bootc-install.html
+    https://docs.fedoraproject.org/en-US/bootc/podman-bootc-cli/
+    https://systemd.io/CREDENTIALS/
+https://bootc-dev.github.io/bootc/relationships.html
+
 https://containers.github.io/bootable/
 https://containers.github.io/bootable/projects.html
     https://uapi-group.org/specifications/specs/configuration_files_specification/
@@ -103,15 +113,6 @@ https://docs.fedoraproject.org/en-US/bootc/qemu-and-libvirt/
 https://docs.fedoraproject.org/en-US/bootc/authentication/
     !!! read from this and further !!!
 
-https://bootc-dev.github.io/bootc/
-https://bootc-dev.github.io/bootc/installation.html
-https://bootc-dev.github.io/bootc/bootc-install.html
-https://bootc-dev.github.io/bootc/bootc-install.html#using-bootc-install-to-existing-root
-    !!!
-    https://bootc-dev.github.io/bootc//bootc-install.html
-    https://docs.fedoraproject.org/en-US/bootc/podman-bootc-cli/
-    https://systemd.io/CREDENTIALS/
-https://bootc-dev.github.io/bootc/relationships.html
 
 https://osbuild.org/
 https://github.com/osbuild/bootc-image-builder
@@ -136,9 +137,43 @@ https://www.youtube.com/watch?v=yu5J2C1xqRs
 https://www.youtube.com/watch?v=-5O3p8KCMiw
 
 2025
-DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads 0:00 of 34:00
+DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads 13:00 of 34:00
     https://www.youtube.com/watch?v=c6roAHAXfU8
     https://pretalx.devconf.info/devconf-cz-2025/talk/WMBRWB/
+    !  7:00 bootable container contains "linux kernel" additionally
+    ! 12:30 RUN --mount=type=cache,target=/workdir --mount=type=bind,rw=true,src=.,dst=/buildcontext,bind-propagation=shared \
+    !           /src/build.sh
+    !       ...
+    !       LABEL container.bootc="1" \
+    !             ostree.bootable="1" \
+    !       ENV container=oci
+DevConf - Managing Your Laptop with Bootable Containers, Fedora Toolbox, Nix, & Home Manager 0:00 of 33:05
+    https://www.youtube.com/watch?v=P9XydScZZzs
+    https://pretalx.devconf.info/devconf-cz-2025/talk/G9JURJ/
+    https://pretalx.devconf.info/media/devconf-cz-2025/submissions/G9JURJ/resources/Managing_Your_Laptop_with_Bootable_Containe_L5WGS1j.pdf
+        https://thrix.github.io/nix-toolbox/
+        https://thrix.github.io/nix-toolbox/getting-started/
+        https://thrix.github.io/nix-toolbox/getting-started/#__tabbed_1_2
+        https://thrix.github.io/nix-toolbox/architecture/
+        https://thrix.github.io/nix-toolbox/examples/
+            https://github.com/thrix/nix-config
+            https://github.com/thrix/workstation/blob/main/recipes/recipe.yml
+
+        https://blue-build.org/how-to/setup/
+        https://blue-build.org/learn/getting-started/
+        https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso
+        https://workshop.blue-build.org/
+        https://github.com/blue-build/template
+        https://github.com/blue-build/template/blob/main/recipes/recipe.yml
+            
+DevConf - Simplify security compliance with bootable containers 0:00 of 36:37
+    https://www.youtube.com/watch?v=5PWkDvtGzYs
+    https://pretalx.devconf.info/devconf-cz-2025/talk/PMUPGU/
+    https://github.com/jan-cerny/devconf-bootc-demo
+        sudo mkdir output
+        sudo podman run --rm -it --privileged --pull=newer --security-opt label=type:unconfined_t -v $(pwd)/config.toml:/config.toml:ro -v $(pwd)/output:/output \
+            -v /var/lib/containers/storage:/var/lib/containers/storage quay.io/centos-bootc/bootc-image-builder:latest --type qcow2 --local --rootfs xfs localhost/cis:latest
+        sudo virt-install --name demo_vm --cpu host --vcpus 4 --memory 4096 --import --disk ./output/qcow2/disk.qcow2,format=qcow2 --quiet --autoconsole none --os-variant fedora-eln
 2024
 FedoraProject - DNF and bootc in Image Mode for Fedora - Fedora 41 Release Party of 14:36
     https://www.youtube.com/watch?v=6FAVsMbhfnA
@@ -234,3 +269,11 @@ https://github.com/coreos/bootupd/issues/468
 https://gitlab.com/fedora/bootc/tracker/-/issues/61
 samples
 https://github.com/redhat-cop/rhel-bootc-examples
+
+cli
+bootc (?podman-bootc)
+    install
+        to-disk | to-filesystem
+    upgrade
+    rollback
+    switch
