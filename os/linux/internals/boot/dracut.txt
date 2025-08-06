@@ -1,8 +1,16 @@
-https://github.com/dracutdevs/dracut
+https://dracut-ng.github.io/dracut-ng/
 
+https://github.com/dracut-ng/dracut-ng
 https://github.com/dracutdevs/dracut/wiki
 
+https://dracut-ng.github.io/dracut-ng/man/dracut.8.html
+https://dracut-ng.github.io/dracut-ng/man/dracut.conf.5.html
+https://dracut-ng.github.io/dracut-ng/man/dracut.cmdline.7.html
+https://dracut-ng.github.io/dracut-ng/man/lsinitrd.1.html
+https://dracut-ng.github.io/dracut-ng/man/dracut.modules.7.html
+https://dracut-ng.github.io/dracut-ng/man/dracut.bootup.7.html
 https://man7.org/linux/man-pages/man8/dracut.8.html
+
 https://github.com/dracutdevs/dracut/tree/master/man
 https://github.com/dracutdevs/dracut/blob/master/man/dracut.asc
 https://github.com/dracutdevs/dracut/blob/master/man/dracut.usage.asc

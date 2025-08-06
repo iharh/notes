@@ -1,4 +1,4 @@
-
+https://fedoraproject.org/coreos/
 https://coreos.fedoraproject.org/
 https://github.com/coreos
 https://discussion.fedoraproject.org/c/coreos
@@ -38,8 +38,92 @@ https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-updates/
 https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-user-systemd-unit-on-boot/
 https://docs.fedoraproject.org/en-US/fedora-coreos/storage/
 
+misc
+https://github.com/projectatomic/container-storage-setup/
+https://github.com/projectatomic/container-storage-setup/blob/master/container-storage-setup.sh
+
+coreos-installer
+https://coreos.github.io/coreos-installer/
+https://coreos.github.io/coreos-installer/getting-started/
+    virt-install --name cdrom --ram 4500 --vcpus 2 --disk size=20 --accelerate --cdrom /path/to/fedora-coreos-32.20200809.2.1-live.x86_64.iso --network default
+    e
+    coreos.inst.install_dev=/dev/sda
+    coreos.inst.ignition_url=http://example.com/config.ign
+https://github.com/coreos/coreos-installer/
+https://github.com/coreos/coreos-installer/tree/main/docs
+https://github.com/coreos/coreos-installer/blob/HEAD/docs/cmd.md
+https://crates.io/crates/coreos-installer
+https://quay.io/repository/coreos/coreos-installer
+dnf/
+    coreos-installer
+    coreos-installer-bootinfra
+    coreos-installer-dracut
+/usr/bin/coreos-installer
+/usr/share/coreos-installer/example-config.yaml
+/usr/share/doc/coreos-installer/README.md
+cli
+    --version, -V
+        0.24.0
+    --help, -h
+    list-stream
+        https://coreos.github.io/coreos-installer/cmd/list-stream/
+        https://github.com/coreos/coreos-installer/blob/main/docs/cmd/list-stream.md
+        https://builds.coreos.fedoraproject.org/streams/stable.json
+    download
+        https://coreos.github.io/coreos-installer/cmd/download/
+        https://github.com/coreos/coreos-installer/blob/main/docs/cmd/download.md
+        ???
+        coreos-installer download -s stable -p openstack -f qcow2.xz --decompress
+        ???
+    install
+        https://github.com/coreos/coreos-installer/blob/main/docs/cmd/install.md
+    iso
+        https://github.com/coreos/coreos-installer/blob/main/docs/cmd/iso.md
+    pxe
+
 inst
+https://fedoraproject.org/coreos/download?stream=stable&arch=x86_64#download_section
+    https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/42.20250721.3.0/x86_64/fedora-coreos-42.20250721.3.0-live-iso.x86_64.iso
+https://docs.fedoraproject.org/en-US/fedora-coreos/getting-started/#_booting_on_a_local_hypervisor_libvirt_example
+    You can use coreos-installer as a container, 
+    or on Fedora install it from the repos.
 https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+https://docs.fedoraproject.org/en-US/fedora-coreos/stream-metadata/
+    STREAM="stable" coreos-installer download --decompress -s $STREAM -p openstack -f qcow2.xz
+https://docs.fedoraproject.org/en-US/fedora-coreos/update-streams/
+https://docs.fedoraproject.org/en-US/fedora-coreos/live-booting/
+https://docs.fedoraproject.org/en-US/fedora-coreos/live-reference/
+    The Fedora CoreOS PXE image includes three components: 
+        a kernel, an initramfs, and a rootfs. 
+    All three are mandatory and the live PXE environment will not boot without them.
+    https://coreos.github.io/ignition/supported-platforms/
+        bar metal (metal), qemu, ...
+    samples
+        coreos-installer pxe customize --live-ignition config.ign -o custom-initramfs.img fedora-coreos-42.20250721.3.0-live-initramfs.x86_64.img
+        coreos-installer pxe ignition wrap -i config.ign -o ignition.img
+        coreos-installer pxe network wrap -k custom.nmconnection -o network.img
+        coreos-installer iso customize --network-keyfile custom.nmconnection -o custom.iso fedora-coreos-42.20250721.3.0-live.x86_64.iso
+        podman run \
+            --security-opt label=disable --pull=always --rm \
+            -v .:/data \
+            -w /data \
+            quay.io/coreos/coreos-installer:release \
+            iso extract pxe fedora-coreos-42.20250721.3.0-live.x86_64.iso
+        ...
+        coreos-installer install --copy-network
+            https://docs.fedoraproject.org/en-US/fedora-coreos/live-reference/#_passing_network_configuration_to_a_live_iso_or_pxe_system
+https://dustymabe.com/2020/11/18/coreos-install-via-live-iso--copy-network/
+    https://dustymabecom.sfo2.digitaloceanspaces.com/2020-11-18_RHCOS-ISO-Network.mp4
+    live iso
+    7:30 - sample of virt-install ... \
+        --cdrom /var/b/images/rhcos-46...-live.x86_64.iso
+        # add boot cmd-line 
+            console=tty
+        # ls -la /run/media/iso/images/pxeboot/
+            initrd.img
+            rootfs.img
+            vmlinuz
+        # sudo coreos-installer ... --copy-network ...
 2025
 ConsoleMode - Fedora Core OS Installation and ignition file url of 11:14
     https://www.youtube.com/watch?v=Z3ofndO3ZiI
@@ -91,12 +175,24 @@ https://lwn.net/Articles/754433/
 cfg
 https://github.com/coreos/fedora-coreos-config
 https://github.com/coreos/fedora-coreos-tracker/blob/main/Design.md
+https://docs.fedoraproject.org/en-US/fedora-coreos/sysconfig-network-configuration/
 
 https://coreos.github.io/coreos-assembler/
 https://coreos.github.io/coreos-assembler/working/
 https://coreos.github.io/coreos-assembler/devel/
 
 https://github.com/Tecnativa/docker-socket-proxy
+
+firewalld
+https://dustymabe.com/2018/02/01/firewalld-in-atomic-host/
+
+pungi
+https://docs.pagure.org/pungi/
+https://pagure.io/pungi-fedora/
+https://pagure.io/pungi-fedora/tree/main
+https://pagure.io/pungi-fedora/blob/main/f/general.conf
+https://pagure.io/pungi-fedora/blob/main/f/fedora.conf
+https://dustymabe.com/2017/08/08/how-do-we-create-ostree-repos-and-artifacts-in-fedora/
 
 ????
 https://www.youtube.com/watch?v=vH89CKVxLpA
@@ -108,6 +204,7 @@ TommyTran - Installing Fedora CoreOS 37 of 30:56
     https://github.com/Metropolis-nexus/Fedora-CoreOS-Ignition/blob/main/x86.yml
 2020
 https://fedoramagazine.org/getting-started-with-fedora-coreos/
+https://www.opennet.ru/opennews/art.shtml?num=52205
 2019
 KeithY - Fedora CoreOS bare metal install using Ignition 3:00 of 22:54
     https://www.youtube.com/watch?v=cvWN8dXHaVo

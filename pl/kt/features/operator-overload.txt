@@ -1,5 +1,15 @@
 https://kotlinlang.org/docs/reference/operator-overloading.html
 
+invoke
+https://www.baeldung.com/kotlin/operator-overloading
+https://www.kotlinprimer.com/classes-what-kotlin-brings-to-the-table/miscellaneous/operators/#d05e
+https://stackoverflow.com/questions/45173677/invoke-operator-operator-overloading-in-kotlin
+https://stackoverflow.com/questions/54045644/how-does-kotlin-dispatch-the-invoke-operator
+    https://kotlinlang.org/spec/operator-overloading.html
+    https://kotlinlang.org/docs/operator-overloading.html
+2023
+https://medium.com/@dugguRK/mastery-on-invoke-kotlin-8f1ebb4828d0
+
 2019
 https://blog.frankel.ch/kotlin-operators/
 2018
