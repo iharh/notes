@@ -3,8 +3,14 @@ https://silverblue.fedoraproject.org/download
 
 https://docs.fedoraproject.org/en-US/fedora-silverblue/
 https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/silverblue-cheatsheet.pdf
+    ostree, rpm-ostree cli
+https://docs.fedoraproject.org/en-US/fedora-silverblue/updates-upgrades-rollbacks/
+    incl pin, rebase, rollback
+https://docs.fedoraproject.org/en-US/fedora-silverblue/technical-information/
+https://docs.fedoraproject.org/en-US/fedora-silverblue/faq/
 
 https://www.dvlv.co.uk/pages/a-beginners-guide-to-fedora-silverblue.html
+
 
 2025
 9to5Linux - Fedora 43 vs Fedora Silverblue: Stability vs Flexibility of 8:16
@@ -14,6 +20,8 @@ LinuxTex - 5 BIGGEST Myths About Fedora Silverblue You Probably Believe! (#3 Wil
 2024
 TripleWho - Fedora Silverblue 0:00 of 34:57
     https://www.youtube.com/watch?v=Uxc3aUPhwEE
+2023
+https://pratik280.github.io/posts/my-setup-of-fedora-silverblue-for-daily-use-and-development/
 2022
 https://fedoramagazine.org/how-i-customize-fedora-silverblue-and-fedora-kinoite/
 2021

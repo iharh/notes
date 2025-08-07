@@ -147,6 +147,7 @@ DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads
     !       LABEL container.bootc="1" \
     !             ostree.bootable="1" \
     !       ENV container=oci
+    ! 17:30 podman desktop ext - 'bootable containers' - for running VMs
 DevConf - Managing Your Laptop with Bootable Containers, Fedora Toolbox, Nix, & Home Manager 0:00 of 33:05
     https://www.youtube.com/watch?v=P9XydScZZzs
     https://pretalx.devconf.info/devconf-cz-2025/talk/G9JURJ/

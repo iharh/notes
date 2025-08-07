@@ -4,6 +4,26 @@ https://github.com/containers/podman-desktop
 https://podman-desktop.io/downloads
     https://flathub.org/apps/details/io.podman_desktop.PodmanDesktop
     https://formulae.brew.sh/cask/podman-desktop
+    https://github.com/podman-desktop/podman-desktop/releases
+    https://github.com/podman-desktop/podman-desktop/releases/download/v1.20.2/podman-desktop-1.20.2.tar.gz
+
+inst
+https://podman-desktop.io/docs/Installation/linux-install
+https://podman-desktop.io/docs/installation/linux-install/install-on-rhel10
+https://podman-desktop.io/docs/proxy
+    !!! direct tar.gz download and inst
+https://www.addictivetips.com/ubuntu-linux-tips/how-to-manage-podman-containers-on-linux-with-podman-desktop/
+    wget https://github.com/containers/podman-desktop/releases/download/v1.4.0/podman-desktop-1.4.0.tar.gz
+    tar xvf podman-desktop-1.4.0.tar.gz
+    cd podman-desktop-1.4.0/
+    ./podman-desktop
+https://blogs.oracle.com/scoter/post/run-oracle-database-23c-with-podman-desktop
+
+dnf
+    podman
+    https://github.com/podman-desktop/podman-desktop/issues/112
+flathub
+    io.podman_desktop.PodmanDesktop
 
 https://podman-desktop.io/docs/intro
 https://podman-desktop.io/core-values
