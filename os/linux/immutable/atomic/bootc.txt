@@ -139,12 +139,16 @@ rel-party
 https://www.youtube.com/watch?v=yu5J2C1xqRs
 https://www.youtube.com/watch?v=-5O3p8KCMiw
 
+????
+https://docs.google.com/presentation/d/1pP-Gr2kb4TJifbkSCR0WzjoMRGJVxW33z1v1KIKbEnA/edit?slide=id.g35c1d124540_1_3298#slide=id.g35c1d124540_1_3298
 2025
 DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads 13:00 of 34:00
     https://www.youtube.com/watch?v=c6roAHAXfU8
     https://pretalx.devconf.info/devconf-cz-2025/talk/WMBRWB/
     https://github.com/containers/ai-lab-recipes
     https://github.com/containers/ai-lab-recipes/tree/main/training
+    https://github.com/containers/ai-lab-recipes/tree/main/.github/workflows
+    https://github.com/containers/terraform-test-environment-module
     !  7:00 bootable container contains "linux kernel" additionally
     ! 12:30 RUN --mount=type=cache,target=/workdir --mount=type=bind,rw=true,src=.,dst=/buildcontext,bind-propagation=shared \
     !           /src/build.sh
@@ -196,9 +200,12 @@ DevConf - UKIs and composefs support for Bootable Containers 11:00 of 37:18
     !     The utility to manipulate machines owner keys which managed in shim
     !     dnf/mokutil
     !     https://wiki.debian.org/SecureBoot
+    !     https://linuxcommandlibrary.com/man/mokutil
     !     https://commandmasters.com/commands/mokutil-linux/
+    !     https://www.redhat.com/en/blog/secure-boot-systemtap
     !     ? mokutil --sb-state
     !     ? mokutil --db
+    !     bootctl (grub2 entries for my case)
 2024
 FedoraProject - DNF and bootc in Image Mode for Fedora - Fedora 41 Release Party of 14:36
     https://www.youtube.com/watch?v=6FAVsMbhfnA

@@ -56,8 +56,8 @@ https://github.com/projectatomic/container-storage-setup/blob/master/container-s
 coreos-installer
 https://coreos.github.io/coreos-installer/
 https://coreos.github.io/coreos-installer/getting-started/
-    virt-install --name cdrom --ram 4500 --vcpus 2 --disk size=20 --accelerate --cdrom /path/to/fedora-coreos-32.20200809.2.1-live.x86_64.iso --network default
-    e
+    virt-install --name cdrom --ram 4500 --vcpus 2 --disk size=20 --accelerate --cdrom /path/to/fedora-coreos-32.20200809.2.1-live.x86_64.iso \
+    --network default \
     coreos.inst.install_dev=/dev/sda
     coreos.inst.ignition_url=http://example.com/config.ign
 https://github.com/coreos/coreos-installer/
