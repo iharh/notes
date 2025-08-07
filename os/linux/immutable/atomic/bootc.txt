@@ -195,6 +195,7 @@ DevConf - UKIs and composefs support for Bootable Containers 11:00 of 37:18
     ! https://asciinema.org/a/722868
     !     The utility to manipulate machines owner keys which managed in shim
     !     dnf/mokutil
+    !     https://wiki.debian.org/SecureBoot
     !     https://commandmasters.com/commands/mokutil-linux/
     !     ? mokutil --sb-state
     !     ? mokutil --db
