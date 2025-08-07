@@ -116,6 +116,9 @@ https://docs.fedoraproject.org/en-US/bootc/authentication/
 
 https://osbuild.org/
 https://github.com/osbuild/bootc-image-builder
+    2025
+    FedoraProject - Live Coding: Templates with Image Builder 7:00 of 1:08:55
+        https://www.youtube.com/watch?v=UnXLAs35ov8
 https://osbuild.org/docs/bootc/
 https://centos.github.io/centos-bootc/
 
@@ -140,6 +143,8 @@ https://www.youtube.com/watch?v=-5O3p8KCMiw
 DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads 13:00 of 34:00
     https://www.youtube.com/watch?v=c6roAHAXfU8
     https://pretalx.devconf.info/devconf-cz-2025/talk/WMBRWB/
+    https://github.com/containers/ai-lab-recipes
+    https://github.com/containers/ai-lab-recipes/tree/main/training
     !  7:00 bootable container contains "linux kernel" additionally
     ! 12:30 RUN --mount=type=cache,target=/workdir --mount=type=bind,rw=true,src=.,dst=/buildcontext,bind-propagation=shared \
     !           /src/build.sh
@@ -148,6 +153,8 @@ DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads
     !             ostree.bootable="1" \
     !       ENV container=oci
     ! 17:30 podman desktop ext - 'bootable containers' - for running VMs
+    ! 20:00 sample of Containerfile
+    ! 27:00 bootc-image-builder
 DevConf - Managing Your Laptop with Bootable Containers, Fedora Toolbox, Nix, & Home Manager 0:00 of 33:05
     https://www.youtube.com/watch?v=P9XydScZZzs
     https://pretalx.devconf.info/devconf-cz-2025/talk/G9JURJ/
@@ -175,6 +182,22 @@ DevConf - Simplify security compliance with bootable containers 0:00 of 36:37
         sudo podman run --rm -it --privileged --pull=newer --security-opt label=type:unconfined_t -v $(pwd)/config.toml:/config.toml:ro -v $(pwd)/output:/output \
             -v /var/lib/containers/storage:/var/lib/containers/storage quay.io/centos-bootc/bootc-image-builder:latest --type qcow2 --local --rootfs xfs localhost/cis:latest
         sudo virt-install --name demo_vm --cpu host --vcpus 4 --memory 4096 --import --disk ./output/qcow2/disk.qcow2,format=qcow2 --quiet --autoconsole none --os-variant fedora-eln
+DevConf - UKIs and composefs support for Bootable Containers 11:00 of 37:18
+    https://www.youtube.com/watch?v=D7HqckeHlx8
+    https://pretalx.devconf.info/devconf-cz-2025/talk/739KGC/
+    https://pretalx.devconf.info/media/devconf-cz-2025/submissions/739KGC/resources/UKIs-and-composefs-support-for-Bootable-Con_5fcDA6u.pdf
+    !!!
+    ! 1:00 composefs (/var/composefs) combines
+    !         overlayfs, EROFS and fs-verify (opt)
+    ! https://asciinema.org/~travier
+    ! https://asciinema.org/a/722866
+    ! https://asciinema.org/a/722867
+    ! https://asciinema.org/a/722868
+    !     The utility to manipulate machines owner keys which managed in shim
+    !     dnf/mokutil
+    !     https://commandmasters.com/commands/mokutil-linux/
+    !     ? mokutil --sb-state
+    !     ? mokutil --db
 2024
 FedoraProject - DNF and bootc in Image Mode for Fedora - Fedora 41 Release Party of 14:36
     https://www.youtube.com/watch?v=6FAVsMbhfnA
@@ -264,6 +287,15 @@ All Systems Go! - bootc: Generating an ecosystem around bootable OCI containers 
     ! ...
     ! podman run --privileged <yourimage> bootc install to-filesystem ...
     ! 24:00 !!! components diagram
+AllSystemsGo - The road to a trusted and measured boot chain in Bootable Containers 6:00 of 40:35
+    https://www.youtube.com/watch?v=xQT5IqL0kzc
+    https://media.ccc.de/v/all-systems-go-2024-309-the-road-to-a-trusted-and-measured-boot-chain-in-bootable-containers
+    https://cfp.all-systems-go.io/all-systems-go-2024/talk/HVEZQQ/
+    https://cfp.all-systems-go.io/media/all-systems-go-2024/submissions/HVEZQQ/resources/2024_All_Systems_Go_-_The_road_to_a_tru_c4Y3IoH.pdf
+    ! 2:00 bootc uses ostree underneath
+    !         unpacks the container image files on the disk
+    !         set up the kernel and initramfs
+    !         writes the BLS (bootloader) config
 
 issues
 https://github.com/coreos/bootupd/issues/468
@@ -276,5 +308,6 @@ bootc (?podman-bootc)
     install
         to-disk | to-filesystem
     upgrade
+        --check
     rollback
     switch
