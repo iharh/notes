@@ -1,6 +1,7 @@
 https://podman-desktop.io/
 https://github.com/containers/podman-desktop
 
+
 https://podman-desktop.io/downloads
     https://flathub.org/apps/details/io.podman_desktop.PodmanDesktop
     https://formulae.brew.sh/cask/podman-desktop
@@ -19,6 +20,14 @@ https://www.addictivetips.com/ubuntu-linux-tips/how-to-manage-podman-containers-
     ./podman-desktop
 https://blogs.oracle.com/scoter/post/run-oracle-database-23c-with-podman-desktop
 
+copr
+    https://copr.fedorainfracloud.org/coprs/fulltext/?fulltext=podman-desktop
+    https://copr.fedorainfracloud.org/coprs/curtisy/podman-desktop/
+    https://copr.fedorainfracloud.org/coprs/curtisy/podman-desktop/repo/fedora-42/curtisy-podman-desktop-fedora-42.repo
+        sudo dnf copr enable curtisy/podman-desktop
+        sudo dnf install podman-desktop
+        cat /usr/share/applications/podman-desktop.desktop
+        Exec="/opt/Podman-Desktop/podman-desktop" %U
 dnf
     podman
     https://github.com/podman-desktop/podman-desktop/issues/112
@@ -33,3 +42,5 @@ https://podman-desktop.io/extend
 ????
 https://iongion.github.io/podman-desktop-companion/
     https://news.ycombinator.com/item?id=31055475
+2022
+https://fedoramagazine.org/manage-containers-on-fedora-linux-with-podman-desktop/
