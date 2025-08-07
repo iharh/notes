@@ -29,6 +29,13 @@ https://getfedora.org/coreos
 https://getfedora.org/coreos?stream=stable
 
 https://docs.fedoraproject.org/en-US/fedora-coreos/getting-started/
+!!! https://github.com/coreos/coreos-assembler/blob/main/src/cmd-virt-install
+https://github.com/coreos/coreos-installer/blob/main/docs/getting-started.md
+https://github.com/coreos/coreos-installer/blob/main/docs/getting-started.md#installing-from-iso
+    virt-install --name cdrom --ram 4500 --vcpus 2 --disk size=20 --accelerate \
+        --network default \
+        --cdrom /path/to/fedora-coreos-32.20200809.2.1-live.x86_64.iso
+
     !!! need to follow for inst
     virt-install \
         --connect="qemu:///system" \
