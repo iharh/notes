@@ -1,12 +1,25 @@
 https://ktor.io/
 https://start.ktor.io/#
+https://start.ktor.io/settings
 
 https://github.com/Kotlin/ktor
 
 https://start.ktor.io/settings
 
+https://ktor.io/docs/
 https://ktor.io/docs/welcome.html
+https://ktor.io/docs/server-create-a-new-project.html
+https://ktor.io/docs/server-run.html
+https://ktor.io/docs/faq.html
 
+https://blog.jetbrains.com/ktor/
+
+
+GET http://0.0.0.0:9292
+###
+GET http://0.0.0.0:9292/test1
+
+?
 https://ktor.io/quickstart/index.html
 https://ktor.io/servers/index.html
 https://ktor.io/clients/index.html
