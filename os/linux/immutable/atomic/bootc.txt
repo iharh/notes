@@ -15,6 +15,7 @@ https://containers.github.io/bootable/projects.html
     https://quay.io/tutorial/
 
 https://docs.fedoraproject.org/en-US/bootc/getting-started/
+    !!! TODO: execute at podman-desktop (with installed bootable containers extension)
 https://docs.fedoraproject.org/en-US/bootc/community/
 https://docs.fedoraproject.org/en-US/bootc/authentication/
 
