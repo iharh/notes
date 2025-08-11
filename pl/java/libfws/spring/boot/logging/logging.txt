@@ -10,5 +10,3 @@ logging:
     console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(%property{PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint}[] %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wex"
   level:
     cl: DEBUG
-
-https://www.baeldung.com/spring-boot-testing-log-level
