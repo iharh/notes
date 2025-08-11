@@ -1,6 +1,8 @@
 https://help.github.com/articles/caching-your-github-password-in-git/
 http://stackoverflow.com/questions/6031214/git-how-to-use-netrc-file-on-windows-to-save-user-and-password
 http://superuser.com/questions/199507/how-do-i-ensure-git-doesnt-ask-me-for-my-github-username-and-password
+how to clean up cred-cache
+https://ru.stackoverflow.com/questions/850069/git-%d0%9a%d0%b0%d0%ba-%d1%81%d0%b1%d1%80%d0%be%d1%81%d0%b8%d1%82%d1%8c-%d1%83%d0%b4%d0%b0%d0%bb%d0%b8%d1%82%d1%8c-%d1%81%d0%be%d1%85%d1%80%d0%b0%d0%bd%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9-%d0%bf%d0%b0%d1%80%d0%be%d0%bb%d1%8c
 
 When you set up an ssh key for github, if it's not your default key, you will need to add a section to your ~/.ssh/config
 Host *github.com
