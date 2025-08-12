@@ -4,3 +4,34 @@ https://github.com/purejava/kdewallet/wiki
 https://github.com/KDE/kwallet/tree/master/src/runtime/kwalletd
 
 https://wiki.archlinux.org/title/KDE_Wallet
+
+files
+~/.local/share/kwalletd/kdewallet.kwl
+~/.local/share/kwalletd/kdewallet.salt
+~/.local/share/kwalletd/kdewallet_attributes.json
+
+~/.config/kwalletrc
+
+https://bugs.kde.org/show_bug.cgi?id=504656
+https://forum.manjaro.org/t/how-to-reset-kde-wallet/96501
+    mv ~/.local/share/kwalletd/kdewallet.kwl ~/.local/share/kwalletd/kdewallet.kwl.bak
+https://discuss.kde.org/t/error-opening-kdewallet-i-dont-use-kdewallet/21339
+    disable
+https://forum.manjaro.org/t/plasma-6-kwallet-hangs-and-dolphin-sftp-fails-missing-secret-service-backend/178130/25
+    !!! ksecretd
+    dnf/kwalletmanager5
+    ps -ef | grep kwalletd
+    dnf/kf6-kwallet
+        /usr/bin/ksecretd
+        /usr/bin/kwallet-query
+        /usr/bin/kwalletd6
+        /usr/share/applications/org.kde.ksecretd.desktop
+        /usr/share/dbus-1/services/org.kde.kwalletd5.service
+        /usr/share/dbus-1/services/org.kde.kwalletd6.service
+        /usr/share/dbus-1/services/org.kde.secretservicecompat.service
+        /usr/share/xdg-desktop-portal/portals/kwallet.portal
+
+KDE System Setting -> Security and Privacy -> KDE Wallet
+
+disabling
+https://askubuntu.com/questions/219753/how-to-remove-kdewallet
