@@ -1,0 +1,30 @@
+https://blue-build.org/
+    Universal Blue is a community project that builds custom images based on atomic Fedora desktops. 
+    In addition to their more end-user focused images, 
+        the project offers a vast selection of base images with different desktop environments and support for different hardware. 
+
+https://github.com/orgs/ublue-os/packages
+
+https://github.com/blue-build/
+
+https://github.com/blue-build/cli
+    BlueBuild's command line program that builds custom Fedora Atomic images based on your recipe.yml 
+    written in rust with nix !!!
+https://github.com/blue-build/template
+https://github.com/blue-build/examples
+    https://github.com/blue-build/nushell-image
+
+https://schema.blue-build.org/
+    https://github.com/blue-build/schema
+
+https://blue-build.org/learn/universal-blue/
+https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso
+
+https://blue-build.org/reference/recipe/
+https://github.com/thrix/workstation/blob/main/recipes/recipe.yml
+
+https://blue-build.org/learn/getting-started/
+https://blue-build.org/how-to/making-modules/
+
+????
+https://workshop.blue-build.org/

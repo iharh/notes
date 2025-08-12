@@ -1,0 +1,11 @@
+https://thrix.github.io/nix-toolbox/
+https://thrix.github.io/nix-toolbox/getting-started/
+    distrobox create --image ghcr.io/thrix/nix-toolbox:42
+    distrobox enter nix-toolbox-42
+
+2025
+DevConf - Managing Your Laptop with Bootable Containers, Fedora Toolbox, Nix, & Home Manager - DevConf.CZ 2025 0:00 of 33:05
+    https://www.youtube.com/watch?v=P9XydScZZzs
+    https://pretalx.devconf.info/media/devconf-cz-2025/submissions/G9JURJ/resources/Managing_Your_Laptop_with_Bootable_Containe_L5WGS1j.pdf
+
+https://asciinema.org/a/9CciUmnZq4jiZmEzSap6untT1

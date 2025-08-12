@@ -160,24 +160,6 @@ DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads
     ! 17:30 podman desktop ext - 'bootable containers' - for running VMs
     ! 20:00 sample of Containerfile
     ! 27:00 bootc-image-builder
-DevConf - Managing Your Laptop with Bootable Containers, Fedora Toolbox, Nix, & Home Manager 0:00 of 33:05
-    https://www.youtube.com/watch?v=P9XydScZZzs
-    https://pretalx.devconf.info/devconf-cz-2025/talk/G9JURJ/
-    https://pretalx.devconf.info/media/devconf-cz-2025/submissions/G9JURJ/resources/Managing_Your_Laptop_with_Bootable_Containe_L5WGS1j.pdf
-        https://thrix.github.io/nix-toolbox/
-        https://thrix.github.io/nix-toolbox/getting-started/
-        https://thrix.github.io/nix-toolbox/getting-started/#__tabbed_1_2
-        https://thrix.github.io/nix-toolbox/architecture/
-        https://thrix.github.io/nix-toolbox/examples/
-            https://github.com/thrix/nix-config
-            https://github.com/thrix/workstation/blob/main/recipes/recipe.yml
-
-        https://blue-build.org/how-to/setup/
-        https://blue-build.org/learn/getting-started/
-        https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso
-        https://workshop.blue-build.org/
-        https://github.com/blue-build/template
-        https://github.com/blue-build/template/blob/main/recipes/recipe.yml
             
 DevConf - Simplify security compliance with bootable containers 0:00 of 36:37
     https://www.youtube.com/watch?v=5PWkDvtGzYs
