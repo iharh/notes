@@ -132,8 +132,12 @@ https://coreos.github.io/zincati/
 https://github.com/openshift/cincinnati
 
 FedoraProject - ???
-https://www.youtube.com/watch?v=T9aDEF_4vr8
+FedoraProject - Community Submissions of p5
+    https://www.youtube.com/playlist?list=PL0x39xti0_65Ofhsxba_g78Tv_QxSNfLu
 https://www.youtube.com/watch?v=zF7aTCoWoLQ
+    bla-bla
+    https://www.youtube.com/watch?v=buY3keP97Jc
+https://www.youtube.com/watch?v=T9aDEF_4vr8
 https://www.youtube.com/watch?v=uNZuYBq5XfI
 https://www.youtube.com/watch?v=shLgBytoaIU
 rel-party
@@ -216,6 +220,14 @@ FedoraProject - Bootc: Getting Started with Bootable Containers of 8:28
     https://www.youtube.com/watch?v=bf1xqjLeA9M
 FedoraProject - Fedora bootc: GitOps for Noobs of 33:46
     https://www.youtube.com/watch?v=5ZN_7NDvavY
+DevConf - Streamlining bootable container workflows with podman-bootc 0:00 of 26:29
+    https://www.youtube.com/watch?v=uLPyeXmIdyE
+    https://pretalx.com/devconf-cz-2024/talk/RNDTRV/
+DevConf - Customize your OS like container or start new project without building new distro 0:00 of 31:59
+    https://www.youtube.com/watch?v=fDvE3hbmLUo
+    https://pretalx.com/devconf-cz-2024/talk/SKSFGA/
+    https://github.com/containers/podman-machine-os
+    https://fedoraproject.org/wiki/Changes/DNFAndBootcInImageModeFedora
 DevConf - Keynote: What if you could boot a container? of 34:55
     https://www.youtube.com/watch?v=ERVyBc_fElY
     https://pretalx.com/devconf-cz-2024/talk/AVSUU3/
