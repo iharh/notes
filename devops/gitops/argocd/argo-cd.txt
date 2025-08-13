@@ -1,0 +1,43 @@
+https://argoproj.github.io
+https://github.com/argoproj
+https://blog.argoproj.io
+
+https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/index.html
+
+argocd login localhost:8080
+SyncWaves and Hooks:
+    https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/
+    https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html
+
+misc!
+argocd-notifications
+https://argocd-image-updater.readthedocs.io/en/stable/
+    https://github.com/argoproj-labs/argocd-image-updater
+
+https://github.com/argoproj/argo-workflows
+    https://github.com/sudermanjr/asdf-argo
+
+https://argoproj.github.io/argo-cd
+https://github.com/argoproj/argo-cd
+https://argo-cd.readthedocs.io/en/stable/
+https://argo-cd.readthedocs.io/en/stable/getting_started/#2-download-argo-cd-cli
+https://argo-cd.readthedocs.io/en/stable/developer-guide/toolchain-guide/#using-k3d
+
+!!! need
+argocd-autopilot
+
+https://argoproj.github.io/argo-events/
+https://github.com/argoproj/argo-events
+
+https://argoproj.github.io/argo-rollouts
+https://argoproj.github.io/argo-rollouts/getting-started/
+https://argo-rollouts.readthedocs.io/en/stable/
+https://argo-rollouts.readthedocs.io/en/stable/features/kubectl-plugin/
+    k argo roullouts get rollout <name>
+      -w/--watch
+
+swagger
+    /swagger-ui
+
+analysisrun
+https://argo-rollouts.readthedocs.io/en/stable/features/analysis/
