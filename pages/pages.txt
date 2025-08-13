@@ -1,4 +1,38 @@
-TODO !!! Ask Ezenin
+TODO !!! Ask Ezenin regarding Interview
+    Joker 2023 
+
+books
+Kotlin in Action 2nd ed                             -  37      (of  849)
+Chetverikova - 2011 - Vatican Izmena ru             -  16      (of  218)
+Veller - Friends                                    -  54
+OpenSSL Cookbook                                    -  29      (of   58)
+Gnedenko                                            -  39..41  (of   74)
+Kantor - Red Color                                  - 284.7    (of 1204)
+Bailor - The Calorie Myth ru                        -  13      (of  303)
+Markov - Crimea 2nd ed ru                           - 237      (of  607)
+Zhitinskiy - RD ru                                  - 227.2    (of  695)
+Myshkis - Soviet Mathematicians ru                  - 225..286 (of  302)
+Mordkovich - Talks with Math Teachers 2nd ed ru     - 209..220 (of  338)
+Froydental - Math as Pedagogical Problem part 2 ru  -  14..    (of  192)
+Sawyer - 1972 - Prelude to Mathematics 2nd ed ru    - 43..48   (of  192)
+NagelNewman - 2010 - Godels Proof 2nd ed ru         - 13       (of  121)
+Hudets - 2005 - Technics with Samsonov ru           -  73..    (of  274)
+Harrison - MongoDB 117 of 360
+kc - 76 of ...
+kina2 - 37 of 8xx (?1.2.5)
+bellemare - 21 (ch2)
+anand - clickhouse - 129 of (column-oriented)
+Wang - Terraform Made Easy
+    https://libgen.la/ads798ffb80aff647e94441a7015ed728feA7N30EX2
+        https://annas-archive.org/md5/798ffb80aff647e94441a7015ed728fe
+        https://annas-archive.org/ipfs_downloads/md5:798ffb80aff647e94441a7015ed728fe
+    https://z-library.sk/book/114381716/7fda6b/terraform-made-easy-provisioning-managing-and-automating-cloud-infrastructure-with-terraform-on-go.html
+    https://z-library.sk/book/114384198/076fc3/terraform-made-easy-provisioning-managing-and-automating-cloud-infrastructure-with-terraform-on-go.html
+    https://z-library.sk/book/114386414/9bcc10/terraform-made-easy-provisioning-managing-and-automating-cloud-infrastructure-with-terraform-on-go.html
+    https://z-library.sk/book/27957958/15e1a5/terraform-%D0%B8%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%BD%D0%B0-%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5-%D0%BA%D0%BE%D0%B4%D0%B0-3%D0%B5-%D0%BC%D0%B5%D0%B6%D0%B4-%D0%B8%D0%B7%D0%B4.html
+    https://z-library.sk/book/30618223/df747b/terraform-cookbook-for-true-epub.html
+    https://z-library.sk/book/30816300/ac0d60/terraform-cookbook-recipes-for-codifying-infrastructure.html
+    https://z-library.sk/book/31739686/f85974/terraform-cookbook-recipes-for-codifying-infrastructure.html
 
 /etc/NetworkManager/system-connections/Wired connection 1.nmconnection
 [ipv4]
@@ -9,9 +43,6 @@ method=auto
 
 nets for litteliest
     https://habr.com/ru/articles/307252/
-
-course
-https://www.coursera.org/
 
 ~/.config/waybar/
     missing links
@@ -68,77 +99,8 @@ https://arxiv.org/abs/1706.05137
 JayAlammar - The Narrated Transformer Language Model 0:00 of 29:29
     https://www.youtube.com/watch?v=-QH8fRhqFHM
 
-proxmox:
-    inst
-    begin
-        NovaspiritTech - 5 Things I Would Do On Fresh Install Of ProxMox of 19:29
-            https://www.youtube.com/watch?v=xD9Xyt2mdSI
-        TechnoTim - Before I do anything on Proxmox, I do this first... of 23:03
-            https://www.youtube.com/watch?v=GoZaMgEgrHw
-    helper scripts
-        Liv4IT - Proxmox VE Helper Scripts of 14:43
-            https://www.youtube.com/watch?v=gRVSbqXejtk
-        AutomationAvenue - Proxmox VE Helper Scripts - install anything with 1 command !!! of 5:44
-            https://www.youtube.com/watch?v=V8st9WtmnCw
-            ! casaos
-        BarmineTech - Proxmox Helper Scripts | Must Watch Before Installing Proxmox of 13:56
-            https://www.youtube.com/watch?v=JWPiedjyvsw
-    tweaks
-        VirtualizationHowto - Proxmox Swap and Memory Hack for Home Labs! of 18:07
-            https://www.youtube.com/watch?v=v45lH43yU9s
-        VirtualizationHowto - Proxmox 10 tweaks you need to know of 9:47
-            https://www.youtube.com/watch?v=bo33EQk9CCM
-    cloud-init
-        JimsGarage - Use Proxmox Cloud-Init to Deploy Your Virtual Machines! Kubernetes At Home - Part 2 of 20:08
-            https://www.youtube.com/watch?v=Kv6-_--y5CM # cloud-init
-        HouseOfLogicBlog - Proxmox Cloud-Init Setup and Troubleshooting of 26:49
-            https://www.youtube.com/watch?v=09Zp0247F0U
-        https://codingpackets.com/blog/proxmox-cloud-init-with-terraform-and-saltstack/
-    tf
-        Liv4IT - How To Install Packages on Proxmox VM with Terraform of 12:18
-            https://www.youtube.com/watch?v=RRJrLTeU67Y
-    templates
-        DBTech - Speed Up Your Proxmox Deployment With This Simple Trick of 18:34
-            https://www.youtube.com/watch?v=WYmdoTPTusk
-            container templates
-        CloudyWithArnold - Proxmox VE | How to Build Ubuntu Cloud-init Template 0:00 of 8.04
-            https://www.youtube.com/watch?v=ke6MYhI8qDE
-    docker-inst
-        BigBearTechWorld - How to install Docker on Proxmox LXC of 12:46
-            https://www.youtube.com/watch?v=5q4bFIff8ro
-    misc
-        ServersAndHome - Proxmox Basics: The Ultimate Beginner’s Guide of 44:27
-            https://www.youtube.com/watch?v=b1BztUYB7VI
-
-wget2
-gvfs
-pamixer
-slurp
-swappy
-wl-clipboard
-yad
-cava
-gnome-system-monitor
-calculate-gtk
-nvtop
-
 protonvpn
     https://one.one.one.one/dns/
-
-books
-Wang - Terraform Made Easy
-    https://libgen.la/ads798ffb80aff647e94441a7015ed728feA7N30EX2
-        https://annas-archive.org/md5/798ffb80aff647e94441a7015ed728fe
-        https://annas-archive.org/ipfs_downloads/md5:798ffb80aff647e94441a7015ed728fe
-    https://z-library.sk/book/114381716/7fda6b/terraform-made-easy-provisioning-managing-and-automating-cloud-infrastructure-with-terraform-on-go.html
-    https://z-library.sk/book/114384198/076fc3/terraform-made-easy-provisioning-managing-and-automating-cloud-infrastructure-with-terraform-on-go.html
-    https://z-library.sk/book/114386414/9bcc10/terraform-made-easy-provisioning-managing-and-automating-cloud-infrastructure-with-terraform-on-go.html
-    https://z-library.sk/book/27957958/15e1a5/terraform-%D0%B8%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%BD%D0%B0-%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5-%D0%BA%D0%BE%D0%B4%D0%B0-3%D0%B5-%D0%BC%D0%B5%D0%B6%D0%B4-%D0%B8%D0%B7%D0%B4.html
-    https://z-library.sk/book/30618223/df747b/terraform-cookbook-for-true-epub.html
-    https://z-library.sk/book/30816300/ac0d60/terraform-cookbook-recipes-for-codifying-infrastructure.html
-    https://z-library.sk/book/31739686/f85974/terraform-cookbook-recipes-for-codifying-infrastructure.html
-
-
 
 https://devenv.sh/
 https://github.com/cachix/devenv
@@ -172,22 +134,11 @@ https://github.com/DEgITx/rats-search
 https://www.reddit.com/r/commandline/comments/r9ir76/rtv_no_longer_working/
 https://matrix.org/blog/2021/12/03/this-week-in-matrix-2021-12-03
 
-
-kc - 76 of ...
-kina2 - 37 of 8xx (?1.2.5)
-bellemare - 21 (ch2)
-anand - clickhouse - 129 of (column-oriented)
-pg internals 16 - 75
-kafka - 76
-dnf info ostree-libs
-    deps - ?
-
 !!! jakarta enterprise
     https://www.youtube.com/playlist?list=PLt91xr-Pp57QEnGJPuI4R_VqEXikn2a76
 
 dsworks.ru/super-aintelligence
 
-Harrison - MongoDB 117 of 360
 
 atomic
     https://pagure.io/workstation-ostree-config
@@ -574,12 +525,6 @@ CppCon - Sankel - Monoids, Monads, and Applicative Functors: Repeated Software P
 BerlinFPG - John De Goes - Programming without Type Classes 12:00 of 1:49:00
     https://www.youtube.com/watch?v=QDleESXlZJw
 
-https://ru-bykov.livejournal.com/5102695.html
-https://ru-bykov.livejournal.com/5088048.html
-https://ru-bykov.livejournal.com/5080908.html
-https://ru-bykov.livejournal.com/5081257.html
-https://ru-bykov.livejournal.com/5082613.html
-    denikin
 https://serokell.io/blog/practical-nix-flakes
     some tips and tricks
 
@@ -629,22 +574,6 @@ Necks - 2020 - How to Heal and Strengthen           -   10:00 (of 2:02:03)
 Volfson - 2019 - How to Find Error at own Solution -   00:00   (of   53:34)
     https://www.youtube.com/watch?v=_dTS8kG1olY
     https://cmcagu.ru/docs/Seminar/Materials/Volfson.pdf
-
-Books
-Chetverikova - 2011 - Vatican Izmena ru             -  16      (of  218)
-Veller - Friends                                    -  54
-OpenSSL Cookbook                                    -  29      (of   58)
-Gnedenko                                            -  39..41  (of   74)
-Kantor - Red Color                                  - 284.7    (of 1204)
-Bailor - The Calorie Myth ru                        -  13      (of  303)
-Markov - Crimea 2nd ed ru                           - 237      (of  607)
-Zhitinskiy - RD ru                                  - 227.2    (of  695)
-Myshkis - Soviet Mathematicians ru                  - 225..286 (of  302)
-Mordkovich - Talks with Math Teachers 2nd ed ru     - 209..220 (of  338)
-Froydental - Math as Pedagogical Problem part 2 ru  -  14..    (of  192)
-Sawyer - 1972 - Prelude to Mathematics 2nd ed ru    - 43..48   (of  192)
-NagelNewman - 2010 - Godels Proof 2nd ed ru         - 13       (of  121)
-Hudets - 2005 - Technics with Samsonov ru           -  73..    (of  274)
 
 misc
 https://trv-science.ru/2009/03/03/nuzhna-li-shkolnikam-vysshaya-matematika-2/
