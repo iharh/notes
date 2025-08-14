@@ -7,3 +7,21 @@ http://blog.plover.com/prog/git-pre-commit-hook.html
 2022
 https://dzone.com/articles/pre-commit-hooks-devops-engineer-should-know-to-co
     https://habr.com/ru/company/nixys/blog/682612/
+
+
+.pre-commit-config.yaml
+
+default_install_hook_types: [pre-commit,pre-push,commit-msg]
+repos:
+- repo: https://github.com/norwoodj/helm-docs
+  rev: v1.5.0
+  hooks:
+  - id: helm-docs
+    args:
+    - --sort-values-order=file
+    - --chart-search-root=helm
+    - --template-files=README.md.gotmpl
+- repo: https://github.com/jorisroovers/gitlint.git
+  rev: v0.17.0
+  hooks:
+  - id: gitlint
