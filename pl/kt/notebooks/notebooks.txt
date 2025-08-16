@@ -1,4 +1,8 @@
 https://plugins.jetbrains.com/plugin/16340-kotlin-notebook
+    File -> Settings... -> Tools -> Kotlin Notebook
+
+https://github.com/Kotlin/kotlin-jupyter/tree/master/docs
+https://github.com/Kotlin/kotlin-jupyter/tree/master/docs#rich-output
 
 samples
 https://github.com/Kotlin/kotlin-jupyter/blob/master/samples/outputs.ipynb
