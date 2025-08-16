@@ -1,4 +1,24 @@
 according to the SQL standard
 
 information_schema.
-    routines
+    routines # Its primary focus is on procedural or scalar functions, not necessarily aggregate functions.
+        routine_name
+
+select routine_name from information_schema.routines where routine_name like 'json%';
+select routine_name from information_schema.routines where routine_name like '%agg%';
+
+pg_catalog.
+    pg_aggregate
+
+
+SELECT 
+    p.proname AS aggregate_name,
+    p.pronamespace::regnamespace AS schema_name,
+    a.aggfnoid::regproc AS function_name
+FROM 
+    pg_aggregate a
+JOIN 
+    pg_proc p ON a.aggfnoid = p.oid
+    ;
+WHERE 
+    p.proname = 'json_arrayagg';
