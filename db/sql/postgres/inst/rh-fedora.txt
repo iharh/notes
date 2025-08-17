@@ -9,4 +9,4 @@ sudo dnf install postgresql17
 #sudo systemctl start postgresql-17
 
 ???
-postgresql-client
+postgresql - postgresql client
