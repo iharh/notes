@@ -1,4 +1,11 @@
 2025
+JavaPro - From CLIs to LLMs: 5 Cool Applications to Build with GraalVM | Alina Yurenko (EN) 0:00 of 47:22
+    https://www.youtube.com/watch?v=HmX3GwhSruI
+    https://github.com/alina-yur/native-spring-boot
+    https://github.com/alina-yur/native-spring-boot/blob/main/bench-jit-c2.sh
+    https://github.com/alina-yur/native-spring-shell
+    ! wrk -s mixed-requests.lua
+    ! 26:00 project in vscode
 IDEA - Arhipov Chuyko - Debugging GraalVM Native Images With IntelliJ IDEA
     https://www.youtube.com/watch?v=St68kE-Vtj0
 2024
