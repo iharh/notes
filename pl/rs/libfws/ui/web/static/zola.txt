@@ -13,8 +13,16 @@ https://www.getzola.org/documentation/getting-started/overview/
 https://www.getzola.org/themes/
 https://zola.discourse.group/
 
+2024
+https://blog.orhun.dev/setting-up-this-blog/
+2023
+https://adrianstobbe.com/posts/zola-searchbar/
+    https://github.com/getzola/zola/blob/master/docs/static/search.js
 2021
 https://pablo.tools/blog/computers/nix-mustache-templates/
 2019
 https://maciej.codes/2019-03-03-ramhorns.html
 https://words.steveklabnik.com/porting-steveklabnik-com-to-workers-sites-and-zola
+
+samples
+https://github.com/orhun/personal-blog/
