@@ -299,6 +299,10 @@ AllSystemsGo - The road to a trusted and measured boot chain in Bootable Contain
     !         unpacks the container image files on the disk
     !         set up the kernel and initramfs
     !         writes the BLS (bootloader) config
+2023
+RedHatCommunity - bootc - A new project for bootable containers of 34:01
+    https://www.youtube.com/watch?v=QaKl5z6dFlM
+    ! 18:40 very small bootable image Containerfile with ssh pub-keys only
 
 issues
 https://github.com/coreos/bootupd/issues/468
