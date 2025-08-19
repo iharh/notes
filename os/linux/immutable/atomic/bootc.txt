@@ -193,6 +193,8 @@ DevConf - UKIs and composefs support for Bootable Containers 11:00 of 37:18
     !     ? mokutil --db
     !     bootctl (grub2 entries for my case)
 2024
+FedoraProject - EricTheITGuy - Ravier - The Next Generation of Linux with bootc | Fedora Podcast 36 of 49:16
+    https://www.youtube.com/watch?v=zF7aTCoWoLQ
 ColinWalters - bootc: logically bound images 3:30 of 10:29
     https://www.youtube.com/watch?v=buY3keP97Jc
     https://jmarrero.github.io/bootc/logically-bound-images.html
