@@ -7,3 +7,5 @@ create temp table <temp-table-name> as
 create temp table <temp-table-name>
     (like <other-table> including constraints including indexes);
 
+2025
+https://habr.com/ru/companies/tantor/articles/930038/
