@@ -1,0 +1,16 @@
+docker ps --format '{{json .}}' | jq .
+docker ps --format '{{json .Names}}'
+docker ps --all --no-trunc --format="{{json . }}" | jq --tab .
+docker ps --format '{"ID":"{{ .ID }}", "Image": "{{ .Image }}", "Names":"{{ .Names }}"}' | jq .
+https://docs.docker.com/reference/cli/docker/container/ls/#formatting
+    docker ps/docker container ls
+https://docs.docker.com/reference/cli/docker/container/ls/#filter
+https://www.howtogeek.com/devops/how-to-become-a-docker-cli-power-user-with-format-and-output-templates/
+https://forums.docker.com/t/how-to-filter-docker-ps-by-exact-name/2880/
+    !!!
+    docker ps -a --no-trunc --filter name=^/foo$
+    docker ps -a --no-trunc --filter 'image=^/post*$'
+https://stackoverflow.com/questions/29406871/how-to-filter-docker-process-based-on-image
+    docker ps -q -f ancestor=postgres:14.10-alpine
+    docker ps -a -f ancestor=postgres:14.10-alpine
+    docker ps -f "ancestor=.*\b(test|dev)\b.*"
