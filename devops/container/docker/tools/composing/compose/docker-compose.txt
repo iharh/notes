@@ -1,10 +1,5 @@
 https://docs.docker.com/compose/cli-command/#install-on-linux
 
-cli
-docker
-    compose
-        ...
-
 compose-env:
 https://docs.docker.com/compose/env-file/
 

@@ -1,0 +1,5 @@
+docker compose
+  down -v
+      remove volumes
+      https://writeitdifferently.com/postgresql/flyway/2020/03/15/running-postgresql-and-flyway-with-docker-compose.html
+  ...
