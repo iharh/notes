@@ -1,0 +1,35 @@
+https://developers.redhat.com/products/rhel-image-mode/overview?intcmp=7015Y000003ss1hQAA
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/index
+https://www.redhat.com/en/blog/image-mode-red-hat-enterprise-linux-quick-start-guide
+https://www.redhat.com/en/introduction-to-image-mode-for-red-hat-enterprise-linux-interactive-lab
+https://developers.redhat.com/learn/rhel/rhel-image-mode-kickstart
+https://developers.redhat.com/learn/rhel/build-and-run-bootable-container-image-image-mode-rhel-and-podman-desktop
+https://developers.redhat.com/articles/2025/beyond-default-bootc-images-scratch
+https://developers.redhat.com/articles/2025/how-install-image-mode-system-using-system-reinstall-bootc
+https://developers.redhat.com/blog/2025/07/23/shape-future-linux-contribute-bootc-open-source-project
+https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux-10/image-mode
+    https://developers.redhat.com/products/rhel-image-mode/getting-started
+    https://developers.redhat.com/products/rhel-image-mode/faq
+    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/index
+https://www.redhat.com/en/blog/faster-container-image-pulls
+2024
+RHEL - First Look at Image Mode for RHEL | Red Hat Enterprise Linux Presents 078 of 1:07:00
+    https://www.youtube.com/watch?v=QZDaTHyl1Sk
+    ! 13:00 boot cmd-line param for installer - ks.cfg
+    ! 15:00 content of the mentioned ks.cfg
+    !         text
+    !         network --bootproto=dhcp --device=link --activate
+    !         clearpart --all --initlabel --disklabel=gpt
+    !         reqpart --add-boot
+    !         part / --grow --fstype xfs
+    !         ostreecontainer --url quay.io/mmicene/lamp-bootc:latest
+    !         firewall --disabled
+    !         services --enabled=sshd
+    !         user --name=core --group=wheel --iscrypted --password=$6$30rU...
+    !         rootpw --iscrypted locked
+    !         sshkey --username core "ssh-rsa AAAAA....= bbreard@comacho"
+    !         reboot
+    ! 18:00 bootc status
+HCSCompany - Custom Atomic RHEL met Bootc 0:00 of 31:53
+    https://www.youtube.com/watch?v=sreYntaY2LY
+    https://gitlab.com/hcs-company/bootc-example/

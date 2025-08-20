@@ -38,25 +38,6 @@ https://universal-blue.org/
 https://www.heliumos.org/
 https://grahamc.com/blog/nix-and-layered-docker-images/
 
-image-mode
-https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/index
-https://www.redhat.com/en/blog/image-mode-red-hat-enterprise-linux-quick-start-guide
-https://www.redhat.com/en/introduction-to-image-mode-for-red-hat-enterprise-linux-interactive-lab
-https://developers.redhat.com/learn/rhel/rhel-image-mode-kickstart
-https://developers.redhat.com/learn/rhel/build-and-run-bootable-container-image-image-mode-rhel-and-podman-desktop
-https://developers.redhat.com/articles/2025/beyond-default-bootc-images-scratch
-https://developers.redhat.com/articles/2025/how-install-image-mode-system-using-system-reinstall-bootc
-https://developers.redhat.com/blog/2025/07/23/shape-future-linux-contribute-bootc-open-source-project
-https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux-10/image-mode
-    https://developers.redhat.com/products/rhel-image-mode/getting-started
-    https://developers.redhat.com/products/rhel-image-mode/faq
-    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/index
-https://www.redhat.com/en/blog/faster-container-image-pulls
-2024
-HCSCompany - Custom Atomic RHEL met Bootc 0:00 of 31:53
-    https://www.youtube.com/watch?v=sreYntaY2LY
-    https://gitlab.com/hcs-company/bootc-example/
-
 fs
 https://www.kernel.org/doc/html/next/filesystems/fsverity.html
 https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt
@@ -83,7 +64,6 @@ https://developers.redhat.com/learn/openshift/develop-containers-using-podman-de
 https://developers.redhat.com/learn/rhel/build-your-ai-application-ai-lab-extension-podman-desktop
 https://developers.redhat.com/products/podman-desktop/red-hat-extension-pack
 https://catalog.redhat.com/en/search?gs=&q=bootc&searchType=containers
-https://developers.redhat.com/products/rhel-image-mode/overview?intcmp=7015Y000003ss1hQAA
 https://podman-desktop.io/downloads/linux
     https://github.com/podman-desktop/podman-desktop/releases/
     https://github.com/podman-desktop/podman-desktop/releases/download/v1.20.2/podman-desktop-1.20.2.tar.gz
