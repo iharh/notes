@@ -30,6 +30,12 @@ RHEL - First Look at Image Mode for RHEL | Red Hat Enterprise Linux Presents 078
     !         sshkey --username core "ssh-rsa AAAAA....= bbreard@comacho"
     !         reboot
     ! 18:00 bootc status
+    ! 54:00 bootc-plugin for podman desktop is really super-cool!!!
+    ! 57:00 Bootable Containers > Build Disk Image
+    !         Bootable container image: docker.io/library/wp-bootd:latest
+    !         Output folder: ...
+    !         Disk image type: raw, qcow2, iso, vmdk, ami
+    !         Filesystem: xfs, ext4
 HCSCompany - Custom Atomic RHEL met Bootc 0:00 of 31:53
     https://www.youtube.com/watch?v=sreYntaY2LY
     https://gitlab.com/hcs-company/bootc-example/
