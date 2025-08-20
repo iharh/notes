@@ -210,6 +210,7 @@ DevConf - Streamlining bootable container workflows with podman-bootc 0:00 of 26
     https://pretalx.com/devconf-cz-2024/talk/RNDTRV/
 DevConf - Customize your OS like container or start new project without building new distro 0:00 of 31:59
     https://www.youtube.com/watch?v=fDvE3hbmLUo
+    !!! also in fedora-atomic.txt
     https://pretalx.com/devconf-cz-2024/talk/SKSFGA/
     https://github.com/containers/podman-machine-os
     https://fedoraproject.org/wiki/Changes/DNFAndBootcInImageModeFedora

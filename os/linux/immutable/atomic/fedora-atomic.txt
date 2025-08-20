@@ -1,3 +1,5 @@
+https://fedoraproject.org/atomic-desktops/
+
 https://fedoraproject.org/atomic-desktops/sway/
 https://fedoraproject.org/ru/atomic-desktops/sway/download
 https://docs.fedoraproject.org/en-US/fedora-sericea/
@@ -7,7 +9,41 @@ https://docs.fedoraproject.org/en-US/fedora-sericea/configuration-guide/
 https://fedoraproject.org/atomic-desktops/sway/
 https://fedoraproject.org/atomic-desktops/sway/download
 
+Roadmap to Fedora Bootable Containers
+    https://github.com/coreos/fedora-coreos-tracker/issues/1726
+Roadmap to Fedora Bootable Containers
+    https://gitlab.com/fedora/ostree/sig/-/issues/26
+Roadmap for Fedora 43
+    https://gitlab.com/fedora/bootc/tracker/-/issues/70
+DNF and bootc in Image Mode Fedora variants
+    https://gitlab.com/fedora/bootc/tracker/-/issues/12
+    https://fedoraproject.org/wiki/Changes/DNFAndBootcInImageModeFedora
+tracker issue for ostree native containers 
+    https://pagure.io/releng/issue/10399
+
 2024
 https://fedoramagazine.org/introducing-fedora-atomic-desktops/
+DevConf - Customize your OS like container or start new project without building new distro of 31:59
+    https://www.youtube.com/watch?v=fDvE3hbmLUo
+    https://pretalx.com/devconf-cz-2024/talk/SKSFGA/
+        Derive your own fedora workstation
+        FROM quay.io/repository/fedora-ostree-desktops/silverblue:40
+        COPY my-vpn-profile.ovn \
+        /etc/NetworkManager/system-connections/vpn.ovn
+        RUN dnf install -y neovim libvirt zsh
+        RUN systemctl enable libvirtd.socket
+        RUN dnf swap -y noopenh264 openh264
+        $ rpm-ostree rebase \
+            ostree-image-signed:docker://quay.io/me/my-neat-image
+        $ reboot
+        ! slide 16
+          COPY --from=ghcr.io/ublue-os/config:latest /files/ublue-os/udev-rules /
+        ! https://github.com/containers/podman-machine-os
+        ! slide 26 - links to other related presentations
+        !   https://fedoraproject.org/wiki/Changes/DNFAndBootcInImageModeFedora
+                DNF5 when installed on a image-based/ostree system can be used to install RPMs if the system is unlocked, it also works on most container builds, 
+                one major exception at the moment are kernel installations and kernel updates. 
+                DNF is not part of image variants at the moment, however CoreOS is exploring adding it via: 
+                    https://github.com/coreos/fedora-coreos-tracker/issues/1687
 FedoraProject - What's new in Fedora Atomic Desktops? ‒ F39 Release Party 21:00 of 26:56
     https://www.youtube.com/watch?v=6PdHsse_3hc
