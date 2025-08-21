@@ -1,6 +1,24 @@
 https://helppay.mdom.by/
 https://github.com/PragmaTech-GmbH/spring-test-profiler
 
+gstreamer
+https://discussion.fedoraproject.org/t/gstreamer-package-conflicts-after-update-to-kde-6-4/156013/
+https://www.reddit.com/r/Fedora/comments/1an225o/gstreamer_conflict_during_dnf_upmin_on_f39/
+https://forums.almalinux.org/t/gstreamer-update-blocker-solved/5935
+    sudo dnf remove gstreamer1-plugins-bad-free    
+    sudo dnf install gstreamer1-plugins-bad-free
+
+viber
+https://idroot.us/install-viber-fedora-41/
+    wget -c https://download.cdn.viber.com/desktop/Linux/viber.rpm
+    sudo dnf localinstall viber.rpm
+    sudo rpm -i viber.rpm
+    error: Failed dependencies:
+            gstreamer1-plugins-bad-free(x86-64) is needed by viber-24.9.0.3-2.x86_64
+https://www.viber.com/en/download/
+    ?appimage
+
+
 TODO !!! Ask Ezenin regarding Interview
 Idea: Select in -> Project Structure hotkey (A-F1 - 1)
     https://stackoverflow.com/questions/1086041/locate-current-file-in-intellij
