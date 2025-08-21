@@ -222,14 +222,16 @@ https://pagure.io/pungi-fedora/blob/main/f/general.conf
 https://pagure.io/pungi-fedora/blob/main/f/fedora.conf
 https://dustymabe.com/2017/08/08/how-do-we-create-ostree-repos-and-artifacts-in-fedora/
 
-????
-https://www.youtube.com/watch?v=vH89CKVxLpA
 2023
 TommyTran - Installing Fedora CoreOS 37 of 30:56
     https://www.youtube.com/watch?v=2eEiVYelFTo
     ! 25:00 sudo coreos-installer install /dev/sda --copy-network --ignition-file|ignition-url 
     https://github.com/Metropolis-nexus/Fedora-CoreOS-Ignition
     https://github.com/Metropolis-nexus/Fedora-CoreOS-Ignition/blob/main/x86.yml
+2021
+DevConf - Getting Started with Fedora CoreOS of 51:47
+    https://www.youtube.com/watch?v=vH89CKVxLpA
+    ! mummling and dizy
 2020
 https://fedoramagazine.org/getting-started-with-fedora-coreos/
 https://www.opennet.ru/opennews/art.shtml?num=52205
