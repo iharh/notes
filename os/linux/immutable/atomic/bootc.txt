@@ -170,6 +170,8 @@ DevConf - UKIs and composefs support for Bootable Containers 11:00 of 37:18
     !     ? mokutil --sb-state
     !     ? mokutil --db
     !     bootctl (grub2 entries for my case)
+RHEL - What are Bootc and bootable containers? of 3:51
+    https://www.youtube.com/watch?v=1p1pCoHFkP0
 2024
 FedoraProject - EricTheITGuy - Ravier - The Next Generation of Linux with bootc | Fedora Podcast 36 of 49:16
     https://www.youtube.com/watch?v=zF7aTCoWoLQ
