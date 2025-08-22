@@ -1,0 +1,11 @@
+baeldung
+https://www.baeldung.com/spring-boot-domain-graph-service
+2025
+https://www.javacodegeeks.com/2025/06/building-graphql-apis-with-spring-boot-and-netflix-dgs-framework.html
+    implementation platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release")
+    implementation "com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter"
+2024
+https://freedium.cfd/https://medium.com/@truongbui95/practical-guide-to-getting-started-with-spring-boot-and-netflix-dgs-cd16c51ec5a0
+    https://github.com/buingoctruong/graphql-dgs-netflix
+2021
+https://netflixtechblog.com/open-sourcing-the-netflix-domain-graph-service-framework-graphql-for-spring-boot-92b9dcecda18
