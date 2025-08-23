@@ -1,3 +1,11 @@
+TODO:
+check libfws/ui/kandy
+    https://kotlin.github.io/kandy/welcome.html
+    https://kotlin.github.io/kandy/overview.html
+    https://kotlin.github.io/kandy/quick-start-guide.html
+    https://lets-plot.org/kotlin/get-started.html
+    https://github.com/JetBrains/lets-plot-kotlin
+
 https://plugins.jetbrains.com/plugin/16340-kotlin-notebook
     File -> Settings... -> Tools -> Kotlin Notebook
 
@@ -8,6 +16,8 @@ samples
 https://github.com/Kotlin/kotlin-jupyter/blob/master/samples/outputs.ipynb
 
 2025
+JetBrains - Data Analysis for finance in Kotlin | Enrique Lopez Manas 0:00 of 46:20
+    https://www.youtube.com/watch?v=n6egwuOnGuk
 Jetbrains - Kotlin Notebooks for Spring Developers by Ignat Beresnev 0:00 of 59:01
     https://www.youtube.com/watch?v=rDFrh3ctN4g
 2024
