@@ -236,9 +236,12 @@ DevConf - Getting Started with Fedora CoreOS of 51:47
 https://fedoramagazine.org/getting-started-with-fedora-coreos/
 https://www.opennet.ru/opennews/art.shtml?num=52205
 2019
+DevConf - Fedora CoreOS: architectural walkthrough of 47:31
+    https://www.youtube.com/watch?v=5do9OJnJuAA
 KeithY - Fedora CoreOS bare metal install using Ignition 3:00 of 22:54
     https://www.youtube.com/watch?v=cvWN8dXHaVo
     !!! 3:00 sample of ignition file with links in comments
     https://github.com/keithy/ign-embed
     https://github.com/keithy/ign-tool
     https://github.com/keithy/ign-tool/wiki
+
