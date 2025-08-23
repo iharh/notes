@@ -1,3 +1,14 @@
+https://github.com/matrix-org/matrix-spec-proposals/pull/3030
+    https://github.com/matrix-org/matrix-spec/pull/1366
+    https://github.com/matrix-org/matrix-js-sdk/pull/2915
+    https://github.com/ruma/ruma/pull/1427
+    https://github.com/matrix-org/matrix-spec/blob/main/data/api/client-server/room_event_by_timestamp.yaml#L30
+    https://github.com/matrix-org/synapse/issues/14390
+        https://github.com/matrix-org/synapse/pull/14471
+    https://github.com/vector-im/element-web/issues/24079
+        closed
+    turt2live, Travis Ralston 
+
 MCS3030 - jump-to-date-api  /timestamp_to_event
     https://github.com/matrix-org/matrix-doc/pull/3030
     ! already merged

@@ -1,22 +1,5 @@
-bm
-    566
-asdf-plugins
-    60  camunda-modeller
-https://github.com/matrix-org/matrix-spec-proposals/pull/3030
-    https://github.com/matrix-org/matrix-spec/pull/1366
-    https://github.com/matrix-org/matrix-js-sdk/pull/2915
-    https://github.com/ruma/ruma/pull/1427
-    https://github.com/matrix-org/matrix-spec/blob/main/data/api/client-server/room_event_by_timestamp.yaml#L30
-    https://github.com/matrix-org/synapse/issues/14390
-        https://github.com/matrix-org/synapse/pull/14471
-    https://github.com/vector-im/element-web/issues/24079
-        closed
-    turt2live, Travis Ralston 
-
 https://community-z.com/events/magiqans-tech-talk-26/talks/17947
 
-Razbor Poletov                                      
-    https://razborpoletov.com/2023/09/episode-265.html
 ACCU Overload                                       - 161..169
     https://accu.org/journals/overload/overload161
     https://accu.org/index.php/journals/c78/
