@@ -5,3 +5,4 @@ MerionAcademy - How NAT Saved Inet ru of 11:41
     ! Router has a pool of global addresses
     ! Static and Dynamic NAT
     ! PAT - port-address translation (can translate multiple local addresses (port) to a single global one)
+https://habr.com/ru/articles/797907/

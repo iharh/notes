@@ -6,14 +6,12 @@ MJC - Creating Annotations in Java ru of 6:51
 https://www.baeldung.com/java-annotation-processing-builder
 2022
 https://reflectoring.io/java-annotation-processing/ 
+    https://habr.com/ru/company/otus/blog/655239/
     https://github.com/thombergs/code-examples/tree/master/core-java/annotation-processing/introduction-to-annotations
     !!!
     ! @Inherited -> propagates annotation to inherited classes
 https://docs.oracle.com/javase/tutorial/java/annotations/index.html
     https://habr.com/ru/post/662023/
-https://reflectoring.io/java-annotation-processing/
-    https://habr.com/ru/company/otus/blog/655239/
-    https://github.com/thombergs/code-examples/tree/master/core-java/annotation-processing/introduction-to-annotations
 2020
 https://blog.frankel.ch/introductory-guide-annotation-processor/
 2019
