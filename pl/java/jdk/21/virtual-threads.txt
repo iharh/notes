@@ -2,6 +2,11 @@ https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306F
 
 spring.threads.virtual.enabled: true
 
+2025
+SpringIO - Virtual Threads, Structured Concurrency and Scoped Values: Putting it all together 0:00 of 47:40
+    https://www.youtube.com/watch?v=kz_R6-fdSZc
+    https://speakerdeck.com/balkrishnarawool/virtual-threads-structured-concurrency-and-scoped-values-putting-it-all-together
+    https://github.com/balkrishnarawool/SpringBootLoom
 JPoint - Popov - Virtual Threads - New Possibilities for IO Bound Microservices of 44:04
     https://www.youtube.com/watch?v=YJmCdk_qvSI
     https://jpoint.ru/talks/a3130b924c2c4690bcbaac245b931bdb/
