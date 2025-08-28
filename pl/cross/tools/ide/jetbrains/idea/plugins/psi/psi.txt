@@ -1,0 +1,23 @@
+https://www.jetbrains.com/opensource/idea/
+
+https://plugins.jetbrains.com/docs/intellij/welcome.html
+https://plugins.jetbrains.com/docs/intellij/intellij-platform.html
+https://plugins.jetbrains.com/docs/intellij/platform-contributions.html
+    https://github.com/JetBrains/intellij-sdk-docs
+    https://github.com/JetBrains/intellij-community/blob/master/java/java-psi-api/src/com/intellij/psi/PsiClass.java
+    https://github.com/JetBrains/intellij-community/blob/idea/2025.2/platform/core-api/src/com/intellij/psi/PsiFile.java
+
+https://plugins.jetbrains.com/docs/intellij/psi.html
+https://plugins.jetbrains.com/docs/intellij/psi-files.html
+https://plugins.jetbrains.com/docs/intellij/psi-elements.html
+https://plugins.jetbrains.com/docs/intellij/navigating-psi.html
+https://plugins.jetbrains.com/docs/intellij/modifying-psi.html
+https://plugins.jetbrains.com/docs/intellij/psi-cookbook.html
+
+https://github.com/JetBrains/intellij-sdk-docs/tree/main/topics/basics/architectural_overview
+
+https://gavincook.gitbooks.io/intellij-platform-sdk-devguide/content/basics/architectural_overview/psi_elements.html
+
+samples
+https://plugins.jetbrains.com/plugin/28262-gerador-uml-mermaid-
+    https://github.com/jvictororiz/plugin-generator-uml

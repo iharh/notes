@@ -3,6 +3,11 @@ https://github.com/PragmaTech-GmbH/spring-test-profiler
 
 kt connekt
     pl/kt/tools/http/connekt.txt
+idea plugins
+    https://plugins.jetbrains.com/plugin/28262-gerador-uml-mermaid-
+        https://github.com/jvictororiz/plugin-generator-uml
+    https://plugins.jetbrains.com/plugin/15075-jpa-buddy
+    https://plugins.jetbrains.com/plugin/27979-explyt
 
 ?
 copr-be.cloud.fedoraproject.org SEC_ERROR_EXPIRED_CERTIFICATE
