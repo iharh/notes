@@ -1,0 +1,20 @@
+https://orbitalhq.com/
+https://orbitalhq.com/pricing
+
+https://github.com/orbitalapi/orbital
+
+https://orbitalhq.com/docs
+https://orbitalhq.com/docs/connecting-data-sources/connecting-a-database
+https://orbitalhq.com/docs/querying/writing-queries
+https://orbitalhq.com/docs/guides/streaming-data
+https://orbitalhq.com/docs/guides/apis-databases-kafka
+https://orbitalhq.com/docs/guides/composing-api-and-database
+https://orbitalhq.com/docs/guides/generating-taxi-from-code
+
+curl https://start.orbitalhq.com?os=linux -o docker-compose.yml && docker-compose up
+
+https://playground.taxilang.org/examples/hello-universe
+
+2023
+BrightonKotlin - Using Kotlin Type Aliases To Automate Microservice Integration with Marty Pitt 0:00 of 44:47
+    https://www.youtube.com/watch?v=Ni7uQyLrnlg
