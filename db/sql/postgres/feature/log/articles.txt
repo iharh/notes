@@ -1,3 +1,8 @@
+https://www.postgresql.org/docs/current/runtime-config-logging.html
+
+2025
+https://www.crunchydata.com/blog/postgres-logging-for-performance-optimization
+    https://habr.com/ru/companies/otus/articles/940794/
 2022
 https://sematext.com/blog/postgresql-logs/
     logging_collector on
