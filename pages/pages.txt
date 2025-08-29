@@ -12,6 +12,11 @@ idea plugins
 ?
 copr-be.cloud.fedoraproject.org SEC_ERROR_EXPIRED_CERTIFICATE
 
+restate
+https://docs.restate.dev/develop/java/overview/?sdk=kotln
+https://restate.dev/#
+https://restate.dev/programming-model
+
 TODO !!! Ask Ezenin regarding Interview
 Idea: Select in -> Project Structure hotkey (A-F1 - 1)
     https://stackoverflow.com/questions/1086041/locate-current-file-in-intellij

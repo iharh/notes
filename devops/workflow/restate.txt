@@ -1,21 +1,37 @@
 https://restate.dev/
 https://restate.dev/programming-model
+https://restate.dev/get-restate/
 
 https://github.com/restatedev/restate
 https://github.com/restatedev/sdk-java
 https://github.com/restatedev/examples
+https://github.com/restatedev/examples/tree/main/kotlin
 https://github.com/restatedev/examples/blob/main/basics/basics-typescript/src/1_durable_execution.ts
 
 https://docs.restate.dev/
 
+https://docs.restate.dev/develop/local_dev/
 https://docs.restate.dev/get_started/quickstart/
 https://docs.restate.dev/get_started/tour/
+https://docs.restate.dev/develop/java/overview/?sdk=kotlin
+https://docs.restate.dev/concepts/durable_building_blocks?sdk=java
+
+https://docs.restate.dev/references/architecture
+
+https://docs.restate.dev/javadocs/
+https://docs.restate.dev/ktdocs/
 
 https://docs.restate.dev/use-cases/workflows
 
 https://restate.dev/blog/
 
 2025
+SpringIO - The simplest way to build resilient applications by Giselle van Dongen 0:00 of 47:54
+    https://www.youtube.com/watch?v=lYcEa8APBTQ
+    https://github.com/gvdongen/restate-conference-demo-2025
+    https://github.com/gvdongen/restate-conference-demo-2025/blob/main/docker-compose.yaml
+        !!! kafka init c-tainer
+    https://2025.springio.net/slides/the-simplest-way-to-build-resilient-applications-springio.pdf
 JavaPro - The Simplest Way to Build Resilient Applications | Giselle van Dongen (EN) 0:00 of 44:24
     https://www.youtube.com/watch?v=5U6pBlGVeAI
 2024
