@@ -12,14 +12,14 @@ https://www.howtogeek.com/293213/how-to-configure-a-proxy-server-in-firefox/
     ! about-preferences: 127.0.0.1:8888
     ! no proxy for localhost, 127.0.0.1
 
-????
-https://robotmoon.com/ssh-tunnels/
 2024
 https://habr.com/ru/articles/804263/
     https://www.youtube.com/watch?v=GBx3KEcuKFA
 2022
 https://medium.com/linuxstories/linux-how-to-create-an-ssh-tunnel-as-a-systemd-service-73e6e0fff19b
 https://iximiuz.com/en/posts/ssh-tunnels/
+https://robotmoon.com/ssh-tunnels/
+    https://habr.com/ru/companies/flant/articles/691388/
 2021
 https://goteleport.com/blog/ssh-tunneling-explained
 https://linuxiac.com/how-to-use-ssh-tunneling/
