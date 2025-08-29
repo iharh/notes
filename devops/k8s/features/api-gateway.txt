@@ -1,6 +1,12 @@
 https://gateway-api.sigs.k8s.io/
 https://gateway-api.sigs.k8s.io/guides/
 
+2025
+DevConf - Providing secure Ingress into a multi-tenanted cluster using GatewayAPI 0:00 of 27:19
+    https://www.youtube.com/watch?v=6_rJJC0X4ds
+    https://pretalx.devconf.info/devconf-cz-2025/talk/HVLUDP/
+    https://pretalx.devconf.info/media/devconf-cz-2025/submissions/HVLUDP/resources/slides_UlidVy7.pdf
+    https://docs.google.com/presentation/d/e/2PACX-1vQ5q7sCCYIHSImGyO142aw8EmIdEuAkDMrC48erQH4XFnpYULPHV42vU74W70XFIRFzLcn0OgAQT9J_/pub?start=true&loop=true&delayms=3000#slide=id.g361fb30cc17_0_43
 2023
 https://kubernetes.io/blog/2023/10/31/gateway-api-ga/
 2022
