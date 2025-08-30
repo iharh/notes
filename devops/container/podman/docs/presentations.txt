@@ -1,6 +1,14 @@
 RHEL - Containers of p19
     https://www.youtube.com/playlist?list=PLXJyD2dL4oqfDNbTd6Rr1fDM38HgzKcWZ
+    !!!
 
+2025
+RHEL - The absolute beginners guide to Podman | Into the Terminal 158 0:00 of 54:46
+    https://www.youtube.com/watch?v=iJe0qzO8EHs
+RHEL - Containers and Podman for beginners | Into the Terminal 154 0:00 of 1:00:04
+    https://www.youtube.com/watch?v=KtRYhxHFCdM
+RHEL - Quadlets, Pods, and working with the latest Podman, Podman 5 0:00 of 1:05:23
+    https://www.youtube.com/watch?v=LsZB_mI7TcQ
 2024
 Tech Tutorials - David McKone - Say Goodbye To Root Accounts With Podman! 0:00 of 29:39
     https://www.youtube.com/watch?v=69dADRzXpqk
@@ -11,6 +19,8 @@ BetterStack - Podman vs Docker in 2024: What's Really Different? of 6:14
     ! great system-d integration
     ! podman desctop can manage both podman and docker containers/images
 2023
+RHEL - Managing Podman Containers as Pods | Into the Terminal 45 0:00 of 29:38
+    https://www.youtube.com/watch?v=frMRuhtMafk
 DevConf - Clemens Lang -  Rootful networking with rootless podman containers 0:00 of 28:05
     https://devconfcz2023.sched.com/event/1MYkl
     https://static.sched.com/hosted_files/devconfcz2023/0d/presentation.pdf
