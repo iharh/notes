@@ -1,15 +1,15 @@
-1password                     aqua:1password/cli asdf:mise-plugins/mise-1password-cli
-1password-cli                 aqua:1password/cli asdf:mise-plugins/mise-1password-cli
+1password                     asdf:mise-plugins/mise-1password-cli aqua:1password/cli
+1password-cli                 asdf:mise-plugins/mise-1password-cli aqua:1password/cli
 aapt2                         asdf:mise-plugins/mise-aapt2
 act                           aqua:nektos/act ubi:nektos/act asdf:gr1m0h/asdf-act
-******************************
 action-validator              aqua:mpalmer/action-validator ubi:mpalmer/action-validator asdf:mpalmer/action-validator
-actionlint                    aqua:rhysd/actionlint ubi:rhysd/actionlint asdf:crazy-matt/asdf-actionlint
+actionlint                    aqua:rhysd/actionlint ubi:rhysd/actionlint asdf:crazy-matt/asdf-actionlint go:github.com/rhysd/actionlint/cmd/actionlint
 adr-tools                     aqua:npryce/adr-tools asdf:https://gitlab.com/td7x/asdf/adr-tools
 ag                            asdf:mise-plugins/mise-ag
 age                           aqua:FiloSottile/age asdf:threkk/asdf-age
 age-plugin-yubikey            ubi:str4d/age-plugin-yubikey asdf:joke/asdf-age-plugin-yubikey
-agebox                        ubi:slok/agebox asdf:slok/asdf-agebox
+agebox                        aqua:slok/agebox ubi:slok/agebox asdf:slok/asdf-agebox
+aichat                        aqua:sigoden/aichat
 air                           aqua:air-verse/air asdf:pdemagny/asdf-air
 aks-engine                    aqua:Azure/aks-engine asdf:robsonpeixoto/asdf-aks-engine
 allure                        asdf:mise-plugins/mise-allure
@@ -17,7 +17,9 @@ allurectl                     ubi:allure-framework/allurectl
 alp                           aqua:tkuchiki/alp asdf:asdf-community/asdf-alp
 amass                         ubi:owasp-amass/amass asdf:dhoeric/asdf-amass
 amazon-ecr-credential-helper  aqua:awslabs/amazon-ecr-credential-helper asdf:dex4er/asdf-amazon-ecr-credential-helper
+amp                           npm:@sourcegraph/amp
 amplify                       ubi:aws-amplify/amplify-cli[exe=amplify] asdf:LozanoMatheus/asdf-aws-amplify-cli
+android-sdk                   asdf:mise-plugins/mise-android-sdk
 ansible                       pipx:ansible[uvx=false,pipx_args=--include-deps]
 ansible-base                  pipx:ansible-core
 ansible-core                  pipx:ansible-core
@@ -29,24 +31,27 @@ apollo-router                 ubi:apollographql/router asdf:safx/asdf-apollo-rou
 apollo-rover                  ubi:apollographql/rover
 aqua                          ubi:aquaproj/aqua
 arduino                       aqua:arduino/arduino-cli asdf:egnor/asdf-arduino-cli
+arduino-cli                   aqua:arduino/arduino-cli asdf:egnor/asdf-arduino-cli
 argc                          ubi:sigoden/argc
 argo                          aqua:argoproj/argo-workflows asdf:sudermanjr/asdf-argo
 argo-rollouts                 aqua:argoproj/argo-rollouts asdf:abatilo/asdf-argo-rollouts
 argocd                        aqua:argoproj/argo-cd ubi:argoproj/argo-cd[exe=argocd] asdf:beardix/asdf-argocd
 asciidoctorj                  asdf:mise-plugins/mise-asciidoctorj
-assh                          asdf:mise-plugins/mise-assh
+assh                          ubi:moul/assh asdf:mise-plugins/mise-assh
 ast-grep                      aqua:ast-grep/ast-grep cargo:ast-grep npm:@ast-grep/cli pipx:ast-grep-cli
+astro                         ubi:astronomer/astro-cli[exe=astro]
 atlas                         aqua:ariga/atlas asdf:komi1230/asdf-atlas
 atmos                         aqua:cloudposse/atmos asdf:cloudposse/asdf-atmos
-auto-doc                      asdf:mise-plugins/mise-auto-doc
+atuin                         aqua:atuinsh/atuin ubi:atuinsh/atuin
+auto-doc                      ubi:tj-actions/auto-doc asdf:mise-plugins/mise-auto-doc
 aws                           aqua:aws/aws-cli asdf:MetricMike/asdf-awscli
 aws-amplify                   ubi:aws-amplify/amplify-cli[exe=amplify] asdf:LozanoMatheus/asdf-aws-amplify-cli
 aws-cli                       aqua:aws/aws-cli asdf:MetricMike/asdf-awscli
 aws-copilot                   aqua:aws/copilot-cli asdf:NeoHsu/asdf-copilot
 aws-iam-authenticator         aqua:kubernetes-sigs/aws-iam-authenticator asdf:zekker6/asdf-aws-iam-authenticator
-aws-nuke                      aqua:rebuy-de/aws-nuke asdf:bersalazar/asdf-aws-nuke
-aws-sam                       pipx:aws-sam-cli asdf:mise-plugins/mise-pyapp
-aws-sam-cli                   pipx:aws-sam-cli asdf:mise-plugins/mise-pyapp
+aws-nuke                      aqua:ekristen/aws-nuke asdf:bersalazar/asdf-aws-nuke
+aws-sam                       aqua:aws/aws-sam-cli pipx:aws-sam-cli asdf:mise-plugins/mise-pyapp
+aws-sam-cli                   aqua:aws/aws-sam-cli pipx:aws-sam-cli asdf:mise-plugins/mise-pyapp
 aws-sso                       aqua:synfinatic/aws-sso-cli asdf:adamcrews/asdf-aws-sso-cli
 aws-vault                     aqua:99designs/aws-vault asdf:karancode/asdf-aws-vault
 awscli                        aqua:aws/aws-cli asdf:MetricMike/asdf-awscli
@@ -60,25 +65,26 @@ azure-cli                     asdf:mise-plugins/mise-azure-cli
 azure-functions-core-tools    asdf:mise-plugins/mise-azure-functions-core-tools
 azure-kubelogin               aqua:Azure/kubelogin asdf:sechmann/asdf-kubelogin
 babashka                      ubi:babashka/babashka[exe=bb] asdf:pitch-io/asdf-babashka
-balena                        ubi:balena-io/balena-cli[exe=balena] asdf:boatkit-io/asdf-balena-cli
-balena-cli                    ubi:balena-io/balena-cli[exe=balena] asdf:boatkit-io/asdf-balena-cli
+balena                        ubi:balena-io/balena-cli[extract_all=true,bin_path=bin] asdf:jaredallard/asdf-balena-cli
+balena-cli                    ubi:balena-io/balena-cli[extract_all=true,bin_path=bin] asdf:jaredallard/asdf-balena-cli
 bashbot                       aqua:mathew-fleisch/bashbot asdf:mathew-fleisch/asdf-bashbot
 bashly                        asdf:mise-plugins/mise-bashly
-bat                           ubi:sharkdp/bat cargo:bat asdf:https://gitlab.com/wt0f/asdf-bat
+bat                           aqua:sharkdp/bat ubi:sharkdp/bat cargo:bat asdf:https://gitlab.com/wt0f/asdf-bat
 bat-extras                    asdf:mise-plugins/mise-bat-extras
 bats                          aqua:bats-core/bats-core asdf:timgluz/asdf-bats
-bazel                         ubi:bazelbuild/bazel asdf:rajatvig/asdf-bazel
+bazel                         aqua:bazelbuild/bazel ubi:bazelbuild/bazel asdf:rajatvig/asdf-bazel
 bazel-watcher                 aqua:bazelbuild/bazel-watcher
 bazelisk                      aqua:bazelbuild/bazelisk asdf:josephtate/asdf-bazelisk
 bbr                           ubi:cloudfoundry-incubator/bosh-backup-and-restore[matching=bbr-1] asdf:mise-plugins/tanzu-plug-in-for-asdf
 bbr-s3-config-validator       asdf:mise-plugins/tanzu-plug-in-for-asdf
-benthos                       aqua:benthosdev/benthos asdf:benthosdev/benthos-asdf
+benthos                       aqua:redpanda-data/connect asdf:benthosdev/benthos-asdf
 bfs                           asdf:mise-plugins/mise-bfs
 binnacle                      aqua:Traackr/binnacle asdf:Traackr/asdf-binnacle
-biome                         aqua:biomejs/biome ubi:biomejs/biome
+biome                         aqua:biomejs/biome ubi:biomejs/biome npm:@biomejs/biome
 bitwarden                     aqua:bitwarden/clients asdf:vixus0/asdf-bitwarden
 bitwarden-secrets-manager     ubi:bitwarden/sdk[tag_regex=^bws,exe=bws] asdf:asdf-community/asdf-bitwarden-secrets-manager
 black                         aqua:psf/black
+bob                           aqua:MordechaiHadad/bob ubi:MordechaiHadad/bob[matching_regex=bob-(linux|macos|windows)-(arm|x86_64)\.zip$] cargo:bob-nvim
 boilerplate                   aqua:gruntwork-io/boilerplate
 bombardier                    aqua:codesenberg/bombardier asdf:NeoHsu/asdf-bombardier
 borg                          aqua:borgbackup/borg asdf:lwiechec/asdf-borg
@@ -88,46 +94,54 @@ bottom                        aqua:ClementTsang/bottom asdf:carbonteq/asdf-btm
 boundary                      aqua:hashicorp/boundary asdf:mise-plugins/mise-hashicorp
 bpkg                          asdf:mise-plugins/mise-bpkg
 brig                          aqua:brigadecore/brigade asdf:Ibotta/asdf-brig
-btop                          ubi:aristocratos/btop
+btop                          aqua:aristocratos/btop ubi:aristocratos/btop
 btrace                        asdf:mise-plugins/mise-btrace
 buf                           aqua:bufbuild/buf ubi:bufbuild/buf asdf:truepay/asdf-buf
+buildifier                    aqua:bazelbuild/buildtools/buildifier
 buildpack                     aqua:buildpacks/pack asdf:johnlayton/asdf-buildpack
 buildpacks                    aqua:buildpacks/pack asdf:johnlayton/asdf-buildpack
 bun                           core:bun
 cabal                         aqua:haskell/cabal/cabal-install
 caddy                         aqua:caddyserver/caddy asdf:salasrod/asdf-caddy
-calendarsync                  ubi:inovex/CalendarSync asdf:FeryET/asdf-calendarsync
+calendarsync                  aqua:inovex/CalendarSync ubi:inovex/CalendarSync asdf:FeryET/asdf-calendarsync
 calicoctl                     aqua:projectcalico/calico/calicoctl asdf:TheCubicleJockey/asdf-calicoctl
+carapace                      aqua:carapace-sh/carapace-bin
 cargo-binstall                aqua:cargo-bins/cargo-binstall ubi:cargo-bins/cargo-binstall[tag_regex=^\\d\\.] cargo:cargo-binstall
 cargo-insta                   aqua:mitsuhiko/insta ubi:mitsuhiko/insta
-cargo-make                    ubi:sagiegurari/cargo-make asdf:mise-plugins/asdf-cargo-make
+cargo-make                    aqua:sagiegurari/cargo-make ubi:sagiegurari/cargo-make asdf:mise-plugins/asdf-cargo-make
 carp                          ubi:carp-lang/Carp[exe=carp] asdf:susurri/asdf-carp
 carthage                      asdf:mise-plugins/mise-carthage
 ccache                        ubi:ccache/ccache asdf:asdf-community/asdf-ccache
 certstrap                     ubi:square/certstrap asdf:carnei-ro/asdf-certstrap
 cf                            asdf:mise-plugins/mise-cf
+cfn-lint                      pipx:cfn-lint
 cfssl                         aqua:cloudflare/cfssl/cfssl asdf:mathew-fleisch/asdf-cfssl
-chamber                       ubi:segmentio/chamber asdf:mintel/asdf-chamber
-changie                       ubi:miniscruff/changie asdf:pdemagny/asdf-changie
+cfssljson                     aqua:cloudflare/cfssl/cfssljson
+chamber                       aqua:segmentio/chamber ubi:segmentio/chamber asdf:mintel/asdf-chamber
+changie                       aqua:miniscruff/changie ubi:miniscruff/changie asdf:pdemagny/asdf-changie
 cheat                         aqua:cheat/cheat asdf:jmoratilla/asdf-cheat-plugin
 checkmake                     aqua:mrtazz/checkmake
-checkov                       ubi:bridgecrewio/checkov asdf:bosmak/asdf-checkov
-chezmoi                       ubi:twpayne/chezmoi asdf:joke/asdf-chezmoi
+checkov                       aqua:bridgecrewio/checkov ubi:bridgecrewio/checkov asdf:bosmak/asdf-checkov
+chezmoi                       aqua:twpayne/chezmoi ubi:twpayne/chezmoi asdf:joke/asdf-chezmoi
 chezscheme                    asdf:mise-plugins/mise-chezscheme
 chicken                       asdf:mise-plugins/mise-chicken
-chisel                        ubi:jpillora/chisel go:github.com/jpillora/chisel asdf:lwiechec/asdf-chisel
-choose                        ubi:theryangeary/choose cargo:choose asdf:carbonteq/asdf-choose
+chisel                        aqua:jpillora/chisel ubi:jpillora/chisel go:github.com/jpillora/chisel asdf:lwiechec/asdf-chisel
+choose                        aqua:theryangeary/choose ubi:theryangeary/choose cargo:choose asdf:carbonteq/asdf-choose
 chromedriver                  asdf:mise-plugins/mise-chromedriver
 cidr-merger                   ubi:zhanhb/cidr-merger asdf:ORCID/asdf-cidr-merger
 cidrchk                       ubi:mhausenblas/cidrchk asdf:ORCID/asdf-cidrchk
-cilium-cli                    ubi:cilium/cilium-cli[exe=cilium] asdf:carnei-ro/asdf-cilium-cli
+cilium-cli                    aqua:cilium/cilium-cli ubi:cilium/cilium-cli[exe=cilium] asdf:carnei-ro/asdf-cilium-cli
 cilium-hubble                 ubi:cilium/hubble asdf:NitriKx/asdf-cilium-hubble
-circleci                      ubi:CircleCI-Public/circleci-cli[exe=circleci] asdf:ucpr/asdf-circleci-cli
-circleci-cli                  ubi:CircleCI-Public/circleci-cli[exe=circleci] asdf:ucpr/asdf-circleci-cli
+circleci                      aqua:CircleCI-Public/circleci-cli ubi:CircleCI-Public/circleci-cli[exe=circleci] asdf:ucpr/asdf-circleci-cli
+circleci-cli                  aqua:CircleCI-Public/circleci-cli ubi:CircleCI-Public/circleci-cli[exe=circleci] asdf:ucpr/asdf-circleci-cli
 clang                         asdf:mise-plugins/mise-llvm vfox:mise-plugins/vfox-clang
 clang-format                  asdf:mise-plugins/mise-llvm
 clangd                        asdf:mise-plugins/mise-llvm
 clarinet                      ubi:hirosystems/clarinet asdf:alexgo-io/asdf-clarinet
+claude                        npm:@anthropic-ai/claude-code
+claude-code                   npm:@anthropic-ai/claude-code
+claude-squad                  aqua:smtg-ai/claude-squad ubi:smtg-ai/claude-squad
+cli53                         aqua:barnybug/cli53
 clickhouse                    asdf:mise-plugins/mise-clickhouse
 clj-kondo                     ubi:clj-kondo/clj-kondo asdf:rynkowsg/asdf-clj-kondo
 cljstyle                      ubi:greglook/cljstyle asdf:abogoyavlensky/asdf-cljstyle
@@ -138,14 +152,15 @@ clusterawsadm                 ubi:kubernetes-sigs/cluster-api-provider-aws asdf:
 clusterctl                    aqua:kubernetes-sigs/cluster-api asdf:pfnet-research/asdf-clusterctl
 cmake                         asdf:mise-plugins/mise-cmake vfox:mise-plugins/vfox-cmake
 cmctl                         aqua:cert-manager/cmctl asdf:asdf-community/asdf-cmctl
-cmdx                          ubi:suzuki-shunsuke/cmdx
+cmdx                          aqua:suzuki-shunsuke/cmdx ubi:suzuki-shunsuke/cmdx
 cockroach                     aqua:cockroachdb/cockroach asdf:salasrod/asdf-cockroach
 cocoapods                     asdf:mise-plugins/mise-cocoapods
 cocogitto                     aqua:cocogitto/cocogitto
+codebuff                      npm:codebuff
 codefresh                     ubi:codefresh-io/cli[exe=codefresh] asdf:gurukulkarni/asdf-codefresh
 codeql                        asdf:mise-plugins/mise-codeql
 coder                         aqua:coder/coder asdf:mise-plugins/asdf-coder
-colima                        ubi:abiosoft/colima asdf:CrouchingMuppet/asdf-colima
+colima                        aqua:abiosoft/colima ubi:abiosoft/colima asdf:CrouchingMuppet/asdf-colima
 committed                     aqua:crate-ci/committed
 conan                         pipx:conan asdf:mise-plugins/mise-pyapp
 concourse                     aqua:concourse/concourse/concourse asdf:mattysweeps/asdf-concourse
@@ -153,11 +168,15 @@ conduit                       ubi:ConduitIO/conduit asdf:gmcabrita/asdf-conduit
 conform                       aqua:siderolabs/conform asdf:skyzyx/asdf-conform
 conftest                      aqua:open-policy-agent/conftest asdf:looztra/asdf-conftest
 consul                        aqua:hashicorp/consul asdf:mise-plugins/mise-hashicorp
+container                     aqua:apple/container ubi:apple/container
 container-structure-test      aqua:GoogleContainerTools/container-structure-test asdf:FeryET/asdf-container-structure-test
+container-use                 aqua:dagger/container-use ubi:dagger/container-use
 cookiecutter                  pipx:cookiecutter asdf:shawon-crosen/asdf-cookiecutter
-copper                        ubi:cloud66-oss/copper asdf:vladlosev/asdf-copper
+copier                        pipx:copier asdf:looztra/asdf-copier
+copper                        aqua:cloud66-oss/copper ubi:cloud66-oss/copper asdf:vladlosev/asdf-copper
 coq                           asdf:mise-plugins/mise-coq
 coredns                       ubi:coredns/coredns asdf:s3than/asdf-coredns
+coreutils                     aqua:uutils/coreutils ubi:uutils/coreutils
 cosign                        aqua:sigstore/cosign asdf:https://gitlab.com/wt0f/asdf-cosign
 coursier                      ubi:coursier/coursier[exe=cs] asdf:jiahuili430/asdf-coursier
 cowsay                        npm:cowsay
@@ -168,11 +187,14 @@ crictl                        aqua:kubernetes-sigs/cri-tools/crictl asdf:Fairwin
 crossplane                    aqua:crossplane/crossplane asdf:joke/asdf-crossplane-cli
 crossplane-cli                aqua:crossplane/crossplane asdf:joke/asdf-crossplane-cli
 crystal                       asdf:mise-plugins/mise-crystal vfox:mise-plugins/vfox-crystal
+cspell                        npm:cspell
 ctlptl                        aqua:tilt-dev/ctlptl asdf:ezcater/asdf-ctlptl
-ctop                          ubi:bcicen/ctop asdf:NeoHsu/asdf-ctop
+ctop                          aqua:bcicen/ctop ubi:bcicen/ctop asdf:NeoHsu/asdf-ctop
 cue                           aqua:cue-lang/cue asdf:asdf-community/asdf-cue
+curlie                        aqua:rs/curlie
 cyclonedx                     aqua:CycloneDX/cyclonedx-cli asdf:xeedio/asdf-cyclonedx
 dagger                        aqua:dagger/dagger asdf:virtualstaticvoid/asdf-dagger
+dagu                          aqua:dagu-org/dagu ubi:dagu-org/dagu
 danger-js                     asdf:mise-plugins/mise-danger-js
 danger-swift                  spm:danger/swift
 dapr                          aqua:dapr/cli asdf:asdf-community/asdf-dapr-cli
@@ -183,48 +205,53 @@ datree                        aqua:datreeio/datree asdf:lukeab/asdf-datree
 daytona                       asdf:mise-plugins/mise-daytona
 dbmate                        aqua:amacneil/dbmate asdf:juusujanar/asdf-dbmate
 deck                          aqua:Kong/deck asdf:nutellinoit/asdf-deck
-delta                         ubi:dandavison/delta asdf:andweeb/asdf-delta
+delta                         aqua:dandavison/delta ubi:dandavison/delta asdf:andweeb/asdf-delta cargo:git-delta
 deno                          core:deno
 depot                         ubi:depot/cli[exe=depot] asdf:depot/asdf-depot
 desk                          aqua:jamesob/desk asdf:endorama/asdf-desk
 devspace                      aqua:devspace-sh/devspace asdf:NeoHsu/asdf-devspace
 dhall                         asdf:mise-plugins/mise-dhall
-difftastic                    ubi:wilfred/difftastic[exe=difft] asdf:volf52/asdf-difftastic
+diffoci                       aqua:reproducible-containers/diffoci
+difftastic                    aqua:Wilfred/difftastic ubi:Wilfred/difftastic[exe=difft] asdf:volf52/asdf-difftastic
 digdag                        asdf:mise-plugins/mise-digdag
 direnv                        aqua:direnv/direnv asdf:asdf-community/asdf-direnv
-dive                          ubi:wagoodman/dive asdf:looztra/asdf-dive
+dive                          aqua:wagoodman/dive ubi:wagoodman/dive asdf:looztra/asdf-dive
 djinni                        ubi:cross-language-cpp/djinni-generator asdf:cross-language-cpp/asdf-djinni
 dmd                           asdf:mise-plugins/mise-dmd
+docker-cli                    aqua:docker/cli
 docker-compose                aqua:docker/compose
-docker-slim                   ubi:slimtoolkit/slim asdf:xataz/asdf-docker-slim
+docker-slim                   aqua:mintoolkit/mint ubi:mintoolkit/mint[extract_all=true] asdf:xataz/asdf-docker-slim
 dockle                        aqua:goodwithtech/dockle asdf:mathew-fleisch/asdf-dockle
-doctl                         ubi:digitalocean/doctl asdf:maristgeek/asdf-doctl
+doctl                         aqua:digitalocean/doctl ubi:digitalocean/doctl asdf:maristgeek/asdf-doctl
 doctoolchain                  asdf:mise-plugins/mise-doctoolchain
-docuum                        ubi:stepchowfun/docuum cargo:docuum asdf:bradym/asdf-docuum
+docuum                        aqua:stepchowfun/docuum ubi:stepchowfun/docuum cargo:docuum asdf:bradym/asdf-docuum
 doggo                         aqua:mr-karan/doggo ubi:mr-karan/doggo
 dome                          asdf:mise-plugins/mise-dome
 doppler                       ubi:DopplerHQ/cli[exe=doppler] asdf:takutakahashi/asdf-doppler
-dotenv-linter                 ubi:dotenv-linter/dotenv-linter asdf:wesleimp/asdf-dotenv-linter
+dotenv-linter                 aqua:dotenv-linter/dotenv-linter ubi:dotenv-linter/dotenv-linter asdf:wesleimp/asdf-dotenv-linter
+dotenvx                       aqua:dotenvx/dotenvx ubi:dotenvx/dotenvx
 dotnet                        asdf:mise-plugins/mise-dotnet vfox:mise-plugins/vfox-dotnet
 dotnet-core                   asdf:mise-plugins/mise-dotnet-core
+dotslash                      ubi:facebook/dotslash
 dotty                         asdf:mise-plugins/mise-dotty
 dprint                        aqua:dprint/dprint asdf:asdf-community/asdf-dprint
 draft                         aqua:Azure/draft asdf:kristoflemmens/asdf-draft
 driftctl                      aqua:snyk/driftctl asdf:nlamirault/asdf-driftctl
-drone                         ubi:harness/drone-cli[exe=drone] asdf:virtualstaticvoid/asdf-drone
+drone                         aqua:harness/drone-cli ubi:harness/drone-cli[exe=drone] asdf:virtualstaticvoid/asdf-drone
 dt                            aqua:so-dang-cool/dt asdf:so-dang-cool/asdf-dt
 dtm                           ubi:devstream-io/devstream[exe=dtm] asdf:zhenyuanlau/asdf-dtm
 dua                           aqua:Byron/dua-cli ubi:Byron/dua-cli[exe=dua]
 duckdb                        aqua:duckdb/duckdb ubi:duckdb/duckdb
 duf                           aqua:muesli/duf asdf:NeoHsu/asdf-duf
-dust                          ubi:bootandy/dust asdf:looztra/asdf-dust
+dust                          aqua:bootandy/dust ubi:bootandy/dust asdf:looztra/asdf-dust
 dvc                           asdf:mise-plugins/mise-dvc
 dyff                          aqua:homeport/dyff asdf:https://gitlab.com/wt0f/asdf-dyff
 dynatrace-monaco              ubi:Dynatrace/dynatrace-configuration-as-code[exe=monaco] asdf:nsaputro/asdf-monaco
 e1s                           asdf:tbobm/asdf-e1s
 earthly                       aqua:earthly/earthly asdf:YR-ZR0/asdf-earthly
 ecspresso                     aqua:kayac/ecspresso asdf:kayac/asdf-ecspresso
-editorconfig-checker          aqua:editorconfig-checker/editorconfig-checker asdf:gabitchov/asdf-editorconfig-checker
+edit                          aqua:microsoft/edit
+editorconfig-checker          aqua:editorconfig-checker/editorconfig-checker ubi:editorconfig-checker/editorconfig-checker[exe=ec] asdf:gabitchov/asdf-editorconfig-checker
 ejson                         aqua:Shopify/ejson asdf:cipherstash/asdf-ejson
 eksctl                        aqua:eksctl-io/eksctl asdf:elementalvoid/asdf-eksctl
 elasticsearch                 asdf:mise-plugins/mise-elasticsearch
@@ -232,16 +259,17 @@ elixir                        core:elixir
 elixir-ls                     asdf:mise-plugins/mise-elixir-ls
 elm                           ubi:elm/compiler[exe=elm] asdf:asdf-community/asdf-elm
 emsdk                         asdf:mise-plugins/mise-emsdk
-envcli                        ubi:EnvCLI/EnvCLI[exe=envcli] asdf:zekker6/asdf-envcli
+envcli                        aqua:EnvCLI/EnvCLI ubi:EnvCLI/EnvCLI[exe=envcli] asdf:zekker6/asdf-envcli
 envsubst                      aqua:a8m/envsubst asdf:dex4er/asdf-envsubst
 ephemeral-postgres            asdf:mise-plugins/mise-ephemeral-postgres
 erlang                        core:erlang
-esc                           ubi:pulumi/esc asdf:fxsalazar/asdf-esc
+esc                           aqua:pulumi/esc ubi:pulumi/esc asdf:fxsalazar/asdf-esc
 esy                           asdf:mise-plugins/mise-esy
 etcd                          aqua:etcd-io/etcd asdf:particledecay/asdf-etcd vfox:mise-plugins/vfox-etcd
 evans                         aqua:ktr0731/evans asdf:goki90210/asdf-evans
-eza                           aqua:eza-community/eza asdf:mise-plugins/mise-eza cargo:eza
-fd                            aqua:sharkdp/fd ubi:sharkdp/fd asdf:https://gitlab.com/wt0f/asdf-fd
+eza                           asdf:mise-plugins/mise-eza cargo:eza
+fastfetch                     aqua:fastfetch-cli/fastfetch
+fd                            aqua:sharkdp/fd ubi:sharkdp/fd asdf:https://gitlab.com/wt0f/asdf-fd cargo:fd-find
 ffmpeg                        asdf:mise-plugins/mise-ffmpeg
 figma-export                  ubi:RedMadRobot/figma-export asdf:younke/asdf-figma-export
 fillin                        aqua:itchyny/fillin asdf:ouest/asdf-fillin
@@ -256,37 +284,41 @@ flux2                         aqua:fluxcd/flux2 asdf:tablexi/asdf-flux2
 fly                           aqua:concourse/concourse/fly asdf:mise-plugins/tanzu-plug-in-for-asdf
 flyctl                        aqua:superfly/flyctl ubi:superfly/flyctl asdf:chessmango/asdf-flyctl
 flyway                        asdf:mise-plugins/mise-flyway
-foundry                       ubi:foundry-rs/foundry[extract_all=true]
-func-e                        asdf:mise-plugins/mise-func-e
+foundry                       aqua:foundry-rs/foundry ubi:foundry-rs/foundry[extract_all=true]
+func-e                        ubi:tetratelabs/func-e asdf:mise-plugins/mise-func-e
 furyctl                       ubi:sighupio/furyctl asdf:sighupio/asdf-furyctl
 fx                            aqua:antonmedv/fx asdf:https://gitlab.com/wt0f/asdf-fx
 fzf                           aqua:junegunn/fzf ubi:junegunn/fzf asdf:kompiro/asdf-fzf
 gallery-dl                    asdf:mise-plugins/mise-gallery-dl
 gam                           ubi:GAM-team/GAM[exe=gam] asdf:offbyone/asdf-gam
-gator                         ubi:open-policy-agent/gatekeeper[exe=gator] asdf:MxNxPx/asdf-gator
+gator                         aqua:open-policy-agent/gatekeeper ubi:open-policy-agent/gatekeeper[exe=gator] asdf:MxNxPx/asdf-gator
 gauche                        asdf:mise-plugins/mise-gauche
 gcc-arm-none-eabi             asdf:mise-plugins/mise-gcc-arm-none-eabi
 gcloud                        asdf:mise-plugins/mise-gcloud
 gdu                           aqua:dundee/gdu
-getenvoy                      asdf:mise-plugins/mise-getenvoy
+gemini                        npm:@google/gemini-cli
+gemini-cli                    npm:@google/gemini-cli
+getenvoy                      ubi:tetratelabs-attic/getenvoy asdf:mise-plugins/mise-getenvoy
 gh                            aqua:cli/cli ubi:cli/cli[exe=gh] asdf:bartlomiejdanek/asdf-github-cli
+ghalint                       aqua:suzuki-shunsuke/ghalint ubi:suzuki-shunsuke/ghalint
 ghc                           asdf:mise-plugins/mise-ghcup
-ghcup                         ubi:haskell/ghcup-hs[exe=ghcup] asdf:mise-plugins/mise-ghcup
+ghcup                         aqua:haskell/ghcup-hs ubi:haskell/ghcup-hs[exe=ghcup] asdf:mise-plugins/mise-ghcup
 ghidra                        asdf:mise-plugins/mise-ghidra
 ghorg                         aqua:gabrie30/ghorg asdf:gbloquel/asdf-ghorg
 ghq                           aqua:x-motemen/ghq asdf:kajisha/asdf-ghq
 ginkgo                        go:github.com/onsi/ginkgo/v2/ginkgo asdf:mise-plugins/mise-ginkgo
 git-chglog                    aqua:git-chglog/git-chglog asdf:GoodwayGroup/asdf-git-chglog
 git-cliff                     aqua:orhun/git-cliff asdf:jylenhof/asdf-git-cliff
+git-lfs                       aqua:git-lfs/git-lfs ubi:git-lfs/git-lfs
 gitconfig                     ubi:0ghny/gitconfig asdf:0ghny/asdf-gitconfig
 github-cli                    aqua:cli/cli ubi:cli/cli[exe=gh] asdf:bartlomiejdanek/asdf-github-cli
 github-markdown-toc           aqua:ekalinin/github-markdown-toc asdf:skyzyx/asdf-github-markdown-toc
 gitleaks                      aqua:gitleaks/gitleaks asdf:jmcvetta/asdf-gitleaks
 gitsign                       aqua:sigstore/gitsign asdf:spencergilbert/asdf-gitsign
-gitu                          ubi:altsem/gitu cargo:gitu
+gitu                          aqua:altsem/gitu ubi:altsem/gitu cargo:gitu
 gitui                         aqua:extrawurst/gitui asdf:looztra/asdf-gitui
 gitversion                    aqua:gittools/gitversion ubi:gittools/gitversion
-glab                          asdf:mise-plugins/mise-glab
+glab                          ubi:gitlab-org/cli[provider=gitlab,exe=glab] asdf:mise-plugins/mise-glab
 gleam                         aqua:gleam-lang/gleam asdf:asdf-community/asdf-gleam
 glen                          ubi:lingrino/glen asdf:bradym/asdf-glen
 glooctl                       ubi:solo-io/gloo asdf:halilkaya/asdf-glooctl
@@ -296,17 +328,17 @@ go-containerregistry          aqua:google/go-containerregistry asdf:dex4er/asdf-
 go-getter                     aqua:hashicorp/go-getter asdf:mise-plugins/mise-go-getter
 go-jira                       aqua:go-jira/jira asdf:dguihal/asdf-go-jira
 go-jsonnet                    aqua:google/go-jsonnet asdf:https://gitlab.com/craigfurman/asdf-go-jsonnet
-go-junit-report               ubi:jstemmer/go-junit-report asdf:jwillker/asdf-go-junit-report
+go-junit-report               aqua:jstemmer/go-junit-report ubi:jstemmer/go-junit-report asdf:jwillker/asdf-go-junit-report
 go-sdk                        asdf:mise-plugins/mise-go-sdk
 go-swagger                    aqua:go-swagger/go-swagger asdf:jfreeland/asdf-go-swagger
 goconvey                      go:github.com/smartystreets/goconvey asdf:mise-plugins/mise-goconvey
 gocryptfs                     aqua:rfjakob/gocryptfs ubi:rfjakob/gocryptfs
-gofumpt                       ubi:mvdan/gofumpt asdf:looztra/asdf-gofumpt
-gojq                          aqua:itchyny/gojq asdf:jimmidyson/asdf-gojq
-gokey                         ubi:cloudflare/gokey
+gofumpt                       aqua:mvdan/gofumpt ubi:mvdan/gofumpt asdf:looztra/asdf-gofumpt
+gojq                          aqua:itchyny/gojq ubi:itchyny/gojq asdf:jimmidyson/asdf-gojq go:github.com/itchyny/gojq/cmd/gojq
+gokey                         aqua:cloudflare/gokey ubi:cloudflare/gokey
 golangci-lint                 aqua:golangci/golangci-lint ubi:golangci/golangci-lint asdf:hypnoglow/asdf-golangci-lint
-golangci-lint-langserver      ubi:nametake/golangci-lint-langserver go:github.com/nametake/golangci-lint-langserver
-golines                       ubi:segmentio/golines go:github.com/segmentio/golines
+golangci-lint-langserver      aqua:nametake/golangci-lint-langserver ubi:nametake/golangci-lint-langserver go:github.com/nametake/golangci-lint-langserver
+golines                       aqua:segmentio/golines ubi:segmentio/golines go:github.com/segmentio/golines
 gomigrate                     aqua:golang-migrate/migrate asdf:joschi/asdf-gomigrate
 gomplate                      aqua:hairyhenderson/gomplate asdf:sneakybeaky/asdf-gomplate
 gopass                        aqua:gopasspw/gopass asdf:trallnag/asdf-gopass
@@ -317,33 +349,37 @@ graalvm                       asdf:mise-plugins/mise-graalvm
 gradle                        aqua:gradle/gradle vfox:mise-plugins/vfox-gradle
 gradle-profiler               asdf:mise-plugins/mise-gradle-profiler
 grails                        asdf:mise-plugins/mise-grails
-grain                         asdf:mise-plugins/mise-grain
+grain                         ubi:grain-lang/grain[tag_regex=^grain-] asdf:mise-plugins/mise-grain
 granted                       aqua:common-fate/granted asdf:dex4er/asdf-granted
+graphite                      npm:@withgraphite/graphite-cli
 grex                          aqua:pemistahl/grex asdf:ouest/asdf-grex
 gron                          aqua:tomnomnom/gron ubi:tomnomnom/gron
 groovy                        asdf:mise-plugins/mise-groovy vfox:mise-plugins/vfox-groovy
 grpc-health-probe             aqua:grpc-ecosystem/grpc-health-probe asdf:zufardhiyaulhaq/asdf-grpc-health-probe
 grpcurl                       aqua:fullstorydev/grpcurl asdf:asdf-community/asdf-grpcurl
-grype                         ubi:anchore/grype asdf:poikilotherm/asdf-grype
+grype                         aqua:anchore/grype ubi:anchore/grype asdf:poikilotherm/asdf-grype
 guile                         asdf:mise-plugins/mise-guile
 gum                           aqua:charmbracelet/gum asdf:lwiechec/asdf-gum
 gup                           aqua:nao1215/gup
 gwvault                       aqua:GoodwayGroup/gwvault asdf:GoodwayGroup/asdf-gwvault
 hadolint                      aqua:hadolint/hadolint ubi:hadolint/hadolint asdf:devlincashman/asdf-hadolint
 hamler                        asdf:mise-plugins/mise-hamler
+harper-cli                    aqua:Automattic/harper/harper-cli
+harper-ls                     aqua:Automattic/harper/harper-ls
 has                           aqua:kdabir/has asdf:sylvainmetayer/asdf-has
 haskell                       asdf:mise-plugins/mise-haskell
 hasura-cli                    aqua:hasura/graphql-engine asdf:gurukulkarni/asdf-hasura
-haxe                          asdf:mise-plugins/mise-haxe
+hatch                         pipx:hatch
+haxe                          ubi:HaxeFoundation/haxe asdf:mise-plugins/mise-haxe
 hcl2json                      aqua:tmccombs/hcl2json asdf:dex4er/asdf-hcl2json
 hcloud                        aqua:hetznercloud/cli asdf:chessmango/asdf-hcloud
-helix                         ubi:helix-editor/helix[extract_all=true]
+helix                         aqua:helix-editor/helix ubi:helix-editor/helix[extract_all=true]
 helm                          aqua:helm/helm asdf:Antiarchitect/asdf-helm
 helm-cr                       aqua:helm/chart-releaser asdf:Antiarchitect/asdf-helm-cr
 helm-ct                       aqua:helm/chart-testing asdf:tablexi/asdf-helm-ct
-helm-diff                     asdf:mise-plugins/mise-helm-diff
+helm-diff                     ubi:databus23/helm-diff[exe=diff,rename_exe=helm-diff] asdf:mise-plugins/mise-helm-diff
 helm-docs                     aqua:norwoodj/helm-docs asdf:sudermanjr/asdf-helm-docs
-helmfile                      ubi:helmfile/helmfile asdf:feniix/asdf-helmfile
+helmfile                      aqua:helmfile/helmfile ubi:helmfile/helmfile asdf:feniix/asdf-helmfile
 helmsman                      ubi:Praqma/helmsman asdf:luisdavim/asdf-helmsman
 helmwave                      aqua:helmwave/helmwave ubi:helmwave/helmwave
 heroku                        asdf:mise-plugins/mise-heroku-cli
@@ -363,7 +399,7 @@ hub                           aqua:mislav/hub asdf:mise-plugins/asdf-hub
 hugo                          aqua:gohugoio/hugo ubi:gohugoio/hugo asdf:NeoHsu/asdf-hugo asdf:nklmilojevic/asdf-hugo
 hugo-extended                 aqua:gohugoio/hugo/hugo-extended
 hurl                          aqua:Orange-OpenSource/hurl asdf:raimon49/asdf-hurl
-hwatch                        ubi:blacknon/hwatch asdf:chessmango/asdf-hwatch
+hwatch                        aqua:blacknon/hwatch ubi:blacknon/hwatch asdf:chessmango/asdf-hwatch
 hygen                         ubi:jondot/hygen asdf:brentjanderson/asdf-hygen
 hyperfine                     aqua:sharkdp/hyperfine ubi:sharkdp/hyperfine asdf:volf52/asdf-hyperfine
 iam-policy-json-to-terraform  aqua:flosell/iam-policy-json-to-terraform asdf:carlduevel/asdf-iam-policy-json-to-terraform
@@ -387,27 +423,31 @@ jfrog-cli                     asdf:mise-plugins/mise-jfrog-cli
 jib                           asdf:mise-plugins/mise-jib
 jiq                           aqua:fiatjaf/jiq asdf:chessmango/asdf-jiq
 jj                            aqua:jj-vcs/jj ubi:jj-vcs/jj
+jjui                          aqua:idursun/jjui ubi:idursun/jjui
 jless                         aqua:PaulJuliusMartinez/jless asdf:jc00ke/asdf-jless
 jmespath                      aqua:jmespath/jp asdf:skyzyx/asdf-jmespath
 jmeter                        asdf:mise-plugins/mise-jmeter
 jnv                           aqua:ynqa/jnv asdf:raimon49/asdf-jnv
-jq                            aqua:jqlang/jq asdf:mise-plugins/asdf-jq
+jq                            aqua:jqlang/jq ubi:jqlang/jq asdf:mise-plugins/asdf-jq
 jqp                           aqua:noahgorstein/jqp asdf:https://gitlab.com/wt0f/asdf-jqp
 jreleaser                     aqua:jreleaser/jreleaser asdf:joschi/asdf-jreleaser
+json5                         npm:json5
 jsonnet-bundler               aqua:jsonnet-bundler/jsonnet-bundler asdf:beardix/asdf-jb
+jsonschema                    aqua:sourcemeta/jsonschema ubi:sourcemeta/jsonschema
 jujutsu                       aqua:jj-vcs/jj ubi:jj-vcs/jj
+jujutsu-ui                    aqua:idursun/jjui ubi:idursun/jjui
 julia                         asdf:mise-plugins/mise-julia
-just                          ubi:casey/just asdf:olofvndrhr/asdf-just
-jwt                           ubi:mike-engel/jwt-cli[exe=jwt] cargo:jwt-cli
+just                          aqua:casey/just ubi:casey/just asdf:olofvndrhr/asdf-just
+jwt                           aqua:mike-engel/jwt-cli ubi:mike-engel/jwt-cli[exe=jwt] cargo:jwt-cli
 jwtui                         ubi:jwt-rs/jwt-ui[exe=jwtui] cargo:jwt-ui
-jx                            ubi:jenkins-x/jx asdf:vbehar/asdf-jx
-k0sctl                        ubi:k0sproject/k0sctl asdf:Its-Alex/asdf-plugin-k0sctl
-k2tf                          ubi:sl1pm4t/k2tf asdf:carlduevel/asdf-k2tf
-k3d                           ubi:k3d-io/k3d asdf:spencergilbert/asdf-k3d
+jx                            aqua:jenkins-x/jx ubi:jenkins-x/jx asdf:vbehar/asdf-jx
+k0sctl                        aqua:k0sproject/k0sctl ubi:k0sproject/k0sctl asdf:Its-Alex/asdf-plugin-k0sctl
+k2tf                          aqua:sl1pm4t/k2tf ubi:sl1pm4t/k2tf asdf:carlduevel/asdf-k2tf
+k3d                           aqua:k3d-io/k3d ubi:k3d-io/k3d asdf:spencergilbert/asdf-k3d
 k3kcli                        ubi:rancher/k3k[tag_regex=v\d] asdf:xanmanning/asdf-k3kcli
 k3s                           asdf:mise-plugins/mise-k3s
 k3sup                         aqua:alexellis/k3sup asdf:cgroschupp/asdf-k3sup
-k6                            ubi:grafana/k6 asdf:gr1m0h/asdf-k6
+k6                            aqua:grafana/k6 ubi:grafana/k6 asdf:gr1m0h/asdf-k6
 k9s                           aqua:derailed/k9s ubi:derailed/k9s asdf:looztra/asdf-k9s
 kafka                         asdf:mise-plugins/mise-kafka
 kafkactl                      aqua:deviceinsight/kafkactl asdf:anweber/asdf-kafkactl
@@ -417,23 +457,23 @@ kcat                          asdf:mise-plugins/mise-kcat
 kcctl                         ubi:kcctl/kcctl asdf:joschi/asdf-kcctl
 kcl                           aqua:kcl-lang/cli asdf:mise-plugins/mise-kcl
 kconf                         aqua:particledecay/kconf asdf:particledecay/asdf-kconf
-ki                            ubi:Kotlin/kotlin-interactive-shell[exe=ki] asdf:comdotlinux/asdf-ki
-killport                      ubi:jkfran/killport
-kind                          ubi:kubernetes-sigs/kind asdf:johnlayton/asdf-kind
+ki                            aqua:Kotlin/kotlin-interactive-shell ubi:Kotlin/kotlin-interactive-shell[exe=ki] asdf:comdotlinux/asdf-ki
+killport                      aqua:jkfran/killport ubi:jkfran/killport
+kind                          aqua:kubernetes-sigs/kind ubi:kubernetes-sigs/kind asdf:johnlayton/asdf-kind
 kiota                         aqua:microsoft/kiota asdf:asdf-community/asdf-kiota
 kn                            aqua:knative/client asdf:joke/asdf-kn
 ko                            aqua:ko-build/ko asdf:zasdaym/asdf-ko
 koka                          ubi:koka-lang/koka asdf:susurri/asdf-koka
-kompose                       ubi:kubernetes/kompose asdf:technikhil314/asdf-kompose
+kompose                       aqua:kubernetes/kompose ubi:kubernetes/kompose asdf:technikhil314/asdf-kompose
 kops                          aqua:kubernetes/kops asdf:Antiarchitect/asdf-kops
 kotlin                        asdf:mise-plugins/mise-kotlin vfox:mise-plugins/vfox-kotlin
 kp                            ubi:vmware-tanzu/kpack-cli[exe=kp] asdf:asdf-community/asdf-kpack-cli
 kpack                         ubi:vmware-tanzu/kpack-cli[exe=kp] asdf:asdf-community/asdf-kpack-cli
 kpt                           aqua:kptdev/kpt asdf:nlamirault/asdf-kpt
-krab                          ubi:ohkrab/krab asdf:ohkrab/asdf-krab
+krab                          aqua:ohkrab/krab ubi:ohkrab/krab asdf:ohkrab/asdf-krab
 krew                          aqua:kubernetes-sigs/krew asdf:bjw-s/asdf-krew
-kscript                       ubi:kscripting/kscript asdf:edgelevel/asdf-kscript
-ksops                         ubi:viaduct-ai/kustomize-sops[exe=ksops] asdf:janpieper/asdf-ksops
+kscript                       ubi:kscripting/kscript[bin_path=bin,extract_all=true] asdf:edgelevel/asdf-kscript
+ksops                         aqua:viaduct-ai/kustomize-sops ubi:viaduct-ai/kustomize-sops[exe=ksops] asdf:janpieper/asdf-ksops
 ktlint                        aqua:pinterest/ktlint asdf:mise-plugins/mise-ktlint
 kube-capacity                 aqua:robscott/kube-capacity asdf:looztra/asdf-kube-capacity
 kube-code-generator           asdf:mise-plugins/mise-kube-code-generator
@@ -443,11 +483,11 @@ kube-linter                   aqua:stackrox/kube-linter asdf:devlincashman/asdf-
 kube-score                    aqua:zegl/kube-score asdf:bageljp/asdf-kube-score
 kubebuilder                   aqua:kubernetes-sigs/kubebuilder asdf:virtualstaticvoid/asdf-kubebuilder
 kubecm                        aqua:sunny0826/kubecm asdf:samhvw8/asdf-kubecm
-kubecolor                     aqua:hidetatz/kubecolor asdf:dex4er/asdf-kubecolor
+kubecolor                     aqua:kubecolor/kubecolor asdf:dex4er/asdf-kubecolor
 kubeconform                   aqua:yannh/kubeconform asdf:lirlia/asdf-kubeconform
-kubectl                       aqua:kubernetes/kubectl asdf:asdf-community/asdf-kubectl
+kubectl                       aqua:kubernetes/kubernetes/kubectl asdf:asdf-community/asdf-kubectl
 kubectl-bindrole              aqua:Ladicle/kubectl-rolesum asdf:looztra/asdf-kubectl-bindrole
-kubectl-convert               aqua:kubernetes/kubectl-convert asdf:iul1an/asdf-kubectl-convert
+kubectl-convert               aqua:kubernetes/kubernetes/kubectl-convert asdf:iul1an/asdf-kubectl-convert
 kubectl-kots                  aqua:replicatedhq/kots asdf:ganta/asdf-kubectl-kots
 kubectl-kuttl                 aqua:kudobuilder/kuttl asdf:jimmidyson/asdf-kuttl
 kubectl-rolesum               aqua:Ladicle/kubectl-rolesum asdf:looztra/asdf-kubectl-bindrole
@@ -478,12 +518,12 @@ lazydocker                    aqua:jesseduffield/lazydocker ubi:jesseduffield/la
 lazygit                       aqua:jesseduffield/lazygit asdf:nklmilojevic/asdf-lazygit
 lazyjournal                   aqua:Lifailon/lazyjournal ubi:Lifailon/lazyjournal
 lean                          asdf:mise-plugins/mise-lean
-lefthook                      aqua:evilmartians/lefthook ubi:evilmartians/lefthook asdf:jtzero/asdf-lefthook
+lefthook                      aqua:evilmartians/lefthook ubi:evilmartians/lefthook npm:lefthook asdf:jtzero/asdf-lefthook go:github.com/evilmartians/lefthook
 leiningen                     asdf:mise-plugins/mise-lein
 levant                        aqua:hashicorp/levant asdf:mise-plugins/mise-hashicorp
 lfe                           asdf:mise-plugins/mise-lfe
 libsql-server                 ubi:tursodatabase/libsql[tag_regex=libsql-server,exe=sqld] asdf:jonasb/asdf-libsql-server
-license-plist                 ubi:mono0926/LicensePlist[exe=license-plist] asdf:MacPaw/asdf-license-plist
+license-plist                 aqua:mono0926/LicensePlist ubi:mono0926/LicensePlist[exe=license-plist] asdf:MacPaw/asdf-license-plist
 lima                          aqua:lima-vm/lima asdf:CrouchingMuppet/asdf-lima
 linkerd                       aqua:linkerd/linkerd2 asdf:kforsthoevel/asdf-linkerd
 liqoctl                       aqua:liqotech/liqo asdf:pdemagny/asdf-liqoctl
@@ -491,27 +531,30 @@ liquibase                     asdf:mise-plugins/mise-liquibase
 litestream                    aqua:benbjohnson/litestream asdf:threkk/asdf-litestream
 llvm-objcopy                  asdf:mise-plugins/mise-llvm
 llvm-objdump                  asdf:mise-plugins/mise-llvm
+lnav                          aqua:tstack/lnav ubi:tstack/lnav
+localstack                    ubi:localstack/localstack-cli[exe=localstack]
 logtalk                       asdf:mise-plugins/mise-logtalk
 loki-logcli                   aqua:grafana/loki/logcli asdf:comdotlinux/asdf-loki-logcli
-ls-lint                       aqua:loeffel-io/ls-lint asdf:Ameausoone/asdf-ls-lint
+ls-lint                       aqua:loeffel-io/ls-lint ubi:loeffel-io/ls-lint npm:@ls-lint/ls-lint asdf:Ameausoone/asdf-ls-lint
 lsd                           aqua:lsd-rs/lsd asdf:mise-plugins/asdf-lsd
 lua                           asdf:mise-plugins/mise-lua
 lua-language-server           aqua:LuaLS/lua-language-server asdf:bellini666/asdf-lua-language-server
 luajit                        asdf:mise-plugins/mise-luaJIT
-lychee                        aqua:lycheeverse/lychee
+luau                          aqua:luau-lang/luau
+lychee                        aqua:lycheeverse/lychee ubi:lycheeverse/lychee cargo:lychee
 maestro                       ubi:mobile-dev-inc/maestro asdf:dotanuki-labs/asdf-maestro
 mage                          aqua:magefile/mage asdf:mathew-fleisch/asdf-mage
 make                          asdf:mise-plugins/mise-make
-mani                          ubi:alajmo/mani asdf:anweber/asdf-mani
+mani                          aqua:alajmo/mani ubi:alajmo/mani asdf:anweber/asdf-mani
 mark                          ubi:kovetskiy/mark asdf:jfreeland/asdf-mark
 markdownlint-cli2             npm:markdownlint-cli2 asdf:paulo-ferraz-oliveira/asdf-markdownlint-cli2
 marksman                      aqua:artempyanykh/marksman
 marp-cli                      aqua:marp-team/marp-cli asdf:xataz/asdf-marp-cli
 mask                          aqua:jacobdeichert/mask asdf:aaaaninja/asdf-mask
-maven                         asdf:mise-plugins/mise-maven vfox:mise-plugins/vfox-maven
+maven                         aqua:apache/maven asdf:mise-plugins/mise-maven vfox:mise-plugins/vfox-maven
 mc                            asdf:mise-plugins/mise-mc
 mdbook                        aqua:rust-lang/mdBook asdf:cipherstash/asdf-mdbook
-mdbook-linkcheck              asdf:mise-plugins/mise-mdbook-linkcheck
+mdbook-linkcheck              ubi:Michael-F-Bryan/mdbook-linkcheck asdf:mise-plugins/mise-mdbook-linkcheck
 melange                       aqua:chainguard-dev/melange asdf:omissis/asdf-melange
 melt                          ubi:charmbracelet/melt asdf:chessmango/asdf-melt
 memcached                     asdf:mise-plugins/mise-memcached
@@ -526,17 +569,17 @@ minio                         asdf:mise-plugins/mise-minio
 minishift                     aqua:minishift/minishift asdf:sqtran/asdf-minishift
 minisign                      aqua:jedisct1/minisign
 mint                          ubi:mint-lang/mint asdf:mint-lang/asdf-mint
-mirrord                       ubi:metalbear-co/mirrord asdf:metalbear-co/asdf-mirrord
+mirrord                       aqua:metalbear-co/mirrord ubi:metalbear-co/mirrord asdf:metalbear-co/asdf-mirrord
 mitmproxy                     asdf:mise-plugins/mise-mitmproxy
-mkcert                        ubi:FiloSottile/mkcert asdf:salasrod/asdf-mkcert
+mkcert                        aqua:FiloSottile/mkcert ubi:FiloSottile/mkcert asdf:salasrod/asdf-mkcert
 mlton                         asdf:mise-plugins/mise-mlton
 mockery                       aqua:vektra/mockery asdf:cabify/asdf-mockery
-mockolo                       asdf:mise-plugins/mise-mockolo
-mold                          ubi:rui314/mold
+mockolo                       ubi:uber/mockolo asdf:mise-plugins/mise-mockolo
+mold                          aqua:rui314/mold ubi:rui314/mold
 monarch                       asdf:mise-plugins/mise-monarch
 mongodb                       asdf:mise-plugins/mise-mongodb
 mongosh                       ubi:mongodb-js/mongosh asdf:itspngu/asdf-mongosh
-mprocs                        ubi:pvolok/mprocs
+mprocs                        aqua:pvolok/mprocs ubi:pvolok/mprocs
 mssqldef                      aqua:sqldef/sqldef/mssqldef
 mutanus                       asdf:mise-plugins/mise-mutanus
 mvnd                          aqua:apache/maven-mvnd asdf:joschi/asdf-mvnd
@@ -547,11 +590,13 @@ nano                          asdf:mise-plugins/mise-nano
 nasm                          asdf:mise-plugins/mise-nasm
 navi                          aqua:denisidoro/navi ubi:denisidoro/navi
 neko                          ubi:HaxeFoundation/neko asdf:asdf-community/asdf-neko
+neonctl                       aqua:neondatabase/neonctl ubi:neondatabase/neonctl
 neovim                        aqua:neovim/neovim asdf:richin13/asdf-neovim
 nerdctl                       aqua:containerd/nerdctl asdf:dmpe/asdf-nerdctl
-newrelic                      ubi:newrelic/newrelic-cli[exe=newrelic] asdf:NeoHsu/asdf-newrelic-cli
-newrelic-cli                  ubi:newrelic/newrelic-cli[exe=newrelic] asdf:NeoHsu/asdf-newrelic-cli
+newrelic                      aqua:newrelic/newrelic-cli ubi:newrelic/newrelic-cli[exe=newrelic] asdf:NeoHsu/asdf-newrelic-cli
+newrelic-cli                  aqua:newrelic/newrelic-cli ubi:newrelic/newrelic-cli[exe=newrelic] asdf:NeoHsu/asdf-newrelic-cli
 nfpm                          aqua:goreleaser/nfpm ubi:goreleaser/nfpm asdf:ORCID/asdf-nfpm
+ni                            npm:@antfu/ni
 nim                           asdf:mise-plugins/mise-nim
 ninja                         aqua:ninja-build/ninja asdf:asdf-community/asdf-ninja
 node                          core:node
@@ -560,7 +605,9 @@ nomad-pack                    asdf:mise-plugins/mise-hashicorp
 notation                      aqua:notaryproject/notation asdf:bodgit/asdf-notation
 nova                          aqua:FairwindsOps/nova asdf:elementalvoid/asdf-nova
 nsc                           ubi:nats-io/nsc asdf:dex4er/asdf-nsc
+numbat                        aqua:sharkdp/numbat ubi:sharkdp/numbat
 oapi-codegen                  go:github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen asdf:dylanrayboss/asdf-oapi-codegen
+oauth2c                       aqua:cloudentity/oauth2c ubi:cloudentity/oauth2c
 oc                            asdf:mise-plugins/mise-oc
 ocaml                         asdf:mise-plugins/mise-ocaml
 oci                           asdf:mise-plugins/mise-oci
@@ -573,21 +620,26 @@ okteto                        aqua:okteto/okteto asdf:BradenM/asdf-okteto
 ollama                        aqua:ollama/ollama asdf:virtualstaticvoid/asdf-ollama
 om                            aqua:pivotal-cf/om asdf:mise-plugins/tanzu-plug-in-for-asdf
 onyx                          ubi:onyx-lang/onyx asdf:jtakakura/asdf-onyx
-op                            aqua:1password/cli asdf:mise-plugins/mise-1password-cli
+op                            asdf:mise-plugins/mise-1password-cli aqua:1password/cli
 opa                           aqua:open-policy-agent/opa asdf:tochukwuvictor/asdf-opa
 opam                          ubi:ocaml/opam asdf:asdf-community/asdf-opam
 openbao                       ubi:openbao/openbao[exe=bao]
+opencode                      aqua:sst/opencode ubi:sst/opencode
 openfaas-cli                  aqua:openfaas/faas-cli asdf:zekker6/asdf-faas-cli
 openresty                     asdf:mise-plugins/mise-openresty
 opensearch                    asdf:mise-plugins/mise-opensearch
-opensearch-cli                asdf:mise-plugins/mise-opensearch-cli
+opensearch-cli                ubi:opensearch-project/opensearch-cli asdf:mise-plugins/mise-opensearch-cli
 openshift-install             asdf:mise-plugins/mise-openshift-install
 opentofu                      aqua:opentofu/opentofu ubi:opentofu/opentofu[exe=tofu] asdf:virtualroot/asdf-opentofu
 operator-sdk                  aqua:operator-framework/operator-sdk asdf:Medium/asdf-operator-sdk
-opsgenie-lamp                 asdf:mise-plugins/mise-opsgenie-lamp
+opsgenie-lamp                 ubi:opsgenie/opsgenie-lamp asdf:mise-plugins/mise-opsgenie-lamp
 oras                          aqua:oras-project/oras asdf:bodgit/asdf-oras
 osqueryi                      asdf:mise-plugins/mise-osqueryi
+osv-scanner                   aqua:google/osv-scanner
 overmind                      ubi:DarthSim/overmind go:github.com/DarthSim/overmind/v2
+oxipng                        aqua:shssoichiro/oxipng
+oxker                         aqua:mrjackwills/oxker ubi:mrjackwills/oxker cargo:oxker
+oxlint                        aqua:oxc-project/oxc/oxlint ubi:oxc-project/oxc npm:oxlint
 pachctl                       aqua:pachyderm/pachyderm asdf:abatilo/asdf-pachctl
 pack                          aqua:buildpacks/pack asdf:johnlayton/asdf-buildpack
 packer                        aqua:hashicorp/packer asdf:mise-plugins/mise-hashicorp
@@ -597,20 +649,21 @@ pdm                           pipx:pdm asdf:1oglop1/asdf-pdm
 peco                          aqua:peco/peco asdf:asdf-community/asdf-peco
 periphery                     aqua:peripheryapp/periphery asdf:mise-plugins/mise-periphery
 perl                          aqua:skaji/relocatable-perl asdf:ouest/asdf-perl
-php                           asdf:mise-plugins/mise-php vfox:mise-plugins/vfox-php
+php                           asdf:mise-plugins/asdf-php vfox:mise-plugins/vfox-php
+pinact                        aqua:suzuki-shunsuke/pinact ubi:suzuki-shunsuke/pinact
 pint                          aqua:cloudflare/pint asdf:sam-burrell/asdf-pint
 pipectl                       aqua:pipe-cd/pipecd/pipectl asdf:pipe-cd/asdf-pipectl
 pipelight                     asdf:mise-plugins/mise-pipelight
 pipenv                        asdf:mise-plugins/mise-pipenv
-pipx                          asdf:mise-plugins/mise-pipx
-pitchfork                     ubi:jdx/pitchfork
+pipx                          aqua:pypa/pipx asdf:mise-plugins/mise-pipx
+pitchfork                     aqua:jdx/pitchfork ubi:jdx/pitchfork
 pivnet                        aqua:pivotal-cf/pivnet-cli asdf:mise-plugins/tanzu-plug-in-for-asdf
 pixi                          ubi:prefix-dev/pixi
-pkl                           aqua:apple/pkl asdf:mise-plugins/asdf-pkl
+pkl                           aqua:apple/pkl ubi:apple/pkl asdf:mise-plugins/asdf-pkl
 please                        aqua:thought-machine/please asdf:asdf-community/asdf-please
-pluto                         ubi:FairwindsOps/pluto asdf:FairwindsOps/asdf-pluto
-pnpm                          aqua:pnpm/pnpm asdf:jonathanmorley/asdf-pnpm
-podman                        ubi:containers/podman asdf:tvon/asdf-podman
+pluto                         aqua:FairwindsOps/pluto ubi:FairwindsOps/pluto asdf:FairwindsOps/asdf-pluto
+pnpm                          aqua:pnpm/pnpm ubi:pnpm/pnpm npm:pnpm asdf:jonathanmorley/asdf-pnpm
+podman                        ubi:containers/podman[matching=podman-remote] asdf:tvon/asdf-podman
 poetry                        asdf:mise-plugins/mise-poetry
 polaris                       aqua:FairwindsOps/polaris asdf:particledecay/asdf-polaris
 popeye                        aqua:derailed/popeye asdf:nlamirault/asdf-popeye
@@ -618,8 +671,12 @@ postgis                       asdf:mise-plugins/mise-postgis
 postgres                      asdf:mise-plugins/mise-postgres
 powerline-go                  aqua:justjanne/powerline-go ubi:justjanne/powerline-go asdf:dex4er/asdf-powerline-go
 powerpipe                     aqua:turbot/powerpipe asdf:jc00ke/asdf-powerpipe
+powershell                    aqua:PowerShell/PowerShell asdf:daveneeley/asdf-powershell-core
 powershell-core               aqua:PowerShell/PowerShell asdf:daveneeley/asdf-powershell-core
-pre-commit                    aqua:pre-commit/pre-commit asdf:jonathanmorley/asdf-pre-commit
+pre-commit                    aqua:pre-commit/pre-commit ubi:pre-commit/pre-commit asdf:jonathanmorley/asdf-pre-commit pipx:pre-commit
+prek                          aqua:j178/prek
+prettier                      npm:prettier
+process-compose               ubi:F1bonacc1/process-compose
 promtool                      aqua:prometheus/prometheus asdf:asdf-community/asdf-promtool
 protobuf                      aqua:protocolbuffers/protobuf/protoc asdf:paxosglobal/asdf-protoc
 protoc                        aqua:protocolbuffers/protobuf/protoc asdf:paxosglobal/asdf-protoc
@@ -628,6 +685,7 @@ protoc-gen-go                 aqua:protocolbuffers/protobuf-go/protoc-gen-go asd
 protoc-gen-go-grpc            aqua:grpc/grpc-go/protoc-gen-go-grpc asdf:pbr0ck3r/asdf-protoc-gen-go-grpc
 protoc-gen-grpc-web           asdf:mise-plugins/mise-protoc-gen-grpc-web
 protoc-gen-js                 ubi:protocolbuffers/protobuf-javascript[exe=protoc-gen-js] asdf:pbr0ck3r/asdf-protoc-gen-js
+protoc-gen-validate           aqua:bufbuild/protoc-gen-validate go:github.com/envoyproxy/protoc-gen-validate
 protolint                     aqua:yoheimuta/protolint asdf:spencergilbert/asdf-protolint
 protonge                      asdf:mise-plugins/mise-protonge
 psc-package                   ubi:purescript/psc-package asdf:nsaunders/asdf-psc-package
@@ -641,37 +699,40 @@ qdns                          ubi:natesales/q asdf:moritz-makandra/asdf-plugin-q
 qsv                           ubi:dathere/qsv asdf:vjda/asdf-qsv
 quarkus                       asdf:mise-plugins/mise-quarkus
 r                             asdf:mise-plugins/mise-r
-rabbitmq                      asdf:mise-plugins/mise-rabbitmq
+rabbitmq                      asdf:mise-plugins/asdf-rabbitmq
 racket                        asdf:mise-plugins/mise-racket
+railway                       ubi:railwayapp/cli[exe=railway]
 raku                          asdf:mise-plugins/mise-raku
 rancher                       aqua:rancher/cli asdf:abinet/asdf-rancher
 rbac-lookup                   aqua:FairwindsOps/rbac-lookup asdf:looztra/asdf-rbac-lookup
-rclone                        ubi:rclone/rclone asdf:johnlayton/asdf-rclone
+rclone                        aqua:rclone/rclone ubi:rclone/rclone asdf:johnlayton/asdf-rclone
 rebar                         asdf:mise-plugins/mise-rebar
 reckoner                      ubi:FairwindsOps/reckoner asdf:FairwindsOps/asdf-reckoner
 redis                         asdf:mise-plugins/mise-redis
 redis-cli                     asdf:mise-plugins/mise-redis-cli
-redo                          ubi:barthr/redo asdf:chessmango/asdf-redo
+redo                          aqua:barthr/redo ubi:barthr/redo asdf:chessmango/asdf-redo
+redpanda-connect              aqua:redpanda-data/connect asdf:benthosdev/benthos-asdf
 reg                           aqua:genuinetools/reg asdf:looztra/asdf-reg
 regal                         aqua:StyraInc/regal asdf:mise-plugins/mise-regal
 regctl                        aqua:regclient/regclient/regctl asdf:ORCID/asdf-regctl
 regsync                       aqua:regclient/regclient/regsync asdf:rsrchboy/asdf-regsync
 restic                        aqua:restic/restic asdf:xataz/asdf-restic
-restish                       ubi:danielgtaylor/restish go:github.com/danielgtaylor/restish
+restish                       aqua:rest-sh/restish ubi:rest-sh/restish go:github.com/danielgtaylor/restish
+resvg                         aqua:linebender/resvg
 revive                        aqua:mgechev/revive asdf:bjw-s/asdf-revive
-rg                            aqua:BurntSushi/ripgrep ubi:BurntSushi/ripgrep[exe=rg] asdf:https://gitlab.com/wt0f/asdf-ripgrep
+rg                            aqua:BurntSushi/ripgrep ubi:BurntSushi/ripgrep[exe=rg] asdf:https://gitlab.com/wt0f/asdf-ripgrep cargo:ripgrep
 richgo                        aqua:kyoh86/richgo asdf:paxosglobal/asdf-richgo
-ripgrep                       aqua:BurntSushi/ripgrep ubi:BurntSushi/ripgrep[exe=rg] asdf:https://gitlab.com/wt0f/asdf-ripgrep
-ripgrep-all                   aqua:phiresky/ripgrep-all
-ripsecret                     aqua:sirwart/ripsecrets asdf:https://github.com/boris-smidt-klarrio/asdf-ripsecrets
+ripgrep                       aqua:BurntSushi/ripgrep ubi:BurntSushi/ripgrep[exe=rg] asdf:https://gitlab.com/wt0f/asdf-ripgrep cargo:ripgrep
+ripgrep-all                   aqua:phiresky/ripgrep-all ubi:phiresky/ripgrep-all[exe=rga] cargo:ripgrep_all
 ripsecrets                    aqua:sirwart/ripsecrets asdf:https://github.com/boris-smidt-klarrio/asdf-ripsecrets
 rke                           aqua:rancher/rke asdf:particledecay/asdf-rke
 rlwrap                        asdf:mise-plugins/mise-rlwrap
+rocq                          asdf:mise-plugins/mise-coq
 ruby                          core:ruby
 ruff                          aqua:astral-sh/ruff ubi:astral-sh/ruff asdf:simhem/asdf-ruff
 rust                          core:rust asdf:code-lever/asdf-rust
 rust-analyzer                 aqua:rust-lang/rust-analyzer asdf:Xyven1/asdf-rust-analyzer
-rustic                        ubi:rustic-rs/rustic
+rustic                        aqua:rustic-rs/rustic ubi:rustic-rs/rustic
 rye                           aqua:astral-sh/rye asdf:Azuki-bar/asdf-rye
 saml2aws                      aqua:Versent/saml2aws asdf:elementalvoid/asdf-saml2aws
 sampler                       aqua:sqshq/sampler ubi:sqshq/sampler
@@ -683,27 +744,31 @@ scaleway                      aqua:scaleway/scaleway-cli asdf:albarralnunez/asdf
 scaleway-cli                  aqua:scaleway/scaleway-cli asdf:albarralnunez/asdf-plugin-scaleway-cli
 scalingo-cli                  aqua:Scalingo/cli asdf:brandon-welsch/asdf-scalingo-cli
 scarb                         ubi:software-mansion/scarb asdf:software-mansion/asdf-scarb
-sccache                       ubi:mozilla/sccache asdf:emersonmx/asdf-sccache
+sccache                       aqua:mozilla/sccache ubi:mozilla/sccache asdf:emersonmx/asdf-sccache
 schemacrawler                 asdf:mise-plugins/mise-schemacrawler
 scie-pants                    ubi:pantsbuild/scie-pants asdf:robzr/asdf-scie-pants
+scorecard                     aqua:ossf/scorecard
+sd                            aqua:chmln/sd ubi:chmln/sd cargo:sd
 seed7                         asdf:mise-plugins/mise-seed7
-semgrep                       asdf:mise-plugins/mise-semgrep
+semgrep                       pipx:semgrep asdf:mise-plugins/mise-semgrep
 semtag                        asdf:mise-plugins/mise-semtag
 semver                        aqua:fsaintjacques/semver-tool asdf:mathew-fleisch/asdf-semver
 sentinel                      asdf:mise-plugins/mise-hashicorp
-sentry                        ubi:getsentry/sentry-cli
-sentry-cli                    ubi:getsentry/sentry-cli
+sentry                        aqua:getsentry/sentry-cli ubi:getsentry/sentry-cli
+sentry-cli                    aqua:getsentry/sentry-cli ubi:getsentry/sentry-cli
 serf                          asdf:mise-plugins/mise-hashicorp
 serverless                    asdf:mise-plugins/mise-serverless
 setup-envtest                 asdf:mise-plugins/mise-setup-envtest
 shell2http                    aqua:msoap/shell2http asdf:ORCID/asdf-shell2http
 shellcheck                    aqua:koalaman/shellcheck ubi:koalaman/shellcheck asdf:luizm/asdf-shellcheck
 shellspec                     aqua:shellspec/shellspec asdf:poikilotherm/asdf-shellspec
-shfmt                         aqua:mvdan/sh asdf:luizm/asdf-shfmt
+shfmt                         aqua:mvdan/sh ubi:mvdan/sh asdf:luizm/asdf-shfmt go:mvdan.cc/sh/v3/cmd/shfmt
 shorebird                     asdf:mise-plugins/mise-shorebird
+signadot                      ubi:signadot/cli[exe=signadot]
 sinker                        aqua:plexsystems/sinker asdf:elementalvoid/asdf-sinker
 skaffold                      aqua:GoogleContainerTools/skaffold asdf:nklmilojevic/asdf-skaffold
 skate                         aqua:charmbracelet/skate asdf:chessmango/asdf-skate
+skeema                        aqua:skeema/skeema ubi:skeema/skeema
 sloth                         aqua:slok/sloth asdf:slok/asdf-sloth
 slsa-verifier                 ubi:slsa-framework/slsa-verifier
 smithy                        asdf:mise-plugins/mise-smithy
@@ -719,18 +784,21 @@ sourcery                      asdf:mise-plugins/mise-sourcery
 spacectl                      aqua:spacelift-io/spacectl asdf:bodgit/asdf-spacectl
 spago                         ubi:purescript/spago asdf:jrrom/asdf-spago
 spark                         aqua:apache/spark asdf:mise-plugins/mise-spark
+specstory                     aqua:specstoryai/getspecstory ubi:specstoryai/getspecstory
 spectral                      aqua:stoplightio/spectral asdf:vbyrd/asdf-spectral
 spin                          aqua:spinnaker/spin asdf:pavloos/asdf-spin
 spring-boot                   asdf:mise-plugins/mise-spring-boot
 spruce                        aqua:geofffranks/spruce asdf:woneill/asdf-spruce
 sqlite                        asdf:mise-plugins/mise-sqlite
 sqlite3def                    aqua:sqldef/sqldef/sqlite3def
+sshi                          aqua:aakso/ssh-inscribe/sshi
 sshuttle                      asdf:mise-plugins/mise-sshuttle
+sst                           ubi:sst/sst
 stack                         aqua:commercialhaskell/stack asdf:mise-plugins/mise-ghcup
 starboard                     aqua:aquasecurity/starboard asdf:zufardhiyaulhaq/asdf-starboard
 starknet-foundry              ubi:foundry-rs/starknet-foundry[exe=snforge]
 starknet-foundry-sncast       ubi:foundry-rs/starknet-foundry[exe=sncast]
-starship                      ubi:starship/starship asdf:gr1m0h/asdf-starship
+starship                      aqua:starship/starship ubi:starship/starship asdf:gr1m0h/asdf-starship
 staticcheck                   aqua:dominikh/go-tools/staticcheck asdf:pbr0ck3r/asdf-staticcheck
 steampipe                     aqua:turbot/steampipe asdf:carnei-ro/asdf-steampipe
 step                          aqua:smallstep/cli asdf:log2/asdf-step
@@ -747,22 +815,24 @@ swift                         core:swift
 swift-package-list            asdf:mise-plugins/mise-swift-package-list
 swiftformat                   asdf:mise-plugins/mise-swiftformat
 swiftgen                      asdf:mise-plugins/mise-swiftgen
-swiftlint                     asdf:mise-plugins/mise-swiftlint
+swiftlint                     aqua:realm/SwiftLint asdf:mise-plugins/mise-swiftlint
 swiprolog                     asdf:mise-plugins/mise-swiprolog
 syft                          aqua:anchore/syft asdf:davidgp1701/asdf-syft
+tailpipe                      aqua:turbot/tailpipe
 talhelper                     aqua:budimanjojo/talhelper asdf:bjw-s/asdf-talhelper
-talos                         ubi:siderolabs/talos[exe=talosctl] asdf:particledecay/asdf-talos
-talosctl                      ubi:siderolabs/talos[exe=talosctl] asdf:bjw-s/asdf-talosctl
+talos                         aqua:siderolabs/talos ubi:siderolabs/talos[exe=talosctl]
+talosctl                      aqua:siderolabs/talos ubi:siderolabs/talos[exe=talosctl]
 tanka                         aqua:grafana/tanka asdf:trotttrotttrott/asdf-tanka
 tanzu                         asdf:mise-plugins/tanzu-plug-in-for-asdf
-taplo                         ubi:tamasfe/taplo[matching=full] cargo:taplo-cli
-task                          ubi:go-task/task asdf:particledecay/asdf-task
+taplo                         aqua:tamasfe/taplo ubi:tamasfe/taplo cargo:taplo-cli
+task                          aqua:go-task/task ubi:go-task/task asdf:particledecay/asdf-task
 tctl                          aqua:temporalio/tctl asdf:eko/asdf-tctl
 tekton                        aqua:tektoncd/cli asdf:johnhamelink/asdf-tekton-cli
 tekton-cli                    aqua:tektoncd/cli asdf:johnhamelink/asdf-tekton-cli
 teleport-community            asdf:mise-plugins/mise-teleport-community
 teleport-ent                  asdf:mise-plugins/mise-teleport-ent
 telepresence                  aqua:telepresenceio/telepresence asdf:pirackr/asdf-telepresence
+television                    aqua:alexpasmantier/television
 teller                        aqua:tellerops/teller asdf:pdemagny/asdf-teller
 temporal                      aqua:temporalio/temporal asdf:asdf-community/asdf-temporal
 terradozer                    aqua:jckuester/terradozer asdf:chessmango/asdf-terradozer
@@ -792,8 +862,9 @@ timoni                        aqua:stefanprodan/timoni asdf:Smana/asdf-timoni
 tiny                          asdf:mise-plugins/mise-tiny
 tinytex                       asdf:mise-plugins/mise-tinytex
 titan                         ubi:titan-data/titan asdf:gabitchov/asdf-titan
+tlrc                          aqua:tldr-pages/tlrc ubi:tldr-pages/tlrc cargo:tlrc
 tmux                          asdf:mise-plugins/mise-tmux
-tokei                         ubi:XAMPPRocky/tokei asdf:gasuketsu/asdf-tokei
+tokei                         aqua:XAMPPRocky/tokei ubi:XAMPPRocky/tokei asdf:gasuketsu/asdf-tokei
 tomcat                        asdf:mise-plugins/mise-tomcat
 tonnage                       ubi:elementalvoid/tonnage asdf:elementalvoid/asdf-tonnage
 traefik                       ubi:traefik/traefik asdf:Dabolus/asdf-traefik
@@ -802,80 +873,90 @@ trdsql                        aqua:noborus/trdsql asdf:johnlayton/asdf-trdsql
 tree-sitter                   aqua:tree-sitter/tree-sitter asdf:ivanvc/asdf-tree-sitter
 tridentctl                    aqua:NetApp/trident/tridentctl asdf:asdf-community/asdf-tridentctl
 trivy                         aqua:aquasecurity/trivy asdf:zufardhiyaulhaq/asdf-trivy
+trunk                         npm:@trunkio/launcher
+trzsz-ssh                     aqua:trzsz/trzsz-ssh ubi:trzsz/trzsz-ssh go:github.com/trzsz/trzsz-ssh/cmd/tssh
+tssh                          aqua:trzsz/trzsz-ssh ubi:trzsz/trzsz-ssh go:github.com/trzsz/trzsz-ssh/cmd/tssh
 tsuru                         ubi:tsuru/tsuru-client[exe=tsuru] asdf:virtualstaticvoid/asdf-tsuru
 ttyd                          aqua:tsl0922/ttyd asdf:ivanvc/asdf-ttyd
 tuist                         asdf:mise-plugins/mise-tuist
-typos                         aqua:crate-ci/typos asdf:aschiavon91/asdf-typos
-typst                         aqua:typst/typst asdf:stephane-klein/asdf-typst
-uaa                           ubi:cloudfoundry/uaa-cli[exe=uaa] asdf:mise-plugins/tanzu-plug-in-for-asdf
-uaa-cli                       ubi:cloudfoundry/uaa-cli[exe=uaa] asdf:mise-plugins/tanzu-plug-in-for-asdf
-ubi                           ubi:houseabsolute/ubi
+tusd                          ubi:tus/tusd
+typos                         aqua:crate-ci/typos ubi:crate-ci/typos asdf:aschiavon91/asdf-typos cargo:typos-cli
+typst                         aqua:typst/typst ubi:typst/typst asdf:stephane-klein/asdf-typst cargo:typst-cli
+typstyle                      aqua:Enter-tainer/typstyle ubi:Enter-tainer/typstyle cargo:typstyle
+uaa                           aqua:cloudfoundry/uaa-cli ubi:cloudfoundry/uaa-cli[exe=uaa] asdf:mise-plugins/tanzu-plug-in-for-asdf
+uaa-cli                       aqua:cloudfoundry/uaa-cli ubi:cloudfoundry/uaa-cli[exe=uaa] asdf:mise-plugins/tanzu-plug-in-for-asdf
+ubi                           aqua:houseabsolute/ubi ubi:houseabsolute/ubi
 unison                        ubi:unisonweb/unison asdf:susurri/asdf-unison
 upctl                         aqua:UpCloudLtd/upcloud-cli
 updatecli                     aqua:updatecli/updatecli asdf:updatecli/asdf-updatecli
 upt                           ubi:sigoden/upt asdf:ORCID/asdf-upt
 upx                           aqua:upx/upx asdf:jimmidyson/asdf-upx
-usage                         ubi:jdx/usage asdf:jdx/mise-usage
+usage                         aqua:jdx/usage ubi:jdx/usage asdf:mise-plugins/mise-usage cargo:usage-cli
 usql                          aqua:xo/usql asdf:itspngu/asdf-usql
-uv                            aqua:astral-sh/uv asdf:asdf-community/asdf-uv
+uv                            aqua:astral-sh/uv ubi:astral-sh/uv asdf:asdf-community/asdf-uv pipx:uv
 v                             asdf:mise-plugins/mise-v
 vacuum                        aqua:daveshanley/vacuum
 vale                          aqua:errata-ai/vale asdf:pdemagny/asdf-vale
 vals                          aqua:helmfile/vals asdf:dex4er/asdf-vals
 vault                         aqua:hashicorp/vault asdf:mise-plugins/mise-hashicorp
 vcluster                      aqua:loft-sh/vcluster asdf:https://gitlab.com/wt0f/asdf-vcluster
-velad                         asdf:mise-plugins/mise-velad
+velad                         ubi:kubevela/velad asdf:mise-plugins/mise-velad
 velero                        aqua:vmware-tanzu/velero asdf:looztra/asdf-velero
 vendir                        aqua:carvel-dev/vendir asdf:vmware-tanzu/asdf-carvel
 venom                         aqua:ovh/venom asdf:aabouzaid/asdf-venom
+vfox                          aqua:version-fox/vfox ubi:version-fox/vfox
 vhs                           aqua:charmbracelet/vhs asdf:chessmango/asdf-vhs
+victoria-metrics              aqua:VictoriaMetrics/VictoriaMetrics/victoria-metrics
 viddy                         aqua:sachaos/viddy asdf:ryodocx/asdf-viddy
 vim                           asdf:mise-plugins/mise-vim
 virtualos                     asdf:mise-plugins/mise-virtualos
-vivid                         ubi:sharkdp/vivid
+vivid                         aqua:sharkdp/vivid ubi:sharkdp/vivid
 vlang                         vfox:mise-plugins/vfox-vlang
 vlt                           asdf:mise-plugins/mise-hashicorp
 vultr                         ubi:vultr/vultr-cli asdf:ikuradon/asdf-vultr-cli
 vultr-cli                     ubi:vultr/vultr-cli asdf:ikuradon/asdf-vultr-cli
 wait-for-gh-rate-limit        ubi:jdx/wait-for-gh-rate-limit
+wash                          aqua:wasmCloud/wasmCloud/wash
 wasi-sdk                      asdf:mise-plugins/mise-wasi-sdk
 wasm3                         asdf:mise-plugins/mise-wasm3
-wasm4                         ubi:aduros/wasm4[exe=w4] asdf:jtakakura/asdf-wasm4
+wasm4                         aqua:aduros/wasm4 ubi:aduros/wasm4[exe=w4] asdf:jtakakura/asdf-wasm4
 wasmer                        aqua:wasmerio/wasmer asdf:tachyonicbytes/asdf-wasmer
 wasmtime                      aqua:bytecodealliance/wasmtime asdf:tachyonicbytes/asdf-wasmtime
-watchexec                     ubi:watchexec/watchexec asdf:nyrst/asdf-watchexec
+watchexec                     aqua:watchexec/watchexec ubi:watchexec/watchexec cargo:watchexec-cli
 waypoint                      aqua:hashicorp/waypoint asdf:mise-plugins/mise-hashicorp
 weave-gitops                  ubi:weaveworks/weave-gitops[exe=gitops] asdf:deas/asdf-weave-gitops
 websocat                      aqua:vi/websocat asdf:bdellegrazie/asdf-websocat
-wren                          ubi:wren-lang/wren-cli[exe=wren_cli] asdf:jtakakura/asdf-wren-cli
-wren-cli                      ubi:wren-lang/wren-cli[exe=wren_cli] asdf:jtakakura/asdf-wren-cli
+wren                          aqua:wren-lang/wren-cli ubi:wren-lang/wren-cli[exe=wren_cli] asdf:jtakakura/asdf-wren-cli
+wren-cli                      aqua:wren-lang/wren-cli ubi:wren-lang/wren-cli[exe=wren_cli] asdf:jtakakura/asdf-wren-cli
 wrk                           asdf:mise-plugins/mise-wrk
 wtfutil                       aqua:wtfutil/wtf asdf:NeoHsu/asdf-wtfutil
 xc                            aqua:joerdav/xc asdf:airtonix/asdf-xc
-xcbeautify                    ubi:cpisciotta/xcbeautify asdf:mise-plugins/asdf-xcbeautify
+xcbeautify                    aqua:cpisciotta/xcbeautify ubi:cpisciotta/xcbeautify asdf:mise-plugins/asdf-xcbeautify
 xchtmlreport                  asdf:mise-plugins/mise-xchtmlreport
 xcodegen                      asdf:mise-plugins/mise-xcodegen
+xcodes                        aqua:XcodesOrg/xcodes
 xcresultparser                asdf:mise-plugins/mise-xcresultparser
-xh                            aqua:ducaale/xh ubi:ducaale/xh asdf:NeoHsu/asdf-xh
+xh                            aqua:ducaale/xh ubi:ducaale/xh asdf:NeoHsu/asdf-xh cargo:xh
 yadm                          asdf:mise-plugins/mise-yadm
-yamlfmt                       aqua:google/yamlfmt asdf:mise-plugins/asdf-yamlfmt
+yamlfmt                       aqua:google/yamlfmt ubi:google/yamlfmt asdf:mise-plugins/asdf-yamlfmt go:github.com/google/yamlfmt/cmd/yamlfmt
 yamllint                      pipx:yamllint asdf:ericcornelissen/asdf-yamllint
-yamlscript                    asdf:mise-plugins/mise-yamlscript
-yarn                          asdf:mise-plugins/mise-yarn
+yamlscript                    aqua:yaml/yamlscript ubi:yaml/yamlscript[matching_regex=^ys,extract_all=true] asdf:mise-plugins/mise-yamlscript
+yarn                          vfox:mise-plugins/vfox-yarn asdf:mise-plugins/mise-yarn aqua:yarnpkg/berry npm:@yarnpkg/cli-dist
 yay                           asdf:mise-plugins/mise-yay
 yazi                          aqua:sxyazi/yazi
-yj                            ubi:sclevine/yj asdf:ryodocx/asdf-yj
+yj                            aqua:sclevine/yj ubi:sclevine/yj asdf:ryodocx/asdf-yj
 yor                           aqua:bridgecrewio/yor asdf:ordinaryexperts/asdf-yor
-youtube-dl                    asdf:mise-plugins/mise-youtube-dl
-yq                            aqua:mikefarah/yq ubi:mikefarah/yq asdf:sudermanjr/asdf-yq
+youtube-dl                    aqua:ytdl-org/ytdl-nightly ubi:ytdl-org/ytdl-nightly[matching_regex=^youtube-dl$,rename_exe=youtube-dl] asdf:mise-plugins/mise-youtube-dl
+yq                            aqua:mikefarah/yq ubi:mikefarah/yq asdf:sudermanjr/asdf-yq go:github.com/mikefarah/yq/v4
 yt-dlp                        ubi:yt-dlp/yt-dlp asdf:duhow/asdf-yt-dlp
 ytt                           aqua:carvel-dev/ytt asdf:vmware-tanzu/asdf-carvel
 zbctl                         asdf:mise-plugins/mise-zbctl
-zellij                        ubi:zellij-org/zellij asdf:chessmango/asdf-zellij
-zephyr                        ubi:MaybeJustJames/zephyr asdf:nsaunders/asdf-zephyr
+zellij                        aqua:zellij-org/zellij ubi:zellij-org/zellij asdf:chessmango/asdf-zellij
+zephyr                        aqua:MaybeJustJames/zephyr ubi:MaybeJustJames/zephyr asdf:nsaunders/asdf-zephyr
 zig                           core:zig
 zigmod                        ubi:nektro/zigmod asdf:mise-plugins/asdf-zigmod
+zizmor                        aqua:zizmorcore/zizmor ubi:zizmorcore/zizmor cargo:zizmor
 zls                           aqua:zigtools/zls ubi:zigtools/zls
-zola                          ubi:getzola/zola asdf:salasrod/asdf-zola
-zoxide                        ubi:ajeetdsouza/zoxide asdf:nyrst/asdf-zoxide
+zola                          aqua:getzola/zola ubi:getzola/zola asdf:salasrod/asdf-zola
+zoxide                        aqua:ajeetdsouza/zoxide ubi:ajeetdsouza/zoxide
 zprint                        asdf:mise-plugins/mise-zprint
