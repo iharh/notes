@@ -2,14 +2,6 @@ https://github.com/PragmaTech-GmbH/spring-test-profiler
 
 https://www.kotlinprimer.com/introduction/maintainability/#5ec7
 
-wildberries
-    ! 25 bin
-https://ozon.by/product/neveroyatnyy-peterburg-samye-krasivye-mesta-severnoy-stolitsy-i-okrestnostey-yakubova-2241620919
-    ! 33 bin
-https://ozon.by/product/neveroyatnyy-peterburg-samye-krasivye-mesta-severnoy-stolitsy-i-okrestnostey-yakubova-1631538949/
-https://ozon.by/product/neveroyatnyy-peterburg-samye-krasivye-mesta-severnoy-stolitsy-i-okrestnostey-yakubova-736799381
-https://ozon.by/product/neveroyatnyy-peterburg-samye-krasivye-mesta-severnoy-stolitsy-i-okrestnostey-yakubova-1619855527/
-
 todo: use:
 kt connekt
     pl/kt/tools/http/connekt.txt
@@ -18,9 +10,6 @@ idea plugins
         https://github.com/jvictororiz/plugin-generator-uml
     https://plugins.jetbrains.com/plugin/15075-jpa-buddy
     https://plugins.jetbrains.com/plugin/27979-explyt
-
-?
-copr-be.cloud.fedoraproject.org SEC_ERROR_EXPIRED_CERTIFICATE
 
 restate
 https://docs.restate.dev/develop/java/overview/?sdk=kotln
