@@ -16,3 +16,25 @@ https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket
 todo: use:
 kt connekt
     pl/kt/tools/http/connekt.txt
+
+html-dsl
+https://kotlinlang.org/docs/typesafe-html-dsl.html
+https://ktor.io/docs/server-html-dsl.html
+
+htmx
+https://blog.jetbrains.com/idea/2024/09/introduction-to-htmx-for-spring-boot-developers/
+
+htmx-integration
+https://ktor.io/docs/htmx-integration.html#server-side-routing
+https://github.com/anderssv/kotlin-htmx
+https://kotlin-htmx.fly.dev/
+https://www.youtube.com/watch?v=zJNkIJCQohU
+https://www.youtube.com/watch?v=9OYn48xBzOY
+https://www.corlaez.com/blog/kotlin-htmx.html
+https://github.com/corlaez/kotlin-htmx
+https://www.youtube.com/watch?v=Dpnj5qRWLHY
+https://blog.codersee.com/quick-quide-to-htmx-kotlin/
+
+dsl
+https://kotlinlang.org/docs/type-safe-builders.html
+https://frozenfractal.com/blog/2017/7/3/writing-a-test-dsl-in-kotlin/
