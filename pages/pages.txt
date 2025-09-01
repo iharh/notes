@@ -1,10 +1,8 @@
 https://github.com/PragmaTech-GmbH/spring-test-profiler
 
-https://www.kotlinprimer.com/basics/functions-variables/functions/
+DevConfCZ2025 - 80
+    https://www.youtube.com/playlist?list=PLU1vS0speL2bCGfDl6lCckdCzXb_gopJV
 
-todo: use:
-kt connekt
-    pl/kt/tools/http/connekt.txt
 idea plugins
     https://plugins.jetbrains.com/plugin/28262-gerador-uml-mermaid-
         https://github.com/jvictororiz/plugin-generator-uml
@@ -22,14 +20,10 @@ Idea: Select in -> Project Structure hotkey (A-F1 - 1)
     A-S-1-Enter
 
 books
-Pro Spring Boot 3 with Kotlin 3rd ed
-Kotlin an Illustrated Guide ru
-Kotlin in Action 2nd ed                             -  37      (of  849)
 Chetverikova - 2011 - Vatican Izmena ru             -  16      (of  218)
 Veller - Friends                                    -  54
 OpenSSL Cookbook                                    -  29      (of   58)
 Gnedenko                                            -  39..41  (of   74)
-Kantor - Red Color                                  - 284.7    (of 1204)
 Bailor - The Calorie Myth ru                        -  13      (of  303)
 Markov - Crimea 2nd ed ru                           - 237      (of  607)
 Zhitinskiy - RD ru                                  - 227.2    (of  695)
@@ -55,16 +49,6 @@ Wang - Terraform Made Easy
     https://z-library.sk/book/30618223/df747b/terraform-cookbook-for-true-epub.html
     https://z-library.sk/book/30816300/ac0d60/terraform-cookbook-recipes-for-codifying-infrastructure.html
     https://z-library.sk/book/31739686/f85974/terraform-cookbook-recipes-for-codifying-infrastructure.html
-
-/etc/NetworkManager/system-connections/Wired connection 1.nmconnection
-[ipv4]
-dns=100.100.100.1;100.100.100.2;
-dns-search=...
-ignore-auto-dns=true
-method=auto
-
-nets for litteliest
-    https://habr.com/ru/articles/307252/
 
 ~/.config/waybar/
     missing links
@@ -136,10 +120,6 @@ https://devenv.sh/blog/2024/10/22/devenv-is-switching-its-nix-implementation-to-
 https://www.jetify.com/docs/devbox/quickstart/
 https://www.jetify.com/devspace
 https://medium.com/vafion/devbox-a-user-friendly-approach-to-reproducible-development-environments-with-nix-83dbcd0ab8d8
-
-mise devspace
-
-/r/piracy
 
 LibreTrack - Darknet Lie Discovery 4:00 of 14:28
     https://www.youtube.com/watch?v=BM0pC6lJOS8

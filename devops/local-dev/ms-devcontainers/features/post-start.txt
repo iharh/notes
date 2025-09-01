@@ -1,0 +1,6 @@
+2021
+VisualStudioCode - How to start the SSH service in a dev container of 0:40
+    https://www.youtube.com/watch?v=KuSNpZgDYDs
+    https://code.visualstudio.com/remote/advancedcontainers/start-processes?WT.mc_id=devcloud-0000-buhollan
+    ! { ... "postStartCommand": "sudo /etc/init.d/ssh start"...}
+    ! { ... "postStartCommand": "sudo service ssh start" ...}
