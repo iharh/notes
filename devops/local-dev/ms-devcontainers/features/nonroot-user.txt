@@ -1,0 +1,10 @@
+2022
+VisualStudioCode - How to change the user in a dev container of 1:04
+    https://www.youtube.com/watch?v=PSBeVOw7cKQ
+    ! { ...,
+    !   "remoteUser": "vscode",
+    !   "containerUser": "vscode",
+    ! ...}
+    ! and add non-root user to Dockerfile
+    https://code.visualstudio.com/remote/advancedcontainers/add-nonroot-user?WT.mc_id=devcloud-0000-buhollan#_creating-a-nonroot-user
+
