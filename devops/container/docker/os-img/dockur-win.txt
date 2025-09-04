@@ -8,6 +8,27 @@ environment:
 volumes:
   $PWD/data:/storage
 
+docker run -it --rm --name windows \
+  -p 8006:8006 \
+  --device=/dev/kvm \
+  --device=/dev/net/tun \
+  --cap-add NET_ADMIN \
+  -v "${PWD}/windows:/storage" \
+  --stop-timeout 120 \
+  dockurr/windows
+
+???
+       --stop-timeout
+         Timeout (in seconds) to stop a container, or -1 to disable timeout.
+
+       The --stop-timeout flag sets the number of seconds to wait for the container
+         to stop after sending the pre-defined (see --stop-signal) system call signal.
+         If the container does not exit after the timeout elapses, it is forcibly killed
+         with a SIGKILL signal.
+
+       If --stop-timeout is set to -1, no timeout is applied, and the daemon will
+         wait indefinitely for the container to exit.
+
 2024
 Wolfgang - Running Windows in a Docker Container! 0:00 of 10:06
     https://www.youtube.com/watch?v=xhGYobuG508
