@@ -22,27 +22,3 @@ https://wiki.gentoo.org/wiki/Waybar
 https://wiki.hyprland.org/Useful-Utilities/Status-Bars/
 
 https://github.com/Alexays/Waybar/wiki/Examples
-
-dnf/waybar
-https://github.com/Alexays/Waybar/wiki/FAQ#how-to-use-with-sway
-https://github.com/Alexays/Waybar/wiki/Installation#how-to-use-with-sway
-    otf-font-awesome
-        https://docs.fontawesome.com/desktop/setup/get-started
-    bar swaybar_command waybar
-
-2024
-MyLinuxForWork - Create a custom Waybar Theme for Hyprland: ML4W Dotfiles Insights 0:00 of 8:23
-    https://www.youtube.com/watch?v=ZYlRfTq4QDs
-    https://gitlab.com/stephan-raabe/dotfiles
-    https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar
-2023
-Vimjoyer - Waybar Customization Guide 0:00 of 6:36
-    https://www.youtube.com/watch?v=tWQB1NDDA9c
-2021
-proLinux - Waybar 0:00 of 4:20
-    https://www.youtube.com/watch?v=sCS6c6B7qCM
-
-samples
-https://gitlab.com/stephan-raabe/dotfiles/-/tree/main/waybar
-https://github.com/RoccoRakete/arch-dotfiles/tree/main/waybar/.config/waybar
-    https://www.reddit.com/r/unixporn/comments/1eb6o3z/hyprland_do_you_like_my_rice/

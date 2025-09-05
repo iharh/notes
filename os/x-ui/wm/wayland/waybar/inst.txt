@@ -1,0 +1,6 @@
+dnf/waybar
+https://github.com/Alexays/Waybar/wiki/FAQ#how-to-use-with-sway
+https://github.com/Alexays/Waybar/wiki/Installation#how-to-use-with-sway
+    otf-font-awesome
+        https://docs.fontawesome.com/desktop/setup/get-started
+    bar swaybar_command waybar
