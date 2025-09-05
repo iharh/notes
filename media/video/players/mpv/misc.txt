@@ -48,3 +48,6 @@ https://github.com/bpftrace/bpftrace/commit/debc79ef9ad4784258705a92ae70f9c7689a
 
 sudo apt autoremove
     libdrm ...
+
+lua scripting
+    https://habr.com/ru/articles/878772/
