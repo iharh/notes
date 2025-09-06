@@ -1,5 +1,8 @@
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 
+4.x
+https://loiane.com/2025/08/spring-boot-4-spring-framework-7-key-features/
+    https://habr.com/ru/companies/spring_aio/articles/941310/
 3.x
 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes
     https://spring.io/blog/2024/11/25/bootiful-34-index

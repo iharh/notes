@@ -1,0 +1,3 @@
+https://www.crunchydata.com/developers/playground
+    \! cat /mnt/data.sql
+    \i /mnt/data.sql
