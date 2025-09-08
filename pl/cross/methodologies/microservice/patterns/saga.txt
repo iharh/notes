@@ -3,9 +3,21 @@ http://microservices.io/patterns/data/saga.html
 https://docs.axoniq.io/reference-guide/axon-framework/sagas/implementation
 https://github.com/eventuate-tram/eventuate-tram-sagas
 
+sample imps
+    https://temporal.io/
+    axon
+    org.netlix.conductor
+    apache camel
+    kafka
+    spring integration
+
 shorts
 SeleniumExpress - Saga Pattern in Microservices
     https://www.youtube.com/shorts/FhHt06jgzw0
+2025
+ListenIT - What is SAGA in 10 minutes of 10:40
+    https://www.youtube.com/watch?v=_KaEC-Mktv4
+    https://github.com/Azure-Samples/saga-orchestration-serverless
 2023
 https://habr.com/ru/companies/qiwi/articles/759474/
 https://habr.com/ru/articles/744460/
