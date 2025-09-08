@@ -1,3 +1,7 @@
+2025
+Amplicode - Short regarding docker compose
+    https://www.youtube.com/shorts/xbar3lWrux4
+
 https://docs.spring.io/spring-boot/reference/features/dev-services.html
     dependencies {
       developmentOnly("org.springframework.boot:spring-boot-docker-compose")
