@@ -1,0 +1,22 @@
+https://github.com/cisco/openh264/issues/3886
+https://forums.linuxmint.com/viewtopic.php?t=450721
+    https://forums.linuxmint.com/viewtopic.php?t=266998
+    https://freedium.cfd/https://medium.com/@jawadalkassim/enable-dns-over-tls-in-linux-using-systemd-b03e44448c1c
+        $ sudo cat /etc/systemd/resolved.conf
+        [Resolve]
+        DNS=1.1.1.1 1.0.0.1
+        FallbackDNS=8.8.8.8 8.8.4.4
+        Domains=~.
+        $ sudo systemctl restart NetworkManager
+        https://1.1.1.1/help
+        $ cat /etc/NetworkManager/conf.d/10-dns-systemd-resolved.conf
+        [main]
+        dns=systemd-resolved
+        systemd-resolved=false
+        $ sudo systemctl start systemd-resolved
+        $ sudo systemctl enable systemd-resolved
+        $ sudo systemctl restart NetworkManager
+
+https://nextdns.io/pricing
+https://github.com/nextdns/nextdns
+https://www.adityathebe.com/systemd-resolved-dns-over-tls/
