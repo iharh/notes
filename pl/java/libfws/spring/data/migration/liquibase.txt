@@ -13,6 +13,13 @@ https://www.baeldung.com/liquibase-rollback
 https://www.baeldung.com/java-liquibase-list-sql-types
 https://www.baeldung.com/java-postgresql-create-schema-before-liquibase
 
+2025
+https://bell-sw.com/blog/how-to-use-liquibase-with-spring-boot/
+    https://www.youtube.com/watch?v=a1vGvdYKP2Y
+    https://github.com/code-with-bellsoft/liquibase-demo
+    https://github.com/code-with-bellsoft/liquibase-demo/blob/main/.github/workflows/db-migration.yaml
+CyberJAR - Liquibase in Spring Boot: Full Beginner-to-Advanced Guide 0:00 of 30:04
+    https://www.youtube.com/watch?v=a1vGvdYKP2Y
 2024
 https://habr.com/ru/companies/haulmont/articles/826188/
     ! amplicode
