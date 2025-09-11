@@ -1,17 +1,52 @@
+http://flywaydb.org/
+https://github.com/flyway/flyway
+
+https://flywaydb.org/documentation/usage/gradle/
+    import org.flywaydb.gradle.task.FlywayMigrateTask
+    tasks {
+        create<FlywayMigrateTask>("migrateLocal") {
+            configFiles = arrayOf("doc/flyway/flyway_LOCAL.conf")
+        }
+    }
+
+https://flywaydb.org/documentation/usage/gradle/info
+    flywayInfo
+https://flywaydb.org/documentation/usage/gradle/clean
+https://flywaydb.org/documentation/usage/gradle/migrate
+    flywayMigrate
+https://flywaydb.org/documentation/usage/gradle/validate
+https://flywaydb.org/documentation/usage/gradle/undo
+https://flywaydb.org/documentation/usage/gradle/baseline
+https://flywaydb.org/documentation/usage/gradle/repair
+https://flywaydb.org/documentation/getstarted/firststeps/gradle
+
+https://flywaydb.org/documentation/configuration/configfile
+https://flywaydb.org/documentation/configuration/parameters/
+https://flywaydb.org/documentation/configuration/envvars
+
+Java-migrations
+SQL-migrations
+
 https://github.com/spring-projects/spring-boot/blob/v3.4.1/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/flyway/FlywayProperties.java
     table
   
+baeldung
 https://www.baeldung.com/database-migrations-with-flyway
 https://www.baeldung.com/flyway-roll-back
 https://www.baeldung.com/flyway-callbacks
-
+https://www.baeldung.com/flyway-migrations
+    ! out-of-order
 2025
 CyberJAR - Flyway in Spring Boot: Step-by-Step tutorial with Maven (Beginner Friendly) 0:00 of 17:19
     https://www.youtube.com/watch?v=XnhTJmKjGSQ
+    github.com/code-with-bellsoft/flyway-demo
 2024
 https://habr.com/ru/companies/haulmont/articles/829782/
     !!! amplicode, jpa-based
     equals/hashcode - check objects for HibernateProxy
+2022
+    https://habr.com/ru/company/otus/blog/506788/
+https://airbyte.com/blog/database-migrations-with-flyway-jooq-and-testcontainers
 2020
 https://reflectoring.io/database-migration-spring-boot-flyway/
     !!! java-based migration
