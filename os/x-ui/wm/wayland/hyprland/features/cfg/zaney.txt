@@ -1,0 +1,13 @@
+Tyler Kelley
+https://zaney.org/wiki/zaneyos-2.3/
+https://zaney.org/wiki/zaneyos-2.3/faq/
+https://zaney.org/wiki/zaneyos-2.3/my-nixos-config/
+
+https://gitlab.com/Zaney/zaneyos
+https://gitlab.com/Zaney/zaneyos/-/blob/main/cheatsheets/nix-beginner-guide.md
+https://gitlab.com/Zaney/zaneyos/-/blob/main/cheatsheets/hyprland-customization-guide.md
+
+fork
+https://gitlab.com/theblackdon/black-don-os
+    nix-shell -p git pciutils
+    bash <(curl -s https://gitlab.com/theblackdon/black-don-os/-/raw/main/install-black-don-os.sh)
