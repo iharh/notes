@@ -1,7 +1,14 @@
 https://docs.oracle.com/en/java/javase/22/jfapi/why-use-jfr-api.html
 https://inside.java/tag/jfr
 
+2025
+BellSoft - How to Profile Java Applications in Docker Containers with JFR 0:00 of 12:13
+    https://www.youtube.com/watch?v=tFOL1ZPZUdU
+    https://bell-sw.com/blog/how-to-profile-java-applications-in-docker-containers/
 2024
+BellSoft - Master Java Profiling: Tools, Techniques, and Real-World Tips 0:00 of 12:06
+    https://www.youtube.com/watch?v=fCBX-v64L7g
+    https://bell-sw.com/blog/a-guide-to-java-profiling-tools-techniques-best-practices/
 Java - Joakim Nordstrom - Programmer's Guide to JDK Flight Recorder of 36:55
     https://www.youtube.com/watch?v=AgFOJEkBVjg
     ! default conf is at lib/jfr/default.jfc, profile.jfc
