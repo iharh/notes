@@ -1,6 +1,8 @@
 https://github.com/containers/netavark
 https://github.com/containers/aardvark-dns
 
+2025
+https://www.reddit.com/r/podman/comments/1ndlt97/podman_networks_and_dns/
 2022
 https://linuxhandbook.com/rootless-podman/
     !!! sudo apt install slirp4netns

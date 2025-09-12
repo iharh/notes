@@ -22,28 +22,7 @@ https://github.com/tomakehurst/wiremock/issues/684
 async
 https://blog.jdriven.com/2020/10/using-wiremock-in-an-async-environment/
 
-2024
-https://habr.com/ru/articles/804673/
-2023
-https://www.atomicjar.com/2023/12/building-spring-boots-serviceconnection-for-testcontainers-wiremock/
-https://habr.com/ru/articles/781812/
-2022
-https://vc.ru/u/628653-codeinside/535563-mock-servisy-dlya-testirovaniya-how-to-use-quick-start
-https://habr.com/ru/companies/rostelecom/articles/679330/
-    scenarios with states
-2020
-https://www.baeldung.com/introduction-to-wiremock
-2019
-https://www.baeldung.com/wiremock-scenarios
-2018
-https://www.petrikainulainen.net/programming/testing/wiremock-tutorial-introduction-to-stubbing/
-https://www.infoq.com/presentations/spring-cloud-contract
-    @AutoConfigureWireMock
-2016
-https://dzone.com/articles/wiremock-mock-your-rest-apis
-
 docs
-
 https://docs.spring.io/spring-cloud-contract/docs/current/reference/html/project-features.html#features-wiremock
 
 samples
