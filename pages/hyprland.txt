@@ -1,0 +1,21 @@
+~/.config/waybar/
+    missing links
+    ln -f -s configs/\[TOP\]\ Default config
+    ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
+    style.css:
+	      font-size: 30;
+~/.config/hypr/UserConfigs/UserSettings.conf
+    input {
+      kb_layout = us,ru
+      ...
+    }
+~/.config/hypr/UserConfigs/WindowRules.conf
+    # OPACITY
+    # windowrulev2 = opacity 0.9 0.7, tag:browser*
+~/.config/hypr/scripts/SwitchKeyboardLayout.sh
+    # notify-send -u low -i "$notif_icon" " kb_layout: $new_layout"
+~/.config/hypr/hypridle.conf
+    # on-timeout = notify-send -i $iDIR " You are idle!" # command to run when timeout has passed
+    # on-resume = notify-send -i $iDIR " Oh! you're Back" " Hello !!!"  # command to run when activity is detected after timeout has fired.
+????
+    xkb-layout - c-sp

@@ -1,20 +1,3 @@
-https://push.boox.com
-https://push.boox.com/#/login?redirect=/note/recentNote
-https://push.boox.com/#/userFaq
-https://push.boox.com/#/userFaq?id=6041edae5874da57e5970cfb
-
-https://www.send2boox.com/
-https://www.send2boox.com/#/login?redirect=/note/recentNote
-
-2023
-BOOX - Transfer Files between BOOX Tablet and Computer - BOOX Tutorial Ep10 of 
-    https://www.youtube.com/watch?v=YYS3wvm0Nd0
-    ! 00:40 push.boox.com - log in
-    ! 01:00 BooxDrop section
-    Internet Reading
-
-https://help.boox.com/hc/en-us/articles/8569504200596-Transfer-with-Your-Computer#BooxDrop%20App
-
 DevConfCZ2025 - 10
     https://www.youtube.com/playlist?list=PLU1vS0speL2bCGfDl6lCckdCzXb_gopJV
 
@@ -93,28 +76,6 @@ Wang - Terraform Made Easy
     https://z-library.sk/book/30618223/df747b/terraform-cookbook-for-true-epub.html
     https://z-library.sk/book/30816300/ac0d60/terraform-cookbook-recipes-for-codifying-infrastructure.html
     https://z-library.sk/book/31739686/f85974/terraform-cookbook-recipes-for-codifying-infrastructure.html
-
-~/.config/waybar/
-    missing links
-    ln -f -s configs/\[TOP\]\ Default config
-    ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
-    style.css:
-	      font-size: 30;
-~/.config/hypr/UserConfigs/UserSettings.conf
-    input {
-      kb_layout = us,ru
-      ...
-    }
-~/.config/hypr/UserConfigs/WindowRules.conf
-    # OPACITY
-    # windowrulev2 = opacity 0.9 0.7, tag:browser*
-~/.config/hypr/scripts/SwitchKeyboardLayout.sh
-    # notify-send -u low -i "$notif_icon" " kb_layout: $new_layout"
-~/.config/hypr/hypridle.conf
-    # on-timeout = notify-send -i $iDIR " You are idle!" # command to run when timeout has passed
-    # on-resume = notify-send -i $iDIR " Oh! you're Back" " Hello !!!"  # command to run when activity is detected after timeout has fired.
-????
-    xkb-layout - c-sp
 
 try
     librewolf
@@ -746,13 +707,6 @@ Senderov
 Video
 Smirnov - Why do Programmers need Math
     https://www.youtube.com/watch?v=fVzvl9jJEv8
-Vavilov - Domino Tilings 3                          -   42:00 (of 1:36:57)
-    https://www.youtube.com/watch?v=ST8zfx5vKvM
-    https://www.youtube.com/playlist?list=PL-_cKNuVAYAXneWrX3yuKyuvw3-teNg65
-Arzhantsev - Grobner Basis                          -   23:00 (of 1:22:36)
-    https://www.youtube.com/watch?v=MEnak_neRo0
-Kozerenko - History of the Notion of Infinity       -   02:00 (of   50:26)
-    https://www.youtube.com/watch?v=tZuSc5yQln0
 Begunts - Popularizing Math Knowledge at Olympiads  -   00:00
     https://www.youtube.com/watch?v=LKq5ySJryY4
 other
