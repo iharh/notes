@@ -1,7 +1,9 @@
 https://github.com/obsidiandynamics/kafdrop
+4.2.0
 
 with nginx
 
+doker
 https://hub.docker.com/r/obsidiandynamics/kafdrop
 https://github.com/obsidiandynamics/kafdrop?tab=readme-ov-file#running-with-docker
 docker run -d --rm -p 9000:9000 \
