@@ -96,14 +96,15 @@ Wang - Terraform Made Easy
 
 ~/.config/waybar/
     missing links
-    config@ ⇒ /home/iharh/.config/waybar/configs/[TOP] Default
     ln -f -s configs/\[TOP\]\ Default config
-    style.css@ ⇒ /home/iharh/.config/waybar/style/[Dark] Wallust Obsidian Edge.css
-      [Extra] Modern-Combined - Transparent.css
-      style.css@ ⇒ /home/iharh/.config/waybar/style/[Catppuccin] Mocha.css
     ln -f -s style/\[Catppuccin\]\ Mocha.css style.css
     style.css:
 	      font-size: 30;
+~/.config/hypr/UserConfigs/UserSettings.conf
+    input {
+      kb_layout = us,ru
+      ...
+    }
 ~/.config/hypr/UserConfigs/WindowRules.conf
     # OPACITY
     # windowrulev2 = opacity 0.9 0.7, tag:browser*
