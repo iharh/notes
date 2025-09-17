@@ -287,11 +287,12 @@ All Systems Go! - bootc: Generating an ecosystem around bootable OCI containers 
     ! ...
     ! podman run --privileged <yourimage> bootc install to-filesystem ...
     ! 24:00 !!! components diagram
-AllSystemsGo - The road to a trusted and measured boot chain in Bootable Containers 6:00 of 40:35
+AllSystemsGo - The road to a trusted and measured boot chain in Bootable Containers of 40:35
     https://www.youtube.com/watch?v=xQT5IqL0kzc
     https://media.ccc.de/v/all-systems-go-2024-309-the-road-to-a-trusted-and-measured-boot-chain-in-bootable-containers
     https://cfp.all-systems-go.io/all-systems-go-2024/talk/HVEZQQ/
     https://cfp.all-systems-go.io/media/all-systems-go-2024/submissions/HVEZQQ/resources/2024_All_Systems_Go_-_The_road_to_a_tru_c4Y3IoH.pdf
+    ! so-so
     ! 2:00 bootc uses ostree underneath
     !         unpacks the container image files on the disk
     !         set up the kernel and initramfs
