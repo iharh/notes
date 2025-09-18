@@ -6,18 +6,22 @@ https://cloudplatform.googleblog.com/2018/03/introducing-GCPs-new-interactive-CL
 gcloud
     --help
         print help
+
+    components
+        list|update|install|reinstall|remove|restore
+
     init
     info
         --format="get(config.paths.active_config_path)"
             to list current config
 
     auth                    # https://cloud.google.com/sdk/auth_success
+        login
+            [--no-browser]
         application-default # ADC - application default credentials
             --help
             login           # to temporarily use your own user credentials,
             print-access-token
-        login
-            [--no-browser]
         configure-docker
             !!! need to be done once
         print-access-token
@@ -47,8 +51,6 @@ gcloud
     project
         list
 
-    components
-        list|update|install|reinstall|remove|restore
     organisations
     products
     [beta] ml
