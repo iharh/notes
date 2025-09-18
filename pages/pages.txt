@@ -1,5 +1,11 @@
-DevConfIN2025 - 90
+DevConfIN2025 - 80
     https://www.youtube.com/playlist?list=PLU1vS0speL2ZvQRS0Hg0xIgTPOyxUmBK4
+
+manual stop
+https://access.redhat.com/solutions/2664811
+https://stackoverflow.com/questions/61183536/restarting-auditd-service-gives-dependency-error
+https://sleeplessbeastie.eu/2020/05/01/how-to-temporarily-stop-auditd-daemon/
+https://www.incredigeek.com/home/cant-restart-auditd-with-systemctl/
 
 https://github.com/PragmaTech-GmbH/spring-test-profiler
 
