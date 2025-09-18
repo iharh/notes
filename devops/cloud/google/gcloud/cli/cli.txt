@@ -1,5 +1,15 @@
 https://cloud.google.com/sdk/gcloud/
 
+cfg files
+~/.config/gcloud/
+    active_config:
+        default
+    configurations/
+        config_default:
+            [core]
+            account = ...
+            project = ...
+
 2018
 https://cloudplatform.googleblog.com/2018/03/introducing-GCPs-new-interactive-CLI.html
 
@@ -44,12 +54,12 @@ gcloud
         --configuration my-config, or env var CLOUDSDK_ACTIVE_CONFIG_NAME=my-config.
             activate for single cli call
 
+    project
+        list
 
     services
         list
         operations describe --help
-    project
-        list
 
     organisations
     products
