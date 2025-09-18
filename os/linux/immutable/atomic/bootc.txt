@@ -126,6 +126,11 @@ https://docs.google.com/presentation/d/1pP-Gr2kb4TJifbkSCR0WzjoMRGJVxW33z1v1KIKb
 2025
 DevConf - Keynote: Revolutionize your OS deploy and management with bootc containers 8:00 of 35:47
     https://www.youtube.com/watch?v=TAEFeiotUZA
+    ! 21:50 !!! sample Containerfile
+    !   FROM quay.io/centos-bootc/centos-bootc:stream9
+    !   RUN dnf -y copr enable @redhat-et/flightctl epel-9-x86_64 && \
+    !       dnf -y group install GNOME && \
+    !   
 DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads 13:00 of 34:00
     https://www.youtube.com/watch?v=c6roAHAXfU8
     https://pretalx.devconf.info/devconf-cz-2025/talk/WMBRWB/
