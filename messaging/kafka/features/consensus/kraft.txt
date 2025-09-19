@@ -1,4 +1,5 @@
 https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum
+https://docs.confluent.io/platform/current/installation/migrate-zk-kraft.html
 
 2022
 https://habr.com/ru/company/otus/blog/670440/
