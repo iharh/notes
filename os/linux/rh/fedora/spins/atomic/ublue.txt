@@ -112,14 +112,17 @@ https://blog.jetbrains.com/idea/2024/07/using-dev-containers-in-jetbrains-ides-p
     remote development - devcontainer
 
 2025
-TesterTech - Introduction to Ublue-OS (universal-blue.org) [aurora, bazzite, bluefin] 6:00 of 22:32
+TesterTech - Introduction to Ublue-OS (universal-blue.org) [aurora, bazzite, bluefin] 11:00 of 22:32
     https://www.youtube.com/watch?v=DlJVunKR_eM
     ! 02:00 - non-free repos are on by default
     !         Aurora (KDE)
     ! 06:00 - https://github.com/ublue-os/packages/
+    !         hierarchical picture of atomic components and spin names
+    ! 08:40   -dx suffix - Developer eXperience (aurora-dx-surface)
+    ! 09:40
+    !    https://github.com/ublue-os/image-template
     ! ??:??
     !    sudo bootc switch 
-    !    https://github.com/ublue-os/image-template
 Tailscale - You need to try this Linux distro - Fedora uCore is absolutely fantastic! of 26:48
     https://www.youtube.com/watch?v=CipnV3yx2jw
     https://github.com/tailscale-dev/video-code-snippets/tree/main/2025-06-fcos
