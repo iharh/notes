@@ -3,6 +3,12 @@ https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306F
 spring.threads.virtual.enabled: true
 
 2025
+NaumenTalks - Naumen Java Junior Meetup #3 - Denis Abramov - Virtual Threads 37:00 of 2:19:01
+    https://www.youtube.com/watch?v=H42Vtzhvwlw
+    !  8:00 - start
+    ! 35:40 - VTs monitoring advices
+    !
+    ! 50:00 - finish
 Java - Short - What is Virtual Thread
     https://www.youtube.com/shorts/y8pjM0lbtpY
 https://www.dhaval-shah.com/parallel-processing-virtual-threads-reactor-vs-jdk/
