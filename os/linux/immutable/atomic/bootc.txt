@@ -1,4 +1,3 @@
-
 https://bootc-dev.github.io/bootc/
 https://bootc-dev.github.io/bootc/installation.html
 https://bootc-dev.github.io/bootc/bootc-install.html
@@ -19,6 +18,8 @@ https://docs.fedoraproject.org/en-US/bootc/getting-started/
     !!! TODO: execute at podman-desktop (with installed bootable containers extension)
 https://docs.fedoraproject.org/en-US/bootc/community/
 https://docs.fedoraproject.org/en-US/bootc/authentication/
+
+https://github.com/podman-desktop/extension-bootc
 
 need
 https://github.com/wayblueorg/wayblue
