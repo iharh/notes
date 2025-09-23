@@ -33,6 +33,7 @@
 
 ## Presentations
 
+* [Otus - Difference Between Move and Copy in Cpp] (https://www.youtube.com/watch?v=bCgt4kVDGGg)
 * Josuttis - The Nightmare of Move Semantics for Trivial C++ Classes [slides] (http://www.josuttis.com/talks/Josuttis_MoveNightmare_170517.pdf) and [video] (https://www.youtube.com/watch?v=7KjCOe0oBIw)
 * [Maudal - Modern C++ Explained: Move Semantics] (https://www.slideshare.net/olvemaudal/modern-c-explained-move-semantics-feb-2018)
 * [Tambe - C++11 Idioms] (http://www.slideshare.net/SumantTambe/c11-idioms-silicon-valley-code-camp-2012)
