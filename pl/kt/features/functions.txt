@@ -1,0 +1,8 @@
+https://kotlinlang.org/docs/functions.html
+https://www.kotlinprimer.com/basics/functions-variables/functions/
+
+infix
+https://www.kotlinprimer.com/classes-what-kotlin-brings-to-the-table/miscellaneous/infix-functions/
+
+continuations/suspend
+https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-continuation/
