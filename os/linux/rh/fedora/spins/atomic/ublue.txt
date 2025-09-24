@@ -112,7 +112,7 @@ https://blog.jetbrains.com/idea/2024/07/using-dev-containers-in-jetbrains-ides-p
     remote development - devcontainer
 
 2025
-TesterTech - How to create your own ublue-os variant [step by step] 13:00 of 21:38
+TesterTech - How to create your own ublue-os variant [step by step] 17:00 of 21:38
     https://www.youtube.com/watch?v=IxBl11Zmq5w
     !  1:30 sudo bootc status
     !  2:00 github.com/ublue-os/image-template -> "Use This Template" -> create a new repo
@@ -121,6 +121,7 @@ TesterTech - How to create your own ublue-os variant [step by step] 13:00 of 21:
     !  9:00 cosigne generate-key-pair (no pwd) -> cosign.pub/.key
     ! 10:00 go to <our-repo>/settings/secrets/actions
     ! 10:10 New Secret -> specify right name SIGNING_SECRET
+    ! 13:30 !!! gh actions is pushing custom image to ghcr.io registry
 TesterTech - Introduction to Ublue-OS (universal-blue.org) [aurora, bazzite, bluefin] of 22:32
     https://www.youtube.com/watch?v=DlJVunKR_eM
     !!!

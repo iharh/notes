@@ -1,0 +1,11 @@
+https://kotlinlang.org/docs/collection-grouping.html
+    https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-grouping/
+
+    groupBy(keySelector),
+    groupingBy(...)
+    .eachCount()
+
+https://www.slingacademy.com/article/kotlin-grouping-and-counting-elements-in-maps/
+    val items = listOf("apple", "banana", "carrot", "apple", "carrot")
+    val grouped = items.groupingBy { it.first() }.eachCount()
+    println(grouped) // Output: {a=2, b=1, c=2}
