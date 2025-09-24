@@ -1,0 +1,16 @@
+https://maxdorninger.github.io/MediaManager/introduction.html
+    ? probably FE-only
+
+https://github.com/maxdorninger/MediaManager
+    mostly py
+https://github.com/maxdorninger/MediaManager/blob/master/docker-compose.dev.yaml
+
+docker
+ghcr.io/maxdorninger/mediamanager/mediamanager:latest
+
+https://maxdorninger.github.io/MediaManager/configuration-overview.html
+https://maxdorninger.github.io/MediaManager/indexer-settings.html
+    ! ??? do we have own search ???
+https://maxdorninger.github.io/MediaManager/api-reference.html
+https://maxdorninger.github.io/MediaManager/developer-guide.html
+https://maxdorninger.github.io/MediaManager/screenshots.html
