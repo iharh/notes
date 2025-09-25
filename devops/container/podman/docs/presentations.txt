@@ -14,6 +14,11 @@ RHEL - Containers and Podman for beginners | Into the Terminal 154 0:00 of 1:00:
 RHEL - Quadlets, Pods, and working with the latest Podman, Podman 5 0:00 of 1:05:23
     https://www.youtube.com/watch?v=LsZB_mI7TcQ
 2024
+AmadeusForDevelopers - Podman Tutorial Zero to Hero 12:00 of 1:00:54
+    https://www.youtube.com/watch?v=YXfA5O5Mr18
+    !  7:00 podman machine ...
+    !       /etc/containers/registries.conf
+    ! 11:00 podman search ... for image
 Tech Tutorials - David McKone - Say Goodbye To Root Accounts With Podman! 0:00 of 29:39
     https://www.youtube.com/watch?v=69dADRzXpqk
 BetterStack - Podman vs Docker in 2024: What's Really Different? of 6:14
