@@ -1,7 +1,12 @@
-https://docs.rke2.io/
+https://www.rancher.com/products/secure-kubernetes-distribution
+https://ranchergovernment.com/products/rke2
+
 https://github.com/rancher/rke2/
 
+https://docs.rke2.io/
+https://docs.rke2.io/install/quickstart
 https://docs.rke2.io/install/install_options/install_options/
 https://docs.rke2.io/install/install_options/install_options/#configuration-file
+https://docs.rke2.io/architecture
 
-https://docs.rke2.io/architecture/architecture/
+https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/launch-kubernetes-with-rancher
