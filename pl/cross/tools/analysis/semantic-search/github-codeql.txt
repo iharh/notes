@@ -1,5 +1,7 @@
 https://codeql.github.com/
 
+https://github.com/bored-engineer/asdf-codeql.git
+
 https://github.com/github/codeql
 https://github.com/github/codeql-action
 https://github.com/github/codeql-go
@@ -15,6 +17,9 @@ https://lgtm.com/query/rule:1823453799/lang:java/
 
 https://codeql.github.com/docs/codeql-language-guides/basic-query-for-cpp-code/
 
+2025
+https://www.tweag.io/blog/2025-08-28-codeql-part-two/
+https://www.tweag.io/blog/2025-08-07-codeql-intro/
 2022
 Github - Find bugs in your code with CodeQL of 38:36
     https://www.youtube.com/watch?v=y_-pIbsr7jc
