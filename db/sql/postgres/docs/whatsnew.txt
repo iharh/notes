@@ -1,7 +1,9 @@
 18
-PostgresProfessional - Luzanov - Whats New in PG 18 11:00 of 58:28
+PostgresProfessional - Luzanov - Whats New in PG 18 13:00 of 58:28
     https://www.youtube.com/watch?v=IWyiyzA3yvA
     ! 01:00 \dconfig+ io_*combine_limit
+    ! 12:30 API for adding new Explain info 
+    !   https://www.postgresql.org/docs/18/pgoverexplain.html
 
 https://t.me/pg_guru/1029
 *****
