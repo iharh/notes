@@ -18,6 +18,9 @@ http://www.opennet.ru/opennews/art.shtml?num=48808
 presentations
 https://www.slideshare.net/denisizmaylov/coreos-kubernetes
 
+samples
+https://gitlab.com/barnix/mediabarn
+
 fleet (now they recommend cubernetes):
 https://github.com/coreos/fleet
 https://fedoraproject.org/coreos/
