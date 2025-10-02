@@ -1,3 +1,15 @@
+https://determinate.systems/
+https://docs.determinate.systems/
+https://determinate.systems/blog/
+
+https://docs.determinate.systems/
+https://docs.determinate.systems/determinate-nix/
+https://determinate.systems/nix-installer/
+https://docs.determinate.systems/
+    curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
+https://manual.determinate.systems/
+https://determinate.systems/oss/
+
 https://github.com/DeterminateSystems/nix-installer
     ! not a nixos, just plain nix
 
@@ -19,6 +31,13 @@ https://github.com/DeterminateSystems/nix-installer-action
 https://crates.io/crates/nix-installer/
 https://docs.rs/nix-installer/latest/nix_installer/
 
+2025
+https://determinate.systems/blog/determinate-nix-recap/
+    !!!
+https://determinate.systems/blog/installer-dropping-upstream/
+https://determinate.systems/blog/determinate-nix-30/
+https://determinate.systems/blog/changelog-determinate-nix-352/
+https://determinate.systems/blog/changelog-determinate-nix-331/
 2024
 https://nixcademy.com/2024/01/15/nix-on-macos/
 https://davi.sh/blog/2024/01/nix-darwin/
