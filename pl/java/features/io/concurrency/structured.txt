@@ -1,5 +1,8 @@
+https://openjdk.org/jeps/505
+
 https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/StructuredTaskScope.html
 ? ScopedValue API
+https://openjdk.org/jeps/506
 
 baeldung
     https://www.baeldung.com/java-structured-concurrency
@@ -10,7 +13,11 @@ baeldung
             Response response = new Response(shelter.resultNow(), dogs.resultNow());
             // ...
         }
+
+https://github.com/softwaremill/jox
+
 2025
+https://softwaremill.com/critique-of-jep-505-structured-concurrency-fifth-preview/
 SpringIO - Virtual Threads, Structured Concurrency and Scoped Values: Putting it all together 0:00 of 47:40
     https://www.youtube.com/watch?v=kz_R6-fdSZc
     https://speakerdeck.com/balkrishnarawool/virtual-threads-structured-concurrency-and-scoped-values-putting-it-all-together
