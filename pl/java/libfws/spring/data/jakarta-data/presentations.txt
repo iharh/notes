@@ -1,5 +1,6 @@
 2025
-JPoint - Polivaha - Jakarta Data - What Does it Meat for Java Developer 5:00 of 6:00
+JPoint - Polivaha - Jakarta Data - What Does it Meat for Java Developer 28:00 of 44:47
     https://www.youtube.com/watch?v=K50tEZrAZk8
     https://jpoint.ru/talks/072fe640afe84766988a13820c645d37/
     https://squidex.jugru.team/api/assets/srm/5f83ccd2-dbc0-455b-805c-5108e8c041ef/polivaha.pdf
+    ! 14:30 public class PostRepository_ implements PostRepository { protected StatelessSession session; ... }
