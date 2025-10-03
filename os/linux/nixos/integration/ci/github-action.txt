@@ -5,6 +5,11 @@ samples
 https://github.com/LGUG2Z/nixos-wsl-starter/blob/master/.github/workflows/build.yml
           - uses: cachix/install-nix-action@6a9a9e84a173d90b3ffb42c5ddaf9ea033fad011
 
+2025
+NixCon - Domen Kozar - What if GitHub Actions were local-first and built using Nix? 0:00 of 46:30
+    https://www.youtube.com/watch?v=uOa6xazzj-s
+    https://talks.nixcon.org/nixcon-2025/talk/S8SKEG/
+    https://raw.githubusercontent.com/cachix/cloud.devenv.sh/refs/heads/main/docs/github-actions-nix.pdf
 2022
 https://danth.me/posts/post/update_your_nix_flake_using_github_actions.html
 2021
