@@ -15,6 +15,20 @@ https://github.com/grafana/xk6-kubernetes
 
 https://github.com/grafana/k6-operator
 
+integration
+https://grafana.com/docs/k6/latest/reference/integrations/
+https://grafana.com/docs/k6/latest/set-up/configure-your-code-editor/
+https://plugins.jetbrains.com/plugin/16141-k6
+
+api
+https://grafana.com/docs/k6/latest/javascript-api/
+
+2025
+TestDrivenChannel - DmitryVinokurov - k6 Masterclass 0:00 of 38:24
+    https://www.youtube.com/watch?v=GRD8Nw8Bvw8
+    https://tdconf.ru/2022/abstracts/8833
+    https://disk.360.yandex.ru/i/4W5Yz23c6Gs8DA
+    js-demo
 2023
 Lviv JavaClub - [Event 286] K6 Automate Performance and Load Testing by Ihor Banadiga 0:00 of 43:15
     https://www.youtube.com/watch?v=Q-QumpaO5sQ
@@ -24,3 +38,5 @@ https://habr.com/ru/company/otus/blog/675044/
 HighLoad - Samir - K6 Load Testing ru 7:00 of 47:45
     https://www.youtube.com/watch?v=iu6X4QNgFig
     https://www.highload.ru/spb/2021/abstracts/7816
+2020
+https://grafana.com/blog/2020/03/03/open-source-load-testing-tool-review/
