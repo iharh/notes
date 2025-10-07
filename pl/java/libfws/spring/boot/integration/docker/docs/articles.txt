@@ -1,0 +1,19 @@
+2022
+https://candrews.integralblue.com/2022/10/improving-the-reproducibility-of-spring-boots-docker-image-builder/
+2020
+https://spring.io/blog/2021/01/04/ymnnalft-easy-docker-image-creation-with-the-spring-boot-maven-plugin-and-buildpacks
+    ? maven only
+https://nuancesprog.ru/p/10062/
+https://reflectoring.io/spring-boot-docker/
+    https://habr.com/ru/post/522122/
+    https://github.com/thombergs/code-examples/tree/master/spring-boot/spring-boot-docker
+https://spring.io/blog/2020/08/14/creating-efficient-docker-images-with-spring-boot-2-3
+https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
+CodingTech - Spring Boot with Docker and Kubernetes
+    https://www.youtube.com/watch?v=Pyd9Wc5Gnd0
+CNB - Cloud Native Buildpack
+    https://habr.com/ru/post/485486/
+2019
+https://habr.com/ru/post/458260/
+????
+https://tanzu.vmware.com/application-modernization-recipes/observability/custom-health-checks-when-using-spring-boot-actuator
