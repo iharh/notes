@@ -1,2 +1,13 @@
 https://gist.github.com/martinwoodward/8ad6296118c975510766d80310db71fd
 https://github.com/ravitemer/mcphub.nvim
+
+https://raw.githubusercontent.com/sparfenyuk/mcp-proxy/refs/heads/main/README.md
+```mermaid
+graph LR
+    A["Claude Desktop"] <--> |stdio| B["mcp-proxy"]
+    B <--> |SSE| C["External MCP Server"]
+
+    style A fill:#ffe6f9,stroke:#333,color:black,stroke-width:2px
+    style B fill:#e6e6ff,stroke:#333,color:black,stroke-width:2px
+    style C fill:#e6ffe6,stroke:#333,color:black,stroke-width:2px
+```
