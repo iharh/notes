@@ -1,0 +1,13 @@
+https://casbin.org
+https://github.com/casbin
+
+https://casbin.org/docs/en/overview.html
+https://casbin.org/docs/syntax-for-models/
+
+https://casbin.org/docs/en/middlewares
+
+https://casbin.org/docs/en/management-api
+
+https://github.com/casbin/casbin-rs
+
+https://github.com/jcasbin/casbin-spring-boot-starter/blob/master/src/main/java/org/casbin/spring/boot/autoconfigure/CasbinAutoConfiguration.java
