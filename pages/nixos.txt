@@ -1,3 +1,6 @@
+flake-parts
+nur
+
 vim
 VimConfLive - 2021 - Justin Restivo - Configuring Vim with NixOS of 31:13
     https://www.youtube.com/watch?v=iwsoF9ISfaw
