@@ -9,6 +9,7 @@ https://k9scli.io/topics/plugins/
 https://github.com/derailed/k9s/tree/master/plugins
 
 cfg
+~/.config/k9s/
 https://github.com/derailed/k9s/issues/343
     screenDumpDir
 
