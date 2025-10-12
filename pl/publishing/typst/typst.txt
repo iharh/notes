@@ -2,7 +2,17 @@ https://typst.app/
 https://github.com/typst/
 
 https://typst.app/docs/
+https://github.com/typst/typst/tree/main/docs
+
 https://typst.app/docs/tutorial/
+https://typst.app/docs/tutorial/writing-in-typst/
+https://typst.app/docs/tutorial/formatting/
+
+https://typst.app/docs/guides/
+https://typst.app/docs/guides/guide-for-latex-users/
+https://typst.app/docs/guides/page-setup-guide/
+https://typst.app/docs/guides/table-guide/
+https://wiki.zahno.dev/multimedia/writing/typst/docs/guide-to-typst.pdf
 
 https://github.com/typst/packages
 https://typst.app/universe/package/mannot
@@ -10,6 +20,13 @@ https://typst.app/universe/package/pintorita
 https://typst.app/universe/package/chronos
 
 https://github.com/typst/templates
+
+https://typst.app/docs/reference/syntax/
+https://typst.app/docs/reference/math/
+https://typst.app/docs/reference/styling
+https://typst.app/docs/reference/text/
+https://typst.app/docs/reference/text/text
+https://typst.app/docs/reference/scripting
 
 samples
 https://codeberg.org/motte/froscon-nix/src/branch/main/presentation.typ
