@@ -1,5 +1,101 @@
+https://mermaid.live/
+https://mermaid.js.org/syntax/sequenceDiagram.html
+
 https://gist.github.com/martinwoodward/8ad6296118c975510766d80310db71fd
 https://github.com/ravitemer/mcphub.nvim
+
+```mermaid
+sequenceDiagram
+    participant CLI as CLI (MCP Tools)
+    participant KBBuild as KBBuildTool
+    participant Orch as KBOrchestrator
+    participant Chunk as ChunkPreparation
+    participant Analysis as KBAnalysisAgent (AI)
+    participant Structure as KBStructureBuilder
+    participant Agg as KBAggregationAgent (AI)
+    participant Stats as KBStatistics
+    participant Config as SourceConfigManager
+    
+    Note over CLI,Config: Knowledge Base Build Pipeline
+    
+    CLI->>KBBuild: kb_build(source, input_file, date_time, output_path)
+    KBBuild->>KBBuild: resolveOutputPath()
+    KBBuild->>Orch: run(KBOrchestratorParams)
+    
+    Note over Orch: 1. Load Context
+    Orch->>Config: loadConfig(outputPath)
+    Config-->>Orch: SourceConfig
+    Orch->>Orch: loadKBContext()
+    Note right of Orch: Load existing people,<br/>topics, max IDs
+    
+    Note over Orch: 2. Prepare Input
+    Orch->>Orch: readInputFile()
+    Orch->>Chunk: chunkText(content)
+    Chunk-->>Orch: List<Chunk>
+    
+    Note over Orch: 3. AI Analysis (Chunked)
+    loop For each chunk
+        Orch->>Analysis: run(AnalysisParams + chunk)
+        Analysis->>Analysis: chat(kb_analysis prompt)
+        Note right of Analysis: Extract themes,<br/>questions, answers,<br/>notes via AI
+        Analysis->>Analysis: transformAIResponse()
+        Analysis-->>Orch: AnalysisResult
+    end
+    Orch->>Orch: mergeAnalysisResults()
+    
+    Note over Orch: 4. Build Structure (Mechanical)
+    Orch->>Structure: buildTopicStructure(analysis)
+    Structure->>Structure: Create topics/[id]/[id].md
+    Structure->>Structure: Create themes/[id].md
+    Structure->>Structure: Create questions/q_XXXX.md
+    Structure->>Structure: Create answers/a_XXXX.md
+    Structure->>Structure: Create notes/n_XXXX.md
+    Structure-->>Orch: Structure built
+    
+    Orch->>Structure: buildPersonProfiles(analysis)
+    Structure->>Structure: Aggregate contributions
+    Structure->>Structure: Create people/[Name]/[Name].md
+    Structure-->>Orch: Profiles built
+    
+    Note over Orch: 5. AI Aggregation (One-by-one)
+    loop For each person
+        Orch->>Agg: run(AggregationParams person)
+        Agg->>Agg: chat(kb_aggregation prompt)
+        Note right of Agg: Generate narrative<br/>description
+        Agg-->>Orch: Description text
+        Orch->>Structure: updatePersonDescription()
+    end
+    
+    loop For each topic
+        Orch->>Agg: run(AggregationParams topic)
+        Agg->>Agg: chat(kb_aggregation prompt)
+        Agg-->>Orch: Description text
+        Orch->>Structure: updateTopicDescription()
+    end
+    
+    loop For each theme
+        Orch->>Agg: run(AggregationParams theme)
+        Agg->>Agg: chat(kb_aggregation prompt)
+        Agg-->>Orch: Description text
+        Orch->>Structure: updateThemeDescription()
+    end
+    
+    Note over Orch: 6. Generate Statistics (Mechanical)
+    Orch->>Stats: generateStatistics(kbPath)
+    Stats->>Stats: generateActivityTimeline()
+    Stats->>Stats: generateTopicOverview()
+    Stats->>Stats: generateIndex()
+    Stats-->>Orch: Statistics generated
+    
+    Note over Orch: 7. Update Configuration
+    Orch->>Config: updateLastSyncDate(source, dateTime)
+    Config->>Config: Save source_config.json
+    Config-->>Orch: Config saved
+    
+    Orch-->>KBBuild: KBResult
+    KBBuild-->>CLI: Success + stats
+```
+
 
 https://raw.githubusercontent.com/sparfenyuk/mcp-proxy/refs/heads/main/README.md
 ```mermaid
