@@ -1,7 +1,11 @@
 http://gatling.io
 https://github.com/gatling/gatling
 
+https://docs.gatling.io/concepts/simulation/
+https://docs.gatling.io/tutorials/oss/
+https://docs.gatling.io/tutorials/scripting-intro/
 https://docs.gatling.io/tutorials/advanced/
+https://itcodescanner.com/tutorials/gatling-performance-test/writing-test-scenarios-with-gatlings-simulation-and-scenario-builders
 
 http://gatling.io/docs/2.2.1/whats_new/2.2.html
 http://gatling.io/#/docs/talks
@@ -24,12 +28,17 @@ http://gatling.io/docs/2.2.1/general/scenario.html
 http://gatling.io/docs/2.2.1/session/feeder.html
 http://gatling.io/docs/2.2.1/general/assertions.html
 
+https://docs.gatling.io/integrations/build-tools/gradle-plugin/
+https://github.com/gatling/gatling-gradle-plugin
+https://github.com/gatling/gatling.io-doc/blob/main/content/integrations/build-tools/gradle-plugin.md
+
 articles
 2024
 https://habr.com/ru/articles/867130/
 https://habr.com/ru/companies/alfastrah/articles/808281/
     https://github.com/engine-it-in/gatling-performance-test
 2020
+https://www.james-willett.com/gatling-load-testing-complete-guide/
 https://www.james-willett.com/gatling-vscode/
     https://habr.com/ru/company/otus/blog/509854/
 https://www.opsian.com/blog/performance-test-spring-boot-gatling/

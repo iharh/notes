@@ -1,5 +1,5 @@
 2025
-Devoxx - Java Memory Leaks by Victor Rentea 35:00 of 2:47:21
+Devoxx - Java Memory Leaks by Victor Rentea 40:00 of 2:47:21
     https://www.youtube.com/watch?v=-0vkHxlGlOU
     https://victorrentea.io/...-slides
     ! 9:00 important for avoiding hanging up
@@ -9,6 +9,7 @@ Devoxx - Java Memory Leaks by Victor Rentea 35:00 of 2:47:21
     ! 28:30 Shallow Size, Common Pool for string
     ! 29:30 Retained Size - how much memory would free up if A is removed
     ! 30:40 IntelliJ Idea Ultimate Profiler -> HeapDump analysis
+    ! 36:30 Sort by "Retained" column in VisualVM
 2022
 https://huseyinbabal.com/2022/08/14/java-heap-dump-analysis-with-examples/
     https://habr.com/ru/companies/timeweb/articles/719434/
