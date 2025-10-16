@@ -10,8 +10,11 @@ https://springbootlearning.medium.com/jdbc-vs-jpa-623fe8258e8
 2021
 https://thorben-janssen.com/spring-data-jpa-state-detection/
 2019
+https://habr.com/ru/articles/863234/
+    custom methods in JPA repos
 https://habr.com/ru/articles/444240/
     @EnableJpaRepositories(repositoryBaseClass = BaseJpaRepositoryImpl.class)
+    !!!
 https://habr.com/ru/articles/441386/
     https://github.com/stsypanov/spring-data-examples
     ! tons of misc stuff
