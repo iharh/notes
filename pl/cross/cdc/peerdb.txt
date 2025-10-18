@@ -1,0 +1,21 @@
+https://www.peerdb.io/
+https://github.com/PeerDB-io/peerdb
+
+uses
+    https://temporal.io/
+    https://learn.temporal.io/getting_started/
+    https://learn.temporal.io/getting_started/java/dev_environment/
+    https://learn.temporal.io/getting_started/java/first_program_in_java/
+
+https://docs.peerdb.io/introduction
+    PeerDB is now natively integrated with ClickHouse Cloud!
+https://docs.peerdb.io/architecture
+https://docs.peerdb.io/quickstart/quickstart
+
+https://blog.peerdb.io/
+
+2025
+https://www.reddit.com/r/apachekafka/comments/1o8ji7o/created_a_guide_to_cdc_from_postgres_to/
+    ! to be ackuired by CH
+2024
+https://clickhouse.com/blog/clickhouse-welcomes-peerdb-adding-the-fastest-postgres-cdc-to-the-fastest-olap-database
