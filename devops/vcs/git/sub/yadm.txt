@@ -1,10 +1,6 @@
 https://yadm.io/
 https://github.com/TheLocehiliosan/yadm
 
-aur/yadm-git
-    https://aur.archlinux.org/packages/yadm-git/
-    https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=yadm-git
-
 !!! not using symlinks
 
 https://thelocehiliosan.github.io/yadm/docs/overview
