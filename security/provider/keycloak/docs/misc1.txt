@@ -1,0 +1,80 @@
+Keycloak — это современный open-source Identity Provider от Red Hat, который часто используется в enterprise-проектах для SSO (Single Sign-On), OAuth2 и OpenID Connect. 
+Ниже — пошаговая настройка интеграции Keycloak с Spring Boot 3 и Spring Security 6.
+
+1. Зависимости
+
+Проверьте, что в проекте есть или добавьте следующие зависимости:
+
+— Spring Web
+— Spring Security
+— OAuth2 Resource Server
+— OAuth2 Client
+
+2. Разворачиваем Keycloak
+
+Запустите Keycloak через Docker:
+docker run -d \
+  -p 8080:8080 \
+  -e KEYCLOAK_ADMIN=admin \
+  -e KEYCLOAK_ADMIN_PASSWORD=admin \
+  quay.io/keycloak/keycloak:25.0.2 start-dev
+
+После запуска откройте http://localhost:8080, войдите под admin/admin и создайте realm, например demo-realm.
+
+3. Настройка клиента в Keycloak
+
+В разделе Clients → Create client укажите:
+
+— Client ID: spring-client
+— Client Protocol: openid-connect
+— Root URL: http://localhost:8081
+
+В разделе Settings:
+
+— Установите Access Type → confidential
+— Включите Standard Flow Enabled
+— Укажите Redirect URI: http://localhost:8081/login/oauth2/code/keycloak
+
+Сохраните и перейдите на вкладку Credentials — скопируйте Client Secret.
+
+4. Настройка application.yml
+
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: spring-client
+            client-secret: YOUR_CLIENT_SECRET
+            scope: openid, profile, email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/demo-realm
+
+5. Конфигурация безопасности
+
+Настройте SecurityConfig.java:
+
+@Configuration
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/", "/public").permitAll()
+                .anyRequest().authenticated()
+            )
+            .oauth2Login(Customizer.withDefaults())
+            .logout(logout -> logout
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+            );
+        return http.build();
+    }
+}
