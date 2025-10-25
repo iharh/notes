@@ -1,8 +1,28 @@
 https://autobrr.com
+
+https://github.com/autobrr/autobrr
+    ! go-lang
+    ! irc-chan monitor
+
 https://autobrr.com/configuration/autobrr
 https://autobrr.com/configuration/indexers
+    ! list of indexer/tracker table
 https://autobrr.com/configuration/feeds
 https://autobrr.com/configuration/irc
+    ! list of trackers table
+    https://konversation.kde.org/
+    https://hexchat.github.io/
+https://autobrr.com/filters/categories
+    ! trackers
+
 https://autobrr.com/configuration/download-clients/dedicated
 https://autobrr.com/configuration/notifications
     tg
+
+https://autobrr.com/3rd-party-tools/manage-torrents
+    !!!
+
+https://autobrr.com/api
+
+boxes
+https://quickbox.io/knowledge-base/v3/applications-v3/autobrr-applications-v3/autobrr-quick-reference/
