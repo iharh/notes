@@ -1,3 +1,28 @@
+https://bazzite.gg/
+https://github.com/ublue-os/bazzite
+https://docs.bazzite.gg/
+
+DX
+https://dev.bazzite.gg/
+    https://github.com/ublue-os/bazzite-dx/pkgs/container/bazzite-dx
+        rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-dx:stable
+    https://github.com/astrovm/amyos
+    https://docs.brew.sh/Homebrew-on-Linux
+
+https://docs.bazzite.gg/General/FAQ/#what-are-some-of-the-utilities-that-bazzite-ships
+    https://docs.bazzite.gg/Installing_and_Managing_Software/Distrobox/
+    https://docs.bazzite.gg/Installing_and_Managing_Software/ujust/
+    https://docs.bazzite.gg/Advanced/bazzite-cli/
+    https://github.com/ublue-os/boxkit
+
+https://docs.bazzite.gg/Installing_and_Managing_Software/
+https://docs.bazzite.gg/Installing_and_Managing_Software/Updates_Rollbacks_and_Rebasing/updating_guide/
+https://docs.bazzite.gg/Installing_and_Managing_Software/Updates_Rollbacks_and_Rebasing/rebase_guide/
+https://docs.bazzite.gg/Installing_and_Managing_Software/Updates_Rollbacks_and_Rebasing/bazzite_rollback_helper/
+
+https://bazzite.gg/#news
+https://docs.bazzite.gg/Gaming/index.html
+
 2024
 ChrisTitusTech - Atomic Desktops of 16:13
     https://www.youtube.com/watch?v=1vSFR8bi0YQ
