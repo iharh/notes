@@ -1,28 +1,18 @@
+https://eclipse.dev/mat/
+https://github.com/eclipse-mat/mat
+
+https://eclipse.dev/mat/download/
+https://wiki.eclipse.org/MemoryAnalyzer/FAQ
+https://wiki.eclipse.org/MemoryAnalyzer/Learning_Material
+https://help.eclipse.org/latest/index.jsp?topic=/org.eclipse.mat.ui.help/welcome.html
+
 shallow
     size of the obj itself with headers/fields, but without fields' values
 retained
 
 
-https://plumbr.eu/blog/memory-leaks/solving-outofmemoryerror-memory-profilers    
-
-
-mat_dump_analyze.bat:
-@echo off
-setlocal
-
-REM Usage: ParseHeapDump.bat <path/to/dump.hprof> [report]*
-REM 
-REM The leak report has the id org.eclipse.mat.api:suspects
-REM 
-
-:: org.eclipse.mat.api:suspects
-:: org.eclipse.mat.api:top_components
-%~dp0..\java\jtools\mat\MemoryAnalyzer.exe -consoleLog -application org.eclipse.mat.api.parse -keep_unreachable_objects  %*
-:: org.eclipse.mat.api:suspects org.eclipse.mat.api:top_components
-:: 
-
-endlocal
-
+2025
+https://www.vogella.com/tutorials/EclipseMemoryAnalyzer/article.html
 2024
 JPoint - Plizga - HeapDump Mem Analysis Guide 0:00 of 46:10
     https://www.youtube.com/watch?v=fPns2O-cnYQ
@@ -50,3 +40,22 @@ JPint - Pangin
 2016
 JPoint - Sitnikov
     https://www.youtube.com/watch?v=OE3wowy29mg
+????
+https://codingtechroom.com/question/jvm-heap-dump-outofmemoryerror
+
+mat_dump_analyze.bat:
+@echo off
+setlocal
+
+REM Usage: ParseHeapDump.bat <path/to/dump.hprof> [report]*
+REM 
+REM The leak report has the id org.eclipse.mat.api:suspects
+REM 
+
+:: org.eclipse.mat.api:suspects
+:: org.eclipse.mat.api:top_components
+%~dp0..\java\jtools\mat\MemoryAnalyzer.exe -consoleLog -application org.eclipse.mat.api.parse -keep_unreachable_objects  %*
+:: org.eclipse.mat.api:suspects org.eclipse.mat.api:top_components
+:: 
+
+endlocal
