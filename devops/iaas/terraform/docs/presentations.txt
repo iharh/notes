@@ -13,5 +13,9 @@ Otus - Terraform Patterns Antipatterns and Modularity 0:00 of 2:00:53
 TravisMedia - Why You NEED To Learn Terraform | Practical Tutorial 0:00 of 27:32
     https://www.youtube.com/watch?v=nvNqfgojocs
 2020
-TechWorldWithNana - Terraform explained in 15 mins | Terraform Tutorial for Beginners 8:00 of 18:14
+TechWorldWithNana - Terraform explained in 15 mins | Terraform Tutorial for Beginners 10:00 of 18:14
     https://www.youtube.com/watch?v=l5k1ai_GBDE
+    ! 08:40 Arch consists of:
+    !     core    - takes tf-input and create a plan of what needs to be done (compares current state with desired one)
+    !     state
+    !     providers for specific technologies

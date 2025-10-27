@@ -5,8 +5,12 @@ https://github.com/pulumi/pulumi
 https://github.com/pulumi/examples
 https://github.com/pulumi/examples/tree/master/kubernetes-ts-guestbook
 
+https://pulumi.io/install/
+https://pulumi.io/tour/
+https://www.pulumi.com/docs/get-started/
+https://www.pulumi.com/docs/get-started/aws/
+
 https://www.pulumi.com/docs/iac/download-install/
-https://www.pulumi.com/docs/iac/download-install/migrating-3.0/
 
 https://www.pulumi.com/docs/iac/languages-sdks/java/
 https://github.com/pulumi/pulumi-java
@@ -16,12 +20,6 @@ https://www.pulumi.com/docs/intro/languages/python/
 https://www.pulumi.com/docs/reference/pkg/python/pulumi/
 https://www.pulumi.com/registry/packages/aws/how-to-guides/aws-py-stackreference/
 https://www.pulumi.com/registry/packages/aws/how-to-guides/aws-py-resources/
-
-https://pulumi.io/install/
-https://pulumi.io/tour/
-
-https://www.pulumi.com/docs/get-started/
-https://www.pulumi.com/docs/get-started/aws/
 
 https://www.pulumi.com/docs/intro/concepts/
 https://www.pulumi.com/docs/intro/concepts/state/
@@ -50,14 +48,3 @@ https://www.pulumi.com/registry/packages/postgresql/
 https://central.sonatype.com/artifact/com.pulumi/postgresql
 
 https://www.pulumi.com/docs/iac/cli/commands/pulumi_plugin/
-
-2024
-https://www.docker.com/blog/pulumi-and-docker-build-cloud/
-2022
-https://www.pulumi.com/blog/announcing-infrastructure-as-code-with-java-and-pulumi/
-    https://github.com/pulumi/pulumi-java/tree/main/tests/examples/gcp-java-gke-hello-world
-2021
-freeCodeCamp - Infrastructure as Code - Crash Course of 1:09:40
-    https://www.youtube.com/watch?v=EtEb40LE5zQ
-https://habr.com/ru/companies/otus/articles/674818/
-https://medium.com/nuances-of-programming/%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-pulumi-1e8c00a14e5d

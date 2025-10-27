@@ -7,9 +7,10 @@ Vlad Konovalov - Learning Domain-Driven Design
     7F73B4FDC4241131CD44C7DEE74272B3
 
 2025
-Devoxx - Oliver Drotbohm - Tactical Domain Driven Design with Java and Spring 2:12:00 of 2:42:19
+Devoxx - Oliver Drotbohm - Tactical Domain Driven Design with Java and Spring 2:26:00 of 2:42:19
     https://www.youtube.com/watch?v=k3o1nSh3g2Q
     ! jMoleculus, Spring Modulith
+    ! @TransactionalEventListener (also with @Async)
     https://www.youtube.com/watch?v=co3acmgP2Ng
 Devoxx - TDD & DDD From the Ground Up Live Coding by Chris Simon 34:00 of 44:36
     https://www.youtube.com/watch?v=eWxOisRMcII
