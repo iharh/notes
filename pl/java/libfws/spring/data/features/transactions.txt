@@ -10,7 +10,7 @@ JavaTechie - Spring Transaction Management : End-to-End Guide | Real-Time Use Ca
 JavaTechie - Spring Transaction of p4
     https://www.youtube.com/playlist?list=PLVz2XdJiJQxxj_zMhm6zCPO6zhtOcq-wl
 2023
-VillageJaverCorner - Spring Framework Transactions 15:00 of 1:20:20
+VillageJaverCorner - Spring Framework Transactions 40:00 of 1:20:20
     https://www.youtube.com/watch?v=ZVYzVqqVrms
 https://reflectoring.io/spring-transactions-and-exceptions/
     rollbackFor, noRollbackFo, default - onnly in the case of runtime, unchecked exceptions (RuntimeException, Error)
@@ -20,6 +20,8 @@ https://xavieraraujo.github.io/databases/2023/12/02/a-deep-dive-on-java-spring-f
 2022
 JPointJokerAndJUGRu - Letov - Use Transactional Like a Pro of 1:16:30
     https://www.youtube.com/watch?v=QZ9rXZT0DlQ
+    !!! a lot of internals
+    https://squidex.jugru.team/api/assets/srm/571d18e0-76b9-4910-ae3c-5508cdeda541/jpoint-letovnk.pdf
     https://habr.com/ru/company/rosbank/blog/707378/
     https://github.com/TechniXC/transactions-locks-app
         TransactionAdviser makes decision whether to commit or not
