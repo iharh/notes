@@ -1,8 +1,12 @@
 https://wiki.nftables.org/wiki-nftables/index.php/Main_Page
 https://wiki.nftables.org/wiki-nftables/index.php/Sets
-
-https://wiki.nftables.org/wiki-nftables/index.php/Moving_from_iptables_to_nftables
 https://wiki.nftables.org/wiki-nftables/index.php/Quick_reference-nftables_in_10_minutes
+https://wiki.nftables.org/wiki-nftables/index.php/Moving_from_iptables_to_nftables
+https://wiki.gentoo.org/wiki/Nftables
+https://wiki.archlinux.org/title/Nftables
+    /etc/systemd/system/docker.service.d/netns.conf
+        ... nsenter ...
+https://wiki.archlinux.org/title/Nftables_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
 
 https://wiki.nftables.org/wiki-nftables/index.php/Setting_packet_metainformation
     In this example, the conntrack mark is stored in the packet. 
@@ -29,16 +33,10 @@ https://people.netfilter.org/pablo/nft-tutorial.pdf
 
 src
 https://git.netfilter.org/nftables/
+https://github.com/google/nftables
 
 samples
 https://kernelnewbies.org/nftables_examples
-
-wiki
-https://wiki.gentoo.org/wiki/Nftables
-https://wiki.archlinux.org/title/Nftables
-    /etc/systemd/system/docker.service.d/netns.conf
-        ... nsenter ...
-https://wiki.archlinux.org/title/Nftables_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)
 
 2023
 LinuxCloudHacks - Nftables Firewall of p8
@@ -46,6 +44,11 @@ LinuxCloudHacks - Nftables Firewall of p8
     Protecting Incoming Traffic with Nftables 3:00 of 24:34
         https://www.youtube.com/watch?v=K8JPwbcNy_0
         ! nft -i # interactive
+2021
+https://habr.com/ru/company/ruvds/blog/580648/
+2020
+https://www.redhat.com/en/blog/using-nftables-red-hat-enterprise-linux-8
+    https://habr.com/ru/company/otus/blog/511122/
 2016
 iptables deprecation
     https://developers.redhat.com/blog/2016/10/28/what-comes-after-iptables-its-successor-of-course-nftables#known_limitations

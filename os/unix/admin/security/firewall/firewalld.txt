@@ -1,4 +1,55 @@
-firewalld:
+https://firewalld.org/
+
+https://github.com/firewalld/firewalld
+    dep: python3-nftables >= 0.9.4
+
+https://firewalld.org/blog/
+
+https://firewalld.org/documentation/
+https://firewalld.org/documentation/concepts.html
+https://firewalld.org/documentation/architecture.html
+    backends: iptables, nft
+https://firewalld.org/documentation/configuration/
+https://firewalld.org/documentation/configuration/directories.html
+https://firewalld.org/documentation/configuration/runtime-versus-permanent.html
+https://firewalld.org/documentation/configuration/firewalld-conf.html
+https://firewalld.org/documentation/utilities/
+
+https://firewalld.org/documentation/zone/
+https://firewalld.org/documentation/zone/predefined-zones.html
+https://firewalld.org/documentation/zone/connections-interfaces-and-sources.html
+https://firewalld.org/documentation/zone/configuration-of-zones.html
+https://firewalld.org/documentation/zone/use-of-zones.html
+    !!!
+https://firewalld.org/documentation/zone/options.html
+    ! accept, reject, drop, ..., nflog
+https://firewalld.org/documentation/zone/examples.html
+
+https://firewalld.org/documentation/service/
+https://firewalld.org/documentation/service/examples.html
+https://firewalld.org/documentation/man-pages/firewalld.service
+
+https://firewalld.org/documentation/ipset/
+https://firewalld.org/documentation/ipset/options.html
+https://firewalld.org/documentation/ipset/examples.html
+
+https://firewalld.org/documentation/helper/
+https://firewalld.org/documentation/helper/options.html
+https://firewalld.org/documentation/helper/examples.html
+https://firewalld.org/documentation/man-pages/firewalld.helper
+
+https://firewalld.org/documentation/man-pages/firewall-cmd
+
+wiki
+https://en.wikipedia.org/wiki/Firewalld
+https://fedoraproject.org/wiki/Firewalld
+https://en.wikipedia.org/wiki/Netfilter
+    !!
+    https://netfilter.org/
+
+cfg
+https://firewalld.org/documentation/utilities/firewall-config.html
+
 http://www.unixmen.com/iptables-vs-firewalld/
     sudo apt install firewalld
 https://computingforgeeks.com/install-and-use-firewalld-on-ubuntu/
@@ -19,6 +70,14 @@ show firewall group internet_allowed_zone
 if not there add to group
 set firewall group network-group internet_allowed_zone network 'host ip/32'
 
+????
+https://docs.rockylinux.org/10/guides/security/firewalld/
+https://docs.rockylinux.org/10/guides/security/firewalld-beginners/
+https://www.linode.com/docs/guides/introduction-to-firewalld-on-centos/
+2025
+https://www.computernetworkingnotes.com/linux-tutorials/firewalld-rich-rules-explained-with-examples.html
+https://www.computernetworkingnotes.com/linux-tutorials/how-to-configure-firewalld-in-linux.html
+https://www.computernetworkingnotes.com/linux-tutorials/firewalld-basic-concepts-explained-with-examples.html
 2022
 https://itsecforu.ru/2022/06/29/%f0%9f%96%a7-%d1%88%d0%bf%d0%b0%d1%80%d0%b3%d0%b0%d0%bb%d0%ba%d0%b0-%d0%bf%d0%be-firewalld/
 2018
