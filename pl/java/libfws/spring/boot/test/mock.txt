@@ -4,6 +4,9 @@ https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframe
 baeldung
 https://www.baeldung.com/spring-beans-integration-test-override
     @MockBean is deprecated now
+2025
+https://www.petrikainulainen.net/programming/testing/introduction-to-mockmvctester/
+https://www.petrikainulainen.net/programming/testing/introduction-to-spring-mvc-test-framework/
 2024
 https://habr.com/ru/companies/spring_aio/articles/859430/
     ! bean redef using @TestBean, @MockitoBean

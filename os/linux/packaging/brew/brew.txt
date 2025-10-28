@@ -5,17 +5,40 @@ https://docs.brew.sh/
 https://docs.brew.sh/Manpage
 https://docs.brew.sh/FAQ
 https://docs.brew.sh/Tips-N'-Tricks
+https://docs.brew.sh/Analytics
+
+files
+    /home/linuxbrew/.linuxbrew 
 
 https://brew.sh/blog/
 https://formulae.brew.sh/
 
 https://docs.brew.sh/Analytics
 
+need
+https://formulae.brew.sh/formula/kind#default
+
 https://docs.brew.sh/Homebrew-on-Linux
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ?
     sudo apt-get install build-essential procps curl file git
     - Run these two commands in your terminal to add Homebrew to your PATH:
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/iharh/.bash_profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-need
-https://formulae.brew.sh/formula/kind#default
+==> Next steps:
+- Run these two commands in your terminal to add Homebrew to your PATH:
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/iharh/.bashrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+- Install Homebrew's dependencies if you have sudo access:
+    sudo apt-get install build-essential
+  For more information, see:
+    https://docs.brew.sh/Homebrew-on-Linux
+- We recommend that you install GCC:
+    brew install gcc
+- Run brew help to get started
+- Further documentation:
+    https://docs.brew.sh
+
+2017
+https://sysadmin.pm/linuxbrew/
