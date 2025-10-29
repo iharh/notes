@@ -54,9 +54,6 @@ JPoint - Golovko - Spring Kafka - How not to Shoot a Foot 25:00 of 46:18
     !       new FixedBackOff(0, 2));
     !   }
     ! 24:30 -//- errorHandlingDelegates impl -//-
-
-JavaGuru - Apache Kafka of p28
-    https://www.youtube.com/playlist?list=PLt91xr-Pp57Q50WsXz9r-zmxy5ceu_hp_
 2024
 Otus - Kafka and ClickHouse of 1:41:20
     https://www.youtube.com/watch?v=Jp1SEm4UU48

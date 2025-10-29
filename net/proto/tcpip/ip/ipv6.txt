@@ -1,6 +1,7 @@
 2025
 Otus - IPv6 for Network Engeneers 0:00 of 3:24:51
     https://www.youtube.com/watch?v=u5oX92o62Cg
+https://www.reddit.com/r/ipv6/comments/1o7zet4/chrome_extension_for_even_faster_ipv6_test/
 2023
 https://habr.com/ru/articles/782634/
 https://habr.com/ru/companies/ruvds/articles/761138/
@@ -12,6 +13,8 @@ https://habr.com/ru/company/ruvds/blog/582100/
 https://habr.com/company/1cloud/blog/419405/
 2009
 https://habr.com/ru/articles/53625/
+
+https://test-ipv6.run/
 
 checking
     ip a | grep inet6
