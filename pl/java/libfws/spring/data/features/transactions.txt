@@ -10,8 +10,9 @@ JavaTechie - Spring Transaction Management : End-to-End Guide | Real-Time Use Ca
 JavaTechie - Spring Transaction of p4
     https://www.youtube.com/playlist?list=PLVz2XdJiJQxxj_zMhm6zCPO6zhtOcq-wl
 2023
-VillageJaverCorner - Spring Framework Transactions 1:02:00 of 1:20:20
+VillageJaverCorner - Spring Framework Transactions of 1:20:20
     https://www.youtube.com/watch?v=ZVYzVqqVrms
+    ! 1:07:00 using PlatformTransactionManager (for the most of control), TransactionDefinition
 https://reflectoring.io/spring-transactions-and-exceptions/
     rollbackFor, noRollbackFo, default - onnly in the case of runtime, unchecked exceptions (RuntimeException, Error)
     https://habr.com/ru/articles/871582/

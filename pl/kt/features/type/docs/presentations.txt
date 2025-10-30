@@ -1,5 +1,5 @@
 2025
-AlexSokol - Rich Errors: How Kotlin reinvented Checked Exceptions? 10:00 of 32:31
+AlexSokol - Rich Errors: How Kotlin reinvented Checked Exceptions? 11:00 of 32:31
     https://www.youtube.com/watch?v=Yn048PKYzHQ
     ! 07:00 error class TransportError(val e: IOException)
     !       error object UserNotFound
