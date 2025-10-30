@@ -1,4 +1,6 @@
 2025
+GhOst dev - All for Transactional Outbox of 10:11
+    https://www.youtube.com/watch?v=knSw0m5MADg
 AlexandrNevzorov - Outbox in System Design 30:00 of 1:17:27
     https://www.youtube.com/watch?v=yl2Y-YNb6jE
     ! so-so
@@ -7,3 +9,5 @@ Otus - OlegMilfe - Transactional Outbox of 1:28:29
 2023
 https://habr.com/ru/articles/741568/
     https://microservices.io/patterns/data/transactional-outbox.html
+2019
+https://debezium.io/blog/2019/02/19/reliable-microservices-data-exchange-with-the-outbox-pattern/
