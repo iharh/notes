@@ -27,6 +27,7 @@ SpringIO - Virtual Threads, Structured Concurrency and Scoped Values: Putting it
     https://github.com/balkrishnarawool/SpringBootLoom
 https://foojay.io/today/javas-structured-concurrency-finally-finding-its-footing/
     https://habr.com/ru/companies/spring_aio/articles/930812/
+https://freedium.cfd/https://medium.com/javarevisited/structured-concurrency-in-java-0a948abac2cf
 2024
 Schmidt - Walkthrough of the Java StructuredTaskScope Code of 11:37
     https://www.youtube.com/watch?v=WfyKt9dkgmM
