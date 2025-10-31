@@ -1,1 +1,10 @@
 <html>Cannot find repository:<br/><br/>Cannot download Packages/m/mozilla-openh264-2.6.0-2.fc43.x86_64.rpm: All mirrors were tried; Last error: Status code: 403 for http://ciscobinary.openh264.org/openh264-2.6.0-2.fc43.x86_64.rpm (IP: 3.174.230.125)</html>
+
+<html>Bad GPG signature found:<br/><br/>/var/cache/PackageKit/43/metadata/coprdep:https_copr_be_cloud_fedoraproject_org_results_sergiomb_electrons_fedora_releasever_basearch-43-x86_64/packages/nodejs-electron-37.7.1-1.fc43.x86_64.rpm could not be verified.
+/var/cache/PackageKit/43/metadata/coprdep:https_copr_be_cloud_fedoraproject_org_results_sergiomb_electrons_fedora_releasever_basearch-43-x86_64/packages/nodejs-electron-37.7.1-1.fc43.x86_64.rpm:  digest:  SIGNATURE:  NOT OK</html>
+
+https://github.com/netbirdio/netbird/issues/3140
+
+rpm -qa | grep electron
+nodejs-electron-37.7.1-1.fc42.x86_64
+dnf info nodejs-electron

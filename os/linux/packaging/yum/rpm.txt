@@ -3,7 +3,7 @@ https://rpm.org/roadmap.html
 Query:
 
 rpm
-  -qa <package>
+  -qa [package]
     list <package/all> the installed packages
   -q <package>
     check if the package is installed
