@@ -1,6 +1,21 @@
 https://bitmagnet.io/
 https://github.com/bitmagnet-io/bitmagnet
 
+https://bitmagnet.io/setup/installation.html
+https://github.com/bitmagnet-io/bitmagnet/blob/main/docker-compose.yml
+    https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/docker-secrets.md
+    https://github.com/qdm12/gluetun-wiki/blob/main/setup/servers.md#list-of-vpn-servers
+    https://github.com/qdm12/gluetun-wiki/blob/main/setup/servers.md#update-periodically
+        command: update -enduser -providers mullvad
+
+    https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers
+    https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/custom.md
+        https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/openvpn-client-key.md
+        https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/openvpn-client-encrypted-key.md
+        https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/openvpn-client-certificate.md
+        https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/wireguard.md
+    https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/airvpn.md
+
 https://bitmagnet.io/setup/configuration.html
 https://bitmagnet.io/guides/classifier.html
 https://bitmagnet.io/schemas/classifier-0.1.json

@@ -1,10 +1,13 @@
+https://github.com/features/copilot/cli/
 https://github.com/github/gh-copilot
     gh auth login --web -h github.com
 
 https://docs.github.com/en/copilot/using-github-copilot
 https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli
 https://docs.github.com/en/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli
+
 2025
+https://github.blog/changelog/2025-06-13-copilot-code-review-customization-for-all/
 https://mspoweruser.com/copilot-in-azure-sql-database-will-let-you-write-sql-queries-in-plain-english-preview-out/
     https://techcommunity.microsoft.com/blog/azuresqlblog/microsoft-copilot-in-azure-extends-capabilities-to-azure-sql-database-public-pre/4075408
 https://mspoweruser.com/github-copilot-in-the-cli-is-now-generally-available/
