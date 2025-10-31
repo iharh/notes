@@ -2,5 +2,18 @@ https://www.infoq.com/presentations/java-performance-testing
 https://www.youtube.com/watch?v=W-8ztoH7Ku4
 
 2025
+JPoint - Koshelev - JMH Intro Microbenchmark Course 0:00 of 46:37
+    https://www.youtube.com/watch?v=yjTnuRHtcYw
+    https://jpoint.ru/talks/625b5adff19d4f32bda4dd683d643281/
+    https://squidex.jugru.team/api/assets/srm/5a96fcbd-74c7-4d67-9fab-a618407ea2ee/koshelev.pdf
+    https://wiki.openjdk.org/display/HotSpot/MicroBenchmarks
+    https://stackoverflow.com/questions/29170673/does-ahead-of-time-compilation-need-warmup-in-jmh
+    https://wiki.openjdk.org/display/HotSpot/PerformanceTechniques
+    https://wiki.openjdk.org/display/HotSpot/PrintAssembly
+    https://www.oracle.com/technical-resources/articles/java/architect-benchmarking.html
+    https://github.com/gnkoshelev/jmh-crash-course
+    https://github.com/openjdk/jmh/tree/master/jmh-samples/src/main/java/org/openjdk/jmh/samples
+    https://github.com/openjdk/jmh/blob/master/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_12_Forking.java
+    https://github.com/openjdk/jmh/blob/master/jmh-samples/src/main/java/org/openjdk/jmh/samples/JMHSample_35_Profilers.java
 Otus - Thread Sync Mechanisms Cmp using JMH 0:00 of 1:58:57
     https://www.youtube.com/watch?v=v7w_YQ4YBr8
