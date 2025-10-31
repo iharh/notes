@@ -28,7 +28,7 @@ persistence folder permissions
     https://github.com/docker-library/mongo/issues/315
         docker exec -it mongo bash
 
-compose sample
+compose samples
 services:
   mongo:
     hostname: localhost
@@ -44,6 +44,26 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=admin
     volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+
+https://github.com/des-felins/neurowatch/blob/main/compose.yaml
+services:
+    mongodb:
+        image: mongo:latest
+        container_name: mongodb
+        restart: unless-stopped
+        environment:
+          - MONGO_INITDB_DATABASE=neurowatch
+        ports:
+          - "27017:27017"
+        volumes:
+          - mongodb_data:/data/nw-db
+        command: "mongod --quiet --logpath /dev/null "
+        healthcheck:
+          test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+          interval: 10s
+          timeout: 5s
+          retries: 5
+          start_period: 10s
 
 rs-based
 https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-data-mongodb/src/live-test/resources
