@@ -1,6 +1,31 @@
 https://windscribe.com/upgrade
 https://windscribe.com/features/
+
 https://windscribe.com/download/
+    sudo dnf install ./windscribe-cli_2.17.10_amd64_fedora.rpm
+    >>> Created symlink '/etc/systemd/system/multi-user.target.wants/windscribe-helper.service' → '/usr/lib/systemd/system/windscribe-helper.service'.
+    rpm -qa | grep windscribe
+    windscribe-cli-2.17.10-0.x86_64
+    rpm -ql windscribe-cli
+
+/opt/windscribe/windscribe-cli
+    --help
+    login <usr> <pwd>
+        Created symlink '/home/iharh/.config/systemd/user/default.target.wants/windscribe.service' → '/usr/lib/systemd/user/windscribe.service'.
+    logout
+    connect best
+    disconnect
+
+
+$cat /usr/lib/systemd/user/windscribe.service
+[Unit]
+Description=Windscribe service
+[Service]
+Type=simple
+ExecStart=/opt/windscribe/Windscribe
+[Install]
+WantedBy=default.target
+
 
 https://www.youtube.com/@Windscribe
 https://www.youtube.com/playlist?list=PLbSgWSeAxK-T5SllUjhf3p7RKOUYNHSGj
@@ -27,6 +52,7 @@ https://addons.mozilla.org/en-US/firefox/addon/windscribe/
 
 https://windscribe.com/features/linux/
 ! 10Gb/mo
+    Germany
 https://windscribe.com/knowledge-base/articles/how-to-set-up-windscribe-on-linux/
 
 https://windscribe.com/blog/post-quantum-vpn/
