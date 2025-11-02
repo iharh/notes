@@ -1,3 +1,5 @@
+https://github.com/search?q=qmcgaw%2Fgluetun&type=code
+
 https://github.com/qdm12/gluetun
 
 https://github.com/qdm12/gluetun-wiki/
@@ -23,6 +25,9 @@ https://hub.docker.com/r/qmcgaw/gluetun
 https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers
     https://github.com/qdm12/gluetun/issues/134
 
+new providers
+https://github.com/qdm12/gluetun/issues?q=state%3Aopen%20label%3A%22Category%3A%20New%20provider%20%F0%9F%86%95%22
+
 2025
 AutomationAvenue - ARR stack with Gluetun VPN (build your personal docker-compose.yml file) 0:00 of 49:26
     https://www.youtube.com/watch?v=TJ28PETdlGE
@@ -30,8 +35,10 @@ AutomationAvenue - ARR stack with Gluetun VPN (build your personal docker-compos
 simplehomelab - Gluetun VPN Kill Switch for qBittorrent Docker: Comprehensive Guide 0:00 of 30:15
     https://www.youtube.com/watch?v=arew_OGQYyw
 2023
+https://fossengineer.com/gluetun-vpn-docker/
 JimGarage - Torrent Safely Over a VPN With This Simple One-Click Guide 0:00 of 9:57
     https://www.youtube.com/watch?v=9dJPOd0XbN8
 https://www.simplehomelab.com/gluetun-docker-guide/
 qa
 https://stackoverflow.com/questions/59340558/route-docker-container-traffic-through-a-vpn-container
+https://stackoverflow.com/questions/65778431/using-depends-on-doesnt-start-required-container-but-starts-containers-dependi
