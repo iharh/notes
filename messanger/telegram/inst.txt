@@ -1,3 +1,11 @@
+https://github.com/telegramdesktop/tdesktop/releases
+
+2025
+https://discussion.fedoraproject.org/t/telegram-desktop-cannot-be-installed-on-fedora-43/171652/
+    wget -O telegram.tar.xz https://telegram.org/dl/desktop/linux
+    tar xf telegram.tar.xz
+    sudo mv Telegram /opt/telegram
+    sudo ln -sf /opt/telegram/Telegram /usr/bin/telegram
 2024
 https://www.linuxcapable.com/install-telegram-on-fedora-linux/
 https://idroot.us/install-telegram-fedora-41/
