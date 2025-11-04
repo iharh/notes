@@ -1,4 +1,13 @@
 2025
+JavaPro - hello-ebpf: Writing eBPF Programs Directly in Java | Johannes Bechberger (EN) 0:00 of 40:03
+    https://www.youtube.com/watch?v=j1KoSaA-6PI
+    @BuiltinBPFFunction
+    https://github.com/parttimenerd/sound-of-scheduling
+    https://github.com/parttimenerd/hello-ebpf
+    https://github.com/parttimenerd/hello-ebpf/tree/main/bpf
+    https://github.com/parttimenerd/hello-ebpf/tree/main/bpf/src/main/java/me/bechberger/ebpf/bpf
+    https://mostlynerdless.de/blog/tag/ebpf/
+
 DevConf - Effortless, standardised homelab observability with eBPF 0:00 of 30:58
     https://www.youtube.com/watch?v=UCtUizabSLc
     https://pretalx.devconf.info/devconf-cz-2025/talk/MHHFS9/
