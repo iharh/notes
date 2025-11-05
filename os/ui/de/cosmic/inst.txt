@@ -1,0 +1,53 @@
+dnf group list | grep cosmic
+    cosmic-desktop
+    cosmic-desktop-apps
+
+sudo dnf group install cosmic-desktop
+sudo dnf group install cosmic-desktop-apps
+    --skip-broken
+
+/etc/greetd/
+    config.toml
+    cosmic-greeter.toml
+        [terminal]
+        vt = "1"
+        [general]
+        service = "cosmic-greeter"
+        [default_session]
+        command = "cosmic-greeter-start"
+        user = "cosmic-greeter"
+
+/usr/share/wayland-sessions/
+    cosmic.desktop
+
+/usr/bin/
+    start-cosmic
+        #!/usr/bin/bash
+        ...
+    cosmic-greeter
+    cosmic-greeter-start
+        #!/usr/bin/sh
+        rm -rf /run/cosmic-greeter/cosmic/com.system76.CosmicSettingsDaemon/v1/* > /dev/null 2>&1
+        exec cosmic-comp cosmic-greeter > /dev/null 2>&1
+
+https://deepwiki.com/pop-os/cosmic-greeter
+
+https://wiki.gentoo.org/wiki/COSMIC
+    systemctl enable greetd.service
+
+sddm
+/usr/share/wayland-sessions/cosmic.desktop
+[Desktop Entry]
+Name=Cosmic
+Comment=System76 COSMIC Desktop
+Exec=dbus-run-session env XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=COSMIC start-cosmic
+Type=Application
+DesktopNames=COSMIC
+
+2024
+https://discussion.fedoraproject.org/t/how-to-use-cosmic-greeter-as-display-manager/128862
+    https://gist.github.com/Wincohax/13cf5efa4a771521ec958541f028ca65
+    ??? cosmic-greeter user
+    systemctl is-enabled sddm.service
+    systemctl disable sddm.service
+    systemctl enable greetd.service

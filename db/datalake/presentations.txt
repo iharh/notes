@@ -1,0 +1,15 @@
+2025
+Otus - DWH, Data Lake, Data Lakehouse 0:00 of 1:30:18
+    https://www.youtube.com/watch?v=171zjoE4ku4
+AWSRU - Why Do We Need DataLakes of 35:58
+    https://www.youtube.com/watch?v=kkI5i0c4810
+    ! DWH - collects data from multiple DBs/RO-replicas RDS-es (row) ... versioning, 
+    !   we can make queries/BI against DWH
+    ! DWH RedShift (column-DB)
+    ! Athena (S3-based lake) - gets SQL queries, but runs against S3
+    !   split data storing and calculation
+    ! can also query from RedShift
+2022
+ListenIt - What Data Lakes are ru of 11:35
+    https://www.youtube.com/watch?v=4Ngj_sXFEsY
+    ! storage for raw data of all formats, like fish in a lake

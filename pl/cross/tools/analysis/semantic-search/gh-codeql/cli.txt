@@ -1,5 +1,16 @@
+https://codeql.github.com/docs
+https://github.com/github/codeql
+https://github.com/github/codeql/tree/main/java
+https://github.com/github/codeql/tree/main/java/ql
+https://github.com/github/codeql/tree/main/java/ql/src
+https://github.com/github/codeql/tree/codeql-cli/latest/java/ql/src
+
 https://github.com/github/codeql-cli-binaries
 https://github.com/github/codeql-cli-binaries/blob/main/LICENSE.md
+
+https://github.com/github/codeql-cli-binaries/blob/HEAD/CHANGELOG.md
+https://github.com/github/codeql-cli-binaries/releases
+https://github.com/github/codeql-cli-binaries/releases/tag/v2.23.3
 
 mise/codeql
     https://github.com/mise-plugins/mise-codeql
@@ -11,3 +22,58 @@ https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-cod
 https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli
 
 https://docs.github.com/en/code-security/codeql-cli/codeql-cli-manual
+
+https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries
+https://github.com/github/docs/blob/main/content/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli.md
+
+qls - codeql suite
+SARIF - static analysis results interchange format
+
+vscode/
+    https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-codeql
+    https://github.com/github/vscode-codeql/
+    https://docs.github.com/en/code-security/codeql-for-vs-code
+    https://github.com/github/vscode-codeql-starter
+    sarif viewer
+    sarif explorer
+    codeql
+    codeql agent
+
+codeql
+    resolve
+        languages
+        qlpacks
+    pack
+        download [typescript]
+    database
+            --threads=0
+        create
+            --language=python <db-file> -s <prj-folder> --overwrite
+                --source-root, -s
+                --command='make'
+        query
+            run <query-file.ql> --database <db>
+        analyze 
+            --format=sarif-latest --off-heap-ram=0 --output=.../issues.sarif
+                -- codeql/cpp-queries
+
+reference
+https://codeql.github.com/docs/ql-language-reference/
+https://codeql.github.com/docs/ql-language-reference/ql-language-specification/
+https://codeql.github.com/docs/codeql-language-guides/codeql-for-java/
+https://codeql.github.com/docs/codeql-language-guides/codeql-library-for-java/
+
+????
+    https://book.martiandefense.org/notes/product-security-engineering/sast-sca/codeql-for-beginners
+2024
+CodeWithKASA - How to Run CodeQL Queries Using CLI: Complete Guide for Python Developers | Part 3 of 16:10
+    https://www.youtube.com/watch?v=soVdldZMi4o
+CodeWithKASA - CodeQL Installation Guide for Python Developers: Step-by-Step Setup & Troubleshooting of 10:39
+    https://www.youtube.com/watch?v=SpIAXzxKfXo
+CodeWithKASA - CodeQL : Introduction to Code Analysis & Vulnerability Detection | Complete Guide for Beginners of 6:14
+    https://www.youtube.com/watch?v=C4pXGf_Gx9o
+CodeWithKASA - Master Class: Secure Coding with CodeQL of p5
+    https://www.youtube.com/playlist?list=PLV_emE8njYMtOHI65y5s5epBrD5V3nTco
+
+samples
+https://github.com/github/vscode-codeql-starter/tree/main/codeql-custom-queries-java

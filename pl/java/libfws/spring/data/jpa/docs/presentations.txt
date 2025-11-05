@@ -27,6 +27,7 @@ JPoint - Sindeev - Hibernate OOM and really HUGE Queries (in) of 39:18
 JPoint - Ilya and Fedor Sazonov - DB Tamer of 48:02
     https://www.youtube.com/watch?v=mIxr65ZGGFw
     https://www.youtube.com/watch?v=1T5LjQaWGhQ
+        https://speakerdeck.com/jugnsk/snowone-2024-ilia-sazonov-fiodor-sazonov-bd-ukrotitiel
     ! 5:20 it is recommended to set hbm logs (vs show_sql=true)
     !   logging.level.org.hibernate.SQL=DEBUG
     ! 8:00

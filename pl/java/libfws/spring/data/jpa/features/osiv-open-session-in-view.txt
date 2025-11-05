@@ -1,0 +1,20 @@
+2025
+JUGNsk - Sazonov bro - OSIV of 56:02
+    https://www.youtube.com/watch?v=UKaEm_xHnVM
+    ! OpenEntityManagerInViewFilter extends OncePerRequestFilter
+    ! public enum PhysicalConnectionHandlingMode
+    !   IMMEDIATE_ACQ...(IMMEDIATELY, ON_CLOSE),
+    !   ...
+    !   DELAYED_ACQUISITION_AND_HOLD - ...
+    !   DELAYED_ACQUISITION_AND_RELEASE_AFTER_TRANSACTION(AS_NEEDED, AFTER_TRANSACTION) // hbn-default, but not a jpa-one
+    ! fix
+    !   @Transactional(isolation=Isolation.REPEATABLE_READ)
+    ! TransactionManager - no methods
+    ! ?ConfigurableTransactionManager ?
+    ! PlatformTransactionManager, AbstractPlatformTransactionManager
+    ! JPATransactionManager (with jpaDialect)
+    !
+    ! dataSource.getHikariPoolMXBean().getActiveConnections()
+
+JPoint - Sazonov - OSIV 0:00 of 42:38
+    https://www.youtube.com/watch?v=gBLyiBOc_Cg

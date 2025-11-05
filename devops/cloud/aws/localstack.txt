@@ -5,15 +5,70 @@ https://localstack.cloud/pricing/
 https://localstack.cloud/blog/
 
 https://github.com/localstack/localstack
+https://www.youtube.com/@localstack
 
+https://docs.localstack.cloud/
 https://docs.localstack.cloud/overview/
 https://docs.localstack.cloud/tools/
-https://docs.localstack.cloud/aws/feature-coverage/
 https://docs.localstack.cloud/integrations/
 
-docker
-localstack/localstack
+https://docs.localstack.cloud/aws/
+https://docs.localstack.cloud/aws/getting-started/
+https://docs.localstack.cloud/aws/getting-started/installation/
+    mise/localstack
+https://docs.localstack.cloud/aws/getting-started/auth-token/
 
+https://docs.localstack.cloud/aws/capabilities/
+https://docs.localstack.cloud/aws/capabilities/web-app/localstack-desktop/
+https://docs.localstack.cloud/aws/capabilities/config/configuration
+    ! list of aws svc integrations
+https://docs.localstack.cloud/aws/capabilities/state-management/
+
+!!!
+https://github.com/localstack/localstack-docs
+https://docs.localstack.cloud/aws/services/
+https://docs.localstack.cloud/aws/services/iam/
+
+https://docs.localstack.cloud/aws/integrations/
+
+https://docs.localstack.cloud/aws/feature-coverage/
+https://docs.localstack.cloud/aws/tooling/
+https://docs.localstack.cloud/aws/tooling/localstack-sdks/
+https://docs.localstack.cloud/aws/tooling/localstack-sdks/java-sdk/
+https://docs.localstack.cloud/aws/tooling/extensions/
+
+https://blog.localstack.cloud/category/Tutorial/
+https://blog.localstack.cloud/why-i-run-my-serverless-apps-locally/
+    git clone https://github.com/localstack/samples.git
+    cd samples/aws-cdk-inventory-app
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+    cdklocal synth
+    cdklocal bootstrap
+    cdklocal deploy
+    awslocal s3 cp sqs_blog/sample_file.csv s3://<your-bucket-name>/
+    awslocal dynamodb scan --table-name <your-table-name>
+https://blog.localstack.cloud/developing-debugging-aws-ecs-tasks-localstack-vs-code/
+https://blog.localstack.cloud/tips-and-tricks-localstack-aws/
+https://blog.localstack.cloud/efficient-infrastructure-testing-localstack-terraform-tests-framework/
+https://blog.localstack.cloud/aws-deep-dives-sqs/
+    https://github.com/localstack-samples/aws-deep-dives/tree/main/sqs
+https://blog.localstack.cloud/automate-your-tests-with-github-actions-and-localstack/
+    https://www.youtube.com/watch?v=igPotAAnUVo
+        https://www.youtube.com/watch?v=cXoQa8x8Qb4
+https://blog.localstack.cloud/why-i-run-my-serverless-apps-locally/
+    https://www.youtube.com/watch?v=FPc42EnypJo
+
+vscode
+https://marketplace.visualstudio.com/items?itemName=localstack.localstack
+    https://blog.localstack.cloud/aws-toolkit-vscode-localstack/
+    https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode
+    https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
+
+2025
+LocalStack - Kiah Imani - Saving & Sharing Your LocalStack State with CloudPods 0:00 of 5:30
+    https://www.youtube.com/watch?v=zwj1gCC4MII
 2023
 https://nuancesprog.ru/p/9230/
 2022
@@ -23,3 +78,27 @@ DevOpsJourney - Localstack - AWS on your Laptop! 0:00 of 10:23
 2020
 https://betterprogramming.pub/dont-be-intimidated-learn-how-to-run-aws-on-your-local-machine-with-localstack-2f3448462254
     https://nuancesprog.ru/p/9230/
+
+docker
+localstack/localstack
+
+docker run \
+  --rm -it \
+  -p 127.0.0.1:4566:4566 \
+  -p 127.0.0.1:4510-4559:4510-4559 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  localstack/localstack
+
+services:
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+    environment:
+      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
+      - DEBUG=${DEBUG:-0}
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

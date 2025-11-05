@@ -1,0 +1,27 @@
+https://github.com/vladmihalcea/hypersistence-utils
+https://github.com/vladmihalcea/hypersistence-utils/tree/master/hypersistence-utils-hibernate-63
+https://github.com/vladmihalcea/hypersistence-utils/tree/master/hypersistence-utils-hibernate-70
+https://github.com/vladmihalcea/hypersistence-utils/tree/master/hypersistence-utils-hibernate-71
+https://github.com/vladmihalcea/hypersistence-utils/blob/master/hypersistence-utils-hibernate-71/src/main/resources/META-INF/services/org.hibernate.boot.model.TypeContributor
+https://github.com/vladmihalcea/hypersistence-utils/tree/master/hypersistence-utils-hibernate-71/src/main/java/io/hypersistence/utils
+
+https://mvnrepository.com/artifact/io.hypersistence/hypersistence-utils-hibernate-71
+https://mvnrepository.com/artifact/io.hypersistence/hypersistence-utils-hibernate-70
+https://mvnrepository.com/artifact/io.hypersistence/hypersistence-utils-hibernate-63
+https://mvnrepository.com/artifact/io.hypersistence/hypersistence-tsid
+
+<dependency>
+    <groupId>io.hypersistence</groupId>
+    <artifactId>hypersistence-utils-hibernate-71</artifactId>
+    <version>3.11.0</version>
+</dependency>
+
+obsolete
+https://mvnrepository.com/artifact/com.vladmihalcea/hibernate-types-parent
+https://mvnrepository.com/artifact/com.vladmihalcea/hibernate-types-60
+
+baeldung
+https://www.baeldung.com/hibernate-types-library
+2022
+https://vladmihalcea.com/how-to-map-json-objects-using-generic-hibernate-types/
+https://vladmihalcea.com/the-hibernate-types-open-source-project-is-born/

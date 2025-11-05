@@ -1,0 +1,4 @@
+https://www.postgresql.org/docs/current/pgstatstatements.html
+
+alter system set shared_preload_libraries='pg_stat_statements';
+restart pg

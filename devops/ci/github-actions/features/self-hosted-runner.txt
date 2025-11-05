@@ -1,0 +1,11 @@
+gh-repo -> settings -> actions -> runners -> new self-hosted-runners green btn -> gen script
+
+2025
+TechiNik - How to create self hosted runner in GitHub actions 0:00 of 9:00
+    https://www.youtube.com/watch?v=JAlRR5Dl-0E
+    https://github.com/NikKumar811/github-actions
+    ! sudo ./svc.sh
+    ! sudo ./svc.sh status|start
+    ! lables: self-hosted, test-runner, ...
+    ! .github/workflows/hello-world.yml
+    ! jobs.say-hello.runs-on: test-runner

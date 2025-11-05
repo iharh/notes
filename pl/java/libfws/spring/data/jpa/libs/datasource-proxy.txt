@@ -1,0 +1,8 @@
+https://github.com/jdbc-observations/datasource-proxy
+
+https://github.com/ttddyy/datasource-proxy-examples
+https://github.com/ttddyy/datasource-proxy-examples/tree/master/hibernate-7-example
+https://github.com/ttddyy/datasource-proxy-examples/blob/master/hibernate-7-example/src/main/java/net/ttddyy/dsproxy/example/Application.java
+
+https://github.com/ttddyy/datasource-proxy-examples/tree/master/springboot-autoconfig-example
+https://github.com/ttddyy/datasource-proxy-examples/blob/master/springboot-autoconfig-example/src/main/java/net/ttddyy/dsproxy/example/DatasourceProxyBeanPostProcessor.java
