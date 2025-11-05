@@ -19,6 +19,7 @@ sudo dnf group install cosmic-desktop-apps
 
 /usr/share/wayland-sessions/
     cosmic.desktop
+    ...
 
 /usr/bin/
     start-cosmic
@@ -43,6 +44,9 @@ Comment=System76 COSMIC Desktop
 Exec=dbus-run-session env XDG_SESSION_TYPE=wayland XDG_CURRENT_DESKTOP=COSMIC start-cosmic
 Type=Application
 DesktopNames=COSMIC
+!!!
+sudo vi /var/lib/sddm/state.conf
+    ... cosmic.desktop
 
 2024
 https://discussion.fedoraproject.org/t/how-to-use-cosmic-greeter-as-display-manager/128862
