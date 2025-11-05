@@ -1,5 +1,7 @@
 https://github.com/telegramdesktop/tdesktop/releases
 
+https://admin.rpmfusion.org/pkgdb/package/free/telegram-desktop/
+
 2025
 https://discussion.fedoraproject.org/t/telegram-desktop-cannot-be-installed-on-fedora-43/171652/
     wget -O telegram.tar.xz https://telegram.org/dl/desktop/linux
