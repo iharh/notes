@@ -1,0 +1,62 @@
+https://gitlab.com/otus-performance/gatling-k6-protocols
+https://gitlab.com/otus-performance/open-and-closed-models
+https://gitlab.com/otus-performance/open-and-closed-models/-/tree/main/gatling
+https://gitlab.com/otus-performance/open-and-closed-models/-/blob/main/gatling/build.gradle
+https://gitlab.com/otus-performance/open-and-closed-models/-/blob/main/gatling/src/gatling/java/demo/QuickPizzaOpenSimulation.java
+https://gitlab.com/otus-performance/open-and-closed-models/-/blob/main/gatling/src/gatling/java/demo/QuickPizzaClosedSimulation.java
+
+val scn = scenario("Basic login") // scenario name
+    .exec(http("Home page").get("/index.html"))
+
+    .exec(http("Login page").get("/login.html")
+        .headers(...)
+            // asXml, asJSON
+            // https://github.com/gatling/gatling/blob/master/gatling-http/src/main/scala/io/gatling/http/request/builder/RequestBuilder.scala
+        .basicAuth(username: Expression[String], password: Expression[String]) // can also be on httpProtocol-level
+        .queryParam("q", "whatever"))
+
+    .exec(http("Login").post("/login")
+        .param("username", "me")
+        .param("password", "foo")
+
+        .body(RawFileBody("myFileBody.json")).asJSON // can use fastring templating
+
+        .check(css("#username").is("me"))
+
+    Our own scala code
+    .exec((session: Session) => {
+        val location = session.getTypedAttribute[String]("location")
+        val regex = """([^?]+)?.*""".r
+        val regex(stripLocation) = location
+        session.setAttribute("stripedParamsLocation", stripLocation)
+    })
+
+    .feed(csv("creds.csv"))
+    .exec(
+        http("request_3")
+            .post("/login")
+            .param("username", "${username}") // according to the csv header names
+            .param("password", "${password}")
+
+    //
+    .get(...)
+    .check(regex("""<td class="number">ACC(\d+)</td>""")
+        .saveAs("account_id"))
+    ...
+        .get("/account/ACC${account_id}/operations.html")
+
+???
+    .pause(100 milliseconds, 1 seconds)
+Checks
+    check(status.is(200)) // 302 or whatever
+    reges/css/xpath/jsonPath
+    find/findAll/count
+    is/in/not/whatever
+Structures
+    doIf/repeat/during/asLongAs
+    randomSwitch/roundRobinSwitch
+Error handling
+    tryMax/exitBlockOnFail
+Feeders
+    csv/tsv/jdbc
+
