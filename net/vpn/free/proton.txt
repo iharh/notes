@@ -1,2 +1,66 @@
 https://protonvpn.com/free-vpn/download
+
 https://account.protonvpn.com/signup?ref=pvpn_lp_b2c_vpn_menu&plan=free
+
+https://protonvpn.com/support/linux-vpn-setup/
+https://protonvpn.com/support/official-linux-vpn-fedora/
+
+wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm"
+sudo dnf install ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh 
+sudo dnf install proton-vpn-gnome-desktop 
+sudo dnf install libappindicator-gtk3 gnome-shell-extension-appindicator gnome-extensions-app
+
+https://protonvpn.com/support/wireguard-linux
+    https://www.wireguard.com/install/
+    sudo dnf install wireguard-tools
+    Sign in to account.protonvpn.com, go to Downloads → WireGuard configuration, and download a WireGuard configuration file
+    https://account.protonvpn.com/downloads
+
+    4. Select a server to connect to
+    Use the best server according to current load and position: NL-FREE#210
+
+    sudo cp wg-NL-FREE-210.conf /etc/wireguard/
+    AllowedIPs = 0.0.0.0/0 # remove all ipv6 stuff
+    sudo wg
+    sudo wg-quick up wg-NL-FREE-210
+    sudo wg-quick down wg-NL-FREE-210
+
+    protonwg-NL-FREE-210
+
+    ???
+    https://protonvpn.com/support/port-forwarding
+    https://protonvpn.com/support/port-forwarding-manual-setup
+    https://protonvpn.com/blog/vpn-accelerator/
+
+[#] ip link add dev wg-NL-FREE-210 type wireguard
+[#] wg setconf wg-NL-FREE-210 /dev/fd/63
+[#] ip -4 address add 10.2.0.2/32 dev wg-NL-FREE-210
+[#] ip link set mtu 1420 up dev wg-NL-FREE-210
+[#] resolvconf -a wg-NL-FREE-210 -m 0 -x
+[#] wg set wg-NL-FREE-210 fwmark 51820
+[#] ip -4 rule add not fwmark 51820 table 51820
+[#] ip -4 rule add table main suppress_prefixlength 0
+[#] ip -4 route add 0.0.0.0/0 dev wg-NL-FREE-210 table 51820
+[#] sysctl -q net.ipv4.conf.all.src_valid_mark=1
+[#] nft -f /dev/fd/63
+...
+[#] ip -4 rule delete table 51820
+[#] ip -4 rule delete table main suppress_prefixlength 0
+[#] ip link delete dev wg-NL-FREE-210
+[#] resolvconf -d wg-NL-FREE-210 -f
+[#] nft -f /dev/fd/63
+
+https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md
+docker run -it --rm --cap-add=NET_ADMIN --device /dev/net/tun \
+-e VPN_SERVICE_PROVIDER=protonvpn \
+-e VPN_TYPE=wireguard \
+-e WIREGUARD_PRIVATE_KEY=wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU= \
+-e SERVER_COUNTRIES=Netherlands qmcgaw/gluetun
+
+issues
+https://github.com/qdm12/gluetun/issues/2154
+healthcheck
+https://github.com/qdm12/gluetun-wiki/blob/main/faq/healthcheck.md
+https://docs.docker.com/engine/containers/run/#healthchecks
+custom wg
+https://www.synoforum.com/threads/transmission-gluetun-all-appears-to-be-working-except-torrents-dont-download.12116/
