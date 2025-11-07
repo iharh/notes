@@ -11,26 +11,3 @@ https://docs.openrewrite.org/recipes
 
 https://github.com/spring-projects-experimental/spring-boot-migrator
     https://www.infoq.com/news/2022/09/spring-boot-migrator/
-
-2025
-ModerneAndOpenRewrite - Migrate to Java 25 using OpenRewrite 0:00 of 4:40
-    https://www.youtube.com/watch?v=6LGL64AwEEY
-    https://docs.openrewrite.org/recipes/java/migrate/upgradetojava25
-JavaPro - Spoiled For Choice: Limit Your Options | Merlin Bögershausen (EN) 0:00 of 18:33
-    https://www.youtube.com/watch?v=e80o0cECTAg
-2024
-SpringIO - Automated software refactoring with OpenRewrite and Generative AI by Tim te Beek 0:00 of 45:20
-    https://www.youtube.com/watch?v=KlQZH6WHa2c
-https://wearecommunity.io/communities/javaro/articles/4900
-JavaTechie - Automate Spring Boot 2.x to 3.x Migration With OpenRewrite 0:00 of 21:33
-    https://www.youtube.com/watch?v=50mhP1SBTis
-DanVega - Upgrading your Java & Spring Boot applications with OpenRewrite in IntelliJ 0:00 of 13:51
-    https://www.youtube.com/watch?v=e4R6AZHpAD8
-2023
-https://foojay.io/today/openrewrite-automatic-code-refactoring-and-maintenance-part-2/
-https://foojay.io/today/openrewrite-automatic-code-refactoring-and-maintenance/
-2022
-Major migrations made easy by Tim te Beek @ Spring I/O 2022 0:00 of 45:13
-    https://www.youtube.com/watch?v=d8xU24x7Jqo
-    https://docs.google.com/presentation/d/1UVYYUn3CePYd3aS7iuP8fSc4aL4fVxpgqwMO0JRHGu8/
-https://blog.jdriven.com/2022/03/major-migrations-made-easy-with-openrewrite/

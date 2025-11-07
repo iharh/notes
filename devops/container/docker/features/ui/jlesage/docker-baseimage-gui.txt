@@ -1,0 +1,5 @@
+https://hub.docker.com/r/jlesage/baseimage-gui/
+https://github.com/jlesage/docker-baseimage-gui
+    TigerVNC (X-server with integrated VNC server, noVNC HTML5 client)
+
+https://github.com/jlesage/docker-firefox/

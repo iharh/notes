@@ -1,0 +1,7 @@
+https://jlesage.github.io/docker-apps/
+
+https://github.com/jlesage/docker-baseimage
+
+https://github.com/jlesage/docker-baseimage/tree/master/helpers
+https://github.com/jlesage/docker-baseimage/blob/master/helpers/set-cont-env
+    printf "%s" "${ENV_VAL}" > /etc/cont-env.d/"${ENV_NAME}"
