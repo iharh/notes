@@ -1,7 +1,53 @@
-https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/
-https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview
+https://entra.microsoft.com/#home
+    !! my user profile has UUID
+pdf
+https://learn.microsoft.com/pdf?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fidentity%2Fauthentication%2Ftoc.json
+
+create
+https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-cli
+
+
+https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
+    video on.net show of 17:46
+    MI is an object in AZ Portal (at Managed Identities)
+        with client id and object id
+    ! Later can pick created MI at access tab for some resource
+
+https://entra.microsoft.com/#view/Microsoft_Azure_Resources/QuickstartCenterMenuBlade/~/guidesTab
+https://entra.microsoft.com/#view/Microsoft_Azure_Resources/QuickstartCenterMenuBlade/~/trainingsTab
+
 https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/services-id-authentication-support
+
+https://learn.microsoft.com/en-us/entra/identity/authentication/overview-authentication
+    MicrosoftSecurity - How to enable and configure SSPR in Entra ID 0:00 of 6:42
+    https://www.youtube.com/watch?v=rA8TvhNcCvQ
+        AAD -> Auth Methods
+
+https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-azure-mfa
+
+https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/
+https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
+
+https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identities-status
 https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/managed-identities-status
+
+how to/build
+https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app
+
+https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity
+    at least application-developer role
+
+reference
+https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#application-developer
+
+dev
+https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/
+concepts
+https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview-for-developers?tabs=java
+
+???? workload identities
+https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview
+https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity?tabs=microsoft-entra-admin-center%2Cjava
 
 2022
 Savill - Microsoft Azure Managed Identity Deep Dive of 48:39
@@ -23,3 +69,15 @@ CloudMonk - Azure Managed Identities - explained in plain English in 5 mins with
             + at IAM -> need to add access to user-assigned identity
             manual-lifecycle-management
             can be shared with multiple resources
+
+chatgpt
+Azure Managed Identity — это функция в облаке Microsoft Azure, которая позволяет автоматически управлять учетными данными для приложений и сервисов, 
+чтобы они могли безопасно получать доступ к другим ресурсам Azure без необходимости вручную хранить или управлять паролями, секретами или ключами. 
+Managed Identity интегрируется с Azure Active Directory (AAD) и предоставляет приложению уникальную идентификацию, 
+которую можно использовать для аутентификации и авторизации при доступе к ресурсам, 
+таким как Azure Key Vault, Azure Storage, SQL Database и другим сервисам, поддерживающим AAD-аутентификацию.
+
+Существует два типа Managed Identity:
+* System-assigned Managed Identity — автоматически создается и управляется Azure для конкретного ресурса 
+  (например, виртуальной машины или веб-приложения). Удаляется вместе с ресурсом.
+* User-assigned Managed Identity — создается вручную и может быть назначена одному или нескольким ресурсам.
