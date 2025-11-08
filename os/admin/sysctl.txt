@@ -9,3 +9,6 @@ service procps status
              man:sysctl.d(5)
     Process: 10142 ExecStart=/lib/systemd/systemd-sysctl (code=exited, status=0/SUCCESS)
    Main PID: 10142 (code=exited, status=0/SUCCESS)
+
+sysctl -a
+    list all

@@ -1,0 +1,7 @@
+https://www.reddit.com/r/docker/comments/1oki176/for_anyone_using_haugenedockertransmissionopenvpn/
+
+https://docs.docker.com/engine/daemon/ipv6/
+
+networks:
+  ip6net:
+    enable_ipv6: false
