@@ -13,6 +13,8 @@ Earthly - Build your own Container Runtime 0:00 of 37:36
 Sandboxing a Linux Application - Martin Ertsås - ACCU 2022 0:00 of 1:25:21
     https://www.youtube.com/watch?v=a6JM7FmtEt4
     https://accu.digital-medium.co.uk/wp-content/uploads/2022/04/sandbox.pdf
+kts - Latkin - Linux Namespaces Cgroups and Containers ru 0:00 of 23:55
+    https://www.youtube.com/watch?v=CemSAcfTsxg
 2021
 https://github.com/ls1-sys-prog-course/docs/blob/main/slides/08-container.pdf
     https://www.youtube.com/watch?v=GMs3kLteZvk
@@ -24,7 +26,8 @@ LinuxFestNorthWest - Linux Container Primitives: cgroups, namespaces, and more! 
 OtusRu - Linux Containerization Mechanisms
     https://www.youtube.com/watch?v=pSdrcc7n10k
 2015
-CSC - Linux Container Virtualization 29:00 of 1:49:47
+CSC - Linux Container Virtualization 1:21:00 of 1:49:47
     https://www.youtube.com/watch?v=rJRLZfk3a8U
+    !!!
 Docker - Cgroups, namespaces, and beyond: what are containers made from? 0:00 of 54:24
     https://www.youtube.com/watch?v=sK5i-N34im8
