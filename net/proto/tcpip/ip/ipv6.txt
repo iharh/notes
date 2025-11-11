@@ -15,10 +15,32 @@ https://habr.com/company/1cloud/blog/419405/
 https://habr.com/ru/articles/53625/
 
 https://test-ipv6.run/
+https://test-ipv6.run/faq/configure-ipv6-linux
+    # ip -6 addr show
+    ip -6 a s
+    # ... scope link
+    ip -6 a s scope global
+    ip -6 r s
+    fe80::/64 dev enp4s0 proto kernel metric 1024 pref medium
+
 
 checking
+    # Method 1: Check sysctl parameter (0=enabled, 1=disabled)
+    sysctl net.ipv6.conf.all.disable_ipv6
+    # Method 2: Check sys filesystem
+    cat /sys/module/ipv6/parameters/disable
+    # Method 3: Verify IPv6 proc entry exists
+    ls /proc/net/if_inet6
+
     ip a | grep inet6
     cat /proc/sys/net/ipv6/conf/*/disable_ipv6
+enabling
+    sudo vim /etc/sysctl.d/91-enable_ipv6.conf
+    net.ipv6.conf.all.disable_ipv6 = 0
+    net.ipv6.conf.default.disable_ipv6 = 0
+    net.ipv6.conf.lo.disable_ipv6 = 0
+    net.ipv6.conf.enp4s0.disable_ipv6 = 0
+
 disabling
     https://idroot.us/disable-ipv6-fedora-39/
     https://linuxconfig.org/how-to-disable-ipv6-on-linux
@@ -26,9 +48,11 @@ disabling
     sudo sysctl -a | grep net.ipv6.conf.all.disable_ipv6
 
     sudo vi /etc/sysctl.d/90-disable_ipv6.conf
-        net.ipv6.conf.all.disable_ipv6 = 1
-        net.ipv6.conf.default.disable_ipv6 = 1
-        net.ipv6.conf.lo.disable_ipv6 = 1
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv6.conf.default.disable_ipv6 = 1
+    net.ipv6.conf.lo.disable_ipv6 = 1
+    net.ipv6.conf.enp4s0.disable_ipv6 = 1
+
     # /etc/sysctl.conf
     sudo sysctl -p
 
