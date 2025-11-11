@@ -1,3 +1,5 @@
+11.15 17:00 Moiseenko Natalia Vladimirovna
+
 mise activate zsh
 export PATH='...:/home/iharh/Android/Sdk/emulator:/home/iharh/Android/Sdk/platform-tools:/home/iharh/.dotnet:/home/iharh/.dotnet/tools:...'
 
