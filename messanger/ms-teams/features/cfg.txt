@@ -1,0 +1,15 @@
+https://ismaelmartinez.github.io/teams-for-linux/configuration/
+
+~/.config/teams-for-linux/settings.json
+{
+	"app": {
+		"partitions": [
+			{
+				"name": "persist:teams-4-linux",
+				"zoomLevel": 3.25
+			}
+		]
+	}
+}
+
+https://ismaelmartinez.github.io/teams-for-linux/configuration/#cache-management

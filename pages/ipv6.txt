@@ -1,0 +1,30 @@
+https://en.wikipedia.org/wiki/IPv6_address
+
+https://www.baeldung.com/linux/ipv6-autoconfiguration-disable
+!!! need to read
+https://www.baeldung.com/linux/ipv6-disable
+https://www.baeldung.com/linux/check-ipv6-address
+ip -6 -brief a s
+...
+lo               UNKNOWN        ::1/128
+enp4s0           UP             fe80::4dff:7b9e:6679:5d9b/64
+
+ip -6 a s
+ip a s dev enp4s0
+...
+2: enp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 9c:6b:00:19:b7:f6 brd ff:ff:ff:ff:ff:ff
+    altname enx9c6b0019b7f6
+    inet 192.168.100.15/24 brd 192.168.100.255 scope global dynamic noprefixroute enp4s0
+       valid_lft 258699sec preferred_lft 258699sec
+    inet6 fe80::4dff:7b9e:6679:5d9b/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+
+scope link
+
+https://serverfault.com/questions/315723/ipv6-ifconfig-shows-scopelink-what-is-scopelink
+
+Link scope, fe80::/10 (it's practically implemented as a /64, but the whole /10 is reserved), is isolated to devices on a layer 2 segment. You can use a device's fe80 address to communicate within the segment, but you'll need an address with a different scope to do any communication that requires routing outside of the segment.
+
+https://stackoverflow.com/questions/4912966/link-local-and-global-ips-on-ipv6-interfaces
+When sending something, everything sent to a link-local address (i.e. fe80::/64) is sent from the link-local address, everything else from the global one.
