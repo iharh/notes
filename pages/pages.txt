@@ -1,5 +1,12 @@
 11.15 17:00 Moiseenko Natalia Vladimirovna
 
+https://github.com/DreamMaoMao/mangowc
+https://www.youtube.com/watch?v=Q1Jgw_q0gWE
+https://www.tonybtw.com/tutorial/mangowc/
+https://www.youtube.com/watch?v=S4CoVTsSCB8
+https://gitlab.com/theblackdon/arch-config/-/blob/main/scripts/install-mangowc-dotfiles.sh
+https://gitlab.com/theblackdon/arch-config/-/blob/main/scripts/install-niri-dotfiles.sh
+
 mise activate zsh
 export PATH='...:/home/iharh/Android/Sdk/emulator:/home/iharh/Android/Sdk/platform-tools:/home/iharh/.dotnet:/home/iharh/.dotnet/tools:...'
 
