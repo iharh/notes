@@ -8,16 +8,32 @@ https://test-ipv6.run/faq/dual-stack-networking
 https://test-ipv6.run/faq/get-ipv6-prefix-from-isp
 https://test-ipv6.run/faq/ipv6-address-structure
 
+ip a s
+2: enp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 9c:6b:00:19:b7:f6 brd ff:ff:ff:ff:ff:ff
+    altname enx9c6b0019b7f6
+    inet 192.168.100.54/24 brd 192.168.100.255 scope global dynamic noprefixroute enp4s0
+       valid_lft 258780sec preferred_lft 258780sec
+    inet6 fd2c:ab00:c7a2:c00:b75:882f:db6c:c5be/64 scope global temporary dynamic
+       valid_lft 7095sec preferred_lft 3495sec
+    inet6 fd2c:ab00:c7a2:c00:4bfb:7171:3073:7d36/64 scope global dynamic mngtmpaddr noprefixroute
+       valid_lft 7095sec preferred_lft 3495sec
+    inet6 fe80::4dff:7b9e:6679:5d9b/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+
 https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/managing-the-default-gateway-setting_configuring-and-managing-networking
     nmcli device show enp4s0
 ..
-IP6.ADDRESS[1]:                         fd2c:ab00:c7a2:c00:4bfb:7171:3073:7d36/64
-IP6.ADDRESS[2]:                         fe80::4dff:7b9e:6679:5d9b/64
+IP6.ADDRESS[1]:                         fd2c:ab00:c7a2:c00:b75:882f:db6c:c5be/64
+IP6.ADDRESS[2]:                         fd2c:ab00:c7a2:c00:4bfb:7171:3073:7d36/64
+IP6.ADDRESS[3]:                         fe80::4dff:7b9e:6679:5d9b/64
 IP6.GATEWAY:                            fe80::1
 IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 1024
 IP6.ROUTE[2]:                           dst = fd2c:ab00:c7a2:c00::/64, nh = ::, mt = 100
 IP6.ROUTE[3]:                           dst = ::/0, nh = fe80::1, mt = 20100
 IP6.DNS[1]:                             fe80::1
+
+
 https://linux.die.net/HOWTO/Linux%2BIPv6-HOWTO/chapter-configuration-route.html
     ip ... add/remove
     https://linux.die.net/HOWTO/Linux%2BIPv6-HOWTO/x1118.html
