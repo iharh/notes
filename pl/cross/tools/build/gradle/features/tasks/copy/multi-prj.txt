@@ -1,0 +1,16 @@
+2021
+https://www.pushing-pixels.org/2021/11/30/gradle-copying-all-multi-module-dependencies-to-a-local-folder.html
+    tasks.register("getFlatDependencies") {
+        subprojects {
+            val runtimeClasspath =
+                project.configurations.matching { it.name == "desktopRuntimeClasspath" }
+            runtimeClasspath.all {
+                for (dep in map { file: File -> file.absoluteFile }) {
+                    project.copy {
+                        from(dep)
+                        into("${rootProject.projectDir}/build/libs")
+                    }
+                }
+            }
+        }
+    }
