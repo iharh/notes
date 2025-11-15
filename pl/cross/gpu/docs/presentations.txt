@@ -1,0 +1,25 @@
+2025
+CppRU - Lukin - Code Reordering for Compute-Bound Problems with CUDA Examples 0:00 of 1:00:08
+    https://www.youtube.com/watch?v=f_z8kgmOms4
+    https://cppconf.ru/archive/2025/talks/e569e9ffbc6c4cc0980a1fadf95afca1/
+    https://squidex.jugru.team/api/assets/srm/70d21cd2-25ec-4de9-9c3d-824e733ca97e/cppconf-2025-reordering.pdf
+    https://github.com/NVIDIA/nvbench
+    https://salykova.github.io/sgemm-gpu
+    https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#arithmetic-instructions
+    https://github.com/NervanaSystems/maxas/wiki/Control-Codes#stall-counts
+    https://stackoverflow.com/questions/59777333/combined-format-of-sass-instructions
+    https://forums.developer.nvidia.com/t/is-there-a-document-about-in-which-hardware-unit-ie-alu-fmu-an-instruction-is-executed/227475/24?page=2
+    https://arxiv.org/pdf/1903.07486
+    https://pdfs.semanticscholar.org/5096/25785304410039297b741ad2007e7ce0636b.pdf
+2024
+CppUG - Grigorchuk - GPU Driven Rendering Pipeline 0:00 of 1:01:46
+    https://www.youtube.com/watch?v=bYteqlFhqnY
+2018
+CSC - GPU
+    https://www.youtube.com/playlist?list=PLlb7e2G7aSpTgwAm0GBkvn5XA0NokovJJ
+
+2017
+Volodin - Master GPU-engeneerin in one hour
+https://mobiusconf.com/2017/msk/talks/7z4qnan0xuagoaq6a0kwga/
+https://downloads.contentful.com/2grufn031spf/3ieeJ8qVYQyG8k48KYoISy/713a39a44263891de5a355969e97d2b2/Andrey_Volodin_-_Mastering_GPU_engineering_easy.pdf
+https://www.youtube.com/watch?v=wRGW9dkzh-E
