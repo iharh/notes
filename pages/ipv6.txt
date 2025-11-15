@@ -28,3 +28,6 @@ Link scope, fe80::/10 (it's practically implemented as a /64, but the whole /10 
 
 https://stackoverflow.com/questions/4912966/link-local-and-global-ips-on-ipv6-interfaces
 When sending something, everything sent to a link-local address (i.e. fe80::/64) is sent from the link-local address, everything else from the global one.
+
+
+https://test-ipv6.com/
