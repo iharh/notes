@@ -1,10 +1,10 @@
 https://www.pgadmin.org/download/
 
 dnf
+    https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/fedora/
     https://www.pgadmin.org/download/pgadmin-4-rpm/
     sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-2-1.noarch.rpm
     sudo dnf install pgadmin4-desktop
-
 
 apt/
     # Install the public key for the repository (if not done previously):
