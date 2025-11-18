@@ -1,0 +1,10 @@
+https://gitlab.gnome.org/GNOME/libxml2
+
+part of libxml2
+
+2025
+https://dev.to/chatgptnexus/2025021308-07-55-article-3dd2
+
+xmllint 
+    --noout your_file.xml
+    basic syntax check
