@@ -3,6 +3,9 @@ https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306F
 spring.threads.virtual.enabled: true
 
 2025
+Devoxx - Continuations: The magic behind virtual threads in Java by Balkrishna Rawool 0:00 of 46:50
+    https://www.youtube.com/watch?v=Rc6m_I1RkXM
+    !!! deep dive to continuations
 https://habr.com/ru/companies/naumen/articles/953262/
 https://habr.com/ru/articles/950204/
     https://inside.java/2021/11/30/on-parallelism-and-concurrency/

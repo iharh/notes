@@ -4,6 +4,9 @@ https://docs.docker.com/develop/develop-images/build_enhancements/
 
 $ DOCKER_BUILDKIT=1 docker build .
 
+2024
+Devoxx - Abusing Docker builds with BuildKit and friends 0:00 of 33:39
+    https://www.youtube.com/watch?v=pVJYk9_OlTE
 2022
 https://support.atlassian.com/bitbucket-cloud/docs/run-docker-commands-in-bitbucket-pipelines/#Enable-Docker-BuildKit
 2021
