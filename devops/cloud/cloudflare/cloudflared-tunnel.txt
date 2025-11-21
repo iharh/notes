@@ -1,6 +1,16 @@
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/downloads/
+    https://hub.docker.com/r/cloudflare/cloudflared
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/downloads/update-cloudflared/
 https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/
 
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/tunnel-useful-terms/
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/private-net/cloudflared/tunnel-virtual-networks/
+
 https://github.com/cloudflare/cloudflared
+
+https://cli.wiki/Cloudflared---Cloudflare-Tunnel-Client-Guide
 
 2025
 DiabloSat - CF Tunnel Guide of 5:45
@@ -11,3 +21,8 @@ WhyDoesNothingWorks - NixOS Web Services with Cloudflared: A Complete Guide 0:00
 2024
 LinuxCloudHacks - Cloudflare: Securely Access Your Docker Application Without a Public IP 0:00 of 13:41
     https://www.youtube.com/watch?v=2RF7hTSYU24
+2023
+https://www.crosstalksolutions.com/cloudflare-tunnel-easy-setup/
+    https://www.youtube.com/watch?v=ZvIdFs3M5ic
+2022
+https://hmolina.dev/p/cloudflared-tunnel-in-openwrt/
