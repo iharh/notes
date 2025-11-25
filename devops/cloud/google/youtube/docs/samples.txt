@@ -1,0 +1,7 @@
+https://github.com/mkaminetskyi/LvivJavaClubTopicSearch/blob/master/src/main/java/com/javaclub/lvivjavaclubtopicsearch/service/TopicSearchService.java
+
+    private static final String BASE_URL = "https://www.googleapis.com";
+    private static final String SEARCH_PATH = "/youtube/v3/search";
+    private static final String VIDEOS_PATH = "/youtube/v3/videos";
+    private static final int MAX_RESULTS = 50;
+    private static final int TOP_K = 10;
