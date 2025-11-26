@@ -5,6 +5,9 @@ sdk
 
 https://developer.android.com/studio/build/profile-your-build
 
+2023
+https://tomgregory.com/gradle/build-scan/
+    --profile - for local profile report
 2020
 https://goobar.io/benchmarking-gradle-builds-using-gradle-profiler/
 https://dev.to/autonomousapps/benchmarking-builds-with-gradle-profiler-oa8
