@@ -1,5 +1,8 @@
 https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/domain/Specification.html
 
+https://github.com/tkaczmarzyk/specification-arg-resolver
+https://github.com/tkaczmarzyk/specification-arg-resolver-example
+
 EntityManager entityManagr = getEntityManager();
 CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 CriteriaQuery<Product> productQuery = builder.createQuery(Product.class);
@@ -45,6 +48,8 @@ https://www.baeldung.com/hibernate-criteria-queries
 2020
 https://reflectoring.io/spring-data-specifications/
     https://github.com/thombergs/code-examples/tree/master/spring-boot/specification
+2017
+https://blog.tratif.com/2017/11/23/effective-restful-search-api-in-spring/
 ????
 https://docs.oracle.com/javaee/7/tutorial/persistence-criteria003.htm
 https://docs.oracle.com/cd/E19798-01/821-1841/gjitv/index.html
