@@ -1,3 +1,4 @@
+https://docs.docker.com/engine/storage/volumes/
 https://docs.docker.com/storage/bind-mounts/
 https://docs.docker.com/userguide/dockervolumes/
 https://www.digitalocean.com/community/tutorials/how-to-share-data-between-docker-containers
@@ -31,6 +32,12 @@ docker service create
     --name ...
     --mount type=volume,source=...,destination=/tmp
 
+-o, --opt
+    https://man7.org/linux/man-pages/man8/mount.8.html
+https://docs.docker.com/reference/cli/docker/volume/create/#opt
+https://forums.docker.com/t/how-to-mount-a-docker-volume-so-as-writeable-by-a-non-root-user-within-the-container/144321
+https://stackoverflow.com/questions/62232676/docker-local-volume-driver-options
+    docker run --rm -it -u 1000:1000 --mount source=ubuntu-test,target=/home/ubuntu/m2,volume-driver=local,volume-opt=o=uid=1000 ubuntu bash
 
 Local:
 https://github.com/CWSpear/local-persist
