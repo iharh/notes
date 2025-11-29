@@ -1,18 +1,22 @@
-phones
-https://catalog.onliner.by/mobile?birthday%5Bfrom%5D=2025&birthday%5Bto%5D=2025&smart%5B0%5D=android&smart%5Boperation%5D=union&mobile_type%5B0%5D=smartphone&mobile_type%5Boperation%5D=union&mob_displaytech%5B0%5D=amoled&mob_displaytech%5B1%5D=ips&mob_displaytech%5Boperation%5D=union&nfc_lov%5B0%5D=da&nfc_lov%5Boperation%5D=union&mobile_case_type%5B0%5D=aluminum&mobile_case_type%5B1%5D=magn&mobile_case_type%5B2%5D=metall&mobile_case_type%5B3%5D=glass&mobile_case_type%5B4%5D=titanium&mobile_case_type%5B5%5D=fiberglass&mobile_case_type%5Boperation%5D=union&order=price%3Adesc
-https://catalog.onliner.by/mobile/unihertz/tank4pro181tbbkg
-https://catalog.onliner.by/mobile/unihertz/tank4pro16512bkg
-https://catalog.onliner.by/mobile/ulefone/armor29prot16512
-https://catalog.onliner.by/mobile/ulefone/armor29pro16512
-https://catalog.onliner.by/mobile/blackview/xplore2161
-https://catalog.onliner.by/mobile/blackview/xplore212256
-https://catalog.onliner.by/mobile/nothing/nph312256wt
-https://catalog.onliner.by/mobile/nubia/redmagic10a256or
-https://catalog.onliner.by/mobile/infinix/x685612256ti
-https://catalog.onliner.by/mobile/doogee/s200max16512slv
-https://catalog.onliner.by/mobile/poco/pcf712512wt1
-https://catalog.onliner.by/mobile/oukitel/wp100bksl
-https://catalog.onliner.by/mobile/oneplus/opace5u12512cnsb
+grinder
+https://ozon.by/product/nozhetochka-elektricheskaya-1791968527/
+    ! 154 bin
+https://ozon.by/category/uglovye-shlifmashiny-bolgarki-9879/zap-100955661/
+https://ozon.by/category/uglovye-shlifmashiny-bolgarki-9879/amper-100385130/
+    ! 4 grinders
+https://ozon.by/product/lentochnyy-grinder-stanok-dlya-zatochki-shlifovalnyy-stanok-1093843139/
+https://ozon.by/product/lentochnyy-grinder-stanok-dlya-zatochki-shlifovalnyy-stanok-962064416/
+https://ozon.by/product/lentochnyy-grinder-stanok-dlya-zatochki-shlifovalnyy-stanok-941431243/
+https://ozon.by/product/lentochnyy-grinder-stanok-dlya-zatochki-shlifovalnyy-stanok-941497826/
+https://ozon.by/product/lentochnyy-grinder-stanok-dlya-zatochki-shlifovalnyy-stanok-941451428/
+    ! bad responses
+https://ozon.by/product/lentochnyy-grinder-mini-grinder-lentochnyy-stanok-dlya-zatochki-814928921/
+    ! amper
+big
+https://ozon.by/product/diskovo-lentochnoe-tochilo-grinder-procraft-pae1350s-250vt-1702151092/
+https://ozon.by/product/lentochno-diskovyy-shlifovalnyy-stanok-watt-wus-400-grinder-1852919331/
+https://ozon.by/product/lentochno-diskovyy-shlifovalnyy-stanok-watt-wus-375-grinder-1852861598/
+https://ozon.by/product/tochilnyy-stanok-inkam-bg-151-sp-elektricheskiy-s-lentoy-zatochnoy-stanok-elektrotochilo-300vt-1290374207
 
 https://github.com/DreamMaoMao/mangowc
 https://www.youtube.com/watch?v=Q1Jgw_q0gWE
@@ -20,9 +24,6 @@ https://www.tonybtw.com/tutorial/mangowc/
 https://www.youtube.com/watch?v=S4CoVTsSCB8
 https://gitlab.com/theblackdon/arch-config/-/blob/main/scripts/install-mangowc-dotfiles.sh
 https://gitlab.com/theblackdon/arch-config/-/blob/main/scripts/install-niri-dotfiles.sh
-
-mise activate zsh
-export PATH='...:/home/iharh/Android/Sdk/emulator:/home/iharh/Android/Sdk/platform-tools:/home/iharh/.dotnet:/home/iharh/.dotnet/tools:...'
 
 https://dustinspecker.com/posts/how-do-kubernetes-and-docker-create-ip-addresses/
 https://pinggy.io/blog/how_to_self_host_any_llm_step_by_step_guide/
