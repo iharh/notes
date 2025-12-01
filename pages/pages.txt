@@ -1,3 +1,9 @@
+org.gradle.api.internal.tasks.testing.RequiresTestFrameworkTestClassProcessor$TestFrameworkNotAvailableException: Failed to load JUnit Platform.  Please ensure that all JUnit Platform dependencies are available on the test's runtime classpath, including the JUnit Platform launcher.
+https://github.com/gradle/gradle/issues/34512
+https://docs.gradle.org/current/userguide/java_testing.html
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+
 grinder
 https://ozon.by/product/nozhetochka-elektricheskaya-1791968527/
     ! 154 bin
