@@ -4,6 +4,10 @@ https://docs.docker.com/develop/develop-images/build_enhancements/
 
 $ DOCKER_BUILDKIT=1 docker build .
 
+2025
+https://www.codestudy.net/blog/how-to-mount-host-volumes-into-docker-containers-in-dockerfile-during-build/
+    build-time mounts
+    https://docs.docker.com/reference/dockerfile/#run---mounttypebind
 2024
 Devoxx - Abusing Docker builds with BuildKit and friends 0:00 of 33:39
     https://www.youtube.com/watch?v=pVJYk9_OlTE
