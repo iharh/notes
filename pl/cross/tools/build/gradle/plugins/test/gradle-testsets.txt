@@ -1,0 +1,6 @@
+https://github.com/unbroken-dome/gradle-testsets-plugin
+https://plugins.gradle.org/plugin/org.unbroken-dome.test-sets
+https://mvnrepository.com/artifact/org.unbroken-dome.test-sets/org.unbroken-dome.test-sets.gradle.plugin
+
+samples
+https://github.com/naver/scavenger/blob/develop/scavenger-agent-java/build.gradle.kts
