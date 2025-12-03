@@ -1,0 +1,13 @@
+https://typst.app/open-source/#download
+
+https://github.com/typst/typst?tab=readme-ov-file#installation
+
+https://github.com/typst/typst/releases/
+https://github.com/typst/typst/releases/download/v0.14.1/typst-x86_64-unknown-linux-musl.tar.xz
+
+mise/typst
+
+https://repology.org/project/typst/versions
+
+https://github.com/typst/typst/pkgs/container/typst
+docker pull ghcr.io/typst/typst:0.14.0
