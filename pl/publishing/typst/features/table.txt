@@ -1,4 +1,15 @@
 https://typst.app/docs/reference/model/table/
+https://typst.app/docs/reference/model/table/#definitions-cell
+#show table.cell: it => {
+  if it.body == [] {
+    // Replace empty cells with 'N/A'
+    pad(..it.inset)[_N/A_]
+  } else {
+    it
+  }
+}
+https://typst.app/docs/reference/layout/pad/
+
 https://typst.app/docs/guides/table-guide/
 
 https://blog.jreyesr.com/posts/typst/
