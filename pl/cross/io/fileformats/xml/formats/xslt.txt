@@ -14,6 +14,7 @@ https://www.w3schools.com/XML/xsl_intro.asp
 
 samples
   <xsl:variable name="someVar">
+    <xsl:value-of select="ancestor::*[contains(@class,' some/class')][last()]/@id"/>
     <xsl:value-of select="ancestor::*[contains(@class,' some/class')][1]/@id"/>
     <!--
     <xsl:value-of select="."/>
