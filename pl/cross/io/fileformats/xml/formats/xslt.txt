@@ -11,3 +11,16 @@ https://learn.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/ms25
 https://saxon.sourceforge.net/saxon7.5/xsl-elements.html
 https://www.w3schools.com/XML/xsl_intro.asp
     https://www.w3schools.com/XML/ref_xsl_el_with-param.asp
+
+samples
+  <xsl:variable name="someVar">
+    <xsl:value-of select="ancestor::*[contains(@class,' some/class')][1]/@id"/>
+    <!--
+    <xsl:value-of select="."/>
+    <xsl:value-of select="node()"/>
+    <xsl:value-of select="@id"/>
+    <xsl:value-of select="name()"/>
+    <xsl:value-of select="local-name(.)"/>
+    <xsl:value-of select="parent::*/@class"/>
+    -->
+  </xsl:variable>
