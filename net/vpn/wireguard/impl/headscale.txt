@@ -3,7 +3,16 @@ https://tailscale.com/
 https://github.com/juanfont/headscale
 https://github.com/ifargle/headscale-webui
 
+2024
+Tailscale - A deep dive into using Tailscale with Docker 0:00 of 31:57
+    https://www.youtube.com/watch?v=tqvvZhGrciQ
+    https://github.com/tailscale-dev/docker-guide-code-examples
+    https://tailscale.com/blog/docker-tailscale-guide
+    https://tailscale.com/kb/1282/docker
 2023
+JimGarage - Self Host Tailscale with Headscale - How To Setup 0:00 of 21:50
+    https://www.youtube.com/watch?v=OECp6Pj2ihg
+    https://github.com/JamesTurland/JimsGarage/tree/main/Headscale
 AwesomeOpenSource - Headscale - Open Source, Self Hosted Wireguard Control Server for your Tailscale Network! of 47:37
     https://www.youtube.com/watch?v=OKwrfmMoAk0
     ! incl nginx proxy
