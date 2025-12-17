@@ -45,6 +45,7 @@ https://www.baeldung.com/linux/ipv6-routing-default-route-gateway
     sudo ip -6 route del default via fe80::1 dev enp4s0
 
 2025
+https://habr.com/ru/companies/ruvds/articles/973876/
 Otus - IPv6 for Network Engeneers 0:00 of 3:24:51
     https://www.youtube.com/watch?v=u5oX92o62Cg
 https://www.reddit.com/r/ipv6/comments/1o7zet4/chrome_extension_for_even_faster_ipv6_test/
