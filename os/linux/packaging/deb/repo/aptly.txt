@@ -1,0 +1,103 @@
+https://www.aptly.info/
+https://github.com/aptly-dev/aptly
+
+***********************************************
+Забавная история случилась с моим репозиторием для ELK Stack. Специально расположил его на VPS, арендованном в USA, чтобы было удобнее скачивать новые пакеты и обновлять репозитории. И вот на днях решил в очередной раз его обновить и очень удивился, когда не смог ничего скачать по свежим ссылкам. Получал ERROR 403: Forbidden. Проверил на другом иностранном сервере, скачал без проблем. То есть мой VPS забанили. Не понятно, в рамках чего это было сделано. Кто-то стуканул или какая-то другая причина. Обновлял я в ручном режиме и запросами не спамил. IP (188.227.57.126) по всем базам сшашный. 
+
+Пришлось через другой сервер качать и обновлять репозиторий. Теперь его можно и в Россию вернуть. Один фиг качать через прокладки придётся. Я там всю структуру переделал, добавив сразу Debian 11 и 12, чтобы удобнее было. Настроил всё с помощью aptly, так что сразу кратко все команды приведу, а то постоянно забываю и приходится каждый раз в документацию лезть, когда с ним работаешь. 
+
+Ставим:
+# apt install aptly
+
+Конфиг /etc/aptly.conf:
+{
+ "rootDir": "/mnt/aptly",
+ "downloadConcurrency": 4,
+ "downloadSpeedLimit": 0,
+ "architectures": [],
+ "dependencyFollowSuggests": false,
+ "dependencyFollowRecommends": false,
+ "dependencyFollowAllVariants": false,
+ "dependencyFollowSource": false,
+ "dependencyVerboseResolve": false,
+ "gpgDisableSign": false,
+ "gpgDisableVerify": false,
+ "gpgProvider": "gpg",
+ "downloadSourcePackages": false,
+ "skipLegacyPool": true,
+ "ppaDistributorID": "elastic",
+ "ppaCodename": "",
+ "FileSystemPublishEndpoints": {
+ "elastic": {
+  "rootDir": "/mnt/aptly",
+  "linkMethod": "symlink",
+  "verifyMethod": "md5"
+ }
+ },
+ "enableMetricsEndpoint": false
+}
+
+Под репы выделил каталог /mnt/aptly. Создаём 2 репозитория:
+# aptly repo create -comment="Elastic repo" -component="main" \
+-distribution="bullseye" -architectures="amd64" elastic-bullseye
+# aptly repo create -comment="Elastic repo" -component="main" \
+-distribution="bookworm" -architectures="amd64" elastic-bookworm
+
+Добавляем туда пакеты:
+# aptly repo add elastic-bullseye elasticsearch-8.9.2-amd64.deb
+.......
+
+# aptly repo add elastic-bookworm elasticsearch-8.9.2-amd64.deb
+.......
+
+Создаю gpg ключ для репозиториев:
+# gpg --default-new-key-algo rsa4096 --gen-key --keyring pubring
+
+Публикую репозитории:
+# aptly publish repo elastic-bullseye
+# aptly publish repo elastic-bookworm
+
+В директории /mnt/aptly появляются две директории: db, public. Ту, что public, надо опубликовать через web сервер. Вот мой конфиг nginx:
+
+server {
+  listen 80 default_server;
+  server_name elasticrepo.serveradmin.ru;
+  root /mnt/aptly/public/;
+  access_log /var/log/nginx/aptly-access.log main;
+  error_log /var/log/nginx/aptly-error.log;
+
+  location / {
+   autoindex on;
+  }
+}
+
+Осталось положить ключ в публичную директорию:
+# gpg --export --armor > /mnt/repo/public/elastic.asc
+
+На этом всё. Запускаем веб сервер и подключаем репозитории к системам:
+# echo "deb http://elasticrepo.serveradmin.ru bullseye main" \
+| tee /etc/apt/sources.list.d/elasticrepo.list
+
+# echo "deb http://elasticrepo.serveradmin.ru bookworm main" \
+| tee /etc/apt/sources.list.d/elasticrepo.list
+
+Устанавливаем ключ: 
+# wget -qO - http://elasticrepo.serveradmin.ru/elastic.asc | apt-key add -
+
+На Debian 12 увидите предупреждение, что apt-key is deprecated, но это не критично. Теперь можно обновлять репозитории и устанавливать из них пакеты. 
+
+Если нужно добавить пакеты, то делаем так:
+# aptly repo add elastic-bullseye elasticsearch-9.0.0-amd64.deb
+# aptly publish update bullseye
+
+Если надо удалить пакет:
+# aptly repo remove elastic-bullseye elasticsearch_8.5.2_amd64
+# aptly publish update bullseye
+# aptly db cleanup
+
+Ещё полезные команды aptly:
+# aptly repo list
+# aptly package search logstash
+# aptly repo show -with-packages elastic-bullseye
+
+#debian #elk #aptly
