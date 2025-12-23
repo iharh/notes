@@ -2,9 +2,11 @@ https://plugins.jetbrains.com/plugin/1800-database-navigator
   ! check later
   ?no mssql
 
+https://bitbucket.org/dancioca/dbn/src/master/
 https://github.com/explyt/dbn
     settings -> plugins -> Manage Plugin Repositories...
     add https://repository.explyt.dev/
+https://database-navigator.atlassian.net/issues/?filter=-4&jql=status%20in%20%28New%2C%20Open%29%20ORDER%20BY%20createdDate%20DESC
 
 2025
 https://habr.com/ru/companies/explyt/news/867758/
