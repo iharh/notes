@@ -19,5 +19,7 @@ dhclient -v eth0
 
 ip addres send for some period of time (but remembers at the cache)
 
+2025
+https://thecode.media/protokol-dhcp/
 2023
 https://habr.com/ru/companies/yandex/articles/774462/
