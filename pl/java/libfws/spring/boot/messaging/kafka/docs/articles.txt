@@ -1,0 +1,43 @@
+2024
+https://www.baeldung.com/spring-kafka
+    @KafkaListenerAnnotation has containerFactory attribute
+Programming Techie - Spring Boot Microservices Tutorial Part 11 - Integrating Kafka with Schema Registry 0:00 of 58:42
+    https://www.youtube.com/watch?v=BObDQv_sCb4
+https://javatechonline.com/how-to-work-with-apache-kafka-in-spring-boot/
+https://habr.com/ru/articles/797049/
+    testing
+    https://habr.com/ru/articles/781812/
+https://medium.com/ing-tech-romania/implementing-a-basic-kafka-producer-and-consumer-using-spring-boot-spring-kafka-and-avro-schema-2b6d06e6c4cf
+2023
+https://habr.com/ru/companies/slurm/articles/772818/
+    @Bean
+    public KafkaTemplate<String, String> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory()); // can have multiple producer factories
+    }
+    RoutingKafkaTemplate
+https://medium.com/simform-engineering/kafka-integration-made-easy-with-spring-boot-b7aaf44d8889
+    https://nuancesprog.ru/p/19474/
+https://blog.devgenius.io/consume-the-same-data-with-different-consumer-groups-in-kafka-spring-boot-e7ba8cce31df
+    https://nuancesprog.ru/p/19547/
+https://www.baeldung.com/spring-kafka-multiple-listeners-same-topic
+https://www.baeldung.com/spring-retry-kafka-consumer
+    https://github.com/eugenp/tutorials/tree/master/spring-kafka-2
+2022
+https://piotrminkowski.com/2022/01/24/distributed-transactions-in-microservices-with-kafka-streams-and-spring-boot/
+    https://github.com/piomin/sample-spring-kafka-microservices
+https://betterprogramming.pub/kafka-with-java-spring-and-docker-asynchronous-communication-between-microservices-e1d00e120831
+    https://habr.com/ru/company/otus/blog/663264/
+2021
+https://spring.io/blog/2021/02/03/demystifying-spring-cloud-stream-producers-with-apache-kafka-partitions
+2020
+https://reflectoring.io/spring-boot-kafka/
+https://www.confluent.io/blog/apache-kafka-spring-boot-application/
+https://arnoldgalovics.com/fault-tolerant-and-reliable-messaging-with-kafka-and-spring-boot/
+https://habr.com/ru/post/505720/
+https://habr.com/ru/company/megafon/blog/504422/
+https://habr.com/ru/post/496182/
+2019
+https://www.confluent.io/blog/spring-for-apache-kafka-deep-dive-part-2-apache-kafka-spring-cloud-stream
+https://www.confluent.io/blog/spring-for-apache-kafka-deep-dive-part-1-error-handling-message-conversion-transaction-support
+2018
+https://www.javacodegeeks.com/2018/03/spring-cloud-stream-kafka.html
