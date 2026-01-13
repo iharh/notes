@@ -1,14 +1,43 @@
 https://obsproject.com/
+
 https://github.com/obsproject/obs-studio
 
 https://flathub.org/apps/details/com.obsproject.Studio
+
+inst
+https://linuxcapable.com/install-obs-studio-fedora-linux/
+https://obsproject.com/download#linux
+dnf/obs-studio
+
+plugins
+obs-studio-plugin-browser
+obs-studio-plugin-distroav
+obs-studio-plugin-droidcam
+obs-studio-plugin-vlc-video
+obs-studio-plugin-webkitgtk
+obs-studio-plugin-x264
+
+files
+/usr/bin/
+  obs
+  obs-ffmpeg-mux
+  obs-nvenc-test
+/usr/share/obs/obs-plugins/
+/usr/share/doc/obs-studio/README.rst
+
+menu
+    tools
+    settings -> output -> recording
 
 whatsnew
 https://9to5linux.com/obs-studio-27-2-1-improves-camera-support-and-pipewire-capture-on-linux
 https://www.opennet.ru/opennews/art.shtml?num=56692
 
 misc
+https://obsproject.com/kb/quick-start-guide
 https://obsproject.ru/obs-studio-kak-zapisy-vat-video-s-e-krana/
+
+????
 https://www.youtube.com/watch?v=9WukPh82A6U
 https://www.youtube.com/watch?v=FCk_1DGr1_s
 https://www.youtube.com/watch?v=z8IrwqQjxrE
