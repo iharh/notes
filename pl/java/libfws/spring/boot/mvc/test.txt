@@ -6,6 +6,8 @@ https://docs.spring.io/spring-framework/reference/testing/mockmvc/assertj/setup.
 https://docs.spring.io/spring-framework/reference/testing/mockmvc/assertj/requests.html
 
 2025
+https://rieckpil.de/how-to-test-spring-boot-web-controller-the-right-way/
+    https://habr.com/ru/companies/spring_aio/articles/892194/
 DanVega - MockMvcTester vs RestTestClient: Which one Should You Use in Spring Boot 4? 0:00 of 20:46
     www.youtube.com/watch?v=xWcqvrpj2PM
     https://github.com/danvega/mock-vs-rest
