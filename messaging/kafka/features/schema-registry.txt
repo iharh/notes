@@ -35,3 +35,7 @@ https://medium.com/swlh/exploit-apache-kafkas-message-format-to-save-storage-and
 https://www.confluent.io/blog/decoupling-systems-with-apache-kafka-schema-registry-and-avro/
 2017
 https://medium.com/@stephane.maarek/introduction-to-schemas-in-apache-kafka-with-the-confluent-schema-registry-3bf55e401321
+
+samples
+https://www.reddit.com/r/niri/comments/1qcm5cd/not_really_a_guide_to_setup_dolphin_kde_file/
+    https://github.com/mathias82/kafka-schema-registry-spring-demo

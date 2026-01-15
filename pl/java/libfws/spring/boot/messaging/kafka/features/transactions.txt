@@ -2,3 +2,56 @@ https://spring.io/blog/2023/09/28/producer-initiated-transactions-in-spring-clou
 https://spring.io/blog/2023/09/27/introduction-to-transactions-in-spring-cloud-stream-kafka-applications
 https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/
 https://www.confluent.io/blog/transactions-apache-kafka/
+
+***********************************
+Разберём практическую реализацию транзакций на конкретном примере.
+
+1️⃣ Конфигурация продюсера
+
+propertiesspring.kafka.producer.properties.enable.idempotence=true
+spring.kafka.producer.properties.transactional.id=order-service-${random.value}-
+
+2️⃣ Конфигурация консьюмера
+
+propertiesspring.kafka.consumer.isolation-level=read_committed
+
+3️⃣ Добавляем TransactionManager
+
+@Bean
+public KafkaTransactionManager<String, Object> kafkaTransactionManager(
+        ProducerFactory<String, Object> producerFactory
+) {
+    return new KafkaTransactionManager<>(producerFactory);
+}
+
+4️⃣ Используем @Transactional
+
+@Transactional
+public void publishOrderResult(OrderRequest request) {
+    String orderId = UUID.randomUUID().toString();
+    OrderPlacedEvent event = new OrderPlacedEvent(
+        orderId, 
+        request.email(), 
+        request.productName()
+    );
+    
+    kafkaTemplate.send("order-placed", orderId, event);
+    kafkaTemplate.send("order-audit", orderId, event);
+    // Обе отправки атомарны — либо обе успешны, либо обе откатятся
+}
+
+⚠️ Важно: если в приложении есть и Kafka и JPA TransactionManager:
+
+Вариант 1 — пометить как @Primary:
+
+@Primary
+@Bean
+public KafkaTransactionManager<String, Object> kafkaTransactionManager(...) {...}
+
+Вариант 2 — явно указать:
+
+@Transactional("kafkaTransactionManager")
+public void publishOrderResult(...) {...}
+
+⚠️ В большинстве систем дедупликация и идемпотентность — более простое и эффективное решение.
+***********************************
