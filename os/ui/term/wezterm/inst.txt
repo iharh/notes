@@ -29,5 +29,7 @@ dpkg -L wezterm
 issues
 f43
 https://github.com/wezterm/wezterm/issues/7502
+    https://github.com/wezterm/wezterm/pull/7395
     https://github.com/wezterm/wezterm/pull/7488
+    https://github.com/wezterm/wezterm/pull/7505/files
     sudo dnf -y install --refresh wezterm-common wezterm-gui wezterm-mux-server
