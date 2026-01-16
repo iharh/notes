@@ -5,33 +5,5 @@ https://wezfurlong.org/wezterm/features.html
 https://wezfurlong.org/wezterm/config/files.html
 https://wezfurlong.org/wezterm/config/lua/config/index.html
 
-https://wezfurlong.org/wezterm/install/linux.html#__tabbed_1_3
-https://github.com/wez/wezterm/releases/download/20230712-072601-f4abf8fd/wezterm-20230712-072601-f4abf8fd.Ubuntu20.04.deb
-    curl -LO https://github.com/wez/wezterm/releases/download/20230712-072601-f4abf8fd/wezterm-20230712-072601-f4abf8fd.Ubuntu20.04.deb
-    sudo apt install ./wezterm-20230712-072601-f4abf8fd.Ubuntu20.04.deb
-corp
-    sudo dnf copr enable wezfurlong/wezterm-nightly
-    sudo dnf install wezterm
-fedora
-    https://gist.github.com/xpando/7696a3946e1193b3d5ba0a0261cf1ba0
-        wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora39.rpm ~/Downloads/wezterm-nightly-fedora39.rpm && sudo dnf install -y ~/Downloads/wezterm-nightly-fedora39.rpm
-mac
-    brew install --HEAD wezterm
-
-dpkg -L wezterm
-/etc
-/etc/profile.d
-/etc/profile.d/wezterm.sh
-/usr
-/usr/share
-/usr/share/applications
-/usr/share/applications/org.wezfurlong.wezterm.desktop
-/usr/bin
-/usr/bin/strip-ansi-escapes
-/usr/bin/open-wezterm-here
-/usr/bin/wezterm-gui
-/usr/bin/wezterm-mux-server
-/usr/bin/wezterm
-
 2023
 https://coffee-web.ru/blog/get-the-most-out-of-your-terminal-a-comprehensive-guide-to-wezterm-configuration/

@@ -1,0 +1,33 @@
+https://wezterm.org/install/linux.html#installing-on-fedora-and-rpm-based-systems
+    https://github.com/wezterm/wezterm/releases/download/nightly/
+    https://github.com/wezterm/wezterm/releases/download/nightly/wezterm-nightly-fedora41.rpm
+
+corp
+    sudo dnf copr enable wezfurlong/wezterm-nightly
+    sudo dnf install wezterm
+fedora
+    https://gist.github.com/xpando/7696a3946e1193b3d5ba0a0261cf1ba0
+        wget https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly-fedora39.rpm ~/Downloads/wezterm-nightly-fedora39.rpm && sudo dnf install -y ~/Downloads/wezterm-nightly-fedora39.rpm
+mac
+    brew install --HEAD wezterm
+
+dpkg -L wezterm
+/etc
+/etc/profile.d
+/etc/profile.d/wezterm.sh
+/usr
+/usr/share
+/usr/share/applications
+/usr/share/applications/org.wezfurlong.wezterm.desktop
+/usr/bin
+/usr/bin/strip-ansi-escapes
+/usr/bin/open-wezterm-here
+/usr/bin/wezterm-gui
+/usr/bin/wezterm-mux-server
+/usr/bin/wezterm
+
+issues
+f43
+https://github.com/wezterm/wezterm/issues/7502
+    https://github.com/wezterm/wezterm/pull/7488
+    sudo dnf -y install --refresh wezterm-common wezterm-gui wezterm-mux-server
