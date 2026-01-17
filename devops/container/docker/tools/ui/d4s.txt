@@ -1,0 +1,11 @@
+https://d4scli.io/
+https://github.com/jr-k/d4s
+
+https://d4scli.io/#installation
+
+https://github.com/jr-k/d4s/releases
+FILE="${BINARY}_${VERSION}_${OS}_${ARCH}"
+https://github.com/jr-k/d4s/releases/download/$TAG/$FILE
+
+curl -fsSL https://d4scli.io/install.sh | sh
+docker run --rm --pull always -it -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/jr-k/d4s:latest
