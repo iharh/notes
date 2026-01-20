@@ -1,0 +1,25 @@
+https://github.com/Azure/Azurite
+https://www.npmjs.com/package/azurite
+
+https://learn.microsoft.com/en-us/azure/storage/blobs/use-azurite-to-run-automated-tests
+https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite
+https://learn.microsoft.com/en-us/azure/storage/common/storage-install-azurite?tabs=visual-studio%2Cblob-storage
+https://learn.microsoft.com/en-us/azure/cosmos-db/emulator
+https://learn.microsoft.com/en-us/previous-versions/sql/azure-sql/database/local-dev-experience-sql-database-emulator?view=sql-server-ver16
+https://learn.microsoft.com/en-us/azure/service-bus-messaging/test-locally-with-service-bus-emulator?tabs=docker-linux-container
+https://learn.microsoft.com/en-us/azure/event-hubs/overview-emulator
+https://microsoft.github.io/code-with-engineering-playbook/automated-testing/tech-specific-samples/blobstorage-unit-tests/
+
+https://hub.docker.com/r/microsoft/azure-storage-azurite
+? other
+
+https://marketplace.visualstudio.com/items?itemName=Azurite.azurite
+
+https://learnautomatedtesting.com/course/azure-dureable-functions-and-testing-with-azurite/module-3-using-azurite-for-local-testing/lesson-1-installing-and-configure-azurite/
+
+2025
+https://medium.com/@ekondur/getting-started-with-azurite-the-local-azure-storage-emulator-every-developer-should-know-5f4849ccc16a
+2024
+https://kvd.studio/blog/azurite
+https://commandmasters.com/commands/azurite-common/
+https://medium.com/@josephsims1/emulating-azure-services-locally-for-development-and-testing-dc5d43d40170
