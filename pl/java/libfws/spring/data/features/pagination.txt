@@ -1,3 +1,7 @@
+2026
+JavaTechie - Ultra-Fast Pagination in Spring Boot | Production-Ready Keyset 0:00 of 25:55
+    https://www.youtube.com/watch?v=MOu-5B-UpCU
+
 https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/PageRequest.html
 https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/Pageable.html
     ofSize(pageSize) - first page...
@@ -37,3 +41,4 @@ https://reflectoring.io/spring-boot-paging/
 
     @PagableDefault
     @SortDefault
+
