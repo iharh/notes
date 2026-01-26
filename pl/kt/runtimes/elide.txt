@@ -1,0 +1,6 @@
+https://elide.dev/
+https://github.com/elide-dev/elide
+
+2026
+https://www.reddit.com/r/Kotlin/comments/1qn0oj4/elide_runs_kotlin_scripts_36x_faster_than_kotlinc/
+    https://github.com/elide-dev/elide/blob/main/packages/graalvm-kt/src/main/kotlin/elide/runtime/plugins/kotlin/shell/GuestKotlinEvaluator.kt#L137
