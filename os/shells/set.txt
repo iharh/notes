@@ -1,3 +1,5 @@
+https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425
+
 2015
 https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
     ! set -euxo pipefail
