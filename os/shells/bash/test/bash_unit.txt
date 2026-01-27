@@ -1,2 +1,15 @@
-https://github.com/pgrange/bash_unit
-https://github.com/pgrange/bash_unit/tree/master/getting_started
+https://github.com/bash-unit/bash_unit/
+
+https://github.com/bash-unit/getting_started/
+
+assert_fails "ls /data/" "there should not exist /data"
+assert_fails "./check.sh" "check should fail"
+
+stacktrace() {
+  local i=1
+  while [ -n "${BASH_SOURCE[$i]:-}" ]
+  do
+    echo "${BASH_SOURCE[$i]}:${BASH_LINENO[$((i-1))]}:${FUNCNAME[$i]}()"
+    i=$((i + 1))
+  done | "$GREP" -v "^$BASH_SOURCE"
+}
