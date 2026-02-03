@@ -2,6 +2,7 @@ DDR5: 1200 bin
 RYZ7:  854 bin
 CASE:  360 bin
 
+
 In Win BL067 300W 6143980 
 https://catalog.onliner.by/chassis/inwin/61439806143980
     ! 360 bin, my, 300W
@@ -20,7 +21,10 @@ https://catalog.onliner.by/motherboard/gigabyte/b850mds3h
 
 AMD Ryzen 7 8700G (BOX)
 https://catalog.onliner.by/cpu/amd/ryzen78700g
-    ! 854 bin, 2024y
+    ! 875 bin, 2024y
+cheap Ryzen: 7600X3D
+    https://catalog.onliner.by/cpu/amd/100000001721
+    ??? worse than 8700G
 
 
 96G 2x48
