@@ -39,9 +39,26 @@ https://forums.docker.com/t/how-to-mount-a-docker-volume-so-as-writeable-by-a-no
 https://stackoverflow.com/questions/62232676/docker-local-volume-driver-options
     docker run --rm -it -u 1000:1000 --mount source=ubuntu-test,target=/home/ubuntu/m2,volume-driver=local,volume-opt=o=uid=1000 ubuntu bash
 
+    docker run --mount type=volume,src=<volume-name>,dst=<mount-path>
+
 Local:
 https://github.com/CWSpear/local-persist
 
 Convoy:
 https://github.com/rancher/convoy
 http://rancher.com/introducing-convoy-a-docker-volume-driver-for-backup-and-recovery-of-persistent-data/
+
+bindfs
+https://bindfs.org/
+https://github.com/mpartel/bindfs
+    sudo bindfs --map=1001/2001 /host/path /tmp/mapped
+    This makes files owned by UID 1001 appear as UID 2001 in /tmp/mapped.
+
+/etc/docker/daemon.json
+    "userns-remap"
+     "userns-remap": "dockeruser:dockergroup"
+    ??? to run default containers by dockeruser/dockergroup
+
+    The "userns-remap" option in /etc/docker/daemon.json is a Docker daemon configuration setting that enables user namespaces for containers.
+    User namespaces allow Docker to map user and group IDs inside the container to different IDs on the host, 
+    enhancing security by isolating container users from host users.
