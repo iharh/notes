@@ -1,3 +1,7 @@
+2026
+https://openjdk.org/projects/amber/design-notes/beyond-records
+    https://habr.com/ru/companies/spring_aio/articles/995824/
+
 ***************************************
 Сколько раз вы создавали класс просто чтобы "перенести данные" из точки А в точку Б?
 Вы пишете 3 поля, а потом IDE генерирует вам 50 строк кода: конструктор, геттеры, equals, hashCode, toString... 🤯
