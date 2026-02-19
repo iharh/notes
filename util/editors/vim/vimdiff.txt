@@ -1,1 +1,4 @@
 exec /usr/bin/nvim -d "$@"
+
+cheatsheet
+https://devhints.io/vim-diff
