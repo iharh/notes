@@ -2,3 +2,5 @@ exec /usr/bin/nvim -d "$@"
 
 cheatsheet
 https://devhints.io/vim-diff
+]c  next diff
+[c  prev diff
