@@ -9,7 +9,11 @@ https://htmx.org/reference/
 SurenHorenyan - HTMX of p1
     https://www.youtube.com/playlist?list=PLYnH8mpFQ4ak-OWaigTVT17EC7UQ8OzRf
 2024
-ListenIT - HTMX in 13 min 6:00 of 13:48
+Larchenko - HTMX of 18:30
+    https://www.youtube.com/watch?v=Etsa5LSuWSk
+    ! hx-swap="beforeend|outerHTML|..."
+    ! hx-target=".<class>"
+ListenIT - HTMX in 13 min of 13:48
     https://www.youtube.com/watch?v=vgAKrggD0vQ
     https://skillbox.ru/media/code/htmx-chto-eto-za-biblioteka-i-pochemu-ona-mozhet-vytesnit-vue-i-react/
 UWDC - Zolotyh - HTMX on Practice 0:00 of 37:29
