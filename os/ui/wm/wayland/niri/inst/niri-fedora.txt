@@ -1,3 +1,11 @@
+https://niri-wm.github.io/niri/Getting-Started.html
+sudo dnf install niri 
+sudo dnf copr enable avengemedia/dms
+sudo dnf install dms
+systemctl --user add-wants niri.service dms
+?
+niri-session
+
 https://github.com/abbesm0hamed/dofs
 https://github.com/abbesm0hamed/dofs/tree/fedora-niri/home/.config/niri
 https://github.com/abbesm0hamed/dofs/blob/fedora-niri/home/.config/niri/config.kdl
