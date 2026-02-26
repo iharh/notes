@@ -1,4 +1,9 @@
 https://github.com/hyprwm/Hyprland/discussions/12500
+    https://github.com/solopasha/hyprlandRPM/issues/46
+    https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/package/hyprland/
+    https://copr-dist-git.fedorainfracloud.org/packages/solopasha/hyprland/hyprland.git/tree/
+    https://github.com/hyprwm/Hyprland/discussions/284
+    https://copr.fedorainfracloud.org/coprs/solopasha/hyprland
 
 [1/2] liberation-fonts-all-1:2.1.5-14.fc43.noarch                                                                                                              100% |  46.6 KiB/s |   7.9 KiB |  00m00s
 [2/2] google-chrome-stable-0:145.0.7632.116-1.x86_64                                                                                                           100% |  10.6 MiB/s | 118.7 MiB |  00m11s
