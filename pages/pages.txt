@@ -1,4 +1,7 @@
 https://github.com/hyprwm/Hyprland/discussions/12500
+    https://copr.fedorainfracloud.org/coprs/lionheartp/Hyprland/
+    sudo dnf copr remove solopasha/hyprland
+    sudo dnf copr enable lionheartp/Hyprland
     https://github.com/solopasha/hyprlandRPM/issues/46
     https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/package/hyprland/
     https://copr-dist-git.fedorainfracloud.org/packages/solopasha/hyprland/hyprland.git/tree/
