@@ -2,3 +2,49 @@
 https://overcast.blog/13-kubernetes-tricks-you-didnt-know-647de6364472
 2020
 https://blog.pipetail.io/posts/2020-05-04-most-common-mistakes-k8s/
+
+*****************************************
+1. Не включён livenessProbe и readinessProbe  
+Без этих пробы Kubernetes не понимает, когда перезапустить контейнер или исключить под из сервисов. В итоге — трафик идёт в мёртвые инстансы, а ты ловишь 500-е.  
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 3
+  periodSeconds: 10
+
+
+2. resources.requests и limits не заданы  
+Если не выставить ресурсы, поды будут жрать всё подряд, а kube-scheduler может завалить ноды. Определи baseline и поставь лимиты с запасом:  
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+
+3. Один replica на под в проде  
+Если у тебя только один реплика, ты не в HA. Любая перезагрузка = даунтайм. Минимум две — лучше три.
+
+4. latest тег образа  
+image: myapp:latest — это лотерея. K8s не знает, что образ поменялся, и не перезапускает поды. Используй versioned теги (`v1.2.3`) или внедри CI, который автоматически делает новый тег и rollout.
+
+5. Нет ограничений по PodDisruptionBudget  
+Без PDB можно случайно прибить все поды при drain'е ноды или апдейте. Добавь минимум 1 живой под:  
+
+minAvailable: 1
+
+
+6. Логи в /var/log или вообще stdout игнорируется  
+Всё, что не идёт в stdout/stderr, теряется. Используй sidecar'ы или shipper'ы типа Fluent Bit, если хочешь нормальный логинг.
+
+7. Секреты хранятся в plaintext в Git  
+Kubernetes Secret — это base64, а не шифрование. Либо используй sealed-secrets, либо интеграцию с HashiCorp Vault, SOPS или AWS KMS.
+
+
+Вывод:  
+Даже базовые настройки могут сыграть злую шутку, если их игнорировать. Сделай себе шаблон Helm-чарта или Kustomize-паттерн, в котором всё это будет по умолчанию. И не забудь периодически пересматривать best practices — K8s развивается 🔄
