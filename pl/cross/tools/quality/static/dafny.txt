@@ -1,5 +1,21 @@
 https://dafny.org/
 
+https://github.com/dafny-lang/dafny
+
+It also compiles Dafny code to familiar development environments such as C#, Java, JavaScript, Go and Python (with more to come) so Dafny can integrate with your existing workflow
+
+ref man
+https://dafny.org/latest/DafnyRef/DafnyRef
+
+books
+2023
+Leino - Program Proofs
+    161b1f05b86dff9c1615c2339abb0590
+    437d90e1f8459b382333934a084c5654
+    edd4405859b15c9fa990a9022531fec8
+    c118bfe2feaba0441df75768a6fe72dc
+    ru is also avail
+
 2023
 https://towardsdatascience.com/nine-rules-to-formally-validate-rust-algorithms-with-dafny-part-2-f2a279686700
 https://towardsdatascience.com/nine-rules-to-formally-validate-rust-algorithms-with-dafny-part-1-5cb8c8a0bb92
