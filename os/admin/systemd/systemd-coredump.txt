@@ -1,3 +1,8 @@
+https://www.man7.org/linux/man-pages/man8/systemd-coredump.8.html
+https://www.man7.org/linux/man-pages/man5/coredump.conf.5.html
+    Storage=
+        /var/lib/systemd/coredump/
+
 apt
     systemd-coredump
 
