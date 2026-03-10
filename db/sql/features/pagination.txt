@@ -1,0 +1,11 @@
+2026
+KirillGrischuk - Effective Pagination 1:00 of 19:33
+    https://www.youtube.com/watch?v=Ug-ECKePR-o
+    https://use-the-index-luke.com/no-offset
+    https://struchkov.dev/blog/ru/seek-method-or-keyset-pagination/
+        https://github.com/Example-uPagge/spring-pagination
+    https://github.com/kirya522/medium-posts/tree/main/general/db/pagination
+    https://github.com/kirya522/medium-posts/blob/main/general/db/pagination/pagination.pdf
+    !       1 - limit/offset
+    ! 08:00 2 - cursor pagination, where id < ...
+    ! 16:00 anchors
