@@ -109,6 +109,8 @@ I've been using Redis wrong this whole time of 20:52
     > SET powerlevel 9001
     ! 1-st - RDB, snapshotting
     ! 2-nd - AOF - append only file (similar to WAL)
+LaravelCreative - Redis Basic Course 0:00 of 43:32
+    https://www.youtube.com/watch?v=pJ--Nn4IbtQ
 2022
 SpringIO - Bootiful multi-model applications with Redis Stack by Brian Sam-Bodden 0:00 of 55:30
     https://www.youtube.com/watch?v=ub-jDOb7jEM
