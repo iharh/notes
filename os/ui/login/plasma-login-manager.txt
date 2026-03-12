@@ -1,0 +1,8 @@
+https://invent.kde.org/plasma/plasma-login-manager
+https://fedoraproject.org/wiki/Changes/PlasmaLoginManager
+
+https://blog.davidedmundson.co.uk/blog/a-roadmap-for-a-modern-plasma-login-manager/
+
+2026
+https://itsfoss.com/news/fedora-44-plasma-login-manager/
+    sudo dnf install plasma-login-manager kcm-plasmalogin

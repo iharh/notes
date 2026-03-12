@@ -1,6 +1,28 @@
 https://en.wikipedia.org/wiki/Fedora_Linux_release_history
 https://fedorapeople.org/groups/schedule/f-41/f-41-all-tasks.html
 
+2026
+44
+https://fedoraproject.org/wiki/Releases/44/ChangeSet
+    https://discussion.fedoraproject.org/t/f44-change-proposal-nix-package-tool-selfcontained/170391
+    https://src.fedoraproject.org/rpms/nix
+    https://fedoraproject.org/wiki/Changes/Nix_package_tool
+        sudo dnf install nix nix-daemon
+        sudo systemctl enable --now nix-daemon
+        or
+        sudo dnf install nix --exclude nix-daemon
+        sudo usermod -aG nixbld $USER
+        or
+        sudo dnf install nix-core nix-legacy
+        https://src.fedoraproject.org/rpms/nix/blob/rawhide/f/examples
+        https://src.fedoraproject.org/rpms/nix/blob/rawhide/f/examples/flake/flake.nix
+        https://src.fedoraproject.org/rpms/nix/blob/rawhide/f/examples/shell/shell.nix
+
+https://fedoramagazine.org/announcing-fedora-linux-44-beta/
+    Introduction of Nix Developer Tool: 
+        This change adds the nix package manager developer tool to Fedora.
+9to5Linux - Don't Miss This! Fedora 44 Beta's Best Features of 10:15
+    https://www.youtube.com/watch?v=qS8Fkbue45Q
 2025
 https://fedoraproject.org/wiki/Releases/43/ChangeSet
     https://fedoramagazine.org/announcing-fedora-linux-43/
