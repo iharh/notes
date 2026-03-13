@@ -1,0 +1,53 @@
+JEP 524 в JDK 26 — второй preview PEM API.
+
+Наконец-то работа с PEM в Java становится похожа на API, а не на набор ручного парсинга, Base64 и странных телодвижений.
+
+Справка: PEM или Privacy-Enhanced Mail - это текстовый контейнер для криптографических данных. Проще говоря – это способ хранить или передавать ключ, сертификат или другой crypto-объект не в бинарном виде, а в текстовом.
+
+Раньше с PEM работали так:
+
+
+String pem = "-----BEGIN PUBLIC KEY-----\n"
+        + Base64.getMimeEncoder(64, "\n".getBytes())
+                .encodeToString(publicKey.getEncoded())
+        + "\n-----END PUBLIC KEY-----";
+
+
+А в обратную сторону, но уже с ручной нормализацией PEM, Base64-декодированием и KeyFactory:
+
+
+String normalized = pem
+        .replace("-----BEGIN PUBLIC KEY-----", "")
+        .replace("-----END PUBLIC KEY-----", "")
+        .replaceAll("\\s", "");
+
+byte[] der = Base64.getDecoder().decode(normalized);
+
+PublicKey key = KeyFactory.getInstance("EC")
+        .generatePublic(new X509EncodedKeySpec(der));
+
+
+По факту PEM в Java долгое время был не отдельным API, а набором низкоуровневых шагов, которые разработчик собирал руками.
+
+А теперь это выглядит так:
+
+
+var encoder = PEMEncoder.of();
+String pem = encoder.encodeToString(keyPair);
+
+var decoder = PEMDecoder.of();
+KeyPair decoded = decoder.decode(pem, KeyPair.class);
+
+
+То есть ключевую пару можно закодировать в PEM и декодировать обратно буквально в несколько строк.
+
+Во втором preview:
+— PEMRecord переименовали в PEM
+— добавили decode()
+— расширили поддержку KeyPair и PKCS8EncodedKeySpec
+— упростили шифрование через EncryptedPrivateKeyInfo
+
+А так, как все это дело еще в preview, не забываем использовать --enable-preview.
+
+Минус еще один кусок криптографической копипасты из Java-кода.
+PEM в Java постепенно перестает быть унылым?
