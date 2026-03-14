@@ -8,3 +8,87 @@ https://blog.devgenius.io/retry-mechanism-in-spring-boot-retryable-and-recover-0
 https://medium.com/@malvin.lok/how-to-retry-third-party-api-elegantly-in-spring-boot-9c1f8a4ce969
 ???
 https://www.tune-it.ru/web/romo/blog/-/blogs/spring-retryable
+
+************
+Spring Retry: повторные попытки с backoff без ручных циклов
+
+Retry-логика руками — источник багов. Неправильный backoff создаёт thundering herd. Spring Retry решает это декларативно.
+
+* Решение
+
+* Зависимость
+
+<dependency>
+    <groupId>org.springframework.retry</groupId>
+    <artifactId>spring-retry</artifactId>
+</dependency>
+
+* Включение и базовое использование
+
+@Configuration
+@EnableRetry
+public class RetryConfig { }
+
+@Service
+public class ExternalApiService {
+
+    @Retryable(
+        retryFor = {IOException.class, HttpServerErrorException.class},
+        noRetryFor = {HttpClientErrorException.class}, // 4xx не ретраим
+        maxAttempts = 4,
+        backoff = @Backoff(
+            delay = 1000,
+            multiplier = 2,
+            maxDelay = 10000,
+            random = true  // jitter для предотвращения thundering herd
+        )
+    )
+    public ApiResponse callExternalApi(ApiRequest request) {
+        return restClient.post()
+            .uri("/api/endpoint")
+            .body(request)
+            .retrieve()
+            .body(ApiResponse.class);
+    }
+
+    @Recover
+    public ApiResponse recover(IOException e, ApiRequest request) {
+        log.error("All retry attempts exhausted for request: {}", request.getId(), e);
+        // fallback логика или выброс бизнес-исключения
+        throw new ExternalServiceUnavailableException(request.getId(), e);
+    }
+}
+
+* Программная конфигурация для сложных случаев
+
+@Bean
+public RetryTemplate retryTemplate() {
+    return RetryTemplate.builder()
+        .maxAttempts(5)
+        .exponentialBackoff(1000, 2, 30000)
+        .retryOn(IOException.class)
+        .withListener(new RetryListenerSupport() {
+            @Override
+            public <T, E extends Throwable> void onError(RetryContext ctx,
+                                                          RetryCallback<T, E> cb,
+                                                          Throwable t) {
+                log.warn("Retry attempt {} failed: {}",
+                    ctx.getRetryCount(), t.getMessage());
+            }
+        })
+        .build();
+}
+
+* Интеграция с Circuit Breaker
+
+@CircuitBreaker(name = "externalApi", fallbackMethod = "circuitFallback")
+@Retryable(retryFor = IOException.class, maxAttempts = 3)
+public ApiResponse callWithProtection(ApiRequest request) {
+    return callExternalApi(request);
+}
+
+Retry отрабатывает до Circuit Breaker. Ошибки после всех попыток засчитываются как один сбой в Circuit Breaker — корректное поведение.
+
+random = true в @Backoff добавляет jitter — случайное смещение задержки. Без jitter все инстансы приложения, получившие ошибку одновременно, будут ретраить синхронно, создавая пики нагрузки на восстанавливающийся сервис. Jitter разбивает пики.
+
+* Ретраить нужно только идемпотентные операции. POST с созданием ресурса без идемпотентного ключа при ретрае создаст дубликаты. Либо добавить Idempotency-Key заголовок, либо не ретраить.
