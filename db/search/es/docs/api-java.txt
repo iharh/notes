@@ -1,0 +1,155 @@
+https://spring.io/projects/spring-data-elasticsearch#samples
+
+
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/clients.html
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/template.html
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/join-types.html
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/misc.html
+    ! search samples
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/repositories/elasticsearch-repositories.html
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/repositories/elasticsearch-repository-queries.html
+https://docs.spring.io/spring-data/elasticsearch/reference/repositories.html
+
+...
+
+https://docs.spring.io/spring-data/elasticsearch/reference/api/java/
+https://docs.spring.io/spring-data/elasticsearch/reference/api/java/index.html
+https://docs.spring.io/spring-data/elasticsearch/reference/api/java/org/springframework/data/elasticsearch/client/elc/NativeQueryBuilder.html
+
+org.springframework.data.elasticsearch.client.elc.rest5_client.Rest5Clients
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/client/elc/rest5_client/package-summary.html
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/client/elc/rest5_client/Rest5Clients.html
+
+https://www.elastic.co/docs/reference/elasticsearch/clients/java/transport/rest5-client
+https://www.elastic.co/docs/reference/elasticsearch/clients/java/transport/rest5-client/usage/initialization
+https://www.elastic.co/docs/reference/elasticsearch/clients/java/transport/rest5-client/usage/requests
+https://www.elastic.co/docs/reference/elasticsearch/clients/java/transport/rest5-client/usage/responses
+https://www.elastic.co/docs/reference/elasticsearch/clients/java/transport/rest5-client/usage/logging
+
+...
+
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/client/package-summary.html
+
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/config/package-summary.html
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/config/ElasticsearchConfigurationSupport.html
+
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/client/elc/package-summary.html
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/client/elc/ElasticsearchConfiguration.html
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/client/elc/ElasticsearchClients.html
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/client/elc/Queries.html
+
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/core/query/BaseQuery.html
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/core/query/CriteriaQuery.html
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/core/query/StringQuery.html
+https://docs.spring.io/spring-data/elasticsearch/docs/current/api/org/springframework/data/elasticsearch/client/elc/NativeQuery.html
+
+...
+
+https://github.com/elastic/elasticsearch-java/
+https://github.com/elastic/elasticsearch-java/tree/main/rest5-client
+https://github.com/elastic/elasticsearch-java/tree/main/rest5-client/src/main/java/co/elastic/clients/transport/rest5_client/low_level
+https://github.com/elastic/elasticsearch-java/blob/main/rest5-client/src/main/java/co/elastic/clients/transport/rest5_client/low_level/Rest5Client.java
+https://github.com/elastic/elasticsearch-java/blob/main/rest5-client/src/main/java/co/elastic/clients/transport/rest5_client/low_level/Rest5ClientBuilder.java
+https://github.com/elastic/elasticsearch-java/blob/main/rest5-client/src/main/java/co/elastic/clients/transport/rest5_client/low_level/Response.java
+
+legacy
+https://www.elastic.co/docs/reference/elasticsearch/clients/java/transport/rest-client
+
+interesting long-reads
+https://www.elastic.co/docs/manage-data/data-store/text-analysis
+
+dsl
+https://www.elastic.co/docs/reference/query-languages/querydsl
+https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-term-query
+
+https://spring.io/projects/spring-data-elasticsearch#learn
+
+
+tutorial
+https://www.cosmiclearn.com/spring_framework/sd_es_intro.php
+https://www.cosmiclearn.com/spring_framework/sd_es_setup.php
+https://www.cosmiclearn.com/spring_framework/sd_es_repositories.php
+https://www.cosmiclearn.com/spring_framework/sd_es_queries.php
+    !
+https://www.cosmiclearn.com/spring_framework/sd_es_aggregations.php
+
+
+2026
+https://www.baeldung.com/elasticsearch-keyword-vs-text
+    https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-elasticsearch-2/src/main/java/com/baeldung/wildcardsearch/ElasticsearchWildcardService.java
+    https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-elasticsearch-2/src/main/java/com/baeldung/wildcardsearch/ElasticsearchConfig.java
+https://www.baeldung.com/elastic-search-termqueries
+https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-data-elasticsearch-2
+https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-elasticsearch-2/pom.xml
+    <spring-data-elasticsearch.version>5.1.2</spring-data-elasticsearch.version>
+https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-elasticsearch-2/src/test/java/com/baeldung/termsqueries/ElasticSearchTermsQueriesManualTest.java
+    import co.elastic.clients.elasticsearch.ElasticsearchClient;
+    import co.elastic.clients.elasticsearch._types.query_dsl.Query;
+    import co.elastic.clients.elasticsearch._types.query_dsl.TermQuery;
+    import co.elastic.clients.elasticsearch.core.SearchRequest;
+https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-elasticsearch-2/src/main/java/com/baeldung/termsqueries/config/ElasticsearchConfiguration.java
+https://github.com/eugenp/tutorials/blob/master/persistence-modules/spring-data-elasticsearch-2/src/main/java/com/baeldung/termsqueries/model/User.java
+2025
+https://www.baeldung.com/java-elasticsearch-wildcard
+
+
+***********************************************
+https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/current/usage.html
+https://www.elastic.co/guide/en/elasticsearch/reference/8.14/rest-apis.html
+https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-client/7.13.0
+
+https://www.found.no/foundation/java-clients-for-elasticsearch/
+http://en.kodcu.com/2013/09/elasticsearch-java-api-2/
+
+JAVA API:
+http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/index.html
+http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/client.html
+https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html
+    !!! Java Transport Client Deprecated
+
+
+tests:
+
+https://github.com/tlrx/elasticsearch-test
+
+
+
+aliases:
+
+https://github.com/tlrx/elasticsearch-test/blob/master/src/test/java/com/github/tlrx/elasticsearch/samples/indices/AliasesTest.java
+
+
+action.admin.indices.alias.IndicesAliasesRequest
+  extends AcknowledgedRequest<IndicesAliasesRequest> implements IndicesRequest
+
+
+You're not waiting until the bulk request finishes. If you call execute() without actionGet(), you end up running asynchronously.
+Which means you will start changing aliases and deleting indexes before the new index is completely built.
+
+client.admin().indices().aliases(new IndicesAliasesRequest().removeAlias(currentIndexName, "my_index").addAlias("my_index", newIndexName)).get();
+
+This should be ended with execute().actionGet() and not get(). that is probably why your alias is not getting set
+
+I can only do .actionGet() , .execute() is no method in IndicesAdminClient.java .
+Nevertheless, I would somehow like to do that re-aliasing asynchronously but only after the re-indexing is done completely without errors.
+But I haven't found a way to do that yet.
+
+action.admin.indices.alias.get.GetAliasRequest
+
+
+index:
+
+action.support.IndicesOption
+  allowAliasesToMultipleIndices ?
+
+action.IndicesRequest
+  .Replaceable
+
+action.admin.indices.delete.DeleteIndexRequest
+  extends MasterNodeOperationRequest<DeleteIndexRequest> implements IndicesRequest.Replaceable
+
+bulk indexing:
+
+http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/master/bulk.html
+
