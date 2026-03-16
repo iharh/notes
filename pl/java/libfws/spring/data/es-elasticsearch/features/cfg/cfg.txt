@@ -1,0 +1,449 @@
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/clients.html
+    @Configuration
+    public class MyClientConfig extends ElasticsearchConfiguration {
+      @Override
+      public ClientConfiguration clientConfiguration() {
+        return ClientConfiguration.builder()           
+          .connectedTo("localhost:9200")
+          .build();
+      }
+    }
+
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/object-mapping.html
+
+https://docs.spring.io/spring-data/elasticsearch/reference/repositories/core-concepts.html
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/repositories/elasticsearch-repositories.html
+
+https://docs.spring.io/spring-data/elasticsearch/reference/elasticsearch/template.html
+
+https://www.elastic.co/docs/reference/elasticsearch/clients/java/transport/rest5-client
+https://www.elastic.co/docs/reference/elasticsearch/clients/java/transport/rest5-client/usage/logging
+
+!!!
+https://www.elastic.co/docs/release-notes/elasticsearch/clients/java/9-0-0
+https://www.elastic.co/docs/release-notes/elasticsearch/clients/java/9-0-4
+  ...
+  Rest5ClientBuilder builder = Rest5Client
+    .builder(new HttpHost("localhost", 9200))
+    .setHttpClientConfigCallback(c -> c
+        .setIOReactorConfig(IOReactorConfig.custom()
+            .setIoThreadCount(1).build()
+        )
+    );
+
+auto-config
+https://docs.spring.io/spring-boot/api/java/org/springframework/boot/elasticsearch/autoconfigure/ElasticsearchRestClientAutoConfiguration.html
+
+properties
+https://docs.spring.io/spring-boot/api/java/org/springframework/boot/elasticsearch/autoconfigure/ElasticsearchProperties.html
+
+rg getRest5Client
+
+client/elc/ReactiveElasticsearchConfiguration.java
+66:             return Rest5Clients.getRest5Client(clientConfiguration);
+
+client/elc/ElasticsearchClients.java
+190:            return createImperative(getRest5Client(clientConfiguration), null, DEFAULT_JSONP_MAPPER);
+204:            return createImperative(getRest5Client(clientConfiguration), transportOptions, DEFAULT_JSONP_MAPPER);
+351:            Rest5ClientOptions.Builder rest5ClientOptionsBuilder = getRest5ClientOptionsBuilder(transportOptions);
+
+
+
+org.springframework.data.elasticsearch.config.ElasticsearchConfigurationSupport
+// document scan, entities, entity-mappers, converters
+
+org.springframework.data.elasticsearch.client.elc.ElasticsearchConfiguration
+public abstract class ElasticsearchConfiguration extends ElasticsearchConfigurationSupport {
+
+	/**
+	 * Must be implemented by deriving classes to provide the {@link ClientConfiguration}.
+	 *
+	 * @return configuration, must not be {@literal null}
+	 */
+	@Bean(name = "elasticsearchClientConfiguration")
+	public abstract ClientConfiguration clientConfiguration();
+
+	@Bean
+	public Rest5Client elasticsearchRest5Client(ClientConfiguration clientConfiguration) {
+		Assert.notNull(clientConfiguration, "clientConfiguration must not be null");
+		return Rest5Clients.getRest5Client(clientConfiguration);                      // !!! 1
+	}
+  ...
+}
+
+
+https://github.com/spring-projects/spring-data-elasticsearch/blob/main/src/main/java/org/springframework/data/elasticsearch/client/ClientConfiguration.java
+  ...
+  static ClientConfigurationBuilderWithRequiredEndpoint builder() {
+		return new ClientConfigurationBuilder();
+	}
+  ...
+  <T> List<ClientConfigurationCallback<?>> getClientConfigurers();
+
+https://github.com/spring-projects/spring-data-elasticsearch/blob/main/src/main/java/org/springframework/data/elasticsearch/client/DefaultClientConfiguration.java
+org.springframework.data.elasticsearch.client.DefaultClientConfiguration
+class DefaultClientConfiguration implements ClientConfiguration {
+  ...
+	@Override public <T> List<ClientConfigurationCallback<?>> getClientConfigurers() { return clientConfigurers; }
+  ...
+}
+
+src/main/java/org/springframework/data/elasticsearch/client/ClientConfigurationBuilder.java
+org.springframework.data.elasticsearch.client.ClientConfigurationBuilder
+class ClientConfigurationBuilder implements ClientConfigurationBuilderWithRequiredEndpoint, MaybeSecureClientConfigurationBuilder {
+  ...
+	@Override
+	public TerminalClientConfigurationBuilder withClientConfigurer(ClientConfiguration.ClientConfigurationCallback<?> clientConfigurer) {
+
+		Assert.notNull(clientConfigurer, "clientConfigurer must not be null");
+
+		this.clientConfigurers.add(clientConfigurer);
+		return this;
+	}
+  ...
+	@Override
+	public ClientConfiguration build() {
+    ...
+		return new DefaultClientConfiguration(hosts, headers, useSsl, sslContext, caFingerprint, soTimeout, connectTimeout, pathPrefix, hostnameVerifier, proxy, clientConfigurers, // !!!
+        headersSupplier);
+	}
+  ...
+  @FunctionalInterface
+	interface ClientConfigurationCallback<T> {
+		T configure(T clientConfigurer);
+	}
+}
+
+
+
+
+
+
+org.springframework.data.elasticsearch.client.elc.rest5_client.Rest5Clients
+
+import co.elastic.clients.transport.rest5_client.Rest5ClientOptions;
+import co.elastic.clients.transport.rest5_client.low_level.RequestOptions;
+import co.elastic.clients.transport.rest5_client.low_level.Rest5Client;
+import co.elastic.clients.transport.rest5_client.low_level.Rest5ClientBuilder;    // ??? usages
+...
+	public static Rest5Client getRest5Client(ClientConfiguration clientConfiguration) {                       // !!! 2
+		return getRest5ClientBuilder(clientConfiguration).build();
+	}
+	private static Rest5ClientBuilder getRest5ClientBuilder(ClientConfiguration clientConfiguration) {
+    ...
+		Rest5ClientBuilder builder = Rest5Client.builder(httpHosts);
+    ...
+		// RestClientBuilder configuration callbacks from the consumer
+		for (ClientConfiguration.ClientConfigurationCallback<?> clientConfigurationCallback : clientConfiguration
+				.getClientConfigurers()) {
+			if (clientConfigurationCallback instanceof ElasticsearchRest5ClientConfigurationCallback configurationCallback) {   // ??? 
+				builder = configurationCallback.configure(builder);
+			}
+		}
+    ...
+		builder.setHttpClientConfigCallback(httpAsyncClientBuilder -> {                                                       // 
+      ...
+			// add httpclient configurator callbacks provided by the configuration
+			for (ClientConfiguration.ClientConfigurationCallback<?> clientConfigurer : clientConfiguration
+					.getClientConfigurers()) {
+				if (clientConfigurer instanceof ElasticsearchHttpClientConfigurationCallback httpClientConfigurer) {              // ??? 7
+					httpAsyncClientBuilder = httpClientConfigurer.configure(httpAsyncClientBuilder);
+				}
+			}
+		});
+    ...
+		return builder;
+  }
+  ...
+	/**
+	 * {@link org.springframework.data.elasticsearch.client.ClientConfiguration.ClientConfigurationCallback} to configure
+	 * the Elasticsearch Rest5Client's Http client with a {@link HttpAsyncClientBuilder}
+	 *
+	 * @since 6.0
+	 */
+	public interface ElasticsearchHttpClientConfigurationCallback
+			extends ClientConfiguration.ClientConfigurationCallback<HttpAsyncClientBuilder> {
+
+		static Rest5Clients.ElasticsearchHttpClientConfigurationCallback from(
+				Function<HttpAsyncClientBuilder, HttpAsyncClientBuilder> httpClientBuilderCallback) {
+
+			Assert.notNull(httpClientBuilderCallback, "httpClientBuilderCallback must not be null");
+
+			return httpClientBuilderCallback::apply;
+		}
+	}
+  
+
+https://github.com/elastic/elasticsearch-java/blob/main/rest5-client/src/main/java/co/elastic/clients/transport/rest5_client/low_level/Rest5ClientBuilder.java
+    public static final int DEFAULT_MAX_CONN_PER_ROUTE = 10;
+    public static final int DEFAULT_MAX_CONN_TOTAL = 30;
+    ...
+    static final String THREAD_NAME_PREFIX = "elasticsearch-rest-client-";
+    private static final String THREAD_NAME_FORMAT = THREAD_NAME_PREFIX + "%d-thread-%d";
+    ...
+    private Consumer<HttpAsyncClientBuilder> httpClientConfigCallback;
+    ...
+    public Rest5ClientBuilder setHttpClientConfigCallback(Consumer<HttpAsyncClientBuilder> httpClientConfigCallback) {    // ??? 6
+        Objects.requireNonNull(httpClientConfigCallback, "httpClientConfigCallback must not be null");
+        this.httpClientConfigCallback = httpClientConfigCallback;
+        return this;
+    }
+    ...
+    /**
+     * Creates a new {@link Rest5Client} based on the provided configuration.
+     */
+    public Rest5Client build() {
+        if (failureListener == null) {
+            failureListener = new Rest5Client.FailureListener();
+        }
+        CloseableHttpAsyncClient httpClient = this.createHttpClient();    // !!! 3
+        Rest5Client restClient = new Rest5Client(
+            httpClient,
+            defaultHeaders,
+            nodes,
+            pathPrefix,
+            failureListener,
+            nodeSelector,
+            strictDeprecationMode,
+            compressionEnabled,
+            metaHeaderEnabled
+        );
+        httpClient.start();
+        return restClient;
+    }
+    ...
+    /**
+     * Similar to {@code org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor
+     * .DefaultThreadFactory} but with better thread names.
+     */
+    private static class RestClientThreadFactory implements ThreadFactory {
+        private static final AtomicLong CLIENT_THREAD_POOL_ID_GENERATOR = new AtomicLong();
+
+        private final long clientThreadPoolId = CLIENT_THREAD_POOL_ID_GENERATOR.getAndIncrement(); // 0-based
+        private final AtomicLong clientThreadId = new AtomicLong();
+
+        @Override
+        public Thread newThread(Runnable runnable) {
+            return new Thread(
+                runnable,
+                String.format(Locale.ROOT, THREAD_NAME_FORMAT, clientThreadPoolId,
+                    clientThreadId.incrementAndGet()) // 1-based
+            );
+        }
+    }
+    ...
+    private CloseableHttpAsyncClient createHttpClient() {
+        ...
+            PoolingAsyncClientConnectionManagerBuilder connectionManagerBuilder =
+                PoolingAsyncClientConnectionManagerBuilder.create()
+                    .setDefaultConnectionConfig(connectionConfigBuilder.build())
+                    .setMaxConnPerRoute(DEFAULT_MAX_CONN_PER_ROUTE)
+                    .setMaxConnTotal(DEFAULT_MAX_CONN_TOTAL)
+                    .setTlsStrategy(new DefaultClientTlsStrategy(sslContext));
+
+            if (connectionManagerCallback != null) {
+                connectionManagerCallback.accept(connectionManagerBuilder);
+            }
+            HttpAsyncClientBuilder httpClientBuilder = HttpAsyncClientBuilder.create()
+                .setDefaultRequestConfig(requestConfigBuilder.build())
+                .setConnectionManager(connectionManagerBuilder.build())
+                .setUserAgent(USER_AGENT_HEADER_VALUE)
+                .setTargetAuthenticationStrategy(new DefaultAuthenticationStrategy())
+                .setThreadFactory(new RestClientThreadFactory());                         // !!! 4
+            ...
+            if (httpClientConfigCallback != null) {                                       // !!! 5 ?
+                httpClientConfigCallback.accept(httpClientBuilder);
+            }
+
+            return httpClientBuilder.build();
+        ...
+    }
+
+*******************************
+!!!
+https://github.com/spring-projects/spring-boot/blob/main/module/spring-boot-elasticsearch/src/main/java/org/springframework/boot/elasticsearch/autoconfigure/ElasticsearchRestClientConfigurations.java
+org.springframework.boot.elasticsearch.autoconfigure.ElasticsearchRestClientConfigurations
+
+class ElasticsearchRestClientConfigurations {
+
+	@Configuration(proxyBeanMethods = false)
+	@ConditionalOnMissingBean(Rest5ClientBuilder.class)
+	static class RestClientBuilderConfiguration {
+
+		private final ElasticsearchProperties properties;
+
+		RestClientBuilderConfiguration(ElasticsearchProperties properties) {
+			this.properties = properties;
+		}
+
+		@Bean
+		@ConditionalOnMissingBean(ElasticsearchConnectionDetails.class)
+		PropertiesElasticsearchConnectionDetails elasticsearchConnectionDetails(ObjectProvider<SslBundles> sslBundles) {
+			return new PropertiesElasticsearchConnectionDetails(this.properties, sslBundles.getIfAvailable());
+		}
+
+		@Bean
+		Rest5ClientBuilderCustomizer defaultRestClientBuilderCustomizer(
+				ElasticsearchConnectionDetails connectionDetails) {
+			return new DefaultRest5ClientBuilderCustomizer(this.properties, connectionDetails);
+		}
+
+		@Bean
+		Rest5ClientBuilder elasticsearchRestClientBuilder(ElasticsearchConnectionDetails connectionDetails,
+				ObjectProvider<Rest5ClientBuilderCustomizer> builderCustomizers) {
+			Rest5ClientBuilder builder = Rest5Client.builder(connectionDetails.getNodes()
+				.stream()
+				.map((node) -> new HttpHost(node.protocol().getScheme(), node.hostname(), node.port()))
+				.toArray(HttpHost[]::new));
+			if (connectionDetails.getApiKey() != null) {
+				builder.setDefaultHeaders(
+						new Header[] { new BasicHeader("Authorization", "ApiKey " + connectionDetails.getApiKey()) });
+			}
+			builder.setHttpClientConfigCallback((httpClientBuilder) -> builderCustomizers.orderedStream()
+				.forEach((customizer) -> customizer.customize(httpClientBuilder)));
+			builder.setConnectionManagerCallback((connectionManagerBuilder) -> builderCustomizers.orderedStream()
+				.forEach((customizer) -> customizer.customize(connectionManagerBuilder)));
+			builder.setConnectionConfigCallback((connectionConfigBuilder) -> builderCustomizers.orderedStream()
+				.forEach((customizer) -> customizer.customize(connectionConfigBuilder)));
+			builder.setRequestConfigCallback((requestConfigBuilder) -> builderCustomizers.orderedStream()
+				.forEach((customizer) -> customizer.customize(requestConfigBuilder)));
+			String pathPrefix = connectionDetails.getPathPrefix();
+			if (pathPrefix != null) {
+				builder.setPathPrefix(pathPrefix);
+			}
+			builderCustomizers.orderedStream().forEach((customizer) -> customizer.customize(builder));
+			return builder;
+		}
+
+	}
+
+	@Configuration(proxyBeanMethods = false)
+	@ConditionalOnMissingBean(Rest5Client.class)                                        // go here by default
+	static class RestClientConfiguration {
+		@Bean
+		Rest5Client elasticsearchRestClient(Rest5ClientBuilder restClientBuilder) {
+			return restClientBuilder.build(); 
+		}
+	}
+  ...
+}
+
+src/test/java/org/springframework/boot/elasticsearch/autoconfigure/ElasticsearchRestClientAutoConfigurationTests.java
+
+***************************************************
+org.apache.hc.client5.http.impl.async.HttpAsyncClientBuilder
+...
+    public CloseableHttpAsyncClient build() {
+      ...
+      final DefaultConnectingIOReactor ioReactor = new DefaultConnectingIOReactor(
+              ioEventHandlerFactory,
+              ioReactorConfig != null ? ioReactorConfig : IOReactorConfig.DEFAULT,
+              threadFactory != null ? threadFactory : new DefaultThreadFactory("httpclient-dispatch", true),          // !!!
+              ioSessionDecorator != null ? ioSessionDecorator : LoggingIOSessionDecorator.INSTANCE,
+              ioReactorExceptionCallback != null ? ioReactorExceptionCallback : LoggingExceptionCallback.INSTANCE,
+              ioSessionListener,
+              ioSession -> ioSession.enqueue(new ShutdownCommand(CloseMode.GRACEFUL), Command.Priority.IMMEDIATE));
+      ...
+      return new InternalHttpAsyncClient(
+              ioReactor,
+              execChain,
+              pushConsumerRegistry,
+              threadFactory != null ? threadFactory : new DefaultThreadFactory("httpclient-main", true),
+              connManagerCopy,
+              routePlannerCopy,
+              tlsConfig,
+              cookieSpecRegistryCopy,
+              authSchemeRegistryCopy,
+              cookieStoreCopy,
+              credentialsProviderCopy,
+              contextAdaptor(),
+              defaultRequestConfig,
+              closeablesCopy);
+    }
+
+
+package org.apache.hc.core5.reactor;
+
+public class DefaultConnectingIOReactor extends AbstractIOReactorBase {
+    ...
+    @Internal
+    public DefaultConnectingIOReactor(
+            final IOEventHandlerFactory eventHandlerFactory,
+            final IOReactorConfig ioReactorConfig,
+            final ThreadFactory threadFactory,
+            final Decorator<IOSession> ioSessionDecorator,
+            final Callback<Exception> exceptionCallback,
+            final IOSessionListener sessionListener,
+            final IOReactorMetricsListener threadPoolListener,
+            final Callback<IOSession> sessionShutdownCallback,
+            final IOWorkerSelector workerSelector) {
+        Args.notNull(eventHandlerFactory, "Event handler factory");
+        final int workerCount = ioReactorConfig != null ? ioReactorConfig.getIoThreadCount() : IOReactorConfig.DEFAULT.getIoThreadCount();
+        this.workers = new SingleCoreIOReactor[workerCount];
+        final Thread[] threads = new Thread[workerCount];
+        for (int i = 0; i < this.workers.length; i++) {
+            final SingleCoreIOReactor dispatcher = new SingleCoreIOReactor(
+                    exceptionCallback,
+                    eventHandlerFactory,
+                    ioReactorConfig != null ? ioReactorConfig : IOReactorConfig.DEFAULT,
+                    ioSessionDecorator,
+                    sessionListener,
+                    threadPoolListener,
+                    sessionShutdownCallback);
+            this.workers[i] = dispatcher;
+            threads[i] = (threadFactory != null ? threadFactory : THREAD_FACTORY).newThread(new IOReactorWorker(dispatcher));     // !!!
+        }
+        this.ioReactor = new MultiCoreIOReactor(this.workers, threads);
+        this.workerSelector = workerSelector != null ? workerSelector : IOWorkerSelectors.newSelector(workerCount);
+    }
+    ...
+    @Override
+    public void initiateShutdown() {
+        ioReactor.initiateShutdown();
+    }
+    @Override
+    public void awaitShutdown(final TimeValue waitTime) throws InterruptedException {
+        ioReactor.awaitShutdown(waitTime);
+    }
+    @Override
+    public void close(final CloseMode closeMode) {
+        ioReactor.close(closeMode);
+    }
+    @Override
+    public void close() throws IOException {
+        ioReactor.close();
+    }
+
+
+org.apache.hc.core5.reactor
+@Contract(threading = ThreadingBehavior.IMMUTABLE)
+public final class IOReactorConfig {
+    ...
+}
+
+// !!! need to control this
+class SingleCoreIOReactor extends AbstractSingleCoreIOReactor implements ConnectionInitiator, IOWorkerStats {
+    ...
+    @Override
+    void doTerminate() {
+        closePendingChannels();
+        closePendingConnectionRequests();
+        closeOpenChannels();
+        processClosedSessions();
+    }
+
+}
+
+abstract class AbstractSingleCoreIOReactor implements IOReactor {
+    ...
+    @Override
+    public final void close(final CloseMode closeMode) {
+        close(closeMode, Timeout.ofSeconds(5));
+    }
+    
+    @Override
+    public final void close() {
+        close(CloseMode.GRACEFUL);
+    }
+    ...
+}

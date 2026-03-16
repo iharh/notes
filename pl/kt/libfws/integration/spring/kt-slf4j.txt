@@ -1,0 +1,4 @@
+private val log: Logger = LoggerFactory.getLogger(javaClass)
+private val logger = LoggerFactory.getLogger(MyService::class.java)
+inline fun <reified T> T.logger() = LoggerFactory.getLogger(T::class.java)
+private val logger = logger()

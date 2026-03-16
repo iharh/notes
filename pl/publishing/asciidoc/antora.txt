@@ -1,5 +1,4 @@
 https://antora.org/
-https://docs.antora.org/antora/latest/
 
 https://gitlab.com/antora/antora
 
@@ -9,12 +8,19 @@ https://plugins.jetbrains.com/plugin/7391-asciidoc/versions
 
 https://intellij-asciidoc-plugin.ahus1.de/docs/users-guide/features/preview/diagrams
 
+https://docs.antora.org/antora/latest/
+https://docs.antora.org/antora/latest/how-antora-works/
 https://docs.antora.org/gradle-plugin/latest/playbook-provider/
 
 samples
 https://github.com/spring-io/antora-ui-spring
 https://gitlab.com/antora/antora.org/-/issues/20
+https://github.com/spring-projects/spring-data-elasticsearch/tree/main/src/main/antora
 
+https://www.adoc-studio.app/blog/antora-guide
+
+2023
+https://turing85.github.io/articles/2023/03-22-antora/index.html
 2020
 https://blog.swwomm.com/2020/10/antora-quick-start-tutorial.html
 2019
