@@ -16,8 +16,13 @@ def isNonStable = { String version ->
     return !stableKeyword && !(version ==~ regex)
 }
 
+groovy
 tasks.named("dependencyUpdates").configure {
     rejectVersionIf {
         isNonStable(it.candidate.version)
     }
 }
+
+kt
+
+
