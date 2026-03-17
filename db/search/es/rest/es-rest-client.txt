@@ -4,3 +4,7 @@ src/main/java/org/elasticsearch/client/RestClient.java
 src/test/java/org/elasticsearch/client/
     RestClientBuilderTests.java
     RestClientIntegTests.java
+
+2025
+https://blog.frankel.ch/elastic-java-sdk-design/
+    https://github.com/elastic/elasticsearch-specification

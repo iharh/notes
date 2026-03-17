@@ -1,3 +1,12 @@
+https://blog.frankel.ch/elastic-java-sdk-design/
+
+mgmt/dev-tools
+http://localhost:5601/app/dev_tools
+http://localhost:5601/app/dev_tools#/console/shell
+GET kbn:/api/index_management/indices
+https://www.elastic.co/docs/explore-analyze/query-filter/tools/console
+https://www.elastic.co/docs/explore-analyze/query-filter/languages/querydsl
+
 xwaylandvideobridge[3026]: could not connect to display
 xwaylandvideobridge[3026]: From 6.5.0, xcb-cursor0 or libxcb-cursor0 is needed to load the Qt xcb platform plugin.
 xwaylandvideobridge[3026]: Could not load the Qt platform plugin "xcb" in "" even though it was found.

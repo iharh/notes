@@ -3,10 +3,16 @@ https://fedorapeople.org/groups/schedule/f-41/f-41-all-tasks.html
 
 2026
 44
+LinuxTex - Fedora 44 FIRST LOOK! This Might Be the Greatest Fedora Ever Made (No, Seriously) of 15:23
+    https://www.youtube.com/watch?v=1s36b6EL_7A
+    ! 14:30 release date - 2nd week of april
 https://fedoraproject.org/wiki/Releases/44/ChangeSet
     https://discussion.fedoraproject.org/t/f44-change-proposal-nix-package-tool-selfcontained/170391
     https://src.fedoraproject.org/rpms/nix
+    https://github.com/thrix/nix-toolbox    
+    https://thrix.github.io/nix-toolbox/getting-started/
     https://fedoraproject.org/wiki/Changes/Nix_package_tool
+        https://discussion.fedoraproject.org/t/f44-change-proposal-nix-package-tool-selfcontained/170391
         sudo dnf install nix nix-daemon
         sudo systemctl enable --now nix-daemon
         or
