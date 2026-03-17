@@ -28,7 +28,6 @@ Public key "https://dl.google.com/linux/linux_signing_key.pub" is already presen
 OpenPGP check for package "google-chrome-stable-145.0.7632.116-1.x86_64" (/var/cache/libdnf5/google-chrome-6ed7e4f336f6863c/packages/google-chrome-stable-145.0.7632.116-1.x86_64.rpm) from repo "google-chrome" has failed: Public key is not installed.
 
 
-
 ~/.local/share/mise/plugins/gradle/hooks/available.lua:11
 
 https://learn.epam.com/myLearning/activeLearning
