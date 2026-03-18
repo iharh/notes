@@ -13,3 +13,8 @@ https://tech.io/playgrounds/6539/kotlin-sealed-classes-in-action
 https://blog.simon-wirtz.de/sealed-classes-kotlin-explanation/
 https://medium.com/@philipesteiff/kotlin-what-is-a-sealed-classe-1e535c416519
 https://medium.com/bbc-design-engineering/kotlin-an-exploration-of-sealed-classes-21e52ae75678
+
+samples
+sealed interface SI {
+  data object Some : SI
+}

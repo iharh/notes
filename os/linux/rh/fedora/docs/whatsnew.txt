@@ -11,6 +11,8 @@ https://fedoraproject.org/wiki/Releases/44/ChangeSet
     https://src.fedoraproject.org/rpms/nix
     https://github.com/thrix/nix-toolbox    
     https://thrix.github.io/nix-toolbox/getting-started/
+        https://github.com/thrix/nix-config
+        https://github.com/thrix/nix-config/blob/main/CLAUDE.md
     https://fedoraproject.org/wiki/Changes/Nix_package_tool
         https://discussion.fedoraproject.org/t/f44-change-proposal-nix-package-tool-selfcontained/170391
         sudo dnf install nix nix-daemon
