@@ -1,0 +1,26 @@
+https://github.com/AvengeMedia/DankMaterialShell
+
+https://danklinux.com/docs/dankmaterialshell/installation
+https://danklinux.com/docs/danklinux
+
+sudo dnf copr enable avengemedia/danklinux
+# stable
+sudo dnf install quickshell niri
+# Or install development packages
+sudo dnf install quickshell-git niri-git
+
+https://danklinux.com/docs/dankinstall/
+https://install.danklinux.com/
+    https://github.com/AvengeMedia/DankMaterialShell/releases/download/$LATEST_VERSION/dankinstall-$ARCH.gz
+
+2026
+https://danklinux.com/blog/v1-4-release
+DistroTube - The Dank Material Shell - A Wayland Desktop Suite of 14:35
+    https://www.youtube.com/watch?v=1ILZevPGgJw
+    https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/DankMaterialShell
+    https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/DankMaterialShell/settings.json
+    https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/DankMaterialShell/themes/onedark/theme.json
+2025
+TheBlackDon - Dank Material Shell Dotfiles on My Hyprland Config | First Impressions
+    https://www.youtube.com/watch?v=mtrRsKETneY
+    https://gitlab.com/theblackdon/black-don-os
