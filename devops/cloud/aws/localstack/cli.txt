@@ -1,0 +1,12 @@
+mise/localstack
+
+https://github.com/localstack/localstack-cli/
+https://github.com/localstack/localstack-cli/releases/
+https://github.com/localstack/localstack-cli/releases/tag/v4.14.0
+
+localstack
+    auth
+        login/logout - deprecated
+        clear-token
+        set-token
+        show-token

@@ -14,8 +14,16 @@ https://docs.localstack.cloud/integrations/
 
 https://docs.localstack.cloud/aws/
 https://docs.localstack.cloud/aws/getting-started/
-https://docs.localstack.cloud/aws/getting-started/installation/
+
+inst
+https://github.com/localstack/localstack#install
+https://github.com/localstack/localstack-cli/
+https://github.com/localstack/localstack-cli/releases/
+https://github.com/localstack/localstack-cli/releases/tag/v4.14.0
     mise/localstack
+?
+https://docs.localstack.cloud/aws/getting-started/installation/
+
 https://docs.localstack.cloud/aws/getting-started/auth-token/
 
 https://docs.localstack.cloud/aws/capabilities/
