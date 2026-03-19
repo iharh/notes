@@ -1,5 +1,6 @@
-https://k8slens.dev/
+https://lenshq.io/
 https://github.com/lensapp/lens
+    ? old
 
 https://docs.k8slens.dev/main/getting-started/
     xdg-settings set default-url-scheme-handler lens lens.desktop
@@ -29,6 +30,7 @@ articles
 https://habr.com/ru/company/flant/blog/563422/
 
 presentations
+https://www.youtube.com/@k8slens
 2020
 Kontena Lens - The Smart Dashboard for Kubernetes
     https://www.youtube.com/watch?v=04v2ODsmtIs
