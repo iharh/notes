@@ -1,0 +1,3 @@
+pip install duckdb-cli
+
+mise/duckdb

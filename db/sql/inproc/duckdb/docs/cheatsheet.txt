@@ -1,0 +1,10 @@
+https://motherduckdb.github.io/duckdb-cheatsheet/
+https://github.com/motherduckdb/duckdb-cheatsheet/
+https://github.com/motherduckdb/duckdb-cheatsheet/blob/main/duckdb-cheatsheet.md
+https://github.com/motherduckdb/duckdb-cheatsheet/blob/main/dist/duckdb-cheatsheet.pdf
+
+https://github.com/motherduckdb/duckdb-cheatsheet/tree/main/scripts
+https://github.com/motherduckdb/duckdb-cheatsheet/blob/main/scripts/build-html.py
+    html.escape(..) - the only 3-rd party lib usage
+https://github.com/motherduckdb/duckdb-cheatsheet/blob/main/scripts/build-pdf.py
+    just use chromium via playwrite
