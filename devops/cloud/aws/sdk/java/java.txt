@@ -55,6 +55,7 @@ https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/java/example_code/s3/s
 https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2
 
 
+https://mvnrepository.com/artifact/software.amazon.awssdk/dynamodb
 https://reflectoring.io/aws-localstack/
     + DynamoDB usage sample
 URI endpointOverride = new URI("http://localhost:4566");
