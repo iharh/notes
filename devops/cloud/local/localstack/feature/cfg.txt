@@ -1,0 +1,5 @@
+https://docs.localstack.cloud/aws/capabilities/config/configuration/
+    SERVICES
+        s3,sqs
+profiles
+    ...

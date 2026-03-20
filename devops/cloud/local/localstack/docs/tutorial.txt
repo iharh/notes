@@ -1,0 +1,22 @@
+https://blog.localstack.cloud/category/Tutorial/
+https://blog.localstack.cloud/why-i-run-my-serverless-apps-locally/
+    git clone https://github.com/localstack/samples.git
+    cd samples/aws-cdk-inventory-app
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+    cdklocal synth
+    cdklocal bootstrap
+    cdklocal deploy
+    awslocal s3 cp sqs_blog/sample_file.csv s3://<your-bucket-name>/
+    awslocal dynamodb scan --table-name <your-table-name>
+https://blog.localstack.cloud/developing-debugging-aws-ecs-tasks-localstack-vs-code/
+https://blog.localstack.cloud/tips-and-tricks-localstack-aws/
+https://blog.localstack.cloud/efficient-infrastructure-testing-localstack-terraform-tests-framework/
+https://blog.localstack.cloud/aws-deep-dives-sqs/
+    https://github.com/localstack-samples/aws-deep-dives/tree/main/sqs
+https://blog.localstack.cloud/automate-your-tests-with-github-actions-and-localstack/
+    https://www.youtube.com/watch?v=igPotAAnUVo
+        https://www.youtube.com/watch?v=cXoQa8x8Qb4
+https://blog.localstack.cloud/why-i-run-my-serverless-apps-locally/
+    https://www.youtube.com/watch?v=FPc42EnypJo

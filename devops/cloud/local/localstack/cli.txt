@@ -10,3 +10,5 @@ localstack
         clear-token
         set-token
         show-token
+    status
+        services

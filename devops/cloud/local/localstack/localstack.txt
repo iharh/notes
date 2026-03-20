@@ -1,0 +1,59 @@
+https://localstack.cloud/
+https://localstack.cloud/faq/
+https://localstack.cloud/community/
+https://localstack.cloud/pricing/
+
+https://app.localstack.cloud/inst/default/status
+
+https://localstack.cloud/blog/
+https://blog.localstack.cloud/the-road-ahead-for-localstack/
+    visual resource browser, chaos engineering workflows, IAM policy debugging,...
+
+https://github.com/localstack/localstack
+https://www.youtube.com/@localstack
+
+with trial
+https://app.localstack.cloud/onboarding?emulator=aws
+
+!!!
+https://github.com/localstack/localstack-docs
+https://docs.localstack.cloud/aws/services/
+https://docs.localstack.cloud/aws/services/iam/
+
+https://docs.localstack.cloud/references/configuration/
+
+https://docs.localstack.cloud/
+https://docs.localstack.cloud/overview/
+https://docs.localstack.cloud/tools/
+https://docs.localstack.cloud/integrations/
+
+https://docs.localstack.cloud/aws/
+https://docs.localstack.cloud/aws/getting-started/
+    curl http://localhost:4566/_localstack/info | jq
+    {
+      "version": "2026.2.1.dev213:4afed5800",
+      "edition": "pro",
+      "is_license_activated": true,
+      "is_docker": true,
+      ...
+    }
+https://docs.localstack.cloud/aws/getting-started/auth-token/
+    https://app.localstack.cloud/settings/auth-tokens
+    ACTIVATE_PRO=0
+    LOCALSTACK_ACTIVATE_PRO=0
+        cached license 5e3cdfa0-7cd3-4302-b826-d0221d9d7ca0:trial from 
+        /var/lib/localstack/cache/license.json
+    LOG_LICENSE_ISSUES=0
+    LOCALSTACK_HOSTNAME=???
+https://docs.localstack.cloud/aws/getting-started/quickstart/
+https://docs.localstack.cloud/aws/getting-started/faq/
+
+https://docs.localstack.cloud/aws/capabilities/
+https://docs.localstack.cloud/aws/capabilities/web-app/localstack-desktop/
+https://docs.localstack.cloud/aws/capabilities/config/configuration
+    ! list of aws svc integrations
+https://docs.localstack.cloud/aws/capabilities/state-management/
+
+https://docs.localstack.cloud/aws/integrations/
+
+https://docs.localstack.cloud/aws/feature-coverage/

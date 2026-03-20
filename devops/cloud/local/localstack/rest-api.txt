@@ -1,0 +1,9 @@
+rest api
+    curl http://localhost:4566/_localstack/info | jq
+    {
+      "version": "2026.2.1.dev213:4afed5800",
+      "edition": "pro",
+      "is_license_activated": true,
+      "is_docker": true,
+      ...
+    }

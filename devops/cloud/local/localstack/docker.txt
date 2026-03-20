@@ -1,0 +1,38 @@
+https://hub.docker.com/r/localstack/localstack
+    localstack/localstack-pro
+
+https://docs.localstack.cloud/aws/tooling/localstack-docker-extension
+https://hub.docker.com/extensions/localstack/localstack-docker-desktop
+
+awscli
+https://docs.localstack.cloud/user-guide/integrations/aws-cli/#localstack-aws-cli-awslocal
+
+docker
+localstack/localstack
+
+docker run \
+  --rm -it \
+  -p 127.0.0.1:4566:4566 \
+  -p 127.0.0.1:4510-4559:4510-4559 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  localstack/localstack
+
+services:
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+    environment:
+      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
+      - DEBUG=${DEBUG:-0}
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+sample cfgs
+https://github.com/localstack/localstack/tree/main
+https://github.com/localstack/localstack/blob/main/DOCKER.md
+https://github.com/localstack/localstack/blob/main/docker-compose.yml
+https://github.com/localstack/localstack/blob/main/docker-compose-pro.yml

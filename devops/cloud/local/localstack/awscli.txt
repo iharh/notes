@@ -1,0 +1,36 @@
+https://aws.amazon.com/cli/
+https://docs.aws.amazon.com/cli/latest/
+
+mise
+    aws
+    ?awscli
+    ?aws-cli
+    ?awscli-local
+
+aws
+    help topics
+    help config-vars
+    help s3-config
+    help s3-faq
+
+    s3 help
+    --profile localstack s3 mb s3://test 
+    s3 ls help
+    --profile localstack s3 ls
+        cp, ls, mb, mv, presign, rb, rm, sync, website
+
+https://docs.localstack.cloud/aws/integrations/aws-native-tools/aws-cli/
+    awslocal serves as a thin wrapper and a substitute for the standard aws command, 
+    enabling you to run AWS CLI commands within the LocalStack environment 
+    without specifying the --endpoint-url parameter or a profile.
+
+~/.aws/config
+[profile localstack]
+region=us-east-1
+output=json
+endpoint_url = http://localhost.localstack.cloud:4566
+
+~/.aws/credentials
+[localstack]
+aws_access_key_id=test
+aws_secret_access_key=test
