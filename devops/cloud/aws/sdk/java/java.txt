@@ -1,3 +1,66 @@
 https://aws.amazon.com/developer/language/java/
 https://aws.amazon.com/sdk-for-java/
 https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+
+https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html
+https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started-auth.html
+    !!!
+    aws sso login
+    aws sso login --profile localstack
+    # Missing the following required SSO configuration values: sso_start_url, sso_regio
+
+    aws configure sso
+
+https://docs.localstack.cloud/aws/services/account/
+    awsl account get-contact-information
+https://docs.localstack.cloud/aws/services/sso-admin/
+    ??? arn
+    awsl sso-admin create-permission-set \
+        --name my-permission-set \
+        --description "My permission set" \
+        --instance-arn arn:aws:sso:::instance/d-1234567890 \
+        --tags Key=Name,Value=my-permission-set
+    awsl sso-admin list-permission-sets --instance-arn arn:aws:sso:::instance/d-1234567890
+
+#s3://buck1
+
+?
+https://github.com/octo-technology/awscli-saml-sso
+https://blog.localstack.cloud/2024-02-07-add-authentication-authorization-to-localstack-with-the-authress-extension/
+    https://pypi.org/project/localstack-extension-authress/
+    https://authress.io/knowledge-base/docs/SDKs/authress-local
+    https://github.com/Authress/authress-sdk.kt
+    https://authress.io/
+    https://authress.io/app/#/api?route=overview
+    ACTIVATE_PRO=1 LOCALSTACK_AUTH_TOKEN="LOCALSTACK_AUTH_TOKEN" EXTENSION_DEV_MODE=1 DEBUG=1 localstack start
+      l.p.c.extensions.plugins   : loaded 1 extensions
+      Authress                   : Starting up ghcr.io/authress/authress-local:latest as localstack-authress-87ccda35
+      Authress                   : setting up proxy to http://localhost:8888
+      ...
+    localstack extensions install localstack-extension-authress
+    localstack extensions list
+
+https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started-tutorial.html
+
+https://sdk.amazonaws.com/java/api/latest/
+https://docs.aws.amazon.com/code-library/latest/ug/what-is-code-library.html
+
+https://github.com/aws/aws-sdk-java-v2
+
+https://github.com/awsdocs/aws-doc-sdk-examples
+https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java
+https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/s3
+https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/java/example_code/s3/src/main/java/aws/example/s3/CreateBucket2.java
+https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/java/example_code/s3/src/main/java/com/mycompany/app/App.java
+https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2
+
+
+https://reflectoring.io/aws-localstack/
+    + DynamoDB usage sample
+URI endpointOverride = new URI("http://localhost:4566");
+S3Client s3 = S3Client.builder()
+  .endpointOverride(endpointOverride )  // <-- Overriding the endpoint
+  .region(region)
+  .build();
+
+TODO: check endpoint URL

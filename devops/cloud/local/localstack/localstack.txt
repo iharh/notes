@@ -5,6 +5,9 @@ https://localstack.cloud/pricing/
 
 https://app.localstack.cloud/
 https://app.localstack.cloud/inst/default/status
+https://app.localstack.cloud/instances
+    endpoint
+    https://localhost.localstack.cloud:4566
 
 https://localstack.cloud/blog/
 https://blog.localstack.cloud/the-road-ahead-for-localstack/
