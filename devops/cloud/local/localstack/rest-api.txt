@@ -1,9 +1,15 @@
-rest api
-    curl http://localhost:4566/_localstack/info | jq
-    {
-      "version": "2026.2.1.dev213:4afed5800",
-      "edition": "pro",
-      "is_license_activated": true,
-      "is_docker": true,
-      ...
-    }
+https://docs.localstack.cloud/aws/capabilities/networking/
+https://docs.localstack.cloud/aws/capabilities/networking/internal-endpoints/
+
+http://localhost.localstack.cloud:4566/_localstack/swagger
+
+pro/
+    info
+curl http://localhost:4566/_localstack/info | jq
+{
+  "version": "2026.2.1.dev213:4afed5800",
+  "edition": "pro",
+  "is_license_activated": true,
+  "is_docker": true,
+  ...
+}

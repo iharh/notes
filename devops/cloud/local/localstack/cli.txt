@@ -12,3 +12,4 @@ localstack
         show-token
     status
         services
+    logs

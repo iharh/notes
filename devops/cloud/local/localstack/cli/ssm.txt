@@ -1,0 +1,10 @@
+https://docs.localstack.cloud/aws/getting-started/quickstart/
+
+awslocal ssm put-parameter \
+ --name /localstack-thumbnail-app/buckets/images \
+ --type "String" \
+ --value "localstack-thumbnails-app-images"
+awslocal ssm put-parameter \
+ --name /localstack-thumbnail-app/buckets/resized \
+ --type "String" \
+ --value "localstack-thumbnails-app-resized"

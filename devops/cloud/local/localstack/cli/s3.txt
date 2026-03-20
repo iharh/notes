@@ -1,0 +1,16 @@
+aws
+    s3 help
+    --profile localstack s3 mb s3://test 
+    s3 ls help
+    --profile localstack s3 ls
+        cp, ls, mb, mv, presign, rb, rm, sync, website
+
+https://docs.localstack.cloud/aws/getting-started/quickstart/
+
+awslocal s3api put-bucket-notification-configuration \
+ --bucket localstack-thumbnails-app-images \
+ --notification-configuration "{\"LambdaFunctionConfigurations\": [{\"LambdaFunctionArn\": \"$(awslocal lambda get-function --function-name resize --output json | jq -r .Configuration.FunctionArn)\", \"Events\": [\"s3:ObjectCreated:*\"]}]}"
+
+awslocal s3 mb s3://webapp
+awslocal s3 sync --delete ./website s3://webapp
+awslocal s3 website s3://webapp --index-document index.html

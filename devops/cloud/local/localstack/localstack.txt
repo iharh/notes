@@ -3,6 +3,7 @@ https://localstack.cloud/faq/
 https://localstack.cloud/community/
 https://localstack.cloud/pricing/
 
+https://app.localstack.cloud/
 https://app.localstack.cloud/inst/default/status
 
 https://localstack.cloud/blog/
@@ -17,8 +18,6 @@ https://app.localstack.cloud/onboarding?emulator=aws
 
 !!!
 https://github.com/localstack/localstack-docs
-https://docs.localstack.cloud/aws/services/
-https://docs.localstack.cloud/aws/services/iam/
 
 https://docs.localstack.cloud/references/configuration/
 
@@ -29,14 +28,6 @@ https://docs.localstack.cloud/integrations/
 
 https://docs.localstack.cloud/aws/
 https://docs.localstack.cloud/aws/getting-started/
-    curl http://localhost:4566/_localstack/info | jq
-    {
-      "version": "2026.2.1.dev213:4afed5800",
-      "edition": "pro",
-      "is_license_activated": true,
-      "is_docker": true,
-      ...
-    }
 https://docs.localstack.cloud/aws/getting-started/auth-token/
     https://app.localstack.cloud/settings/auth-tokens
     ACTIVATE_PRO=0
@@ -46,7 +37,11 @@ https://docs.localstack.cloud/aws/getting-started/auth-token/
     LOG_LICENSE_ISSUES=0
     LOCALSTACK_HOSTNAME=???
 https://docs.localstack.cloud/aws/getting-started/quickstart/
+    https://github.com/localstack-samples/sample-lambda-s3-image-resizer-hot-reload
+    https://github.com/localstack-samples/sample-lambda-s3-image-resizer-hot-reload/blob/main/lambdas/list/handler.py
 https://docs.localstack.cloud/aws/getting-started/faq/
+
+https://docs.localstack.cloud/aws/tutorials
 
 https://docs.localstack.cloud/aws/capabilities/
 https://docs.localstack.cloud/aws/capabilities/web-app/localstack-desktop/

@@ -13,12 +13,6 @@ aws
     help s3-config
     help s3-faq
 
-    s3 help
-    --profile localstack s3 mb s3://test 
-    s3 ls help
-    --profile localstack s3 ls
-        cp, ls, mb, mv, presign, rb, rm, sync, website
-
 https://docs.localstack.cloud/aws/integrations/aws-native-tools/aws-cli/
     awslocal serves as a thin wrapper and a substitute for the standard aws command, 
     enabling you to run AWS CLI commands within the LocalStack environment 

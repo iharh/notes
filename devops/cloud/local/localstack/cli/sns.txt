@@ -1,0 +1,7 @@
+https://docs.localstack.cloud/aws/getting-started/quickstart/
+
+awslocal sns create-topic --name failed-resize-topic
+awslocal sns subscribe \
+ --topic-arn arn:aws:sns:us-east-1:000000000000:failed-resize-topic \
+ --protocol email \
+ --notification-endpoint my-email@example.com

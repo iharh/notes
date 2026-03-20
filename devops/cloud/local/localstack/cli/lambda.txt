@@ -1,0 +1,19 @@
+https://docs.localstack.cloud/aws/getting-started/quickstart/
+https://docs.localstack.cloud/aws/tooling/lambda-tools/hot-reloading/
+
+(cd lambdas/presign; rm -f lambda.zip; zip lambda.zip handler.py)
+awslocal lambda create-function \
+    --function-name presign \
+    --runtime python3.11 \
+    --timeout 10 \
+    --zip-file fileb://lambdas/presign/lambda.zip \
+    --handler handler.handler \
+    --role arn:aws:iam::000000000000:role/lambda-role \
+    --environment Variables="{STAGE=local}"
+awslocal lambda wait function-active-v2 --function-name presign
+awslocal lambda create-function-url-config \
+    --function-name presign \
+    --auth-type NONE
+...
+awslocal lambda list-function-url-configs --function-name presign --output json | jq -r '.FunctionUrlConfigs[0].FunctionUrl'
+awslocal lambda list-function-url-configs --function-name list --output json | jq -r '.FunctionUrlConfigs[0].FunctionUrl'
