@@ -7,6 +7,9 @@ https://www.baeldung.com/java-completablefuture-runasync-supplyasync#bd-exceptio
             .thenCombine(supplyAsync(otherSource), combiner)
             .exceptionally(ex -> someMethod(ex.getCause()));
 
+2026
+OTUS - Java Async Methods 0:00 of 1:55:21
+    https://www.youtube.com/watch?v=RPRK2-krras
 2024
 JPoint - Demintsev - Async HTTP Clients IO Bench using JMH 0:00 of 43:40
     https://www.youtube.com/watch?v=qcC_DGkFRSA
