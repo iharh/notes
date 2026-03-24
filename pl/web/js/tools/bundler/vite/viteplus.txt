@@ -1,0 +1,19 @@
+https://viteplus.dev/
+
+https://github.com/voidzero-dev/vite-plus
+https://www.npmjs.com/package/vite-plus
+
+https://viteplus.dev/guide/
+
+mise
+    viteplus
+    vp
+
+cfg
+    vite.config.ts
+
+~/.vite-plus/package_manager/
+    pnpm/<ver>
+
+2026
+https://docs.bswen.com/blog/2026-03-14-viteplus-getting-started-tutorial/
