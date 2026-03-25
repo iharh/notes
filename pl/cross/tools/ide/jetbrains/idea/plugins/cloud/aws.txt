@@ -1,0 +1,58 @@
+aws.toolkit.core
+https://plugins.jetbrains.com/plugin/24255-aws-core
+
+aws.toolkit
+https://plugins.jetbrains.com/plugin/11349-aws-toolkit
+https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/welcome.html
+https://github.com/aws/aws-toolkit-jetbrains
+https://github.com/aws/aws-toolkit-jetbrains/blob/main/gradle/libs.versions.toml
+    awsSdk = "2.26.25" 
+    aws-s3 = { module = "software.amazon.awssdk:s3", version.ref = "awsSdk" }
+
+
+sp.zhangjing.idea-oss-plugin
+https://plugins.jetbrains.com/plugin/29925-oss-browser
+https://github.com/zhangjingex/idea-oss-plugin
+https://github.com/zhangjingex/idea-oss-plugin/blob/main/gradle.properties
+    # Enable Gradle Configuration Cache -> https://docs.gradle.org/current/userguide/configuration_cache.html
+    org.gradle.configuration-cache=true
+https://github.com/zhangjingex/idea-oss-plugin/blob/main/build.gradle.kts
+    implementation("software.amazon.awssdk:s3:2.40.8") {
+        exclude(group = "org.slf4j")
+    }
+https://github.com/zhangjingex/idea-oss-plugin/blob/main/src/main/kotlin/space/zhangjing/oss/ui/OSSBrowserPanel.kt
+    import space.zhangjing.oss.utils.OSSUploader
+    import software.amazon.awssdk.services.s3.S3Client
+    OSSUploader.buildS3Client(credential)
+
+https://github.com/zhangjingex/idea-oss-plugin/blob/main/src/main/kotlin/space/zhangjing/oss/utils/OSSUploader.kt
+    import software.amazon.awssdk.auth.credentials.AwsBasicCredentials
+    import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider
+    
+    fun buildS3Client(credential: Credential): S3Client =
+        buildS3Client(
+            credential.endpoint,
+            credential.accessKeyId,
+            CredentialSecretStore.requestSecret(credential.id),
+            credential.region.region()
+        )
+
+    fun buildS3Client(
+        endpoint: String,
+        accessKeyId: String,
+        accessKeySecret: String,
+        region: Region
+    ): S3Client {
+        return S3Client.builder()
+            .endpointOverride(URI.create(endpoint.scheme()))
+            .overrideConfiguration {
+                it.addExecutionInterceptor(DeleteObjectsMd5Interceptor())
+            }
+            .credentialsProvider(
+                StaticCredentialsProvider.create(
+                    AwsBasicCredentials.create(accessKeyId, accessKeySecret)
+                )
+            )
+            .region(region)
+            .build()
+    }

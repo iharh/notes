@@ -1,4 +1,7 @@
+com.microsoft.tooling.msservices.intellij.azure
+https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/versions/stable
+https://github.com/microsoft/azure-tools-for-java
 
 2023
 https://devblogs.microsoft.com/java/java-on-azure-tooling-update-october-2023/
