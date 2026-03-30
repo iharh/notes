@@ -1,0 +1,5 @@
+ubi-deprecated
+https://mise.jdx.dev/dev-tools/backends/ubi.html
+https://github.com/houseabsolute/ubi
+https://github.com/jdx/mise/blob/main/src/backend/ubi.rs
+    ? asdf back
