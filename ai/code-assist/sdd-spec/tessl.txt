@@ -1,7 +1,25 @@
 https://tessl.io/
+https://tesslstatus.io/
 
 https://docs.tessl.io/
+https://docs.tessl.io/changelog
 
+https://www.youtube.com/@tessl-ai
+https://www.youtube.com/playlist?list=PLISstAySqk7Iri4zo2LNnSeS-OWoHKR_L
+
+inst
 npx tessl search
+https://docs.tessl.io/introduction-to-tessl/installation
+    https://get.tessl.io
+    TESSL_BINARY_BASE_URL="https://install.tessl.io"
+    BINARY_URL="${TESSL_BINARY_BASE_URL}/binaries/${URL_ENCODED_VERSION}/tessl-${URL_ENCODED_VERSION}-${PLATFORM_WITH_VARIANT}.tar.gz"
+    https://install.tessl.io/binaries
 
 https://tessl.io/registry
+https://tessl.io/registry/discover
+    826p
+
+https://docs.tessl.io/support/supported-platforms
+https://docs.tessl.io/support/faqs
+
+https://tessl.io/blog/
