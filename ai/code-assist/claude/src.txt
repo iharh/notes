@@ -1,0 +1,11 @@
+https://github.com/anthropics/claude-code
+https://github.com/anthropics/claude-code/tree/main/scripts
+https://github.com/anthropics/claude-code/tree/main/plugins
+
+https://github.com/anthropics/claude-code/tree/main/.devcontainer
+https://github.com/anthropics/claude-code/blob/main/.devcontainer/devcontainer.json
+https://github.com/anthropics/claude-code/blob/main/.devcontainer/init-firewall.sh
+    iptables-based
+
+https://github.com/instructkr/claw-code
+https://github.com/DonutShinobu/claude-code-fork

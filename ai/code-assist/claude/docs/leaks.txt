@@ -1,0 +1,26 @@
+https://economictimes.indiatimes.com/news/international/us/claude-code-source-code-leak-did-anthropic-just-expose-its-ai-secrets-hidden-models-and-undercover-coding-strategy-to-the-world/articleshow/129930888.cms
+https://arstechnica.com/ai/2026/03/entire-claude-code-cli-source-code-leaks-thanks-to-exposed-map-file/
+https://www.ccleaks.com/
+2026-04-01
+AI Automation - Claude Code Leaked 0:00 of 6:35
+    https://www.youtube.com/watch?v=gcNqDSWyPxs
+
+A major leak for Anthropic's Claude Code v2.1.88 after a 59.8MB source map was accidentally published to npm, exposing a trove of unreleased features and internal tools. Developers quickly archived and dissected the data, revealing a comprehensive look at Claude's capabilities and future plans.
+
+Highlights:
+
+    44 feature flags for unshipped features discovered
+    Background agents, voice command mode, and browser control built in
+    Source map included system prompts and internal tools
+    Direct links to leaked files shared online
+    Anthropic pulled the package, but backups remain accessible
+
+Unshipped features include:
+
+    Background agents running 24/7 with GitHub webhooks and push notifications
+    One Claude orchestrating multiple worker Claudes, each with a restricted toolset
+    Cron scheduling for agents, create, delete, list jobs, external webhooks included
+    Full voice command mode with its own CLI entrypoint
+    Actual browser control via Playwright, not web_fetch, real browser
+    Agents that can sleep and self-resume without user prompts
+    Persistent memory across sessions without external storage

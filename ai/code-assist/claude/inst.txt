@@ -1,0 +1,15 @@
+claude                        aqua:anthropics/claude-code http:claude npm:@anthropic-ai/claude-code
+claude-code                   aqua:anthropics/claude-code http:claude npm:@anthropic-ai/claude-code
+claude-squad                  aqua:smtg-ai/claude-squad
+
+npm install -g @anthropic-ai/claude-code
+
+claude-powerline              npm:@owloops/claude-powerline
+https://www.npmjs.com/package/@owloops/claude-powerline
+https://github.com/Owloops/claude-powerline
+    # Download full-featured example config
+    curl -o ~/.claude/claude-powerline.json https://raw.githubusercontent.com/Owloops/claude-powerline/main/.claude-powerline.json
+    # cfg
+    ./.claude-powerline.json - Project-specific
+    ~/.claude/claude-powerline.json - User config
+    ~/.config/claude-powerline/config.json - XDG standard
