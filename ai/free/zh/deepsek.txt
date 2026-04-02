@@ -10,9 +10,15 @@ https://deepseekcoder.github.io/
 
 https://plugins.jetbrains.com/plugin/26718-deepseek-code-review
 
+https://huggingface.co/deepseek-ai
+    harbor ollama pull deepseek-r1:8b
+
 DjangoSchool - Omelchenko - Learning using NN of p4
     https://www.youtube.com/playlist?list=PLF-NY6ldwAWq-lmmJcUopglqlTn7daI3U
 
+2026
+Selectel - How to Set up DeepSeek ru
+    https://habr.com/ru/companies/selectel/articles/1014132/
 2025
 https://newsletter.languagemodels.co/p/the-illustrated-deepseek-r1
 https://arcprize.org/blog/r1-zero-r1-results-analysis
