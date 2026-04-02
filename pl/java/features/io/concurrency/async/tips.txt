@@ -1,0 +1,88 @@
+https://t.me/BookJava/4208
+
+🔥 Разбираем CompletableFuture: Асинхронность в Java без боли  
+
+Привет, коллеги! Сегодня поговорим о CompletableFuture, который помогает писать асинхронный код в Java без коллбэков и потерь в читабельности.  
+
+📌 1. Почему CompletableFuture?  
+В Java давно есть Future, но он неудобен:  
+❌ Нельзя комбинировать несколько задач.  
+❌ Блокирует поток при вызове .get().  
+❌ Нет удобных методов для обработки результатов.  
+
+👉 CompletableFuture решает все эти проблемы, позволяя комбинировать задачи, обрабатывать ошибки и не блокировать потоки.
+
+
+📌 2. Базовый пример использования  
+
+import java.util.concurrent.CompletableFuture;
+
+public class AsyncExample {
+    public static void main(String[] args) {
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+            sleep(2000);
+            return "Привет, мир!";
+        });
+
+        future.thenAccept(result -> System.out.println("Результат: " + result));
+
+        System.out.println("Этот текст выведется раньше результата!");
+        sleep(3000); // Чтобы программа не завершилась раньше времени
+    }
+
+    private static void sleep(int ms) {
+        try { Thread.sleep(ms); } catch (InterruptedException ignored) {}
+    }
+}
+
+🔹 Здесь supplyAsync() выполняет задачу в другом потоке, а thenAccept() позволяет асинхронно обработать результат.  
+
+
+📌 3. Комбинирование нескольких задач  
+
+CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> "Hello");
+CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> "World");
+
+CompletableFuture<String> result = future1.thenCombine(future2, (s1, s2) -> s1 + " " + s2);
+
+System.out.println(result.join()); // Hello World
+
+✅ thenCombine() объединяет результаты двух асинхронных задач.  
+
+
+📌 4. Обработка ошибок (exceptionally)  
+
+CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+    if (Math.random() > 0.5) {
+        throw new RuntimeException("Что-то пошло не так!");
+    }
+    return "Все хорошо!";
+}).exceptionally(ex -> "Ошибка: " + ex.getMessage());
+
+System.out.println(future.join());
+
+✅ Если в supplyAsync() произошла ошибка, она обработается в exceptionally(), и программа не упадёт.  
+
+
+📌 5. Запуск нескольких задач параллельно  
+
+CompletableFuture<Void> allTasks = CompletableFuture.allOf(
+    CompletableFuture.runAsync(() -> sleepAndPrint("Задача 1", 1000)),
+    CompletableFuture.runAsync(() -> sleepAndPrint("Задача 2", 2000)),
+    CompletableFuture.runAsync(() -> sleepAndPrint("Задача 3", 1500))
+);
+
+allTasks.join(); // Дождёмся завершения всех задач
+
+private static void sleepAndPrint(String msg, int ms) {
+    try { Thread.sleep(ms); } catch (InterruptedException ignored) {}
+    System.out.println(msg);
+}
+
+✅ allOf() позволяет запустить несколько задач параллельно и дождаться их завершения.  
+
+
+📌 Итог  
+🔹 CompletableFuture – это мощный инструмент для работы с асинхронностью в Java.  
+🔹 Позволяет избежать блокировок, обрабатывать ошибки, комбинировать задачи.  
+🔹 Улучшает читаемость кода по сравнению с Future и ExecutorService.  
