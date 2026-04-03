@@ -1,0 +1,8 @@
+https://github.com/Amplicode/connekt/blob/main/install/connekt
+https://github.com/Amplicode/connekt/blob/main/install/install.sh
+    curl -sSf https://raw.githubusercontent.com/Amplicode/connekt/main/install/install.sh | bash
+https://github.com/Amplicode/connekt/blob/main/connekt-script-definition/README.md
+
+amplicode
+https://amplicode.ru/documentation/installation-guide-intellij/
+https://amplicode.ru/documentation/installation-guide-vs-code/
