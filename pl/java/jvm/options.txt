@@ -1,3 +1,7 @@
+2026
+CyberJAR - Java Memory Tuning: 35 JVM Flags That Matter 0:00 of 9:43
+    https://www.youtube.com/watch?v=wkevk6kYmQY
+
 http://www.oracle.com/technetwork/articles/java/vmoptions-jsp-140102.html
 
 To bypass the file system type check, set the -XX:+PerfBypassFileSystemCheck option on the java command line for both the
