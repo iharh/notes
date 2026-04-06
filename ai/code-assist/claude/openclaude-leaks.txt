@@ -13,6 +13,7 @@ OpenIDE - Claude Leak 0:00 of 7:12
 AI Automation - Claude Code Leaked 0:00 of 6:35
     https://www.youtube.com/watch?v=gcNqDSWyPxs
 https://habr.com/ru/articles/1018234/
+https://alex000kim.com/posts/2026-03-31-claude-code-source-leak/
 
 A major leak for Anthropic's Claude Code v2.1.88 after a 59.8MB source map was accidentally published to npm, exposing a trove of unreleased features and internal tools. Developers quickly archived and dissected the data, revealing a comprehensive look at Claude's capabilities and future plans.
 

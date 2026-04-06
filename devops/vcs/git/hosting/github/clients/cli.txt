@@ -41,6 +41,7 @@ auth
         gh search code -L 5 "Paths language:java" -L 5
         gh search code -L 5 language:java filename:Paths Paths
         gh search code -L 5 language:java filename:BeanFactoryPostProcessor
+        gh search code -L 5 content:bla
         ?
         https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#exclude-results-that-match-a-qualifier
         gh search code -L 5 language:java "filename:/^BeanFactoryPostProcessor/"
@@ -70,5 +71,11 @@ https://mislav.net/2020/01/github-cli/
 
 gh
     api
+        https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+        https://docs.github.com/en/rest/search/search?apiVersion=2026-03-10#constructing-a-search-query
+
+    -H "Accept: application/vnd.github+json" 
+    -H "X-GitHub-Api-Version: 2026-03-10" 
+    gh api "/search/code?q=BeanFactoryPostProcessor"
         ...
     alias
