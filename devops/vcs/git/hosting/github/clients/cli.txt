@@ -23,6 +23,29 @@ auth
         create <user/repo> --public --clone
         clone <user/repo>
         sync
+
+    https://docs.github.com/en/search-github/searching-on-github
+    https://docs.github.com/en/search-github/getting-started-with-searching-on-github/about-searching-on-github
+
+    search code "<term>" --repo [owner]/[repo] --branch [branch-name]
+        https://cli.github.com/manual/gh_search_code
+        https://docs.github.com/en/search-github/searching-on-github/searching-code
+            https://www.w3tutorials.net/blog/searching-code-in-a-specific-github-branch/
+        https://docs.github.com/en/search-github/github-code-search/understanding-github-code-search-syntax
+        
+        gh search code --language=java Paths
+        gh search code --language=java --filename=Paths
+        gh search code --language=java --filename=Paths --extension=java
+        gh search code -L 5 --language=java --filename=Paths
+
+        gh search code -L 5 "Paths language:java" -L 5
+        gh search code -L 5 language:java filename:Paths Paths
+        gh search code -L 5 language:java filename:BeanFactoryPostProcessor
+        ?
+        https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#exclude-results-that-match-a-qualifier
+        gh search code -L 5 language:java "filename:/^BeanFactoryPostProcessor/"
+        gh search code -L 5 language:java /^BeanFactoryPostProcessor/
+
 config
     list
         git_protocol=https

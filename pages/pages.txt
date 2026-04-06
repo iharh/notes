@@ -1,5 +1,7 @@
-book Olga Uskova - Russia
+to-read
+Ford ... Head First Software Architecture
 https://blog.frankel.ch/elastic-java-sdk-design/
+book Olga Uskova - Russia
 
 mgmt/dev-tools
 http://localhost:5601/app/dev_tools
@@ -38,39 +40,12 @@ Public key "https://dl.google.com/linux/linux_signing_key.pub" is already presen
 OpenPGP check for package "google-chrome-stable-145.0.7632.116-1.x86_64" (/var/cache/libdnf5/google-chrome-6ed7e4f336f6863c/packages/google-chrome-stable-145.0.7632.116-1.x86_64.rpm) from repo "google-chrome" has failed: Public key is not installed.
 
 
-~/.local/share/mise/plugins/gradle/hooks/available.lua:11
-
 https://learn.epam.com/myLearning/activeLearning
-
-gh-search
-language:"Gradle Kotlin DSL"
 
 https://dustinspecker.com/posts/how-do-kubernetes-and-docker-create-ip-addresses/
 https://pinggy.io/blog/how_to_self_host_any_llm_step_by_step_guide/
 
-http://bankdabrabyt.by/personal/novij_mobil_nij_bank_dabrabyt_online/
-
-hw-knife-sharpen
-https://www.youtube.com/watch?v=MGEpbvqP9nE
-https://www.youtube.com/watch?v=h5T1FSEQyCU
-
-calico
-https://www.youtube.com/@ProjectCalico/playlists
-https://www.youtube.com/playlist?list=PLoWxE_5hnZUZMWrEON3wxMBoIZvweGeiq
-calico - k8s services networking
-https://www.youtube.com/watch?v=NFApeJRXos4
-calico - k8s ingress networking
-https://www.youtube.com/watch?v=40VfZ_nIFWI
-
-DevConf.US 2025 - 91
-    https://www.youtube.com/playlist?list=PLU1vS0speL2aSrq1uHjSlznWnqMWsmWD1
-1-st Apr Masks
-    https://www.youtube.com/watch?v=DNkvO53iMsE
-
-IV
-[06][]
-kg
-
+????
 https://www.youtube.com/watch?v=VjfmxMR6E-Q
     https://cfp.all-systems-go.io/all-systems-go-2025/talk/TBDBDA/
     https://cfp.all-systems-go.io/media/all-systems-go-2025/submissions/TBDBDA/resources/ASG_-_A_terminal_for_operating_clouds___VgTDeaq.pdf
@@ -83,12 +58,6 @@ https://www.man7.org/linux//man-pages/man8/systemd-repart.8.html
 yaml
     anchor
 
-manual stop
-https://access.redhat.com/solutions/2664811
-https://stackoverflow.com/questions/61183536/restarting-auditd-service-gives-dependency-error
-https://sleeplessbeastie.eu/2020/05/01/how-to-temporarily-stop-auditd-daemon/
-https://www.incredigeek.com/home/cant-restart-auditd-with-systemctl/
-
 https://github.com/PragmaTech-GmbH/spring-test-profiler
 
 https://www.ticketpro.by/kupit-bilet/40396/
@@ -99,38 +68,25 @@ Bekker - Less means Greater ru
     https://flibusta.is/a/210249
     https://flibusta.is/b/597721
 
-idea plugins
-    https://plugins.jetbrains.com/plugin/28262-gerador-uml-mermaid-
-        https://github.com/jvictororiz/plugin-generator-uml
-    https://plugins.jetbrains.com/plugin/15075-jpa-buddy
-    https://plugins.jetbrains.com/plugin/27979-explyt
-
 restate
-https://docs.restate.dev/develop/java/overview/?sdk=kotln
 https://restate.dev/#
 https://restate.dev/programming-model
+https://docs.restate.dev/develop/java/overview/?sdk=kotln
 
 Idea: Select in -> Project Structure hotkey (A-F1 - 1)
     https://stackoverflow.com/questions/1086041/locate-current-file-in-intellij
     A-S-1-Enter
+idea plugins
+    https://plugins.jetbrains.com/plugin/28262-gerador-uml-mermaid-
+        https://github.com/jvictororiz/plugin-generator-uml
 
 books
-Chetverikova - 2011 - Vatican Izmena ru             -  16      (of  218)
-Veller - Friends                                    -  54
 OpenSSL Cookbook                                    -  29      (of   58)
 Gnedenko                                            -  39..41  (of   74)
 Bailor - The Calorie Myth ru                        -  13      (of  303)
 Markov - Crimea 2nd ed ru                           - 237      (of  607)
-Zhitinskiy - RD ru                                  - 227.2    (of  695)
-Myshkis - Soviet Mathematicians ru                  - 225..286 (of  302)
-Mordkovich - Talks with Math Teachers 2nd ed ru     - 209..220 (of  338)
-Froydental - Math as Pedagogical Problem part 2 ru  -  14..    (of  192)
-Sawyer - 1972 - Prelude to Mathematics 2nd ed ru    - 43..48   (of  192)
-NagelNewman - 2010 - Godels Proof 2nd ed ru         - 13       (of  121)
 Hudets - 2005 - Technics with Samsonov ru           -  73..    (of  274)
 Harrison - MongoDB 117 of 360
-kc - 76 of ...
-kina2 - 37 of 8xx (?1.2.5)
 bellemare - 21 (ch2)
 anand - clickhouse - 129 of (column-oriented)
 Wang - Terraform Made Easy
@@ -144,10 +100,6 @@ Wang - Terraform Made Easy
     https://z-library.sk/book/30618223/df747b/terraform-cookbook-for-true-epub.html
     https://z-library.sk/book/30816300/ac0d60/terraform-cookbook-recipes-for-codifying-infrastructure.html
     https://z-library.sk/book/31739686/f85974/terraform-cookbook-recipes-for-codifying-infrastructure.html
-
-try
-    librewolf
-    https://www.librechat.ai/docs/features
 
 Volkova
     Culture - Bridge Over Chasm of p18
@@ -648,26 +600,6 @@ BBC - Math and Civilization                        -  30:00 of 47:00
 Necks - 2020 - How to Heal and Strengthen           -   10:00 (of 2:02:03)
     https://www.youtube.com/watch?v=prdXS5EF64g
 
-
-Volfson - 2019 - How to Find Error at own Solution -   00:00   (of   53:34)
-    https://www.youtube.com/watch?v=_dTS8kG1olY
-    https://cmcagu.ru/docs/Seminar/Materials/Volfson.pdf
-
-misc
-https://trv-science.ru/2009/03/03/nuzhna-li-shkolnikam-vysshaya-matematika-2/
-https://trv-science.ru/2009/02/17/nuzhna-li-shkolnikam-vysshaya-matematika/
-    Zeldovich Myshkis - vysshaya matematika dlya nachinayuschih
-    Lakatos - proofs and disproofs
-https://trv-science.ru/2017/09/12/shirkov-ideya-shkoly-prosta/
-https://trv-science.ru/2015/10/20/shkolnikov-v-universitety/
-https://trv-science.ru/2016/09/06/uchitel-biznesmen/
-https://trv-science.ru/2015/08/25/kak-stroit-grazhdanskoe-obshchestvo-po-nauke/
-https://trv-science.ru/2019/03/26/mozg-lyubit-trudnye-zadachi/
-https://trv-science.ru/2011/05/chemu-uchat-na-zapadnom-okeane/
-https://trv-science.ru/2011/04/chemu-uchat-zapadnom-okeane/
-https://cyberleninka.ru/article/v/podgotovka-uchenikov-k-olimpiadam-po-informatike
-http://informatiki.tgl.net.ru/konkursy-i-olimpiady/olimp-programmir.html
-
 ium
     https://newtonew.com/higher/evrei-matematiki-v-sssr
 Tihomirov - Luzin
@@ -777,54 +709,17 @@ Smirnov - Why do Programmers need Math
     https://www.youtube.com/watch?v=fVzvl9jJEv8
 Begunts - Popularizing Math Knowledge at Olympiads  -   00:00
     https://www.youtube.com/watch?v=LKq5ySJryY4
-other
-    https://www.youtube.com/watch?v=Xgdaq3pe_R8
-    https://www.youtube.com/watch?v=-IVHWBljWNI
-    https://www.youtube.com/watch?v=DiIZL7JbDZQ
-    https://www.youtube.com/watch?v=lzgc-wovOdY
-    https://www.youtube.com/watch?v=cR3WoDBt9H4
 Skopenkov - Teaching Derivative using Olympiad Problems 18:00 (of 1:13:38)
     https://www.youtube.com/watch?v=0yed6ju3YIE
     Zeldovich - Vysshaya Matematika dlya Nachinayuschih
         luchshaya neformalnaya kniga po mat-analisu
     Colorings
         https://www.youtube.com/watch?v=9olfTXdkYzo
-Ponomorev - 2015 - CPM                              - 17:24   (of   50:45)
-    https://www.youtube.com/watch?v=IId7Dddp7mY
-    https://vk.com/cpm77
-    http://hamovniki.olimpiada.ru/
-    https://cpm.dogm.mos.ru/
-Pukas !!!
-    https://www.youtube.com/watch?v=DSsJkgHbTPs
 Antropov - Distance Olymp Teaching
     https://www.youtube.com/watch?v=aEdASKaH__4
-
-Misc
-    https://avidreaders.ru/book/programmirovanie-na-c-tryuki-i-effekty.html
-    https://avidreaders.ru/book/vvedenie-v-nadezhnoe-i-bezopasnoe-raspredelennoe.html
-    https://avidreaders.ru/book/sozdanie-i-obrabotka-struktur-dannyh-v.html
-
-Golod Evgeni Solomonovich
-    http://7iskusstv.com/2016/Nomer12/Demidovich1.php
-
-Kasselman - Entertaining Math ru
-    https://vk.com/doc515221370_493693482?hash=9976d17740d82609c3
-Zhukov - About Number Pi ru
-    https://vk.com/doc48883461_497526838?hash=60d492767f269c6559
-
-misc27
-    https://blogs.korrespondent.net/blog/users/3337521-matematycheskaia-shkola-s-humanytarnym-uklonom?fbclid=IwAR3lWVtdpnErQ4Q5tbH7nDS1fW6ZPhuGFC_RX_5PgSzZQQn953J_MdxProE
-    https://www.facebook.com/groups/436519399842648/permalink/483040388523882/
-    https://www.facebook.com/groups/436519399842648/permalink/483038151857439/
-Lifshits
-    https://www.facebook.com/groups/436519399842648/permalink/483035868524334/
-Lifits Sergey
-    http://mathematics.in.ua/index.php/uk/articles/item/32-kak-v-kharkove-gotovyat-luchshikh-yunykh-matematikov-mira-ukraina-regulyarno-okazyvaetsya-v-liderakh-shkolnykh-olimpiad?fbclid=IwAR0CKuLxZ0qp8_UJM-q73Xq4ULMpQfrUQzafpchzrgsACCmJql3Fbuj_-Tg
-Bulba
-    https://www.facebook.com/groups/436519399842648/permalink/473606822800572/
-Stolin
-    https://www.facebook.com/groups/436519399842648/permalink/473634606131127/
-    https://www.facebook.com/groups/436519399842648/permalink/473634606131127/
-Gandel
-    https://www.facebook.com/petr.kabalyants/posts/1337598606286567
-    https://www.facebook.com/groups/436519399842648/permalink/472466666247921/
+other
+    https://www.youtube.com/watch?v=Xgdaq3pe_R8
+    https://www.youtube.com/watch?v=-IVHWBljWNI
+    https://www.youtube.com/watch?v=DiIZL7JbDZQ
+    https://www.youtube.com/watch?v=lzgc-wovOdY
+    https://www.youtube.com/watch?v=cR3WoDBt9H4
