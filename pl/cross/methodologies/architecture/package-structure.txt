@@ -1,0 +1,25 @@
+Get Your Hands Dirty on Clean Architecture
+
+p60
+
+buckpal
+  adapter
+    in
+      web
+        SendMoneyController
+      out
+        persistence
+          AccountPersistenceAdapter
+          SpringDataAccountRepository
+  application
+    domain
+      model
+        Account
+      service
+        SendMoneyService
+    port
+      in
+        SendMoneyUseCase
+      out
+        UpdateAccountStatePort
+  common
