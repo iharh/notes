@@ -6,6 +6,10 @@ https://www.baeldung.com/spring-null-safety-annotations
     import org.springframework.lang.NonNullApi;
     import org.springframework.lang.NonNullFields;
 
+2026
+HuseyinCodes - 30 Spring Annotations You MUST Know in 2026 (with Code Examples) 0:00 of 18:54
+    https://www.youtube.com/watch?v=HRi-Vild2Ck
+    https://github.com/huseyinbabal/30-spring-annotations
 2023
 https://habr.com/ru/articles/778064/
 https://gorkemgok.com/enable-annotations-for-better-spring-libraries-5a467a028e06

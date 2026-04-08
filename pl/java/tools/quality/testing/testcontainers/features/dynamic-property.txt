@@ -1,3 +1,6 @@
 2024
 https://digma.ai/spring-boot-3-4-what-to-keep-an-eye-on/
     !!! Depr-n of DynamicPropertyRegistry (now use Registrar)
+
+samples
+https://github.com/huseyinbabal/30-spring-annotations/blob/master/src/test/java/com/example/taskmanager/TaskmanagerTests.java

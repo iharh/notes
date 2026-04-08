@@ -1,0 +1,4 @@
+https://openjdk.org/jeps/520
+
+$ java -XX:StartFlightRecording:jdk.MethodTrace#filter=java.util.HashMap::resize,filename=recording.jfr ...
+$ jfr print --events jdk.MethodTrace --stack-depth 20 recording.jfr

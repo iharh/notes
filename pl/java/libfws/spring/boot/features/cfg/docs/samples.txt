@@ -1,0 +1,7 @@
+https://github.com/huseyinbabal/30-spring-annotations/blob/master/src/main/java/com/example/taskmanager/config/AppProperties.java
+    @ConfigurationProperties(prefix = "app")
+    public record AppProperties(
+        int someInt,
+        String somString,
+        ...
+    ) {}

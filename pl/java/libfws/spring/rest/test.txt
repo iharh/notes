@@ -1,1 +1,18 @@
 https://docs.spring.io/spring-framework/reference/testing/spring-mvc-test-client.html
+
+RestTestClient
+---
+@SpringBootTest
+@AutoConfigureRestTestClient
+public class PersonControllerTests {
+    private static final String API_PATH = "/persons";
+    @Test
+    void add(@Autowired RestTestClient restTestClient) {
+        restTestClient.post().uri(API_PATH)
+            .body(Instancio.create(Person.class))
+            .exchange()
+            .expectStatus().is2xxSuccessful()
+            .expectBody(Person.class)
+            .value(person -> assertNotNull(person.getId()));
+    }
+}
