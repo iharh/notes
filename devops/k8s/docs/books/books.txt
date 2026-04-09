@@ -1,6 +1,16 @@
 Manning MEAP
 https://www.manning.com/books/kubernetes-in-action-second-edition
 
+2026
+LuksaConner - Kubernetes in Action 2nd ed
+    https://libgen.li/edition.php?id=208394142
+    4c7035b5ce13b91c0b1260be9d25ef6c
+    MEAP
+    https://libgen.li/edition.php?id=138611572
+    3d313cc165455123cb9c7d71c508481c
+    9DB9C79B1334F43EBD5B15BA748015BC 
+    ! good, but too verbose
+    POD, ReplicaSet, Deployment, StatefulSet, DaemonSets, Service, CronJob
 2024
 Muschko - CKAD 2nd ed
     A6D4FE83D4C0C8D42C0119E8C517429F
@@ -31,10 +41,6 @@ Ibryam - Kubernetes Patterns 2nd ed
     EAC4D57224AA7FD9A7CC08AFD8698B78
 VyasLove - Core Kubernetes ru
     92D035B21B945411F7269B57CB307711
-Luksa - Kubernetes in Action 2nd ed MEAP
-    9DB9C79B1334F43EBD5B15BA748015BC 
-    ! good, but too verbose
-    POD, ReplicaSet, Deployment, StatefulSet, DaemonSets, Service, CronJob
 Sayfan - Mastering Kubernetes 4th ed
     AD08AED0263E6ED1944014D26BEABEAD
     tons of stuff
