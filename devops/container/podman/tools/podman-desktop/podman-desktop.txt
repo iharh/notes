@@ -1,16 +1,26 @@
 https://podman-desktop.io/
+
 https://github.com/containers/podman-desktop
+https://github.com/podman-desktop/podman-desktop
+https://github.com/podman-desktop/extension-podman-quadlet
+https://github.com/podman-desktop/extension-bootc
+    https://github.com/crc-org/macadam
 
 https://podman-desktop.io/blog/
 
 https://podman-desktop.io/downloads
     https://flathub.org/apps/details/io.podman_desktop.PodmanDesktop
     https://formulae.brew.sh/cask/podman-desktop
-    https://github.com/podman-desktop/podman-desktop/releases
+https://podman-desktop.io/downloads/linux
+    https://github.com/podman-desktop/podman-desktop/releases/
     https://github.com/podman-desktop/podman-desktop/releases/download/v1.20.2/podman-desktop-1.20.2.tar.gz
+    flatpak install flathub io.podman_desktop.PodmanDesktop
+    ? podmantui
+    ? podmansh
 
 inst
-https://podman-desktop.io/docs/Installation/linux-install
+https://podman-desktop.io/docs/installation/linux-install
+    https://podman-desktop.io/docs/proxy
 https://podman-desktop.io/docs/installation/linux-install/install-on-rhel10
 https://podman-desktop.io/docs/proxy
     !!! direct tar.gz download and inst
@@ -39,3 +49,10 @@ https://podman-desktop.io/docs/intro
 https://podman-desktop.io/core-values
 https://podman-desktop.io/features
 https://podman-desktop.io/extend
+
+https://www.redhat.com/en/topics/containers/what-is-podman-desktop
+https://developers.redhat.com/products/podman-desktop/overview
+https://developers.redhat.com/learn/openshift/develop-containers-using-podman-desktop-and-kubernetes
+https://developers.redhat.com/learn/rhel/build-your-ai-application-ai-lab-extension-podman-desktop
+https://developers.redhat.com/products/podman-desktop/red-hat-extension-pack
+https://catalog.redhat.com/en/search?gs=&q=bootc&searchType=containers

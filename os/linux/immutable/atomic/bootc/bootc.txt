@@ -56,27 +56,8 @@ https://pykickstart.readthedocs.io/en/latest/kickstart-docs.html#ostreecontainer
 https://anaconda-installer.readthedocs.io/en/latest/
 https://github.com/composefs/composefs
 
-https://podman-desktop.io/
-https://podman-desktop.io/docs/intro
-https://podman-desktop.io/docs/installation/linux-install
-    https://podman-desktop.io/docs/proxy
-https://www.redhat.com/en/topics/containers/what-is-podman-desktop
-https://developers.redhat.com/products/podman-desktop/overview
-https://developers.redhat.com/learn/openshift/develop-containers-using-podman-desktop-and-kubernetes
-https://developers.redhat.com/learn/rhel/build-your-ai-application-ai-lab-extension-podman-desktop
-https://developers.redhat.com/products/podman-desktop/red-hat-extension-pack
-https://catalog.redhat.com/en/search?gs=&q=bootc&searchType=containers
-https://podman-desktop.io/downloads/linux
-    https://github.com/podman-desktop/podman-desktop/releases/
-    https://github.com/podman-desktop/podman-desktop/releases/download/v1.20.2/podman-desktop-1.20.2.tar.gz
-    flatpak install flathub io.podman_desktop.PodmanDesktop
-    ? podmantui
-    ? podmansh
-https://github.com/podman-desktop/podman-desktop
-https://github.com/podman-desktop/extension-podman-quadlet
 https://github.com/podman-desktop/extension-bootc
     https://github.com/crc-org/macadam
-    
 
 https://gitlab.com/fedora/bootc
 https://github.com/coreos/fedora-coreos-docs
@@ -125,6 +106,9 @@ https://www.youtube.com/watch?v=-5O3p8KCMiw
 
 ????
 https://docs.google.com/presentation/d/1pP-Gr2kb4TJifbkSCR0WzjoMRGJVxW33z1v1KIKbEnA/edit?slide=id.g35c1d124540_1_3298#slide=id.g35c1d124540_1_3298
+2026
+https://www.reddit.com/r/Fedora/comments/1sgeg2m/fedora_atomic_bootc_migration_setup_a_new_flow/
+    https://github.com/henry7720/fedora-atomic-container-setup
 2025
 CNCF - Build Your K8s Ready Distro With BootC - Praveen Kumar & Josh Berkus, Red Hat of 31:48
     https://www.youtube.com/watch?v=FDXLVuEt5XA
