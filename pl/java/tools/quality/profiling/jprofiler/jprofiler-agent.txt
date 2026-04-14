@@ -1,0 +1,12 @@
+https://www.ej-technologies.com/jprofiler
+
+https://www.ej-technologies.com/jprofiler/mcp
+    curl -fsSL https://www.ej-technologies.com/jprofiler/mcp/install.sh | sh
+    https://github.com/ej-technologies/jprofiler-mcp
+    @ej-technologies/jprofiler-mcp 
+
+https://www.ej-technologies.com/blog/
+https://www.ej-technologies.com/blog/filter?c=jprofiler
+
+2026
+https://www.ej-technologies.com/blog/2026/04/jprofiler-16-1-ai-agents-can-now-profile-your-java-applications/
