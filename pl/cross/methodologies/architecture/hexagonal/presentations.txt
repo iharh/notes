@@ -1,6 +1,4 @@
 2026
-https://foojay.io/today/ports-and-adapters-in-java-keeping-your-core-clean/
-    https://github.com/matteoroxis/hexagonal-architecture
 JavaTechie - Hexagonal Architecture | The Right Way to Design Microservices 4:00 of 19:37
     https://www.youtube.com/watch?v=M-4PnUn_SPA
 2025
@@ -15,16 +13,7 @@ VilageJavistCorner - Hexagonal Architecture and Microservices of 1:22:46
     ! 1:00 - hexagonal architecture is known of ports and adapters
 AlexHyet - Hexagonal Architecture: What You Need To Know - Simple Explanation of 8:15
     https://www.youtube.com/watch?v=bDWApqAUjEI
-https://www.arhohuttunen.com/hexagonal-architecture/
-    https://www.arhohuttunen.com/hexagonal-architecture-spring-boot/
-    https://habr.com/ru/companies/timeweb/articles/771338/
-    https://github.com/arhohuttunen/spring-boot-hexagonal-architecture
-2021
-https://huseyinbabal.com/2021/10/15/hexagonal-architecture-in-java-simplified/
-    https://github.com/huseyinbabal/hexagonal-architecture
 2019
 PVTBusinessIncubator - Voschilo - Hown to Use Hexagonal Architecture in Java Project of 1:24:40
     https://www.youtube.com/watch?v=XFrncA5qtlk
     !!! 50:00 ... tech-debt - nightmare of support, inability to add a new feature
-2014
-https://www.infoq.com/news/2014/10/exploring-hexagonal-architecture/
