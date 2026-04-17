@@ -1,0 +1,20 @@
+https://docs.docker.com/ai/sandboxes
+https://docs.docker.com/ai/sandboxes/get-started/
+https://docs.docker.com/ai/sandboxes/usage/
+https://docs.docker.com/ai/sandboxes/agents/
+https://docs.docker.com/ai/sandboxes/agents/claude-code/
+https://docs.docker.com/ai/sandboxes/architecture/
+https://docs.docker.com/ai/sandboxes/security/
+https://docs.docker.com/ai/sandboxes/troubleshooting/
+https://docs.docker.com/ai/sandboxes/faq/
+
+
+inst
+curl -fsSL https://get.docker.com | sudo REPO_ONLY=1 sh
+sudo apt-get install docker-sbx
+sudo usermod -aG kvm $USER
+newgrp kvm
+sbx login
+
+2026
+https://www.docker.com/blog/why-microvms-the-architecture-behind-docker-sandboxes/
