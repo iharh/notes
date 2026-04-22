@@ -45,3 +45,63 @@ https://www.happycoders.eu/java/structured-concurrency-structuredtaskscope/
     std/custom policies
 ?
     https://www.youtube.com/watch?v=wWAnjsBgDA4
+
+*********************************
+
+Проблема, которую решает эта фича, хорошо знакома любому, кто писал параллельный код на Java. ExecutorService, Future, CompletableFuture ничего не знают о связях между задачами. Три параллельные подзадачи для одного запроса живут в разных потоках без общего «родителя» — и если одна упала, об этом никто автоматически не узнает.
+
+Классический пример: параллельно загружаем профиль, настройки и историю пользователя. 
+
+
+public class UnstructuredExample {
+
+    public static UserData loadUserData(int userId) {
+        String profile     = fetchProfile(userId);
+        String preferences = fetchPreferences(userId);
+        String history     = fetchHistory(userId);
+        return new UserData(profile, preferences, history);
+    }
+}
+
+
+Можно, конечно, попробовать добиться этого поведения вручную: добавить cancel() в catch, завернуть всё в CompletableFuture.allOf, аккуратно обработать CompletionException. Но очень легко сделать что-то не так. И чем больше задач — тем больше бойлерплейта, который всё равно не даёт нормальной иерархии, нормальных стектрейсов и легко читаемого кода.
+
+Structured Concurrency решает это на уровне API. 
+
+
+public class StructuredExample {
+
+    public static UserData loadUserData(int userId) {
+        try (var scope = StructuredTaskScope.open(
+                StructuredTaskScope.Joiner.allSuccessfulOrThrow(),
+                Configuration cfg -> cfg
+                        .withTimeout(Duration.ofSeconds(5))
+                        .withName("load-user-data"))) {
+
+            // Fork all three subtasks — they run concurrently
+            var profile = scope.fork(() -> fetchProfile(userId));
+            var preferences = scope.fork(() -> fetchPreferences(userId));
+            var history = scope.fork(() -> fetchHistory(userId));
+
+            scope.join();
+
+            return new UserData(profile.get(), 
+                                                preferences.get(), 
+                                                history.get()
+            );
+        } catch (StructuredTaskScope.FailedException e) {
+            throw new RuntimeException("Failed to load user data: " + e.getCause().getMessage(), e);
+        }
+    }
+}
+
+
+Согласитесь, круто? Если любая задача упала — остальные отменяются автоматически. Поток-владелец гарантированно переживает все дочерние. Стектрейсы отражают реальную иерархию вызовов. Время жизни задач привязано к лексическому блоку — как try-with-resources. И, что самое главное, описанное выше поведение можно довольно легко настроить.
+
+Данная функциональность, на самом деле, с нами уже довольно давно. А что же поменялось в Java 26 по сравнению с Java 25?
+
+— скоуп создаётся через статический StructuredTaskScope.open() вместо new
+— join() возвращает List вместо Stream — результаты материализованы сразу, без риска обратиться к ним после закрытия скоупа
+— добавился joinUntil(deadline) — если задачи не успели к дедлайну, скоуп их отменяет
+
+API явно стабилизируется, но одному Гослингу известно сколько еще итераций preview ждёт эта фича 🙂
