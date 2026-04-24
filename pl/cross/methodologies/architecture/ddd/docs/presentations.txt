@@ -1,0 +1,77 @@
+2026
+AlexandrAlexeev - DDD ru 20:00 of 25:30
+    https://www.youtube.com/watch?v=7wRlcww-0jw
+    ! Anemic Model - logic spread across misc svc-s
+    ! Strategic Patterns (bounded context, sub-domain)
+    ! Tactic (Code) Patterns
+    ! 13:00 VO (Value Objects) does not have identity [field]
+    !       the're IMMUTABLE
+    !       Good practice - create wrappers per business types
+    ! 17:00 Application Services
+    !       or UseCaseHandler - thing orchestration layer
+    !       it is used for trans-boundarry
+    !       should not have business logic
+OrganizedProgramming - Mokevnin - Lukyanov - DDD in Practice of 2:03:57
+    https://www.youtube.com/watch?v=MBSwaH6s7Ig
+    https://vkvideo.ru/video-224967259_456239248
+2025
+Junker - Mastering Domain-Driven Design
+    https://nnmclub.to/forum/viewtopic.php?t=1851202
+    btih:00d64160c192d85f64ec2273cddcfc9d
+https://medium.com/@dykyi.roman/linking-contexts-a-guide-to-effective-interaction-f755b8ed8a49
+    https://habr.com/ru/articles/892250/
+DevConf - An All Code Introduction to Domain Driven Design and Hexagonal Architecture of 26:50
+    https://www.youtube.com/watch?v=sGv-TG0zb7s
+    https://github.com/jeremyrdavis/dddhexagonalworkshop
+Code Structure by DDD
+    https://habr.com/ru/articles/975936/
+DeveloperKiryl - What DDD is of 13:53
+    https://www.youtube.com/watch?v=UBUAgMLP0d0
+Devoxx - Oliver Drotbohm - Tactical Domain Driven Design with Java and Spring 2:26:00 of 2:42:19
+    https://www.youtube.com/watch?v=k3o1nSh3g2Q
+    ! jMoleculus, Spring Modulith
+    ! @TransactionalEventListener (also with @Async)
+    https://www.youtube.com/watch?v=co3acmgP2Ng
+Devoxx - TDD & DDD From the Ground Up Live Coding by Chris Simon 34:00 of 44:36
+    https://www.youtube.com/watch?v=eWxOisRMcII
+Vetchinkin - DDD
+    https://nnmclub.to/forum/viewtopic.php?p=12768729
+OrganizedProgramming - Mokevnin - Vetchinkin - DDD - friendship between business and code of 2:11:26
+    https://www.youtube.com/watch?v=03FnrgYLkV8
+TechExcellence - BDD + DDD: Aligning Business and Code (Igor Sosman) 6:00 of 1:30:48
+    https://www.youtube.com/watch?v=Q-Beh1dYNlM
+    ! so-so, but with cypress.io demo
+2024
+SpringIO - Implementing Domain Driven Design with Spring by Maciej Walkowiak of 50:17
+    https://www.youtube.com/watch?v=VGhg6Tfxb60
+    https://speakerdeck.com/maciejwalkowiak/implementing-domain-driven-design-with-spring
+    https://github.com/maciejwalkowiak/implementing-ddd-with-spring-talk
+        https://speakerdeck.com/maciejwalkowiak/implementing-domain-driven-design-with-spring?slide=17
+            each entity and value object can only exist in valid state
+            ensure system-wide consistency through "domain events"
+            business rules, state changes - implemented in entities
+            domain services - rules, that do not belong to any entity (perharps no domain services at all)
+                JPA entity may be a DDD entity, but does not have to
+            aggregates refer to each other by id, not by a direct reference
+            model VOs with records
+2023
+ListenIT - DDD in 10 min of 10:02
+    https://www.youtube.com/watch?v=6_BhdXLxiic
+JPont - Morev - DDD in Action 0:00 of 51:53
+    https://www.youtube.com/watch?v=c0f4HOfUGT0
+    !!!
+Devoxx - REST next level : Crafting domain driven web APIs By Julien Topçu 0:00 of 50:52
+    https://www.youtube.com/watch?v=bHc8Gudrhdo
+DrawingBoxes - DDD Building Blocks of 4:26
+    https://www.youtube.com/watch?v=xFl-QQZJFTA
+2022
+Devoxx - Writing cleaner code with Domain Driven Design by Paul van der Slot of 50:14
+    https://www.youtube.com/watch?v=3t0tZTOGk08
+    ! 2020 blog by Alberto Brandolini
+SpringIO - Getting modules right with Domain-driven Design by Michael Plöd @ Spring I/O 2022 0:00 of 47:04
+    https://www.youtube.com/watch?v=Q_0XW46IlHY
+    https://speakerdeck.com/mploed/getting-modules-right-with-domain-driven-design?slide=89
+2021
+DotNext - Hisnulin - Horikov - DDD - Most Important ru of 1:13:59
+    https://www.youtube.com/watch?v=JOy_SNK3qj4
+    ! bubble context, anti-corruption layer, pluralsight course, link to E. Evans article
