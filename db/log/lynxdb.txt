@@ -1,0 +1,44 @@
+https://lynxdb.org/
+https://github.com/lynxbase/lynxdb
+
+https://github.com/lynxbase/lynxdb/blob/main/scripts/install.sh
+curl -fsSL https://lynxdb.org/install.sh | sh
+go install github.com/lynxbase/lynxdb/cmd/lynxdb@latest
+
+docker run -p 3100:3100 ghcr.io/lynxbase/lynxdb server
+
+https://docs.lynxdb.org/
+https://docs.lynxdb.org/docs/
+https://docs.lynxdb.org/docs/getting-started/quickstart/
+https://docs.lynxdb.org/docs/lynx-flow/overview/
+
+https://docs.lynxdb.org/docs/cli/overview/
+    cat app.log | lynxdb query '| stats count by level'
+
+https://docs.lynxdb.org/docs/architecture/overview
+https://docs.lynxdb.org/docs/architecture/storage-engine
+https://docs.lynxdb.org/docs/architecture/segment-format
+https://docs.lynxdb.org/docs/architecture/query-engine
+https://docs.lynxdb.org/docs/architecture/indexing
+
+https://docs.lynxdb.org/docs/api/overview/
+
+https://docs.lynxdb.org/blog/
+
+
+****
+Lynxdb - schema-on-read база данных и аналитическая система для анализа логов. 
+
+Позволяет выполнять гибкий анализ без предварительного парсинга и жесткой схемы структура извлекается во время чтения
+
+Lynx Flow язык запросов LynxDB,
+По сути, это упрощённый и более интуитивный слой (синтаксический сахар) над Splunk SPL2,  ориентированный на удобную работу с логами.
+
+Возможности: 
+   - режим конвейера - чтение из стандартного ввода или файлов, работает как grep. Нет сервера, нет конфигурации.
+   - Lynx Flow - group, let, parse, order by, join, CTE, доменные синтаксисы и многое другое. Частичная совместимость с SPL2.
+   - полнотекстовый поиск - инвертированный индекс FST +  roaring bitmaps, фильтры Блума для пропуска сегментов.
+   - столбцовое хранение - пользовательский формат .lsg, временные метки с дельта-вариантами, кодирование по словарю, Gorilla XOR, LZ4
+   - материализованные представления - предварительно вычисленные агрегации с автоматической переадресацией запросов, ускорение до ~400 раз.
+   - кластерный режим - добавьте --cluster.seeds для распределенной работы; общее хранилище на основе S3.
+   - загрузка данных без предварительной обработки - Elasticsearch_bulk, OpenTelemetry OTLP, Splunk HEC

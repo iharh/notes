@@ -1,0 +1,65 @@
+*******
+@BatchSize и hibernate.jdbc.batch_size — две разные вещи, которые иногда путают. Разбираем обе.
+
+🔹 Решение
+
+▪️ JDBC batch insert/update
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50          # отправлять INSERT пачками по 50
+          order_inserts: true     # группировать INSERT по типу сущности
+          order_updates: true     # то же для UPDATE
+        cache:
+          use_second_level_cache: false
+
+Без order_inserts: true батчинг часто не работает. Hibernate вперемешку отправляет INSERT для разных таблиц, JDBC driver не может их объединить.
+
+@Transactional
+public void saveAll(List<Order> orders) {
+    for (int i = 0; i < orders.size(); i++) {
+        entityManager.persist(orders.get(i));
+        if (i % 50 == 0) {
+            entityManager.flush();
+            entityManager.clear(); // освобождаем first-level cache
+        }
+    }
+}
+
+Без flush/clear каждые N записей first-level cache растёт до OOM при больших объёмах.
+
+* @BatchSize для загрузки коллекций
+
+@Entity
+public class Author {
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    @BatchSize(size = 25)
+    private List<Book> books;
+}
+
+При загрузке 100 авторов и обращении к books — вместо 100 SELECT будет 4 (100/25). Hibernate собирает ID авторов в пачки и загружает WHERE author_id IN (?, ?, ..., ?).
+
+Это не решение N+1, это смягчение его последствий. Правильное решение — JOIN FETCH или EntityGraph для конкретного запроса. @BatchSize — запасной вариант для случаев когда JOIN FETCH неприменим.
+
+* @BatchSize на уровне класса
+
+@Entity
+@BatchSize(size = 25)
+public class Book { ... }
+
+Работает для загрузки по ID: entityManager.find(Book.class, id) будет батчиться. Полезно при большом количестве lazy-загружаемых ссылок типа @ManyToOne.
+
+* Проверка что батчинг реально работает
+
+spring:
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://...?reWriteBatchedInserts=true  # для PostgreSQL
+
+Для PostgreSQL нужен флаг reWriteBatchedInserts=true в URL — иначе JDBC драйвер отправляет запросы по одному даже при включённом батчинге Hibernate.
+
+* Сущности с @GeneratedValue(strategy = IDENTITY) (auto-increment) не батчируются при INSERT — Hibernate вынужден получать ID после каждой вставки. Для батчинга используйте SEQUENCE стратегию с allocationSize равным batch_size.

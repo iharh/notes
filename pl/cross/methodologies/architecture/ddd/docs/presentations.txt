@@ -1,5 +1,5 @@
 2026
-AlexandrAlexeev - DDD ru 20:00 of 25:30
+AlexandrAlexeev - DDD ru of 25:30
     https://www.youtube.com/watch?v=7wRlcww-0jw
     ! Anemic Model - logic spread across misc svc-s
     ! Strategic Patterns (bounded context, sub-domain)
@@ -11,10 +11,14 @@ AlexandrAlexeev - DDD ru 20:00 of 25:30
     !       or UseCaseHandler - thing orchestration layer
     !       it is used for trans-boundarry
     !       should not have business logic
+    ! 22:00 Bounded Context is the most Powerfull idea of DDD
 OrganizedProgramming - Mokevnin - Lukyanov - DDD in Practice of 2:03:57
     https://www.youtube.com/watch?v=MBSwaH6s7Ig
     https://vkvideo.ru/video-224967259_456239248
 2025
+DmitriyBereznitskiy - DDD for Real Projects ru 16:00 of 23:56
+    https://www.youtube.com/watch?v=IJ63T2NmeFA
+    ! 11:00 Primitive Obsession
 Junker - Mastering Domain-Driven Design
     https://nnmclub.to/forum/viewtopic.php?t=1851202
     btih:00d64160c192d85f64ec2273cddcfc9d
