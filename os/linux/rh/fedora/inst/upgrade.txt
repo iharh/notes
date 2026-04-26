@@ -8,6 +8,7 @@ https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/
     reboot
     sudo dnf system-upgrade download --releasever=44
         --allowerasing
+        openh264-*: ? in vpn
     sudo dnf system-upgrade reboot
         sudo dnf offline reboot
     sudo dnf system-upgrade clean
