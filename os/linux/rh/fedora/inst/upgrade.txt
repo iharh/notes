@@ -6,7 +6,7 @@ https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-new-release/
 https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/
     sudo dnf upgrade --refresh
     reboot
-    sudo dnf system-upgrade download --releasever=43
+    sudo dnf system-upgrade download --releasever=44
         --allowerasing
     sudo dnf system-upgrade reboot
         sudo dnf offline reboot
