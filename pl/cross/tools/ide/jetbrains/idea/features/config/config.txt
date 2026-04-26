@@ -4,6 +4,8 @@ https://www.jetbrains.com/help/idea/sdk.html
 
 https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs
 
+https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory
+
 conf-sync:
 https://habrahabr.ru/company/JetBrains/blog/335646/
 
@@ -29,3 +31,10 @@ files
         trusted-paths.xml
         recentProjects.xml
         other.xml
+
+plugin
+com.intellij.configurationScript
+https://plugins.jetbrains.com/plugin/27375-configuration-script
+
+2024
+https://the-pi-guy.com/blog/intellij_idea_settings_and_configuration_files_a_deep_dive/
