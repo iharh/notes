@@ -1,14 +1,5 @@
 https://wiki.archlinux.org/title/SDDM
 
-/usr/share/xsessions/awesome.desktop
-[Desktop Entry]
-Name=awesome
-Comment=Highly configurable framework window manager
-TryExec=awesome
-Exec=awesome
-Type=Application
-Icon=/usr/share/pixmaps/awesome.xpm
-Keywords=Window manager
 
 wallpapers
 /usr/share/sddm/themes/ubuntu-theme/theme.conf
@@ -19,8 +10,13 @@ https://aur.archlinux.org/packages/multicolor-sddm-theme
 
 state
 https://man.archlinux.org/man/sddm-state.conf.5.en
-    ~sddm/
-        state.conf
+sudo cat ~sddm/state.conf
+
+/usr/share/wayland-sessions/plasma.desktop
+#/usr/share/wayland-sessions/hypland.desktop
+
+#/usr/share/xsessions/*.desktop
+
 2021
 DistroTube - Theming My Login Screen For Maximum Gains (sddm) 9:00 of 22:34
     https://www.youtube.com/watch?v=16nduwlYioc

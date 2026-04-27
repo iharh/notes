@@ -17,6 +17,12 @@ Skipping packages with conflicts:
 systemctl is-enabled sddm.service
 sudo systemctl enable --force sddm.service
 
+# https://man.archlinux.org/man/sddm-state.conf.5.en
+sudo cat ~sddm/state.conf
+
+/usr/share/wayland-sessions/plasma.desktop
+#/usr/share/wayland-sessions/hypland.desktop
+
 ```
 ## login - lightdm
 
