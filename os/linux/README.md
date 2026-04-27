@@ -1,6 +1,23 @@
 # reparing
 
-## login
+## kde - sddm
+
+https://docs.fedoraproject.org/en-US/kde/getkde/
+https://www.tecmint.com/install-kde-plasma-5-in-linux/
+
+```
+dnf group list | grep kde
+dnf group install kde-desktop --skip-broken
+# --allowerasing
+
+Skipping packages with conflicts:
+ sddm-wayland-plasma
+
+sudo systemctl is-enabled --force sddm.service
+sudo systemctl enable --force sddm.service
+
+```
+## login - lightdm
 
 ```
 $ sudo systemctl disable lightdm.service

@@ -1,0 +1,13 @@
+https://fabric.so/
+https://fabric.so/pricing-and-plans-for-individuals
+
+https://fabric.so/download/cli
+curl -fsSL https://fabric.so/cli/install.sh | sh
+    RELEASE_BASE_URL="https://cli.fabric.so"
+    ARTIFACT_NAME="fabric-standalone.mjs"
+
+https://www.youtube.com/@fabric_so
+
+2026
+Fabric CLI — your whole knowledge base from the terminal 0:00 of 0:52
+    https://www.youtube.com/watch?v=BXw24uHTX6o
