@@ -7,13 +7,14 @@ https://www.tecmint.com/install-kde-plasma-5-in-linux/
 
 ```
 dnf group list | grep kde
-dnf group install kde-desktop --skip-broken
+sudo dnf group install kde-desktop --skip-broken
 # --allowerasing
 
+# ???
 Skipping packages with conflicts:
  sddm-wayland-plasma
 
-sudo systemctl is-enabled --force sddm.service
+systemctl is-enabled sddm.service
 sudo systemctl enable --force sddm.service
 
 ```
