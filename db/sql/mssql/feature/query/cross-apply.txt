@@ -1,0 +1,42 @@
+Сегодня расскажу вам про одну часто недооценённую, но крайне полезную SQL-фишку — CROSS APPLY в SQL Server (и его аналог в других СУБД — LATERAL).
+
+Когда обычный JOIN бессилен
+
+Допустим, у нас есть таблица Orders, и мы хотим для каждой строки выбрать топ-1 продукт по сумме, но выборка зависит от строки — тут уже обычный JOIN не справится. Вот пример, где приходит на помощь CROSS APPLY:
+
+SELECT 
+    o.OrderID,
+    p.ProductName,
+    p.Amount
+FROM Orders o
+CROSS APPLY (
+    SELECT TOP 1 *
+    FROM Products p
+    WHERE p.OrderID = o.OrderID
+    ORDER BY p.Amount DESC
+) p;
+
+
+Что делает CROSS APPLY?
+
+Он буквально говорит: «Для каждой строки из Orders выполни подзапрос с её параметрами». Это похоже на foreach, где внутренняя выборка может меняться в зависимости от строки внешней таблицы.
+
+Аналог в PostgreSQL:
+
+SELECT 
+    o.order_id,
+    p.product_name,
+    p.amount
+FROM orders o,
+LATERAL (
+    SELECT *
+    FROM products p
+    WHERE p.order_id = o.order_id
+    ORDER BY p.amount DESC
+    LIMIT 1
+) p;
+
+* Используйте CROSS APPLY, когда:
+- Нужна подстрочная логика внутри запроса
+- Не получается реализовать через обычный JOIN
+- Вы работаете с функциями, которые возвращают таблицу (TVF)
