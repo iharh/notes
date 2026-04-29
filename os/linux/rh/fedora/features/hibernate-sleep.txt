@@ -1,0 +1,4 @@
+https://infotechys.com/disable-or-block-hibernation-in-fedora/
+    sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+https://www.fedorafaq.com/en/fix-suspend-hibernate-issues/
+https://linuxconfig.org/how-to-restore-hibernation-on-fedora-35
