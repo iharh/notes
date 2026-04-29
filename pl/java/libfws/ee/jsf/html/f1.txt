@@ -1,0 +1,9 @@
+<form id="j_idt17" name="j_idt17" method="post" action="/hello.xhtml" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="j_idt17" value="j_idt17" />
+
+    <!-- h:outputLabel for="name" value="Name: " / -->
+    <input id="j_idt17:deleteCarId" type="text" name="j_idt17:deleteCarId" value="0" />
+    <input type="submit" name="j_idt17:j_idt19" value="Delete" />
+
+    <input type="hidden" name="jakarta.faces.ViewState" id="j_id1:jakarta.faces.ViewState:0" value="-6619893355535500678:-8853919857509868194" autocomplete="off" />
+</form>

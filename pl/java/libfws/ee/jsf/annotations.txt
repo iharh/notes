@@ -1,0 +1,6 @@
+@ManagedBean
+public class SampleBean { ... }
+// @Named("sampleBean")
+
+
+@RequestScoped
