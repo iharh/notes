@@ -6,15 +6,73 @@ Tijms - The Definitive Guide to JSF in Java EE 8
     epub
     https://libgen.li/edition.php?id=138067000
     0c22a8eac2e0d4ba010a46ad16af0ba7
-    p46 - DataSource cfg
+    p34 - misc xml cfg files (web.xml, faces-config.xml, persistence.xml)
+    p35 - controller, baking bean classes (they "backs" a view)
+    p38 - @RequestScoped - the same instance of bean is used during HTTP Request
+          then the scope (HTTP-req) ends - the bean will be destroyed
+          more - in Ch8
+    p40 - <h:form> ... auto-incl the view-state in a hidden input field
+          
+              <h:commandButton value="Submit" action="#{helloWorld.submit}">
+                  <f:ajax execute="@form" render=":output"
+              </h:commandButton>
+          </h:form>
+          <h:outputText id="output" value="#{helloWorld.output}"/>
+              generates the HTML <span>. Will be updated on Ajax submit
+    p43 - servlet "context path" - HttpServletRequest#getContextPath(), ExternalContext#getRequestContextPath() - can be empty
+    p46 - h2, DataSource cfg
     p47 - JPA cfg
+    p50 - creating EJB Service
+    p55 - ch3. Components
+        JSF parses a view def into "component tree"
+        UIComponent tree = FacesContext.getCurrentInstance().getViewRoot()
+
+        The component tree defines how JSF should consume the HTTP request
+        in order to apply "request values" coming from "input components"
+        convert and validate them
+        update the managed bean model values,
+        invoke the managed bean action
+    p56 how JSF processes the HTTP postback request within the MVC architecture
+    p58 the baking bean can act as a Model, a View or a Controller (detailed in ch8)
+    p60 Table 3.1 Std HTML components, provided by JSF
+        UIOutput
+        UIPanel:
+        <h:panelGrid> - <table> (static)
+        <h:panelGroup> - <span>
+        <h:panelGroup layout=block> - <div>
+        UIInput:
+    p63 iTable 3.2 Std Core Tags 
     p65 - LifeCycle
+    p66 - 1. Restore View Phase
+          2. Apply Request Values
+    p67   3. Process Validations
+    p68   4. Update Model Values
+          5. Invoke Application
+          6. Render Response
+
     p69 - AJAX LifeCycle
     p76 - Component System Events
     p82 - Component Custom Events
-    p83 - JSTL Core Tags
-    ... 148
+
+    p81 - @FacesComponent - custom one
+    p83 - JSTL Core Tags (c:forEach, c:set)
+
+    p95 - ch4. Form Components
+    p148 - ch5. Conversion and Validation
     p198 - Navigation-based Output Components
+    p236 - ch7. Facelete Templating
+        no comp-t other than h:dataTable to iterate
+    p242 - SPA
+    p275 - Baking Beans
+
+    p322 - AJAX exception handling
+
+    p359 - ch11. Custom Components
+    p409 - ch13. Security
+    p459 - ch14. Localization
+    p481 - ch15. Extensions
+    p501 - Index
+
 
 Muller - Practical JSF in Java EE 8
     https://libgen.li/edition.php?id=138026819
