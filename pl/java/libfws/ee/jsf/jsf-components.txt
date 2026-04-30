@@ -1,20 +1,57 @@
-https://daviddalbusco.com/blog/create-a-primefaces-jsf-project-with-maven-and-wildfly
-    primefaces panel
+https://github.com/jakartaee/faces
+https://jakarta.ee/specifications/faces/4.0/
+https://jakarta.ee/specifications/faces/4.1/apidocs/overview-tree
+https://jakarta.ee/specifications/faces/4.1/jakarta-faces-4.1.pdf
+    Table 7. Concrete HTML Component Classes
+    jakarta.faces.component.html HtmlCommandButton
+    Table 9. tag name ...
+    4.1 Standard UI Components
+https://jakarta.ee/specifications/faces/4.1/jakarta-faces-4.1
+LifeCycle
+https://jakarta.ee/specifications/faces/4.1/jakarta-faces-4.1#a390
+https://docs.oracle.com/javaee/7/tutorial/jsf-intro006.htm
+navigation
+https://docs.oracle.com/javaee/7/tutorial/jsf-intro005.htm#BNAQL
+AJAX
+https://mkyong.com/jsf2/jsf-2-0-ajax-hello-world-example/
 
+https://www.w3schools.com/tags/default.asp
+https://www.w3schoolsedu.com/jsf-framework-architecture-tutorial
+https://www.tpointtech.com/jsf-ui-components
+https://www.tutorialspoint.com/jsf/
+
++h:inputHidden
+    https://www.tpointtech.com/jsf-inputhidden
 +h:inputText
+    https://www.tpointtech.com/jsf-inputtext
 +h:outputText
     https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/h/outputText.html
 +h:form
 +h:commandButton
 h:inputTextarea
-h:commandLink
-h:graphicImage
+    https://www.tpointtech.com/jsf-inputtextarea
+    <h:inputTextarea id="text-area-id" value="#{user.address}" required="true"   
+    requiredMessage="Address is required" cols="50" rows="10"></h:inputTextarea>  
++h:commandLink
+    https://www.tpointtech.com/jsf-commandlink
++h:graphicImage
+    https://www.w3schools.com/tags/tag_img.asp
+    https://www.w3schoolsedu.com/graphicimage-jsf
+    https://www.tpointtech.com/jsf-graphicimage
+    https://www.tutorialspoint.com/jsf/jsf_graphicimage_tag.htm
+    https://examples.javacodegeeks.com/java-development/enterprise-java/jsf/graphicimage-example-with-jsf-2-0/
+    <img src="resources/img/del.png" alt="del" width="15" height="15"/>
 h:message
 ?h:outputLabel
     https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/h/outputLabel.html
 h:outputLink
-h:panelGrid
-h:panelGroup
+
+h:panelGrid - a table
+    An HTML <table> element with <tr> and <td> elements
+h:panelGroup - a row in a table
+    A HTML <div> or <span> element
+    
+
 h:selectManyListbox
 h:selectOneMenu
 h:column
