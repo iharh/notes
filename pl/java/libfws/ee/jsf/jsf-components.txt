@@ -1,15 +1,16 @@
 https://daviddalbusco.com/blog/create-a-primefaces-jsf-project-with-maven-and-wildfly
     primefaces panel
 
-h:inputText
-h:outputText
-h:form
-h:commandButton
++h:inputText
++h:outputText
+    https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/h/outputText.html
++h:form
++h:commandButton
 h:inputTextarea
 h:commandLink
 h:graphicImage
 h:message
-h:outputLabel
+?h:outputLabel
     https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/h/outputLabel.html
 h:outputLink
 h:panelGrid
