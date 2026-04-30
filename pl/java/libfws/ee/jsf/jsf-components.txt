@@ -16,7 +16,8 @@ AJAX
 https://mkyong.com/jsf2/jsf-2-0-ajax-hello-world-example/
 
 https://www.w3schools.com/tags/default.asp
-https://www.w3schoolsedu.com/jsf-framework-architecture-tutorial
+https://www.w3schoolsedu.com/
+https://www.w3schoolsedu.com/tags-in-jsf
 https://www.tpointtech.com/jsf-ui-components
 https://www.tutorialspoint.com/jsf/
 
@@ -34,6 +35,10 @@ h:inputTextarea
     requiredMessage="Address is required" cols="50" rows="10"></h:inputTextarea>  
 +h:commandLink
     https://www.tpointtech.com/jsf-commandlink
+    ! inside form
+    <h:commandLink action="#{carsBean.deleteCar(c.id)}">
+        <h:outputText value="del"/>
+    </h:commandLink>
 +h:graphicImage
     https://www.w3schools.com/tags/tag_img.asp
     https://www.w3schoolsedu.com/graphicimage-jsf
@@ -41,19 +46,21 @@ h:inputTextarea
     https://www.tutorialspoint.com/jsf/jsf_graphicimage_tag.htm
     https://examples.javacodegeeks.com/java-development/enterprise-java/jsf/graphicimage-example-with-jsf-2-0/
     <img src="resources/img/del.png" alt="del" width="15" height="15"/>
-h:message
 ?h:outputLabel
     https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/h/outputLabel.html
 h:outputLink
+
+h:message
 
 h:panelGrid - a table
     An HTML <table> element with <tr> and <td> elements
 h:panelGroup - a row in a table
     A HTML <div> or <span> element
     
-
 h:selectManyListbox
 h:selectOneMenu
+    https://www.w3schoolsedu.com/selectonemenu-jsf
+
 h:column
 
 h:outputStylesheet
