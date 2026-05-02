@@ -24,9 +24,18 @@ RomanKubar - Claude Code fixed MCP 0:00 of 16:46
 NeuroLightning - Deal with Claude Lagging ru 0:00 of 13:08
     https://www.youtube.com/watch?v=bLmwkgGAsjk
 2025
-AlexeyAndreevsky - Claude Code Full Guide 0:00 of 1:06:45
+AlexeyAndreevsky - Claude Code Full Guide 4:00 of 1:06:45
     https://www.youtube.com/watch?v=rwnlQqCJvYM
-    !!!!! need to look
+    ? What can you do
+        - refactor and debug
+        - explain how code works
+      / command (tons of)
+          /init  at the beginning AND after massive changes
+          /compact
+      @ ... for file path
+      # to memorize
+          /memory - to list memory (.claude/CLAUDE.md)
+
 LLMStudio - Claude Code in Practice 0:00 of 26:20
     https://www.youtube.com/watch?v=i8fGaDkplpE
 AI-DrivenDevelopment - Best Practices from TechLead 0:00 of 2:08:06

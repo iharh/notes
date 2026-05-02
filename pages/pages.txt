@@ -1,6 +1,13 @@
 idea:
 global/prj sql dialect
 
+claude
+? What can you do
+    - refactor and debug
+    - explain how code works
+  @ ... for file path
+  # to memorize
+
 to-read
 Ford ... Head First Software Architecture
 https://blog.frankel.ch/elastic-java-sdk-design/
