@@ -15,11 +15,14 @@ https://docs.oracle.com/javaee/7/tutorial/jsf-intro005.htm#BNAQL
 AJAX
 https://mkyong.com/jsf2/jsf-2-0-ajax-hello-world-example/
 
+https://www.tutorialspoint.com/jsf/
 https://www.w3schools.com/tags/default.asp
 https://www.w3schoolsedu.com/
 https://www.w3schoolsedu.com/tags-in-jsf
 https://www.tpointtech.com/jsf-ui-components
-https://www.tutorialspoint.com/jsf/
+https://www.roseindia.net/jsf/
+https://www.roseindia.net/jsf/jsftags.shtml
+    <f:actionListener.../>
 
 TODO: ee book 2 tables
 
@@ -31,6 +34,7 @@ TODO: ee book 2 tables
     https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/h/outputText.html
 +h:form
 +h:commandButton
+    https://www.tpointtech.com/jsf-commandbutton
 h:inputTextarea
     https://www.tpointtech.com/jsf-inputtextarea
     <h:inputTextarea id="text-area-id" value="#{user.address}" required="true"   
@@ -49,20 +53,42 @@ h:inputTextarea
     https://examples.javacodegeeks.com/java-development/enterprise-java/jsf/graphicimage-example-with-jsf-2-0/
     <img src="resources/img/del.png" alt="del" width="15" height="15"/>
 ?h:outputLabel
+    https://www.roseindia.net/jsf/outputLabel.shtml
     https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/h/outputLabel.html
 h:outputLink
+    https://www.tutorialspoint.com/jsf/jsf_outputlink_tag.htm
+    https://www.roseindia.net/jsf/outputLink.shtml
 
-h:message
-
-h:panelGrid - a table
++h:panelGrid - a table
     An HTML <table> element with <tr> and <td> elements
-h:panelGroup - a row in a table
+    https://www.roseindia.net/jsf/panelGrid.shtml
+    <f:facet name="header|footer"/>
++h:panelGroup - a row in a table
     A HTML <div> or <span> element
+    https://www.roseindia.net/jsf/panelGroup.shtml
     
-h:selectManyListbox
-h:selectOneMenu
++h:selectOneMenu
     https://www.w3schoolsedu.com/selectonemenu-jsf
+    <f:selectItems value="#{someBean.someOptions}" />
+h:selectManyListbox
+    public class SelectionBean implements Serializable {
+        @GetSet
+        private List<String> selectedFruits;
+        @Getter
+        private final List<String> fruitOptions = Arrays.asList("Apple", "Banana", "Orange", "Grape", "Mango");
+    }
+    <h:form>
+        <h:outputLabel value="Select your favorite fruits:" for="fruits" />
+        <h:selectManyListbox id="fruits" value="#{selectionBean.selectedFruits}" size="5">
+            <f:selectItems value="#{selectionBean.fruitOptions}" />
+        </h:selectManyListbox>
+        <br/>
+        <h:commandButton value="Submit" />
+        <h:outputText value="You selected: #{selectionBean.selectedFruits}" />
+    </h:form>
 
-h:column
++h:column
 
 h:outputStylesheet
+
+h:message

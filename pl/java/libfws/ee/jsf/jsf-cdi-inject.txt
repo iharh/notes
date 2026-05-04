@@ -1,0 +1,14 @@
+Tijms - p309 - Injected JSF Vended Types
+    #{component}
+    #{cc}
+    #{request}
+    #{session}
+    #{application}
+
+    DeploymentException: WELD-001408: Unsatisfied dependencies for type ... with qualifiers @Default
+    There is an @Inject point for a type (e.g., an interface or class), but there is no bean 
+    (class annotated with @Named, @Stateless, @Singleton, @ApplicationScoped, 
+
+    ejb-api.jar
+    jakarta.ejb.Singleton
+    ...Stateless

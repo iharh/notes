@@ -1,0 +1,2 @@
+FacesContext.getCurrentInstance().getExternalContext().getFlash().put("key", value);
+    // .get()

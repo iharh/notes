@@ -1,0 +1,26 @@
+internals
+jakarta.faces:jakarta.faces-api:4.0.1
+
+jakarta.faces.component.html
+    public abstract class UIComponent implements PartialStateHolder, TransientStateHolder, SystemEventListenerHolder, ComponentSystemEventListener {
+        public static final String BEANINFO_KEY = "jakarta.faces.component.BEANINFO_KEY";
+        ...
+    }
+    public abstract class UIComponentBase extends UIComponent {
+    }
+    public class UIOutput extends UIComponentBase implements ValueHolder {
+    }
+    public class HtmlOutputText extends UIOutput {
+        protected enum PropertyKeys {
+            dir, escape, lang, role, style, styleClass, title,;
+            ...
+        }
+        ...
+        public java.lang.String getDir() {
+            return (java.lang.String) getStateHelper().eval(PropertyKeys.dir);
+        }
+    }
+jakarta.faces.render
+
+Custom:
+UIComponentTag

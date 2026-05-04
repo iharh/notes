@@ -1,0 +1,18 @@
+https://www.w3schoolsedu.com/jsf-conditional-navigation-rule
+
+Tijms 
+p133 Navigation
+
+Core JSF 2nd ed
+
+faces-config.xml:
+<navigation-rule>
+    <from-view-id>/index.jsp</from-view-id>
+    <navigation-case>
+        <from-outcome>login</from-outcome>
+        <to-view-id>/welcome.jsp</to-view-id>
+    </navigation-case>
+</navigation-rule>
+
+The from-outcome value matches the action attribute of the command button of the
+<h:commandButton value="Login" action="login"/>

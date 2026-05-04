@@ -66,6 +66,10 @@ C-P
     list of valid params
 
 Code
+C-A-I
+    Indent
+C-A-L
+    ?
 C-A-S-L
     Reformat Code
 C-A-T

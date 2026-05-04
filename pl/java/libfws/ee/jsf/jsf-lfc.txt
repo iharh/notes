@@ -1,3 +1,7 @@
+https://www.roseindia.net/jsf/jsflifecycle.shtml
+p39 Mueller - Practical JSF in Java EE 8
+JSF Lifecycle Overview
+    Fig 3-2
 
 st:
 at ih.HelloBean.getMessage(HelloBean.java:18)

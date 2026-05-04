@@ -1,0 +1,29 @@
+<f:param/>
+
+    Purpose: Used to pass request parameters, typically in navigation or when constructing URLs.
+    Usage: Commonly nested inside components like <h:commandLink>, <h:outputLink>, or <h:commandButton>.
+    Effect: Adds a name-value pair to the request parameters sent to the server when the component is activated (e.g., when a link is clicked).
+    Example:
+
+    <h:commandLink action="some-action.xhtml">
+        <h:outputText value="buttonName"/>
+        <f:param name="carId" value="#{c.id}" />
+    </h:commandLink>
+
+    @Inject
+    @ManagedProperty("#{param.carId}")
+    @Getter/@Setter
+    private Long carId;
+
+
+<f:attribute/>
+
+    Purpose: Used to pass arbitrary attributes to a JSF component, which can be accessed in the component's backing bean or in custom component logic.
+    Usage: Nested inside a JSF component to add a key-value pair to the component's attribute map.
+    Effect: The attribute is available on the component instance (not as a request parameter) and can be retrieved in event listeners or custom renderers.
+
+    <h:commandButton value="Save" action="#{bean.save}">
+        <f:attribute name="actionType" value="save" />
+    </h:commandButton>
+
+    In the backing bean, you can access this attribute via the component's attribute map.

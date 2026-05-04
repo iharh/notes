@@ -1,0 +1,18 @@
+https://www.w3schoolsedu.com/jsf-bean-scopes
+
+Tijms - p279 - Managed Beans
+
+
+1. RequestScoped
+    Lifetime: The bean exists only for a single HTTP request.
+    Usage: A new instance of the bean is created for every HTTP request (page load, form submit, AJAX call, etc.).
+    Scope: Not shared between requests. Once the response is sent, the bean is destroyed.
+    Annotation: @RequestScoped
+    Example Use Case: Simple forms or actions where you don’t need to keep data between requests.
+
+2. ViewScoped
+    Lifetime: The bean lives as long as the user is interacting with the same JSF view (page).
+    Usage: The bean is created when the view is first requested and stays alive during postbacks (AJAX or form submits) to the same view.
+    Scope: Shared across multiple requests for the same view, but destroyed when the user navigates to a different view.
+    Annotation: @ViewScoped
+    Example Use Case: Wizards, data tables with AJAX updates, or any page where you want to keep data/state as long as the user stays on the same page.

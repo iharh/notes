@@ -3,5 +3,25 @@ amplicode - lombok broke everything again
     https://www.youtube.com/shorts/rao5CZJhsuA
 amplicode - override equals and hashcode
     https://www.youtube.com/shorts/yqBE3Vnu1D4
+2025
+Friedli - Lombok @Data and JPA Entities: Deep Dive
+    https://medium.com/@jonas.friedli/lombok-data-and-jpa-entities-deep-dive-d955de9647e3
+    https://freedium-mirror.cfd/https://medium.com/@jonas.friedli/lombok-data-and-jpa-entities-deep-dive-d955de9647e3?source=user_profile_page---------2-------------ad6078681f1a----------------------
+    @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+    @Getter @Setter
+    @Entity
+    public class Order {
+        @Id 
+        @GeneratedValue
+        @EqualsAndHashCode.Include
+        private Long id;
+        
+        private String customerName;
+        
+        @OneToMany(mappedBy="order")
+        @EqualsAndHashCode.Exclude
+        private Set<OrderItem> items;
+        ...
+    }
 2024
 https://habr.com/ru/companies/haulmont/articles/836018/

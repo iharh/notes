@@ -1,0 +1,46 @@
+https://mkyong.com/jsf2/jsf-2-attribute-example/
+    <h:commandButton actionListener="#{user.attrListener}" >
+        <f:attribute name="username" value="mkyong" />
+    </h:commandButton>
+    ...
+    import javax.faces.event.ActionEvent;
+    @SessionScoped
+    public class UserBean{
+      public void attrListener(ActionEvent event){
+        nickname = (String)event.getComponent().getAttributes().get("username");
+      }
+      ...
+    }
+
+https://www.d.umn.edu/~tcolburn/cs4531/corejsf/
+https://www.d.umn.edu/~tcolburn/cs4531/corejsf/Geary_book.pdf
+
+We briefly describe the f:attribute, f:param, and f:facet tags here. 
+Any component can store artibrary name/value pairs in its attribute map. 
+You can set an attribute in a page and later retrieve it programatically. 
+For example, in “Supplying Attributes to Converters” on page 260 of Chapter 6, 
+we set the separator character for credit card digit groups like this:
+
+<h:outputText value = "#{payment.card}">
+    <f:attribute name = "separator" vlude = "-" />
+</h:outputText>
+
+The converter that formats the output retrieves the attribute from the component
+
+p114
+NOTE: the h:commandlink component turns its f:param children into HTTP
+request name/value pairs. The event listener that is activated when the user
+clicks the link can then retrieve the name/value pairs from the request map.
+We demonstrate this technique in Chapter 7.
+
+
+Core java server faces (JSF) (Prentice Hall )
+    p267, 268
+
+    <h:outputText value="#{payment.card}">
+        <f:converter converterId="CreditCard"/>
+        <f:attribute name="separator" value="-"/>
+    </h:outputText>
+
+    at Converter impl - 
+        separator = (String) component.getAttributes().get("separator");
