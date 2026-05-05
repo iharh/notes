@@ -1,0 +1,18 @@
+https://primefaces.github.io/primefaces/
+https://github.com/primefaces/primefaces
+
+https://primefaces.github.io/primefaces/15_0_0/#/gettingstarted/download
+    <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>15.0.0</version>
+        <classifier>jakarta</classifier>
+    </dependency>
+
+https://showcase.primefaces.org/index.xhtml
+
+extenstions
+https://primefaces.github.io/primefaces/15_0_0/#/gettingstarted/community
+
+p:inputMask
+    https://primefaces.github.io/primefaces/15_0_0/#/components/inputmask

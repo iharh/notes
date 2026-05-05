@@ -19,3 +19,5 @@ https://github.com/eclipse-ee4j/mojarra/blob/master/impl/src/main/java/org/glass
 
 ./server/modules/system/layers/base/jakarta/faces/impl/main/jakarta.faces-4.0.13.jar
 com/sun/faces/renderkit/html_basic/MenuRenderer.class
+
+https://jakarta.ee/specifications/faces/3.0/renderkitdoc/

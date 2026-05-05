@@ -1,0 +1,35 @@
+https://www.baeldung.com/java-ee7-converter-listener-validator
+
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-develop/faces-develop.html
+
+Using Converters, Listeners, and Validators
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_the_standard_converters
+    https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_datetimeconverter
+    https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_numberconverter
+
+custom
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-custom/faces-custom.html#_creating_and_using_a_custom_converter
+https://www.tutorialspoint.com/jsf/jsf_customvalidator_tag.htm
+    <f:validator validatorId="com.tutorialspoint.test.UrlValidator"/>
+
+Using the Standard Validators
+    https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_the_standard_validators
+        ... For example, you can use the validationGroups attribute of the tag to specify constraint groups.
+        https://www.w3schoolsedu.com/validatelongrange-jsf
+    https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_validating_a_components_value
+    https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_referencing_a_method_that_performs_validation
+        <h:inputText id="inputGuess" value="#{userNumberBean.userNumber}" required="true" size="3" disabled="#{userNumberBean.number eq userNumberBean.userNumber ...}"
+            validator="#{userNumberBean.validateNumberRange}"/>
+        </h:inputText>
+        https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-develop/faces-develop.html#_writing_a_method_to_perform_validation
+
+Displaying Error Messages with the h:message and h:messages Tags
+    https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page/faces-page.html#_displaying_error_messages_with_the_hmessage_and_hmessages_tags
+
+h:inputMask
+    https://showcase.primefaces.org/ui/input/inputMask.xhtml
+    https://primefaces.github.io/primefaces/15_0_0/#/components/inputmask
+    https://primefaces.github.io/primefaces/jsdocs/classes/src_PrimeFaces.PrimeFaces.widget.InputMask.html
+    https://primefaces.github.io/primefaces/vdldoc/primefaces/inputMask.html
+    https://www.primefaces.org/docs/api/8.0/org/primefaces/component/inputmask/InputMask.html

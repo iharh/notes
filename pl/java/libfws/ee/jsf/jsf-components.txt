@@ -1,3 +1,5 @@
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page/faces-page.html
+
 https://github.com/jakartaee/faces
 https://jakarta.ee/specifications/faces/4.0/
 https://jakarta.ee/specifications/faces/4.1/apidocs/overview-tree
@@ -7,25 +9,25 @@ https://jakarta.ee/specifications/faces/4.1/jakarta-faces-4.1.pdf
     Table 9. tag name ...
     4.1 Standard UI Components
 https://jakarta.ee/specifications/faces/4.1/jakarta-faces-4.1
-LifeCycle
-https://jakarta.ee/specifications/faces/4.1/jakarta-faces-4.1#a390
-https://docs.oracle.com/javaee/7/tutorial/jsf-intro006.htm
+
 navigation
 https://docs.oracle.com/javaee/7/tutorial/jsf-intro005.htm#BNAQL
+
 AJAX
 https://mkyong.com/jsf2/jsf-2-0-ajax-hello-world-example/
 
-https://www.tutorialspoint.com/jsf/
-https://www.w3schools.com/tags/default.asp
+reference
 https://www.w3schoolsedu.com/
 https://www.w3schoolsedu.com/tags-in-jsf
+https://www.w3schools.com/tags/default.asp
+https://www.tutorialspoint.com/jsf/
 https://www.tpointtech.com/jsf-ui-components
 https://www.roseindia.net/jsf/
 https://www.roseindia.net/jsf/jsftags.shtml
-    <f:actionListener.../>
+ee book 
+    2 tables
 
-TODO: ee book 2 tables
-
+components
 +h:inputHidden
     https://www.tpointtech.com/jsf-inputhidden
 +h:inputText
@@ -71,6 +73,7 @@ h:outputLink
     https://www.w3schoolsedu.com/selectonemenu-jsf
     <f:selectItem itemValue="value" itemLabel="label of value"/>
     <f:selectItems value="#{someBean.someOptions}" />
+
 h:selectManyListbox
     https://www.w3schoolsedu.com/selectmanylistbox-jsf
     public class SelectionBean implements Serializable {
@@ -92,5 +95,24 @@ h:selectManyListbox
 +h:column
 
 TODO:
-h:outputStylesheet
+h:messages
+    https://www.w3schoolsedu.com/messages-jsf
 h:message
+    https://www.w3schoolsedu.com/selectmanylistbox-jsf
+
+h:outputStylesheet
+    https://www.w3schoolsedu.com/outputstylesheet-jsf
+    https://www.tutorialspoint.com/jsf/jsf_outputstylesheet_tag.htm
+    <h:outputStylesheet library="css" name="styles.css" />
+
+validator
+https://www.w3schoolsedu.com/validator-tag-jsf
+f:validator
+    https://www.w3schoolsedu.com/custom-validator-jsf
+    <f:validator validatorId="com.w3schools.business.EmailValidator" />
+f:validateLength
+    https://www.w3schoolsedu.com/validatelength-jsf
+
+custom components
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-custom/faces-custom.html
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-custom/faces-custom.html#_defining_the_custom_component_tag_in_a_tag_library_descriptor
