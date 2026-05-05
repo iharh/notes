@@ -1,0 +1,30 @@
+https://jakarta.ee/specifications/faces/4.1/apidocs/jakarta.faces/com/sun/faces/renderkit/html_basic/package-summary
+com.sun.faces.renderkit.html_basic
+    MenuRenderer
+
+https://github.com/eclipse-ee4j/mojarra/blob/master/impl/src/main/java/org/glassfish/mojarra/renderkit/html_basic/MenuRenderer.java
+
+        at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2756)
+        at jakarta.faces.impl@4.0.13//com.sun.faces.renderkit.html_basic.MenuRenderer.createCollection(MenuRenderer.java:721)
+        at jakarta.faces.impl@4.0.13//com.sun.faces.renderkit.html_basic.MenuRenderer.convertSelectManyValuesForCollection(MenuRenderer.java:321)
+        at jakarta.faces.impl@4.0.13//com.sun.faces.renderkit.html_basic.MenuRenderer.convertSelectManyValuesForModel(MenuRenderer.java:224)
+        at jakarta.faces.impl@4.0.13//com.sun.faces.renderkit.html_basic.MenuRenderer.convertSelectManyValue(MenuRenderer.java:109)
+        at jakarta.faces.impl@4.0.13//com.sun.faces.renderkit.html_basic.MenuRenderer.getConvertedValue(MenuRenderer.java:204)
+        -
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIInput.getConvertedValue(UIInput.java:901)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIInput.validate(UIInput.java:816)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIInput.executeValidate(UIInput.java:1093)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIInput.processValidators(UIInput.java:586)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIComponentBase.processValidators(UIComponentBase.java:904)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIForm.processValidators(UIForm.java:222)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIComponentBase.processValidators(UIComponentBase.java:904)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIComponentBase.processValidators(UIComponentBase.java:904)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.component.UIViewRoot.processValidators(UIViewRoot.java:1263)
+        -
+        at jakarta.faces.impl@4.0.13//com.sun.faces.lifecycle.ProcessValidationsPhase.execute(ProcessValidationsPhase.java:49)
+        at jakarta.faces.impl@4.0.13//com.sun.faces.lifecycle.Phase.doPhase(Phase.java:72)
+        at jakarta.faces.impl@4.0.13//com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:131)
+        -
+        at jakarta.faces.impl@4.0.13//jakarta.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:691)
+        at jakarta.faces.impl@4.0.13//jakarta.faces.webapp.FacesServlet.service(FacesServlet.java:449)
+        at io.undertow.servlet@2.3.23.Final//io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)

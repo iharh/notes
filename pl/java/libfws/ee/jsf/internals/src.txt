@@ -1,0 +1,21 @@
+jakarta.jakartaee-api:11.0.0
+    jakarta.jakartaee-web-api:11.0.0
+        jakarta.faces-api:4.0.1
+
+~/.m2/repository/jakarta/faces/jakarta.faces-api/4.0.1/
+    jakarta.faces-api-4.0.1-sources.jar
+    has extra com.sun.faces.renderkit.html_basic.* stuff
+
+https://mvnrepository.com/artifact/jakarta.faces/jakarta.faces-api
+https://mvnrepository.com/artifact/jakarta.faces/jakarta.faces-api/4.0.1
+
+https://github.com/jakartaee/faces
+https://github.com/jakartaee/faces/blob/master/api/pom.xml
+https://github.com/jakartaee/faces/tree/master/spec/src/main
+    no java
+
+com.sun.faces.renderkit.html_basic.MenuRenderer
+https://github.com/eclipse-ee4j/mojarra/blob/master/impl/src/main/java/org/glassfish/mojarra/renderkit/html_basic/MenuRenderer.java
+
+./server/modules/system/layers/base/jakarta/faces/impl/main/jakarta.faces-4.0.13.jar
+com/sun/faces/renderkit/html_basic/MenuRenderer.class

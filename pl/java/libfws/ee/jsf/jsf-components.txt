@@ -69,8 +69,10 @@ h:outputLink
     
 +h:selectOneMenu
     https://www.w3schoolsedu.com/selectonemenu-jsf
+    <f:selectItem itemValue="value" itemLabel="label of value"/>
     <f:selectItems value="#{someBean.someOptions}" />
 h:selectManyListbox
+    https://www.w3schoolsedu.com/selectmanylistbox-jsf
     public class SelectionBean implements Serializable {
         @GetSet
         private List<String> selectedFruits;
@@ -89,6 +91,6 @@ h:selectManyListbox
 
 +h:column
 
+TODO:
 h:outputStylesheet
-
 h:message
