@@ -1,0 +1,13 @@
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_the_standard_converters
+    The purpose of conversion is to take the String-based data coming in from the Servlet API and convert it to strongly typed Java objects suitable for the business domain. 
+
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-intro/faces-intro.html#_conversion_model
+
+datetime
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_datetimeconverter
+number
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_numberconverter
+custom
+https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-custom/faces-custom.html#_creating_and_using_a_custom_converter
+
+https://www.baeldung.com/java-ee7-converter-listener-validator

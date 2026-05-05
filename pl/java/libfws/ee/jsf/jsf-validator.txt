@@ -4,12 +4,8 @@ https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-develop/faces
 
 Using Converters, Listeners, and Validators
 https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html
-https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_the_standard_converters
-    https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_datetimeconverter
-    https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page-core/faces-page-core.html#_using_numberconverter
 
 custom
-https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-custom/faces-custom.html#_creating_and_using_a_custom_converter
 https://www.tutorialspoint.com/jsf/jsf_customvalidator_tag.htm
     <f:validator validatorId="com.tutorialspoint.test.UrlValidator"/>
 
@@ -26,10 +22,3 @@ Using the Standard Validators
 
 Displaying Error Messages with the h:message and h:messages Tags
     https://jakarta.ee/learn/docs/jakartaee-tutorial/current/web/faces-page/faces-page.html#_displaying_error_messages_with_the_hmessage_and_hmessages_tags
-
-h:inputMask
-    https://showcase.primefaces.org/ui/input/inputMask.xhtml
-    https://primefaces.github.io/primefaces/15_0_0/#/components/inputmask
-    https://primefaces.github.io/primefaces/jsdocs/classes/src_PrimeFaces.PrimeFaces.widget.InputMask.html
-    https://primefaces.github.io/primefaces/vdldoc/primefaces/inputMask.html
-    https://www.primefaces.org/docs/api/8.0/org/primefaces/component/inputmask/InputMask.html

@@ -16,3 +16,7 @@ https://primefaces.github.io/primefaces/15_0_0/#/gettingstarted/community
 
 p:inputMask
     https://primefaces.github.io/primefaces/15_0_0/#/components/inputmask
+    https://showcase.primefaces.org/ui/input/inputMask.xhtml
+    https://primefaces.github.io/primefaces/jsdocs/classes/src_PrimeFaces.PrimeFaces.widget.InputMask.html
+    https://primefaces.github.io/primefaces/vdldoc/primefaces/inputMask.html
+    https://www.primefaces.org/docs/api/8.0/org/primefaces/component/inputmask/InputMask.html
