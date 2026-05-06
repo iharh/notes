@@ -4,10 +4,18 @@ https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-overview
 https://github.com/mcmoe/mssqldocker
 https://github.com/mcmoe/mssqldocker/blob/master/entrypoint.sh
 
+<property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=your_database"/>
+
+
+docker exec -it mssql bash
+docker exec -t mssql cat /var/opt/mssql/log/errorlog | grep connection
+
+
 https://hub.docker.com/_/microsoft-mssql-server
     Note: MSSQL passwords must be at least 8 characters long, contain upper case, lower case and digits.
     need to look video
 
+https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker
 https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-release-notes-2022
     Known issues
     SQL Server Configuration Manager can't connect to SQL Server on Linux.
