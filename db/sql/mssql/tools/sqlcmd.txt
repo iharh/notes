@@ -1,8 +1,15 @@
 docker exec -it mssql bash
 inside:
 /opt/mssql-tools/bin/sqlcmd
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "Val!dPa55word"
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Val!dPa55word'
+
+select name from sys.databases;
+master
+tempdb
+model
+msdb
+select * from INFORMATION_SCHEMA.TABLES;
+select TABLE_SCHEMA, TABLE_NAME from INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE';
 
 https://learn.microsoft.com/en-us/sql/tools/sqlcmd/sqlcmd-use-utility
     cmds to terminate blocking queries

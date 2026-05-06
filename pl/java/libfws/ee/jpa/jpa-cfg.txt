@@ -1,3 +1,4 @@
+https://thorben-janssen.com/jdbc-connection-and-dialect-in-hibernate/
 https://thorben-janssen.com/jpa-persistence-xml/
 ...
 <persistence>
@@ -19,6 +20,23 @@ https://thorben-janssen.com/jpa-persistence-xml/
     </persistence-unit>
 </persistence>
 
+
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/sql/data.sql"/>
+
+            <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433" />
+            <property name="jakarta.persistence.jdbc.user" value="sa" />
+            <property name="jakarta.persistence.jdbc.password" value="..." />
+            
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+<!--
+jakarta.persistence.jdbc.url = jdbc:sqlserver://localhost;instance=SQLEXPRESS;databaseName=jpaForBeginners
+<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+-->
+
 https://www.javacodegeeks.com/exploring-jakarta-persistence-3-2.html
 <!-- persistence.xml -->
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
@@ -34,3 +52,96 @@ https://www.javacodegeeks.com/exploring-jakarta-persistence-3-2.html
 </persistence>
 
 https://jakarta.ee/specifications/platform/11/apidocs/jakarta/persistence/persistenceconfiguration
+
+chat gpt
+
+1. Add the SQL Server JDBC Driver
+
+    Download the Microsoft JDBC Driver for SQL Server (mssql-jdbc-<version>.jar).
+    Place the JAR in the WILDFLY_HOME/modules/com/microsoft/sqlserver/main/ directory.
+    Create a module.xml in the same directory:
+
+standalone.xml/domain.xml
+<driver name="sqlserver" module="com.microsoft.sqlserver">
+    <xa-datasource-class>com.microsoft.sqlserver.jdbc.SQLServerXADataSource</xa-datasource-class>
+</driver>
+
+xml
+
+<module xmlns="urn:jboss:module:1.1" name="com.microsoft.sqlserver">
+    <resources>
+        <resource-root path="mssql-jdbc-<version>.jar"/>
+    </resources>
+    <dependencies>
+        <module name="javax.api"/>
+        <module name="javax.transaction.api"/>
+    </dependencies>
+</module>
+
+extra path to modules
+    https://docs.wildfly.org/wildfly-maven-plugin/run-example.html
+    <configuration>
+        <modules-path>
+            <paths>
+                <path>/opt/WildFly/modules</path>
+            </paths>
+        </modules-path>
+    </configuration>
+
+https://stackoverflow.com/questions/19319171/cant-add-mysql-driver-to-jboss
+    ! standalone.xml is similar to our separate ds.xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <module xmlns="urn:jboss:module:1.1" name="com.mysql">
+        <resources>
+            <resource-root path="mysql-connector-java-5.1.6.jar"/>
+            <!-- Insert resources here -->
+        </resources>
+        <dependencies>
+                  <module name="javax.api"/>
+                  <module name="javax.transaction.api"/>
+        </dependencies>
+    </module>
+https://stackoverflow.com/questions/32332782/how-to-add-module-to-wildfly-using-cli
+https://stackoverflow.com/questions/76260838/wildfly-maven-plugin-add-resource-no-resources-were-provided
+https://docs.wildfly.org/wildfly-maven-plugin/add-resource-example.html
+!!!
+copy module to wildfly
+mvn wildfly:add-resource \
+    -Dresource=src/main/resources/modules/com/microsoft/sqlserver/main \
+    -DtargetPath=modules/com/microsoft/sqlserver/main
+
+https://stackoverflow.com/questions/52950369/wildfly-14-microsoft-sql-server-configuration
+!!! standalone.xml
+https://codemonkeyism.co.uk/setting-up-jtds-with-wildfly/
+
+https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server
+https://learn.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server-support-matrix
+https://github.com/microsoft/mssql-jdbc/releases
+https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc/13.4.0.jre11
+
+!!!
+https://github.com/wildfly/wildfly-datasources-galleon-pack/tree/main/doc/mssqlserver
+https://docs.wildfly.org/galleon/#_layers
+https://mvnrepository.com/artifact/org.wildfly/wildfly-datasources-galleon-pack
+https://docs.wildfly.org/34/Galleon_Guide.html
+    org.wildfly:wildfly-datasources-galleon-pack
+    galleon.sh install wildfly:current --dir=my-wildfly-server
+??? gpt
+    <configuration>
+      <feature-packs>
+        <feature-pack>
+          <location>org.wildfly:wildfly-datasources-galleon-pack:11.3.0.Final</location>
+        </feature-pack>
+      </feature-packs>
+      <layers>
+        <layer>mssqlserver-driver</layer>
+      </layers>
+    </configuration>
+
+mssql-jdbc-13.2.1.jre11.jar
+20:29:03,532 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 9) WFLYJCA0004: Deploying JDBC-compliant driver class com.microsoft.sqlserver.jdbc.SQLServerDriver (version 13.2)
+
+jstack <jboss-modules.jar>
+
+  <!-- connection-url>jdbc:sqlserver://localhost:1433;databaseName=your_db_name</connection-url -->

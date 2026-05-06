@@ -19,6 +19,11 @@ keys
 ⌥X
     run the current SQL script
 
+inst
+https://computingforgeeks.com/install-and-configure-dbeaver-on-fedora-centos/
+    wget https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm
+    sudo rpm -Uvh ./dbeaver-ce-latest-stable.x86_64.rpm
+
 2025
 https://habr.com/ru/companies/haulmont/articles/892744/
     ! amplicode dbeaver
