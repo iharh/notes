@@ -1,3 +1,68 @@
 https://www.wildfly.org/guides/database-integrating-with-postgresql/
+    ! with 
+    jakarta.ws.rs.
+    int-test
 
 https://jakarta.ee/learn/specification-guides/persistence-explained/
+    Query, TypedQuery
+https://www.baeldung.com/jakarta-persistence-3-2
+
+https://quarkus.io/guides/hibernate-orm
+    @Inject
+    @PersistenceUnit("pu1") 
+    EntityManager entityManager;
+    @Inject
+    CriteriaBuilder criteriaBuilder;
+    @Inject
+    Metamodel metamodel;
+    @Inject
+    jakarta.persistence.Cache cache;
+
+    @Entity
+    @Cacheable
+    ...
+    Query query = ...
+    query.setHint("org.hibernate.cacheable", Boolean.TRUE);
+https://quarkus.io/guides/hibernate-orm#custom-functions-and-types
+https://quarkus.io/guides/hibernate-orm#static-metamodel
+https://quarkus.io/guides/hibernate-orm#secure-jakarta-data-repositories
+
+
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/getting_started.html
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/tutorial.html
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/query.html
+
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/persistence.html
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/persistence.pdf
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/persistence.html#emf
+    tons of cfg
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/persistence.html#em
+    @PersistenceContext(unitName="myPU")
+    EntityManager em;
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/persistence.html#lifecycle
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/persistence.html#transactions
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/persistence.html#locking
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/persistence.html#entity_graphs
+
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/annotations.html
+
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#classes
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#inheritance
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#identity
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#versioning
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#field_types
+    https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#attributeconverter
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#value_generation
+rels
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#one_one_relations
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#one_many_relations
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#many_one_relations
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#many_many_relations
+arrays
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#arrays
+embeddable
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#embedded
+ser-zed
+https://www.datanucleus.org/products/accessplatform_6_0/jakarta/mapping.html#serialised

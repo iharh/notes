@@ -1,0 +1,4 @@
+https://quarkus.io/guides/hibernate-orm
+    @Produces 
+    @ApplicationScoped
+    ...

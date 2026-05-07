@@ -1,0 +1,8 @@
+em
+public <T> TypedQuery<T> createNamedQuery(String name, Class<T> resultClass);
+public Query createNativeQuery(String sqlString, Class resultClass);
+--
+public CriteriaBuilder getCriteriaBuilder();
+public Metamodel getMetamodel();
+entitygraph-methods
+sp-methods

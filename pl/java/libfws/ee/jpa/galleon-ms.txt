@@ -1,0 +1,37 @@
+!!! galleon-pack mssqlserver
+https://github.com/wildfly/wildfly-datasources-galleon-pack/tree/main/doc/mssqlserver
+    <!-- xa-datasource-class>com.microsoft.sqlserver.jdbc.SQLServerXADataSource</xa-datasource-class>
+    <driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class -->
+https://docs.wildfly.org/galleon/#_layers
+https://mvnrepository.com/artifact/org.wildfly/wildfly-datasources-galleon-pack
+https://docs.wildfly.org/34/Galleon_Guide.html
+    org.wildfly:wildfly-datasources-galleon-pack
+    galleon.sh install wildfly:current --dir=my-wildfly-server
+??? gpt
+    <configuration>
+      <feature-packs>
+        <feature-pack>
+          <location>org.wildfly:wildfly-datasources-galleon-pack:11.3.0.Final</location>
+        </feature-pack>
+      </feature-packs>
+      <layers>
+        <layer>mssqlserver-driver</layer>
+      </layers>
+    </configuration>
+
+mssql-jdbc-13.2.1.jre11.jar
+20:29:03,532 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 9) WFLYJCA0004: Deploying JDBC-compliant driver class com.microsoft.sqlserver.jdbc.SQLServerDriver (version 13.2)
+
+qa
+https://stackoverflow.com/questions/66460145/jpa-configuring-wildfly-8-x-jta-data-source-with-eclipselink-and-microsofts-sq
+https://stackoverflow.com/questions/31112938/sql-server-connection-in-wildfly-using-jtds-driver
+
+https://stackoverflow.com/questions/52950369/wildfly-14-microsoft-sql-server-configuration
+!!! standalone.xml
+https://codemonkeyism.co.uk/setting-up-jtds-with-wildfly/
+
+https://learn.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server
+https://learn.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server-support-matrix
+https://github.com/microsoft/mssql-jdbc/releases
+https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc/13.4.0.jre11

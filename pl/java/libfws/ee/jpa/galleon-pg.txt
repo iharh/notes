@@ -1,0 +1,5 @@
+!!! galleon-pack pg
+https://jdbc.postgresql.org/
+https://github.com/wildfly/wildfly-datasources-galleon-pack/tree/main/doc/postgresq
+https://marmo.dev/use-postgresql-with-wildfly
+    docker run --name postgres-15 -e POSTGRES_PASSWORD=secret -e POSTGRES_USER=postgres -p 5432:5432 -d postgres

@@ -1,5 +1,11 @@
 https://thorben-janssen.com/jdbc-connection-and-dialect-in-hibernate/
 https://thorben-janssen.com/jpa-persistence-xml/
+    2-nd level cache is off by default
+    auto-validation on/off
+    lock/query timeouts
+    javax.persistence.schema-generation.database.action
+        none (default), create, drop-and-create, drop
+
 ...
 <persistence>
     <!-- Define persistence unit -->
