@@ -1,0 +1,15 @@
+7.3. DataSource Subsystem
+https://docs.wildfly.org/36/Admin_Guide.html#DataSource
+
+https://www.wildfly.org/guides/database-integrating-with-postgresql/
+https://marmo.dev/use-postgresql-with-wildfly
+https://github.com/wildfly/wildfly-datasources-galleon-pack/tree/main/doc/postgresql
+    
+
+<env>
+  <POSTGRESQL_ENABLED>true</POSTGRESQL_ENABLED>
+  <POSTGRESQL_USER>posgres</POSTGRESQL_USER>
+  <POSTGRESQL_PASSWORD>secret</POSTGRESQL_PASSWORD>
+  <!-- POSTGRESQL_DATABASE>postgres</POSTGRESQL_DATABASE -->
+  <POSTGRESQL_URL>postgres</POSTGRESQL_URL>
+</env>
