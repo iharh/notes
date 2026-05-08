@@ -23,3 +23,45 @@ https://blog.sentry.io/troubleshooting-spring-boot-applications-with-sentry/
 https://habr.com/ru/articles/457776/
 qa
 https://stackoverflow.com/questions/6709680/how-does-p6spy-work
+
+*****
+Включаешь show_sql=true у Hibernate, а в логах всё равно:
+
+where user0_.id=?
+
+Потому что Hibernate логирует до того, как JDBC подставляет значения.
+
+P6Spy садится между твоим кодом и JDBC-драйвером как proxy и пишет запрос уже с реальными значениями — ничего в коде менять не нужно.
+
+→ github.com/p6spy/p6spy ⭐️ 2.2k
+
+🔹 Maven:
+<dependency>
+  <groupId>p6spy</groupId>
+  <artifactId>p6spy</artifactId>
+  <version>3.9.1</version>
+</dependency>
+
+🔹 application.yml — меняешь только URL и драйвер:
+spring:
+  datasource:
+    url: jdbc:p6spy:postgresql://localhost/mydb
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+
+🔹 spy.properties в classpath:
+appender=com.p6spy.engine.spy.appender.Slf4JLogger
+logMessageFormat=com.p6spy.engine.spy.appender.MultiLineFormat
+
+В логах получишь:
+select * from users
+where id = 42
+  and status = 'ACTIVE'
+-- took 3 ms
+
+Что ещё умеет:
+
+→ время выполнения каждого запроса: сразу видно N+1 и медленные места
+→ свой MessageFormattingStrategy: формат лога под себя
+→ фильтрация по пакету или категории запроса
+
+⚠️ Только dev/staging. В prod каждый запрос проходит через proxy.
