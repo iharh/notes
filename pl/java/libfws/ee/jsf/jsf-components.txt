@@ -91,6 +91,9 @@ h:selectManyListbox
         <h:commandButton value="Submit" />
         <h:outputText value="You selected: #{selectionBean.selectedFruits}" />
     </h:form>
+    ??? with enum
+    https://stackoverflow.com/questions/5340762/hselectmanylistbox-jsf-and-enums-class-cast-error
+    https://stackoverflow.com/questions/3822058/use-enum-in-hselectmanycheckbox/3823776
 
 +h:column
 
