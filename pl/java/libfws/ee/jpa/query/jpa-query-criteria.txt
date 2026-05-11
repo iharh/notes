@@ -4,6 +4,8 @@ https://docs.hibernate.org/orm/5.0/topical/html/metamodelgen/MetamodelGenerator.
     SetJoin<Order, Item> itemNode = cq.from(Order.class).join(Order_.items);
     cq.where(cb.equal(itemNode.get(Item_.id), 5 ) ).distinct(true);
 
+https://thorben-janssen.com/criteria-updatedelete-easy-way-to/
+
 
 javadoc
 https://jakarta.ee/specifications/persistence/3.0/apidocs/jakarta.persistence/jakarta/persistence/criteria/parameterexpression
