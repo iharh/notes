@@ -1,0 +1,3 @@
+https://www.mankier.com/1/wl-clipboard
+
+echo $VAR_NAME | wl-copy --primary --trim-newline
