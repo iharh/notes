@@ -31,3 +31,11 @@ git
     https://github.com/lukesampson/scoop/wiki/GitHub-with-SSH-Key
 openssh
 [environment]::setenvironmentvariable('GIT_SSH', (resolve-path (scoop which ssh)), 'USER')
+
+
+to-ar
+irm get.scoop.sh | iex
+scoop install git
+??? 
+scoop install maven
+scoop update *
