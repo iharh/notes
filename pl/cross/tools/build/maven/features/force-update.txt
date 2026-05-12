@@ -1,0 +1,8 @@
+https://www.baeldung.com/maven-force-update
+
+https://stackoverflow.com/questions/4701532/how-to-force-maven-update
+mvn clean install -U
+mvn dependency:purge-local-repository
+mvn dependency:resolve -U
+-Dmaven.repo.local=localrepo
+-Dmaven.test.skip=true

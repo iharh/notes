@@ -32,10 +32,12 @@ git
 openssh
 [environment]::setenvironmentvariable('GIT_SSH', (resolve-path (scoop which ssh)), 'USER')
 
-
-to-ar
+short-instr:
 irm get.scoop.sh | iex
 scoop install git
-??? 
+scoop install openjdk17
 scoop install maven
 scoop update *
+
+scoop install pwsh
+powershell.exe -Command "scoop update pwsh"
