@@ -1,0 +1,8 @@
+Problem: conflicting requests
+  - package cloudflare-warp-2026.4.1350.0-1.aarch64 from cloudflare-warp-stable does not have a compatible architecture
+  - nothing provides webkit2gtk3 needed by cloudflare-warp-2026.4.1350.0-1.aarch64 from cloudflare-warp-stable
+  - nothing provides webkit2gtk3 needed by cloudflare-warp-2026.4.1350.0-1.x86_64 from cloudflare-warp-stable
+You can try to add to command line:
+  --skip-broken to skip uninstallable packages
+Problem: cannot install the best update candidate for package cloudflare-warp-2026.3.846.0-1.x86_64
+  - nothing provides webkit2gtk3 needed by cloudflare-warp-2026.4.1350.0-1.x86_64 from cloudflare-warp-stable
