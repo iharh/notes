@@ -1,0 +1,2 @@
+https://www.baeldung.com/maven-profiles
+    -P <profile-name>
