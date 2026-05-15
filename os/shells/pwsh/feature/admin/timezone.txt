@@ -1,0 +1,7 @@
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/set-timezone?view=powershell-7.6
+
+Get-TimeZone -ListAvailable
+Set-TimeZone -Id "US Eastern Standard Time"
+
+US Eastern Standard Time
+UTC-05:00
