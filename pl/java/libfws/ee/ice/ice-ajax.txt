@@ -1,0 +1,76 @@
+https://www.icesoft.org/wiki/display/ICE/Automatic+Ajax
+    <h:form>
+        <h:panelGrid columns="1">
+            <h:inputText id="myinput" value="#{myBean.value}">
+                <f:ajax execute="@this" event="blur" render="myoutput"/>
+            </h:inputText>
+            <h:outputText id="myoutput" value="#{myBean.value}"/>
+        </panelGrid>
+    </h:form>
+
+The key to Automatic Ajax of ICE faces is the use of DTD framework
+https://www.icesoft.org/wiki/display/ICE/Direct-to-DOM+Rendering
+
+While D2D handles the page updating aspect, it is still necessary to initiate the whole process through some UI event. ICEfaces provides the Single Submit features,
+https://www.icesoft.org/wiki/display/ICE/Single+Submit
+
+which causes a component to submit itself automatically when the user interacts with it. The result is that it behaves much the same as including:
+
+<f:ajax execute="@this", render="@all"/>
+
+but does not update the entire page, as the D2D mechanism intercepts the page update and calculates the precise, minimal set of updates required. The <icecore:singleSubmit> tag can be placed inside a form tag to enable the form input components for single submission.
+
+    <h:form>
+        <icecore:singleSubmit/>
+        <h:panelGrid columns="1">
+            <h:inputText id="myinput" value="#{myBean.value}"/>
+            <h:outputText id="myoutput" value="#{myBean.value}"/>
+        </panelGrid>
+    </h:form>
+
+Optimizing Automatic Ajax
+It is possible to optimize this rendering with <f:ajax> tags that override the render="@all" behavior used to singleSubmit on a given component. Attaching a <f:ajax> tag as a child of any component will override the singleSubmit behavior of that component and allow the developer to specify a subset of the component tree that should render.
+
+    <h:form>
+        <icecore:singleSubmit/>
+        <h:panelGrid columns="1">
+            <h:inputText id="myinput" value="#{myBean.value}">
+                <f:ajax execute="@this" event="blur" render="myoutput"/>
+            </h:inputText>
+            <h:outputText id="myoutput" value="#{myBean.value}"/>
+        </panelGrid>
+    </h:form>
+
+*****
+https://www.icesoft.org/wiki/display/ICE/Ajax+Push+-+Overview
+    https://www.icesoft.org/wiki/display/ICE/Ajax+Push+-+APIs
+    (not used)
+
+*****
+https://www.icesoft.org/wiki/display/ICE/Ajax
+
+The ACE components allow developers to customize the ajax behaviour of various supported synthetic events. This is done by nesting an <ace:ajax /> tag inside the component that one wishes to customize, 
+and as of 4.0, it is possible to nest components inside this tag to add ajax behaviours to them.
+Attrs:
+    event
+    execute
+    render
+    listener
+    disabled
+    onStart
+    onSuccess
+    onError
+    onComplete
+
+Examples
+
+Basic usage
+
+Will submit after the slider handle is released. Since this is the default event, adding event="slideEnd" in the ajax tag is not necessary.
+
+    <ace:sliderEntry value="${ajaxTestBean.sliderValue}">
+        <ace:ajax execute="@this" render="outputValue" />
+    </ace:sliderEntry>
+    <h:outputText id="outputValue" value="${ajaxTestBean.sliderValue}">
+
+
