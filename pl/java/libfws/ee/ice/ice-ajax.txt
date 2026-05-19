@@ -10,9 +10,15 @@ https://www.icesoft.org/wiki/display/ICE/Automatic+Ajax
 
 The key to Automatic Ajax of ICE faces is the use of DTD framework
 https://www.icesoft.org/wiki/display/ICE/Direct-to-DOM+Rendering
+    ...
+    When the ICEfaces core .jar file is added to a JSF application, the standard RenderKit is overridden with the ICEfaces RenderKit and this custome RenderKit provides 
+    a DomResponseWriter instead of the standard JSF ResponseWriter. 
+    The DomResponseWriter diverts the output of any component renderer into a server-side DOM data structure.
 
 While D2D handles the page updating aspect, it is still necessary to initiate the whole process through some UI event. ICEfaces provides the Single Submit features,
 https://www.icesoft.org/wiki/display/ICE/Single+Submit
+	  Note that as of ICEfaces 3.0, the ACE Components no longer support the singleSubmit attribute. 
+    With ICEfaces 3.x, the singleSubmit attribute has has been removed in favor of the ace:ajax tag ...
 
 which causes a component to submit itself automatically when the user interacts with it. The result is that it behaves much the same as including:
 
