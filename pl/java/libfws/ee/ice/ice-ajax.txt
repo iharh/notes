@@ -79,4 +79,5 @@ Will submit after the slider handle is released. Since this is the default event
     </ace:sliderEntry>
     <h:outputText id="outputValue" value="${ajaxTestBean.sliderValue}">
 
-
+*****
+https://www.icesoft.org/wiki/display/ICE/Disabling+Ajax
