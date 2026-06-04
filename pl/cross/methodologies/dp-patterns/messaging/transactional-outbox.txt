@@ -1,8 +1,22 @@
+2026
+JavaBeginner - 14. Transactional Outbox 0:00 of 1:54:59
+    https://www.youtube.com/watch?v=ZBwkWo9i7_M
 2025
 JavaGuru - Outbox Pattern, Transactions of 19:57
     https://www.youtube.com/watch?v=JssjO__iqy0
 Otus - Consistency with Transactional Outbox 0:00 of 1:28:29
     https://www.youtube.com/watch?v=ATvH-jySIsY
+GhOst dev - All for Transactional Outbox of 10:11
+    https://www.youtube.com/watch?v=knSw0m5MADg
+AlexandrNevzorov - Outbox in System Design 30:00 of 1:17:27
+    https://www.youtube.com/watch?v=yl2Y-YNb6jE
+    ! so-so
+Otus - OlegMilfe - Transactional Outbox of 1:28:29
+    https://www.youtube.com/watch?v=ATvH-jySIsY
 2023
 Cinimex - Popov - Kafka and Transactional Outbox 0:00 of 27:59
     https://www.youtube.com/watch?v=EYtg3WiGHSU
+https://habr.com/ru/articles/741568/
+    https://microservices.io/patterns/data/transactional-outbox.html
+2019
+https://debezium.io/blog/2019/02/19/reliable-microservices-data-exchange-with-the-outbox-pattern/
