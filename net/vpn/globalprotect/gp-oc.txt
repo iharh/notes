@@ -28,3 +28,7 @@ dpkg -L globalprotect-openconnect
 /usr/share/dbus-1/system.d/com.yuezk.qt.GPService.conf
 
 systemctl is-enabled gpservice
+
+YubiKey/ext-browser
+https://github.com/yuezk/GlobalProtect-openconnect/issues/614
+https://github.com/yuezk/GlobalProtect-openconnect/issues/239
