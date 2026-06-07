@@ -1,8 +1,17 @@
 https://github.com/yuezk/GlobalProtect-openconnect
     gui
 
+https://github.com/yuezk/GlobalProtect-openconnect#fedora-38--rawhide
+https://copr.fedorainfracloud.org/coprs/yuezk/globalprotect-openconnect/repo/fedora-44/yuezk-globalprotect-openconnect-fedora-44.repo
+https://download.copr.fedorainfracloud.org/results/yuezk/globalprotect-openconnect/
+
 sudo dnf copr enable yuezk/globalprotect-openconnect
 sudo dnf install globalprotect-openconnect
+    # 2.5.1 ???
+https://github.com/yuezk/GlobalProtect-openconnect/releases
+https://github.com/yuezk/GlobalProtect-openconnect/releases/tag/v2.5.4
+https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v2.5.4/globalprotect-openconnect-2.5.4-1.x86_64.rpm
+
 
 https://launchpad.net/~yuezk/+archive/ubuntu/globalprotect-openconnect
 sudo add-apt-repository ppa:yuezk/globalprotect-openconnect
