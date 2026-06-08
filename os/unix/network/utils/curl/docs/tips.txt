@@ -1,0 +1,14 @@
+— Скачать с возможностью продолжения: 
+    curl -C - -O https://example.com/dump.sql.gz
+— С прогресс-баром: 
+    curl -C - -# -O https://example.com/large-file.tar.gz
+— Ограничить скорость: 
+    curl --limit-rate 10M -O https://example.com/file.iso
+— В конкретный файл: 
+    curl -C - -o backup.tar.gz https://example.com/backup
+— С авторизацией: 
+    curl -C - -u user:pass -O https://repo.example.com/artifact.jar
+
+Заверни в цикл для автоматического ретрая: 
+    while ! curl -C - -O https://example.com/dump.sql.gz; do sleep 5; done 
+— скрипт будет пытаться докачать, пока не получится.
