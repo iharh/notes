@@ -3,6 +3,9 @@ runtime("org.springframework.boot:spring-boot-properties-migrator")
 4.x
 baeldung
     https://www.baeldung.com/spring-boot-4-spring-framework-7
+SpringIO - Halbritter - Inside Spring Boot 4 0:00 of 45:51
+    https://www.youtube.com/watch?v=KnLJ-vFsjwE
+    https://mhalbritter.github.io/slides/2026-04%20Inside%20Spring%20Boot%204%20Restructuring%20for%20the%20Future.pdf
 SeleniumExpress - Spring Boot 4 Explained | What Changed in Framework 7? 0:00 of 46:11
     https://www.youtube.com/watch?v=_moAh7Iqop0
 Devoxx - Spring Boot: Chapter 4 by Brian Clozel, Stephane Nicoll 0:00 of 48:50
