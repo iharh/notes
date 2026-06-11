@@ -84,3 +84,67 @@ SashaRush - Large Language Models in Five Formulas 0:00 of 58:01
     https://link.excalidraw.com/p/readonly/aBWlNjEckdUlrszwwo6V
     https://github.com/srush/LLM-Talk/tree/main
     https://github.com/srush/LLM-Talk/blob/main/Tutorial.pdf
+
+********************************
+COURSES
+ 
+# General
+ 
+AI Learning Collection
+https://learn.epam.com/study/promoDetails?id=79503b5d-8186-433c-a831-875fe12a4292
+ 
+AI Skills
+https://leap.epam.com/my-ai-skills
+ 
+Anthropic Courses
+https://anthropic.skilljar.com/
+ 
+# CodeMie
+ 
+EPAM AI/Run CodeMie in Action: Practical AI for Business and Technology
+https://learn.epam.com/catalog/detailsPage?id=8a946681-a483-4e3c-b079-00d150db9b08
+ 
+EPAM AI/Run CodeMie in Action Part 2: Advanced AI for Business and Technology
+https://learn.epam.com/catalog/detailsPage?id=3545d9b3-17fc-4b6c-8937-0d02d374c928
+ 
+# Claude
+ 
+Claude Code 101
+https://anthropic.skilljar.com/claude-code-101
+ 
+Claude Code in Action
+https://anthropic.skilljar.com/claude-code-in-action
+ 
+Building with the Claude API
+https://anthropic.skilljar.com/claude-with-the-anthropic-api
+ 
+Introduction to Model Context Protocol
+https://anthropic.skilljar.com/introduction-to-model-context-protocol
+ 
+# Recommended Action Plan
+1. Pass all the courses from AI Skills.
+2. Pass the CodeMie courses.
+3. Pass the basic Claude courses.
+
+********************************
+USEFUL LINKS
+ 
+How to configure CodeMie CLI to use claude-code
+https://kb.epam.com/spaces/GDOKB/pages/2779961229/00+-+Don+t+have+Claude+License+use+this
+ 
+LLM Stats (benchmark of models)
+https://llm-stats.com/
+ 
+Model Context Protocol (source)
+https://github.com/modelcontextprotocol
+ 
+MCP Inspector (allows to debug MCPs)
+https://github.com/modelcontextprotocol/inspector
+ 
+MCP Servers (list of available ones)
+ Check it twice before using any from this list
+https://github.com/modelcontextprotocol/servers
+ 
+Context7 (MCP that provides a bunch of docs to a tech stack)
+https://context7.com/
+********************************
