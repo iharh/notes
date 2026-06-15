@@ -26,7 +26,7 @@ CSC - Faleev - L8 - Stream API ru of 1:45:00
     https://www.youtube.com/watch?v=FCT2jbAs_uA
     ! 1:25:00 - groupingBy, mapping, flatMapping
     ! 1:28:00 - minBy
-    ! 1:31:00 - collectingAndThen
+    ! 1:31:00 - collectingAndThen !!!
 2019
 https://4comprehension.com/an-ultimate-guide-to-java-stream-api-collectors/
     toUnmodifiableList/Set/Map
