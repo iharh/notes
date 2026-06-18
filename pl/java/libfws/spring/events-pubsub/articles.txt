@@ -3,5 +3,7 @@ https://www.baeldung.com/spring-events
     https://github.com/eugenp/tutorials/tree/master/spring-core-2
     ApplicationEventPublisher.publishEvent
     ApplicationListener
+https://medium.com/javarevisited/spring-data-power-of-domain-events-62cb212a42a2
+    https://nuancesprog.ru/p/16033/
 2020
 https://98elements.com/blog/inter-bean-notifications-using-spring-events/
