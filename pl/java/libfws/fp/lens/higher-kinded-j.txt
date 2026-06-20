@@ -1,0 +1,36 @@
+https://higher-kinded-j.github.io/
+https://higher-kinded-j.github.io/latest/
+
+https://github.com/higher-kinded-j/higher-kinded-j
+
+https://higher-kinded-j.github.io/latest/optics/annotations_at_a_glance.html
+
+1. Quickstart
+https://higher-kinded-j.github.io/latest/quickstart.html
+
+2. Cheat Sheet
+https://higher-kinded-j.github.io/latest/cheatsheet.html
+
+4. Effect Path API
+https://higher-kinded-j.github.io/latest/effect/ch_intro.html
+https://higher-kinded-j.github.io/latest/effect/effect_handlers_intro.html
+
+5. Optics
+https://higher-kinded-j.github.io/latest/optics/importing_optics.html
+https://higher-kinded-j.github.io/latest/optics/annotations_at_a_glance.html
+https://higher-kinded-j.github.io/latest/optics/focus_dsl.html
+https://higher-kinded-j.github.io/latest/tutorials/optics/lens_prism_journey.html
+https://higher-kinded-j.github.io/latest/optics/optics_spec_interfaces.html
+
+2026
+Lviv JavaClub - Functional Optics for Modern Java by Jaroslav Mazurak 0:00 of 41:32
+    https://www.youtube.com/watch?v=oELCCjQ9koM
+    https://github.com/lvivJavaClub/optics-intro
+https://blog.scottlogic.com/2026/02/12/mfj-from-theory-to-practice.html
+https://blog.scottlogic.com/2026/02/09/effect-polymorphic-optics.html
+https://blog.scottlogic.com/2026/01/30/traversals-rewrites.html
+https://blog.scottlogic.com/2026/01/23/ast-basic-optics.html
+https://blog.scottlogic.com/2026/01/16/optics-fundamentals.html
+https://blog.scottlogic.com/2026/01/09/java-the-immutability-gap.html
+2025
+https://blog.scottlogic.com/2025/04/11/higher-kinded-types-with-java-and-scala.html
