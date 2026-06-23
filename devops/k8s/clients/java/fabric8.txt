@@ -7,6 +7,13 @@ https://github.com/fabric8io/kubernetes-client
 https://mvnrepository.com/artifact/io.fabric8/kubernetes-client
 https://mvnrepository.com/artifact/io.fabric8/kubernetes-model
 
+samples
+https://github.com/pdudits/doorman/tree/main/src/main/java/io/zeromagic/doorman
+
+2026
+JavaPro - It (Only) Starts with Containers | Patrik Duditš (EN) 0:00 of 41:58
+    https://www.youtube.com/watch?v=TBA4Zao9y7g
+    https://github.com/pdudits/talk-containers
 2021
 https://blog.marcnuri.com/fabric8-kubernetes-java-client-and-quarkus-and-graalvm
     https://github.com/marcnuri-demo/kubernetes-controller-jl-port
