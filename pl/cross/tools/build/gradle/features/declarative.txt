@@ -1,6 +1,11 @@
 https://declarative.gradle.org/
 https://github.com/gradle/declarative-gradle
 
+https://kotl.in/jb-declarative-plugin
+https://github.com/Kotlin/declarative-gradle-jetbrains-ecosystem-plugin
+https://github.com/Kotlin/declarative-gradle-jetbrains-ecosystem-plugin/tree/main/dsl-reference
+https://github.com/Kotlin/declarative-gradle-jetbrains-ecosystem-plugin/tree/main/examples
+
 https://github.com/gradle/declarative-gradle/tree/main/docs/getting-started
 https://github.com/gradle/declarative-gradle/tree/main/docs/reference
 https://github.com/gradle/declarative-gradle/blob/main/docs/reference/software-features.md
@@ -12,6 +17,9 @@ https://declarative.gradle.org/docs/getting-started/
 
 https://github.com/orgs/gradle/projects/96/views/1
 
+2026
+Kotlin - A First Look at the Kotlin Ecosystem Plugin for Declarative Gradle | Marcin Mycek 0:00 of 16:43
+    https://www.youtube.com/watch?v=25Ngfn9Bhqc
 2024
 https://blog.jetbrains.com/idea/2024/11/declarative-gradle-in-intellij-idea/
 Gradle - Declarative Gradle of p4
