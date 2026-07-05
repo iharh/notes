@@ -1,6 +1,29 @@
 https://kobweb.varabyte.com/
 https://github.com/varabyte/kobweb
 
+com.varabyte.kobweb
+https://plugins.jetbrains.com/plugin/23883-kobweb
+https://github.com/varabyte/kobweb-intellij-plugin
+https://github.com/varabyte/kobweb-intellij-plugin/tree/main/sample-projects
+
+https://kobweb.varabyte.com/docs/getting-started/what-is-kobweb
+
+https://github.com/varabyte/kobweb-site/blob/main/gradle/libs.versions.toml
+
+compose
+https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials/HTML/Getting_Started
+
+presentation
+https://kobweb.varabyte.com/docs/concepts/presentation/styling-html-elements
+https://kobweb.varabyte.com/docs/concepts/presentation/silk
+https://kobweb.varabyte.com/docs/concepts/presentation/learning-css
+https://kobweb.varabyte.com/docs/concepts/presentation/css-layers
+
+https://kobweb.varabyte.com/docs/getting-started/videos
+
 2025
 JetBrains - Build Websites in Kotlin & Compose HTML with Kobweb | David Herman 0:00 of 41:15
     https://www.youtube.com/watch?v=vWIDRH6aQfI
+2023
+SkyFish - Build a Simple Website in Kotlin using the Kobweb Framework and MongoDB Server 0:00 of 1:19:54
+    https://www.youtube.com/watch?v=VVNq6yovU_0
