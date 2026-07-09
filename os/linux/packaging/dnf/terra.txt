@@ -1,21 +1,6 @@
-https://zed.dev/download
-https://zed.dev/releases/stable
-https://repology.org/project/zed-editor/versions
-
 https://terrapkg.com/
 https://github.com/terrapkg/packages/tree/frawhide
     sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 https://github.com/terrapkg/packages/tree/frawhide/anda/devs/zed/stable
 https://github.com/terrapkg/packages/blob/frawhide/anda/devs/zed/stable/update.rhai
     rpm.version(gh("zed-industries/zed"));
-
-https://zed.dev/linux
-    curl -f https://zed.dev/install.sh | sh
-
-https://zed.dev/docs/linux
-    dnf/zed
-        (zed-preview, zed-nightly)
-
-https://zed.dev/docs/assistant/configuration
-https://zed.dev/docs/assistant/assistant-panel
-https://zed.dev/docs/assistant/commands
