@@ -1,0 +1,46 @@
+Если нужно быстро добавить отправку писем в Java-приложение — используйте spring-boot-starter-mail.
+
+Он уже содержит всю необходимую конфигурацию и зависимости, поэтому не нужно вручную настраивать SMTP-клиенты.
+
+Что нужно сделать:
+
+1. Добавить зависимость
+
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-mail</artifactId>
+</dependency>
+Настроить SMTP (например, Gmail)
+
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=your_email@gmail.com
+spring.mail.password=your_app_password
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+Отправить письмо через JavaMailSender
+
+
+@Autowired
+private JavaMailSender mailSender;
+
+public void sendEmail(String to, String subject, String text) {
+    SimpleMailMessage message = new SimpleMailMessage();
+    message.setTo(to);
+    message.setSubject(subject);
+    message.setText(text);
+    message.setFrom("your_email@gmail.com");
+
+    mailSender.send(message);
+}
+
+Когда это полезно:
+
+• регистрация пользователей
+• подтверждение email
+• уведомления
+• отчёты и алерты
+
+Главный плюс - минимум кода и быстрая интеграция. Spring Boot берёт всю сложность настройки на себя.
