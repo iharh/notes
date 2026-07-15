@@ -1,0 +1,11 @@
+https://en.wikipedia.org/wiki/Universal_2nd_Factor
+https://www.securitylab.ru/analytics/561537.php
+
+FIDO U2F (Universal 2nd Factor) — основан на эллиптической криптографии (кривая P-256), создаёт уникальную пару ключей для каждого сайта. Использует модель challenge-response и проверку домена.
+
+FIDO2 / WebAuthn — объединяет протоколы CTAP1/CTAP2, поддерживает хранение credential'ов прямо на токене (resident keys), аутентификацию без пароля. Применяются алгоритмы ED25519 и ECDSA.
+
+https://www.corbado.com/glossary/u2f
+
+https://docs.yubico.com/yesdk/users-manual/application-u2f/how-u2f-works.html
+https://docs.yubico.com/yesdk/users-manual/application-fido2/how-fido2-works.html

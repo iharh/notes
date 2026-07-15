@@ -1,0 +1,36 @@
+В production логирование деталей запроса может привести к раскрытию чувствительной информации.
+
+Когда вы настраиваете свойства Spring-приложения в dev со следующими параметрами:
+
+# Включить публикацию параметров
+spring.mvc.publish-request-params=true
+
+# Установить уровни логирования, чтобы видеть вывод
+logging.level.org.springframework.web=DEBUG
+logging.level.org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor=DEBUG
+
+и конфигурацию фильтра примерно такую:
+
+@Bean
+public CommonsRequestLoggingFilter logFilter() {
+    CommonsRequestLoggingFilter filter = new CommonsRequestLoggingFilter();
+    filter.setIncludeQueryString(true);   // 2) Query-параметры
+    filter.setIncludeHeaders(true);       // 1) Заголовки запроса
+    filter.setIncludePayload(true);       // 3) Данные формы
+    filter.setMaxPayloadLength(1000);
+    filter.setAfterMessagePrefix("COMPLETE REQUEST: ");
+    return filter;
+}
+
+вы включаете логирование:
+
+1. заголовков запроса (Request headers)
+2. query-параметров (Query parameters)
+3. данных формы (Form data)
+
+Без этого Spring маскирует или опускает многие из этих деталей, чтобы избежать утечки информации.
+
+Не используйте это в production, иначе вы раскроете чувствительную информацию, например пароли:
+
+POST /login
+Body: {"username":"john","password":"mypassword"}

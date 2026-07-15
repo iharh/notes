@@ -1,3 +1,41 @@
 2025
 DanVega - Spring Boot 4's Built-in Resilience Features: Say Goodbye to External Dependencies! 0:00 of 33:42
     https://www.youtube.com/watch?v=CT1wGTwOfg0
+
+***************
+Любой вызов внешнего сервиса может зависнуть, упасть или начать возвращать ошибки — неважно, ходишь ты через Feign, WebClient, gRPC или в базу. Circuit Breaker страхует от того, чтобы эта беда утянула за собой твоё приложение.
+
+Дальше на примере Feign-клиента и Resilience4j в Spring, но паттерн работает с любым вызовом.
+
+Вешаем брейкер на метод и сразу указываем, куда падать при проблемах:
+@CircuitBreaker(name = "authorService", fallbackMethod = "getInstanceFallback")
+String getInstance();
+name ссылается на конфиг в application.yml, а fallbackMethod  на метод, который отдаст запасной ответ. 
+
+🔹Важное правило
+
+Сигнатура фолбэка должна совпадать с исходным методом — тот же тип возврата, те же аргументы плюс Throwable последним параметром. Иначе получишь NoSuchMethodException в рантайме:
+public String getInstanceFallback(Throwable ex) {
+    return "Fallback content";
+}
+
+Настраиваем порог и время ожидания под тем же name:
+resilience4j:
+  circuitbreaker:
+    instances:
+      authorService:
+        failure-rate-threshold: 50
+        sliding-window-size: 10
+        wait-duration-in-open-state: 5s
+
+🔹 Как это живёт
+
+Брейкер считает долю ошибок не с первого запроса, а по скользящему окну (sliding-window-size). 50% — это «половина из последних 10 вызовов упала», а не «одна ошибка из двух».
+
+Когда порог превышен, цепь размыкается (open) и брейкер перестаёт долбиться в упавший сервис и сразу отдаёт fallback, не копя таймауты.
+
+Через wait-duration-in-open-state цепь переходит в half-open: пропускает несколько пробных запросов. Сервис ожил — цепь замыкается обратно (closed), нет — снова размыкается.
+
+🔹 Идея простая
+
+Внешний сервис упал, а твоё приложение деградирует контролируемо, а не валится следом.
