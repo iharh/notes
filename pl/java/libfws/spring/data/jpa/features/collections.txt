@@ -11,3 +11,7 @@ MarkdownUserModel {
 at repo
 @EntityGraph(attributePaths="roles")
 Optional<MarkdownUserModel> findByUsername(String username);
+
+2026
+https://habr.com/ru/companies/spring_aio/articles/1059922/
+    ! List and Set in hibernate
