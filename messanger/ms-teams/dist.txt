@@ -1,8 +1,12 @@
 https://github.com/IsmaelMartinez/teams-for-linux
+    https://github.com/IsmaelMartinez/teams-for-linux/releases
+        v2.13.0
+        sudo dnf install teams-for-linux_*.rpm
+    https://ismaelmartinez.github.io/teams-for-linux/configuration/
+
     https://repo.teamsforlinux.de/rpm/repodata/repomd.xml
     https://flathub.org/apps/com.github.IsmaelMartinez.teams_for_linux
-    v2 taskbar notification icon
-    https://github.com/IsmaelMartinez/teams-for-linux/issues/1172
+
     v2 header
     https://github.com/IsmaelMartinez/teams-for-linux/issues/1156
         https://github.com/IsmaelMartinez/teams-for-linux/pull/1160
@@ -79,3 +83,7 @@ window-state.json
     https://github.com/IsmaelMartinez/teams-for-linux/issues/904
 
 cat ~/.var/app/com.github.IsmaelMartinez.teams_for_linux/config/teams-for-linux/window-state.json
+
+FIDO2
+https://github.com/IsmaelMartinez/teams-for-linux/issues/2719
+https://github.com/IsmaelMartinez/teams-for-linux/issues/2714
