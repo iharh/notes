@@ -1,2 +1,21 @@
 https://mcp-atlassian.soomiles.com/docs
 https://github.com/sooperset/mcp-atlassian
+
+************
+{
+  "mcpServers": {
+    "mcp-atlassian": {
+      "command": "uvx",
+      "args": [ "mcp-atlassian" ],
+      "env": {
+        "JIRA_URL": "https://jiraeu.epam.com/",
+        "JIRA_USERNAME": "username@epam.com",
+        "JIRA_API_TOKEN": "xxx",
+        "CONFLUENCE_URL": "https://kb.epam.com/",
+        "CONFLUENCE_USERNAME": "username@epam.com",
+        "CONFLUENCE_API_TOKEN": "xxx"
+      }
+    }
+  }
+}
+************
