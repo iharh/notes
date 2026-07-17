@@ -5,6 +5,8 @@ https://junit.org/junit5/docs/current/api/org/junit/jupiter/params/provider/pack
 import org.junit.jupiter.params.ParameterizedTest;
 
 @ParameterizedTest
+@NullSource
+@EmptySource
 @ValueSource
 @EnumSource
 @MethodSource
