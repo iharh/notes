@@ -1,29 +1,7 @@
 https://www.jetbrains.com/help/idea/debugging-code.html
 
-create a new config -> "Remote"
-
 bps
 https://www.jetbrains.com/help/idea/using-breakpoints.html
-
-https://plugins.jetbrains.com/plugin/9696-java-stream-debugger
-    https://www.jetbrains.com/help/idea/analyze-java-stream-operations.html
-    https://dzone.com/articles/debugging-java-streams-with-intellij
-
-2024
-https://www.baeldung.com/intellij-debugging-tricks
-2023
-https://www.jetbrains.com/help/idea/debug-asynchronous-code.html
-https://snyk.io/blog/advanced-intellij-debugger-features/
-    Almong - Practical Debugging at Scale
-        https://www.amazon.com/dp/1484290410/
-        https://course.debugagent.com/
-        https://www.youtube.com/playlist?list=PL8GhfcywW9YM3OsfxnaxAci6dJgkuOQWn
-2021
-https://foojay.io/today/eight-debugging-tips-for-intellijidea-users-you-never-knew-existed/
-    https://habr.com/ru/post/582070/
-2017
-https://www.jetbrains.com/help/idea/2017.1/debugging.html
-https://www.jetbrains.com/help/idea/2017.1/debugger-basics.html
 
 docker attach
 https://stackoverflow.com/questions/62943487/intellij-debug-docker-container-keeps-giving-me-io-exception-handshake-failed
