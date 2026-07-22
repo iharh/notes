@@ -1,0 +1,29 @@
+Trusted Platform Module
+https://en.wikipedia.org/wiki/Trusted_Platform_Module
+
+https://www.baeldung.com/linux/tpm-support-check
+
+# --grep
+journalctl –g tpm
+
+Dec 06 20:48:42 EPBYGOMW0024T4 kernel: ACPI: TPM2 0x000000009A6D6000 00004C (v04 ALASKA A M I    00000001 AMI  00000000)
+Dec 06 20:48:42 EPBYGOMW0024T4 kernel: ACPI: Reserving TPM2 table memory at [mem 0x9a6d6000-0x9a6d604b]
+...
+Dec 06 20:48:42 EPBYGOMW0024T4 systemd-sysusers[330]: Creating user 'tss' (Account used for TPM access) with UID 59 and GID 59.
+Dec 06 20:48:42 EPBYGOMW0024T4 systemd[1]: Expecting device dev-tpm0.device - /dev/tpm0...
+Dec 06 20:48:42 EPBYGOMW0024T4 systemd[1]: Found device dev-tpm0.device - /dev/tpm0.
+Dec 06 20:48:42 EPBYGOMW0024T4 systemd[1]: Reached target tpm2.target - Trusted Platform Module.
+Dec 06 20:48:44 EPBYGOMW0024T4 systemd[1]: Stopped target tpm2.target - Trusted Platform Module.
+...
+Dec 06 20:48:46 EPBYGOMW0024T4 systemd[1]: Reached target tpm2.target - Trusted Platform Module.
+Dec 06 20:48:47 EPBYGOMW0024T4 systemd[1]: systemd-pcrmachine.service - TPM PCR Machine ID Measurement was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+Dec 06 20:48:47 EPBYGOMW0024T4 systemd[1]: systemd-tpm2-setup-early.service - Early TPM SRK Setup was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+Dec 06 20:48:47 EPBYGOMW0024T4 systemd[1]: systemd-tpm2-setup.service - TPM SRK Setup was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+Dec 06 20:48:47 EPBYGOMW0024T4 systemd[1]: systemd-pcrmachine.service - TPM PCR Machine ID Measurement was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+Dec 06 20:48:47 EPBYGOMW0024T4 systemd[1]: systemd-tpm2-setup-early.service - Early TPM SRK Setup was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+Dec 06 20:48:47 EPBYGOMW0024T4 systemd[1]: systemd-tpm2-setup.service - TPM SRK Setup was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+Dec 06 20:48:47 EPBYGOMW0024T4 systemd[1]: systemd-pcrphase-sysinit.service - TPM PCR Barrier (Initialization) was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+Dec 06 20:48:56 EPBYGOMW0024T4 systemd[1]: systemd-pcrphase.service - TPM PCR Barrier (User) was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+
+$ cat /sys/class/tpm/tpm0/tpm_version_major
+2

@@ -1,0 +1,8 @@
+about:config
+browser.ipProtection.enabled -> true.
+check
+browser.ipProtection.added -> should be true now
+
+2026
+DigitalPractice - Hiden Mozilla VPN of 3:00
+    https://www.youtube.com/watch?v=4jbQcSpJf2Y
