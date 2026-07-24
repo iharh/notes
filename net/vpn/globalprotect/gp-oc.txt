@@ -9,8 +9,9 @@ sudo dnf copr enable yuezk/globalprotect-openconnect
 sudo dnf install globalprotect-openconnect
     # 2.5.1 ???
 https://github.com/yuezk/GlobalProtect-openconnect/releases
-https://github.com/yuezk/GlobalProtect-openconnect/releases/tag/v2.5.4
-https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v2.5.4/globalprotect-openconnect-2.5.4-1.x86_64.rpm
+https://github.com/yuezk/GlobalProtect-openconnect/releases/tag/v2.6.4
+https://github.com/yuezk/GlobalProtect-openconnect/releases/download/v2.6.4/globalprotect-openconnect-2.6.4-1.x86_64.rpm
+    sudo rpm -i globalprotect-openconnect-*.rpm
 
 
 https://launchpad.net/~yuezk/+archive/ubuntu/globalprotect-openconnect
