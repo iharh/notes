@@ -1,0 +1,13 @@
+https://en.wikipedia.org/wiki/HTML_element#Block_elements
+https://en.wikipedia.org/wiki/HTML_element#Inline_elements
+
+div vs tag
+https://stackoverflow.com/questions/9047939/difference-between-div-and-span
+https://stackoverflow.com/questions/183532/what-is-the-difference-between-html-div-and-span-elements
+https://stackoverflow.com/questions/16434706/what-is-the-difference-between-p-div-and-span-in-htmlxhtml
+    display: block
+    display: inline
+    display: inline-block
+    https://www.w3schools.com/Css/css_inline-block.asp
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/display
+https://www.knowadvance.com/blog/difference-between-div-and-span-in-html
