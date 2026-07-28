@@ -24,7 +24,6 @@ https://github.com/podman-desktop/extension-bootc
 need
 https://github.com/wayblueorg/wayblue
 https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/silverblue-cheatsheet.pdf
-https://www.youtube.com/playlist?list=PLCrlcBRBAaTrFlOfmLW7XCmmAViLGOT7S
 https://pretalx.com/devconf-cz-2024/talk/RNDTRV/
 https://pretalx.com/devconf-cz-2024/talk/W3AVCT/
 https://github.com/uapi-group/specifications/blob/main/specs/unified_kernel_image.md
@@ -80,9 +79,7 @@ https://docs.fedoraproject.org/en-US/bootc/authentication/
 
 https://osbuild.org/
 https://github.com/osbuild/bootc-image-builder
-    2025
-    FedoraProject - Live Coding: Templates with Image Builder 10:00 of 1:08:55
-        https://www.youtube.com/watch?v=UnXLAs35ov8
+
 https://osbuild.org/docs/bootc/
 https://centos.github.io/centos-bootc/
 
@@ -94,235 +91,12 @@ auto-update
 https://coreos.github.io/zincati/
 https://github.com/openshift/cincinnati
 
-FedoraProject - ???
-FedoraProject - Community Submissions of p5
-    https://www.youtube.com/playlist?list=PL0x39xti0_65Ofhsxba_g78Tv_QxSNfLu
-https://www.youtube.com/watch?v=T9aDEF_4vr8
-https://www.youtube.com/watch?v=uNZuYBq5XfI
-https://www.youtube.com/watch?v=shLgBytoaIU
-rel-party
-https://www.youtube.com/watch?v=yu5J2C1xqRs
-https://www.youtube.com/watch?v=-5O3p8KCMiw
 
 ????
 https://docs.google.com/presentation/d/1pP-Gr2kb4TJifbkSCR0WzjoMRGJVxW33z1v1KIKbEnA/edit?slide=id.g35c1d124540_1_3298#slide=id.g35c1d124540_1_3298
 2026
 https://www.reddit.com/r/Fedora/comments/1sgeg2m/fedora_atomic_bootc_migration_setup_a_new_flow/
     https://github.com/henry7720/fedora-atomic-container-setup
-2025
-CNCF - Build Your K8s Ready Distro With BootC - Praveen Kumar & Josh Berkus, Red Hat of 31:48
-    https://www.youtube.com/watch?v=FDXLVuEt5XA
-    ! so-so
-DevConf - Keynote: Revolutionize your OS deploy and management with bootc containers of 35:47
-    https://www.youtube.com/watch?v=TAEFeiotUZA
-    !!!
-    !   https://github.com/kubealex/devconf.cz-bootc-keynote
-    !   https://github.com/kubealex/devconf.cz-bootc-keynote/blob/main/Containerfile
-    !
-    !   https://github.com/lucamaf
-    !   https://github.com/lucamaf/edge-bootc-blog/tree/main/devconf.cz-bootc-keynote
-    !
-    !   https://github.com/flightctl/flightctl
-    !   https://github.com/flightctl/flightctl/tree/main/docs/user
-    !   https://github.com/flightctl/flightctl/blob/main/docs/user/building-images.md
-    !   https://github.com/flightctl/flightctl-ui
-    !
-    ! 21:50 !!! sample Containerfile
-    !   https://github.com/lucamaf/edge-bootc-blog/blob/main/devconf.cz-bootc-keynote/Containerfilev1
-    !   https://github.com/lucamaf/edge-bootc-blog/blob/main/devconf.cz-bootc-keynote/Containerfilev2
-    !   https://github.com/kubealex/devconf.cz-bootc-keynote/blob/main/Containerfile
-    !   FROM quay.io/centos-bootc/centos-bootc:stream9
-    !   RUN dnf -y copr enable @redhat-et/flightctl epel-9-x86_64 && \
-    !       dnf -y group install GNOME && \
-    !       dnf -y install flightctl-agent mkpasswd firefox && \
-    !       dnf -y clean all && \
-    !       systemct set-default graphical.target && \
-    !       systemct enable flightctl-agent.service
-    !   RUN pass=$(mkpasswd --method=SHA-512 --rounds=4096 redhat) && useradd -m -G wheel kiosk-user && \
-    !       echo "%wheel   ALL=(ALL)    NOPASSWD; ALL" > /etc/sudoers.d/wheel-sudo && \
-    !       mkidr -p /home/kiosk-user/.config/autostart
-    !   ...
-    !   https://github.com/podman-desktop/extension-bootc
-    !   https://tekton.dev/
-    !   https://tekton.dev/docs/getting-started/
-    ! 32:20 - !!! usefull links
-       
-DevConf.CZ - Bootable Containers in Action: Hands on with Deploying AI Workloads 13:00 of 34:00
-    https://www.youtube.com/watch?v=c6roAHAXfU8
-    https://pretalx.devconf.info/devconf-cz-2025/talk/WMBRWB/
-    https://github.com/containers/ai-lab-recipes
-    https://github.com/containers/ai-lab-recipes/tree/main/training
-    https://github.com/containers/ai-lab-recipes/tree/main/.github/workflows
-    https://github.com/containers/terraform-test-environment-module
-    !  7:00 bootable container contains "linux kernel" additionally
-    ! 12:30 RUN --mount=type=cache,target=/workdir --mount=type=bind,rw=true,src=.,dst=/buildcontext,bind-propagation=shared \
-    !           /src/build.sh
-    !       ...
-    !       LABEL container.bootc="1" \
-    !             ostree.bootable="1" \
-    !       ENV container=oci
-    ! 17:30 podman desktop ext - 'bootable containers' - for running VMs
-    ! 20:00 sample of Containerfile
-    ! 27:00 bootc-image-builder
-            
-DevConf - Simplify security compliance with bootable containers 0:00 of 36:37
-    https://www.youtube.com/watch?v=5PWkDvtGzYs
-    https://pretalx.devconf.info/devconf-cz-2025/talk/PMUPGU/
-    https://github.com/jan-cerny/devconf-bootc-demo
-        sudo mkdir output
-        sudo podman run --rm -it --privileged --pull=newer --security-opt label=type:unconfined_t -v $(pwd)/config.toml:/config.toml:ro -v $(pwd)/output:/output \
-            -v /var/lib/containers/storage:/var/lib/containers/storage quay.io/centos-bootc/bootc-image-builder:latest --type qcow2 --local --rootfs xfs localhost/cis:latest
-        sudo virt-install --name demo_vm --cpu host --vcpus 4 --memory 4096 --import --disk ./output/qcow2/disk.qcow2,format=qcow2 --quiet --autoconsole none --os-variant fedora-eln
-DevConf - UKIs and composefs support for Bootable Containers of 37:18
-    https://www.youtube.com/watch?v=D7HqckeHlx8
-    https://pretalx.devconf.info/devconf-cz-2025/talk/739KGC/
-    https://pretalx.devconf.info/media/devconf-cz-2025/submissions/739KGC/resources/UKIs-and-composefs-support-for-Bootable-Con_5fcDA6u.pdf
-    !!!
-    ! 1:00 composefs (/var/composefs) combines
-    !         overlayfs, EROFS and fs-verify (opt)
-    ! https://asciinema.org/~travier
-    ! https://asciinema.org/a/722866
-    ! https://asciinema.org/a/722867
-    ! https://asciinema.org/a/722868
-    !     The utility to manipulate machines owner keys which managed in shim
-    !     dnf/mokutil
-    !     https://wiki.debian.org/SecureBoot
-    !     https://linuxcommandlibrary.com/man/mokutil
-    !     https://commandmasters.com/commands/mokutil-linux/
-    !     https://www.redhat.com/en/blog/secure-boot-systemtap
-    !     ? mokutil --sb-state
-    !     ? mokutil --db
-    !     bootctl (grub2 entries for my case)
-RHEL - What are Bootc and bootable containers? of 3:51
-    https://www.youtube.com/watch?v=1p1pCoHFkP0
-    ! 2:00 bootc-loader?
-DevConf - Extending clusters to the edge and far edge with bootable containers of 23:30
-    https://www.youtube.com/watch?v=6-x8tiwRO0s
-    https://pretalx.devconf.info/devconf-cz-2025/talk/CCMJPA/
-DevConf - Build It Your Way: Modular Pipelines for Bootable Containers - DevConf.CZ 2025 of 12:56
-    https://www.youtube.com/watch?v=4Ht-_GBH5VA
-    ! so-so
-2024
-https://developers.redhat.com/articles/2024/09/24/bootc-getting-started-bootable-containers
-FedoraProject - EricTheITGuy - Ravier - The Next Generation of Linux with bootc | Fedora Podcast 36 of 49:16
-    https://www.youtube.com/watch?v=zF7aTCoWoLQ
-    ! bla-bla
-ColinWalters - bootc: logically bound images 3:30 of 10:29
-    https://www.youtube.com/watch?v=buY3keP97Jc
-    https://jmarrero.github.io/bootc/logically-bound-images.html
-    https://developers.redhat.com/articles/2024/11/07/use-bootc-logically-bound-images-deploy-kafka-cluster
-    https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/building-and-managing-logically-bound-images
-FedoraProject - DNF and bootc in Image Mode for Fedora - Fedora 41 Release Party of 14:36
-    https://www.youtube.com/watch?v=6FAVsMbhfnA
-    ! 0:00 dnf5 is included on image-based/ostree Fedora variants
-    !   rpm-ostree features will start being ported to dnf5
-    !   we sheep bootc on all of Fedora image-based variants
-    https://fedoraproject.org/wiki/Releases/41/ChangeSet#DNF_and_bootc_in_Image_Mode_Fedora_variants
-    ! 7:30 FROM quay.io/fedora/fedora-coreos:testing
-    !   ... dnf5, dnf5-plugins, virt-install virt-manager virt-viewer
-    ! 10:00 bootc switch ghcr.io/jmarrero/jmarrero-f41-demo:latest
-    !   podman bootc list
-    !   podman bootc sst <hash>
-    !   
-FedoraProject - Bootc: Hands on Demo of 12:51
-    https://www.youtube.com/watch?v=fccox6sGCWA
-    ! podman-bootc run --filesystem=xfs quay.io/vrothberg/build-and-boot:bootc
-    ...
-    # boots status
-        staged:
-        booted:
-    # bootc update
-    ! podman-bootc list
-    ! podman-bootc ssh <hash>
-FedoraProject - Bootc: Getting Started with Bootable Containers of 8:28
-    https://www.youtube.com/watch?v=bf1xqjLeA9M
-FedoraProject - Fedora bootc: GitOps for Noobs of 33:46
-    https://www.youtube.com/watch?v=5ZN_7NDvavY
-DevConf - Streamlining bootable container workflows with podman-bootc 0:00 of 26:29
-    https://www.youtube.com/watch?v=uLPyeXmIdyE
-    https://pretalx.com/devconf-cz-2024/talk/RNDTRV/
-DevConf - Customize your OS like container or start new project without building new distro 0:00 of 31:59
-    https://www.youtube.com/watch?v=fDvE3hbmLUo
-    !!! also in fedora-atomic.txt
-    https://pretalx.com/devconf-cz-2024/talk/SKSFGA/
-    https://github.com/containers/podman-machine-os
-    https://fedoraproject.org/wiki/Changes/DNFAndBootcInImageModeFedora
-DevConf - Keynote: What if you could boot a container? of 34:55
-    https://www.youtube.com/watch?v=ERVyBc_fElY
-    https://pretalx.com/devconf-cz-2024/talk/AVSUU3/
-        https://danwalsh.livejournal.com/
-        $ podman build           -t quay.io/examplecorp/soe:base .
-        $ podman run –privileged -d quay.io/examplecorp/soe:base
-        $ podman push               quay.io/examplecorp/soe:base
-        FROM quay.io/examplecorp/soe:base
-          RUN …
-        $ podman build -t quay.io/examplecorp/postgres:latest .
-        $ podman run   -d quay.io/examplecorp/postgres:latest
-        $ podman push     quay.io/examplecorp/postgres:latest
-        ...
-        15:00 var.bootc_image=ghcr.io/cgwalters/bootc-demo:latest podman run --rm \
-          --privileged \
-          -v /dev:/dev \
-          -v /:target \
-          -v /var/lib/containers:/var/lib/containers \
-          --pid=host \
-          --security-opt label=type:unconfined_t \
-          ${var.bootc_image} bootc install to-existing-root
-        doc: provisioning machines ... on GCP (via OpenTofu)
-        16:00 we are mounting entire root into container, later - replace ?host? system with a container
-        18:00 ... WARNING: This operation will OVERWRITE THE BOOTED HOST ROOT FILESYSTEM and is NOT REVERSIBLE.
-            $ bootc status
-        21:00
-            bootc-image-builder - build disk images from container images
-                raw, iso, qcow2, mac vms, vdmk, hyperv, ami, azure
-        22:00 
-            with Anaconda
-            # Basic setup
-            text
-            network --bootproto=dhcp --device=link --activate
-            # Basic partitioning
-            clearpart --all --initlabel --disklabel=gpt
-            reqpart --add-boot
-            part / --grow --fstype xfs
-
-            ostree container --url quay.io/exampleos/soe:latest
-
-            services --enabled=sshd
-            
-            # Only inject a SSH key for root
-            rootpw --iscrypted locked
-            sshkey --username root "<your-key-here>"
-            reboot
-MichaelHorn - Are Immutable Linux Distros Worth It? of 7:38
-    https://www.youtube.com/watch?v=TX0f_vyV06k
-All Systems Go! - bootc: Generating an ecosystem around bootable OCI containers of 43:36
-    https://www.youtube.com/watch?v=rCokgSYiVHQ
-    ! 7:00
-    $ cat Containerfile.cs9
-    ...
-    RUN systemctl enable ... podman.socket ... custom-first-boot
-    ...
-    ! 9:00 sudo bootc switch registry...asg-bootc:latest-f40
-    ... on qemu ...
-    https://grahamc.com/blog/nix-and-layered-docker-images/
-    https://media.ccc.de/v/all-systems-go-2024-266-bootc-generating-an-ecosystem-around-bootable-oci-containers
-    ! ...
-    ! podman run --privileged <yourimage> bootc install to-filesystem ...
-    ! 24:00 !!! components diagram
-AllSystemsGo - The road to a trusted and measured boot chain in Bootable Containers of 40:35
-    https://www.youtube.com/watch?v=xQT5IqL0kzc
-    https://media.ccc.de/v/all-systems-go-2024-309-the-road-to-a-trusted-and-measured-boot-chain-in-bootable-containers
-    https://cfp.all-systems-go.io/all-systems-go-2024/talk/HVEZQQ/
-    https://cfp.all-systems-go.io/media/all-systems-go-2024/submissions/HVEZQQ/resources/2024_All_Systems_Go_-_The_road_to_a_tru_c4Y3IoH.pdf
-    ! so-so
-    ! 2:00 bootc uses ostree underneath
-    !         unpacks the container image files on the disk
-    !         set up the kernel and initramfs
-    !         writes the BLS (bootloader) config
-2023
-RedHatCommunity - bootc - A new project for bootable containers of 34:01
-    https://www.youtube.com/watch?v=QaKl5z6dFlM
-    ! 18:40 very small bootable image Containerfile with ssh pub-keys only
 
 issues
 https://github.com/coreos/bootupd/issues/468
