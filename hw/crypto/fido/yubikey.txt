@@ -6,14 +6,44 @@ https://www.yubico.com/support/download/
 https://www.yubico.com/blog/
 https://github.com/yubico
 
+https://ozon.by/category/nositeli-dlya-elektronnoy-podpisi-37070/yubico-100386667/
+https://www.wildberries.by/brands/yubico
+cryptoro
+https://www.wildberries.by/seller/4216188
+
 5.8
 https://www.yubico.com/blog/beyond-the-login-top-3-things-developers-need-to-know-about-yubikey-5-8/
 https://www.yubico.com/press-releases/yubico-extends-passkeys-beyond-trusted-authentication-to-verified-authorization-with-launch-of-yubikey-5-8/
 https://www.yubico.com/blog/yubico-will-introduce-secure-and-privacy-capable-passkey-enabled-digital-signatures-in-upcoming-5-8-firmware/
 https://www.yubico.com/resource/whats-new-yubikey-5-8/
+5.x
+    Статические пароли (OTP) поддерживают ключи 5ой серии. 
+    Серия Security Key поддерживают только 
+        U2F и FIDO2, 
+    а 5 серия поддерживает 
+        FIDO2, OATH HOTP, Yubico OTP, Open PGP, U2F и PIV.
+https://www.wildberries.by/catalog/915687365/detail.aspx
+    ! 337 bin, type-c, 5.7.4
+https://www.wildberries.by/catalog/167999675/detail.aspx
+    ! 322 bin, type-c, 5.7.x - ordered!!!
+https://www.wildberries.by/catalog/789184844/detail.aspx
+    ! 320 bin, type-c, 5.7
+https://www.wildberries.by/catalog/257465360/detail.aspx
+    ! 301 bin, type-c, 5.7
+https://www.wildberries.by/catalog/330175401/detail.aspx
+    ! 191 bin, type-a
 
-https://ozon.by/category/nositeli-dlya-elektronnoy-podpisi-37070/yubico-100386667/
-https://www.wildberries.by/brands/yubico
+madcrypto
+https://www.madgeeks.by/apparatnii-klyuch-autentifikacii-yubikey-5c-nfc
+https://madcrypto.by/product/apparatnyj-klyuch-autentifikaczii-yubikey-5c-nfc/
+    ! 380 bin, type-c, ?ver
+https://madcrypto.by/product/apparatnyj-klyuch-yubikey-5c/
+    ! 370 bin, type-c, ?ver
+
+2022
+cryptonist - 5C NFC Review 0:00 of 14:53
+    https://www.youtube.com/watch?v=zscs9aGTWVk
+
 
 bip39
 https://www.wildberries.by/catalog/915746980/detail.aspx
