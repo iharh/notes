@@ -1,4 +1,36 @@
-*******
+**************************
+Одна из самых коварных ловушек JPA - это N+1 проблема. Особенно часто она проявляется при @OneToMany, например:  
+
+
+@Entity
+class Author {
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    private List<Book> books;
+}
+
+
+Вы загружаете список авторов, а потом проходите по каждому и вызываете getBooks() — и BAM 💥: 1 запрос на авторов и N запросов на книги.  
+
+📌 Решение - @EntityGraph или JOIN FETCH  
+Оба варианта решают проблему, но @EntityGraph — декларативный и более гибкий способ:  
+
+
+@EntityGraph(attributePaths = "books")
+List<Author> findAll(); // Spring Data JPA
+
+
+⚡️ Или через JPQL:
+
+
+@Query("SELECT a FROM Author a JOIN FETCH a.books")
+List<Author> findAllWithBooks();
+
+
+💡 Совет: всегда думайте о графе объектов. Если вам нужно сразу подтянуть связанные сущности — делайте это явно. Не надейтесь на LAZY по умолчанию.
+
+⚠️ Осторожно с пагинацией и JOIN FETCH — могут появиться дубликаты или проблемы с LIMIT. В таких случаях лучше использовать @BatchSize или подзапросы.
+
+***************************************************************
 @BatchSize и hibernate.jdbc.batch_size — две разные вещи, которые иногда путают. Разбираем обе.
 
 🔹 Решение
