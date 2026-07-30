@@ -9,3 +9,161 @@ Wade - Mastering SQL Joins of p77
     https://libgen.gs/edition.php?id=146842992
 2021
 https://www.dataquest.io/blog/sql-joins/
+
+***************
+- INNER JOIN - пересечение множеств (только совпавшие строки).
+- LEFT JOIN - все слева + совпавшие справа (несовпавшие → NULL).
+- RIGHT JOIN - симметричен LEFT, лучше переворачивать под LEFT.
+- FULL OUTER JOIN - все слева и справа (где нет пары → NULL).
+- CROSS JOIN — декартово произведение (каждая со всеми).
+- SELF JOIN - таблица соединяется сама с собой.
+- SEMI / ANTI JOIN - “есть/нет соответствия” (через EXISTS / NOT EXISTS).
+- LATERAL / APPLY - зависимая подзапросная таблица на строку слева.
+
+
+1️⃣ INNER JOIN - «строго есть пара»
+
+«Покажи оплаченные заказы с данными клиента».
+
+
+SELECT o.id, c.name
+FROM orders o
+JOIN customers c ON c.id = o.customer_id
+WHERE o.status = 'paid';
+
+
+Используйте, когда отсутствие пары - повод исключить строку.
+
+2️⃣ LEFT JOIN - «все слева, даже без пары»
+
+«Список клиентов и количество их заказов (включая с нулём)».
+
+
+SELECT c.id, c.name, COALESCE(COUNT(o.id), 0) AS orders_cnt
+FROM customers c
+LEFT JOIN orders o ON o.customer_id = c.id
+GROUP BY c.id, c.name;
+
+
+По умолчанию для «обогащения» справочниками и опциональных связей.
+
+3️⃣ RIGHT JOIN - почти не нужен
+
+Заменяйте на LEFT, поменяв стороны:
+
+
+-- было:
+-- SELECT ... FROM A RIGHT JOIN B ON ...
+-- стало:
+SELECT ... 
+FROM B
+LEFT JOIN A ON ...
+
+
+4️⃣ FULL OUTER JOIN - «объединить всё»
+
+«Свод по всем клиентам и всем заказам, даже если без пары».
+
+
+SELECT COALESCE(c.id, o.customer_id) AS customer_key, c.name, o.id AS order_id
+FROM customers c
+FULL JOIN orders o ON o.customer_id = c.id;
+
+
+Редко нужен в отчётах/сверках. Поддержка зависит от СУБД.
+
+5️⃣ CROSS JOIN - «все комбинации»
+
+«Собрать сетку метрик по всем регионам и кварталам».
+
+
+SELECT r.region, q.quarter
+FROM regions r
+CROSS JOIN quarters q;
+
+
+Осторожно: взрыв строк.
+
+6️⃣ SELF JOIN - «сравнить строки внутри таблицы»
+
+«Найти менеджера и его подчинённого».
+
+
+SELECT e.name AS employee, m.name AS manager
+FROM employees e
+LEFT JOIN employees m ON m.id = e.manager_id;
+
+
+7️⃣ SEMI JOIN (EXISTS) - «фильтрация по факту наличия»
+
+«Клиенты, у кого были заказы за 30 дней».
+
+
+SELECT c.*
+FROM customers c
+WHERE EXISTS (
+  SELECT 1 FROM orders o
+  WHERE o.customer_id = c.id
+    AND o.created_at >= CURRENT_DATE - INTERVAL '30 day'
+);
+
+
+Не размножает строки, часто быстрее, чем JOIN + DISTINCT.
+
+8️⃣ ANTI JOIN (NOT EXISTS) - «кто без соответствий»
+
+«Товары, которые ни разу не покупали в этом году».
+
+
+SELECT p.*
+FROM products p
+WHERE NOT EXISTS (
+  SELECT 1 FROM order_items oi
+  JOIN orders o ON o.id = oi.order_id
+  WHERE oi.product_id = p.id
+    AND o.created_at >= date_trunc('year', CURRENT_DATE)
+);
+
+
+Избегайте NOT IN с NULL - может дать пустой результат.
+
+9️⃣ LATERAL / APPLY - «топ-N на строку»
+
+«Последний заказ на клиента» (PostgreSQL: LATERAL, SQL Server: APPLY).
+
+
+SELECT c.id, c.name, o_last.id AS last_order_id
+FROM customers c
+LEFT JOIN LATERAL (
+  SELECT o.id
+  FROM orders o
+  WHERE o.customer_id = c.id
+  ORDER BY o.created_at DESC
+  LIMIT 1
+) o_last ON true;
+
+
+
+💡Подводные камни
+
+- LEFT JOIN + фильтр в WHERE ⇒ превращается в INNER.
+  Если нужно оставить «без пары», переносите условие в ON:
+
+  
+
+  -- ❌ неверно
+  SELECT ... FROM c LEFT JOIN o ON o.customer_id = c.id
+  WHERE o.status = 'paid';
+
+  -- ✅ верно
+  SELECT ... FROM c LEFT JOIN o
+    ON o.customer_id = c.id AND o.status = 'paid';
+  
+
+- Дубликаты из «один-ко-многим». Перед JOIN делайте агрегацию в подзапросе/CTE.
+- Индексы на ключах соединений (FK и соответствующие PK/UK) - must.
+- Сопоставимость типов/колляций. Функции на ключе (LOWER(col)) ломают sargability - лучше нормализовать данные заранее.
+- EXISTS чаще лучше, чем JOIN + DISTINCT для фильтрации.
+- Проверяйте план. EXPLAIN (ANALYZE, BUFFERS) и сравнение альтернатив.
+
+Сохрани, чтобы не забыть. А как вы чаще фильтруете - через JOIN+DISTINCT или EXISTS?
