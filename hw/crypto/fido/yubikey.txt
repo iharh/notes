@@ -1,3 +1,5 @@
+https://support.yubico.com/s/article/YubiKey-firmware-is-not-upgradable
+
 TODO: Check AGUID
 https://support.yubico.com/s/article/YubiKey-hardware-FIDO2-AAGUIDs
 
@@ -42,7 +44,8 @@ https://www.yubico.com/resource/whats-new-yubikey-5-8/
 https://www.wildberries.by/catalog/915687365/detail.aspx
     ! 337 bin, type-c, 5.7.4
 https://www.wildberries.by/catalog/167999675/detail.aspx
-    ! 322 bin, type-c, 5.7.x - ordered!!!
+    ! 341 bin, 5C NFC, type-c, 5.7.x - ordered!!!
+    !  FIDO2, OATH HOTP, Yubico OTP, Open PGP, U2F и PIV
 https://www.wildberries.by/catalog/789184844/detail.aspx
     ! 320 bin, type-c, 5.7
 https://www.wildberries.by/catalog/257465360/detail.aspx
