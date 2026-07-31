@@ -1,4 +1,11 @@
 https://support.yubico.com/s/article/YubiKey-firmware-is-not-upgradable
+https://support.yubico.com/s/article/Where-to-find-YubiKey-firmware-details
+    ykman info
+
+https://docs.yubico.com/hardware/yubikey/yk-tech-manual/index.html
+https://docs.yubico.com/hardware/yubikey/yk-tech-manual/yk5-firmware-overview.html
+https://docs.yubico.com/hardware/yubikey/yk-tech-manual/yk5-firmware-overview.html
+https://docs.yubico.com/hardware/yubikey/yk-tech-manual/yk5-firmware-5.8.html
 
 TODO: Check AGUID
 https://support.yubico.com/s/article/YubiKey-hardware-FIDO2-AAGUIDs
@@ -13,6 +20,10 @@ https://www.wildberries.by/brands/yubico
 cryptoro
 https://www.wildberries.by/seller/4216188
 
+2026
+FrontendAsProblem - How Passkey works
+    https://www.youtube.com/watch?v=-Pd87zA6yJM
+    https://www.passkeys.io/
 2025
 AlexWysiWyg - PassKeys 0:00 of 8:28
     https://www.youtube.com/watch?v=e_ckgvl0Mxg
@@ -41,6 +52,9 @@ https://www.yubico.com/resource/whats-new-yubikey-5-8/
         U2F и FIDO2, 
     а 5 серия поддерживает 
         FIDO2, OATH HOTP, Yubico OTP, Open PGP, U2F и PIV.
+https://www.wildberries.by/catalog/257465382/detail.aspx
+https://www.wildberries.by/catalog/167999716/detail.aspx
+    ! 700 bin, type-c, bio
 https://www.wildberries.by/catalog/915687365/detail.aspx
     ! 337 bin, type-c, 5.7.4
 https://www.wildberries.by/catalog/167999675/detail.aspx
