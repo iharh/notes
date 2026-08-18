@@ -23,12 +23,6 @@ src
 https://github.com/gradle/gradle/blob/master/subprojects/docs/src/docs/dsl/dsl.xml
 https://github.com/gradle/gradle/tree/master/subprojects/core/src/main/java/org/gradle/api/internal
 
-presentations
-2017
-Dobrynin, Mihalev - DSL Groovy
-    https://www.youtube.com/watch?v=aJd0vmmEwqs
-    https://assets.contentful.com/oxjq45e8ilak/415pJaAdRCsieGmaQA8AQe/cd57b67ff50e0f39bb5d3abe2e3f3716/DSL_Groovy.pdf
-
 projects
 
 allprojects.each ...
