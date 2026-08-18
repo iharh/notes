@@ -1,10 +1,10 @@
 https://yadm.io/
-https://github.com/TheLocehiliosan/yadm
+https://github.com/yadm-dev/yadm
 
 !!! not using symlinks
 
 https://thelocehiliosan.github.io/yadm/docs/overview
-https://thelocehiliosan.github.io/yadm/docs/install
+https://yadm.io/docs/install
 https://thelocehiliosan.github.io/yadm/docs/getting_started
     yadm clone git@github.com:iharh/dotfiles.git
 https://thelocehiliosan.github.io/yadm/docs/common_commands
