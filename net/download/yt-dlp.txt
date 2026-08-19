@@ -11,7 +11,15 @@ https://github.com/BKSalman/ytdlp-gui
 cfg
     https://gitlab.com/jacinthsamuel/dotfiles/-/blob/master/.config/yt-dlp.conf
 
+EJS
+https://github.com/yt-dlp/yt-dlp/wiki/EJS
+    https://github.com/yt-dlp/ejs
+        pip install -U yt-dlp-ejs
+
 yt-dlp
+    --js-runtimes RUNTIME[:PATH]
+    --js-runtimes "deno:/path/to/deno"
+
     -f 'b' -S 'res:480' <id|url>
     --default-search PREFIXUse
         Use this prefix for unqualified URLs.
