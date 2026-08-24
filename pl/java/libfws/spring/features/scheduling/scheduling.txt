@@ -23,3 +23,19 @@ samples
 public class SchedulingConfig {
     ...
 }
+
+**********
+// multi-threaded
+@Configuration
+@EnableScheduling
+public class SchedulerConfig implements SchedulingConfigurer {
+
+    @Override
+    public void configureTasks(ScheduledTaskRegistrar registrar) {
+        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
+        scheduler.setPoolSize(5); // number of parallel tasks
+        scheduler.setThreadNamePrefix("scheduled-task-");
+        scheduler.initialize();
+        registrar.setTaskScheduler(scheduler);
+    }
+}
