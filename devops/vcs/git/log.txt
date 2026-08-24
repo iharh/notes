@@ -89,6 +89,9 @@ git log
     -L 6,13:<file>
         log changes of certain lines of the <file>
 
+    -1 -U <commit-hash>
+        log changes (with diffs) for <commit-hash>
+
 
 we can combine ... --oneline --graph --all --decorate
 
