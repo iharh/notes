@@ -1,5 +1,9 @@
 https://one.one.one.one/
 https://developers.cloudflare.com/warp-client/get-started/linux/
+    warp-cli status
+    warp-cli registration new
+    warp-cli connect
+    curl https://www.cloudflare.com/cdn-cgi/trace | grep warp
 https://pkg.cloudflareclient.com/
 
 # ???
