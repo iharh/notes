@@ -1,0 +1,67 @@
+https://docs.spring.io/spring-framework/reference/data-access/transaction/programmatic.html
+    TransactionTemplate
+    TransactionalOperator
+
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html
+    readOnly
+    rollBackFor/noRollbackFor, timeout
+    https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Propagation.html
+        MANDATORY
+        NESTED
+        NEVER
+        NOT_SUPPORTED
+        REQUIRED (it is impossible to override [timeout,isolation,readOnly] attrs, which just inherits)
+        REQUIRES_NEW
+        SUPPORTS
+    https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Isolation.html
+        DEFAULT
+        READ_COMMITTED
+        READ_UNCOMMITTED
+        REPEATABLE_READ
+        SERIALIZABLE
+
+PG
+    select ... for [no key] update|share [skip locked] ... of [table-alias]
+
+
+2024
+MihailKeselyov - Transactions Theory and Practice 0:00 of 30:09
+    https://www.youtube.com/watch?v=ovas9OCVfqo
+2023
+https://www.baeldung.com/spring-transactional-propagation-isolation
+    !!!
+2022
+https://habr.com/ru/articles/682362/
+    https://www.marcobehler.com/guides/spring-transaction-management-transactional-in-depth
+https://vladmihalcea.com/spring-transaction-best-practices/
+    https://vladmihalcea.com/read-write-read-only-transaction-routing-spring/
+https://vladmihalcea.com/read-write-read-only-transaction-routing-spring/
+https://vladmihalcea.com/a-beginners-guide-to-transaction-isolation-levels-in-enterprise-java/
+
+https://www.baeldung.com/transaction-configuration-with-jpa-and-spring
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-jpa-2 
+    org.springframework.transaction logging -> TRACE
+https://softice.dev/posts/introduction_to_declarative_tx_management/
+    AbstractEntity, Logging Transactions via debug for JpaTransactionManager
+    (logging.level.org.springframework.orm.jpa=debug) at application.properties
+    PlatformTransactionManager, TransactionTemplate
+        In some helper
+        @Transactional(propagation = Propagation.REQUIRES_NEW)
+        public <T, R> R executeWithNewTrans(Function<T, R> f, T val) {
+            return f.apply(val);
+        }
+    Note: It is surprising that the transaction is committed in case of checked exceptions.
+          The rationale is that checked exceptions are considered business exceptions
+          and we should check the business rules to see if we do need a rollback or not.
+    Note: Good overview of propagations !!!
+    Note: for JpaTransactionManager in case of readOnly="true", the calls of persist will just be silently ignored (no exceptions) !!!
+          for DataSourceTransactionManager - ex is thrown
+              @Transactional(transactionManager="tmCreationMethodName")
+2021
+https://habr.com/ru/company/otus/blog/574470/
+    spring transactional errors
+2020
+https://habr.com/ru/articles/532000/
+    !!! like a ref-ce
+2017
+https://habr.com/ru/articles/325470/

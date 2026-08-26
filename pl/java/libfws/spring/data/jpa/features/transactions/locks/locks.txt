@@ -1,0 +1,63 @@
+2023
+https://blog.devgenius.io/pessimistic-lock-in-spring-boot-a3c44055be0f
+https://www.linkedin.com/pulse/implementing-optimistic-pessimistic-locking-spring-boot-sanchez
+    adv, disadv
+    https://github.com/csdavidg/db-locking-poc
+2020
+https://vladmihalcea.com/spring-data-jpa-locking/
+    lockById method, and his custom impl
+    https://vladmihalcea.com/hibernate-locking-patterns-how-do-pessimistic_read-and-pessimistic_write-work/
+        really huge
+
+https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/Lock.html
+    apply locking to all records, returned by a given query in JPA repo
+https://docs.oracle.com/javaee/7/api/javax/persistence/LockModeType.html
+    READ,  OPTIMISTIC, (obtains an optimistic read lock for all entities containing a version attribute)
+                        persistence provider will prevent our data from dirty reads as well as non-repeatable reads.
+    WRITE, OPTIMISTIC_FORCE_INCREMENT, (the same as OPTIMISTIC and additionally increments the version attribute value)
+    PESSIMISTIC_READ  (select for share),
+    PESSIMISTIC_WRITE (select for update),
+    PESSIMISTIC_FORCE_INCREMENT (if our entity is not directly modified within transaction, but we want Hibernate do it at flush-time),
+    NONE;
+https://softice.dev/posts/optimistic_and_pessimistic_locking_with_spring_data_jpa/
+    https://github.com/anrosca/optimistic_and_pessimistic_concurrency_control
+    notes: using spring RetryTemplate, @Retriable(ObjectOptimisticLockingFailureException) !!!
+
+https://hackernoon.com/optimistic-and-pessimistic-locking-in-jpa
+    notes: 1. Keep in mind that the version number does not change when changing the @OneToMany and @ManyToMany
+           collections with the mappedBy attribute. 
+           2. If it is impossible to add a new column to the table, but there is a need to use optimistic locking,
+              you can apply Hibernate annotations OptimisticLocking and DynamicUpdate.
+              The type value in the OptimisticLocking annotation can take the following values:
+                  ALL     - perform locking based on all fields
+                  DIRTY   - perform locking based on only changed fields fields
+                  VERSION - perform locking using a dedicated version column
+                  NONE    - don’t perform locking
+           3. Conclusion
+              Optimistic locks are suitable for situations where an exception that has been thrown can be easily handled
+              and either notify the user or try again.
+              At the same time, rows at the database level are not blocked, which does not slow down the operation of the application.
+
+              However, using pessimistic locking, you need to carefully write and check the code because
+              there is a possibility of deadlocks
+https://www.baeldung.com/jpa-optimistic-locking
+    OptimisticLockException
+https://www.baeldung.com/jpa-pessimistic-locking
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/hibernate-jpa
+    @Lock annotation at JPA repo-method
+    entityManager.find(...)
+    entityManager.createQuery("...").setLockMode(...)
+    entityManager.lock(resultEntity, LockModeType.PESSIMISTIC_WRITE);
+    entityManager.refresh(resultEntity, LockModeType.PESSIMISTIC_FORCE_INCREMENT);
+    @NamedQuery(..., lockMode = PESSIMISTIC_READ)
+    Scope
+        The PessimisticLockScope.NORMAL is the default scope.
+        With this locking scope, we lock the entity itself.
+        When used with @Inheritance(strategy=InheritanceType.JOINED) inheritance, it also locks the ancestors.
+
+        The EXTENDED scope covers the same functionality as NORMAL.
+        In addition, it's able to block related entities in a join table.
+        Simply put, it works with entities annotated with @ElementCollection or @OneToOne, @OneToMany, etc. with @JoinTable.
+
+https://www.baeldung.com/java-jpa-transaction-locks
+    https://github.com/eugenp/tutorials/tree/master/persistence-modules/hibernate-jpa 
