@@ -1,0 +1,1 @@
+sudo openvpn --data-ciphers AES-256-CBC --config <cfg.ovpn>
