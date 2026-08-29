@@ -1,11 +1,13 @@
 https://windscribe.com/upgrade
 https://windscribe.com/features/
 
+https://windscribe.com/knowledge-base/articles/how-to-set-up-windscribe-on-linux
+
 https://windscribe.com/download/
-    sudo dnf install ./windscribe-cli_2.17.10_amd64_fedora.rpm
+    sudo dnf install ./windscribe-cli_2.23.11_amd64_fedora.rpm
     >>> Created symlink '/etc/systemd/system/multi-user.target.wants/windscribe-helper.service' → '/usr/lib/systemd/system/windscribe-helper.service'.
     rpm -qa | grep windscribe
-    windscribe-cli-2.17.10-0.x86_64
+    windscribe-cli-2.23.11-0.x86_64
     rpm -ql windscribe-cli
 
 /opt/windscribe/windscribe-cli
