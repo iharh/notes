@@ -1,8 +1,10 @@
 https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
 https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/downloads/
     https://hub.docker.com/r/cloudflare/cloudflared
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/
 https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/
 https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/downloads/update-cloudflared/
+
 https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/
 
 https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/tunnel-useful-terms/
@@ -21,6 +23,7 @@ WhyDoesNothingWorks - NixOS Web Services with Cloudflared: A Complete Guide 0:00
 2024
 LinuxCloudHacks - Cloudflare: Securely Access Your Docker Application Without a Public IP 0:00 of 13:41
     https://www.youtube.com/watch?v=2RF7hTSYU24
+https://dev.to/k4ml/poor-man-ngrok-with-tcp-proxy-and-ssh-reverse-tunnel-1fm
 2023
 https://www.crosstalksolutions.com/cloudflare-tunnel-easy-setup/
     https://www.youtube.com/watch?v=ZvIdFs3M5ic
