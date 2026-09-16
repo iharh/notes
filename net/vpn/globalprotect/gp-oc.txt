@@ -33,3 +33,19 @@ systemctl is-enabled gpservice
 YubiKey/ext-browser
 https://github.com/yuezk/GlobalProtect-openconnect/issues/614
 https://github.com/yuezk/GlobalProtect-openconnect/issues/239
+
+issues
+macos
+https://github.com/yuezk/GlobalProtect-openconnect/issues/133
+    https://github.com/NanamiNakano/homebrew-gpoc
+        , use nix instead.
+        https://github.com/NanamiNakano/dotfiles/blob/main/extra/flake.nix
+
+    brew install openconnect
+
+nixos
+https://github.com/yuezk/GlobalProtect-openconnect#nixos
+https://github.com/yuezk/GlobalProtect-openconnect/blob/main/flake.nix
+
+docker
+docker pull yuezk/globalprotect-openconnect:<version>
