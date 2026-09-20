@@ -1,0 +1,8 @@
+https://htmlacademy.org/courses/html-css-basics/text-markup/code-tag
+https://htmlacademy.org/courses/html-css-basics/text-markup/pre-code-tags
+    code-tag can be nested inside pre-tag, but not vice-versa
+<pre><code>
+if (a > b) {              // Example of code in
+  console.log('Hello!');  // the JavaScript language
+}
+</code></pre>
