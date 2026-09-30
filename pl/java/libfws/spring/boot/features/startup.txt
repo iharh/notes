@@ -1,0 +1,8 @@
+caching
+-Dspring.context.cache.applicationContext=true
+https://rieckpil.de/improve-build-times-with-context-caching-from-spring-test/
+    https://habr.com/ru/companies/spring_aio/articles/905586/
+
+spring:
+  main:
+    lazy-initialization: true
