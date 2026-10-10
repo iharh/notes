@@ -1,1 +1,10 @@
 https://htmlacademy.org/courses/html-css-basics/links-and-images
+
+https://htmlacademy.org/courses/html-css-basics/links-and-images/file-link
+<a href="..." download/>
+
+https://htmlacademy.org/courses/html-css-basics/links-and-images/anchor-link
+<a href="#element-id"/>
+
+https://htmlacademy.org/courses/html-css-basics/links-and-images/img-tag
+<img src="...">
