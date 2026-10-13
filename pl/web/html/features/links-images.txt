@@ -11,3 +11,6 @@ https://htmlacademy.org/courses/html-css-basics/links-and-images/img-tag
     jpg - compressed
     png - lossless compression, transparency
     gif - 256 colors, transparency, opaque
+
+https://htmlacademy.org/courses/html-css-basics/links-and-images/alt-attribute
+    <img ... alt="..."/>
