@@ -2,3 +2,7 @@
 https://reflectoring.io/assertj-lists/
     https://github.com/thombergs/code-examples/tree/master/testing/assertJ
     !!!
+
+https://stackoverflow.com/questions/12166415/how-do-i-assert-an-iterable-contains-elements-with-a-certain-property
+    containsExactly(...)
+    containsExactlyInAnyOrder(...)
