@@ -7,6 +7,13 @@ https://htmlacademy.org/courses/advanced-styling
 aria2
 Exception: [DefaultBtAnnounce.cc:303] errorCode=1 Tracker returned failure reason: access denied, banned client
 
+s1
+https://www.scribd.com/document/676685734/linux-uninstall
+sudo systemctl cat sentinelone.service
+/usr/lib/systemd/system/sentinelone.service
+RefuseManualStop=yes
+sudo systemctl status sentinelone.service
+
 kde
 https://invent.kde.org/plasma/plasma-keyboard/-/merge_requests/83
     System Settings → Keyboard → Virtual Keyboard
