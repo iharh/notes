@@ -4,6 +4,9 @@ https://htmlacademy.org/courses/html-css-basics
 https://htmlacademy.org/courses/intro-to-web-development/html-and-css
 https://htmlacademy.org/courses/advanced-styling
 
+aria2
+Exception: [DefaultBtAnnounce.cc:303] errorCode=1 Tracker returned failure reason: access denied, banned client
+
 kde
 https://invent.kde.org/plasma/plasma-keyboard/-/merge_requests/83
     System Settings → Keyboard → Virtual Keyboard
