@@ -16,12 +16,12 @@ git log
         pretty-printed log accrording to the specified format
         https://www.kernel.org/pub/software/scm/git/docs/git-log.html#_pretty_formats
 
-        %an - committer name
+        %an - author name
         %cn - committer name
         %h  - hash
         %cd - commit date
         %cr - commit date relative
-        %s  - ???
+        %s  - commit message
         %x09- tab
 
     --patch <filename>
