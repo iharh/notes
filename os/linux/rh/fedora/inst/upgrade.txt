@@ -1,4 +1,7 @@
 https://docs.fedoraproject.org/en-US/fedora/latest/release-notes/
+    https://docs.fedoraproject.org/en-US/release-notes/f45/
+    https://discussion.fedoraproject.org/tags/c/ask/common-issues/82/none/f45/1452
+
 https://gitlab.com/fedora/docs/fedora-linux-documentation/release-notes/-/issues
 
 https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-new-release/
@@ -6,7 +9,7 @@ https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-new-release/
 https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/
     sudo dnf upgrade --refresh
     reboot
-    sudo dnf system-upgrade download --releasever=44
+    sudo dnf system-upgrade download --releasever=45
         --allowerasing
         openh264-*: ? in vpn
     sudo dnf system-upgrade reboot
