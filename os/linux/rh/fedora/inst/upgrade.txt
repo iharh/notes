@@ -9,9 +9,15 @@ https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-new-release/
 https://docs.fedoraproject.org/en-US/quick-docs/upgrading-fedora-offline/
     sudo dnf upgrade --refresh
     reboot
+
+    sudo dnf remove mozilla-openh264
+    -x <package>
+    sudo dnf -x admin-tools,mozilla-openh264,openh264 system-upgrade download --releasever=45
+    sudo dnf -x mozilla-openh264 system-upgrade download --releasever=45
+
     sudo dnf system-upgrade download --releasever=45
         --allowerasing
-        openh264-*: ? in vpn
+        mozilla-openh264*: ? in vpn
     sudo dnf system-upgrade reboot
         sudo dnf offline reboot
     sudo dnf system-upgrade clean
@@ -28,7 +34,6 @@ https://discussion.fedoraproject.org/t/rpmfusion-package-in-rpm-fusion-is-not-re
         https://bugzilla.rpmfusion.org/show_bug.cgi?id=6811
 https://discussion.fedoraproject.org/t/dnf-package-management-not-updating-packages-potentially-due-to-conflicts/134420/
     ???
-    --skip broken
     --allowerasing
 
 issues
