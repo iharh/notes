@@ -21,7 +21,9 @@ https://www.linuxserver.io/blog
 cli ds2
 https://dockstarter.com/basics/command-line-usage
 ds2
+    --help
     --config-show
+    --tint
 
 
 ???
