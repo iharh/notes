@@ -28,6 +28,14 @@ https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers
 
 new providers
 https://github.com/qdm12/gluetun/issues?q=state%3Aopen%20label%3A%22Category%3A%20New%20provider%20%F0%9F%86%95%22
+https://github.com/passteque/gluetun/issues/1775
+
+vpngate
+https://github.com/passteque/gluetun/discussions/1030
+https://github.com/passteque/gluetun/issues/706
+
+!!!
+https://github.com/qbittorrent/qBittorrent/wiki/How-to-bind-your-vpn-to-prevent-ip-leaks
 
 2025
 AutomationAvenue - ARR stack with Gluetun VPN (build your personal docker-compose.yml file) 0:00 of 49:26
