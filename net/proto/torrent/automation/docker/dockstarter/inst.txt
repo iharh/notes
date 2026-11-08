@@ -25,6 +25,15 @@ ds2
     --config-show
     --tint
 
+    --update-app
+    --update-templates
+    -u --update
+        update ds2 and templates
+
+    -l --list
+        list all apps
+    ?
+
 
 ???
 .scripts/require_docker.sh
