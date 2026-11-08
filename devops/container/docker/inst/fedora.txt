@@ -1,22 +1,39 @@
-fedora 41
-curl -fsSL https://get.docker.com -o get-docker.sh
-chmod u+x ./get-docker.sh
-sudo sh ./get-docker.sh
+https://docs.docker.com/engine/install/
+https://docs.docker.com/engine/install/fedora/
 
-fedora 40
-sudo dnf install dnf-plugins-core
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf config-manager setopt google-chrome.enabled=1
+sudo dnf remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl enable --now docker
 
-all
-sudo dnf makecache
-sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-
-https://docs.docker.com/engine/install/linux-postinstall
+...
+https://github.com/docker/docker-install
+https://docs.docker.com/engine/install/linux-postinstall/
 sudo systemctl enable --now docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo reboot
+
+https://docs.docker.com/engine/logging/drivers/local/
+https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
+sudo vi /etc/docker/daemon.json
+{
+  "log-driver": "local",
+  "log-opts": {
+    "max-size": "10m"
+  }
+}
+
+docker run --rm hello-world
 
 dockerd-rootless-setuptool.sh install
 Visit https://docs.docker.com/go/rootless/ to learn about rootless mode.
