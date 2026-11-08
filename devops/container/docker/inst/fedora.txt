@@ -33,7 +33,9 @@ sudo vi /etc/docker/daemon.json
   }
 }
 
+docker system info
 docker run --rm hello-world
+
 
 dockerd-rootless-setuptool.sh install
 Visit https://docs.docker.com/go/rootless/ to learn about rootless mode.
