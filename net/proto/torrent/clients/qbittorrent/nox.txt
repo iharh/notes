@@ -1,0 +1,39 @@
+https://userdocs.github.io/qbittorrent-nox-static/
+https://github.com/userdocs/qbittorrent-nox-static
+
+https://www.linuxfordevices.com/tutorials/linux/qbittorrent-nox-self-host
+https://www.golinuxcloud.com/ubuntu-install-qbittorrent-nox/
+    sudo systemctl enable --now qbittorrent-nox@qbtuser
+
+https://github.com/qbittorrent/qBittorrent/wiki/Running-qBittorrent-without-X-server-(WebUI-only,-systemd-service-set-up,-Ubuntu-15.04-or-newer)
+    sudo adduser qbtuser
+    sudo usermod -s /usr/sbin/nologin qbtuser
+    cat /usr/lib/systemd/system/qbittorrent-nox@.service
+
+docker
+https://hub.docker.com/r/qbittorrentofficial/qbittorrent-nox
+https://github.com/qbittorrent/docker-qbittorrent-nox
+    
+export \
+  QBT_LEGAL_NOTICE=<put_confirm_here> \
+  QBT_VERSION=latest \
+  QBT_TORRENTING_PORT=6881 \
+  QBT_WEBUI_PORT=8080 \
+  QBT_CONFIG_PATH="<your_path>/config" \
+  QBT_DOWNLOADS_PATH="<your_path>/downloads"
+docker run \
+  -t \
+  --name qbittorrent-nox \
+  --read-only \
+  --rm \
+  --stop-timeout 1800 \
+  --tmpfs /tmp \
+  -e QBT_LEGAL_NOTICE \
+  -e QBT_TORRENTING_PORT \
+  -e QBT_WEBUI_PORT \
+  -p "$QBT_TORRENTING_PORT":"$QBT_TORRENTING_PORT"/tcp \
+  -p "$QBT_TORRENTING_PORT":"$QBT_TORRENTING_PORT"/udp \
+  -p "$QBT_WEBUI_PORT":"$QBT_WEBUI_PORT"/tcp \
+  -v "$QBT_CONFIG_PATH":/config \
+  -v "$QBT_DOWNLOADS_PATH":/downloads \
+  qbittorrentofficial/qbittorrent-nox:${QBT_VERSION}
